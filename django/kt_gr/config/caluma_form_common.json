@@ -83,7 +83,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben-kurz",
       "question": "gemeinde",
-      "sort": 6
+      "sort": 5
     }
   },
   {
@@ -98,7 +98,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben-kurz",
       "question": "is-paper",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -113,7 +113,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben-kurz",
       "question": "nr",
-      "sort": 8
+      "sort": 7
     }
   },
   {
@@ -128,7 +128,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben-kurz",
       "question": "ort-grundstueck",
-      "sort": 7
+      "sort": 6
     }
   },
   {
@@ -143,7 +143,22 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben-kurz",
       "question": "parzelle",
-      "sort": 5
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz.projektaenderung",
+    "fields": {
+      "created_at": "2023-05-01T14:09:45.392Z",
+      "modified_at": "2023-05-01T14:09:45.392Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz",
+      "question": "projektaenderung",
+      "sort": 1
     }
   },
   {
@@ -158,7 +173,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben-kurz",
       "question": "sachverhalt",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -173,7 +188,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben-kurz",
       "question": "strasse-flurname",
-      "sort": 9
+      "sort": 8
     }
   },
   {
@@ -625,6 +640,38 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "projektaenderung-ja",
+    "fields": {
+      "created_at": "2023-05-01T14:09:45.081Z",
+      "modified_at": "2023-05-01T14:10:17.579Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "projektaenderung-nein",
+    "fields": {
+      "created_at": "2023-05-01T14:09:45.080Z",
+      "modified_at": "2023-05-01T14:10:17.582Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null, \"rm\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1600,6 +1647,39 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "projektaenderung",
+    "fields": {
+      "created_at": "2023-05-01T14:09:45.238Z",
+      "modified_at": "2023-05-01T14:10:17.750Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Projekt\\u00e4nderung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/hidden"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "sachverhalt",
     "fields": {
       "created_at": "2020-10-12T11:28:23.687Z",
@@ -1889,6 +1969,36 @@
       "modified_by_group": null,
       "question": "juristische-person-gesuchstellerin",
       "option": "juristische-person-gesuchstellerin-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "projektaenderung.projektaenderung-ja",
+    "fields": {
+      "created_at": "2023-05-01T14:10:17.760Z",
+      "modified_at": "2023-05-01T14:10:17.760Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "projektaenderung",
+      "option": "projektaenderung-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "projektaenderung.projektaenderung-nein",
+    "fields": {
+      "created_at": "2023-05-01T14:10:17.757Z",
+      "modified_at": "2023-05-01T14:10:17.757Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "projektaenderung",
+      "option": "projektaenderung-nein",
       "sort": 1
     }
   },
