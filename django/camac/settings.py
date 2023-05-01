@@ -3151,6 +3151,9 @@ APPLICATIONS = {
             "GENERATE_IDENTIFIER": False,
             "USE_LOCATION": False,
             "SAVE_DOSSIER_NUMBER_IN_CALUMA": True,
+            "MODIFICATION_ALLOW_FORMS": [
+                "baugesuch",
+            ],
         },
         "INSTANCE_STATE_REJECTION_COMPLETE": "finished",
         "REJECTION_FEEDBACK_QUESTION": {},
