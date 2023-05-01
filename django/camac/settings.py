@@ -3146,7 +3146,7 @@ APPLICATIONS = {
             "MANUAL_WORK_ITEM_TASK": "create-manual-workitems",
             "SUBMIT_TASKS": ["submit"],
             "FORM_PERMISSIONS": ["main", "inquiry", "inquiry-answer"],
-            "HAS_PROJECT_CHANGE": False,
+            "HAS_PROJECT_CHANGE": True,
             "CREATE_IN_PROCESS": False,
             "GENERATE_IDENTIFIER": False,
             "USE_LOCATION": False,
