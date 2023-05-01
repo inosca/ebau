@@ -245,6 +245,24 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "dokumente-ohne-pflichtdokumente",
+    "fields": {
+      "created_at": "2023-05-01T09:29:22.945Z",
+      "modified_at": "2023-05-01T09:29:22.946Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Dokumente\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "dossierpruefung",
     "fields": {
       "created_at": "2020-10-13T11:53:41.201Z",
@@ -2881,7 +2899,7 @@
       "modified_by_group": null,
       "form": "bauanzeige",
       "question": "allgemeine-angaben",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -2896,21 +2914,36 @@
       "modified_by_group": null,
       "form": "bauanzeige",
       "question": "bauvorhaben",
-      "sort": 3
+      "sort": 4
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "bauanzeige.dokumente",
+    "pk": "bauanzeige.dokumente-ohne-pflichtdokumente",
     "fields": {
-      "created_at": "2023-04-26T15:30:29.913Z",
-      "modified_at": "2023-04-26T15:30:29.914Z",
+      "created_at": "2023-05-01T09:33:04.929Z",
+      "modified_at": "2023-05-01T09:33:04.929Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "bauanzeige",
-      "question": "dokumente",
+      "question": "dokumente-ohne-pflichtdokumente",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauanzeige.einreichen",
+    "fields": {
+      "created_at": "2023-05-01T06:55:09.386Z",
+      "modified_at": "2023-05-01T06:55:09.386Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauanzeige",
+      "question": "einreichen",
       "sort": 1
     }
   },
@@ -2926,7 +2959,7 @@
       "modified_by_group": null,
       "form": "bauanzeige",
       "question": "personalien",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -6196,7 +6229,7 @@
       "modified_by_group": null,
       "form": "solaranlage",
       "question": "allgemeine-angaben",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -6211,21 +6244,36 @@
       "modified_by_group": null,
       "form": "solaranlage",
       "question": "bauvorhaben",
-      "sort": 4
+      "sort": 5
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "solaranlage.dokumente",
+    "pk": "solaranlage.dokumente-ohne-pflichtdokumente",
     "fields": {
-      "created_at": "2023-04-26T15:45:07.481Z",
-      "modified_at": "2023-04-26T15:45:07.481Z",
+      "created_at": "2023-05-01T09:34:58.645Z",
+      "modified_at": "2023-05-01T09:34:58.645Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "solaranlage",
-      "question": "dokumente",
+      "question": "dokumente-ohne-pflichtdokumente",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlage.einreichen",
+    "fields": {
+      "created_at": "2023-05-01T09:34:44.773Z",
+      "modified_at": "2023-05-01T09:34:44.773Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solaranlage",
+      "question": "einreichen",
       "sort": 1
     }
   },
@@ -6241,7 +6289,7 @@
       "modified_by_group": null,
       "form": "solaranlage",
       "question": "personalien",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -6256,7 +6304,7 @@
       "modified_by_group": null,
       "form": "solaranlage",
       "question": "solaranlagen",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -8181,16 +8229,16 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "vorlaeufige-beurteilung.dokumente",
+    "pk": "vorlaeufige-beurteilung.dokumente-ohne-pflichtdokumente",
     "fields": {
-      "created_at": "2023-04-27T07:00:56.207Z",
-      "modified_at": "2023-04-27T07:00:56.207Z",
+      "created_at": "2023-05-01T09:34:18.759Z",
+      "modified_at": "2023-05-01T09:34:18.759Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "vorlaeufige-beurteilung",
-      "question": "dokumente",
+      "question": "dokumente-ohne-pflichtdokumente",
       "sort": 2
     }
   },
@@ -12211,7 +12259,7 @@
     "pk": "ausbildungsnachweis-ja",
     "fields": {
       "created_at": "2023-04-26T07:34:30.129Z",
-      "modified_at": "2023-04-27T08:25:11.895Z",
+      "modified_at": "2023-05-01T09:01:28.142Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -13587,7 +13635,7 @@
     "pk": "bodenkundliches-fachgutachten-ja",
     "fields": {
       "created_at": "2023-04-27T08:12:28.268Z",
-      "modified_at": "2023-04-27T12:47:28.192Z",
+      "modified_at": "2023-05-01T08:59:35.590Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -16243,7 +16291,7 @@
     "pk": "messbericht-ja",
     "fields": {
       "created_at": "2023-04-26T07:26:28.274Z",
-      "modified_at": "2023-04-27T08:25:03.476Z",
+      "modified_at": "2023-05-01T09:01:48.159Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -17299,7 +17347,7 @@
     "pk": "resultate-der-geforderten-bodenuntersuchung-ja",
     "fields": {
       "created_at": "2023-04-26T07:38:22.179Z",
-      "modified_at": "2023-04-27T08:25:20.466Z",
+      "modified_at": "2023-05-01T09:01:15.738Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -17945,6 +17993,182 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Tankraumfolie\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "temparaturklasse-ableitung-der-abgase-t080",
+    "fields": {
+      "created_at": "2023-05-01T09:55:07.467Z",
+      "modified_at": "2023-05-01T09:55:07.467Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"T080 (\\u2264 80 \\u00b0C)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "temparaturklasse-ableitung-der-abgase-t100",
+    "fields": {
+      "created_at": "2023-05-01T09:55:07.460Z",
+      "modified_at": "2023-05-01T09:55:07.460Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"T100 (\\u2264 100 \\u00b0C)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "temparaturklasse-ableitung-der-abgase-t120",
+    "fields": {
+      "created_at": "2023-05-01T09:55:07.483Z",
+      "modified_at": "2023-05-01T09:55:07.483Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"T120 (\\u2264 120 \\u00b0C)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "temparaturklasse-ableitung-der-abgase-t140",
+    "fields": {
+      "created_at": "2023-05-01T09:55:07.440Z",
+      "modified_at": "2023-05-01T09:55:07.440Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"T140 (\\u2264 140 \\u00b0C)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "temparaturklasse-ableitung-der-abgase-t160",
+    "fields": {
+      "created_at": "2023-05-01T09:55:07.601Z",
+      "modified_at": "2023-05-01T09:55:07.601Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"T160 (\\u2264 160 \\u00b0C)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "temparaturklasse-ableitung-der-abgase-t200",
+    "fields": {
+      "created_at": "2023-05-01T09:55:07.446Z",
+      "modified_at": "2023-05-01T09:55:07.446Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"T200 (\\u2264 200 \\u00b0C)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "temparaturklasse-ableitung-der-abgase-t250",
+    "fields": {
+      "created_at": "2023-05-01T09:55:07.645Z",
+      "modified_at": "2023-05-01T09:55:07.645Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"T250 (\\u2264 250 \\u00b0C)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "temparaturklasse-ableitung-der-abgase-t300",
+    "fields": {
+      "created_at": "2023-05-01T09:55:07.585Z",
+      "modified_at": "2023-05-01T09:55:07.585Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"T300 (\\u2264 300 \\u00b0C)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "temparaturklasse-ableitung-der-abgase-t400",
+    "fields": {
+      "created_at": "2023-05-01T09:55:07.672Z",
+      "modified_at": "2023-05-01T09:55:07.672Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"T400 (\\u2264 400 \\u00b0C)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "temparaturklasse-ableitung-der-abgase-t450",
+    "fields": {
+      "created_at": "2023-05-01T09:55:07.756Z",
+      "modified_at": "2023-05-01T09:55:07.756Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"T450  (\\u2264 450 \\u00b0C)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "temparaturklasse-ableitung-der-abgase-t600",
+    "fields": {
+      "created_at": "2023-05-01T09:55:07.768Z",
+      "modified_at": "2023-05-01T09:55:07.768Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"T600 (\\u2264 600 \\u00b0C)\", \"fr\": null, \"it\": null, \"rm\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -19123,7 +19347,7 @@
     "pk": "zusatzbewilligung-kantonsstrassen-belasteter-standort-ja",
     "fields": {
       "created_at": "2023-04-27T07:29:57.878Z",
-      "modified_at": "2023-04-27T12:46:53.800Z",
+      "modified_at": "2023-05-01T09:10:21.702Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -19139,7 +19363,7 @@
     "pk": "zusatzbewilligung-kantonsstrassen-ja",
     "fields": {
       "created_at": "2023-04-27T07:27:40.727Z",
-      "modified_at": "2023-04-27T12:46:41.987Z",
+      "modified_at": "2023-05-01T09:01:03.252Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -19155,7 +19379,7 @@
     "pk": "zusatzbewilligung-naturgefahren-ja",
     "fields": {
       "created_at": "2023-04-27T07:32:09.480Z",
-      "modified_at": "2023-04-27T12:47:12.909Z",
+      "modified_at": "2023-05-01T09:10:32.376Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -22419,7 +22643,7 @@
     "pk": "ausbildungsnachweis",
     "fields": {
       "created_at": "2023-04-26T07:34:30.305Z",
-      "modified_at": "2023-04-27T08:25:12.044Z",
+      "modified_at": "2023-05-01T09:01:28.294Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -22427,7 +22651,7 @@
       "label": "{\"de\": \"Ausbildungsnachweis\", \"fr\": null, \"it\": null, \"rm\": null}",
       "type": "multiple_choice",
       "is_required": "true",
-      "is_hidden": "\"bauanzeige\" in form || \"solaranlage\" in form || !(\"ausbildungsnachweis-vorhanden-ja\" == \"ausbildungsnachweis-vorhanden\"|answer)",
+      "is_hidden": "\"solaranlage\" in form || \"bauanzeige\" in form || !(\"ausbildungsnachweis-vorhanden-ja\" == (\"ausbildungsnachweis-vorhanden\"|answer || \"\"))",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
@@ -25262,7 +25486,7 @@
     "pk": "bodenkundliches-fachgutachten",
     "fields": {
       "created_at": "2023-04-27T08:12:28.444Z",
-      "modified_at": "2023-04-27T12:47:28.440Z",
+      "modified_at": "2023-05-01T08:59:35.735Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -25270,7 +25494,7 @@
       "label": "{\"de\": \"Bodenkundliches Fachgutachten\", \"fr\": null, \"it\": null, \"rm\": null}",
       "type": "multiple_choice",
       "is_required": "true",
-      "is_hidden": "\"bauanzeige\" in form || \"solaranlage\" in form || !(\"mehr-als-2000-quadratmeter-boden-beansprucht-ja\" == \"mehr-als-2000-quadratmeter-boden-beansprucht\"|answer)",
+      "is_hidden": "\"bauanzeige\" in form || \"solaranlage\" in form || !(\"mehr-als-2000-quadratmeter-boden-beansprucht-ja\" == (\"mehr-als-2000-quadratmeter-boden-beansprucht\"|answer || \"\"))",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
@@ -26251,7 +26475,7 @@
     "pk": "dokumente",
     "fields": {
       "created_at": "2023-04-26T07:17:50.155Z",
-      "modified_at": "2023-04-26T07:29:57.012Z",
+      "modified_at": "2023-05-01T09:31:29.853Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -26272,6 +26496,37 @@
       "data_source": null,
       "row_form": null,
       "sub_form": "dokumente",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "dokumente-ohne-pflichtdokumente",
+    "fields": {
+      "created_at": "2023-05-01T09:33:04.773Z",
+      "modified_at": "2023-05-01T09:33:04.773Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dokumente\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "dokumente-ohne-pflichtdokumente",
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
@@ -33238,7 +33493,7 @@
     "pk": "messbericht",
     "fields": {
       "created_at": "2023-04-26T07:26:28.452Z",
-      "modified_at": "2023-04-27T08:25:03.634Z",
+      "modified_at": "2023-05-01T09:01:48.315Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -33246,7 +33501,7 @@
       "label": "{\"de\": \"Messbericht\", \"fr\": null, \"it\": null, \"rm\": null}",
       "type": "multiple_choice",
       "is_required": "true",
-      "is_hidden": "\"bauanzeige\" in form || \"solaranlage\" in form || !(\"emissionsmessungen-ja\" == \"emissionsmessungen\"|answer)",
+      "is_hidden": "\"bauanzeige\" in form || \"solaranlage\" in form || !(\"emissionsmessungen-ja\" == (\"emissionsmessungen\"|answer || \"\"))",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
@@ -35469,7 +35724,7 @@
     "pk": "resultate-der-geforderten-bodenuntersuchung",
     "fields": {
       "created_at": "2023-04-26T07:38:22.368Z",
-      "modified_at": "2023-04-27T08:25:20.619Z",
+      "modified_at": "2023-05-01T09:01:15.884Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -35477,7 +35732,7 @@
       "label": "{\"de\": \"Resultate der geforderten Bodenuntersuchung\", \"fr\": null, \"it\": null, \"rm\": null}",
       "type": "multiple_choice",
       "is_required": "true",
-      "is_hidden": "\"bauanzeige\" in form || \"solaranlage\" in form || !(\"chemische-bodenbelastung-ja\" == \"chemische-bodenbelastung\"|answer)",
+      "is_hidden": "\"bauanzeige\" in form || \"solaranlage\" in form || !(\"chemische-bodenbelastung-ja\" == (\"chemische-bodenbelastung\"|answer || \"\"))",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
@@ -35957,7 +36212,7 @@
     "pk": "schutzbestaende-fluessiggas",
     "fields": {
       "created_at": "2023-04-24T11:50:52.861Z",
-      "modified_at": "2023-04-27T14:00:13.137Z",
+      "modified_at": "2023-05-01T09:59:40.812Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -35968,7 +36223,7 @@
       "is_hidden": "!(\"sind-folgende-anlagen-betroffen-ortsfeste-fluessiggasbehaelter\" in \"sind-folgende-anlagen-betroffen\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"[EKAS Richtlinie](https://www.ekas.admin.ch/download.php?id=7471)\", \"fr\": null, \"it\": null, \"rm\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {},
@@ -36242,7 +36497,7 @@
     "pk": "solaranlagen",
     "fields": {
       "created_at": "2023-04-20T09:12:38.565Z",
-      "modified_at": "2023-04-27T06:13:26.640Z",
+      "modified_at": "2023-05-01T09:45:19.933Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -36250,7 +36505,7 @@
       "label": "{\"de\": \"Solaranlagen\", \"fr\": null, \"it\": null, \"rm\": null}",
       "type": "form",
       "is_required": "false",
-      "is_hidden": "!(\"solaranlage\" in form || \"beschreibung-der-anlagen-solaranlagen\" in \"beschreibung-der-anlagen\"|answer)",
+      "is_hidden": "!(\"solaranlage\" in form)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
@@ -37075,13 +37330,13 @@
     "pk": "temparaturklasse-ableitung-der-abgase",
     "fields": {
       "created_at": "2023-04-24T08:38:51.881Z",
-      "modified_at": "2023-04-27T13:42:15.913Z",
+      "modified_at": "2023-05-01T09:55:07.948Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Temparaturklasse T\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "type": "text",
+      "type": "choice",
       "is_required": "false",
       "is_hidden": "!(\"sind-folgende-anlagen-betroffen-einzelfeuerungen\" in \"sind-folgende-anlagen-betroffen\"|answer)",
       "is_archived": false,
@@ -39728,7 +39983,7 @@
     "pk": "zusatzbewilligung-kantonsstrassen",
     "fields": {
       "created_at": "2023-04-27T07:27:40.919Z",
-      "modified_at": "2023-04-27T12:46:42.263Z",
+      "modified_at": "2023-05-01T09:01:03.406Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -39736,7 +39991,7 @@
       "label": "{\"de\": \"Zusatzbewilligung Kantonsstrassen (Art. 52 Abs. 2 KRVO)\", \"fr\": null, \"it\": null, \"rm\": null}",
       "type": "multiple_choice",
       "is_required": "true",
-      "is_hidden": "\"bauanzeige\" in form || \"solaranlage\" in form || !(\"kantonsstrassen-ja\" == \"kantonsstrassen\"|answer)",
+      "is_hidden": "\"bauanzeige\" in form || \"solaranlage\" in form || !(\"kantonsstrassen-ja\" == (\"kantonsstrassen\"|answer || \"\"))",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
@@ -39761,7 +40016,7 @@
     "pk": "zusatzbewilligung-kantonsstrassen-belasteter-standort",
     "fields": {
       "created_at": "2023-04-27T07:29:58.052Z",
-      "modified_at": "2023-04-27T12:46:54.013Z",
+      "modified_at": "2023-05-01T09:10:21.877Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -39769,7 +40024,7 @@
       "label": "{\"de\": \"Zusatzbewilligung Kantonsstrassen belasteter Standort (Art. 52 Abs. 2 KRVO)\", \"fr\": null, \"it\": null, \"rm\": null}",
       "type": "multiple_choice",
       "is_required": "true",
-      "is_hidden": "\"bauanzeige\" in form || \"solaranlage\" in form || !(\"besondere-bedingungen-belasteter-standort\" in \"besondere-bedingungen\"|answer)",
+      "is_hidden": "\"bauanzeige\" in form || \"solaranlage\" in form || !(\"besondere-bedingungen-belasteter-standort\" in (\"besondere-bedingungen\"|answer || []))",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
@@ -39794,7 +40049,7 @@
     "pk": "zusatzbewilligung-naturgefahren",
     "fields": {
       "created_at": "2023-04-27T07:32:09.702Z",
-      "modified_at": "2023-04-27T12:47:13.325Z",
+      "modified_at": "2023-05-01T09:10:32.544Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -39802,7 +40057,7 @@
       "label": "{\"de\": \"Zusatzbewilligung Naturgefahren (Art. 42 Abs. 3 KRVO)\", \"fr\": null, \"it\": null, \"rm\": null}",
       "type": "multiple_choice",
       "is_required": "true",
-      "is_hidden": "\"bauanzeige\" in form || \"solaranlage\" in form || !(\"besondere-bedingungen-naturgefahren\" in \"besondere-bedingungen\"|answer)",
+      "is_hidden": "\"bauanzeige\" in form || \"solaranlage\" in form || !(\"besondere-bedingungen-naturgefahren\" in (\"besondere-bedingungen\"|answer || []))",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
@@ -41732,8 +41987,8 @@
     "model": "caluma_form.questionoption",
     "pk": "ausbildungsnachweis.ausbildungsnachweis-ja",
     "fields": {
-      "created_at": "2023-04-27T08:25:12.054Z",
-      "modified_at": "2023-04-27T08:25:12.054Z",
+      "created_at": "2023-05-01T09:01:28.302Z",
+      "modified_at": "2023-05-01T09:01:28.303Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -42932,8 +43187,8 @@
     "model": "caluma_form.questionoption",
     "pk": "bodenkundliches-fachgutachten.bodenkundliches-fachgutachten-ja",
     "fields": {
-      "created_at": "2023-04-27T12:47:28.449Z",
-      "modified_at": "2023-04-27T12:47:28.449Z",
+      "created_at": "2023-05-01T08:59:35.744Z",
+      "modified_at": "2023-05-01T08:59:35.744Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -45452,8 +45707,8 @@
     "model": "caluma_form.questionoption",
     "pk": "messbericht.messbericht-ja",
     "fields": {
-      "created_at": "2023-04-27T08:25:03.643Z",
-      "modified_at": "2023-04-27T08:25:03.643Z",
+      "created_at": "2023-05-01T09:01:48.324Z",
+      "modified_at": "2023-05-01T09:01:48.324Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -46442,8 +46697,8 @@
     "model": "caluma_form.questionoption",
     "pk": "resultate-der-geforderten-bodenuntersuchung.resultate-der-geforderten-bodenuntersuchung-ja",
     "fields": {
-      "created_at": "2023-04-27T08:25:20.628Z",
-      "modified_at": "2023-04-27T08:25:20.628Z",
+      "created_at": "2023-05-01T09:01:15.892Z",
+      "modified_at": "2023-05-01T09:01:15.892Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -47081,6 +47336,171 @@
       "question": "tankraum-auskleidung",
       "option": "tankraum-auskleidung-tankraumfolie",
       "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "temparaturklasse-ableitung-der-abgase.temparaturklasse-ableitung-der-abgase-t080",
+    "fields": {
+      "created_at": "2023-05-01T09:55:07.993Z",
+      "modified_at": "2023-05-01T09:55:07.993Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "temparaturklasse-ableitung-der-abgase",
+      "option": "temparaturklasse-ableitung-der-abgase-t080",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "temparaturklasse-ableitung-der-abgase.temparaturklasse-ableitung-der-abgase-t100",
+    "fields": {
+      "created_at": "2023-05-01T09:55:07.990Z",
+      "modified_at": "2023-05-01T09:55:07.990Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "temparaturklasse-ableitung-der-abgase",
+      "option": "temparaturklasse-ableitung-der-abgase-t100",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "temparaturklasse-ableitung-der-abgase.temparaturklasse-ableitung-der-abgase-t120",
+    "fields": {
+      "created_at": "2023-05-01T09:55:07.986Z",
+      "modified_at": "2023-05-01T09:55:07.986Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "temparaturklasse-ableitung-der-abgase",
+      "option": "temparaturklasse-ableitung-der-abgase-t120",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "temparaturklasse-ableitung-der-abgase.temparaturklasse-ableitung-der-abgase-t140",
+    "fields": {
+      "created_at": "2023-05-01T09:55:07.983Z",
+      "modified_at": "2023-05-01T09:55:07.983Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "temparaturklasse-ableitung-der-abgase",
+      "option": "temparaturklasse-ableitung-der-abgase-t140",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "temparaturklasse-ableitung-der-abgase.temparaturklasse-ableitung-der-abgase-t160",
+    "fields": {
+      "created_at": "2023-05-01T09:55:07.979Z",
+      "modified_at": "2023-05-01T09:55:07.979Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "temparaturklasse-ableitung-der-abgase",
+      "option": "temparaturklasse-ableitung-der-abgase-t160",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "temparaturklasse-ableitung-der-abgase.temparaturklasse-ableitung-der-abgase-t200",
+    "fields": {
+      "created_at": "2023-05-01T09:55:07.975Z",
+      "modified_at": "2023-05-01T09:55:07.975Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "temparaturklasse-ableitung-der-abgase",
+      "option": "temparaturklasse-ableitung-der-abgase-t200",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "temparaturklasse-ableitung-der-abgase.temparaturklasse-ableitung-der-abgase-t250",
+    "fields": {
+      "created_at": "2023-05-01T09:55:07.971Z",
+      "modified_at": "2023-05-01T09:55:07.971Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "temparaturklasse-ableitung-der-abgase",
+      "option": "temparaturklasse-ableitung-der-abgase-t250",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "temparaturklasse-ableitung-der-abgase.temparaturklasse-ableitung-der-abgase-t300",
+    "fields": {
+      "created_at": "2023-05-01T09:55:07.968Z",
+      "modified_at": "2023-05-01T09:55:07.968Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "temparaturklasse-ableitung-der-abgase",
+      "option": "temparaturklasse-ableitung-der-abgase-t300",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "temparaturklasse-ableitung-der-abgase.temparaturklasse-ableitung-der-abgase-t400",
+    "fields": {
+      "created_at": "2023-05-01T09:55:07.964Z",
+      "modified_at": "2023-05-01T09:55:07.964Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "temparaturklasse-ableitung-der-abgase",
+      "option": "temparaturklasse-ableitung-der-abgase-t400",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "temparaturklasse-ableitung-der-abgase.temparaturklasse-ableitung-der-abgase-t450",
+    "fields": {
+      "created_at": "2023-05-01T09:55:07.961Z",
+      "modified_at": "2023-05-01T09:55:07.961Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "temparaturklasse-ableitung-der-abgase",
+      "option": "temparaturklasse-ableitung-der-abgase-t450",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "temparaturklasse-ableitung-der-abgase.temparaturklasse-ableitung-der-abgase-t600",
+    "fields": {
+      "created_at": "2023-05-01T09:55:07.956Z",
+      "modified_at": "2023-05-01T09:55:07.956Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "temparaturklasse-ableitung-der-abgase",
+      "option": "temparaturklasse-ableitung-der-abgase-t600",
+      "sort": 1
     }
   },
   {
@@ -48182,8 +48602,8 @@
     "model": "caluma_form.questionoption",
     "pk": "zusatzbewilligung-kantonsstrassen-belasteter-standort.zusatzbewilligung-kantonsstrassen-belasteter-standort-ja",
     "fields": {
-      "created_at": "2023-04-27T12:46:54.020Z",
-      "modified_at": "2023-04-27T12:46:54.020Z",
+      "created_at": "2023-05-01T09:10:21.887Z",
+      "modified_at": "2023-05-01T09:10:21.887Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -48197,8 +48617,8 @@
     "model": "caluma_form.questionoption",
     "pk": "zusatzbewilligung-kantonsstrassen.zusatzbewilligung-kantonsstrassen-ja",
     "fields": {
-      "created_at": "2023-04-27T12:46:42.272Z",
-      "modified_at": "2023-04-27T12:46:42.272Z",
+      "created_at": "2023-05-01T09:01:03.418Z",
+      "modified_at": "2023-05-01T09:01:03.418Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -48212,8 +48632,8 @@
     "model": "caluma_form.questionoption",
     "pk": "zusatzbewilligung-naturgefahren.zusatzbewilligung-naturgefahren-ja",
     "fields": {
-      "created_at": "2023-04-27T12:47:13.337Z",
-      "modified_at": "2023-04-27T12:47:13.337Z",
+      "created_at": "2023-05-01T09:10:32.552Z",
+      "modified_at": "2023-05-01T09:10:32.552Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
