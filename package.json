@@ -9,8 +9,12 @@
   "devDependencies": {
     "prettier": "2.8.8"
   },
+  "//": {
+    "ember-data": "ember-localized-model already uses ember-data v4",
+    "ember-intl": "ember-alexandria already uses ember-intl v6 (beta)"
+  },
   "resolutions": {
-    "tracked-maps-and-sets": "3.0.2",
-    "ember-data": "3.28.12"
+    "ember-data": "3.28.13",
+    "ember-intl": "5.7.2"
   }
 }
