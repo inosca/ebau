@@ -16,5 +16,11 @@ decision:
       Status <b>"{status}"</b> versetzt. Das momentane Dossier wird
       abgeschlossen.
 
+  appeal-confirm: |-
+    Wollen Sie das Beschwerdeverfahren wirklich starten? Dieses Dossier wird
+    unwiderruflich in den Status <b>"Abgeschlossen"</b> versetzt. Es wird ein
+    Beschwerdedossier generiert, auf welchem das Beschwerdeverfahren
+    dokumentiert werden kann.
+
   send-notification-error: "Fehler beim Versenden der Notifikationen"
   appeal-error: "Fehler beim Starten des Beschwerdeverfahrens"

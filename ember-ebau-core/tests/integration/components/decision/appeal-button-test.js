@@ -111,6 +111,10 @@ module("Integration | Component | decision/appeal-button", function (hooks) {
 
     await click("button");
 
+    // Confirm dialog
+    await waitFor(".uk-modal.uk-open");
+    await click(".uk-modal-footer .uk-button-primary");
+
     await waitFor("button:not([disabled])");
 
     assert.verifySteps(["request", "redirect"]);
