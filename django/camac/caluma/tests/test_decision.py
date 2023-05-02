@@ -176,12 +176,21 @@ def test_complete_decision_appeal(
     expect_copy,
     expected_instance_state,
     instance_state_factory,
+    mailoutbox,
+    notification_template,
     previous_instance_state,
     settings,
 ):
     call_command(
         "loaddata", settings.ROOT_DIR("kt_bern/config/caluma_ebau_number_form.json")
     )
+
+    be_appeal_settings["NOTIFICATIONS"]["APPEAL_DECISION"] = [
+        {
+            "template_slug": notification_template.slug,
+            "recipient_types": ["leitbehoerde"],
+        }
+    ]
 
     instance_state_factory(name="new")
     instance_state_factory(name="subm")
@@ -222,6 +231,9 @@ def test_complete_decision_appeal(
     instance.refresh_from_db()
 
     assert instance.instance_state.name == expected_instance_state
+
+    assert len(mailoutbox) == 1
+    assert notification_template.subject in mailoutbox[0].subject
 
     if expect_copy:
         new_instance = Instance.objects.get(

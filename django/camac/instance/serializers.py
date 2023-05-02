@@ -2277,6 +2277,15 @@ class CalumaInstanceAppealSerializer(serializers.Serializer):
         # Add history entry to source instance
         create_history_entry(instance, user, gettext_noop("Appeal received"))
 
+        # Send notifications
+        for config in settings.APPEAL["NOTIFICATIONS"].get("APPEAL_SUBMITTED", []):
+            send_mail(
+                config["template_slug"],
+                self.context,
+                recipient_types=config["recipient_types"],
+                instance={"type": "instances", "id": instance.pk},
+            )
+
         return new_instance
 
     class Meta:
