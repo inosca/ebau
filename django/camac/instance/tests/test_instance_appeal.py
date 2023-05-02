@@ -125,14 +125,24 @@ def test_instance_appeal(
     db,
     active_inquiry_factory,
     admin_client,
+    be_appeal_settings,
     expected_instance_state,
     expected_status,
     instance_for_appeal,
     instance_state_name,
+    mailoutbox,
     multilang,
+    notification_template,
     previous_instance_state_name,
     role,
 ):
+    be_appeal_settings["NOTIFICATIONS"]["APPEAL_SUBMITTED"] = [
+        {
+            "template_slug": notification_template.slug,
+            "recipient_types": ["applicant"],
+        }
+    ]
+
     instance = instance_for_appeal(instance_state_name, previous_instance_state_name)
 
     if role.name != "Municipality":
@@ -157,6 +167,9 @@ def test_instance_appeal(
 
         assert new_instance.instance_state.name == "circulation_init"
 
-        history = instance.history.last()
+        assert len(mailoutbox) == 1
+        assert notification_template.subject in mailoutbox[0].subject
+
+        history = instance.history.exclude(history_type="notification").last()
         assert history.get_trans_attr("title", "de") == "Beschwerde eingegangen"
         assert history.get_trans_attr("title", "fr") == "Recours reçu"

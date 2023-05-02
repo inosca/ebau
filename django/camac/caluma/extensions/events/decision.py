@@ -24,6 +24,17 @@ from camac.user.models import Group, Service, User
 from .general import get_caluma_setting, get_instance
 
 
+def get_notification_config(instance):
+    if instance.case.workflow_id == "preliminary-clarification":
+        return settings.APPLICATION["NOTIFICATIONS"].get(
+            "DECISION_PRELIMINARY_CLARIFICATION", []
+        )
+    elif instance.case.meta.get("is-appeal") and settings.APPEAL:
+        return settings.APPEAL["NOTIFICATIONS"].get("APPEAL_DECISION", [])
+
+    return settings.APPLICATION["NOTIFICATIONS"].get("DECISION", [])
+
+
 def copy_municipality_tags(instance, construction_control):
     municipality_tags = instance.tags.filter(
         service=Service.objects.filter(
@@ -154,15 +165,7 @@ def post_complete_decision(sender, work_item, user, context, **kwargs):
         )
 
         if not context or not context.get("no-notification"):
-            notification_config = settings.APPLICATION["NOTIFICATIONS"].get(
-                "DECISION_PRELIMINARY_CLARIFICATION"
-                if workflow == "preliminary-clarification"
-                else "DECISION",
-                [],
-            )
-
-            # send notifications to applicant, municipality and all involved services
-            for config in notification_config:
+            for config in get_notification_config(instance):
                 send_mail_without_request(
                     config["template_slug"],
                     user.username,
