@@ -92,7 +92,9 @@ services:
   keycloak:
     depends_on:
       - db
-    image: acr.run/camac-ng/keycloak-uri/keycloak:21.0.2_theme-v0.3.12
+    build:
+      context: ../keycloak
+    # image: acr.run/camac-ng/keycloak-uri/keycloak:21.0.1_theme-v0.3.11
     environment:
       - KC_DB=postgres
       - KC_DB_URL=jdbc:postgresql://db:5432/${APPLICATION}?currentSchema=keycloak
@@ -101,7 +103,7 @@ services:
       - KC_HTTP_RELATIVE_PATH=/auth
       - KC_LOG_LEVEL=WARN
       - KC_PROXY=edge
-      - KEYCLOAK_ADMIN=${KEYCLOAK_ADMIN}
+      - KEYCLOAK_ADMIN=admin
 
   document-merge-service:
     image: ghcr.io/adfinis/document-merge-service:5.2.1

@@ -56,6 +56,6 @@ Das Theme basiert auf UIkit, welches mit SASS angepasst wird.
 ```
 yarn
 yarn build # builds css once
-yarn build # builds css on file change
+yarn watch # builds css on file change
 ```
 
