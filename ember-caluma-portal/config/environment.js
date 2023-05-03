@@ -69,6 +69,7 @@ module.exports = function (environment) {
         ],
       },
       documents: {
+        backend: "alexandria",
         excludeFromDocuments: [],
       },
       instanceStates: instanceStatesDemo,
@@ -141,6 +142,7 @@ module.exports = function (environment) {
         ],
       },
       documents: {
+        backend: "camac",
         feedbackSections: [3, 14], // Alle Beteiligten, Rechtsbegehren
         excludeFromDocuments: ["dokumente-platzhalter"],
       },
@@ -251,6 +253,7 @@ module.exports = function (environment) {
         ],
       },
       documents: {
+        backend: "camac",
         excludeFromDocuments: [],
       },
       instanceStates: instanceStatesUr,
@@ -451,6 +454,7 @@ module.exports = function (environment) {
         ],
       },
       documents: {
+        backend: "alexandria",
         excludeFromDocuments: [],
       },
       instanceStates: instanceStatesGr,
