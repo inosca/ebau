@@ -1650,7 +1650,7 @@
     "pk": "projektaenderung",
     "fields": {
       "created_at": "2023-05-01T14:09:45.238Z",
-      "modified_at": "2023-05-01T14:10:17.750Z",
+      "modified_at": "2023-05-03T13:33:29.858Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -1666,6 +1666,7 @@
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {},
       "meta": {
+        "hideLabel": true,
         "widgetOverride": "cf-field/input/hidden"
       },
       "data_source": null,
@@ -1976,8 +1977,8 @@
     "model": "caluma_form.questionoption",
     "pk": "projektaenderung.projektaenderung-ja",
     "fields": {
-      "created_at": "2023-05-01T14:10:17.760Z",
-      "modified_at": "2023-05-01T14:10:17.760Z",
+      "created_at": "2023-05-03T13:33:29.893Z",
+      "modified_at": "2023-05-03T13:33:29.893Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -1991,8 +1992,8 @@
     "model": "caluma_form.questionoption",
     "pk": "projektaenderung.projektaenderung-nein",
     "fields": {
-      "created_at": "2023-05-01T14:10:17.757Z",
-      "modified_at": "2023-05-01T14:10:17.757Z",
+      "created_at": "2023-05-03T13:33:29.886Z",
+      "modified_at": "2023-05-03T13:33:29.886Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
