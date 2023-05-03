@@ -335,7 +335,7 @@
     "fields": {
       "form_state": 1,
       "name": "Internes Mitberichtsverfahren AfU",
-      "description": "KOOR-AfU;Koordinationsstelle Amt für Umweltschutz",
+      "description": "KOOR-AfU;Koordinationsstelle Amt für Umwelt",
       "family": null
     }
   },
@@ -345,7 +345,7 @@
     "fields": {
       "form_state": 1,
       "name": "Internes Mitberichtsverfahren nach Artikel 30 BG Umweltschutz",
-      "description": "KOOR-AfU;Koordinationsstelle Amt für Umweltschutz",
+      "description": "KOOR-AfU;Koordinationsstelle Amt für Umwelt",
       "family": null
     }
   },
@@ -355,7 +355,7 @@
     "fields": {
       "form_state": 1,
       "name": "Internes Mitberichtsverfahren / Bewilligungsverfahren gemäss UVP",
-      "description": "KOOR-AfU;Koordinationsstelle Amt für Umweltschutz",
+      "description": "KOOR-AfU;Koordinationsstelle Amt für Umwelt",
       "family": null
     }
   },
@@ -455,7 +455,7 @@
     "fields": {
       "form_state": 1,
       "name": "Meldung ÖREB Anpassung AFU",
-      "description": "KOOR-AfU;Koordinationsstelle Amt für Umweltschutz",
+      "description": "KOOR-AfU;Koordinationsstelle Amt für Umwelt",
       "family": null
     }
   },

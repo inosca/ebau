@@ -10536,7 +10536,7 @@
     "model": "core.authority",
     "pk": 69,
     "fields": {
-      "name": "Amt für Umweltschutz"
+      "name": "Amt für Umwelt"
     }
   },
   {
@@ -20821,7 +20821,7 @@
     "model": "core.formgroup",
     "pk": 249,
     "fields": {
-      "name": "Alle Dossiers von der Koordinationsstelle Umweltschutz AfU",
+      "name": "Alle Dossiers von der Koordinationsstelle Umwelt AfU",
       "description": ""
     }
   },
@@ -24282,7 +24282,7 @@
       "available_instance_resource": "page",
       "resource": 289,
       "name": "Formular",
-      "description": "Personen- und Projektdaten von der Koordinationsstelle Umweltschutz AfU",
+      "description": "Personen- und Projektdaten von der Koordinationsstelle Umwelt AfU",
       "template": "/ember/instance.phtml",
       "class_field": null,
       "hidden": 0,
@@ -47828,7 +47828,7 @@
     "fields": {
       "available_resource": "emberlist",
       "name": "Dossierzirkulation starten",
-      "description": "Dossierzirkulation starten für Koord Umweltschutz AfU",
+      "description": "Dossierzirkulation starten für Koord Umwelt AfU",
       "template": null,
       "class_field": null,
       "hidden": 0,
