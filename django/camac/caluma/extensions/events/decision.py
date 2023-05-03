@@ -8,7 +8,6 @@ from django.conf import settings
 from django.db import transaction
 from django.utils.translation import gettext_noop
 
-from camac.constants.kt_bern import DECISIONS_APPEAL_REJECTED
 from camac.core.utils import create_history_entry
 from camac.ech0211.signals import ruling
 from camac.instance.utils import (
@@ -41,14 +40,13 @@ def copy_municipality_tags(instance, construction_control):
 
 
 def handle_appeal_decision(instance, work_item, user, camac_user):
-    if not instance.case.meta.get("is-appeal"):
+    if not settings.APPEAL or not instance.case.meta.get("is-appeal"):
         return
 
-    decision = work_item.document.answers.get(
-        question_id="decision-decision-assessment"
-    ).value
-
-    if decision == DECISIONS_APPEAL_REJECTED:
+    if work_item.document.answers.filter(
+        question_id=settings.APPEAL["QUESTIONS"]["DECISION"],
+        value=settings.APPEAL["ANSWERS"]["DECISION"]["REJECTED"],
+    ).exists():
         new_instance = copy_instance(
             instance=instance,
             group=Group.objects.get(pk=user.camac_group),

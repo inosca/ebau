@@ -5,6 +5,7 @@ from caluma.caluma_form.models import Answer, AnswerDocument, Option, Question
 from caluma.caluma_user.models import OIDCUser
 from caluma.caluma_workflow.api import complete_work_item, skip_work_item
 from caluma.caluma_workflow.models import WorkItem
+from django.conf import settings
 from django.db.models import Prefetch
 from django.utils.timezone import now
 from django.utils.translation import gettext as _
@@ -14,9 +15,6 @@ from camac.constants.kt_bern import (
     DECISION_TYPE_BAUBEWILLIGUNGSFREI,
     DECISION_TYPE_CONSTRUCTION_TEE_WITH_RESTORATION,
     DECISION_TYPE_PARTIAL_PERMIT_WITH_PARTIAL_CONSTRUCTION_TEE_AND_PARTIAL_RESTORATION,
-    DECISIONS_APPEAL_CHANGED,
-    DECISIONS_APPEAL_CONFIRMED,
-    DECISIONS_APPEAL_REJECTED,
     DECISIONS_BEWILLIGT,
 )
 from camac.instance.models import Instance
@@ -86,17 +84,16 @@ def set_construction_control(instance: Instance) -> Service:
 def should_continue_after_decision(instance: Instance, work_item: WorkItem) -> bool:
     answers = work_item.document.answers
     decision = answers.get(question_id="decision-decision-assessment").value
-    is_appeal = work_item.case.meta.get("is-appeal", False)
 
-    if is_appeal:
+    if settings.APPEAL and work_item.case.meta.get("is-appeal"):
         previous_instance = work_item.case.document.source.case.instance
         previous_state = previous_instance.previous_instance_state.name
 
-        if decision == DECISIONS_APPEAL_CONFIRMED:
+        if decision == settings.APPEAL["ANSWERS"]["DECISION"]["CONFIRMED"]:
             return previous_state == "sb1"
-        elif decision == DECISIONS_APPEAL_CHANGED:
+        elif decision == settings.APPEAL["ANSWERS"]["DECISION"]["CHANGED"]:
             return previous_state != "sb1"
-        elif decision == DECISIONS_APPEAL_REJECTED:
+        elif decision == settings.APPEAL["ANSWERS"]["DECISION"]["REJECTED"]:
             return False
 
     try:

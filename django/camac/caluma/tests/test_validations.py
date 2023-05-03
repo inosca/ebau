@@ -6,35 +6,25 @@ from caluma.caluma_core.permissions import AllowAny
 from caluma.caluma_core.visibilities import Any
 from caluma.caluma_workflow.models import WorkItem
 
-from camac.settings import load_module_settings
-
 
 @pytest.fixture
-def appeal_settings(settings):
-    _original = settings.APPEAL
-    settings.APPEAL = load_module_settings("appeal", "kt_bern")
-    yield settings.APPEAL
-    settings.APPEAL = _original
-
-
-@pytest.fixture
-def appeal_deadline_factory(document_factory, answer_factory, appeal_settings):
+def appeal_deadline_factory(answer_factory, be_appeal_settings, document_factory):
     def wrapper(deadline):
-        row = document_factory(form_id=appeal_settings["ROW_FORM"])
+        row = document_factory(form_id=be_appeal_settings["ROW_FORM"])
 
         answer_factory(
             document=row,
-            question_id=appeal_settings["QUESTIONS"]["AUTHORITY"],
-            value=appeal_settings["ANSWERS"]["AUTHORITY"]["LEGAL_DEPARTEMENT"],
+            question_id=be_appeal_settings["QUESTIONS"]["AUTHORITY"],
+            value=be_appeal_settings["ANSWERS"]["AUTHORITY"]["LEGAL_DEPARTEMENT"],
         )
         answer_factory(
             document=row,
-            question_id=appeal_settings["QUESTIONS"]["TYPE"],
-            value=appeal_settings["ANSWERS"]["TYPE"]["DEADLINE"],
+            question_id=be_appeal_settings["QUESTIONS"]["TYPE"],
+            value=be_appeal_settings["ANSWERS"]["TYPE"]["DEADLINE"],
         )
         answer_factory(
             document=row,
-            question_id=appeal_settings["QUESTIONS"]["DATE"],
+            question_id=be_appeal_settings["QUESTIONS"]["DATE"],
             date=deadline,
         )
 
@@ -80,8 +70,8 @@ def test_validate_create_inquiry_context(
 def test_appeal_work_item(
     db,
     appeal_deadline_factory,
-    appeal_settings,
     application_settings,
+    be_appeal_settings,
     be_instance,
     caluma_admin_schema_executor,
     gql,
@@ -110,7 +100,7 @@ def test_appeal_work_item(
         gql("save-document-table-answer"),
         variables={
             "input": {
-                "question": appeal_settings["QUESTIONS"]["TABLE"],
+                "question": be_appeal_settings["QUESTIONS"]["TABLE"],
                 "document": str(work_item.document.pk),
                 "value": rows,
             }
@@ -144,8 +134,8 @@ def test_appeal_work_item(
 def test_appeal_work_item_update(
     db,
     appeal_deadline_factory,
-    appeal_settings,
     application_settings,
+    be_appeal_settings,
     be_instance,
     caluma_admin_schema_executor,
     gql,
@@ -167,7 +157,7 @@ def test_appeal_work_item_update(
         gql("save-document-date-answer"),
         variables={
             "input": {
-                "question": appeal_settings["QUESTIONS"]["DATE"],
+                "question": be_appeal_settings["QUESTIONS"]["DATE"],
                 "document": str(row.pk),
                 "value": "2025-01-01",
             }

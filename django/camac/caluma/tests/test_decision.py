@@ -8,9 +8,6 @@ from camac.constants.kt_bern import (
     DECISION_TYPE_BUILDING_PERMIT,
     DECISION_TYPE_CONSTRUCTION_TEE_WITH_RESTORATION,
     DECISIONS_ABGELEHNT,
-    DECISIONS_APPEAL_CHANGED,
-    DECISIONS_APPEAL_CONFIRMED,
-    DECISIONS_APPEAL_REJECTED,
     DECISIONS_BEWILLIGT,
 )
 from camac.instance.models import HistoryEntryT, Instance
@@ -159,17 +156,18 @@ def test_complete_decision(
 @pytest.mark.parametrize(
     "previous_instance_state,expected_instance_state,decision,expect_copy",
     [
-        ("sb1", "sb1", DECISIONS_APPEAL_CONFIRMED, False),
-        ("sb1", "finished", DECISIONS_APPEAL_CHANGED, False),
-        ("sb1", "finished", DECISIONS_APPEAL_REJECTED, True),
-        ("finished", "finished", DECISIONS_APPEAL_CONFIRMED, False),
-        ("finished", "sb1", DECISIONS_APPEAL_CHANGED, False),
-        ("finished", "finished", DECISIONS_APPEAL_REJECTED, True),
+        ("sb1", "sb1", "CONFIRMED", False),
+        ("sb1", "finished", "CHANGED", False),
+        ("sb1", "finished", "REJECTED", True),
+        ("finished", "finished", "CONFIRMED", False),
+        ("finished", "sb1", "CHANGED", False),
+        ("finished", "finished", "REJECTED", True),
     ],
 )
 def test_complete_decision_appeal(
     db,
     admin_user,
+    be_appeal_settings,
     be_instance,
     caluma_admin_user,
     construction_control,
@@ -209,7 +207,9 @@ def test_complete_decision_appeal(
         new_meta={"ebau-number": "2023-123", "is-appeal": True},
     )
 
-    work_item = decision_factory(instance, decision)
+    work_item = decision_factory(
+        instance, be_appeal_settings["ANSWERS"]["DECISION"][decision]
+    )
 
     send_event(
         post_complete_work_item,
