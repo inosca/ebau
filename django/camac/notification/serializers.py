@@ -606,7 +606,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
             BillingV2Entry.objects.filter(
                 instance=instance, organization=BillingV2Entry.MUNICIPAL
             ).aggregate(total=Sum("final_rate"))["total"]
-            or 0
+            or "0.00"
         )
 
     def get_billing_total_kanton(self, instance):
@@ -614,7 +614,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
             BillingV2Entry.objects.filter(
                 instance=instance, organization=BillingV2Entry.CANTONAL
             ).aggregate(total=Sum("final_rate"))["total"]
-            or 0
+            or "0.00"
         )
 
     def get_billing_total(self, instance):
@@ -622,7 +622,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
             BillingV2Entry.objects.filter(instance=instance).aggregate(
                 total=Sum("final_rate")
             )["total"]
-            or 0
+            or "0.00"
         )
 
     def get_billing_total_uncharged(self, instance):
@@ -630,7 +630,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
             BillingV2Entry.objects.filter(
                 instance=instance, date_charged__isnull=True
             ).aggregate(total=Sum("final_rate"))["total"]
-            or 0
+            or "0.00"
         )
 
     def get_billing_total_uncharged_kommunal(self, instance):
@@ -640,7 +640,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
                 organization=BillingV2Entry.MUNICIPAL,
                 date_charged__isnull=True,
             ).aggregate(total=Sum("final_rate"))["total"]
-            or 0
+            or "0.00"
         )
 
     def get_billing_total_uncharged_kanton(self, instance):
@@ -650,7 +650,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
                 organization=BillingV2Entry.CANTONAL,
                 date_charged__isnull=True,
             ).aggregate(total=Sum("final_rate"))["total"]
-            or 0
+            or "0.00"
         )
 
     def _get_inquiries(self, instance):
