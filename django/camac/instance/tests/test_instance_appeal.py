@@ -12,6 +12,7 @@ from camac.instance.models import Instance, InstanceState
 @pytest.fixture
 def instance_for_appeal(
     application_settings,
+    be_appeal_settings,
     be_instance,
     caluma_admin_user,
     construction_control_for,
@@ -80,6 +81,12 @@ def instance_for_appeal(
         return be_instance
 
     return wrapper
+
+
+def test_instance_appeal_404(db, instance, admin_client):
+    response = admin_client.post(reverse("instance-appeal", args=[instance.pk]))
+
+    assert response.status_code == status.HTTP_404_NOT_FOUND
 
 
 @pytest.mark.parametrize(

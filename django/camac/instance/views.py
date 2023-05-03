@@ -18,7 +18,7 @@ from drf_yasg import openapi
 from drf_yasg.utils import swagger_auto_schema
 from rest_framework import response, status
 from rest_framework.decorators import action
-from rest_framework.exceptions import ValidationError
+from rest_framework.exceptions import NotFound, ValidationError
 from rest_framework.generics import ListAPIView, RetrieveAPIView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.renderers import JSONRenderer
@@ -691,6 +691,9 @@ class InstanceView(
     @swagger_auto_schema(auto_schema=None)
     @action(methods=["post"], detail=True)
     def appeal(self, request, pk):
+        if not settings.APPEAL:
+            raise NotFound()
+
         return self._custom_serializer_action(
             request, pk, status_code=status.HTTP_201_CREATED
         )
