@@ -204,7 +204,9 @@ class Command(BaseCommand):
                 all_service_ids.add(group)
 
         return (
-            Service.objects.exclude(Q(disabled=1) | Q(notification=0))
+            Service.objects.exclude(
+                Q(disabled=1) | Q(notification=0) | Q(email__isnull=True)
+            )
             .filter(pk__in=all_service_ids)
             .order_by("pk")
         )
