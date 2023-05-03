@@ -2232,7 +2232,7 @@ APPLICATIONS = {
             "Koordinationsstelle Forst und Jagd AFJ": "coordination",
             "Koordinationsstelle Landwirtschaft ALA": "coordination",
             "Koordinationsstelle Sicherheitsdirektion SD": "coordination",
-            "Koordinationsstelle Umweltschutz AfU": "coordination",
+            "Koordinationsstelle Umwelt AfU": "coordination",
             "Mitglied der Gemeindebaubehörde": "municipality",  # TODO Maybe we should introduce a municipality_readonly role?
             "Mitglied einer Kommission oder Fachgruppe": "commission",
             "Organisation mit Leseberechtigung": "organization_readonly",
