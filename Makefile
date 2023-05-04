@@ -88,12 +88,16 @@ dumpconfig-alexandria: ## Load the Alexandria configuration
 
 .PHONY: loadconfig-keycloak
 loadconfig-keycloak: ## Load the keycloak configuration
-	docker-compose exec keycloak /opt/keycloak/bin/kc.sh import --override true --file /opt/keycloak/data/import/test-config.json >/dev/null 2>&1 || true; \
+	@if ! [ "${APPLICATION}" = "kt_schwyz" ]; then \
+		docker-compose exec keycloak /opt/keycloak/bin/kc.sh import --override true --file /opt/keycloak/data/import/test-config.json >/dev/null 2>&1 || true; \
+	fi
 
 .PHONY: dumpconfig-keycloak
 dumpconfig-keycloak: ## Dump the keycloak configuration
-	docker-compose exec keycloak /opt/keycloak/bin/kc.sh export --file /opt/keycloak/data/import/test-config.json;  \
-	yarn prettier --loglevel silent --write "keycloak/config/${APPLICATION}-test-config.json"; \
+	@if ! [ "${APPLICATION}" = "kt_schwyz" ]; then \
+		docker-compose exec keycloak /opt/keycloak/bin/kc.sh export --file /opt/keycloak/data/import/test-config.json;  \
+		yarn prettier --loglevel silent --write "keycloak/config/${APPLICATION}-test-config.json"; \
+	fi
 
 .PHONY: loadconfig
 loadconfig: loadconfig-camac loadconfig-dms loadconfig-keycloak loadconfig-alexandria ## Load all configuration

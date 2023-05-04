@@ -77,10 +77,9 @@ services:
       - STREAM_MAX_LENGTH=60M
 
   keycloak:
-    build:
-      context: ../keycloak
-      cache_from:
-        - acr.run/camac-ng/camac-ng/keycloak:master
+    image: acr.run/camac-ng/keycloak:16.1.0_theme-v1.0.1
+    environment:
+      - PROXY_ADDRESS_FORWARDING=true
 
   metabase:
     image: metabase/metabase:v0.45.3
