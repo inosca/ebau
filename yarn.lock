@@ -7107,17 +7107,17 @@ ember-keyboard@8.2.0:
     ember-modifier "^2.1.2 || ^3.1.0 || ^4.0.0"
     ember-modifier-manager-polyfill "^1.2.0"
 
-ember-leaflet@5.0.2:
-  version "5.0.2"
-  resolved "https://registry.yarnpkg.com/ember-leaflet/-/ember-leaflet-5.0.2.tgz#ac01af0e621502690817f07b4755ffcca0fe7d3f"
-  integrity sha512-bf1vN2aLvH1nrlXl9sHaCJXvE1B/PYzM7U2BidhI5NjB7qAC2mHtZ8dWou20QeH0sg+LKqL5Kvp5oDfe3gzYdQ==
+ember-leaflet@5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/ember-leaflet/-/ember-leaflet-5.1.0.tgz#25efd594c9e747731f4e0c87a60c0e590a4ca794"
+  integrity sha512-5HToAITmWXHfMB48/pCBxBRo288TiP8bR7GatHW9ogDglMeEU0miHpQKjPHwzli2KqNi+KSL2etM9sR6Z8tIRQ==
   dependencies:
-    "@glimmer/component" "^1.0.4"
-    "@glimmer/tracking" "^1.0.4"
+    "@glimmer/component" "^1.1.2"
+    "@glimmer/tracking" "^1.1.2"
     broccoli-funnel "^3.0.8"
     broccoli-merge-trees "^4.2.0"
     ember-cli-babel "^7.26.11"
-    ember-cli-htmlbars "^6.0.1"
+    ember-cli-htmlbars "^6.2.0"
     ember-composability-tools "^1.1.0"
     ember-in-element-polyfill "^1.0.0"
     ember-render-helpers "^0.2.0"
