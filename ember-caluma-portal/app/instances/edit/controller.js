@@ -1,5 +1,6 @@
 import Controller from "@ember/controller";
 import { inject as service } from "@ember/service";
+import { macroCondition, getOwnConfig } from "@embroider/macros";
 import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
 import { trackedTask } from "ember-resources/util/ember-concurrency";
@@ -47,27 +48,31 @@ export default class InstancesEditController extends Controller {
       return [];
     }
 
-    yield Promise.resolve();
+    if (macroCondition(getOwnConfig().documentBackend === "camac")) {
+      yield Promise.resolve();
 
-    return yield this.store.query("attachment", {
-      instance: this.model,
-      attachment_sections:
-        config.APPLICATION.documents.feedbackSections.join(","),
-      include: "attachment_sections",
-    });
+      return yield this.store.query("attachment", {
+        instance: this.model,
+        attachment_sections:
+          config.APPLICATION.documents.feedbackSections.join(","),
+        include: "attachment_sections",
+      });
+    }
   }
 
   @dropTask
   *fetchDecisionAttachments() {
     yield Promise.resolve();
-
-    return yield this.store.query("attachment", {
-      instance: this.model,
-      context: JSON.stringify({
-        key: "isDecision",
-        value: true,
-      }),
-      include: "attachment_sections",
-    });
+    if (macroCondition(getOwnConfig().documentBackend === "camac")) {
+      return yield this.store.query("attachment", {
+        instance: this.model,
+        context: JSON.stringify({
+          key: "isDecision",
+          value: true,
+        }),
+        include: "attachment_sections",
+      });
+    }
+    return [];
   }
 }
