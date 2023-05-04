@@ -495,8 +495,6 @@ export default class UrGisComponent extends Component {
       if (!field.value || !parcelOrBuildingleaseNr) {
         return;
       }
-      // make sure the dynamic options are loaded
-      yield field.question.loadDynamicOptions.last;
       const municipality = field.question.options.find(
         ({ slug }) => slug === field.value
       );
