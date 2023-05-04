@@ -193,7 +193,7 @@ form_mapping_by_koor = {
         [287, "Internes Mitberichtsverfahren SD AfKP"],
         [288, "Internes Mitberichtsverfahren SD"],
     ],
-    "Koordinationsstelle Umweltschutz AfU": [
+    "Koordinationsstelle Umwelt AfU": [
         [251, "Internes Mitberichtsverfahren AfU"],
         [252, "Internes Mitberichtsverfahren nach Artikel 30 BG Umweltschutz"],
         [253, "Internes Mitberichtsverfahren / Bewilligungsverfahren gemäss UVP"],
