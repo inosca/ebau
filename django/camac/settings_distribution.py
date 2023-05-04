@@ -509,6 +509,13 @@ DISTRIBUTION = {
         "REDO_DISTRIBUTION": {
             "CREATE_TASKS": ["additional-demand"],
         },
+        "QUESTIONS": {
+            "REQUEST": "inquiry-answer-request",
+            "ANCILLARY_CLAUSES": "inquiry-answer-ancillary-clauses",
+            "REASON": "inquiry-answer-reason",
+            "RECOMMENDATION": "inquiry-answer-recommendation",
+            "HINT": "inquiry-answer-hint",
+        },
         "DEFAULT_SUGGESTIONS": [7],  # Baugesuchszentrale
         "SUGGESTIONS": {
             "SUBMODULES": [

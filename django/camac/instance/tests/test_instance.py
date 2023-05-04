@@ -421,6 +421,181 @@ def test_instance_plot_filter(
 
 
 @pytest.mark.parametrize(
+    "role__name,instance__user",
+    [
+        ("Municipality", LazyFixture("admin_user")),
+        ("Service", LazyFixture("admin_user")),
+        ("Applicant", LazyFixture("admin_user")),
+    ],
+)
+@pytest.mark.parametrize(
+    "value,expected_count",
+    [
+        ("strasse", {"Municipality": 1, "Service": 1, "Applicant": 1}),
+        ("beispie", {"Municipality": 1, "Service": 0, "Applicant": 0}),
+        ("Foobar", {"Municipality": 0, "Service": 0, "Applicant": 0}),
+        ("bau", {"Municipality": 1, "Service": 1, "Applicant": 0}),
+        ("test", {"Municipality": 2, "Service": 2, "Applicant": 1}),
+        ("", {"Municipality": 2, "Service": 2, "Applicant": 1}),
+        ("Text1", {"Municipality": 0, "Service": 0, "Applicant": 0}),
+        ("Text2", {"Municipality": 1, "Service": 1, "Applicant": 0}),
+        ('"Inquiry answer 1"', {"Municipality": 1, "Service": 1, "Applicant": 0}),
+        ('"Inquiry answer 2"', {"Municipality": 0, "Service": 0, "Applicant": 0}),
+        ('"Inquiry answer 3"', {"Municipality": 0, "Service": 0, "Applicant": 0}),
+        (
+            "Inquiry answer 3",
+            {"Municipality": 0, "Service": 0, "Applicant": 0},
+        ),  # Search input too short
+    ],
+)
+def test_keyword_search_filter_sz(
+    admin_user,
+    admin_client,
+    sz_instance,
+    form_field_factory,
+    instance_with_case,
+    instance_factory,
+    journal_entry_factory,
+    service_factory,
+    value,
+    expected_count,
+    sz_distribution_settings,
+    active_inquiry_factory,
+    answer_factory,
+    service_group_factory,
+    settings,
+    application_settings,
+    location_factory,
+    role,
+    user_factory,
+    group_factory,
+):
+    settings.APPLICATION_NAME = "kt_schwyz"
+    application_settings["ROLE_PERMISSIONS"] = {
+        "Municipality": "municipality",
+        "Service": "service",
+    }
+    application_settings["INTER_SERVICE_GROUP_VISIBILITIES"] = {
+        admin_user.groups.first().service.service_group.pk: [0]
+    }
+
+    other_instance = instance_with_case(
+        instance_factory(
+            user=user_factory(),
+            location=location_factory(),
+            group=group_factory(),
+        )
+    )
+
+    # Visible to all
+    form_field_factory(
+        instance=sz_instance,
+        name="bauherrschaft",
+        value=[{"strasse": "Teststrasse 2"}],
+    )
+
+    # Restricted to municipality
+    form_field_factory(
+        instance=sz_instance,
+        name="einsprecher",
+        value=[{"name": "Beispiel"}],
+    )
+
+    # Visible to involved service
+    form_field_factory(
+        instance=other_instance,
+        name="kategorie-des-vorhabens",
+        value=["Baute(n)", "Anlage(n)"],
+    )
+
+    # Not visible
+    journal_entry_factory(
+        instance=sz_instance,
+        visibility="own_organization",
+        service=service_factory(),
+        text="Text1",
+    )
+
+    # Visible to own organisation
+    journal_entry_factory(
+        instance=sz_instance,
+        visibility="own_organization",
+        service=admin_user.groups.first().service,
+        text="Text2",
+    )
+
+    # Visible to involved service
+    journal_entry_factory(
+        instance=sz_instance,
+        visibility="authorities",
+        service=service_factory(),
+        text="Text3",
+    )
+
+    # Visible to involved service
+    journal_entry_factory(
+        instance=other_instance,
+        visibility="all",
+        service=service_factory(),
+        text="Text4 test",
+    )
+
+    # Inquiry visible
+    inquiry1 = active_inquiry_factory(
+        other_instance,
+        addressed_service=admin_user.groups.first().service,
+        status=caluma_workflow_models.WorkItem.STATUS_COMPLETED,
+    )
+
+    # Inquiry not visible because it hasn't been completed
+    inquiry2 = active_inquiry_factory(
+        sz_instance,
+        controlling_service=admin_user.groups.first().service,
+        status=caluma_workflow_models.WorkItem.STATUS_READY,
+    )
+
+    # Inquiry not visible because of service group
+    other_service = service_factory(service_group=service_group_factory())
+    inquiry3 = active_inquiry_factory(
+        sz_instance,
+        addressed_service=other_service,
+        controlling_service=service_factory(),
+        status=caluma_workflow_models.WorkItem.STATUS_COMPLETED,
+    )
+
+    answer_factory(
+        document=inquiry1.child_case.document,
+        question_id=caluma_form_models.Question.objects.get(
+            pk=sz_distribution_settings.get("QUESTIONS")["ANCILLARY_CLAUSES"]
+        ),
+        value="Inquiry answer 1",
+    )
+
+    answer_factory(
+        document=inquiry2.child_case.document,
+        question_id=caluma_form_models.Question.objects.get(
+            pk=sz_distribution_settings.get("QUESTIONS")["REASON"]
+        ),
+        value="Inquiry answer 2",
+    )
+
+    answer_factory(
+        document=inquiry3.child_case.document,
+        question_id=caluma_form_models.Question.objects.get(
+            pk=sz_distribution_settings.get("QUESTIONS")["REQUEST"]
+        ),
+        value="Inquiry answer 3",
+    )
+
+    url = reverse("instance-list")
+    response = admin_client.get(url, data={"keyword_search": value})
+
+    assert response.status_code == status.HTTP_200_OK
+
+    assert len(response.json()["data"]) == expected_count[role.name]
+
+
+@pytest.mark.parametrize(
     "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
 )
 @pytest.mark.parametrize(

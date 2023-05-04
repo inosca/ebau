@@ -162,8 +162,10 @@ def test_work_item_visibility_sz(
     instance_factory,
     role,
     mocker,
+    settings,
 ):
 
+    settings.APPLICATION_NAME = "kt_schwyz"
     mocker.patch(
         "caluma.caluma_core.types.Node.visibility_classes", [CustomVisibilitySZ]
     )
@@ -346,7 +348,9 @@ def test_work_item_visibility_for_applicants_sz(
     caluma_admin_schema_executor,
     sz_instance,
     mocker,
+    settings,
 ):
+    settings.APPLICATION_NAME = "kt_schwyz"
     mocker.patch(
         "caluma.caluma_core.types.Node.visibility_classes", [CustomVisibilitySZ]
     )
@@ -725,7 +729,9 @@ def test_inquiry_visibility_be(
     service,
     be_instance,
     service_factory,
+    settings,
 ):
+    settings.APPLICATION_NAME = "kt_bern"
     mocker.patch(
         "caluma.caluma_core.types.Node.visibility_classes", [CustomVisibilityBE]
     )

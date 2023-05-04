@@ -5,4 +5,9 @@
   <div class="uk-form-controls uk-flex-1" ...attributes>
     {{yield}}
   </div>
+  {{#if this.hint}}
+    <small class="uk-text-muted">
+      {{this.hint}}
+    </small>
+  {{/if}}
 </div>
