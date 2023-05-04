@@ -6,36 +6,14 @@ from caluma.caluma_form import (
 from caluma.caluma_user.visibilities import Authenticated
 from caluma.caluma_workflow import schema as workflow_schema
 from django.conf import settings
-from django.contrib.postgres.fields import ArrayField
-from django.db.models import Case, Exists, F, Func, IntegerField, OuterRef, Q, When
-from django.db.models.functions import Cast
+from django.db.models import F, Q
 
-from camac.caluma.utils import CamacRequest
+from camac.caluma.utils import CamacRequest, visible_inquiries_expression
 from camac.constants.kt_bern import DASHBOARD_FORM_SLUG
 from camac.instance.filters import CalumaInstanceFilterSet
 from camac.instance.mixins import InstanceQuerysetMixin
-from camac.user.models import Role, Service
+from camac.user.models import Role
 from camac.utils import filters, order
-
-
-def work_item_by_addressed_service_condition(service_condition):
-    return Exists(
-        Service.objects.filter(
-            Q(
-                # Use element = ANY(array) operator to check if
-                # element is present in ArrayField, which requires
-                # lhs and rhs of expression to be of same type
-                pk=Func(
-                    Cast(
-                        OuterRef("addressed_groups"),
-                        output_field=ArrayField(IntegerField()),
-                    ),
-                    function="ANY",
-                )
-            )
-            & Q(service_condition)
-        )
-    )
 
 
 class CustomVisibility(Authenticated, InstanceQuerysetMixin):
@@ -108,9 +86,15 @@ class CustomVisibility(Authenticated, InstanceQuerysetMixin):
 
     @filter_queryset_for(workflow_schema.WorkItem)
     def filter_queryset_for_work_items(self, node, queryset, info):
-        return queryset.filter(
-            case__family__instance__pk__in=self._all_visible_instances(info)
-        )
+        filters = Q(case__family__instance__pk__in=self._all_visible_instances(info))
+        if settings.DISTRIBUTION:
+            # Provide additional filtering for inquiry work-items
+            filters &= ~Q(task_id=settings.DISTRIBUTION["INQUIRY_TASK"]) | (
+                Q(task_id=settings.DISTRIBUTION["INQUIRY_TASK"])
+                & visible_inquiries_expression(self.request.group)
+            )
+
+        return queryset.filter(filters)
 
     def _all_visible_instances(self, info):
         """Fetch visible camac instances and cache the result.
@@ -255,62 +239,6 @@ class CustomVisibilitySZ(CustomVisibility):
         # this is blueprint data which is uncritical and can be exposed publicly
         return queryset
 
-    @filter_queryset_for(workflow_schema.WorkItem)
-    def filter_queryset_for_work_items(self, node, queryset, info):
-        queryset = super().filter_queryset_for_work_items(node, queryset, info)
-
-        visibility_config = settings.APPLICATION.get("INTER_SERVICE_GROUP_VISIBILITIES")
-        service = self.request.group.service
-
-        if not service:
-            return queryset
-
-        # If the work-item task is "inquiry", check if the current service
-        # is either in the controlling_groups or addressed_groups. If not, then
-        # check if the current service is permitted to see the work-item
-        # according to its service_group
-        return queryset.filter(
-            Case(
-                When(
-                    Q(task_id=settings.DISTRIBUTION["INQUIRY_TASK"])
-                    & ~Q(addressed_groups__contains=[service.pk])
-                    & ~Q(controlling_groups__contains=[service.pk]),
-                    then=work_item_by_addressed_service_condition(
-                        Q(
-                            service_group__pk__in=visibility_config.get(
-                                service.service_group_id, []
-                            )
-                        )
-                    ),
-                ),
-                default=True,
-            ),
-        )
-
 
 class CustomVisibilityBE(CustomVisibility):
-    @filter_queryset_for(workflow_schema.WorkItem)
-    def filter_queryset_for_work_items(self, node, queryset, info):
-        queryset = super().filter_queryset_for_work_items(node, queryset, info)
-
-        service = self.request.group.service
-
-        if not service:  # pragma: no cover
-            return queryset
-
-        # Inquiries in which the current service is not involved are only
-        # visible if they are not addressed to subservices or if the current
-        # service is the parent service of the addressed subservice.
-        return queryset.filter(
-            Case(
-                When(
-                    Q(task_id=settings.DISTRIBUTION["INQUIRY_TASK"])
-                    & ~Q(addressed_groups__contains=[service.pk])
-                    & ~Q(controlling_groups__contains=[service.pk]),
-                    then=work_item_by_addressed_service_condition(
-                        Q(service_parent__isnull=True) | Q(service_parent_id=service.pk)
-                    ),
-                ),
-                default=True,
-            ),
-        )
+    pass

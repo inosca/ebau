@@ -53,6 +53,7 @@ export default class CaseFilterComponent extends Component {
   @service store;
   @service intl;
   @service shoebox;
+  @service notification;
 
   @tracked _filter;
 
@@ -365,8 +366,33 @@ export default class CaseFilterComponent extends Component {
     };
   }
 
+  @action
+  validateKeywordSearch() {
+    // TODO: Evaluate search possibilities
+    const keywordSearch = this._filter.keywordSearch;
+    if (keywordSearch) {
+      const keywords =
+        keywordSearch.startsWith('"') && keywordSearch.endsWith('"')
+          ? [keywordSearch.slice(1, -1)]
+          : keywordSearch.trim().split(/\s+/);
+
+      if (keywordSearch && keywords.some((keyword) => keyword.length < 3)) {
+        this.notification.danger(
+          this.intl.t("cases.filters.keywordSearchTooShort")
+        );
+        return false;
+      }
+    }
+
+    return true;
+  }
+
   @action applyFilter(event) {
     event.preventDefault();
+
+    if (!this.validateKeywordSearch()) {
+      return;
+    }
 
     this.args.onChange(this._filter);
     this.storedFilters = this._filter;
