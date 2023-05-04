@@ -96,9 +96,9 @@ services:
 
 
   keycloak:
-    image: acr.run/camac-ng/camac-ng/keycloak-${APPLICATION}:master
     volumes:
       - ../keycloak/config/${APPLICATION}-test-config.json:/opt/keycloak/data/import/test-config.json
+      - ../keycloak/themes/src/main/resources/theme/ebau-be:/opt/keycloak/themes/ebau-be-dev
     environment:
       - KC_DB_PASSWORD=camac
       - KC_DB_URL=jdbc:postgresql://db:5432/${APPLICATION}?currentSchema=keycloak
