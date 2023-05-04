@@ -60,13 +60,11 @@ export default class PublicInstancesIndexController extends Controller {
 
       this.pagination = instances.meta.pagination;
 
-      this._instances = [...this._instances, ...instances.toArray()];
+      this._instances = [...this._instances, ...instances];
 
       return this._instances;
     } catch (e) {
-      this.notification.danger(
-        this.intl.t(`publicInstances.load-error-${config.APPLICATION.name}`)
-      );
+      this.notification.danger(this.intl.t(`publicInstances.load-error`));
     }
   }
 
@@ -87,9 +85,7 @@ export default class PublicInstancesIndexController extends Controller {
         label: node.label,
       }));
     } catch {
-      this.notification.danger(
-        this.intl.t(`publicInstances.load-error-${config.APPLICATION.name}`)
-      );
+      this.notification.danger(this.intl.t(`publicInstances.load-error`));
     }
   }
 

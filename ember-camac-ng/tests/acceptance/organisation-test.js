@@ -61,7 +61,9 @@ module("Acceptance | organisation", function (hooks) {
     await click("button[type=submit]");
 
     assert.deepEqual(
-      this.server.schema.find("service", SERVICE_ID).toJSON(),
+      JSON.parse(
+        JSON.stringify(this.server.schema.find("service", SERVICE_ID))
+      ),
       DATA
     );
 

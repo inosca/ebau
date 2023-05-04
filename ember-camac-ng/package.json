@@ -65,7 +65,7 @@
     "ember-cli-terser": "4.0.2",
     "ember-composable-helpers": "5.0.0",
     "ember-concurrency": "2.3.7",
-    "ember-data": "3.28.13",
+    "ember-data": "4.8.8",
     "ember-data-resources": "4.0.4",
     "ember-ebau-core": "0.0.0",
     "ember-ebau-gwr": "7.0.0",

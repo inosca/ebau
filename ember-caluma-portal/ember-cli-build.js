@@ -29,7 +29,6 @@ module.exports = function (defaults) {
       },
       setConfig: {
         "@ember-data/store": {
-          // https://github.com/emberjs/data/pull/8109
           polyfillUUID: true,
         },
       },

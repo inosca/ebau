@@ -19,8 +19,9 @@ export default class Attachment extends Model {
   @attr("string") question;
   @attr() context;
 
-  @hasMany("attachment-section") attachmentSections;
-  @belongsTo("instance", { async: false }) instance;
+  @hasMany("attachment-section", { inverse: null, async: true })
+  attachmentSections;
+  @belongsTo("instance", { inverse: null, async: false }) instance;
 
   get filesize() {
     return filesize(this.size);

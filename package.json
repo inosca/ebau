@@ -14,7 +14,7 @@
     "ember-intl": "ember-alexandria already uses ember-intl v6 (beta)"
   },
   "resolutions": {
-    "ember-data": "3.28.13",
+    "ember-data": "4.8.8",
     "ember-intl": "5.7.2"
   }
 }

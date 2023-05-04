@@ -21,7 +21,7 @@ export default class SubNavigationComponent extends Component {
 
     const irs = yield this.store.query("instance-resource", {});
 
-    const ir = irs.findBy("link", "distribution");
+    const ir = irs.find((ir) => ir.link === "distribution");
     if (ir) {
       yield this.fetchDistribution.perform();
       ir.link = `${ir.link}/${this.distribution.id}`;

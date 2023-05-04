@@ -6,7 +6,7 @@ export default class UserModel extends Model {
   @attr username;
   @attr email;
 
-  @belongsTo service;
+  @belongsTo("service", { inverse: "users", async: true }) service;
 
   get fullName() {
     return `${this.name} ${this.surname}`;

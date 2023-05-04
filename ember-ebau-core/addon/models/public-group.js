@@ -4,8 +4,8 @@ import Model, { attr, belongsTo } from "@ember-data/model";
 
 export default class PublicGroup extends Model {
   @attr("string") name;
-  @belongsTo("public-role") role;
-  @belongsTo("public-service") service;
+  @belongsTo("public-role", { inverse: null, async: true }) role;
+  @belongsTo("public-service", { inverse: null, async: true }) service;
 
   get config() {
     return getOwner(this).resolveRegistration("config:environment");

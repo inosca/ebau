@@ -61,7 +61,7 @@ export default class WorkItemDetailNewComponent extends Component {
   }
 
   get services() {
-    const services = this.instance.record?.involvedServices.toArray() || [];
+    const services = [...(this.instance.record?.involvedServices ?? [])];
 
     if (this.args.allowApplicantManualWorkItem) {
       services.unshift({

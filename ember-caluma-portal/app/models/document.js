@@ -22,8 +22,8 @@ export default class DocumentModel extends LocalizedModel {
   @attr modifiedByGroup;
 
   @belongsTo("category", { inverse: "documents", async: false }) category;
-  @hasMany("tag", { inverse: "documents" }) tags;
-  @hasMany("file", { inverse: "document" }) files;
+  @hasMany("tag", { inverse: "documents", async: true }) tags;
+  @hasMany("file", { inverse: "document", async: true }) files;
 
   @service fetch;
   @service intl;

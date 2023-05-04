@@ -23,9 +23,11 @@ export default class PublicInstancesDetailController extends Controller {
     yield Promise.resolve();
 
     try {
-      return (yield this.store.query("public-caluma-instance", {
+      const instances = yield this.store.query("public-caluma-instance", {
         instance: this.model,
-      }))?.toArray()?.[0];
+      });
+
+      return instances[0];
     } catch (e) {
       this.notification.danger(this.intl.t("publicInstancesDetail.loadError"));
     }

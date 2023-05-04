@@ -43,7 +43,7 @@
     "ember-cli-htmlbars": "6.2.0",
     "ember-composable-helpers": "5.0.0",
     "ember-concurrency": "2.3.7",
-    "ember-data": "3.28.13",
+    "ember-data": "4.8.8",
     "ember-data-resources": "4.0.4",
     "ember-fetch": "8.1.2",
     "ember-file-upload": "7.3.0",
