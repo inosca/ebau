@@ -133,7 +133,9 @@ services:
       - "8080:8080"
     volumes:
       - ../keycloak/config/${APPLICATION}-test-config.json:/opt/keycloak/data/import/test-config.json
+      - ../keycloak/themes/src/main/resources/theme/kanton-schwyz:/opt/keycloak/themes/kanton-schwyz-dev
     environment:
+      - KC_DB_URL=jdbc:postgresql://db:5432/${APPLICATION}
       - KC_DB_PASSWORD=camac
       - KC_DB_USERNAME=camac
       - KC_HOSTNAME=ebau-keycloak.local
@@ -141,6 +143,13 @@ services:
       - KC_HOSTNAME_STRICT_HTTPS=false
     networks:
       - ebau.local
+    command:
+      [
+        "start",
+        "--spi-theme-static-max-age=-1",
+        "--spi-theme-cache-themes=false",
+        "--spi-theme-cache-templates=false",
+      ]
 
   mailhog:
     image: mailhog/mailhog

@@ -93,7 +93,8 @@ services:
       - db
     build:
       context: ../keycloak
-    # image: acr.run/camac-ng/keycloak-uri/keycloak:21.0.1_theme-v0.3.11
+      cache_from:
+        - acr.run/camac-ng/camac-ng/keycloak:master
     environment:
       - KC_DB=postgres
       - KC_DB_URL=jdbc:postgresql://db:5432/${APPLICATION}?currentSchema=keycloak

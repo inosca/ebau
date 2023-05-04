@@ -112,7 +112,7 @@ services:
       - mailhog
     volumes:
       - ../keycloak/config/${APPLICATION}-test-config.json:/opt/keycloak/data/import/test-config.json
-      - ../keycloak_theme_kt_uri/src/main/resources/theme/kanton-uri:/opt/keycloak/themes/kanton-uri-dev
+      - ../keycloak/themes/src/main/resources/theme/kanton-uri:/opt/keycloak/themes/kanton-uri-dev
     environment:
       - KC_DB_PASSWORD=camac
       - KC_DB_USERNAME=camac
