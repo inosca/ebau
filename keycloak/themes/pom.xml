@@ -10,43 +10,31 @@
     <relativePath/> <!-- lookup parent from repository -->
   </parent>
 
-  <groupId>ch.linkyard.ebau.ur.theme</groupId>
-  <artifactId>keycloak-theme-kanton-uri</artifactId>
+  <groupId>ch.adfinis.ebau.keycloak.theme</groupId>
+  <artifactId>keycloak-theme</artifactId>
   <packaging>jar</packaging>
 
   <!-- Overwrite elements inherited from Spring Boot -->
-  <url>https://git.adfinis-sygroup.ch/camac-ng/keycloak-uri/</url>
+  <url>https://github.com/inosca/ebau</url>
   <organization>
-    <name>linkyard</name>
-    <url>http://www.linkyard.ch</url>
+    <name>inosca</name>
+    <url>https://inosca.ch</url>
   </organization>
-  <licenses>
-    <license>
-      <name>Proprietary</name>
-    </license>
-  </licenses>
-  <developers>
-    <developer>
-      <id>winpat</id>
-      <name>Patrick Winter</name>
-      <email>patrick.winter@adfinis.com</email>
-    </developer>
-  </developers>
   <scm>
-    <url>https://git.adfinis-sygroup.ch/camac-ng/keycloak-uri</url>
+    <url>https://github.com/inosca/ebau</url>
   </scm>
 
   <version>0.3.12</version>
 
-  <name>keycloak-theme-kanton-uri</name>
-  <description>Keycloak Theme for Kanton Uri</description>
+  <name>keycloak-themes-inosca-ebau</name>
+  <description>Keycloak Themes for inosca eBau</description>
 
   <properties>
     <keycloak.version>21.0.2</keycloak.version>
   </properties>
 
   <build>
-    <finalName>keycloak-theme-kanton-uri</finalName>
+    <finalName>keycloak-themes-inosca-ebau</finalName>
 
     <!-- don't deploy the JAR to a maven registry -->
     <plugins>

@@ -1,6 +1,0 @@
-target
-.idea
-*.iml
-.directory
-src/main/docker/*.jar
-credentials.yml

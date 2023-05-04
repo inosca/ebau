@@ -1,0 +1,12 @@
+{
+  "themes": [
+    {
+      "name": "kanton-uri",
+      "types": ["account", "login"]
+    },
+    {
+      "name": "kanton-schwyz",
+      "types": ["account", "login"]
+    }
+  ]
+}
