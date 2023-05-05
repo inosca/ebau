@@ -5,14 +5,16 @@ export default function getFormTitle(document, answerSlugs) {
     document,
     answerSlugs.oerebProcedure
   );
-  const staticForestBoundaryMunicipality = getAnswerDisplayValue(
-    document,
-    "waldfeststellung-mit-statischen-waldgrenzen-gemeinde"
-  );
-  const staticForestBoundaryCanton = getAnswerDisplayValue(
-    document,
-    "waldfeststellung-mit-statischen-waldgrenzen-kanton"
-  );
+  const staticForestBoundaryMunicipality =
+    getAnswerDisplayValue(
+      document,
+      "waldfeststellung-mit-statischen-waldgrenzen-gemeinde"
+    ) === "Ja";
+  const staticForestBoundaryCanton =
+    getAnswerDisplayValue(
+      document,
+      "waldfeststellung-mit-statischen-waldgrenzen-kanton"
+    ) === "Ja";
   const oerebTopics =
     staticForestBoundaryCanton || staticForestBoundaryMunicipality
       ? "Statische Waldgrenze"

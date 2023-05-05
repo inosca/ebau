@@ -1,6 +1,8 @@
 import Controller from "@ember/controller";
 import { inject as service } from "@ember/service";
 import { macroCondition, getOwnConfig } from "@embroider/macros";
+import { useCalumaQuery } from "@projectcaluma/ember-core/caluma-query";
+import { allCases } from "@projectcaluma/ember-core/caluma-query/queries";
 import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
 import { trackedTask } from "ember-resources/util/ember-concurrency";
@@ -16,6 +18,18 @@ export default class InstancesEditController extends Controller {
   feedback = trackedTask(this, this.fetchFeedbackAttachments, () => [
     this.model,
   ]);
+  cases = useCalumaQuery(this, allCases, () => ({
+    filter: [
+      {
+        metaValue: [{ key: "camac-instance-id", value: this.model }],
+      },
+    ],
+  }));
+
+  get case() {
+    return this.cases.value?.[0];
+  }
+
   decision = trackedTask(this, this.fetchDecisionAttachments, () => [
     this.model,
   ]);
@@ -35,9 +49,6 @@ export default class InstancesEditController extends Controller {
     });
 
     yield instance.getMainForm.perform();
-    if (config.APPLICATION.name === "ur") {
-      yield instance.getSpecialFormName.perform();
-    }
 
     return instance;
   }

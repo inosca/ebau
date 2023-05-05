@@ -1,8 +1,6 @@
 import Controller, { inject as controller } from "@ember/controller";
 import { inject as service } from "@ember/service";
 import { macroCondition, getOwnConfig } from "@embroider/macros";
-import { useCalumaQuery } from "@projectcaluma/ember-core/caluma-query";
-import { allCases } from "@projectcaluma/ember-core/caluma-query/queries";
 import { dropTask } from "ember-concurrency";
 import { confirm } from "ember-uikit";
 
@@ -14,14 +12,6 @@ export default class InstancesEditIndexController extends Controller {
   @service intl;
   @service router;
 
-  cases = useCalumaQuery(this, allCases, () => ({
-    filter: [
-      {
-        metaValue: [{ key: "camac-instance-id", value: this.model }],
-      },
-    ],
-  }));
-
   @controller("instances.edit") editController;
 
   get hasFeedbackSection() {
@@ -30,6 +20,10 @@ export default class InstancesEditIndexController extends Controller {
 
   get feedback() {
     return this.editController.feedback;
+  }
+
+  get case() {
+    return this.editController.case;
   }
 
   get decision() {
@@ -54,10 +48,6 @@ export default class InstancesEditIndexController extends Controller {
         config.APPLICATION.instanceStates.finished &&
       this.instance.value?.mainForm.slug === "building-permit"
     );
-  }
-
-  get case() {
-    return this.cases.value?.[0];
   }
 
   @dropTask

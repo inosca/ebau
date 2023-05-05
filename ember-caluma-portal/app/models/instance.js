@@ -2,12 +2,9 @@ import { inject as service } from "@ember/service";
 import Model, { attr, belongsTo, hasMany } from "@ember-data/model";
 import { queryManager } from "ember-apollo-client";
 import { lastValue, dropTask } from "ember-concurrency";
-import getFormTitle from "ember-ebau-core/utils/form-title";
 
-import config from "caluma-portal/config/environment";
 import getEbauNumberQuery from "caluma-portal/gql/queries/get-ebau-number.graphql";
 import getFormQuery from "caluma-portal/gql/queries/get-form.graphql";
-import getSpecialFormNameAnswersQuery from "caluma-portal/gql/queries/get-special-form-name-answers.graphql";
 
 /**
  * Portal-specific instance model
@@ -70,18 +67,5 @@ export default class Instance extends Model {
       },
       "allCases.edges.firstObject.node.meta.ebau-number"
     ) || null;
-  }
-
-  @lastValue("getSpecialFormName") specialFormName;
-  @dropTask
-  *getSpecialFormName() {
-    const caseNode = yield this.apollo.query(
-      {
-        query: getSpecialFormNameAnswersQuery,
-        variables: { instanceId: parseInt(this.id) },
-      },
-      "allCases.edges.firstObject.node"
-    );
-    return getFormTitle(caseNode.document, config.APPLICATION.answerSlugs);
   }
 }
