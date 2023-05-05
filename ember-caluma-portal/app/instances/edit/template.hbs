@@ -4,7 +4,7 @@
 >
   {{#if (not (is-embedded))}}
     <h2>
-      {{or this.instance.value.specialFormName this.instance.value.mainForm.name}} {{this.instance.value.typeDetail}}
+      {{or this.case.type this.instance.value.mainForm.name}} {{this.instance.value.typeDetail}}
       <span class="uk-text-light">
         ({{t "instances.instance-id"}} {{this.model}})
       </span>
