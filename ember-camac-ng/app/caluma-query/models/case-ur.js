@@ -282,11 +282,13 @@ export default class CustomCaseModel extends CustomCaseBaseModel {
               "oereb-thema-gemeinde"
               "teilstatus"
               "beschreibung-reklame"
-              "mbv-type",
-              "mbv-bund-type",
-              "solaranlage-art-des-gesuchs",
-              "gebaeudetechnik-art-des-gesuchs",
-              "reklame-art-des-gesuchs",
+              "mbv-type"
+              "mbv-bund-type"
+              "solaranlage-art-des-gesuchs"
+              "gebaeudetechnik-art-des-gesuchs"
+              "reklame-art-des-gesuchs"
+              "waldfeststellung-mit-statischen-waldgrenzen-gemeinde"
+              "waldfeststellung-mit-statischen-waldgrenzen-kanton"
             ]
           }
         ]

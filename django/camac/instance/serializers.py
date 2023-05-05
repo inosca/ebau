@@ -1260,10 +1260,6 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             koor_afj_instance.instance_state = models.InstanceState.objects.get(
                 name="ext"
             )
-            if instance.case.document.form.slug == "oereb-verfahren-gemeinde":
-                koor_afj_instance.instance_state = models.InstanceState.objects.get(
-                    name="subm"
-                )
             self._update_instance_location(koor_afj_instance)
             koor_afj_instance.save()
             self._generate_and_store_pdf(koor_afj_instance)
