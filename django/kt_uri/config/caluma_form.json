@@ -48998,10 +48998,10 @@
     "pk": "lokalisierung-anleitung",
     "fields": {
       "created_at": "2022-04-14T11:35:58.847Z",
-      "modified_at": "2022-04-14T11:35:58.847Z",
+      "modified_at": "2023-05-05T14:18:11.961Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Anleitung\", \"fr\": null, \"it\": null, \"rm\": null}",
       "type": "static",
@@ -49009,9 +49009,9 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "static_content": "{\"de\": \"**So gehen Sie vor:**\\n- Schritt 1 - Suchen Sie die entsprechende Parzelle \\u00fcber das Feld \\\"Parzellen - oder Baurechtsnummer\\\" und klicken Sie auf \\\"Parzelle finden\\\".\\n- Schritt 2 - Klicken Sie in der Karte auf den entsprechenden Standort wo das Vorhaben realisiert wird und klicken Sie auf \\\"Daten \\u00fcbernehmen\\\". Geben Sie dem System genug Zeit, die Daten zu speichern.\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "static_content": "{\"de\": \"- ###<span style=\\\"color:red\\\">Bitte f\\u00fcr die korrekte Lokalisierung die folgenden Schritte beachten</span>\\n\\n- <span style=\\\"color:red\\\">Schritt 1</span> Suchen Sie die entsprechende Parzelle \\u00fcber das Feld \\\"Parzellen oder Baurechtsnummer\\\" und klicken Sie auf \\\"Parzelle finden\\\". Falls Sie die Parzellen- oder Baurechtsnummer nicht kennen, k\\u00f6nnen Sie den Standort auch durch Verschieben und Scrollen der Karte bestimmen. Mit dem Setzen eines Markers wird die Parzellennummer unten angezeigt und mit Klick auf den Button \\\"Daten \\u00fcbernehmen\\\" (siehe Schritt 2) gespeichert. \\n\\n- <span style=\\\"color:red\\\">Schritt 2</span> Klicken Sie in der Karte auf den entsprechenden Standort wo das Vorhaben realisiert wird. Es wird ein blauer Marker gesetzt. Der Marker kann durch erneutes Klicken auf der Karte beliebig verschoben werden. Klicken Sie anschliessend auf <span style=\\\"color:red\\\">Daten \\u00fcbernehmen</span> und geben Sie dem System genug Zeit, die Daten zu speichern. Der GIS Ausschnitt wird automatisch unter Dokumente abgelegt.\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {},
       "meta": {
         "hideLabel": true
