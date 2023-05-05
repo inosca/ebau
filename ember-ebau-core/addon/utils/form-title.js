@@ -5,9 +5,21 @@ export default function getFormTitle(document, answerSlugs) {
     document,
     answerSlugs.oerebProcedure
   );
+  const staticForestBoundaryMunicipality =
+    getAnswerDisplayValue(
+      document,
+      "waldfeststellung-mit-statischen-waldgrenzen-gemeinde"
+    ) === "Ja";
+  const staticForestBoundaryCanton =
+    getAnswerDisplayValue(
+      document,
+      "waldfeststellung-mit-statischen-waldgrenzen-kanton"
+    ) === "Ja";
   const oerebTopics =
-    getAnswerDisplayValue(document, answerSlugs.oerebTopicsCanton) ||
-    getAnswerDisplayValue(document, answerSlugs.oerebTopicsMunicipality);
+    staticForestBoundaryCanton || staticForestBoundaryMunicipality
+      ? "Statische Waldgrenze"
+      : getAnswerDisplayValue(document, answerSlugs.oerebTopicsCanton) ||
+        getAnswerDisplayValue(document, answerSlugs.oerebTopicsMunicipality);
 
   const oerebPartialState = getAnswerDisplayValue(
     document,

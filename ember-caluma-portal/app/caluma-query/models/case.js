@@ -161,7 +161,7 @@ export default class CustomCaseModel extends CaseModel {
         name
       }
       answers(
-	filter: [{
+        filter: [{
           questions: [
             "${answerSlugs.municipality}"
             "${answerSlugs.description}"
@@ -171,11 +171,15 @@ export default class CustomCaseModel extends CaseModel {
             "${answerSlugs.objectZIP}"
             "${answerSlugs.personalDataApplicant}"
             "${answerSlugs.oerebProcedure}"
-            "${answerSlugs.oerebTopics}"
+            "${answerSlugs.oerebPartialState}"
+            "${answerSlugs.oerebTopicsCanton}"
+            "${answerSlugs.oerebTopicsMunicipality}"
             "${answerSlugs.procedureCanton}"
             "${answerSlugs.procedureConfederation}"
+            "${answerSlugs.staticForestBoundaryCanton}"
+            "${answerSlugs.staticForestBoundaryMunicipality}"
           ]
-	}]
+        }]
       ) {
         edges {
           node {

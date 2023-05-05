@@ -300,10 +300,15 @@ module.exports = function (environment) {
         specialId: "dossier-number",
         parcelNumber: "parcel-number",
         oerebProcedure: "typ-des-verfahrens",
-        oerebTopics: "oereb-thema",
+        oerebTopicsCanton: "oereb-thema",
+        oerebTopicsMunicipality: "oereb-thema-gemeinde",
         oerebPartialState: "teilstatus",
         procedureCanton: "mbv-type",
         procedureConfederation: "mbv-bund-type",
+        staticForestBoundaryCanton:
+          "waldfeststellung-mit-statischen-waldgrenzen-kanton",
+        staticForestBoundaryMunicipality:
+          "waldfeststellung-mit-statischen-waldgrenzen-gemeinde",
       },
       personalSuggestions: {
         tableQuestions: [
