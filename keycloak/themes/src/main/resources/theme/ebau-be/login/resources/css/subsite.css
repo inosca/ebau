@@ -1,0 +1,428 @@
+@charset "UTF-8";
+/*
+
+KTBE Mobile
+Version 1.1.3
+Lieferung v. 20.11.2014
+Release 4.1
+Fix Version 4.1.1
+
+*/
+/* Allgemeine Linkfarben */
+a {
+  color: #13226E; }
+
+a:hover {
+  color: #0026E0; }
+
+/* Globalnavigation */
+#global-nav ul {
+  background-image: url("/etc/designs/std/media/subsite/bg-globalnav.gif"); }
+
+body.no-tabs #global-nav {
+  background-image: url("/etc/designs/std/media/subsite/bg-globalnav.gif"); }
+
+#global-nav a {
+  color: #101031;
+  background-image: url("/etc/designs/std/media/subsite/bg-globalnav-a.gif");
+  border-bottom: 1px solid #4A81B6; }
+
+#global-nav a:hover {
+  background-image: url("/etc/designs/std/media/subsite/bg-globalnav-a-over.gif");
+  color: #001BA1; }
+
+#global-nav a.active {
+  background-image: url("/etc/designs/std/media/subsite/bg-globalnav-a-active.gif");
+  border-bottom: 1px solid #c8d9e9; }
+
+#global-nav a span {
+  background-image: url("/etc/designs/std/media/subsite/bg-globalnav-span.gif"); }
+
+#global-nav a:hover span {
+  background-image: url("/etc/designs/std/media/subsite/bg-globalnav-span-over.gif"); }
+
+#global-nav a.active span {
+  background-image: url("/etc/designs/std/media/subsite/bg-globalnav-span-active.gif"); }
+
+#global-nav ul ul {
+  background-image: url("/etc/designs/std/media/subsite/bg-globalnav-lvl2.gif"); }
+
+#global-nav ul ul a {
+  background-image: url("/etc/designs/std/media/subsite/bg-globalnav-lvl2-a.gif"); }
+
+#global-nav ul ul a:hover {
+  background-image: url("/etc/designs/std/media/subsite/bg-globalnav-lvl2-a-over.gif"); }
+
+#global-nav ul ul a.active {
+  background-image: url("/etc/designs/std/media/subsite/bg-globalnav-lvl2-a-active.gif"); }
+
+#global-nav ul ul a span {
+  background-image: url("/etc/designs/std/media/subsite/bg-globalnav-lvl2-span.gif"); }
+
+#global-nav ul ul a:hover span {
+  background-image: url("/etc/designs/std/media/subsite/bg-globalnav-lvl2-span-over.gif"); }
+
+#global-nav ul ul a.active span {
+  background-image: url("/etc/designs/std/media/subsite/bg-globalnav-lvl2-span-active.gif"); }
+
+/* Hintergrundfarbe Haupt-Navigation */
+#content {
+  background-image: url("/etc/designs/std/media/subsite/bg-main.gif"); }
+
+/* Hauptnavigation */
+#content-col-nav ul {
+  border-bottom: 1px solid #97B8C7; }
+
+#content-col-nav a {
+  border-top: 1px solid #97B8C7;
+  color: #101031; }
+
+#content-col-nav a:hover {
+  color: #0026E0; }
+
+#content-col-nav a.active {
+  background-color: #fff; }
+
+#content-col-nav ul ul {
+  background-color: #ECF2F7; }
+
+#content-col-nav a.current {
+  background-image: url("/etc/designs/std/media/bg-content-nav.gif"); }
+
+#content-col-nav ul.following {
+  border-top: 6px solid #B6CCE2; }
+
+/* Breadcrumb-Trail */
+#breadcrumb {
+  border-bottom: 1px solid #c8d9e9;
+  line-height: 1.4em;
+  padding: 1px 0 2px 0; }
+
+body.author #breadcrumb {
+  border-bottom: 0; }
+
+#breadcrumb a {
+  color: #515151; }
+
+#breadcrumb a:hover {
+  color: #0026E0; }
+
+/* Inhalts-Elemente */
+/* Tabellen */
+#content-col-main table {
+  border-right: 1px solid #c8d9e9;
+  border-bottom: 1px solid #c8d9e9 !important; }
+
+#content-col-main tr.colored td, #content-col-main tr.colored th.normal-weight {
+  background-color: #F2F8FC; }
+
+#content-col-main table.alternative tr.colored td {
+  background-color: #fff !important; }
+
+#content-col-main td, #content-col-main th {
+  border-left: 1px solid #c8d9e9;
+  border-top: 1px solid #c8d9e9; }
+
+#content-col-main th {
+  background-color: #ECF2F7; }
+
+#content-col-main th.norm-weight {
+  background: #fff;
+  font-weight: normal; }
+
+#content-col-main tr.colored th.norm-weight {
+  background: #F2F8FC;
+  font-weight: normal; }
+
+#content-col-main tfoot th.norm-bg-color {
+  background: #fff; }
+
+#content-col-main tfoot tr.colored th.norm-bg-color {
+  background: #F2F8FC; }
+
+/* Content-Navigation */
+#content-nav ul {
+  background-color: #ECF2F7;
+  border-top: 1px solid #97B8C7; }
+
+#content-nav ul a {
+  border-bottom: 1px solid #97B8C7;
+  color: #101031; }
+
+#content-nav ul a:hover {
+  color: #0026E0; }
+
+#content-nav ul a.active {
+  background-color: #fff; }
+
+#content-nav ul a.current {
+  background-image: url("/etc/designs/std/media/bg-content-nav.gif") !important; }
+
+/* Content-Boxen */
+#content-col-context .box .title {
+  background-image: url("/etc/designs/std/media/subsite/bg-box-context.gif"); }
+
+#content-col-context .box .body {
+  background-image: url("/etc/designs/std/media/subsite/bg-box-context.gif"); }
+
+#content-col-main .box .title {
+  background-image: url("/etc/designs/std/media/subsite/bg-box-main.gif"); }
+
+.box .body {
+  background-image: url("/etc/designs/std/media/subsite/bg-box-main.gif"); }
+
+.box h3.lined, .box img.lined, .box div.lined {
+  border-top: 1px solid #c8d9e9; }
+
+#content-col-main .box.news-small .title, #content-col-main .box.news-small .body {
+  background-image: url("/etc/designs/std/media/subsite/bg-box-news-small.gif") !important; }
+
+body.full .box.news-full .title, body.full .box.news-full .body,
+body.wide .box.news-full .title, body.wide .box.news-full .body {
+  background-image: url("/etc/designs/std/media/subsite/bg-box-news-wide.gif") !important; }
+
+.box.alternative {
+  background-image: url("/etc/designs/std/media/subsite/bg-box-context-home.gif") !important; }
+
+.box.alternative .body {
+  background-image: url("/etc/designs/std/media/subsite/bg-box-context-home.gif") !important; }
+
+#content-col-main .news-archive {
+  border-top: 1px solid #4A81B6; }
+
+#content-col-main .news-archive .top {
+  border-bottom: 1px solid #4A81B6; }
+
+/* Boxen auf der Homepage */
+body#home #content-col-nav .box .title {
+  background-image: url("/etc/designs/std/media/subsite/bg-box-home.gif"); }
+
+body#home #content-col-nav .box .body {
+  background-image: url("/etc/designs/std/media/subsite/bg-box-home.gif"); }
+
+/* Formular-Elemente */
+#content-col-main form input.text, #content-col-main form textarea, #content-col-main form select {
+  border: 1px solid #4A81B6; }
+
+#content-col-main form input.readonly {
+  color: #515151;
+  border: none !important; }
+
+/*fehlermeldung (text)*/
+#content-col-main form p.requiredtext, #conten form fieldset p.requiredtext {
+  color: #cc0000; }
+
+/*felder farbig markieren*/
+#content-col-main form .required {
+  border: 2px solid #E3001A !important; }
+
+#content-col-main form .file-required {
+  border: 2px solid #E3001A !important;
+  background-color: #ffe5e5 !important; }
+
+* + html #content-col-main form .file-required,
+* html #content-col-main form .file-required {
+  background-color: white !important; }
+
+* + html #content-col-main form select.required {
+  background-color: #FFE5E5; }
+
+* html #content-col-main form select.required {
+  background-color: #FFE5E5; }
+
+#content-col-main form p.error, #content-col-main .jobs p.error, #content-col-main .jobs div.error {
+  background-color: #FFE5E5;
+  border: 1px solid #E3001A; }
+
+#content-col-main form fieldset {
+  border: 1px solid #c8d9e9; }
+
+#content-col-main form legend {
+  color: #212121; }
+
+/* Fusszeile */
+#footer {
+  background-image: url("/etc/designs/std/media/subsite/bg-footer.gif"); }
+
+/* Statistiken */
+.stats p.error {
+  background-color: #FFE5E5;
+  border: 1px solid #E3001A; }
+
+/* Suchresultate */
+.searchresults {
+  border-top: 1px solid #4A81B6;
+  border-bottom: 1px solid #4A81B6; }
+
+.tophits {
+  background-color: #ECF2F7; }
+
+/* neue Suche, 12.03.2012 MOS  (auch screen.css) */
+#content-col-main .app_search .searchresults h2 {
+  color: #484848; }
+
+#content-col-main .app_search p.path {
+  color: #515151; }
+
+#content-col-main .app_search .tabs {
+  background: url("/etc/designs/std/media/bg-tabs.gif") repeat-x scroll left bottom white; }
+
+#content-col-main .app_search .tabs li.active a {
+  background-color: #FFFFFF;
+  background-image: none;
+  border-color: #BFBFBF #BFBFBF #FFFFFF;
+  color: #000000; }
+
+#content-col-main .app_search .tabs a {
+  background: url("/etc/designs/std/media/bg-tabs-a.jpg") repeat-x scroll left top #ebebeb;
+  border-color: #DADADA #DADADA #BFBFBF; }
+
+#content-col-main .app_search div.keymatch h3 {
+  background-color: #f1f1f1; }
+
+#content-col-main .app_search .search-results span.date {
+  color: #515151; }
+
+/*  /neue Suche, 12.03.2012 MOS */
+/* Ticker */
+.ticker {
+  border-bottom: 1px solid #4A81B6; }
+
+.ticker .row {
+  border-top: 1px solid #c8d9e9; }
+
+.teaser h2 {
+  border-bottom: 1px solid #c8d9e9; }
+
+/* Themenliste A-Z */
+.themelist .main-abc {
+  border-top: 1px solid #4A81B6;
+  border-bottom: 1px solid #4A81B6; }
+
+.themelist .main-abc ul li span {
+  color: #515151; }
+
+.themelist .main-abc ul li a span {
+  color: #002889 !important; }
+
+/* Sitemap */
+#sitemap h2 {
+  border-top: 1px solid #c8d9e9; }
+
+/* Paginierung */
+.paging a, .paging span {
+  border-left: 1px solid #c8d9e9; }
+
+.paging span.first {
+  border-left: none; }
+
+/* Gallerie */
+.gallery .paging.top {
+  border-bottom: 1px solid #4A81B6; }
+
+.gallery .paging.bottom {
+  border-top: 1px solid #4A81B6; }
+
+.gallery .paging .start {
+  border-right: 1px solid #c8d9e9; }
+
+.gallery .paging span.info {
+  border-left: 1px solid #c8d9e9; }
+
+/* jobs paging */
+.jobs .paging.bottom {
+  border-top: 1px solid #4A81B6; }
+
+/* Gemeindew�hler */
+.commune-widget ul li {
+  color: #515151; }
+
+.commune-widget .abc a:hover {
+  background: #ECF2F7; }
+
+/* fehlerdarstellung beim gemeindew�hler */
+#content-col-main form .commune-widget.required {
+  border: 0 !important; }
+
+#content-col-main form #commune-widget.required .commune-selector ul {
+  border: 2px solid #E3001A !important; }
+
+/* Publikationen & Downloads '.pub' */
+.pub ul li {
+  border: 1px solid #c8d9e9;
+  background-color: #FBFCFD; }
+
+.pub ul li ul li {
+  border-top: 1px solid #c8d9e9 !important; }
+
+/* Definitionen f�r Prozess-Schritte */
+#process ul {
+  margin: 0;
+  padding: 0;
+  width: 100%; }
+
+#process ul li {
+  background: #c8d9e9 url(/etc/designs/std/media/subsite/prozess/border.gif) repeat-x;
+  display: block;
+  float: left;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  vertical-align: middle; }
+
+#process ul li.active {
+  background: white url(/etc/designs/std/media/subsite/prozess/border.gif) repeat-x; }
+
+#process ul li.first {
+  border-left: #97b8c7 1px solid; }
+
+#process ul li.last {
+  border-right: #97b8c7 1px solid; }
+
+/* Definition: Link */
+#process ul li a {
+  color: #161616; }
+
+#process ul li a:hover, #process ul li a:hover span {
+  color: #0026e0; }
+
+/* Definition: Pfeile */
+#process ul li.act-start {
+  background: url(/etc/designs/std/media/subsite/prozess/arrow-act-start.gif) no-repeat;
+  width: 12px; }
+
+#process ul li.act-end {
+  background: url(/etc/designs/std/media/subsite/prozess/arrow-act-end.gif) no-repeat;
+  width: 12px; }
+
+#process ul li.end-start {
+  background: url(/etc/designs/std/media/subsite/prozess/arrow-end-start.gif) no-repeat;
+  width: 12px; }
+
+/* Statistiken Styles (betrifft auch screen.css */
+.stats .themes, .stats .search {
+  border-bottom: 1px solid #c8d9e9; }
+
+/* Start neu Zeix 2011-06-24 */
+.stats table.alternative th {
+  color: #515151;
+  background-color: #fff !important;
+  font-weight: normal; }
+
+/* End neu Zeix 2011-06-24 */
+/* FAQ Styles (betrifft auch screen.css */
+#content-col-main .faq ul.blind li div ul li {
+  background-image: url("/etc/designs/std/media/icon-liste.gif"); }
+
+.faq .antw {
+  border-left: 1px solid #c8d9e9;
+  background-color: #F2F8FC; }
+
+/* ### SUBSITE HOME - nur fuer Subites mit eigenstaendigen Startseiten ######################## */
+body#home #wrapper-nav-main {
+  background-image: url("/etc/designs/std/media/subsite/bg-wrapper-nav-main.gif"); }
+
+body#home #content-col-main .ticker {
+  border-bottom: 1px solid #4A81B6; }
+
+/*# sourceMappingURL=subsite.css.map */
