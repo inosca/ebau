@@ -1,0 +1,20 @@
+{
+  "name": "camac-ng",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git@git.adfinis-sygroup.ch:camac-ng/keycloak-uri.git"
+  },
+  "author": "Christian Zosel <christian@zosel.ch>",
+  "scripts": {
+    "build": "node-sass --include-path=node_modules/ src/main/resources/theme/kanton-uri/login/resources/scss/ -o src/main/resources/theme/kanton-uri/login/resources/css/",
+    "watch": "node-sass --include-path=node_modules/ -w src/main/resources/theme/kanton-uri/login/resources/scss/ -o src/main/resources/theme/kanton-uri/login/resources/css/"
+  },
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "node-sass": "8.0.0",
+    "uikit": "^3.5.8"
+  }
+}
+

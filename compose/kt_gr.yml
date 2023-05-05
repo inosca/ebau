@@ -62,7 +62,7 @@ services:
     build:
       context: ../keycloak
       cache_from:
-        - acr.run/camac-ng/camac-ng/keycloak-${APPLICATION}:master
+        - acr.run/camac-ng/camac-ng/keycloak:master
 
   document-merge-service:
     image: ghcr.io/adfinis/document-merge-service:5.0.5

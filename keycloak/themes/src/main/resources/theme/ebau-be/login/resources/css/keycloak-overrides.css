@@ -1,0 +1,95 @@
+@media screen and (max-width: 1039px) {
+  a#logo-be {
+    background: url("../img/logo.gif") no-repeat;
+    height: 39px;
+    width: 32px;
+    position: absolute;
+    top: 5px;
+    /*top: 23px;*/
+    /*left: 24px;*/
+  }
+  #app-title {
+    margin-left: 30px !important;
+  }
+}
+@media screen and (min-width: 1040px) {
+  a#logo-be {
+    background: url("../img/logo.gif") no-repeat;
+    height: 39px;
+    width: 32px;
+    position: absolute;
+    top: 23px;
+    left: 24px;
+  }
+}
+
+@media screen and (max-width: 1039px) {
+  button.zocial {
+    background-color: #18184b;
+    border: 1px solid #18184b;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #fff;
+    width: auto;
+    float: none !important;
+    clear: both !important;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+  }
+}
+
+#content {
+  background-image: none;
+}
+
+#rememberme-checkbox {
+  margin-left: -5px !important;
+}
+
+hr#login-separator {
+  display: block;
+  position: static;
+  width: 100%;
+  margin-top: 17px;
+  margin-bottom: 20px;
+
+  border-top: 1px solid rgb(200, 217, 233);
+  border-bottom: none;
+  border-right: none;
+  border-left: none;
+}
+
+#kc-social-providers-buttons {
+  margin: 0 auto;
+  padding: 5px 5px 0 15px;
+}
+#kc-social-providers-buttons:after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+
+button.zocial {
+  margin-left: 15px;
+}
+
+a.zocial {
+  display: block;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: #eee;
+  border: 1px #ccc solid;
+  font-size: 1.2em;
+  text-align: center;
+}
+
+@media (min-width: 1040px) {
+  #kc-social-providers-buttons > div {
+    width: 50%;
+    float: left;
+  }
+}
