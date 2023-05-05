@@ -1314,6 +1314,11 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
 
         if instance.case.document.form.slug == "pgv-gemeindestrasse":
             authority = str(uri_constants.BAUDIREKTION_AUTHORITY_ID)
+        elif instance.case.document.form.slug in [
+            "konzession-waermeentnahme",
+            "bohrbewilligung-waermeentnahme",
+        ]:
+            authority = str(uri_constants.AMT_FUER_ENERGIE_AUTHORITY_ID)
         else:
             # in internal forms, KOORs can set a custom authority by answering a specific question
             # this takes precedence over the default authority given by the location
