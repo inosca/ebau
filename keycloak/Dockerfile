@@ -37,7 +37,6 @@ ENV KC_HTTP_ENABLED=true
 ENV KC_HTTP_RELATIVE_PATH=/auth
 ENV KC_LOG_LEVEL=WARN
 ENV KC_PROXY=edge
-ENV KEYCLOAK_ADMIN=admin
 
 ENTRYPOINT ["/opt/keycloak/bin/custom-entrypoint.sh"]
 CMD ["start", "--optimized"]

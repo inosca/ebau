@@ -140,6 +140,7 @@ services:
       - KC_DB_PASSWORD=camac
       - KC_DB_USERNAME=camac
       - KC_HOSTNAME=ebau-keycloak.local
+      - KEYCLOAK_ADMIN=admin
       - KEYCLOAK_ADMIN_PASSWORD=camac
     networks:
       - ebau.local
