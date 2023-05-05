@@ -23,10 +23,11 @@ COPY --from=theme-builder /app/target/keycloak-themes-inosca-ebau.jar /opt/keycl
 
 RUN /opt/keycloak/bin/kc.sh build
 
-# stage 2: runtime image
+# stage 3: runtime image
 FROM quay.io/keycloak/keycloak:21.0.2
 
 COPY --from=keycloak-builder /opt/keycloak/ /opt/keycloak/
+COPY custom-entrypoint.sh /opt/keycloak/bin/
 
 WORKDIR /opt/keycloak
 
@@ -38,4 +39,5 @@ ENV KC_LOG_LEVEL=WARN
 ENV KC_PROXY=edge
 ENV KEYCLOAK_ADMIN=admin
 
+ENTRYPOINT ["/opt/keycloak/bin/custom-entrypoint.sh"]
 CMD ["start", "--optimized"]
