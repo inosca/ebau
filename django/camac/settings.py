@@ -3280,7 +3280,7 @@ APPLICATIONS = {
                     "forms": [
                         "baugesuch",
                     ],
-                    "template": "form",
+                    "template": "eingabequittung",
                     "personalien": "personalien",
                     "exclude_slugs": [
                         "is-paper",
@@ -3289,10 +3289,10 @@ APPLICATIONS = {
                     ],
                 },
             },
-            "ADD_HEADER_DATA": False,
+            "ADD_HEADER_DATA": True,
         },
         "MASTER_DATA": {
-            "canton": ("static", "demo"),
+            "canton": ("static", "GR"),
             "applicants": (
                 "table",
                 "personalien-gesuchstellerin",
@@ -3304,6 +3304,8 @@ APPLICATIONS = {
                         "street_number": "nummer-gesuchstellerin",
                         "zip": "plz-gesuchstellerin",
                         "town": "ort-gesuchstellerin",
+                        "email": "e-mail-gesuchstellerin",
+                        "tel": "telefon-oder-mobile-gesuchstellerin",
                         "is_juristic_person": (
                             "juristische-person-gesuchstellerin",
                             {
@@ -3327,27 +3329,29 @@ APPLICATIONS = {
                 "personalien-gebaudeeigentumerin",
                 {
                     "column_mapping": {
-                        "last_name": "name-gebaeudeeigentuemerin",
-                        "first_name": "vorname-gebaeudeeigentuemerin",
-                        "street": "strasse-gebaeudeeigentuemerin",
-                        "street_number": "nummer-gebaeudeeigentuemerin",
-                        "zip": "plz-gebaeudeeigentuemerin",
-                        "town": "ort-gebaeudeeigentuemerin",
+                        "last_name": "name-gesuchstellerin",
+                        "first_name": "vorname-gesuchstellerin",
+                        "street": "strasse-gesuchstellerin",
+                        "street_number": "nummer-gesuchstellerin",
+                        "zip": "plz-gesuchstellerin",
+                        "town": "ort-gesuchstellerin",
+                        "email": "e-mail-gesuchstellerin",
+                        "tel": "telefon-oder-mobile-gesuchstellerin",
                         "is_juristic_person": (
-                            "juristische-person-gebaeudeeigentuemerin",
+                            "juristische-person-gesuchstellerin",
                             {
                                 "value_parser": (
                                     "value_mapping",
                                     {
                                         "mapping": {
-                                            "juristische-person-gebaeudeeigentuemer-ja": True,
-                                            "juristische-person-gebaeudeeigentuemer-nein": False,
+                                            "juristische-person-gesuchstellerin-ja": True,
+                                            "juristische-person-gesuchstellerin-nein": False,
                                         }
                                     },
                                 )
                             },
                         ),
-                        "juristic_name": "name-juristische-person-gebaeudeeigentuemerin",
+                        "juristic_name": "name-juristische-person-gesuchstellerin",
                     }
                 },
             ),
@@ -3356,27 +3360,29 @@ APPLICATIONS = {
                 "personalien-grundeigentumerin",
                 {
                     "column_mapping": {
-                        "last_name": "name-grundeigentuemerin",
-                        "first_name": "vorname-grundeigentuemerin",
-                        "street": "strasse-grundeigentuemerin",
-                        "street_number": "nummer-grundeigentuemerin",
-                        "zip": "plz-grundeigentuemerin",
-                        "town": "ort-grundeigentuemerin",
+                        "last_name": "name-gesuchstellerin",
+                        "first_name": "vorname-gesuchstellerin",
+                        "street": "strasse-gesuchstellerin",
+                        "street_number": "nummer-gesuchstellerin",
+                        "zip": "plz-gesuchstellerin",
+                        "town": "ort-gesuchstellerin",
+                        "email": "e-mail-gesuchstellerin",
+                        "tel": "telefon-oder-mobile-gesuchstellerin",
                         "is_juristic_person": (
-                            "juristische-person-grundeigentuemerin",
+                            "juristische-person-gesuchstellerin",
                             {
                                 "value_parser": (
                                     "value_mapping",
                                     {
                                         "mapping": {
-                                            "juristische-person-grundeigentuemerin-ja": True,
-                                            "juristische-person-grundeigentuemerin-nein": False,
+                                            "juristische-person-gesuchstellerin-ja": True,
+                                            "juristische-person-gesuchstellerin-nein": False,
                                         }
                                     },
                                 )
                             },
                         ),
-                        "juristic_name": "name-juristische-person-grundeigentuemerin",
+                        "juristic_name": "name-juristische-person-gesuchstellerin",
                     }
                 },
             ),
@@ -3385,27 +3391,29 @@ APPLICATIONS = {
                 "personalien-projektverfasserin",
                 {
                     "column_mapping": {
-                        "last_name": "name-projektverfasserin",
-                        "first_name": "vorname-projektverfasserin",
-                        "street": "strasse-projektverfasserin",
-                        "street_number": "nummer-projektverfasserin",
-                        "zip": "plz-projektverfasserin",
-                        "town": "ort-projektverfasserin",
+                        "last_name": "name-gesuchstellerin",
+                        "first_name": "vorname-gesuchstellerin",
+                        "street": "strasse-gesuchstellerin",
+                        "street_number": "nummer-gesuchstellerin",
+                        "zip": "plz-gesuchstellerin",
+                        "town": "ort-gesuchstellerin",
+                        "email": "e-mail-gesuchstellerin",
+                        "tel": "telefon-oder-mobile-gesuchstellerin",
                         "is_juristic_person": (
-                            "juristische-person-projektverfasserin",
+                            "juristische-person-gesuchstellerin",
                             {
                                 "value_parser": (
                                     "value_mapping",
                                     {
                                         "mapping": {
-                                            "juristische-person-projektverfasserin-ja": True,
-                                            "juristische-person-projektverfasserin-nein": False,
+                                            "juristische-person-gesuchstellerin-ja": True,
+                                            "juristische-person-gesuchstellerin-nein": False,
                                         }
                                     },
                                 )
                             },
                         ),
-                        "juristic_name": "name-juristische-person-projektverfasserin",
+                        "juristic_name": "name-juristische-person-gesuchstellerin",
                     }
                 },
             ),
@@ -3414,27 +3422,29 @@ APPLICATIONS = {
                 "personalien-vertreterin-mit-vollmacht",
                 {
                     "column_mapping": {
-                        "last_name": "name-vertreterin",
-                        "first_name": "vorname-vertreterin",
-                        "street": "strasse-vertreterin",
-                        "street_number": "nummer-vertreterin",
-                        "zip": "plz-vertreterin",
-                        "town": "ort-vertreterin",
+                        "last_name": "name-gesuchstellerin",
+                        "first_name": "vorname-gesuchstellerin",
+                        "street": "strasse-gesuchstellerin",
+                        "street_number": "nummer-gesuchstellerin",
+                        "zip": "plz-gesuchstellerin",
+                        "town": "ort-gesuchstellerin",
+                        "email": "e-mail-gesuchstellerin",
+                        "tel": "telefon-oder-mobile-gesuchstellerin",
                         "is_juristic_person": (
-                            "juristische-person-vertreterin",
+                            "juristische-person-gesuchstellerin",
                             {
                                 "value_parser": (
                                     "value_mapping",
                                     {
                                         "mapping": {
-                                            "juristische-person-vertreterin-ja": True,
-                                            "juristische-person-vertreterin-nein": False,
+                                            "juristische-person-gesuchstellerin-ja": True,
+                                            "juristische-person-gesuchstellerin-nein": False,
                                         }
                                     },
                                 )
                             },
                         ),
-                        "juristic_name": "name-juristische-person-vertreterin",
+                        "juristic_name": "name-juristische-person-gesuchstellerin",
                     }
                 },
             ),
@@ -3443,6 +3453,7 @@ APPLICATIONS = {
             "proposal": ("answer", "beschreibung-bauvorhaben"),
             "street": ("answer", "strasse-flurname"),
             "street_number": ("answer", "nr"),
+            "zip": ("answer", "plz"),
             "city": ("answer", "ort-grundstueck"),
             "construction_costs": ("answer", "baukosten-in-chf"),
             "municipality": ("answer", "gemeinde", {"value_parser": "dynamic_option"}),
@@ -3474,6 +3485,7 @@ APPLICATIONS = {
                     )
                 },
             ),
+            "description_modification": ("answer", "projektaenderung"),
         },
     },
 }

@@ -68,8 +68,8 @@ services:
     image: ghcr.io/adfinis/document-merge-service:5.0.5
     volumes:
       - ../document-merge-service/uwsgi.ini:/app/uwsgi.ini:ro
-      - ../document-merge-service/demo/templatefiles:/var/lib/document-merge-service/media
-      - ../document-merge-service/demo/dump.json:/tmp/document-merge-service/dump.json
+      - ../document-merge-service/kt_gr/templatefiles:/var/lib/document-merge-service/media
+      - ../document-merge-service/kt_gr/dump.json:/tmp/document-merge-service/dump.json
     environment:
       - DATABASE_ENGINE=django.db.backends.postgresql
       - DATABASE_HOST=db

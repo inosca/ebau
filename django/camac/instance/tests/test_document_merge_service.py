@@ -281,6 +281,130 @@ def test_document_merge_service_cover_sheet_without_header_values(
     )
 
 
+@pytest.mark.freeze_time("2022-09-06 13:37")
+@pytest.mark.django_db(transaction=True, reset_sequences=True)
+def test_eingabebestaetigung_gr(
+    db,
+    dms_settings,
+    settings,
+    gr_instance,
+    service_factory,
+    group,
+    snapshot,
+    freezer,
+    application_settings,
+):
+    settings.APPLICATION_NAME = "kt_gr"
+    application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_gr"]["MASTER_DATA"]
+
+    gr_instance.case.meta = {
+        "camac-instance-id": gr_instance.pk,
+        "ebau-number": "2021-99",
+        "submit-date": "2021-01-01",
+        "paper-submit-date": "2021-01-02",
+    }
+    gr_instance.case.save()
+
+    municipality = service_factory(
+        service_group__name="municipality",
+        trans__language="de",
+        trans__name="Leitbehörde Chur",
+    )
+    group.service = municipality
+    group.save()
+
+    # Prepare plot answer
+    add_table_answer(
+        gr_instance.case.document,
+        "parzelle",
+        [
+            {
+                "parzellennummer": "123",
+            },
+            {
+                # This should be excluded since no parcel number is given
+                "egrid": "CH908035124647",
+            },
+        ],
+    )
+
+    # Prepare applicant answer
+    add_table_answer(
+        gr_instance.case.document,
+        "personalien-gesuchstellerin",
+        [
+            {
+                "vorname-gesuchstellerin": "Foo",
+                "name-gesuchstellerin": "Bar",
+                "juristische-person-gesuchstellerin": "juristische-person-gesuchstellerin-ja",
+                "name-juristische-person-gesuchstellerin": "Test AG",
+            }
+        ],
+    )
+
+    # Prepare landowner answer
+    add_table_answer(
+        gr_instance.case.document,
+        "personalien-grundeigentumerin",
+        [
+            {
+                "vorname-gesuchstellerin": "Grund",
+                "name-gesuchstellerin": "Eigentümerin",
+                "juristische-person-gesuchstellerin": "juristische-person-gesuchstellerin-ja",
+                "name-juristische-person-gesuchstellerin": "Eigentümer AG",
+            }
+        ],
+    )
+
+    # Prepare project author answer
+    add_table_answer(
+        gr_instance.case.document,
+        "personalien-projektverfasserin",
+        [
+            {
+                "vorname-gesuchstellerin": "Grund",
+                "name-gesuchstellerin": "Eigentümerin",
+                "juristische-person-gesuchstellerin": "juristische-person-gesuchstellerin-ja",
+                "name-juristische-person-gesuchstellerin": "Eigentümer AG",
+            }
+        ],
+    )
+
+    # Prepare plot address
+    add_answer(gr_instance.case.document, "strasse-flurname", "Bahnhofstrasse")
+    add_answer(gr_instance.case.document, "nr", "2")
+    add_answer(gr_instance.case.document, "ort-grundstueck", "Testhausen")
+
+    # Prepare authority
+    gr_instance.instance_services.all().delete()
+    gr_instance.instance_services.create(service=municipality, active=1)
+
+    # Prepare proposal
+    add_answer(
+        gr_instance.case.document, "beschreibung-bauvorhaben", "Bau Einfamilienhaus"
+    )
+
+    # Municipality
+    add_answer(gr_instance.case.document, "gemeinde", "1")
+    DynamicOption.objects.create(
+        document=gr_instance.case.document,
+        question_id="gemeinde",
+        slug="1",
+        label="Testhausen",
+    )
+
+    gr_instance.case.document.created_at = make_aware(datetime(2022, 8, 3, 9, 19))
+    gr_instance.case.document.save()
+
+    freezer.move_to("2022-09-07 12:01")
+
+    snapshot.assert_match(
+        DMSHandler().get_meta_data(
+            gr_instance, gr_instance.case.document, group.service
+        )
+    )
+
+
 def test_document_merge_service_unauthorized(db, requests_mock):
     template = "some-template"
 
