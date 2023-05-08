@@ -456,6 +456,14 @@ def caluma_config_sz(settings):
 
 
 @pytest.fixture
+def caluma_config_gr(settings, application_settings, use_caluma_form):
+    application_settings["CALUMA"] = deepcopy(settings.APPLICATIONS["kt_gr"]["CALUMA"])
+    application_settings["MASTER_DATA"] = deepcopy(
+        settings.APPLICATIONS["kt_gr"]["MASTER_DATA"]
+    )
+
+
+@pytest.fixture
 def use_instance_service(application_settings):
     application_settings["USE_INSTANCE_SERVICE"] = True
     application_settings["ACTIVE_SERVICES"] = deepcopy(
@@ -535,6 +543,37 @@ def caluma_workflow_config_ur(
         caluma_form_models.Form.objects.create(slug=slug)
 
     call_command("loaddata", settings.ROOT_DIR("kt_uri/config/caluma_workflow.json"))
+
+    workflow = caluma_workflow_models.Workflow.objects.first()
+    main_form = caluma_form_models.Form.objects.get(pk="main-form")
+
+    workflow.allow_forms.clear()
+    workflow.allow_forms.add(main_form)
+    workflow.save()
+
+    caluma_form_models.Form.objects.filter(pk__in=CALUMA_FORM_TYPES_SLUGS).delete()
+
+    yield workflow
+
+    caluma_workflow_models.Case.objects.all().delete()
+    caluma_workflow_models.Workflow.objects.all().delete()
+
+
+@pytest.fixture
+def caluma_workflow_config_gr(
+    settings,
+    caluma_forms_gr,
+    caluma_config_gr,
+):
+
+    for slug in CALUMA_FORM_TYPES_SLUGS:
+        caluma_form_models.Form.objects.create(slug=slug)
+
+    call_command(
+        "loaddata",
+        settings.ROOT_DIR("kt_gr/config/caluma_workflow.json"),
+        settings.ROOT_DIR("kt_bern/config/caluma_distribution.json"),
+    )
 
     workflow = caluma_workflow_models.Workflow.objects.first()
     main_form = caluma_form_models.Form.objects.get(pk="main-form")
@@ -786,6 +825,59 @@ def caluma_forms_ur(settings):
 
 
 @pytest.fixture
+def caluma_forms_gr(settings):
+    # forms
+    caluma_form_models.Form.objects.create(
+        slug="main-form", meta={"is-main-form": True}, name="Baugesuch"
+    )
+    caluma_form_models.Form.objects.create(slug="dossierpruefung")
+    caluma_form_models.Form.objects.create(slug="decision")
+
+    # dynamic choice options get cached, so we clear them
+    # to ensure the new "gemeinde" options will be valid
+    cache.clear()
+
+    # questions
+    caluma_form_models.Question.objects.create(
+        slug="gemeinde",
+        type=caluma_form_models.Question.TYPE_DYNAMIC_CHOICE,
+        data_source="Municipalities",
+    )
+    settings.DATA_SOURCE_CLASSES = [
+        "camac.caluma.extensions.data_sources.Municipalities"
+    ]
+
+    for slug, lang in [("is-paper", "en"), ("projektaenderung", "de")]:
+        question = caluma_form_models.Question.objects.create(
+            slug=slug, type=caluma_form_models.Question.TYPE_CHOICE
+        )
+        options = [
+            caluma_form_models.Option.objects.create(
+                slug=f"{slug}-{yes(lang)}", label="Ja"
+            ),
+            caluma_form_models.Option.objects.create(
+                slug=f"{slug}-{no(lang)}", label="Nein"
+            ),
+        ]
+        for option in options:
+            caluma_form_models.QuestionOption.objects.create(
+                question=question, option=option
+            )
+
+    caluma_form_models.Question.objects.create(
+        slug="beschreibung-bauvorhaben", type=caluma_form_models.Question.TYPE_TEXT
+    )
+
+    # main form
+    question = caluma_form_models.Question.objects.create(
+        slug="vorname-gesuchstellerin", type=caluma_form_models.Question.TYPE_TEXT
+    )
+    question = caluma_form_models.Question.objects.create(
+        slug="name-gesuchstellerin", type=caluma_form_models.Question.TYPE_TEXT
+    )
+
+
+@pytest.fixture
 def portal_group(application_settings, group_factory):
     group = group_factory()
     application_settings["PORTAL_GROUP"] = group.pk
@@ -842,6 +934,11 @@ def sz_instance(instance, caluma_workflow_config_sz, instance_with_case):
 
 @pytest.fixture
 def ur_instance(instance, caluma_workflow_config_ur, instance_with_case):
+    return instance_with_case(instance)
+
+
+@pytest.fixture
+def gr_instance(instance, caluma_workflow_config_gr, instance_with_case):
     return instance_with_case(instance)
 
 

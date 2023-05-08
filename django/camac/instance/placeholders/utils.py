@@ -50,6 +50,10 @@ def get_person_address_2(person):
     return clean_join(person.get("zip"), person.get("town"))
 
 
+def get_tel_and_email(person):
+    return clean_join(person.get("tel"), person.get("email"), separator=", ")
+
+
 def get_person_name(
     person: dict,
     include_name: bool = True,
@@ -88,3 +92,15 @@ def human_readable_date(value: Union[datetime, date, None]) -> str:
         return None
 
     return format_date(value, "long", locale=get_language())
+
+
+def get_full_person_data(
+    person: dict, include_name: bool = True, include_juristic_name: bool = True
+):
+    return clean_join(
+        get_person_name(person),
+        get_person_address_1(person),
+        get_person_address_2(person),
+        get_tel_and_email(person),
+        separator=", ",
+    )
