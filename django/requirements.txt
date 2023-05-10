@@ -2,7 +2,7 @@ Babel==2.10.3
 caluma==8.0.0b26
 dataclasses-json==0.5.7
 deepmerge==1.0.1
-Django==3.2.15
+Django==3.2.19
 django-admin-sortable2==1.0.4
 django-clamd==0.4.0
 django-environ==0.9.0
