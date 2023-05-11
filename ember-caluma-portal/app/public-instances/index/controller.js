@@ -64,9 +64,7 @@ export default class PublicInstancesIndexController extends Controller {
 
       return this._instances;
     } catch (e) {
-      this.notification.danger(
-        this.intl.t(`publicInstances.load-error-${config.APPLICATION.name}`)
-      );
+      this.notification.danger(this.intl.t("publicInstances.load-error"));
     }
   }
 
@@ -87,9 +85,7 @@ export default class PublicInstancesIndexController extends Controller {
         label: node.label,
       }));
     } catch {
-      this.notification.danger(
-        this.intl.t(`publicInstances.load-error-${config.APPLICATION.name}`)
-      );
+      this.notification.danger(this.intl.t("publicInstances.load-error"));
     }
   }
 
