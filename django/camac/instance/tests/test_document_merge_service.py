@@ -105,20 +105,20 @@ def test_document_merge_service_snapshot(
                 f"{snapshot_name}_header",
             )
 
-            visitor = DMSVisitor(root_document, BaseUser())
+            visitor = DMSVisitor(root_document, instance, BaseUser())
             snapshot.assert_match(visitor.visit(root_document), snapshot_name)
 
 
 def test_document_merge_service_is_valid(db, caluma_form_fixture, dms_settings):
     cache.clear()
 
-    _, root_document = DMSHandler().get_instance_and_document(instance_id=1)
+    instance, root_document = DMSHandler().get_instance_and_document(instance_id=1)
 
-    assert DMSVisitor(root_document, BaseUser()).is_valid()
+    assert DMSVisitor(root_document, instance, BaseUser()).is_valid()
 
     root_document.answers.all().delete()
 
-    assert not DMSVisitor(root_document, BaseUser()).is_valid()
+    assert not DMSVisitor(root_document, instance, BaseUser()).is_valid()
 
 
 def test_document_merge_service_client(db, requests_mock):
