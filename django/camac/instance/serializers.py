@@ -1413,6 +1413,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             workflow_api.complete_work_item(
                 work_item=work_item,
                 user=self.context["request"].caluma_info.context.user,
+                context={"data_source_context": {"instanceId": instance.pk}},
             )
 
         if case.document.form.slug == settings.APPLICATION["CALUMA"].get(

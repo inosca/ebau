@@ -240,7 +240,7 @@ class DMSHandler:
         # merge pdf and store as attachment
         auth = get_authorization_header(request)
         dms_client = DMSClient(auth)
-        visitor = DMSVisitor(document, request.caluma_info.context.user)
+        visitor = DMSVisitor(document, instance, request.caluma_info.context.user)
         pdf = dms_client.merge(
             {
                 **self.get_meta_data(
@@ -289,12 +289,13 @@ class DMSClient:
 
 
 class DMSVisitor:
-    def __init__(self, document, user):
+    def __init__(self, document, instance, user):
         self.root_document = document
         self.user = user
 
         self.validator = DocumentValidator()
         self.validation_context = self.validator._validation_context(document)
+        self.data_source_context = {"instanceId": instance.pk}
 
         self.template_type = get_form_type_key(document.form.slug)
         self.exclude_slugs = get_form_type_config(self.template_type).get(
@@ -304,7 +305,10 @@ class DMSVisitor:
     def is_valid(self):
         try:
             self.validator.validate(
-                self.root_document, self.user, self.validation_context
+                self.root_document,
+                self.user,
+                self.validation_context,
+                self.data_source_context,
             )
             return True
         except CustomValidationError:
@@ -466,7 +470,7 @@ class DMSVisitor:
 
         for ans in answer:
             value = data_source.validate_answer_value(
-                ans, document, question, None, None
+                ans, document, question, None, self.data_source_context
             )
 
             if isinstance(value, dict):
