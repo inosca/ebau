@@ -1,11 +1,17 @@
-import functools
-import hashlib
-
-import requests
-from django.core.cache import cache
-from mozilla_django_oidc.auth import OIDCAuthenticationBackend
-from django.utils.encoding import force_bytes
+from mozilla_django_oidc.contrib.drf import OIDCAuthenticationBackend
 from alexandria.oidc_auth.models import BaseUser
+import logging
+
+from django.core.exceptions import SuspiciousOperation
+from rest_framework import exceptions
+from requests.exceptions import HTTPError
+
+from mozilla_django_oidc.utils import (
+    parse_www_authenticate_header,
+)
+from camac.user.utils import get_group
+
+LOGGER = logging.getLogger(__name__)
 
 
 ADMIN_ROLE = "10000"
@@ -35,47 +41,46 @@ class CamacUser(BaseUser):
 
 
 class CamacAlexandriaAuthenticationBackend(OIDCAuthenticationBackend):
-    def authenticate(self, request, **kwargs):
-        """Authenticates a user based on the OIDC code flow."""
+    def authenticate(self, request):
+        """
+        Copy of OIDCAuthenticationBackend.authenticate() with the following changes:
+        use custom get_or_create_user() method with request parameter
 
-        self.request = request
-        if not self.request:
+        Authenticate the request and return a tuple of (user, token) or None
+        if there was no authentication attempt.
+        """
+        access_token = self.get_access_token(request)
+
+        if not access_token:
             return None
 
-        state = self.request.GET.get("state")
-        code = self.request.GET.get("code")
-        nonce = kwargs.pop("nonce", None)
-        code_verifier = kwargs.pop("code_verifier", None)
+        try:
+            user = self.get_or_create_user(access_token, request)
+        except HTTPError as exc:
+            resp = exc.response
 
-        if not code or not state:
-            return None
+            # if the oidc provider returns 401, it means the token is invalid.
+            # in that case, we want to return the upstream error message (which
+            # we can get from the www-authentication header) in the response.
+            if resp.status_code == 401 and "www-authenticate" in resp.headers:
+                data = parse_www_authenticate_header(resp.headers["www-authenticate"])
+                raise exceptions.AuthenticationFailed(
+                    data.get(
+                        "error_description", "no error description in www-authenticate"
+                    )
+                )
 
-        reverse_url = self.get_settings(
-            "OIDC_AUTHENTICATION_CALLBACK_URL", "oidc_authentication_callback"
-        )
+            # for all other http errors, just re-raise the exception.
+            raise
+        except SuspiciousOperation as exc:
+            LOGGER.info("Login failed: %s", exc)
+            raise exceptions.AuthenticationFailed("Login failed")
 
-        token_payload = {
-            "client_id": self.OIDC_RP_CLIENT_ID,
-            "client_secret": self.OIDC_RP_CLIENT_SECRET,
-            "grant_type": "authorization_code",
-            "code": code,
-            "redirect_uri": absolutify(self.request, reverse(reverse_url)),
-        }
+        if not user:
+            msg = "Login failed: No user found for the given access token."
+            raise exceptions.AuthenticationFailed(msg)
 
-        # Send code_verifier with token request if using PKCE
-        if code_verifier is not None:
-            token_payload.update({"code_verifier": code_verifier})
+        return user, access_token
 
-        # Get the token
-        token_info = self.get_token(token_payload)
-        id_token = token_info.get("id_token")
-        access_token = token_info.get("access_token")
-
-        # Validate the token
-        payload = self.verify_token(id_token, nonce=nonce)
-
-        if payload:
-            self.store_tokens(access_token, id_token)
-            return request.user
-
-        return None
+    def get_or_create_user(self, access_token, request):
+        return request.user

@@ -5,7 +5,10 @@ from alexandria.core.models import BaseModel, Document, File, Category, Tag
 class CustomVisibility(BaseVisibility):
     @filter_queryset_for(BaseModel)
     def filter_queryset_for_all(self, queryset, request):
-        return queryset
+        if request.user.role == "support":
+            return queryset
+
+        return queryset.none() 
 
     @filter_queryset_for(Document)
     def filter_queryset_for_document(self, queryset, request):

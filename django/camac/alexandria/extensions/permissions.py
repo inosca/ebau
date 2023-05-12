@@ -12,6 +12,7 @@ intermediate table for instance to document relation
 permission/vis on meta 
 """
 
+
 class CustomPermission(BasePermission):
     @permission_for(BaseModel)
     def has_permission_default(self, request):
@@ -73,24 +74,35 @@ class CustomPermission(BasePermission):
 
         return False
 
-class Permission():
+
+class Permission:
     write = False
     destroy = False
 
     @classmethod
     def can_write(cls, request) -> bool:
         return cls.write
-    
+
     @classmethod
     def can_destroy(cls, request) -> bool:
         return cls.destroy
 
+
 class ReadPermission(Permission):
     pass
+
 
 class WritePermission(Permission):
     write = True
 
+
 class AdminPermission(WritePermission):
     destroy = True
 
+
+class InternalReadPermission(ReadPermission):
+    pass
+
+
+class InternalAdminPermission(AdminPermission):
+    pass

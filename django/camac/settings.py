@@ -38,6 +38,7 @@ if env.str("APPLICATION_ENV", default="production") != "ci" and os.path.exists(
 # file (which doesn't exist)
 
 from caluma.settings.caluma import *  # noqa isort:skip
+from alexandria.settings.alexandria import * # noqa isort:skip
 
 ENV = env.str("APPLICATION_ENV", default="production")
 APPLICATION_NAME = env.str("APPLICATION")
@@ -2132,6 +2133,14 @@ APPLICATIONS = {
             "telefon-oder-mobile-waermepumpen",
         ],
         "ATTACHMENT_MAX_SIZE": 100 * 1024 * 1024,
+        "ALEXANDRIA": {
+            "PUBLIC_TAGS" : [
+                "dokument-grundstucksangaben",
+                "dokument-gutachten-nachweise-begrundungen",
+                "dokument-projektplane-projektbeschrieb",
+                "dokument-weitere-gesuchsunterlagen",
+            ]
+        }
     },
     "kt_uri": {
         "ECH0211": {

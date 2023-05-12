@@ -26,8 +26,8 @@ services:
       - CACHE_BACKEND=django.core.cache.backends.memcached.MemcachedCache
       - CACHE_LOCATION=cache:11211
       - EVENT_RECEIVER_MODULES=camac.caluma.extensions.events
-      - VISIBILITY_CLASSES=camac.caluma.extensions.visibilities.CustomVisibility,camac.alexandria.extensions.visibilities.CustomVisibility
-      - PERMISSION_CLASSES=camac.caluma.extensions.permissions.CustomPermission,camac.alexandria.extensions.permissions.CustomPermission
+      - VISIBILITY_CLASSES=camac.caluma.extensions.visibilities.CustomVisibility
+      - PERMISSION_CLASSES=camac.caluma.extensions.permissions.CustomPermission
       - VALIDATION_CLASSES=camac.caluma.extensions.validations.CustomValidation
       - DATA_SOURCE_CLASSES=camac.caluma.extensions.data_sources.Municipalities,camac.caluma.extensions.data_sources.Services
       - DYNAMIC_GROUPS_CLASSES=camac.caluma.extensions.dynamic_groups.CustomDynamicGroups
@@ -37,9 +37,12 @@ services:
       - META_FIELDS=camac-instance-id,submit-date
       - ENABLE_HISTORICAL_API=true
       # alexandria
+      - ALEXANDRIA_VISIBILITY_CLASSES=camac.alexandria.extensions.visibilities.CustomVisibility
+      - ALEXANDRIA_PERMISSION_CLASSES=camac.alexandria.extensions.permissions.CustomPermission
+      - ALEXANDRIA_VALIDATION_CLASSES=camac.alexandria.extensions.validations.Validator
       - MINIO_STORAGE_SERVICE=minio
       - MINIO_STORAGE_ACCESS_KEY=minio
-      - OIDC_DRF_AUTH_BACKEND=camac.alexandria.extentsions.authentication.CamacAlexandriaAuthenticationBackend
+      - OIDC_DRF_AUTH_BACKEND=camac.alexandria.extensions.authentication.CamacAlexandriaAuthenticationBackend
     volumes:
       - djangomedia:/var/lib/camac/media
       - djangotmpmedia:/tmp/camac/tmpfiles

@@ -173,7 +173,6 @@ class Instance(models.Model):
     instance_group = models.ForeignKey(
         InstanceGroup, models.SET_NULL, related_name="instances", null=True
     )
-    # documents = GenericRelation()
 
     def _responsible_service_instance_service(self, filter_type=None, **kwargs):
         active_services_settings = settings.APPLICATION.get("ACTIVE_SERVICES", {})
@@ -245,6 +244,18 @@ class Instance(models.Model):
     class Meta:
         managed = True
         db_table = "INSTANCE"
+
+
+class InstanceAlexandriaDocument(models.Model):
+    instance = models.OneToOneField(
+        Instance, models.CASCADE, related_name="alexandria_documents"
+    )
+    document = models.OneToOneField(
+        "alexandria_core.Document", models.CASCADE, related_name="instance"
+    )
+
+    class Meta:
+        unique_together = (("instance", "document"),)
 
 
 class InstanceResponsibility(models.Model):
