@@ -143,6 +143,7 @@ DUMP_CONFIG_MODELS = [
     "caluma_form.FormQuestion",
     "caluma_workflow.TaskFlow",
     "caluma_workflow.Flow",
+    "alexandria_core.Category",
 ]
 
 # List of models that have foreign keys referencing non-config tables
@@ -227,6 +228,7 @@ DUMP_DATA_APPS = [
     "applicants",
     "caluma_form",
     "caluma_workflow",
+    "alexandria_core",
 ]
 
 DUMP_DATA_EXCLUDED_MODELS = [

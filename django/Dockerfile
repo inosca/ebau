@@ -50,7 +50,7 @@ ENV UWSGI_INI /app/uwsgi.ini
 ENV DATABASE_PORT 5432
 
 ARG REQUIREMENTS=requirements.txt
-COPY requirements.txt requirements-dev.txt alexandria-0.3.0-py3-none-any.whl /app/
+COPY requirements.txt requirements-dev.txt caluma_alexandria-1.1.0-py3-none-any.whl /app/
 
 RUN pip install --no-cache-dir --upgrade -r $REQUIREMENTS  --disable-pip-version-check
 
