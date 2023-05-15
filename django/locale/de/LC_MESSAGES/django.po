@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-02 10:41+0200\n"
-"PO-Revision-Date: 2023-06-02 10:40+0200\n"
+"POT-Creation-Date: 2023-05-25 11:28+0200\n"
+"PO-Revision-Date: 2023-06-15 09:22+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
@@ -237,8 +237,8 @@ msgstr ""
 #: camac/dossier_import/loaders.py:300
 #, python-format
 msgid ""
-"Failed to load plot with numbers `%(plot_numbers)s` and egrid values `"
-"%(egrids)s`"
+"Failed to load plot with numbers `%(plot_numbers)s` and egrid values "
+"`%(egrids)s`"
 msgstr ""
 "Parzellendaten konnten nicht geladen werden. Nummer(n): `%(plot_numbers)s`. "
 "Egrid: `%(egrids)s`"
@@ -382,102 +382,110 @@ msgstr ""
 msgid "Inquiry sent"
 msgstr "Anforderung einer Stellungnahme"
 
-#: camac/ech0211/event_handlers.py:285 camac/instance/serializers.py:1467
+#: camac/ech0211/event_handlers.py:285
 msgid "SB1 submitted"
 msgstr "SB1 eingereicht"
 
-#: camac/ech0211/event_handlers.py:290 camac/instance/serializers.py:1786
+#: camac/ech0211/event_handlers.py:290
 msgid "SB2 submitted"
 msgstr "SB2 eingereicht"
 
-#: camac/instance/document_merge_service.py:79
+#: camac/instance/document_merge_service.py:83
 #: camac/instance/export/serializers.py:85
 #: camac/instance/export/serializers.py:172 camac/user/models.py:76
 #: camac/user/models.py:223 camac/user/models.py:568
 msgid "Address"
 msgstr "Adresse"
 
-#: camac/instance/document_merge_service.py:80
+#: camac/instance/document_merge_service.py:84
 msgid "Plots"
 msgstr "Parzelle(n)"
 
-#: camac/instance/document_merge_service.py:81
-#: camac/instance/export/serializers.py:93 camac/notification/serializers.py:59
+#: camac/instance/document_merge_service.py:85
+#: camac/instance/export/serializers.py:93
 msgid "Applicant"
 msgstr "Gesuchsteller/in"
 
-#: camac/instance/document_merge_service.py:82
+#: camac/instance/document_merge_service.py:86
+msgid "Landowner"
+msgstr "Grundeigentümer/in"
+
+#: camac/instance/document_merge_service.py:87
+msgid "Project Author"
+msgstr "Projektverfasser/in"
+
+#: camac/instance/document_merge_service.py:88
 msgid "Keywords"
 msgstr "Stichworte"
 
-#: camac/instance/document_merge_service.py:83
-#: camac/instance/export/serializers.py:94 camac/notification/serializers.py:69
+#: camac/instance/document_merge_service.py:89
+#: camac/instance/export/serializers.py:94
+#: camac/instance/placeholders/fields.py:86
 msgid "Municipality"
 msgstr "Gemeinde"
 
-#: camac/instance/document_merge_service.py:84
-#: camac/notification/serializers.py:68
+#: camac/instance/document_merge_service.py:90
 msgid "Authority"
 msgstr "Leitbehörde"
 
-#: camac/instance/document_merge_service.py:85
+#: camac/instance/document_merge_service.py:91
 #: camac/instance/export/serializers.py:36
 msgid "Responsible"
 msgstr "Zuständig"
 
-#: camac/instance/document_merge_service.py:86
+#: camac/instance/document_merge_service.py:92
 msgid "Input date"
 msgstr "Eingangsdatum"
 
-#: camac/instance/document_merge_service.py:88
+#: camac/instance/document_merge_service.py:94
 msgid "Modification"
 msgstr "Projektänderung"
 
-#: camac/instance/document_merge_service.py:115
-#: camac/instance/document_merge_service.py:590
+#: camac/instance/document_merge_service.py:123
+#: camac/instance/document_merge_service.py:655
 msgid "Signatures"
 msgstr "Unterschriften"
 
-#: camac/instance/document_merge_service.py:116
+#: camac/instance/document_merge_service.py:124
 msgid "Signature"
 msgstr "Unterschrift"
 
-#: camac/instance/document_merge_service.py:117
+#: camac/instance/document_merge_service.py:125
 msgid "Place and date"
 msgstr "Ort und Datum"
 
-#: camac/instance/document_merge_service.py:118
+#: camac/instance/document_merge_service.py:126
 #, python-format
 msgid "Generated %(date)s at %(time)s"
 msgstr "Generiert am %(date)s um %(time)s"
 
-#: camac/instance/document_merge_service.py:123
+#: camac/instance/document_merge_service.py:131
 #, python-format
 msgid "Modified %(date)s at %(time)s"
 msgstr "Zuletzt bearbeitet am %(date)s um %(time)s"
 
-#: camac/instance/document_merge_service.py:128
+#: camac/instance/document_merge_service.py:136
 #, python-format
 msgid "Created %(date)s at %(time)s"
 msgstr "Erstellt am %(date)s um %(time)s"
 
-#: camac/instance/document_merge_service.py:220
+#: camac/instance/document_merge_service.py:285
 #, python-format
 msgid "None or multiple caluma Documents found for instance: %(instance)s"
 msgstr ""
 "Keines oder mehrere Caluma Dokumente für das Dossier %(instance)s gefunden"
 
-#: camac/instance/document_merge_service.py:236
+#: camac/instance/document_merge_service.py:301
 #, python-format
 msgid "No template specified for form '%(form_slug)s'."
 msgstr "Keine Druckvorlage für das Caluma Formular %(form_slug)s spezifiziert."
 
-#: camac/instance/document_merge_service.py:251
+#: camac/instance/document_merge_service.py:316
 msgid "Draft"
 msgstr "Entwurf"
 
-#: camac/instance/document_merge_service.py:284
-#: camac/instance/tests/test_document_merge_service.py:300
+#: camac/instance/document_merge_service.py:349
+#: camac/instance/tests/test_document_merge_service.py:423
 #: camac/user/authentication.py:79
 msgid "Signature has expired."
 msgstr "Signatur ist abgelaufen."
