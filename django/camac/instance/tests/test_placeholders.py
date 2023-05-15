@@ -17,11 +17,7 @@ from camac.constants.kt_bern import (
     DECISION_TYPE_OVERALL_BUILDING_PERMIT,
     VORABKLAERUNG_DECISIONS_BEWILLIGT,
 )
-from camac.instance.placeholders.utils import (
-    get_full_person_data,
-    get_tel_and_email,
-    human_readable_date,
-)
+from camac.instance.placeholders.utils import get_tel_and_email, human_readable_date
 
 from .test_master_data import add_answer, add_table_answer, be_master_data_case  # noqa
 
@@ -439,23 +435,4 @@ def test_get_tel_and_email():
     assert (
         get_tel_and_email({"tel": "0311234567", "email": "foo@bar.com"})
         == "0311234567, foo@bar.com"
-    )
-
-
-def test_get_full_person_data():
-    person = {
-        "is_juristic_person": True,
-        "juristic_name": "Test AG",
-        "first_name": "Hans",
-        "last_name": "Test",
-        "street": "Teststrasse",
-        "street_number": 1,
-        "zip": 1234,
-        "town": "Testhausen",
-        "tel": "0311234567",
-        "email": "foo@bar.com",
-    }
-    assert (
-        get_full_person_data(person)
-        == "Test AG, Hans Test, Teststrasse 1, 1234 Testhausen, 0311234567, foo@bar.com"
     )

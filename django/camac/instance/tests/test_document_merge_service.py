@@ -293,6 +293,7 @@ def test_eingabebestaetigung_gr(
     snapshot,
     freezer,
     application_settings,
+    master_data_is_visible_mock,
 ):
     settings.APPLICATION_NAME = "kt_gr"
     application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_gr"]["MASTER_DATA"]
@@ -362,10 +363,10 @@ def test_eingabebestaetigung_gr(
         "personalien-projektverfasserin",
         [
             {
-                "vorname-gesuchstellerin": "Grund",
-                "name-gesuchstellerin": "Eigentümerin",
+                "vorname-gesuchstellerin": "Projekt",
+                "name-gesuchstellerin": "Verfasserin",
                 "juristische-person-gesuchstellerin": "juristische-person-gesuchstellerin-ja",
-                "name-juristische-person-gesuchstellerin": "Eigentümer AG",
+                "name-juristische-person-gesuchstellerin": "Projektverfasserin AG",
             }
         ],
     )
