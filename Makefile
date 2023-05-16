@@ -75,19 +75,6 @@ dumpconfig-dms: ## Dump the DMS configuration
 	fi
 
 
-.PHONY: loadconfig-alexandria
-loadconfig-alexandria: ## Load the Alexandria configuration
-	@if docker-compose config|grep -q alexandria; then \
-		docker-compose exec alexandria poetry run python manage.py loaddata /tmp/alexandria/dump.json; \
-	fi
-
-.PHONY: dumpconfig-alexandria
-dumpconfig-alexandria: ## Load the Alexandria configuration
-	@if docker-compose config|grep -q alexandria; then \
-		docker-compose exec -u root alexandria bash -c "poetry run python manage.py dumpdata alexandria_core.Category > /tmp/alexandria/dump.json" ; \
-		yarn prettier --loglevel silent --write "alexandria/${APPLICATION}/dump.json"; \
-	fi
-
 .PHONY: loadconfig-keycloak
 loadconfig-keycloak: ## Load the keycloak configuration
 	docker-compose exec keycloak /opt/keycloak/bin/kc.sh import --override true --file /opt/keycloak/data/import/test-config.json >/dev/null 2>&1 || true; \
@@ -98,7 +85,7 @@ dumpconfig-keycloak: ## Dump the keycloak configuration
 	yarn prettier --loglevel silent --write "keycloak/config/${APPLICATION}-test-config.json"; \
 
 .PHONY: loadconfig
-loadconfig: loadconfig-camac loadconfig-dms loadconfig-keycloak loadconfig-alexandria ## Load all configuration
+loadconfig: loadconfig-camac loadconfig-dms loadconfig-keycloak ## Load all configuration
 
 .PHONY: dbshell
 dbshell: ## Start a psql shell
