@@ -3,33 +3,15 @@
     "model": "user.user",
     "pk": 1,
     "fields": {
-      "username": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "password": "0f10da7320c3fad6c1bd4e597992fb83",
-      "name": "admin",
-      "surname": "admin",
-      "email": "",
+      "username": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "password": null,
+      "name": "Static",
+      "surname": "Administrator",
+      "email": "admin-camac@example.net",
       "phone": null,
       "disabled": 0,
       "language": "de",
-      "last_login": null,
-      "address": null,
-      "city": null,
-      "zip": null
-    }
-  },
-  {
-    "model": "user.user",
-    "pk": 2,
-    "fields": {
-      "username": "guest",
-      "password": "0f10da7320c3fad6c1bd4e597992fb83",
-      "name": "guest",
-      "surname": "person",
-      "email": "",
-      "phone": null,
-      "disabled": 0,
-      "language": "de",
-      "last_login": null,
+      "last_login": "2023-05-16T12:27:27.402Z",
       "address": null,
       "city": null,
       "zip": null
@@ -49,7 +31,7 @@
     "pk": 2,
     "fields": {
       "user": 1,
-      "group": 20096,
+      "group": 10000,
       "default_group": 0
     }
   },
@@ -63,12 +45,31 @@
     }
   },
   {
-    "model": "user.usergroup",
-    "pk": 4,
+    "model": "user.usergrouplog",
+    "pk": 1,
     "fields": {
-      "user": 1,
-      "group": 10000,
-      "default_group": 0
+      "modification_date": "2023-05-16T12:25:49Z",
+      "user_id": 1,
+      "action": "i",
+      "data": null,
+      "id1": 1,
+      "field1": "USER_ID",
+      "id2": 10000,
+      "field2": "GROUP_ID"
+    }
+  },
+  {
+    "model": "user.usergrouplog",
+    "pk": 2,
+    "fields": {
+      "modification_date": "2023-05-16T12:27:32Z",
+      "user_id": 1,
+      "action": "i",
+      "data": null,
+      "id1": 1,
+      "field1": "USER_ID",
+      "id2": 20003,
+      "field2": "GROUP_ID"
     }
   }
 ]
