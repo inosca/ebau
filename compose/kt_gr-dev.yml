@@ -133,30 +133,6 @@ services:
         "wait-for-it.sh db:5432 -- poetry run python manage.py migrate && poetry run uwsgi",
       ]
 
-  alexandria:
-    ports:
-      - "8000:8000"
-    depends_on:
-      - db
-      - minio
-    image: ghcr.io/projectcaluma/alexandria:0.3.0
-    environment:
-      - ENV=development
-      - DATABASE_PASSWORD=camac
-      - ALLOWED_HOSTS=*
-      - OIDC_OP_USER_ENDPOINT=http://ebau-keycloak.local/auth/realms/ebau/protocol/openid-connect/userinfo
-      - MINIO_STORAGE_ENDPOINT=ember-ebau.local
-      - MINIO_STORAGE_SECRET_KEY=minio123
-      - MINIO_STORAGE_SERVICE=minio
-      - MINIO_STORAGE_ACCESS_KEY=minio
-    #      - VISIBILITY_CLASSES=alexandria.extensions.extensions.visibilities.CustomVisibility
-    #      - PERMISSION_CLASSES=alexandria.extensions.permissions.CustomPermission
-    #      - VALIDATION_CLASSES=alexandria.extensions.validations.CustomValidation
-    volumes:
-      - ../alexandria/demo/dump.json:/tmp/alexandria/dump.json
-    networks:
-      - ebau.local
-
   minio:
     image: minio/minio:latest@sha256:7f84f4d07cf0d3562911c6b072e1183436fbc3cad8ccef8157ec5c27456ed452
     volumes:
