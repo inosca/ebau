@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-11 10:52+0200\n"
+"POT-Creation-Date: 2023-05-16 13:29+0200\n"
 "PO-Revision-Date: 2023-03-21 08:21+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -255,7 +255,7 @@ msgid ""
 "The import took more than %(timeout)i seconds to complete and timed out."
 msgstr ""
 
-#: camac/dossier_import/serializers.py:57 camac/instance/serializers.py:1834
+#: camac/dossier_import/serializers.py:57 camac/instance/serializers.py:1836
 msgid "No location assigned."
 msgstr ""
 
@@ -329,11 +329,11 @@ msgstr ""
 msgid "Inquiry sent"
 msgstr ""
 
-#: camac/ech0211/event_handlers.py:285 camac/instance/serializers.py:1461
+#: camac/ech0211/event_handlers.py:285 camac/instance/serializers.py:1463
 msgid "SB1 submitted"
 msgstr ""
 
-#: camac/ech0211/event_handlers.py:290 camac/instance/serializers.py:1780
+#: camac/ech0211/event_handlers.py:290 camac/instance/serializers.py:1782
 msgid "SB2 submitted"
 msgstr ""
 
@@ -381,7 +381,7 @@ msgid "Modification"
 msgstr "Modifica"
 
 #: camac/instance/document_merge_service.py:115
-#: camac/instance/document_merge_service.py:586
+#: camac/instance/document_merge_service.py:590
 msgid "Signatures"
 msgstr "Firme"
 
@@ -424,7 +424,7 @@ msgstr "Bozza"
 
 #: camac/instance/document_merge_service.py:284
 #: camac/instance/tests/test_document_merge_service.py:299
-#: camac/user/authentication.py:78
+#: camac/user/authentication.py:79
 msgid "Signature has expired."
 msgstr ""
 
@@ -528,12 +528,12 @@ msgstr ""
 msgid "Form may not be changed."
 msgstr ""
 
-#: camac/instance/serializers.py:405 camac/instance/serializers.py:1533
+#: camac/instance/serializers.py:405 camac/instance/serializers.py:1535
 #, python-format
 msgid "'%(form)s' is not a valid form type"
 msgstr ""
 
-#: camac/instance/serializers.py:415 camac/instance/serializers.py:1527
+#: camac/instance/serializers.py:415 camac/instance/serializers.py:1529
 #, python-format
 msgid "The current form '%(form)s' can't be changed"
 msgstr ""
@@ -576,65 +576,65 @@ msgstr ""
 msgid "Dossier completed by resubmission"
 msgstr ""
 
-#: camac/instance/serializers.py:1403
+#: camac/instance/serializers.py:1404
 msgid "Dossier submitted"
 msgstr ""
 
-#: camac/instance/serializers.py:1500
+#: camac/instance/serializers.py:1502
 msgid "Archived"
 msgstr "Archiviato"
 
-#: camac/instance/serializers.py:1549
+#: camac/instance/serializers.py:1551
 msgid "Changed form type"
 msgstr ""
 
-#: camac/instance/serializers.py:1579
+#: camac/instance/serializers.py:1581
 msgid "Invalid format"
 msgstr ""
 
-#: camac/instance/serializers.py:1586
+#: camac/instance/serializers.py:1588
 msgid "This eBau number doesn't exist"
 msgstr ""
 
-#: camac/instance/serializers.py:1590
+#: camac/instance/serializers.py:1592
 msgid "This eBau number is already in use by a different municipality"
 msgstr ""
 
-#: camac/instance/serializers.py:1639
+#: camac/instance/serializers.py:1641
 #, python-format
 msgid "%(value)s is not a valid service type - valid types are: %(expected)s"
 msgstr ""
 
-#: camac/instance/serializers.py:1653
+#: camac/instance/serializers.py:1655
 msgid "Invalid audit"
 msgstr ""
 
-#: camac/instance/serializers.py:1693
+#: camac/instance/serializers.py:1695
 #, python-format
 msgid "Changed responsible service to: %(service)s"
 msgstr ""
 
-#: camac/instance/serializers.py:1715
+#: camac/instance/serializers.py:1717
 #, python-format
 msgid "Responsible service did not change for instance %(instance_id)s"
 msgstr ""
 
-#: camac/instance/serializers.py:1808
+#: camac/instance/serializers.py:1810
 #, python-format
 msgid "User %(user)s does not belong to service %(service)s."
 msgstr ""
 
-#: camac/instance/serializers.py:1856
+#: camac/instance/serializers.py:1858
 #, python-format
 msgid "No group found for location %(name)s."
 msgstr ""
 
-#: camac/instance/serializers.py:1888
+#: camac/instance/serializers.py:1890
 #, python-format
 msgid "invalid question %(question)s."
 msgstr ""
 
-#: camac/instance/serializers.py:1895
+#: camac/instance/serializers.py:1897
 #, python-format
 msgid "%(permission)s is not allowed to edit question %(question)s."
 msgstr ""
@@ -717,27 +717,27 @@ msgstr ""
 msgid "Controlling service of work item"
 msgstr ""
 
-#: camac/notification/serializers.py:455
+#: camac/notification/serializers.py:458
 #, python-format
 msgid "%(pending)d of %(total)d inquries are still pending."
 msgstr ""
 
-#: camac/notification/serializers.py:458
+#: camac/notification/serializers.py:461
 #, python-format
 msgid "All %(total)d inquries were received."
 msgstr ""
 
-#: camac/notification/serializers.py:1320
+#: camac/notification/serializers.py:1360
 msgid "Unknown recipient type"
 msgstr ""
 
-#: camac/notification/serializers.py:1421
+#: camac/notification/serializers.py:1461
 #, python-format
 msgid ""
 "Notification sent to %(receiver_emails)s (%(receiver_type)s) (%(subject)s)"
 msgstr ""
 
-#: camac/notification/serializers.py:1425
+#: camac/notification/serializers.py:1465
 #, python-format
 msgid "Notification sent to %(receiver_type)s (no receivers) (%(subject)s)"
 msgstr ""
@@ -754,27 +754,27 @@ msgstr ""
 msgid "Objection %(objection) already has a representative"
 msgstr ""
 
-#: camac/settings.py:1400
+#: camac/settings.py:1402
 msgid "Circulation started"
 msgstr ""
 
-#: camac/settings.py:1417
+#: camac/settings.py:1419
 msgid "Procedure completed"
 msgstr ""
 
-#: camac/settings.py:3670
+#: camac/settings.py:3680
 msgid "German"
 msgstr ""
 
-#: camac/settings.py:3671
+#: camac/settings.py:3681
 msgid "French"
 msgstr ""
 
-#: camac/settings.py:3672
+#: camac/settings.py:3682
 msgid "Italian"
 msgstr ""
 
-#: camac/settings.py:3673
+#: camac/settings.py:3683
 msgid "Romansh"
 msgstr ""
 
@@ -795,11 +795,11 @@ msgid "Back to CAMAC admin"
 msgstr ""
 
 #: camac/templates/admin/login.html:12
-msgid "Page not found"
+msgid "Access denied"
 msgstr ""
 
 #: camac/templates/admin/login.html:13
-msgid "We’re sorry, but the requested page could not be found."
+msgid "Sorry, but it seems that you don’t have access to this page."
 msgstr ""
 
 #: camac/user/admin/filters.py:6
@@ -884,19 +884,19 @@ msgid ""
 "Invalid Authorization header. Credentials string should not contain spaces."
 msgstr ""
 
-#: camac/user/authentication.py:80
+#: camac/user/authentication.py:81
 msgid "Invalid token."
 msgstr ""
 
-#: camac/user/authentication.py:86
+#: camac/user/authentication.py:87
 msgid "User session not found or doesn't have client attached on it"
 msgstr ""
 
-#: camac/user/authentication.py:92
+#: camac/user/authentication.py:93
 msgid "Error while fetching userinfo"
 msgstr ""
 
-#: camac/user/authentication.py:176
+#: camac/user/authentication.py:177
 msgid "User is deactivated."
 msgstr ""
 
