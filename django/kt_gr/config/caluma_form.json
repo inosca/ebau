@@ -3379,7 +3379,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "ausbildungsnachweis",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -3394,7 +3394,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "bodenkundliches-fachgutachten",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -3409,7 +3409,22 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "gesuch-feuerpolizeiliche-bewilligung",
-      "sort": 8
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente.hinweistext-dokumente",
+    "fields": {
+      "created_at": "2023-05-17T08:14:52.022Z",
+      "modified_at": "2023-05-17T08:14:52.022Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente",
+      "question": "hinweistext-dokumente",
+      "sort": 10
     }
   },
   {
@@ -3424,7 +3439,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "messbericht",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -3439,7 +3454,22 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "resultate-der-geforderten-bodenuntersuchung",
-      "sort": 5
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente.rodungsgesuchsformular",
+    "fields": {
+      "created_at": "2023-05-17T07:30:45.105Z",
+      "modified_at": "2023-05-17T07:30:45.105Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente",
+      "question": "rodungsgesuchsformular",
+      "sort": 1
     }
   },
   {
@@ -3454,7 +3484,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "zusatzbewilligung-kantonsstrassen",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -3469,7 +3499,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "zusatzbewilligung-kantonsstrassen-belasteter-standort",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -3484,7 +3514,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "zusatzbewilligung-naturgefahren",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -5794,7 +5824,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "ausserhalb-bauzone",
-      "sort": 14
+      "sort": 19
     }
   },
   {
@@ -5889,6 +5919,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "nutzung-bauvorhaben.forstliche-baute",
+    "fields": {
+      "created_at": "2023-05-17T07:25:39.721Z",
+      "modified_at": "2023-05-17T07:25:39.721Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "nutzung-bauvorhaben",
+      "question": "forstliche-baute",
+      "sort": 14
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "nutzung-bauvorhaben.haustechnische-anlagen-brandschutz",
     "fields": {
       "created_at": "2023-04-12T08:12:58.062Z",
@@ -5900,6 +5945,36 @@
       "form": "nutzung-bauvorhaben",
       "question": "haustechnische-anlagen-brandschutz",
       "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "nutzung-bauvorhaben.hinweis-hindernisfreies-bauen",
+    "fields": {
+      "created_at": "2023-05-17T07:14:04.672Z",
+      "modified_at": "2023-05-17T07:14:04.672Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "nutzung-bauvorhaben",
+      "question": "hinweis-hindernisfreies-bauen",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "nutzung-bauvorhaben.hinweis-waldabstandsbereich",
+    "fields": {
+      "created_at": "2023-05-17T07:41:57.851Z",
+      "modified_at": "2023-05-17T07:41:57.851Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "nutzung-bauvorhaben",
+      "question": "hinweis-waldabstandsbereich",
+      "sort": 17
     }
   },
   {
@@ -5959,7 +6034,37 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "mehr-als-vier-wohneinheiten",
-      "sort": 11
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "nutzung-bauvorhaben.nichtforstliche-kleinbaute",
+    "fields": {
+      "created_at": "2023-05-17T07:25:11.840Z",
+      "modified_at": "2023-05-17T07:25:11.840Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "nutzung-bauvorhaben",
+      "question": "nichtforstliche-kleinbaute",
+      "sort": 15
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "nutzung-bauvorhaben.rodung",
+    "fields": {
+      "created_at": "2023-05-17T07:24:39.845Z",
+      "modified_at": "2023-05-17T07:24:39.845Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "nutzung-bauvorhaben",
+      "question": "rodung",
+      "sort": 16
     }
   },
   {
@@ -5974,7 +6079,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "waldareal",
-      "sort": 13
+      "sort": 18
     }
   },
   {
@@ -5989,7 +6094,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "wohnnutzung",
-      "sort": 12
+      "sort": 13
     }
   },
   {
@@ -14784,6 +14889,38 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "forstliche-baute-ja",
+    "fields": {
+      "created_at": "2023-05-17T07:25:39.425Z",
+      "modified_at": "2023-05-17T07:25:39.425Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "forstliche-baute-nein",
+    "fields": {
+      "created_at": "2023-05-17T07:25:39.430Z",
+      "modified_at": "2023-05-17T07:25:39.430Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "gebaeudeart-spital-oder-heim",
     "fields": {
       "created_at": "2023-04-18T19:01:02.942Z",
@@ -16688,6 +16825,38 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "nichtforstliche-kleinbaute-ja",
+    "fields": {
+      "created_at": "2023-05-17T07:25:11.553Z",
+      "modified_at": "2023-05-17T07:25:11.553Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "nichtforstliche-kleinbaute-nein",
+    "fields": {
+      "created_at": "2023-05-17T07:25:11.552Z",
+      "modified_at": "2023-05-17T07:25:11.552Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "nutzungszweck-der-gewerblichen-baute-andere",
     "fields": {
       "created_at": "2023-04-14T08:54:32.450Z",
@@ -17353,6 +17522,54 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Resultate der geforderten Bodenuntersuchung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rodung-ja",
+    "fields": {
+      "created_at": "2023-05-17T07:24:39.555Z",
+      "modified_at": "2023-05-17T07:24:39.555Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rodung-nein",
+    "fields": {
+      "created_at": "2023-05-17T07:24:39.558Z",
+      "modified_at": "2023-05-17T07:24:39.558Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rodungsgesuchsformular-ja",
+    "fields": {
+      "created_at": "2023-05-17T07:30:44.853Z",
+      "modified_at": "2023-05-17T07:30:44.853Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Rodungsgesuchsformular BAFU\", \"fr\": null, \"it\": null, \"rm\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -18867,12 +19084,12 @@
     "pk": "waldareal-ja",
     "fields": {
       "created_at": "2023-04-12T07:58:42.169Z",
-      "modified_at": "2023-04-12T07:58:42.169Z",
+      "modified_at": "2023-05-17T07:36:39.699Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Ja, im Waldareal\", \"fr\": null, \"it\": null, \"rm\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -18889,6 +19106,22 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "waldareal-waldabstandsbereich",
+    "fields": {
+      "created_at": "2023-05-17T07:36:39.708Z",
+      "modified_at": "2023-05-17T07:36:39.708Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja, im Waldabstandsbereich von 10m\", \"fr\": null, \"it\": null, \"rm\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -23227,10 +23460,10 @@
     "pk": "bauten-und-anlagen-ausserhalb-bauzone-titel",
     "fields": {
       "created_at": "2023-04-20T08:26:43.291Z",
-      "modified_at": "2023-04-20T08:26:43.291Z",
+      "modified_at": "2023-05-17T08:21:01.281Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Bauten und Anlagen ausserhalb Bauzone Titel\", \"fr\": null, \"it\": null, \"rm\": null}",
       "type": "static",
@@ -23238,7 +23471,7 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"Eine Arbeitshilfe f\\u00fcr die Erarbeitung und Beurteilung von Baugesuchen ausserhalb der Bauzone finden Sie [hier](https://www.gr.ch/DE/institutionen/verwaltung/dvs/are/BAB/Bauten%20und%20Anlagen%20ausserhalb%20der%20Bauzonen_web_de.pdf).\", \"fr\": null, \"it\": null, \"rm\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"### Bauten und Anlagen ausserhalb der Bauzone (BAB)\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {},
@@ -28561,6 +28794,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "forstliche-baute",
+    "fields": {
+      "created_at": "2023-05-17T07:25:39.580Z",
+      "modified_at": "2023-05-17T07:28:53.368Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Handelt es sich um eine forstliche Baute oder Anlage?\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "!(\"waldareal-ja\" == \"waldareal\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"Forstliche Kleinbauten und Kleinanlagen sind namentlich Begehungswege, kleine Einrichtungen f\\u00fcr die Waldschulung und Wald\\u00f6kologie, R\\u00fcckewege, Wildschutzz\\u00e4une, Verbauungen aus Holz und Stein sowie Holzlagerpl\\u00e4tze.\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "fuellmenge",
     "fields": {
       "created_at": "2023-04-20T11:48:16.817Z",
@@ -29819,10 +30083,10 @@
     "pk": "guellelager-titel",
     "fields": {
       "created_at": "2023-04-12T12:44:13.812Z",
-      "modified_at": "2023-04-12T12:44:13.812Z",
+      "modified_at": "2023-05-17T08:36:15.141Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"G\\u00fcllelager Titel\", \"fr\": null, \"it\": null, \"rm\": null}",
       "type": "static",
@@ -29830,7 +30094,7 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"Bez\\u00fcglich G\\u00fcllegruben sind folgende Angaben bekannt zu geben:\\n- Wo befinden sich die bestehenden G\\u00fcllelagerr\\u00e4ume?\\n- Wo wird ein neues G\\u00fcllelager erstellt?\\n\\nBeim Einbau eines vorproduzierten G\\u00fclletanks muss dem Baugesuch\\neine detaillierte Produktespezifikation beigelegt werden. Daraus muss\\nersichtlich sein, dass der Tank f\\u00fcr die Lagerung von G\\u00fclle geeignet ist (Garantie des Herstellers).\", \"fr\": null, \"it\": null, \"rm\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"---\\n### G\\u00fcllelager\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {},
@@ -30494,6 +30758,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "hinweis-hindernisfreies-bauen",
+    "fields": {
+      "created_at": "2023-05-17T07:14:04.534Z",
+      "modified_at": "2023-05-17T07:15:01.785Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis Hindernisfreies Bauen\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "!(\"mehr-als-vier-wohneinheiten-ja\" == \"mehr-als-vier-wohneinheiten\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"Art. 80 KRG definiert den Geltungsbereich und die Anforderungen an das\\nbehindertengerechte Bauen. Die fachliche Beurteilung nach SIA 500 erfolgt durch die Pro Infirmis.\\n\\nZur Beurteilung des Bauvorhabens werden folgende Unterlagen ben\\u00f6tigt:\\n\\n- Umgebungsplan mit Geb\\u00e4udezugang und Aussenparkpl\\u00e4tzen (Mst. 1:200 / 500)\\n- Grundrisse aller Geschosse / Schnitte / Fassaden (Mst. 1:100 / 200)\\n- bei komplexen Baugesuchen ist ein Konzept (stufenlose Erschliessung / Toiletten / Parkpl\\u00e4tze) zum hindernisfreien Bauen einzureichen\\n\\nWird die Umsetzung von behindertengerechten Massnahmen von der\\nBauherrschaft als unverh\\u00e4ltnism\\u00e4ssig beurteilt (> 20 % der Bausumme),\\nhat sie dies mit einem detaillierten Nachweis im Baubewilligungsverfahren zu belegen.\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"Es sind die Empfehlungen der SIA 500 zu ber\\u00fccksichtigen.\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "hinweis-lufthygienisch-relevante-stoffe",
     "fields": {
       "created_at": "2023-04-24T13:01:54.475Z",
@@ -30511,6 +30806,68 @@
       "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"F\\u00fcr die Stoffbilanz dieser Anlage ben\\u00f6tigen wir die Angabe von allen im Bereich dieser Anlage eingesetzten lufthygienisch relevanten Stoffen\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "hinweis-waldabstandsbereich",
+    "fields": {
+      "created_at": "2023-05-17T07:41:57.726Z",
+      "modified_at": "2023-05-17T07:44:55.530Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis Waldabstandsbereich\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "!(\"waldareal-waldabstandsbereich\" == \"waldareal\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"Es ist fr\\u00fchzeitig Kontakt mit der zust\\u00e4ndigen Waldregion des Amtes\\nf\\u00fcr Wald und Naturgefahren aufzunehmen. Siehe [Auskunftspersonen Amt f\\u00fcr Wald und Naturgefahren](https://www.gr.ch/DE/institutionen/verwaltung/diem/awn/ueberuns/ansprechpartner/Seiten/1_1_Auskunftspersonen.aspx).\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "hinweistext-dokumente",
+    "fields": {
+      "created_at": "2023-05-17T08:14:51.899Z",
+      "modified_at": "2023-05-17T08:17:52.016Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweistext Dokumente\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"Hiermit best\\u00e4tige ich, dass ich die folgenden Pflichtinhalte hochgeladen habe. Bitte beachten Sie, dass die Liste der angegebenen Pflichtdokumente nicht abschliessend ist. Bitte konsultieren Sie das kommunale Baugesetz.\\n\\nHinweise f\\u00fcr eine gute Plandarstellung finden Sie in der [Zeichenhilfe f\\u00fcr Baugesuche](https://www.gr.ch/DE/institutionen/verwaltung/dvs/are/BAB/Zeichenhilfe%20Baugesuche_web.pdf).\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -33919,10 +34276,10 @@
     "pk": "mistlager-titel",
     "fields": {
       "created_at": "2023-04-12T12:27:24.917Z",
-      "modified_at": "2023-04-12T12:27:24.917Z",
+      "modified_at": "2023-05-17T08:35:14.285Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Mistlager Titel\", \"fr\": null, \"it\": null, \"rm\": null}",
       "type": "static",
@@ -33930,7 +34287,7 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"Es ist eine Skizze resp. ein \\u00dcbersichtsplan des geplanten Bauvorhabens beizulegen. Genaue Bemassung, Darstellung der Entw\\u00e4sserung, Abschluss der offenen Mistlagerseite, Fliessrichtung der G\\u00fclle / des Mistwassers, Standort und Gr\\u00f6sse der G\\u00fcllegrube / Sammelgrube, etc. m\\u00fcssen ersichtlich sein.\\n\\nBei Mistplatten sind folgende Angaben bekannt zu geben:\\n- Auf welchen Seiten werden Umrandungen erstellt?\\n- Wie hoch sind die Umrandungen?\\n- Was f\\u00fcr Bodenbel\\u00e4ge befinden sich in den verschiedenen Stall- und Auslaufbereichen?\\n- Wo befindet sich ein Schacht, eine Rinne oder Spaltenboden?\\n- Abschluss der Mistplatte (Bedienungsseite) detailliert einzeichnen.\\n- In welche Richtung fliesst Mistwasser / G\\u00fclle? Bitte mit Pfeilen einzeichnen.\\n- Foto des bestehenden Mistlagers beilegen.\", \"fr\": null, \"it\": null, \"rm\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"---\\n#### Mistlager\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {},
@@ -34386,6 +34743,37 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "nichtforstliche-kleinbaute",
+    "fields": {
+      "created_at": "2023-05-17T07:25:11.703Z",
+      "modified_at": "2023-05-17T07:27:36.979Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Handelt es sich um eine nichtforstliche Kleinbaute oder \\u2013anlage?\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "!(\"waldareal-ja\" == \"waldareal\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"Nichtforstliche Kleinbauten und Kleinanlagen sind insbesondere Anbauten, Masten, Feuerstellen, Sport- und Lehrpfade, erdverlegte Leitungen, Passh\\u00fctten, Bienenh\\u00e4user, Niederhaltungen bei oberirdischen Leitungen sowie entlang von Strassen und Bahnen, Wildbachsperren und Geschiebesammler.\", \"fr\": null, \"it\": null, \"rm\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {},
@@ -35736,6 +36124,70 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "rodung",
+    "fields": {
+      "created_at": "2023-05-17T07:24:39.706Z",
+      "modified_at": "2023-05-17T07:28:07.113Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Handelt es sich um eine Rodung (Zweckentfremdung von Waldboden)?\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "!(\"waldareal-ja\" == \"waldareal\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"Eine Rodung ist eine dauernde oder vor\\u00fcbergehende Zweckentfremdung von Waldareal f\\u00fcr nichtforstliche Zwecke. Die gerodete Fl\\u00e4che ist nicht mehr Wald im Sinne des Waldgesetzes. Im Gegensatz zum Kahlschlag wird das Aufkommen der Waldb\\u00e4ume dauernd (definitiv) bzw. w\\u00e4hrend einer gewissen Zeit (tempor\\u00e4r) verhindert. Rodungen sind verboten, k\\u00f6nnen aber, wenn wichtige Gr\\u00fcnde vorliegen, ausnahmsweise bewilligt werden (Artikel 5 Waldgesetz WaG).\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "rodungsgesuchsformular",
+    "fields": {
+      "created_at": "2023-05-17T07:30:44.973Z",
+      "modified_at": "2023-05-17T07:33:13.518Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Rodungsgesuchsformular BAFU\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "!(\"rodung-ja\" == \"rodung\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"[Rodungen und Rodungsgesuch](https://www.bafu.admin.ch/bafu/de/home/themen/wald/fachinformationen/strategien-und-massnahmen-des-bundes/rodungen-und-rodungsgesuch.html)\", \"fr\": null, \"it\": null, \"rm\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {},
@@ -39122,19 +39574,19 @@
     "pk": "waldareal",
     "fields": {
       "created_at": "2023-04-12T07:58:42.402Z",
-      "modified_at": "2023-04-12T07:58:42.402Z",
+      "modified_at": "2023-05-17T07:42:10.952Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Waldareal\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Waldareal oder im Waldabstandsbereich\", \"fr\": null, \"it\": null, \"rm\": null}",
       "type": "choice",
       "is_required": "false",
-      "is_hidden": "!(\"ausserhalb-bauzone-ja\" == \"ausserhalb-bauzone\"|answer)",
+      "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -44295,6 +44747,36 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "forstliche-baute.forstliche-baute-ja",
+    "fields": {
+      "created_at": "2023-05-17T07:28:53.380Z",
+      "modified_at": "2023-05-17T07:28:53.380Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "forstliche-baute",
+      "option": "forstliche-baute-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "forstliche-baute.forstliche-baute-nein",
+    "fields": {
+      "created_at": "2023-05-17T07:28:53.376Z",
+      "modified_at": "2023-05-17T07:28:53.376Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "forstliche-baute",
+      "option": "forstliche-baute-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "gebaeudeart.gebaeudeart-spital-oder-heim",
     "fields": {
       "created_at": "2023-04-18T19:01:03.089Z",
@@ -46080,6 +46562,36 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "nichtforstliche-kleinbaute.nichtforstliche-kleinbaute-ja",
+    "fields": {
+      "created_at": "2023-05-17T07:27:36.991Z",
+      "modified_at": "2023-05-17T07:27:36.991Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "nichtforstliche-kleinbaute",
+      "option": "nichtforstliche-kleinbaute-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "nichtforstliche-kleinbaute.nichtforstliche-kleinbaute-nein",
+    "fields": {
+      "created_at": "2023-05-17T07:27:36.987Z",
+      "modified_at": "2023-05-17T07:27:36.987Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "nichtforstliche-kleinbaute",
+      "option": "nichtforstliche-kleinbaute-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "nutzungszweck-der-gewerblichen-baute.nutzungszweck-der-gewerblichen-baute-andere",
     "fields": {
       "created_at": "2023-04-14T08:54:57.494Z",
@@ -46705,6 +47217,51 @@
       "modified_by_group": null,
       "question": "resultate-der-geforderten-bodenuntersuchung",
       "option": "resultate-der-geforderten-bodenuntersuchung-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rodung.rodung-ja",
+    "fields": {
+      "created_at": "2023-05-17T07:28:07.124Z",
+      "modified_at": "2023-05-17T07:28:07.124Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rodung",
+      "option": "rodung-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rodung.rodung-nein",
+    "fields": {
+      "created_at": "2023-05-17T07:28:07.121Z",
+      "modified_at": "2023-05-17T07:28:07.121Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rodung",
+      "option": "rodung-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rodungsgesuchsformular.rodungsgesuchsformular-ja",
+    "fields": {
+      "created_at": "2023-05-17T07:33:13.525Z",
+      "modified_at": "2023-05-17T07:33:13.525Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rodungsgesuchsformular",
+      "option": "rodungsgesuchsformular-ja",
       "sort": 1
     }
   },
@@ -48152,29 +48709,44 @@
     "model": "caluma_form.questionoption",
     "pk": "waldareal.waldareal-ja",
     "fields": {
-      "created_at": "2023-04-12T07:58:42.410Z",
-      "modified_at": "2023-04-12T07:58:42.410Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_at": "2023-05-17T07:42:10.971Z",
+      "modified_at": "2023-05-17T07:42:10.971Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "waldareal",
       "option": "waldareal-ja",
-      "sort": 2
+      "sort": 3
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "waldareal.waldareal-nein",
     "fields": {
-      "created_at": "2023-04-12T07:58:42.407Z",
-      "modified_at": "2023-04-12T07:58:42.407Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_at": "2023-05-17T07:42:10.966Z",
+      "modified_at": "2023-05-17T07:42:10.966Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "waldareal",
       "option": "waldareal-nein",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "waldareal.waldareal-waldabstandsbereich",
+    "fields": {
+      "created_at": "2023-05-17T07:42:10.962Z",
+      "modified_at": "2023-05-17T07:42:10.962Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "waldareal",
+      "option": "waldareal-waldabstandsbereich",
       "sort": 1
     }
   },
