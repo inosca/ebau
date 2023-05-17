@@ -1,20 +1,35 @@
 import json
-import os.path
 
 from django.conf import settings
+from django.db import transaction
 from django.db.models import Exists, OuterRef
 from django.utils import timezone
 from django.utils.translation import gettext
-from rest_framework import status
+from rest_framework import response, status
 from rest_framework.decorators import action
 from rest_framework.exceptions import ValidationError
 from rest_framework.permissions import IsAuthenticated
 from rest_framework_json_api.views import ModelViewSet
 
 from camac.core.views import HttpResponse, SendfileHttpResponse
+from camac.document import models as document_models
 from camac.instance.mixins import InstanceQuerysetMixin
 
 from . import events, filters, models, serializers
+
+
+class HasConvertAttachmentPermission(IsAuthenticated):
+    """Check if user has permission to convert a given attachment to a document."""
+
+    def has_object_permission(
+        self, request, view, object: models.CommunicationsAttachment
+    ):
+        my_entity = models.entity_for_current_user(request)
+        if my_entity == "APPLICANT":
+            return False
+
+        involved_entities = object.message.topic.involved_entities
+        return my_entity in involved_entities
 
 
 class InvolvedInTopicQuerysetMixin:
@@ -134,6 +149,47 @@ class AttachmentView(InvolvedInTopicQuerysetMixin, InstanceQuerysetMixin, ModelV
         qs = qs.filter(message__topic__involved_entities__contains=[my_entity])
         return qs
 
+    @action(
+        methods=["patch"],
+        detail=True,
+        serializer_class=serializers.ConvertToDocumentSerializer,
+        permission_classes=[HasConvertAttachmentPermission, IsAuthenticated],
+    )
+    @transaction.atomic
+    def convert_to_document(self, request, pk):
+        obj = self.get_object()
+
+        input_serializer = self.get_serializer(data=self.request.data)
+        input_serializer.is_valid(raise_exception=True)
+
+        section_id = input_serializer.data["section"]["id"]
+
+        if obj.document_attachment_id:  # pragma: no cover
+            raise ValidationError(
+                "This attachment is already a document module attachment"
+            )
+        doc_attachment = document_models.Attachment.objects.create(
+            name=obj.file_attachment.name,
+            instance=obj.message.topic.instance,
+            user=self.request.user,
+            # service=...
+            group=self.request.group,
+            context={"copied-from-communications-attachment": str(obj.pk)},
+            size=obj.file_attachment.size,
+            date=timezone.localtime(),
+            mime_type=obj.file_type,
+        )
+        doc_attachment.path.save(obj.filename, obj.file_attachment)
+        doc_attachment.save()
+        doc_attachment.attachment_sections.add(section_id)
+        obj.document_attachment = doc_attachment
+        obj.file_attachment = None
+        obj.save()
+
+        output_serializer = serializers.CommunicationsAttachmentSerializer(instance=obj)
+
+        return response.Response(data=output_serializer.data)
+
     @action(methods=["get"], detail=True)
     def download(self, request, pk):
         obj = self.get_object()
@@ -147,14 +203,14 @@ class AttachmentView(InvolvedInTopicQuerysetMixin, InstanceQuerysetMixin, ModelV
 
             return SendfileHttpResponse(
                 content_type=attachment.mime_type,
-                filename=attachment.name,
+                filename=obj.filename,
                 base_path=settings.MEDIA_ROOT,
                 file_path=f"/{attachment.path}",
             )
         elif obj.file_attachment.name:
             return SendfileHttpResponse(
                 content_type=obj.file_type,
-                filename=os.path.basename(obj.file_attachment.name),
+                filename=obj.filename,
                 base_path=settings.MEDIA_ROOT,
                 file_path=f"/{obj.file_attachment}",
             )

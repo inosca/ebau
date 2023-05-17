@@ -8,6 +8,7 @@ from django.utils.translation import gettext
 from rest_framework.exceptions import ValidationError
 from rest_framework_json_api import serializers
 
+from camac.document import models as document_models
 from camac.instance.models import Instance
 from camac.instance.views import InstanceView
 from camac.user import models as user_models
@@ -421,3 +422,14 @@ class CommunicationsAttachmentSerializer(serializers.ModelSerializer):
             "filename",
         ]
         read_only_fields = ["download_url", "content_type", "filename"]
+
+
+class ConvertToDocumentSerializer(serializers.ModelSerializer):
+    section = serializers.ResourceRelatedField(
+        required=True,
+        queryset=document_models.AttachmentSection.objects,
+    )
+
+    class Meta:
+        model = models.CommunicationsAttachment
+        fields = ["section"]

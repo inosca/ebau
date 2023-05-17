@@ -37,6 +37,7 @@ class CommunicationsMessageFactory(DjangoModelFactory):
 class CommunicationsAttachmentFactory(DjangoModelFactory):
     message = SubFactory(CommunicationsMessageFactory)
     file_attachment = FileField()
+    file_type = Faker("mime_type")
     document_attachment = SubFactory(document_factories.AttachmentFactory)
 
     class Meta:

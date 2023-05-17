@@ -124,4 +124,4 @@ class CommunicationsAttachment(models.Model):
     def filename(self):
         if self.file_attachment:
             return os.path.basename(self.file_attachment.name)
-        return self.document_attachment.name
+        return os.path.basename(self.document_attachment.name)
