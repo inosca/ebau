@@ -1,3 +1,5 @@
+import io
+
 import pytest
 from django.urls import reverse
 from django.utils.translation import gettext
@@ -331,3 +333,101 @@ def test_validate_topic_entities_for_applicant(
         ]
 
         assert returned_entities == expect_entities
+
+
+@pytest.mark.parametrize("communications_attachment__document_attachment", [None])
+@pytest.mark.parametrize("communications_attachment__file_type", ["text/plain"])
+@pytest.mark.parametrize(
+    "role__name, expect_result",
+    [("Municipality", status.HTTP_200_OK), ("Applicant", status.HTTP_403_FORBIDDEN)],
+)
+def test_convert_attachment_to_document(
+    db,
+    be_instance,
+    role,
+    expect_result,
+    admin_client,
+    communications_message,
+    communications_attachment,
+    attachment_section,
+):
+    communications_message.topic.involved_entities = [
+        admin_client.user.get_default_group().service_id,
+        "APPLICANT",
+    ]
+    communications_message.topic.save()
+
+    if role.name == "Applicant":
+        be_instance.involved_applicants.create(
+            invitee=admin_client.user, user=admin_client.user
+        )
+        default_group = admin_client.user.get_default_group()
+        default_group.service = None
+        default_group.save()
+
+    communications_attachment.file_attachment.save("foo.txt", io.BytesIO(b"asdfasdf"))
+    communications_attachment.save()
+
+    url = reverse(
+        "communications-attachment-convert-to-document",
+        args=[communications_attachment.pk],
+    )
+
+    resp = admin_client.patch(
+        url,
+        {
+            "data": {
+                "type": "communications-attachments",
+                "id": communications_attachment.pk,
+                "attributes": {},
+                "relationships": {
+                    "section": {
+                        "data": {
+                            "id": str(attachment_section.pk),
+                            "type": "attachment-sections",
+                        }
+                    },
+                },
+            }
+        },
+    )
+
+    assert resp.status_code == expect_result
+
+    communications_attachment.refresh_from_db()
+
+    if expect_result == status.HTTP_403_FORBIDDEN:
+        # no change should have happened
+        assert not communications_attachment.document_attachment
+        assert communications_attachment.file_attachment
+        return
+
+    assert communications_attachment.document_attachment
+    assert not communications_attachment.file_attachment
+
+    assert resp.json() == {
+        "data": {
+            "type": "communications-attachments",
+            "id": str(communications_attachment.pk),
+            "attributes": {
+                "content-type": "text/plain",
+                "download-url": f"/api/v1/communications-attachments/{communications_attachment.pk}/download",
+                "file-attachment": None,
+                "filename": "foo.txt",
+            },
+            "relationships": {
+                "message": {
+                    "data": {
+                        "id": str(communications_attachment.message_id),
+                        "type": "communications-messages",
+                    }
+                },
+                "document-attachment": {
+                    "data": {
+                        "id": str(communications_attachment.document_attachment_id),
+                        "type": "attachments",
+                    }
+                },
+            },
+        },
+    }
