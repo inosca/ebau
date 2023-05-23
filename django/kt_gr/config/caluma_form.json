@@ -30488,7 +30488,7 @@
       "configuration": {},
       "meta": {
         "widgetOverride": "alexandria-documents-form",
-        "alexandria-category": 1
+        "alexandria-category": "1"
       },
       "data_source": null,
       "row_form": null,
