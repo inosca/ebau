@@ -4,4 +4,5 @@ import { Factory } from "miragejs";
 export default Factory.extend({
   name: () => faker.name.firstName(),
   surname: () => faker.name.lastName(),
+  email: () => faker.internet.email(),
 });

@@ -1,0 +1,12 @@
+{{#if this.warning}}
+  <div class="uk-alert uk-alert-warning">
+    {{this.warning}}
+  </div>
+{{/if}}
+
+<EditService
+  @hideDisabled={{true}}
+  @hideNotification={{true}}
+  @hideResponsibilityConstructionControl={{true}}
+  @backRoute={{module-route "service-permissions" "sub-services.index"}}
+/>

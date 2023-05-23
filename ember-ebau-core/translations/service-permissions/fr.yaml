@@ -1,0 +1,27 @@
+service-permissions:
+  address: "Adresse"
+  city: "Lieu"
+  created-at: "Date de création"
+  created-by: "Créer par"
+  email: "Courriel"
+  group: "Groupe"
+  name: "Nom"
+  phone: "Téléphone"
+  website: "Site Internet"
+  zip: "Code postal"
+  notification: "Recevoir des notifications"
+  responsibility-construction-control: "Reprendre la compétence dans le contrôle de la construction"
+  disabled: "Désactivée"
+
+  organisation: "Données principales"
+  organisation-save-success: "L'organisation a été enregistrée."
+  organisation-save-error: "L'organisation n'a pas pu être enregistrée."
+
+  permissions: "Droits d'accès"
+  permissions-add: "Ajout d'un droit d'accès"
+  permissions-save-success: "Le droit d'accès a été enregistré."
+  permissions-save-error: "Le droit d'accès n'a pas pu être enregistré."
+
+  sub-services: "Unité d'un service spécialisé"
+  sub-services-add: "Ajouter une unité d'un service spécialisé"
+  sub-services-add-warning: ""

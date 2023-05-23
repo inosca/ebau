@@ -20,6 +20,10 @@ export default class CustomEbauModulesService extends EbauModulesService {
     return this.shoebox.isLeadRole;
   }
 
+  get baseRole() {
+    return this.shoebox.baseRole;
+  }
+
   redirectToWorkItems() {
     window.location.replace(
       `/index/redirect-to-instance-resource/instance-id/${this.instanceId}`

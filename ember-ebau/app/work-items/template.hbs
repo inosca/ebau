@@ -1,18 +1,16 @@
 {{! template-lint-disable no-bare-strings}}
 {{page-title "WorkItems"}}
 {{! template-lint-enable no-bare-strings}}
-<div class="uk-container main-content">
-  <WorkItemListWrapper
-    @order={{this.order}}
-    @responsible={{this.responsible}}
-    @type={{this.type}}
-    @status={{this.status}}
-    @role={{this.role}}
-    @username={{session-value "user.username"}}
-    @application={{session-value "application"}}
-    @serviceId={{session-value "service.id"}}
-    @setFilter={{this.setFilter}}
-    @useLinkTo={{true}}
-    @baseRoute="cases.detail.work-items"
-  />
-</div>
+<WorkItemListWrapper
+  @order={{this.order}}
+  @responsible={{this.responsible}}
+  @type={{this.type}}
+  @status={{this.status}}
+  @role={{this.role}}
+  @username={{session-value "user.username"}}
+  @application={{session-value "application"}}
+  @serviceId={{session-value "service.id"}}
+  @setFilter={{this.setFilter}}
+  @useLinkTo={{true}}
+  @baseRoute="cases.detail.work-items"
+/>

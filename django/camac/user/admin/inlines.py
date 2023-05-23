@@ -27,6 +27,7 @@ class UserGroupInline(TabularInline):
     model = UserGroup
     verbose_name = _("Group")
     verbose_name_plural = _("Groups")
+    fk_name = "user"
 
 
 class GroupTInline(TabularInline):

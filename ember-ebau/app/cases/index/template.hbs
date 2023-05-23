@@ -1,20 +1,18 @@
-<div class="uk-container main-content">
-  {{#if this.displaySearch}}
-    <CaseFilter
-      @onChange={{this.setCaseFilter}}
-      @filter={{this.caseFilter}}
-      @casesBackend={{this.casesBackend}}
-      @instanceStates={{this.instanceStates}}
-    />
-  {{/if}}
-  <CaseTable
+{{#if this.displaySearch}}
+  <CaseFilter
+    @onChange={{this.setCaseFilter}}
     @filter={{this.caseFilter}}
-    @hasActivation={{this.hasActivation}}
-    @hasPendingBillingEntry={{this.hasPendingBillingEntry}}
-    @hasPendingSanction={{this.hasPendingSanction}}
-    @workflow={{this.workflow}}
-    @excludeWorkflow={{this.excludeWorkflow}}
     @casesBackend={{this.casesBackend}}
     @instanceStates={{this.instanceStates}}
   />
-</div>
+{{/if}}
+<CaseTable
+  @filter={{this.caseFilter}}
+  @hasActivation={{this.hasActivation}}
+  @hasPendingBillingEntry={{this.hasPendingBillingEntry}}
+  @hasPendingSanction={{this.hasPendingSanction}}
+  @workflow={{this.workflow}}
+  @excludeWorkflow={{this.excludeWorkflow}}
+  @casesBackend={{this.casesBackend}}
+  @instanceStates={{this.instanceStates}}
+/>
