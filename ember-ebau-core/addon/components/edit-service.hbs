@@ -1,0 +1,180 @@
+{{#if this.service.isLoading}}
+  <div class="uk-text-center">
+    <UkSpinner @ratio="2" />
+  </div>
+{{else}}
+  <form class="uk-form uk-form-stacked" {{on "submit" (perform this.save)}}>
+    {{#unless @hideName}}
+      <div class="uk-margin">
+        <label class="uk-form-label uk-text-bold" for="name">
+          {{t "service-permissions.name"}}
+          <span class="uk-text-danger">
+            *
+          </span>
+        </label>
+        <div class="uk-form-controls uk-flex">
+          <Input
+            @type="text"
+            @value={{this.name}}
+            class="uk-input uk-width-expand"
+            name="name"
+            id="name"
+            required
+          />
+          {{#if this.postfix}}
+            <div class="uk-width-auto uk-flex uk-flex-middle uk-margin-small-left">
+              ({{this.postfix}})
+            </div>
+          {{/if}}
+        </div>
+      </div>
+    {{/unless}}
+    <div class="uk-margin">
+      <label class="uk-form-label uk-text-bold" for="email">
+        {{t "service-permissions.email"}}
+        <span class="uk-text-danger">
+          *
+        </span>
+      </label>
+      <div class="uk-form-controls">
+        <Input
+          @type="email"
+          @value={{this.service.value.email}}
+          class="uk-input"
+          name="email"
+          id="email"
+          required
+        />
+      </div>
+    </div>
+    <div class="uk-margin">
+      <label class="uk-form-label uk-text-bold" for="phone">
+        {{t "service-permissions.phone"}}
+      </label>
+      <div class="uk-form-controls">
+        <Input
+          @type="text"
+          @value={{this.service.value.phone}}
+          maxlength="16"
+          class="uk-input"
+          name="phone"
+          id="phone"
+        />
+      </div>
+    </div>
+    <div class="uk-margin">
+      <label class="uk-form-label uk-text-bold" for="address">
+        {{t "service-permissions.address"}}
+      </label>
+      <div class="uk-form-controls">
+        <Input
+          @type="text"
+          @value={{this.service.value.address}}
+          class="uk-input"
+          name="address"
+          id="address"
+        />
+      </div>
+    </div>
+    <div class="uk-margin">
+      <label class="uk-form-label uk-text-bold" for="zip">
+        {{t "service-permissions.zip"}}
+      </label>
+      <div class="uk-form-controls">
+        <Input
+          @type="number"
+          @value={{this.service.value.zip}}
+          min="1000"
+          max="9999"
+          class="uk-input"
+          name="zip"
+          id="zip"
+        />
+      </div>
+    </div>
+    <div class="uk-margin">
+      <label class="uk-form-label uk-text-bold" for="city">
+        {{t "service-permissions.city"}}
+        {{#if @requireCity}}
+          <span class="uk-text-danger">
+            *
+          </span>
+        {{/if}}
+      </label>
+      <div class="uk-form-controls">
+        <Input
+          @type="text"
+          @value={{this.service.value.city}}
+          class="uk-input"
+          name="city"
+          id="city"
+          required={{@requireCity}}
+        />
+      </div>
+    </div>
+    <div class="uk-margin">
+      <label class="uk-form-label uk-text-bold" for="website">
+        {{t "service-permissions.website"}}
+      </label>
+      <div class="uk-form-controls">
+        <Input
+          @type="url"
+          @value={{this.service.value.website}}
+          class="uk-input"
+          name="website"
+          id="website"
+        />
+      </div>
+    </div>
+    {{#unless @hideNotification}}
+      <div class="uk-margin">
+        <UkToggleSwitch
+          @value={{this.service.value.notification}}
+          @size="small"
+          @name="notification"
+          @onToggle={{fn (mut this.service.value.notification)}}
+          @onLabel={{t "service-permissions.notification"}}
+          @offLabel=""
+          @showLabels={{true}}
+        />
+      </div>
+    {{/unless}}
+    {{#unless @hideResponsibilityConstructionControl}}
+      <div class="uk-margin">
+        <UkToggleSwitch
+          @value={{this.service.record.responsibilityConstructionControl}}
+          @size="small"
+          @name="responsibility-construction-control"
+          @onToggle={{fn (mut this.service.record.responsibilityConstructionControl)}}
+          @onLabel={{t "service-permissions.responsibility-construction-control"}}
+          @offLabel=""
+          @showLabels={{true}}
+        />
+      </div>
+    {{/unless}}
+    {{#unless @hideDisabled}}
+      <div class="uk-margin">
+        <UkToggleSwitch
+          @value={{this.service.value.disabled}}
+          @size="small"
+          @name="notification"
+          @onToggle={{fn (mut this.service.value.disabled)}}
+          @onLabel={{t "service-permissions.disabled"}}
+          @offLabel=""
+          @showLabels={{true}}
+        />
+      </div>
+    {{/unless}}
+    <div class="uk-margin">
+      <UkButton
+        @type="submit"
+        @color="primary"
+        @label={{t "global.save"}}
+        @loading={{this.save.isRunning}}
+      />
+      {{#if @backRoute}}
+        <UkButton @onClick={{this.back}} @label={{t "global.back"}} @color="default" />
+      {{/if}}
+    </div>
+  </form>
+{{/if}}

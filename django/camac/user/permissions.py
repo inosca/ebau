@@ -57,7 +57,7 @@ def permission_aware(func):
                 return self.queryset.none()
             except AttributeError:
                 raise RuntimeError(
-                    f"Bad configuration: Anonymous User accessing unguared method `{func.__name__}`, "
+                    f"Bad configuration: Anonymous User accessing unguarded method `{func.__name__}`, "
                     f"should be handled by a `{func.__name__}_for_public` method."
                 )
 

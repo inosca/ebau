@@ -1,0 +1,73 @@
+<div class="uk-margin">
+  <LinkTo
+    @route={{module-route "service-permissions" "sub-services.add"}}
+    class="uk-button uk-button-default"
+  >
+    {{t "service-permissions.sub-services-add"}}
+  </LinkTo>
+</div>
+
+<div class="uk-search uk-search-default uk-width-1-1">
+  <span uk-search-icon></span>
+  <input
+    class="uk-search-input"
+    type="search"
+    placeholder={{t "global.search"}}
+    aria-label={{t "global.search"}}
+    value={{this.search}}
+    {{on "input" (perform this.updateSearch)}}
+  >
+</div>
+
+<table class="uk-table uk-table-striped uk-table-middle">
+  <thead>
+    <tr>
+      <th>{{t "service-permissions.name"}}</th>
+      <th>{{t "service-permissions.email"}}</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#if this.services.isLoading}}
+      <tr>
+        <td colspan="3" class="uk-text-center">
+          <UkSpinner @ratio="0.7" />
+        </td>
+      </tr>
+    {{else}}
+      {{#each (sort-by "name" this.services.records) as |row|}}
+        <tr>
+          <td>
+            {{#if row.disabled}}
+              <del>{{row.name}}</del>
+            {{else}}
+              {{row.name}}
+            {{/if}}
+          </td>
+          <td>
+            {{#if row.disabled}}
+              <del>{{row.email}}</del>
+            {{else}}
+              {{row.email}}
+            {{/if}}
+          </td>
+          <td class="uk-text-right">
+            <LinkTo
+              @route={{module-route "service-permissions" "sub-services.edit"}}
+              @model={{row.id}}
+              class="uk-button uk-button-link"
+            >
+              <UkIcon @icon="pencil" />
+            </LinkTo>
+          </td>
+        </tr>
+      {{else}}
+        <tr>
+          <td colspan="3" class="uk-text-center uk-text-italic">
+            {{t "global.empty"}}
+          </td>
+        </tr>
+      {{/each}}
+    {{/if}}
+  </tbody>
+</table>

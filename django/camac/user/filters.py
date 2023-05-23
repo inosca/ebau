@@ -3,6 +3,7 @@ from functools import reduce
 from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.db.models import Q
+from django_filters.constants import EMPTY_VALUES
 from django_filters.rest_framework import (
     BooleanFilter,
     CharFilter,
@@ -119,7 +120,7 @@ class ServiceFilterSet(FilterSet):
 
     class Meta:
         model = models.Service
-        fields = ("service_id", "service_group_id")
+        fields = ("service_id", "service_group_id", "service_parent")
 
 
 class PublicUserFilterSet(FilterSet):
@@ -199,15 +200,32 @@ class AccessibleInstanceFilter(NumberFilter):
         return True
 
 
+class ServiceOrSubserviceFilter(NumberFilter):
+    def filter(self, queryset, value):
+        if value in EMPTY_VALUES:
+            return queryset
+
+        return queryset.filter(
+            Q(service_id=value) | Q(service__service_parent_id=value)
+        )
+
+
 class GroupFilterSet(FilterSet):
     accessible_instance = AccessibleInstanceFilter()
     service = NumberMultiValueFilter()
     service_group = NumberMultiValueFilter(field_name="service__service_group")
     role = NumberMultiValueFilter()
+    service_or_subservice = ServiceOrSubserviceFilter()
 
     class Meta:
         model = models.Group
-        fields = ("accessible_instance", "service", "service_group", "role")
+        fields = (
+            "accessible_instance",
+            "service",
+            "service_group",
+            "role",
+            "service_or_subservice",
+        )
 
 
 class PublicGroupFilterSet(FilterSet):

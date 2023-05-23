@@ -1,0 +1,27 @@
+service-permissions:
+  address: "Adresse"
+  city: "Ort"
+  created-at: "Erstellungsdatum"
+  created-by: "Erstellt von"
+  email: "E-Mail"
+  group: "Gruppe"
+  name: "Name"
+  phone: "Telefon"
+  website: "Webseite"
+  zip: "PLZ"
+  notification: "Notifikationen empfangen"
+  responsibility-construction-control: "Zuständigkeit in Baukontrolle übernehmen"
+  disabled: "Deaktiviert"
+
+  organisation: "Stammdaten"
+  organisation-save-success: "Die Organisation wurde gespeichert."
+  organisation-save-error: "Die Organisation konnte nicht gespeichert werden."
+
+  permissions: "Berechtigungen"
+  permissions-add: "Berechtigung hinzufügen"
+  permissions-save-success: "Die Berechtigung wurde gespeichert."
+  permissions-save-error: "Die Berechtigung konnte nicht gespeichert werden."
+
+  sub-services: "Unterfachstellen"
+  sub-services-add: "Unterfachstelle hinzufügen"
+  sub-services-add-warning: ""

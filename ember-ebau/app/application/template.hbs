@@ -4,4 +4,10 @@
 
 <MainNavigation />
 
-{{outlet}}
+{{#if this.hasSidebar}}
+  {{outlet}}
+{{else}}
+  <div class="uk-container main-content">
+    {{outlet}}
+  </div>
+{{/if}}
