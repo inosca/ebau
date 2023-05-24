@@ -780,8 +780,8 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "name": "{\"de\": \"Vorl\\u00e4ufige Beurteilung\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "description": "{\"de\": \"Vorl\\u00e4ufige Beurteilung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "name": "{\"de\": \"Vorl\\u00e4ufige Beurteilung (Vorabkl\\u00e4rung)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "description": "{\"de\": \"Vorl\\u00e4ufige Beurteilung (Vorabkl\\u00e4rung)\", \"fr\": null, \"it\": null, \"rm\": null}",
       "meta": {
         "order": 2,
         "category": "building-permit",
@@ -2434,7 +2434,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "abtransport-ort-der-entsorgung",
-      "sort": 20
+      "sort": 21
     }
   },
   {
@@ -2449,7 +2449,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "abtransport-volumen",
-      "sort": 19
+      "sort": 20
     }
   },
   {
@@ -2464,7 +2464,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "anlagen-titel",
-      "sort": 32
+      "sort": 33
     }
   },
   {
@@ -2479,7 +2479,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "bab-begruendung",
-      "sort": 33
+      "sort": 34
     }
   },
   {
@@ -2494,7 +2494,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "bab-beschrieb",
-      "sort": 34
+      "sort": 35
     }
   },
   {
@@ -2509,7 +2509,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "bauten-titel",
-      "sort": 18
+      "sort": 19
     }
   },
   {
@@ -2524,7 +2524,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "bauten-und-anlagen-ausserhalb-bauzone-titel",
-      "sort": 37
+      "sort": 38
     }
   },
   {
@@ -2539,7 +2539,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "beschreibung-der-landwirtschaftlichen-bauten",
-      "sort": 15
+      "sort": 16
     }
   },
   {
@@ -2574,6 +2574,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "bab.beschreibung-oekonomiebaute",
+    "fields": {
+      "created_at": "2023-05-24T14:43:10.070Z",
+      "modified_at": "2023-05-24T14:43:10.070Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab",
+      "question": "beschreibung-oekonomiebaute",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "bab.beschreibung-wasserversorgung-fassung-vorgesehen",
     "fields": {
       "created_at": "2023-04-12T08:59:55.069Z",
@@ -2584,7 +2599,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "beschreibung-wasserversorgung-fassung-vorgesehen",
-      "sort": 27
+      "sort": 28
     }
   },
   {
@@ -2599,7 +2614,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "beschreibung-wasserversorgung-vorhanden",
-      "sort": 28
+      "sort": 29
     }
   },
   {
@@ -2629,7 +2644,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "bis-jahr",
-      "sort": 12
+      "sort": 13
     }
   },
   {
@@ -2644,7 +2659,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "dach-material-und-farbe",
-      "sort": 16
+      "sort": 17
     }
   },
   {
@@ -2674,7 +2689,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "erschliessung-wasserversorgung",
-      "sort": 29
+      "sort": 30
     }
   },
   {
@@ -2689,7 +2704,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "erschliessungsanlagen",
-      "sort": 31
+      "sort": 32
     }
   },
   {
@@ -2704,7 +2719,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "erschliessungsanlagen-beschreibung",
-      "sort": 30
+      "sort": 31
     }
   },
   {
@@ -2719,7 +2734,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "fassade-material-und-farbe",
-      "sort": 17
+      "sort": 18
     }
   },
   {
@@ -2794,7 +2809,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "landwirtschaftliches-vorhaben",
-      "sort": 36
+      "sort": 37
     }
   },
   {
@@ -2809,7 +2824,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "letzter-umbau",
-      "sort": 13
+      "sort": 14
     }
   },
   {
@@ -2824,7 +2839,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "materialablagerung-beschreibung",
-      "sort": 23
+      "sort": 24
     }
   },
   {
@@ -2839,7 +2854,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "materialablagerung-flaeche",
-      "sort": 25
+      "sort": 26
     }
   },
   {
@@ -2854,7 +2869,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "materialablagerung-titel",
-      "sort": 26
+      "sort": 27
     }
   },
   {
@@ -2869,7 +2884,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "materialablagerung-volumen",
-      "sort": 24
+      "sort": 25
     }
   },
   {
@@ -2899,7 +2914,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "nutzungszweck-landwirtschaft",
-      "sort": 11
+      "sort": 12
     }
   },
   {
@@ -2929,7 +2944,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "paechter",
-      "sort": 35
+      "sort": 36
     }
   },
   {
@@ -2944,7 +2959,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "schuettmaterial-herkunft",
-      "sort": 22
+      "sort": 23
     }
   },
   {
@@ -2959,7 +2974,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "schuettmaterial-volumen",
-      "sort": 21
+      "sort": 22
     }
   },
   {
@@ -2974,7 +2989,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "urspruenglicher-zweck-der-baute",
-      "sort": 14
+      "sort": 15
     }
   },
   {
@@ -26564,12 +26579,12 @@
     "pk": "ausserhalb-bauzone",
     "fields": {
       "created_at": "2023-04-12T07:57:55.257Z",
-      "modified_at": "2023-04-12T08:00:14.961Z",
+      "modified_at": "2023-05-24T14:53:41.071Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Bauvorhaben ausserhalb Bauzone\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Bauvorhaben (teilweise) ausserhalb Bauzone\", \"fr\": null, \"it\": null, \"rm\": null}",
       "type": "choice",
       "is_required": "false",
       "is_hidden": "false",
@@ -26629,10 +26644,10 @@
     "pk": "bab-beschrieb",
     "fields": {
       "created_at": "2023-04-12T08:42:09.890Z",
-      "modified_at": "2023-04-27T07:06:32.104Z",
+      "modified_at": "2023-05-24T14:38:12.522Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Beschrieb\", \"fr\": null, \"it\": null, \"rm\": null}",
       "type": "textarea",
@@ -27981,15 +27996,15 @@
     "pk": "beschreibung-der-landwirtschaftlichen-bauten",
     "fields": {
       "created_at": "2023-04-14T08:44:57.095Z",
-      "modified_at": "2023-04-27T07:07:21.700Z",
+      "modified_at": "2023-05-24T14:39:46.280Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Beschreibung der landwirtschaftlichen Bauten\", \"fr\": null, \"it\": null, \"rm\": null}",
       "type": "multiple_choice",
       "is_required": "!(\"vorlaeufige-beurteilung\" in form)",
-      "is_hidden": "false",
+      "is_hidden": "!(\"landwirtschaftliches-vorhaben-ja\" == \"landwirtschaftliches-vorhaben\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
@@ -28384,6 +28399,40 @@
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "hint_text": "{\"de\": \"Fabrikat, Typ, Lieferant, Wirkungsgrad; evtl. Prospekt beilegen\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "beschreibung-oekonomiebaute",
+    "fields": {
+      "created_at": "2023-05-24T14:43:09.854Z",
+      "modified_at": "2023-05-24T14:43:09.854Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschreibung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "!(\"nutzungszweck-landwirtschaft-andere\" in \"nutzungszweck-landwirtschaft\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -38326,12 +38375,12 @@
     "pk": "mehr-als-vier-wohneinheiten",
     "fields": {
       "created_at": "2023-04-12T14:46:53.571Z",
-      "modified_at": "2023-04-12T14:47:25.161Z",
+      "modified_at": "2023-05-24T14:56:42.072Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Mehr als vier Wohneinheiten?\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Mehr als vier Wohneinheiten\", \"fr\": null, \"it\": null, \"rm\": null}",
       "type": "choice",
       "is_required": "false",
       "is_hidden": "!(\"wohnnutzung-ja\" == \"wohnnutzung\"|answer)",
@@ -44587,12 +44636,12 @@
     "pk": "waldareal",
     "fields": {
       "created_at": "2023-04-12T07:58:42.402Z",
-      "modified_at": "2023-05-17T14:29:04.101Z",
+      "modified_at": "2023-05-24T14:54:34.897Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Waldareal oder im Waldabstandsbereich\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Waldareal betroffen oder im Waldabstandsbereich\", \"fr\": null, \"it\": null, \"rm\": null}",
       "type": "choice",
       "is_required": "false",
       "is_hidden": "false",
@@ -47788,11 +47837,11 @@
     "model": "caluma_form.questionoption",
     "pk": "ausserhalb-bauzone.ausserhalb-bauzone-bauvorhaben-ausserhalb-bauzone-ja",
     "fields": {
-      "created_at": "2023-04-12T08:00:14.981Z",
-      "modified_at": "2023-04-12T08:00:14.981Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_at": "2023-05-24T14:53:41.098Z",
+      "modified_at": "2023-05-24T14:53:41.099Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "ausserhalb-bauzone",
       "option": "ausserhalb-bauzone-bauvorhaben-ausserhalb-bauzone-ja",
@@ -47803,11 +47852,11 @@
     "model": "caluma_form.questionoption",
     "pk": "ausserhalb-bauzone.ausserhalb-bauzone-bauvorhaben-ausserhalb-bauzone-nein",
     "fields": {
-      "created_at": "2023-04-12T08:00:14.977Z",
-      "modified_at": "2023-04-12T08:00:14.977Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_at": "2023-05-24T14:53:41.094Z",
+      "modified_at": "2023-05-24T14:53:41.094Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "ausserhalb-bauzone",
       "option": "ausserhalb-bauzone-bauvorhaben-ausserhalb-bauzone-nein",
@@ -47818,11 +47867,11 @@
     "model": "caluma_form.questionoption",
     "pk": "ausserhalb-bauzone.ausserhalb-bauzone-ja",
     "fields": {
-      "created_at": "2023-04-12T08:00:14.973Z",
-      "modified_at": "2023-04-12T08:00:14.973Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_at": "2023-05-24T14:53:41.087Z",
+      "modified_at": "2023-05-24T14:53:41.087Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "ausserhalb-bauzone",
       "option": "ausserhalb-bauzone-ja",
@@ -47833,11 +47882,11 @@
     "model": "caluma_form.questionoption",
     "pk": "ausserhalb-bauzone.ausserhalb-bauzone-nein",
     "fields": {
-      "created_at": "2023-04-12T08:00:14.969Z",
-      "modified_at": "2023-04-12T08:00:14.969Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_at": "2023-05-24T14:53:41.081Z",
+      "modified_at": "2023-05-24T14:53:41.081Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "ausserhalb-bauzone",
       "option": "ausserhalb-bauzone-nein",
@@ -48088,11 +48137,11 @@
     "model": "caluma_form.questionoption",
     "pk": "beschreibung-der-landwirtschaftlichen-bauten.beschreibung-der-landwirtschaftlichen-bauten-gewerbebauten",
     "fields": {
-      "created_at": "2023-04-27T07:07:21.707Z",
-      "modified_at": "2023-04-27T07:07:21.707Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_at": "2023-05-24T14:39:46.293Z",
+      "modified_at": "2023-05-24T14:39:46.293Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "beschreibung-der-landwirtschaftlichen-bauten",
       "option": "beschreibung-der-landwirtschaftlichen-bauten-gewerbebauten",
@@ -48103,11 +48152,11 @@
     "model": "caluma_form.questionoption",
     "pk": "beschreibung-der-landwirtschaftlichen-bauten.beschreibung-der-landwirtschaftlichen-bauten-oekonomiebaute",
     "fields": {
-      "created_at": "2023-04-27T07:07:21.711Z",
-      "modified_at": "2023-04-27T07:07:21.711Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_at": "2023-05-24T14:39:46.300Z",
+      "modified_at": "2023-05-24T14:39:46.300Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "beschreibung-der-landwirtschaftlichen-bauten",
       "option": "beschreibung-der-landwirtschaftlichen-bauten-oekonomiebaute",
@@ -48118,11 +48167,11 @@
     "model": "caluma_form.questionoption",
     "pk": "beschreibung-der-landwirtschaftlichen-bauten.beschreibung-der-landwirtschaftlichen-bauten-wohnhaus",
     "fields": {
-      "created_at": "2023-04-27T07:07:21.715Z",
-      "modified_at": "2023-04-27T07:07:21.715Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_at": "2023-05-24T14:39:46.305Z",
+      "modified_at": "2023-05-24T14:39:46.305Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "beschreibung-der-landwirtschaftlichen-bauten",
       "option": "beschreibung-der-landwirtschaftlichen-bauten-wohnhaus",
@@ -52258,11 +52307,11 @@
     "model": "caluma_form.questionoption",
     "pk": "mehr-als-vier-wohneinheiten.mehr-als-vier-wohneinheiten-ja",
     "fields": {
-      "created_at": "2023-04-12T14:47:25.172Z",
-      "modified_at": "2023-04-12T14:47:25.172Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_at": "2023-05-24T14:56:42.089Z",
+      "modified_at": "2023-05-24T14:56:42.089Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "mehr-als-vier-wohneinheiten",
       "option": "mehr-als-vier-wohneinheiten-ja",
@@ -52273,11 +52322,11 @@
     "model": "caluma_form.questionoption",
     "pk": "mehr-als-vier-wohneinheiten.mehr-als-vier-wohneinheiten-nein",
     "fields": {
-      "created_at": "2023-04-12T14:47:25.169Z",
-      "modified_at": "2023-04-12T14:47:25.169Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_at": "2023-05-24T14:56:42.083Z",
+      "modified_at": "2023-05-24T14:56:42.083Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "mehr-als-vier-wohneinheiten",
       "option": "mehr-als-vier-wohneinheiten-nein",
@@ -56143,8 +56192,8 @@
     "model": "caluma_form.questionoption",
     "pk": "waldareal.waldareal-ja",
     "fields": {
-      "created_at": "2023-05-17T14:29:04.115Z",
-      "modified_at": "2023-05-17T14:29:04.115Z",
+      "created_at": "2023-05-24T14:54:34.921Z",
+      "modified_at": "2023-05-24T14:54:34.921Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -56158,8 +56207,8 @@
     "model": "caluma_form.questionoption",
     "pk": "waldareal.waldareal-nein",
     "fields": {
-      "created_at": "2023-05-17T14:29:04.108Z",
-      "modified_at": "2023-05-17T14:29:04.108Z",
+      "created_at": "2023-05-24T14:54:34.909Z",
+      "modified_at": "2023-05-24T14:54:34.909Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -56173,8 +56222,8 @@
     "model": "caluma_form.questionoption",
     "pk": "waldareal.waldareal-waldabstandsbereich",
     "fields": {
-      "created_at": "2023-05-17T14:29:04.112Z",
-      "modified_at": "2023-05-17T14:29:04.112Z",
+      "created_at": "2023-05-24T14:54:34.914Z",
+      "modified_at": "2023-05-24T14:54:34.914Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
