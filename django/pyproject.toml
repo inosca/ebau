@@ -155,6 +155,7 @@ omit = [
     "camac/core/management/commands/migrate_value_of_question_ausnahmen_sz.py",
     "camac/circulation/management/commands/delete_dangling_inquiry_cases.py",
     "camac/core/management/commands/migrate_oereb_question_values.py",
+    "camac/core/management/commands/migrate_oereb_form_splitting.py",
     # Audit migration"
     "camac/core/management/commands/config/",
     "camac/core/management/commands/migrate_audit.py",
