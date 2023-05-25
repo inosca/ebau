@@ -12,31 +12,24 @@ COPY themes/src ./src
 
 RUN ["./mvnw", "deploy"]
 
-# stage 2: build keycloak
-FROM quay.io/keycloak/keycloak:22.0.1 as keycloak-builder
+# stage 2: runtime image (that also builds keycloak)
+FROM quay.io/keycloak/keycloak:21.0.2 as keycloak-builder
 
 ENV KC_DB=postgres
 ENV KC_HTTP_RELATIVE_PATH=/auth
+ENV KC_HOSTNAME_STRICT_HTTPS=false
+ENV KC_HTTP_ENABLED=true
+ENV KC_HTTP_RELATIVE_PATH=/auth
+ENV KC_LOG_LEVEL=warn
+ENV KC_PROXY=edge
+ENV KC_CACHE_CONFIG_FILE=cache-ispn-tcpstatic.xml
+ENV KC_TRANSACTION_XA_ENABLED=false
 
 COPY themes /tmp/themes
 COPY --from=theme-builder /app/target/keycloak-themes-inosca-ebau.jar /opt/keycloak/providers/keycloak-themes-inosca-ebau.jar
 
-RUN /opt/keycloak/bin/kc.sh build
+COPY cache-ispn-tcpstatic.xml /opt/keycloak/conf/cache-ispn-tcpstatic.xml
 
-# stage 3: runtime image
-FROM quay.io/keycloak/keycloak:22.0.1
-
-COPY --from=keycloak-builder /opt/keycloak/ /opt/keycloak/
 COPY custom-entrypoint.sh /opt/keycloak/bin/
-
-WORKDIR /opt/keycloak
-
-ENV KC_DB=postgres
-ENV KC_HOSTNAME_STRICT_HTTPS=false
-ENV KC_HTTP_ENABLED=true
-ENV KC_HTTP_RELATIVE_PATH=/auth
-ENV KC_LOG_LEVEL=WARN
-ENV KC_PROXY=edge
-
 ENTRYPOINT ["/opt/keycloak/bin/custom-entrypoint.sh"]
 CMD ["start", "--optimized"]
