@@ -12,8 +12,11 @@ COPY themes/src ./src
 
 RUN ["./mvnw", "deploy"]
 
-# stage 2: runtime image (that also builds keycloak)
-FROM quay.io/keycloak/keycloak:21.0.2 as keycloak-builder
+# stage 2: build and run image
+# Sadly, we can't separate the build and run stages because we need the
+# distributed cache config (which happens during build time) to be configurable
+# via environment variables.
+FROM quay.io/keycloak/keycloak:22.0.1 as keycloak-builder
 
 ENV KC_DB=postgres
 ENV KC_HTTP_RELATIVE_PATH=/auth
