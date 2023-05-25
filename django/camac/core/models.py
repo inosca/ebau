@@ -3790,7 +3790,7 @@ class Resource(MultilingualModel, models.Model):
     )
     # Field renamed because it was a Python reserved word.
     class_field = models.CharField(
-        db_column="CLASS", max_length=25, blank=True, null=True
+        db_column="CLASS", max_length=250, blank=True, null=True
     )
     hidden = models.PositiveSmallIntegerField(db_column="HIDDEN")
     sort = models.IntegerField(db_column="SORT", default=next_resource_sort)

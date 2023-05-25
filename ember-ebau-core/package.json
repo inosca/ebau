@@ -30,6 +30,7 @@
   ],
   "dependencies": {
     "@embroider/macros": "1.11.1",
+    "@embroider/util": "1.11.1",
     "@faker-js/faker": "8.0.2",
     "@fortawesome/ember-fontawesome": "0.4.3",
     "@fortawesome/free-solid-svg-icons": "6.4.0",

@@ -2,17 +2,30 @@
   <CaseFilter
     @onChange={{this.setCaseFilter}}
     @filter={{this.caseFilter}}
+    @hasActivation={{this.hasActivation}}
+    @hasPendingBillingEntry={{this.hasPendingBillingEntry}}
+    @hasPendingSanction={{this.hasPendingSanction}}
+    @workflow={{this.workflow}}
+    @excludeWorkflow={{this.excludeWorkflow}}
     @casesBackend={{this.casesBackend}}
-    @instanceStates={{this.instanceStates}}
+    @instanceStates={{this.parsedInstanceStates}}
   />
 {{/if}}
 <CaseTable
   @filter={{this.caseFilter}}
+  @order={{this.order}}
+  @onSetOrder={{fn (mut this.order)}}
   @hasActivation={{this.hasActivation}}
   @hasPendingBillingEntry={{this.hasPendingBillingEntry}}
   @hasPendingSanction={{this.hasPendingSanction}}
   @workflow={{this.workflow}}
   @excludeWorkflow={{this.excludeWorkflow}}
   @casesBackend={{this.casesBackend}}
-  @instanceStates={{this.instanceStates}}
+  @instanceStates={{this.parsedInstanceStates}}
+  @isSupportRole={{session-value "isSupport"}}
+  @serviceId={{session-value "service.id"}}
+  @groupId={{session-value "group"}}
+  @baseRole={{session-value "rolePermission"}}
+  @language={{session-value "language"}}
+  @useLinkTo={{true}}
 />

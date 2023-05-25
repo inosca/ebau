@@ -1,3 +1,5 @@
+from urllib.parse import urlencode
+
 from caluma.caluma_workflow import api as workflow_api, models as workflow_models
 from django.conf import settings
 from django.db import transaction
@@ -142,10 +144,13 @@ class ResourceSerializer(serializers.ModelSerializer, MultilingualSerializer):
             return type_mapping.get(obj.template)
 
         if resource_type == "emberlist":
-            instance_states = models.REmberList.objects.get(
-                pk=obj.pk
-            ).instance_states.split(",")
-            return f"/cases?instance_states={instance_states}"
+            params = {}
+            instance_states = models.REmberList.objects.get(pk=obj.pk).instance_states
+            params["instanceStates"] = instance_states
+            for option in ["hasPendingBillingEntry", "displaySearch"]:
+                if obj.class_field and option in obj.class_field:
+                    params[option] = "true"
+            return f"/cases?{urlencode(params)}"
 
         if resource_type == "workitemlistall":
             return "/work-items"

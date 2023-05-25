@@ -38,6 +38,7 @@ module.exports = function (environment) {
     },
   }[app];
   const oidcHost = process.env.KEYCLOAK_HOST || "http://ebau-keycloak.local";
+  const portalURL = process.env.PORTAL_URL || "http://ebau-portal.local";
 
   const ENV = {
     modulePrefix: "ebau",
@@ -73,6 +74,7 @@ module.exports = function (environment) {
     languages: locales,
     fallbackLanguage: "de",
 
+    portalURL,
     APPLICATION: appConfig,
   };
 
