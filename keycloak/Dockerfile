@@ -25,6 +25,10 @@ ENV KC_PROXY=edge
 ENV KC_CACHE_CONFIG_FILE=cache-ispn-tcpstatic.xml
 ENV KC_TRANSACTION_XA_ENABLED=false
 
+ENV KCISPN_LISTEN_ADDR=127.0.0.1
+ENV KCISPN_BIND_PORT=7800
+ENV KCISPN_HOSTS=localhost[7800]
+
 COPY themes /tmp/themes
 COPY --from=theme-builder /app/target/keycloak-themes-inosca-ebau.jar /opt/keycloak/providers/keycloak-themes-inosca-ebau.jar
 
