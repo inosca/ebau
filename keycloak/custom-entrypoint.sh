@@ -8,4 +8,6 @@ if [ $ENV_FILE ]; then
     export $(grep -vE "^(#.*|\s*)$" $ENV_FILE)
 fi
 
+/opt/keycloak/bin/kc.sh build
+
 exec /opt/keycloak/bin/kc.sh $@
