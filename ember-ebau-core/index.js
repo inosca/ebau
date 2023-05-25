@@ -1,10 +1,10 @@
 "use strict";
 
 const ENV_MAP = {
-  kt_gr: "gr",
   kt_bern: "be",
   kt_schwyz: "sz",
   kt_uri: "ur",
+  kt_gr: "gr",
 };
 
 const ENVS = Object.values(ENV_MAP);
@@ -25,6 +25,10 @@ module.exports = {
       setOwnConfig: {
         application: ENV,
         hasBuildingControl: ENV === "be",
+        isBE: ENV === "be",
+        isSZ: ENV === "sz",
+        isUR: ENV === "ur",
+        excelExportEnabled: ["be", "sz"].includes(ENV),
       },
     },
   },

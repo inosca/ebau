@@ -94,6 +94,7 @@ export default class CustomSession extends Session {
     return this._data.value?.role;
   }
 
+  // this is the same as "baseRole" in ember-camac-ng shoebox
   get rolePermission() {
     return this.role?.permission;
   }
@@ -127,7 +128,7 @@ export default class CustomSession extends Session {
   }
 
   get isSupport() {
-    return config.ebau.supportGroups.includes(parseInt(this.group));
+    return this.rolePermission === "support";
   }
 
   @cached
