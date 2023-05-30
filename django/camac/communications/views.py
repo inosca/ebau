@@ -84,6 +84,7 @@ class MessageView(InvolvedInTopicQuerysetMixin, InstanceQuerysetMixin, ModelView
     instance_field = "topic__instance"
 
     search_fields = ["topic__subject", "body"]
+    ordering = "-created_at"
     queryset = models.CommunicationsMessage.objects
 
     @action(methods=["patch"], detail=True)
