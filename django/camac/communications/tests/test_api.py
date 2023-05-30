@@ -30,6 +30,9 @@ def test_create_topic(db, be_instance, admin_client, expect_status, role):
         be_instance.involved_applicants.create(
             invitee=admin_client.user, user=admin_client.user
         )
+        default_group = admin_client.user.get_default_group()
+        default_group.service = None
+        default_group.save()
 
     resp = admin_client.post(
         reverse("communications-topic-list"),

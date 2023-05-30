@@ -56,7 +56,6 @@ class CommunicationsAttachmentField(serializers.ResourceRelatedField):
 
     def to_internal_value(self, data):
         """Transform the *incoming* primitive data into a native value."""
-        # TODO: calles for every value in list?
 
         doc_id = None
         file = None
@@ -68,7 +67,9 @@ class CommunicationsAttachmentField(serializers.ResourceRelatedField):
             pass
             file = data
         return models.CommunicationsAttachment(
-            document_attachment_id=doc_id, file_attachment=file
+            document_attachment_id=doc_id,
+            file_attachment=file,
+            file_type=file.content_type if file else None,
         )
 
     # def to_representation(self, value):
@@ -151,7 +152,11 @@ class TopicSerializer(serializers.ModelSerializer):
         return validated_entities
 
     def validate_instance(self, value):
-        if value in _qs_from_view(InstanceView, self.context["request"]):
+        if (
+            _qs_from_view(InstanceView, self.context["request"])
+            .filter(pk=value.pk)
+            .exists()
+        ):
             return value
         raise ValidationError(
             gettext("Invisible instance, cannot create or update topic")

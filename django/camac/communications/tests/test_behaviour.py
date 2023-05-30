@@ -235,7 +235,9 @@ def test_set_initial_entity(db, be_instance, admin_client, role):
         be_instance.involved_applicants.create(
             invitee=admin_client.user, user=admin_client.user
         )
-
+        default_group = admin_client.user.get_default_group()
+        default_group.service = None
+        default_group.save()
     else:
         expect_entities = [str(admin_client.user.get_default_group().service_id)]
 
@@ -297,6 +299,10 @@ def test_validate_topic_entities_for_applicant(
         invitee=admin_client.user, user=admin_client.user
     )
     lb_entity = str(be_instance.instance_services.filter(active=1).get().service_id)
+
+    default_group = admin_client.user.get_default_group()
+    default_group.service = None
+    default_group.save()
 
     # decode "LB" and "other" markers ("APPLICANT" and fixed IDS remain)
     entities_lookup = {"LB": lb_entity, "OTHER": str(service_factory().pk)}
