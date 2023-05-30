@@ -1,7 +1,7 @@
 [
   {
     "model": "core.instanceservice",
-    "pk": 14000000,
+    "pk": 2000000,
     "fields": {
       "instance": 1,
       "service": 2,
