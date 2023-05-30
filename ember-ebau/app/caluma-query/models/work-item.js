@@ -1,6 +1,7 @@
 import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 import WorkItemModel from "@projectcaluma/ember-core/caluma-query/models/work-item";
+import { decodeId } from "@projectcaluma/ember-core/helpers/decode-id";
 import { queryManager } from "ember-apollo-client";
 
 import saveWorkItemMutation from "ebau/gql/mutations/save-workitem.graphql";
@@ -108,7 +109,7 @@ export default class CustomWorkItemModel extends WorkItemModel {
   }
 
   get case() {
-    return this.raw.case.parentWorkItem?.case || this.raw.case;
+    return this.raw.case.family;
   }
 
   get instanceId() {
@@ -154,25 +155,58 @@ export default class CustomWorkItemModel extends WorkItemModel {
       .join("\n");
   }
 
+  replacePlaceholders(models) {
+    let map = {
+      INSTANCE_ID: this.instanceId,
+    };
+
+    const distributionWorkItem = [this.raw, this.raw.case.parentWorkItem]
+      .filter(Boolean)
+      .find((workItem) => workItem.task.slug === "distribution");
+
+    const inquiryWorkItem = [this.raw, this.raw.case.parentWorkItem]
+      .filter(Boolean)
+      .find((workItem) => workItem.task.slug === "inquiry");
+
+    if (distributionWorkItem) {
+      map = {
+        ...map,
+        DISTRIBUTION_CASE_UUID: decodeId(distributionWorkItem.childCase.id),
+      };
+    }
+
+    if (inquiryWorkItem) {
+      map = {
+        ...map,
+        INQUIRY_UUID: decodeId(inquiryWorkItem.id),
+        INQUIRY_ADDRESSED: inquiryWorkItem.addressedGroups[0],
+        INQUIRY_CONTROLLING: inquiryWorkItem.controllingGroups[0],
+      };
+    }
+
+    return models.map((placeholder) => map[placeholder]);
+  }
+
   get directLink() {
     if (this.can.cannot("edit work-item", this)) return null;
 
-    return this._getDirectLinkFor(this.raw.task.slug) || this.editLink;
+    const directLinkConfig = this.raw.task.meta.directLink;
+
+    return directLinkConfig
+      ? {
+          route: directLinkConfig.route,
+          models: this.replacePlaceholders(directLinkConfig.models),
+        }
+      : this.editLink;
   }
 
   get editLink() {
-    const url = this.router.urlFor(
-      "cases.detail.work-items.edit",
-      this.instanceId,
-      this.id
-    );
+    const link = {
+      route: "cases.detail.work-items.edit",
+      models: [this.instanceId, this.id],
+    };
 
-    return this.can.can("edit work-item", this) && url;
-  }
-
-  _getDirectLinkFor(/*configKey*/) {
-    // TODO
-    return;
+    return this.can.can("edit work-item", this) && link;
   }
 
   async toggleRead() {
@@ -245,37 +279,37 @@ export default class CustomWorkItemModel extends WorkItemModel {
     case {
       id
       meta
-      document {
-        form {
-          name
-        }
-        answers(filter: [{ questions: ["beschreibung-bauvorhaben", "voranfrage-vorhaben"] }]) {
-          edges {
-            node {
-              ... on StringAnswer {
-                value
+      family {
+        id
+        meta
+        document {
+          form {
+            name
+          }
+          answers(filter: [{ questions: ["beschreibung-bauvorhaben", "voranfrage-vorhaben"] }]) {
+            edges {
+              node {
+                ... on StringAnswer {
+                  value
+                }
               }
             }
           }
         }
       }
       parentWorkItem {
-        case {
+        id
+        addressedGroups
+        controllingGroups
+        task {
+          slug
           meta
-          document {
-            form {
-              name
-            }
-            answers(filter: [{ questions: ["beschreibung-bauvorhaben"] }]) {
-              edges {
-                node {
-                  ... on StringAnswer {
-                    value
-                  }
-                }
-              }
-            }
-          }
+        }
+        case {
+          id
+        }
+        childCase {
+          id
         }
       }
     }

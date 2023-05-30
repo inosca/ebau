@@ -2,6 +2,7 @@ import EmberRouter from "@ember/routing/router";
 import { inject as service } from "@ember/service";
 import registerDMSAdmin from "ember-ebau-core/modules/dms-admin";
 import registerLegalSubmission from "ember-ebau-core/modules/legal-submission";
+import registerTaskForm from "ember-ebau-core/modules/task-form";
 
 import config from "ebau/config/environment";
 
@@ -51,6 +52,7 @@ Router.map(function () {
           path: "/distribution/:case",
         });
         registerLegalSubmission(this);
+        registerTaskForm(this);
       });
       this.route("new");
     });

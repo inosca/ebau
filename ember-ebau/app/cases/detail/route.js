@@ -6,7 +6,7 @@ export default class CasesDetailRoute extends Route {
   @service ebauModules;
 
   model({ case_id }) {
-    return case_id;
+    return parseInt(case_id);
   }
 
   afterModel(caseId) {

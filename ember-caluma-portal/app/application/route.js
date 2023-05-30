@@ -2,6 +2,7 @@ import { getOwner } from "@ember/application";
 import Route from "@ember/routing/route";
 import { inject as service } from "@ember/service";
 import DocumentValidityButtonComponent from "ember-ebau-core/components/document-validity-button";
+import InquiryAnswerStatus from "ember-ebau-core/components/inquiry-answer-status";
 import LinkAttachmentsComponent from "ember-ebau-core/components/link-attachments";
 import UrGisComponent from "ember-ebau-core/components/ur-gis";
 
@@ -119,6 +120,12 @@ export default class ApplicationRoute extends Route {
       label: "Alexandria Dokument Formular",
       component: "alexandria-documents-form",
       componentClass: AlexandriaDocumentsFormComponent,
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "Stellungnahme Status",
+      component: "inquiry-answer-status",
+      componentClass: InquiryAnswerStatus,
+      type: "ChoiceQuestion",
     });
   }
 }

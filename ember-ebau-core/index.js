@@ -1,5 +1,15 @@
 "use strict";
 
+const ENV_MAP = {
+  kt_gr: "gr",
+  kt_bern: "be",
+  kt_schwyz: "sz",
+  kt_uri: "ur",
+};
+
+const ENVS = Object.values(ENV_MAP);
+const ENV = ENV_MAP[process.env.APPLICATION] || ENVS[0];
+
 module.exports = {
   name: require("./package").name,
 
@@ -8,5 +18,13 @@ module.exports = {
 
     this.import("node_modules/proj4/dist/proj4.js");
     this.import("node_modules/proj4leaflet/src/proj4leaflet.js");
+  },
+
+  options: {
+    "@embroider/macros": {
+      setOwnConfig: {
+        application: ENV,
+      },
+    },
   },
 };

@@ -3,13 +3,14 @@ import { render } from "@ember/test-helpers";
 import { faker } from "@faker-js/faker";
 import { hbs } from "ember-cli-htmlbars";
 import { setupMirage } from "ember-cli-mirage/test-support";
-import { module, test } from "qunit";
+import { module } from "qunit";
 
+import { setupRenderingTest } from "dummy/tests/helpers";
+import { testBE } from "dummy/tests/helpers/scenarios";
 import {
   OBLIGATION_ANSWERS,
   OBLIGATION_FORM_SLUG,
-} from "camac-ng/components/inquiry-answer-status";
-import { setupRenderingTest } from "camac-ng/tests/helpers";
+} from "ember-ebau-core/components/inquiry-answer-status";
 
 module("Integration | Component | inquiry-answer-status", function (hooks) {
   setupRenderingTest(hooks);
@@ -17,9 +18,9 @@ module("Integration | Component | inquiry-answer-status", function (hooks) {
 
   hooks.beforeEach(function () {
     this.owner.register(
-      "service:shoebox",
+      "service:calumaOptions",
       class extends Service {
-        content = { instanceId: 1 };
+        currentInstanceId = 1;
       }
     );
 
@@ -61,23 +62,29 @@ module("Integration | Component | inquiry-answer-status", function (hooks) {
     };
   });
 
-  test("it doesn't render obligation form options per default", async function (assert) {
-    await render(hbs`<InquiryAnswerStatus @field={{this.field}} />`);
+  testBE(
+    "it doesn't render obligation form options per default",
+    async function (assert) {
+      await render(hbs`<InquiryAnswerStatus @field={{this.field}} />`);
 
-    assert.dom("select > option").exists({ count: 4 });
-    OBLIGATION_ANSWERS.forEach((slug) => {
-      assert.dom(`select > option[value=${slug}]`).doesNotExist();
-    });
-  });
+      assert.dom("select > option").exists({ count: 4 });
+      OBLIGATION_ANSWERS.forEach((slug) => {
+        assert.dom(`select > option[value=${slug}]`).doesNotExist();
+      });
+    }
+  );
 
-  test("it renders only obligation form options for obligation forms", async function (assert) {
-    this.formSlug = OBLIGATION_FORM_SLUG;
+  testBE(
+    "it renders only obligation form options for obligation forms",
+    async function (assert) {
+      this.formSlug = OBLIGATION_FORM_SLUG;
 
-    await render(hbs`<InquiryAnswerStatus @field={{this.field}} />`);
+      await render(hbs`<InquiryAnswerStatus @field={{this.field}} />`);
 
-    assert.dom("select > option").exists({ count: 3 });
-    OBLIGATION_ANSWERS.forEach((slug) => {
-      assert.dom(`select > option[value=${slug}]`).exists();
-    });
-  });
+      assert.dom("select > option").exists({ count: 3 });
+      OBLIGATION_ANSWERS.forEach((slug) => {
+        assert.dom(`select > option[value=${slug}]`).exists();
+      });
+    }
+  );
 });

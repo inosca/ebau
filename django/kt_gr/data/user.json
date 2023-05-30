@@ -11,7 +11,7 @@
       "phone": null,
       "disabled": 0,
       "language": "de",
-      "last_login": "2023-05-16T12:27:27.402Z",
+      "last_login": "2023-05-30T11:40:50.158Z",
       "address": null,
       "city": null,
       "zip": null
@@ -45,6 +45,15 @@
     }
   },
   {
+    "model": "user.usergroup",
+    "pk": 4,
+    "fields": {
+      "user": 1,
+      "group": 20096,
+      "default_group": 0
+    }
+  },
+  {
     "model": "user.usergrouplog",
     "pk": 1,
     "fields": {
@@ -69,6 +78,20 @@
       "id1": 1,
       "field1": "USER_ID",
       "id2": 20003,
+      "field2": "GROUP_ID"
+    }
+  },
+  {
+    "model": "user.usergrouplog",
+    "pk": 3,
+    "fields": {
+      "modification_date": "2023-05-30T11:40:59Z",
+      "user_id": 1,
+      "action": "i",
+      "data": null,
+      "id1": 1,
+      "field1": "USER_ID",
+      "id2": 20096,
       "field2": "GROUP_ID"
     }
   }

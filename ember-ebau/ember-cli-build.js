@@ -19,6 +19,11 @@ module.exports = function (defaults) {
     "ember-simple-auth": {
       useSessionSetupMethod: true,
     },
+    "@embroider/macros": {
+      setOwnConfig: {
+        application: ENV,
+      },
+    },
   });
 
   app.trees.app = stew.rm(

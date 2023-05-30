@@ -14,6 +14,9 @@ module.exports = function (environment) {
         // e.g. EMBER_NATIVE_DECORATOR_SUPPORT: true
       },
     },
+    apollo: {
+      apiURL: "/graphql/",
+    },
     "ember-ebau-core": {
       attachmentSections: { applicant: "12000000" },
       urGisUrl,
