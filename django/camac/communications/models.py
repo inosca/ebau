@@ -3,8 +3,6 @@ import os.path
 from django.contrib.postgres.fields import ArrayField
 from django.db import models
 
-from camac.user.permissions import permission_aware
-
 
 def entity_for_current_user(request):
     """Return Entity string for the current user.
@@ -13,32 +11,7 @@ def entity_for_current_user(request):
     is an applicant (Ie. has no service groups)
     or the currently-relevant Service ID (also as string)
     """
-    return EntityInfo(request).entity() or ""
-
-
-class EntityInfo:
-    def __init__(self, request):
-        self.request = request
-        self._resolved = None
-
-    @permission_aware
-    def entity(self):
-        # Return the service ID of the default group, if the default group
-        # actually has a service ID. Otherwise, fall back to the first group
-        # of the user that does have a service ID.
-        # Finally, fall back to empty string if that's also not the case.
-        return str(
-            self.request.group.service_id
-            or self.request.user.get_default_group().service_id
-            or (
-                self.request.user.groups.filter(service__isnull=False)
-                .first()
-                .service_id
-            )
-        )
-
-    def entity_for_applicant(self):
-        return "APPLICANT"
+    return str((request.group and request.group.service_id) or "APPLICANT")
 
 
 class CommunicationsTopic(models.Model):

@@ -24,6 +24,10 @@ def test_create_topic(
         be_instance.involved_applicants.create(
             invitee=admin_client.user, user=admin_client.user
         )
+        default_group = admin_client.user.get_default_group()
+        default_group.service = None
+        default_group.save()
+
     resp = admin_client.post(
         reverse("communications-topic-list"),
         {
@@ -204,6 +208,9 @@ def test_message_status_on_attachments(
         be_instance.involved_applicants.create(
             invitee=admin_client.user, user=admin_client.user
         )
+        default_group = admin_client.user.get_default_group()
+        default_group.service = None
+        default_group.save()
 
     url = reverse("communications-attachment-list")
     resp = admin_client.post(
@@ -266,6 +273,9 @@ def test_message_status_on_modifying_message(
         be_instance.involved_applicants.create(
             invitee=admin_client.user, user=admin_client.user
         )
+        default_group = admin_client.user.get_default_group()
+        default_group.service = None
+        default_group.save()
 
     resp = admin_client.patch(
         reverse("communications-message-detail", args=[communications_message.pk]),
@@ -333,6 +343,9 @@ def test_adding_message_with_allow_replies(
         be_instance.involved_applicants.create(
             invitee=admin_client.user, user=admin_client.user
         )
+        default_group = admin_client.user.get_default_group()
+        default_group.service = None
+        default_group.save()
 
     if has_other_messages:
         communications_message_factory(topic=topic_with_admin_involved)
