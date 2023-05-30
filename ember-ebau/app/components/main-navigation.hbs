@@ -1,9 +1,12 @@
 <nav class="main-navigation uk-navbar-container uk-navbar">
   <div class="uk-navbar-left uk-margin-small-left">
     <ul class="uk-navbar-nav main-navbar">
-      <li><div class="uk-navbar-item uk-logo">
+      <li>
+        <div class="uk-navbar-item uk-logo">
+          {{!-- TODO use macro conditions to replicate is-application helper --}}
           <img alt={{t "nav.logo"}} src="/ebau-inosca-logo.svg" />
-      </div></li>
+        </div>
+      </li>
       {{#if this.session.isAuthenticated}}
         {{#each this.resources.value as |resource|}}
           <UkSubnav::Item @href={{resource.link}}>{{resource.name}}</UkSubnav::Item>

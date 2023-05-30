@@ -7,7 +7,11 @@
 
 @import "modules/work-items";
 
+@import "components/icon-button";
 @import "components/work-item-list";
+
+@import "@projectcaluma/ember-form";
+@import "@projectcaluma/ember-distribution";
 
 $main-nav-height: 80px;
 $sidebar-width: 180px;

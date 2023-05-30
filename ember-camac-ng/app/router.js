@@ -2,6 +2,7 @@ import EmberRouter from "@ember/routing/router";
 import { inject as service } from "@ember/service";
 import registerDMSAdmin from "ember-ebau-core/modules/dms-admin";
 import registerLegalSubmission from "ember-ebau-core/modules/legal-submission";
+import registerTaskForm from "ember-ebau-core/modules/task-form";
 
 import config from "camac-ng/config/environment";
 
@@ -69,7 +70,6 @@ Router.map(function () {
       this.route("edit", { path: "/:work_item_id" });
     }
   );
-  this.route("task-form", { path: "instances/:instance_id/task-form/:task" });
   this.route("statistics", function () {
     this.route("avg-cycle-time");
     this.route("cycle-time");
@@ -91,4 +91,5 @@ Router.map(function () {
 
   registerLegalSubmission(this);
   registerDMSAdmin(this);
+  registerTaskForm(this);
 });

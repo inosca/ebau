@@ -19,6 +19,7 @@ module.exports = function (defaults) {
   const app = new EmberApp(defaults, {
     "@embroider/macros": {
       setOwnConfig: {
+        application: ENV,
         enableFaq: ENV === "be",
         enableInstanceSupport: ENV === "be",
         enablePublicationForm: ENV === "be",

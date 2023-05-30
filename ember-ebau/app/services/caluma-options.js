@@ -4,11 +4,16 @@ import { INQUIRY_STATUS } from "@projectcaluma/ember-distribution/config";
 import { cached } from "tracked-toolbox";
 
 export default class CustomCalumaOptionsService extends CalumaOptionsService {
+  @service ebauModules;
   @service session;
   @service store;
 
   get currentGroupId() {
     return this.session.service.id;
+  }
+
+  get currentInstanceId() {
+    return this.ebauModules.instanceId;
   }
 
   async _fetchIfNotCached(modelName, idFilter, identifiers) {
@@ -39,22 +44,14 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
 
   @cached
   get distribution() {
-    const permissions = {
-      completeDistribution: () => this.session.isLeadRole,
-      reopenDistribution: () => this.session.isLeadRole,
-      sendInquiry: () => this.session.isLeadRole,
-      withdrawInquiry: () => this.session.isLeadRole,
-      completeInquiryChildWorkItem: () => this.session.isLeadRole,
-      reopenInquiry: () => this.session.isLeadRole,
-      checkInquiries: () => this.session.isLeadRole,
-    };
-
     return {
       ui: { stack: false, small: false, readonly: this.session.isReadOnlyRole },
       inquiry: {
         answer: {
           infoQuestions: [
-            "inquiry-answer-statement",
+            "inquiry-answer-situation",
+            "inquiry-answer-considerations",
+            "inquiry-answer-assessment",
             "inquiry-answer-ancillary-clauses",
           ],
           buttons: {
@@ -67,30 +64,37 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
           statusMapping: {
             "inquiry-answer-status-positive": INQUIRY_STATUS.POSITIVE,
             "inquiry-answer-status-negative": INQUIRY_STATUS.NEGATIVE,
-            "inquiry-answer-status-claim": INQUIRY_STATUS.NEEDS_INTERACTION,
-            "inquiry-answer-status-not-involved": INQUIRY_STATUS.POSITIVE,
-            "inquiry-answer-status-obligated": INQUIRY_STATUS.NEGATIVE,
-            "inquiry-answer-status-not-obligated": INQUIRY_STATUS.POSITIVE,
-            "inquiry-answer-status-unknown": {
-              icon: "question",
-              color: "emphasis",
-            },
+            "inquiry-answer-status-approved": INQUIRY_STATUS.POSITIVE,
+            "inquiry-answer-status-rejected": INQUIRY_STATUS.NEGATIVE,
+            "inquiry-answer-status-written-off": INQUIRY_STATUS.NEGATIVE,
           },
         },
       },
       new: {
         types: {
-          municipality: {
-            label: "distribution.municipalities",
+          "authority-bab": {
+            label: "distribution.authority-bab",
           },
           service: {
             label: "distribution.services",
           },
+          municipality: {
+            label: "distribution.municipalities",
+          },
+          subservice: {
+            label: "distribution.subservices",
+          },
         },
       },
-      permissions,
-      inquiryReminderNotificationTemplateSlug:
-        "05-meldung-fristuberschreitung-fachstelle",
+      permissions: {
+        completeDistribution: () => this.session.isLeadRole,
+        reopenDistribution: () => this.session.isLeadRole,
+        sendInquiry: () => this.session.isLeadRole,
+        withdrawInquiry: () => this.session.isLeadRole,
+        completeInquiryChildWorkItem: () => this.session.isLeadRole,
+        reopenInquiry: () => this.session.isLeadRole,
+        checkInquiries: () => this.session.isLeadRole,
+      },
     };
   }
 
@@ -98,9 +102,9 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
     return await types.reduce(async (typed, type) => {
       const filters =
         type === "subservice"
-          ? { service_parent: this.session.service.id }
+          ? { service_parent: this.ebauModules.serviceId }
           : type === "suggestions"
-          ? { suggestion_for_instance: this.session.currentInstanceId }
+          ? { suggestion_for_instance: this.currentInstanceId }
           : { service_group_name: type, has_parent: false };
 
       const result = await this.store.query("public-service", {

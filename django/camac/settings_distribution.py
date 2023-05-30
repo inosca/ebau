@@ -66,7 +66,6 @@ DISTRIBUTION = {
         "ENABLED": True,
         "ECH_EVENTS": True,
         "INSTANCE_STATE_DISTRIBUTION": "circulation",
-        "DISTRIBUTION_": _("Circulation reopened"),
         "HISTORY": {
             "COMPLETE_DISTRIBUTION": _("Circulation completed"),
             "SKIP_DISTRIBUTION": _("Circulation skipped"),
@@ -548,6 +547,18 @@ DISTRIBUTION = {
             "fill-inquiry": {
                 "TIME_DELTA": timedelta(days=-3)  # check-inquiry lead-time
             }
+        },
+    },
+    "kt_gr": {
+        "ENABLED": True,
+        "INSTANCE_STATE_DISTRIBUTION": "circulation",
+        "HISTORY": {
+            "COMPLETE_DISTRIBUTION": _("Circulation completed"),
+            "SKIP_DISTRIBUTION": _("Circulation skipped"),
+            "REDO_DISTRIBUTION": _("Circulation reopened"),
+        },
+        "REDO_INQUIRY": {
+            "REOPEN_TASKS": ["fill-inquiry"],
         },
     },
     "demo": {"ENABLED": True},

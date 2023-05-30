@@ -3154,6 +3154,15 @@ APPLICATIONS = {
             "MODIFICATION_ALLOW_FORMS": [
                 "baugesuch",
             ],
+            "SIMPLE_WORKFLOW": {
+                "init-distribution": {
+                    "next_instance_state": "circulation",
+                    "history_text": _("Circulation started"),
+                },
+                "complete-distribution": {
+                    "next_instance_state": "decision",
+                },
+            },
         },
         "INSTANCE_STATE_REJECTION_COMPLETE": "finished",
         "REJECTION_FEEDBACK_QUESTION": {},
