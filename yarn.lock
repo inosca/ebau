@@ -6025,6 +6025,38 @@ ember-alexandria@4.0.0:
     ember-uikit "^8.0.0"
     file-saver "^2.0.5"
 
+ember-alexandria@4.0.4:
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/ember-alexandria/-/ember-alexandria-4.0.4.tgz#5105e39217588ac8dda5706f42f43f646c9f81df"
+  integrity sha512-DMlg8aMdam/oUCZeUQ+BOt3JGWDjUUbOEdQ7Tdbo3LLG1w/feM3W4KNQrxCCWD9RzLnXez5u61HijgwmFCrQyg==
+  dependencies:
+    "@ember/legacy-built-in-components" "^0.4.2"
+    "@ember/optional-features" "^2.0.0"
+    "@ember/render-modifiers" "^2.0.5"
+    "@embroider/macros" "^1.10.0"
+    "@fortawesome/ember-fontawesome" "^0.4.1"
+    "@fortawesome/free-regular-svg-icons" "^6.4.0"
+    "@fortawesome/free-solid-svg-icons" "^6.4.0"
+    "@glimmer/component" "^1.1.2"
+    "@glimmer/tracking" "^1.1.2"
+    animate-css-grid "^1.5.1"
+    ember-auto-import "^2.6.3"
+    ember-cli-babel "^7.26.11"
+    ember-cli-htmlbars "^6.2.0"
+    ember-composable-helpers "^5.0.0"
+    ember-concurrency "^2.3.7"
+    ember-data "^3.28.13"
+    ember-engines-router-service "^0.3.0"
+    ember-fetch "^8.1.2"
+    ember-intl "^5.7.2"
+    ember-localized-model "^3.0.1"
+    ember-modifier "^4.1.0"
+    ember-promise-helpers "^2.0.0"
+    ember-simple-auth-oidc "^5.1.0"
+    ember-truth-helpers "^3.1.1"
+    ember-uikit "^8.0.0"
+    file-saver "^2.0.5"
+
 ember-apollo-client@4.0.2, ember-apollo-client@~4.0.2:
   version "4.0.2"
   resolved "https://registry.yarnpkg.com/ember-apollo-client/-/ember-apollo-client-4.0.2.tgz#2f7ec52fc88c48930cd4090f9d9c1808f33e9d3b"
@@ -7140,6 +7172,16 @@ ember-localized-model@2.0.0, ember-localized-model@^2.0.0:
     ember-cli-babel "^7.26.11"
     ember-cli-htmlbars "^6.1.1"
     ember-data "^4.9.1"
+    ember-intl "^5.7.0"
+
+ember-localized-model@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/ember-localized-model/-/ember-localized-model-3.0.1.tgz#2c02499799fab6f09987b04df8195ffd8a393da3"
+  integrity sha512-NehJn3M5woFvRssx8wVY1Dmg1d2VLX6pCTTjNRRWYCjgRAGvqQWQtmFoUP0kzz5tIXprWshi9TxFlAnKhao3XQ==
+  dependencies:
+    "@glimmer/tracking" "^1.1.2"
+    ember-cli-babel "^7.26.11"
+    ember-cli-htmlbars "^6.2.0"
     ember-intl "^5.7.0"
 
 ember-math-helpers@3.0.0, ember-math-helpers@^3.0.0:
