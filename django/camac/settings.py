@@ -38,7 +38,21 @@ if env.str("APPLICATION_ENV", default="production") != "ci" and os.path.exists(
 # file (which doesn't exist)
 
 from caluma.settings.caluma import *  # noqa isort:skip
-from alexandria.settings.alexandria import * # noqa isort:skip
+
+# TODO: alexandria import anywhere causes error???
+"""
+from alexandria.settings.alexandria import *  # noqa isort:skip
+from alexandria.settings.alexandria import ALEXANDRIA_PERMISSION_CLASSES
+from alexandria.settings.alexandria import (
+    ALEXANDRIA_VISIBILITY_CLASSES,
+    ALEXANDRIA_PERMISSION_CLASSES,
+    ALEXANDRIA_VALIDATION_CLASSES,
+    ENABLE_THUMBNAIL_GENERATION,
+    THUMBNAIL_HEIGHT,
+    THUMBNAIL_WIDTH,
+    OIDC_DRF_AUTH_BACKEND,
+)  # noqa isort:skip
+"""
 
 ENV = env.str("APPLICATION_ENV", default="production")
 APPLICATION_NAME = env.str("APPLICATION")
@@ -121,7 +135,7 @@ INSTALLED_APPS = [
     "reversion",
     "rest_framework_xml",
     # alexandria
-    "alexandria.alexandria_core.apps.DefaultConfig",
+    "alexandria.core.apps.DefaultConfig",
     # TODO: remove this when all production environments ran the migration to
     # delete the tables of this app
     "camac.file.apps.DefaultConfig",
@@ -2134,13 +2148,13 @@ APPLICATIONS = {
         ],
         "ATTACHMENT_MAX_SIZE": 100 * 1024 * 1024,
         "ALEXANDRIA": {
-            "PUBLIC_TAGS" : [
+            "PUBLIC_TAGS": [
                 "dokument-grundstucksangaben",
                 "dokument-gutachten-nachweise-begrundungen",
                 "dokument-projektplane-projektbeschrieb",
                 "dokument-weitere-gesuchsunterlagen",
             ]
-        }
+        },
     },
     "kt_uri": {
         "ECH0211": {
@@ -4110,3 +4124,8 @@ def load_module_settings(module_name, application_name=APPLICATION_NAME):
 APPEAL = load_module_settings("appeal")
 DISTRIBUTION = load_module_settings("distribution")
 PARASHIFT = load_module_settings("parashift")
+
+# TODO: import from alexandria settings
+ALEXANDRIA_PERMISSION_CLASSES=["camac.alexandria.extensions.permissions.CustomPermission"]
+ALEXANDRIA_VISIBILITY_CLASSES=["camac.alexandria.extensions.visibilities.CustomVisibility"]
+ALEXANDRIA_VALIDATION_CLASSES=["camac.alexandria.extensions.validations.Validator"]

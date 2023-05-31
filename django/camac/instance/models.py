@@ -248,10 +248,10 @@ class Instance(models.Model):
 
 class InstanceAlexandriaDocument(models.Model):
     instance = models.OneToOneField(
-        Instance, models.CASCADE, related_name="alexandria_documents"
+        Instance, models.CASCADE, related_name="alexandria_instance_documents"
     )
     document = models.OneToOneField(
-        "alexandria_core.Document", models.CASCADE, related_name="instance"
+        "alexandria_core.Document", models.CASCADE, related_name="instance_document"
     )
 
     class Meta:
