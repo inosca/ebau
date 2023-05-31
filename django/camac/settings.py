@@ -121,7 +121,7 @@ INSTALLED_APPS = [
     "reversion",
     "rest_framework_xml",
     # alexandria
-    "alexandria.core.apps.DefaultConfig",
+    "alexandria.alexandria_core.apps.DefaultConfig",
     # TODO: remove this when all production environments ran the migration to
     # delete the tables of this app
     "camac.file.apps.DefaultConfig",
