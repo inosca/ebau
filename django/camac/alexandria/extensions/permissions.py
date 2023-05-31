@@ -4,37 +4,29 @@ from alexandria.core.permissions import (
     object_permission_for,
 )
 from alexandria.core.models import BaseModel, Category, Document, File, Tag
-
-
-"""
-use alexandria as package
-intermediate table for instance to document relation
-permission/vis on meta 
-"""
+from .common import get_role
 
 
 class CustomPermission(BasePermission):
     @permission_for(BaseModel)
     def has_permission_default(self, request):
-        if request.user.role == "support":
+        if get_role(request.user) == "support":
             return True
 
         return False
 
-    @permission_for(File)
     @permission_for(Document)
     def has_permission_for_document(self, request):
         # create document
         category = Category.objects.get(pk=request.data["category"]["id"])
-        permission = category.meta["permissions"][request.user.role]
+        permission = category.metainfo["access"][get_role(request.user)]
 
         return globals()[f"{permission}Permission"]().can_write(request)
 
-    @object_permission_for(File)
     @object_permission_for(Document)
     def has_object_permission_for_document(self, request, document):
         # update, delete document
-        permission = document.category.meta["permissions"][request.user.role]
+        permission = document.category.metainfo["access"][get_role(request.user)]
 
         if request.method == "DELETE":
             return globals()[f"{permission}Permission"]().can_destroy(request)
@@ -44,13 +36,13 @@ class CustomPermission(BasePermission):
     @permission_for(File)
     def has_permission_for_file(self, request):
         category = Document.objects.get(pk=request.data["document"]["id"]).category
-        permission = category.meta["permissions"][request.user.role]
+        permission = category.metainfo["access"][get_role(request.user)]
 
         return globals()[f"{permission}Permission"]().can_write(request)
 
     @object_permission_for(File)
     def has_object_permission_for_file(self, request, file):
-        permission = file.document.category.meta["permissions"][request.user.role]
+        permission = file.document.category.metainfo["access"][get_role(request.user)]
 
         if request.method == "DELETE":
             return globals()[f"{permission}Permission"]().can_destroy(request)
@@ -59,17 +51,17 @@ class CustomPermission(BasePermission):
 
     @permission_for(Tag)
     def has_permission_for_tag(self, request):
-        if request.user.role != "applicant":
+        if get_role(request.user) != "applicant":
             return True
 
         return False
 
     @object_permission_for(Tag)
     def has_object_permission_for_tag(self, request, tag):
-        if request.user.role == "support":
+        if get_role(request.user) == "support":
             return True
 
-        if request.user.role != "applicant":
+        if get_role(request.user) != "applicant":
             return tag.created_by_group == request.user.group
 
         return False
