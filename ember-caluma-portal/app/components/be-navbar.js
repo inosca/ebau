@@ -8,6 +8,7 @@ import config from "caluma-portal/config/environment";
 const {
   languages,
   environment,
+  profileURL,
   ebau: { internalURL },
 } = config;
 
@@ -32,6 +33,7 @@ export default class BeNavbarComponent extends Component {
 
   languages = languages;
   environment = environment;
+  profileURL = profileURL;
 
   get showFormBuilder() {
     return macroCondition(isDevelopingApp())

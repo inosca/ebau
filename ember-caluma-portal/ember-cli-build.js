@@ -25,6 +25,7 @@ module.exports = function (defaults) {
         enablePublicationEndDate: ENV === "ur",
         enableModificationConfirm: ENV === "be",
         instancePaperFilterDefault: ENV === "ur",
+        enablePortalProfile: ENV === "gr",
         documentBackend: ENV === "gr" ? "alexandria" : "camac",
       },
       setConfig: {

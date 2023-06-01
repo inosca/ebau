@@ -1,0 +1,198 @@
+@import "_variables";
+
+@import "uikit/src/scss/variables-theme.scss";
+@import "uikit/src/scss/mixins-theme.scss";
+
+@import "uikit/src/scss/uikit-theme.scss";
+
+$transparent-white: rgba(255, 255, 255, 0.9);
+
+.alert {
+  @extend .uk-alert;
+}
+
+.alert-error {
+  @extend .uk-alert-danger;
+}
+
+.hidden {
+  display: none;
+}
+
+a,
+h1,
+h2,
+.uk-button {
+  font-weight: 700;
+}
+
+#kc-header {
+  height: 100px;
+  background-color: white;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#kc-header-wrapper {
+  max-width: 900px + 2 * 32;
+  /* account for padding on .kc-form-card */
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.gr-logo {
+  background-image: url("../img/logo-kanton-gr.jpg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  height: 67px;
+  width: 171px;
+  margin-right: 2rem;
+}
+
+.kc-login {
+  background-image: url("../img/graubunden.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+h1 {
+  margin-top: 2rem;
+}
+
+#kc-social-providers ul {
+  list-style-type: none;
+  display: flex;
+  padding: 0;
+}
+
+.social-list-item {
+  flex-grow: 1;
+  flex-basis: 0;
+  margin: 0 1rem 1rem 2rem;
+}
+
+.social-list-item a {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  height: 150px;
+  background: $transparent-white;
+  padding: 0 32px;
+  font-size: 24px;
+  line-height: 28px;
+  font-weight: 400;
+  max-width: 536px;
+  margin: 0 auto;
+}
+
+.social-list-item a span {
+  text-align: left;
+}
+
+@media (max-width: 959px) {
+  #kc-social-providers ul {
+    display: block;
+  }
+
+  .social-list-item {
+    margin: 1rem 0;
+  }
+}
+
+.social-list-item a:hover {
+  text-decoration: none;
+  background: darken($transparent-white, 5%);
+}
+
+.social-list-item a.active {
+  background: $global-primary-background;
+  /* darken($transparent-white, 5%); */
+}
+
+.kc-form-card:not(.is-login-page),
+#info-messages {
+  background: $transparent-white;
+  padding: 32px;
+  margin: 0 1rem 2rem 0;
+}
+
+#info-messages h2 {
+  margin: 0;
+}
+
+.kc-form-card:not(.is-login-page),
+#kc-registration {
+  background: $transparent-white;
+  padding: 32px;
+  padding-top: 0;
+  margin: 5rem auto;
+}
+
+.kc-form-card:not(.is-login-page),
+#kc-form-login {
+  background: $transparent-white;
+  padding: 32px;
+  padding-top: 0;
+}
+
+/* increase width of container on login page to lign up buttons with base design */
+.kc-form-card.is-login-page {
+  max-width: 1000px;
+}
+
+#kc-form-login h1 {
+  padding-top: 32px;
+  margin: 0;
+}
+
+.kc-form-card {
+  margin-top: 3rem;
+}
+
+@media (max-width: 959px) {
+  .kc-form-card {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+}
+
+/* icons */
+.icon {
+  height: 50px;
+  width: 68px;
+  margin-right: 1rem;
+  flex-shrink: 0;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.icon-iweb {
+  height: 31px;
+  background-image: url("../img/people.svg");
+}
+
+.icon-afi {
+  background-image: url("../img/logo-kanton-gr.jpg");
+  background-color: red;
+}
+
+.icon-local {
+  background-image: url("../img/map.svg");
+}
+
+.copyright {
+  position: absolute;
+  bottom: 0;
+  font-size: 12px;
+  padding: 0.5rem;
+}
+
+.copyright a {
+  color: white;
+  font-weight: 400;
+}

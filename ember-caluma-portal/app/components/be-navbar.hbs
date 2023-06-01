@@ -134,6 +134,15 @@
                 </a>
               </li>
             {{/each}}
+            {{#if (macroCondition (macroGetOwnConfig "enablePortalProfile"))}}
+              <li>
+                <a href={{this.profileURL}} title={{t "nav.profile" }} uk-icon="user">
+                  <span class="uk-hidden">
+                    {{t "nav.profile"}}
+                  </span>
+                </a>
+              </li>
+            {{/if}}
             {{#if this.session.isAuthenticated}}
               <li>
                 <a href="#" title={{t "nav.logout"}} {{on "click" this.logout}}>
