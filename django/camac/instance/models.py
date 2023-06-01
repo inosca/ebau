@@ -3,7 +3,6 @@ import logging
 import reversion
 from django.conf import settings
 from django.db import models
-from django.contrib.contenttypes.fields import GenericRelation
 
 from camac.core.models import HistoryActionConfig
 from camac.user.models import Group, User

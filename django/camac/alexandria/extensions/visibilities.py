@@ -1,7 +1,8 @@
+from alexandria.core.models import BaseModel, Category, Document, File, Tag
 from alexandria.core.visibilities import BaseVisibility, filter_queryset_for
-from alexandria.core.models import BaseModel, Document, File, Category, Tag
-from django.db.models import Q
 from django.conf import settings
+from django.db.models import Q
+
 from .common import get_role
 
 

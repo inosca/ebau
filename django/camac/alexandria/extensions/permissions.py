@@ -1,9 +1,10 @@
+from alexandria.core.models import BaseModel, Category, Document, File, Tag
 from alexandria.core.permissions import (
     BasePermission,
-    permission_for,
     object_permission_for,
+    permission_for,
 )
-from alexandria.core.models import BaseModel, Category, Document, File, Tag
+
 from .common import get_role
 
 

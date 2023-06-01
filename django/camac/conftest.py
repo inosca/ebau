@@ -11,6 +11,7 @@ from pathlib import Path
 
 import faker
 import pytest
+from alexandria.core import factories as alexandria_factories
 from caluma.caluma_core.faker import MultilangProvider
 from caluma.caluma_form import (
     factories as caluma_form_factories,
@@ -104,6 +105,9 @@ register_module(communications_factories)
 # caluma factories
 register_module(caluma_form_factories, prefix="caluma")
 register_module(caluma_workflow_factories, prefix="caluma")
+
+# alexandria factories
+register_module(alexandria_factories, prefix="alexandria")
 
 # TODO: Somehow the ordering of those two calls is relevant.
 # Need to figure out why exactly (FreezegunAwareDatetimeProvider's
