@@ -1,0 +1,34 @@
+// Base colors
+$global-primary-background: #005A9B;
+$global-inverse-color: black;
+$global-secondary-background: #2c3443;
+// $global-danger-background: red;
+$global-success-background: rgb(0, 153, 0);
+$global-muted-background: rgb(245, 245, 245);
+
+// fonts
+$global-font-family: "Arial", sans-serif,
+  sans-serif;
+$global-font-size: 18px;
+
+// Font colors
+$global-color: #2c3443;
+$global-emphasis-color: rgb(50, 50, 50);
+$global-muted-color: rgb(100, 100, 100);
+$global-link-color: $global-secondary-background;
+$global-link-hover-color: black;
+// $alert-danger-color: $global-secondary-background;
+
+// Form
+$global-border: #949494;
+$form-focus-border: $global-secondary-background;
+
+// Misc
+$button-text-transform: none;
+$modal-z-index: 1;
+$button-primary-color: white;
+
+$button-disabled-background: $global-muted-background;
+
+// Ember-power-select
+$ember-power-select-trigger-icon-color: #757575;
