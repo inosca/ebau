@@ -1,7 +1,9 @@
-import Service from "@ember/service";
+import Service, { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 
 export default class AlexandriaConfigService extends Service {
+  @service store;
+
   @tracked caseId;
 
   get modelMetaFilters() {
@@ -15,8 +17,17 @@ export default class AlexandriaConfigService extends Service {
     };
   }
 
-  resolveUser() {}
-  resolveGroup() {}
+  resolveUser(id) {
+    if (!id) return "-";
+
+    return this.store.peekAll("user").findBy("username", id)?.fullName ?? "-";
+  }
+
+  resolveGroup(id) {
+    if (!id) return "-";
+
+    return this.store.peekRecord("group", id)?.name ?? "-";
+  }
 
   namespace = "/alexandria/api/v1";
 }

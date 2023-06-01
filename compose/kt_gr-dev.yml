@@ -77,8 +77,9 @@ services:
       - GWR_FERNET_KEY=GUdwT6yKxqfszrnHC7wyKDmtVZdhjSVQEPnpeJYNLf8=
       - DJANGO_INTERNAL_BASE_URL=http://ember-ebau.local
         # alexandria
-      - ALLOWED_HOSTS=*
       - OIDC_OP_USER_ENDPOINT=http://ebau-keycloak.local/auth/realms/ebau/protocol/openid-connect/userinfo
+      - ALLOWED_HOSTS=*
+      - MINIO_STORAGE_ENDPOINT=ember-ebau.local
     networks:
       - ebau.local
     command: /bin/sh -c "./wait-for-it.sh db:5432 -- ./manage.py migrate && ./manage.py collectstatic --noinput && ./manage.py runserver 0:80 --pythonpath /app/$APPLICATION"
@@ -153,6 +154,8 @@ services:
     environment:
       - MINIO_ACCESS_KEY=minio
       - MINIO_SECRET_KEY=minio123
+      - MINIO_NOTIFY_WEBHOOK_ENABLE_CALUMA=on
+      - MINIO_NOTIFY_WEBHOOK_ENDPOINT_CALUMA=http://django:8000/alexandria/api/v1/hook
     command: server data
     networks:
       - ebau.local
@@ -167,7 +170,7 @@ services:
       /bin/sh -c "
       mc config host add dc-minio http://minio:9000 $${MINIO_ACCESS_KEY} $${MINIO_SECRET_KEY} --api S3v4;
       mc mb dc-minio/caluma-media;
-      mc event add dc-minio/caluma-media arn:minio:sqs::ALEXANDRIA:webhook --event put;
+      mc event add dc-minio/caluma-media arn:minio:sqs::CALUMA:webhook --event put;
       mc event list dc-minio/caluma-media;"
     depends_on:
       - minio

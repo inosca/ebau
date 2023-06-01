@@ -31,7 +31,12 @@ from rest_framework.status import (
             HTTP_403_FORBIDDEN,
             {"permissions": {"applicant": "Admin"}},
         ),
-        ("municipality", "patch", HTTP_403_FORBIDDEN, {"permissions": {"applicant": "Admin"}}),
+        (
+            "municipality",
+            "patch",
+            HTTP_403_FORBIDDEN,
+            {"permissions": {"applicant": "Admin"}},
+        ),
         (
             "municipality",
             "delete",
@@ -134,7 +139,6 @@ def test_tag_permission(db, client, tag_factory, role, method, status_code):
     if status_code != HTTP_403_FORBIDDEN and method != "delete":
         result = response.json()
         assert result["data"]["attributes"]["name"] == "Important"
-
 
 
 @pytest.mark.parametrize(
