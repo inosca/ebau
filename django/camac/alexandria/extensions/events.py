@@ -1,7 +1,6 @@
+from alexandria.core.models import Document
 from django.db.models.signals import post_save
 from django.dispatch import receiver
-
-from alexandria.core.models import Document
 from instance.models import InstanceAlexandriaDocument
 
 

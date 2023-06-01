@@ -1,16 +1,15 @@
 import pytest
-
 from django.urls import reverse
 from rest_framework.status import (
-    HTTP_201_CREATED,
     HTTP_200_OK,
+    HTTP_201_CREATED,
     HTTP_204_NO_CONTENT,
     HTTP_403_FORBIDDEN,
 )
 
 
 @pytest.mark.parametrize(
-    "role,method,status_code,category__meta",
+    "role__name,method,status_code,alexandria_category__metainfo",
     [
         (
             "applicant",
@@ -59,7 +58,7 @@ from rest_framework.status import (
     ],
 )
 def test_document_permission(
-    db, client, document_factory, category, method, status_code, role
+    db, client, document_factory, alexandria_category, method, status_code
 ):
     url = reverse("document-list")
 
@@ -73,7 +72,7 @@ def test_document_permission(
         "relationships": {
             "category": {
                 "data": {
-                    "id": category.id,
+                    "id": alexandria_category.id,
                     "type": "category",
                 },
             },
@@ -81,7 +80,7 @@ def test_document_permission(
     }
 
     if method in ["patch", "delete"]:
-        doc = document_factory(title="Foo", category=category)
+        doc = document_factory(title="Foo", category=alexandria_category)
         url = reverse("document-detail", args=[doc.pk])
         data["data"]["id"] = str(doc.pk)
 
@@ -98,11 +97,12 @@ def test_document_permission(
 
 
 def test_file_permission(db):
-    url = reverse("file-list")
+    # replicate document?
+    pass
 
 
 @pytest.mark.parametrize(
-    "role,method,status_code",
+    "role__name,method,status_code",
     [
         ("applicant", "post", HTTP_403_FORBIDDEN),
         ("applicant", "delete", HTTP_403_FORBIDDEN),
@@ -116,7 +116,7 @@ def test_file_permission(db):
         ("support", "delete", HTTP_204_NO_CONTENT),
     ],
 )
-def test_tag_permission(db, client, tag_factory, role, method, status_code):
+def test_tag_permission(db, client, tag_factory, method, status_code):
     tag = tag_factory(name="Foo")
     url = reverse("tag-list")
 
@@ -142,7 +142,7 @@ def test_tag_permission(db, client, tag_factory, role, method, status_code):
 
 
 @pytest.mark.parametrize(
-    "role,status_code",
+    "role__name,status_code",
     [
         ("applicant", HTTP_403_FORBIDDEN),
         ("municipality", HTTP_403_FORBIDDEN),
@@ -150,7 +150,7 @@ def test_tag_permission(db, client, tag_factory, role, method, status_code):
         ("support", HTTP_200_OK),
     ],
 )
-def test_category_permission(db, client, category, role, status_code):
+def test_category_permission(db, client, category, status_code):
     url = reverse("category-detail", args=[category.pk])
 
     response = client.delete(url)
