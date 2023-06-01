@@ -4126,6 +4126,10 @@ DISTRIBUTION = load_module_settings("distribution")
 PARASHIFT = load_module_settings("parashift")
 
 # TODO: import from alexandria settings
-ALEXANDRIA_PERMISSION_CLASSES=["camac.alexandria.extensions.permissions.CustomPermission"]
-ALEXANDRIA_VISIBILITY_CLASSES=["camac.alexandria.extensions.visibilities.CustomVisibility"]
-ALEXANDRIA_VALIDATION_CLASSES=["camac.alexandria.extensions.validations.Validator"]
+ALEXANDRIA_PERMISSION_CLASSES = [
+    "camac.alexandria.extensions.permissions.CustomPermission"
+]
+ALEXANDRIA_VISIBILITY_CLASSES = [
+    "camac.alexandria.extensions.visibilities.CustomVisibility"
+]
+ALEXANDRIA_VALIDATION_CLASSES = ["camac.alexandria.extensions.validations.Validator"]
