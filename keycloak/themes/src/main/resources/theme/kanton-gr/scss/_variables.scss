@@ -1,0 +1,18 @@
+$global-font-family: "Arial", sans-serif;
+
+$global-font-size: 15px;
+
+// Base colors
+$global-primary-background: #0069b4;
+$global-secondary-background: black;
+
+// Font colors
+$global-color: #2c3443;
+$global-emphasis-color: rgb(50, 50, 50);
+$global-muted-color: rgb(100, 100, 100);
+$global-link-color: #3387c3;
+$global-link-hover-color: $global-primary-background;
+
+.uk-form-label {
+  font-weight: bolder;
+}
