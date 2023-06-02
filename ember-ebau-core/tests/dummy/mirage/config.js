@@ -6,12 +6,14 @@ export default function makeServer(config) {
     ...config,
     models: { ...discoverEmberDataModels(), ...config.models },
     routes() {
-      this.urlPrefix = "/api/v1/";
+      this.namespace = "/api/v1";
       this.timing = 400;
 
-      this.get("history-entries");
+      this.resource("history-entries", { only: ["index"] });
       this.resource("journal-entries");
       this.resource("attachments");
+
+      this.namespace = ""; // reset namespace
     },
   });
 }

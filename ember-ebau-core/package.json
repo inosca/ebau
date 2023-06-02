@@ -29,6 +29,7 @@
     "potentially also related to missing transform-3d support, but details remain unclear"
   ],
   "dependencies": {
+    "@embroider/macros": "1.10.0",
     "@faker-js/faker": "7.6.0",
     "@fortawesome/ember-fontawesome": "0.4.1",
     "@fortawesome/free-solid-svg-icons": "6.4.0",
