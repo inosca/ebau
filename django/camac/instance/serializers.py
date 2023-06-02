@@ -40,6 +40,7 @@ from camac.ech0211.signals import (
 from camac.instance.domain_logic import link_instances
 from camac.instance.master_data import MasterData
 from camac.instance.mixins import InstanceEditableMixin, InstanceQuerysetMixin
+from camac.instance.utils import copy_instance, fill_ebau_number
 from camac.notification.utils import send_mail
 from camac.user.models import Group, Location, Service
 from camac.user.permissions import permission_aware
@@ -940,6 +941,9 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
 
         if not migrated and is_kog:
             parts.append(_("coordinated"))
+
+        if not migrated and instance.case.meta.get("is-appeal"):
+            parts.append(_("appeal"))
 
         parts = [f"({part})" for part in parts]
 
@@ -2228,3 +2232,61 @@ class CalumaInstanceConvertModificationSerializer(serializers.Serializer):
 
     class Meta:
         resource_name = "instance-convert-modifications"
+
+
+class CalumaInstanceAppealSerializer(serializers.Serializer):
+    @transaction.atomic
+    def update(self, instance, validated_data):
+        user = self.context["request"].user
+        caluma_user = self.context["request"].caluma_info.context.user
+
+        new_instance = copy_instance(
+            instance=instance,
+            group=self.context["request"].group,
+            user=user,
+            caluma_user=caluma_user,
+            skip_submit=True,
+            # Mark the new instance as appeal so we can determine whether to
+            # show the appeal module in the navigation and mark it in the name.
+            # Also, we mark the old instance as "has-appeal" so we can prevent
+            # another appeal from that instance.
+            new_meta={"is-appeal": True},
+            old_meta={"has-appeal": True},
+        )
+
+        fill_ebau_number(
+            instance=new_instance,
+            ebau_number=instance.case.meta["ebau-number"],
+            caluma_user=caluma_user,
+        )
+
+        # Set the status of the old instance to finished if current status is sb1
+        if instance.instance_state.name == "sb1":
+            for task, fn in [
+                ("sb1", workflow_api.skip_work_item),
+                ("sb2", workflow_api.skip_work_item),
+                ("complete", workflow_api.complete_work_item),
+            ]:
+                fn(
+                    work_item=instance.case.work_items.get(task_id=task),
+                    user=caluma_user,
+                )
+
+            instance.set_instance_state("finished", user)
+
+        # Add history entry to source instance
+        create_history_entry(instance, user, gettext_noop("Appeal received"))
+
+        # Send notifications
+        for config in settings.APPEAL["NOTIFICATIONS"].get("APPEAL_SUBMITTED", []):
+            send_mail(
+                config["template_slug"],
+                self.context,
+                recipient_types=config["recipient_types"],
+                instance={"type": "instances", "id": instance.pk},
+            )
+
+        return new_instance
+
+    class Meta:
+        resource_name = "instance-appeals"

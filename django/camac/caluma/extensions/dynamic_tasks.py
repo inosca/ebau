@@ -65,3 +65,19 @@ class CustomDynamicTasks(BaseDynamicTasks):
             tasks.append(settings.DISTRIBUTION["DISTRIBUTION_CHECK_TASK"])
 
         return tasks
+
+    @register_dynamic_task("after-ebau-number")
+    def resolve_after_ebau_number(self, case, user, prev_work_item, context):
+        tasks = [
+            "distribution",
+            "audit",
+            "publication",
+            "fill-publication",
+            "information-of-neighbors",
+            "legal-submission",
+        ]
+
+        if case.meta.get("is-appeal"):
+            tasks.append("appeal")
+
+        return tasks

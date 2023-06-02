@@ -43,6 +43,10 @@ module.exports = function (environment) {
         instanceStates: {
           new: 1,
           archived: 20009,
+          coordination: 20005,
+          circulationInit: 20003,
+          finished: 120000,
+          sb1: 20011,
         },
         interchangeableForms: [
           ["baugesuch", "baugesuch-generell", "baugesuch-mit-uvp"],

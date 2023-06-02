@@ -2,10 +2,12 @@ import copy
 import glob
 import inspect
 import logging
+import os
 import sys
 from copy import deepcopy
 from dataclasses import dataclass, field
 from datetime import date
+from pathlib import Path
 
 import faker
 import pytest
@@ -50,6 +52,7 @@ from camac.instance.serializers import SUBMIT_DATE_FORMAT
 from camac.notification import factories as notification_factories
 from camac.objection import factories as objection_factories
 from camac.responsible import factories as responsible_factories
+from camac.settings import load_module_settings
 from camac.settings_distribution import DISTRIBUTION
 from camac.tags import factories as tags_factories
 from camac.urls import urlpatterns as app_patterns
@@ -455,9 +458,9 @@ def caluma_config_sz(settings):
 @pytest.fixture
 def use_instance_service(application_settings):
     application_settings["USE_INSTANCE_SERVICE"] = True
-    application_settings["ACTIVE_SERVICES"] = settings.APPLICATIONS["kt_bern"][
-        "ACTIVE_SERVICES"
-    ]
+    application_settings["ACTIVE_SERVICES"] = deepcopy(
+        settings.APPLICATIONS["kt_bern"]["ACTIVE_SERVICES"]
+    )
     application_settings["ACTIVE_SERVICES"]["MUNICIPALITY"]["FILTERS"] = {}
     application_settings["ACTIVE_SERVICES"]["CONSTRUCTION_CONTROL"]["FILTERS"] = {}
 
@@ -478,6 +481,7 @@ def caluma_workflow_config_be(
         "loaddata",
         settings.ROOT_DIR("kt_bern/config/caluma_distribution.json"),
         settings.ROOT_DIR("kt_bern/config/caluma_legal_submission_form.json"),
+        settings.ROOT_DIR("kt_bern/config/caluma_appeal_form.json"),
         settings.ROOT_DIR("kt_bern/config/caluma_workflow.json"),
     )
 
@@ -1080,3 +1084,39 @@ def master_data_is_visible_mock(mocker):
     mocker.patch(
         "camac.instance.master_data.MasterData._answer_is_visible", return_value=True
     )
+
+
+@pytest.fixture
+def gql():
+    """Fixture to load GraphQL files as string into tests.
+
+    By default the function will look for the file in a sibling directory "gql"
+    of the test file. For example:
+
+    `gql("foo")` called in `/a/b/tests/test.py` will resolve to
+    `/a/b/tests/gql/foo.graphql`.
+
+    If this behaviour is not preferred, you can also pass a path directly to the
+    function as a second parameter.
+    """
+
+    def wrapper(name, path=None):
+        if not path:
+            base = os.path.dirname(
+                inspect.getouterframes(inspect.currentframe())[1].filename
+            )
+            path = os.path.join(base, "gql")
+
+        file = os.path.join(path, f"{name}.graphql")
+
+        return Path(file).read_text()
+
+    return wrapper
+
+
+@pytest.fixture
+def be_appeal_settings(settings):
+    _original = settings.APPEAL
+    settings.APPEAL = load_module_settings("appeal", "kt_bern")
+    yield settings.APPEAL
+    settings.APPEAL = _original

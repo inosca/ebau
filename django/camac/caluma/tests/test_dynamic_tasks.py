@@ -4,6 +4,7 @@ from caluma.caluma_form.models import DynamicOption, Question
 from caluma.caluma_workflow.api import complete_work_item, skip_work_item
 from caluma.caluma_workflow.models import Case, WorkItem
 
+from camac.caluma.extensions.dynamic_tasks import CustomDynamicTasks
 from camac.caluma.tests.test_distribution_workflow import (  # noqa: F401
     distribution_case_be,
     distribution_child_case_be,
@@ -227,3 +228,49 @@ def test_dynamic_task_after_inquiries_completed(
     # check-inquiries work-item as there is already an existing one.
     assert check_inquiries_work_items.count() == 1
     assert check_distribution_work_items.count() == (1 if is_lead_authority else 0)
+
+
+@pytest.mark.parametrize(
+    "is_appeal,expected_tasks",
+    [
+        (
+            False,
+            {
+                "distribution",
+                "audit",
+                "publication",
+                "fill-publication",
+                "information-of-neighbors",
+                "legal-submission",
+            },
+        ),
+        (
+            True,
+            {
+                "distribution",
+                "audit",
+                "publication",
+                "fill-publication",
+                "information-of-neighbors",
+                "legal-submission",
+                "appeal",
+            },
+        ),
+    ],
+)
+def test_dynamic_task_after_ebau_number(
+    db,
+    caluma_admin_user,
+    expected_tasks,
+    is_appeal,
+    case_factory,
+):
+    case = case_factory(meta={"is-appeal": True} if is_appeal else {})
+
+    tasks = set(
+        CustomDynamicTasks().resolve_after_ebau_number(
+            case, caluma_admin_user, None, None
+        )
+    )
+
+    assert tasks == expected_tasks

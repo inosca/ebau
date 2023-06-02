@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-16 13:29+0200\n"
-"PO-Revision-Date: 2023-05-16 13:27+0200\n"
+"POT-Creation-Date: 2023-05-31 09:35+0200\n"
+"PO-Revision-Date: 2023-04-06 09:22+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
@@ -49,11 +49,11 @@ msgstr "Dossierprüfung übersprungen"
 msgid "Exam completed"
 msgstr "Dossierprüfung abgeschlossen"
 
-#: camac/caluma/extensions/events/decision.py:83
+#: camac/caluma/extensions/events/decision.py:114
 msgid "Evaluation completed"
 msgstr "Beurteilung abgeschlossen"
 
-#: camac/caluma/extensions/events/decision.py:87
+#: camac/caluma/extensions/events/decision.py:118
 msgid "Decision decreed"
 msgstr "Bauentscheid verfügt"
 
@@ -68,6 +68,10 @@ msgstr "Meldeformular an AWA weiterleiten"
 #: camac/caluma/extensions/events/sb.py:67
 msgid "Inform load compensation bodies"
 msgstr "Lastenausgleichstellende informieren"
+
+#: camac/caluma/extensions/validations.py:193
+msgid "Issue statement on appeal"
+msgstr "Stellungnahme zu Beschwerde abgeben"
 
 #: camac/core/admin/forms.py:17 camac/core/admin/forms.py:33
 #: camac/core/admin/views.py:41 camac/core/admin/views.py:78
@@ -292,7 +296,7 @@ msgstr ""
 "Der Importvorgang dauerte mehr als %(timeout)i Sekunden, um abzuschliessen "
 "und wurde darum abgebrochen."
 
-#: camac/dossier_import/serializers.py:57 camac/instance/serializers.py:1836
+#: camac/dossier_import/serializers.py:57 camac/instance/serializers.py:1840
 msgid "No location assigned."
 msgstr "Kein Standort gesetzt."
 
@@ -378,11 +382,11 @@ msgstr ""
 msgid "Inquiry sent"
 msgstr "Anforderung einer Stellungnahme"
 
-#: camac/ech0211/event_handlers.py:285 camac/instance/serializers.py:1463
+#: camac/ech0211/event_handlers.py:285 camac/instance/serializers.py:1467
 msgid "SB1 submitted"
 msgstr "SB1 eingereicht"
 
-#: camac/ech0211/event_handlers.py:290 camac/instance/serializers.py:1782
+#: camac/ech0211/event_handlers.py:290 camac/instance/serializers.py:1786
 msgid "SB2 submitted"
 msgstr "SB2 eingereicht"
 
@@ -473,7 +477,7 @@ msgid "Draft"
 msgstr "Entwurf"
 
 #: camac/instance/document_merge_service.py:284
-#: camac/instance/tests/test_document_merge_service.py:299
+#: camac/instance/tests/test_document_merge_service.py:300
 #: camac/user/authentication.py:79
 msgid "Signature has expired."
 msgstr "Signatur ist abgelaufen."
@@ -570,132 +574,140 @@ msgstr "Datum Gesamtentscheid"
 msgid "Not allowed to add data to instance %(instance)s"
 msgstr "Keine Berechtigung um Daten zum Dossier %(instance)s hinzuzufügen"
 
-#: camac/instance/serializers.py:209
+#: camac/instance/serializers.py:210
 msgid "Location may not be changed."
 msgstr "Standort darf nicht geändert werden."
 
-#: camac/instance/serializers.py:216
+#: camac/instance/serializers.py:217
 msgid "Form may not be changed."
 msgstr "Formular darf nicht geändert werden."
 
-#: camac/instance/serializers.py:405 camac/instance/serializers.py:1535
+#: camac/instance/serializers.py:406 camac/instance/serializers.py:1539
 #, python-format
 msgid "'%(form)s' is not a valid form type"
 msgstr "'%(form)s' ist ein ungültiger Dossiertyp"
 
-#: camac/instance/serializers.py:415 camac/instance/serializers.py:1529
+#: camac/instance/serializers.py:416 camac/instance/serializers.py:1533
 #, python-format
 msgid "The current form '%(form)s' can't be changed"
 msgstr "Der momentane Dossiertyp '%(form)s' kann nicht geändert werden"
 
-#: camac/instance/serializers.py:420
+#: camac/instance/serializers.py:421
 #, python-format
 msgid "Form is already of type '%(form)s'"
 msgstr "Formular ist bereits vom Typ '%(form)s'"
 
-#: camac/instance/serializers.py:927 camac/instance/serializers.py:933
+#: camac/instance/serializers.py:928 camac/instance/serializers.py:934
 msgid "migrated"
 msgstr "Migriert"
 
-#: camac/instance/serializers.py:936
+#: camac/instance/serializers.py:937
 msgid "paper"
 msgstr "Papier"
 
-#: camac/instance/serializers.py:939
+#: camac/instance/serializers.py:940
 msgid "modification"
 msgstr "Projektänderung"
 
-#: camac/instance/serializers.py:942
+#: camac/instance/serializers.py:943
 msgid "coordinated"
 msgstr "KoG"
 
-#: camac/instance/serializers.py:973
+#: camac/instance/serializers.py:946
+msgid "appeal"
+msgstr "Beschwerdeverfahren"
+
+#: camac/instance/serializers.py:977
 msgid "Source instance not found"
 msgstr "Quellinstanz nicht gefunden"
 
-#: camac/instance/serializers.py:1009
+#: camac/instance/serializers.py:1013
 #, python-format
 msgid "The form '%(form)s' can only be used by an internal role"
 msgstr "Das Formular '%(form)s' kann nur von internen Rollen genutzt werden"
 
-#: camac/instance/serializers.py:1020
+#: camac/instance/serializers.py:1024
 msgid "Project modification is not allowed"
 msgstr "Projektänderung nicht erlaubt"
 
-#: camac/instance/serializers.py:1184
+#: camac/instance/serializers.py:1188
 msgid "Dossier completed by resubmission"
 msgstr "Dossier durch Neueinreichung abgeschlossen"
 
-#: camac/instance/serializers.py:1404
+#: camac/instance/serializers.py:1408
 msgid "Dossier submitted"
 msgstr "Dossier eingereicht"
 
-#: camac/instance/serializers.py:1502
+#: camac/instance/serializers.py:1506
 msgid "Archived"
 msgstr "Archiviert"
 
-#: camac/instance/serializers.py:1551
+#: camac/instance/serializers.py:1555
 msgid "Changed form type"
 msgstr "Dossiertyp geändert"
 
-#: camac/instance/serializers.py:1581
+#: camac/instance/serializers.py:1585
 msgid "Invalid format"
 msgstr "Ungültiges Format"
 
-#: camac/instance/serializers.py:1588
+#: camac/instance/serializers.py:1592
 msgid "This eBau number doesn't exist"
 msgstr "Diese eBau-Nummer existiert nicht"
 
-#: camac/instance/serializers.py:1592
+#: camac/instance/serializers.py:1596
 msgid "This eBau number is already in use by a different municipality"
 msgstr "Diese eBau-Nummer wurde durch eine andere Leitbehörde bereits vergeben"
 
-#: camac/instance/serializers.py:1641
+#: camac/instance/serializers.py:1645
 #, python-format
 msgid "%(value)s is not a valid service type - valid types are: %(expected)s"
 msgstr ""
 "%(value)s ist kein korrekter Servicetyp - korrekte Typen sind: %(expected)s"
 
-#: camac/instance/serializers.py:1655
+#: camac/instance/serializers.py:1659
 msgid "Invalid audit"
 msgstr "Ungültige Prüfung"
 
-#: camac/instance/serializers.py:1695
+#: camac/instance/serializers.py:1699
 #, python-format
 msgid "Changed responsible service to: %(service)s"
 msgstr "Neue Leitbehörde: %(service)s"
 
-#: camac/instance/serializers.py:1717
+#: camac/instance/serializers.py:1721
 #, python-format
 msgid "Responsible service did not change for instance %(instance_id)s"
 msgstr "Wechsel der Leitbehörde für Dossier %(instance_id)s ist fehlgeschlagen"
 
-#: camac/instance/serializers.py:1810
+#: camac/instance/serializers.py:1814
 #, python-format
 msgid "User %(user)s does not belong to service %(service)s."
 msgstr "Der Benutzer %(user)s gehört nicht zum Service %(service)s."
 
-#: camac/instance/serializers.py:1858
+#: camac/instance/serializers.py:1862
 #, python-format
 msgid "No group found for location %(name)s."
 msgstr "Keine Gruppe für den Standort %(name)s gefunden."
 
-#: camac/instance/serializers.py:1890
+#: camac/instance/serializers.py:1894
 #, python-format
 msgid "invalid question %(question)s."
 msgstr "Ungültige Frage %(question)s."
 
-#: camac/instance/serializers.py:1897
+#: camac/instance/serializers.py:1901
 #, python-format
 msgid "%(permission)s is not allowed to edit question %(question)s."
 msgstr "%(permission)s darf die Frage %(question)s nicht bearbeiten."
 
-#: camac/instance/utils.py:30
+#: camac/instance/serializers.py:2278
+msgid "Appeal received"
+msgstr "Beschwerde eingegangen"
+
+#: camac/instance/utils.py:39
 #, python-format
 msgid "Could not find lead authority for construction control %(id)d"
 msgstr "Keine Leitbehörde für die Baukontrolle %(id)d gefunden"
 
-#: camac/instance/utils.py:49
+#: camac/instance/utils.py:58
 #, python-format
 msgid "Could not find construction control for lead authority %(id)d"
 msgstr "Keine Baukontrolle für die Leitbehörde %(id)d gefunden"
@@ -819,19 +831,19 @@ msgstr "Zirkulation gestartet"
 msgid "Procedure completed"
 msgstr "Baugesuchsverfahren abgeschlossen"
 
-#: camac/settings.py:3680
+#: camac/settings.py:3682
 msgid "German"
 msgstr "Deutsch"
 
-#: camac/settings.py:3681
+#: camac/settings.py:3683
 msgid "French"
 msgstr "Französisch"
 
-#: camac/settings.py:3682
+#: camac/settings.py:3684
 msgid "Italian"
 msgstr "Italienisch"
 
-#: camac/settings.py:3683
+#: camac/settings.py:3685
 msgid "Romansh"
 msgstr "Rätoromanisch"
 
@@ -1047,9 +1059,3 @@ msgstr "Zuständigkeit in Baukontrolle übernehmen?"
 #: camac/user/models.py:550
 msgid "Services"
 msgstr "Organisationen"
-
-#~ msgid "Page not found"
-#~ msgstr "Seite nicht gefunden"
-
-#~ msgid "We’re sorry, but the requested page could not be found."
-#~ msgstr "Die gewünschte Seite konnte nicht gefunden werden."
