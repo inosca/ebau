@@ -530,7 +530,7 @@ module.exports = function (environment) {
     environment,
     rootURL: "/",
     locationType: "history",
-    profileURL: `${oidcHost}/auth/realms/ebau/account`,
+    profileURL: `${oidcHost}/auth/realms/${appConfig.realm}/account`,
     historySupportMiddleware: true,
     "ember-simple-auth-oidc": {
       host: `${oidcHost}/auth/realms/${appConfig.realm}/protocol/openid-connect`,
