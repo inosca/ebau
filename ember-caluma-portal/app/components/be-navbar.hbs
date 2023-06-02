@@ -134,7 +134,7 @@
                 </a>
               </li>
             {{/each}}
-            {{#if (macroCondition (macroGetOwnConfig "enablePortalProfile"))}}
+            {{#if (macroCondition (macroGetOwnConfig "showProfileLink"))}}
               <li>
                 <a href={{this.profileURL}} title={{t "nav.profile" }} uk-icon="user">
                   <span class="uk-hidden">
