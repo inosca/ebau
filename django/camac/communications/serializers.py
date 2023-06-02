@@ -432,9 +432,37 @@ class CommunicationsAttachmentSerializer(serializers.ModelSerializer):
 class ConvertToDocumentSerializer(serializers.ModelSerializer):
     section = serializers.ResourceRelatedField(
         required=True,
+        write_only=True,
         queryset=document_models.AttachmentSection.objects,
     )
 
+    def update(self, instance, validated_data):
+        section = validated_data["section"]
+
+        if instance.document_attachment_id:  # pragma: no cover
+            raise ValidationError(
+                "This attachment is already a document module attachment"
+            )
+        doc_attachment = document_models.Attachment.objects.create(
+            name=instance.file_attachment.name,
+            instance=instance.message.topic.instance,
+            user=self.context["request"].user,
+            service=self.context["request"].group.service,
+            group=self.context["request"].group,
+            context={"copied-from-communications-attachment": str(instance.pk)},
+            size=instance.file_attachment.size,
+            date=timezone.localtime(),
+            mime_type=instance.file_type,
+        )
+        doc_attachment.path.save(instance.filename, instance.file_attachment)
+        doc_attachment.save()
+        doc_attachment.attachment_sections.add(section)
+        instance.document_attachment = doc_attachment
+        instance.file_attachment = None
+        instance.save()
+        return instance
+
     class Meta:
         model = models.CommunicationsAttachment
-        fields = ["section"]
+        fields = ["section", "id", "document_attachment", "filename"]
+        read_only_fields = ["id", "document_attachment", "filename"]
