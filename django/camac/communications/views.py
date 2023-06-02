@@ -12,7 +12,6 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework_json_api.views import ModelViewSet
 
 from camac.core.views import HttpResponse, SendfileHttpResponse
-from camac.document import models as document_models
 from camac.instance.mixins import InstanceQuerysetMixin
 
 from . import events, filters, models, serializers
@@ -158,38 +157,12 @@ class AttachmentView(InvolvedInTopicQuerysetMixin, InstanceQuerysetMixin, ModelV
     )
     @transaction.atomic
     def convert_to_document(self, request, pk):
-        obj = self.get_object()
-
-        input_serializer = self.get_serializer(data=self.request.data)
-        input_serializer.is_valid(raise_exception=True)
-
-        section_id = input_serializer.data["section"]["id"]
-
-        if obj.document_attachment_id:  # pragma: no cover
-            raise ValidationError(
-                "This attachment is already a document module attachment"
-            )
-        doc_attachment = document_models.Attachment.objects.create(
-            name=obj.file_attachment.name,
-            instance=obj.message.topic.instance,
-            user=self.request.user,
-            # service=...
-            group=self.request.group,
-            context={"copied-from-communications-attachment": str(obj.pk)},
-            size=obj.file_attachment.size,
-            date=timezone.localtime(),
-            mime_type=obj.file_type,
+        serializer = self.get_serializer(
+            data=self.request.data, instance=self.get_object()
         )
-        doc_attachment.path.save(obj.filename, obj.file_attachment)
-        doc_attachment.save()
-        doc_attachment.attachment_sections.add(section_id)
-        obj.document_attachment = doc_attachment
-        obj.file_attachment = None
-        obj.save()
-
-        output_serializer = serializers.CommunicationsAttachmentSerializer(instance=obj)
-
-        return response.Response(data=output_serializer.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return response.Response(serializer.data)
 
     @action(methods=["get"], detail=True)
     def download(self, request, pk):

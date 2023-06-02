@@ -411,29 +411,19 @@ def test_convert_attachment_to_document(
     assert communications_attachment.document_attachment
     assert not communications_attachment.file_attachment
 
-    assert resp.json() == {
+    expected_json = {
         "data": {
-            "type": "communications-attachments",
+            "attributes": {"filename": "foo.txt"},
             "id": str(communications_attachment.pk),
-            "attributes": {
-                "content-type": "text/plain",
-                "download-url": f"/api/v1/communications-attachments/{communications_attachment.pk}/download",
-                "file-attachment": None,
-                "filename": "foo.txt",
-            },
             "relationships": {
-                "message": {
-                    "data": {
-                        "id": str(communications_attachment.message_id),
-                        "type": "communications-messages",
-                    }
-                },
                 "document-attachment": {
                     "data": {
                         "id": str(communications_attachment.document_attachment_id),
                         "type": "attachments",
                     }
-                },
+                }
             },
-        },
+            "type": "communications-attachments",
+        }
     }
+    assert resp.json() == expected_json
