@@ -15,7 +15,7 @@
     >
       {{#if (eq column "task")}}
         {{#if @useLinkTo}}
-          <LinkTo @route={{concat @baseRoute ".edit"}} @models={{array @workItem.instance.id @workItem.id}}>{{@workItem.name}}</LinkTo>
+          <LinkTo @route={{@workItem.directLink.route}} @models={{@workItem.directLink.models}}>{{@workItem.name}}</LinkTo>
         {{else if @workItem.directLink}}
           <a href="{{@workItem.directLink}}">{{@workItem.name}}</a>
         {{else}}

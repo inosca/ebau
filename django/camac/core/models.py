@@ -4318,7 +4318,7 @@ class IrTaskform(models.Model):
         models.CASCADE,
         db_column="INSTANCE_RESOURCE_ID",
         primary_key=True,
-        related_name="+",
+        related_name="ir_taskform",
     )
     task = models.ForeignKey(
         "caluma_workflow.Task",

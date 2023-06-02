@@ -1,8 +1,8 @@
 import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
+import { decodeId } from "@projectcaluma/ember-core/helpers/decode-id";
 import { queryManager } from "ember-apollo-client";
-import { dropTask, lastValue } from "ember-concurrency";
-import { trackedTask } from "ember-resources/util/ember-concurrency";
+import { trackedFunction } from "ember-resources/util/function";
 
 import getDistributionCaseQuery from "ebau/gql/queries/get-distribution-case.graphql";
 
@@ -11,37 +11,27 @@ export default class SubNavigationComponent extends Component {
   @service router;
   @queryManager apollo;
 
-  instanceResources = trackedTask(this, this.fetchInstanceResources, () => [
-    this.args.instanceId,
-  ]);
-
-  @dropTask
-  *fetchInstanceResources() {
-    yield Promise.resolve();
-
-    const irs = yield this.store.query("instance-resource", {});
+  instanceResources = trackedFunction(this, async () => {
+    await Promise.resolve();
+    const instanceId = this.args.instanceId;
+    const irs = await this.store.query("instance-resource", {
+      instance: instanceId,
+    });
 
     const ir = irs.findBy("link", "distribution");
     if (ir) {
-      yield this.fetchDistribution.perform();
-      ir.link = `${ir.link}/${this.distribution.id}`;
+      const distributionId = await this.apollo.query(
+        {
+          query: getDistributionCaseQuery,
+          fetchPolicy: "network-only",
+          variables: { instanceId },
+        },
+        "allCases.edges.firstObject.node.workItems.edges.firstObject.node.childCase.id"
+      );
+
+      ir.link = `${ir.link}/${decodeId(distributionId)}`;
     }
 
     return irs;
-  }
-
-  @lastValue("fetchDistribution") distribution;
-  @dropTask()
-  *fetchDistribution() {
-    const raw = yield this.apollo.query(
-      {
-        query: getDistributionCaseQuery,
-        fetchPolicy: "network-only",
-        variables: { instanceId: this.args.instanceId },
-      },
-      "allCases.edges.firstObject.node.workItems.edges.firstObject.node.childCase"
-    );
-
-    return raw;
-  }
+  });
 }

@@ -1,0 +1,36 @@
+mutation CreateSubmitTask {
+  saveCompleteWorkflowFormTask(
+    input: { slug: "submit", name: "Gesuch einreichen", addressGroups: "[]" }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateManualWorkItemTask {
+  saveSimpleTask(
+    input: {
+      slug: "create-manual-workitems"
+      name: "Manuelle Aufgaben erfassen"
+      addressGroups: "[]"
+      isMultipleInstance: true
+      meta: "{\"is-manually-completable\":true}"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation DecisionTask {
+  saveCompleteTaskFormTask(
+    input: {
+      slug: "decision"
+      name: "Entscheid verfügen"
+      form: "decision"
+      addressGroups: "['municipality']|groups"
+      controlGroups: "['municipality']|groups"
+      leadTime: 864000 # 10 days
+    }
+  ) {
+    clientMutationId
+  }
+}

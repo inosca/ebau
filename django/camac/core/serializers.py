@@ -175,6 +175,11 @@ class InstanceResourceSerializer(serializers.ModelSerializer, MultilingualSerial
         if ir_type == "history":
             return "history"
 
+        if ir_type == "taskform":
+            task = obj.ir_taskform.task_id
+
+            return f"task-form/{task}"
+
         if ir_type == "page":
             type_mapping = {
                 "/ember/instance.phtml": "form",

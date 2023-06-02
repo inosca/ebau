@@ -96,6 +96,22 @@
     }
   },
   {
+    "model": "user.group",
+    "pk": 20098,
+    "fields": {
+      "role": 4,
+      "service": 20033,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
     "model": "user.groupt",
     "pk": 1,
     "fields": {
@@ -131,8 +147,8 @@
     "fields": {
       "group": 20096,
       "language": "de",
-      "name": "Amt für Gemeinden und Raumordnung",
-      "city": "Bern"
+      "name": "Amt für Raumentwicklung (ARE)",
+      "city": "Chur"
     }
   },
   {
@@ -167,16 +183,6 @@
   },
   {
     "model": "user.groupt",
-    "pk": 24880,
-    "fields": {
-      "group": 20096,
-      "language": "fr",
-      "name": "Responsable Amt für Gemeinden und Raumordnung - Abteilung Bauen",
-      "city": "Bern"
-    }
-  },
-  {
-    "model": "user.groupt",
     "pk": 26534,
     "fields": {
       "group": 10000,
@@ -203,6 +209,16 @@
       "language": "fr",
       "name": "Portal",
       "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 26537,
+    "fields": {
+      "group": 20098,
+      "language": "de",
+      "name": "Amt für Energie und Verkehr (AEV)",
+      "city": "Chur"
     }
   },
   {
@@ -423,11 +439,31 @@
     "model": "user.service",
     "pk": 20032,
     "fields": {
-      "service_group": 1,
+      "service_group": 3,
       "service_parent": null,
       "name": null,
       "description": null,
       "sort": 707,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.com",
+      "website": null,
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 20033,
+    "fields": {
+      "service_group": 1,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 708,
       "phone": null,
       "zip": null,
       "city": null,
@@ -456,6 +492,14 @@
     }
   },
   {
+    "model": "user.servicegroup",
+    "pk": 3,
+    "fields": {
+      "name": "authority-bab",
+      "sort": null
+    }
+  },
+  {
     "model": "user.servicegroupt",
     "pk": 20000,
     "fields": {
@@ -471,6 +515,15 @@
       "service_group": 2,
       "language": "de",
       "name": "Leitbehörde Gemeinde"
+    }
+  },
+  {
+    "model": "user.servicegroupt",
+    "pk": 20002,
+    "fields": {
+      "service_group": 3,
+      "language": "de",
+      "name": "Leitbehörde BaB"
     }
   },
   {
@@ -490,9 +543,9 @@
     "fields": {
       "service": 20032,
       "language": "de",
-      "name": "Amt für Gemeinden und Raumordnung - Abteilung Bauen",
-      "description": "Amt für Gemeinden und Raumordnung - Abteilung Bauen",
-      "city": "Bern"
+      "name": "Amt für Raumentwicklung (ARE)",
+      "description": "Amt für Raumentwicklung (ARE)",
+      "city": "Chur"
     }
   },
   {
@@ -508,13 +561,13 @@
   },
   {
     "model": "user.servicet",
-    "pk": 21862,
+    "pk": 21863,
     "fields": {
-      "service": 20032,
-      "language": "fr",
-      "name": "Amt für Gemeinden und Raumordnung - Abteilung Bauen",
-      "description": "Amt für Gemeinden und Raumordnung - Abteilung Bauen",
-      "city": "Bern"
+      "service": 20033,
+      "language": "de",
+      "name": "Amt für Energie und Verkehr (AEV)",
+      "description": "Amt für Energie und Verkehr (AEV)",
+      "city": "Chur"
     }
   }
 ]

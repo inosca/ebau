@@ -15,4 +15,14 @@ export default class CustomEbauModulesService extends EbauModulesService {
   get isReadOnlyRole() {
     return this.shoebox.isReadOnlyRole;
   }
+
+  get isLeadRole() {
+    return this.shoebox.isLeadRole;
+  }
+
+  redirectToWorkItems() {
+    window.location.replace(
+      `/index/redirect-to-instance-resource/instance-id/${this.instanceId}`
+    );
+  }
 }

@@ -2,6 +2,7 @@ import { getOwner } from "@ember/application";
 import Route from "@ember/routing/route";
 import { inject as service } from "@ember/service";
 import DocumentValidityButtonComponent from "ember-ebau-core/components/document-validity-button";
+import InquiryAnswerStatus from "ember-ebau-core/components/inquiry-answer-status";
 import LinkAttachmentsComponent from "ember-ebau-core/components/link-attachments";
 import UrGisComponent from "ember-ebau-core/components/ur-gis";
 
@@ -11,7 +12,6 @@ import CfDownloadPdfComponent from "camac-ng/components/cf-download-pdf";
 import CfSnippetsTextComponent from "camac-ng/components/cf-snippets-text";
 import CfSnippetsTextareaComponent from "camac-ng/components/cf-snippets-textarea";
 import DecisionSubmitPartialComponent from "camac-ng/components/decision-submit-partial";
-import InquiryAnswerStatus from "camac-ng/components/inquiry-answer-status";
 import QrCodeComponent from "camac-ng/components/qr-code";
 import SuggestEbauNumberComponent from "camac-ng/components/suggest-ebau-number";
 
