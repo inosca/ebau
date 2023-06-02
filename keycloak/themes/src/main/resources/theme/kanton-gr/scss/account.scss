@@ -1,233 +1,14 @@
-@import "_variables";
-
-@import "uikit/src/scss/variables-theme.scss";
-@import "uikit/src/scss/mixins-theme.scss";
-
-@import "uikit/src/scss/uikit-theme.scss";
-
-/*
-There are many bootstrap classes that are no longer needed.
-The CSS file should possibly be rewritten.
-*/
-
-body>.container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-}
-
-header.navbar {
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 50px;
-}
-
-nav {
-  margin-top: 15px;
-}
-
-.navbar-header {
-  background: url("../img/logo-kanton-gr.jpg") no-repeat center top;
-  background-size: 300px;
-  min-height: 110px;
-  width: 100%;
-}
-
-.navbar-collapse {
-  margin-left: -15px;
-  margin-right: 30px;
-}
-
-@media (min-width: 768px) {
-  .navbar-collapse>.container {
-    display: block;
-    float: right;
-    position: relative;
-    right: 0;
-    top: 0;
-  }
-}
-
-nav.navbar {
-  width: 100%;
-}
-
-h1.navbar-title {
-  display: none;
-}
-
-ul.nav {
-  flex-direction: row;
-  margin-left: auto;
-}
-
-.navbar-collapse>.container {
-  padding: 0;
-  max-width: none;
-  width: auto;
-  display: inline-block;
-}
-
-@media (min-width: 576px) {
-  header.navbar {
-    max-width: 540px;
-  }
-
-  .navbar-collapse>.container {
-    max-width: none;
-  }
-}
-
-@media (min-width: 768px) {
-  header.navbar {
-    max-width: 720px;
-  }
-
-  .navbar-collapse>.container {
-    max-width: none;
-  }
-}
-
-@media (min-width: 992px) {
-  header.navbar {
-    max-width: 960px;
-  }
-
-  .navbar-collapse>.container {
-    max-width: none;
-  }
-}
-
-@media (min-width: 1200px) {
-  header.navbar {
-    max-width: 1140px;
-  }
-
-  .navbar-collapse>.container {
-    max-width: none;
-  }
-}
-
-body>.container {
-  padding-bottom: 15px;
-}
-
-.content-area h2 {
-  padding-left: 15px;
-}
-
-.content-area hr {
-  display: none;
-}
-
-.content-area .subtitle {
-  padding-left: 15px;
-}
-
-.content-area ol>li>ul>li:first-child {
-  margin-top: -15px;
-}
-
-.col-md-10 {
-  max-width: 100%;
-  flex: 0 0 100%;
-}
-
-.col-md-2.subtitle {
-  display: block;
-  max-width: 100%;
-  flex: 0 0 100%;
-}
-
-.subtitle {
-  display: block;
-  color: #909090;
-}
-
-.form-group>.col-sm-2.col-md-2 {
-  max-width: 100%;
-  flex: 0 0 100%;
-}
-
-form {
-  margin-top: 30px;
-}
-
-.btn-lg {
-  font-size: 1rem;
-  padding: 0.375rem 0.75rem;
-}
-
-.btn-default {
-  color: #fff;
-  background-color: #6c757d;
-  border-color: #6c757d;
-}
-
-.btn-default:hover {
-  color: #fff;
-  background-color: #5a6268;
-  border-color: #545b62;
-}
-
-.sidebar {
-  padding-right: 0;
-  padding-left: 0;
-  z-index: 20;
-}
-
-.sidebar ul {
-  list-style: none;
-  padding-left: 12px;
-}
-
-.sidebar ul li {
-  margin-left: -1em;
-}
-
-.sidebar ul li a {
-  text-decoration: none;
-  line-height: 28px;
-  display: block;
-}
-
-.sidebar>ul>li:nth-child(4) {
-  display: none;
-}
-
-.sidebar>ul>li:nth-child(5) {
-  display: none;
-}
-
-.sidebar>ul>li:nth-child(6) {
-  display: none;
-}
-
-.sidebar ul li.active a {
-  color: #222;
-  border-bottom: none;
-}
-
-.sidebar ul li:not(.active) a:hover {
-  color: grey;
-}
-
 .kc-dropdown {
   position: relative;
 }
 
-.kc-dropdown>a {
+.kc-dropdown > a {
   display: block;
   padding-right: 15px;
   text-decoration: none;
 }
 
-.kc-dropdown>a::after {
+.kc-dropdown > a::after {
   display: inline-block;
   width: 0;
   height: 0;
@@ -249,7 +30,7 @@ form {
   float: left;
   min-width: 10rem;
   padding: 0.5rem 0;
-  margin: 0.125rem 0 0;
+  margin: 0;
   font-size: 1rem;
   color: #212529;
   text-align: left;
@@ -274,18 +55,8 @@ form {
 .kc-dropdown ul li a:hover {
   color: #16181b;
   text-decoration: none;
-  background-color: #f8f9fa;
 }
 
 .kc-dropdown:hover ul {
   display: block;
-}
-
-#kc-totp-secret-key {
-  border: 1px solid #eee;
-  background-color: #fff;
-  border-radius: 0.25rem;
-  font-size: 16px;
-  padding: 10px;
-  margin: 50px 0;
 }

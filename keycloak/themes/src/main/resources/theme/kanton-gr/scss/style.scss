@@ -5,13 +5,11 @@
 
 @import "uikit/src/scss/uikit-theme.scss";
 
+@import "account";
+
 $transparent-white: rgba(255, 255, 255, 0.9);
 
-.alert {
-  @extend .uk-alert;
-}
-
-.alert-error {
+.uk-alert-error {
   @extend .uk-alert-danger;
 }
 
@@ -20,6 +18,14 @@ $transparent-white: rgba(255, 255, 255, 0.9);
 }
 
 a {
+  font-weight: 700;
+}
+
+.uk-tab a {
+  font-weight: normal;
+}
+
+.uk-tab li.uk-active a {
   font-weight: 700;
 }
 
@@ -36,6 +42,7 @@ a {
   padding: 1rem;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .gr-logo {
@@ -122,19 +129,19 @@ h1 {
   margin: 0;
 }
 
-.kc-form-card:not(.is-login-page),
-#kc-registration {
+.kc-form-card:not(.is-login-page) {
   background: $transparent-white;
   padding: 32px;
   padding-top: 0;
   margin: 5rem auto;
 }
 
-.kc-form-card:not(.is-login-page),
-#kc-form-login {
-  background: $transparent-white;
-  padding: 32px;
-  padding-top: 0;
+.kc-form-card.is-login-form {
+  margin-top: 0;
+}
+
+.kc-form-card.account-container {
+  padding-top: 32px;
 }
 
 /* increase width of container on login page to lign up buttons with base design */
@@ -192,4 +199,8 @@ h1 {
 .copyright a {
   color: white;
   font-weight: 400;
+}
+
+ul.nav {
+  margin-top: 0;
 }
