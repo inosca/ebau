@@ -94,6 +94,7 @@ services:
       - db
     volumes:
       - ../keycloak/config/${APPLICATION}-test-config.json:/opt/keycloak/data/import/test-config.json
+      - ../keycloak/themes/src/main/resources/theme/kanton-gr:/opt/keycloak/themes/kanton-gr-dev
     environment:
       - KC_DB_PASSWORD=camac
       - KC_DB_URL=jdbc:postgresql://db:5432/${APPLICATION}?currentSchema=keycloak
@@ -103,6 +104,13 @@ services:
       - KEYCLOAK_ADMIN_PASSWORD=camac
     networks:
       - ebau.local
+    command:
+      [
+        "start",
+        "--spi-theme-static-max-age=-1",
+        "--spi-theme-cache-themes=false",
+        "--spi-theme-cache-templates=false",
+      ]
 
   mailhog:
     networks:
