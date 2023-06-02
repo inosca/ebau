@@ -321,7 +321,7 @@ APPLICATIONS = {
                 "gesuchsteller",
                 "documents",
             ],
-            "USER": "import@koor-bg.ur.ch",
+            "USER": "import@urec.ch",
         },
         "CUSTOM_NOTIFICATION_TYPES": [
             # BE
@@ -2756,7 +2756,7 @@ APPLICATIONS = {
                 "gesuchsteller",
                 "documents",
             ],
-            "USER": "import@koor-bg.ur.ch",
+            "USER": "import@urec.ch",
         },
     },
     "demo": {
@@ -3946,18 +3946,6 @@ GWR_HOUSING_STAT_BASE_URI = env.str(
     default="https://www.housing-stat.ch/regbl/api/ech0216/2",
 )
 
-# Parashift
-PARASHIFT_BASE_URI = env.str(
-    "PARASHIFT_BASE_URI", default="https://api.parashift.io/v2"
-)
-
-PARASHIFT_SOURCE_FILES_URI = env.str(
-    "PARASHIFT_SOURCE_FILES_URI",
-    default="https://individual-extraction.api.parashift.io/v1",
-)
-
-PARASHIFT_TENANT_ID = env.int("PARASHIFT_TENANT_ID", default=1665)
-PARASHIFT_API_KEY = env.str("PARASHIFT_API_KEY", default="ey...")
 
 # Until running tasks can be manually canceled we want a timeout
 DJANGO_Q_TASK_TIMEOUT_HOURS = env.int("DJANGO_Q_TASK_TIMEOUT_HOURS", default=6)
@@ -4027,3 +4015,4 @@ def load_module_settings(module_name, application_name=APPLICATION_NAME):
 
 APPEAL = load_module_settings("appeal")
 DISTRIBUTION = load_module_settings("distribution")
+PARASHIFT = load_module_settings("parashift")
