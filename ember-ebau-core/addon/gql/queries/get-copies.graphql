@@ -1,0 +1,25 @@
+query GetCopies($instanceId: GenericScalar!) {
+  allCases(
+    filter: [{ metaValue: [{ key: "camac-instance-id", value: $instanceId }] }]
+  ) {
+    edges {
+      node {
+        id
+        document {
+          id
+          copies {
+            edges {
+              node {
+                id
+                case {
+                  id
+                  meta
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -267,7 +267,7 @@
     "model": "notification.notificationtemplate",
     "pk": 24,
     "fields": {
-      "slug": "10-zugriffsmeldung",
+      "slug": "09-beschwerde-eingegangen",
       "purpose": null,
       "subject": null,
       "body": null,
@@ -279,7 +279,7 @@
     "model": "notification.notificationtemplate",
     "pk": 25,
     "fields": {
-      "slug": "10-entscheid-gesuchsteller-gemeinde-baubewilligungsbehorde-amts-und-fachstellen-einsprecher",
+      "slug": "09-entscheid-nach-dem-beschwerdeverfahren",
       "purpose": null,
       "subject": null,
       "body": null,
@@ -736,11 +736,11 @@
     "pk": 47,
     "fields": {
       "template": 24,
-      "template_slug": "10-zugriffsmeldung",
+      "template_slug": "09-beschwerde-eingegangen",
       "language": "de",
-      "purpose": "10 Zugriffsmeldung",
-      "subject": "Zugriffsmeldung (eBau Nr. {{EBAU_NUMBER}}) / Avis concernant l'accès (n° eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nIhre Anfrage für den Zugriff auf das Dossier mit der eBau Nr. {{EBAU_NUMBER}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde bearbeitet. Der Zugriff auf das Dossier ist freigeschaltet.\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur,\r\n\r\nVotre demande concernant l'accès au dossier portant le numéro eBau {{EBAU_NUMBER}} ({{FORM_NAME_FR}}, {{MUNICIPALITY_FR}}) a été traitée et le dossier vous est désormais accessible.\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\nVeuillez agréer, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME_FR}}"
+      "purpose": "09 Beschwerde eingegangen",
+      "subject": "Beschwerde eingegangen (eBau Nr. {{EBAU_NUMBER}}) / recours reçu (n° eBau {{EBAU_NUMBER}})",
+      "body": "Guten Tag\r\n\r\nBeim Dossier mit der eBau Nr. {{EBAU_NUMBER}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde ein Beschwerdenverfahren initialisiert und der Entscheid wurde aufgehoben.\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur,\r\n\r\nPour le dossier portant le numéro eBau {{EBAU_NUMBER}} ({{FORM_NAME_FR}}, {{MUNICIPALITY_FR}}) une procédure de recours a été initialisée et la décision a été annulée.\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\nVeuillez agréer, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME_FR}}"
     }
   },
   {
@@ -748,11 +748,11 @@
     "pk": 49,
     "fields": {
       "template": 25,
-      "template_slug": "10-entscheid-gesuchsteller-gemeinde-baubewilligungsbehorde-amts-und-fachstellen-einsprecher",
+      "template_slug": "09-entscheid-nach-dem-beschwerdeverfahren",
       "language": "de",
-      "purpose": "10 Entscheid (Gesuchsteller, Gemeinde, Baubewilligungsbehörde, Amts- und Fachstellen, Einsprecher)",
-      "subject": "Information über Entscheid (eBau Nr. {{EBAU_NUMBER}}) / Information sur le prononcé de la décision (n° eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nDer Entscheid im Rechtsgeschäft mit der eBau Nr. {{EBAU_NUMBER}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde gefällt. Bitte entnehmen Sie dem Anhang den Entscheid.\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur,\r\n\r\nLa décision relative à l'affaire portant le numéro eBau {{EBAU_NUMBER}} ({{FORM_NAME_FR}}, {{MUNICIPALITY_FR}}) a été rendue et vous la trouverez en annexe.\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\nVeuillez agréer, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME_FR}}"
+      "purpose": "08 Entscheid nach dem Beschwerdeverfahren",
+      "subject": "Information über Entscheid nach dem Beschwerdeverfahren (eBau Nr. {{EBAU_NUMBER}}) / Information sur le prononcé de la décision après la procédure de recours (n° eBau {{EBAU_NUMBER}})",
+      "body": "Guten Tag\r\n\r\nIm Rahmen des Beschwerdeverfahrens zum Dossier mit der eBau Nr. {{EBAU_NUMBER}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde ein neuer Entscheid eröffnet.\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur,\r\n\r\nDans le cadre de la procédure de recours concernant le dossier portant le numéro eBau {{EBAU_NUMBER}} ({{FORM_NAME_FR}}, {{MUNICIPALITY_FR}}), une nouvelle décision a été ouverte.\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\nVeuillez agréer, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME_FR}}"
     }
   },
   {

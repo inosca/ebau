@@ -1,0 +1,5 @@
+{{#if this.nextState.value}}
+  <div class="uk-alert uk-alert-{{this.color}} uk-margin-remove">
+    {{t (concat "decision.appeal." this.appealType) status=this.nextState.value htmlSafe=true}}
+  </div>
+{{/if}}
