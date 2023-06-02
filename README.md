@@ -140,14 +140,15 @@ After, you should be able to use to the following services:
 The following administrator accounts are present in Keycloak or the DB,
 respectively:
 
-| _Application_ | _Role_      | _Username_ | _Password_ | _Notes_ |
-| ------------- | ----------- | ---------- | ---------- | ------- |
-| demo          | Admin       | user       | user       |         |
-| kt_schwyz     | Admin       | admin      | admin      |         |
-|               | Publikation | adsy       | adsy       |         |
-| kt_uri        | Admin       | admin      | admin      |         |
-|               | PortalUser  | portal     | portal     |         |
-| kt_bern       | Admin       | user       | user       |         |
+| _Application_ | _Role_      | _Username_        | _Password_ | _Notes_ |
+| ------------- | ----------- | ----------------- | ---------- | ------- |
+| demo          | Admin       | user              | user       |         |
+| kt_schwyz     | Admin       | admin             | admin      |         |
+|               | Publikation | adsy              | adsy       |         |
+| kt_uri        | Admin       | admin             | admin      |         |
+|               | PortalUser  | portal            | portal     |         |
+| kt_bern       | Admin       | user              | user       |         |
+| kt_gr         | Admin       | admin@example.com | admin      |         |
 
 ### Debugging
 

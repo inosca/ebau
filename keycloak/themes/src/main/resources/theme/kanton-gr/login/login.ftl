@@ -14,7 +14,7 @@
                 <ul class="${properties.kcFormSocialAccountListClass!} <#if social.providers?size gt 4>${properties.kcFormSocialAccountDoubleListClass!}</#if>">
                     <#-- "pseudo"-IdP: local login -->
                     <#if realm.password>
-                        <form id="kc-form-login" class="uk-form-horizontal uk-width-xlarge uk-margin-auto" onsubmit="login.disabled = true; return true;" action="${url.loginAction}" method="post">
+                        <form id="kc-form-login" class="kc-form-card is-login-form uk-form-horizontal uk-width-xlarge uk-margin-auto" onsubmit="login.disabled = true; return true;" action="${url.loginAction}" method="post">
                             <h1>Anmeldung</h1>
                             <p>Für Bürger, Gemeinden und lokale Benutzer</p>
                             <div class="${properties.kcFormGroupClass!}">

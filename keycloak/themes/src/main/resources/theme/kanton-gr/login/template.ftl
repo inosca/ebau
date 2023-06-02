@@ -46,11 +46,8 @@
        <a href="https://www.reasyvisuals.com/" target="_blank" rel="noopener noreferrer">© M. Risi</a>
     </div>
     <div id="kc-header" class="${properties.kcHeaderClass!}">
-      <div id="kc-header-wrapper" class="${properties.kcHeaderWrapperClass!}"><div class="gr-logo"></div></div>
-    </div>
-    <#-- add custom class for login page to allow "moving" the buttons out of the white container in CSS -->
-    <div class="${properties.kcFormCardClass!} <#if displayWide>${properties.kcFormCardAccountClass!}</#if> <#if isLogin>is-login-page</#if>">
-      <header class="${properties.kcFormHeaderClass!}">
+      <div id="kc-header-wrapper" class="${properties.kcHeaderWrapperClass!}">
+        <div class="gr-logo"></div>
         <#if realm.internationalizationEnabled  && locale.supported?size gt 1>
             <div id="kc-locale">
                 <div id="kc-locale-wrapper" class="${properties.kcLocaleWrapperClass!}">
@@ -65,6 +62,11 @@
                 </div>
             </div>
         </#if>
+      </div>
+    </div>
+    <#-- add custom class for login page to allow "moving" the buttons out of the white container in CSS -->
+    <div class="${properties.kcFormCardClass!} <#if displayWide>${properties.kcFormCardAccountClass!}</#if> <#if isLogin>is-login-page</#if>">
+      <header class="${properties.kcFormHeaderClass!}">
         <#if !(auth?has_content && auth.showUsername() && !auth.showResetCredentials())>
             <#if displayRequiredFields>
                 <div class="${properties.kcContentWrapperClass!}">
@@ -121,7 +123,7 @@
           <#-- App-initiated actions should not see warning messages about the need to complete the action -->
           <#-- during login.                                                                               -->
           <#if displayMessage && message?has_content && (message.type != 'warning' || !isAppInitiatedAction??)>
-              <div class="alert alert-${message.type}">
+              <div class="alert uk-alert-${message.type}">
                   <#if message.type = 'success'><span class="${properties.kcFeedbackSuccessIcon!}"></span></#if>
                   <#if message.type = 'warning'><span class="${properties.kcFeedbackWarningIcon!}"></span></#if>
                   <#if message.type = 'error'><span class="${properties.kcFeedbackErrorIcon!}"></span></#if>

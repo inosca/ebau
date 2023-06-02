@@ -2890,7 +2890,7 @@ select.uk-form-width-xsmall {
 /*
  * Danger
  */
-.uk-alert-danger, .alert-error {
+.uk-alert-danger, .alert-error, .uk-alert-error {
   background: #fef4f6;
   color: #f0506e; }
 
@@ -9939,10 +9939,72 @@ iframe[data-uk-cover] {
   h3 {
     page-break-after: avoid; } }
 
+.kc-dropdown {
+  position: relative; }
+
+.kc-dropdown > a {
+  display: block;
+  padding-right: 15px;
+  text-decoration: none; }
+
+.kc-dropdown > a::after {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 0.255em;
+  vertical-align: 0.255em;
+  content: "";
+  border-top: 0.3em solid;
+  border-right: 0.3em solid transparent;
+  border-bottom: 0;
+  border-left: 0.3em solid transparent; }
+
+.kc-dropdown ul {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  display: none;
+  float: left;
+  min-width: 10rem;
+  padding: 0.5rem 0;
+  margin: 0;
+  font-size: 1rem;
+  color: #212529;
+  text-align: left;
+  list-style: none;
+  background-color: #fff;
+  background-clip: padding-box; }
+
+.kc-dropdown ul li a {
+  display: block;
+  width: 100%;
+  padding: 0.25rem 1.5rem;
+  clear: both;
+  font-weight: 400;
+  color: #212529;
+  text-align: inherit;
+  white-space: nowrap;
+  background-color: transparent;
+  border: 0; }
+
+.kc-dropdown ul li a:hover {
+  color: #16181b;
+  text-decoration: none; }
+
+.kc-dropdown:hover ul {
+  display: block; }
+
 .hidden {
   display: none; }
 
 a {
+  font-weight: 700; }
+
+.uk-tab a {
+  font-weight: normal; }
+
+.uk-tab li.uk-active a {
   font-weight: 700; }
 
 #kc-header {
@@ -9956,7 +10018,8 @@ a {
   margin: 0 auto;
   padding: 1rem;
   display: flex;
-  justify-content: space-between; }
+  justify-content: space-between;
+  align-items: center; }
 
 .gr-logo {
   background-image: url("../img/logo-kanton-gr.jpg");
@@ -10027,18 +10090,17 @@ h1 {
 #info-messages h2 {
   margin: 0; }
 
-.kc-form-card:not(.is-login-page),
-#kc-registration {
+.kc-form-card:not(.is-login-page) {
   background: rgba(255, 255, 255, 0.9);
   padding: 32px;
   padding-top: 0;
   margin: 5rem auto; }
 
-.kc-form-card:not(.is-login-page),
-#kc-form-login {
-  background: rgba(255, 255, 255, 0.9);
-  padding: 32px;
-  padding-top: 0; }
+.kc-form-card.is-login-form {
+  margin-top: 0; }
+
+.kc-form-card.account-container {
+  padding-top: 32px; }
 
 /* increase width of container on login page to lign up buttons with base design */
 .kc-form-card.is-login-page {
@@ -10085,3 +10147,6 @@ h1 {
 .copyright a {
   color: white;
   font-weight: 400; }
+
+ul.nav {
+  margin-top: 0; }
