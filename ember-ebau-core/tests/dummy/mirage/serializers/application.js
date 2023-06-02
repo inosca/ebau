@@ -9,12 +9,13 @@ export default class extends JSONAPISerializer {
     const {
       queryParams: { "page[number]": page, "page[size]": limit } = {},
       method,
-    } = args?.[1];
+    } = args?.[1] ?? {};
 
     json.meta = {
       pagination: {
         page: 1,
         pages: limit ? Math.ceil(json.data.length / limit) : 1,
+        count: json.data.length,
       },
     };
 
@@ -27,6 +28,7 @@ export default class extends JSONAPISerializer {
           pagination: {
             page: intPage,
             pages: Math.ceil(json.data.length / intLimit),
+            count: json.data.length,
           },
         };
 

@@ -14,8 +14,12 @@ module("Integration | Component | communication/new-topic", function (hooks) {
   setupIntl(hooks, "de");
 
   hooks.beforeEach(function () {
-    this.session = getOwner(this).lookup("service:session");
+    this.ebauModules = getOwner(this).lookup("service:ebauModules");
+    this.resolveModuleRoute = this.ebauModules.resolveModuleRoute;
+    this.ebauModules.resolveModuleRoute = (_, routeName) => routeName;
+
     this.store = getOwner(this).lookup("service:store");
+
     this.router = getOwner(this).lookup("service:router");
     this.transitionTo = this.router.transitionTo;
     this.transitionToFake = sinon.replace(
@@ -26,17 +30,17 @@ module("Integration | Component | communication/new-topic", function (hooks) {
   });
 
   hooks.afterEach(function () {
-    this.session.group = null;
-    this.session.groups = [];
-    this.session.isInternal = false;
     this.router.transitionTo = this.transitionTo;
     this.transitionTo = null;
     this.transitionToFake = null;
+    this.ebauModules.resolveModuleRoute = this.resolveModuleRoute;
+    this.ebauModules.reset();
   });
 
   test("it renders the form for applicant", async function (assert) {
     assert.expect(15);
 
+    this.ebauModules.isApplicant = true;
     this.instance = this.server.create("instance");
 
     await render(
@@ -118,7 +122,6 @@ module("Integration | Component | communication/new-topic", function (hooks) {
 
   test("it renders the form for internal", async function (assert) {
     assert.expect(9);
-    this.session.isInternal = true;
 
     const involvedServices = this.server.createList("service", 2);
     this.instance = this.server.create("instance");
@@ -200,14 +203,10 @@ module("Integration | Component | communication/new-topic", function (hooks) {
   test("it renders the form for active instance service", async function (assert) {
     assert.expect(8);
 
-    this.session.isInternal = true;
     const group = this.server.create("public-group", {
       service: this.server.create("public-service", { name: "test-service" }),
     });
-    this.session.groups = [
-      await this.store.findRecord("public-group", group.id),
-    ];
-    this.session.group = group.id;
+    this.ebauModules.serviceId = group.service.id;
     this.instance = this.server.create("instance", {
       activeService: group.service,
     });

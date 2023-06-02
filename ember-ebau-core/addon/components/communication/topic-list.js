@@ -7,6 +7,7 @@ import paginatedQuery from "ember-ebau-core/resources/paginated";
 
 export default class CommunicationTopicListComponent extends Component {
   @service router;
+  @service ebauModules;
 
   @dedupeTracked topicsFilter = "all";
   @dedupeTracked page = 1;
@@ -47,7 +48,13 @@ export default class CommunicationTopicListComponent extends Component {
 
   @action
   transitionToTopic(topic) {
-    this.router.transitionTo(this.args.detailRoute, topic.id);
+    this.router.transitionTo(
+      this.ebauModules.resolveModuleRoute(
+        this.args.instanceId ? "communications" : "communications-global",
+        this.args.detailRoute
+      ),
+      topic.id
+    );
   }
 
   @action

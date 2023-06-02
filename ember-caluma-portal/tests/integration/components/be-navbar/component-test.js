@@ -50,7 +50,7 @@ module("Integration | Component | be-navbar", function (hooks) {
   });
 
   test("it renders the static navigation", async function (assert) {
-    assert.expect(3);
+    assert.expect(4);
 
     await authenticateSession();
 
@@ -64,6 +64,9 @@ module("Integration | Component | be-navbar", function (hooks) {
       .hasText("t:nav.instances:()");
     assert
       .dom(".uk-navbar-left ul > li:nth-of-type(3) > a")
+      .hasText("t:nav.communications:()");
+    assert
+      .dom(".uk-navbar-left ul > li:nth-of-type(4) > a")
       .hasText("t:nav.support:()");
   });
 

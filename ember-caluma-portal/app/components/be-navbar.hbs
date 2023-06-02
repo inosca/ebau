@@ -64,6 +64,9 @@
             {{#if this.session.isAuthenticated}}
               <UkSubnav::Item @href="/">{{t "nav.index"}}</UkSubnav::Item>
               <UkSubnav::Item @href="/instances">{{t "nav.instances"}}</UkSubnav::Item>
+              <UkSubnav::Item @href="/communications-global">{{t "nav.communications" }}
+                <Communication::UnreadMessageBadge class="uk-margin-small-left" />
+              </UkSubnav::Item>
               <UkSubnav::Item @href="/support">{{t "nav.support"}}</UkSubnav::Item>
             {{/if}}
             {{#if (or this.session.isAuthenticated (is-application "ur"))}}

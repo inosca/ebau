@@ -13,7 +13,6 @@ export default class CommunicationTopicComponent extends Component {
   @service notification;
   @service router;
   @service intl;
-  @service session;
 
   @tracked page = 1;
 

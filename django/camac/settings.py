@@ -2783,7 +2783,6 @@ APPLICATIONS = {
             "service": "service",
             "municipality": "municipality",
             "support": "support",
-            "applicant": "applicant",
         },
         "ADMIN_GROUP": 1,
         "IS_MULTILINGUAL": True,

@@ -25,7 +25,7 @@
     </div>
     {{#if (and @instanceId @newRoute)}}
       <LinkTo
-        @route={{@newRoute}}
+        @route={{module-route "communications" @newRoute}}
         class="uk-button uk-button-primary"
         data-test-new-topic
       >
