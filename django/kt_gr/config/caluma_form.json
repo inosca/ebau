@@ -407,6 +407,24 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "emissionserklaerung",
+    "fields": {
+      "created_at": "2023-06-02T12:41:07.798Z",
+      "modified_at": "2023-06-02T12:41:07.798Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Emissionserkl\\u00e4rung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "entfernung-von-hecken-tabelle",
     "fields": {
       "created_at": "2023-04-27T12:06:25.778Z",
@@ -416,6 +434,24 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "name": "{\"de\": \"Entfernung von Hecken / Feldgeh\\u00f6lzen oder Ufervegetation Tabelle\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "feuerungsanlagen",
+    "fields": {
+      "created_at": "2023-06-02T11:48:32.341Z",
+      "modified_at": "2023-06-02T11:48:32.341Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Feuerungsanlagen\", \"fr\": null, \"it\": null, \"rm\": null}",
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "meta": {},
       "is_published": false,
@@ -727,6 +763,24 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "name": "{\"de\": \"Stallbau und Hofd\\u00fcngerlager\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "stationaere-verbrennungsmotoren",
+    "fields": {
+      "created_at": "2023-06-02T12:01:36.044Z",
+      "modified_at": "2023-06-02T12:01:36.044Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Station\\u00e4re Verbrennungsmotoren\", \"fr\": null, \"it\": null, \"rm\": null}",
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "meta": {},
       "is_published": false,
@@ -6459,6 +6513,411 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "emissionserklaerung.allgemeine-angaben-zum-betrieb-titel",
+    "fields": {
+      "created_at": "2023-06-02T12:45:47.100Z",
+      "modified_at": "2023-06-02T12:45:47.100Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "emissionserklaerung",
+      "question": "allgemeine-angaben-zum-betrieb-titel",
+      "sort": 26
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "emissionserklaerung.anzahl-mitarbeitende",
+    "fields": {
+      "created_at": "2023-06-02T12:57:32.708Z",
+      "modified_at": "2023-06-02T12:57:32.708Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "emissionserklaerung",
+      "question": "anzahl-mitarbeitende",
+      "sort": 22
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "emissionserklaerung.anzahl-mitarbeitende-produktion",
+    "fields": {
+      "created_at": "2023-06-02T12:58:06.023Z",
+      "modified_at": "2023-06-02T12:58:06.023Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "emissionserklaerung",
+      "question": "anzahl-mitarbeitende-produktion",
+      "sort": 21
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "emissionserklaerung.beschreibung-abbau-und-verarbeitung-von-steinen-und-erden",
+    "fields": {
+      "created_at": "2023-06-02T14:55:19.761Z",
+      "modified_at": "2023-06-02T14:55:19.761Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "emissionserklaerung",
+      "question": "beschreibung-abbau-und-verarbeitung-von-steinen-und-erden",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "emissionserklaerung.beschreibung-baugewerbe",
+    "fields": {
+      "created_at": "2023-06-02T15:09:11.513Z",
+      "modified_at": "2023-06-02T15:09:11.513Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "emissionserklaerung",
+      "question": "beschreibung-baugewerbe",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "emissionserklaerung.beschreibung-branche",
+    "fields": {
+      "created_at": "2023-06-02T14:36:03.182Z",
+      "modified_at": "2023-06-02T14:36:03.182Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "emissionserklaerung",
+      "question": "beschreibung-branche",
+      "sort": 17
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "emissionserklaerung.beschreibung-dienstleistungen",
+    "fields": {
+      "created_at": "2023-06-02T15:15:34.046Z",
+      "modified_at": "2023-06-02T15:15:34.046Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "emissionserklaerung",
+      "question": "beschreibung-dienstleistungen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "emissionserklaerung.beschreibung-kunststoffverarbeitung",
+    "fields": {
+      "created_at": "2023-06-02T14:47:58.131Z",
+      "modified_at": "2023-06-02T14:47:58.131Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "emissionserklaerung",
+      "question": "beschreibung-kunststoffverarbeitung",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "emissionserklaerung.beschreibung-metall-maschinenindustrie",
+    "fields": {
+      "created_at": "2023-06-02T15:05:37.557Z",
+      "modified_at": "2023-06-02T15:05:37.557Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "emissionserklaerung",
+      "question": "beschreibung-metall-maschinenindustrie",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "emissionserklaerung.beschreibung-nahrungsmittelindustrie",
+    "fields": {
+      "created_at": "2023-06-02T14:38:08.275Z",
+      "modified_at": "2023-06-02T14:38:08.275Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "emissionserklaerung",
+      "question": "beschreibung-nahrungsmittelindustrie",
+      "sort": 15
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "emissionserklaerung.branche",
+    "fields": {
+      "created_at": "2023-06-02T14:28:28.089Z",
+      "modified_at": "2023-06-02T14:28:28.089Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "emissionserklaerung",
+      "question": "branche",
+      "sort": 18
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "emissionserklaerung.branche-gemaess-noga",
+    "fields": {
+      "created_at": "2023-06-02T12:46:22.155Z",
+      "modified_at": "2023-06-02T12:46:22.155Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "emissionserklaerung",
+      "question": "branche-gemaess-noga",
+      "sort": 25
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "emissionserklaerung.emissionserklaerung-titel",
+    "fields": {
+      "created_at": "2023-06-02T12:41:37.773Z",
+      "modified_at": "2023-06-02T12:41:37.773Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "emissionserklaerung",
+      "question": "emissionserklaerung-titel",
+      "sort": 27
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "emissionserklaerung.noga-code",
+    "fields": {
+      "created_at": "2023-06-02T12:56:27.915Z",
+      "modified_at": "2023-06-02T12:56:27.915Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "emissionserklaerung",
+      "question": "noga-code",
+      "sort": 23
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "emissionserklaerung.noga-code-bekannt",
+    "fields": {
+      "created_at": "2023-06-02T12:49:02.076Z",
+      "modified_at": "2023-06-02T12:49:02.076Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "emissionserklaerung",
+      "question": "noga-code-bekannt",
+      "sort": 24
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "emissionserklaerung.taetigkeit-des-betriebs-abbau-und-verarbeitung-von-steinen-und-erden",
+    "fields": {
+      "created_at": "2023-06-02T14:53:54.546Z",
+      "modified_at": "2023-06-02T14:53:54.546Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "emissionserklaerung",
+      "question": "taetigkeit-des-betriebs-abbau-und-verarbeitung-von-steinen-und-erden",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "emissionserklaerung.taetigkeit-des-betriebs-baugewerbe",
+    "fields": {
+      "created_at": "2023-06-02T15:08:00.236Z",
+      "modified_at": "2023-06-02T15:08:00.236Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "emissionserklaerung",
+      "question": "taetigkeit-des-betriebs-baugewerbe",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "emissionserklaerung.taetigkeit-des-betriebs-chemische-industrie",
+    "fields": {
+      "created_at": "2023-06-02T14:40:05.986Z",
+      "modified_at": "2023-06-02T14:40:05.986Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "emissionserklaerung",
+      "question": "taetigkeit-des-betriebs-chemische-industrie",
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "emissionserklaerung.taetigkeit-des-betriebs-dienstleistungen",
+    "fields": {
+      "created_at": "2023-06-02T15:13:58.421Z",
+      "modified_at": "2023-06-02T15:13:58.421Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "emissionserklaerung",
+      "question": "taetigkeit-des-betriebs-dienstleistungen",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "emissionserklaerung.taetigkeit-des-betriebs-handel",
+    "fields": {
+      "created_at": "2023-06-02T15:11:24.883Z",
+      "modified_at": "2023-06-02T15:11:24.883Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "emissionserklaerung",
+      "question": "taetigkeit-des-betriebs-handel",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "emissionserklaerung.taetigkeit-des-betriebs-holzverarbeitung",
+    "fields": {
+      "created_at": "2023-06-02T14:43:19.862Z",
+      "modified_at": "2023-06-02T14:43:19.862Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "emissionserklaerung",
+      "question": "taetigkeit-des-betriebs-holzverarbeitung",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "emissionserklaerung.taetigkeit-des-betriebs-kunststoffverarbeitung",
+    "fields": {
+      "created_at": "2023-06-02T14:46:47.968Z",
+      "modified_at": "2023-06-02T14:46:47.968Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "emissionserklaerung",
+      "question": "taetigkeit-des-betriebs-kunststoffverarbeitung",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "emissionserklaerung.taetigkeit-des-betriebs-metall-maschinenindustrie",
+    "fields": {
+      "created_at": "2023-06-02T15:04:00.492Z",
+      "modified_at": "2023-06-02T15:04:00.492Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "emissionserklaerung",
+      "question": "taetigkeit-des-betriebs-metall-maschinenindustrie",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "emissionserklaerung.taetigkeit-des-betriebs-nahrungsmittelindustrie",
+    "fields": {
+      "created_at": "2023-06-02T14:32:05.903Z",
+      "modified_at": "2023-06-02T14:32:05.903Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "emissionserklaerung",
+      "question": "taetigkeit-des-betriebs-nahrungsmittelindustrie",
+      "sort": 16
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "emissionserklaerung.taetigkeit-des-betriebs-textilindustrie",
+    "fields": {
+      "created_at": "2023-06-02T14:34:03.249Z",
+      "modified_at": "2023-06-02T14:34:03.249Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "emissionserklaerung",
+      "question": "taetigkeit-des-betriebs-textilindustrie",
+      "sort": 14
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "emissionserklaerung.taetigkeit-titel",
+    "fields": {
+      "created_at": "2023-06-02T12:59:51.676Z",
+      "modified_at": "2023-06-02T12:59:51.676Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "emissionserklaerung",
+      "question": "taetigkeit-titel",
+      "sort": 19
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "emissionserklaerung.weitere-standorte-im-kanton",
+    "fields": {
+      "created_at": "2023-06-02T12:58:39.908Z",
+      "modified_at": "2023-06-02T12:58:39.908Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "emissionserklaerung",
+      "question": "weitere-standorte-im-kanton",
+      "sort": 20
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "entfernung-von-hecken-tabelle.art-der-entfernung",
     "fields": {
       "created_at": "2023-04-27T12:08:32.384Z",
@@ -6680,6 +7139,21 @@
       "form": "entfernung-von-hecken-tabelle",
       "question": "terrainveraenderungen-hecken",
       "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "feuerungsanlagen.feuerungsanlagen-titel",
+    "fields": {
+      "created_at": "2023-06-02T11:48:52.294Z",
+      "modified_at": "2023-06-02T11:48:52.294Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "feuerungsanlagen",
+      "question": "feuerungsanlagen-titel",
+      "sort": 1
     }
   },
   {
@@ -8749,7 +9223,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "ausserhalb-bauzone",
-      "sort": 20
+      "sort": 21
     }
   },
   {
@@ -8764,7 +9238,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "bauvorhaben-mit-gewerbenutzung",
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -8779,7 +9253,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "beschreibung-der-anlagen",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -8794,7 +9268,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "beschreibung-der-nutzung",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -8809,7 +9283,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "beschreibung-der-wohnnutzung",
-      "sort": 11
+      "sort": 12
     }
   },
   {
@@ -8824,7 +9298,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "beschreibung-kantonsstrassen",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -8839,7 +9313,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "besondere-bedingungen",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -8854,7 +9328,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "forstliche-baute",
-      "sort": 15
+      "sort": 16
     }
   },
   {
@@ -8869,7 +9343,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "haustechnische-anlagen-brandschutz",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -8884,7 +9358,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "hinweis-hindernisfreies-bauen",
-      "sort": 12
+      "sort": 13
     }
   },
   {
@@ -8899,7 +9373,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "hinweis-waldabstandsbereich",
-      "sort": 18
+      "sort": 19
     }
   },
   {
@@ -8914,7 +9388,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "industrie-und-gewerbeabwasser",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -8929,7 +9403,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "kantonsstrassen",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -8944,7 +9418,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "mehr-als-50-arbeitsplaetze",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -8959,7 +9433,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "mehr-als-vier-wohneinheiten",
-      "sort": 13
+      "sort": 14
     }
   },
   {
@@ -8974,7 +9448,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "nichtforstliche-kleinbaute",
-      "sort": 16
+      "sort": 17
     }
   },
   {
@@ -8989,7 +9463,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "rodung",
-      "sort": 17
+      "sort": 18
     }
   },
   {
@@ -9004,7 +9478,22 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "triage-brandschutz",
-      "sort": 3
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "nutzung-bauvorhaben.verursacher-emissionen",
+    "fields": {
+      "created_at": "2023-06-02T11:47:39.520Z",
+      "modified_at": "2023-06-02T11:47:39.520Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "nutzung-bauvorhaben",
+      "question": "verursacher-emissionen",
+      "sort": 1
     }
   },
   {
@@ -9019,7 +9508,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "waldareal",
-      "sort": 19
+      "sort": 20
     }
   },
   {
@@ -9034,7 +9523,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "wohnnutzung",
-      "sort": 14
+      "sort": 15
     }
   },
   {
@@ -9934,7 +10423,7 @@
       "modified_by_group": null,
       "form": "spezialformulare",
       "question": "abfallanlage",
-      "sort": 16
+      "sort": 19
     }
   },
   {
@@ -9949,7 +10438,7 @@
       "modified_by_group": null,
       "form": "spezialformulare",
       "question": "ableitung-von-industrie-und-gewerbeabwasser",
-      "sort": 15
+      "sort": 18
     }
   },
   {
@@ -9964,7 +10453,7 @@
       "modified_by_group": null,
       "form": "spezialformulare",
       "question": "anlagedatenblatt",
-      "sort": 3
+      "sort": 6
     }
   },
   {
@@ -9979,7 +10468,7 @@
       "modified_by_group": null,
       "form": "spezialformulare",
       "question": "bauliche-angaben",
-      "sort": 5
+      "sort": 8
     }
   },
   {
@@ -9994,7 +10483,7 @@
       "modified_by_group": null,
       "form": "spezialformulare",
       "question": "bauten-ausserhalb-bauzone",
-      "sort": 20
+      "sort": 23
     }
   },
   {
@@ -10009,7 +10498,7 @@
       "modified_by_group": null,
       "form": "spezialformulare",
       "question": "betriebsleiterwohnhaus",
-      "sort": 19
+      "sort": 22
     }
   },
   {
@@ -10024,7 +10513,7 @@
       "modified_by_group": null,
       "form": "spezialformulare",
       "question": "brandschutz-haustechnik",
-      "sort": 4
+      "sort": 7
     }
   },
   {
@@ -10039,7 +10528,37 @@
       "modified_by_group": null,
       "form": "spezialformulare",
       "question": "eingriffe-in-gewaesserschutzbereichen",
-      "sort": 10
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare.emissionserklaerung-form",
+    "fields": {
+      "created_at": "2023-06-02T12:44:01.806Z",
+      "modified_at": "2023-06-02T12:44:01.806Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "spezialformulare",
+      "question": "emissionserklaerung-form",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare.feuerungsanlagen",
+    "fields": {
+      "created_at": "2023-06-02T12:00:54.142Z",
+      "modified_at": "2023-06-02T12:00:54.142Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "spezialformulare",
+      "question": "feuerungsanlagen",
+      "sort": 2
     }
   },
   {
@@ -10054,7 +10573,7 @@
       "modified_by_group": null,
       "form": "spezialformulare",
       "question": "gewinnung-von-kies",
-      "sort": 9
+      "sort": 12
     }
   },
   {
@@ -10069,7 +10588,7 @@
       "modified_by_group": null,
       "form": "spezialformulare",
       "question": "grundwasserentnahme-brauchwasser",
-      "sort": 6
+      "sort": 9
     }
   },
   {
@@ -10084,7 +10603,7 @@
       "modified_by_group": null,
       "form": "spezialformulare",
       "question": "gwr",
-      "sort": 21
+      "sort": 24
     }
   },
   {
@@ -10099,7 +10618,7 @@
       "modified_by_group": null,
       "form": "spezialformulare",
       "question": "hecken-feldgehoelze-und-ufervegetation",
-      "sort": 1
+      "sort": 4
     }
   },
   {
@@ -10114,7 +10633,7 @@
       "modified_by_group": null,
       "form": "spezialformulare",
       "question": "komplexe-erdwaermesonden",
-      "sort": 11
+      "sort": 14
     }
   },
   {
@@ -10129,7 +10648,7 @@
       "modified_by_group": null,
       "form": "spezialformulare",
       "question": "lageranlagen-mit-wassergefaehrdenden-fluessigkeiten",
-      "sort": 14
+      "sort": 17
     }
   },
   {
@@ -10144,7 +10663,7 @@
       "modified_by_group": null,
       "form": "spezialformulare",
       "question": "mineralische-bauabfaelle",
-      "sort": 2
+      "sort": 5
     }
   },
   {
@@ -10159,7 +10678,7 @@
       "modified_by_group": null,
       "form": "spezialformulare",
       "question": "schutzplaetze",
-      "sort": 17
+      "sort": 20
     }
   },
   {
@@ -10174,7 +10693,7 @@
       "modified_by_group": null,
       "form": "spezialformulare",
       "question": "solaranlagen",
-      "sort": 13
+      "sort": 16
     }
   },
   {
@@ -10189,7 +10708,22 @@
       "modified_by_group": null,
       "form": "spezialformulare",
       "question": "stallbau-und-hofduengerlager",
-      "sort": 18
+      "sort": 21
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare.stationaere-verbrennungsmotoren",
+    "fields": {
+      "created_at": "2023-06-02T12:04:51.468Z",
+      "modified_at": "2023-06-02T12:04:51.468Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "spezialformulare",
+      "question": "stationaere-verbrennungsmotoren",
+      "sort": 3
     }
   },
   {
@@ -10204,7 +10738,7 @@
       "modified_by_group": null,
       "form": "spezialformulare",
       "question": "terrainveraenderungen",
-      "sort": 8
+      "sort": 11
     }
   },
   {
@@ -10219,7 +10753,7 @@
       "modified_by_group": null,
       "form": "spezialformulare",
       "question": "waermepumpenanlage",
-      "sort": 12
+      "sort": 15
     }
   },
   {
@@ -10234,7 +10768,7 @@
       "modified_by_group": null,
       "form": "spezialformulare",
       "question": "wasserentnahme-aus-oberflaechengewaessern",
-      "sort": 7
+      "sort": 10
     }
   },
   {
@@ -10895,6 +11429,21 @@
       "form": "stallbau-und-hofduengerlager",
       "question": "umrandungen-auf-allen-seiten-gleich-hoch",
       "sort": 27
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "stationaere-verbrennungsmotoren.stationaere-verbrennungsmotoren-titel",
+    "fields": {
+      "created_at": "2023-06-02T12:03:10.815Z",
+      "modified_at": "2023-06-02T12:03:10.815Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "stationaere-verbrennungsmotoren",
+      "question": "stationaere-verbrennungsmotoren-titel",
+      "sort": 1
     }
   },
   {
@@ -16210,6 +16759,182 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "branche-abbau-und-verarbeitung-von-steinen-und-erden",
+    "fields": {
+      "created_at": "2023-06-02T14:28:27.549Z",
+      "modified_at": "2023-06-02T14:28:27.549Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abbau und Verarbeitung von Steinen und Erden\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "branche-andere",
+    "fields": {
+      "created_at": "2023-06-02T14:28:27.773Z",
+      "modified_at": "2023-06-02T14:28:27.773Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Andere\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "branche-baugewerbe",
+    "fields": {
+      "created_at": "2023-06-02T14:28:27.690Z",
+      "modified_at": "2023-06-02T14:28:27.690Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Baugewerbe\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "branche-chemische-industrie",
+    "fields": {
+      "created_at": "2023-06-02T14:28:27.662Z",
+      "modified_at": "2023-06-02T14:28:27.662Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Chemische Industrie\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "branche-dienstleistungen",
+    "fields": {
+      "created_at": "2023-06-02T14:28:27.792Z",
+      "modified_at": "2023-06-02T14:28:27.792Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dienstleistungen\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "branche-handel",
+    "fields": {
+      "created_at": "2023-06-02T14:28:27.602Z",
+      "modified_at": "2023-06-02T14:28:27.602Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Handel\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "branche-holzverarbeitung",
+    "fields": {
+      "created_at": "2023-06-02T14:28:27.654Z",
+      "modified_at": "2023-06-02T14:28:27.654Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Holzverarbeitung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "branche-kunststoffverarbeitung",
+    "fields": {
+      "created_at": "2023-06-02T14:28:27.566Z",
+      "modified_at": "2023-06-02T14:28:27.566Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Kunststoffverarbeitung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "branche-metall-maschinenindustrie",
+    "fields": {
+      "created_at": "2023-06-02T14:28:27.664Z",
+      "modified_at": "2023-06-02T14:28:27.664Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Metall- / Maschinenindustrie\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "branche-nahrungs-und-futtermittelindustrie",
+    "fields": {
+      "created_at": "2023-06-02T14:28:27.439Z",
+      "modified_at": "2023-06-02T14:28:27.439Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nahrungs- und Futtermittelindustrie\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "branche-textilindustrie",
+    "fields": {
+      "created_at": "2023-06-02T14:28:27.630Z",
+      "modified_at": "2023-06-02T14:28:27.630Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Textilindustrie\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "brennstoff-andere",
     "fields": {
       "created_at": "2023-05-24T15:30:18.360Z",
@@ -20658,6 +21383,38 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "noga-code-bekannt-ja",
+    "fields": {
+      "created_at": "2023-06-02T12:49:01.774Z",
+      "modified_at": "2023-06-02T12:49:01.774Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "noga-code-bekannt-nein",
+    "fields": {
+      "created_at": "2023-06-02T12:49:01.793Z",
+      "modified_at": "2023-06-02T12:49:01.793Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "nutzungszweck-der-gewerblichen-baute-andere",
     "fields": {
       "created_at": "2023-04-14T08:54:32.450Z",
@@ -22178,6 +22935,598 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "taetigkeit-des-betriebs-abbau-und-verarbeitung-von-steinen-und-erden-andere",
+    "fields": {
+      "created_at": "2023-06-02T14:53:54.130Z",
+      "modified_at": "2023-06-02T14:53:54.130Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Andere\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "taetigkeit-des-betriebs-abbau-und-verarbeitung-von-steinen-und-erden-anlage-zur-materialaufbereitung",
+    "fields": {
+      "created_at": "2023-06-02T14:53:54.169Z",
+      "modified_at": "2023-06-02T14:53:54.169Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anlage zur Materialaufbereitung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "taetigkeit-des-betriebs-abbau-und-verarbeitung-von-steinen-und-erden-kieswerk",
+    "fields": {
+      "created_at": "2023-06-02T14:53:54.118Z",
+      "modified_at": "2023-06-02T14:53:54.118Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Kieswerk\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "taetigkeit-des-betriebs-abbau-und-verarbeitung-von-steinen-und-erden-steinbruch",
+    "fields": {
+      "created_at": "2023-06-02T14:53:54.066Z",
+      "modified_at": "2023-06-02T14:53:54.066Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Steinbruch\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "taetigkeit-des-betriebs-abbau-und-verarbeitung-von-steinen-und-erden-zement-kalk-gipswerk",
+    "fields": {
+      "created_at": "2023-06-02T14:53:54.111Z",
+      "modified_at": "2023-06-02T14:53:54.111Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Zement-, Kalk-, Gipswerk\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "taetigkeit-des-betriebs-abbau-und-verarbeitung-von-steinen-und-erden-ziegelei",
+    "fields": {
+      "created_at": "2023-06-02T14:53:54.199Z",
+      "modified_at": "2023-06-02T14:53:54.199Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ziegelei\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "taetigkeit-des-betriebs-baugewerbe-ablaugerei",
+    "fields": {
+      "created_at": "2023-06-02T15:07:59.917Z",
+      "modified_at": "2023-06-02T15:07:59.917Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ablaugerei\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "taetigkeit-des-betriebs-baugewerbe-andere",
+    "fields": {
+      "created_at": "2023-06-02T15:07:59.909Z",
+      "modified_at": "2023-06-02T15:07:59.909Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Andere\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "taetigkeit-des-betriebs-baugewerbe-hoch-tiefbau",
+    "fields": {
+      "created_at": "2023-06-02T15:07:59.927Z",
+      "modified_at": "2023-06-02T15:07:59.927Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hoch-, Tiefbau\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "taetigkeit-des-betriebs-baugewerbe-maler-gipserbetrieb",
+    "fields": {
+      "created_at": "2023-06-02T15:07:59.854Z",
+      "modified_at": "2023-06-02T15:07:59.854Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Maler-/Gipserbetrieb\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "taetigkeit-des-betriebs-dienstleistungen-andere",
+    "fields": {
+      "created_at": "2023-06-02T15:13:57.994Z",
+      "modified_at": "2023-06-02T15:13:57.994Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Andere\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "taetigkeit-des-betriebs-dienstleistungen-gastgewerbe",
+    "fields": {
+      "created_at": "2023-06-02T15:13:58.016Z",
+      "modified_at": "2023-06-02T15:13:58.016Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gastgewerbe\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "taetigkeit-des-betriebs-dienstleistungen-reparaturwerkstaette-fuer-andere-fahrzeuge-oder-maschinen",
+    "fields": {
+      "created_at": "2023-06-02T15:13:58.023Z",
+      "modified_at": "2023-06-02T15:13:58.023Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Reparaturwerkst\\u00e4tte f\\u00fcr andere Fahrzeuge oder Maschinen\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "taetigkeit-des-betriebs-dienstleistungen-reparaturwerkstaette-fuer-autos",
+    "fields": {
+      "created_at": "2023-06-02T15:13:57.892Z",
+      "modified_at": "2023-06-02T15:13:57.892Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Reparaturwerkst\\u00e4tte f\\u00fcr Autos\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "taetigkeit-des-betriebs-dienstleistungen-spital",
+    "fields": {
+      "created_at": "2023-06-02T15:13:57.985Z",
+      "modified_at": "2023-06-02T15:13:57.985Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Spital\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "taetigkeit-des-betriebs-dienstleistungen-spritzwerke",
+    "fields": {
+      "created_at": "2023-06-02T15:13:57.947Z",
+      "modified_at": "2023-06-02T15:13:57.947Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Spritzwerke\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "taetigkeit-des-betriebs-dienstleistungen-tankreinigung",
+    "fields": {
+      "created_at": "2023-06-02T15:13:57.983Z",
+      "modified_at": "2023-06-02T15:13:57.983Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Tankreinigung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "taetigkeit-des-betriebs-dienstleistungen-textilreinigung",
+    "fields": {
+      "created_at": "2023-06-02T15:13:58.078Z",
+      "modified_at": "2023-06-02T15:13:58.078Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Textilreinigung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "taetigkeit-des-betriebs-handel-anlagen-fuer-den-umschlag-staubender-gueter",
+    "fields": {
+      "created_at": "2023-06-02T15:11:24.550Z",
+      "modified_at": "2023-06-02T15:11:24.550Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anlagen f\\u00fcr den Umschlag staubender G\\u00fcter\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "taetigkeit-des-betriebs-handel-anlagen-zum-handel-mit-heizoel-diesel-benzin-oder-fluessiggas",
+    "fields": {
+      "created_at": "2023-06-02T15:11:24.534Z",
+      "modified_at": "2023-06-02T15:11:24.534Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anlagen zum Handel mit Heiz\\u00f6l, Diesel, Benzin oder Fl\\u00fcssiggas\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "taetigkeit-des-betriebs-handel-tankstelle",
+    "fields": {
+      "created_at": "2023-06-02T15:11:24.554Z",
+      "modified_at": "2023-06-02T15:11:24.554Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Tankstelle\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "taetigkeit-des-betriebs-holzverarbeitung-beiz-und-polierwerkstaette",
+    "fields": {
+      "created_at": "2023-06-02T14:43:19.477Z",
+      "modified_at": "2023-06-02T14:43:19.477Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beiz- und Polierwerkst\\u00e4tte\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "taetigkeit-des-betriebs-holzverarbeitung-hobelwerk",
+    "fields": {
+      "created_at": "2023-06-02T14:43:19.519Z",
+      "modified_at": "2023-06-02T14:43:19.519Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hobelwerk\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "taetigkeit-des-betriebs-holzverarbeitung-saegewerk",
+    "fields": {
+      "created_at": "2023-06-02T14:43:19.489Z",
+      "modified_at": "2023-06-02T14:43:19.489Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"S\\u00e4gewerk\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "taetigkeit-des-betriebs-holzverarbeitung-schreinerei",
+    "fields": {
+      "created_at": "2023-06-02T14:43:19.539Z",
+      "modified_at": "2023-06-02T14:43:19.539Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Schreinerei\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "taetigkeit-des-betriebs-kunststoffverarbeitung-andere",
+    "fields": {
+      "created_at": "2023-06-02T14:46:47.652Z",
+      "modified_at": "2023-06-02T14:46:47.652Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Andere\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "taetigkeit-des-betriebs-kunststoffverarbeitung-kunststoffe-und-gummiwaren",
+    "fields": {
+      "created_at": "2023-06-02T14:46:47.667Z",
+      "modified_at": "2023-06-02T14:46:47.667Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anlage zur Herstellung von Kunststoffen und Gummiwaren\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "taetigkeit-des-betriebs-kunststoffverarbeitung-pulverbeschichtung",
+    "fields": {
+      "created_at": "2023-06-02T14:46:47.637Z",
+      "modified_at": "2023-06-02T14:46:47.637Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Pulverbeschichtung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "taetigkeit-des-betriebs-kunststoffverarbeitung-spritzgusswerk",
+    "fields": {
+      "created_at": "2023-06-02T14:46:47.669Z",
+      "modified_at": "2023-06-02T14:46:47.669Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Spritzgusswerk\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "taetigkeit-des-betriebs-metall-maschinenindustrie-andere",
+    "fields": {
+      "created_at": "2023-06-02T15:03:59.864Z",
+      "modified_at": "2023-06-02T15:03:59.864Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Andere\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "taetigkeit-des-betriebs-metall-maschinenindustrie-galvanikbetrieb",
+    "fields": {
+      "created_at": "2023-06-02T15:03:59.971Z",
+      "modified_at": "2023-06-02T15:03:59.971Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Galvanikbetrieb\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "taetigkeit-des-betriebs-metall-maschinenindustrie-giesserei",
+    "fields": {
+      "created_at": "2023-06-02T15:03:59.973Z",
+      "modified_at": "2023-06-02T15:03:59.973Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Giesserei\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "taetigkeit-des-betriebs-metall-maschinenindustrie-schlosserei",
+    "fields": {
+      "created_at": "2023-06-02T15:03:59.967Z",
+      "modified_at": "2023-06-02T15:03:59.967Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Schlosserei\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "taetigkeit-des-betriebs-metall-maschinenindustrie-verzinkerei",
+    "fields": {
+      "created_at": "2023-06-02T15:03:59.917Z",
+      "modified_at": "2023-06-02T15:03:59.917Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Verzinkerei\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "taetigkeit-des-betriebs-nahrungsmittelindustrie-andere",
+    "fields": {
+      "created_at": "2023-06-02T14:32:05.580Z",
+      "modified_at": "2023-06-02T14:32:05.581Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Andere\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "taetigkeit-des-betriebs-nahrungsmittelindustrie-hersetllung-von-futtermitteln",
+    "fields": {
+      "created_at": "2023-06-02T14:32:05.528Z",
+      "modified_at": "2023-06-02T14:32:05.528Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hersetllung von Futtermitteln\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "taetigkeit-des-betriebs-nahrungsmittelindustrie-herstellung-von-nahrungsmitteln",
+    "fields": {
+      "created_at": "2023-06-02T14:32:05.570Z",
+      "modified_at": "2023-06-02T14:32:05.570Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Herstellung von Nahrungsmitteln\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "tankraum-auskleidung-beschichtung",
     "fields": {
       "created_at": "2023-04-20T08:04:32.202Z",
@@ -23595,6 +24944,38 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Vereinbarkeit Zweitwohnungsgesetz\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "verursacher-emissionen-feuerungsanlagen",
+    "fields": {
+      "created_at": "2023-06-02T11:47:39.185Z",
+      "modified_at": "2023-06-02T11:47:39.185Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Feuerungsanlagen\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "verursacher-emissionen-stationaere-verbrennungsmotoren",
+    "fields": {
+      "created_at": "2023-06-02T11:47:39.190Z",
+      "modified_at": "2023-06-02T11:47:39.190Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Station\\u00e4re Verbrennungsmotoren\", \"fr\": null, \"it\": null, \"rm\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -26540,6 +27921,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "allgemeine-angaben-zum-betrieb-titel",
+    "fields": {
+      "created_at": "2023-06-02T12:45:46.948Z",
+      "modified_at": "2023-06-02T12:45:46.948Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Allgemeine Angaben zum Betrieb Titel\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"---\\n#### Allgemeine Angaben zum Betrieb\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "allgemeine-informationen",
     "fields": {
       "created_at": "2023-04-05T10:17:03.149Z",
@@ -27166,6 +28578,74 @@
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "anzahl-mitarbeitende",
+    "fields": {
+      "created_at": "2023-06-02T12:57:32.574Z",
+      "modified_at": "2023-06-02T12:57:32.574Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anzahl Mitarbeitende (Total)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "anzahl-mitarbeitende-produktion",
+    "fields": {
+      "created_at": "2023-06-02T12:58:05.876Z",
+      "modified_at": "2023-06-02T12:58:05.876Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anzahl Mitarbeitende (im Produktionsbereich)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {
         "max_value": null,
@@ -30452,6 +31932,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "beschreibung-abbau-und-verarbeitung-von-steinen-und-erden",
+    "fields": {
+      "created_at": "2023-06-02T14:55:19.617Z",
+      "modified_at": "2023-06-02T14:55:19.617Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschreibung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "!(\"taetigkeit-des-betriebs-abbau-und-verarbeitung-von-steinen-und-erden-andere\" in \"taetigkeit-des-betriebs-abbau-und-verarbeitung-von-steinen-und-erden\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "beschreibung-art-der-anlage",
     "fields": {
       "created_at": "2023-04-19T11:14:03.167Z",
@@ -30656,6 +32170,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "beschreibung-baugewerbe",
+    "fields": {
+      "created_at": "2023-06-02T15:09:11.359Z",
+      "modified_at": "2023-06-02T15:09:11.359Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschreibung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "!(\"taetigkeit-des-betriebs-baugewerbe-andere\" in \"taetigkeit-des-betriebs-baugewerbe\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "beschreibung-bauvorhaben",
     "fields": {
       "created_at": "2019-04-12T08:18:11.316Z",
@@ -30675,6 +32223,40 @@
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {
         "max_length": 1000,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "beschreibung-branche",
+    "fields": {
+      "created_at": "2023-06-02T14:36:03.042Z",
+      "modified_at": "2023-06-02T14:36:03.042Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschreibung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "!(\"branche-andere\" in \"branche\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
         "min_length": null
       },
       "meta": {},
@@ -30864,6 +32446,40 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "beschreibung-dienstleistungen",
+    "fields": {
+      "created_at": "2023-06-02T15:15:33.909Z",
+      "modified_at": "2023-06-02T15:16:55.581Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschreibung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "!(\"taetigkeit-des-betriebs-dienstleistungen-andere\" in \"taetigkeit-des-betriebs-dienstleistungen\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -31145,6 +32761,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "beschreibung-kunststoffverarbeitung",
+    "fields": {
+      "created_at": "2023-06-02T14:47:57.954Z",
+      "modified_at": "2023-06-02T14:47:57.954Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschreibung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "!(\"taetigkeit-des-betriebs-kunststoffverarbeitung-andere\" in \"taetigkeit-des-betriebs-kunststoffverarbeitung\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "beschreibung-lagergut",
     "fields": {
       "created_at": "2023-04-20T07:50:12.313Z",
@@ -31179,6 +32829,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "beschreibung-metall-maschinenindustrie",
+    "fields": {
+      "created_at": "2023-06-02T15:05:37.410Z",
+      "modified_at": "2023-06-02T15:05:37.410Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschreibung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "!(\"taetigkeit-des-betriebs-metall-maschinenindustrie-andere\" in \"taetigkeit-des-betriebs-metall-maschinenindustrie\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "beschreibung-minderungseinrichtung",
     "fields": {
       "created_at": "2023-04-24T12:46:49.798Z",
@@ -31195,6 +32879,40 @@
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "hint_text": "{\"de\": \"Fabrikat, Typ, Lieferant, Wirkungsgrad; evtl. Prospekt beilegen\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "beschreibung-nahrungsmittelindustrie",
+    "fields": {
+      "created_at": "2023-06-02T14:38:08.138Z",
+      "modified_at": "2023-06-02T14:38:08.138Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschreibung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "!(\"taetigkeit-des-betriebs-nahrungsmittelindustrie-andere\" in \"taetigkeit-des-betriebs-nahrungsmittelindustrie\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -32888,6 +34606,71 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "branche",
+    "fields": {
+      "created_at": "2023-06-02T14:28:27.924Z",
+      "modified_at": "2023-06-02T14:29:32.694Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"In welcher Branche werden die industriellen und gewerblichen T\\u00e4tigkeiten ausgef\\u00fchrt?\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "!(\"noga-code-bekannt-nein\" == \"noga-code-bekannt\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "branche-gemaess-noga",
+    "fields": {
+      "created_at": "2023-06-02T12:46:21.984Z",
+      "modified_at": "2023-06-02T12:46:21.984Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Branche gem\\u00e4ss NOGA\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "brandbekaempfung-titel",
     "fields": {
       "created_at": "2023-05-25T07:34:56.281Z",
@@ -34533,6 +36316,68 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "emissionserklaerung-form",
+    "fields": {
+      "created_at": "2023-06-02T12:44:01.668Z",
+      "modified_at": "2023-06-02T12:44:01.668Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Emissionserkl\\u00e4rung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "!(\"besondere-bedingungen-emissionen\" in \"besondere-bedingungen\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "emissionserklaerung",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "emissionserklaerung-titel",
+    "fields": {
+      "created_at": "2023-06-02T12:41:37.632Z",
+      "modified_at": "2023-06-02T12:41:37.633Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Emissionserkl\\u00e4rung Titel\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"### Emissionserkl\\u00e4rung\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "emissionsmessungen",
     "fields": {
       "created_at": "2023-04-24T12:50:00.295Z",
@@ -35955,6 +37800,68 @@
         "max_length": null,
         "min_length": null
       },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "feuerungsanlagen",
+    "fields": {
+      "created_at": "2023-06-02T12:00:53.992Z",
+      "modified_at": "2023-06-02T12:00:53.992Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Feuerungsanlagen\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "!(\"verursacher-emissionen-feuerungsanlagen\" in \"verursacher-emissionen\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "feuerungsanlagen",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "feuerungsanlagen-titel",
+    "fields": {
+      "created_at": "2023-06-02T11:48:52.140Z",
+      "modified_at": "2023-06-02T11:48:52.140Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Feuerungsanlagen Titel\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"### Feuerungsanlagen\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -38243,15 +40150,15 @@
     "pk": "hecken-feldgehoelze-und-ufervegetation",
     "fields": {
       "created_at": "2023-04-24T14:05:29.956Z",
-      "modified_at": "2023-05-03T13:42:02.378Z",
+      "modified_at": "2023-06-02T12:11:12.479Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Entfernung von Ufervegetation / Hecken\", \"fr\": null, \"it\": null, \"rm\": null}",
       "type": "form",
       "is_required": "false",
-      "is_hidden": "true",
+      "is_hidden": "!(\"besondere-bedingungen-entfernung-ufervegetation-hecken\" in \"besondere-bedingungen\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
@@ -42139,15 +44046,15 @@
     "pk": "mineralische-bauabfaelle",
     "fields": {
       "created_at": "2023-04-24T13:42:19.523Z",
-      "modified_at": "2023-05-03T13:41:54.398Z",
+      "modified_at": "2023-06-02T12:08:29.242Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Mineralische Bauabf\\u00e4lle\", \"fr\": null, \"it\": null, \"rm\": null}",
       "type": "form",
       "is_required": "false",
-      "is_hidden": "true",
+      "is_hidden": "!(\"besondere-bedingungen-abbruch-rueckbau-aufbereitung\" in \"besondere-bedingungen\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
@@ -43031,6 +44938,71 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "info_text": "{\"de\": \"Nichtforstliche Kleinbauten und Kleinanlagen sind insbesondere Anbauten, Masten, Feuerstellen, Sport- und Lehrpfade, erdverlegte Leitungen, Passh\\u00fctten, Bienenh\\u00e4user, Niederhaltungen bei oberirdischen Leitungen sowie entlang von Strassen und Bahnen, Wildbachsperren und Geschiebesammler.\", \"fr\": null, \"it\": null, \"rm\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "noga-code",
+    "fields": {
+      "created_at": "2023-06-02T12:56:27.769Z",
+      "modified_at": "2023-06-02T12:56:27.769Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"NOGA-Code des Betriebs\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "!(\"noga-code-bekannt-ja\" == \"noga-code-bekannt\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "noga-code-bekannt",
+    "fields": {
+      "created_at": "2023-06-02T12:49:01.935Z",
+      "modified_at": "2023-06-02T12:49:01.935Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"NOGA-Code bekannt\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -45964,6 +47936,68 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "stationaere-verbrennungsmotoren",
+    "fields": {
+      "created_at": "2023-06-02T12:04:51.336Z",
+      "modified_at": "2023-06-02T12:04:51.336Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Station\\u00e4re Verbrennungsmotoren\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "!(\"verursacher-emissionen-stationaere-verbrennungsmotoren\" in \"verursacher-emissionen\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "stationaere-verbrennungsmotoren",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "stationaere-verbrennungsmotoren-titel",
+    "fields": {
+      "created_at": "2023-06-02T12:03:10.646Z",
+      "modified_at": "2023-06-02T12:03:10.646Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Station\\u00e4re Verbrennungsmotoren Titel\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"### Station\\u00e4re Verbrennungsmotoren\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "steinhaufen-oder-trockenmauern",
     "fields": {
       "created_at": "2023-04-24T14:12:14.270Z",
@@ -46146,6 +48180,353 @@
         "max_value": null,
         "min_value": null
       },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "taetigkeit-des-betriebs-abbau-und-verarbeitung-von-steinen-und-erden",
+    "fields": {
+      "created_at": "2023-06-02T14:53:54.361Z",
+      "modified_at": "2023-06-02T14:53:54.361Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"T\\u00e4tigkeit des Betriebs (Abbau und Verarbeitung von Steinen und Erden)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "!(\"branche-abbau-und-verarbeitung-von-steinen-und-erden\" in \"branche\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "taetigkeit-des-betriebs-baugewerbe",
+    "fields": {
+      "created_at": "2023-06-02T15:08:00.101Z",
+      "modified_at": "2023-06-02T15:08:00.101Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"T\\u00e4tigkeit des Betriebs (Baugewerbe)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "!(\"branche-baugewerbe\" in \"branche\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "taetigkeit-des-betriebs-chemische-industrie",
+    "fields": {
+      "created_at": "2023-06-02T14:40:05.843Z",
+      "modified_at": "2023-06-02T14:40:05.843Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"T\\u00e4tigkeit des Betriebs (Chemische Industrie)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "!(\"branche-chemische-industrie\" in \"branche\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "taetigkeit-des-betriebs-dienstleistungen",
+    "fields": {
+      "created_at": "2023-06-02T15:13:58.255Z",
+      "modified_at": "2023-06-02T15:14:41.258Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"T\\u00e4tigkeit des Betriebs (Dienstleistungen)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "!(\"branche-dienstleistungen\" in \"branche\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "taetigkeit-des-betriebs-handel",
+    "fields": {
+      "created_at": "2023-06-02T15:11:24.724Z",
+      "modified_at": "2023-06-02T15:11:24.724Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"T\\u00e4tigkeit des Betriebs (Handel)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "!(\"branche-handel\" in \"branche\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "taetigkeit-des-betriebs-holzverarbeitung",
+    "fields": {
+      "created_at": "2023-06-02T14:43:19.698Z",
+      "modified_at": "2023-06-02T14:44:22.099Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"T\\u00e4tigkeit des Betriebs (Holzverarbeitung)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "!(\"branche-holzverarbeitung\" in \"branche\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "taetigkeit-des-betriebs-kunststoffverarbeitung",
+    "fields": {
+      "created_at": "2023-06-02T14:46:47.822Z",
+      "modified_at": "2023-06-02T14:46:47.822Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"T\\u00e4tigkeit des Betriebs (Kunststoffverarbeitung)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "!(\"branche-kunststoffverarbeitung\" in \"branche\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "taetigkeit-des-betriebs-metall-maschinenindustrie",
+    "fields": {
+      "created_at": "2023-06-02T15:04:00.330Z",
+      "modified_at": "2023-06-02T15:04:00.330Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"T\\u00e4tigkeit des Betriebs (Metall-/ Maschinenindustrie)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "!(\"branche-metall-maschinenindustrie\" in \"branche\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "taetigkeit-des-betriebs-nahrungsmittelindustrie",
+    "fields": {
+      "created_at": "2023-06-02T14:32:05.711Z",
+      "modified_at": "2023-06-02T14:34:57.544Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"T\\u00e4tigkeit des Betriebs (Nahrungsmittelindustrie)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "!(\"branche-nahrungs-und-futtermittelindustrie\" in \"branche\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "taetigkeit-des-betriebs-textilindustrie",
+    "fields": {
+      "created_at": "2023-06-02T14:34:03.085Z",
+      "modified_at": "2023-06-02T14:34:03.086Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"T\\u00e4tigkeit des Betriebs (Textilindustrie)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "!(\"branche-textilindustrie\" in \"branche\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "taetigkeit-titel",
+    "fields": {
+      "created_at": "2023-06-02T12:59:51.536Z",
+      "modified_at": "2023-06-02T12:59:51.536Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"T\\u00e4tigkeit Titel\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "!(\"noga-code-bekannt-nein\" == \"noga-code-bekannt\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"---\\n#### T\\u00e4tigkeiten\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -47575,6 +49956,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "verursacher-emissionen",
+    "fields": {
+      "created_at": "2023-06-02T11:47:39.382Z",
+      "modified_at": "2023-06-02T11:47:39.382Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Was verursacht die Emissionen\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "!(\"besondere-bedingungen-emissionen\" in \"besondere-bedingungen\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "verwendungszweck-des-gases",
     "fields": {
       "created_at": "2023-04-24T10:15:01.600Z",
@@ -48888,6 +51300,40 @@
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "weitere-standorte-im-kanton",
+    "fields": {
+      "created_at": "2023-06-02T12:58:39.745Z",
+      "modified_at": "2023-06-02T12:58:39.745Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Weitere Standorte im Kanton\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -53471,6 +55917,171 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "branche.branche-abbau-und-verarbeitung-von-steinen-und-erden",
+    "fields": {
+      "created_at": "2023-06-02T14:29:32.732Z",
+      "modified_at": "2023-06-02T14:29:32.732Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "branche",
+      "option": "branche-abbau-und-verarbeitung-von-steinen-und-erden",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "branche.branche-andere",
+    "fields": {
+      "created_at": "2023-06-02T14:29:32.704Z",
+      "modified_at": "2023-06-02T14:29:32.704Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "branche",
+      "option": "branche-andere",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "branche.branche-baugewerbe",
+    "fields": {
+      "created_at": "2023-06-02T14:29:32.721Z",
+      "modified_at": "2023-06-02T14:29:32.721Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "branche",
+      "option": "branche-baugewerbe",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "branche.branche-chemische-industrie",
+    "fields": {
+      "created_at": "2023-06-02T14:29:32.744Z",
+      "modified_at": "2023-06-02T14:29:32.744Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "branche",
+      "option": "branche-chemische-industrie",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "branche.branche-dienstleistungen",
+    "fields": {
+      "created_at": "2023-06-02T14:29:32.709Z",
+      "modified_at": "2023-06-02T14:29:32.709Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "branche",
+      "option": "branche-dienstleistungen",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "branche.branche-handel",
+    "fields": {
+      "created_at": "2023-06-02T14:29:32.716Z",
+      "modified_at": "2023-06-02T14:29:32.716Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "branche",
+      "option": "branche-handel",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "branche.branche-holzverarbeitung",
+    "fields": {
+      "created_at": "2023-06-02T14:29:32.740Z",
+      "modified_at": "2023-06-02T14:29:32.740Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "branche",
+      "option": "branche-holzverarbeitung",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "branche.branche-kunststoffverarbeitung",
+    "fields": {
+      "created_at": "2023-06-02T14:29:32.737Z",
+      "modified_at": "2023-06-02T14:29:32.737Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "branche",
+      "option": "branche-kunststoffverarbeitung",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "branche.branche-metall-maschinenindustrie",
+    "fields": {
+      "created_at": "2023-06-02T14:29:32.725Z",
+      "modified_at": "2023-06-02T14:29:32.725Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "branche",
+      "option": "branche-metall-maschinenindustrie",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "branche.branche-nahrungs-und-futtermittelindustrie",
+    "fields": {
+      "created_at": "2023-06-02T14:29:32.753Z",
+      "modified_at": "2023-06-02T14:29:32.753Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "branche",
+      "option": "branche-nahrungs-und-futtermittelindustrie",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "branche.branche-textilindustrie",
+    "fields": {
+      "created_at": "2023-06-02T14:29:32.749Z",
+      "modified_at": "2023-06-02T14:29:32.749Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "branche",
+      "option": "branche-textilindustrie",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "brennstoff.brennstoff-andere",
     "fields": {
       "created_at": "2023-05-24T15:31:54.667Z",
@@ -57671,6 +60282,36 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "noga-code-bekannt.noga-code-bekannt-ja",
+    "fields": {
+      "created_at": "2023-06-02T12:49:01.948Z",
+      "modified_at": "2023-06-02T12:49:01.948Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "noga-code-bekannt",
+      "option": "noga-code-bekannt-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "noga-code-bekannt.noga-code-bekannt-nein",
+    "fields": {
+      "created_at": "2023-06-02T12:49:01.943Z",
+      "modified_at": "2023-06-02T12:49:01.943Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "noga-code-bekannt",
+      "option": "noga-code-bekannt-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "nutzungszweck-der-gewerblichen-baute.nutzungszweck-der-gewerblichen-baute-andere",
     "fields": {
       "created_at": "2023-04-14T08:54:57.494Z",
@@ -59126,6 +61767,561 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "taetigkeit-des-betriebs-abbau-und-verarbeitung-von-steinen-und-erden.taetigkeit-des-betriebs-abbau-und-verarbeitung-von-steinen-und-erden-andere",
+    "fields": {
+      "created_at": "2023-06-02T14:53:54.368Z",
+      "modified_at": "2023-06-02T14:53:54.368Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "taetigkeit-des-betriebs-abbau-und-verarbeitung-von-steinen-und-erden",
+      "option": "taetigkeit-des-betriebs-abbau-und-verarbeitung-von-steinen-und-erden-andere",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "taetigkeit-des-betriebs-abbau-und-verarbeitung-von-steinen-und-erden.taetigkeit-des-betriebs-abbau-und-verarbeitung-von-steinen-und-erden-anlage-zur-materialaufbereitung",
+    "fields": {
+      "created_at": "2023-06-02T14:53:54.384Z",
+      "modified_at": "2023-06-02T14:53:54.384Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "taetigkeit-des-betriebs-abbau-und-verarbeitung-von-steinen-und-erden",
+      "option": "taetigkeit-des-betriebs-abbau-und-verarbeitung-von-steinen-und-erden-anlage-zur-materialaufbereitung",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "taetigkeit-des-betriebs-abbau-und-verarbeitung-von-steinen-und-erden.taetigkeit-des-betriebs-abbau-und-verarbeitung-von-steinen-und-erden-kieswerk",
+    "fields": {
+      "created_at": "2023-06-02T14:53:54.380Z",
+      "modified_at": "2023-06-02T14:53:54.380Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "taetigkeit-des-betriebs-abbau-und-verarbeitung-von-steinen-und-erden",
+      "option": "taetigkeit-des-betriebs-abbau-und-verarbeitung-von-steinen-und-erden-kieswerk",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "taetigkeit-des-betriebs-abbau-und-verarbeitung-von-steinen-und-erden.taetigkeit-des-betriebs-abbau-und-verarbeitung-von-steinen-und-erden-steinbruch",
+    "fields": {
+      "created_at": "2023-06-02T14:53:54.389Z",
+      "modified_at": "2023-06-02T14:53:54.389Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "taetigkeit-des-betriebs-abbau-und-verarbeitung-von-steinen-und-erden",
+      "option": "taetigkeit-des-betriebs-abbau-und-verarbeitung-von-steinen-und-erden-steinbruch",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "taetigkeit-des-betriebs-abbau-und-verarbeitung-von-steinen-und-erden.taetigkeit-des-betriebs-abbau-und-verarbeitung-von-steinen-und-erden-zement-kalk-gipswerk",
+    "fields": {
+      "created_at": "2023-06-02T14:53:54.376Z",
+      "modified_at": "2023-06-02T14:53:54.376Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "taetigkeit-des-betriebs-abbau-und-verarbeitung-von-steinen-und-erden",
+      "option": "taetigkeit-des-betriebs-abbau-und-verarbeitung-von-steinen-und-erden-zement-kalk-gipswerk",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "taetigkeit-des-betriebs-abbau-und-verarbeitung-von-steinen-und-erden.taetigkeit-des-betriebs-abbau-und-verarbeitung-von-steinen-und-erden-ziegelei",
+    "fields": {
+      "created_at": "2023-06-02T14:53:54.372Z",
+      "modified_at": "2023-06-02T14:53:54.372Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "taetigkeit-des-betriebs-abbau-und-verarbeitung-von-steinen-und-erden",
+      "option": "taetigkeit-des-betriebs-abbau-und-verarbeitung-von-steinen-und-erden-ziegelei",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "taetigkeit-des-betriebs-baugewerbe.taetigkeit-des-betriebs-baugewerbe-ablaugerei",
+    "fields": {
+      "created_at": "2023-06-02T15:08:00.118Z",
+      "modified_at": "2023-06-02T15:08:00.118Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "taetigkeit-des-betriebs-baugewerbe",
+      "option": "taetigkeit-des-betriebs-baugewerbe-ablaugerei",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "taetigkeit-des-betriebs-baugewerbe.taetigkeit-des-betriebs-baugewerbe-andere",
+    "fields": {
+      "created_at": "2023-06-02T15:08:00.109Z",
+      "modified_at": "2023-06-02T15:08:00.109Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "taetigkeit-des-betriebs-baugewerbe",
+      "option": "taetigkeit-des-betriebs-baugewerbe-andere",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "taetigkeit-des-betriebs-baugewerbe.taetigkeit-des-betriebs-baugewerbe-hoch-tiefbau",
+    "fields": {
+      "created_at": "2023-06-02T15:08:00.122Z",
+      "modified_at": "2023-06-02T15:08:00.122Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "taetigkeit-des-betriebs-baugewerbe",
+      "option": "taetigkeit-des-betriebs-baugewerbe-hoch-tiefbau",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "taetigkeit-des-betriebs-baugewerbe.taetigkeit-des-betriebs-baugewerbe-maler-gipserbetrieb",
+    "fields": {
+      "created_at": "2023-06-02T15:08:00.115Z",
+      "modified_at": "2023-06-02T15:08:00.115Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "taetigkeit-des-betriebs-baugewerbe",
+      "option": "taetigkeit-des-betriebs-baugewerbe-maler-gipserbetrieb",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "taetigkeit-des-betriebs-dienstleistungen.taetigkeit-des-betriebs-dienstleistungen-andere",
+    "fields": {
+      "created_at": "2023-06-02T15:14:41.266Z",
+      "modified_at": "2023-06-02T15:14:41.266Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "taetigkeit-des-betriebs-dienstleistungen",
+      "option": "taetigkeit-des-betriebs-dienstleistungen-andere",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "taetigkeit-des-betriebs-dienstleistungen.taetigkeit-des-betriebs-dienstleistungen-gastgewerbe",
+    "fields": {
+      "created_at": "2023-06-02T15:14:41.275Z",
+      "modified_at": "2023-06-02T15:14:41.275Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "taetigkeit-des-betriebs-dienstleistungen",
+      "option": "taetigkeit-des-betriebs-dienstleistungen-gastgewerbe",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "taetigkeit-des-betriebs-dienstleistungen.taetigkeit-des-betriebs-dienstleistungen-reparaturwerkstaette-fuer-andere-fahrzeuge-oder-maschinen",
+    "fields": {
+      "created_at": "2023-06-02T15:14:41.279Z",
+      "modified_at": "2023-06-02T15:14:41.279Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "taetigkeit-des-betriebs-dienstleistungen",
+      "option": "taetigkeit-des-betriebs-dienstleistungen-reparaturwerkstaette-fuer-andere-fahrzeuge-oder-maschinen",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "taetigkeit-des-betriebs-dienstleistungen.taetigkeit-des-betriebs-dienstleistungen-reparaturwerkstaette-fuer-autos",
+    "fields": {
+      "created_at": "2023-06-02T15:14:41.287Z",
+      "modified_at": "2023-06-02T15:14:41.287Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "taetigkeit-des-betriebs-dienstleistungen",
+      "option": "taetigkeit-des-betriebs-dienstleistungen-reparaturwerkstaette-fuer-autos",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "taetigkeit-des-betriebs-dienstleistungen.taetigkeit-des-betriebs-dienstleistungen-spital",
+    "fields": {
+      "created_at": "2023-06-02T15:14:41.283Z",
+      "modified_at": "2023-06-02T15:14:41.283Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "taetigkeit-des-betriebs-dienstleistungen",
+      "option": "taetigkeit-des-betriebs-dienstleistungen-spital",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "taetigkeit-des-betriebs-dienstleistungen.taetigkeit-des-betriebs-dienstleistungen-spritzwerke",
+    "fields": {
+      "created_at": "2023-06-02T15:14:41.296Z",
+      "modified_at": "2023-06-02T15:14:41.296Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "taetigkeit-des-betriebs-dienstleistungen",
+      "option": "taetigkeit-des-betriebs-dienstleistungen-spritzwerke",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "taetigkeit-des-betriebs-dienstleistungen.taetigkeit-des-betriebs-dienstleistungen-tankreinigung",
+    "fields": {
+      "created_at": "2023-06-02T15:14:41.292Z",
+      "modified_at": "2023-06-02T15:14:41.292Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "taetigkeit-des-betriebs-dienstleistungen",
+      "option": "taetigkeit-des-betriebs-dienstleistungen-tankreinigung",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "taetigkeit-des-betriebs-dienstleistungen.taetigkeit-des-betriebs-dienstleistungen-textilreinigung",
+    "fields": {
+      "created_at": "2023-06-02T15:14:41.270Z",
+      "modified_at": "2023-06-02T15:14:41.270Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "taetigkeit-des-betriebs-dienstleistungen",
+      "option": "taetigkeit-des-betriebs-dienstleistungen-textilreinigung",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "taetigkeit-des-betriebs-handel.taetigkeit-des-betriebs-handel-anlagen-fuer-den-umschlag-staubender-gueter",
+    "fields": {
+      "created_at": "2023-06-02T15:11:24.737Z",
+      "modified_at": "2023-06-02T15:11:24.737Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "taetigkeit-des-betriebs-handel",
+      "option": "taetigkeit-des-betriebs-handel-anlagen-fuer-den-umschlag-staubender-gueter",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "taetigkeit-des-betriebs-handel.taetigkeit-des-betriebs-handel-anlagen-zum-handel-mit-heizoel-diesel-benzin-oder-fluessiggas",
+    "fields": {
+      "created_at": "2023-06-02T15:11:24.741Z",
+      "modified_at": "2023-06-02T15:11:24.741Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "taetigkeit-des-betriebs-handel",
+      "option": "taetigkeit-des-betriebs-handel-anlagen-zum-handel-mit-heizoel-diesel-benzin-oder-fluessiggas",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "taetigkeit-des-betriebs-handel.taetigkeit-des-betriebs-handel-tankstelle",
+    "fields": {
+      "created_at": "2023-06-02T15:11:24.732Z",
+      "modified_at": "2023-06-02T15:11:24.732Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "taetigkeit-des-betriebs-handel",
+      "option": "taetigkeit-des-betriebs-handel-tankstelle",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "taetigkeit-des-betriebs-holzverarbeitung.taetigkeit-des-betriebs-holzverarbeitung-beiz-und-polierwerkstaette",
+    "fields": {
+      "created_at": "2023-06-02T14:44:22.110Z",
+      "modified_at": "2023-06-02T14:44:22.110Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "taetigkeit-des-betriebs-holzverarbeitung",
+      "option": "taetigkeit-des-betriebs-holzverarbeitung-beiz-und-polierwerkstaette",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "taetigkeit-des-betriebs-holzverarbeitung.taetigkeit-des-betriebs-holzverarbeitung-hobelwerk",
+    "fields": {
+      "created_at": "2023-06-02T14:44:22.121Z",
+      "modified_at": "2023-06-02T14:44:22.121Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "taetigkeit-des-betriebs-holzverarbeitung",
+      "option": "taetigkeit-des-betriebs-holzverarbeitung-hobelwerk",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "taetigkeit-des-betriebs-holzverarbeitung.taetigkeit-des-betriebs-holzverarbeitung-saegewerk",
+    "fields": {
+      "created_at": "2023-06-02T14:44:22.126Z",
+      "modified_at": "2023-06-02T14:44:22.126Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "taetigkeit-des-betriebs-holzverarbeitung",
+      "option": "taetigkeit-des-betriebs-holzverarbeitung-saegewerk",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "taetigkeit-des-betriebs-holzverarbeitung.taetigkeit-des-betriebs-holzverarbeitung-schreinerei",
+    "fields": {
+      "created_at": "2023-06-02T14:44:22.115Z",
+      "modified_at": "2023-06-02T14:44:22.115Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "taetigkeit-des-betriebs-holzverarbeitung",
+      "option": "taetigkeit-des-betriebs-holzverarbeitung-schreinerei",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "taetigkeit-des-betriebs-kunststoffverarbeitung.taetigkeit-des-betriebs-kunststoffverarbeitung-andere",
+    "fields": {
+      "created_at": "2023-06-02T14:46:47.832Z",
+      "modified_at": "2023-06-02T14:46:47.832Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "taetigkeit-des-betriebs-kunststoffverarbeitung",
+      "option": "taetigkeit-des-betriebs-kunststoffverarbeitung-andere",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "taetigkeit-des-betriebs-kunststoffverarbeitung.taetigkeit-des-betriebs-kunststoffverarbeitung-kunststoffe-und-gummiwaren",
+    "fields": {
+      "created_at": "2023-06-02T14:46:47.836Z",
+      "modified_at": "2023-06-02T14:46:47.836Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "taetigkeit-des-betriebs-kunststoffverarbeitung",
+      "option": "taetigkeit-des-betriebs-kunststoffverarbeitung-kunststoffe-und-gummiwaren",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "taetigkeit-des-betriebs-kunststoffverarbeitung.taetigkeit-des-betriebs-kunststoffverarbeitung-pulverbeschichtung",
+    "fields": {
+      "created_at": "2023-06-02T14:46:47.843Z",
+      "modified_at": "2023-06-02T14:46:47.843Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "taetigkeit-des-betriebs-kunststoffverarbeitung",
+      "option": "taetigkeit-des-betriebs-kunststoffverarbeitung-pulverbeschichtung",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "taetigkeit-des-betriebs-kunststoffverarbeitung.taetigkeit-des-betriebs-kunststoffverarbeitung-spritzgusswerk",
+    "fields": {
+      "created_at": "2023-06-02T14:46:47.840Z",
+      "modified_at": "2023-06-02T14:46:47.840Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "taetigkeit-des-betriebs-kunststoffverarbeitung",
+      "option": "taetigkeit-des-betriebs-kunststoffverarbeitung-spritzgusswerk",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "taetigkeit-des-betriebs-metall-maschinenindustrie.taetigkeit-des-betriebs-metall-maschinenindustrie-andere",
+    "fields": {
+      "created_at": "2023-06-02T15:04:00.339Z",
+      "modified_at": "2023-06-02T15:04:00.339Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "taetigkeit-des-betriebs-metall-maschinenindustrie",
+      "option": "taetigkeit-des-betriebs-metall-maschinenindustrie-andere",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "taetigkeit-des-betriebs-metall-maschinenindustrie.taetigkeit-des-betriebs-metall-maschinenindustrie-galvanikbetrieb",
+    "fields": {
+      "created_at": "2023-06-02T15:04:00.350Z",
+      "modified_at": "2023-06-02T15:04:00.350Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "taetigkeit-des-betriebs-metall-maschinenindustrie",
+      "option": "taetigkeit-des-betriebs-metall-maschinenindustrie-galvanikbetrieb",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "taetigkeit-des-betriebs-metall-maschinenindustrie.taetigkeit-des-betriebs-metall-maschinenindustrie-giesserei",
+    "fields": {
+      "created_at": "2023-06-02T15:04:00.357Z",
+      "modified_at": "2023-06-02T15:04:00.357Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "taetigkeit-des-betriebs-metall-maschinenindustrie",
+      "option": "taetigkeit-des-betriebs-metall-maschinenindustrie-giesserei",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "taetigkeit-des-betriebs-metall-maschinenindustrie.taetigkeit-des-betriebs-metall-maschinenindustrie-schlosserei",
+    "fields": {
+      "created_at": "2023-06-02T15:04:00.345Z",
+      "modified_at": "2023-06-02T15:04:00.345Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "taetigkeit-des-betriebs-metall-maschinenindustrie",
+      "option": "taetigkeit-des-betriebs-metall-maschinenindustrie-schlosserei",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "taetigkeit-des-betriebs-metall-maschinenindustrie.taetigkeit-des-betriebs-metall-maschinenindustrie-verzinkerei",
+    "fields": {
+      "created_at": "2023-06-02T15:04:00.363Z",
+      "modified_at": "2023-06-02T15:04:00.363Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "taetigkeit-des-betriebs-metall-maschinenindustrie",
+      "option": "taetigkeit-des-betriebs-metall-maschinenindustrie-verzinkerei",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "taetigkeit-des-betriebs-nahrungsmittelindustrie.taetigkeit-des-betriebs-nahrungsmittelindustrie-andere",
+    "fields": {
+      "created_at": "2023-06-02T14:34:57.556Z",
+      "modified_at": "2023-06-02T14:34:57.556Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "taetigkeit-des-betriebs-nahrungsmittelindustrie",
+      "option": "taetigkeit-des-betriebs-nahrungsmittelindustrie-andere",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "taetigkeit-des-betriebs-nahrungsmittelindustrie.taetigkeit-des-betriebs-nahrungsmittelindustrie-hersetllung-von-futtermitteln",
+    "fields": {
+      "created_at": "2023-06-02T14:34:57.563Z",
+      "modified_at": "2023-06-02T14:34:57.563Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "taetigkeit-des-betriebs-nahrungsmittelindustrie",
+      "option": "taetigkeit-des-betriebs-nahrungsmittelindustrie-hersetllung-von-futtermitteln",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "taetigkeit-des-betriebs-nahrungsmittelindustrie.taetigkeit-des-betriebs-nahrungsmittelindustrie-herstellung-von-nahrungsmitteln",
+    "fields": {
+      "created_at": "2023-06-02T14:34:57.568Z",
+      "modified_at": "2023-06-02T14:34:57.568Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "taetigkeit-des-betriebs-nahrungsmittelindustrie",
+      "option": "taetigkeit-des-betriebs-nahrungsmittelindustrie-herstellung-von-nahrungsmitteln",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "tankraum-auskleidung.tankraum-auskleidung-beschichtung",
     "fields": {
       "created_at": "2023-04-20T08:04:32.333Z",
@@ -60457,6 +63653,36 @@
       "question": "vereinbarkeit-zweitwohnungsgesetz",
       "option": "vereinbarkeit-zweitwohnungsgesetz-ja",
       "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "verursacher-emissionen.verursacher-emissionen-feuerungsanlagen",
+    "fields": {
+      "created_at": "2023-06-02T11:47:39.392Z",
+      "modified_at": "2023-06-02T11:47:39.392Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "verursacher-emissionen",
+      "option": "verursacher-emissionen-feuerungsanlagen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "verursacher-emissionen.verursacher-emissionen-stationaere-verbrennungsmotoren",
+    "fields": {
+      "created_at": "2023-06-02T11:47:39.397Z",
+      "modified_at": "2023-06-02T11:47:39.397Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "verursacher-emissionen",
+      "option": "verursacher-emissionen-stationaere-verbrennungsmotoren",
+      "sort": 2
     }
   },
   {
