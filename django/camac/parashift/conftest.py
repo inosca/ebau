@@ -76,7 +76,7 @@ def parashift_mock(request, requests_mock):
     requests_mock.register_uri(
         "GET",
         build_url(
-            settings.PARASHIFT_BASE_URI,
+            settings.PARASHIFT["BASE_URI"],
             "/documents/138866/?include="
             "document_fields&extra_fields[document_fields]=extraction_candidates",
         ),
@@ -105,7 +105,7 @@ def parashift_mock(request, requests_mock):
     requests_mock.register_uri(
         "GET",
         build_url(
-            settings.PARASHIFT_BASE_URI,
+            settings.PARASHIFT["BASE_URI"],
             "/documents/138866/?include="
             "document_fields&extra_fields[document_fields]=extraction_candidates",
         ),
@@ -131,11 +131,12 @@ def parashift_mock(request, requests_mock):
         ],
     }
 
+    tenant_id = settings.PARASHIFT["KOOR_BG"]["TENANT_ID"]
     requests_mock.register_uri(
         "GET",
         build_url(
-            settings.PARASHIFT_SOURCE_FILES_URI,
-            f"/{settings.PARASHIFT_TENANT_ID}/documents/138866?include=source_files",
+            settings.PARASHIFT["SOURCE_FILES_URI"],
+            f"/{tenant_id}/documents/138866?include=source_files",
         ),
         json=parashift_source_files_data,
     )
@@ -160,7 +161,7 @@ def parashift_data(
     attachment_section_factory,
     user_factory,
 ):
-    user_factory(username="import@koor-bg.ur.ch")
+    user_factory(username="import@urec.ch")
     instance_state_factory(instance_state_id=25)
     group_factory(group_id=142)
     location = location_factory(communal_federal_number=1209)
@@ -169,7 +170,7 @@ def parashift_data(
     FormState.objects.create(form_state_id=1, name="Published")
     Form.objects.create(form_id=293, name="Archivdossier", form_state_id=1)
 
-    for id in uri_constants.PARASHIFT_ATTACHMENT_SECTION_MAPPING.values():
+    for id in list(set(uri_constants.PARASHIFT_ATTACHMENT_SECTION_MAPPING.values())):
         attachment_section_factory(pk=id)
 
     archiv_option = form_models.Option.objects.create(
