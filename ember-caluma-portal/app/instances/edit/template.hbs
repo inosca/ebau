@@ -44,6 +44,15 @@
           </AriaHeading>
         </Tab.item>
       {{/if}}
+      <Tab.item
+        @href={{concat "/instances/" @model "/communications/" @model}}
+        as |active|
+      >
+        <AriaHeading @enabled={{active}}>
+          {{t "nav.communications"}}
+          <Communication::UnreadMessageBadge class="uk-margin-small-left" />
+        </AriaHeading>
+      </Tab.item>
       {{#if (can "read applicants of instance" this.instance.value)}}
         <Tab.item @href={{concat "/instances/" @model "/applicants"}} as |active|>
           <AriaHeading @enabled={{active}}>

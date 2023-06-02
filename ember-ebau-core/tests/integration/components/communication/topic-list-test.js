@@ -1,3 +1,4 @@
+import { getOwner } from "@ember/application";
 import { render, click, waitFor } from "@ember/test-helpers";
 import { hbs } from "ember-cli-htmlbars";
 import { setupMirage } from "ember-cli-mirage/test-support";
@@ -10,6 +11,16 @@ module("Integration | Component | communication/topic-list", function (hooks) {
   setupRenderingTest(hooks);
   setupMirage(hooks);
   setupIntl(hooks, "de");
+
+  hooks.beforeEach(function () {
+    this.ebauModules = getOwner(this).lookup("service:ebauModules");
+    this.resolveModuleRoute = this.ebauModules.resolveModuleRoute;
+    this.ebauModules.resolveModuleRoute = (_, routeName) => routeName;
+  });
+
+  hooks.afterEach(function () {
+    this.ebauModules.resolveModuleRoute = this.resolveModuleRoute;
+  });
 
   test("it renders topic list", async function (assert) {
     assert.expect(7);

@@ -7,7 +7,7 @@ export default class DetailController extends Controller {
   get useFullScreen() {
     return (
       this.router.isActive("cases.detail.alexandria") ||
-      this.router.isActive("cases.detail.communications")
+      this.router.isActive("communications")
     );
   }
 }

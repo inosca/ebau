@@ -48,7 +48,9 @@ export class PaginatedQuery extends Resource {
 
   async retry(...positional) {
     return await this.fetchData.perform(
-      ...(positional.length ? positional : this.fetchData.lastSuccessful?.args)
+      ...(positional.length
+        ? positional
+        : this.fetchData.lastSuccessful?.args ?? [])
     );
   }
 

@@ -7,10 +7,10 @@ import { trackedFunction } from "ember-resources/util/function";
 
 export default class CommunicationNewTopicComponent extends Component {
   @service store;
-  @service session;
   @service router;
   @service notification;
   @service intl;
+  @service ebauModules;
 
   @tracked message;
 
@@ -22,20 +22,16 @@ export default class CommunicationNewTopicComponent extends Component {
     return this.topic?.get("instance.involvedServices");
   }
 
-  get activeServiceId() {
-    return this.session.groups
-      .find((group) => group.id === this.session.group)
-      ?.belongsTo("service")
-      .id();
-  }
-
   get activeInstanceService() {
     return this.topic?.get("instance.activeService");
   }
 
   // Leitbehörde
   get isActiveInstanceService() {
-    return this.activeServiceId === this.activeInstanceService?.get("id");
+    return (
+      parseInt(this.ebauModules.serviceId) ===
+      parseInt(this.activeInstanceService?.get("id"))
+    );
   }
 
   get selectableServices() {
@@ -43,7 +39,7 @@ export default class CommunicationNewTopicComponent extends Component {
       return null;
     }
 
-    if (!this.session.isInternal) {
+    if (this.ebauModules.isApplicant) {
       // Applicant can only select instance active service
       return [
         {
@@ -55,7 +51,10 @@ export default class CommunicationNewTopicComponent extends Component {
 
     // Without current service
     const services = this.services
-      ?.filter((service) => service.id !== this.activeServiceId)
+      ?.filter(
+        (service) =>
+          parseInt(service.id) !== parseInt(this.ebauModules.serviceId)
+      )
       .map((service) => ({ id: service.get("id"), name: service.name }));
 
     // We are a Leitbehörde so we add the applicant to the list
@@ -84,12 +83,13 @@ export default class CommunicationNewTopicComponent extends Component {
         this.args.instanceId,
         { include: "involved_services,active_service", reload: true }
       );
-      this.message = this.store.createRecord("communications-message", {
-        topic: this.topic,
-      });
-      return this.store.createRecord("communications-topic", {
+      const topic = await this.store.createRecord("communications-topic", {
         instance,
       });
+      this.message = this.store.createRecord("communications-message", {
+        topic,
+      });
+      return topic;
     } catch (error) {
       console.error(error);
       this.notification.danger(this.intl.t("communications.new.fetchError"));
@@ -100,7 +100,13 @@ export default class CommunicationNewTopicComponent extends Component {
     try {
       const topic = await this.topic.save();
       await this.message.save();
-      this.router.transitionTo(this.args.detailRoute, topic);
+      this.router.transitionTo(
+        this.ebauModules.resolveModuleRoute(
+          "communications",
+          this.args.detailRoute
+        ),
+        topic
+      );
     } catch (error) {
       console.error(error);
       this.notification.danger(this.intl.t("communications.new.saveError"));

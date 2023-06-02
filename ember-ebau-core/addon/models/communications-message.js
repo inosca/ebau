@@ -4,7 +4,8 @@ import { tracked } from "@glimmer/tracking";
 
 export default class CommunicationMessageModel extends Model {
   @service store;
-  @service session;
+  @service("communications/unread-messages") unreadMessages;
+  @service fetch;
 
   @attr body;
   @attr createdAt;
@@ -24,11 +25,11 @@ export default class CommunicationMessageModel extends Model {
 
     const url = adapter.buildURL(modelName, this.id);
     const body = JSON.stringify(adapter.serialize(this));
-    const headers = {
-      authorization: `Bearer ${this.session.data.authenticated?.access_token}`,
-    };
 
-    const response = await fetch(`${url}/${action}`, { method, headers, body });
+    const response = await this.fetch.fetch(`${url}/${action}`, {
+      method,
+      body,
+    });
     const json = await response.json();
     this.store.pushPayload(json);
   }
@@ -38,6 +39,8 @@ export default class CommunicationMessageModel extends Model {
   }
 
   async markAsUnread() {
-    return await this.apiAction("unread");
+    const response = await this.apiAction("unread");
+    await this.unreadMessages.unreadMessagesResource.retry();
+    return response;
   }
 }

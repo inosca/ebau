@@ -9,7 +9,6 @@ export default class CommunicationMessageComponent extends Component {
   @service notification;
   @service router;
   @service intl;
-  @service session;
 
   @tracked collapsed = true;
   @tracked paragraph;
