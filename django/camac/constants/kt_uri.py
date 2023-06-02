@@ -136,4 +136,5 @@ PARASHIFT_ATTACHMENT_SECTION_MAPPING = {
     "Fachstellen": 12000002,
     "Gesuchsteller": 12000000,
     "Leitbehörde": 12000004,
+    "BK Seedorf 1214": 12000000,
 }
