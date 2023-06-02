@@ -14,16 +14,15 @@ from camac.instance import domain_logic, models
 from camac.user.models import Group, Location, User
 
 INSTANCE_STATE_DONE_ID = 25
-GROUP_KOOR_ARE_BG_ID = 142
 FORM_ARCHIVDOSSIER_ID = 293
 SUBMIT_DATE_FORMAT = "%Y-%m-%dT%H:%M:%S%z"
 
 
-def import_dossiers(records):
-    return [_import_dossier(record) for record in records]
+def import_dossiers(records, bfs_nr):
+    return [_import_dossier(record, bfs_nr) for record in records]
 
 
-def _import_dossier(data):
+def _import_dossier(data, bfs_nr):
     caluma_user = BaseUser()
     camac_user = User.objects.get(
         username=settings.APPLICATION["DOSSIER_IMPORT"]["USER"]
@@ -31,7 +30,7 @@ def _import_dossier(data):
     instance_state = models.InstanceState.objects.get(
         instance_state_id=INSTANCE_STATE_DONE_ID
     )
-    group = Group.objects.get(group_id=GROUP_KOOR_ARE_BG_ID)
+    group = Group.objects.get(group_id=settings.PARASHIFT[bfs_nr]["CAMAC_GROUP_ID"])
     location = Location.objects.get(
         communal_federal_number=int("".join(filter(str.isdigit, data["gemeinde"])))
     )
@@ -92,7 +91,7 @@ def _import_dossier(data):
     instance.form.save()
 
     _write_answers(instance, data)
-    _write_attachments(instance, data)
+    _write_attachments(instance, data, bfs_nr)
 
     return instance
 
@@ -138,9 +137,9 @@ def _write_answers(instance, data):
     )
 
 
-def _write_attachments(instance, data):
+def _write_attachments(instance, data, bfs_nr):
     user = User.objects.get(username=settings.APPLICATION["DOSSIER_IMPORT"]["USER"])
-    group = Group.objects.get(group_id=GROUP_KOOR_ARE_BG_ID)
+    group = Group.objects.get(group_id=settings.PARASHIFT[bfs_nr]["CAMAC_GROUP_ID"])
 
     for document in data["documents"]:
         path = f"{settings.MEDIA_ROOT}/attachments/files/{instance.pk}"
