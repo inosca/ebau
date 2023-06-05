@@ -10,6 +10,7 @@ export default {
   intent: { type: "input" },
   landowner: { type: "input" },
   parcel: { type: "input" },
+  keywordSearch: { type: "input" },
   personalDetails: { type: "input" },
   decisionDateAfter: { type: "date", maxDate: "decisionDateBefore" },
   decisionDateBefore: { type: "date", minDate: "decisionDateAfter" },

@@ -83,6 +83,10 @@ cases:
     instanceState: "Status"
     intent-placeholder: "Detailbeschreibung Vorhaben"
     intent: "Vorhaben"
+    keywordSearch: "Stichwortsuche"
+    keywordSearch-placeholder: 'Einzelbegriff, z.B. Neubau EFH oder Begriffsgruppen, z.B. "KW 1"'
+    keywordSearch-hint: "Die Stichwortsuche kann etwas länger dauern, da alle Dossierdaten durchsucht werden."
+    keywordSearchTooShort: 'Die einzelnen Begriffe der Stichwortsuche müssen mindestens drei Buchstaben beinhalten, z.B. Neubau EFH oder "KW 1"'
     landowner-placeholder: "Grundeigentümerschaft"
     landowner: "Grundeigentümerschaft"
     municipality-placeholder: "Alle Gemeinden"

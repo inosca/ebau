@@ -5,9 +5,7 @@ from django.core.management.base import BaseCommand
 from django.db import transaction
 from django.db.models import Exists, OuterRef, Q
 
-from camac.caluma.extensions.visibilities import (
-    work_item_by_addressed_service_condition,
-)
+from camac.caluma.utils import work_item_by_addressed_service_condition
 from camac.user.models import Service
 
 

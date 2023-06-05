@@ -4,6 +4,8 @@ from pytest_factoryboy import LazyFixture
 from rest_framework import status
 from rest_framework.test import APIClient
 
+from camac.instance.models import JournalEntry
+
 
 @pytest.mark.parametrize("role__name", ["Support"])
 @pytest.mark.parametrize("is_portal", [False, True])
@@ -58,6 +60,29 @@ def test_journal_entry_list(admin_client, journal_entry, activation, size):
     assert len(json["data"]) == size
     if size > 0:
         assert json["data"][0]["id"] == str(journal_entry.pk)
+
+
+@pytest.mark.parametrize("journal_entry__user", [LazyFixture("admin_user")])
+@pytest.mark.parametrize(
+    "role__name,size",
+    [
+        # TODO ("Applicant", 0),
+        ("Canton", 1),
+        ("Municipality", 1),
+        ("Service", 1),
+    ],
+)
+def test_journal_entry_visible_for(admin_client, journal_entry, group, size):
+
+    journal_entries = (
+        JournalEntry.objects.get_queryset()
+        .visible_for(group)
+        .values_list("pk", flat=True)
+    )
+
+    assert len(journal_entries) == size
+    if size > 0:
+        assert journal_entries[0] == journal_entry.pk
 
 
 @pytest.mark.parametrize("journal_entry__user", [LazyFixture("admin_user")])
