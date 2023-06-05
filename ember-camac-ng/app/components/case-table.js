@@ -321,6 +321,7 @@ export default class CaseTableComponent extends Component {
             ...(this.args.casesBackend === "camac-ng"
               ? { intent_sz: this.args.filter.intent }
               : {}),
+            keyword_search: this.args.filter.keywordSearch,
           }
         : macroCondition(getOwnConfig().application === "ur")
         ? {

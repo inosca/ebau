@@ -5,7 +5,8 @@ from django.conf import settings
 from django.db import models
 
 from camac.core.models import HistoryActionConfig
-from camac.user.models import User
+from camac.user.models import Group, User
+from camac.user.permissions import get_role_name
 
 from ..core import models as core_models
 
@@ -262,6 +263,11 @@ class InstanceResponsibility(models.Model):
         unique_together = (("instance", "user", "service"),)
 
 
+class JournalEntryManager(models.Manager):
+    def get_queryset(self):
+        return JournalEntryQuerySet(self.model, using=self._db)
+
+
 class JournalEntry(models.Model):
     instance = models.ForeignKey(Instance, models.CASCADE, related_name="journal")
     service = models.ForeignKey(
@@ -280,6 +286,34 @@ class JournalEntry(models.Model):
         max_length=16, choices=VISIBILITIES, default="own_organization"
     )
     duration = models.DurationField(blank=True, null=True)
+    objects = JournalEntryManager()
+
+
+class JournalEntryQuerySet(models.QuerySet):
+    def visible_for(self, group: Group) -> models.QuerySet[JournalEntry]:
+        """
+        Additional visibility logic for journal entries in relation to the group.
+
+        The queryset is filtered according to the organisational visibility
+        restriction on the journal entry. General visibility logic regarding the
+        associated instance is handled in the instance queryset mixin.
+        """
+
+        role = get_role_name(group)
+        # Not visible to applicants or public users
+        # TODO: get_permission_func
+        if not role or role == "public":
+            return self.none()
+
+        query_filter = models.Q(visibility="all")
+
+        if group != settings.APPLICATION["PORTAL_GROUP"]:
+            query_filter |= models.Q(
+                visibility="own_organization", service=group.service
+            )
+            query_filter |= models.Q(visibility="authorities")
+
+        return self.filter(query_filter)
 
 
 class HistoryEntry(core_models.MultilingualModel, models.Model):
@@ -353,6 +387,11 @@ class IssueTemplateSet(models.Model):
     name = models.CharField(max_length=500)
 
 
+class FormFieldManager(models.Manager):
+    def get_queryset(self):
+        return FormFieldQuerySet(self.model, using=self._db)
+
+
 @reversion.register()
 class FormField(models.Model):
     """
@@ -364,6 +403,39 @@ class FormField(models.Model):
     instance = models.ForeignKey(Instance, models.CASCADE, related_name="fields")
     name = models.CharField(max_length=500)
     value = models.JSONField()
+    objects = FormFieldManager()
 
     class Meta:
         unique_together = (("instance", "name"),)
+
+
+class FormFieldQuerySet(models.QuerySet):
+    def visible_for(self, group: Group) -> models.QuerySet[FormField]:
+        """
+        Additional visibility logic for form fields in relation to the group.
+
+        The queryset is filtered according to the configured role restrictions
+        on the form field. General visibility logic regarding the associated
+        instance is handled in the instance queryset mixin.
+        """
+        role = get_role_name(group) or "applicant"
+        questions = [
+            question
+            for question, value in settings.FORM_CONFIG["questions"].items()
+            # all permissions may read per default once they have access to instance
+            if role
+            in value.get(
+                "restrict",
+                [
+                    "applicant",
+                    "public_reader",
+                    "reader",
+                    "canton",
+                    "municipality",
+                    "service",
+                    "support",
+                    "public",
+                ],
+            )
+        ]
+        return self.filter(name__in=questions)

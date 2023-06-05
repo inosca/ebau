@@ -776,52 +776,8 @@ class FormFieldView(
     def has_destroy_permission(self):
         return False
 
-    def get_fields(self, queryset, permission):
-        questions = [
-            question
-            for question, value in settings.FORM_CONFIG["questions"].items()
-            # all permissions may read per default once they have access to instance
-            if permission
-            in value.get(
-                "restrict",
-                [
-                    "applicant",
-                    "public_reader",
-                    "reader",
-                    "canton",
-                    "municipality",
-                    "service",
-                    "support",
-                    "public",
-                ],
-            )
-        ]
-        return queryset.filter(name__in=questions)
-
-    @permission_aware
     def get_queryset(self):
-        queryset = super().get_queryset()
-        return self.get_fields(queryset, "applicant")
-
-    def get_queryset_for_public(self):
-        queryset = super().get_queryset_for_public()
-        return self.get_fields(queryset, "public")
-
-    def get_queryset_for_municipality(self):
-        queryset = super().get_queryset_for_municipality()
-        return self.get_fields(queryset, "municipality")
-
-    def get_queryset_for_service(self):
-        queryset = super().get_queryset_for_service()
-        return self.get_fields(queryset, "service")
-
-    def get_queryset_for_reader(self):
-        queryset = super().get_queryset_for_reader()
-        return self.get_fields(queryset, "reader")
-
-    def get_queryset_for_support(self):
-        queryset = super().get_queryset_for_support()
-        return self.get_fields(queryset, "support")
+        return super().get_queryset().visible_for(self.request.group)
 
 
 class JournalEntryView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
@@ -834,18 +790,6 @@ class JournalEntryView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
     ordering_fields = "creation_date"
     ordering = "-creation_date"
 
-    def get_base_queryset(self):
-        queryset = super().get_base_queryset()
-        query_filter = Q(visibility="all")
-
-        if self.request.group != settings.APPLICATION["PORTAL_GROUP"]:
-            service = self.request.group.service
-            query_filter |= Q(visibility="own_organization", service=service)
-            query_filter |= Q(visibility="authorities")
-
-        return queryset.filter(query_filter)
-
-    @permission_aware
     def get_queryset(self):
         """Return no result when user has no specific permission.
 
@@ -854,7 +798,7 @@ class JournalEntryView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
 
         # TODO applicants currently don't have access to journal entries at all. Giving them access might
         # require a dedicated "applicant" role in our permission layer?
-        return models.JournalEntry.objects.none()
+        return super().get_queryset().visible_for(self.request.group)
 
     @permission_aware
     def has_create_permission(self):
