@@ -1,7 +1,7 @@
 <EditService
   @id={{@model}}
-  @hideName={{true}}
-  @hideDisabled={{true}}
-  @hideResponsibilityConstructionControl={{not this.isMunicipality}}
+  @canEditName={{false}}
+  @showDisabled={{false}}
+  @showResponsibilityConstructionControl={{this.showResponsibilityConstructionControl}}
   @requireCity={{true}}
 />
