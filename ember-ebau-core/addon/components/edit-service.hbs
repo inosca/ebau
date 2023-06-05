@@ -4,31 +4,30 @@
   </div>
 {{else}}
   <form class="uk-form uk-form-stacked" {{on "submit" (perform this.save)}}>
-    {{#unless @hideName}}
-      <div class="uk-margin">
-        <label class="uk-form-label uk-text-bold" for="name">
-          {{t "service-permissions.name"}}
-          <span class="uk-text-danger">
-            *
-          </span>
-        </label>
-        <div class="uk-form-controls uk-flex">
-          <Input
-            @type="text"
-            @value={{this.name}}
-            class="uk-input uk-width-expand"
-            name="name"
-            id="name"
-            required
-          />
-          {{#if this.postfix}}
-            <div class="uk-width-auto uk-flex uk-flex-middle uk-margin-small-left">
-              ({{this.postfix}})
-            </div>
-          {{/if}}
-        </div>
+    <div class="uk-margin">
+      <label class="uk-form-label uk-text-bold" for="name">
+        {{t "service-permissions.name"}}
+        <span class="uk-text-danger">
+          *
+        </span>
+      </label>
+      <div class="uk-form-controls uk-flex">
+        <Input
+          @type="text"
+          @value={{this.name}}
+          class="uk-input uk-width-expand"
+          name="name"
+          id="name"
+          disabled={{not @canEditName}}
+          required
+        />
+        {{#if this.postfix}}
+          <div class="uk-width-auto uk-flex uk-flex-middle uk-margin-small-left">
+            ({{this.postfix}})
+          </div>
+        {{/if}}
       </div>
-    {{/unless}}
+    </div>
     <div class="uk-margin">
       <label class="uk-form-label uk-text-bold" for="email">
         {{t "service-permissions.email"}}
@@ -139,20 +138,20 @@
         />
       </div>
     {{/unless}}
-    {{#unless @hideResponsibilityConstructionControl}}
+    {{#if @showResponsibilityConstructionControl}}
       <div class="uk-margin">
         <UkToggleSwitch
-          @value={{this.service.record.responsibilityConstructionControl}}
+          @value={{this.service.value.responsibilityConstructionControl}}
           @size="small"
           @name="responsibility-construction-control"
-          @onToggle={{fn (mut this.service.record.responsibilityConstructionControl)}}
+          @onToggle={{fn (mut this.service.value.responsibilityConstructionControl)}}
           @onLabel={{t "service-permissions.responsibility-construction-control"}}
           @offLabel=""
           @showLabels={{true}}
         />
       </div>
-    {{/unless}}
-    {{#unless @hideDisabled}}
+    {{/if}}
+    {{#if @showDisabled}}
       <div class="uk-margin">
         <UkToggleSwitch
           @value={{this.service.value.disabled}}
@@ -164,7 +163,7 @@
           @showLabels={{true}}
         />
       </div>
-    {{/unless}}
+    {{/if}}
     <div class="uk-margin">
       <UkButton
         @type="submit"

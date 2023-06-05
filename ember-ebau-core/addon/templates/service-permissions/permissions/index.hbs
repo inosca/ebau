@@ -38,7 +38,7 @@
         </td>
       </tr>
     {{else}}
-      {{#each (sort-by "group.name" this.userGroups.records) as |row|}}
+      {{#each this.userGroups.records as |row|}}
         <tr>
           <td>{{row.user.fullName}}</td>
           <td>{{row.user.email}}</td>

@@ -233,6 +233,7 @@ class UserGroupView(ModelViewSet):
     queryset = models.UserGroup.objects.all()
     http_method_names = ["get", "post", "delete"]
     search_fields = ["user__name", "user__surname", "user__email", "group__trans__name"]
+    ordering = "-created_at"
 
     def get_queryset(self):
         queryset = super().get_queryset()
