@@ -1,7 +1,7 @@
 {{#if this.notification.all.length}}
   <div>
     {{#each this.notification.all as |notification|}}
-      <div class="uk-alert uk-alert-{{or notification.type "default"}}">
+      <div class="uk-alert uk-alert-{{or notification.type "default"}}" {{did-insert (fn this.scheduleRemoval notification)}}>
         <a href="" class="uk-alert-close" uk-close {{on "click" (fn this.remove notification)}}>
           <span hidden>{{t "global.close"}}</span>
         </a>

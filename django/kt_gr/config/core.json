@@ -2999,6 +2999,14 @@
     }
   },
   {
+    "model": "core.rroleacl",
+    "pk": 15000000,
+    "fields": {
+      "resource": 14000001,
+      "role": 3
+    }
+  },
+  {
     "model": "core.resource",
     "pk": 20006,
     "fields": {
@@ -3061,6 +3069,19 @@
       "class_field": null,
       "hidden": 0,
       "sort": 4
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 14000001,
+    "fields": {
+      "available_resource": "page",
+      "name": null,
+      "description": null,
+      "template": "/ember-camac-ng/service-permissions.phtml",
+      "class_field": null,
+      "hidden": 0,
+      "sort": 5
     }
   },
   {
@@ -3151,6 +3172,16 @@
       "language": "de",
       "name": "Vorlagenverwaltung",
       "description": null
+    }
+  },
+  {
+    "model": "core.resourcet",
+    "pk": 15000000,
+    "fields": {
+      "resource": 14000001,
+      "language": "de",
+      "name": "Meine Organisation",
+      "description": "Verwaltung von Berechtigungen, Stammdaten und Unterfachstellen"
     }
   }
 ]

@@ -1711,6 +1711,7 @@ APPLICATIONS = {
             "ADD_HEADER_DATA": True,
         },
         "GROUP_RENAME_ON_SERVICE_RENAME": True,
+        "SUBSERVICE_ROLES": ["subservice"],
         "SERVICE_UPDATE_ALLOWED_ROLES": [
             "municipality-admin",
             "service-admin",

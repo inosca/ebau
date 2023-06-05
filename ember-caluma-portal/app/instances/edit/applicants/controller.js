@@ -2,8 +2,7 @@ import Controller, { inject as controller } from "@ember/controller";
 import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 import { dropTask } from "ember-concurrency";
-
-import parseError from "caluma-portal/utils/parse-error";
+import parseError from "ember-ebau-core/utils/parse-error";
 
 export default class InstancesEditApplicantsController extends Controller {
   @service intl;

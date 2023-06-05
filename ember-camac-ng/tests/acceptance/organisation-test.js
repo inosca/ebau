@@ -18,8 +18,9 @@ const DATA = {
   address: "Bahnhofstrasse 33",
   email: "info@acme.com",
   website: "https://acme.com",
-  notification: 1,
-  responsibilityConstructionControl: null,
+  notification: true,
+  responsibilityConstructionControl: false,
+  disabled: false,
   userIds: null,
   activationIds: null,
   serviceGroupId: null,
@@ -48,7 +49,7 @@ module("Acceptance | organisation", function (hooks) {
   });
 
   test("can edit the own organisation", async function (assert) {
-    await visit("/organisation");
+    await visit("/service-permissions/organisation");
 
     await fillIn("input[name=phone]", DATA.phone);
     await fillIn("input[name=zip]", DATA.zip);
@@ -68,6 +69,6 @@ module("Acceptance | organisation", function (hooks) {
     assert.dom(".uk-alert.uk-alert-success").exists({ count: 1 });
     assert
       .dom(".uk-alert.uk-alert-success")
-      .containsText("t:organisation.saveSuccess:()");
+      .containsText("t:service-permissions.organisation-save-success:()");
   });
 });
