@@ -466,7 +466,7 @@ class RoleT(models.Model):
 class ServiceGroup(core_models.MultilingualModel, models.Model):
     """The type or group membership of an organisational entity.
 
-    Such an entity has exactly one service group (one-to-one).
+    Such an organisational entity belongs to exactly one service group.
     """
 
     service_group_id = models.AutoField(
