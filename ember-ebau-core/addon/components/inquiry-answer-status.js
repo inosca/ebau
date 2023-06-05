@@ -1,4 +1,3 @@
-import { getOwner } from "@ember/application";
 import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
 import { macroCondition, getOwnConfig } from "@embroider/macros";
@@ -45,8 +44,7 @@ export default class InquiryAnswerStatusComponent extends Component {
           isObligationForm === OBLIGATION_ANSWERS.includes(option.slug)
       );
     } else if (macroCondition(getOwnConfig().application === "gr")) {
-      const config =
-        getOwner(this).resolveRegistration("config:environment").APPLICATION;
+      const config = this.calumaOptions.appConfig;
 
       const isAuthorityBaB =
         parseInt(
