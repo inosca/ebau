@@ -32805,7 +32805,9 @@
     "fields": {
       "user": 1,
       "group": 1,
-      "default_group": 1
+      "default_group": 1,
+      "created_at": "2023-05-25T12:19:18.225Z",
+      "created_by": 1
     }
   },
   {
@@ -32814,7 +32816,9 @@
     "fields": {
       "user": 2,
       "group": 2,
-      "default_group": 1
+      "default_group": 1,
+      "created_at": "2023-05-25T12:19:18.225Z",
+      "created_by": 1
     }
   },
   {
@@ -32823,7 +32827,9 @@
     "fields": {
       "user": 1,
       "group": 3,
-      "default_group": 0
+      "default_group": 0,
+      "created_at": "2023-05-25T12:19:18.225Z",
+      "created_by": 1
     }
   },
   {
@@ -32832,7 +32838,9 @@
     "fields": {
       "user": 1,
       "group": 8,
-      "default_group": 0
+      "default_group": 0,
+      "created_at": "2023-05-25T12:19:18.225Z",
+      "created_by": 1
     }
   },
   {
@@ -32841,7 +32849,9 @@
     "fields": {
       "user": 1,
       "group": 7,
-      "default_group": 0
+      "default_group": 0,
+      "created_at": "2023-05-25T12:19:18.225Z",
+      "created_by": 1
     }
   },
   {
@@ -32850,7 +32860,9 @@
     "fields": {
       "user": 1,
       "group": 82,
-      "default_group": 0
+      "default_group": 0,
+      "created_at": "2023-05-25T12:19:18.225Z",
+      "created_by": 1
     }
   },
   {
@@ -32859,7 +32871,9 @@
     "fields": {
       "user": 1,
       "group": 296,
-      "default_group": 0
+      "default_group": 0,
+      "created_at": "2023-05-25T12:19:18.225Z",
+      "created_by": 1
     }
   },
   {
@@ -32868,7 +32882,9 @@
     "fields": {
       "user": 4,
       "group": 454,
-      "default_group": 1
+      "default_group": 1,
+      "created_at": "2023-05-25T12:19:18.225Z",
+      "created_by": 1
     }
   },
   {
@@ -32877,49 +32893,9 @@
     "fields": {
       "user": 1,
       "group": 454,
-      "default_group": 0
-    }
-  },
-  {
-    "model": "user.usergrouplog",
-    "pk": 1,
-    "fields": {
-      "modification_date": "2020-11-23T14:22:51Z",
-      "user_id": 1,
-      "action": "d",
-      "data": "{\"ID\":1005,\"DEFAULT_GROUP\":0}",
-      "id1": 1,
-      "field1": "USER_ID",
-      "id2": 44,
-      "field2": "GROUP_ID"
-    }
-  },
-  {
-    "model": "user.usergrouplog",
-    "pk": 2,
-    "fields": {
-      "modification_date": "2020-11-23T14:22:51Z",
-      "user_id": 1,
-      "action": "d",
-      "data": "{\"ID\":1007,\"DEFAULT_GROUP\":0}",
-      "id1": 1,
-      "field1": "USER_ID",
-      "id2": 230,
-      "field2": "GROUP_ID"
-    }
-  },
-  {
-    "model": "user.usergrouplog",
-    "pk": 3,
-    "fields": {
-      "modification_date": "2022-04-25T08:40:40Z",
-      "user_id": 1,
-      "action": "i",
-      "data": "{\"USER_ID\":1,\"GROUP_ID\":\"454\",\"DEFAULT_GROUP\":0}",
-      "id1": 1,
-      "field1": "USER_ID",
-      "id2": 454,
-      "field2": "GROUP_ID"
+      "default_group": 0,
+      "created_at": "2023-05-25T12:19:18.225Z",
+      "created_by": 1
     }
   },
   {

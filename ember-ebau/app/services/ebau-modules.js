@@ -21,6 +21,10 @@ export default class CustomEbauModulesService extends EbauModulesService {
     return this.session.isLeadRole;
   }
 
+  get baseRole() {
+    return this.session.rolePermission;
+  }
+
   redirectToWorkItems() {
     this.router.transitionTo("cases.detail.work-items", this.instanceId);
   }

@@ -9,6 +9,7 @@ export default function makeServer(config) {
     routes() {
       this.namespace = "/api/v1";
       this.timing = 400;
+      this.logging = true;
 
       this.resource("instances", { only: ["show"] });
       this.resource("users", { only: ["index"] });
@@ -26,6 +27,11 @@ export default function makeServer(config) {
       });
 
       this.namespace = ""; // reset namespace
+
+      this.resource("user-groups", {
+        path: "/api/v1/user-groups",
+        exclude: ["update"],
+      });
 
       this.post("/graphql/", graphqlHandler(this), 200);
       this.passthrough("/index/token");

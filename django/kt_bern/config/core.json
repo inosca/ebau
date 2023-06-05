@@ -108976,13 +108976,6 @@
   },
   {
     "model": "core.rpage",
-    "pk": 150002,
-    "fields": {
-      "pdf_class": null
-    }
-  },
-  {
-    "model": "core.rpage",
     "pk": 2000000,
     "fields": {
       "pdf_class": null
@@ -109005,6 +108998,13 @@
   {
     "model": "core.rpage",
     "pk": 15000002,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
+    "model": "core.rpage",
+    "pk": 15000003,
     "fields": {
       "pdf_class": null
     }
@@ -109235,30 +109235,6 @@
   },
   {
     "model": "core.rroleacl",
-    "pk": 150012,
-    "fields": {
-      "resource": 20005,
-      "role": 20009
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 150013,
-    "fields": {
-      "resource": 20005,
-      "role": 20008
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 150014,
-    "fields": {
-      "resource": 20005,
-      "role": 20007
-    }
-  },
-  {
-    "model": "core.rroleacl",
     "pk": 150015,
     "fields": {
       "resource": 20009,
@@ -109303,30 +109279,6 @@
     "fields": {
       "resource": 20010,
       "role": 20000
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 150021,
-    "fields": {
-      "resource": 150002,
-      "role": 20009
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 150022,
-    "fields": {
-      "resource": 150002,
-      "role": 20008
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 150023,
-    "fields": {
-      "resource": 150002,
-      "role": 20007
     }
   },
   {
@@ -109554,6 +109506,30 @@
     }
   },
   {
+    "model": "core.rroleacl",
+    "pk": 15000020,
+    "fields": {
+      "resource": 15000003,
+      "role": 20009
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 15000021,
+    "fields": {
+      "resource": 15000003,
+      "role": 20008
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 15000022,
+    "fields": {
+      "resource": 15000003,
+      "role": 20007
+    }
+  },
+  {
     "model": "core.resource",
     "pk": 10000,
     "fields": {
@@ -109563,20 +109539,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 13
-    }
-  },
-  {
-    "model": "core.resource",
-    "pk": 20005,
-    "fields": {
-      "available_resource": "useradmin",
-      "name": null,
-      "description": null,
-      "template": null,
-      "class_field": null,
-      "hidden": 0,
-      "sort": 8
+      "sort": 14
     }
   },
   {
@@ -109628,7 +109591,7 @@
       "template": "/ember-camac-ng/dms-admin.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -109641,7 +109604,7 @@
       "template": "/dashboard/help.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 11
+      "sort": 12
     }
   },
   {
@@ -109685,19 +109648,6 @@
   },
   {
     "model": "core.resource",
-    "pk": 150002,
-    "fields": {
-      "available_resource": "page",
-      "name": null,
-      "description": null,
-      "template": "/ember-camac-ng/organisation.phtml",
-      "class_field": null,
-      "hidden": 0,
-      "sort": 10
-    }
-  },
-  {
-    "model": "core.resource",
     "pk": 150003,
     "fields": {
       "available_resource": "textcomponentadmin",
@@ -109706,7 +109656,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 15
+      "sort": 16
     }
   },
   {
@@ -109719,7 +109669,7 @@
       "template": "/ember-camac-ng/dossierimport.phtml",
       "class_field": null,
       "hidden": 1,
-      "sort": 14
+      "sort": 15
     }
   },
   {
@@ -109745,7 +109695,7 @@
       "template": "/dashboard/faq.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 12
+      "sort": 13
     }
   },
   {
@@ -109762,6 +109712,19 @@
     }
   },
   {
+    "model": "core.resource",
+    "pk": 15000003,
+    "fields": {
+      "available_resource": "page",
+      "name": null,
+      "description": null,
+      "template": "/ember-camac-ng/service-permissions.phtml",
+      "class_field": null,
+      "hidden": 0,
+      "sort": 9
+    }
+  },
+  {
     "model": "core.resourcet",
     "pk": 10000,
     "fields": {
@@ -109769,16 +109732,6 @@
       "language": "de",
       "name": "Fehler-Mails",
       "description": "Fehler-Mails entschlüsseln und anzeigen"
-    }
-  },
-  {
-    "model": "core.resourcet",
-    "pk": 20005,
-    "fields": {
-      "resource": 20005,
-      "language": "de",
-      "name": "Berechtigungen",
-      "description": null
     }
   },
   {
@@ -109848,16 +109801,6 @@
       "resource": 10000,
       "language": "fr",
       "name": "Courriels d'erreur",
-      "description": null
-    }
-  },
-  {
-    "model": "core.resourcet",
-    "pk": 120008,
-    "fields": {
-      "resource": 20005,
-      "language": "fr",
-      "name": "Droits d'accès",
       "description": null
     }
   },
@@ -109948,26 +109891,6 @@
       "resource": 150001,
       "language": "fr",
       "name": "Actualités",
-      "description": null
-    }
-  },
-  {
-    "model": "core.resourcet",
-    "pk": 150005,
-    "fields": {
-      "resource": 150002,
-      "language": "de",
-      "name": "Organisation",
-      "description": null
-    }
-  },
-  {
-    "model": "core.resourcet",
-    "pk": 150006,
-    "fields": {
-      "resource": 150002,
-      "language": "fr",
-      "name": "Organisation",
       "description": null
     }
   },
@@ -110078,6 +110001,26 @@
       "resource": 15000002,
       "language": "de",
       "name": "GWR",
+      "description": null
+    }
+  },
+  {
+    "model": "core.resourcet",
+    "pk": 15000006,
+    "fields": {
+      "resource": 15000003,
+      "language": "de",
+      "name": "Meine Organisation",
+      "description": null
+    }
+  },
+  {
+    "model": "core.resourcet",
+    "pk": 15000007,
+    "fields": {
+      "resource": 15000003,
+      "language": "fr",
+      "name": "Mon organisation",
       "description": null
     }
   },

@@ -1,0 +1,28 @@
+service-permissions:
+  sub-services-add-warning: |-
+    <b>ACHTUNG:</b> Bitte stellen Sie sicher, dass nur Unterfachstellen
+    erfasst werden, welche nicht bereits im System vorhanden sind. Bereits
+    vorhanden sind:
+    <ul class="uk-list uk-list-collapse uk-list-disc">
+      <li>Regierungsstatthalterämter</li>
+      <li>Gemeinden</li>
+      <li>Kantonale Amts- und Fachstellen</li>
+      <li>
+        Die nachfolgend aufgeführten regionalen Fachstellen:
+        <ul class="uk-list uk-list-collapse uk-list-circle">
+          <li>Berner Heimatschutz</li>
+          <li>BKW</li>
+          <li>BLS Netz</li>
+          <li>EMN Kontrollstelle Thun</li>
+          <li>Energieberatungsstelle Bern-Mittelland</li>
+          <li>GVB</li>
+          <li>Hindernisfreies Bauen</li>
+          <li>Minergie Zertifizierungsstelle Bern Solothurn</li>
+          <li>Procap - Région Bienne / Jura bernois</li>
+          <li>SBB AG Immobilienrecht Region Mitte</li>
+          <li>SBB AG Immobilienrecht Region Ost</li>
+          <li>Sunrise GmbH</li>
+          <li>Swisscom</li>
+        </ul>
+      </li>
+    </ul>

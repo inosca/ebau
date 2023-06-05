@@ -2,6 +2,7 @@ import EmberRouter from "@ember/routing/router";
 import { inject as service } from "@ember/service";
 import registerDMSAdmin from "ember-ebau-core/modules/dms-admin";
 import registerLegalSubmission from "ember-ebau-core/modules/legal-submission";
+import registerServicePermissions from "ember-ebau-core/modules/service-permissions";
 import registerTaskForm from "ember-ebau-core/modules/task-form";
 
 import config from "camac-ng/config/environment";
@@ -25,7 +26,6 @@ export default class Router extends EmberRouter {
 
 /* eslint-disable-next-line array-callback-return */
 Router.map(function () {
-  this.route("organisation");
   this.route("history", { path: "/instances/:instance_id/history" });
   this.route("journal", { path: "/instances/:instance_id/journal" });
   this.route("work-items", function () {
@@ -92,4 +92,5 @@ Router.map(function () {
   registerLegalSubmission(this);
   registerDMSAdmin(this);
   registerTaskForm(this);
+  registerServicePermissions(this);
 });

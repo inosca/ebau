@@ -137,6 +137,7 @@ class ResourceSerializer(serializers.ModelSerializer, MultilingualSerializer):
                 "/dashboard/help.phtml": "dashboard/help",
                 "/dashboard/news.phtml": "dashboard/news",
                 "/ember-camac-ng/dms-admin.phtml": "dms-admin",
+                "/ember-camac-ng/service-permissions.phtml": "service-permissions",
             }
             return type_mapping.get(obj.template)
 
