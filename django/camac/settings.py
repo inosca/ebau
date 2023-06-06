@@ -3201,6 +3201,7 @@ APPLICATIONS = {
                 "EXISTING": "gesuchsbearbeitungs-einladung-bestehend",
             },
         },
+        "SUBSERVICE_ROLES": ["subservice"],
         "DUMP_CONFIG_GROUPS": {
             "email_notifications": {
                 "notification.NotificationTemplate": Q(type="email"),
