@@ -3109,8 +3109,9 @@ APPLICATIONS = {
         "LOG_NOTIFICATIONS": True,
         # Mapping between camac role and instance permission.
         "ROLE_PERMISSIONS": {
-            "service": "service",
             "municipality": "municipality",
+            "service": "service",
+            "subservice": "service",
             "support": "support",
         },
         "ADMIN_GROUP": 1,
@@ -3224,6 +3225,12 @@ APPLICATIONS = {
             # Distribution
             **DISTRIBUTION_DUMP_CONFIG,
         },
+        "DUMP_CONFIG_EXCLUDED_MODELS": [
+            "user.Group",
+            "user.GroupT",
+            "user.Service",
+            "user.ServiceT",
+        ],
         "ATTACHMENT_SECTION_INTERNAL": 4,
         "DOCUMENT_MERGE_SERVICE": {
             "FORM": {

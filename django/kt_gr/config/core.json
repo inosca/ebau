@@ -2928,6 +2928,13 @@
     }
   },
   {
+    "model": "core.remberlist",
+    "pk": 14000002,
+    "fields": {
+      "instance_states": "120005"
+    }
+  },
+  {
     "model": "core.rpage",
     "pk": 14000000,
     "fields": {
@@ -2980,6 +2987,22 @@
     "fields": {
       "resource": 14000001,
       "role": 4
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 2000002,
+    "fields": {
+      "resource": 14000002,
+      "role": 20000
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 2000003,
+    "fields": {
+      "resource": 140000,
+      "role": 20000
     }
   },
   {
@@ -3063,7 +3086,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -3076,7 +3099,7 @@
       "template": "/ember-camac-ng/dms-admin.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -3089,7 +3112,20 @@
       "template": "/ember-camac-ng/service-permissions.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 5
+      "sort": 6
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 14000002,
+    "fields": {
+      "available_resource": "emberlist",
+      "name": null,
+      "description": null,
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 3
     }
   },
   {
@@ -3170,6 +3206,16 @@
       "language": "fr",
       "name": "Tâches",
       "description": null
+    }
+  },
+  {
+    "model": "core.resourcet",
+    "pk": 2000000,
+    "fields": {
+      "resource": 14000002,
+      "language": "de",
+      "name": "Meine Dossiers",
+      "description": "Dossier list for Subservices (Caluma)"
     }
   },
   {
