@@ -1,10 +1,13 @@
 import pytest
+from alexandria.core.factories import DocumentFactory, FileFactory, TagFactory
 from django.urls import reverse
 from rest_framework.status import (
     HTTP_200_OK,
     HTTP_201_CREATED,
     HTTP_204_NO_CONTENT,
     HTTP_403_FORBIDDEN,
+    HTTP_404_NOT_FOUND,
+    HTTP_405_METHOD_NOT_ALLOWED,
 )
 
 
@@ -12,59 +15,59 @@ from rest_framework.status import (
     "role__name,method,status_code,alexandria_category__metainfo",
     [
         (
-            "applicant",
+            "Applicant",
             "post",
             HTTP_201_CREATED,
-            {"permissions": {"applicant": "Admin"}},
+            {"access": {"applicant": "Admin"}},
         ),
-        ("applicant", "patch", HTTP_200_OK, {"permissions": {"applicant": "Admin"}}),
+        ("Applicant", "patch", HTTP_200_OK, {"access": {"applicant": "Admin"}}),
         (
-            "applicant",
+            "Applicant",
             "delete",
             HTTP_204_NO_CONTENT,
-            {"permissions": {"applicant": "Admin"}},
+            {"access": {"applicant": "Admin"}},
         ),
         (
-            "municipality",
+            "Municipality",
             "post",
             HTTP_403_FORBIDDEN,
-            {"permissions": {"applicant": "Admin"}},
+            {"access": {"applicant": "Admin"}},
         ),
         (
-            "municipality",
+            "Municipality",
             "patch",
             HTTP_403_FORBIDDEN,
-            {"permissions": {"applicant": "Admin"}},
+            {"access": {"applicant": "Admin"}},
         ),
         (
-            "municipality",
+            "Municipality",
             "delete",
             HTTP_403_FORBIDDEN,
-            {"permissions": {"applicant": "Admin"}},
+            {"access": {"applicant": "Admin"}},
         ),
         (
-            "service",
+            "Service",
             "post",
             HTTP_201_CREATED,
-            {"permissions": {"service": "Write"}},
+            {"access": {"service": "Write"}},
         ),
-        ("service", "patch", HTTP_200_OK, {"permissions": {"service": "Write"}}),
+        ("Service", "patch", HTTP_200_OK, {"access": {"service": "Write"}}),
         (
-            "service",
+            "Service",
             "delete",
             HTTP_403_FORBIDDEN,
-            {"permissions": {"service": "Write"}},
+            {"access": {"service": "Write"}},
         ),
     ],
 )
 def test_document_permission(
-    db, client, document_factory, alexandria_category, method, status_code
+    db, role, admin_client, alexandria_category, method, status_code
 ):
     url = reverse("document-list")
 
     data = {
         "data": {
-            "type": "document",
+            "type": "documents",
             "attributes": {
                 "title": {"de": "Important"},
             },
@@ -72,7 +75,7 @@ def test_document_permission(
         "relationships": {
             "category": {
                 "data": {
-                    "id": alexandria_category.id,
+                    "id": alexandria_category.pk,
                     "type": "category",
                 },
             },
@@ -80,11 +83,11 @@ def test_document_permission(
     }
 
     if method in ["patch", "delete"]:
-        doc = document_factory(title="Foo", category=alexandria_category)
+        doc = DocumentFactory(title="Foo", category=alexandria_category)
         url = reverse("document-detail", args=[doc.pk])
         data["data"]["id"] = str(doc.pk)
 
-    response = getattr(client, method)(url, data)
+    response = getattr(admin_client, method)(url, data)
 
     assert response.status_code == status_code
 
@@ -96,33 +99,100 @@ def test_document_permission(
         assert doc.title == "Important"
 
 
-def test_file_permission(db):
-    # replicate document?
-    pass
+@pytest.mark.parametrize(
+    "role__name,method,status_code,alexandria_category__metainfo",
+    [
+        (
+            "Applicant",
+            "post",
+            HTTP_201_CREATED,
+            {"access": {"applicant": "Admin"}},
+        ),
+        (
+            "Applicant",
+            "patch",
+            HTTP_405_METHOD_NOT_ALLOWED,
+            {"access": {"applicant": "Admin"}},
+        ),
+        (
+            "Applicant",
+            "delete",
+            HTTP_405_METHOD_NOT_ALLOWED,
+            {"access": {"applicant": "Admin"}},
+        ),
+        (
+            "Municipality",
+            "post",
+            HTTP_403_FORBIDDEN,
+            {"access": {"applicant": "Admin"}},
+        ),
+        (
+            "Service",
+            "post",
+            HTTP_201_CREATED,
+            {"access": {"service": "Write"}},
+        ),
+    ],
+)
+def test_file_permission(
+    db, role, admin_client, alexandria_category, method, status_code
+):
+    doc = DocumentFactory(title="Foo", category=alexandria_category)
+    url = reverse("file-list")
+
+    data = {
+        "data": {
+            "type": "files",
+            "attributes": {
+                "title": {"de": "Important"},
+            },
+        },
+        "relationships": {
+            "document": {
+                "data": {
+                    "id": doc.pk,
+                    "type": "document",
+                },
+            },
+        },
+    }
+
+    if method in ["patch", "delete"]:
+        file = FileFactory(name="File", document=doc)
+        url = reverse("file-detail", args=[file.pk])
+        data["data"]["id"] = str(file.pk)
+
+    response = getattr(admin_client, method)(url, data)
+
+    assert response.status_code == status_code
 
 
 @pytest.mark.parametrize(
     "role__name,method,status_code",
     [
-        ("applicant", "post", HTTP_403_FORBIDDEN),
-        ("applicant", "delete", HTTP_403_FORBIDDEN),
-        ("municipality", "post", HTTP_201_CREATED),
-        ("municipality", "delete", HTTP_204_NO_CONTENT),
-        ("municipality", "delete", HTTP_403_FORBIDDEN),
-        ("service", "post", HTTP_201_CREATED),
-        ("service", "patch", HTTP_200_OK),
-        ("service", "patch", HTTP_403_FORBIDDEN),
-        ("support", "post", HTTP_201_CREATED),
-        ("support", "delete", HTTP_204_NO_CONTENT),
+        ("Applicant", "post", HTTP_403_FORBIDDEN),
+        ("Applicant", "delete", HTTP_403_FORBIDDEN),
+        ("Municipality", "post", HTTP_201_CREATED),
+        ("Municipality", "delete", HTTP_204_NO_CONTENT),
+        ("Municipality", "delete", HTTP_404_NOT_FOUND),
+        ("Service", "post", HTTP_201_CREATED),
+        ("Service", "patch", HTTP_200_OK),
+        ("Service", "patch", HTTP_404_NOT_FOUND),
+        ("Support", "post", HTTP_201_CREATED),
+        ("Support", "delete", HTTP_204_NO_CONTENT),
     ],
 )
-def test_tag_permission(db, client, tag_factory, method, status_code):
-    tag = tag_factory(name="Foo")
+def test_tag_permission(
+    db, application_settings, role, caluma_admin_user, admin_client, method, status_code
+):
+    if role.name == "Applicant":
+        application_settings["PORTAL_GROUP"] = caluma_admin_user.camac_group
+
     url = reverse("tag-list")
 
     data = {
         "data": {
-            "type": "tag",
+            "type": "tags",
             "attributes": {
                 "name": "Important",
             },
@@ -130,29 +200,55 @@ def test_tag_permission(db, client, tag_factory, method, status_code):
     }
 
     if method in ["patch", "delete"]:
-        url = reverse("tag-detail", args=[tag.pk])
-        data["data"]["id"] = str(tag.pk)
+        alexandria_tag = TagFactory(name="Alexandria")
+        url = reverse("tag-detail", args=[alexandria_tag.slug])
+        data["data"]["id"] = str(alexandria_tag.slug)
 
-    response = getattr(client, method)(url, data)
+        if status_code != HTTP_404_NOT_FOUND:
+            alexandria_tag.created_by_group = caluma_admin_user.group
+            alexandria_tag.save()
+
+    response = getattr(admin_client, method)(url, data)
 
     assert response.status_code == status_code
-    if status_code != HTTP_403_FORBIDDEN and method != "delete":
+    if (
+        status_code not in [HTTP_403_FORBIDDEN, HTTP_404_NOT_FOUND]
+        and method != "delete"
+    ):
         result = response.json()
         assert result["data"]["attributes"]["name"] == "Important"
 
 
 @pytest.mark.parametrize(
-    "role__name,status_code",
+    "role__name,method",
     [
-        ("applicant", HTTP_403_FORBIDDEN),
-        ("municipality", HTTP_403_FORBIDDEN),
-        ("service", HTTP_403_FORBIDDEN),
-        ("support", HTTP_200_OK),
+        ("Support", "patch"),
+        ("Support", "post"),
+        ("Support", "delete"),
     ],
 )
-def test_category_permission(db, client, category, status_code):
-    url = reverse("category-detail", args=[category.pk])
+def test_category_permission(
+    db,
+    role,
+    admin_client,
+    alexandria_category,
+    method,
+):
+    url = reverse("category-list")
 
-    response = client.delete(url)
+    data = {
+        "data": {
+            "type": "category",
+            "attributes": {
+                "name": "Important",
+            },
+        },
+    }
 
-    assert response.status_code == status_code
+    if method in ["patch", "delete"]:
+        url = reverse("category-detail", args=[alexandria_category.pk])
+        data["data"]["id"] = str(alexandria_category.pk)
+
+    response = getattr(admin_client, method)(url, data)
+
+    assert response.status_code == HTTP_405_METHOD_NOT_ALLOWED

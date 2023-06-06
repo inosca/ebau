@@ -42,7 +42,6 @@ from caluma.settings.caluma import *  # noqa isort:skip
 # TODO: alexandria import anywhere causes error???
 """
 from alexandria.settings.alexandria import *  # noqa isort:skip
-from alexandria.settings.alexandria import ALEXANDRIA_PERMISSION_CLASSES
 from alexandria.settings.alexandria import (
     ALEXANDRIA_VISIBILITY_CLASSES,
     ALEXANDRIA_PERMISSION_CLASSES,
@@ -50,7 +49,6 @@ from alexandria.settings.alexandria import (
     ENABLE_THUMBNAIL_GENERATION,
     THUMBNAIL_HEIGHT,
     THUMBNAIL_WIDTH,
-    OIDC_DRF_AUTH_BACKEND,
 )  # noqa isort:skip
 """
 
@@ -365,6 +363,7 @@ APPLICATIONS = {
         ],
         "ATTACHMENT_SECTION_INTERNAL": 4,
         "DOCUMENT_MERGE_SERVICE": {},
+        "ALEXANDRIA": {},
     },
     "kt_schwyz": {
         "INCLUDE_STATIC_FILES": [("xml", "kt_schwyz/static/ech0211/xml/")],

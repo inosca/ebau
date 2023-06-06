@@ -146,10 +146,6 @@ class User(AbstractBaseUser):
         if user_group:
             return user_group.group
 
-    @property
-    def group(self):
-        return self.get_default_group().name
-
     def __str__(self):
         return self.get_full_name()
 

@@ -1,9 +1,10 @@
-from alexandria.core.models import BaseModel, Category, Document, File, Tag
+from alexandria.core.models import BaseModel, Document, File, Tag
 from alexandria.core.permissions import (
     BasePermission,
     object_permission_for,
     permission_for,
 )
+from django.conf import settings
 
 from .common import get_role
 
@@ -11,23 +12,31 @@ from .common import get_role
 class CustomPermission(BasePermission):
     @permission_for(BaseModel)
     def has_permission_default(self, request):
-        if get_role(request.user) == "support":
+        if get_role(request.caluma_info.user) == "support":
             return True
 
         return False
 
     @permission_for(Document)
     def has_permission_for_document(self, request):
-        # create document
-        category = Category.objects.get(pk=request.data["category"]["id"])
-        permission = category.metainfo["access"][get_role(request.user)]
+        # delete document
+        category = Document.objects.get(pk=request.data["id"]).category
+        permission = category.metainfo["access"].get(
+            get_role(request.caluma_info.context.user)
+        )
+        if not permission:
+            return False
 
         return globals()[f"{permission}Permission"]().can_write(request)
 
     @object_permission_for(Document)
     def has_object_permission_for_document(self, request, document):
-        # update, delete document
-        permission = document.category.metainfo["access"][get_role(request.user)]
+        # update, create? document
+        permission = document.category.metainfo["access"].get(
+            get_role(request.caluma_info.context.user)
+        )
+        if not permission:
+            return False
 
         if request.method == "DELETE":
             return globals()[f"{permission}Permission"]().can_destroy(request)
@@ -37,13 +46,21 @@ class CustomPermission(BasePermission):
     @permission_for(File)
     def has_permission_for_file(self, request):
         category = Document.objects.get(pk=request.data["document"]["id"]).category
-        permission = category.metainfo["access"][get_role(request.user)]
+        permission = category.metainfo["access"].get(
+            get_role(request.caluma_info.context.user)
+        )
+        if not permission:
+            return False
 
         return globals()[f"{permission}Permission"]().can_write(request)
 
     @object_permission_for(File)
     def has_object_permission_for_file(self, request, file):
-        permission = file.document.category.metainfo["access"][get_role(request.user)]
+        permission = file.document.category.metainfo["access"].get(
+            get_role(request.caluma_info.context.user)
+        )
+        if not permission:
+            return False
 
         if request.method == "DELETE":
             return globals()[f"{permission}Permission"]().can_destroy(request)
@@ -52,18 +69,23 @@ class CustomPermission(BasePermission):
 
     @permission_for(Tag)
     def has_permission_for_tag(self, request):
-        if get_role(request.user) != "applicant":
+        print("perm for", request.method)
+        if request.caluma_info.context.user.camac_group != settings.APPLICATION.get(
+            "PORTAL_GROUP"
+        ):  # applicant
             return True
 
         return False
 
     @object_permission_for(Tag)
     def has_object_permission_for_tag(self, request, tag):
-        if get_role(request.user) == "support":
+        if get_role(request.caluma_info.context.user) == "support":
             return True
 
-        if get_role(request.user) != "applicant":
-            return tag.created_by_group == request.user.group
+        if request.caluma_info.context.user.camac_group != settings.APPLICATION.get(
+            "PORTAL_GROUP"
+        ):  # not applicant
+            return tag.created_by_group == str(request.caluma_info.context.user.group)
 
         return False
 

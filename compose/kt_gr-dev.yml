@@ -54,6 +54,7 @@ services:
     image: acr.run/camac-ng/camac-ng/django:master
     depends_on:
       - db
+      - minio
     build:
       args:
         REQUIREMENTS: requirements-dev.txt
@@ -179,3 +180,6 @@ services:
 
 networks:
   ebau.local:
+
+volumes:
+  minio_data:
