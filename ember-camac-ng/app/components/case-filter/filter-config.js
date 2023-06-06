@@ -138,7 +138,7 @@ export default {
   },
   ...(macroCondition(getOwnConfig().application === "ur")
     ? {
-        legalStateOerebOptions: {
+        legalStateOereb: {
           type: "select-multiple",
           options: "legalStateOerebOptions",
           valueField: "slug",
