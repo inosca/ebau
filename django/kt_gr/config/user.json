@@ -276,6 +276,15 @@
     }
   },
   {
+    "model": "user.role",
+    "pk": 20000,
+    "fields": {
+      "role_parent": null,
+      "name": "subservice",
+      "group_prefix": null
+    }
+  },
+  {
     "model": "user.rolet",
     "pk": 1,
     "fields": {
@@ -333,6 +342,16 @@
       "language": "de",
       "name": "Fachstelle",
       "group_prefix": "Leitung"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20000,
+    "fields": {
+      "role": 20000,
+      "language": "de",
+      "name": "Unterfachstelle",
+      "group_prefix": null
     }
   },
   {
