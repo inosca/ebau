@@ -69,7 +69,9 @@ export default class CustomSession extends Session {
 
     // we have to know which is the current group
     const groupId =
-      this.group ?? response.data.relationships["default-group"].data.id;
+      this.group ??
+      response.data.relationships["default-group"]?.data?.id ??
+      response.data.relationships.groups.data?.[0].id;
     const group = this.store.peekRecord("group", groupId);
 
     return {
