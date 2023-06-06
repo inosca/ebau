@@ -12,6 +12,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   gettext \
   locales \
   libreoffice \
+  # alexandria dependencies
   zlib1g-dev \
   libjpeg-dev \
   python3-pythonmagick \

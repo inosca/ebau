@@ -225,6 +225,7 @@ def caluma_admin_user(admin_user, group, token):
 
     user.camac_role = group.role.name
     user.camac_group = group.pk
+    user.group = group.service_id
 
     return user
 

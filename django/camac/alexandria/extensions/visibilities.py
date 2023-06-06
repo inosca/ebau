@@ -9,7 +9,7 @@ from .common import get_role
 class CustomVisibility(BaseVisibility):
     @filter_queryset_for(BaseModel)
     def filter_queryset_for_all(self, queryset, request):
-        if get_role(request.user) == "support":
+        if get_role(request.caluma_info.user) == "support":
             return queryset
         return queryset.none()
 
@@ -30,7 +30,7 @@ class CustomVisibility(BaseVisibility):
                 # second: categories where only documents from my own service are readable
                 **{
                     f"{prefix}category__metainfo__access__{role}__icontains": "Internal",
-                    f"{prefix}created_by_group": user.get_default_group().pk,
+                    f"{prefix}created_by_group": user.group,
                 }
             )
             | Q(
@@ -38,37 +38,50 @@ class CustomVisibility(BaseVisibility):
                 Q(**{f"{prefix}category__metainfo__access__has_key": "applicant"}),
                 Q(
                     **{
-                        f"{prefix}instance_document__instance__involved_applicants__invitee": user
+                        f"{prefix}instance_document__instance__involved_applicants__invitee__username": user.username
                     }
                 )
-                | Q(**{f"{prefix}instance_document__instance__user": user}),
+                | Q(
+                    **{
+                        f"{prefix}instance_document__instance__user__username": user.username
+                    }
+                ),
             )
         )
 
     @filter_queryset_for(Document)
     def filter_queryset_for_document(self, queryset, request):
-        return queryset.filter(self.document_file_filter(request.user)).distinct()
+        return queryset.filter(
+            self.document_file_filter(request.caluma_info.context.user)
+        ).distinct()
 
     @filter_queryset_for(File)
     def filter_queryset_for_file(self, queryset, request):
         # Limitations for `Document` should also be enforced on `File`.
         return queryset.filter(
-            self.document_file_filter(request.user, "document__")
+            self.document_file_filter(request.caluma_info.context.user, "document__")
         ).distinct()
 
     @filter_queryset_for(Category)
     def filter_queryset_for_category(self, queryset, request):
         # category is visible when the role is in the access, regardless of the permission
-        return queryset.filter(metainfo__access__has_key=str(get_role(request.user)))
+        return queryset.filter(
+            metainfo__access__has_key=get_role(request.caluma_info.context.user)
+        )
 
     @filter_queryset_for(Tag)
     def filter_queryset_for_tag(self, queryset, request):
-        public_tags = Q(pk__in=settings.APPLICATION.get("ALEXANDRIA.PUBLIC_TAGS", []))
-        if get_role(request.user) == settings.APPLICATION.get(
+        if get_role(request.caluma_info.context.user) == "support":
+            return queryset
+
+        public_tags = Q(
+            pk__in=settings.APPLICATION.get("ALEXANDRIA", {}).get("PUBLIC_TAGS", [])
+        )
+        if request.caluma_info.context.user.camac_group == settings.APPLICATION.get(
             "PORTAL_GROUP"
-        ):  # applicant role
+        ):  # applicant
             return queryset.filter(public_tags)
 
         return queryset.filter(
-            Q(created_by_group=request.user.get_default_group().pk) | public_tags
+            Q(created_by_group=request.caluma_info.context.user.group) | public_tags
         )

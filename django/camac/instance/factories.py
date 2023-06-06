@@ -1,6 +1,7 @@
 from random import randrange
 
 import pytz
+from alexandria.core.factories import DocumentFactory
 from factory import Faker, SubFactory, fuzzy, post_generation
 from factory.django import DjangoModelFactory
 
@@ -67,6 +68,14 @@ class InstanceFactory(DjangoModelFactory):
 
     class Meta:
         model = models.Instance
+
+
+class InstanceAlexandriaDocumentFactory(DjangoModelFactory):
+    instance = SubFactory(InstanceFactory)
+    document = SubFactory(DocumentFactory)
+
+    class Meta:
+        model = models.InstanceAlexandriaDocument
 
 
 class FormFieldFactory(DjangoModelFactory):
