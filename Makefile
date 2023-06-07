@@ -57,9 +57,8 @@ dumpdata: ## Dump the current camac and caluma data
 
 .PHONY: loadconfig-camac
 loadconfig-camac: ## Load the camac configuration
-	@echo "\e[31m🚀 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 🚀\e[0m"
-	@echo "\e[31m   Do not use the web-interface yet! Please be patient.\e[0m"
-	@echo "\e[31m🚀 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 🚀\e[0m"
+	@echo "\e[31m⚠️  Loading CAMAC config. This can take a moment, especially if migrations are running.\e[0m"
+	@echo "\e[31m   While this is in progress, do not use the web-interface yet!\e[0m"
 	@docker-compose exec django ./wait-for-it.sh -t 300 127.0.0.1:80 -- python manage.py camac_load --user $(GIT_USER)
 
 .PHONY: loadconfig-dms
@@ -87,7 +86,7 @@ dumpconfig-keycloak: ## Dump the keycloak configuration
 
 .PHONY: loadconfig
 loadconfig: loadconfig-camac loadconfig-dms loadconfig-keycloak ## Load all configuration
-	@echo "\e[31mReady. Go ahead and login.\e[0m"
+	@echo "\e[32mConfiguration has been loaded successfully. Go ahead and login.🚀\e[0m"
 
 .PHONY: dbshell
 dbshell: ## Start a psql shell
