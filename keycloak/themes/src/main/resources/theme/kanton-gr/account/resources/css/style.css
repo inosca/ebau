@@ -2824,7 +2824,7 @@ select.uk-form-width-xsmall {
 /* ========================================================================
    Component: Alert
  ========================================================================== */
-.uk-alert, .alert {
+.uk-alert {
   position: relative;
   margin-bottom: 20px;
   padding: 15px 29px 15px 15px;
@@ -2832,13 +2832,13 @@ select.uk-form-width-xsmall {
   color: #2c3443; }
 
 /* Add margin if adjacent element */
-* + .uk-alert, * + .alert {
+* + .uk-alert {
   margin-top: 20px; }
 
 /*
  * Remove margin from the last-child
  */
-.uk-alert > :last-child, .alert > :last-child {
+.uk-alert > :last-child {
   margin-bottom: 0; }
 
 /* Close
@@ -2890,31 +2890,26 @@ select.uk-form-width-xsmall {
 /*
  * Danger
  */
-.uk-alert-danger, .alert-error, .uk-alert-error {
+.uk-alert-danger, .uk-alert-error {
   background: #fef4f6;
   color: #f0506e; }
 
 /*
      * Content
      */
-.uk-alert h1, .alert h1,
+.uk-alert h1,
 .uk-alert h2,
-.alert h2,
 .uk-alert h3,
-.alert h3,
 .uk-alert h4,
-.alert h4,
 .uk-alert h5,
-.alert h5,
-.uk-alert h6,
-.alert h6 {
+.uk-alert h6 {
   color: inherit; }
 
-.uk-alert a:not([class]), .alert a:not([class]) {
+.uk-alert a:not([class]) {
   color: inherit;
   text-decoration: underline; }
 
-.uk-alert a:not([class]):hover, .alert a:not([class]):hover {
+.uk-alert a:not([class]):hover {
   color: inherit;
   text-decoration: underline; }
 
@@ -10022,7 +10017,7 @@ a {
   align-items: center; }
 
 .gr-logo {
-  background-image: url("../img/logo-kanton-gr.jpg");
+  background-image: url("../img/logo-kanton-gr.svg");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -10034,7 +10029,6 @@ a {
   background-image: url("../img/graubunden.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
   background-attachment: fixed;
   min-height: 100vh; }
 
@@ -10127,16 +10121,8 @@ h1 {
   background-repeat: no-repeat;
   background-position: center; }
 
-.icon-iweb {
-  height: 31px;
-  background-image: url("../img/people.svg"); }
-
-.icon-afi {
-  background-image: url("../img/logo-kanton-gr.jpg");
-  background-color: red; }
-
-.icon-local {
-  background-image: url("../img/map.svg"); }
+.icon-gr {
+  background-image: url("../img/wappen.png"); }
 
 .copyright {
   position: absolute;
@@ -10145,7 +10131,7 @@ h1 {
   padding: 0.5rem; }
 
 .copyright a {
-  color: white;
+  color: black;
   font-weight: 400; }
 
 ul.nav {

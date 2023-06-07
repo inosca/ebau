@@ -10017,7 +10017,7 @@ a {
   align-items: center; }
 
 .gr-logo {
-  background-image: url("../img/logo-kanton-gr.jpg");
+  background-image: url("../img/logo-kanton-gr.svg");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -10121,15 +10121,8 @@ h1 {
   background-repeat: no-repeat;
   background-position: center; }
 
-.icon-iweb {
-  height: 31px;
-  background-image: url("../img/people.svg"); }
-
 .icon-gr {
   background-image: url("../img/wappen.png"); }
-
-.icon-local {
-  background-image: url("../img/map.svg"); }
 
 .copyright {
   position: absolute;
