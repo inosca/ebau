@@ -2,14 +2,19 @@
   <div class="uk-navbar-left uk-margin-small-left">
     <ul class="uk-navbar-nav main-navbar">
       <li>
-        <div class="uk-navbar-item uk-logo">
-          {{!-- TODO use macro conditions to replicate is-application helper --}}
-          <img alt={{t "nav.logo"}} src="/ebau-inosca-logo.svg" />
+        <div class="uk-navbar-item">
+          <img
+            class="uk-width-small"
+            alt={{t "nav.logo"}}
+            src={{this.logoPath}}
+          />
         </div>
       </li>
       {{#if this.session.isAuthenticated}}
         {{#each this.resources.value as |resource|}}
-          <UkSubnav::Item @href={{resource.link}}>{{resource.name}}</UkSubnav::Item>
+          <UkSubnav::Item
+            @href={{resource.link}}
+          >{{resource.name}}</UkSubnav::Item>
         {{/each}}
       {{else}}
         <li>
@@ -62,11 +67,15 @@
             mode="click"
             pos="bottom-right"
             id="locale-dropdown"
-           >
+          >
             <ul class="uk-nav uk-dropdown-nav">
               {{#each this.languages as |lang|}}
                 <li>
-                  <a href="#" class="uk-text-uppercase" {{on "click" (fn this.setLanguage lang)}}>
+                  <a
+                    href="#"
+                    class="uk-text-uppercase"
+                    {{on "click" (fn this.setLanguage lang)}}
+                  >
                     {{lang}}
                   </a>
                 </li>
