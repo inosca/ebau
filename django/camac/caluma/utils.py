@@ -173,7 +173,7 @@ def visible_inquiries_expression(group: Group) -> Expression:
 
     service = group.service
     if not service:
-        Value(True)  # pragma: no cover
+        return Value(True)  # pragma: no cover
 
     additional_inquiries_filter = Value(True)
     if settings.APPLICATION_NAME == "kt_schwyz":
