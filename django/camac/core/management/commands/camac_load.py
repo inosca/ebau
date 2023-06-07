@@ -39,19 +39,15 @@ class Command(BaseCommand):
                 # load test data in dev setup
                 fixtures += self.get_fixtures_in_path(settings.APPLICATION_DIR("data"))
 
-        self.stdout.write("Flushing 'pure' config models")
+        self.stdout.write("Flushing 'pure' config models...")
         for model_name in set(config.DUMP_CONFIG_MODELS) - set(
             config.DUMP_CONFIG_EXCLUDED_MODELS
         ):
-            self.stdout.write(f"Deleting config table {model_name}")
             (app_label, model_name) = model_name.split(".")
             model = apps.get_model(app_label=app_label, model_name=model_name)
             model.objects.all().delete()
 
-        self.stdout.write("Loading fixtures:")
-        for fixture in fixtures:
-            self.stdout.write(f"- {fixture}")
-
+        self.stdout.write("Loading fixtures...")
         call_command("loaddata", *fixtures)
 
         sequence_apps = settings.APPLICATION.get("SEQUENCE_NAMESPACE_APPS")
