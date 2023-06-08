@@ -3145,7 +3145,7 @@ APPLICATIONS = {
             "name",
             "surname",
         ],
-        "PORTAL_GROUP": 20097,
+        "PORTAL_GROUP": 3,
         "CALUMA": {
             "MANUAL_WORK_ITEM_TASK": "create-manual-workitems",
             "SUBMIT_TASKS": ["submit"],
@@ -3222,6 +3222,11 @@ APPLICATIONS = {
                 | Q(questions__pk__in=COMMON_QUESTION_SLUGS_BE),
             },
             "caluma_decision_form": generate_form_dump_config(regex=r"^decision$"),
+            # Sync the "core" groups (admin, support, portal) between servers, the rest is treated as data
+            "user_core_groups": {
+                "user.Group": Q(pk__lte=3),
+                "user.GroupT": Q(pk__lte=3),
+            },
             # Distribution
             **DISTRIBUTION_DUMP_CONFIG,
         },
