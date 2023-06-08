@@ -3109,8 +3109,10 @@ APPLICATIONS = {
         "LOG_NOTIFICATIONS": True,
         # Mapping between camac role and instance permission.
         "ROLE_PERMISSIONS": {
-            "municipality": "municipality",
-            "service": "service",
+            "municipality-lead": "municipality",
+            "municipality-admin": "municipality",
+            "service-lead": "service",
+            "service-admin": "service",
             "subservice": "service",
             "support": "support",
         },
