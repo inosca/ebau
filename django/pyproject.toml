@@ -157,6 +157,7 @@ omit = [
     "camac/core/management/commands/migrate_oereb_question_values.py",
     "camac/core/management/commands/migrate_oereb_form_splitting.py",
     "camac/user/management/commands/migrate_user_group.py",
+    "camac/user/management/commands/import_services_gr.py",
     # Audit migration"
     "camac/core/management/commands/config/",
     "camac/core/management/commands/migrate_audit.py",
