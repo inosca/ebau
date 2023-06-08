@@ -22,7 +22,7 @@
     "pk": 3,
     "fields": {
       "role_parent": null,
-      "name": "municipality",
+      "name": "municipality-lead",
       "group_prefix": null
     }
   },
@@ -31,7 +31,25 @@
     "pk": 4,
     "fields": {
       "role_parent": null,
-      "name": "service",
+      "name": "service-lead",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 5,
+    "fields": {
+      "role_parent": null,
+      "name": "municipality-admin",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 6,
+    "fields": {
+      "role_parent": null,
+      "name": "service-admin",
       "group_prefix": null
     }
   },
@@ -49,7 +67,7 @@
     "pk": 10001,
     "fields": {
       "role_parent": null,
-      "name": null,
+      "name": "applicant",
       "group_prefix": null
     }
   },
@@ -84,32 +102,12 @@
   },
   {
     "model": "user.rolet",
-    "pk": 3,
-    "fields": {
-      "role": 1,
-      "language": "fr",
-      "name": "Administrateur",
-      "group_prefix": null
-    }
-  },
-  {
-    "model": "user.rolet",
-    "pk": 4,
-    "fields": {
-      "role": 2,
-      "language": "fr",
-      "name": "Guest (FR)",
-      "group_prefix": null
-    }
-  },
-  {
-    "model": "user.rolet",
     "pk": 5,
     "fields": {
       "role": 3,
       "language": "de",
-      "name": "Leitbehörde",
-      "group_prefix": "Leitung"
+      "name": "Sachbearbeitung Leitbehörde",
+      "group_prefix": "Sachbearbeitung"
     }
   },
   {
@@ -118,8 +116,28 @@
     "fields": {
       "role": 4,
       "language": "de",
-      "name": "Fachstelle",
-      "group_prefix": "Leitung"
+      "name": "Sachbearbeitung Fachstelle",
+      "group_prefix": "Sachbearbeitung"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 7,
+    "fields": {
+      "role": 5,
+      "language": "de",
+      "name": "Administration Leitbehörde",
+      "group_prefix": "Administration"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 8,
+    "fields": {
+      "role": 6,
+      "language": "de",
+      "name": "Administration Fachstelle",
+      "group_prefix": "Administration"
     }
   },
   {
@@ -134,60 +152,10 @@
   },
   {
     "model": "user.rolet",
-    "pk": 20007,
-    "fields": {
-      "role": 1,
-      "language": "fr",
-      "name": "Admin",
-      "group_prefix": null
-    }
-  },
-  {
-    "model": "user.rolet",
-    "pk": 20008,
-    "fields": {
-      "role": 2,
-      "language": "fr",
-      "name": "Guest",
-      "group_prefix": null
-    }
-  },
-  {
-    "model": "user.rolet",
-    "pk": 20009,
-    "fields": {
-      "role": 3,
-      "language": "fr",
-      "name": "Autorité directrice",
-      "group_prefix": "Responsable:"
-    }
-  },
-  {
-    "model": "user.rolet",
-    "pk": 20010,
-    "fields": {
-      "role": 4,
-      "language": "fr",
-      "name": "Service",
-      "group_prefix": "Responsable:"
-    }
-  },
-  {
-    "model": "user.rolet",
     "pk": 20028,
     "fields": {
       "role": 10000,
       "language": "de",
-      "name": "Support",
-      "group_prefix": null
-    }
-  },
-  {
-    "model": "user.rolet",
-    "pk": 20029,
-    "fields": {
-      "role": 10000,
-      "language": "fr",
       "name": "Support",
       "group_prefix": null
     }
@@ -199,16 +167,6 @@
       "role": 10001,
       "language": "de",
       "name": "Gesuchsteller",
-      "group_prefix": null
-    }
-  },
-  {
-    "model": "user.rolet",
-    "pk": 20031,
-    "fields": {
-      "role": 10001,
-      "language": "fr",
-      "name": "Requérant/e",
       "group_prefix": null
     }
   },
