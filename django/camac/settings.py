@@ -3224,6 +3224,9 @@ APPLICATIONS = {
                 | Q(questions__pk__in=COMMON_QUESTION_SLUGS_BE),
             },
             "caluma_decision_form": generate_form_dump_config(regex=r"^decision$"),
+            "dashboard_document": {
+                "caluma_form.Document": Q(form="dashboard"),
+            },
             # Sync the "core" groups (admin, support, portal) between servers, the rest is treated as data
             "user_core_groups": {
                 "user.Group": Q(pk__lte=3),
