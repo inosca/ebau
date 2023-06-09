@@ -158,6 +158,7 @@ export default class CustomWorkItemModel extends WorkItemModel {
   replacePlaceholders(models) {
     let map = {
       INSTANCE_ID: this.instanceId,
+      TASK_SLUG: this.task.slug,
     };
 
     const distributionWorkItem = [this.raw, this.raw.case.parentWorkItem]

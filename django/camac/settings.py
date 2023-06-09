@@ -3224,6 +3224,12 @@ APPLICATIONS = {
                 | Q(questions__pk__in=COMMON_QUESTION_SLUGS_BE),
             },
             "caluma_decision_form": generate_form_dump_config(regex=r"^decision$"),
+            "caluma_formal_exam_form": generate_form_dump_config(
+                regex=r"^formal-exam$"
+            ),
+            "caluma_material_exam_form": generate_form_dump_config(
+                regex=r"^material-exam$"
+            ),
             "dashboard_document": {
                 "caluma_form.Document": Q(form="dashboard"),
             },

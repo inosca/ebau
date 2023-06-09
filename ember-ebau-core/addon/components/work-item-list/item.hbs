@@ -14,7 +14,7 @@
       "
     >
       {{#if (eq column "task")}}
-        {{#if @useLinkTo}}
+        {{#if (and @useLinkTo @workItem.directLink)}}
           <LinkTo @route={{@workItem.directLink.route}} @models={{@workItem.directLink.models}}>{{@workItem.name}}</LinkTo>
         {{else if @workItem.directLink}}
           <a href="{{@workItem.directLink}}">{{@workItem.name}}</a>
