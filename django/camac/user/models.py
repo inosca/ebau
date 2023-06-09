@@ -146,6 +146,14 @@ class User(AbstractBaseUser):
         if user_group:
             return user_group.group
 
+    @property
+    def alexandria_user(self):
+        return self.id
+
+    @property
+    def alexandria_group(self):
+        return self.get_default_group().service.pk
+
     def __str__(self):
         return self.get_full_name()
 

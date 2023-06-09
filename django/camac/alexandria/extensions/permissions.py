@@ -1,4 +1,4 @@
-from alexandria.core.models import BaseModel, Document, File, Tag
+from alexandria.core.models import BaseModel, Category, Document, File, Tag
 from alexandria.core.permissions import (
     BasePermission,
     object_permission_for,
@@ -19,20 +19,9 @@ class CustomPermission(BasePermission):
 
     @permission_for(Document)
     def has_permission_for_document(self, request):
-        # delete document
-        category = Document.objects.get(pk=request.data["id"]).category
+        # create, delete document
+        category = Category.objects.get(pk=request.data["category"]["id"])
         permission = category.metainfo["access"].get(
-            get_role(request.caluma_info.context.user)
-        )
-        if not permission:
-            return False
-
-        return globals()[f"{permission}Permission"]().can_write(request)
-
-    @object_permission_for(Document)
-    def has_object_permission_for_document(self, request, document):
-        # update, create? document
-        permission = document.category.metainfo["access"].get(
             get_role(request.caluma_info.context.user)
         )
         if not permission:
@@ -40,6 +29,16 @@ class CustomPermission(BasePermission):
 
         if request.method == "DELETE":
             return globals()[f"{permission}Permission"]().can_destroy(request)
+
+        return globals()[f"{permission}Permission"]().can_write(request)
+
+    @object_permission_for(Document)
+    def has_object_permission_for_document(self, request, document):
+        permission = document.category.metainfo["access"].get(
+            get_role(request.caluma_info.context.user)
+        )
+        if not permission:
+            return False
 
         return globals()[f"{permission}Permission"]().can_write(request)
 
@@ -52,6 +51,9 @@ class CustomPermission(BasePermission):
         if not permission:
             return False
 
+        if request.method == "DELETE":
+            return globals()[f"{permission}Permission"]().can_destroy(request)
+
         return globals()[f"{permission}Permission"]().can_write(request)
 
     @object_permission_for(File)
@@ -61,9 +63,6 @@ class CustomPermission(BasePermission):
         )
         if not permission:
             return False
-
-        if request.method == "DELETE":
-            return globals()[f"{permission}Permission"]().can_destroy(request)
 
         return globals()[f"{permission}Permission"]().can_write(request)
 
