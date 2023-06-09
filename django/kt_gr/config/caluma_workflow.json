@@ -1,6 +1,19 @@
 [
   {
     "model": "caluma_workflow.flow",
+    "pk": "08fa97c7-886c-452a-8989-5e718336cf6e",
+    "fields": {
+      "created_at": "2023-06-09T10:36:16.019Z",
+      "modified_at": "2023-06-09T10:36:16.019Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "next": "['material-exam']|tasks"
+    }
+  },
+  {
+    "model": "caluma_workflow.flow",
     "pk": "428d7808-b15a-4615-990d-7077e10877ec",
     "fields": {
       "created_at": "2023-05-30T11:05:57.903Z",
@@ -9,7 +22,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "['create-manual-workitems', 'distribution']|tasks"
+      "next": "['create-manual-workitems', 'distribution', 'formal-exam']|tasks"
     }
   },
   {
@@ -88,6 +101,64 @@
   },
   {
     "model": "caluma_workflow.task",
+    "pk": "formal-exam",
+    "fields": {
+      "created_at": "2023-06-09T10:14:27.746Z",
+      "modified_at": "2023-06-09T10:29:41.417Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Formelle Pr\\u00fcfung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "complete_task_form",
+      "meta": {
+        "directLink": {
+          "route": "cases.detail.task-form",
+          "models": ["INSTANCE_ID", "TASK_SLUG"]
+        },
+        "is-manually-completable": true
+      },
+      "address_groups": "['municipality']|groups",
+      "control_groups": "['municipality']|groups",
+      "is_archived": false,
+      "form": "formal-exam",
+      "lead_time": 864000,
+      "is_multiple_instance": false,
+      "continue_async": false
+    }
+  },
+  {
+    "model": "caluma_workflow.task",
+    "pk": "material-exam",
+    "fields": {
+      "created_at": "2023-06-09T10:14:40.839Z",
+      "modified_at": "2023-06-09T10:33:47.700Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Materielle Pr\\u00fcfung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "complete_task_form",
+      "meta": {
+        "directLink": {
+          "route": "cases.detail.task-form",
+          "models": ["INSTANCE_ID", "TASK_SLUG"]
+        },
+        "is-manually-completable": true
+      },
+      "address_groups": "['municipality']|groups",
+      "control_groups": "['municipality']|groups",
+      "is_archived": false,
+      "form": "material-exam",
+      "lead_time": 864000,
+      "is_multiple_instance": false,
+      "continue_async": false
+    }
+  },
+  {
+    "model": "caluma_workflow.task",
     "pk": "submit",
     "fields": {
       "created_at": "2023-05-30T11:05:51.175Z",
@@ -138,6 +209,22 @@
       "workflow": "building-permit",
       "task": "distribution",
       "flow": "61ff6eea-3fa5-406e-bf7f-cb34edd6c43f",
+      "redoable": null
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
+    "pk": "b2a4bca1-3a06-4131-90cf-8d0640a9f049",
+    "fields": {
+      "created_at": "2023-06-09T10:36:16.022Z",
+      "modified_at": "2023-06-09T10:36:16.022Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "workflow": "building-permit",
+      "task": "formal-exam",
+      "flow": "08fa97c7-886c-452a-8989-5e718336cf6e",
       "redoable": null
     }
   },
