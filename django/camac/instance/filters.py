@@ -360,19 +360,13 @@ class InstanceKeywordSearchFilter(CharFilter):
         )
 
     def filter(self, queryset, value, *args, **kwargs):
-        # TODO: & and following text stripped away from search value
-
         if value in EMPTY_VALUES:
             return queryset
 
-        # Input values containing multiple words are split.
-        # If the value is surrounded by double quotes, then
-        # it is treated as a single entity.
-        processed_values = (
-            [value[1:-1].strip()]
-            if value.startswith('"') and value.endswith('"')
-            else value.split()
-        )
+        # Input values are split by whitespace.
+        # Word groups surrounded by double quotes are
+        # treated as a single entity.
+        processed_values = [v.strip('"') for v in re.findall(r"(?:\".*?\"|\S)+", value)]
 
         # Disregard searches that contain a search term
         # which has less than 3 characters
