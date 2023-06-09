@@ -4132,3 +4132,5 @@ ALEXANDRIA_VISIBILITY_CLASSES = [
     "camac.alexandria.extensions.visibilities.CustomVisibility"
 ]
 ALEXANDRIA_VALIDATION_CLASSES = ["camac.alexandria.extensions.validations.Validator"]
+ALEXANDRIA_CREATED_BY_USER_PROPERTY = "alexandria_user"
+ALEXANDRIA_CREATED_BY_GROUP_PROPERTY = "alexandria_group"

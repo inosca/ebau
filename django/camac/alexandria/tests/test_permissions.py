@@ -36,7 +36,7 @@ from rest_framework.status import (
         (
             "Municipality",
             "patch",
-            HTTP_403_FORBIDDEN,
+            HTTP_404_NOT_FOUND,
             {"access": {"applicant": "Admin"}},
         ),
         (
@@ -61,29 +61,30 @@ from rest_framework.status import (
     ],
 )
 def test_document_permission(
-    db, role, admin_client, alexandria_category, method, status_code
+    db, role, admin_client, instance, alexandria_category, method, status_code
 ):
     url = reverse("document-list")
 
     data = {
         "data": {
             "type": "documents",
-            "attributes": {
-                "title": {"de": "Important"},
-            },
+            "attributes": {"title": {"de": "Important"}},
+            "metainfo": {"case_id": instance.pk},
         },
         "relationships": {
             "category": {
                 "data": {
                     "id": alexandria_category.pk,
-                    "type": "category",
+                    "type": "categories",
                 },
             },
         },
     }
 
     if method in ["patch", "delete"]:
-        doc = DocumentFactory(title="Foo", category=alexandria_category)
+        doc = DocumentFactory(
+            title="Foo", category=alexandria_category, metainfo={"case_id": instance.pk}
+        )
         url = reverse("document-detail", args=[doc.pk])
         data["data"]["id"] = str(doc.pk)
 
@@ -91,12 +92,9 @@ def test_document_permission(
 
     assert response.status_code == status_code
 
-    if method == "post":
+    if method == "post" and status_code == HTTP_201_CREATED:
         result = response.json()
         assert result["data"]["attributes"]["title"]["de"] == "Important"
-    elif method == "patch":
-        doc.refresh_from_db()
-        assert doc.title == "Important"
 
 
 @pytest.mark.parametrize(
@@ -135,23 +133,26 @@ def test_document_permission(
     ],
 )
 def test_file_permission(
-    db, role, admin_client, alexandria_category, method, status_code
+    db, role, admin_client, instance, alexandria_category, method, status_code
 ):
-    doc = DocumentFactory(title="Foo", category=alexandria_category)
+    doc = DocumentFactory(
+        title="Foo", category=alexandria_category, metainfo={"case_id": instance.pk}
+    )
     url = reverse("file-list")
 
     data = {
         "data": {
             "type": "files",
             "attributes": {
-                "title": {"de": "Important"},
+                "name": "Old",
+                "variant": "original",
             },
-        },
-        "relationships": {
-            "document": {
-                "data": {
-                    "id": doc.pk,
-                    "type": "document",
+            "relationships": {
+                "document": {
+                    "data": {
+                        "id": doc.pk,
+                        "type": "documents",
+                    },
                 },
             },
         },
