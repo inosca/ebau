@@ -275,16 +275,6 @@ class InstanceResponsibility(models.Model):
         unique_together = (("instance", "user", "service"),)
 
 
-class InstanceAlexandriaDocument(models.Model):
-    instance = models.ForeignKey(Instance, models.CASCADE, related_name="documents")
-    alexandria_document = models.ForeignKey(
-        "alexandria.core.models.Document", models.CASCADE, related_name="instances"
-    )
-
-    class Meta:
-        unique_together = (("instance", "alexandria_document"),)
-
-
 class JournalEntryManager(models.Manager):
     def get_queryset(self):
         return JournalEntryQuerySet(self.model, using=self._db)
