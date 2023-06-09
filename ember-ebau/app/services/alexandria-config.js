@@ -20,13 +20,13 @@ export default class AlexandriaConfigService extends Service {
   resolveUser(id) {
     if (!id) return "-";
 
-    return this.store.peekAll("user").findBy("username", id)?.fullName ?? "-";
+    return this.store.peekRecord("user", id)?.fullName ?? "-";
   }
 
   resolveGroup(id) {
     if (!id) return "-";
 
-    return this.store.peekRecord("group", id)?.name ?? "-";
+    return this.store.peekRecord("service", id)?.name ?? "-";
   }
 
   namespace = "/alexandria/api/v1";

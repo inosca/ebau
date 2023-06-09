@@ -143,7 +143,6 @@ DUMP_CONFIG_MODELS = [
     "caluma_form.FormQuestion",
     "caluma_workflow.TaskFlow",
     "caluma_workflow.Flow",
-    "alexandria_core.Category",
 ]
 
 # List of models that have foreign keys referencing non-config tables
@@ -194,6 +193,7 @@ DUMP_CONFIG_MODELS_REFERENCING_DATA = [
     "caluma_form.Form",
     "caluma_workflow.Workflow",
     "caluma_workflow.Task",
+    "alexandria_core.Category",
 ]
 
 # Exclude models which are managed by the customer alone from sync - instead it

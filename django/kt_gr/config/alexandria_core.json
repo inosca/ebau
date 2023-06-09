@@ -80,8 +80,8 @@
       "metainfo": {
         "access": {
           "support": "Admin",
-          "municipality": "AdminInternal",
-          "service": "AdminInternal"
+          "municipality": "InternalAdmin",
+          "service": "InternalAdmin"
         }
       },
       "name": "{\"de\": \"Intern\", \"rm\": \"Interne\",\"it\": \"Interno\"}",
