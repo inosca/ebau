@@ -1156,6 +1156,36 @@
   },
   {
     "model": "core.instanceresource",
+    "pk": 2000002,
+    "fields": {
+      "available_instance_resource": "taskform",
+      "resource": 20006,
+      "name": null,
+      "description": null,
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 6,
+      "form_group": 2000000
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 2000003,
+    "fields": {
+      "available_instance_resource": "taskform",
+      "resource": 20006,
+      "name": null,
+      "description": null,
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 7,
+      "form_group": 2000000
+    }
+  },
+  {
+    "model": "core.instanceresource",
     "pk": 14000001,
     "fields": {
       "available_instance_resource": "page",
@@ -1165,7 +1195,7 @@
       "template": "/ember/instance.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 9,
+      "sort": 11,
       "form_group": 2000000
     }
   },
@@ -1180,7 +1210,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 8,
+      "sort": 10,
       "form_group": 2000000
     }
   },
@@ -1195,7 +1225,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 14,
+      "sort": 16,
       "form_group": 2000000
     }
   },
@@ -1210,7 +1240,7 @@
       "template": "/ember/instance.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 15,
+      "sort": 17,
       "form_group": 2000000
     }
   },
@@ -1225,7 +1255,7 @@
       "template": "/ember-camac-ng/distribution.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 6,
+      "sort": 8,
       "form_group": 2000000
     }
   },
@@ -1240,7 +1270,7 @@
       "template": "/ember-camac-ng/distribution.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 13,
+      "sort": 15,
       "form_group": 2000000
     }
   },
@@ -1255,7 +1285,7 @@
       "template": "/ember-camac-ng/distribution.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 19,
+      "sort": 21,
       "form_group": 2000000
     }
   },
@@ -1285,7 +1315,7 @@
       "template": "/ember-camac-ng/journal.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 11,
+      "sort": 13,
       "form_group": 2000000
     }
   },
@@ -1300,7 +1330,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 17,
+      "sort": 19,
       "form_group": 2000000
     }
   },
@@ -1330,7 +1360,7 @@
       "template": "/ember-camac-ng/dms-generate.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 12,
+      "sort": 14,
       "form_group": 2000000
     }
   },
@@ -1345,7 +1375,7 @@
       "template": "/ember-camac-ng/dms-generate.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 18,
+      "sort": 20,
       "form_group": 2000000
     }
   },
@@ -1360,7 +1390,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 7,
+      "sort": 9,
       "form_group": 2000000
     }
   },
@@ -1405,7 +1435,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 10,
+      "sort": 12,
       "form_group": 2000000
     }
   },
@@ -1420,7 +1450,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 16,
+      "sort": 18,
       "form_group": 2000000
     }
   },
@@ -1814,6 +1844,26 @@
   },
   {
     "model": "core.instanceresourcet",
+    "pk": 2000002,
+    "fields": {
+      "instance_resource": 2000002,
+      "language": "de",
+      "name": "Formelle Prüfung",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 2000003,
+    "fields": {
+      "instance_resource": 2000003,
+      "language": "de",
+      "name": "Materielle Prüfung",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
     "pk": 14000001,
     "fields": {
       "instance_resource": 14000001,
@@ -2090,6 +2140,60 @@
       "instance_resource": 2000000,
       "role": 3,
       "instance_state": 1
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000007,
+    "fields": {
+      "instance_resource": 2000002,
+      "role": 3,
+      "instance_state": 120004
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000008,
+    "fields": {
+      "instance_resource": 2000002,
+      "role": 3,
+      "instance_state": 120005
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000009,
+    "fields": {
+      "instance_resource": 2000002,
+      "role": 3,
+      "instance_state": 120007
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000010,
+    "fields": {
+      "instance_resource": 2000003,
+      "role": 3,
+      "instance_state": 120004
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000011,
+    "fields": {
+      "instance_resource": 2000003,
+      "role": 3,
+      "instance_state": 120005
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2000012,
+    "fields": {
+      "instance_resource": 2000003,
+      "role": 3,
+      "instance_state": 120007
     }
   },
   {
@@ -2729,6 +2833,20 @@
       "instance_resource": 18000003,
       "role": 10000,
       "instance_state": 120006
+    }
+  },
+  {
+    "model": "core.irtaskform",
+    "pk": 2000002,
+    "fields": {
+      "task": "formal-exam"
+    }
+  },
+  {
+    "model": "core.irtaskform",
+    "pk": 2000003,
+    "fields": {
+      "task": "material-exam"
     }
   },
   {
