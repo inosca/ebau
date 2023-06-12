@@ -57,7 +57,7 @@ module("Integration | Component | communication/message", function (hooks) {
           "createdByUser.fullName"
         )})`
       );
-    assert.dom("[data-test-sent-date]").hasText("am 12.2.2020 um 08:12");
+    assert.dom("[data-test-sent-date]").hasText("am 12.02.2020 um 08:12");
     assert.dom("[data-test-read-details-trigger]").exists();
     // Not testing the uikit dropdown visibility here since it's very flaky
     assert.dom("[data-test-mark-unread]").exists();

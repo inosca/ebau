@@ -8,7 +8,7 @@
       <span class="uk-text-meta" data-test-sent-date>
         {{t
           "communications.detail.sentDate"
-          date=(format-date @message.createdAt format="datetime")
+          date=(format-date @message.createdAt format="date")
           time=(format-time @message.createdAt format="hhmm")
         }}
       </span>
