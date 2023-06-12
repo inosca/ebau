@@ -1,5 +1,5 @@
 <div class="communications-message" ...attributes>
-  <UkFlex @horizontal="between" @vertical="middle" class="uk-margin-bottom">
+  <UkFlex @horizontal="between" @vertical="middle" class="uk-margin-small-bottom">
     <span>
       <span class="uk-text-bold" data-test-created-by>
         {{@message.createdBy.name}}
@@ -80,8 +80,7 @@
   </UkFlex>
   <div>
     <p
-      class="{{if this.collapsed 'collapsed'}}
-        {{if this.isExpandable 'expandable'}}"
+      class="uk-margin-remove {{if this.collapsed 'collapsed'}} {{if this.isExpandable 'expandable'}}"
       role="button"
       {{did-insert this.setParagraph}}
       {{on "click" this.toggleText}}
