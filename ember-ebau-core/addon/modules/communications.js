@@ -9,14 +9,10 @@ import CommunicationsIndexTemplate from "ember-ebau-core/templates/communication
 import CommunicationsNewTemplate from "ember-ebau-core/templates/communications/new";
 
 export default function register(router, options = {}) {
-  router.route(
-    "communications",
-    { path: "/instances/:instance_id/communications", ...options },
-    function () {
-      this.route("detail", { path: "/:topic_id" });
-      this.route("new");
-    }
-  );
+  router.route("communications", options, function () {
+    this.route("detail", { path: "/:topic_id" });
+    this.route("new");
+  });
 
   registerModule("communications", router.parent, options.resetNamespace, {
     routes: {

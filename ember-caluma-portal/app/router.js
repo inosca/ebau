@@ -37,7 +37,7 @@ Router.map(function () {
         this.route("form", { path: "/:form" });
         this.route("feedback");
         this.route("applicants");
-        registerCommunications(this, { path: "communications/:instance_id" });
+        registerCommunications(this);
       });
     });
 
