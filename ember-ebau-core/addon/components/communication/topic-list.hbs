@@ -38,13 +38,11 @@
     <thead>
       <tr>
         {{#unless @instanceId}}
-          <th class="uk-width-small" data-test-instance-header>{{t
-              "communications.dossier"
-            }}</th>
+          <th data-test-instance-header>{{t "communications.dossier"}}</th>
         {{/unless}}
-        <th class="uk-width-1-2">{{t "communications.topic"}}</th>
-        <th class="uk-width-1-2">{{t "communications.participants"}}</th>
-        <th class="uk-width-small">{{t "communications.date"}}</th>
+        <th>{{t "communications.topic"}}</th>
+        <th>{{t "communications.participants"}}</th>
+        <th>{{t "communications.date"}}</th>
       </tr>
     </thead>
     <tbody>
@@ -58,7 +56,7 @@
             {{on "click" (fn this.transitionToTopic topic)}}
           >
             {{#unless @instanceId}}
-              <td data-test-dossier-number>
+              <td class="uk-text-nowrap" data-test-dossier-number>
                 {{topic.dossierNumber}}
                 ({{topic.instance.id}})
               </td>
@@ -71,7 +69,7 @@
                 -
               {{/each}}
             </td>
-            <td>{{format-date topic.created format="datetime"}}</td>
+            <td class="uk-text-nowrap">{{format-date topic.created format="datetime"}}</td>
           </tr>
         {{else}}
           {{#unless this.topics.isLoading}}
