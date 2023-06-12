@@ -36,7 +36,7 @@
           </Tab.item>
         {{/if}}
       {{/each}}
-      {{#if (can "read feedback of instance" this.instance)}}
+      {{#if (can "read feedback of instance" this.instance.value)}}
         <Tab.item @href={{concat "/instances/" @model "/feedback"}} as |active|>
           <AriaHeading @enabled={{active}}>
             {{t "nav.feedback"}}
@@ -44,15 +44,17 @@
           </AriaHeading>
         </Tab.item>
       {{/if}}
-      <Tab.item
-        @href={{concat "/instances/" @model "/communications"}}
-        as |active|
-      >
-        <AriaHeading @enabled={{active}}>
-          {{t "nav.communications"}}
-          <Communication::UnreadMessageBadge class="uk-margin-small-left" />
-        </AriaHeading>
-      </Tab.item>
+      {{#if (can "read communication of instance" this.instance.value)}}
+        <Tab.item
+          @href={{concat "/instances/" @model "/communications"}}
+          as |active|
+        >
+          <AriaHeading @enabled={{active}}>
+            {{t "nav.communications"}}
+            <Communication::UnreadMessageBadge class="uk-margin-small-left" />
+          </AriaHeading>
+        </Tab.item>
+      {{/if}}
       {{#if (can "read applicants of instance" this.instance.value)}}
         <Tab.item @href={{concat "/instances/" @model "/applicants"}} as |active|>
           <AriaHeading @enabled={{active}}>
