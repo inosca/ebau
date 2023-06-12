@@ -17,7 +17,7 @@ mutation CreateFlow1 {
     input: {
       workflow: "building-permit"
       tasks: ["submit"]
-      next: "['create-manual-workitems', 'distribution']|tasks"
+      next: "['create-manual-workitems', 'distribution', 'formal-exam']|tasks"
     }
   ) {
     clientMutationId
@@ -43,6 +43,18 @@ mutation CreateFlow3 {
       tasks: ["decision"]
       next: "[]|tasks"
       redoable: "'distribution'|task"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateFlow4 {
+  addWorkflowFlow(
+    input: {
+      workflow: "building-permit"
+      tasks: ["formal-exam"]
+      next: "['material-exam']|tasks"
     }
   ) {
     clientMutationId
