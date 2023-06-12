@@ -10,7 +10,7 @@ class TopicFilterSet(FilterSet):
 
     class Meta:
         model = models.CommunicationsTopic
-        fields = ("subject", "has_unread")
+        fields = ("subject", "has_unread", "instance")
 
 
 class IsReadFilter(BooleanFilter):
