@@ -7,7 +7,7 @@ import CommunicationsDetailTemplate from "ember-ebau-core/templates/communicatio
 import CommunicationsGlobalIndexTemplate from "ember-ebau-core/templates/communications-global/index";
 
 export default function register(router, options = {}) {
-  router.route("communications-global", { ...options }, function () {
+  router.route("communications-global", options, function () {
     this.route("detail", { path: "/:topic_id" });
   });
 

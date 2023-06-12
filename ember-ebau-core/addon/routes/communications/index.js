@@ -5,8 +5,6 @@ export default class CommunicationsIndexRoute extends Route {
   @service ebauModules;
 
   model() {
-    return this.modelFor(
-      this.ebauModules.resolveModuleRoute("communications", "communications")
-    );
+    return this.ebauModules.instanceId;
   }
 }

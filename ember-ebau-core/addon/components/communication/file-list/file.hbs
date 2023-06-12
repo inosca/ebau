@@ -33,8 +33,8 @@
       </button>
     {{/if}}
     <Communication::AttachmentSectionDropdown
-      @instanceId={{this.instanceId}}
-      @selectSection={{perform @file.uploadToDMS this.instanceId}}
+      @instanceId={{this.ebauModules.instanceId}}
+      @selectSection={{perform @file.uploadToDMS this.ebauModules.instanceId}}
       @onlySectionsForApplicant={{this.messageByApplicant}}
     />
   </span>

@@ -45,7 +45,7 @@
         >
         </button>
         <Communication::AttachmentSectionDropdown
-          @instanceId={{this.instanceId}}
+          @instanceId={{this.ebauModules.instanceId}}
           @selectSection={{fn (mut this.attachmentSection)}}
           uk-dropdown="mode:click;pos:top-right;"
         />
@@ -54,7 +54,7 @@
           @visible={{this.attachmentSection}}
           @onHide={{fn (mut this.attachmentSection) null}}
           @section={{this.attachmentSection}}
-          @instanceId={{this.instanceId}}
+          @instanceId={{this.ebauModules.instanceId}}
           @save={{this.addDocumentAttachments}}
         />
       </div>
