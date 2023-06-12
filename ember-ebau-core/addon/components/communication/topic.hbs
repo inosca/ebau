@@ -1,7 +1,7 @@
 <div class="communications-topic" ...attributes>
   <UkFlex @horizontal="between">
     <div>
-      <h3 data-test-subject>{{this.topic.subject}}</h3>
+      <h3 class="uk-text-large uk-margin-remove" data-test-subject>{{this.topic.subject}}</h3>
       <span class="uk-text-meta" data-test-created-by>
         {{t
           "communications.detail.createdBy"
@@ -54,7 +54,6 @@
       @loading={{this.sendMessage.isRunning}}
       @updateMessage={{this.updateMessage}}
       @sendMessage={{perform this.sendMessage}}
-      class="uk-margin-bottom"
       data-test-message-input
     />
   {{else}}
