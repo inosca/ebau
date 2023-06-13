@@ -12,7 +12,6 @@ export default class CommunicationTopicListComponent extends Component {
 
   @dedupeTracked topicsFilter = "all";
   @dedupeTracked page = 1;
-  @dedupeTracked element;
 
   get showOnlyUnread() {
     switch (this.topicsFilter) {
@@ -86,28 +85,15 @@ export default class CommunicationTopicListComponent extends Component {
   }
 
   @action
-  scrollToFirst() {
-    this.element.scrollIntoView({ behavior: "smooth", block: "center" });
-  }
-
-  @action
   updateFilter(value) {
     this.topicsFilter = value;
     this.page = 1;
-    this.element = null;
   }
 
   @action
   updatePage() {
     if (this.topics.hasMore && !this.topics.isLoading) {
       this.page += 1;
-    }
-  }
-
-  @action
-  setElement(element) {
-    if (!this.element) {
-      this.element = element;
     }
   }
 }

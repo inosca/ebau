@@ -184,23 +184,4 @@ module("Integration | Component | communication/topic-list", function (hooks) {
       "page[size]": "20",
     });
   });
-
-  test("it has scroll to top button", async function (assert) {
-    assert.expect(3);
-    this.server.createList("communications-topic", 20);
-
-    await render(hbs`<Communication::TopicList @instanceId={{1}} />`);
-
-    assert.dom("[data-test-topic]").exists({ count: 20 });
-    // I could`t get the scrollTo helper to work here and this works perfect.
-    this.element.querySelector("tbody>tr:last-child").scrollIntoView();
-    const scrollIntoViewFake = sinon.replace(
-      this.element.querySelector("tbody>tr:first-child"),
-      "scrollIntoView",
-      sinon.fake()
-    );
-    assert.strictEqual(scrollIntoViewFake.callCount, 0);
-    await click("[data-test-back-to-first]");
-    assert.strictEqual(scrollIntoViewFake.callCount, 1);
-  });
 });
