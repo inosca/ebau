@@ -44,11 +44,7 @@ module("Integration | Component | communication/new-topic", function (hooks) {
     this.instance = this.server.create("instance");
 
     await render(
-      hbs`<Communication::NewTopic
-      @detailRoute="detail"
-      @listRoute="list"
-      @instanceId={{this.instance.id}}
-      />`
+      hbs`<Communication::NewTopic @instanceId={{this.instance.id}} />`
     );
 
     assert.dom("[data-test-involved-entities]").doesNotExist();
@@ -114,11 +110,7 @@ module("Integration | Component | communication/new-topic", function (hooks) {
     });
 
     await render(
-      hbs`<Communication::NewTopic
-      @detailRoute="detail"
-      @listRoute="list"
-      @instanceId={{this.instance.id}}
-      />`
+      hbs`<Communication::NewTopic @instanceId={{this.instance.id}} />`
     );
 
     assert.dom("[data-test-allow-answers]").doesNotExist();
@@ -199,11 +191,7 @@ module("Integration | Component | communication/new-topic", function (hooks) {
     });
 
     await render(
-      hbs`<Communication::NewTopic
-      @detailRoute="detail"
-      @listRoute="list"
-      @instanceId={{this.instance.id}}
-      />`
+      hbs`<Communication::NewTopic @instanceId={{this.instance.id}} />`
     );
 
     assert.dom("[data-test-allow-answers]").exists();
@@ -261,7 +249,7 @@ module("Integration | Component | communication/new-topic", function (hooks) {
     assert.strictEqual(this.transitionToFake.lastCall.args[0], "detail");
   });
 
-  test("it redirects to @listRoute on discard", async function (assert) {
+  test("it redirects to index route on discard", async function (assert) {
     assert.expect(2);
 
     this._routing = getOwner(this).lookup("service:-routing");
@@ -275,15 +263,11 @@ module("Integration | Component | communication/new-topic", function (hooks) {
     this.instance = this.server.create("instance");
 
     await render(
-      hbs`<Communication::NewTopic
-      @detailRoute="detail"
-      @listRoute="list"
-      @instanceId={{this.instance.id}}
-      />`
+      hbs`<Communication::NewTopic @instanceId={{this.instance.id}} />`
     );
 
     await click("[data-test-discard]");
     assert.strictEqual(this._transitionToFake.callCount, 1);
-    assert.strictEqual(this._transitionToFake.lastCall.args[0], "list");
+    assert.strictEqual(this._transitionToFake.lastCall.args[0], "index");
   });
 });

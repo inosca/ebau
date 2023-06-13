@@ -27,7 +27,7 @@ module("Integration | Component | communication/topic-list", function (hooks) {
     this.instance = this.server.create("instance", "withTopics");
 
     await render(
-      hbs`<Communication::TopicList @detailRoute="detail" @instanceId={{this.instance.id}} @newRoute="new" />`
+      hbs`<Communication::TopicList @instanceId={{this.instance.id}} />`
     );
 
     assert.dom("[data-test-new-topic]").exists();
@@ -57,7 +57,7 @@ module("Integration | Component | communication/topic-list", function (hooks) {
     assert.expect(4);
     const instance = this.server.create("instance", "withTopics");
 
-    await render(hbs`<Communication::TopicList @detailRoute="application"/>`);
+    await render(hbs`<Communication::TopicList />`);
 
     assert.dom("[data-test-new-topic]").doesNotExist();
     assert.dom("[data-test-instance-header]").exists();
@@ -82,9 +82,7 @@ module("Integration | Component | communication/topic-list", function (hooks) {
       instanceId: instance.id,
     });
 
-    await render(
-      hbs`<Communication::TopicList @detailRoute="detail" @instanceId={{1}} @newRoute="new" />`
-    );
+    await render(hbs`<Communication::TopicList @instanceId={{1}} />`);
 
     assert.dom("[data-test-topic]").exists({ count: 2 });
     assert.dom("[data-test-topic].uk-text-bold").exists({ count: 1 });
@@ -139,9 +137,7 @@ module("Integration | Component | communication/topic-list", function (hooks) {
       sinon.fake.returns("transisioned")
     );
 
-    await render(
-      hbs`<Communication::TopicList @detailRoute="detail" @instanceId={{1}} @newRoute="new" />`
-    );
+    await render(hbs`<Communication::TopicList @instanceId={{1}} />`);
 
     await click("[data-test-new-topic]");
     await click("[data-test-topic]");
@@ -156,9 +152,7 @@ module("Integration | Component | communication/topic-list", function (hooks) {
     assert.expect(5);
     this.server.createList("communications-topic", 40);
 
-    await render(
-      hbs`<Communication::TopicList @detailRoute="detail" @instanceId={{1}} @newRoute="new" />`
-    );
+    await render(hbs`<Communication::TopicList @instanceId={{1}} />`);
 
     assert.dom("[data-test-topic]").exists({ count: 20 });
 
@@ -195,9 +189,7 @@ module("Integration | Component | communication/topic-list", function (hooks) {
     assert.expect(3);
     this.server.createList("communications-topic", 20);
 
-    await render(
-      hbs`<Communication::TopicList @detailRoute="detail" @instanceId={{1}} @newRoute="new" />`
-    );
+    await render(hbs`<Communication::TopicList @instanceId={{1}} />`);
 
     assert.dom("[data-test-topic]").exists({ count: 20 });
     // I could`t get the scrollTo helper to work here and this works perfect.

@@ -6,8 +6,4 @@
   {{if this.isScoped "Instance" "Global"}}
 </UkButton>
 
-<Communication::TopicList
-  @detailRoute="communications.edit"
-  @instanceId={{this.isScoped}}
-  @newRoute="communications.new"
-/>
+<Communication::TopicList @instanceId={{this.isScoped}} />
