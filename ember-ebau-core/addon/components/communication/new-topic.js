@@ -92,10 +92,7 @@ export default class CommunicationNewTopicComponent extends TopicBase {
       await this.message.send();
 
       this.router.transitionTo(
-        this.ebauModules.resolveModuleRoute(
-          "communications",
-          this.args.detailRoute
-        ),
+        this.ebauModules.resolveModuleRoute("communications", "detail"),
         topic.id
       );
     } catch (error) {

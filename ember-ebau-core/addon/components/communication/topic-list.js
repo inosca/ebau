@@ -1,3 +1,4 @@
+import { getOwner } from "@ember/application";
 import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
@@ -48,13 +49,40 @@ export default class CommunicationTopicListComponent extends Component {
 
   @action
   transitionToTopic(topic) {
-    this.router.transitionTo(
-      this.ebauModules.resolveModuleRoute(
-        this.args.instanceId ? "communications" : "communications-global",
-        this.args.detailRoute
-      ),
-      topic.id
+    const applicationName = getOwner(this).application.modulePrefix;
+
+    const instanceId = topic.get("instance.id");
+    const routeName = this.ebauModules.resolveModuleRoute(
+      "communications",
+      "detail"
     );
+
+    if (applicationName === "camac-ng") {
+      if (
+        this.router.currentRouteName ===
+        this.ebauModules.resolveModuleRoute(
+          "communications-global",
+          "communications-global"
+        )
+      ) {
+        // If we are on the global page in ember-camac-ng, we need to use a hard
+        // transition to the correct instance resource with the ember hash appended
+        const url = [
+          "/index/redirect-to-instance-resource/instance-id/",
+          instanceId,
+          "?instance-resource-name=communication",
+          "&ember-hash=",
+          this.router.urlFor(routeName, topic.id),
+        ].join("");
+
+        location.assign(url);
+      } else {
+        // ember-camac-ng does not have the instance ID in the ember url
+        this.router.transitionTo(routeName, topic.id);
+      }
+    } else {
+      this.router.transitionTo(routeName, instanceId, topic.id);
+    }
   }
 
   @action

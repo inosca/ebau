@@ -23,9 +23,9 @@
         {{t "communications.list.read"}}
       </UkButton>
     </div>
-    {{#if (and @instanceId @newRoute)}}
+    {{#if @instanceId}}
       <LinkTo
-        @route={{module-route "communications" @newRoute}}
+        @route={{module-route "communications" "new"}}
         class="uk-button uk-button-primary"
         data-test-new-topic
       >
