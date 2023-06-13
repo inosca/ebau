@@ -30,14 +30,24 @@ def test_document_visibility(
     )
     service_category = category_factory(metainfo={"access": {"service": "Internal"}})
 
-    DocumentFactory.create_batch(2, category=applicant_category)
-    DocumentFactory.create_batch(2, category=municipality_category)
+    DocumentFactory.create_batch(
+        2, category=applicant_category, metainfo={"case_id": instance.pk}
+    )
+    DocumentFactory.create_batch(
+        2, category=municipality_category, metainfo={"case_id": instance.pk}
+    )
 
     # readable from service
-    DocumentFactory(category=service_category, created_by_group=caluma_admin_user.group)
+    DocumentFactory(
+        category=service_category,
+        created_by_group=caluma_admin_user.group,
+        metainfo={"case_id": instance.pk},
+    )
 
     # readable as invitee
-    document = DocumentFactory(category=applicant_category)
+    document = DocumentFactory(
+        category=applicant_category, metainfo={"case_id": instance.pk}
+    )
     instance_alexandria_document_factory(instance=instance, document=document)
 
     url = reverse("document-list")
@@ -57,17 +67,29 @@ def test_document_visibility(
     ],
 )
 def test_file_visibility(
-    db, caluma_admin_user, admin_client, category_factory, role, expected_count
+    db,
+    caluma_admin_user,
+    instance,
+    admin_client,
+    category_factory,
+    role,
+    expected_count,
 ):
     applicant_category = category_factory(metainfo={"access": {"applicant": "Admin"}})
     municipality_category = category_factory(
         metainfo={"access": {"municipality": "Read"}}
     )
     service_category = category_factory(metainfo={"access": {"service": "Internal"}})
-    applicant_document = DocumentFactory(category=applicant_category)
-    municipality_document = DocumentFactory(category=municipality_category)
+    applicant_document = DocumentFactory(
+        category=applicant_category, metainfo={"case_id": instance.pk}
+    )
+    municipality_document = DocumentFactory(
+        category=municipality_category, metainfo={"case_id": instance.pk}
+    )
     service_document = DocumentFactory(
-        category=service_category, created_by_group=caluma_admin_user.group
+        category=service_category,
+        created_by_group=caluma_admin_user.group,
+        metainfo={"case_id": instance.pk},
     )
     FileFactory.create_batch(3, document=applicant_document)
     FileFactory.create_batch(2, document=municipality_document)

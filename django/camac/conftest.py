@@ -89,6 +89,10 @@ factory_logger.setLevel(logging.INFO)
 sorl_thumbnail_logger = logging.getLogger("sorl.thumbnail")
 sorl_thumbnail_logger.setLevel(logging.INFO)
 
+# alexandria factories
+# register first so any factory conflicts will result in it being overwritten
+register_module(alexandria_factories, prefix="alexandria")
+
 register_module(user_factories)
 register_module(instance_factories)
 register_module(core_factories)
@@ -106,8 +110,6 @@ register_module(communications_factories)
 register_module(caluma_form_factories, prefix="caluma")
 register_module(caluma_workflow_factories, prefix="caluma")
 
-# alexandria factories
-register_module(alexandria_factories, prefix="alexandria")
 
 # TODO: Somehow the ordering of those two calls is relevant.
 # Need to figure out why exactly (FreezegunAwareDatetimeProvider's
