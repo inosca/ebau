@@ -2,7 +2,7 @@ import { render, click } from "@ember/test-helpers";
 import { hbs } from "ember-cli-htmlbars";
 import { module, test } from "qunit";
 
-import { setupRenderingTest } from "camac-ng/tests/helpers";
+import { setupRenderingTest } from "dummy/tests/helpers";
 
 module("Integration | Component | icon-button", function (hooks) {
   setupRenderingTest(hooks);

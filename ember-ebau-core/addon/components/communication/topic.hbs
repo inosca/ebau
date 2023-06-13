@@ -27,7 +27,7 @@
   <hr />
 
   {{#if this.messagesResource.hasMore}}
-    <div class="uk-text-center uk-margin">
+    <div class="uk-text-center">
       {{#if this.messagesResource.isLoading}}
         <UkSpinner />
       {{else}}
@@ -57,11 +57,7 @@
       data-test-message-input
     />
   {{else}}
-    <div
-      uk-alert
-      class="uk-margin uk-margin-medium-left uk-margin-medium-right uk-text-center"
-      data-test-no-replies
-    >
+    <div class="uk-text-center uk-text-italic" data-test-no-replies>
       {{t "communications.detail.readOnly"}}
     </div>
   {{/if}}

@@ -17,7 +17,7 @@
       {{#if @message.attachments.length}}
         <a
           href="#"
-          class="uk-link uk-link-text uk-margin-small-right"
+          class="uk-margin-small-right uk-text-meta"
           {{on "click" this.toggleText}}
           data-test-expand-files
         >
@@ -63,18 +63,13 @@
           </div>
         </div>
       {{else}}
-        <button
-          type="button"
-          class="uk-icon-button"
-          uk-icon={{unless this.markAsRead.isRunning "eye"}}
-          uk-tooltip={{t "communications.detail.markAsRead"}}
-          {{on "click" (perform this.markAsRead)}}
+        <IconButton
+          @icon="eye"
+          @onClick={{perform this.markAsRead}}
+          @loading={{this.markAsRead.isRunning}}
           data-test-mark-read
-        >
-          {{#if this.markAsRead.isRunning}}
-            <UkSpinner />
-          {{/if}}
-        </button>
+          {{uk-tooltip (t "communications.detail.markAsRead")}}
+        />
       {{/if}}
     </span>
   </UkFlex>

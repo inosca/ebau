@@ -80,15 +80,7 @@
 
     </div>
 
-    <div class="uk-flex uk-flex-between uk-margin-top">
-      <LinkTo
-        @route={{module-route "communications" "index"}}
-        class="uk-button uk-button-default"
-        disabled={{this.createTopic.isRunning}}
-        data-test-discard
-      >
-        {{t "communications.new.discard"}}
-      </LinkTo>
+    <div class="uk-margin">
       <UkButton
         @color="primary"
         @disabled={{this.saveDisabled}}
@@ -97,6 +89,14 @@
       >
         {{t "communications.new.send"}}
       </UkButton>
+      <LinkTo
+        @route={{module-route "communications" "index"}}
+        class="uk-button uk-button-default"
+        disabled={{this.createTopic.isRunning}}
+        data-test-discard
+      >
+        {{t "global.cancel"}}
+      </LinkTo>
     </div>
 
   </form>

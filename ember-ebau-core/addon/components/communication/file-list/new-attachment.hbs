@@ -2,7 +2,7 @@
   {{#if this.documentAttachmentResource.isRunning}}
     <UkSpinner />
   {{else}}
-    <UkIcon @icon="file-text" class="uk-margin-small-right" />
+    <UkIcon @icon="file-text" />
     {{this.documentAttachmentResource.value.name}}
   {{/if}}
 </span>

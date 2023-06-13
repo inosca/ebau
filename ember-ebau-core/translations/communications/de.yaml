@@ -43,7 +43,6 @@ communications:
     message: Nachricht
     allowAnswers: Antworten erlauben
     send: Senden
-    discard: Verwerfen
     fetchError: Die Daten konnten nicht geladen werden. Bitte versuchen Sie es erneut.
     saveError: Die Nachricht konnten nicht versendet  werden. Bitte versuchen Sie es erneut.
     applicant: Gesuchsteller/in

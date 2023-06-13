@@ -1,24 +1,26 @@
 {{#if @files.length}}
-  <span class="uk-text-bold uk-text-meta">{{t
-      "communications.message.files"
-    }}</span>
-  <ul class="uk-list uk-list-divider">
-    {{#each @files as |file|}}
-      <li class="uk-flex uk-flex-middle uk-flex-between" data-test-attachment>
-        {{#if file.id}}
-          <Communication::FileList::File @file={{file}} />
-        {{else if file.name}}
-          <Communication::FileList::NewFile
-            @file={{file}}
-            @removeFile={{@removeFile}}
-          />
-        {{else}}
-          <Communication::FileList::NewAttachment
-            @attachment={{file}}
-            @removeAttachment={{@removeAttachment}}
-          />
-        {{/if}}
-      </li>
-    {{/each}}
-  </ul>
+  <div class="uk-margin">
+    <span class="uk-text-bold uk-text-meta">
+      {{t "communications.message.files" }}
+    </span>
+    <ul class="uk-list uk-list-divider">
+      {{#each @files as |file|}}
+        <li class="uk-flex uk-flex-middle uk-flex-between" data-test-attachment>
+          {{#if file.id}}
+            <Communication::FileList::File @file={{file}} />
+          {{else if file.name}}
+            <Communication::FileList::NewFile
+              @file={{file}}
+              @removeFile={{@removeFile}}
+            />
+          {{else}}
+            <Communication::FileList::NewAttachment
+              @attachment={{file}}
+              @removeAttachment={{@removeAttachment}}
+            />
+          {{/if}}
+        </li>
+      {{/each}}
+    </ul>
+  </div>
 {{/if}}
