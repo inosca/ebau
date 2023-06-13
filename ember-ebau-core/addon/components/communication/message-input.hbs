@@ -60,18 +60,13 @@
       </div>
     {{/unless}}
     {{#if @sendMessage}}
-      <button
-        type="button"
-        disabled={{this.sendDisabled}}
-        class="uk-icon-button"
-        uk-icon={{this.messageIcon}}
+      <IconButton
+        @disabled={{this.sendDisabled}}
+        @icon={{this.messageIcon}}
+        @loading={{@loading}}
+        @onClick={{@sendMessage}}
         data-test-send
-        {{on "click" @sendMessage}}
-      >
-        {{#if @loading}}
-          <UkSpinner data-test-loading />
-        {{/if}}
-      </button>
+      />
     {{/if}}
 
   </div>

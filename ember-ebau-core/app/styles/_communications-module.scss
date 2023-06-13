@@ -12,12 +12,6 @@
   .file-upload > input:disabled {
     pointer-events: none;
   }
-  button.uk-icon-button {
-    pointer-events: all;
-  }
-  button.uk-icon-button:disabled {
-    pointer-events: none;
-  }
 }
 
 .communications-message-list {

@@ -1,8 +1,8 @@
 <span>
   {{#if @file.download.isRunning}}
-    <UkSpinner />
+    <UkSpinner @ratio="0.5" />
   {{else}}
-    <UkIcon @icon="file-text" class="uk-margin-small-right" />
+    <UkIcon @icon="file-text" />
   {{/if}}
   <a
     href="#"
@@ -17,7 +17,8 @@
   <span>
     {{#if @file.documentAttachment}}
       <span class="uk-text-meta">
-        {{t "communications.detail.uploadedToDMS"}}</span>
+        {{t "communications.detail.uploadedToDMS"}}
+      </span>
     {{else}}
       <button
         type="button"

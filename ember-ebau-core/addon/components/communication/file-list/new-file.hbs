@@ -1,11 +1,9 @@
 <span>
-  <UkIcon @icon="file-text" class="uk-margin-small-right" />
+  <UkIcon @icon="file-text" />
   {{@file.name}}
 </span>
-<button
-  type="button"
-  class="uk-icon-button"
-  uk-icon="trash"
+<IconButton
+  @icon="trash"
+  @onClick={{fn @removeFile @file}}
   data-test-remove-attachment
-  {{on "click" (fn @removeFile @file)}}
-></button>
+/>
