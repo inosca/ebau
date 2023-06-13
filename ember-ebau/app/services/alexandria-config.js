@@ -8,7 +8,7 @@ export default class AlexandriaConfigService extends Service {
 
   get modelMetaFilters() {
     return {
-      document: [{ key: "case_id", value: this.caseId }],
+      document: [{ key: "case_id", value: this.caseId.toString() }],
     };
   }
   get defaultModelMeta() {
