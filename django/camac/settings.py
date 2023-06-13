@@ -3818,6 +3818,7 @@ REST_FRAMEWORK = {
         "django_filters.rest_framework.DjangoFilterBackend",
         "camac.filters.MultilingualSearchFilter",
         "rest_framework.filters.OrderingFilter",
+        "rest_framework_json_api.django_filters.DjangoFilterBackend",
     ),
     "ORDERING_PARAM": "sort",
     "TEST_REQUEST_RENDERER_CLASSES": (
