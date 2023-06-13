@@ -10,6 +10,13 @@ module("Integration | Component | communication/topic", function (hooks) {
   setupMirage(hooks);
   setupIntl(hooks, "de");
 
+  hooks.beforeEach(function () {
+    this.owner.lookup("service:ebauModules").resolveModuleRoute = (
+      _,
+      routeName
+    ) => routeName;
+  });
+
   test("it renders a topic", async function (assert) {
     assert.expect(7);
 

@@ -5,69 +5,60 @@
     @removeAttachment={{fn this.remove "documentAttachmentsToSave"}}
   />
 
-  <div class="uk-flex uk-flex-bottom">
-    <textarea
-      value={{this.body}}
-      aria-label={{t "communications.message.messageInputLabel"}}
-      class="uk-textarea"
-      placeholder={{t "communications.message.messageInputPlaceholder"}}
-      disabled={{this.disabled}}
-      {{on "input" this.updateMessage}}
-      {{autoresize this.body mode="height"}}
-    />
+  <textarea
+    value={{this.body}}
+    aria-label={{t "communications.message.messageInputLabel"}}
+    class="uk-textarea uk-margin"
+    placeholder={{t "communications.message.messageInputPlaceholder"}}
+    disabled={{this.disabled}}
+    rows="5"
+    {{on "input" this.updateMessage}}
+    {{autoresize this.body mode="height"}}
+  />
 
-    <div uk-form-custom class="file-upload">
-      <input
-        aria-label={{t "communications.message.fileInputLabel"}}
-        type="file"
-        multiple
-        {{on "input" this.addFiles}}
-        disabled={{this.disabled}}
-      />
-      <button
-        type="button"
-        class="uk-icon-button uk-margin-small-left uk-margin-small-right"
-        uk-icon="file-text"
-        disabled={{this.disabled}}
-        data-test-select-files
-        tabindex="-1"
-      ></button>
-    </div>
-    {{#unless this.ebauModules.isApplicant}}
-      <div class="uk-margin-small-right">
-        <button
-          type="button"
-          class="uk-icon-button"
-          uk-icon="link"
-          disabled={{this.disabled}}
-          data-test-select-files
-          tabindex="-1"
-        >
-        </button>
-        <Communication::AttachmentSectionDropdown
-          @instanceId={{this.ebauModules.instanceId}}
-          @selectSection={{fn (mut this.attachmentSection)}}
-          uk-dropdown="mode:click;pos:top-right;"
-        />
-        <LinkAttachments::Modal
-          @selected={{@message.documentAttachmentsToSave}}
-          @visible={{this.attachmentSection}}
-          @onHide={{fn (mut this.attachmentSection) null}}
-          @section={{this.attachmentSection}}
-          @instanceId={{this.ebauModules.instanceId}}
-          @save={{this.addDocumentAttachments}}
-        />
-      </div>
-    {{/unless}}
-    {{#if @sendMessage}}
-      <IconButton
-        @disabled={{this.sendDisabled}}
-        @icon={{this.messageIcon}}
+  {{#unless this.disabled}}
+    <Dropzone @multiple={{true}} @onFileAdded={{this.addFiles}}>
+      <:content>
+        {{#unless this.ebauModules.isApplicant}}
+          <p>
+            {{t "communications.new.linkFile"}}
+            <a href="" data-test-select-files>{{t "communications.new.linkFileAction"}}</a>
+            <Communication::AttachmentSectionDropdown
+              @instanceId={{this.ebauModules.instanceId}}
+              @selectSection={{fn (mut this.attachmentSection)}}
+              uk-dropdown="mode:click;pos:top-right;"
+            />
+            <LinkAttachments::Modal
+              @selected={{@message.documentAttachmentsToSave}}
+              @visible={{this.attachmentSection}}
+              @onHide={{fn (mut this.attachmentSection) null}}
+              @section={{this.attachmentSection}}
+              @instanceId={{this.ebauModules.instanceId}}
+              @save={{this.addDocumentAttachments}}
+            />
+          </p>
+        {{/unless}}
+      </:content>
+    </Dropzone>
+  {{/unless}}
+
+  {{#if @sendMessage}}
+    <div class="uk-margin">
+      <UkButton
+        @color="primary"
+        @label={{t "communications.new.send"}}
         @loading={{@loading}}
         @onClick={{@sendMessage}}
+        @disabled={{this.sendDisabled}}
         data-test-send
+        data-test-loading={{@loading}}
       />
-    {{/if}}
-
-  </div>
+      <LinkTo
+        @route={{module-route "communications" "index"}}
+        class="uk-button uk-button-default"
+      >
+        {{t "global.back"}}
+      </LinkTo>
+    </div>
+  {{/if}}
 </div>

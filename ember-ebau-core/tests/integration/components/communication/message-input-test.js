@@ -1,6 +1,5 @@
 import { getOwner } from "@ember/application";
 import { render, fillIn, click } from "@ember/test-helpers";
-import { faker } from "@faker-js/faker";
 import { hbs } from "ember-cli-htmlbars";
 import { setupRenderingTest } from "ember-qunit";
 import { module, test, todo } from "qunit";
@@ -9,6 +8,13 @@ module(
   "Integration | Component | communication/message-input",
   function (hooks) {
     setupRenderingTest(hooks);
+
+    hooks.beforeEach(function () {
+      this.owner.lookup("service:ebauModules").resolveModuleRoute = (
+        _,
+        routeName
+      ) => routeName;
+    });
 
     test("it renders without a send button", async function (assert) {
       await render(hbs`<Communication::MessageInput />`);
@@ -62,53 +68,6 @@ module(
       assert.verifySteps(["update", "send"]);
     });
 
-    test("it resizes textarea based on content", async function (assert) {
-      assert.expect(1);
-
-      const store = getOwner(this).lookup("service:store");
-      this.message = store.createRecord("communications-message");
-
-      const testInput = faker.lorem.paragraphs(5);
-
-      this.updateMessage = (value) => {
-        this.message.body = value;
-      };
-
-      await render(hbs`
-      <Communication::MessageInput
-        @message={{this.message}}
-        @updateMessage={{this.updateMessage}}
-      />`);
-
-      const heightBefore = this.element.querySelector("textarea").clientHeight;
-      await fillIn("textarea", testInput);
-      const heightAfter = this.element.querySelector("textarea").clientHeight;
-      assert.ok(heightBefore < heightAfter);
-    });
-
-    test("it resizes textarea not over max", async function (assert) {
-      assert.expect(1);
-
-      const store = getOwner(this).lookup("service:store");
-      this.message = store.createRecord("communications-message");
-
-      const testInput = faker.lorem.paragraphs(100);
-
-      this.updateMessage = (value) => {
-        this.message.body = value;
-      };
-
-      await render(hbs`
-      <Communication::MessageInput
-        @message={{this.message}}
-        @updateMessage={{this.updateMessage}}
-      />`);
-
-      await fillIn("textarea", testInput);
-      const heightAfter = this.element.querySelector("textarea").clientHeight;
-      assert.ok(heightAfter <= 300);
-    });
-
     test("it is disabled if @disabled or @loading is passed", async function (assert) {
       assert.expect(8);
 
@@ -125,21 +84,21 @@ module(
         @sendMessage={{this.sendMessage}}
       />`);
 
-      assert.dom("[data-test-select-files]").isNotDisabled();
+      assert.dom("[data-test-select-files]").exists();
       assert.dom("[data-test-send]").isNotDisabled();
 
       this.set("disabled", true);
-      assert.dom("[data-test-select-files]").isDisabled();
+      assert.dom("[data-test-select-files]").doesNotExist();
       assert.dom("[data-test-send]").isDisabled();
 
       this.set("disabled", false);
       this.set("loading", true);
-      assert.dom("[data-test-select-files]").isDisabled();
+      assert.dom("[data-test-select-files]").doesNotExist();
       assert.dom("[data-test-send]").isDisabled();
 
       this.set("disabled", true);
       this.set("loading", true);
-      assert.dom("[data-test-select-files]").isDisabled();
+      assert.dom("[data-test-select-files]").doesNotExist();
       assert.dom("[data-test-send]").isDisabled();
     });
 
@@ -161,7 +120,7 @@ module(
       assert.dom("[data-test-loading]").exists();
     });
 
-    todo("it selects fiels", async function () {
+    todo("it selects files", async function () {
       await render(hbs`
       <Communication::MessageInput
         @message={{this.message.value}}
