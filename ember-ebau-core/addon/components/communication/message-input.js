@@ -34,11 +34,8 @@ export default class CommunicationMessageInputComponent extends Component {
   }
 
   @action
-  addFiles({ target: { files } }) {
-    this.args.message.filesToSave = [
-      ...this.args.message.filesToSave,
-      ...files,
-    ];
+  addFiles({ file }) {
+    this.args.message.filesToSave = [...this.args.message.filesToSave, file];
   }
 
   @action

@@ -33,6 +33,8 @@ communications:
     attachmentSections: Kategorien
 
   new:
+    linkFile: Sie können auch Dateien aus
+    linkFileAction: dem Dokumentenmodul direkt verlinken
     newTopic: Neue Konversation eröffnen
     involvedEntities: Involvierte Parteien
     involvedEntitiesPlaceholder: Involvierten Parteien...
