@@ -2408,7 +2408,7 @@ APPLICATIONS = {
             ),
             "oereb_topic": (
                 "answer",
-                "oereb-thema",
+                ["oereb-thema", "oereb-thema-gemeinde"],
             ),
             "legal_state": (
                 "answer",
