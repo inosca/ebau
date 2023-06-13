@@ -1,4 +1,4 @@
-from django_filters.rest_framework import BooleanFilter, FilterSet
+from django_filters.rest_framework import BooleanFilter, FilterSet, NumberFilter
 
 from camac.filters import CharMultiValueFilter
 
@@ -36,10 +36,11 @@ class IsDraftFilter(BooleanFilter):
 class MessageFilterSet(FilterSet):
     is_read = IsReadFilter()
     is_draft = IsDraftFilter()
+    instance = NumberFilter(field_name="topic__instance_id")
 
     class Meta:
         model = models.CommunicationsMessage
-        fields = ["topic", "is_read", "is_draft"]
+        fields = ["topic", "is_read", "is_draft", "instance"]
 
 
 class AttachmentFilterSet(FilterSet):

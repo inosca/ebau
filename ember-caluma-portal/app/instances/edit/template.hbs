@@ -51,7 +51,7 @@
         >
           <AriaHeading @enabled={{active}}>
             {{t "nav.communications"}}
-            <Communication::UnreadMessageBadge class="uk-margin-small-left" />
+            <Communication::UnreadMessageBadge @instanceId={{this.instance.value.id}} class="uk-margin-small-left" />
           </AriaHeading>
         </Tab.item>
       {{/if}}

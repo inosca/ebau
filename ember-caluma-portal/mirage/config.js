@@ -58,6 +58,11 @@ export default function makeServer(config) {
         });
       });
 
+      this.get("/api/v1/communications-messages", () => ({
+        data: [],
+        meta: { pagination: { count: 3 } },
+      }));
+
       this.post("/graphql/", graphqlHandler(this), 200);
     },
   });
