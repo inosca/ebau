@@ -30,6 +30,13 @@ export default class CommunicationTopicComponent extends TopicBase {
     return this.topicResource.record;
   }
 
+  get isLoading() {
+    return (
+      this.topicResource.isLoading ||
+      (this.messagesResource.isLoading && !this.messagesResource.records.length)
+    );
+  }
+
   topicResource = findRecord(this, "communications-topic", () => [
     this.args.topicId,
     { include: "initiated_by" },
