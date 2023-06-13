@@ -73,25 +73,21 @@
         {{else}}
           {{#unless this.topics.isLoading}}
             <tr>
-              <td colspan="4" class="uk-text-center">{{t
-                  "communications.empty"
-                }}</td>
+              <td colspan="4" class="uk-text-center">
+                {{t "communications.empty"}}
+              </td>
             </tr>
           {{/unless}}
         {{/each}}
       {{/unless}}
       {{#if this.topics.isLoading}}
         <tr>
-          <td colspan={{this.colspan}} class="uk-text-center">{{t
-              "communications.loading"
-            }}</td>
-        </tr>
-      {{else if this.topics.hasMore}}
-        <tr {{in-viewport onEnter=this.updatePage}}>
           <td colspan={{this.colspan}} class="uk-text-center">
-            {{t "communications.loading"}}
+            <UkSpinner />
           </td>
         </tr>
+      {{else if this.topics.hasMore}}
+        <tr {{in-viewport onEnter=this.updatePage}}></tr>
       {{/if}}
     </tbody>
   </table>
