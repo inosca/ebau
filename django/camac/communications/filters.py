@@ -24,23 +24,13 @@ class IsReadFilter(BooleanFilter):
             return queryset.filter(read_at__isnull=True)
 
 
-class IsDraftFilter(BooleanFilter):
-    def filter(self, queryset, value):
-        if value is None:
-            return queryset
-
-        # A draft is a message without sent_at.
-        return queryset.filter(sent_at__isnull=value)
-
-
 class MessageFilterSet(FilterSet):
     is_read = IsReadFilter()
-    is_draft = IsDraftFilter()
     instance = NumberFilter(field_name="topic__instance_id")
 
     class Meta:
         model = models.CommunicationsMessage
-        fields = ["topic", "is_read", "is_draft", "instance"]
+        fields = ["topic", "is_read", "instance"]
 
 
 class AttachmentFilterSet(FilterSet):
