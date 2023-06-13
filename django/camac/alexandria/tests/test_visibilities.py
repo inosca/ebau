@@ -1,5 +1,10 @@
 import pytest
-from alexandria.core.factories import DocumentFactory, FileFactory, TagFactory
+from alexandria.core.factories import (
+    CategoryFactory,
+    DocumentFactory,
+    FileFactory,
+    TagFactory,
+)
 from django.urls import reverse
 from pytest_factoryboy import LazyFixture
 from rest_framework.status import HTTP_200_OK
@@ -19,16 +24,14 @@ def test_document_visibility(
     caluma_admin_user,
     admin_client,
     instance,
-    category_factory,
-    instance_alexandria_document_factory,
     expected_count,
 ):
     # directly readble
-    applicant_category = category_factory(metainfo={"access": {"applicant": "Admin"}})
-    municipality_category = category_factory(
+    applicant_category = CategoryFactory(metainfo={"access": {"applicant": "Admin"}})
+    municipality_category = CategoryFactory(
         metainfo={"access": {"municipality": "Read"}}
     )
-    service_category = category_factory(metainfo={"access": {"service": "Internal"}})
+    service_category = CategoryFactory(metainfo={"access": {"service": "Internal"}})
 
     DocumentFactory.create_batch(
         2, category=applicant_category, metainfo={"case_id": instance.pk}
@@ -45,10 +48,7 @@ def test_document_visibility(
     )
 
     # readable as invitee
-    document = DocumentFactory(
-        category=applicant_category, metainfo={"case_id": instance.pk}
-    )
-    instance_alexandria_document_factory(instance=instance, document=document)
+    DocumentFactory(category=applicant_category, metainfo={"case_id": instance.pk})
 
     url = reverse("document-list")
     response = admin_client.get(url)
@@ -68,18 +68,18 @@ def test_document_visibility(
 )
 def test_file_visibility(
     db,
+    minio_mock,
     caluma_admin_user,
     instance,
     admin_client,
-    category_factory,
     role,
     expected_count,
 ):
-    applicant_category = category_factory(metainfo={"access": {"applicant": "Admin"}})
-    municipality_category = category_factory(
+    applicant_category = CategoryFactory(metainfo={"access": {"applicant": "Admin"}})
+    municipality_category = CategoryFactory(
         metainfo={"access": {"municipality": "Read"}}
     )
-    service_category = category_factory(metainfo={"access": {"service": "Internal"}})
+    service_category = CategoryFactory(metainfo={"access": {"service": "Internal"}})
     applicant_document = DocumentFactory(
         category=applicant_category, metainfo={"case_id": instance.pk}
     )
@@ -111,16 +111,14 @@ def test_file_visibility(
         ("Service", 2),
     ],
 )
-def test_category_visibility(
-    db, admin_client, role, expected_count, category_factory, snapshot
-):
-    category_factory(
+def test_category_visibility(db, admin_client, role, expected_count, snapshot):
+    CategoryFactory(
         metainfo={
             "access": {"applicant": "Admin", "municipality": "Read", "service": "Read"}
         }
     )
-    category_factory(metainfo={"access": {"municipality": "Read"}})
-    category_factory(
+    CategoryFactory(metainfo={"access": {"municipality": "Read"}})
+    CategoryFactory(
         metainfo={"access": {"service": "Internal", "municipality": "Read"}}
     )
 
@@ -152,8 +150,6 @@ def test_tag_visibility(
     TagFactory(created_by_group=caluma_admin_user.group)
     public_tag = TagFactory()
     application_settings["ALEXANDRIA"]["PUBLIC_TAGS"] = [public_tag.pk]
-    if role.name == "Applicant":
-        application_settings["PORTAL_GROUP"] = caluma_admin_user.camac_group
 
     url = reverse("tag-list")
     response = admin_client.get(url)

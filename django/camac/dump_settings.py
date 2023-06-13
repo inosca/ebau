@@ -241,4 +241,5 @@ DUMP_DATA_EXCLUDED_MODELS = [
     "caluma_workflow.HistoricalTask",
     "caluma_workflow.HistoricalTaskFlow",
     "caluma_workflow.HistoricalFlow",
+    "instance.InstanceAlexandriaDocument",
 ]

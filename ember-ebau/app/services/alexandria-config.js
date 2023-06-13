@@ -11,6 +11,7 @@ export default class AlexandriaConfigService extends Service {
       document: [{ key: "case_id", value: this.caseId.toString() }],
     };
   }
+
   get defaultModelMeta() {
     return {
       document: { case_id: this.caseId },
