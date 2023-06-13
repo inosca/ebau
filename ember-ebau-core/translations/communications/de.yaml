@@ -5,8 +5,6 @@ communications:
   date: Datum
   loading: Daten werden geladen...
   empty: Keine Themen vorhanden
-  noMoreData: Keine weiteren Einträge vorhanden.
-  backToFirst: Zurück zum ersten Eintrag
   unread: "{count} ungelesene {count, plural, one {Nachricht} other {Nachrichten}}"
 
   list:

@@ -52,7 +52,6 @@
             class="{{if topic.hasUnread 'uk-text-bold'}}"
             data-test-topic
             role="link"
-            {{did-insert this.setElement}}
             {{on "click" (fn this.transitionToTopic topic)}}
           >
             {{#unless @instanceId}}
@@ -89,23 +88,8 @@
         </tr>
       {{else if this.topics.hasMore}}
         <tr {{in-viewport onEnter=this.updatePage}}>
-          <td colspan={{this.colspan}} class="uk-text-center">{{t
-              "communications.loading"
-            }}</td>
-        </tr>
-      {{else if this.topics.records.length}}
-        <tr>
           <td colspan={{this.colspan}} class="uk-text-center">
-            {{t "communications.noMoreData"}}
-
-            <button
-              type="button"
-              class="uk-margin-small-left uk-icon-button"
-              uk-icon="chevron-up"
-              data-test-back-to-first
-              {{uk-tooltip (t "communications.backToFirst")}}
-              {{on "click" this.scrollToFirst}}
-            ></button>
+            {{t "communications.loading"}}
           </td>
         </tr>
       {{/if}}
