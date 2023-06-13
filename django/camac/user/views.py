@@ -1,11 +1,11 @@
 from django.conf import settings
 from django.contrib.auth import get_user_model
+from django.db import transaction
 from django.db.models import Q
 from drf_yasg.utils import swagger_auto_schema
 from rest_framework import response, status
-from django.db import transaction
-from rest_framework.mixins import RetrieveModelMixin
 from rest_framework.decorators import action
+from rest_framework.mixins import RetrieveModelMixin
 from rest_framework.viewsets import GenericViewSet
 from rest_framework_json_api.views import (
     AutoPrefetchMixin,
