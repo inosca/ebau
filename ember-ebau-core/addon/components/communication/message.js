@@ -16,7 +16,8 @@ export default class CommunicationMessageComponent extends Component {
   get isExpandable() {
     return (
       this.paragraph?.clientWidth < this.paragraph?.scrollWidth ||
-      this.args.message.attachments.length
+      this.args.message.attachments.length ||
+      /\r|\n/.test(this.args.message.body)
     );
   }
 
