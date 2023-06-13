@@ -8,9 +8,10 @@ from .common import get_role
 
 class CustomVisibility(BaseVisibility):
     @filter_queryset_for(BaseModel)
-    def filter_queryset_for_all(self, queryset, request):
-        if get_role(request.caluma_info.user) == "support":
+    def filter_queryset_for_all(self, queryset, request):  # pragma: no cover
+        if get_role(request.caluma_info.context.user) != "public":
             return queryset
+
         return queryset.none()
 
     def document_file_filter(self, user, prefix=""):
@@ -64,6 +65,9 @@ class CustomVisibility(BaseVisibility):
 
     @filter_queryset_for(Category)
     def filter_queryset_for_category(self, queryset, request):
+        if "swagger" in request.path:  # pragma: no cover
+            return queryset.none()
+
         # category is visible when the role is in the access, regardless of the permission
         return queryset.filter(
             metainfo__access__has_key=get_role(request.caluma_info.context.user)
@@ -77,9 +81,9 @@ class CustomVisibility(BaseVisibility):
         public_tags = Q(
             pk__in=settings.APPLICATION.get("ALEXANDRIA", {}).get("PUBLIC_TAGS", [])
         )
-        if request.caluma_info.context.user.camac_group == settings.APPLICATION.get(
-            "PORTAL_GROUP"
-        ):  # applicant
+        if get_role(request.caluma_info.context.user) == settings.APPLICATION.get(
+            "ALEXANDRIA", {}
+        ).get("PUBLIC_ROLE", "public"):
             return queryset.filter(public_tags)
 
         return queryset.filter(

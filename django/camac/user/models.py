@@ -151,8 +151,13 @@ class User(AbstractBaseUser):
         return self.id
 
     @property
-    def alexandria_group(self):
-        return self.get_default_group().service.pk
+    def alexandria_group(self):  # pragma: no cover
+        group = self.get_default_group()
+        if not group:
+            return "-"
+        if not group.service:
+            return "-"
+        return group.service.pk
 
     def __str__(self):
         return self.get_full_name()

@@ -6,12 +6,12 @@ import os
 import sys
 from copy import deepcopy
 from dataclasses import dataclass, field
-from datetime import date
+from datetime import date, datetime, timezone
 from pathlib import Path
 
 import faker
 import pytest
-from alexandria.core import factories as alexandria_factories
+import urllib3
 from caluma.caluma_core.faker import MultilangProvider
 from caluma.caluma_form import (
     factories as caluma_form_factories,
@@ -34,6 +34,8 @@ from django.views.generic import RedirectView
 from factory import Faker
 from factory.base import FactoryMetaClass
 from jwt import encode as jwt_encode
+from minio import Minio
+from minio.datatypes import Object as MinioStatObject
 from pytest_factoryboy import register
 from pytest_factoryboy.fixture import Box, get_model_name
 from rest_framework import status
@@ -89,10 +91,6 @@ factory_logger.setLevel(logging.INFO)
 sorl_thumbnail_logger = logging.getLogger("sorl.thumbnail")
 sorl_thumbnail_logger.setLevel(logging.INFO)
 
-# alexandria factories
-# register first so any factory conflicts will result in it being overwritten
-register_module(alexandria_factories, prefix="alexandria")
-
 register_module(user_factories)
 register_module(instance_factories)
 register_module(core_factories)
@@ -110,6 +108,7 @@ register_module(communications_factories)
 register_module(caluma_form_factories, prefix="caluma")
 register_module(caluma_workflow_factories, prefix="caluma")
 
+# do not register alexandria factories, as there are too many conflicts
 
 # TODO: Somehow the ordering of those two calls is relevant.
 # Need to figure out why exactly (FreezegunAwareDatetimeProvider's
@@ -1232,3 +1231,50 @@ def be_appeal_settings(settings):
     settings.APPEAL = load_module_settings("appeal", "kt_bern")
     yield settings.APPEAL
     settings.APPEAL = _original
+
+
+@pytest.fixture
+def minio_mock(mocker):
+    def side_effect(bucket, object_name, expires):
+        return f"http://minio/download-url/{object_name}"
+
+    stat_response = MinioStatObject(
+        # taken from a real-world minio stat() call
+        bucket_name="caluma-media",
+        object_name="a3d0429d-5400-47ac-9d02-124592302631_attack.wav",
+        etag="5d41402abc4b2a76b9719d911017c592",
+        size=8200,
+        last_modified=datetime(2021, 3, 5, 15, 24, 33, tzinfo=timezone.utc),
+        content_type="application/pdf",
+        metadata=urllib3._collections.HTTPHeaderDict(
+            {
+                "Accept-Ranges": "bytes",
+                "Content-Length": "5",
+                "Content-Security-Policy": "block-all-mixed-content",
+                "Content-Type": "binary/octet-stream",
+                "ETag": '"5d41402abc4b2a76b9719d911017c592"',
+                "Last-Modified": "Fri, 05 Mar 2021 15:24:33 GMT",
+                "Server": "MinIO",
+                "Vary": "Origin",
+                "X-Amz-Request-Id": "16697BAAD69D2214",
+                "X-Xss-Protection": "1; mode=block",
+                "Date": "Fri, 05 Mar 2021 15:25:15 GMT",
+            }
+        ),
+        owner_id=None,
+        owner_name=None,
+        storage_class=None,
+        version_id=None,
+    )
+    mocker.patch.object(Minio, "presigned_get_object")
+    mocker.patch.object(Minio, "presigned_put_object")
+    mocker.patch.object(Minio, "stat_object")
+    mocker.patch.object(Minio, "bucket_exists")
+    mocker.patch.object(Minio, "make_bucket")
+    mocker.patch.object(Minio, "remove_object")
+    mocker.patch.object(Minio, "copy_object")
+    Minio.presigned_get_object.side_effect = side_effect
+    Minio.presigned_put_object.return_value = "http://minio/upload-url"
+    Minio.stat_object.return_value = stat_response
+    Minio.bucket_exists.return_value = True
+    return Minio

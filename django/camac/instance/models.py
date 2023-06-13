@@ -246,7 +246,7 @@ class Instance(models.Model):
 
 
 class InstanceAlexandriaDocument(models.Model):
-    instance = models.OneToOneField(
+    instance = models.ForeignKey(
         Instance, models.CASCADE, related_name="alexandria_instance_documents"
     )
     document = models.OneToOneField(

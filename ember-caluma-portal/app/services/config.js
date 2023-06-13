@@ -6,7 +6,7 @@ export default class AlexandriaConfigService extends ConfigService {
 
   get defaultModelMeta() {
     return {
-      case_id: this.instanceId,
+      document: { case_id: this.instanceId },
     };
   }
 }

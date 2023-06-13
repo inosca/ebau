@@ -113,7 +113,6 @@ def test_suggestion_for_instance_filter_caluma(
     num_queries_cached,
     mock_cache,
 ):
-
     if default_suggestions:
         distribution_settings["DEFAULT_SUGGESTIONS"] = default_suggestions
         for service_id in default_suggestions:

@@ -1,39 +1,8 @@
-import { inject as service } from "@ember/service";
-import { belongsTo, hasMany, attr } from "@ember-data/model";
+import DocumentModel from "ember-alexandria/models/document";
 import { dropTask } from "ember-concurrency";
-import { LocalizedModel, localizedAttr } from "ember-localized-model";
 import { saveAs } from "file-saver";
 
-/*
- * This does not extend DocumentModel from ember-alexandria
- * because localizedAttr has problems, overwriting also does not work
- */
-export default class DocumentModel extends LocalizedModel {
-  @localizedAttr title;
-  @localizedAttr description;
-
-  @attr meta;
-
-  @attr createdAt;
-  @attr createdByUser;
-  @attr createdByGroup;
-  @attr modifiedAt;
-  @attr modifiedByUser;
-  @attr modifiedByGroup;
-
-  @belongsTo("category", { inverse: "documents", async: false }) category;
-  @hasMany("tag", { inverse: "documents" }) tags;
-  @hasMany("file", { inverse: "document" }) files;
-
-  @service fetch;
-  @service intl;
-  @service notification;
-
-  get thumbnail() {
-    const thumbnail = this.files.filter((file) => file.type === "thumbnail")[0];
-    return thumbnail && thumbnail.downloadUrl;
-  }
-
+export default class CustomDocumentModel extends DocumentModel {
   @dropTask
   *download(event) {
     event?.preventDefault();

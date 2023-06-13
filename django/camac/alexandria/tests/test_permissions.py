@@ -1,5 +1,10 @@
 import pytest
-from alexandria.core.factories import DocumentFactory, FileFactory, TagFactory
+from alexandria.core.factories import (
+    CategoryFactory,
+    DocumentFactory,
+    FileFactory,
+    TagFactory,
+)
 from django.urls import reverse
 from rest_framework.status import (
     HTTP_200_OK,
@@ -12,7 +17,7 @@ from rest_framework.status import (
 
 
 @pytest.mark.parametrize(
-    "role__name,method,status_code,alexandria_category__metainfo",
+    "role__name,method,status_code,metainfo",
     [
         (
             "Applicant",
@@ -61,8 +66,9 @@ from rest_framework.status import (
     ],
 )
 def test_document_permission(
-    db, role, admin_client, instance, alexandria_category, method, status_code
+    db, role, admin_client, instance, metainfo, method, status_code
 ):
+    alexandria_category = CategoryFactory(metainfo=metainfo)
     url = reverse("document-list")
 
     data = {
@@ -100,7 +106,7 @@ def test_document_permission(
 
 
 @pytest.mark.parametrize(
-    "role__name,method,status_code,alexandria_category__metainfo",
+    "role__name,method,status_code,metainfo",
     [
         (
             "Applicant",
@@ -135,8 +141,9 @@ def test_document_permission(
     ],
 )
 def test_file_permission(
-    db, role, admin_client, instance, alexandria_category, method, status_code
+    db, role, minio_mock, admin_client, instance, metainfo, method, status_code
 ):
+    alexandria_category = CategoryFactory(metainfo=metainfo)
     doc = DocumentFactory(
         title="Foo", category=alexandria_category, metainfo={"case_id": instance.pk}
     )
@@ -185,12 +192,7 @@ def test_file_permission(
         ("Support", "delete", HTTP_204_NO_CONTENT),
     ],
 )
-def test_tag_permission(
-    db, application_settings, role, caluma_admin_user, admin_client, method, status_code
-):
-    if role.name == "Applicant":
-        application_settings["PORTAL_GROUP"] = caluma_admin_user.camac_group
-
+def test_tag_permission(db, role, caluma_admin_user, admin_client, method, status_code):
     url = reverse("tag-list")
 
     data = {
@@ -234,9 +236,9 @@ def test_category_permission(
     db,
     role,
     admin_client,
-    alexandria_category,
     method,
 ):
+    alexandria_category = CategoryFactory()
     url = reverse("category-list")
 
     data = {

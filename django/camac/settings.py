@@ -39,19 +39,6 @@ if env.str("APPLICATION_ENV", default="production") != "ci" and os.path.exists(
 
 from caluma.settings.caluma import *  # noqa isort:skip
 
-# TODO: alexandria import anywhere causes error???
-"""
-from alexandria.settings.alexandria import *  # noqa isort:skip
-from alexandria.settings.alexandria import (
-    ALEXANDRIA_VISIBILITY_CLASSES,
-    ALEXANDRIA_PERMISSION_CLASSES,
-    ALEXANDRIA_VALIDATION_CLASSES,
-    ENABLE_THUMBNAIL_GENERATION,
-    THUMBNAIL_HEIGHT,
-    THUMBNAIL_WIDTH,
-)  # noqa isort:skip
-"""
-
 ENV = env.str("APPLICATION_ENV", default="production")
 APPLICATION_NAME = env.str("APPLICATION")
 APPLICATION_DIR = ROOT_DIR.path(APPLICATION_NAME)
@@ -363,7 +350,7 @@ APPLICATIONS = {
         ],
         "ATTACHMENT_SECTION_INTERNAL": 4,
         "DOCUMENT_MERGE_SERVICE": {},
-        "ALEXANDRIA": {},
+        "ALEXANDRIA": {"PUBLIC_ROLE": "applicant"},
     },
     "kt_schwyz": {
         "INCLUDE_STATIC_FILES": [("xml", "kt_schwyz/static/ech0211/xml/")],
@@ -2146,14 +2133,6 @@ APPLICATIONS = {
             "telefon-oder-mobile-waermepumpen",
         ],
         "ATTACHMENT_MAX_SIZE": 100 * 1024 * 1024,
-        "ALEXANDRIA": {
-            "PUBLIC_TAGS": [
-                "dokument-grundstucksangaben",
-                "dokument-gutachten-nachweise-begrundungen",
-                "dokument-projektplane-projektbeschrieb",
-                "dokument-weitere-gesuchsunterlagen",
-            ]
-        },
     },
     "kt_uri": {
         "ECH0211": {
@@ -3322,7 +3301,14 @@ APPLICATIONS = {
             "user.Service",
             "user.ServiceT",
         ],
-        "ATTACHMENT_SECTION_INTERNAL": 4,
+        "ALEXANDRIA": {
+            "PUBLIC_TAGS": [
+                "dokument-grundstucksangaben",
+                "dokument-gutachten-nachweise-begrundungen",
+                "dokument-projektplane-projektbeschrieb",
+                "dokument-weitere-gesuchsunterlagen",
+            ]
+        },
         "DOCUMENT_MERGE_SERVICE": {
             "FORM": {
                 "_base": {
@@ -3815,7 +3801,6 @@ REST_FRAMEWORK = {
     ),
     "DEFAULT_METADATA_CLASS": "rest_framework_json_api.metadata.JSONAPIMetadata",
     "DEFAULT_FILTER_BACKENDS": (
-        "django_filters.rest_framework.DjangoFilterBackend",
         "camac.filters.MultilingualSearchFilter",
         "rest_framework.filters.OrderingFilter",
         "rest_framework_json_api.django_filters.DjangoFilterBackend",
@@ -4125,7 +4110,7 @@ APPEAL = load_module_settings("appeal")
 DISTRIBUTION = load_module_settings("distribution")
 PARASHIFT = load_module_settings("parashift")
 
-# TODO: import from alexandria settings
+# TODO: import from alexandria settings, currently causes errors
 ALEXANDRIA_PERMISSION_CLASSES = [
     "camac.alexandria.extensions.permissions.CustomPermission"
 ]
