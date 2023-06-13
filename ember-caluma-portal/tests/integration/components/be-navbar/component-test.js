@@ -64,7 +64,7 @@ module("Integration | Component | be-navbar", function (hooks) {
       .hasText("t:nav.instances:()");
     assert
       .dom(".uk-navbar-left ul > li:nth-of-type(3) > a")
-      .hasText("t:nav.communications:()");
+      .hasText("t:nav.communications:() 3");
     assert
       .dom(".uk-navbar-left ul > li:nth-of-type(4) > a")
       .hasText("t:nav.support:()");

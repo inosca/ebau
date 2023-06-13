@@ -1,16 +1,30 @@
-import Service from "@ember/service";
-import { query } from "ember-data-resources";
+import Service, { inject as service } from "@ember/service";
+import { tracked } from "tracked-built-ins";
 
 export default class CommunicationsUnreadMessagesService extends Service {
-  get count() {
-    return this.unreadMessagesResource.records?.meta.pagination.count;
+  @service store;
+
+  counts = tracked({});
+
+  async fetchUnreadCount(instanceId) {
+    await Promise.resolve();
+
+    const response = await this.store.query("communications-message", {
+      is_read: false,
+      page: {
+        number: 1,
+        size: 1,
+      },
+      ...(instanceId ? { instance: instanceId } : {}),
+    });
+
+    const count = response.meta.pagination.count;
+
+    this.counts[instanceId ?? "all"] = count;
   }
 
-  unreadMessagesResource = query(this, "communications-message", () => ({
-    is_read: false,
-    page: {
-      number: 1,
-      size: 1,
-    },
-  }));
+  async refreshForInstance(instanceId) {
+    await this.fetchUnreadCount();
+    await this.fetchUnreadCount(instanceId);
+  }
 }

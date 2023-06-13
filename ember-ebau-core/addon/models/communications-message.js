@@ -66,12 +66,14 @@ export default class CommunicationMessageModel extends Model {
   }
 
   async markAsRead() {
-    return await this.apiAction("read");
+    const response = await this.apiAction("read");
+    await this.unreadMessages.refreshForInstance(this.topic.get("instance.id"));
+    return response;
   }
 
   async markAsUnread() {
     const response = await this.apiAction("unread");
-    await this.unreadMessages.unreadMessagesResource.retry();
+    await this.unreadMessages.refreshForInstance(this.topic.get("instance.id"));
     return response;
   }
 }

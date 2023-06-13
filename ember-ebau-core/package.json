@@ -63,6 +63,7 @@
     "leaflet": "1.9.3",
     "luxon": "3.3.0",
     "proj4leaflet": "1.0.2",
+    "tracked-built-ins": "3.1.1",
     "tracked-toolbox": "2.0.0",
     "uuid": "9.0.0"
   },
