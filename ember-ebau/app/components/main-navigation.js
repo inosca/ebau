@@ -37,7 +37,7 @@ export default class MainNavigationComponent extends Component {
     }
     try {
       const groups = yield this.store.query("public-group", {
-        include: ["service", "service.service_group", "role"].join(",")
+        include: ["service", "service.service_group", "role"].join(","),
       });
 
       this.session.groups = groups;
@@ -52,7 +52,7 @@ export default class MainNavigationComponent extends Component {
   }
 
   resources = trackedTask(this, this.fetchResources, () => [
-    this.session.group
+    this.session.group,
   ]);
 
   @dropTask
@@ -95,7 +95,7 @@ export default class MainNavigationComponent extends Component {
     UIkit.dropdown("#group-dropdown").hide();
 
     await this.fetch.fetch(`/api/v1/groups/${group}/set-default`, {
-      method: "POST"
+      method: "POST",
     });
 
     if (macroCondition(isTesting())) {

@@ -20,7 +20,7 @@ class CustomPermission(BasePermission):
     @permission_for(Document)
     def has_permission_for_document(self, request):
         # patch and delete are handled in object permissions
-        if request._request.method != "POST":
+        if request.method != "POST":
             return True
 
         category = Category.objects.get(pk=request.data["category"]["id"])
@@ -35,9 +35,9 @@ class CustomPermission(BasePermission):
     @object_permission_for(Document)
     def has_object_permission_for_document(self, request, document):
         permission = document.category.metainfo["access"].get(
-            get_role(request._request.caluma_info.context.user)
+            get_role(request.caluma_info.context.user)
         )
-        if request._request.method == "DELETE":
+        if request.method == "DELETE":
             return globals()[f"{permission}Permission"]().can_destroy(request)
 
         if not permission:
@@ -53,9 +53,6 @@ class CustomPermission(BasePermission):
         )
         if not permission:
             return False
-
-        if request.method == "DELETE":
-            return globals()[f"{permission}Permission"]().can_destroy(request)
 
         return globals()[f"{permission}Permission"]().can_write(request)
 

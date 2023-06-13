@@ -42,7 +42,7 @@ from rest_framework.status import (
         (
             "Municipality",
             "delete",
-            HTTP_403_FORBIDDEN,
+            HTTP_404_NOT_FOUND,
             {"access": {"applicant": "Admin"}},
         ),
         (
@@ -68,14 +68,16 @@ def test_document_permission(
     data = {
         "data": {
             "type": "documents",
-            "attributes": {"title": {"de": "Important"}},
-            "metainfo": {"case_id": instance.pk},
-        },
-        "relationships": {
-            "category": {
-                "data": {
-                    "id": alexandria_category.pk,
-                    "type": "categories",
+            "attributes": {
+                "title": {"de": "Important"},
+                "metainfo": {"case_id": instance.pk},
+            },
+            "relationships": {
+                "category": {
+                    "data": {
+                        "id": alexandria_category.pk,
+                        "type": "categories",
+                    },
                 },
             },
         },
