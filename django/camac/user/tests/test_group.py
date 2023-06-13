@@ -139,3 +139,15 @@ def test_group_filter_service_or_subservice(
     assert response.status_code == status.HTTP_200_OK
 
     assert len(response.json()["data"]) == 2
+
+
+def test_group_set_default(admin_client, admin_user, group_factory, user_group_factory):
+    new_group = group_factory()
+    new_default = user_group_factory(user=admin_user, group=new_group, default_group=0)
+
+    response = admin_client.post(reverse("group-set-default", args=[new_group.pk]))
+
+    assert response.status_code == status.HTTP_204_NO_CONTENT
+
+    new_default.refresh_from_db()
+    assert new_default.default_group

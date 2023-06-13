@@ -2,7 +2,10 @@ from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.db.models import Q
 from drf_yasg.utils import swagger_auto_schema
+from rest_framework import response, status
+from django.db import transaction
 from rest_framework.mixins import RetrieveModelMixin
+from rest_framework.decorators import action
 from rest_framework.viewsets import GenericViewSet
 from rest_framework_json_api.views import (
     AutoPrefetchMixin,
@@ -214,6 +217,16 @@ class GroupView(MultilangMixin, ReadOnlyModelViewSet):
     )
     def list(self, request, *args, **kwargs):
         return super().list(request, *args, **kwargs)
+
+    @action(methods=["post"], detail=True, url_path="set-default")
+    @transaction.atomic
+    def set_default(self, request, pk=None):
+        user_groups = models.UserGroup.objects.filter(user=request.user)
+
+        user_groups.filter(default_group=1).update(default_group=0)
+        user_groups.filter(group=self.get_object()).update(default_group=1)
+
+        return response.Response(status=status.HTTP_204_NO_CONTENT)
 
 
 class PublicGroupView(MultilangMixin, ReadOnlyModelViewSet):
