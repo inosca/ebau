@@ -320,7 +320,7 @@ def some_other_user(user_factory):
         (_admin, True, False, status.HTTP_201_CREATED),
         (_admin, True, True, status.HTTP_201_CREATED),
         (_admin, False, False, status.HTTP_201_CREATED),
-        (_admin, False, True, status.HTTP_400_BAD_REQUEST),
+        (_admin, False, True, status.HTTP_201_CREATED),
     ],
 )
 @pytest.mark.parametrize("role__name", ["Municipality", "Applicant"])

@@ -272,14 +272,12 @@ class MessageSerializer(serializers.ModelSerializer):
         return None
 
     def _topic_allows_adding_message(self, data):
-        # If topic does not allow reply:
-        # We can only create a message IF it's the first, AND
-        # we're the creator of the topic
-        if data["topic"].allow_replies:
-            return True
-        if data["created_by_user"] == data["topic"].initiated_by:
-            return data["topic"].messages.count() == 0
-        return False
+        # We can only create a message if the topic allows answers or we're the
+        # creator of the topic
+        return (
+            data["topic"].allow_replies
+            or data["created_by_user"] == data["topic"].initiated_by
+        )
 
     def validate(self, data):
         self._validate_and_set_created_by(data)
