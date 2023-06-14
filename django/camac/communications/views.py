@@ -3,13 +3,19 @@ import json
 from django.conf import settings
 from django.db import transaction
 from django.db.models import Exists, OuterRef
-from django.utils import timezone
 from django.utils.translation import gettext
 from rest_framework import response, status
 from rest_framework.decorators import action
 from rest_framework.exceptions import ValidationError
+from rest_framework.mixins import CreateModelMixin, ListModelMixin, RetrieveModelMixin
 from rest_framework.permissions import IsAuthenticated
-from rest_framework_json_api.views import ModelViewSet
+from rest_framework.viewsets import GenericViewSet
+from rest_framework_json_api.views import (
+    AutoPrefetchMixin,
+    ModelViewSet,
+    PreloadIncludesMixin,
+    RelatedMixin,
+)
 
 from camac.core.views import HttpResponse, SendfileHttpResponse
 from camac.instance.mixins import InstanceQuerysetMixin
@@ -77,7 +83,20 @@ class TopicView(InvolvedInTopicQuerysetMixin, InstanceQuerysetMixin, ModelViewSe
         model = models.CommunicationsTopic
 
 
-class MessageView(InvolvedInTopicQuerysetMixin, InstanceQuerysetMixin, ModelViewSet):
+class MessageView(
+    # Camac
+    InvolvedInTopicQuerysetMixin,
+    InstanceQuerysetMixin,
+    # DRF JSON-API
+    AutoPrefetchMixin,
+    PreloadIncludesMixin,
+    RelatedMixin,
+    # DRF
+    CreateModelMixin,
+    RetrieveModelMixin,
+    ListModelMixin,
+    GenericViewSet,
+):
     serializer_class = serializers.MessageSerializer
     filterset_class = filters.MessageFilterSet
     instance_field = "topic__instance"

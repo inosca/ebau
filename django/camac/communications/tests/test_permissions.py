@@ -245,57 +245,13 @@ def test_message_status_on_attachments(
         )
 
 
-@pytest.mark.parametrize("role__name", ["Municipality", "Applicant"])
-@pytest.mark.parametrize(
-    "communications_message__sent_at, communications_message__created_by_user, expect_status",
-    [
-        # Attachment on own, un-sent message should be OK
-        (None, _admin, status.HTTP_200_OK),
-        # Attachment on sent message should fail
-        ("2022-12-12T01:02:03Z", _admin, status.HTTP_400_BAD_REQUEST),
-        # Attachment on non-own message should fail
-        (None, _other, status.HTTP_400_BAD_REQUEST),
-    ],
-)
-def test_message_status_on_modifying_message(
-    db,
-    be_instance,
-    admin_client,
-    role,
-    communications_message,
-    topic_with_admin_involved,
-    attachment,
-    expect_status,
-):
-    """Test whether we can modify a message with sent / unsent message status"""
+@pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.parametrize("method", ["delete", "patch"])
+def test_message_unallowed_methods(db, admin_client, communications_message, method):
+    url = reverse("communications-message-detail", args=[communications_message.pk])
+    response = getattr(admin_client, method)(url)
 
-    if role.name == "Applicant":
-        be_instance.involved_applicants.create(
-            invitee=admin_client.user, user=admin_client.user
-        )
-        default_group = admin_client.user.get_default_group()
-        default_group.service = None
-        default_group.save()
-
-    resp = admin_client.patch(
-        reverse("communications-message-detail", args=[communications_message.pk]),
-        {
-            "data": {
-                "id": communications_message.pk,
-                "type": "communications-messages",
-                "attributes": {"body": "revised body content"},
-                "relationships": {
-                    "topic": {
-                        "data": {
-                            "id": str(topic_with_admin_involved.pk),
-                            "type": "communications-topics",
-                        }
-                    },
-                },
-            }
-        },
-    )
-    assert resp.status_code == expect_status
+    assert response.status_code == status.HTTP_405_METHOD_NOT_ALLOWED
 
 
 @pytest.fixture
