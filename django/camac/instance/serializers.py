@@ -1309,6 +1309,38 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             existing_instance = models.Instance.objects.get(pk=existing_instance_id)
             link_instances(instance, existing_instance)
 
+    def _check_authority_for_forest_dossiers(self, instance):
+        forest_answer = instance.case.document.answers.filter(
+            question_id__in=[
+                "waldfeststellung-mit-statischen-waldgrenzen-kanton",
+                "waldfeststellung-mit-statischen-waldgrenzen-gemeinde",
+            ]
+        ).first()
+        if (
+            forest_answer
+            and instance.case.meta.get("oereb_copy", False)
+            and forest_answer.value
+            in [
+                "waldfeststellung-mit-statischen-waldgrenzen-kanton-ja",
+                "waldfeststellung-mit-statischen-waldgrenzen-gemeinde-ja",
+            ]
+        ):
+            return str(uri_constants.AMT_FUER_FORST_UND_JAGD_AUTHORITY_ID)
+
+        return None
+
+    def _check_authority_for_special_locations(self, instance):
+        municipality = instance.case.document.answers.get(
+            question_id="municipality"
+        ).value
+        if municipality in [
+            str(uri_constants.BFS_NR_DIVERSE_GEMEINDEN),
+            str(uri_constants.BFS_NR_ALLE_GEMEINDEN),
+        ]:
+            return str(uri_constants.KOOR_NP_AUTHORITY_ID)
+
+        return None
+
     def _set_authority(self, instance):
         """Fill the answer to the question 'leitbehorde' (only used in UR)."""
         if not settings.APPLICATION["CALUMA"].get("USE_LOCATION", False):
@@ -1326,9 +1358,12 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             # this takes precedence over the default authority given by the location
             authority = self.get_master_data(instance.case).leitbehoerde_internal_form
 
-        wald_answer = instance.case.document.answers.filter(question_id__in=["waldfeststellung-mit-statischen-waldgrenzen-kanton", "waldfeststellung-mit-statischen-waldgrenzen-gemeinde"]).first()
-        if wald_answer and instance.case.meta.get("oereb_copy", False) and (wald_answer.value == "waldfeststellung-mit-statischen-waldgrenzen-kanton-ja" or wald_answer.value == "waldfeststellung-mit-statischen-waldgrenzen-gemeinde-ja"):
-            authority = str(uri_constants.AMT_FUER_FORST_UND_JAGD_AUTHORITY_ID)
+        if forest_authority := self._check_authority_for_forest_dossiers(instance):
+            authority = forest_authority
+        if special_location_authority := self._check_authority_for_special_locations(
+            instance
+        ):
+            authority = special_location_authority
 
         if not authority:
             authority = (
@@ -1346,7 +1381,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             )
 
     @transaction.atomic
-    def update(self, instance, validated_data):
+    def update(self, instance, validated_data):  # noqa: C901
         request_logger.info(f"Submitting instance {instance.pk}")
 
         case = self.instance.case
