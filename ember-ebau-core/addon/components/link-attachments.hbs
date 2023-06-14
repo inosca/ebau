@@ -3,7 +3,7 @@
   @onHide={{fn (mut this.showModal) false}}
   @disabled={{@disabled}}
   @section={{this.attachmentSection.record}}
-  @hasUpload={{this.hasUploadPermission}}
+  @hasUpload={{this.hasUploadPermission.value}}
   @selected={{@field.answer.value}}
   @instanceId={{this.instanceId}}
   @isLoading={{this.isLoading}}
