@@ -38,7 +38,7 @@ export default class CustomCaseModel extends CaseModel {
 
   get type() {
     return (
-      getFormTitle(this.raw.document, config.APPLICATION.answerSlugs) ||
+      getFormTitle(this.raw.document, config.APPLICATION.answerSlugs, this) ||
       this.raw.document.form.name
     );
   }

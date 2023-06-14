@@ -1258,6 +1258,8 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
                 caluma_form=caluma_form,
                 source_instance=instance,
             )
+            koor_afj_instance.case.meta["oereb_copy"] = True
+            koor_afj_instance.case.save()
             koor_afj_instance.group = Group.objects.get(
                 pk=uri_constants.KOOR_AFJ_GROUP_ID
             )
