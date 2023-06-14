@@ -1374,7 +1374,6 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         if settings.APPLICATION_NAME == "kt_uri":
             self._internal_submission(instance, self.context["request"].group)
             self._prepare_cantonal_instances(instance)
-            self._copy_oereb_instance_for_koor_afj(instance)
 
         instance.save()
 
@@ -1436,6 +1435,9 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             user_pk=self.context["request"].user.pk,
             group_pk=self.context["request"].group.pk,
         )
+
+        if settings.APPLICATION_NAME == "kt_uri":
+            self._copy_oereb_instance_for_koor_afj(instance)
 
         self._send_notifications(case)
 
