@@ -69,9 +69,6 @@ module.exports = function (environment) {
           isJuristicApplicantYes: "juristische-person-gesuchstellerin-ja",
           personalDataApplicant: "personalien-gesuchstellerin",
         },
-        communication: {
-          attachmentSectionsForConversion: [13, 12, 10, 11],
-        },
       },
       kt_schwyz: {
         name: "sz",

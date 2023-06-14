@@ -36,7 +36,7 @@
     <Communication::AttachmentSectionDropdown
       @instanceId={{this.ebauModules.instanceId}}
       @selectSection={{perform @file.uploadToDMS this.ebauModules.instanceId}}
-      @onlySectionsForApplicant={{this.messageByApplicant}}
+      @onlyWithUploadPermission={{true}}
     />
   </span>
 {{/unless}}

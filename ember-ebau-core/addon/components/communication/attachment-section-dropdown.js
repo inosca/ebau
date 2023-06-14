@@ -1,37 +1,41 @@
-import { getOwner } from "@ember/application";
 import { action } from "@ember/object";
 import { run } from "@ember/runloop";
 import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
-import { query } from "ember-data-resources";
+import { trackedFunction } from "ember-resources/util/function";
 import UIkit from "uikit";
 
 export default class CommunicationAttachmentSectionDropdownComponent extends Component {
+  @service store;
   @service ebauModules;
 
   @tracked dropdownOpen = false;
 
-  attachmentSectionsResource = query(this, "attachment-section", () => ({
-    instanceId: this.args.instanceId,
-  }));
+  attachmentSections = trackedFunction(this, async () => {
+    await Promise.resolve();
 
-  get attachmentSections() {
-    const records = this.attachmentSectionsResource.records;
+    const sections = await this.store.query("attachment-section", {
+      instance: this.args.instanceId,
+    });
 
-    if (this.args.onlySectionsForApplicant) {
-      const config =
-        getOwner(this).resolveRegistration("config:environment").APPLICATION
-          .communication ?? {};
-      const sections = config.attachmentSectionsForConversion ?? [];
-
-      return records?.filter((attachmentSection) =>
-        sections.includes(parseInt(attachmentSection.id))
-      );
+    if (!this.args.onlyWithUploadPermission) {
+      return sections;
     }
 
-    return records;
-  }
+    return (
+      await Promise.all(
+        sections.map(async (section) => {
+          const canUpload = await section.canUpload(
+            this.args.instanceId,
+            this.ebauModules.serviceId
+          );
+
+          return canUpload ? section : null;
+        })
+      )
+    ).filter(Boolean);
+  });
 
   @action
   selectSection(attachmentSection, event) {

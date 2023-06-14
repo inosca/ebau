@@ -4,10 +4,10 @@
       {{t "communications.detail.attachmentSections"}}
     </li>
     {{#if this.dropdownOpen}}
-      {{#if this.attachmentSectionsResource.isLoading}}
+      {{#if this.attachmentSections.isLoading}}
         <UkSpinner />
       {{else}}
-        {{#each this.attachmentSections as |attachmentSection|}}
+        {{#each this.attachmentSections.value as |attachmentSection|}}
           <li>
             <a href="#" {{on "click" (fn this.selectSection attachmentSection)}}>
               {{attachmentSection.name}}

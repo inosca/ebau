@@ -230,9 +230,6 @@ module.exports = function (environment) {
         },
       ],
       staticSupportIds: { "heat-generator": 20046 },
-      communication: {
-        attachmentSectionsForConversion: [13, 12, 10, 11],
-      },
     },
     kt_uri: {
       name: "ur",
