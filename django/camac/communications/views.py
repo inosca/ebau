@@ -14,7 +14,7 @@ from rest_framework_json_api.views import ModelViewSet
 from camac.core.views import HttpResponse, SendfileHttpResponse
 from camac.instance.mixins import InstanceQuerysetMixin
 
-from . import events, filters, models, serializers
+from . import filters, models, serializers
 
 
 class HasConvertAttachmentPermission(IsAuthenticated):
@@ -102,17 +102,6 @@ class MessageView(InvolvedInTopicQuerysetMixin, InstanceQuerysetMixin, ModelView
         my_entity = models.entity_for_current_user(self.request)
         obj = self.get_object()
         obj.read_by.filter(entity=my_entity).delete()
-        return self.retrieve(request, pk)
-
-    @action(methods=["patch"], detail=True)
-    def send(self, request, pk):
-        obj = self.get_object()
-        if obj.sent_at:
-            raise ValidationError("Cannot send the same message twice!")
-        obj.sent_at = timezone.now()
-
-        events.notify_receivers(obj, context={"request": self.request})
-        obj.save()
         return self.retrieve(request, pk)
 
     def _annotate_read_flag(self, qs):
