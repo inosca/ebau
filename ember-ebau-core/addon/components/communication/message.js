@@ -10,7 +10,7 @@ export default class CommunicationMessageComponent extends Component {
   @service router;
   @service intl;
 
-  @tracked collapsed = true;
+  @tracked collapsed = this.args.collapsed ?? true;
   @tracked paragraph;
 
   get isExpandable() {
