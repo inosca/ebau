@@ -418,7 +418,7 @@ class ConvertToDocumentSerializer(serializers.ModelSerializer):
                 "This attachment is already a document module attachment"
             )
         doc_attachment = document_models.Attachment.objects.create(
-            name=instance.file_attachment.name,
+            name=instance.filename,
             instance=instance.message.topic.instance,
             user=self.context["request"].user,
             service=self.context["request"].group.service,
