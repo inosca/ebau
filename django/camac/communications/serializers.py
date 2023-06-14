@@ -12,6 +12,7 @@ from camac.document import models as document_models
 from camac.instance.models import Instance
 from camac.instance.views import InstanceView
 from camac.user import models as user_models
+from camac.user.relations import CurrentUserResourceRelatedField
 from camac.user.serializers import UserSerializer
 
 from . import events, models
@@ -215,10 +216,7 @@ class TopicSerializer(serializers.ModelSerializer):
 
 class MessageSerializer(serializers.ModelSerializer):
     read_at = serializers.SerializerMethodField()
-    created_by_user = serializers.ResourceRelatedField(
-        required=False,
-        queryset=user_models.User.objects.all(),
-    )
+    created_by_user = CurrentUserResourceRelatedField()
     created_by = EntityField(required=False)
     read_by_entity = serializers.SerializerMethodField()
 
@@ -235,9 +233,7 @@ class MessageSerializer(serializers.ModelSerializer):
             attachment.message = message
             attachment.save()
 
-        message.sent_at = timezone.now()
         events.notify_receivers(message, context=self.context)
-        message.save()
 
         return message
 
@@ -271,41 +267,21 @@ class MessageSerializer(serializers.ModelSerializer):
             raise RuntimeError("read_at attribute missing in message")
         return None
 
-    def _topic_allows_adding_message(self, data):
+    def validate(self, data):
+        data["created_by"] = models.entity_for_current_user(self.context["request"])
+        data["sent_at"] = timezone.now()
+
         # We can only create a message if the topic allows answers or we're the
         # creator of the topic
-        return (
-            data["topic"].allow_replies
-            or data["created_by_user"] == data["topic"].initiated_by
-        )
-
-    def validate(self, data):
-        self._validate_and_set_created_by(data)
-        if self.context["request"].method == "POST":
-            if not self._topic_allows_adding_message(data):
-                raise ValidationError(
-                    gettext("You are not allowed to create messages on this topic")
-                )
-        elif self.instance.sent_at:
+        if (
+            not data["topic"].allow_replies
+            and data["created_by_user"] != data["topic"].initiated_by
+        ):
             raise ValidationError(
-                gettext("Message has already been sent, cannot modify it anymore")
+                gettext("You are not allowed to create messages on this topic")
             )
 
         return super().validate(data)
-
-    def _validate_and_set_created_by(self, data):
-        # Only for new messages...
-        if self.context["request"].method == "POST":
-            data["created_by_user"] = self.context["request"].user
-            data["created_by"] = models.entity_for_current_user(self.context["request"])
-
-        else:
-            # Existing message: Ensure that only owner edits the message
-            data["created_by_user"] = self.instance.created_by_user
-            data["created_by"] = self.instance.created_by
-
-            if self.context["request"].user != self.instance.created_by_user:
-                raise ValidationError(gettext("You can only edit own messges"))
 
     included_serializers = {
         "topic": TopicSerializer,
