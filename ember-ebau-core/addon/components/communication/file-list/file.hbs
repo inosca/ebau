@@ -13,7 +13,7 @@
   </a>
 </span>
 
-{{#unless this.ebauModules.isApplicant}}
+{{#if (can "link attachments on message")}}
   <span>
     {{#if @file.documentAttachment}}
       <span class="uk-text-meta">
@@ -39,4 +39,4 @@
       @onlyWithUploadPermission={{true}}
     />
   </span>
-{{/unless}}
+{{/if}}
