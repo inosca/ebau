@@ -1,19 +1,26 @@
 import Controller from "@ember/controller";
+import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
-import { tracked } from "@glimmer/tracking";
 import { dropTask, restartableTask, timeout } from "ember-concurrency";
-import { query } from "ember-data-resources";
+import { dedupeTracked } from "tracked-toolbox";
+
+import paginatedQuery from "ember-ebau-core/resources/paginated";
 
 export default class ServicePermissionsPermissionsIndexController extends Controller {
   @service store;
 
-  @tracked search = "";
+  @dedupeTracked search = "";
+  @dedupeTracked page = 1;
 
   queryParams = ["search"];
 
-  userGroups = query(this, "user-group", () => ({
+  userGroups = paginatedQuery(this, "user-group", () => ({
     include: "user,group,created_by",
     search: this.search,
+    page: {
+      number: this.page,
+      size: 20,
+    },
   }));
 
   delete = dropTask(async (userGroup, event) => {
@@ -26,5 +33,13 @@ export default class ServicePermissionsPermissionsIndexController extends Contro
     await timeout(500);
 
     this.search = event.target.value;
+    this.page = 1;
   });
+
+  @action
+  updatePage() {
+    if (this.userGroups.hasMore && !this.userGroups.isLoading) {
+      this.page += 1;
+    }
+  }
 }
