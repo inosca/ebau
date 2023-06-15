@@ -1,0 +1,13 @@
+[
+  {
+    "model": "api.template",
+    "pk": "eingabequittung",
+    "fields": {
+      "description": "",
+      "template": "eingabequittung.docx",
+      "engine": "docx-template",
+      "group": null,
+      "meta": {}
+    }
+  }
+]

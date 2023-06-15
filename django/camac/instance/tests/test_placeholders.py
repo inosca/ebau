@@ -17,7 +17,7 @@ from camac.constants.kt_bern import (
     DECISION_TYPE_OVERALL_BUILDING_PERMIT,
     VORABKLAERUNG_DECISIONS_BEWILLIGT,
 )
-from camac.instance.placeholders.utils import human_readable_date
+from camac.instance.placeholders.utils import get_tel_and_email, human_readable_date
 
 from .test_master_data import add_answer, add_table_answer, be_master_data_case  # noqa
 
@@ -429,3 +429,10 @@ def test_dms_placeholders_docs_available_placeholders(
     )
     assert response.status_code == status.HTTP_200_OK
     snapshot.assert_match(response.json())
+
+
+def test_get_tel_and_email():
+    assert (
+        get_tel_and_email({"tel": "0311234567", "email": "foo@bar.com"})
+        == "0311234567, foo@bar.com"
+    )

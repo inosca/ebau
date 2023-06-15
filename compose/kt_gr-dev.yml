@@ -9,6 +9,8 @@ services:
   proxy:
     volumes:
       - ../proxy/kt_gr.conf:/etc/nginx/conf.d/default.conf:ro
+      - djangomedia:/var/lib/camac/media:ro
+      - djangotmpmedia:/tmp/camac/tmpfiles:ro
     depends_on:
       - ember-caluma-portal
       - django
@@ -126,7 +128,7 @@ services:
     environment:
       - ENV=dev
       - OIDC_USERINFO_ENDPOINT=http://ebau-keycloak.local/auth/realms/ebau/protocol/openid-connect/userinfo
-      - OIDC_GROUPS_API=http://ebau.local/api/v1/me?include=service,service.service_parent
+      - OIDC_GROUPS_API=http://ember-ebau.local/api/v1/me?include=service,service.service_parent
     # There appears to be bug where libreoffice can only be started as the root
     # user. The workaround of fixing owner and permissions of ~/.config did not
     # work in our case.
