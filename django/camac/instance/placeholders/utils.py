@@ -81,6 +81,16 @@ def get_person_name(
     return clean_join(*parts, separator=", ")
 
 
+def enrich_personal_data(personal_data):
+    return [clean_and_add_full_name(entry) for entry in personal_data]
+
+
+def clean_and_add_full_name(entry):
+    data = {k: v if v is not None else " " for k, v in entry.items()}
+    data["full_name"] = get_person_name(entry)
+    return data
+
+
 def human_readable_date(value: Union[datetime, date, None]) -> str:
     """Format date or datetime to a human readable date.
 
