@@ -16,7 +16,11 @@ from rest_framework.authentication import get_authorization_header
 
 from camac.instance.master_data import MasterData
 from camac.instance.models import Instance
-from camac.instance.placeholders.utils import clean_join, get_person_name
+from camac.instance.placeholders.utils import (
+    clean_join,
+    enrich_personal_data,
+    get_person_name,
+)
 from camac.instance.utils import build_document_prefetch_statements
 from camac.utils import build_url
 
@@ -79,6 +83,8 @@ def get_header_labels():
         "addressHeaderLabel": _("Address"),
         "plotsHeaderLabel": _("Plots"),
         "applicantHeaderLabel": _("Applicant"),
+        "landownerHeaderLabel": _("Landowner"),
+        "projectAuthorHeaderLabel": _("Project Author"),
         "tagHeaderLabel": _("Keywords"),
         "municipalityHeaderLabel": _("Municipality"),
         "authorityHeaderLabel": _("Authority"),
@@ -153,6 +159,7 @@ class DMSHandler:
                 )
                 if master_data.plot_data
                 else None,
+                # all applicant names as comma-separated string
                 "applicantHeader": clean_join(
                     *[
                         get_person_name(applicant)
@@ -162,6 +169,10 @@ class DMSHandler:
                 )
                 if master_data.applicants
                 else None,
+                # all applicants as structured data
+                "applicants": enrich_personal_data(master_data.applicants),
+                "landowners": enrich_personal_data(master_data.landowners),
+                "projectAuthors": enrich_personal_data(master_data.project_authors),
                 "municipalityHeader": master_data.municipality.get("label")
                 if master_data.municipality
                 else None,
@@ -172,6 +183,14 @@ class DMSHandler:
                 "paperInputDateHeader": master_data.paper_submit_date,
                 "descriptionHeader": master_data.proposal,
                 "modificationHeader": master_data.description_modification,
+                "coordEast": clean_join(
+                    *[obj["coord_east"] for obj in master_data.plot_data],
+                    separator=", ",
+                ),
+                "coordNorth": clean_join(
+                    *[obj["coord_north"] for obj in master_data.plot_data],
+                    separator=", ",
+                ),
             }
 
             data.update(get_header_labels())

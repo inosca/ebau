@@ -50,6 +50,10 @@ def get_person_address_2(person):
     return clean_join(person.get("zip"), person.get("town"))
 
 
+def get_tel_and_email(person):
+    return clean_join(person.get("tel"), person.get("email"), separator=", ")
+
+
 def get_person_name(
     person: dict,
     include_name: bool = True,
@@ -75,6 +79,16 @@ def get_person_name(
         parts.append(clean_join(person.get("first_name"), person.get("last_name")))
 
     return clean_join(*parts, separator=", ")
+
+
+def enrich_personal_data(personal_data):
+    return [clean_and_add_full_name(entry) for entry in personal_data]
+
+
+def clean_and_add_full_name(entry):
+    data = {k: v if v is not None else " " for k, v in entry.items()}
+    data["full_name"] = get_person_name(entry)
+    return data
 
 
 def human_readable_date(value: Union[datetime, date, None]) -> str:
