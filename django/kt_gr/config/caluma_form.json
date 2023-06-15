@@ -91,6 +91,24 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "anlagen-prozesse-table",
+    "fields": {
+      "created_at": "2023-06-14T11:17:59.543Z",
+      "modified_at": "2023-06-14T11:25:28.750Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Anlagen/Prozesse\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "ausbildungsnachweis-tabelle",
     "fields": {
       "created_at": "2023-04-18T19:21:55.576Z",
@@ -272,6 +290,24 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "name": "{\"de\": \"Dashboard\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "dieselgetriebene-motoren",
+    "fields": {
+      "created_at": "2023-06-14T11:42:54.415Z",
+      "modified_at": "2023-06-14T11:42:54.415Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Dieselgetriebene Motoren\", \"fr\": null, \"it\": null, \"rm\": null}",
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "meta": {},
       "is_published": false,
@@ -817,6 +853,24 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "name": "{\"de\": \"Unterschriftenberechtigung Tabelle\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "verwendete-stoffe-und-produkte",
+    "fields": {
+      "created_at": "2023-06-14T11:53:47.864Z",
+      "modified_at": "2023-06-14T11:53:47.864Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Verwendete Stoffe und Produkte\", \"fr\": null, \"it\": null, \"rm\": null}",
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "meta": {},
       "is_published": false,
@@ -2444,6 +2498,111 @@
       "form": "anlagedatenblatt",
       "question": "wochen-pro-jahr",
       "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "anlagen-prozesse-table.anlage-prozess",
+    "fields": {
+      "created_at": "2023-06-14T11:22:58.332Z",
+      "modified_at": "2023-06-14T11:22:58.332Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "anlagen-prozesse-table",
+      "question": "anlage-prozess",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "anlagen-prozesse-table.anzahl-anlagen",
+    "fields": {
+      "created_at": "2023-06-14T11:27:20.209Z",
+      "modified_at": "2023-06-14T11:27:20.209Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "anlagen-prozesse-table",
+      "question": "anzahl-anlagen",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "anlagen-prozesse-table.art-der-abluftreinigung",
+    "fields": {
+      "created_at": "2023-06-14T11:31:53.103Z",
+      "modified_at": "2023-06-14T11:31:53.103Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "anlagen-prozesse-table",
+      "question": "art-der-abluftreinigung",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "anlagen-prozesse-table.beschreibung-der-anlage-des-prozesses",
+    "fields": {
+      "created_at": "2023-06-14T11:34:35.685Z",
+      "modified_at": "2023-06-14T11:34:35.685Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "anlagen-prozesse-table",
+      "question": "beschreibung-der-anlage-des-prozesses",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "anlagen-prozesse-table.betriebsstunden-hjahr",
+    "fields": {
+      "created_at": "2023-06-14T11:27:51.104Z",
+      "modified_at": "2023-06-14T11:27:51.104Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "anlagen-prozesse-table",
+      "question": "betriebsstunden-hjahr",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "anlagen-prozesse-table.wie-wird-die-prozessabluft-abgeleitet",
+    "fields": {
+      "created_at": "2023-06-14T11:39:20.057Z",
+      "modified_at": "2023-06-14T11:39:20.057Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "anlagen-prozesse-table",
+      "question": "wie-wird-die-prozessabluft-abgeleitet",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "anlagen-prozesse-table.wird-abluft-abgeleitet",
+    "fields": {
+      "created_at": "2023-06-14T11:31:00.301Z",
+      "modified_at": "2023-06-14T11:31:00.301Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "anlagen-prozesse-table",
+      "question": "wird-abluft-abgeleitet",
+      "sort": 3
     }
   },
   {
@@ -5883,6 +6042,66 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "dieselgetriebene-motoren.baujahr",
+    "fields": {
+      "created_at": "2023-06-14T11:45:00.157Z",
+      "modified_at": "2023-06-14T11:45:00.157Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dieselgetriebene-motoren",
+      "question": "baujahr",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dieselgetriebene-motoren.dieselgetriebene-motoren-betriebsmittel-typ",
+    "fields": {
+      "created_at": "2023-06-14T11:43:25.776Z",
+      "modified_at": "2023-06-14T11:43:25.776Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dieselgetriebene-motoren",
+      "question": "dieselgetriebene-motoren-betriebsmittel-typ",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dieselgetriebene-motoren.nennleistung-kw",
+    "fields": {
+      "created_at": "2023-06-14T11:44:38.066Z",
+      "modified_at": "2023-06-14T11:44:38.066Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dieselgetriebene-motoren",
+      "question": "nennleistung-kw",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dieselgetriebene-motoren.partikelfilter",
+    "fields": {
+      "created_at": "2023-06-14T11:46:12.373Z",
+      "modified_at": "2023-06-14T11:46:12.373Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dieselgetriebene-motoren",
+      "question": "partikelfilter",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "dokumente.ausbildungsnachweis",
     "fields": {
       "created_at": "2023-04-26T07:34:30.461Z",
@@ -5893,7 +6112,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "ausbildungsnachweis",
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -5908,7 +6127,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "bodenkundliches-fachgutachten",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -5923,7 +6142,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "feststellungsverfuegung",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -5938,7 +6157,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "gesuch-feuerpolizeiliche-bewilligung",
-      "sort": 12
+      "sort": 13
     }
   },
   {
@@ -5953,7 +6172,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "hinweistext-dokumente",
-      "sort": 13
+      "sort": 14
     }
   },
   {
@@ -5968,7 +6187,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "messbericht",
-      "sort": 11
+      "sort": 12
     }
   },
   {
@@ -5983,7 +6202,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "resultate-der-geforderten-bodenuntersuchung",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -5998,7 +6217,22 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "rodungsgesuchsformular",
-      "sort": 4
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente.sicherheitsdatenblatt",
+    "fields": {
+      "created_at": "2023-06-14T12:07:07.646Z",
+      "modified_at": "2023-06-14T12:07:07.646Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente",
+      "question": "sicherheitsdatenblatt",
+      "sort": 1
     }
   },
   {
@@ -6013,7 +6247,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "tragbarkeitsberechnung",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -6028,7 +6262,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "vereinbarkeit-zweitwohnungsgesetz",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -6043,7 +6277,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "zusatzbewilligung-kantonsstrassen",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -6058,7 +6292,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "zusatzbewilligung-kantonsstrassen-belasteter-standort",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -6073,7 +6307,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "zusatzbewilligung-naturgefahren",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -6513,6 +6747,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "emissionserklaerung.abfaelle-und-sonderabfaelle-titel",
+    "fields": {
+      "created_at": "2023-06-14T13:58:10.848Z",
+      "modified_at": "2023-06-14T13:58:10.848Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "emissionserklaerung",
+      "question": "abfaelle-und-sonderabfaelle-titel",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "emissionserklaerung.allgemeine-angaben-zum-betrieb-titel",
     "fields": {
       "created_at": "2023-06-02T12:45:47.100Z",
@@ -6523,7 +6772,22 @@
       "modified_by_group": null,
       "form": "emissionserklaerung",
       "question": "allgemeine-angaben-zum-betrieb-titel",
-      "sort": 26
+      "sort": 45
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "emissionserklaerung.anlagen-prozesse",
+    "fields": {
+      "created_at": "2023-06-14T11:24:26.501Z",
+      "modified_at": "2023-06-14T11:24:26.501Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "emissionserklaerung",
+      "question": "anlagen-prozesse",
+      "sort": 19
     }
   },
   {
@@ -6538,7 +6802,7 @@
       "modified_by_group": null,
       "form": "emissionserklaerung",
       "question": "anzahl-mitarbeitende",
-      "sort": 22
+      "sort": 41
     }
   },
   {
@@ -6553,7 +6817,22 @@
       "modified_by_group": null,
       "form": "emissionserklaerung",
       "question": "anzahl-mitarbeitende-produktion",
-      "sort": 21
+      "sort": 40
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "emissionserklaerung.bemerkungen-kommentare",
+    "fields": {
+      "created_at": "2023-06-14T14:13:24.005Z",
+      "modified_at": "2023-06-14T14:13:24.005Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "emissionserklaerung",
+      "question": "bemerkungen-kommentare",
+      "sort": 1
     }
   },
   {
@@ -6568,7 +6847,7 @@
       "modified_by_group": null,
       "form": "emissionserklaerung",
       "question": "beschreibung-abbau-und-verarbeitung-von-steinen-und-erden",
-      "sort": 8
+      "sort": 27
     }
   },
   {
@@ -6583,7 +6862,7 @@
       "modified_by_group": null,
       "form": "emissionserklaerung",
       "question": "beschreibung-baugewerbe",
-      "sort": 4
+      "sort": 23
     }
   },
   {
@@ -6598,7 +6877,7 @@
       "modified_by_group": null,
       "form": "emissionserklaerung",
       "question": "beschreibung-branche",
-      "sort": 17
+      "sort": 36
     }
   },
   {
@@ -6613,7 +6892,7 @@
       "modified_by_group": null,
       "form": "emissionserklaerung",
       "question": "beschreibung-dienstleistungen",
-      "sort": 1
+      "sort": 20
     }
   },
   {
@@ -6628,7 +6907,7 @@
       "modified_by_group": null,
       "form": "emissionserklaerung",
       "question": "beschreibung-kunststoffverarbeitung",
-      "sort": 10
+      "sort": 29
     }
   },
   {
@@ -6643,7 +6922,7 @@
       "modified_by_group": null,
       "form": "emissionserklaerung",
       "question": "beschreibung-metall-maschinenindustrie",
-      "sort": 6
+      "sort": 25
     }
   },
   {
@@ -6658,7 +6937,22 @@
       "modified_by_group": null,
       "form": "emissionserklaerung",
       "question": "beschreibung-nahrungsmittelindustrie",
-      "sort": 15
+      "sort": 34
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "emissionserklaerung.beschreibung-weitere-sonderabfaelle",
+    "fields": {
+      "created_at": "2023-06-14T14:09:42.140Z",
+      "modified_at": "2023-06-14T14:09:42.140Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "emissionserklaerung",
+      "question": "beschreibung-weitere-sonderabfaelle",
+      "sort": 4
     }
   },
   {
@@ -6673,7 +6967,7 @@
       "modified_by_group": null,
       "form": "emissionserklaerung",
       "question": "branche",
-      "sort": 18
+      "sort": 37
     }
   },
   {
@@ -6688,7 +6982,37 @@
       "modified_by_group": null,
       "form": "emissionserklaerung",
       "question": "branche-gemaess-noga",
-      "sort": 25
+      "sort": 44
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "emissionserklaerung.die-angaben-beziehen-sich-auf-das-betriebsjahr",
+    "fields": {
+      "created_at": "2023-06-14T11:53:11.552Z",
+      "modified_at": "2023-06-14T11:53:11.552Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "emissionserklaerung",
+      "question": "die-angaben-beziehen-sich-auf-das-betriebsjahr",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "emissionserklaerung.dieselgetriebene-motoren",
+    "fields": {
+      "created_at": "2023-06-14T11:44:04.480Z",
+      "modified_at": "2023-06-14T11:44:04.480Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "emissionserklaerung",
+      "question": "dieselgetriebene-motoren",
+      "sort": 18
     }
   },
   {
@@ -6703,7 +7027,112 @@
       "modified_by_group": null,
       "form": "emissionserklaerung",
       "question": "emissionserklaerung-titel",
-      "sort": 27
+      "sort": 46
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "emissionserklaerung.entsorgte-menge-chemikalienreste",
+    "fields": {
+      "created_at": "2023-06-14T14:05:31.217Z",
+      "modified_at": "2023-06-14T14:05:31.217Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "emissionserklaerung",
+      "question": "entsorgte-menge-chemikalienreste",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "emissionserklaerung.entsorgte-menge-farb-lackabfaelle",
+    "fields": {
+      "created_at": "2023-06-14T14:02:08.730Z",
+      "modified_at": "2023-06-14T14:02:08.730Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "emissionserklaerung",
+      "question": "entsorgte-menge-farb-lackabfaelle",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "emissionserklaerung.entsorgte-menge-filtermatten-aus-spritzkabine",
+    "fields": {
+      "created_at": "2023-06-14T14:04:36.513Z",
+      "modified_at": "2023-06-14T14:04:36.513Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "emissionserklaerung",
+      "question": "entsorgte-menge-filtermatten-aus-spritzkabine",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "emissionserklaerung.entsorgte-menge-reinigungs-entfettungsmittel-verschmutzt-pro-jahr-kg",
+    "fields": {
+      "created_at": "2023-06-14T14:03:20.985Z",
+      "modified_at": "2023-06-14T14:03:20.985Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "emissionserklaerung",
+      "question": "entsorgte-menge-reinigungs-entfettungsmittel-verschmutzt-pro-jahr-kg",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "emissionserklaerung.entsorgte-menge-weitere-sonderabfaelle",
+    "fields": {
+      "created_at": "2023-06-14T14:12:25.897Z",
+      "modified_at": "2023-06-14T14:12:25.897Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "emissionserklaerung",
+      "question": "entsorgte-menge-weitere-sonderabfaelle",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "emissionserklaerung.entsorgungsfirma-firmenname-und-sitz",
+    "fields": {
+      "created_at": "2023-06-14T14:13:03.564Z",
+      "modified_at": "2023-06-14T14:13:03.564Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "emissionserklaerung",
+      "question": "entsorgungsfirma-firmenname-und-sitz",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "emissionserklaerung.haben-sie-in-ihrem-betrieb-eine-tankstelle",
+    "fields": {
+      "created_at": "2023-06-14T11:48:12.867Z",
+      "modified_at": "2023-06-14T11:48:12.867Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "emissionserklaerung",
+      "question": "haben-sie-in-ihrem-betrieb-eine-tankstelle",
+      "sort": 16
     }
   },
   {
@@ -6718,7 +7147,7 @@
       "modified_by_group": null,
       "form": "emissionserklaerung",
       "question": "noga-code",
-      "sort": 23
+      "sort": 42
     }
   },
   {
@@ -6733,7 +7162,7 @@
       "modified_by_group": null,
       "form": "emissionserklaerung",
       "question": "noga-code-bekannt",
-      "sort": 24
+      "sort": 43
     }
   },
   {
@@ -6748,7 +7177,7 @@
       "modified_by_group": null,
       "form": "emissionserklaerung",
       "question": "taetigkeit-des-betriebs-abbau-und-verarbeitung-von-steinen-und-erden",
-      "sort": 9
+      "sort": 28
     }
   },
   {
@@ -6763,7 +7192,7 @@
       "modified_by_group": null,
       "form": "emissionserklaerung",
       "question": "taetigkeit-des-betriebs-baugewerbe",
-      "sort": 5
+      "sort": 24
     }
   },
   {
@@ -6778,7 +7207,7 @@
       "modified_by_group": null,
       "form": "emissionserklaerung",
       "question": "taetigkeit-des-betriebs-chemische-industrie",
-      "sort": 13
+      "sort": 32
     }
   },
   {
@@ -6793,7 +7222,7 @@
       "modified_by_group": null,
       "form": "emissionserklaerung",
       "question": "taetigkeit-des-betriebs-dienstleistungen",
-      "sort": 2
+      "sort": 21
     }
   },
   {
@@ -6808,7 +7237,7 @@
       "modified_by_group": null,
       "form": "emissionserklaerung",
       "question": "taetigkeit-des-betriebs-handel",
-      "sort": 3
+      "sort": 22
     }
   },
   {
@@ -6823,7 +7252,7 @@
       "modified_by_group": null,
       "form": "emissionserklaerung",
       "question": "taetigkeit-des-betriebs-holzverarbeitung",
-      "sort": 12
+      "sort": 31
     }
   },
   {
@@ -6838,7 +7267,7 @@
       "modified_by_group": null,
       "form": "emissionserklaerung",
       "question": "taetigkeit-des-betriebs-kunststoffverarbeitung",
-      "sort": 11
+      "sort": 30
     }
   },
   {
@@ -6853,7 +7282,7 @@
       "modified_by_group": null,
       "form": "emissionserklaerung",
       "question": "taetigkeit-des-betriebs-metall-maschinenindustrie",
-      "sort": 7
+      "sort": 26
     }
   },
   {
@@ -6868,7 +7297,7 @@
       "modified_by_group": null,
       "form": "emissionserklaerung",
       "question": "taetigkeit-des-betriebs-nahrungsmittelindustrie",
-      "sort": 16
+      "sort": 35
     }
   },
   {
@@ -6883,7 +7312,7 @@
       "modified_by_group": null,
       "form": "emissionserklaerung",
       "question": "taetigkeit-des-betriebs-textilindustrie",
-      "sort": 14
+      "sort": 33
     }
   },
   {
@@ -6898,7 +7327,52 @@
       "modified_by_group": null,
       "form": "emissionserklaerung",
       "question": "taetigkeit-titel",
-      "sort": 19
+      "sort": 38
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "emissionserklaerung.tankstelle-titel",
+    "fields": {
+      "created_at": "2023-06-14T11:47:46.035Z",
+      "modified_at": "2023-06-14T11:47:46.035Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "emissionserklaerung",
+      "question": "tankstelle-titel",
+      "sort": 17
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "emissionserklaerung.verwendete-stoffe-und-produkte",
+    "fields": {
+      "created_at": "2023-06-14T11:58:48.037Z",
+      "modified_at": "2023-06-14T11:58:48.037Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "emissionserklaerung",
+      "question": "verwendete-stoffe-und-produkte",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "emissionserklaerung.verwendete-stoffe-und-produkte-titel",
+    "fields": {
+      "created_at": "2023-06-14T11:52:27.509Z",
+      "modified_at": "2023-06-14T11:52:27.509Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "emissionserklaerung",
+      "question": "verwendete-stoffe-und-produkte-titel",
+      "sort": 13
     }
   },
   {
@@ -6913,7 +7387,52 @@
       "modified_by_group": null,
       "form": "emissionserklaerung",
       "question": "weitere-standorte-im-kanton",
-      "sort": 20
+      "sort": 39
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "emissionserklaerung.welche-abfaelle-fallen-in-ihrem-betrieb-an",
+    "fields": {
+      "created_at": "2023-06-14T14:00:23.250Z",
+      "modified_at": "2023-06-14T14:00:23.250Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "emissionserklaerung",
+      "question": "welche-abfaelle-fallen-in-ihrem-betrieb-an",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "emissionserklaerung.wie-viel-liter-diesel-wird-pro-jahr-umgeschlagen",
+    "fields": {
+      "created_at": "2023-06-14T11:50:06.889Z",
+      "modified_at": "2023-06-14T11:50:06.889Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "emissionserklaerung",
+      "question": "wie-viel-liter-diesel-wird-pro-jahr-umgeschlagen",
+      "sort": 14
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "emissionserklaerung.wie-viele-liter-benzin-wird-pro-jahr-umgeschlagen",
+    "fields": {
+      "created_at": "2023-06-14T11:49:33.008Z",
+      "modified_at": "2023-06-14T11:49:33.008Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "emissionserklaerung",
+      "question": "wie-viele-liter-benzin-wird-pro-jahr-umgeschlagen",
+      "sort": 15
     }
   },
   {
@@ -11838,6 +12357,96 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "verwendete-stoffe-und-produkte.beschreibung-der-verwendeten-stoffe-und-produkte",
+    "fields": {
+      "created_at": "2023-06-14T12:00:26.647Z",
+      "modified_at": "2023-06-14T12:00:26.647Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "verwendete-stoffe-und-produkte",
+      "question": "beschreibung-der-verwendeten-stoffe-und-produkte",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "verwendete-stoffe-und-produkte.entsorgte-voc-menge",
+    "fields": {
+      "created_at": "2023-06-14T12:02:07.178Z",
+      "modified_at": "2023-06-14T12:02:07.178Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "verwendete-stoffe-und-produkte",
+      "question": "entsorgte-voc-menge",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "verwendete-stoffe-und-produkte.verbrauch-kg-pro-jahr",
+    "fields": {
+      "created_at": "2023-06-14T11:59:12.788Z",
+      "modified_at": "2023-06-14T11:59:12.788Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "verwendete-stoffe-und-produkte",
+      "question": "verbrauch-kg-pro-jahr",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "verwendete-stoffe-und-produkte.voc-bzw-voc-haltige-produkte",
+    "fields": {
+      "created_at": "2023-06-14T11:58:07.012Z",
+      "modified_at": "2023-06-14T11:58:07.012Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "verwendete-stoffe-und-produkte",
+      "question": "voc-bzw-voc-haltige-produkte",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "verwendete-stoffe-und-produkte.voc-gehalt",
+    "fields": {
+      "created_at": "2023-06-14T12:01:06.740Z",
+      "modified_at": "2023-06-14T12:01:06.740Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "verwendete-stoffe-und-produkte",
+      "question": "voc-gehalt",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "verwendete-stoffe-und-produkte.voc-menge-kg-pro-jahr",
+    "fields": {
+      "created_at": "2023-06-14T12:01:40.541Z",
+      "modified_at": "2023-06-14T12:01:40.541Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "verwendete-stoffe-und-produkte",
+      "question": "voc-menge-kg-pro-jahr",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "vorlaeufige-beurteilung.allgemeine-informationen",
     "fields": {
       "created_at": "2023-04-27T07:00:24.938Z",
@@ -13360,6 +13969,374 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Zweigstelle\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "anlage-prozess-ablaugen-abbeizen",
+    "fields": {
+      "created_at": "2023-06-14T11:22:57.027Z",
+      "modified_at": "2023-06-14T11:22:57.027Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ablaugen/Abbeizen\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "anlage-prozess-beizanlage",
+    "fields": {
+      "created_at": "2023-06-14T11:22:57.055Z",
+      "modified_at": "2023-06-14T11:22:57.055Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beizanlage\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "anlage-prozess-beschichtungsanlage",
+    "fields": {
+      "created_at": "2023-06-14T11:22:57.243Z",
+      "modified_at": "2023-06-14T11:22:57.243Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschichtungsanlage\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "anlage-prozess-destillations-filtrationsanlage",
+    "fields": {
+      "created_at": "2023-06-14T11:22:57.036Z",
+      "modified_at": "2023-06-14T11:22:57.036Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Destillations-, Filtrationsanlage\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "anlage-prozess-farbspritz-lackieranlage",
+    "fields": {
+      "created_at": "2023-06-14T11:22:57.126Z",
+      "modified_at": "2023-06-14T11:22:57.126Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Farbspritz-, Lackieranlage\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "anlage-prozess-galvanisieranlage",
+    "fields": {
+      "created_at": "2023-06-14T11:22:57.114Z",
+      "modified_at": "2023-06-14T11:22:57.114Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Galvanisieranlage\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "anlage-prozess-giessenschmelzen-spritzguss",
+    "fields": {
+      "created_at": "2023-06-14T11:22:57.253Z",
+      "modified_at": "2023-06-14T11:22:57.253Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Giessen/Schmelzen, Spritzguss\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "anlage-prozess-haerteanlage",
+    "fields": {
+      "created_at": "2023-06-14T11:22:57.272Z",
+      "modified_at": "2023-06-14T11:22:57.272Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"H\\u00e4rteanlage\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "anlage-prozess-klebeanlage",
+    "fields": {
+      "created_at": "2023-06-14T11:22:57.273Z",
+      "modified_at": "2023-06-14T11:22:57.273Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Klebeanlage\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "anlage-prozess-labor",
+    "fields": {
+      "created_at": "2023-06-14T11:22:57.472Z",
+      "modified_at": "2023-06-14T11:22:57.472Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Labor\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "anlage-prozess-manuelle-reinigung",
+    "fields": {
+      "created_at": "2023-06-14T11:22:57.455Z",
+      "modified_at": "2023-06-14T11:22:57.455Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Manuelle Reinigung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "anlage-prozess-misch-abfuellanlage",
+    "fields": {
+      "created_at": "2023-06-14T11:22:57.636Z",
+      "modified_at": "2023-06-14T11:22:57.636Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Misch-, Abf\\u00fcllanlage\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "anlage-prozess-parkierungsanlage",
+    "fields": {
+      "created_at": "2023-06-14T11:22:57.483Z",
+      "modified_at": "2023-06-14T11:22:57.483Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Parkierungsanlage (>150 PP)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "anlage-prozess-raeucheranlage",
+    "fields": {
+      "created_at": "2023-06-14T11:22:57.634Z",
+      "modified_at": "2023-06-14T11:22:57.634Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"R\\u00e4ucheranlage\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "anlage-prozess-reinigungs-entfettungsanlage",
+    "fields": {
+      "created_at": "2023-06-14T11:22:57.635Z",
+      "modified_at": "2023-06-14T11:22:57.635Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Reinigungs-/Entfettungsanlage\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "anlage-prozess-roestanlage",
+    "fields": {
+      "created_at": "2023-06-14T11:22:57.672Z",
+      "modified_at": "2023-06-14T11:22:57.672Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"R\\u00f6stanlage\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "anlage-prozess-schleifanlage",
+    "fields": {
+      "created_at": "2023-06-14T11:22:57.687Z",
+      "modified_at": "2023-06-14T11:22:57.687Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Schleifanlage\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "anlage-prozess-schweissanlage",
+    "fields": {
+      "created_at": "2023-06-14T11:22:57.773Z",
+      "modified_at": "2023-06-14T11:22:57.773Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Schweissanlage\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "anlage-prozess-strahlanlage",
+    "fields": {
+      "created_at": "2023-06-14T11:22:57.771Z",
+      "modified_at": "2023-06-14T11:22:57.771Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Strahlanlage\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "anlage-prozess-trocknungs-einbrennanlage",
+    "fields": {
+      "created_at": "2023-06-14T11:22:57.890Z",
+      "modified_at": "2023-06-14T11:22:57.890Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Trocknungs-/Einbrennanlage\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "anlage-prozess-trocknungsanlage",
+    "fields": {
+      "created_at": "2023-06-14T11:22:57.917Z",
+      "modified_at": "2023-06-14T11:22:57.917Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Trocknungsanlage\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "anlage-prozess-waermebehandlungsofen",
+    "fields": {
+      "created_at": "2023-06-14T11:22:57.915Z",
+      "modified_at": "2023-06-14T11:22:57.915Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"W\\u00e4rmebehandlungsofen\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "anlage-prozess-weitere-anlagen-oder-prozesse",
+    "fields": {
+      "created_at": "2023-06-14T11:26:33.545Z",
+      "modified_at": "2023-06-14T11:26:33.545Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Weitere Anlagen oder Prozesse\", \"fr\": null, \"it\": null, \"rm\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -19495,6 +20472,38 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "haben-sie-in-ihrem-betrieb-eine-tankstelle-ja",
+    "fields": {
+      "created_at": "2023-06-14T11:48:12.555Z",
+      "modified_at": "2023-06-14T11:48:12.555Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "haben-sie-in-ihrem-betrieb-eine-tankstelle-nein",
+    "fields": {
+      "created_at": "2023-06-14T11:48:12.565Z",
+      "modified_at": "2023-06-14T11:48:12.565Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "haeusliches-abwasser-in-guellegrube-ja",
     "fields": {
       "created_at": "2023-04-14T07:44:11.510Z",
@@ -21847,6 +22856,38 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "partikelfilter-ja",
+    "fields": {
+      "created_at": "2023-06-14T11:46:12.051Z",
+      "modified_at": "2023-06-14T11:46:12.051Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "partikelfilter-nein",
+    "fields": {
+      "created_at": "2023-06-14T11:46:12.078Z",
+      "modified_at": "2023-06-14T11:46:12.078Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "platzierung-der-anlage-andere",
     "fields": {
       "created_at": "2023-04-19T11:12:02.465Z",
@@ -22432,6 +23473,22 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "sicherheitsdatenblatt-ja",
+    "fields": {
+      "created_at": "2023-06-14T12:07:07.333Z",
+      "modified_at": "2023-06-14T12:07:07.333Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Sicherheitsdatenblatt\", \"fr\": null, \"it\": null, \"rm\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -25047,6 +26104,182 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "voc-bzw-voc-haltige-produkte-beizmittel",
+    "fields": {
+      "created_at": "2023-06-14T11:58:06.631Z",
+      "modified_at": "2023-06-14T11:58:06.631Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beizmittel\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "voc-bzw-voc-haltige-produkte-chemikalien",
+    "fields": {
+      "created_at": "2023-06-14T11:58:06.400Z",
+      "modified_at": "2023-06-14T11:58:06.400Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Chemikalien (S\\u00e4uren, Laugen etc.)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "voc-bzw-voc-haltige-produkte-farben-und-lacke-loesemittelhaltig",
+    "fields": {
+      "created_at": "2023-06-14T11:58:06.501Z",
+      "modified_at": "2023-06-14T11:58:06.501Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Farben und Lacke, l\\u00f6semittelhaltig\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "voc-bzw-voc-haltige-produkte-farben-und-lacke-waessrig",
+    "fields": {
+      "created_at": "2023-06-14T11:58:06.344Z",
+      "modified_at": "2023-06-14T11:58:06.344Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Farben und Lacke, w\\u00e4ssrig\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "voc-bzw-voc-haltige-produkte-fueller-und-haerter",
+    "fields": {
+      "created_at": "2023-06-14T11:58:06.345Z",
+      "modified_at": "2023-06-14T11:58:06.345Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"F\\u00fcller und H\\u00e4rter\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "voc-bzw-voc-haltige-produkte-kleber-klebstoffe",
+    "fields": {
+      "created_at": "2023-06-14T11:58:06.498Z",
+      "modified_at": "2023-06-14T11:58:06.498Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Kleber/Klebstoffe, l\\u00f6semittelhaltig\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "voc-bzw-voc-haltige-produkte-reinigungs-entfettungsmittel-chlorhaltig",
+    "fields": {
+      "created_at": "2023-06-14T11:58:06.464Z",
+      "modified_at": "2023-06-14T11:58:06.464Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Reinigungs-/Entfettungsmittel, chlorhaltig\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "voc-bzw-voc-haltige-produkte-reinigungs-entfettungsmittel-loesemittelhaltig",
+    "fields": {
+      "created_at": "2023-06-14T11:58:06.436Z",
+      "modified_at": "2023-06-14T11:58:06.436Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Reinigungs-/Entfettungsmittel, l\\u00f6semittelhaltig\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "voc-bzw-voc-haltige-produkte-schweissmaterial",
+    "fields": {
+      "created_at": "2023-06-14T11:58:06.568Z",
+      "modified_at": "2023-06-14T11:58:06.568Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Schweissmaterial, Strahlmittel\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "voc-bzw-voc-haltige-produkte-verduenner",
+    "fields": {
+      "created_at": "2023-06-14T11:58:06.275Z",
+      "modified_at": "2023-06-14T11:58:06.275Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Verd\\u00fcnner\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "voc-bzw-voc-haltige-produkte-weitere",
+    "fields": {
+      "created_at": "2023-06-14T11:58:06.650Z",
+      "modified_at": "2023-06-14T11:58:06.650Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Weitere Stoffe/Produkte\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "vorgesehene-abwasserableitung-gemeindekanalisation",
     "fields": {
       "created_at": "2023-04-19T10:15:09.516Z",
@@ -26023,6 +27256,86 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "welche-abfaelle-fallen-in-ihrem-betrieb-an-chemikalienreste",
+    "fields": {
+      "created_at": "2023-06-14T14:00:22.876Z",
+      "modified_at": "2023-06-14T14:00:22.876Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Chemikalienreste\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "welche-abfaelle-fallen-in-ihrem-betrieb-an-farb-lackabfaelle",
+    "fields": {
+      "created_at": "2023-06-14T14:00:22.932Z",
+      "modified_at": "2023-06-14T14:00:22.932Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Farb-/Lackabf\\u00e4lle\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "welche-abfaelle-fallen-in-ihrem-betrieb-an-filtermatten-aus-spritzkabine",
+    "fields": {
+      "created_at": "2023-06-14T14:00:22.834Z",
+      "modified_at": "2023-06-14T14:00:22.834Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Filtermatten aus Spritzkabine\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "welche-abfaelle-fallen-in-ihrem-betrieb-an-reinigungs-entfettungsmittel",
+    "fields": {
+      "created_at": "2023-06-14T14:00:22.858Z",
+      "modified_at": "2023-06-14T14:00:22.858Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Reinigungs-/Entfettungsmittel verschmutzt\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "welche-abfaelle-fallen-in-ihrem-betrieb-an-weitere",
+    "fields": {
+      "created_at": "2023-06-14T14:00:22.909Z",
+      "modified_at": "2023-06-14T14:00:22.909Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Weitere Sonderabf\\u00e4lle\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "werden-schutzplaetze-erstellt-ja",
     "fields": {
       "created_at": "2023-04-18T18:56:31.659Z",
@@ -26151,6 +27464,54 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "wie-wird-die-prozessabluft-abgeleitet-hallenlueftung-natuerliche-entlueftung",
+    "fields": {
+      "created_at": "2023-06-14T11:39:19.716Z",
+      "modified_at": "2023-06-14T11:39:19.716Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hallenl\\u00fcftung/nat\\u00fcrliche Entl\\u00fcftung (T\\u00fcren, Fenster)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "wie-wird-die-prozessabluft-abgeleitet-seitlich-aus-dem-gebaeude",
+    "fields": {
+      "created_at": "2023-06-14T11:39:19.670Z",
+      "modified_at": "2023-06-14T11:39:19.670Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Seitlich aus dem Geb\\u00e4ude\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "wie-wird-die-prozessabluft-abgeleitet-ueber-dach",
+    "fields": {
+      "created_at": "2023-06-14T11:39:19.658Z",
+      "modified_at": "2023-06-14T11:39:19.658Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"\\u00dcber Dach\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "winkel-45-grad-ja",
     "fields": {
       "created_at": "2023-04-20T09:43:09.022Z",
@@ -26172,6 +27533,38 @@
       "created_at": "2023-04-20T09:43:09.054Z",
       "modified_at": "2023-04-20T09:43:09.054Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "wird-abluft-abgeleitet-ja",
+    "fields": {
+      "created_at": "2023-06-14T11:30:59.964Z",
+      "modified_at": "2023-06-14T11:30:59.964Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "wird-abluft-abgeleitet-nein",
+    "fields": {
+      "created_at": "2023-06-14T11:30:59.948Z",
+      "modified_at": "2023-06-14T11:30:59.948Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
@@ -26873,6 +28266,37 @@
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "abfaelle-und-sonderabfaelle-titel",
+    "fields": {
+      "created_at": "2023-06-14T13:58:10.692Z",
+      "modified_at": "2023-06-14T13:58:10.692Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abf\\u00e4lle und Sonderabf\\u00e4lle Titel\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"---\\n#### Abf\\u00e4lle und Sonderabf\\u00e4lle\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -28141,6 +29565,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "anlage-prozess",
+    "fields": {
+      "created_at": "2023-06-14T11:22:58.101Z",
+      "modified_at": "2023-06-14T11:26:33.807Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Art der Anlage / des Prozesses\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "anlage-ragt-nicht-ueber-dachflaeche-hinaus",
     "fields": {
       "created_at": "2023-04-20T09:41:23.669Z",
@@ -28299,6 +29754,44 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "anlagen-prozesse",
+    "fields": {
+      "created_at": "2023-06-14T11:24:26.355Z",
+      "modified_at": "2023-06-14T11:37:42.705Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anlagen/Prozesse\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "table",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "columnsToDisplay": [
+          "anlage-prozess",
+          "anzahl-anlagen",
+          "betriebsstunden-hjahr",
+          "art-der-abluftreinigung"
+        ]
+      },
+      "data_source": null,
+      "row_form": "anlagen-prozesse-table",
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "anlagen-titel",
     "fields": {
       "created_at": "2023-04-12T10:44:58.897Z",
@@ -28316,6 +29809,37 @@
       "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"---\\n### Anlagen\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "anlagenprozesse-titel",
+    "fields": {
+      "created_at": "2023-06-14T11:17:12.137Z",
+      "modified_at": "2023-06-14T11:17:12.137Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anlagen/Prozesse Titel\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"---\\n#### Anlagen/Prozesse\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -28379,6 +29903,40 @@
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "anzahl-anlagen",
+    "fields": {
+      "created_at": "2023-06-14T11:27:20.045Z",
+      "modified_at": "2023-06-14T11:27:20.045Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anzahl\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -29124,6 +30682,40 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "art-der-abluftreinigung",
+    "fields": {
+      "created_at": "2023-06-14T11:31:52.939Z",
+      "modified_at": "2023-06-14T11:31:52.939Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Art der Abluftreinigung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -30750,6 +32342,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "baujahr",
+    "fields": {
+      "created_at": "2023-06-14T11:44:59.993Z",
+      "modified_at": "2023-06-14T11:44:59.993Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Baujahr\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "baujahr-der-anlage",
     "fields": {
       "created_at": "2023-04-24T12:24:42.040Z",
@@ -31808,6 +33434,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "bemerkungen-kommentare",
+    "fields": {
+      "created_at": "2023-06-14T14:13:23.860Z",
+      "modified_at": "2023-06-14T14:13:23.860Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkungen / Kommentare\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "berechnungsergebnisse-titel",
     "fields": {
       "created_at": "2023-04-20T14:18:04.120Z",
@@ -32306,6 +33966,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "beschreibung-der-anlage-des-prozesses",
+    "fields": {
+      "created_at": "2023-06-14T11:34:35.535Z",
+      "modified_at": "2023-06-14T11:34:35.535Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschreibung der Anlage / des Prozesses\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "!(\"anlage-prozess-weitere-anlagen-oder-prozesse\" == \"anlage-prozess\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"Feuerungsanlagen zur Erzeugung der (Raum)W\\u00e4rme, sowie station\\u00e4re Verbrennungsmotoren f\\u00fcr Notstrom und Blockheizkraftwerke (BHKW) hier nicht aufzuf\\u00fchren.\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "beschreibung-der-anlagen",
     "fields": {
       "created_at": "2023-04-12T08:08:32.877Z",
@@ -32386,6 +34080,40 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "beschreibung-der-verwendeten-stoffe-und-produkte",
+    "fields": {
+      "created_at": "2023-06-14T12:00:26.495Z",
+      "modified_at": "2023-06-14T12:00:26.495Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschreibung der Verwendeten Stoffe und Produkte\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "!(\"voc-bzw-voc-haltige-produkte-weitere\" == \"voc-bzw-voc-haltige-produkte\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -33163,6 +34891,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "beschreibung-weitere-sonderabfaelle",
+    "fields": {
+      "created_at": "2023-06-14T14:09:41.986Z",
+      "modified_at": "2023-06-14T14:09:41.986Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschreibung weitere Sonderabf\\u00e4lle\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "!(\"welche-abfaelle-fallen-in-ihrem-betrieb-an-weitere\" in \"welche-abfaelle-fallen-in-ihrem-betrieb-an\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "beschreibung-zweck-der-bohrung",
     "fields": {
       "created_at": "2023-04-20T14:49:30.218Z",
@@ -33747,6 +35509,40 @@
       "data_source": null,
       "row_form": null,
       "sub_form": "betriebsleiterwohnhaus",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "betriebsstunden-hjahr",
+    "fields": {
+      "created_at": "2023-06-14T11:27:50.948Z",
+      "modified_at": "2023-06-14T11:27:50.948Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Betriebsstunden (h/Jahr)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
@@ -35507,6 +37303,136 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "die-angaben-beziehen-sich-auf-das-betriebsjahr",
+    "fields": {
+      "created_at": "2023-06-14T11:53:11.399Z",
+      "modified_at": "2023-06-14T11:53:11.399Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Die Angaben beziehen sich auf das Betriebsjahr\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "dieselgetriebene-motoren",
+    "fields": {
+      "created_at": "2023-06-14T11:44:04.312Z",
+      "modified_at": "2023-06-14T11:44:04.312Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dieselgetriebene Motoren\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "table",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": "dieselgetriebene-motoren",
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "dieselgetriebene-motoren-betriebsmittel-typ",
+    "fields": {
+      "created_at": "2023-06-14T11:43:25.598Z",
+      "modified_at": "2023-06-14T11:43:25.598Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dieselgetriebene Motoren, Betriebsmittel, Typ\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "dieselgetriebene-motoren-titel",
+    "fields": {
+      "created_at": "2023-06-14T11:41:05.934Z",
+      "modified_at": "2023-06-14T11:41:05.934Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dieselgetriebene Motoren Titel\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"---\\n#### Dieselgetriebene Motoren\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "distanz-des-hydranten",
     "fields": {
       "created_at": "2023-05-25T07:38:30.792Z",
@@ -36731,6 +38657,210 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "entsorgte-menge-chemikalienreste",
+    "fields": {
+      "created_at": "2023-06-14T14:05:31.073Z",
+      "modified_at": "2023-06-14T14:05:31.074Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Entsorgte Menge Chemikalienreste pro Jahr (kg)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "!(\"welche-abfaelle-fallen-in-ihrem-betrieb-an-chemikalienreste\" in \"welche-abfaelle-fallen-in-ihrem-betrieb-an\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "entsorgte-menge-farb-lackabfaelle",
+    "fields": {
+      "created_at": "2023-06-14T14:02:08.574Z",
+      "modified_at": "2023-06-14T14:02:08.575Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Entsorgte Menge Farb-/Lackabf\\u00e4lle pro Jahr (kg)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "!(\"welche-abfaelle-fallen-in-ihrem-betrieb-an-farb-lackabfaelle\" in \"welche-abfaelle-fallen-in-ihrem-betrieb-an\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "entsorgte-menge-filtermatten-aus-spritzkabine",
+    "fields": {
+      "created_at": "2023-06-14T14:04:36.360Z",
+      "modified_at": "2023-06-14T14:04:36.360Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Entsorgte Menge Filtermatten aus Spritzkabine pro Jahr (kg)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "!(\"welche-abfaelle-fallen-in-ihrem-betrieb-an-filtermatten-aus-spritzkabine\" in \"welche-abfaelle-fallen-in-ihrem-betrieb-an\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "entsorgte-menge-reinigungs-entfettungsmittel-verschmutzt-pro-jahr-kg",
+    "fields": {
+      "created_at": "2023-06-14T14:03:20.826Z",
+      "modified_at": "2023-06-14T14:03:20.826Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Entsorgte Menge Reinigungs-/Entfettungsmittel verschmutzt pro Jahr (kg)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "!(\"welche-abfaelle-fallen-in-ihrem-betrieb-an-reinigungs-entfettungsmittel\" in \"welche-abfaelle-fallen-in-ihrem-betrieb-an\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "entsorgte-menge-weitere-sonderabfaelle",
+    "fields": {
+      "created_at": "2023-06-14T14:12:25.640Z",
+      "modified_at": "2023-06-14T14:12:25.640Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Entsorgte Menge weitere Sonderabf\\u00e4lle pro Jahr (kg)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "!(\"welche-abfaelle-fallen-in-ihrem-betrieb-an-weitere\" in \"welche-abfaelle-fallen-in-ihrem-betrieb-an\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "entsorgte-voc-menge",
+    "fields": {
+      "created_at": "2023-06-14T12:02:07.031Z",
+      "modified_at": "2023-06-14T12:02:07.031Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Entsorgte VOC-Menge (kg pro Jahr)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "entsorgung-dachwasser",
     "fields": {
       "created_at": "2023-04-19T10:22:54.290Z",
@@ -36781,6 +38911,40 @@
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "entsorgungsfirma-firmenname-und-sitz",
+    "fields": {
+      "created_at": "2023-06-14T14:13:03.390Z",
+      "modified_at": "2023-06-14T14:13:03.390Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Entsorgungsfirma (Firmenname und -sitz)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -39938,6 +42102,37 @@
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"### Geb\\u00e4ude- und Wohnungsregister\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "haben-sie-in-ihrem-betrieb-eine-tankstelle",
+    "fields": {
+      "created_at": "2023-06-14T11:48:12.703Z",
+      "modified_at": "2023-06-14T11:48:12.703Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Haben Sie in Ihrem Betrieb eine Tankstelle?\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -44860,6 +47055,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "nennleistung-kw",
+    "fields": {
+      "created_at": "2023-06-14T11:44:37.919Z",
+      "modified_at": "2023-06-14T11:44:37.919Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nennleistung (kW)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "netzgebunden",
     "fields": {
       "created_at": "2023-04-20T11:15:43.021Z",
@@ -45474,6 +47703,37 @@
       },
       "data_source": null,
       "row_form": "personalien-tabelle",
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "partikelfilter",
+    "fields": {
+      "created_at": "2023-06-14T11:46:12.229Z",
+      "modified_at": "2023-06-14T11:46:12.229Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Partikelfilter\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
@@ -47137,6 +49397,39 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "sicherheitsdatenblatt",
+    "fields": {
+      "created_at": "2023-06-14T12:07:07.511Z",
+      "modified_at": "2023-06-14T12:30:15.910Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Sicherheitsdatenblatt\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "\"verwendete-stoffe-und-produkte\"|answer|mapby(\"verbrauch-kg-pro-jahr\")|max < 200",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "sind-folgende-anlagen-betroffen",
     "fields": {
       "created_at": "2023-04-27T13:30:28.401Z",
@@ -48636,6 +50929,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "tankstelle-titel",
+    "fields": {
+      "created_at": "2023-06-14T11:47:45.883Z",
+      "modified_at": "2023-06-14T11:47:45.883Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Tankstelle Titel\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"---\\n#### Tankstelle\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "tankstellen-titel",
     "fields": {
       "created_at": "2023-05-23T13:46:30.594Z",
@@ -49824,6 +52148,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "verbrauch-kg-pro-jahr",
+    "fields": {
+      "created_at": "2023-06-14T11:59:12.623Z",
+      "modified_at": "2023-06-14T11:59:12.623Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Verbrauch (kg pro Jahr)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "verdampferanlage",
     "fields": {
       "created_at": "2023-04-24T10:15:31.096Z",
@@ -49973,6 +52331,76 @@
       "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "verwendete-stoffe-und-produkte",
+    "fields": {
+      "created_at": "2023-06-14T11:58:47.889Z",
+      "modified_at": "2023-06-14T12:02:33.265Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Verwendete Stoffe und Produkte\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "table",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "columnsToDisplay": [
+          "voc-bzw-voc-haltige-produkte",
+          "verbrauch-kg-pro-jahr",
+          "voc-gehalt",
+          "voc-menge-kg-pro-jahr",
+          "entsorgte-voc-menge"
+        ]
+      },
+      "data_source": null,
+      "row_form": "verwendete-stoffe-und-produkte",
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "verwendete-stoffe-und-produkte-titel",
+    "fields": {
+      "created_at": "2023-06-14T11:52:27.347Z",
+      "modified_at": "2023-06-14T11:52:27.347Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Verwendete Stoffe und Produkte Titel\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"---\\n#### Verwendete Stoffe und Produkte Titel\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -50208,6 +52636,105 @@
       "configuration": {
         "max_length": null,
         "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "voc-bzw-voc-haltige-produkte",
+    "fields": {
+      "created_at": "2023-06-14T11:58:06.804Z",
+      "modified_at": "2023-06-14T11:58:06.804Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"VOC bzw. VOC-haltige Produkte\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "voc-gehalt",
+    "fields": {
+      "created_at": "2023-06-14T12:01:06.587Z",
+      "modified_at": "2023-06-14T12:01:06.587Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"VOC-Gehalt (in %)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "voc-menge-kg-pro-jahr",
+    "fields": {
+      "created_at": "2023-06-14T12:01:40.377Z",
+      "modified_at": "2023-06-14T12:01:40.377Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"VOC-Menge (kg pro Jahr)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
       },
       "meta": {},
       "data_source": null,
@@ -51352,6 +53879,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "welche-abfaelle-fallen-in-ihrem-betrieb-an",
+    "fields": {
+      "created_at": "2023-06-14T14:00:23.096Z",
+      "modified_at": "2023-06-14T14:00:23.096Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Welche Abf\\u00e4lle fallen in Ihrem Betrieb an?\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "werden-schutzplaetze-erstellt",
     "fields": {
       "created_at": "2023-04-18T18:56:31.814Z",
@@ -51414,6 +53972,74 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "wie-viel-liter-diesel-wird-pro-jahr-umgeschlagen",
+    "fields": {
+      "created_at": "2023-06-14T11:50:06.718Z",
+      "modified_at": "2023-06-14T11:50:06.718Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wie viel Liter Diesel wird pro Jahr umgeschlagen?\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "!(\"haben-sie-in-ihrem-betrieb-eine-tankstelle-ja\" == \"haben-sie-in-ihrem-betrieb-eine-tankstelle\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "wie-viele-liter-benzin-wird-pro-jahr-umgeschlagen",
+    "fields": {
+      "created_at": "2023-06-14T11:49:32.847Z",
+      "modified_at": "2023-06-14T11:49:32.847Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wie viele Liter Benzin wird pro Jahr umgeschlagen?\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "!(\"haben-sie-in-ihrem-betrieb-eine-tankstelle-ja\" == \"haben-sie-in-ihrem-betrieb-eine-tankstelle\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "wie-werden-abluft-resp-abgase-abgefuehrt",
     "fields": {
       "created_at": "2023-04-24T12:36:37.328Z",
@@ -51423,6 +54049,37 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Wie werden Abluft resp. Abgase abgef\\u00fchrt?\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "wie-wird-die-prozessabluft-abgeleitet",
+    "fields": {
+      "created_at": "2023-06-14T11:39:19.848Z",
+      "modified_at": "2023-06-14T11:39:19.848Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wie wird die Prozessabluft abgeleitet?\", \"fr\": null, \"it\": null, \"rm\": null}",
       "type": "multiple_choice",
       "is_required": "false",
       "is_hidden": "false",
@@ -51457,6 +54114,37 @@
       "type": "choice",
       "is_required": "false",
       "is_hidden": "!(\"installation-flachdach-ja\" == \"installation-flachdach\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "wird-abluft-abgeleitet",
+    "fields": {
+      "created_at": "2023-06-14T11:31:00.104Z",
+      "modified_at": "2023-06-14T11:31:00.104Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wird die Abluft abgeleitet\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
@@ -52763,6 +55451,351 @@
       "question": "angaben-zur-anlage",
       "option": "angaben-zur-anlage-zweigstelle",
       "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "anlage-prozess.anlage-prozess-ablaugen-abbeizen",
+    "fields": {
+      "created_at": "2023-06-14T11:26:33.907Z",
+      "modified_at": "2023-06-14T11:26:33.907Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "anlage-prozess",
+      "option": "anlage-prozess-ablaugen-abbeizen",
+      "sort": 23
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "anlage-prozess.anlage-prozess-beizanlage",
+    "fields": {
+      "created_at": "2023-06-14T11:26:33.903Z",
+      "modified_at": "2023-06-14T11:26:33.903Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "anlage-prozess",
+      "option": "anlage-prozess-beizanlage",
+      "sort": 22
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "anlage-prozess.anlage-prozess-beschichtungsanlage",
+    "fields": {
+      "created_at": "2023-06-14T11:26:33.899Z",
+      "modified_at": "2023-06-14T11:26:33.899Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "anlage-prozess",
+      "option": "anlage-prozess-beschichtungsanlage",
+      "sort": 21
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "anlage-prozess.anlage-prozess-destillations-filtrationsanlage",
+    "fields": {
+      "created_at": "2023-06-14T11:26:33.896Z",
+      "modified_at": "2023-06-14T11:26:33.896Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "anlage-prozess",
+      "option": "anlage-prozess-destillations-filtrationsanlage",
+      "sort": 20
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "anlage-prozess.anlage-prozess-farbspritz-lackieranlage",
+    "fields": {
+      "created_at": "2023-06-14T11:26:33.893Z",
+      "modified_at": "2023-06-14T11:26:33.893Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "anlage-prozess",
+      "option": "anlage-prozess-farbspritz-lackieranlage",
+      "sort": 19
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "anlage-prozess.anlage-prozess-galvanisieranlage",
+    "fields": {
+      "created_at": "2023-06-14T11:26:33.889Z",
+      "modified_at": "2023-06-14T11:26:33.889Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "anlage-prozess",
+      "option": "anlage-prozess-galvanisieranlage",
+      "sort": 18
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "anlage-prozess.anlage-prozess-giessenschmelzen-spritzguss",
+    "fields": {
+      "created_at": "2023-06-14T11:26:33.886Z",
+      "modified_at": "2023-06-14T11:26:33.886Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "anlage-prozess",
+      "option": "anlage-prozess-giessenschmelzen-spritzguss",
+      "sort": 17
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "anlage-prozess.anlage-prozess-haerteanlage",
+    "fields": {
+      "created_at": "2023-06-14T11:26:33.883Z",
+      "modified_at": "2023-06-14T11:26:33.883Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "anlage-prozess",
+      "option": "anlage-prozess-haerteanlage",
+      "sort": 16
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "anlage-prozess.anlage-prozess-klebeanlage",
+    "fields": {
+      "created_at": "2023-06-14T11:26:33.880Z",
+      "modified_at": "2023-06-14T11:26:33.880Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "anlage-prozess",
+      "option": "anlage-prozess-klebeanlage",
+      "sort": 15
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "anlage-prozess.anlage-prozess-labor",
+    "fields": {
+      "created_at": "2023-06-14T11:26:33.876Z",
+      "modified_at": "2023-06-14T11:26:33.876Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "anlage-prozess",
+      "option": "anlage-prozess-labor",
+      "sort": 14
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "anlage-prozess.anlage-prozess-manuelle-reinigung",
+    "fields": {
+      "created_at": "2023-06-14T11:26:33.873Z",
+      "modified_at": "2023-06-14T11:26:33.873Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "anlage-prozess",
+      "option": "anlage-prozess-manuelle-reinigung",
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "anlage-prozess.anlage-prozess-misch-abfuellanlage",
+    "fields": {
+      "created_at": "2023-06-14T11:26:33.870Z",
+      "modified_at": "2023-06-14T11:26:33.870Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "anlage-prozess",
+      "option": "anlage-prozess-misch-abfuellanlage",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "anlage-prozess.anlage-prozess-parkierungsanlage",
+    "fields": {
+      "created_at": "2023-06-14T11:26:33.867Z",
+      "modified_at": "2023-06-14T11:26:33.867Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "anlage-prozess",
+      "option": "anlage-prozess-parkierungsanlage",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "anlage-prozess.anlage-prozess-raeucheranlage",
+    "fields": {
+      "created_at": "2023-06-14T11:26:33.864Z",
+      "modified_at": "2023-06-14T11:26:33.864Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "anlage-prozess",
+      "option": "anlage-prozess-raeucheranlage",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "anlage-prozess.anlage-prozess-reinigungs-entfettungsanlage",
+    "fields": {
+      "created_at": "2023-06-14T11:26:33.860Z",
+      "modified_at": "2023-06-14T11:26:33.860Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "anlage-prozess",
+      "option": "anlage-prozess-reinigungs-entfettungsanlage",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "anlage-prozess.anlage-prozess-roestanlage",
+    "fields": {
+      "created_at": "2023-06-14T11:26:33.857Z",
+      "modified_at": "2023-06-14T11:26:33.857Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "anlage-prozess",
+      "option": "anlage-prozess-roestanlage",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "anlage-prozess.anlage-prozess-schleifanlage",
+    "fields": {
+      "created_at": "2023-06-14T11:26:33.853Z",
+      "modified_at": "2023-06-14T11:26:33.853Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "anlage-prozess",
+      "option": "anlage-prozess-schleifanlage",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "anlage-prozess.anlage-prozess-schweissanlage",
+    "fields": {
+      "created_at": "2023-06-14T11:26:33.848Z",
+      "modified_at": "2023-06-14T11:26:33.848Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "anlage-prozess",
+      "option": "anlage-prozess-schweissanlage",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "anlage-prozess.anlage-prozess-strahlanlage",
+    "fields": {
+      "created_at": "2023-06-14T11:26:33.842Z",
+      "modified_at": "2023-06-14T11:26:33.842Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "anlage-prozess",
+      "option": "anlage-prozess-strahlanlage",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "anlage-prozess.anlage-prozess-trocknungs-einbrennanlage",
+    "fields": {
+      "created_at": "2023-06-14T11:26:33.836Z",
+      "modified_at": "2023-06-14T11:26:33.836Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "anlage-prozess",
+      "option": "anlage-prozess-trocknungs-einbrennanlage",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "anlage-prozess.anlage-prozess-trocknungsanlage",
+    "fields": {
+      "created_at": "2023-06-14T11:26:33.832Z",
+      "modified_at": "2023-06-14T11:26:33.832Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "anlage-prozess",
+      "option": "anlage-prozess-trocknungsanlage",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "anlage-prozess.anlage-prozess-waermebehandlungsofen",
+    "fields": {
+      "created_at": "2023-06-14T11:26:33.827Z",
+      "modified_at": "2023-06-14T11:26:33.827Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "anlage-prozess",
+      "option": "anlage-prozess-waermebehandlungsofen",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "anlage-prozess.anlage-prozess-weitere-anlagen-oder-prozesse",
+    "fields": {
+      "created_at": "2023-06-14T11:26:33.821Z",
+      "modified_at": "2023-06-14T11:26:33.821Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "anlage-prozess",
+      "option": "anlage-prozess-weitere-anlagen-oder-prozesse",
+      "sort": 1
     }
   },
   {
@@ -58512,6 +61545,36 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "haben-sie-in-ihrem-betrieb-eine-tankstelle.haben-sie-in-ihrem-betrieb-eine-tankstelle-ja",
+    "fields": {
+      "created_at": "2023-06-14T11:48:12.720Z",
+      "modified_at": "2023-06-14T11:48:12.720Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "haben-sie-in-ihrem-betrieb-eine-tankstelle",
+      "option": "haben-sie-in-ihrem-betrieb-eine-tankstelle-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "haben-sie-in-ihrem-betrieb-eine-tankstelle.haben-sie-in-ihrem-betrieb-eine-tankstelle-nein",
+    "fields": {
+      "created_at": "2023-06-14T11:48:12.711Z",
+      "modified_at": "2023-06-14T11:48:12.711Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "haben-sie-in-ihrem-betrieb-eine-tankstelle",
+      "option": "haben-sie-in-ihrem-betrieb-eine-tankstelle-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "haeusliches-abwasser-in-guellegrube.haeusliches-abwasser-in-guellegrube-ja",
     "fields": {
       "created_at": "2023-04-14T07:44:11.657Z",
@@ -60717,6 +63780,36 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "partikelfilter.partikelfilter-ja",
+    "fields": {
+      "created_at": "2023-06-14T11:46:12.240Z",
+      "modified_at": "2023-06-14T11:46:12.240Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "partikelfilter",
+      "option": "partikelfilter-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "partikelfilter.partikelfilter-nein",
+    "fields": {
+      "created_at": "2023-06-14T11:46:12.236Z",
+      "modified_at": "2023-06-14T11:46:12.236Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "partikelfilter",
+      "option": "partikelfilter-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "platzierung-der-anlage.platzierung-der-anlage-andere",
     "fields": {
       "created_at": "2023-04-19T11:12:02.618Z",
@@ -61297,6 +64390,21 @@
       "modified_by_group": null,
       "question": "schraegdach-tragwerksnormen",
       "option": "schraegdach-tragwerksnormen-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "sicherheitsdatenblatt.sicherheitsdatenblatt-ja",
+    "fields": {
+      "created_at": "2023-06-14T12:30:15.921Z",
+      "modified_at": "2023-06-14T12:30:15.921Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "sicherheitsdatenblatt",
+      "option": "sicherheitsdatenblatt-ja",
       "sort": 1
     }
   },
@@ -63747,6 +66855,171 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "voc-bzw-voc-haltige-produkte.voc-bzw-voc-haltige-produkte-beizmittel",
+    "fields": {
+      "created_at": "2023-06-14T11:58:06.818Z",
+      "modified_at": "2023-06-14T11:58:06.818Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "voc-bzw-voc-haltige-produkte",
+      "option": "voc-bzw-voc-haltige-produkte-beizmittel",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "voc-bzw-voc-haltige-produkte.voc-bzw-voc-haltige-produkte-chemikalien",
+    "fields": {
+      "created_at": "2023-06-14T11:58:06.840Z",
+      "modified_at": "2023-06-14T11:58:06.840Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "voc-bzw-voc-haltige-produkte",
+      "option": "voc-bzw-voc-haltige-produkte-chemikalien",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "voc-bzw-voc-haltige-produkte.voc-bzw-voc-haltige-produkte-farben-und-lacke-loesemittelhaltig",
+    "fields": {
+      "created_at": "2023-06-14T11:58:06.865Z",
+      "modified_at": "2023-06-14T11:58:06.865Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "voc-bzw-voc-haltige-produkte",
+      "option": "voc-bzw-voc-haltige-produkte-farben-und-lacke-loesemittelhaltig",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "voc-bzw-voc-haltige-produkte.voc-bzw-voc-haltige-produkte-farben-und-lacke-waessrig",
+    "fields": {
+      "created_at": "2023-06-14T11:58:06.870Z",
+      "modified_at": "2023-06-14T11:58:06.870Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "voc-bzw-voc-haltige-produkte",
+      "option": "voc-bzw-voc-haltige-produkte-farben-und-lacke-waessrig",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "voc-bzw-voc-haltige-produkte.voc-bzw-voc-haltige-produkte-fueller-und-haerter",
+    "fields": {
+      "created_at": "2023-06-14T11:58:06.855Z",
+      "modified_at": "2023-06-14T11:58:06.855Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "voc-bzw-voc-haltige-produkte",
+      "option": "voc-bzw-voc-haltige-produkte-fueller-und-haerter",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "voc-bzw-voc-haltige-produkte.voc-bzw-voc-haltige-produkte-kleber-klebstoffe",
+    "fields": {
+      "created_at": "2023-06-14T11:58:06.835Z",
+      "modified_at": "2023-06-14T11:58:06.836Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "voc-bzw-voc-haltige-produkte",
+      "option": "voc-bzw-voc-haltige-produkte-kleber-klebstoffe",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "voc-bzw-voc-haltige-produkte.voc-bzw-voc-haltige-produkte-reinigungs-entfettungsmittel-chlorhaltig",
+    "fields": {
+      "created_at": "2023-06-14T11:58:06.846Z",
+      "modified_at": "2023-06-14T11:58:06.846Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "voc-bzw-voc-haltige-produkte",
+      "option": "voc-bzw-voc-haltige-produkte-reinigungs-entfettungsmittel-chlorhaltig",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "voc-bzw-voc-haltige-produkte.voc-bzw-voc-haltige-produkte-reinigungs-entfettungsmittel-loesemittelhaltig",
+    "fields": {
+      "created_at": "2023-06-14T11:58:06.851Z",
+      "modified_at": "2023-06-14T11:58:06.851Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "voc-bzw-voc-haltige-produkte",
+      "option": "voc-bzw-voc-haltige-produkte-reinigungs-entfettungsmittel-loesemittelhaltig",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "voc-bzw-voc-haltige-produkte.voc-bzw-voc-haltige-produkte-schweissmaterial",
+    "fields": {
+      "created_at": "2023-06-14T11:58:06.828Z",
+      "modified_at": "2023-06-14T11:58:06.829Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "voc-bzw-voc-haltige-produkte",
+      "option": "voc-bzw-voc-haltige-produkte-schweissmaterial",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "voc-bzw-voc-haltige-produkte.voc-bzw-voc-haltige-produkte-verduenner",
+    "fields": {
+      "created_at": "2023-06-14T11:58:06.860Z",
+      "modified_at": "2023-06-14T11:58:06.860Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "voc-bzw-voc-haltige-produkte",
+      "option": "voc-bzw-voc-haltige-produkte-verduenner",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "voc-bzw-voc-haltige-produkte.voc-bzw-voc-haltige-produkte-weitere",
+    "fields": {
+      "created_at": "2023-06-14T11:58:06.813Z",
+      "modified_at": "2023-06-14T11:58:06.813Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "voc-bzw-voc-haltige-produkte",
+      "option": "voc-bzw-voc-haltige-produkte-weitere",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "vorgesehene-abwasserableitung.vorgesehene-abwasserableitung-gemeindekanalisation",
     "fields": {
       "created_at": "2023-04-19T10:15:09.700Z",
@@ -64662,6 +67935,81 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "welche-abfaelle-fallen-in-ihrem-betrieb-an.welche-abfaelle-fallen-in-ihrem-betrieb-an-chemikalienreste",
+    "fields": {
+      "created_at": "2023-06-14T14:00:23.113Z",
+      "modified_at": "2023-06-14T14:00:23.113Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "welche-abfaelle-fallen-in-ihrem-betrieb-an",
+      "option": "welche-abfaelle-fallen-in-ihrem-betrieb-an-chemikalienreste",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "welche-abfaelle-fallen-in-ihrem-betrieb-an.welche-abfaelle-fallen-in-ihrem-betrieb-an-farb-lackabfaelle",
+    "fields": {
+      "created_at": "2023-06-14T14:00:23.131Z",
+      "modified_at": "2023-06-14T14:00:23.131Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "welche-abfaelle-fallen-in-ihrem-betrieb-an",
+      "option": "welche-abfaelle-fallen-in-ihrem-betrieb-an-farb-lackabfaelle",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "welche-abfaelle-fallen-in-ihrem-betrieb-an.welche-abfaelle-fallen-in-ihrem-betrieb-an-filtermatten-aus-spritzkabine",
+    "fields": {
+      "created_at": "2023-06-14T14:00:23.120Z",
+      "modified_at": "2023-06-14T14:00:23.120Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "welche-abfaelle-fallen-in-ihrem-betrieb-an",
+      "option": "welche-abfaelle-fallen-in-ihrem-betrieb-an-filtermatten-aus-spritzkabine",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "welche-abfaelle-fallen-in-ihrem-betrieb-an.welche-abfaelle-fallen-in-ihrem-betrieb-an-reinigungs-entfettungsmittel",
+    "fields": {
+      "created_at": "2023-06-14T14:00:23.124Z",
+      "modified_at": "2023-06-14T14:00:23.124Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "welche-abfaelle-fallen-in-ihrem-betrieb-an",
+      "option": "welche-abfaelle-fallen-in-ihrem-betrieb-an-reinigungs-entfettungsmittel",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "welche-abfaelle-fallen-in-ihrem-betrieb-an.welche-abfaelle-fallen-in-ihrem-betrieb-an-weitere",
+    "fields": {
+      "created_at": "2023-06-14T14:00:23.106Z",
+      "modified_at": "2023-06-14T14:00:23.106Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "welche-abfaelle-fallen-in-ihrem-betrieb-an",
+      "option": "welche-abfaelle-fallen-in-ihrem-betrieb-an-weitere",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "werden-schutzplaetze-erstellt.werden-schutzplaetze-erstellt-ja",
     "fields": {
       "created_at": "2023-04-18T18:56:31.838Z",
@@ -64782,6 +68130,51 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "wie-wird-die-prozessabluft-abgeleitet.wie-wird-die-prozessabluft-abgeleitet-hallenlueftung-natuerliche-entlueftung",
+    "fields": {
+      "created_at": "2023-06-14T11:39:19.856Z",
+      "modified_at": "2023-06-14T11:39:19.856Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "wie-wird-die-prozessabluft-abgeleitet",
+      "option": "wie-wird-die-prozessabluft-abgeleitet-hallenlueftung-natuerliche-entlueftung",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "wie-wird-die-prozessabluft-abgeleitet.wie-wird-die-prozessabluft-abgeleitet-seitlich-aus-dem-gebaeude",
+    "fields": {
+      "created_at": "2023-06-14T11:39:19.861Z",
+      "modified_at": "2023-06-14T11:39:19.861Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "wie-wird-die-prozessabluft-abgeleitet",
+      "option": "wie-wird-die-prozessabluft-abgeleitet-seitlich-aus-dem-gebaeude",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "wie-wird-die-prozessabluft-abgeleitet.wie-wird-die-prozessabluft-abgeleitet-ueber-dach",
+    "fields": {
+      "created_at": "2023-06-14T11:39:19.865Z",
+      "modified_at": "2023-06-14T11:39:19.865Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "wie-wird-die-prozessabluft-abgeleitet",
+      "option": "wie-wird-die-prozessabluft-abgeleitet-ueber-dach",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "winkel-45-grad.winkel-45-grad-ja",
     "fields": {
       "created_at": "2023-04-20T09:43:09.227Z",
@@ -64807,6 +68200,36 @@
       "modified_by_group": null,
       "question": "winkel-45-grad",
       "option": "winkel-45-grad-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "wird-abluft-abgeleitet.wird-abluft-abgeleitet-ja",
+    "fields": {
+      "created_at": "2023-06-14T11:31:00.118Z",
+      "modified_at": "2023-06-14T11:31:00.118Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "wird-abluft-abgeleitet",
+      "option": "wird-abluft-abgeleitet-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "wird-abluft-abgeleitet.wird-abluft-abgeleitet-nein",
+    "fields": {
+      "created_at": "2023-06-14T11:31:00.113Z",
+      "modified_at": "2023-06-14T11:31:00.113Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "wird-abluft-abgeleitet",
+      "option": "wird-abluft-abgeleitet-nein",
       "sort": 1
     }
   },
