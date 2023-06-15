@@ -48908,6 +48908,36 @@
   },
   {
     "model": "core.instanceresourcet",
+    "pk": 15000021,
+    "fields": {
+      "instance_resource": 18000001,
+      "language": "fr",
+      "name": "Communication",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 15000022,
+    "fields": {
+      "instance_resource": 18000000,
+      "language": "fr",
+      "name": "Communication",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 15000023,
+    "fields": {
+      "instance_resource": 18000002,
+      "language": "fr",
+      "name": "Communication",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
     "pk": 18000000,
     "fields": {
       "instance_resource": 18000000,
@@ -110565,6 +110595,16 @@
       "resource": 15000003,
       "language": "fr",
       "name": "Mon organisation",
+      "description": null
+    }
+  },
+  {
+    "model": "core.resourcet",
+    "pk": 15000008,
+    "fields": {
+      "resource": 18000000,
+      "language": "fr",
+      "name": "Communication",
       "description": null
     }
   },
