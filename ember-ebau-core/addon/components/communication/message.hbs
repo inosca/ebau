@@ -1,0 +1,101 @@
+<div class="communications-message" ...attributes>
+  <UkFlex @horizontal="between" @vertical="middle" class="uk-margin-small-bottom">
+    <span>
+      <span class="uk-text-bold" data-test-created-by>
+        {{@message.createdBy.name}}
+        ({{@message.createdByUser.fullName}})
+      </span>
+      <span class="uk-text-meta" data-test-sent-date>
+        {{t
+          "communications.detail.sentDate"
+          date=(format-date @message.createdAt format="date")
+          time=(format-time @message.createdAt format="hhmm")
+        }}
+      </span>
+    </span>
+    <span>
+      {{#if @message.attachments.length}}
+        <a
+          href="#"
+          class="uk-margin-small-right uk-text-meta"
+          {{on "click" this.toggleText}}
+          data-test-expand-files
+        >
+          {{t
+            "communications.message.attachmentCount"
+            count=@message.attachments.length
+          }}
+        </a>
+      {{/if}}
+
+      {{#if @message.readAt}}
+        <div class="uk-inline">
+          <IconButton
+            @icon="check"
+            @loading={{this.markAsUnread.isRunning}}
+            class={{if this.readByEveryone "uk-text-success"}}
+            data-test-read-details-trigger
+          />
+          <div
+            uk-dropdown="mode: click"
+            class="uk-width-medium"
+            data-test-read-details
+          >
+            <span class="uk-text-bold">{{t
+                (concat
+                  "communications.detail."
+                  (if this.readByEveryone "readByEveryone" "readBy")
+                )
+              }}</span>
+            <ul class="uk-list uk-list-collapse uk-list-disc">
+              {{#each @message.readByEntity as |entity|}}
+                <li>{{entity.name}}</li>
+              {{/each}}
+            </ul>
+            <button
+              type="button"
+              class="uk-button uk-button-primary uk-button-small uk-width-1"
+              {{on "click" (perform this.markAsUnread)}}
+              data-test-mark-unread
+            >
+              {{t "communications.detail.markAsUnread"}}
+            </button>
+          </div>
+        </div>
+      {{else}}
+        <IconButton
+          @icon="eye"
+          @onClick={{perform this.markAsRead}}
+          @loading={{this.markAsRead.isRunning}}
+          data-test-mark-read
+          {{uk-tooltip (t "communications.detail.markAsRead")}}
+        />
+      {{/if}}
+    </span>
+  </UkFlex>
+  <div>
+    <p
+      class="uk-margin-remove {{if this.collapsed 'collapsed'}} {{if this.isExpandable 'expandable'}}"
+      role="button"
+      {{did-insert this.setParagraph}}
+      {{on "click" this.toggleText}}
+      data-test-expand
+    >{{@message.body}}</p>
+
+    {{#unless this.collapsed}}
+      <Communication::FileList @files={{@message.attachments}} />
+
+      <div class="uk-flex uk-flex-right uk-flex-middle">
+        <UkIcon @icon="shrink" class="uk-margin-small-right" />
+        <a
+          href="#"
+          class="uk-link uk-link-text"
+          {{on "click" this.toggleText}}
+          data-test-collapse
+        >
+          {{t "communications.detail.collapseMessage"}}
+        </a>
+      </div>
+    {{/unless}}
+  </div>
+</div>

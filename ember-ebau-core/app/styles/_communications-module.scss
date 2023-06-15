@@ -1,0 +1,39 @@
+.communications-message-list {
+  overflow-y: auto;
+  flex-grow: 5;
+
+  // https://css-tricks.com/books/greatest-css-tricks/pin-scrolling-to-bottom/
+  & * {
+    overflow-anchor: none;
+  }
+
+  .overflow-anchor {
+    overflow-anchor: auto;
+    height: 1px;
+  }
+}
+
+.communications-topic {
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.communications-message {
+  div > p {
+    white-space: pre-wrap;
+
+    &.collapsed {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+
+      &.expandable:hover {
+        text-decoration: underline;
+        cursor: pointer;
+        color: #999;
+      }
+    }
+  }
+}

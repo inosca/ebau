@@ -1,5 +1,7 @@
 import EmberRouter from "@ember/routing/router";
 import { inject as service } from "@ember/service";
+import registerCommunications from "ember-ebau-core/modules/communications";
+import registerCommunicationsGlobal from "ember-ebau-core/modules/communications-global";
 import registerDMSAdmin from "ember-ebau-core/modules/dms-admin";
 import registerLegalSubmission from "ember-ebau-core/modules/legal-submission";
 import registerServicePermissions from "ember-ebau-core/modules/service-permissions";
@@ -54,10 +56,12 @@ Router.map(function () {
         });
         registerLegalSubmission(this);
         registerTaskForm(this);
+        registerCommunications(this);
       });
       this.route("new");
     });
     registerDMSAdmin(this, { resetNamespace });
     registerServicePermissions(this, { resetNamespace });
+    registerCommunicationsGlobal(this, { resetNamespace });
   });
 });

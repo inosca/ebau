@@ -25,6 +25,10 @@ export default class CustomEbauModulesService extends EbauModulesService {
     return this.session.rolePermission;
   }
 
+  get isApplicant() {
+    return !this.session.isInternal;
+  }
+
   redirectToWorkItems() {
     this.router.transitionTo("cases.detail.work-items", this.instanceId);
   }

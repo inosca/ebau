@@ -46,6 +46,10 @@ module.exports = function (environment) {
 
     ENV.APP.rootElement = "#ember-testing";
     ENV.APP.autoboot = false;
+
+    ENV["ember-cli-mirage"] = {
+      trackRequests: true,
+    };
   }
 
   if (environment === "production") {

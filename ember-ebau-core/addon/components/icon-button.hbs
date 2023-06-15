@@ -1,0 +1,13 @@
+<button
+  type="button"
+  class="uk-icon-button {{if @disabled "uk-disabled"}}"
+  disabled={{@disabled}}
+  {{on "click" (optional @onClick)}}
+  ...attributes
+>
+  {{#if @loading}}
+    <UkSpinner @ratio={{0.5}} data-test-loading />
+  {{else}}
+    <UkIcon @icon={{@icon}} />
+  {{/if}}
+</button>

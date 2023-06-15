@@ -80,6 +80,10 @@ export default class CustomSession extends Session {
     return this.groups?.find((g) => parseInt(g.id) === parseInt(this.groupId));
   }
 
+  get serviceId() {
+    return this.group?.belongsTo("service").id();
+  }
+
   get isInternal() {
     return Boolean(this.groupId);
   }

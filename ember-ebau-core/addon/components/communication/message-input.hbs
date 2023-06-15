@@ -1,0 +1,64 @@
+<div class="communications-message-input" ...attributes>
+  <Communication::FileList
+    @files={{union @message.filesToSave @message.documentAttachmentsToSave}}
+    @removeFile={{fn this.remove "filesToSave"}}
+    @removeAttachment={{fn this.remove "documentAttachmentsToSave"}}
+  />
+
+  <textarea
+    value={{this.body}}
+    aria-label={{t "communications.message.messageInputLabel"}}
+    class="uk-textarea uk-margin"
+    placeholder={{t "communications.message.messageInputPlaceholder"}}
+    disabled={{this.disabled}}
+    rows="5"
+    {{on "input" this.updateMessage}}
+    {{autoresize this.body mode="height"}}
+  />
+
+  {{#unless this.disabled}}
+    <Dropzone @multiple={{true}} @onFileAdded={{this.addFiles}}>
+      <:content>
+        {{#if (can "link attachments on message")}}
+          <p>
+            {{t "communications.new.linkFile"}}
+            <a href="" data-test-select-files>{{t "communications.new.linkFileAction"}}</a>
+            <Communication::AttachmentSectionDropdown
+              @instanceId={{this.ebauModules.instanceId}}
+              @selectSection={{fn (mut this.attachmentSection)}}
+              uk-dropdown="mode:click;pos:top-right;"
+            />
+            <LinkAttachments::Modal
+              @selected={{@message.documentAttachmentsToSave}}
+              @visible={{this.attachmentSection}}
+              @onHide={{fn (mut this.attachmentSection) null}}
+              @section={{this.attachmentSection}}
+              @instanceId={{this.ebauModules.instanceId}}
+              @save={{this.addDocumentAttachments}}
+            />
+          </p>
+        {{/if}}
+      </:content>
+    </Dropzone>
+  {{/unless}}
+
+  {{#if @sendMessage}}
+    <div class="uk-margin">
+      <UkButton
+        @color="primary"
+        @label={{t "communications.new.send"}}
+        @loading={{@loading}}
+        @onClick={{@sendMessage}}
+        @disabled={{this.sendDisabled}}
+        data-test-send
+        data-test-loading={{@loading}}
+      />
+      <LinkTo
+        @route={{module-route "communications" "index"}}
+        class="uk-button uk-button-default"
+      >
+        {{t "global.back"}}
+      </LinkTo>
+    </div>
+  {{/if}}
+</div>

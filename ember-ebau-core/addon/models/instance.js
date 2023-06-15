@@ -25,6 +25,7 @@ export default class InstanceModel extends Model {
   @belongsTo instanceState;
   @belongsTo("instance-state") previousInstanceState;
   @belongsTo location;
+  @belongsTo("public-service") activeService;
 
   @hasMany("service") circulationInitializerServices;
   @hasMany circulations;

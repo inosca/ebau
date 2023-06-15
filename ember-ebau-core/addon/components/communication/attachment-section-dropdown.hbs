@@ -1,0 +1,20 @@
+<div uk-dropdown="mode: click;" ...attributes {{did-insert this.setupDropdown}}>
+  <ul class="uk-nav uk-dropdown-nav">
+    <li class="uk-nav-header">
+      {{t "communications.detail.attachmentSections"}}
+    </li>
+    {{#if this.dropdownOpen}}
+      {{#if this.attachmentSections.isLoading}}
+        <UkSpinner />
+      {{else}}
+        {{#each this.attachmentSections.value as |attachmentSection|}}
+          <li>
+            <a href="#" {{on "click" (fn this.selectSection attachmentSection)}}>
+              {{attachmentSection.name}}
+            </a>
+          </li>
+        {{/each}}
+      {{/if}}
+    {{/if}}
+  </ul>
+</div>
