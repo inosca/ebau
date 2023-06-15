@@ -16,7 +16,11 @@ from rest_framework.authentication import get_authorization_header
 
 from camac.instance.master_data import MasterData
 from camac.instance.models import Instance
-from camac.instance.placeholders.utils import clean_join, get_person_name
+from camac.instance.placeholders.utils import (
+    clean_join,
+    enrich_personal_data,
+    get_person_name,
+)
 from camac.instance.utils import build_document_prefetch_statements
 from camac.utils import build_url
 
@@ -110,9 +114,7 @@ class DMSHandler:
             "formType": str(document.form.name)
             if instance.case.document.pk != document.pk
             else None,
-            "dossierNr": master_data.dossier_number
-            if settings.APPLICATION_NAME != "kt_gr"
-            else None,
+            "dossierNr": master_data.dossier_number,
             "municipality": master_data.municipality.get("label")
             if master_data.municipality
             else None,
@@ -157,6 +159,7 @@ class DMSHandler:
                 )
                 if master_data.plot_data
                 else None,
+                # all applicant names as comma-separated string
                 "applicantHeader": clean_join(
                     *[
                         get_person_name(applicant)
@@ -166,24 +169,10 @@ class DMSHandler:
                 )
                 if master_data.applicants
                 else None,
-                "landownerHeader": clean_join(
-                    *[
-                        get_person_name(landowner)
-                        for landowner in master_data.landowners
-                    ],
-                    separator=", ",
-                )
-                if master_data.landowners
-                else None,
-                "projectAuthorHeader": clean_join(
-                    *[
-                        get_person_name(project_author)
-                        for project_author in master_data.project_authors
-                    ],
-                    separator=", ",
-                )
-                if master_data.project_authors
-                else None,
+                # all applicants as structured data
+                "applicants": enrich_personal_data(master_data.applicants),
+                "landowners": enrich_personal_data(master_data.landowners),
+                "projectAuthors": enrich_personal_data(master_data.project_authors),
                 "municipalityHeader": master_data.municipality.get("label")
                 if master_data.municipality
                 else None,
@@ -194,47 +183,20 @@ class DMSHandler:
                 "paperInputDateHeader": master_data.paper_submit_date,
                 "descriptionHeader": master_data.proposal,
                 "modificationHeader": master_data.description_modification,
+                "coordEast": clean_join(
+                    *[obj["coord_east"] for obj in master_data.plot_data],
+                    separator=", ",
+                ),
+                "coordNorth": clean_join(
+                    *[obj["coord_north"] for obj in master_data.plot_data],
+                    separator=", ",
+                ),
             }
-
-            if settings.APPLICATION_NAME == "kt_gr":
-                header_data["applicants"] = self.get_filtered_personal_data(
-                    master_data.applicants
-                )
-                header_data["landowners"] = self.get_filtered_personal_data(
-                    master_data.landowners
-                )
-                header_data["projectAuthors"] = self.get_filtered_personal_data(
-                    master_data.project_authors
-                )
-                header_data["coordEast"] = (
-                    clean_join(
-                        *[obj["coord_east"] for obj in master_data.plot_data],
-                        separator=", ",
-                    )
-                    if master_data.plot_data
-                    else None,
-                )
-                header_data["coordNorth"] = (
-                    clean_join(
-                        *[obj["coord_north"] for obj in master_data.plot_data],
-                        separator=", ",
-                    )
-                    if master_data.plot_data
-                    else None,
-                )
 
             data.update(get_header_labels())
             data.update(header_data)
 
         return data
-
-    def get_filtered_personal_data(self, personal_data):
-        filtered_data = []
-        for entry in personal_data:
-            filtered_data.append(
-                {k: v if v is not None else " " for k, v in entry.items()}
-            )
-        return filtered_data
 
     def get_instance_and_document(self, instance_id, form_slug=None, document_id=None):
         use_root_document = not document_id and not form_slug

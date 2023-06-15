@@ -131,6 +131,7 @@ FORM_QUESTION_MAP_UR = [
     ("main-form", "leitbehoerde-internal-form"),
 ]
 
+# FIXME: This should be canton-specific (currently only BE, doesn't make sense for UR/GR
 CALUMA_FORM_TYPES_SLUGS = [
     "baugesuch",
     "baugesuch-v2",
@@ -832,6 +833,8 @@ def caluma_forms_gr(settings):
     )
     caluma_form_models.Form.objects.create(slug="dossierpruefung")
     caluma_form_models.Form.objects.create(slug="decision")
+    caluma_form_models.Form.objects.create(slug="formal-exam")
+    caluma_form_models.Form.objects.create(slug="material-exam")
 
     # dynamic choice options get cached, so we clear them
     # to ensure the new "gemeinde" options will be valid

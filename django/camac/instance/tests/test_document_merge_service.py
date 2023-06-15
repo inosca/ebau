@@ -300,7 +300,6 @@ def test_eingabebestaetigung_gr(
 
     gr_instance.case.meta = {
         "camac-instance-id": gr_instance.pk,
-        "ebau-number": "2021-99",
         "submit-date": "2021-01-01",
         "paper-submit-date": "2021-01-02",
     }
