@@ -3,6 +3,7 @@ import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { task } from "ember-concurrency";
+import { localCopy } from "tracked-toolbox";
 
 export default class CommunicationMessageComponent extends Component {
   @service store;
@@ -10,8 +11,12 @@ export default class CommunicationMessageComponent extends Component {
   @service router;
   @service intl;
 
-  @tracked collapsed = this.args.collapsed ?? true;
+  @localCopy("args.collapsed", true) _collapsed;
   @tracked paragraph;
+
+  get collapsed() {
+    return !this.isExpandable || this._collapsed;
+  }
 
   get isExpandable() {
     return (
@@ -61,7 +66,7 @@ export default class CommunicationMessageComponent extends Component {
   toggleText(event) {
     event?.preventDefault();
     if (this.isExpandable || !this.collapsed) {
-      this.collapsed = !this.collapsed;
+      this._collapsed = !this.collapsed;
     }
   }
 }
