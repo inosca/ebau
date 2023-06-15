@@ -3,7 +3,6 @@ communications:
   topic: Thema
   participants: Teilnehmer
   date: Datum
-  loading: Daten werden geladen...
   empty: Keine Themen vorhanden
   unread: "{count} ungelesene {count, plural, one {Nachricht} other {Nachrichten}}"
 
@@ -14,11 +13,9 @@ communications:
     newMessage: Neue Nachricht erfassen
 
   detail:
-    backToList: Nachricht verwerfen und zurück zur Liste
     sentDate: "am {date} um {time}"
     readByEveryone: Von allen gelesen
     readByYou: Von Ihnen gelesen
-    readBy: Gelesen von
     createdBy: "Erstellt von {entity} ({user})"
     empty: Keine Nachrichten vorhanden.
     markAsRead: Als Gelesen markieren
@@ -44,13 +41,11 @@ communications:
     allowAnswers: Antworten erlauben
     send: Senden
     fetchError: Die Daten konnten nicht geladen werden. Bitte versuchen Sie es erneut.
-    saveError: Die Nachricht konnten nicht versendet  werden. Bitte versuchen Sie es erneut.
+    saveError: Die Nachricht konnte nicht versendet werden. Bitte versuchen Sie es erneut.
     applicant: Gesuchsteller/in
 
   message:
-    fileInputLabel: Dateien anhängen
     messageInputLabel: Nachricht
     messageInputPlaceholder: Geben Sie eine Nachricht ein...
-    attachments: Verknüpfte Dateien (Dokumentenmodul)
     files: Angehängte Dateien
     attachmentCount: "+{count} Dokumente"
