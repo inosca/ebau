@@ -3,107 +3,104 @@
     <UkSpinner @ratio="2" />
   </div>
 {{else}}
-  <div ...attributes>
-    <h3 class="uk-margin-remove-top">{{t "communications.new.newTopic"}}</h3>
-    <form class="uk-form-stacked" {{on "submit" this.preventDefault}}>
-      {{#unless this.ebauModules.isApplicant}}
-        <div class="uk-margin">
-          <label class="uk-form-label uk-text-bold">
-            {{t "communications.new.involvedEntities"}}
-            <span class="uk-text-danger">*</span>
-          </label>
-          <div class="uk-form-controls">
-            <PowerSelectMultiple
-              @required={{true}}
-              @searchEnabled={{true}}
-              @searchField="name"
-              @renderInPlace={{true}}
-              @options={{this.selectableServices}}
-              @selected={{this.topic.involvedEntities}}
-              @noMatchesMessage={{t "global.noMatch"}}
-              @placeholder={{t "communications.new.involvedEntitiesPlaceholder"}}
-              @onChange={{this.setInvolvedEntities}}
-              @disabled={{this.createTopic.isRunning}}
-              data-test-involved-entities
-              as |service|
-            >
-              {{service.name}}
-            </PowerSelectMultiple>
-          </div>
-        </div>
-      {{/unless}}
+  <h3 class="uk-text-large uk-margin-remove-top">{{t "communications.new.newTopic"}}</h3>
 
+  <form class="uk-form-stacked" {{on "submit" this.preventDefault}}>
+    {{#if (can "involve entities on topic" this.topic)}}
       <div class="uk-margin">
         <label class="uk-form-label uk-text-bold">
-          {{t "communications.new.topicName"}}
+          {{t "communications.new.involvedEntities"}}
           <span class="uk-text-danger">*</span>
         </label>
         <div class="uk-form-controls">
-          <Input
-            @value={{this.topic.subject}}
-            aria-label={{t "communications.new.topicName"}}
-            class="uk-input"
-            required={{true}}
-            disabled={{this.createTopic.isRunning}}
-            placeholder={{t "communications.new.topicNamePlaceholder"}}
-            data-test-subject
-          />
+          <PowerSelectMultiple
+            @required={{true}}
+            @searchEnabled={{true}}
+            @searchField="name"
+            @renderInPlace={{true}}
+            @options={{this.selectableServices}}
+            @selected={{this.topic.involvedEntities}}
+            @noMatchesMessage={{t "global.noMatch"}}
+            @placeholder={{t "communications.new.involvedEntitiesPlaceholder"}}
+            @onChange={{this.setInvolvedEntities}}
+            @disabled={{this.createTopic.isRunning}}
+            data-test-involved-entities
+            as |service|
+          >
+            {{service.name}}
+          </PowerSelectMultiple>
         </div>
       </div>
+    {{/if}}
 
-      {{#if this.isActiveInstanceService}}
-        <div class="uk-margin">
-          <label class="uk-form-label uk-text-bold">
-            {{t "communications.new.allowAnswers"}}
-          </label>
-          <div class="uk-form-controls">
-            <UkToggleSwitch
-              @value={{this.topic.allowReplies}}
-              @color="onoff"
-              @onToggle={{fn (mut this.topic.allowReplies)}}
-              @disabled={{this.createTopic.isRunning}}
-              @size="small"
-              data-test-allow-answers
-            />
-          </div>
-        </div>
-      {{/if}}
-
-      <div class="uk-margin">
-        <label class="uk-form-label uk-text-bold">
-          {{t "communications.new.message"}}
-          <span class="uk-text-danger">*</span>
-        </label>
-        <div class="uk-form-controls">
-          <Communication::MessageInput
-            @message={{this.message}}
-            @updateMessage={{this.updateMessage}}
-            class="uk-margin-bottom"
-            data-test-message
-          />
-        </div>
-
-      </div>
-
-      <div class="uk-margin">
-        <UkButton
-          @color="primary"
-          @disabled={{this.saveDisabled}}
-          @onClick={{perform this.createTopic}}
-          data-test-save
-        >
-          {{t "communications.new.send"}}
-        </UkButton>
-        <LinkTo
-          @route={{module-route "communications" "index"}}
-          class="uk-button uk-button-default"
+    <div class="uk-margin">
+      <label class="uk-form-label uk-text-bold">
+        {{t "communications.new.topicName"}}
+        <span class="uk-text-danger">*</span>
+      </label>
+      <div class="uk-form-controls">
+        <Input
+          @value={{this.topic.subject}}
+          aria-label={{t "communications.new.topicName"}}
+          class="uk-input"
+          required={{true}}
           disabled={{this.createTopic.isRunning}}
-          data-test-discard
-        >
-          {{t "global.cancel"}}
-        </LinkTo>
+          placeholder={{t "communications.new.topicNamePlaceholder"}}
+          data-test-subject
+        />
       </div>
+    </div>
 
-    </form>
-  </div>
+    {{#if (can "disallow replies on topic" this.topic)}}
+      <div class="uk-margin">
+        <label class="uk-form-label uk-text-bold">
+          {{t "communications.new.allowAnswers"}}
+        </label>
+        <div class="uk-form-controls">
+          <UkToggleSwitch
+            @value={{this.topic.allowReplies}}
+            @color="onoff"
+            @onToggle={{fn (mut this.topic.allowReplies)}}
+            @disabled={{this.createTopic.isRunning}}
+            @size="small"
+            data-test-allow-answers
+          />
+        </div>
+      </div>
+    {{/if}}
+
+    <div class="uk-margin">
+      <label class="uk-form-label uk-text-bold">
+        {{t "communications.new.message"}}
+        <span class="uk-text-danger">*</span>
+      </label>
+      <div class="uk-form-controls">
+        <Communication::MessageInput
+          @message={{this.message}}
+          @updateMessage={{this.updateMessage}}
+          class="uk-margin-bottom"
+          data-test-message
+        />
+      </div>
+    </div>
+
+    <div class="uk-margin">
+      <UkButton
+        @color="primary"
+        @disabled={{this.saveDisabled}}
+        @onClick={{perform this.createTopic}}
+        data-test-save
+      >
+        {{t "communications.new.send"}}
+      </UkButton>
+      <LinkTo
+        @route={{module-route "communications" "index"}}
+        class="uk-button uk-button-default"
+        disabled={{this.createTopic.isRunning}}
+        data-test-discard
+      >
+        {{t "global.cancel"}}
+      </LinkTo>
+    </div>
+  </form>
 {{/if}}

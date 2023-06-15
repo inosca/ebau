@@ -1,17 +1,18 @@
 import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
+import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { task } from "ember-concurrency";
 import { trackedFunction } from "ember-resources/util/function";
 
-import TopicBase from "./topic-base";
-
-export default class CommunicationNewTopicComponent extends TopicBase {
+export default class CommunicationNewTopicComponent extends Component {
   @service store;
   @service router;
   @service fetch;
   @service notification;
+  @service ebauModules;
   @service intl;
+  @service abilities;
 
   @tracked message;
 
@@ -37,7 +38,7 @@ export default class CommunicationNewTopicComponent extends TopicBase {
       .map((service) => ({ id: service.get("id"), name: service.name }));
 
     // We are a Leitbehörde so we add the applicant to the list
-    if (this.isActiveInstanceService) {
+    if (this.abilities.can("involve applicant on topic", this.topic)) {
       services.push({
         id: "APPLICANT",
         name: this.intl.t("communications.new.applicant"),
@@ -67,7 +68,7 @@ export default class CommunicationNewTopicComponent extends TopicBase {
       });
 
       // Applicant can only select instance active service
-      if (this.ebauModules.isApplicant) {
+      if (this.abilities.cannot("involve entities on topic")) {
         topic.involvedEntities = [
           {
             id: instance.get("activeService.id"),

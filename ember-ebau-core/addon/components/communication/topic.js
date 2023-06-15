@@ -1,15 +1,14 @@
 import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
+import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { task } from "ember-concurrency";
 import { findRecord } from "ember-data-resources";
 import { trackedFunction } from "ember-resources/util/function";
 
-import TopicBase from "./topic-base";
-
 import paginatedQuery from "ember-ebau-core/resources/paginated";
 
-export default class CommunicationTopicComponent extends TopicBase {
+export default class CommunicationTopicComponent extends Component {
   @service store;
   @service router;
   @service fetch;

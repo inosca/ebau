@@ -53,7 +53,7 @@
       data-test-message-list
     />
 
-    {{#if (or this.isActiveInstanceService this.topic.allowReplies)}}
+    {{#if (can "send message" topic=this.topic)}}
       <Communication::MessageInput
         @message={{this.newMessage}}
         @loading={{this.sendMessage.isRunning}}

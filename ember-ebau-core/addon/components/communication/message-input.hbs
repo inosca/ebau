@@ -19,7 +19,7 @@
   {{#unless this.disabled}}
     <Dropzone @multiple={{true}} @onFileAdded={{this.addFiles}}>
       <:content>
-        {{#unless this.ebauModules.isApplicant}}
+        {{#if (can "link attachments on message")}}
           <p>
             {{t "communications.new.linkFile"}}
             <a href="" data-test-select-files>{{t "communications.new.linkFileAction"}}</a>
@@ -37,7 +37,7 @@
               @save={{this.addDocumentAttachments}}
             />
           </p>
-        {{/unless}}
+        {{/if}}
       </:content>
     </Dropzone>
   {{/unless}}

@@ -27,10 +27,6 @@ export default class CommunicationTopicListComponent extends Component {
     }
   }
 
-  get topicsListHidden() {
-    return parseInt(this.page) === 1 && this.topics.isLoading;
-  }
-
   get colspan() {
     return this.args.instanceId ? 3 : 4;
   }

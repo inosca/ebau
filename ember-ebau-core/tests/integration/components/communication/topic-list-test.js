@@ -31,8 +31,8 @@ module("Integration | Component | communication/topic-list", function (hooks) {
     );
 
     assert.dom("[data-test-new-topic]").exists();
-    assert.dom("[data-test-show-all]").hasClass("uk-button-primary");
-    assert.dom("[data-test-show-unread]").hasClass("uk-button-default");
+    assert.dom("[data-test-type=all]").hasClass("uk-button-primary");
+    assert.dom("[data-test-type=unread]").hasClass("uk-button-default");
 
     assert.dom("[data-test-topic]").exists({ count: 5 });
 
@@ -87,7 +87,7 @@ module("Integration | Component | communication/topic-list", function (hooks) {
     assert.dom("[data-test-topic]").exists({ count: 2 });
     assert.dom("[data-test-topic].uk-text-bold").exists({ count: 1 });
 
-    await click("button[data-test-show-unread]");
+    await click("button[data-test-type=unread]");
 
     const requests = this.server.pretender.handledRequests;
     assert.deepEqual(requests[requests.length - 1].queryParams, {
@@ -99,7 +99,7 @@ module("Integration | Component | communication/topic-list", function (hooks) {
       "page[size]": "20",
     });
 
-    await click("button[data-test-show-read]");
+    await click("button[data-test-type=read]");
     assert.deepEqual(requests[requests.length - 1].queryParams, {
       has_unread: "false",
       instance: instance.id,
@@ -109,7 +109,7 @@ module("Integration | Component | communication/topic-list", function (hooks) {
       "page[size]": "20",
     });
 
-    await click("button[data-test-show-all]");
+    await click("button[data-test-type=all]");
     assert.deepEqual(requests[requests.length - 1].queryParams, {
       instance: instance.id,
       include: "instance",
@@ -171,7 +171,7 @@ module("Integration | Component | communication/topic-list", function (hooks) {
       "page[size]": "20",
     });
 
-    await click("button[data-test-show-unread]");
+    await click("button[data-test-type=unread]");
     assert.dom("[data-test-topic]").exists({ count: 20 });
 
     requests = this.server.pretender.handledRequests;
