@@ -2,7 +2,7 @@ from django.core.management.base import BaseCommand
 from django.db import transaction
 from tqdm import tqdm
 
-from camac.user.models import UserGroup, UserGroupLog
+from camac.user.models import User, UserGroup, UserGroupLog
 
 
 class Command(BaseCommand):
@@ -34,8 +34,17 @@ class Command(BaseCommand):
             if not log:
                 continue
 
+            try:
+                user = User.objects.get(pk=log.user_id)
+                user_group.created_by = user
+            except User.DoesNotExist:
+                # This should only happen on the test system as we removed
+                # almost all data once but did not truncate the user group log.
+                tqdm.write(
+                    self.style.WARNING(f"No user with the ID {log.user_id} found")
+                )
+
             user_group.created_at = log.modification_date
-            user_group.created_by_id = log.user_id
             user_group.save()
 
         if options["dry"]:
