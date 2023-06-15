@@ -15,7 +15,7 @@
             <span class="uk-text-meta">
               {{t "documents.date"
                 date=(format-date attachment.modifiedAt format="date")
-                time=(format-time attachment.modifiedAt hour="2-digit" minute="2-digit")
+                time=(format-time attachment.modifiedAt format="hhmm")
               }}
             </span>
           </div>

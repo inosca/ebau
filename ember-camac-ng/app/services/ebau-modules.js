@@ -24,6 +24,11 @@ export default class CustomEbauModulesService extends EbauModulesService {
     return this.shoebox.baseRole;
   }
 
+  get isApplicant() {
+    // Since in ember-camac-ng the user is never applicant
+    return false;
+  }
+
   redirectToWorkItems() {
     window.location.replace(
       `/index/redirect-to-instance-resource/instance-id/${this.instanceId}`

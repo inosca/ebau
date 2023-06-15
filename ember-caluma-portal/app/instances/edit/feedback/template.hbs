@@ -1,6 +1,6 @@
 <LoadingOrNotfound
   @loading={{this.editController.instanceTask.isRunning}}
-  @hasPermission={{can "read feedback of instance" this.editController.instance}}
+  @hasPermission={{can "read feedback of instance" this.editController.instance.value}}
 >
   {{#if this.feedback}}
     <BeAttachmentList @loading={{this.loading}} @attachments={{this.feedback}} />

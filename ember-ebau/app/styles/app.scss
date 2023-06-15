@@ -7,7 +7,6 @@
 
 @import "modules/work-items";
 
-@import "components/icon-button";
 @import "components/work-item-list";
 
 @import "@projectcaluma/ember-form";
@@ -65,10 +64,11 @@ div.uk-container.with-sidebar {
 }
 
 .full-screen-content {
-  padding-left: $sidebar-width;
+  // Plus twice the padding 12px from .nav-sidebar
+  padding-left: calc($sidebar-width + 26px);
   margin-top: $main-nav-height;
 
   & > div {
-    min-height: calc(100vh - $main-nav-height);
+    height: calc(100vh - $main-nav-height);
   }
 }

@@ -1,15 +1,14 @@
 import { inject as service } from "@ember/service";
 import { htmlSafe } from "@ember/template";
-import Model, { attr, belongsTo, hasMany } from "@ember-data/model";
-import { dropTask } from "ember-concurrency";
+import { attr, belongsTo, hasMany } from "@ember-data/model";
 import { trackedFunction } from "ember-resources/util/function";
-import { saveAs } from "file-saver";
 import { filesize } from "filesize";
 
-export default class Attachment extends Model {
+import DownloadableModel from "./downloadable";
+
+export default class Attachment extends DownloadableModel {
   @service fetch;
   @service intl;
-  @service notification;
 
   @attr("date") date;
   @attr("string") mimeType;
@@ -56,34 +55,4 @@ export default class Attachment extends Model {
       return null;
     }
   });
-
-  @dropTask
-  *download(event) {
-    event?.preventDefault();
-
-    try {
-      const response = yield this.fetch.fetch(`${this.path}`, {
-        mode: "cors",
-        headers: {
-          accept: undefined,
-          "content-type": undefined,
-        },
-      });
-
-      const file = yield response.blob();
-
-      const nameParts = this.name.split(".");
-      const name = this.context.displayName
-        ? `${this.context.displayName}.${nameParts[nameParts.length - 1]}`
-        : this.name;
-
-      saveAs(file, name, { type: file.type });
-
-      this.notification.success(this.intl.t("documents.downloadSuccess"));
-    } catch (e) {
-      /* eslint-disable-next-line no-console */
-      console.error(e);
-      this.notification.danger(this.intl.t("documents.downloadError"));
-    }
-  }
 }

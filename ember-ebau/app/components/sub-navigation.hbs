@@ -2,7 +2,9 @@
   <ul class="uk-nav uk-nav-default uk-nav-divider">
     {{#each this.instanceResources.value as |ir|}}
       {{#if ir.link}}
-        <UkSubnav::Item @href={{concat "/cases/" @instanceId "/" ir.link}}>{{ir.name}}</UkSubnav::Item>
+        <UkSubnav::Item
+          @href={{concat "/cases/" @instanceId "/" ir.link}}
+        >{{ir.name}}</UkSubnav::Item>
       {{/if}}
     {{/each}}
   </ul>

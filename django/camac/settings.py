@@ -113,6 +113,7 @@ INSTALLED_APPS = [
     "camac.parashift.apps.ParashiftConfig",
     "camac.dossier_import.apps.DossierImportConfig",
     "camac.gisbern.apps.GisbernConfig",
+    "camac.communications.apps.CommunicationsConfig",
     "sorl.thumbnail",
     "django_clamd",
     "django_q",
@@ -255,6 +256,12 @@ APPLICATIONS = {
             "service-lead": "service",
             "service-clerk": "service",
             "subservice": "service",
+        },
+        "COMMUNICATIONS": {
+            "template_slug": "communications-new-message",
+            "dossier_number_lookup": lambda instance: instance.case.meta.get(
+                "ebau-number"
+            ),
         },
         "ADMIN_GROUP": 1,
         "ROLE_INHERITANCE": {"trusted_service": "service"},
@@ -1270,6 +1277,12 @@ APPLICATIONS = {
         "CIRCULATION_STATE_END": "DONE",
         "CIRCULATION_ANSWER_UNINVOLVED": "not_concerned",
         "THUMBNAIL_SIZE": "x300",
+        "COMMUNICATIONS": {
+            "template_slug": "communications-new-message",
+            "dossier_number_lookup": lambda instance: instance.case.meta.get(
+                "ebau-number"
+            ),
+        },
         "NOTIFICATIONS": {
             "SUBMIT": [
                 {
@@ -2783,6 +2796,12 @@ APPLICATIONS = {
             "PUBLICATION": None,
             "START_CIRC": None,
             "DECISION": None,
+        },
+        "COMMUNICATIONS": {
+            "template_slug": "communications-new-message",
+            "dossier_number_lookup": lambda instance: instance.case.meta.get(
+                "ebau-number"
+            ),
         },
         "PAPER": {
             "ALLOWED_ROLES": {"DEFAULT": []},

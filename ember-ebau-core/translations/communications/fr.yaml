@@ -1,0 +1,51 @@
+communications:
+  dossier: Dossier
+  topic: Sujet
+  participants: Participants
+  date: Date
+  empty: Aucun sujet disponible
+  unread: "{count} {count, plural, one {message non lu} other {messages non lus}}"
+
+  list:
+    all: Tous
+    unread: Non lus
+    read: Lus
+    newMessage: Saisir un nouveau message
+
+  detail:
+    sentDate: "le {date} à {time}"
+    readByEveryone: Lu par tous
+    readByYou: Lu par vous
+    createdBy: "Créé par {entity} ({user})"
+    empty: Aucun message disponible.
+    markAsRead: Marquer comme lu
+    markAsReadError: Le message n'a pas pu être marqué comme lu. Veuillez réessayer.
+    markAsUnread: Marquer comme non lu
+    markAsUnreadError: Le message n'a pas pu être marqué comme non lu. Veuillez réessayer.
+    collapseMessage: Afficher le message
+    readOnly: Aucun message ne peut être saisi par vous dans cette conversation.
+    loadPreviousMessages: Télécharger les messages précédents
+    uploadToDMS: Télécharger l'annexe dans le module de documents
+    uploadedToDMS: Enregistré dans le module de documents
+    attachmentSections: Catégories
+
+  new:
+    linkFile: Vous pouvez également lier directement des fichiers
+    linkFileAction: depuis le module de documents
+    newTopic: Ouvrir une nouvelle conversation
+    involvedEntities: Parties impliquées
+    involvedEntitiesPlaceholder: Parties impliquées...
+    topicName: Sujet
+    topicNamePlaceholder: Saisissez un sujet...
+    message: Message
+    allowAnswers: Permettre des réponses
+    send: Envoyer
+    fetchError: Les données n'ont pas pu être chargées. Veuillez réessayer.
+    saveError: Le message n'a pas pu être envoyé. Veuillez réessayer.
+    applicant: Requérant/e
+
+  message:
+    messageInputLabel: Message
+    messageInputPlaceholder: Saisissez un message...
+    files: Fichiers attachés
+    attachmentCount: "+{count} documents"

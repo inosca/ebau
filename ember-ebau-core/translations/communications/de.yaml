@@ -1,0 +1,51 @@
+communications:
+  dossier: Dossier
+  topic: Thema
+  participants: Teilnehmer
+  date: Datum
+  empty: Keine Themen vorhanden
+  unread: "{count} ungelesene {count, plural, one {Nachricht} other {Nachrichten}}"
+
+  list:
+    all: Alle
+    unread: Ungelesene
+    read: Gelesene
+    newMessage: Neue Nachricht erfassen
+
+  detail:
+    sentDate: "am {date} um {time}"
+    readByEveryone: Von allen gelesen
+    readByYou: Von Ihnen gelesen
+    createdBy: "Erstellt von {entity} ({user})"
+    empty: Keine Nachrichten vorhanden.
+    markAsRead: Als Gelesen markieren
+    markAsReadError: Die Nachricht konnte nicht als gelesen markiert werden. Bitte versuchen Sie es erneut.
+    markAsUnread: Als Ungelesen markieren
+    markAsUnreadError: Die Nachricht konnte nicht als ungelesen markiert werden. Bitte versuchen Sie es erneut.
+    collapseMessage: Nachricht einklappen
+    readOnly: In dieser Konversation können von Ihnen keine Nachrichten erfasst werden.
+    loadPreviousMessages: Vorherige Nachrichten laden
+    uploadToDMS: Anhang ins Dokumentenmodul hochloaden
+    uploadedToDMS: Im Dokumentenmodul gespeichert
+    attachmentSections: Kategorien
+
+  new:
+    linkFile: Sie können auch Dateien aus
+    linkFileAction: dem Dokumentenmodul direkt verlinken
+    newTopic: Neue Konversation eröffnen
+    involvedEntities: Involvierte Parteien
+    involvedEntitiesPlaceholder: Involvierten Parteien...
+    topicName: Thema
+    topicNamePlaceholder: Geben Sie eine Thema ein...
+    message: Nachricht
+    allowAnswers: Antworten erlauben
+    send: Senden
+    fetchError: Die Daten konnten nicht geladen werden. Bitte versuchen Sie es erneut.
+    saveError: Die Nachricht konnte nicht versendet werden. Bitte versuchen Sie es erneut.
+    applicant: Gesuchsteller/in
+
+  message:
+    messageInputLabel: Nachricht
+    messageInputPlaceholder: Geben Sie eine Nachricht ein...
+    files: Angehängte Dateien
+    attachmentCount: "+{count} Dokumente"

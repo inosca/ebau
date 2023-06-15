@@ -1,0 +1,70 @@
+{{#if this.isLoading}}
+  <div class="uk-text-center">
+    <UkSpinner @ratio="2" />
+  </div>
+{{else}}
+  <div class="communications-topic" ...attributes>
+    <UkFlex @horizontal="between">
+      <div>
+        <h3 class="uk-text-large uk-margin-remove" data-test-subject>{{this.topic.subject}}</h3>
+        <span class="uk-text-meta" data-test-created-by>
+          {{t
+            "communications.detail.createdBy"
+            entity=this.topic.initiatedByEntity.name
+            user=this.topic.initiatedBy.fullName
+          }}
+        </span>
+      </div>
+      <UkFlex @vertical="bottom">
+        <ul class="uk-list uk-list-collapse uk-text-meta uk-margin-remove">
+          <li>
+            <UkIcon @icon="check" />
+            {{t "communications.detail.readByYou"}}
+          </li>
+          <li>
+            <UkIcon @icon="check" class="uk-text-success" />
+            {{t "communications.detail.readByEveryone"}}
+          </li>
+        </ul>
+      </UkFlex>
+    </UkFlex>
+
+    <hr />
+
+    {{#if this.messagesResource.hasMore}}
+      <div class="uk-text-center">
+        {{#if this.messagesResource.isLoading}}
+          <UkSpinner />
+        {{else}}
+          <button
+            type="button"
+            class="uk-button uk-button-link"
+            {{on "click" (fn (mut this.page) (inc this.page))}}
+          >
+            {{t "communications.detail.loadPreviousMessages"}}
+          </button>
+        {{/if}}
+      </div>
+    {{/if}}
+
+    <Communication::MessageList
+      @messages={{this.messages}}
+      @refresh={{this.messagesResource.retry}}
+      data-test-message-list
+    />
+
+    {{#if (can "send message" topic=this.topic)}}
+      <Communication::MessageInput
+        @message={{this.newMessage}}
+        @loading={{this.sendMessage.isRunning}}
+        @updateMessage={{this.updateMessage}}
+        @sendMessage={{perform this.sendMessage}}
+        data-test-message-input
+      />
+    {{else}}
+      <div class="uk-text-center uk-text-italic" data-test-no-replies>
+        {{t "communications.detail.readOnly"}}
+      </div>
+    {{/if}}
+  </div>
+{{/if}}
