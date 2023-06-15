@@ -9102,6 +9102,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "oereb-verfahren-gemeinde-form.bezeichnung",
+    "fields": {
+      "created_at": "2023-06-15T09:14:47.336Z",
+      "modified_at": "2023-06-15T09:14:47.336Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "oereb-verfahren-gemeinde-form",
+      "question": "bezeichnung",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "oereb-verfahren-gemeinde-form.hinweis-statische-waldgrenze-gemeinde",
     "fields": {
       "created_at": "2023-02-03T14:45:45.642Z",
@@ -9142,7 +9157,7 @@
       "modified_by_group": null,
       "form": "oereb-verfahren-gemeinde-form",
       "question": "oereb-titel",
-      "sort": 11
+      "sort": 12
     }
   },
   {
@@ -39267,10 +39282,10 @@
     "pk": "bezeichnung",
     "fields": {
       "created_at": "2020-11-11T10:05:52.446Z",
-      "modified_at": "2020-11-11T12:55:03.238Z",
+      "modified_at": "2023-06-15T09:14:54.378Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Bezeichnung\", \"fr\": null, \"it\": null, \"rm\": null}",
       "type": "textarea",
@@ -39279,7 +39294,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"z.B. Teilrevision Nutzungsplanung 2020+, Quartiergestaltungsplan Strickermatt\", \"fr\": null, \"it\": null, \"rm\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {
         "max_length": null,
