@@ -31,30 +31,32 @@
     </tr>
   </thead>
   <tbody>
-    {{#each this.userGroups.records as |row|}}
-      <tr>
-        <td>{{row.user.fullName}}</td>
-        <td>{{row.user.email}}</td>
-        <td>{{row.group.name}}</td>
-        <td>{{row.createdBy.fullName}}</td>
-        <td>{{format-date row.createdAt format="date"}}</td>
-        <td class="uk-text-right">
-          <button
-            type="button"
-            class="uk-button uk-button-link"
-            {{on "click" (perform this.delete row)}}
-          >
-            <UkIcon @icon="trash" />
-          </button>
-        </td>
-      </tr>
-    {{else}}
-      <tr>
-        <td colspan="6" class="uk-text-center uk-text-italic">
-          {{t "global.empty"}}
-        </td>
-      </tr>
-    {{/each}}
+    {{#unless this.userGroups.isResetting}}
+      {{#each this.userGroups.records as |row|}}
+        <tr>
+          <td>{{row.user.fullName}}</td>
+          <td>{{row.user.email}}</td>
+          <td>{{row.group.name}}</td>
+          <td>{{row.createdBy.fullName}}</td>
+          <td>{{format-date row.createdAt format="date"}}</td>
+          <td class="uk-text-right">
+            <button
+              type="button"
+              class="uk-button uk-button-link"
+              {{on "click" (perform this.delete row)}}
+            >
+              <UkIcon @icon="trash" />
+            </button>
+          </td>
+        </tr>
+      {{else}}
+        <tr>
+          <td colspan="6" class="uk-text-center uk-text-italic">
+            {{t "global.empty"}}
+          </td>
+        </tr>
+      {{/each}}
+    {{/unless}}
     {{#if this.userGroups.isLoading}}
       <tr>
         <td colspan="6" class="uk-text-center">
