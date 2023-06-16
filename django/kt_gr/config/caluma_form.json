@@ -10932,6 +10932,66 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "solaranlagen.dachausrichtung",
+    "fields": {
+      "created_at": "2023-06-16T14:42:34.015Z",
+      "modified_at": "2023-06-16T14:42:34.015Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solaranlagen",
+      "question": "dachausrichtung",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlagen.dachneigung-prozent",
+    "fields": {
+      "created_at": "2023-06-16T14:41:32.431Z",
+      "modified_at": "2023-06-16T14:41:32.431Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solaranlagen",
+      "question": "dachneigung-prozent",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlagen.dachtyp",
+    "fields": {
+      "created_at": "2023-06-16T14:40:25.566Z",
+      "modified_at": "2023-06-16T14:40:25.566Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solaranlagen",
+      "question": "dachtyp",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlagen.lastvorgaben-genuegen",
+    "fields": {
+      "created_at": "2023-06-16T14:43:41.001Z",
+      "modified_at": "2023-06-16T14:43:41.001Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solaranlagen",
+      "question": "lastvorgaben-genuegen",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "solaranlagen.pv-anlagen-solaranlagen",
     "fields": {
       "created_at": "2023-04-20T09:25:23.275Z",
@@ -10957,7 +11017,7 @@
       "modified_by_group": null,
       "form": "solaranlagen",
       "question": "solaranlagen-titel",
-      "sort": 3
+      "sort": 7
     }
   },
   {
@@ -18085,6 +18145,86 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "dachausrichtung-sued",
+    "fields": {
+      "created_at": "2023-06-16T14:42:33.694Z",
+      "modified_at": "2023-06-16T14:42:33.694Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"S\\u00fcd\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "dachausrichtung-sued-ost",
+    "fields": {
+      "created_at": "2023-06-16T14:42:33.722Z",
+      "modified_at": "2023-06-16T14:42:33.723Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"S\\u00fcd-Ost\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "dachausrichtung-sued-west",
+    "fields": {
+      "created_at": "2023-06-16T14:42:33.704Z",
+      "modified_at": "2023-06-16T14:42:33.704Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"S\\u00fcd-West\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "dachtyp-flachdach",
+    "fields": {
+      "created_at": "2023-06-16T14:40:25.223Z",
+      "modified_at": "2023-06-16T14:40:25.223Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Flachdach\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "dachtyp-schraegdach",
+    "fields": {
+      "created_at": "2023-06-16T14:40:25.230Z",
+      "modified_at": "2023-06-16T14:40:25.230Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Schr\\u00e4gdach\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "dauer-der-entnahme-staendig",
     "fields": {
       "created_at": "2023-04-21T08:55:40.060Z",
@@ -21404,6 +21544,38 @@
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "lastvorgaben-genuegen-ja",
+    "fields": {
+      "created_at": "2023-06-16T14:43:40.705Z",
+      "modified_at": "2023-06-16T14:43:40.705Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "lastvorgaben-genuegen-nein",
+    "fields": {
+      "created_at": "2023-06-16T14:43:40.714Z",
+      "modified_at": "2023-06-16T14:43:40.714Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null, \"rm\": null}",
       "is_archived": false,
@@ -37129,6 +37301,102 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "dachausrichtung",
+    "fields": {
+      "created_at": "2023-06-16T14:42:33.858Z",
+      "modified_at": "2023-06-16T14:42:33.858Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dachausrichtung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "dachneigung-prozent",
+    "fields": {
+      "created_at": "2023-06-16T14:41:32.259Z",
+      "modified_at": "2023-06-16T14:41:32.260Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dachneigung (%)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "!(\"dachtyp-schraegdach\" in \"dachtyp\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "dachtyp",
+    "fields": {
+      "created_at": "2023-06-16T14:40:25.412Z",
+      "modified_at": "2023-06-16T14:40:25.412Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dachtyp\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "datum-der-messung",
     "fields": {
       "created_at": "2023-04-24T12:51:35.697Z",
@@ -44795,6 +45063,37 @@
         "max_value": null,
         "min_value": null
       },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "lastvorgaben-genuegen",
+    "fields": {
+      "created_at": "2023-06-16T14:43:40.872Z",
+      "modified_at": "2023-06-16T14:43:40.872Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Die Ausf\\u00fchrung der Solaranlage und des Unterbaus gen\\u00fcgen den Lastvorgaben der spezifischen Tragwerksnormen (SIA Norm 261), Richtlinien und Wegleitungen (VKF). Wobei mindestens Schnee- und Windeinwirkungen zu ber\\u00fccksichtigen sind.\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -59437,6 +59736,81 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "dachausrichtung.dachausrichtung-sued",
+    "fields": {
+      "created_at": "2023-06-16T14:42:33.874Z",
+      "modified_at": "2023-06-16T14:42:33.874Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "dachausrichtung",
+      "option": "dachausrichtung-sued",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "dachausrichtung.dachausrichtung-sued-ost",
+    "fields": {
+      "created_at": "2023-06-16T14:42:33.870Z",
+      "modified_at": "2023-06-16T14:42:33.870Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "dachausrichtung",
+      "option": "dachausrichtung-sued-ost",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "dachausrichtung.dachausrichtung-sued-west",
+    "fields": {
+      "created_at": "2023-06-16T14:42:33.866Z",
+      "modified_at": "2023-06-16T14:42:33.866Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "dachausrichtung",
+      "option": "dachausrichtung-sued-west",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "dachtyp.dachtyp-flachdach",
+    "fields": {
+      "created_at": "2023-06-16T14:40:25.421Z",
+      "modified_at": "2023-06-16T14:40:25.421Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "dachtyp",
+      "option": "dachtyp-flachdach",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "dachtyp.dachtyp-schraegdach",
+    "fields": {
+      "created_at": "2023-06-16T14:40:25.426Z",
+      "modified_at": "2023-06-16T14:40:25.426Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "dachtyp",
+      "option": "dachtyp-schraegdach",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "dauer-der-entnahme.dauer-der-entnahme-staendig",
     "fields": {
       "created_at": "2023-04-21T08:55:40.217Z",
@@ -62552,6 +62926,36 @@
       "modified_by_group": null,
       "question": "landwirtschaftliches-vorhaben",
       "option": "landwirtschaftliches-vorhaben-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "lastvorgaben-genuegen.lastvorgaben-genuegen-ja",
+    "fields": {
+      "created_at": "2023-06-16T14:43:40.884Z",
+      "modified_at": "2023-06-16T14:43:40.884Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "lastvorgaben-genuegen",
+      "option": "lastvorgaben-genuegen-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "lastvorgaben-genuegen.lastvorgaben-genuegen-nein",
+    "fields": {
+      "created_at": "2023-06-16T14:43:40.879Z",
+      "modified_at": "2023-06-16T14:43:40.879Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "lastvorgaben-genuegen",
+      "option": "lastvorgaben-genuegen-nein",
       "sort": 1
     }
   },
