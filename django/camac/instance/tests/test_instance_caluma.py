@@ -614,6 +614,7 @@ def test_instance_submit_be(
     """,
     ],
 )
+@pytest.mark.parametrize("communal_federal_number", ["24", "1221", "1222"])
 def test_instance_submit_ur(
     mocker,
     admin_client,
@@ -643,6 +644,7 @@ def test_instance_submit_ur(
     authority_location_factory,
     authority,
     is_paper,
+    communal_federal_number,
 ):
     application_settings["NOTIFICATIONS"]["SUBMIT"] = [
         {"template_slug": notification_template.slug, "recipient_types": ["applicant"]}
@@ -668,7 +670,7 @@ def test_instance_submit_ur(
 
     workflow_item_factory(workflow_item_id=ur_constants.WORKFLOW_ITEM_DOSSIER_ERFASST)
 
-    location = location_factory()
+    location = location_factory(communal_federal_number=communal_federal_number)
 
     ur_instance.case.document.answers.create(
         value=str(location.communal_federal_number), question_id="municipality"
@@ -706,14 +708,22 @@ def test_instance_submit_ur(
 
     assert mail.outbox[0].subject.startswith("[eBau Test]: ")
 
-    assert (
+    leitbehoerde = (
         ur_instance.case.document.answers.filter(question_id="leitbehoerde")
         .first()
         .value
-        == str(authority.pk)
-        if is_paper
-        else str(authority_location.authority.pk)
     )
+
+    if communal_federal_number in ["1221", "1222"]:
+        # this is a special "diverse gemeinden" or "alle gemeinden" dossier
+        # this is therefore an ÖREB dossier and in this case the leitbehörde
+        # is the KOOR NP
+        assert leitbehoerde == "67", "incorrect leitbehoerde"
+    else:
+        if is_paper:
+            assert leitbehoerde == str(authority.pk)
+        else:
+            assert leitbehoerde == str(authority_location.authority.pk)
 
     if ur_instance.group.role.name == "Coordination":
         assert ur_instance.instance_state.name == "ext"
