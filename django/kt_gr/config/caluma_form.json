@@ -9757,7 +9757,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "ausserhalb-bauzone",
-      "sort": 21
+      "sort": 23
     }
   },
   {
@@ -9772,7 +9772,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "bauvorhaben-mit-gewerbenutzung",
-      "sort": 11
+      "sort": 13
     }
   },
   {
@@ -9787,7 +9787,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "beschreibung-der-anlagen",
-      "sort": 3
+      "sort": 5
     }
   },
   {
@@ -9802,7 +9802,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "beschreibung-der-nutzung",
-      "sort": 10
+      "sort": 12
     }
   },
   {
@@ -9817,7 +9817,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "beschreibung-der-wohnnutzung",
-      "sort": 12
+      "sort": 14
     }
   },
   {
@@ -9832,7 +9832,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "beschreibung-kantonsstrassen",
-      "sort": 6
+      "sort": 8
     }
   },
   {
@@ -9847,7 +9847,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "besondere-bedingungen",
-      "sort": 2
+      "sort": 4
     }
   },
   {
@@ -9862,7 +9862,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "forstliche-baute",
-      "sort": 16
+      "sort": 18
     }
   },
   {
@@ -9877,7 +9877,22 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "haustechnische-anlagen-brandschutz",
-      "sort": 5
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "nutzung-bauvorhaben.hinweis-denkmalschutz",
+    "fields": {
+      "created_at": "2023-06-15T12:43:42.282Z",
+      "modified_at": "2023-06-15T12:43:42.282Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "nutzung-bauvorhaben",
+      "question": "hinweis-denkmalschutz",
+      "sort": 2
     }
   },
   {
@@ -9892,7 +9907,22 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "hinweis-hindernisfreies-bauen",
-      "sort": 13
+      "sort": 15
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "nutzung-bauvorhaben.hinweis-vorpruefung-gvg",
+    "fields": {
+      "created_at": "2023-06-15T12:37:39.902Z",
+      "modified_at": "2023-06-15T12:37:39.902Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "nutzung-bauvorhaben",
+      "question": "hinweis-vorpruefung-gvg",
+      "sort": 3
     }
   },
   {
@@ -9907,7 +9937,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "hinweis-waldabstandsbereich",
-      "sort": 19
+      "sort": 21
     }
   },
   {
@@ -9922,7 +9952,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "industrie-und-gewerbeabwasser",
-      "sort": 9
+      "sort": 11
     }
   },
   {
@@ -9937,7 +9967,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "kantonsstrassen",
-      "sort": 7
+      "sort": 9
     }
   },
   {
@@ -9952,7 +9982,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "mehr-als-50-arbeitsplaetze",
-      "sort": 8
+      "sort": 10
     }
   },
   {
@@ -9967,7 +9997,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "mehr-als-vier-wohneinheiten",
-      "sort": 14
+      "sort": 16
     }
   },
   {
@@ -9982,7 +10012,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "nichtforstliche-kleinbaute",
-      "sort": 17
+      "sort": 19
     }
   },
   {
@@ -9997,7 +10027,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "rodung",
-      "sort": 18
+      "sort": 20
     }
   },
   {
@@ -10012,7 +10042,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "triage-brandschutz",
-      "sort": 4
+      "sort": 6
     }
   },
   {
@@ -10042,7 +10072,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "waldareal",
-      "sort": 20
+      "sort": 22
     }
   },
   {
@@ -10057,7 +10087,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "wohnnutzung",
-      "sort": 15
+      "sort": 17
     }
   },
   {
@@ -16666,12 +16696,12 @@
     "pk": "beschreibung-der-anlagen-untergrund",
     "fields": {
       "created_at": "2023-04-12T08:08:32.552Z",
-      "modified_at": "2023-04-12T14:50:41.476Z",
+      "modified_at": "2023-06-15T12:08:43.108Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Untergrund (Sonde / Register / Wasser)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"W\\u00e4rmepumpen mit W\\u00e4rmeentzug aus dem Untergrund (Sonde / Register / Wasser)\", \"fr\": null, \"it\": null, \"rm\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -17290,12 +17320,12 @@
     "pk": "besondere-bedingungen-naturgefahren",
     "fields": {
       "created_at": "2023-04-12T08:17:02.456Z",
-      "modified_at": "2023-04-27T07:34:22.494Z",
+      "modified_at": "2023-06-15T12:37:58.276Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Naturgefahren\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Gefahrenzonen\", \"fr\": null, \"it\": null, \"rm\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -26455,6 +26485,22 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "vorhaben-abbruch-teilabbruch",
+    "fields": {
+      "created_at": "2023-06-15T13:13:36.639Z",
+      "modified_at": "2023-06-15T13:13:36.639Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abbruch / Teilabbruch\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "vorhaben-andere",
     "fields": {
       "created_at": "2023-04-05T10:41:47.660Z",
@@ -26464,6 +26510,22 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Andere\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "vorhaben-erweiterung-anbau",
+    "fields": {
+      "created_at": "2023-06-15T13:13:36.649Z",
+      "modified_at": "2023-06-15T13:13:36.649Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Erweiterung / Anbau\", \"fr\": null, \"it\": null, \"rm\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -26506,12 +26568,12 @@
     "pk": "vorhaben-umbau-erweiterung-zweckaenderung",
     "fields": {
       "created_at": "2023-04-05T10:41:47.666Z",
-      "modified_at": "2023-04-27T07:03:59.310Z",
+      "modified_at": "2023-06-15T13:13:36.637Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Umbau / Erweiterung / Zweck\\u00e4nderung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Umbau / Zweck\\u00e4nderung\", \"fr\": null, \"it\": null, \"rm\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -32329,10 +32391,10 @@
     "pk": "baugespann-erstellt-am",
     "fields": {
       "created_at": "2023-04-12T07:53:46.553Z",
-      "modified_at": "2023-04-27T07:04:50.719Z",
+      "modified_at": "2023-06-15T12:13:56.529Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Erstellt am\", \"fr\": null, \"it\": null, \"rm\": null}",
       "type": "date",
@@ -32341,7 +32403,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"Hinweis: Das Baugespann muss zum Zeitpunkt der Baueingabe erstellt sein (Art. 43 KRVO).\", \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -34018,10 +34080,10 @@
     "pk": "beschreibung-der-anlagen",
     "fields": {
       "created_at": "2023-04-12T08:08:32.877Z",
-      "modified_at": "2023-04-12T14:50:41.855Z",
+      "modified_at": "2023-06-15T12:08:43.287Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Bauvorhaben mit besonderen Anlagen\", \"fr\": null, \"it\": null, \"rm\": null}",
       "type": "multiple_choice",
@@ -35076,10 +35138,10 @@
     "pk": "besondere-bedingungen",
     "fields": {
       "created_at": "2023-04-12T08:17:02.973Z",
-      "modified_at": "2023-04-27T07:34:22.837Z",
+      "modified_at": "2023-06-15T12:37:58.449Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Besondere Bedingungen\", \"fr\": null, \"it\": null, \"rm\": null}",
       "type": "multiple_choice",
@@ -42845,6 +42907,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "hinweis-denkmalschutz",
+    "fields": {
+      "created_at": "2023-06-15T12:43:42.158Z",
+      "modified_at": "2023-06-15T12:48:28.625Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis Denkmalschutz\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "!(\"besondere-bedingungen-archaeologie\" in \"besondere-bedingungen\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"**Arch\\u00e4ologie und Denkmalpflege:** Bitte nehmen Sie mit [der zust\\u00e4ndigen Bauberaterin / dem zust\\u00e4ndigen Bauberater](https://www.gr.ch/DE/institutionen/verwaltung/ekud/afk/dpg/DPGDokumentAblage/bauberatung_gebietszuteilung_d.pdf) Kontakt auf.\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "hinweis-erfassung-solaranlage",
     "fields": {
       "created_at": "2023-05-19T10:15:30.285Z",
@@ -42955,6 +43048,37 @@
       "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"F\\u00fcr die Stoffbilanz dieser Anlage ben\\u00f6tigen wir die Angabe von allen im Bereich dieser Anlage eingesetzten lufthygienisch relevanten Stoffen\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "hinweis-vorpruefung-gvg",
+    "fields": {
+      "created_at": "2023-06-15T12:37:39.769Z",
+      "modified_at": "2023-06-15T12:39:00.737Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis Vorpr\\u00fcfung GVG\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "!(\"besondere-bedingungen-naturgefahren\" in \"besondere-bedingungen\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"**Bitte beachten:** Bei Gefahrenzonen ist dem Gesuch ein [Vorpr\\u00fcfungsentscheid der Geb\\u00e4udeversicherung Graub\\u00fcnden](https://gvg.gr.ch/gvg-elementarschadenpraevention-bauberatung-in-gefahrenzonen) beizulegen.\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -43749,19 +43873,19 @@
     "pk": "kantonsstrassen",
     "fields": {
       "created_at": "2023-04-12T08:10:14.647Z",
-      "modified_at": "2023-04-12T08:10:14.647Z",
+      "modified_at": "2023-06-15T13:08:49.774Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Bauvorhaben an Kantonsstrassen\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Bauvorhaben an Kantonsstrassen oder Strassenreklamen an National- oder Kantonsstrassen\", \"fr\": null, \"it\": null, \"rm\": null}",
       "type": "choice",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -49448,7 +49572,7 @@
     "pk": "sicherheitsdatenblatt",
     "fields": {
       "created_at": "2023-06-14T12:07:07.511Z",
-      "modified_at": "2023-06-14T12:30:15.910Z",
+      "modified_at": "2023-06-15T11:57:39.353Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -54744,12 +54868,12 @@
     "pk": "zusatzbewilligung-kantonsstrassen",
     "fields": {
       "created_at": "2023-04-27T07:27:40.919Z",
-      "modified_at": "2023-05-19T07:48:51.754Z",
+      "modified_at": "2023-06-15T11:50:46.079Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Zusatzbewilligung Kantonsstrassen (Art. 52 Abs. 2 KRVO)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Bauvorhaben an Kantonsstrassen:  Vorpr\\u00fcfungsbericht des Bezirkstiefbauamts\", \"fr\": null, \"it\": null, \"rm\": null}",
       "type": "multiple_choice",
       "is_required": "true",
       "is_hidden": "\"bauanzeige\" in form || \"solaranlage\" in form || !(\"kantonsstrassen-ja\" == (\"kantonsstrassen\"|answer || \"\"))",
@@ -54777,12 +54901,12 @@
     "pk": "zusatzbewilligung-kantonsstrassen-belasteter-standort",
     "fields": {
       "created_at": "2023-04-27T07:29:58.052Z",
-      "modified_at": "2023-05-19T07:49:05.048Z",
+      "modified_at": "2023-06-15T11:50:14.633Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Zusatzbewilligung Kantonsstrassen belasteter Standort (Art. 52 Abs. 2 KRVO)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Zusatzbewilligung belasteter Standort (Art. 52 Abs. 2 KRVO)\", \"fr\": null, \"it\": null, \"rm\": null}",
       "type": "multiple_choice",
       "is_required": "true",
       "is_hidden": "\"bauanzeige\" in form || \"solaranlage\" in form || !(\"besondere-bedingungen-belasteter-standort\" in (\"besondere-bedingungen\"|answer || []))",
@@ -54810,12 +54934,12 @@
     "pk": "zusatzbewilligung-naturgefahren",
     "fields": {
       "created_at": "2023-04-27T07:32:09.702Z",
-      "modified_at": "2023-05-19T07:49:22.042Z",
+      "modified_at": "2023-06-15T12:35:14.274Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Zusatzbewilligung Naturgefahren (Art. 42 Abs. 3 KRVO)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Naturgefahren: Vorpr\\u00fcfungsentscheid Pr\\u00fcfingenieur der Geb\\u00e4udeversicherung Graub\\u00fcnden\", \"fr\": null, \"it\": null, \"rm\": null}",
       "type": "multiple_choice",
       "is_required": "true",
       "is_hidden": "\"bauanzeige\" in form || \"solaranlage\" in form || !(\"besondere-bedingungen-naturgefahren\" in (\"besondere-bedingungen\"|answer || []))",
@@ -67218,62 +67342,92 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "vorhaben.vorhaben-abbruch-teilabbruch",
+    "fields": {
+      "created_at": "2023-06-15T13:13:50.680Z",
+      "modified_at": "2023-06-15T13:13:50.680Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "vorhaben",
+      "option": "vorhaben-abbruch-teilabbruch",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "vorhaben.vorhaben-andere",
     "fields": {
-      "created_at": "2023-04-27T07:03:59.518Z",
-      "modified_at": "2023-04-27T07:03:59.518Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_at": "2023-06-15T13:13:50.688Z",
+      "modified_at": "2023-06-15T13:13:50.688Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "vorhaben",
       "option": "vorhaben-andere",
-      "sort": 1
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "vorhaben.vorhaben-erweiterung-anbau",
+    "fields": {
+      "created_at": "2023-06-15T13:13:50.684Z",
+      "modified_at": "2023-06-15T13:13:50.684Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "vorhaben",
+      "option": "vorhaben-erweiterung-anbau",
+      "sort": 2
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "vorhaben.vorhaben-neubau",
     "fields": {
-      "created_at": "2023-04-27T07:03:59.530Z",
-      "modified_at": "2023-04-27T07:03:59.530Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_at": "2023-06-15T13:13:50.698Z",
+      "modified_at": "2023-06-15T13:13:50.698Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "vorhaben",
       "option": "vorhaben-neubau",
-      "sort": 4
+      "sort": 6
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "vorhaben.vorhaben-projektaenderung-einer-bewilligten-baute-anlage",
     "fields": {
-      "created_at": "2023-04-27T07:03:59.522Z",
-      "modified_at": "2023-04-27T07:03:59.522Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_at": "2023-06-15T13:13:50.691Z",
+      "modified_at": "2023-06-15T13:13:50.691Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "vorhaben",
       "option": "vorhaben-projektaenderung-einer-bewilligten-baute-anlage",
-      "sort": 2
+      "sort": 4
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "vorhaben.vorhaben-umbau-erweiterung-zweckaenderung",
     "fields": {
-      "created_at": "2023-04-27T07:03:59.526Z",
-      "modified_at": "2023-04-27T07:03:59.526Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_at": "2023-06-15T13:13:50.694Z",
+      "modified_at": "2023-06-15T13:13:50.694Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "vorhaben",
       "option": "vorhaben-umbau-erweiterung-zweckaenderung",
-      "sort": 3
+      "sort": 5
     }
   },
   {
