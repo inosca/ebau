@@ -1,5 +1,6 @@
 import { registerDestructor } from "@ember/destroyable";
 import { inject as service } from "@ember/service";
+import { tracked } from "@glimmer/tracking";
 import { task, lastValue } from "ember-concurrency";
 import { Resource } from "ember-resources";
 
@@ -13,6 +14,8 @@ const shouldResetPage = ([oldModel, oldQuery] = [], [newModel, newQuery]) =>
 
 export class PaginatedQuery extends Resource {
   @service store;
+
+  @tracked isResetting = false;
 
   get records() {
     return this.data?.records ?? [];
@@ -58,13 +61,17 @@ export class PaginatedQuery extends Resource {
   fetchData = task({ restartable: true }, async (model, query) => {
     await Promise.resolve();
     try {
+      const isResetting = shouldResetPage(this.fetchData.lastSuccessful?.args, [
+        model,
+        query,
+      ]);
+
+      this.isResetting = isResetting;
+
       const data = await this.store.query(model, query);
 
       return {
-        records: shouldResetPage(this.fetchData.lastSuccessful?.args, [
-          model,
-          query,
-        ])
+        records: isResetting
           ? data.toArray()
           : [...this.data.records, ...data.toArray()],
         hasMore: query.page.number < data.meta?.pagination?.pages,
@@ -72,6 +79,8 @@ export class PaginatedQuery extends Resource {
     } catch (error) {
       console.error(error);
       return { isError: true, error };
+    } finally {
+      this.isResetting = false;
     }
   });
 }
