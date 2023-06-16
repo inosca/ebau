@@ -16,6 +16,7 @@ communications:
     sentDate: "am {date} um {time}"
     readByEveryone: Von allen gelesen
     readByYou: Von Ihnen gelesen
+    readBy: Gelesen von
     createdBy: "Erstellt von {entity} ({user})"
     empty: Keine Nachrichten vorhanden.
     markAsRead: Als Gelesen markieren
