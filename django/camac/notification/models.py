@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 
 from ..core import models as core_models
 
@@ -26,6 +27,8 @@ class NotificationTemplate(core_models.MultilingualModel, models.Model):
     class Meta:
         managed = True
         db_table = "NOTIFICATION_TEMPLATE"
+        verbose_name = _("Notification template")
+        verbose_name_plural = _("Notification templates")
 
 
 class NotificationTemplateT(models.Model):
@@ -39,9 +42,11 @@ class NotificationTemplateT(models.Model):
         NotificationTemplate, models.CASCADE, to_field="slug"
     )
     language = models.CharField(db_column="LANGUAGE", max_length=2)
-    purpose = models.CharField(db_column="PURPOSE", max_length=100)
-    subject = models.TextField(db_column="SUBJECT")
-    body = models.TextField(db_column="BODY")
+    purpose = models.CharField(
+        db_column="PURPOSE", max_length=100, verbose_name=_("Purpose")
+    )
+    subject = models.TextField(db_column="SUBJECT", verbose_name=_("Subject"))
+    body = models.TextField(db_column="BODY", verbose_name=_("Body"))
 
     class Meta:
         managed = True
