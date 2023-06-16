@@ -368,14 +368,12 @@ export default class CaseFilterComponent extends Component {
 
   @action
   validateKeywordSearch() {
-    // TODO: Evaluate search possibilities
     const keywordSearch = this._filter.keywordSearch;
     if (keywordSearch) {
-      const keywords =
-        keywordSearch.startsWith('"') && keywordSearch.endsWith('"')
-          ? [keywordSearch.slice(1, -1)]
-          : keywordSearch.trim().split(/\s+/);
-
+      // Split on whitespace, treat keyword groups by quotes as entity
+      const keywords = keywordSearch
+        .match(/(?:".*?"|\S)+/g) // match quoted groups and words
+        .map((v) => v.replace(/^"(.*)"$/, "$1")); // remove leading and trailing quotes
       if (keywordSearch && keywords.some((keyword) => keyword.length < 3)) {
         this.notification.danger(
           this.intl.t("cases.filters.keywordSearchTooShort")
