@@ -1831,7 +1831,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": \"\", \"it\": null, \"rm\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null, \"rm\": null}",
-      "hint_text": "{\"de\": \"Im Format +41 12 123 12 12 (inkl. Vorwahl)\", \"fr\": \"Au format +41 12 123 12 12 (indicatif inclus)\", \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -1899,7 +1899,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "info_text": "{\"de\": \"Mit der Vollmacht handeln Sie in Stellvertretung f\\u00fcr Dritte. Hinweise \\u00fcber die Regelungen der Stellvertretung finden Sie in Art. 32-40 OR.\", \"fr\": \"Une procuration permet de repr\\u00e9senter des tiers. Les articles 32 \\u00e0 40 CO contiennent les dispositions relatives \\u00e0 la repr\\u00e9sentation.\", \"it\": null, \"rm\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"Bitte nur Personen erfassen, welche nicht identisch mit der Bauherrschaft sind.\", \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {},
       "meta": {},
