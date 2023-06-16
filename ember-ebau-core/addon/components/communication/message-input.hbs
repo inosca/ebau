@@ -13,6 +13,7 @@
     disabled={{this.disabled}}
     rows="5"
     {{on "input" this.updateMessage}}
+    {{on "keypress" this.handleKeypress}}
     {{autoresize this.body mode="height"}}
   />
 

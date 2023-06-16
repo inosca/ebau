@@ -49,4 +49,11 @@ export default class CommunicationMessageInputComponent extends Component {
   addDocumentAttachments(attachments) {
     this.args.message.documentAttachmentsToSave = attachments;
   }
+
+  @action
+  handleKeypress(event) {
+    if (event.key === "Enter" && event.ctrlKey && !this.sendDisabled) {
+      this.args.sendMessage();
+    }
+  }
 }
