@@ -1,4 +1,5 @@
 import { action } from "@ember/object";
+import { scheduleOnce } from "@ember/runloop";
 import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
@@ -11,16 +12,13 @@ export default class CommunicationMessageComponent extends Component {
   @service router;
   @service intl;
 
-  @localCopy("args.collapsed", true) _collapsed;
+  @localCopy("args.collapsed", true) collapsed;
   @tracked paragraph;
-
-  get collapsed() {
-    return !this.isExpandable || this._collapsed;
-  }
+  @tracked isTruncated;
 
   get isExpandable() {
     return (
-      this.paragraph?.clientWidth < this.paragraph?.scrollWidth ||
+      this.isTruncated ||
       this.args.message.attachments.length ||
       /\r|\n/.test(this.args.message.body)
     );
@@ -58,15 +56,28 @@ export default class CommunicationMessageComponent extends Component {
   });
 
   @action
-  setParagraph(element) {
-    this.paragraph = element;
+  setTruncated(paragraphElement) {
+    if (!this.paragraph) {
+      this.paragraph = paragraphElement;
+    }
+
+    this.isTruncated =
+      paragraphElement?.clientWidth < paragraphElement?.scrollWidth;
   }
 
   @action
   toggleText(event) {
     event?.preventDefault();
-    if (this.isExpandable || !this.collapsed) {
-      this._collapsed = !this.collapsed;
+
+    // Get the current text selection to prevent toggling while selecting text
+    // from a message
+    const selection = window.getSelection().toString();
+
+    if (!selection.length && (this.isExpandable || !this.collapsed)) {
+      this.collapsed = !this.collapsed;
+
+      // Recalculate isTruncated property after rendering
+      scheduleOnce("afterRender", this, "setTruncated", this.paragraph);
     }
   }
 }

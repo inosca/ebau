@@ -77,7 +77,8 @@
     <p
       class="uk-margin-remove {{if this.collapsed 'collapsed'}} {{if this.isExpandable 'expandable'}}"
       role="button"
-      {{did-insert this.setParagraph}}
+      {{did-insert this.setTruncated}}
+      {{did-update this.setTruncated @collapsed}}
       {{on "click" this.toggleText}}
       data-test-expand
     >{{@message.body}}</p>
@@ -85,17 +86,19 @@
     {{#unless this.collapsed}}
       <Communication::FileList @files={{@message.attachments}} />
 
-      <div class="uk-flex uk-flex-right uk-flex-middle">
-        <UkIcon @icon="shrink" class="uk-margin-small-right" />
-        <a
-          href="#"
-          class="uk-link uk-link-text"
-          {{on "click" this.toggleText}}
-          data-test-collapse
-        >
-          {{t "communications.detail.collapseMessage"}}
-        </a>
-      </div>
+      {{#if this.isExpandable}}
+        <div class="uk-flex uk-flex-right uk-flex-middle">
+          <UkIcon @icon="shrink" class="uk-margin-small-right" />
+          <a
+            href="#"
+            class="uk-link uk-link-text"
+            {{on "click" this.toggleText}}
+            data-test-collapse
+          >
+            {{t "communications.detail.collapseMessage"}}
+          </a>
+        </div>
+      {{/if}}
     {{/unless}}
   </div>
 </div>
