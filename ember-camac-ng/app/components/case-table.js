@@ -358,7 +358,7 @@ export default class CaseTableComponent extends Component {
     return {
       "x-camac-filters": Object.entries(filters)
         .filter(([, value]) => ![null, undefined, ""].includes(value))
-        .map((entry) => entry.join("="))
+        .map(([key, value]) => `${key}=${encodeURIComponent(value)}`)
         .join("&"),
     };
   }
