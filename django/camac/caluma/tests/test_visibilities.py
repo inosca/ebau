@@ -20,6 +20,9 @@ from camac.caluma.extensions.visibilities import (
     CustomVisibilityBE,
     CustomVisibilitySZ,
 )
+from camac.instance.tests.test_instance_public import (  # noqa: F401
+    create_caluma_publication,
+)
 from camac.user.models import User
 
 
@@ -783,3 +786,54 @@ def test_inquiry_visibility_be(
     assert len(ids) == 3
     assert visible_ids == ids
     assert str(invisible_inquiry.pk) not in ids
+
+
+@pytest.mark.parametrize("role__name", ["Applicant"])
+@pytest.mark.parametrize("is_public_user,expected_answers", [(False, 5), (True, 2)])
+def test_data_scrubbing(
+    db,
+    admin_user,
+    answer_factory,
+    applicant_factory,
+    application_settings,
+    be_instance,
+    caluma_admin_public_schema_executor,
+    caluma_admin_schema_executor,
+    create_caluma_publication,  # noqa: F811
+    expected_answers,
+    gql,
+    is_public_user,
+):
+    create_caluma_publication(be_instance)
+    applicant_factory(instance=be_instance, invitee=admin_user)
+
+    document = be_instance.case.document
+    answer_factory.create_batch(2, document=document)
+    scrubbed_answers = answer_factory.create_batch(3, document=document)
+    scrubbed_questions = [answer.question_id for answer in scrubbed_answers]
+
+    application_settings["PUBLICATION_SCRUBBED_ANSWERS"] = scrubbed_questions
+
+    executor = (
+        caluma_admin_public_schema_executor
+        if is_public_user
+        else caluma_admin_schema_executor
+    )
+
+    result = executor(gql("get-document"), variables={"id": str(document.pk)})
+
+    assert not result.errors
+
+    returned_questions = [
+        answer["node"]["question"]["slug"]
+        for answer in result.data["allDocuments"]["edges"][0]["node"]["answers"][
+            "edges"
+        ]
+    ]
+
+    assert len(returned_questions) == expected_answers
+
+    if is_public_user:
+        assert not any(slug in returned_questions for slug in scrubbed_questions)
+    else:
+        assert all(slug in returned_questions for slug in scrubbed_questions)

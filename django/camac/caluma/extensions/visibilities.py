@@ -13,6 +13,7 @@ from camac.constants.kt_bern import DASHBOARD_FORM_SLUG
 from camac.instance.filters import CalumaInstanceFilterSet
 from camac.instance.mixins import InstanceQuerysetMixin
 from camac.user.models import Role
+from camac.user.permissions import permission_aware
 from camac.utils import filters, order
 
 
@@ -67,12 +68,19 @@ class CustomVisibility(Authenticated, InstanceQuerysetMixin):
             )
         )
 
+    @permission_aware
     @filter_queryset_for(form_schema.Answer)
     @filter_queryset_for(historical_form_schema.HistoricalAnswer)
     def filter_queryset_for_answer(self, node, queryset, info):
         # return all answers, since answers can only be accessed via documents
         # which are already properly protected
         return queryset
+
+    def filter_queryset_for_answer_for_public(self, node, queryset, info):
+        # Scrub sensitive data from answer queryset for public users
+        return queryset.exclude(
+            question_id__in=settings.APPLICATION.get("PUBLICATION_SCRUBBED_ANSWERS", [])
+        )
 
     @filter_queryset_for(workflow_schema.Case)
     def filter_queryset_for_case(self, node, queryset, info):
