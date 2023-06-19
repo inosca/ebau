@@ -68,7 +68,7 @@
                     <#list social.providers as p>
                         <li class="${properties.kcFormSocialAccountListLinkClass!}"><a href="${p.loginUrl}" id="zocial-${p.alias}" class="${p.providerId}">
                             <#-- show icons for IdPs -->
-                            <div class="icon icon-${p.alias}"></div>
+                            <div class="icon icon-gr"></div>
                             <span>${p.displayName}</span></a>
                         </li>
                     </#list>
