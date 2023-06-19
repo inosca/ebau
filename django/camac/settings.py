@@ -234,6 +234,7 @@ APPLICATIONS = {
         "ECH0211": {
             "API_ACTIVE": env.bool("ECH0211_API_ACTIVE", default=False),
         },
+        "USE_CAMAC_ADMIN": True,
         "LOG_NOTIFICATIONS": True,
         # Mapping between camac role and instance permission.
         "ROLE_PERMISSIONS": {
@@ -350,6 +351,7 @@ APPLICATIONS = {
     },
     "kt_schwyz": {
         "INCLUDE_STATIC_FILES": [("xml", "kt_schwyz/static/ech0211/xml/")],
+        "USE_CAMAC_ADMIN": True,
         "LOG_NOTIFICATIONS": True,
         "SHOW_DJANGO_ADMIN_RESOURCE_MANAGEMENT": False,
         "ROLE_PERMISSIONS": {
@@ -1249,6 +1251,7 @@ APPLICATIONS = {
             "SWAGGER_PATH": "camac.swagger.views.kt_bern",
             "URLS_CLASS": "camac.ech0211.urls.BEUrlsConf",
         },
+        "USE_CAMAC_ADMIN": True,
         "INCLUDE_STATIC_FILES": [("xml", "kt_bern/static/ech0211/xml")],
         "LOG_NOTIFICATIONS": True,
         "SYSTEM_USER": "service-account-camac-admin",
@@ -2107,6 +2110,7 @@ APPLICATIONS = {
         "ECH0211": {
             "API_ACTIVE": env.bool("ECH0211_API_ACTIVE", default=False),
         },
+        "USE_CAMAC_ADMIN": True,
         "ENABLE_PUBLIC_CALUMA": True,
         "LOG_NOTIFICATIONS": False,
         "FORM_BACKEND": "caluma",
@@ -2777,6 +2781,7 @@ APPLICATIONS = {
         "ECH0211": {
             "API_ACTIVE": env.bool("ECH0211_API_ACTIVE", default=False),
         },
+        "USE_CAMAC_ADMIN": True,
         "LOG_NOTIFICATIONS": True,
         # Mapping between camac role and instance permission.
         "ROLE_PERMISSIONS": {
@@ -3125,6 +3130,7 @@ APPLICATIONS = {
         "ECH0211": {
             "API_ACTIVE": env.bool("ECH0211_API_ACTIVE", default=False),
         },
+        "USE_CAMAC_ADMIN": False,
         "LOG_NOTIFICATIONS": True,
         # Mapping between camac role and instance permission.
         "ROLE_PERMISSIONS": {
