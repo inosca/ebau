@@ -1,3 +1,4 @@
+import { getOwner } from "@ember/application";
 import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
 import { dropTask } from "ember-concurrency";
@@ -93,8 +94,18 @@ export default class WorkItemListItemComponent extends Component {
       );
     }
 
-    if (this.args.workItem.editLink) {
-      location.replace(this.args.workItem.editLink);
+    const applicationName =
+      getOwner(this).resolveRegistration("config:environment")?.modulePrefix;
+
+    if (applicationName === "camac-ng") {
+      if (this.args.workItem.editLink) {
+        location.replace(this.args.workItem.editLink);
+      }
     }
+    yield this.router.transitionTo(
+      `cases.detail.work-items.edit`,
+      this.args.workItem.editLink.models[0],
+      this.args.workItem.editLink.models[1]
+    );
   }
 }
