@@ -10056,7 +10056,8 @@ h1 {
   line-height: 28px;
   font-weight: 400;
   max-width: 536px;
-  margin: 0 auto; }
+  margin: 0 auto;
+  color: black; }
 
 .social-list-item a span {
   text-align: left; }
@@ -10132,7 +10133,8 @@ h1 {
 
 .copyright a {
   color: black;
-  font-weight: 400; }
+  font-weight: 400;
+  text-shadow: 0 0 3px white; }
 
 ul.nav {
   margin-top: 0; }
