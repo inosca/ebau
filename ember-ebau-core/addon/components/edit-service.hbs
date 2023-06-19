@@ -151,7 +151,7 @@
         />
       </div>
     {{/if}}
-    {{#if @showDisabled}}
+    {{#unless @hideDisabled}}
       <div class="uk-margin">
         <UkToggleSwitch
           @value={{this.service.value.disabled}}
@@ -163,7 +163,7 @@
           @showLabels={{true}}
         />
       </div>
-    {{/if}}
+    {{/unless}}
     <div class="uk-margin">
       <UkButton
         @type="submit"
