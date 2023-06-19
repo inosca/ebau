@@ -36,9 +36,9 @@ export default class EditServiceComponent extends Component {
 
   get name() {
     const name = this.service.value?.name ?? "";
-
-    return this.postfix
-      ? name.replace(new RegExp(` \\(${this.postfix}\\)$`), "")
+    const fullPostfix = `(${this.postfix})`;
+    return this.postfix && name.endsWith(fullPostfix)
+      ? name.slice(0, -1 * fullPostfix.length).trim()
       : name;
   }
 

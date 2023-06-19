@@ -3160,7 +3160,8 @@ APPLICATIONS = {
         },
         "GROUP_RENAME_ON_SERVICE_RENAME": True,
         "SERVICE_UPDATE_ALLOWED_ROLES": [
-            "Administration Leitbehörde"
+            "municipality-admin",
+            "service-admin",
         ],  # if unset, all are allowed
         # please also update django/Makefile command when changing apps here
         "SEQUENCE_NAMESPACE_APPS": ["core", "responsible", "document"],
