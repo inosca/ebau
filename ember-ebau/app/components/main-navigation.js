@@ -8,7 +8,7 @@ import UIkit from "uikit";
 
 import config from "ebau/config/environment";
 
-const { languages } = config;
+const { languages, APPLICATION } = config;
 
 export default class MainNavigationComponent extends Component {
   @service session;
@@ -16,6 +16,14 @@ export default class MainNavigationComponent extends Component {
   @service router;
 
   languages = languages;
+
+  get logoPath() {
+    if (APPLICATION.name === "gr") {
+      return "/ebau-gr-logo.svg";
+    }
+
+    return "/ebau-inosca-logo.svg";
+  }
 
   groups = trackedTask(this, this.fetchGroups, () => [this.session.group]);
 

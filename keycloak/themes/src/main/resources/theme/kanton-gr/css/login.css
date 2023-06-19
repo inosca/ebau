@@ -9959,7 +9959,7 @@ h2,
   justify-content: space-between; }
 
 .gr-logo {
-  background-image: url("../img/logo-kanton-gr.jpg");
+  background-image: url("../img/logo-kanton-gr.svg");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -10070,7 +10070,7 @@ h1 {
   background-image: url("../img/people.svg"); }
 
 .icon-afi {
-  background-image: url("../img/logo-kanton-gr.jpg");
+  background-image: url("../img/logo-kanton-gr.svg");
   background-color: red; }
 
 .icon-local {
