@@ -623,6 +623,24 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "materielle-vorpruefung",
+    "fields": {
+      "created_at": "2023-06-19T09:24:17.820Z",
+      "modified_at": "2023-06-19T09:24:17.820Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Materielle Vorpr\\u00fcfung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "mineralische-bauabfaelle",
     "fields": {
       "created_at": "2023-04-24T13:39:55.605Z",
@@ -871,6 +889,24 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "name": "{\"de\": \"Verwendete Stoffe und Produkte\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "vollstaendigkeitspruefung",
+    "fields": {
+      "created_at": "2023-06-19T08:25:58.323Z",
+      "modified_at": "2023-06-19T08:25:58.323Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Vollst\\u00e4ndigkeitspr\\u00fcfung\", \"fr\": null, \"it\": null, \"rm\": null}",
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "meta": {},
       "is_published": false,
@@ -9567,6 +9603,261 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "materielle-vorpruefung.ausnuetzungsziffer-titel",
+    "fields": {
+      "created_at": "2023-06-19T09:35:21.866Z",
+      "modified_at": "2023-06-19T09:35:21.866Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-vorpruefung",
+      "question": "ausnuetzungsziffer-titel",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-vorpruefung.bauabstaende-mehrlaengen-titel",
+    "fields": {
+      "created_at": "2023-06-19T09:33:31.035Z",
+      "modified_at": "2023-06-19T09:33:31.035Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-vorpruefung",
+      "question": "bauabstaende-mehrlaengen-titel",
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-vorpruefung.bemerkungen-ausnuetzungsziffer",
+    "fields": {
+      "created_at": "2023-06-19T09:36:24.269Z",
+      "modified_at": "2023-06-19T09:36:24.269Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-vorpruefung",
+      "question": "bemerkungen-ausnuetzungsziffer",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-vorpruefung.bemerkungen-bauabstaende",
+    "fields": {
+      "created_at": "2023-06-19T09:34:29.037Z",
+      "modified_at": "2023-06-19T09:34:29.037Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-vorpruefung",
+      "question": "bemerkungen-bauabstaende",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-vorpruefung.bemerkungen-gebaeudehoehen",
+    "fields": {
+      "created_at": "2023-06-19T09:38:08.167Z",
+      "modified_at": "2023-06-19T09:38:08.167Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-vorpruefung",
+      "question": "bemerkungen-gebaeudehoehen",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-vorpruefung.bemerkungen-weitere-materielle-pruefung",
+    "fields": {
+      "created_at": "2023-06-19T09:45:29.853Z",
+      "modified_at": "2023-06-19T09:45:29.853Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-vorpruefung",
+      "question": "bemerkungen-weitere-materielle-pruefung",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-vorpruefung.bemerkungen-zonenkonformitaet",
+    "fields": {
+      "created_at": "2023-06-19T09:32:48.274Z",
+      "modified_at": "2023-06-19T09:32:48.274Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-vorpruefung",
+      "question": "bemerkungen-zonenkonformitaet",
+      "sort": 14
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-vorpruefung.complete-material-exam",
+    "fields": {
+      "created_at": "2023-06-19T09:46:57.272Z",
+      "modified_at": "2023-06-19T09:46:57.272Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-vorpruefung",
+      "question": "complete-material-exam",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-vorpruefung.gebaeudehoehen-titel",
+    "fields": {
+      "created_at": "2023-06-19T09:37:03.545Z",
+      "modified_at": "2023-06-19T09:37:03.545Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-vorpruefung",
+      "question": "gebaeudehoehen-titel",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-vorpruefung.hinweis-auflistung",
+    "fields": {
+      "created_at": "2023-06-19T09:26:19.709Z",
+      "modified_at": "2023-06-19T09:26:19.709Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-vorpruefung",
+      "question": "hinweis-auflistung",
+      "sort": 17
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-vorpruefung.pruefung-ausnuetzungsziffer",
+    "fields": {
+      "created_at": "2023-06-19T09:36:02.628Z",
+      "modified_at": "2023-06-19T09:36:02.628Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-vorpruefung",
+      "question": "pruefung-ausnuetzungsziffer",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-vorpruefung.pruefung-bauabstaende",
+    "fields": {
+      "created_at": "2023-06-19T09:34:07.471Z",
+      "modified_at": "2023-06-19T09:34:07.471Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-vorpruefung",
+      "question": "pruefung-bauabstaende",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-vorpruefung.pruefung-gebaeudehoehen",
+    "fields": {
+      "created_at": "2023-06-19T09:37:39.230Z",
+      "modified_at": "2023-06-19T09:37:39.230Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-vorpruefung",
+      "question": "pruefung-gebaeudehoehen",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-vorpruefung.pruefung-weitere-materielle-pruefung",
+    "fields": {
+      "created_at": "2023-06-19T09:45:06.967Z",
+      "modified_at": "2023-06-19T09:45:06.967Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-vorpruefung",
+      "question": "pruefung-weitere-materielle-pruefung",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-vorpruefung.pruefung-zonenkonformitaet",
+    "fields": {
+      "created_at": "2023-06-19T09:32:28.423Z",
+      "modified_at": "2023-06-19T09:32:28.423Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-vorpruefung",
+      "question": "pruefung-zonenkonformitaet",
+      "sort": 15
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-vorpruefung.weitere-materielle-pruefung",
+    "fields": {
+      "created_at": "2023-06-19T09:43:51.605Z",
+      "modified_at": "2023-06-19T09:43:51.605Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-vorpruefung",
+      "question": "weitere-materielle-pruefung",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-vorpruefung.zonenkonformitaet-titel",
+    "fields": {
+      "created_at": "2023-06-19T09:31:41.089Z",
+      "modified_at": "2023-06-19T09:31:41.089Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-vorpruefung",
+      "question": "zonenkonformitaet-titel",
+      "sort": 16
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "mineralische-bauabfaelle.aufbereitungsdatum-bis-mineralische-bauabfaelle",
     "fields": {
       "created_at": "2023-04-24T13:46:56.534Z",
@@ -12548,6 +12839,126 @@
       "form": "verwendete-stoffe-und-produkte",
       "question": "voc-menge-kg-pro-jahr",
       "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vollstaendigkeitspruefung.eingabequittung-korrekt",
+    "fields": {
+      "created_at": "2023-06-19T08:30:18.763Z",
+      "modified_at": "2023-06-19T08:30:18.763Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "vollstaendigkeitspruefung",
+      "question": "eingabequittung-korrekt",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vollstaendigkeitspruefung.einverstaendnis-grundeigentuemerin-vorhanden",
+    "fields": {
+      "created_at": "2023-06-19T08:31:01.045Z",
+      "modified_at": "2023-06-19T08:31:01.045Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "vollstaendigkeitspruefung",
+      "question": "einverstaendnis-grundeigentuemerin-vorhanden",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vollstaendigkeitspruefung.gesuchsunterlagen-vollstaendig",
+    "fields": {
+      "created_at": "2023-06-19T08:29:45.910Z",
+      "modified_at": "2023-06-19T08:29:45.910Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "vollstaendigkeitspruefung",
+      "question": "gesuchsunterlagen-vollstaendig",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vollstaendigkeitspruefung.hinweis-auflistung",
+    "fields": {
+      "created_at": "2023-06-19T08:27:25.198Z",
+      "modified_at": "2023-06-19T08:27:25.198Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "vollstaendigkeitspruefung",
+      "question": "hinweis-auflistung",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vollstaendigkeitspruefung.lage-des-vorhabens-korrekt",
+    "fields": {
+      "created_at": "2023-06-19T08:31:30.019Z",
+      "modified_at": "2023-06-19T08:31:30.019Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "vollstaendigkeitspruefung",
+      "question": "lage-des-vorhabens-korrekt",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vollstaendigkeitspruefung.verfahrensart",
+    "fields": {
+      "created_at": "2023-06-19T08:28:42.552Z",
+      "modified_at": "2023-06-19T08:28:42.552Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "vollstaendigkeitspruefung",
+      "question": "verfahrensart",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vollstaendigkeitspruefung.vorabklaerung-ersichtlich",
+    "fields": {
+      "created_at": "2023-06-19T08:33:08.868Z",
+      "modified_at": "2023-06-19T08:33:08.868Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "vollstaendigkeitspruefung",
+      "question": "vorabklaerung-ersichtlich",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vollstaendigkeitspruefung.vorabklaerungspflicht",
+    "fields": {
+      "created_at": "2023-06-19T08:32:17.911Z",
+      "modified_at": "2023-06-19T08:32:17.911Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "vollstaendigkeitspruefung",
+      "question": "vorabklaerungspflicht",
+      "sort": 3
     }
   },
   {
@@ -18673,6 +19084,38 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "eingabequittung-korrekt-ja",
+    "fields": {
+      "created_at": "2023-06-19T08:30:18.473Z",
+      "modified_at": "2023-06-19T08:30:18.473Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "eingabequittung-korrekt-nein",
+    "fields": {
+      "created_at": "2023-06-19T08:30:18.480Z",
+      "modified_at": "2023-06-19T08:30:18.480Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "eingangskontrolle-ja",
     "fields": {
       "created_at": "2023-04-18T19:26:09.989Z",
@@ -18810,6 +19253,38 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Bew\\u00e4sserung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "einverstaendnis-grundeigentuemerin-vorhanden-ja",
+    "fields": {
+      "created_at": "2023-06-19T08:31:00.734Z",
+      "modified_at": "2023-06-19T08:31:00.734Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "einverstaendnis-grundeigentuemerin-vorhanden-nein",
+    "fields": {
+      "created_at": "2023-06-19T08:31:00.744Z",
+      "modified_at": "2023-06-19T08:31:00.744Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null, \"rm\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -20513,6 +20988,38 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "gesuchsunterlagen-vollstaendig-ja",
+    "fields": {
+      "created_at": "2023-06-19T08:29:45.596Z",
+      "modified_at": "2023-06-19T08:29:45.597Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "gesuchsunterlagen-vollstaendig-nein",
+    "fields": {
+      "created_at": "2023-06-19T08:29:45.604Z",
+      "modified_at": "2023-06-19T08:29:45.604Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "gewaesserschutzbereich-au",
     "fields": {
       "created_at": "2023-04-20T14:43:40.318Z",
@@ -21368,6 +21875,38 @@
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "lage-des-vorhabens-korrekt-ja",
+    "fields": {
+      "created_at": "2023-06-19T08:31:29.740Z",
+      "modified_at": "2023-06-19T08:31:29.740Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "lage-des-vorhabens-korrekt-nein",
+    "fields": {
+      "created_at": "2023-06-19T08:31:29.720Z",
+      "modified_at": "2023-06-19T08:31:29.720Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null, \"rm\": null}",
       "is_archived": false,
@@ -23194,6 +23733,246 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Umbau\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "pruefung-ausnuetzungsziffer-korrekt",
+    "fields": {
+      "created_at": "2023-06-19T09:36:02.257Z",
+      "modified_at": "2023-06-19T09:36:02.257Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Korrekt\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "pruefung-ausnuetzungsziffer-nicht-korrekt",
+    "fields": {
+      "created_at": "2023-06-19T09:36:02.272Z",
+      "modified_at": "2023-06-19T09:36:02.273Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nicht korrekt\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "pruefung-ausnuetzungsziffer-nicht-relevant",
+    "fields": {
+      "created_at": "2023-06-19T09:36:02.232Z",
+      "modified_at": "2023-06-19T09:36:02.232Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nicht relevant\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "pruefung-bauabstaende-korrekt",
+    "fields": {
+      "created_at": "2023-06-19T09:34:07.179Z",
+      "modified_at": "2023-06-19T09:34:07.179Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Korrekt\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "pruefung-bauabstaende-nicht-korrekt",
+    "fields": {
+      "created_at": "2023-06-19T09:34:07.191Z",
+      "modified_at": "2023-06-19T09:34:07.191Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nicht korrekt\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "pruefung-bauabstaende-nicht-relevant",
+    "fields": {
+      "created_at": "2023-06-19T09:34:07.140Z",
+      "modified_at": "2023-06-19T09:34:07.140Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nicht relevant\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "pruefung-gebaeudehoehen-korrekt",
+    "fields": {
+      "created_at": "2023-06-19T09:37:38.825Z",
+      "modified_at": "2023-06-19T09:37:38.825Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Korrekt\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "pruefung-gebaeudehoehen-nicht-korrekt",
+    "fields": {
+      "created_at": "2023-06-19T09:37:38.817Z",
+      "modified_at": "2023-06-19T09:37:38.818Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nicht korrekt\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "pruefung-gebaeudehoehen-nicht-relevant",
+    "fields": {
+      "created_at": "2023-06-19T09:37:38.819Z",
+      "modified_at": "2023-06-19T09:37:38.819Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nicht relevant\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "pruefung-weitere-materielle-pruefung-korrekt",
+    "fields": {
+      "created_at": "2023-06-19T09:45:06.665Z",
+      "modified_at": "2023-06-19T09:45:06.665Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Korrekt\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "pruefung-weitere-materielle-pruefung-nicht-korrekt",
+    "fields": {
+      "created_at": "2023-06-19T09:45:06.663Z",
+      "modified_at": "2023-06-19T09:45:06.663Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nicht korrekt\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "pruefung-weitere-materielle-pruefung-nicht-relevant",
+    "fields": {
+      "created_at": "2023-06-19T09:45:06.694Z",
+      "modified_at": "2023-06-19T09:45:06.694Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nicht relevant\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "pruefung-zonenkonformitaet-korrekt",
+    "fields": {
+      "created_at": "2023-06-19T09:32:28.114Z",
+      "modified_at": "2023-06-19T09:32:28.114Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Korrekt\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "pruefung-zonenkonformitaet-nicht-korrekt",
+    "fields": {
+      "created_at": "2023-06-19T09:32:28.130Z",
+      "modified_at": "2023-06-19T09:32:28.130Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nicht korrekt\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "pruefung-zonenkonformitaet-nicht-relevant",
+    "fields": {
+      "created_at": "2023-06-19T09:32:28.136Z",
+      "modified_at": "2023-06-19T09:32:28.136Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nicht relevant\", \"fr\": null, \"it\": null, \"rm\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -26225,6 +27004,38 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "verfahrensart-ordentliches-baubewilligungsverfahren",
+    "fields": {
+      "created_at": "2023-06-09T10:24:24.237Z",
+      "modified_at": "2023-06-09T10:24:24.237Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ordentliches Baubewilligungsverfahren\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "verfahrensart-vereinfachtes-baubewilligungsverfahren",
+    "fields": {
+      "created_at": "2023-06-09T10:24:24.244Z",
+      "modified_at": "2023-06-09T10:24:24.244Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Vereinfachtes Baubewilligungsverfahren\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "verursacher-emissionen-feuerungsanlagen",
     "fields": {
       "created_at": "2023-06-02T11:47:39.185Z",
@@ -26490,6 +27301,70 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Weitere Stoffe/Produkte\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "vorabklaerung-ersichtlich-ja",
+    "fields": {
+      "created_at": "2023-06-19T08:33:08.588Z",
+      "modified_at": "2023-06-19T08:33:08.588Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "vorabklaerung-ersichtlich-nein",
+    "fields": {
+      "created_at": "2023-06-19T08:33:08.595Z",
+      "modified_at": "2023-06-19T08:33:08.595Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "vorabklaerungspflicht-ja",
+    "fields": {
+      "created_at": "2023-06-19T08:32:17.575Z",
+      "modified_at": "2023-06-19T08:32:17.575Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "vorabklaerungspflicht-nein",
+    "fields": {
+      "created_at": "2023-06-19T08:32:17.583Z",
+      "modified_at": "2023-06-19T08:32:17.583Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null, \"rm\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -32306,6 +33181,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "ausnuetzungsziffer-titel",
+    "fields": {
+      "created_at": "2023-06-19T09:35:21.716Z",
+      "modified_at": "2023-06-19T09:35:21.716Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ausn\\u00fctzungsziffer Titel\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"---\\n#### Ausn\\u00fctzungsziffer\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "aussenwaende",
     "fields": {
       "created_at": "2023-05-25T07:16:02.027Z",
@@ -32453,6 +33359,37 @@
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bauabstaende-mehrlaengen-titel",
+    "fields": {
+      "created_at": "2023-06-19T09:33:30.899Z",
+      "modified_at": "2023-06-19T09:33:30.899Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bauabst\\u00e4nde / Mehrl\\u00e4ngen Titel\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"---\\n#### Bauabst\\u00e4nde / Mehrl\\u00e4ngen\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -33615,6 +34552,74 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "bemerkungen-ausnuetzungsziffer",
+    "fields": {
+      "created_at": "2023-06-19T09:36:24.089Z",
+      "modified_at": "2023-06-19T09:36:24.089Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkungen\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bemerkungen-bauabstaende",
+    "fields": {
+      "created_at": "2023-06-19T09:34:28.881Z",
+      "modified_at": "2023-06-19T09:34:28.881Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkungen\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "bemerkungen-brandschutz-haustechnik",
     "fields": {
       "created_at": "2023-04-24T11:53:48.940Z",
@@ -33683,6 +34688,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "bemerkungen-gebaeudehoehen",
+    "fields": {
+      "created_at": "2023-06-19T09:38:08.012Z",
+      "modified_at": "2023-06-19T09:38:08.013Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkungen\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "bemerkungen-kommentare",
     "fields": {
       "created_at": "2023-06-14T14:13:23.860Z",
@@ -33692,6 +34731,74 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Bemerkungen / Kommentare\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bemerkungen-weitere-materielle-pruefung",
+    "fields": {
+      "created_at": "2023-06-19T09:45:29.712Z",
+      "modified_at": "2023-06-19T09:45:29.712Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkungen\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bemerkungen-zonenkonformitaet",
+    "fields": {
+      "created_at": "2023-06-19T09:32:48.114Z",
+      "modified_at": "2023-06-19T09:32:48.114Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkungen\", \"fr\": null, \"it\": null, \"rm\": null}",
       "type": "textarea",
       "is_required": "false",
       "is_hidden": "false",
@@ -35532,6 +36639,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "besteht-eine-vorabklaerungspflicht-kantonsstrasse-gefahrenzone-altlasten-etc",
+    "fields": {
+      "created_at": "2023-06-19T08:32:17.722Z",
+      "modified_at": "2023-06-19T08:32:17.722Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Besteht eine Vorabkl\\u00e4rungspflicht (Kantonsstrasse, Gefahrenzone, Altlasten etc.)?\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "betonabbruch",
     "fields": {
       "created_at": "2023-04-24T13:50:52.753Z",
@@ -37267,6 +38405,41 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "complete-formal-exam",
+    "fields": {
+      "created_at": "2023-06-09T10:34:35.271Z",
+      "modified_at": "2023-06-19T09:28:48.202Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Formelle Pr\\u00fcfung korrekt und abgeschlossen\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "action_button",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "color": "primary",
+        "action": "complete",
+        "validate_on_enter": false
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "dach-material-und-farbe",
     "fields": {
       "created_at": "2023-04-12T10:48:53.454Z",
@@ -38238,6 +39411,68 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "eingabequittung-erhalten-korrekt-und-unterschrieben",
+    "fields": {
+      "created_at": "2023-06-19T08:30:18.622Z",
+      "modified_at": "2023-06-19T08:30:18.622Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Eingabequittung erhalten, korrekt und unterschrieben?\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "eingabequittung-korrekt",
+    "fields": {
+      "created_at": "2023-06-19T08:30:18.622Z",
+      "modified_at": "2023-06-19T08:30:18.622Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Eingabequittung erhalten, korrekt und unterschrieben?\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "eingangskontrolle",
     "fields": {
       "created_at": "2023-04-18T19:26:10.230Z",
@@ -38545,6 +39780,37 @@
       "meta": {},
       "data_source": null,
       "row_form": "einsatzort-tabelle",
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "einverstaendnis-grundeigentuemerin-vorhanden",
+    "fields": {
+      "created_at": "2023-06-19T08:31:00.893Z",
+      "modified_at": "2023-06-19T08:31:00.893Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Einverst\\u00e4ndnis Grundeigent\\u00fcmer/in vorhanden\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
@@ -40945,6 +42211,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "gebaeudehoehen-titel",
+    "fields": {
+      "created_at": "2023-06-19T09:37:03.387Z",
+      "modified_at": "2023-06-19T09:37:03.387Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Geb\\u00e4udeh\\u00f6hen Titel\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"---\\n#### Geb\\u00e4udeh\\u00f6hen\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "gebaeudekategorie",
     "fields": {
       "created_at": "2023-05-19T10:24:24.482Z",
@@ -41627,6 +42924,37 @@
         "max_length": null,
         "min_length": null
       },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "gesuchsunterlagen-vollstaendig",
+    "fields": {
+      "created_at": "2023-06-19T08:29:45.746Z",
+      "modified_at": "2023-06-19T08:29:45.746Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gesuchsunterlagen vollst\\u00e4ndig\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -43068,6 +44396,37 @@
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"F\\u00fcr Schnitzel- und Sp\\u00e4nelager Entleerungs\\u00f6ffnung ins Freie: Abmessung\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "hinweis-auflistung",
+    "fields": {
+      "created_at": "2023-06-19T08:27:25.026Z",
+      "modified_at": "2023-06-19T09:26:22.385Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis Auflistung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"*Hinweis:* Bitte beachten Sie, dass die folgende Auflistung nicht vollst\\u00e4ndig ist. Konsultieren Sie das Baugesetz ihrer Gemeinde.\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -44874,6 +46233,37 @@
         "max_length": null,
         "min_length": null
       },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "lage-des-vorhabens-korrekt",
+    "fields": {
+      "created_at": "2023-06-19T08:31:29.881Z",
+      "modified_at": "2023-06-19T08:31:29.881Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Lage des Vorhabens korrekt?\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -48656,6 +50046,161 @@
       "label": "{\"de\": \"Art der Arbeiten\", \"fr\": null, \"it\": null, \"rm\": null}",
       "type": "multiple_choice",
       "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "pruefung-ausnuetzungsziffer",
+    "fields": {
+      "created_at": "2023-06-19T09:36:02.418Z",
+      "modified_at": "2023-06-19T09:36:02.418Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Pr\\u00fcfung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "pruefung-bauabstaende",
+    "fields": {
+      "created_at": "2023-06-19T09:34:07.327Z",
+      "modified_at": "2023-06-19T09:34:07.327Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Pr\\u00fcfung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "pruefung-gebaeudehoehen",
+    "fields": {
+      "created_at": "2023-06-19T09:37:38.965Z",
+      "modified_at": "2023-06-19T09:37:38.965Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Pr\\u00fcfung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "pruefung-weitere-materielle-pruefung",
+    "fields": {
+      "created_at": "2023-06-19T09:45:06.821Z",
+      "modified_at": "2023-06-19T09:45:06.821Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Pr\\u00fcfung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "pruefung-zonenkonformitaet",
+    "fields": {
+      "created_at": "2023-06-19T09:32:28.273Z",
+      "modified_at": "2023-06-19T09:32:28.273Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Pr\\u00fcfung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
@@ -52785,6 +54330,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "verfahrensart",
+    "fields": {
+      "created_at": "2023-06-09T10:24:24.382Z",
+      "modified_at": "2023-06-09T10:36:30.203Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Verfahrensart\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "verursacher-emissionen",
     "fields": {
       "created_at": "2023-06-02T11:47:39.382Z",
@@ -53275,6 +54851,99 @@
         "max_length": null,
         "min_length": null
       },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "vorabklaerung-ersichtlich",
+    "fields": {
+      "created_at": "2023-06-19T08:33:08.737Z",
+      "modified_at": "2023-06-19T08:33:08.737Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Vorabkl\\u00e4rung in den Gesuchsunterlagen ersichtlich bzw. im System bereits vorhanden?\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "vorabklaerung-in-den-gesuchsunterlagen-ersichtlich-bzw-im-system-bereits-vorhanden",
+    "fields": {
+      "created_at": "2023-06-19T08:33:08.737Z",
+      "modified_at": "2023-06-19T08:33:08.737Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Vorabkl\\u00e4rung in den Gesuchsunterlagen ersichtlich bzw. im System bereits vorhanden?\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "vorabklaerungspflicht",
+    "fields": {
+      "created_at": "2023-06-19T08:32:17.722Z",
+      "modified_at": "2023-06-19T08:32:17.722Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Besteht eine Vorabkl\\u00e4rungspflicht (Kantonsstrasse, Gefahrenzone, Altlasten etc.)?\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -54316,6 +55985,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "weitere-materielle-pruefung",
+    "fields": {
+      "created_at": "2023-06-19T09:43:51.463Z",
+      "modified_at": "2023-06-19T09:43:51.463Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Weitere materielle Pr\\u00fcfung Titel\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"---\\n#### Weitere materielle Pr\\u00fcfung gem\\u00e4ss Baugesetz der Gemeinde durchgef\\u00fchrt\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "weitere-standorte-im-kanton",
     "fields": {
       "created_at": "2023-06-02T12:58:39.745Z",
@@ -54980,6 +56680,37 @@
       "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "zonenkonformitaet-titel",
+    "fields": {
+      "created_at": "2023-06-19T09:31:40.925Z",
+      "modified_at": "2023-06-19T09:31:40.925Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Zonenkonformit\\u00e4t Titel\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"---\\n#### Zonenkonformit\\u00e4t\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -60231,6 +61962,36 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "eingabequittung-korrekt.eingabequittung-korrekt-ja",
+    "fields": {
+      "created_at": "2023-06-19T08:30:18.637Z",
+      "modified_at": "2023-06-19T08:30:18.637Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "eingabequittung-korrekt",
+      "option": "eingabequittung-korrekt-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "eingabequittung-korrekt.eingabequittung-korrekt-nein",
+    "fields": {
+      "created_at": "2023-06-19T08:30:18.632Z",
+      "modified_at": "2023-06-19T08:30:18.632Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "eingabequittung-korrekt",
+      "option": "eingabequittung-korrekt-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "eingangskontrolle.eingangskontrolle-ja",
     "fields": {
       "created_at": "2023-04-18T19:26:10.239Z",
@@ -60362,6 +62123,36 @@
       "question": "einsatz-des-grundwassers",
       "option": "einsatz-des-grundwassers-bewaesserung",
       "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "einverstaendnis-grundeigentuemerin-vorhanden.einverstaendnis-grundeigentuemerin-vorhanden-ja",
+    "fields": {
+      "created_at": "2023-06-19T08:31:00.905Z",
+      "modified_at": "2023-06-19T08:31:00.905Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "einverstaendnis-grundeigentuemerin-vorhanden",
+      "option": "einverstaendnis-grundeigentuemerin-vorhanden-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "einverstaendnis-grundeigentuemerin-vorhanden.einverstaendnis-grundeigentuemerin-vorhanden-nein",
+    "fields": {
+      "created_at": "2023-06-19T08:31:00.901Z",
+      "modified_at": "2023-06-19T08:31:00.901Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "einverstaendnis-grundeigentuemerin-vorhanden",
+      "option": "einverstaendnis-grundeigentuemerin-vorhanden-nein",
+      "sort": 1
     }
   },
   {
@@ -61956,6 +63747,36 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "gesuchsunterlagen-vollstaendig.gesuchsunterlagen-vollstaendig-ja",
+    "fields": {
+      "created_at": "2023-06-19T08:29:45.761Z",
+      "modified_at": "2023-06-19T08:29:45.761Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "gesuchsunterlagen-vollstaendig",
+      "option": "gesuchsunterlagen-vollstaendig-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "gesuchsunterlagen-vollstaendig.gesuchsunterlagen-vollstaendig-nein",
+    "fields": {
+      "created_at": "2023-06-19T08:29:45.755Z",
+      "modified_at": "2023-06-19T08:29:45.755Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "gesuchsunterlagen-vollstaendig",
+      "option": "gesuchsunterlagen-vollstaendig-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "gewaesserschutzbereich.gewaesserschutzbereich-au",
     "fields": {
       "created_at": "2023-04-21T06:33:55.351Z",
@@ -62761,6 +64582,36 @@
       "modified_by_group": null,
       "question": "kulturobjekt",
       "option": "kulturobjekt-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "lage-des-vorhabens-korrekt.lage-des-vorhabens-korrekt-ja",
+    "fields": {
+      "created_at": "2023-06-19T08:31:29.893Z",
+      "modified_at": "2023-06-19T08:31:29.893Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "lage-des-vorhabens-korrekt",
+      "option": "lage-des-vorhabens-korrekt-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "lage-des-vorhabens-korrekt.lage-des-vorhabens-korrekt-nein",
+    "fields": {
+      "created_at": "2023-06-19T08:31:29.889Z",
+      "modified_at": "2023-06-19T08:31:29.889Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "lage-des-vorhabens-korrekt",
+      "option": "lage-des-vorhabens-korrekt-nein",
       "sort": 1
     }
   },
@@ -64472,6 +66323,231 @@
       "question": "proposal",
       "option": "proposal-umbau",
       "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "pruefung-ausnuetzungsziffer.pruefung-ausnuetzungsziffer-korrekt",
+    "fields": {
+      "created_at": "2023-06-19T09:36:02.435Z",
+      "modified_at": "2023-06-19T09:36:02.435Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "pruefung-ausnuetzungsziffer",
+      "option": "pruefung-ausnuetzungsziffer-korrekt",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "pruefung-ausnuetzungsziffer.pruefung-ausnuetzungsziffer-nicht-korrekt",
+    "fields": {
+      "created_at": "2023-06-19T09:36:02.431Z",
+      "modified_at": "2023-06-19T09:36:02.431Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "pruefung-ausnuetzungsziffer",
+      "option": "pruefung-ausnuetzungsziffer-nicht-korrekt",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "pruefung-ausnuetzungsziffer.pruefung-ausnuetzungsziffer-nicht-relevant",
+    "fields": {
+      "created_at": "2023-06-19T09:36:02.426Z",
+      "modified_at": "2023-06-19T09:36:02.426Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "pruefung-ausnuetzungsziffer",
+      "option": "pruefung-ausnuetzungsziffer-nicht-relevant",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "pruefung-bauabstaende.pruefung-bauabstaende-korrekt",
+    "fields": {
+      "created_at": "2023-06-19T09:34:07.342Z",
+      "modified_at": "2023-06-19T09:34:07.342Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "pruefung-bauabstaende",
+      "option": "pruefung-bauabstaende-korrekt",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "pruefung-bauabstaende.pruefung-bauabstaende-nicht-korrekt",
+    "fields": {
+      "created_at": "2023-06-19T09:34:07.339Z",
+      "modified_at": "2023-06-19T09:34:07.339Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "pruefung-bauabstaende",
+      "option": "pruefung-bauabstaende-nicht-korrekt",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "pruefung-bauabstaende.pruefung-bauabstaende-nicht-relevant",
+    "fields": {
+      "created_at": "2023-06-19T09:34:07.334Z",
+      "modified_at": "2023-06-19T09:34:07.334Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "pruefung-bauabstaende",
+      "option": "pruefung-bauabstaende-nicht-relevant",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "pruefung-gebaeudehoehen.pruefung-gebaeudehoehen-korrekt",
+    "fields": {
+      "created_at": "2023-06-19T09:37:38.980Z",
+      "modified_at": "2023-06-19T09:37:38.980Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "pruefung-gebaeudehoehen",
+      "option": "pruefung-gebaeudehoehen-korrekt",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "pruefung-gebaeudehoehen.pruefung-gebaeudehoehen-nicht-korrekt",
+    "fields": {
+      "created_at": "2023-06-19T09:37:38.977Z",
+      "modified_at": "2023-06-19T09:37:38.977Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "pruefung-gebaeudehoehen",
+      "option": "pruefung-gebaeudehoehen-nicht-korrekt",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "pruefung-gebaeudehoehen.pruefung-gebaeudehoehen-nicht-relevant",
+    "fields": {
+      "created_at": "2023-06-19T09:37:38.972Z",
+      "modified_at": "2023-06-19T09:37:38.972Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "pruefung-gebaeudehoehen",
+      "option": "pruefung-gebaeudehoehen-nicht-relevant",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "pruefung-weitere-materielle-pruefung.pruefung-weitere-materielle-pruefung-korrekt",
+    "fields": {
+      "created_at": "2023-06-19T09:45:06.836Z",
+      "modified_at": "2023-06-19T09:45:06.836Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "pruefung-weitere-materielle-pruefung",
+      "option": "pruefung-weitere-materielle-pruefung-korrekt",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "pruefung-weitere-materielle-pruefung.pruefung-weitere-materielle-pruefung-nicht-korrekt",
+    "fields": {
+      "created_at": "2023-06-19T09:45:06.833Z",
+      "modified_at": "2023-06-19T09:45:06.833Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "pruefung-weitere-materielle-pruefung",
+      "option": "pruefung-weitere-materielle-pruefung-nicht-korrekt",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "pruefung-weitere-materielle-pruefung.pruefung-weitere-materielle-pruefung-nicht-relevant",
+    "fields": {
+      "created_at": "2023-06-19T09:45:06.828Z",
+      "modified_at": "2023-06-19T09:45:06.828Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "pruefung-weitere-materielle-pruefung",
+      "option": "pruefung-weitere-materielle-pruefung-nicht-relevant",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "pruefung-zonenkonformitaet.pruefung-zonenkonformitaet-korrekt",
+    "fields": {
+      "created_at": "2023-06-19T09:32:28.290Z",
+      "modified_at": "2023-06-19T09:32:28.290Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "pruefung-zonenkonformitaet",
+      "option": "pruefung-zonenkonformitaet-korrekt",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "pruefung-zonenkonformitaet.pruefung-zonenkonformitaet-nicht-korrekt",
+    "fields": {
+      "created_at": "2023-06-19T09:32:28.286Z",
+      "modified_at": "2023-06-19T09:32:28.286Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "pruefung-zonenkonformitaet",
+      "option": "pruefung-zonenkonformitaet-nicht-korrekt",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "pruefung-zonenkonformitaet.pruefung-zonenkonformitaet-nicht-relevant",
+    "fields": {
+      "created_at": "2023-06-19T09:32:28.281Z",
+      "modified_at": "2023-06-19T09:32:28.281Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "pruefung-zonenkonformitaet",
+      "option": "pruefung-zonenkonformitaet-nicht-relevant",
+      "sort": 1
     }
   },
   {
@@ -67341,6 +69417,36 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "verfahrensart.verfahrensart-ordentliches-baubewilligungsverfahren",
+    "fields": {
+      "created_at": "2023-06-09T10:36:30.210Z",
+      "modified_at": "2023-06-09T10:36:30.210Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "verfahrensart",
+      "option": "verfahrensart-ordentliches-baubewilligungsverfahren",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "verfahrensart.verfahrensart-vereinfachtes-baubewilligungsverfahren",
+    "fields": {
+      "created_at": "2023-06-09T10:36:30.213Z",
+      "modified_at": "2023-06-09T10:36:30.213Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "verfahrensart",
+      "option": "verfahrensart-vereinfachtes-baubewilligungsverfahren",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "verursacher-emissionen.verursacher-emissionen-feuerungsanlagen",
     "fields": {
       "created_at": "2023-06-02T11:47:39.392Z",
@@ -67591,6 +69697,66 @@
       "modified_by_group": null,
       "question": "voc-bzw-voc-haltige-produkte",
       "option": "voc-bzw-voc-haltige-produkte-weitere",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "vorabklaerung-ersichtlich.vorabklaerung-ersichtlich-ja",
+    "fields": {
+      "created_at": "2023-06-19T08:33:08.749Z",
+      "modified_at": "2023-06-19T08:33:08.749Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "vorabklaerung-ersichtlich",
+      "option": "vorabklaerung-ersichtlich-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "vorabklaerung-ersichtlich.vorabklaerung-ersichtlich-nein",
+    "fields": {
+      "created_at": "2023-06-19T08:33:08.745Z",
+      "modified_at": "2023-06-19T08:33:08.745Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "vorabklaerung-ersichtlich",
+      "option": "vorabklaerung-ersichtlich-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "vorabklaerungspflicht.vorabklaerungspflicht-ja",
+    "fields": {
+      "created_at": "2023-06-19T08:32:17.734Z",
+      "modified_at": "2023-06-19T08:32:17.734Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "vorabklaerungspflicht",
+      "option": "vorabklaerungspflicht-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "vorabklaerungspflicht.vorabklaerungspflicht-nein",
+    "fields": {
+      "created_at": "2023-06-19T08:32:17.730Z",
+      "modified_at": "2023-06-19T08:32:17.730Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "vorabklaerungspflicht",
+      "option": "vorabklaerungspflicht-nein",
       "sort": 1
     }
   },
