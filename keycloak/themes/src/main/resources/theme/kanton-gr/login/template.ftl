@@ -43,7 +43,7 @@
 <body class="${properties.kcBodyClass!}">
   <div class="${properties.kcLoginClass!}">
     <div class="copyright">
-       <a href="https://www.reasyvisuals.com/" target="_blank" rel="noopener noreferrer">© M. Risi</a>
+       <a href="https://www.andreabadrutt.ch/" target="_blank" rel="noopener noreferrer">© Andrea Badrutt</a>
     </div>
     <div id="kc-header" class="${properties.kcHeaderClass!}">
       <div id="kc-header-wrapper" class="${properties.kcHeaderWrapperClass!}">
