@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-05-25 11:28+0200\n"
-"PO-Revision-Date: 2023-06-15 18:18+0200\n"
+"PO-Revision-Date: 2023-06-19 15:28+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
@@ -130,7 +130,11 @@ msgstr ""
 
 #: camac/core/apps.py:7
 msgid "Resource management"
-msgstr ""
+msgstr "Verwaltung der Ressourcen"
+
+#: camac/notification/apps.py:7
+msgid "Notification template management"
+msgstr "Verwaltung von Benachrichtigungsvorlagen"
 
 #: camac/document/filters.py:21
 msgid ""
@@ -1063,6 +1067,26 @@ msgstr "Organisationstypen"
 #: camac/user/models.py:537
 msgid "Service parent"
 msgstr "Übergeordnete Organisation"
+
+#: camac/notification/models.py:31
+msgid "Notification template"
+msgstr "Vorlage für Benachrichtigung"
+
+#: camac/notification/models.py:32
+msgid "Notification templates"
+msgstr "Vorlagen für Benachrichtigungen"
+
+#: camac/notification/admin/views.py:11
+msgid "Purpose"
+msgstr "Zweck"
+
+#: camac/notification/admin/views.py:15
+msgid "Subject"
+msgstr "Betreff"
+
+#: camac/notification/models.py:50
+msgid "Body"
+msgstr "Mail-Inhalt"
 
 #: camac/user/models.py:591
 msgid "Apply responsibility in construction control?"
