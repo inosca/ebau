@@ -59,7 +59,6 @@ a {
   background-image: url("../img/graubunden.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
   background-attachment: fixed;
   min-height: 100vh;
 }
@@ -180,9 +179,8 @@ h1 {
   background-image: url("../img/people.svg");
 }
 
-.icon-afi {
-  background-image: url("../img/logo-kanton-gr.jpg");
-  background-color: red;
+.icon-gr {
+  background-image: url("../img/wappen.png");
 }
 
 .icon-local {
@@ -197,7 +195,7 @@ h1 {
 }
 
 .copyright a {
-  color: white;
+  color: black;
   font-weight: 400;
 }
 
