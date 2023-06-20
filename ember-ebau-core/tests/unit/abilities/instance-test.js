@@ -1,6 +1,6 @@
 import { module, test } from "qunit";
 
-import { setupTest } from "camac-ng/tests/helpers";
+import { setupTest } from "dummy/tests/helpers";
 
 module("Unit | Ability | instance", function (hooks) {
   setupTest(hooks);

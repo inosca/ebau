@@ -21,8 +21,20 @@ export default class CustomEbauModulesService extends EbauModulesService {
     return this.session.isLeadRole;
   }
 
+  get isSupportRole() {
+    return this.session.isSupport;
+  }
+
+  get isMunicipalityLeadRole() {
+    return this.session.isMunicipalityLeadRole;
+  }
+
   get baseRole() {
     return this.session.rolePermission;
+  }
+
+  get role() {
+    return this.session.role;
   }
 
   get isApplicant() {
