@@ -1,10 +1,10 @@
 import { inject as service } from "@ember/service";
-import getFormTitle from "ember-ebau-core/utils/form-title";
-import { getAnswer } from "ember-ebau-core/utils/get-answer";
 
 import CustomCaseBaseModel from "ember-ebau-core/caluma-query/models/-case";
 import config from "ember-ebau-core/config/main";
 import getActivationIndicator from "ember-ebau-core/utils/activation-indicator";
+import getFormTitle from "ember-ebau-core/utils/form-title";
+import { getAnswer } from "ember-ebau-core/utils/get-answer";
 
 export default class CustomCaseModel extends CustomCaseBaseModel {
   @service store;
@@ -143,7 +143,6 @@ export default class CustomCaseModel extends CustomCaseBaseModel {
   }
 
   get form() {
-    console.log("CONFIG", config);
     let label = getFormTitle(this.raw.document, config.answerSlugs);
 
     if (!label) {

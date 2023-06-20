@@ -21,6 +21,7 @@ export default class CaseTableComponent extends Component {
   @service fetch;
   @service notification;
   @service router;
+  @service ebauModules;
 
   @queryManager apollo;
 
@@ -55,7 +56,7 @@ export default class CaseTableComponent extends Component {
   }
 
   get isService() {
-    return this.args.baseRole === "service";
+    return this.ebauModules.baseRole === "service";
   }
 
   get order() {
@@ -379,7 +380,7 @@ export default class CaseTableComponent extends Component {
       if (this.isService) {
         await this.store.query("activation", {
           instance: instanceIds.join(","),
-          service: this.args.serviceId,
+          service: this.ebauModules.serviceId,
           include: "circulation",
         });
 
@@ -425,7 +426,7 @@ export default class CaseTableComponent extends Component {
 
     const columnNames = Array.isArray(tableColumns)
       ? tableColumns
-      : tableColumns[this.args.baseRole] ?? tableColumns.default ?? [];
+      : tableColumns[this.ebauModules.baseRole] ?? tableColumns.default ?? [];
 
     const availableOrderings = Object.keys(
       caseTableConfig.availableOrderings ?? []
