@@ -5,9 +5,9 @@ import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { queryManager } from "ember-apollo-client";
 import { dropTask, lastValue } from "ember-concurrency";
+import CustomCaseModel from "ember-ebau-core/caluma-query/models/case";
 import { gql } from "graphql-tag";
 
-import CustomCaseModel from "camac-ng/caluma-query/models/case";
 import config from "camac-ng/config/environment";
 import redirectConfig from "camac-ng/config/redirect";
 import getCaseFromParcelsQuery from "camac-ng/gql/queries/get-case-from-parcels.graphql";
