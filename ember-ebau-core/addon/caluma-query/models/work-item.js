@@ -1,16 +1,18 @@
+import { getOwner } from "@ember/application";
 import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 import WorkItemModel from "@projectcaluma/ember-core/caluma-query/models/work-item";
 import { decodeId } from "@projectcaluma/ember-core/helpers/decode-id";
 import { queryManager } from "ember-apollo-client";
 
+import mainConfig from "ember-ebau-core/config/main";
 import saveWorkItemMutation from "ember-ebau-core/gql/mutations/save-workitem.graphql";
 
 export default class CustomWorkItemModel extends WorkItemModel {
   @queryManager apollo;
 
   @service store;
-  @service shoebox;
+  @service ebauModules;
   @service router;
   @service intl;
   @service notification;
@@ -20,6 +22,10 @@ export default class CustomWorkItemModel extends WorkItemModel {
   @tracked notViewed = this.raw.meta["not-viewed"];
   @tracked assignedUsers = this.raw.assignedUsers;
   @tracked addressedGroups = this.raw.addressedGroups;
+
+  get applicationName() {
+    return getOwner(this).application.modulePrefix;
+  }
 
   get assignedUser() {
     return this.store
@@ -66,23 +72,19 @@ export default class CustomWorkItemModel extends WorkItemModel {
   }
 
   get isAddressedToCurrentService() {
-    return (
-      parseInt(this.addressedService?.id) === this.shoebox.content.serviceId
-    );
+    return parseInt(this.addressedService?.id) === this.ebauModules.serviceId;
   }
 
   get isAssignedToCurrentUser() {
-    return this.assignedUsers.includes(this.shoebox.content.username);
+    return this.assignedUsers.includes(this.ebauModules.username);
   }
 
   get isCreatedByCurrentService() {
-    return parseInt(this.createdByGroup?.id) === this.shoebox.content.serviceId;
+    return parseInt(this.createdByGroup?.id) === this.ebauModules.serviceId;
   }
 
   get isControlledByCurrentService() {
-    return (
-      parseInt(this.controllingGroups[0]) === this.shoebox.content.serviceId
-    );
+    return parseInt(this.controllingGroups[0]) === this.ebauModules.serviceId;
   }
 
   get isReady() {
@@ -94,7 +96,7 @@ export default class CustomWorkItemModel extends WorkItemModel {
   }
 
   get isCalumaBackend() {
-    return this.shoebox.content.application === "kt_schwyz"
+    return mainConfig.name === "sz"
       ? this.case?.meta["form-backend"] === "caluma"
       : true;
   }
@@ -159,6 +161,39 @@ export default class CustomWorkItemModel extends WorkItemModel {
       .join("\n");
   }
 
+  replacePlaceholders(models) {
+    let map = {
+      INSTANCE_ID: this.instanceId,
+      TASK_SLUG: this.task.slug,
+    };
+
+    const distributionWorkItem = [this.raw, this.raw.case.parentWorkItem]
+      .filter(Boolean)
+      .find((workItem) => workItem.task.slug === "distribution");
+
+    const inquiryWorkItem = [this.raw, this.raw.case.parentWorkItem]
+      .filter(Boolean)
+      .find((workItem) => workItem.task.slug === "inquiry");
+
+    if (distributionWorkItem) {
+      map = {
+        ...map,
+        DISTRIBUTION_CASE_UUID: decodeId(distributionWorkItem.childCase.id),
+      };
+    }
+
+    if (inquiryWorkItem) {
+      map = {
+        ...map,
+        INQUIRY_UUID: decodeId(inquiryWorkItem.id),
+        INQUIRY_ADDRESSED: inquiryWorkItem.addressedGroups[0],
+        INQUIRY_CONTROLLING: inquiryWorkItem.controllingGroups[0],
+      };
+    }
+
+    return models.map((placeholder) => map[placeholder]);
+  }
+
   get directLink() {
     if (this.can.cannot("edit work-item", this)) return null;
 
@@ -166,14 +201,25 @@ export default class CustomWorkItemModel extends WorkItemModel {
   }
 
   get editLink() {
-    const url = this._getDirectLinkFor("edit");
-    const hash = this.router.urlFor(
-      "work-items.instance.edit",
-      this.instanceId,
-      this.id
-    );
+    if (!this.can.can("edit work-item", this)) {
+      return false;
+    }
 
-    return this.can.can("edit work-item", this) && url && `${url}${hash}`;
+    if (this.applicationName === "camac-ng") {
+      const url = this._getDirectLinkFor("edit");
+      const hash = this.router.urlFor(
+        "work-items.instance.edit",
+        this.instanceId,
+        this.id
+      );
+
+      return url && `${url}${hash}`;
+    }
+
+    return {
+      route: "cases.detail.work-items.edit",
+      models: [this.instanceId, this.id],
+    };
   }
 
   _getLinkPlaceholders() {
@@ -199,20 +245,30 @@ export default class CustomWorkItemModel extends WorkItemModel {
     if (
       !this.raw.addressedGroups
         .map(String)
-        .includes(String(this.shoebox.content.serviceId)) &&
+        .includes(String(this.ebauModules.serviceId)) &&
       this.raw.task.slug !== "create-manual-workitems"
     ) {
       return null;
     }
 
-    const query = this.shoebox.content.config.directLink[configKey];
+    if (this.applicationName === "camac-ng") {
+      const query = this.ebauModules.directLinkConfig[configKey];
 
-    return query
-      ? Object.entries(this._getLinkPlaceholders()).reduce(
-          (url, [key, value]) => url.replace(`{{${key}}}`, value),
-          `/index/redirect-to-instance-resource/instance-id/${this.instanceId}?${query}`
-        )
-      : null;
+      return query
+        ? Object.entries(this._getLinkPlaceholders()).reduce(
+            (url, [key, value]) => url.replace(`{{${key}}}`, value),
+            `/index/redirect-to-instance-resource/instance-id/${this.instanceId}?${query}`
+          )
+        : null;
+    }
+
+    const directLinkConfig = this.raw.task.meta.directLink;
+    return directLinkConfig
+      ? {
+          route: directLinkConfig.route,
+          models: this.replacePlaceholders(directLinkConfig.models),
+        }
+      : this.editLink;
   }
 
   async toggleRead() {
@@ -239,7 +295,7 @@ export default class CustomWorkItemModel extends WorkItemModel {
   }
 
   async assignToMe() {
-    const id = this.shoebox.content.userId;
+    const id = this.ebauModules.userId;
     const user =
       (await this.store.peekRecord("public-user", id)) ||
       (await this.store.findRecord("public-user", id, { reload: true }));
@@ -315,6 +371,9 @@ export default class CustomWorkItemModel extends WorkItemModel {
           meta
         }
         case {
+          id
+        }
+        childCase {
           id
         }
       }

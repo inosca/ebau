@@ -9,12 +9,20 @@ export default class CustomEbauModulesService extends EbauModulesService {
   // This is set set by the case detail route
   @tracked instanceId = null;
 
+  get userId() {
+    return this.session.user?.id;
+  }
+
+  get userName() {
+    return this.session.user?.username;
+  }
+
   get groupId() {
-    return this.session.group?.id;
+    return parseInt(this.session.group);
   }
 
   get serviceId() {
-    return this.session.service?.id;
+    return parseInt(this.session.service?.id);
   }
 
   get isReadOnlyRole() {
