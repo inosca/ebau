@@ -52,18 +52,14 @@ class InvolvedInTopicQuerysetMixin:
 
 
 class TopicView(InvolvedInTopicQuerysetMixin, InstanceQuerysetMixin, ModelViewSet):
+    swagger_schema = None
     serializer_class = serializers.TopicSerializer
     filterset_class = filters.TopicFilterSet
-
-    queryset = models.CommunicationsTopic.objects
-
-    instance_field = "instance"
-
-    search_fields = [
-        "subject",
-    ]
-    ordering = "-created"
     permission_classes = [IsAuthenticated]
+    instance_field = "instance"
+    search_fields = ["subject"]
+    ordering = "-created"
+    queryset = models.CommunicationsTopic.objects
 
     def _annotate_has_unread(self, qs):
         unread_messages = models.CommunicationsMessage.objects.all().exclude(
@@ -97,10 +93,10 @@ class MessageView(
     ListModelMixin,
     GenericViewSet,
 ):
+    swagger_schema = None
     serializer_class = serializers.MessageSerializer
     filterset_class = filters.MessageFilterSet
     instance_field = "topic__instance"
-
     search_fields = ["topic__subject", "body"]
     ordering = "-created_at"
     queryset = models.CommunicationsMessage.objects
@@ -144,9 +140,9 @@ class MessageView(
 
 
 class AttachmentView(InvolvedInTopicQuerysetMixin, InstanceQuerysetMixin, ModelViewSet):
+    swagger_schema = None
     serializer_class = serializers.CommunicationsAttachmentSerializer
     filterset_class = filters.AttachmentFilterSet
-
     instance_field = "message__topic__instance"
     queryset = models.CommunicationsAttachment.objects
 
