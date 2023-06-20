@@ -27,14 +27,14 @@ module("Integration | Component | publication-info", function (hooks) {
           edges: [
             {
               node: {
-                id: btoa(`Case:${faker.datatype.uuid()}`),
+                id: btoa(`Case:${faker.string.uuid()}`),
                 document: {
-                  id: btoa(`Document:${faker.datatype.uuid()}`),
+                  id: btoa(`Document:${faker.string.uuid()}`),
                   answers: {
                     edges: [
                       {
                         node: {
-                          id: btoa(`StringAnswer:${faker.datatype.uuid()}`),
+                          id: btoa(`StringAnswer:${faker.string.uuid()}`),
                           value: "1",
                           __typename: "StringAnswer",
                         },

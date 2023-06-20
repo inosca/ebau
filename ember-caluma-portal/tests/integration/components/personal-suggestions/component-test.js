@@ -8,7 +8,7 @@ import { module, test } from "qunit";
 import config from "caluma-portal/config/environment";
 import { setupRenderingTest } from "caluma-portal/tests/helpers";
 
-const id = (type) => btoa(`${type}:${faker.datatype.uuid()}`);
+const id = (type) => btoa(`${type}:${faker.string.uuid()}`);
 const personalSuggestionConfig = config.APPLICATION.personalSuggestions;
 
 module("Integration | Component | personal-suggestions", function (hooks) {
