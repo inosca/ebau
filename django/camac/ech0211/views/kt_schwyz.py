@@ -28,7 +28,7 @@ class ApplicationView(ECHInstanceQuerysetMixin, RetrieveModelMixin, GenericViewS
     instance_field = None
 
     @swagger_auto_schema(
-        tags=["ECH"],
+        tags=["eCH-0211"],
         manual_parameters=[group_param],
         operation_summary="Get baseDelivery for instance",
         operation_description=get_operation_description(),
@@ -66,7 +66,7 @@ class ApplicationsView(ECHInstanceQuerysetMixin, ListModelMixin, GenericViewSet)
     filter_backends = []
 
     @swagger_auto_schema(
-        tags=["ECH"],
+        tags=["eCH-0211"],
         manual_parameters=[group_param],
         operation_summary="Get list of accessible instances",
         operation_description=get_operation_description(),
