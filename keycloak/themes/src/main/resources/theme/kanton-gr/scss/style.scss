@@ -9,6 +9,10 @@
 
 $transparent-white: rgba(255, 255, 255, 0.9);
 
+.alert {
+  @extend .uk-alert;
+}
+
 .uk-alert-error {
   @extend .uk-alert-danger;
 }

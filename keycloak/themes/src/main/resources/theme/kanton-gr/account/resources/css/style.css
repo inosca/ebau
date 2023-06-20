@@ -2824,7 +2824,7 @@ select.uk-form-width-xsmall {
 /* ========================================================================
    Component: Alert
  ========================================================================== */
-.uk-alert {
+.uk-alert, .alert {
   position: relative;
   margin-bottom: 20px;
   padding: 15px 29px 15px 15px;
@@ -2832,13 +2832,13 @@ select.uk-form-width-xsmall {
   color: #2c3443; }
 
 /* Add margin if adjacent element */
-* + .uk-alert {
+* + .uk-alert, * + .alert {
   margin-top: 20px; }
 
 /*
  * Remove margin from the last-child
  */
-.uk-alert > :last-child {
+.uk-alert > :last-child, .alert > :last-child {
   margin-bottom: 0; }
 
 /* Close
@@ -2897,19 +2897,24 @@ select.uk-form-width-xsmall {
 /*
      * Content
      */
-.uk-alert h1,
+.uk-alert h1, .alert h1,
 .uk-alert h2,
+.alert h2,
 .uk-alert h3,
+.alert h3,
 .uk-alert h4,
+.alert h4,
 .uk-alert h5,
-.uk-alert h6 {
+.alert h5,
+.uk-alert h6,
+.alert h6 {
   color: inherit; }
 
-.uk-alert a:not([class]) {
+.uk-alert a:not([class]), .alert a:not([class]) {
   color: inherit;
   text-decoration: underline; }
 
-.uk-alert a:not([class]):hover {
+.uk-alert a:not([class]):hover, .alert a:not([class]):hover {
   color: inherit;
   text-decoration: underline; }
 
