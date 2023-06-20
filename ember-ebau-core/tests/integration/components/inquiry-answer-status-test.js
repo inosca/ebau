@@ -34,9 +34,9 @@ module("Integration | Component | inquiry-answer-status", function (hooks) {
             edges: [
               {
                 node: {
-                  id: btoa(`Case:${faker.datatype.uuid()}`),
+                  id: btoa(`Case:${faker.string.uuid()}`),
                   document: {
-                    id: btoa(`Document:${faker.datatype.uuid()}`),
+                    id: btoa(`Document:${faker.string.uuid()}`),
                     form: {
                       id: btoa(`Form:${this.formSlug}`),
                       slug: this.formSlug,
