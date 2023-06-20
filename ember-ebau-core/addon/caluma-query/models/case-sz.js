@@ -1,7 +1,6 @@
 import { isEmpty } from "@ember/utils";
 
 import CustomCaseBaseModel from "ember-ebau-core/caluma-query/models/-case";
-import caseModelConfig from "ember-ebau-core/config/case-model";
 
 export default class CustomCaseModel extends CustomCaseBaseModel {
   getFormFields(fields) {
