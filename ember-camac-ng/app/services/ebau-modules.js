@@ -54,4 +54,10 @@ export default class CustomEbauModulesService extends EbauModulesService {
       `/index/redirect-to-instance-resource/instance-id/${this.instanceId}`
     );
   }
+
+  // careful: this doesn't exist outside of ember-camac-ng!
+  // for modern apps use task.meta.directLink instead
+  get _directLinkConfig() {
+    return this.shoebox.content.config.directLink;
+  }
 }
