@@ -35,7 +35,7 @@ class ApplicationView(ECHInstanceQuerysetMixin, RetrieveModelMixin, GenericViewS
     instance_field = None
 
     @swagger_auto_schema(
-        tags=["ECH"],
+        tags=["eCH-0211"],
         manual_parameters=[group_param],
         operation_summary="Get baseDelivery for instance",
         operation_description=get_operation_description(),
@@ -80,7 +80,7 @@ class ApplicationsView(ECHInstanceQuerysetMixin, ListModelMixin, GenericViewSet)
         return super().get_queryset()
 
     @swagger_auto_schema(
-        tags=["ECH"],
+        tags=["eCH-0211"],
         manual_parameters=[group_param],
         operation_summary="Get list of accessible instances",
         operation_description=get_operation_description(),
@@ -139,7 +139,7 @@ class SendView(ECHInstanceQuerysetMixin, GenericViewSet):
     serializer_class = Serializer
 
     @swagger_auto_schema(
-        tags=["ECH"],
+        tags=["eCH-0211"],
         manual_parameters=[group_param],
         operation_summary="Send message",
         operation_description=get_operation_description(),
