@@ -28,6 +28,7 @@ export default {
       "service",
       "type",
       "constructionZoneLocation",
+      "keywordSearch",
       "objectionReceived",
     ],
   },

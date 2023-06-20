@@ -13,6 +13,7 @@ import { DateTime } from "luxon";
 
 import caseModelConfig from "ember-ebau-core/config/case-model";
 import caseTableConfig from "ember-ebau-core/config/case-table";
+import mainConfig from "ember-ebau-core/config/main";
 import caseInstanceIdsQuery from "ember-ebau-core/gql/queries/case-instance-ids.graphql";
 
 export default class CaseTableComponent extends Component {
@@ -24,11 +25,6 @@ export default class CaseTableComponent extends Component {
   @service ebauModules;
 
   @queryManager apollo;
-
-  get config() {
-    return getOwner(this).resolveRegistration("config:environment")
-      ?.APPLICATION;
-  }
 
   casesQuery = useCalumaQuery(this, allCases, () => ({
     options: {
@@ -48,7 +44,7 @@ export default class CaseTableComponent extends Component {
   }));
 
   get showEntries() {
-    if (!this.args.isSupportRole) {
+    if (!this.ebauModules.isSupportRole) {
       return true;
     }
 
@@ -441,8 +437,8 @@ export default class CaseTableComponent extends Component {
   @action
   redirectToCase(caseRecord) {
     const instanceId = caseRecord.instanceId;
-
-    if (this.args.useLinkTo) {
+    const applicationName = getOwner(this).application.modulePrefix;
+    if (applicationName === "ebau") {
       return this.router.transitionTo("cases.detail", instanceId);
     }
 
@@ -451,11 +447,11 @@ export default class CaseTableComponent extends Component {
     if (
       caseRecord.instance.isPaper &&
       parseInt(caseRecord.instance.get("instanceState.id")) ===
-        parseInt(this.config.APPLICATION.instanceStates?.new)
+        parseInt(mainConfig.instanceStates?.new)
     ) {
-      const portalURL = this.config.portalURL;
-      const group = this.args.groupId;
-      const language = this.args.language;
+      const portalURL = this.ebauModules.portalURL;
+      const group = this.ebauModules.groupId;
+      const language = this.ebauModules.language;
       url = `${portalURL}/instances/${instanceId}?group=${group}&language=${language}`;
     }
 

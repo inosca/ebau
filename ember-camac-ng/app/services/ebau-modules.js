@@ -4,6 +4,10 @@ import EbauModulesService from "ember-ebau-core/services/ebau-modules";
 export default class CustomEbauModulesService extends EbauModulesService {
   @service shoebox;
 
+  get groupId() {
+    return this.shoebox.content.groupId;
+  }
+
   get serviceId() {
     return this.shoebox.content.serviceId;
   }
@@ -32,9 +36,17 @@ export default class CustomEbauModulesService extends EbauModulesService {
     return this.shoebox.baseRole;
   }
 
+  get portalURL() {
+    return this.shoebox.content.config.portalURL;
+  }
+
   get isApplicant() {
     // Since in ember-camac-ng the user is never applicant
     return false;
+  }
+
+  get language() {
+    return this.shoebox.content.language;
   }
 
   redirectToWorkItems() {
