@@ -9,6 +9,11 @@ export default class CustomEbauModulesService extends EbauModulesService {
   // This is set set by the case detail route
   @tracked instanceId = null;
 
+  get groupId() {
+    console.log("TODO works?", this.session.group);
+    return this.session.group?.id;
+  }
+
   get serviceId() {
     return this.session.service?.id;
   }
@@ -37,8 +42,17 @@ export default class CustomEbauModulesService extends EbauModulesService {
     return this.session.role;
   }
 
+  get portalURL() {
+    // TODO how to do ENV-specific config?
+    return "";
+  }
+
   get isApplicant() {
     return !this.session.isInternal;
+  }
+
+  get language() {
+    return this.session.language;
   }
 
   redirectToWorkItems() {
