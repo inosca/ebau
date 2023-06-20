@@ -64,7 +64,7 @@ export default class MainNavigationComponent extends Component {
     const resources = yield this.store.query("resource", {});
 
     if (resources.length && this.router.currentURL === "/") {
-      this.router.transitionTo(resources[0].link);
+      this.router.transitionTo(resources.firstObject.link);
     }
 
     return resources;
