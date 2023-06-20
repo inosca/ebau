@@ -10,7 +10,6 @@ export default class CustomEbauModulesService extends EbauModulesService {
   @tracked instanceId = null;
 
   get groupId() {
-    console.log("TODO works?", this.session.group);
     return this.session.group?.id;
   }
 
