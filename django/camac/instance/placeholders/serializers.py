@@ -293,7 +293,7 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
     ebau_number = fields.MasterDataField(
         source="dossier_number",
         aliases=[_("EBAU_NUMBER")],
-        description=_("eBau number"),
+        description=_("The eBau number of the instance"),
     )
     eigene_gebuehren_total = fields.BillingEntriesField(
         own=True,
