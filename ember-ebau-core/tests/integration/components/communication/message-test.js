@@ -7,7 +7,7 @@ import { setupIntl } from "ember-intl/test-support";
 import { setupRenderingTest } from "ember-qunit";
 import { DateTime } from "luxon";
 import { module, test } from "qunit";
-import sinon from "sinon";
+import { fake } from "sinon";
 
 module("Integration | Component | communication/message", function (hooks) {
   setupRenderingTest(hooks);
@@ -27,7 +27,7 @@ module("Integration | Component | communication/message", function (hooks) {
       "communications-message",
       this.mirageMessage.id
     );
-    this.refresh = sinon.fake(() => {});
+    this.refresh = fake(() => {});
   });
 
   hooks.afterEach(async function () {
