@@ -6,6 +6,7 @@ export default class ServicePermissionsPermissionsIndexRoute extends Route {
 
     if (isExiting) {
       controller.search = "";
+      controller.page = 1;
     }
   }
 }
