@@ -5,7 +5,7 @@ import { setupMirage } from "ember-cli-mirage/test-support";
 import { setupIntl } from "ember-intl/test-support";
 import { setupRenderingTest } from "ember-qunit";
 import { module, test } from "qunit";
-import sinon from "sinon";
+import { fake, replace } from "sinon";
 
 module("Integration | Component | communication/topic-list", function (hooks) {
   setupRenderingTest(hooks);
@@ -126,15 +126,15 @@ module("Integration | Component | communication/topic-list", function (hooks) {
     const router = this.owner.lookup("service:router");
     const routing = this.owner.lookup("service:-routing");
 
-    const detailFake = sinon.replace(
+    const detailFake = replace(
       router,
       "transitionTo",
-      sinon.fake.returns("transisioned")
+      fake.returns("transisioned")
     );
-    const newFake = sinon.replace(
+    const newFake = replace(
       routing,
       "transitionTo",
-      sinon.fake.returns("transisioned")
+      fake.returns("transisioned")
     );
 
     await render(hbs`<Communication::TopicList @instanceId={{1}} />`);

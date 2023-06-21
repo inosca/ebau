@@ -3,7 +3,7 @@ import { hbs } from "ember-cli-htmlbars";
 import { task } from "ember-concurrency";
 import { setupRenderingTest } from "ember-qunit";
 import { module, test } from "qunit";
-import sinon from "sinon";
+import { fake, stub } from "sinon";
 
 module("Integration | Component | communication/file-list", function (hooks) {
   setupRenderingTest(hooks);
@@ -17,7 +17,7 @@ module("Integration | Component | communication/file-list", function (hooks) {
         name: "File B",
       },
     ];
-    this.removeFile = sinon.fake(() => {});
+    this.removeFile = fake(() => {});
 
     await render(
       hbs`<Communication::FileList @files={{this.files}} @removeFile={{this.removeFile}}/>`
@@ -38,7 +38,7 @@ module("Integration | Component | communication/file-list", function (hooks) {
     };
 
     this.files = [new File()];
-    const performFake = sinon.stub(this.files[0].download, "perform");
+    const performFake = stub(this.files[0].download, "perform");
 
     await render(hbs`<Communication::FileList @files={{this.files}} />`);
 

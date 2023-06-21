@@ -4,7 +4,7 @@ import { hbs } from "ember-cli-htmlbars";
 import { setupMirage } from "ember-cli-mirage/test-support";
 import { setupRenderingTest } from "ember-qunit";
 import { module, skip } from "qunit";
-import sinon from "sinon";
+import { fake, replace } from "sinon";
 
 module(
   "Integration | Component | communication/message-list",
@@ -14,10 +14,10 @@ module(
 
     hooks.beforeEach(async function () {
       this._scrollIntoView = Element.prototype.scrollIntoView;
-      this.scrollIntoViewFake = sinon.replace(
+      this.scrollIntoViewFake = replace(
         Element.prototype,
         "scrollIntoView",
-        sinon.fake(Element.prototype.scrollIntoView)
+        fake(Element.prototype.scrollIntoView)
       );
     });
 

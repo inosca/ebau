@@ -6,7 +6,7 @@ import { setupIntl } from "ember-intl/test-support";
 import { selectChoose } from "ember-power-select/test-support";
 import { setupRenderingTest } from "ember-qunit";
 import { module, test } from "qunit";
-import sinon from "sinon";
+import { fake, replace } from "sinon";
 
 module("Integration | Component | communication/new-topic", function (hooks) {
   setupRenderingTest(hooks);
@@ -22,10 +22,10 @@ module("Integration | Component | communication/new-topic", function (hooks) {
 
     this.router = getOwner(this).lookup("service:router");
     this.transitionTo = this.router.transitionTo;
-    this.transitionToFake = sinon.replace(
+    this.transitionToFake = replace(
       this.router,
       "transitionTo",
-      sinon.fake(() => {})
+      fake(() => {})
     );
   });
 
@@ -254,10 +254,10 @@ module("Integration | Component | communication/new-topic", function (hooks) {
 
     this._routing = getOwner(this).lookup("service:-routing");
     this._transitionTo = this._routing.transitionTo;
-    this._transitionToFake = sinon.replace(
+    this._transitionToFake = replace(
       this._routing,
       "transitionTo",
-      sinon.fake(() => {})
+      fake(() => {})
     );
 
     this.instance = this.server.create("instance");

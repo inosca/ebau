@@ -29,7 +29,7 @@ module("Integration | Component | decision/submit-button", function (hooks) {
       },
       document: {
         fields: [],
-        workItemUuid: faker.datatype.uuid(),
+        workItemUuid: faker.string.uuid(),
         findAnswer: (slug) => {
           if (slug === "decision-workflow") {
             return this.isPreliminaryClarification
