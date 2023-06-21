@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-25 11:28+0200\n"
+"POT-Creation-Date: 2023-06-21 12:11+0200\n"
 "PO-Revision-Date: 2023-06-19 15:28+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -73,20 +73,67 @@ msgstr "Lastenausgleichstellende informieren"
 msgid "Issue statement on appeal"
 msgstr "Stellungnahme zu Beschwerde abgeben"
 
+#: camac/communications/serializers.py:28
+#: camac/communications/tests/test_behaviour.py:61
+#: camac/instance/document_merge_service.py:85
+#: camac/instance/export/serializers.py:93 camac/notification/serializers.py:59
+msgid "Applicant"
+msgstr "Gesuchsteller/in"
+
+#: camac/communications/serializers.py:120
+msgid "Involved entity must be either 'APPLICANT' or a valid service ID"
+msgstr ""
+
+#: camac/communications/serializers.py:148
+msgid ""
+"As Applicant, you can only add the active service (Municipality) to the "
+"involved entities."
+msgstr ""
+
+#: camac/communications/serializers.py:163
+msgid "Invisible instance, cannot create or update topic"
+msgstr ""
+
+#: camac/communications/serializers.py:253
+msgid "Invisible topic, cannot create or update message"
+msgstr ""
+
+#: camac/communications/serializers.py:281
+msgid "You are not allowed to create messages on this topic"
+msgstr ""
+
+#: camac/communications/serializers.py:334
+msgid "Invisible message, cannot create or update attachment"
+msgstr ""
+
+#: camac/communications/serializers.py:341
+msgid "Message has already been sent, cannot modify attachments"
+msgstr ""
+
+#: camac/communications/serializers.py:346
+msgid "You can only add/update attachments on your own messges"
+msgstr ""
+
+#: camac/communications/views.py:110
+msgid "Cannot mark unsent message as read"
+msgstr ""
+
 #: camac/core/admin/forms.py:17 camac/core/admin/forms.py:33
 #: camac/core/admin/views.py:41 camac/core/admin/views.py:78
 msgid "Hidden?"
 msgstr ""
 
 #: camac/core/admin/inlines.py:14 camac/core/admin/inlines.py:29
-#: camac/user/admin/inlines.py:38 camac/user/admin/inlines.py:74
-#: camac/user/admin/inlines.py:83 camac/user/admin/inlines.py:92
+#: camac/notification/admin/inlines.py:13 camac/user/admin/inlines.py:38
+#: camac/user/admin/inlines.py:74 camac/user/admin/inlines.py:83
+#: camac/user/admin/inlines.py:92
 msgid "Translation"
 msgstr "Übersetzung"
 
 #: camac/core/admin/inlines.py:15 camac/core/admin/inlines.py:30
-#: camac/user/admin/inlines.py:39 camac/user/admin/inlines.py:75
-#: camac/user/admin/inlines.py:84 camac/user/admin/inlines.py:93
+#: camac/notification/admin/inlines.py:14 camac/user/admin/inlines.py:39
+#: camac/user/admin/inlines.py:75 camac/user/admin/inlines.py:84
+#: camac/user/admin/inlines.py:93
 msgid "Translations"
 msgstr "Übersetzungen"
 
@@ -107,7 +154,7 @@ msgstr "Rollen"
 msgid "Name"
 msgstr "Name"
 
-#: camac/core/admin/views.py:37 camac/instance/document_merge_service.py:87
+#: camac/core/admin/views.py:37 camac/instance/document_merge_service.py:93
 #: camac/user/models.py:547 camac/user/models.py:617
 msgid "Description"
 msgstr "Beschreibung"
@@ -131,10 +178,6 @@ msgstr ""
 #: camac/core/apps.py:7
 msgid "Resource management"
 msgstr "Verwaltung der Ressourcen"
-
-#: camac/notification/apps.py:7
-msgid "Notification template management"
-msgstr "Verwaltung von Benachrichtigungsvorlagen"
 
 #: camac/document/filters.py:21
 msgid ""
@@ -241,8 +284,8 @@ msgstr ""
 #: camac/dossier_import/loaders.py:300
 #, python-format
 msgid ""
-"Failed to load plot with numbers `%(plot_numbers)s` and egrid values "
-"`%(egrids)s`"
+"Failed to load plot with numbers `%(plot_numbers)s` and egrid values `"
+"%(egrids)s`"
 msgstr ""
 "Parzellendaten konnten nicht geladen werden. Nummer(n): `%(plot_numbers)s`. "
 "Egrid: `%(egrids)s`"
@@ -386,11 +429,11 @@ msgstr ""
 msgid "Inquiry sent"
 msgstr "Anforderung einer Stellungnahme"
 
-#: camac/ech0211/event_handlers.py:285
+#: camac/ech0211/event_handlers.py:285 camac/instance/serializers.py:1467
 msgid "SB1 submitted"
 msgstr "SB1 eingereicht"
 
-#: camac/ech0211/event_handlers.py:290
+#: camac/ech0211/event_handlers.py:290 camac/instance/serializers.py:1786
 msgid "SB2 submitted"
 msgstr "SB2 eingereicht"
 
@@ -405,11 +448,6 @@ msgstr "Adresse"
 msgid "Plots"
 msgstr "Parzelle(n)"
 
-#: camac/instance/document_merge_service.py:85
-#: camac/instance/export/serializers.py:93
-msgid "Applicant"
-msgstr "Gesuchsteller/in"
-
 #: camac/instance/document_merge_service.py:86
 msgid "Landowner"
 msgstr "Grundeigentümer/in"
@@ -423,12 +461,12 @@ msgid "Keywords"
 msgstr "Stichworte"
 
 #: camac/instance/document_merge_service.py:89
-#: camac/instance/export/serializers.py:94
-#: camac/instance/placeholders/fields.py:86
+#: camac/instance/export/serializers.py:94 camac/notification/serializers.py:69
 msgid "Municipality"
 msgstr "Gemeinde"
 
 #: camac/instance/document_merge_service.py:90
+#: camac/notification/serializers.py:68
 msgid "Authority"
 msgstr "Leitbehörde"
 
@@ -445,51 +483,51 @@ msgstr "Eingangsdatum"
 msgid "Modification"
 msgstr "Projektänderung"
 
-#: camac/instance/document_merge_service.py:123
-#: camac/instance/document_merge_service.py:655
+#: camac/instance/document_merge_service.py:121
+#: camac/instance/document_merge_service.py:609
 msgid "Signatures"
 msgstr "Unterschriften"
 
-#: camac/instance/document_merge_service.py:124
+#: camac/instance/document_merge_service.py:122
 msgid "Signature"
 msgstr "Unterschrift"
 
-#: camac/instance/document_merge_service.py:125
+#: camac/instance/document_merge_service.py:123
 msgid "Place and date"
 msgstr "Ort und Datum"
 
-#: camac/instance/document_merge_service.py:126
+#: camac/instance/document_merge_service.py:124
 #, python-format
 msgid "Generated %(date)s at %(time)s"
 msgstr "Generiert am %(date)s um %(time)s"
 
-#: camac/instance/document_merge_service.py:131
+#: camac/instance/document_merge_service.py:129
 #, python-format
 msgid "Modified %(date)s at %(time)s"
 msgstr "Zuletzt bearbeitet am %(date)s um %(time)s"
 
-#: camac/instance/document_merge_service.py:136
+#: camac/instance/document_merge_service.py:134
 #, python-format
 msgid "Created %(date)s at %(time)s"
 msgstr "Erstellt am %(date)s um %(time)s"
 
-#: camac/instance/document_merge_service.py:285
+#: camac/instance/document_merge_service.py:239
 #, python-format
 msgid "None or multiple caluma Documents found for instance: %(instance)s"
 msgstr ""
 "Keines oder mehrere Caluma Dokumente für das Dossier %(instance)s gefunden"
 
-#: camac/instance/document_merge_service.py:301
+#: camac/instance/document_merge_service.py:255
 #, python-format
 msgid "No template specified for form '%(form_slug)s'."
 msgstr "Keine Druckvorlage für das Caluma Formular %(form_slug)s spezifiziert."
 
-#: camac/instance/document_merge_service.py:316
+#: camac/instance/document_merge_service.py:270
 msgid "Draft"
 msgstr "Entwurf"
 
-#: camac/instance/document_merge_service.py:349
-#: camac/instance/tests/test_document_merge_service.py:423
+#: camac/instance/document_merge_service.py:303
+#: camac/instance/tests/test_document_merge_service.py:424
 #: camac/user/authentication.py:79
 msgid "Signature has expired."
 msgstr "Signatur ist abgelaufen."
@@ -758,6 +796,30 @@ msgstr "Dokument für die Frage `%(field)s fehlt"
 msgid "Invalid form type %(form)s."
 msgstr "Ungültiger Formulartyp %(form)s."
 
+#: camac/notification/admin/views.py:18 camac/notification/models.py:46
+msgid "Purpose"
+msgstr "Zweck"
+
+#: camac/notification/admin/views.py:22 camac/notification/models.py:48
+msgid "Subject"
+msgstr "Betreff"
+
+#: camac/notification/apps.py:7
+msgid "Notification template management"
+msgstr "Verwaltung von Benachrichtigungsvorlagen"
+
+#: camac/notification/models.py:30
+msgid "Notification template"
+msgstr "Vorlage für Benachrichtigung"
+
+#: camac/notification/models.py:31
+msgid "Notification templates"
+msgstr "Vorlagen für Benachrichtigungen"
+
+#: camac/notification/models.py:49
+msgid "Body"
+msgstr "Mail-Inhalt"
+
 #: camac/notification/serializers.py:60
 msgid "Municipality (from Caluma)"
 msgstr "Gemeinde (aus dem Formular)"
@@ -835,47 +897,47 @@ msgstr ""
 msgid "Objection %(objection) already has a representative"
 msgstr "Einsprache %(objection) hat bereits einen Vertreter"
 
-#: camac/settings.py:1402 camac/settings.py:3163
+#: camac/settings.py:1418 camac/settings.py:3217
 msgid "Circulation started"
 msgstr "Zirkulation gestartet"
 
-#: camac/settings.py:1419
+#: camac/settings.py:1435
 msgid "Procedure completed"
 msgstr "Baugesuchsverfahren abgeschlossen"
 
-#: camac/settings.py:3692
+#: camac/settings.py:3774
 msgid "German"
 msgstr "Deutsch"
 
-#: camac/settings.py:3693
+#: camac/settings.py:3775
 msgid "French"
 msgstr "Französisch"
 
-#: camac/settings.py:3694
+#: camac/settings.py:3776
 msgid "Italian"
 msgstr "Italienisch"
 
-#: camac/settings.py:3695
+#: camac/settings.py:3777
 msgid "Romansh"
 msgstr "Rätoromanisch"
 
-#: camac/settings_distribution.py:70 camac/settings_distribution.py:556
+#: camac/settings_distribution.py:70 camac/settings_distribution.py:563
 msgid "Circulation completed"
 msgstr "Zirkulation abgeschlossen"
 
-#: camac/settings_distribution.py:71 camac/settings_distribution.py:557
+#: camac/settings_distribution.py:71 camac/settings_distribution.py:564
 msgid "Circulation skipped"
 msgstr "Zirkulation übersprungen"
 
-#: camac/settings_distribution.py:72 camac/settings_distribution.py:558
+#: camac/settings_distribution.py:72 camac/settings_distribution.py:565
 msgid "Circulation reopened"
 msgstr "Zirkulation wiedereröffnet"
 
-#: camac/templates/admin/base.html:27
+#: camac/templates/admin/base.html:25
 msgid "Back to CAMAC admin"
 msgstr "Zurück zum CAMAC Admin"
 
-#: camac/templates/admin/base.html:25
+#: camac/templates/admin/base.html:27
 msgid "Back to eBau"
 msgstr "Zurück zu eBau"
 
@@ -1067,26 +1129,6 @@ msgstr "Organisationstypen"
 #: camac/user/models.py:537
 msgid "Service parent"
 msgstr "Übergeordnete Organisation"
-
-#: camac/notification/models.py:31
-msgid "Notification template"
-msgstr "Vorlage für Benachrichtigung"
-
-#: camac/notification/models.py:32
-msgid "Notification templates"
-msgstr "Vorlagen für Benachrichtigungen"
-
-#: camac/notification/admin/views.py:11
-msgid "Purpose"
-msgstr "Zweck"
-
-#: camac/notification/admin/views.py:15
-msgid "Subject"
-msgstr "Betreff"
-
-#: camac/notification/models.py:50
-msgid "Body"
-msgstr "Mail-Inhalt"
 
 #: camac/user/models.py:591
 msgid "Apply responsibility in construction control?"
