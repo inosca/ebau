@@ -123,7 +123,6 @@ module.exports = function (environment) {
         done: [
           instanceStatesBe.finished,
           instanceStatesBe.finishedInternal,
-          instanceStatesBe.archived,
           instanceStatesBe.evaluated,
           instanceStatesBe.conclusion,
         ],
