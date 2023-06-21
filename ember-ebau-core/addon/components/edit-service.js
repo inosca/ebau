@@ -1,6 +1,7 @@
 import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
+import { tracked } from "@glimmer/tracking";
 import { dropTask } from "ember-concurrency";
 import { trackedFunction } from "ember-resources/util/function";
 
@@ -13,45 +14,54 @@ export default class EditServiceComponent extends Component {
   @service notification;
   @service ebauModules;
 
+  @tracked name;
+  @tracked postfix;
+
   service = trackedFunction(this, async () => {
     await Promise.resolve();
 
     if (!this.args.id) {
+      const serviceParent = await this.store.findRecord(
+        "service",
+        this.ebauModules.serviceId
+      );
+
+      this.postfix = serviceParent.get("name");
+
       return this.store.createRecord("service", {
-        serviceParent: await this.store.findRecord(
-          "service",
-          this.ebauModules.serviceId
-        ),
+        city: "",
+        serviceParent,
       });
     }
-
-    return await this.store.findRecord("service", this.args.id, {
+    const service = await this.store.findRecord("service", this.args.id, {
       include: "service_parent",
     });
+
+    this.name = service.get("name");
+    this.postfix = service.get("serviceParent.name");
+
+    if (this.postfix) {
+      const fullPostfix = `(${this.postfix})`;
+
+      this.name = this.name.endsWith(fullPostfix)
+        ? this.name.slice(0, -1 * fullPostfix.length).trim()
+        : this.name;
+    }
+
+    return service;
   });
-
-  get postfix() {
-    return this.service.value?.get("serviceParent.name");
-  }
-
-  get name() {
-    const name = this.service.value?.name ?? "";
-    const fullPostfix = `(${this.postfix})`;
-    return this.postfix && name.endsWith(fullPostfix)
-      ? name.slice(0, -1 * fullPostfix.length).trim()
-      : name;
-  }
-
-  set name(value) {
-    this.service.value.name = `${value} (${this.postfix})`;
-  }
 
   @dropTask
   *save(event) {
     event.preventDefault();
 
     try {
-      this.service.value.description = this.service.value.name;
+      const name = this.postfix
+        ? `${this.name.trim()} (${this.postfix})`
+        : this.name;
+
+      this.service.value.name = name;
+      this.service.value.description = name;
 
       yield this.service.value.save();
 
