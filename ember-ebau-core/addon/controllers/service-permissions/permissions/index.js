@@ -27,6 +27,7 @@ export default class ServicePermissionsPermissionsIndexController extends Contro
     event.preventDefault();
 
     await userGroup.destroyRecord();
+    await this.userGroups.retry();
   });
 
   updateSearch = restartableTask(async (event) => {
