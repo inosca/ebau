@@ -1,16 +1,16 @@
 import Controller from "@ember/controller";
 import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
+import { tracked } from "@glimmer/tracking";
 import { dropTask, restartableTask, timeout } from "ember-concurrency";
-import { dedupeTracked } from "tracked-toolbox";
 
 import paginatedQuery from "ember-ebau-core/resources/paginated";
 
 export default class ServicePermissionsPermissionsIndexController extends Controller {
   @service store;
 
-  @dedupeTracked search = "";
-  @dedupeTracked page = 1;
+  @tracked search = "";
+  @tracked page = 1;
 
   queryParams = ["search"];
 
@@ -27,6 +27,7 @@ export default class ServicePermissionsPermissionsIndexController extends Contro
     event.preventDefault();
 
     await userGroup.destroyRecord();
+    await this.userGroups.retry();
   });
 
   updateSearch = restartableTask(async (event) => {
