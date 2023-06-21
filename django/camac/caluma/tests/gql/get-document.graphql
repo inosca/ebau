@@ -1,0 +1,19 @@
+query ($id: ID) {
+  allDocuments(filter: [{ id: $id }]) {
+    edges {
+      node {
+        id
+        answers {
+          edges {
+            node {
+              id
+              question {
+                slug
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
