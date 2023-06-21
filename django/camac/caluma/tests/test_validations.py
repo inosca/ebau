@@ -119,6 +119,11 @@ def test_appeal_work_item(
         assert created.deadline.date().isoformat() == deadline.isoformat()
         assert created.addressed_groups == [str(service.pk)]
         assert created.meta == {
+            # from event handler
+            "not-viewed": True,
+            "notify-completed": False,
+            "notify-deadline": True,
+            # from validation layer
             "is-appeal-statement-deadline": True,
             "appeal-row-id": row_id,
         }

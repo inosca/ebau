@@ -1,6 +1,7 @@
 from datetime import datetime
 
 import pytz
+from caluma.caluma_core.events import send_event
 from caluma.caluma_core.validations import BaseValidation, validation_for
 from caluma.caluma_form.models import Answer
 from caluma.caluma_form.schema import (
@@ -8,6 +9,7 @@ from caluma.caluma_form.schema import (
     SaveDocumentStringAnswer,
     SaveDocumentTableAnswer,
 )
+from caluma.caluma_workflow.events import post_create_work_item
 from caluma.caluma_workflow.models import WorkItem
 from caluma.caluma_workflow.schema import CompleteWorkItem
 from django.conf import settings
@@ -182,7 +184,7 @@ class CustomValidation(BaseValidation):
                     .first()
                 )
 
-                work_item, _ = WorkItem.objects.get_or_create(
+                work_item, created = WorkItem.objects.get_or_create(
                     task_id=settings.APPLICATION["CALUMA"]["MANUAL_WORK_ITEM_TASK"],
                     meta={
                         "is-appeal-statement-deadline": True,
@@ -200,6 +202,15 @@ class CustomValidation(BaseValidation):
                         "addressed_groups": [str(info.context.user.group)],
                     },
                 )
+
+                if created:
+                    send_event(
+                        post_create_work_item,
+                        sender="validate_table_answer",
+                        work_item=work_item,
+                        user=info.context.user,
+                        context={},
+                    )
 
                 existing_work_items.append(work_item.pk)
 
