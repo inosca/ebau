@@ -2,7 +2,7 @@
 <li>
   <a href="" class="uk-padding-remove-horizontal" {{on "click" this.toggle}}>
     {{t "instance-support.nav"}}
-    <UkIcon @icon="question" />
+    <UkIcon @icon="question" class="uk-text-danger" />
   </a>
 </li>
 
@@ -12,7 +12,7 @@
   as |Modal|
 >
   <Modal.body class="uk-text-center">
-    <UkIcon @icon="question" ratio="2" />
+    <UkIcon @icon="question" @ratio="2" class="uk-text-danger" />
     <p class="uk-text-large">{{t "instance-support.title"}}</p>
     {{#if this.service.value}}
       <p>{{t "instance-support.subtitle"}}</p>
