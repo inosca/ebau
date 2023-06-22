@@ -1,18 +1,18 @@
-import { getOwnConfig, macroCondition } from "@embroider/macros";
-
-import be from "ember-ebau-core/config/main-be";
-import gr from "ember-ebau-core/config/main-gr";
-import sz from "ember-ebau-core/config/main-sz";
-import ur from "ember-ebau-core/config/main-ur";
+import { importSync, getOwnConfig, macroCondition } from "@embroider/macros";
 
 let config;
 if (macroCondition(getOwnConfig().application === "be")) {
-  config = be;
+  config = importSync("ember-ebau-core/config/main-be");
 } else if (macroCondition(getOwnConfig().application === "ur")) {
-  config = ur;
+  config = importSync("ember-ebau-core/config/main-ur");
 } else if (macroCondition(getOwnConfig().application === "sz")) {
-  config = sz;
+  config = importSync("ember-ebau-core/config/main-sz");
 } else if (macroCondition(getOwnConfig().application === "gr")) {
-  config = gr;
+  config = importSync("ember-ebau-core/config/main-gr");
 }
-export default config;
+
+const sharedConfig = {
+  maxDossierImportSize: 1500000000, // 1.5GB
+};
+
+export default { ...sharedConfig, ...config.default };

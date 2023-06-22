@@ -1,9 +1,9 @@
-import { getOwner } from "@ember/application";
 import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
 import { queryManager } from "ember-apollo-client";
 import { trackedFunction } from "ember-resources/util/function";
 
+import mainConfig from "ember-ebau-core/config/main";
 import getSourceCaseMeta from "ember-ebau-core/gql/queries/get-source-case-meta.graphql";
 
 const COLOR_MAP = {
@@ -46,9 +46,7 @@ export default class DecisionInfoAppealComponent extends Component {
   });
 
   nextState = trackedFunction(this, async () => {
-    const INSTANCE_STATES =
-      getOwner(this).resolveRegistration("config:environment")?.APPLICATION
-        ?.instanceStates;
+    const INSTANCE_STATES = mainConfig.instanceStates;
 
     const previous = parseInt(
       this.sourceInstance.value?.get("previousInstanceState.id")

@@ -1,5 +1,36 @@
 export default {
   name: "ur",
+  languages: ["de"],
+  fallbackLanguage: "de",
+  prodUrl: "urec.ur.ch",
+  gwr: {
+    cantonAbbreviation: "UR",
+    importModels: ["project", "building", "dwelling"],
+  },
+  allowApplicantManualWorkItem: false,
+  journalDefaultVisibility: true,
+  journalEntryDuration: false,
+  allowedInstanceLinkingGroups: [
+    142, // KOOR BG
+    21, // KOOR NP
+  ],
+  useLocation: true,
+  urGisUrl: "https://geo.ur.ch/wms",
+  attachmentSections: { applicant: "12000000" },
+  submittedStates: [
+    21, // comm
+    22, // ext
+    23, // circ
+    24, // redac
+    25, // done
+    26, // arch
+    29, // nfd
+    30, // subm
+    31, // rejected
+    32, // ext_gem
+    33, // old
+    34, // control
+  ],
   answerSlugs: {
     objectStreet: "parcel-street",
     objectNumber: "street-number",

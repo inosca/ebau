@@ -1,18 +1,13 @@
-import { macroCondition, getOwnConfig } from "@embroider/macros";
-
-import be from "ember-ebau-core/caluma-query/models/case-be";
-import gr from "ember-ebau-core/caluma-query/models/case-gr";
-import sz from "ember-ebau-core/caluma-query/models/case-sz";
-import ur from "ember-ebau-core/caluma-query/models/case-ur";
+import { importSync, macroCondition, getOwnConfig } from "@embroider/macros";
 
 let config;
 if (macroCondition(getOwnConfig().application === "be")) {
-  config = be;
+  config = importSync("ember-ebau-core/caluma-query/models/case-be");
 } else if (macroCondition(getOwnConfig().application === "ur")) {
-  config = ur;
+  config = importSync("ember-ebau-core/caluma-query/models/case-ur");
 } else if (macroCondition(getOwnConfig().application === "sz")) {
-  config = sz;
+  config = importSync("ember-ebau-core/caluma-query/models/case-sz");
 } else if (macroCondition(getOwnConfig().application === "gr")) {
-  config = gr;
+  config = importSync("ember-ebau-core/caluma-query/models/case-gr");
 }
-export default config;
+export default config.default;

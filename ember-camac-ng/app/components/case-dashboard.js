@@ -9,7 +9,6 @@ import CustomCaseModel from "ember-ebau-core/caluma-query/models/case";
 import mainConfig from "ember-ebau-core/config/main";
 import { gql } from "graphql-tag";
 
-import config from "camac-ng/config/environment";
 import getCaseFromParcelsQuery from "camac-ng/gql/queries/get-case-from-parcels.graphql";
 
 const WORKFLOW_ITEM_IDS = [
@@ -134,7 +133,7 @@ export default class CaseDashboardComponent extends Component {
 
       const instances = yield this.store.query("instance", {
         instance_id: instanceIds.join(","),
-        instance_state: config.APPLICATION.submittedStates.join(","),
+        instance_state: mainConfig.submittedStates.join(","),
       });
 
       return instances;

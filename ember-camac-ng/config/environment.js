@@ -1,8 +1,6 @@
 "use strict";
 
 module.exports = function (environment) {
-  const urGisUrl = process.env.UR_GIS_URL || "https://geo.ur.ch/wms";
-
   const ENV = {
     modulePrefix: "camac-ng",
     environment,
@@ -10,7 +8,6 @@ module.exports = function (environment) {
     rootURL: "/",
     locationType: "hash",
     historySupportMiddleware: true,
-    maxDossierImportSize: 1500000000, // 1.5GB
     apollo: {
       apiURL: "/graphql/",
     },
@@ -20,128 +17,10 @@ module.exports = function (environment) {
         // e.g. EMBER_NATIVE_DECORATOR_SUPPORT: true
       },
     },
-    "ember-ebau-core": {
-      attachmentSections: { applicant: "12000000" },
-      urGisUrl,
-    },
     APP: {
       rootElement: "#ember-camac-ng",
     },
     "changeset-validations": { rawOutput: true },
-
-    APPLICATIONS: {
-      kt_bern: {
-        name: "be",
-        prodUrl: "www.ebau.apps.be.ch",
-        gwr: {
-          cantonAbbreviation: "BE",
-          importModels: ["project"],
-        },
-        allowApplicantManualWorkItem: false,
-        journalDefaultVisibility: false,
-        journalEntryDuration: false,
-        instanceStates: {
-          new: 1,
-          archived: 20009,
-          coordination: 20005,
-          circulationInit: 20003,
-          finished: 120000,
-          sb1: 20011,
-        },
-        interchangeableForms: [
-          ["baugesuch", "baugesuch-generell", "baugesuch-mit-uvp"],
-          ["baugesuch-v2", "baugesuch-generell-v2", "baugesuch-mit-uvp-v2"],
-        ],
-        useLocation: false,
-        answerSlugs: {
-          objectStreet: "strasse-flurname",
-          objectNumber: "nr",
-          objectZIP: "plz-grundstueck-v3",
-          objectLocation: "ort-grundstueck",
-          description: "beschreibung-bauvorhaben",
-          municipality: "gemeinde",
-          specialId: "ebau-number",
-          parcelNumber: "parzellennummer",
-          firstNameApplicant: "vorname-gesuchstellerin",
-          lastNameApplicant: "name-gesuchstellerin",
-          juristicNameApplicant: "name-juristische-person-gesuchstellerin",
-          isJuristicApplicant: "juristische-person-gesuchstellerin",
-          isJuristicApplicantYes: "juristische-person-gesuchstellerin-ja",
-          personalDataApplicant: "personalien-gesuchstellerin",
-        },
-      },
-      kt_schwyz: {
-        name: "sz",
-        prodUrl: "behoerden.ebau-sz.ch",
-        gwr: {
-          cantonAbbreviation: "SZ",
-          importModels: ["project", "building", "dwelling"],
-        },
-        allowApplicantManualWorkItem: true,
-        journalDefaultVisibility: false,
-        journalEntryDuration: true,
-        newCase: {
-          calumaWorkflow: "internal-document",
-          camacForm: 11,
-        },
-        externalServiceGroupIds: [],
-        useLocation: true,
-      },
-      kt_uri: {
-        name: "ur",
-        prodUrl: "urec.ur.ch",
-        gwr: {
-          cantonAbbreviation: "UR",
-          importModels: ["project", "building", "dwelling"],
-        },
-        allowApplicantManualWorkItem: false,
-        journalDefaultVisibility: true,
-        journalEntryDuration: false,
-        allowedInstanceLinkingGroups: [
-          142, // KOOR BG
-          21, // KOOR NP
-        ],
-        useLocation: true,
-        submittedStates: [
-          21, // comm
-          22, // ext
-          23, // circ
-          24, // redac
-          25, // done
-          26, // arch
-          29, // nfd
-          30, // subm
-          31, // rejected
-          32, // ext_gem
-          33, // old
-          34, // control
-        ],
-        answerSlugs: {
-          objectStreet: "parcel-street",
-          objectNumber: "street-number",
-          objectLocation: "parcel-city",
-          applicantZip: "zip",
-          description: "proposal-description",
-          municipality: "municipality",
-          specialId: "dossier-number",
-          parcelNumber: "parcel-number",
-          oerebProcedure: "typ-des-verfahrens",
-          oerebTopicsCanton: "oereb-thema",
-          oerebTopicsMunicipality: "oereb-thema-gemeinde",
-          oerebPartialState: "teilstatus",
-          procedureCanton: "mbv-type",
-          procedureConfederation: "mbv-bund-type",
-          staticForestBoundaryCanton:
-            "waldfeststellung-mit-statischen-waldgrenzen-kanton",
-          staticForestBoundaryMunicipality:
-            "waldfeststellung-mit-statischen-waldgrenzen-gemeinde",
-        },
-      },
-    },
-
-    // this will be overwritten by one of the canton specific configurations
-    // above
-    APPLICATION: {},
   };
 
   if (environment === "test") {
@@ -160,7 +39,6 @@ module.exports = function (environment) {
     // here you can enable a production-specific feature
   }
 
-  ENV.APPLICATION = ENV.APPLICATIONS[process.env.APPLICATION || "kt_bern"];
   ENV.routerScroll = { targetElement: ENV.APP.rootElement };
 
   return ENV;
