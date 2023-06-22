@@ -11,7 +11,6 @@ import { dropTask } from "ember-concurrency";
 import { saveAs } from "file-saver";
 import { DateTime } from "luxon";
 
-import caseModelConfig from "ember-ebau-core/config/case-model";
 import caseTableConfig from "ember-ebau-core/config/case-table";
 import mainConfig from "ember-ebau-core/config/main";
 import caseInstanceIdsQuery from "ember-ebau-core/gql/queries/case-instance-ids.graphql";
@@ -144,7 +143,7 @@ export default class CaseTableComponent extends Component {
       intent: {
         searchAnswers: [
           {
-            questions: caseModelConfig.intentSlugs,
+            questions: mainConfig.intentSlugs,
             lookup: "CONTAINS",
             value: filter.intent,
           },

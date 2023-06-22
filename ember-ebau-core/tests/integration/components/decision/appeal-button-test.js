@@ -6,6 +6,7 @@ import { module, test } from "qunit";
 
 import { setupRenderingTest } from "dummy/tests/helpers";
 import id from "dummy/tests/helpers/graphql-id";
+import mainConfig from "ember-ebau-core/config/main";
 
 module("Integration | Component | decision/appeal-button", function (hooks) {
   setupRenderingTest(hooks);
@@ -22,14 +23,12 @@ module("Integration | Component | decision/appeal-button", function (hooks) {
       sb1: this.server.create("instance-state"),
     };
 
-    this.owner.resolveRegistration("config:environment").APPLICATION = {
-      instanceStates: Object.entries(this.instanceStates).reduce(
-        (obj, [key, state]) => {
-          return { ...obj, [key]: parseInt(state.id) };
-        },
-        {}
-      ),
-    };
+    mainConfig.instanceStates = Object.entries(this.instanceStates).reduce(
+      (obj, [key, state]) => {
+        return { ...obj, [key]: parseInt(state.id) };
+      },
+      {}
+    );
 
     this.server.post("/graphql", () => {
       return {
@@ -60,7 +59,7 @@ module("Integration | Component | decision/appeal-button", function (hooks) {
   });
 
   test.each(
-    "it renders only if correc states are given",
+    "it renders only if correct states are given",
     [
       [null, null, false, false],
       ["sb1", "coordination", false, true],

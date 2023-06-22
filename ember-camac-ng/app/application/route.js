@@ -1,4 +1,3 @@
-import { getOwner } from "@ember/application";
 import Route from "@ember/routing/route";
 import { inject as service } from "@ember/service";
 import DecisionAppealButtonComponent from "ember-ebau-core/components/decision/appeal-button";

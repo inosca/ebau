@@ -81,4 +81,12 @@ export default {
       1021: 2000000, // Vernehmlassungsstelle ohne Koordinationsaufgaben
     },
   },
+  intentSlugs: [
+    "proposal-description",
+    "beschreibung-zu-mbv",
+    "bezeichnung",
+    "vorhaben-proposal-description",
+    "veranstaltung-beschrieb",
+    "beschreibung-reklame",
+  ],
 };

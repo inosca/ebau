@@ -1,7 +1,7 @@
 import { inject as service } from "@ember/service";
 import CaseModel from "@projectcaluma/ember-core/caluma-query/models/case";
 
-import caseModelConfig from "ember-ebau-core/config/case-model";
+import mainConfig from "ember-ebau-core/config/main";
 import { getAnswer } from "ember-ebau-core/utils/get-answer";
 
 export default class CustomCaseBaseModel extends CaseModel {
@@ -27,7 +27,7 @@ export default class CustomCaseBaseModel extends CaseModel {
   }
 
   get intent() {
-    return getAnswer(this.raw.document, caseModelConfig.intentSlugs)?.node
+    return getAnswer(this.raw.document, mainConfig.intentSlugs)?.node
       .stringValue;
   }
 }
