@@ -53,7 +53,7 @@ export default class CommunicationMessageInputComponent extends Component {
   @action
   handleKeypress(event) {
     if (event.key === "Enter" && event.ctrlKey && !this.sendDisabled) {
-      this.args.sendMessage();
+      this.args.onCtrlEnter?.();
     }
   }
 }
