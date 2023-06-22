@@ -5,6 +5,7 @@ const ENV_MAP = {
   kt_schwyz: "sz",
   kt_uri: "ur",
   kt_gr: "gr",
+  kt_so: "so",
 };
 
 const ENVS = Object.values(ENV_MAP);
@@ -28,6 +29,7 @@ module.exports = {
         isBE: ENV === "be",
         isSZ: ENV === "sz",
         isUR: ENV === "ur",
+        isSO: ENV === "so",
         excelExportEnabled: ["be", "sz"].includes(ENV),
       },
     },
