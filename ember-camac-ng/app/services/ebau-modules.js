@@ -12,6 +12,10 @@ export default class CustomEbauModulesService extends EbauModulesService {
     return this.shoebox.content.serviceId;
   }
 
+  get role() {
+    return this.shoebox.role;
+  }
+
   get instanceId() {
     return this.shoebox.content.instanceId;
   }
@@ -57,7 +61,11 @@ export default class CustomEbauModulesService extends EbauModulesService {
 
   // careful: this doesn't exist outside of ember-camac-ng!
   // for modern apps use task.meta.directLink instead
-  get _directLinkConfig() {
+  get directLinkConfig() {
     return this.shoebox.content.config.directLink;
+  }
+
+  get portalURL() {
+    return this.shoebox.content.config.portalURL;
   }
 }

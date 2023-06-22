@@ -1,5 +1,15 @@
 export default {
   name: "be",
+  languages: ["de", "fr"],
+  fallbackLanguage: "de",
+  prodUrl: "www.ebau.apps.be.ch",
+  gwr: {
+    cantonAbbreviation: "BE",
+    importModels: ["project"],
+  },
+  allowApplicantManualWorkItem: false,
+  journalDefaultVisibility: false,
+  journalEntryDuration: false,
   instanceStates: {
     new: 1,
     archived: 20009,
@@ -12,6 +22,7 @@ export default {
     ["baugesuch", "baugesuch-generell", "baugesuch-mit-uvp"],
     ["baugesuch-v2", "baugesuch-generell-v2", "baugesuch-mit-uvp-v2"],
   ],
+  useLocation: false,
   answerSlugs: {
     objectStreet: "strasse-flurname",
     objectNumber: "nr",

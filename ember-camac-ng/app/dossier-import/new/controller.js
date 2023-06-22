@@ -8,9 +8,8 @@ import {
   restartableTask,
   timeout,
 } from "ember-concurrency";
+import mainConfig from "ember-ebau-core/config/main";
 import fetch from "fetch";
-
-import ENV from "camac-ng/config/environment";
 
 export default class DossierImportIndexController extends Controller {
   @service intl;
@@ -19,7 +18,6 @@ export default class DossierImportIndexController extends Controller {
   @service shoebox;
   @service session;
 
-  ENV = ENV;
   @tracked fileUpload;
   @tracked selectedLocation;
   @tracked selectedGroup;
@@ -27,7 +25,7 @@ export default class DossierImportIndexController extends Controller {
   @lastValue("fetchGroups") groups;
   @restartableTask
   *fetchGroups() {
-    if (!ENV.APPLICATION.useLocation && this.shoebox.isSupportRole) {
+    if (!mainConfig.useLocation && this.shoebox.isSupportRole) {
       return yield this.store.query("group", {
         role: this.shoebox.content.config.roles["municipality-admin"][0],
         service_group: 2,
@@ -44,7 +42,7 @@ export default class DossierImportIndexController extends Controller {
   @lastValue("fetchLocations") locations;
   @restartableTask
   *fetchLocations() {
-    if (!ENV.APPLICATION.useLocation) {
+    if (!mainConfig.useLocation) {
       return [];
     }
     if (this.shoebox.isSupportRole) {
@@ -71,7 +69,7 @@ export default class DossierImportIndexController extends Controller {
       this.selectedGroup?.id || this.groups.firstObject?.id
     );
 
-    if (ENV.APPLICATION.useLocation) {
+    if (mainConfig.useLocation) {
       formData.append(
         "location_id",
         this.selectedLocation?.id || this.locations.firstObject?.id
@@ -81,7 +79,7 @@ export default class DossierImportIndexController extends Controller {
     // Only one zip file is allowed by dropzone and input link
     const files = event.detail?.[0] ?? event.target.files;
     const file = files?.[0];
-    if (file.size > this.ENV.maxDossierImportSize) {
+    if (file.size > mainConfig.maxDossierImportSize) {
       // Force component template to reload
       yield timeout(200);
       this.notification.danger(

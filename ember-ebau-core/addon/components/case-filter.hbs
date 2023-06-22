@@ -33,7 +33,7 @@
     {{#if (macroCondition (macroGetOwnConfig "isBE"))}}
       {{#if (can "create paper of instance")}}
         <a
-          href="{{this.shoebox.content.config.portalURL}}/instances/new?group={{this.shoebox.content.groupId}}&language={{this.shoebox.content.language}}"
+          href="{{this.ebauModules.portalURL}}/instances/new?group={{this.ebauModules.groupId}}&language={{this.ebauModules.language}}"
           class="uk-button uk-button-default uk-float-right"
         >{{t "cases.new.paper"}}</a>
       {{/if}}

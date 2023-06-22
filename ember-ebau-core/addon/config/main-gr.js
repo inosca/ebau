@@ -1,5 +1,11 @@
 export default {
   name: "gr",
+  languages: ["de", "it", "rm"],
+  fallbackLanguage: "de",
+  allowApplicantManualWorkItem: false,
+  serviceGroups: {
+    authorityBaB: 3,
+  },
   answerSlugs: {
     objectStreet: "strasse-flurname",
     objectNumber: "nr",

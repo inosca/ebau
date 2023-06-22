@@ -17,10 +17,6 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
     return this.ebauModules.instanceId;
   }
 
-  get appConfig() {
-    return getOwner(this).resolveRegistration("config:environment").APPLICATION;
-  }
-
   async _fetchIfNotCached(modelName, idFilter, identifiers) {
     const cachedIdentifiers = this.store
       .peekAll(modelName)

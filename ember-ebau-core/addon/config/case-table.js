@@ -1,18 +1,13 @@
-import { getOwnConfig, macroCondition } from "@embroider/macros";
-
-import be from "ember-ebau-core/config/case-table-be";
-import gr from "ember-ebau-core/config/case-table-gr";
-import sz from "ember-ebau-core/config/case-table-sz";
-import ur from "ember-ebau-core/config/case-table-ur";
+import { importSync, getOwnConfig, macroCondition } from "@embroider/macros";
 
 let config;
 if (macroCondition(getOwnConfig().application === "be")) {
-  config = be;
+  config = importSync("ember-ebau-core/config/case-table-be");
 } else if (macroCondition(getOwnConfig().application === "ur")) {
-  config = ur;
+  config = importSync("ember-ebau-core/config/case-table-ur");
 } else if (macroCondition(getOwnConfig().application === "sz")) {
-  config = sz;
+  config = importSync("ember-ebau-core/config/case-table-sz");
 } else if (macroCondition(getOwnConfig().application === "gr")) {
-  config = gr;
+  config = importSync("ember-ebau-core/config/case-table-gr");
 }
-export default config;
+export default config.default;

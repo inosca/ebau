@@ -8,6 +8,7 @@ import DocumentValidityButtonComponent from "ember-ebau-core/components/document
 import InquiryAnswerStatus from "ember-ebau-core/components/inquiry-answer-status";
 import LinkAttachmentsComponent from "ember-ebau-core/components/link-attachments";
 import UrGisComponent from "ember-ebau-core/components/ur-gis";
+import mainConfig from "ember-ebau-core/config/main";
 
 import AssignEbauNumberButtonComponent from "camac-ng/components/assign-ebau-number-button";
 import CfCollapsibleTextareaComponent from "camac-ng/components/cf-collapsible-textarea";
@@ -33,9 +34,7 @@ export default class ApplicationRoute extends Route {
     const language = this.shoebox.content.language;
 
     if (language) {
-      const application =
-        getOwner(this).resolveRegistration("config:environment").APPLICATION
-          .name;
+      const application = mainConfig.name;
 
       this.intl.setLocale([
         `${language}-ch`,

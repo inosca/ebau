@@ -1,12 +1,12 @@
 import { inject as service } from "@ember/service";
 import { Ability } from "ember-can";
 
-import config from "ember-ebau-core/config/main";
+import mainConfig from "ember-ebau-core/config/main";
 
 const hasInstanceState = (instance, instanceState) => {
   return (
     parseInt(instance.belongsTo("instanceState").id()) ===
-    parseInt(config.instanceStates[instanceState])
+    parseInt(mainConfig.instanceStates[instanceState])
   );
 };
 
@@ -34,7 +34,13 @@ export default class InstanceAbility extends Ability {
     return (
       (this.ebauModules.isSupportRole ||
         this.ebauModules.isMunicipalityLeadRole) &&
-      config.interchangeableForms.flat().includes(this.model.calumaForm)
+      mainConfig.interchangeableForms.flat().includes(this.model.calumaForm)
+    );
+  }
+
+  get canCreatePaper() {
+    return ["municipality-lead", "municipality-clerk"].includes(
+      this.ebauModules.role
     );
   }
 
@@ -44,5 +50,14 @@ export default class InstanceAbility extends Ability {
       this.ebauModules.baseRole === "municipality" ||
       this.ebauModules.baseRole === "coordination"
     );
+  }
+
+  get canWriteForm() {
+    switch (mainConfig.name) {
+      case "kt_schwyz":
+        return (this.model.meta?.editable || []).includes("form");
+      default:
+        return (this.model.meta?.permissions?.main || []).includes("write");
+    }
   }
 }
