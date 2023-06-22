@@ -4,6 +4,10 @@ import EbauModulesService from "ember-ebau-core/services/ebau-modules";
 export default class CustomEbauModulesService extends EbauModulesService {
   @service shoebox;
 
+  get userId() {
+    return this.shoebox.content.userId;
+  }
+
   get groupId() {
     return this.shoebox.content.groupId;
   }
@@ -40,10 +44,6 @@ export default class CustomEbauModulesService extends EbauModulesService {
     return this.shoebox.baseRole;
   }
 
-  get portalURL() {
-    return this.shoebox.content.config.portalURL;
-  }
-
   get isApplicant() {
     // Since in ember-camac-ng the user is never applicant
     return false;
@@ -59,13 +59,19 @@ export default class CustomEbauModulesService extends EbauModulesService {
     );
   }
 
-  // careful: this doesn't exist outside of ember-camac-ng!
+  // careful: only works in ember-camac-ng!
   // for modern apps use task.meta.directLink instead
   get directLinkConfig() {
     return this.shoebox.content.config.directLink;
   }
 
+  // careful: only works in ember-camac-ng!
   get portalURL() {
     return this.shoebox.content.config.portalURL;
+  }
+
+  // careful: only works in ember-camac-ng!
+  get resourceId() {
+    return this.shoebox.content.resourceId;
   }
 }

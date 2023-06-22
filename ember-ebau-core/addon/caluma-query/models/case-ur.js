@@ -8,7 +8,7 @@ import { getAnswer } from "ember-ebau-core/utils/get-answer";
 
 export default class CustomCaseModel extends CustomCaseBaseModel {
   @service store;
-  @service shoebox;
+  @service ebauModules;
   @service intl;
 
   getPersonData(question) {
@@ -222,7 +222,7 @@ export default class CustomCaseModel extends CustomCaseBaseModel {
         (responsibility) =>
           Number(responsibility.get("instance.id")) === this.instanceId &&
           Number(responsibility.get("service.id")) ===
-            this.shoebox.content.serviceId
+            this.ebauModules.serviceId
       );
 
     return responsibilities

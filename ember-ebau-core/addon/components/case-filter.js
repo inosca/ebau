@@ -332,11 +332,12 @@ export default class CaseFilterComponent extends Component {
     return [
       "case-list-filters",
       "user",
-      this.shoebox.content.userId,
+      this.ebauModules.userId,
       "group",
-      this.shoebox.content.groupId,
-      "resource",
-      this.shoebox.content.resourceId,
+      this.ebauModules.groupId,
+      ...(this.ebauModules.resourceId
+        ? ["resource", this.ebauModules.resourceId]
+        : []),
     ].join("-");
   }
 
@@ -354,6 +355,7 @@ export default class CaseFilterComponent extends Component {
     } catch (e) {
       // If the value is somehow corrupt and can't be saved into the local
       // storage, we keep the old value stored
+      console.warn("could not write filters to local storage", e);
     }
   }
 
