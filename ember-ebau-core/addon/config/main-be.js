@@ -39,4 +39,5 @@ export default {
     isJuristicApplicantYes: "juristische-person-gesuchstellerin-ja",
     personalDataApplicant: "personalien-gesuchstellerin",
   },
+  intentSlugs: ["beschreibung-bauvorhaben"],
 };

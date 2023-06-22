@@ -344,10 +344,12 @@ export default class CustomWorkItemModel extends WorkItemModel {
     }
     case {
       id
+      meta
       family {
         id
         meta
         document {
+          id
           form {
             name
           }

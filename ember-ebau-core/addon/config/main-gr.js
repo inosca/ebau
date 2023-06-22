@@ -2,6 +2,7 @@ export default {
   name: "gr",
   languages: ["de", "it", "rm"],
   fallbackLanguage: "de",
+  prodUrl: "ebau.admin.gr.ch",
   allowApplicantManualWorkItem: false,
   serviceGroups: {
     authorityBaB: 3,
@@ -22,4 +23,5 @@ export default {
     isJuristicApplicantYes: "juristische-person-gesuchstellerin-ja",
     personalDataApplicant: "personalien-gesuchstellerin",
   },
+  intentSlugs: ["beschreibung-bauvorhaben"],
 };

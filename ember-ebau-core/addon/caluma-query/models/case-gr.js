@@ -92,6 +92,7 @@ export default class CustomCaseModel extends CustomCaseBaseModel {
     meta
     id
     document {
+      id
       answers(
         filter: [
           {
