@@ -59,6 +59,7 @@
         @loading={{this.sendMessage.isRunning}}
         @updateMessage={{this.updateMessage}}
         @sendMessage={{perform this.sendMessage}}
+        @onCtrlEnter={{perform this.sendMessage}}
         data-test-message-input
       />
     {{else}}

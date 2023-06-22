@@ -78,6 +78,7 @@
         <Communication::MessageInput
           @message={{this.message}}
           @updateMessage={{this.updateMessage}}
+          @onCtrlEnter={{perform this.createTopic}}
           class="uk-margin-bottom"
           data-test-message
         />
