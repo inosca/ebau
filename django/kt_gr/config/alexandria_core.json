@@ -1,0 +1,114 @@
+[
+  {
+    "model": "alexandria_core.category",
+    "pk": "alle-beteiligten",
+    "fields": {
+      "created_at": "2020-08-04T13:24:00.704Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2020-08-04T13:24:00.704Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "access": {
+          "public": "Read",
+          "service": "Admin",
+          "support": "Admin",
+          "municipality": "Admin"
+        }
+      },
+      "name": "{\"de\": \"Alle Beteiligten\", \"fr\": \"\", \"it\": \"Tutti coinvolti\", \"rm\": \"Tous les participants\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "color": "#CB68C1"
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "beilagen-zum-gesuch",
+    "fields": {
+      "created_at": "2020-08-04T13:24:00.677Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2020-08-04T13:24:00.677Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "access": {
+          "public": "Admin",
+          "service": "Read",
+          "support": "Admin",
+          "municipality": "Admin"
+        }
+      },
+      "name": "{\"de\": \"Beilagen zum Gesuch\", \"fr\": \"\", \"it\": \"Allegati alla domanda\", \"rm\": \"Annexes \\u00e0 la demande\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "color": "#9CDD69"
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "beteiligte-behörden",
+    "fields": {
+      "created_at": "2020-08-04T13:24:00.699Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2020-08-04T13:24:00.699Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "access": {
+          "service": "Admin",
+          "support": "Admin",
+          "municipality": "Admin"
+        }
+      },
+      "name": "{\"de\": \"Beteiligte Beh\\u00f6rden\", \"fr\": \"\", \"it\": \"Autorit\\u00e0 coinvolte\", \"rm\": \"Autorit\\u00e9s concern\\u00e9es\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "color": "#8791EC"
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "intern",
+    "fields": {
+      "created_at": "2020-08-04T13:24:00.708Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2020-08-04T13:24:00.708Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "access": {
+          "service": "InternalAdmin",
+          "support": "Admin",
+          "municipality": "InternalAdmin"
+        }
+      },
+      "name": "{\"de\": \"Intern\", \"fr\": \"\", \"it\": \"Interno\", \"rm\": \"Interne\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "color": "#DB8B72"
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "nachforderungen",
+    "fields": {
+      "created_at": "2020-08-04T13:24:00.690Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2020-08-04T13:24:00.690Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "access": {
+          "public": "Admin",
+          "support": "Admin",
+          "municipality": "Admin"
+        }
+      },
+      "name": "{\"de\": \"Nachforderungen\", \"fr\": \"\", \"it\": \"Ulteriori richieste di risarcimento\", \"rm\": \"Demandes suppl\\u00e9mentaires\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "color": "#66CFC9"
+    }
+  }
+]

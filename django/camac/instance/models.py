@@ -245,6 +245,18 @@ class Instance(models.Model):
         db_table = "INSTANCE"
 
 
+class InstanceAlexandriaDocument(models.Model):
+    instance = models.ForeignKey(
+        Instance, models.CASCADE, related_name="alexandria_instance_documents"
+    )
+    document = models.OneToOneField(
+        "alexandria_core.Document", models.CASCADE, related_name="instance_document"
+    )
+
+    class Meta:
+        unique_together = (("instance", "document"),)
+
+
 class InstanceResponsibility(models.Model):
     instance = models.ForeignKey(
         Instance, models.CASCADE, related_name="responsibilities"

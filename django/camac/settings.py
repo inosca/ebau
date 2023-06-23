@@ -119,6 +119,8 @@ INSTALLED_APPS = [
     "django_q",
     "reversion",
     "rest_framework_xml",
+    # alexandria
+    "alexandria.core.apps.DefaultConfig",
     # TODO: remove this when all production environments ran the migration to
     # delete the tables of this app
     "camac.file.apps.DefaultConfig",
@@ -348,6 +350,7 @@ APPLICATIONS = {
         ],
         "ATTACHMENT_SECTION_INTERNAL": 4,
         "DOCUMENT_MERGE_SERVICE": {},
+        "ALEXANDRIA": {"PUBLIC_ROLE": "applicant"},
     },
     "kt_schwyz": {
         "INCLUDE_STATIC_FILES": [("xml", "kt_schwyz/static/ech0211/xml/")],
@@ -3298,7 +3301,14 @@ APPLICATIONS = {
             "user.Service",
             "user.ServiceT",
         ],
-        "ATTACHMENT_SECTION_INTERNAL": 4,
+        "ALEXANDRIA": {
+            "PUBLIC_TAGS": [
+                "dokument-grundstucksangaben",
+                "dokument-gutachten-nachweise-begrundungen",
+                "dokument-projektplane-projektbeschrieb",
+                "dokument-weitere-gesuchsunterlagen",
+            ]
+        },
         "DOCUMENT_MERGE_SERVICE": {
             "FORM": {
                 "_base": {
@@ -3791,9 +3801,9 @@ REST_FRAMEWORK = {
     ),
     "DEFAULT_METADATA_CLASS": "rest_framework_json_api.metadata.JSONAPIMetadata",
     "DEFAULT_FILTER_BACKENDS": (
-        "django_filters.rest_framework.DjangoFilterBackend",
         "camac.filters.MultilingualSearchFilter",
         "rest_framework.filters.OrderingFilter",
+        "rest_framework_json_api.django_filters.DjangoFilterBackend",
     ),
     "ORDERING_PARAM": "sort",
     "TEST_REQUEST_RENDERER_CLASSES": (
@@ -4099,3 +4109,14 @@ def load_module_settings(module_name, application_name=APPLICATION_NAME):
 APPEAL = load_module_settings("appeal")
 DISTRIBUTION = load_module_settings("distribution")
 PARASHIFT = load_module_settings("parashift")
+
+# TODO: import from alexandria settings, currently causes errors
+ALEXANDRIA_PERMISSION_CLASSES = [
+    "camac.alexandria.extensions.permissions.CustomPermission"
+]
+ALEXANDRIA_VISIBILITY_CLASSES = [
+    "camac.alexandria.extensions.visibilities.CustomVisibility"
+]
+ALEXANDRIA_VALIDATION_CLASSES = ["camac.alexandria.extensions.validations.Validator"]
+ALEXANDRIA_CREATED_BY_USER_PROPERTY = "alexandria_user"
+ALEXANDRIA_CREATED_BY_GROUP_PROPERTY = "alexandria_group"

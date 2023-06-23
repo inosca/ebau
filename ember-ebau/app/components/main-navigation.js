@@ -13,6 +13,7 @@ export default class MainNavigationComponent extends Component {
   @service session;
   @service store;
   @service router;
+  @service fetch;
 
   languages = languages;
 
@@ -91,6 +92,11 @@ export default class MainNavigationComponent extends Component {
     this.session.group = group;
 
     UIkit.dropdown("#group-dropdown").hide();
+
+    await this.fetch.fetch(`/api/v1/groups/${group}/set-default`, {
+      method: "POST",
+    });
+
     if (macroCondition(isTesting())) {
       // Don't reload in testing
     } else {

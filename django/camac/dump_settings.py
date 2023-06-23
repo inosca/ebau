@@ -193,6 +193,7 @@ DUMP_CONFIG_MODELS_REFERENCING_DATA = [
     "caluma_form.Form",
     "caluma_workflow.Workflow",
     "caluma_workflow.Task",
+    "alexandria_core.Category",
 ]
 
 # Exclude models which are managed by the customer alone from sync - instead it
@@ -227,6 +228,7 @@ DUMP_DATA_APPS = [
     "applicants",
     "caluma_form",
     "caluma_workflow",
+    "alexandria_core",
 ]
 
 DUMP_DATA_EXCLUDED_MODELS = [
@@ -239,4 +241,5 @@ DUMP_DATA_EXCLUDED_MODELS = [
     "caluma_workflow.HistoricalTask",
     "caluma_workflow.HistoricalTaskFlow",
     "caluma_workflow.HistoricalFlow",
+    "instance.InstanceAlexandriaDocument",
 ]

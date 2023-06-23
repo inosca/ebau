@@ -81,7 +81,7 @@ export default class AlexandriaDocumentsFormComponent extends Component {
     );
 
     const byInstance = (attachment) =>
-      parseInt(attachment.meta.case_id) ===
+      parseInt(attachment.metainfo.case_id) ===
       parseInt(this.args.context.instanceId);
 
     const bySection = (attachment) =>
@@ -103,8 +103,8 @@ export default class AlexandriaDocumentsFormComponent extends Component {
       this.buckets.map(async (bucket) => {
         const attachments = [];
         for (const attachment of this.allAttachments) {
-          const tags = attachment.tags;
-          if (tags.some((tag) => tag.id === bucket)) {
+          const tags = await attachment.tags; // eslint-disable-line no-await-in-loop
+          if (tags.findBy("id", bucket)) {
             attachments.push(attachment);
           }
         }
@@ -123,10 +123,12 @@ export default class AlexandriaDocumentsFormComponent extends Component {
   });
 
   fetchAttachments = trackedFunction(this, async () => {
+    await Promise.resolve();
+
     return await this.store.query("document", {
       filter: {
         category: this.category,
-        meta: JSON.stringify([
+        metainfo: JSON.stringify([
           { key: "case_id", value: this.args.context.instanceId },
         ]),
       },
@@ -148,13 +150,10 @@ export default class AlexandriaDocumentsFormComponent extends Component {
       yield this.alexandriaTags.fetchAllTags.perform();
       yield this.alexandriaTags.add(documentModel[0], bucket);
 
-      /*
       this.uploadedAttachmentIds = [
         ...this.uploadedAttachmentIds,
         documentModel[0].id,
       ];
-      */
-      this.uploadedAttachmentIds.push(documentModel[0].id);
 
       this.notification.success(this.intl.t("documents.uploadSuccess"));
     } catch (error) {
