@@ -4,10 +4,10 @@ import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 import { queryManager } from "ember-apollo-client";
 import { dropTask, lastValue } from "ember-concurrency";
+import mainConfig from "ember-ebau-core/config/main";
 import { confirmTask } from "ember-ebau-core/decorators";
 import parseError from "ember-ebau-core/utils/parse-error";
 
-import config from "camac-ng/config/environment";
 import getConstructionDescriptionQuery from "camac-ng/gql/queries/get-construction-description.graphql";
 import getFormsQuery from "camac-ng/gql/queries/get-forms.graphql";
 
@@ -121,7 +121,7 @@ export default class SupportController extends Controller {
       {
         query: getFormsQuery,
         variables: {
-          forms: config.APPLICATION.interchangeableForms.find((forms) =>
+          forms: mainConfig.interchangeableForms.find((forms) =>
             forms.includes(this.instance.calumaForm)
           ),
         },

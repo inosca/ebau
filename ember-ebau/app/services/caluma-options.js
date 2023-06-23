@@ -1,4 +1,3 @@
-import { getOwner } from "@ember/application";
 import { inject as service } from "@ember/service";
 import CalumaOptionsService from "@projectcaluma/ember-core/services/caluma-options";
 import { INQUIRY_STATUS } from "@projectcaluma/ember-distribution/config";
@@ -15,10 +14,6 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
 
   get currentInstanceId() {
     return this.ebauModules.instanceId;
-  }
-
-  get appConfig() {
-    return getOwner(this).resolveRegistration("config:environment").APPLICATION;
   }
 
   async _fetchIfNotCached(modelName, idFilter, identifiers) {

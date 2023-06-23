@@ -5,6 +5,7 @@ import Component from "@glimmer/component";
 import { queryManager } from "ember-apollo-client";
 import { trackedFunction } from "ember-resources/util/function";
 
+import mainConfig from "ember-ebau-core/config/main";
 import caseFormTypeQuery from "ember-ebau-core/gql/queries/case-form-type.graphql";
 
 export const OBLIGATION_FORM_SLUG = "klaerung-baubewilligungspflicht";
@@ -44,14 +45,12 @@ export default class InquiryAnswerStatusComponent extends Component {
           isObligationForm === OBLIGATION_ANSWERS.includes(option.slug)
       );
     } else if (macroCondition(getOwnConfig().application === "gr")) {
-      const config = this.calumaOptions.appConfig;
-
       const isAuthorityBaB =
         parseInt(
           this.store
             .peekRecord("service", this.calumaOptions.currentGroupId)
             ?.get("serviceGroup.id")
-        ) === config.serviceGroups?.authorityBaB;
+        ) === mainConfig.serviceGroups?.authorityBaB;
 
       return this.args.field.options.filter((option) => {
         return (

@@ -11,6 +11,8 @@ import fetch from "fetch";
 import html2canvas from "html2canvas";
 import { all } from "rsvp";
 
+import mainConfig from "ember-ebau-core/config/main";
+
 const { L } = window;
 
 const KEY_TABLE_QUESTION = "parcels";
@@ -122,17 +124,11 @@ export default class UrGisComponent extends Component {
   maxZoom = 10;
   layers = LAYERS.join(",");
 
-  get config() {
-    return getOwner(this).resolveRegistration("config:environment")?.[
-      "ember-ebau-core"
-    ];
-  }
-
   _map = null;
   _value = null;
 
   get url() {
-    return this.config.urGisUrl;
+    return mainConfig.urGisUrl;
   }
 
   @enqueueTask
@@ -472,7 +468,7 @@ export default class UrGisComponent extends Component {
     formData.append("instance", instanceId);
     formData.append(
       "attachment_sections",
-      this.config.attachmentSections.applicant
+      mainConfig.attachmentSections.applicant
     );
     formData.append("path", blob, "Parzellenbild.png");
 

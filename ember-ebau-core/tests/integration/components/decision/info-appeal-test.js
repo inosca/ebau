@@ -6,6 +6,7 @@ import { module, test } from "qunit";
 
 import { setupRenderingTest } from "dummy/tests/helpers";
 import id from "dummy/tests/helpers/graphql-id";
+import mainConfig from "ember-ebau-core/config/main";
 
 module("Integration | Component | decision/info-appeal", function (hooks) {
   setupRenderingTest(hooks);
@@ -26,14 +27,12 @@ module("Integration | Component | decision/info-appeal", function (hooks) {
       }),
     };
 
-    this.owner.resolveRegistration("config:environment").APPLICATION = {
-      instanceStates: Object.entries(this.instanceStates).reduce(
-        (obj, [key, state]) => {
-          return { ...obj, [key]: parseInt(state.id) };
-        },
-        {}
-      ),
-    };
+    mainConfig.instanceStates = Object.entries(this.instanceStates).reduce(
+      (obj, [key, state]) => {
+        return { ...obj, [key]: parseInt(state.id) };
+      },
+      {}
+    );
 
     this.field = { document: { findAnswer: () => this.decision } };
 

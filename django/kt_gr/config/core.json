@@ -3028,14 +3028,14 @@
     "model": "core.remberlist",
     "pk": 20006,
     "fields": {
-      "instance_states": "1,20000,20003,20004,20005,20010,20011,20013,20014,10000,20007,20009,120000,120001,120002,120003"
+      "instance_states": "120004,120005,120006"
     }
   },
   {
     "model": "core.remberlist",
     "pk": 20007,
     "fields": {
-      "instance_states": "20004,20005,20010,20011,20013,20014,10000,20009,120000,120001"
+      "instance_states": "120004,120005,120006"
     }
   },
   {
@@ -3163,7 +3163,7 @@
       "name": null,
       "description": null,
       "template": null,
-      "class_field": null,
+      "class_field": "displaySearch",
       "hidden": 0,
       "sort": 1
     }

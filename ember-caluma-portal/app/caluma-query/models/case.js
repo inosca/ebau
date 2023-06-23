@@ -16,6 +16,7 @@ const DECISION_COLOR_MAPPING = {
   "decision-decision-assessment-retreat": "uk-alert-warning",
 };
 
+// TODO: Could potentially be merged with caluma query model in ember-ebau-core
 export default class CustomCaseModel extends CaseModel {
   @service store;
 

@@ -1,6 +1,7 @@
 import { action } from "@ember/object";
 import Service, { inject as service } from "@ember/service";
 import { getOwnConfig, macroCondition } from "@embroider/macros";
+import mainConfig from "ember-ebau-core/config/main";
 
 import ENV from "camac-ng/config/environment";
 
@@ -22,15 +23,15 @@ export default class GwrConfigService extends Service {
   // quarterlyClosureSortDirection = "desc";
 
   get modalContainer() {
-    return ENV.APPLICATION.gwr.modalContainer ?? "#ember-camac-ng";
+    return mainConfig.gwr.modalContainer ?? "#ember-camac-ng";
   }
 
   get importModels() {
-    return ENV.APPLICATION.gwr.importModels;
+    return mainConfig.gwr.importModels;
   }
 
   get cantonAbbreviation() {
-    return ENV.APPLICATION.gwr.cantonAbbreviation;
+    return mainConfig.gwr.cantonAbbreviation;
   }
 
   get authToken() {
