@@ -230,6 +230,8 @@ class InstanceExportFilterBackendBE(InstanceExportFilterBackend):
             ),
         )
 
+        building_project = answer("beschreibung-bauvorhaben")
+
         applicants = StringAggSubquery(
             AnswerDocument.objects.filter(
                 answer__question_id="personalien-gesuchstellerin",
@@ -285,6 +287,7 @@ class InstanceExportFilterBackendBE(InstanceExportFilterBackend):
                 tag_names=tag_names,
                 instance_state_name=instance_state_name,
                 applicants=applicants,
+                building_project=building_project,
             )
             .select_related("case", "case__document", "case__document__form")
             .only(
