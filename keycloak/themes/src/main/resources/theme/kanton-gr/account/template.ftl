@@ -47,8 +47,7 @@
                   </div>
               </div>
           </#if>
-          <#if referrer?has_content && referrer.url?has_content><li><a href="${referrer.url}" id="referrer">${msg("backTo",referrer.name)}</a></li></#if>
-          <a class="uk-link-muted" href="${url.getLogoutUrl()}">${msg("doSignOut")}</a>
+          <#if referrer?has_content && referrer.url?has_content><a href="${referrer.url}" class="uk-link-muted" id="referrer">Zurück zu eBau</a></#if>
         </ul>
       </div>
     </div>
