@@ -4,7 +4,7 @@ import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
 import { trackedTask } from "ember-resources/util/ember-concurrency";
 
-import municipality from "camac-ng/gql/queries/municipality.graphql";
+import municipality from "ember-ebau-core/gql/queries/municipality.graphql";
 
 export default class PublicationInfoComponent extends Component {
   @service shoebox;

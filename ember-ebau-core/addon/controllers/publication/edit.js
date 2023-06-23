@@ -1,24 +1,22 @@
-import Controller, { inject as controller } from "@ember/controller";
+import Controller from "@ember/controller";
 import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
 import { decodeId } from "@projectcaluma/ember-core/helpers/decode-id";
 import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
-import saveWorkItemMutation from "ember-ebau-core/gql/mutations/save-workitem.graphql";
 import { trackedTask } from "ember-resources/util/ember-concurrency";
 import { confirm } from "ember-uikit";
 import { dedupeTracked } from "tracked-toolbox";
 
-import getPublication from "camac-ng/gql/queries/get-publication.graphql";
-import getPublications from "camac-ng/gql/queries/get-publications.graphql";
+import saveWorkItemMutation from "ember-ebau-core/gql/mutations/save-workitem.graphql";
+import getPublication from "ember-ebau-core/gql/queries/get-publication.graphql";
+import getPublications from "ember-ebau-core/gql/queries/get-publications.graphql";
 
 export default class PublicationEditController extends Controller {
   @service notification;
   @service intl;
-  @service shoebox;
+  @service ebauModules;
   @service router;
-
-  @controller("publication") publicationController;
 
   @queryManager apollo;
 
@@ -26,7 +24,7 @@ export default class PublicationEditController extends Controller {
 
   get filters() {
     return [
-      { addressedGroups: [String(this.shoebox.content.serviceId)] },
+      { addressedGroups: [String(this.ebauModules.serviceId)] },
       {
         caseMetaValue: [
           { key: "camac-instance-id", value: this.model.instanceId },
@@ -89,11 +87,29 @@ export default class PublicationEditController extends Controller {
     await this.apollo.query({
       query: getPublications,
       fetchPolicy: "network-only",
-      variables: this.publicationController.variables,
+      ...(this.model.type === "neighbors"
+        ? {
+            variables: {
+              instanceId: this.ebauModules.instanceId,
+              task: "information-of-neighbors",
+              startQuestion: "information-of-neighbors-start-date",
+              endQuestion: "information-of-neighbors-end-date",
+            },
+          }
+        : {
+            variables: {
+              instanceId: this.ebauModules.instanceId,
+              task: "fill-publication",
+              startQuestion: "publikation-startdatum",
+              endQuestion: "publikation-ablaufdatum",
+            },
+          }),
     });
 
     if (transitionToIndex) {
-      this.router.transitionTo("publication.index");
+      this.router.transitionTo(
+        this.ebauModules.resolveModuleRoute("publication", "index"),
+      );
     }
   }
 }
