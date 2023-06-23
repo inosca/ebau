@@ -26,6 +26,9 @@
 </head>
 <body class="admin-console user ${bodyClass}">
   <div class="${properties.kcLoginClass!}">
+    <div class="copyright">
+       <a href="https://www.andreabadrutt.ch/" target="_blank" rel="noopener noreferrer">© Andrea Badrutt</a>
+    </div>
     <div id="kc-header" class="${properties.kcHeaderClass!}">
       <div id="kc-header-wrapper" class="${properties.kcHeaderWrapperClass!}">
         <div class="gr-logo"></div>
