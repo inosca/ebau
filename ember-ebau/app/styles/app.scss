@@ -50,10 +50,6 @@ $border-color: darken($global-muted-background, 10%);
   padding-top: 1rem;
 }
 
-div.uk-container.with-sidebar {
-  padding-left: $sidebar-width + $sidebar-padding;
-}
-
 .ca-label {
   text-transform: uppercase;
   color: $global-muted-color;

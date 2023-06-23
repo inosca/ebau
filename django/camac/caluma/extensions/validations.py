@@ -1,9 +1,10 @@
-from datetime import datetime
+from datetime import datetime, timedelta
 
 import pytz
 from caluma.caluma_core.events import send_event
 from caluma.caluma_core.validations import BaseValidation, validation_for
-from caluma.caluma_form.models import Answer
+from caluma.caluma_form.api import save_answer
+from caluma.caluma_form.models import Answer, Question
 from caluma.caluma_form.schema import (
     SaveDocumentDateAnswer,
     SaveDocumentStringAnswer,
@@ -142,6 +143,26 @@ class CustomValidation(BaseValidation):
                     "meta__appeal-row-id": str(data["document"].pk),
                 }
             ).update(deadline=date_to_deadline(data["date"]))
+
+        if (
+            settings.APPLICATION.get("PUBLICATION_USE_CALCULATED_DATES", False)
+            and data["question"].meta["calculatedPublicationDateSlug"]
+        ):
+            end_question = Question.objects.get(
+                pk=data["question"].meta["calculatedPublicationDateSlug"]
+            )
+
+            calculated_date = (
+                data["date"] + timedelta(days=end_question.meta["publicationDuration"])
+                if data["date"]
+                else None
+            )
+            save_answer(
+                document=data["document"],
+                question=end_question,
+                date=calculated_date,
+                user=info.context.user,
+            )
 
         return data
 

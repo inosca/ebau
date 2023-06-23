@@ -186,6 +186,9 @@ class InstanceResourceSerializer(serializers.ModelSerializer, MultilingualSerial
 
             return f"task-form/{task}"
 
+        if ir_type == "publication":
+            return "publication/public"
+
         if ir_type == "page":
             type_mapping = {
                 "/ember/instance.phtml": "form",
