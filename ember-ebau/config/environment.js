@@ -1,7 +1,5 @@
 "use strict";
 
-const locales = require("./locales");
-
 module.exports = function (environment) {
   // eslint-disable-next-line no-console
   console.log(
@@ -10,31 +8,19 @@ module.exports = function (environment) {
   const app = process.env.APPLICATION || "kt_bern";
   const appConfig = {
     demo: {
-      name: "demo",
       realm: "ebau",
     },
     kt_bern: {
-      name: "be",
       realm: "ebau",
-      allowApplicantManualWorkItem: false,
     },
     kt_uri: {
-      name: "ur",
       realm: "urec",
-      allowApplicantManualWorkItem: false,
     },
     kt_schwyz: {
-      name: "sz",
       realm: "ebau",
-      allowApplicantManualWorkItem: true,
     },
     kt_gr: {
-      name: "gr",
       realm: "ebau",
-      allowApplicantManualWorkItem: false,
-      serviceGroups: {
-        authorityBaB: 3,
-      },
     },
   }[app];
   const oidcHost = process.env.KEYCLOAK_HOST || "http://ebau-keycloak.local";
@@ -69,11 +55,6 @@ module.exports = function (environment) {
       // Here you can pass flags/options to your application instance
       // when it is created
     },
-
-    languages: locales,
-    fallbackLanguage: "de",
-
-    APPLICATION: appConfig,
   };
 
   if (environment === "development") {

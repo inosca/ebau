@@ -1,4 +1,3 @@
-import { getOwner } from "@ember/application";
 import { inject as service } from "@ember/service";
 import { macroCondition, isTesting } from "@embroider/macros";
 import Component from "@glimmer/component";
@@ -7,6 +6,7 @@ import { dropTask } from "ember-concurrency";
 import { findRecord } from "ember-data-resources";
 import { trackedFunction } from "ember-resources/util/function";
 
+import mainConfig from "ember-ebau-core/config/main";
 import { confirmTask } from "ember-ebau-core/decorators";
 import getCaseMetaQuery from "ember-ebau-core/gql/queries/get-case-meta.graphql";
 
@@ -33,9 +33,7 @@ export default class DecisionAppealButtonComponent extends Component {
       return false;
     }
 
-    const INSTANCE_STATES =
-      getOwner(this).resolveRegistration("config:environment")?.APPLICATION
-        ?.instanceStates;
+    const INSTANCE_STATES = mainConfig.instanceStates;
 
     return (
       // Previous instance state is "In Koordination"

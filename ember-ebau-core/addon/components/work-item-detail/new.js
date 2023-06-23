@@ -6,6 +6,7 @@ import { dropTask } from "ember-concurrency";
 import { findRecord, query } from "ember-data-resources";
 import { DateTime } from "luxon";
 
+import mainConfig from "ember-ebau-core/config/main";
 import createWorkItem from "ember-ebau-core/gql/mutations/create-work-item.graphql";
 import allCases from "ember-ebau-core/gql/queries/all-cases.graphql";
 
@@ -63,7 +64,7 @@ export default class WorkItemDetailNewComponent extends Component {
   get services() {
     const services = this.instance.record?.involvedServices.toArray() || [];
 
-    if (this.args.allowApplicantManualWorkItem) {
+    if (mainConfig.allowApplicantManualWorkItem) {
       services.unshift({
         id: "applicant",
         name: this.intl.t("global.applicant"),

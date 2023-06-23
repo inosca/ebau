@@ -12,3 +12,6 @@ export function testForApp(target) {
 }
 
 export const testBE = testForApp("be");
+export const testSZ = testForApp("sz");
+export const testUR = testForApp("ur");
+export const testGR = testForApp("gr");

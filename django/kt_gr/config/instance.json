@@ -90,16 +90,6 @@
   },
   {
     "model": "instance.instancestatet",
-    "pk": 120001,
-    "fields": {
-      "instance_state": 1,
-      "language": "fr",
-      "name": "Nouveau",
-      "description": null
-    }
-  },
-  {
-    "model": "instance.instancestatet",
     "pk": 120034,
     "fields": {
       "instance_state": 120004,

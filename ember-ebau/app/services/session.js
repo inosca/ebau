@@ -4,6 +4,7 @@ import { getOwner } from "@ember/application";
 import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 import { dropTask } from "ember-concurrency";
+import mainConfig from "ember-ebau-core/config/main";
 import { trackedTask } from "ember-resources/util/ember-concurrency";
 import { handleUnauthorized } from "ember-simple-auth-oidc";
 import { getConfig } from "ember-simple-auth-oidc/config";
@@ -11,9 +12,7 @@ import Session from "ember-simple-auth-oidc/services/session";
 import { getUserLocales } from "get-user-locale";
 import { localCopy, cached } from "tracked-toolbox";
 
-import config from "ebau/config/environment";
-
-const { languages, fallbackLanguage } = config;
+const { languages, fallbackLanguage } = mainConfig;
 
 const validateLanguage = (language) =>
   languages.find((lang) => lang === language);
@@ -94,6 +93,7 @@ export default class CustomSession extends Session {
     return this._data.value?.role;
   }
 
+  // this is the same as "baseRole" in ember-camac-ng shoebox
   get rolePermission() {
     return this.role?.permission;
   }
@@ -127,7 +127,12 @@ export default class CustomSession extends Session {
   }
 
   get isSupport() {
-    return config.ebau.supportGroups.includes(parseInt(this.group));
+    return this.rolePermission === "support";
+  }
+
+  get isMunicipalityLeadRole() {
+    // TODO we used to do this.role === "municipality-lead", but now we only have translated names
+    return false;
   }
 
   @cached

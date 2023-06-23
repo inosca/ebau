@@ -5,11 +5,10 @@ import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { queryManager } from "ember-apollo-client";
 import { dropTask, lastValue } from "ember-concurrency";
+import CustomCaseModel from "ember-ebau-core/caluma-query/models/case";
+import mainConfig from "ember-ebau-core/config/main";
 import { gql } from "graphql-tag";
 
-import CustomCaseModel from "camac-ng/caluma-query/models/case";
-import config from "camac-ng/config/environment";
-import redirectConfig from "camac-ng/config/redirect";
 import getCaseFromParcelsQuery from "camac-ng/gql/queries/get-case-from-parcels.graphql";
 
 const WORKFLOW_ITEM_IDS = [
@@ -55,7 +54,7 @@ export default class CaseDashboardComponent extends Component {
   }
 
   get journalInstanceResourceId() {
-    return redirectConfig.instanceResourceRedirects.journal[
+    return mainConfig.instanceResourceRedirects.journal[
       this.shoebox.content.roleId
     ];
   }
@@ -134,7 +133,7 @@ export default class CaseDashboardComponent extends Component {
 
       const instances = yield this.store.query("instance", {
         instance_id: instanceIds.join(","),
-        instance_state: config.APPLICATION.submittedStates.join(","),
+        instance_state: mainConfig.submittedStates.join(","),
       });
 
       return instances;

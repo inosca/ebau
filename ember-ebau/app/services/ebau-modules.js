@@ -9,8 +9,20 @@ export default class CustomEbauModulesService extends EbauModulesService {
   // This is set set by the case detail route
   @tracked instanceId = null;
 
+  get userId() {
+    return this.session.user?.id;
+  }
+
+  get userName() {
+    return this.session.user?.username;
+  }
+
+  get groupId() {
+    return parseInt(this.session.group);
+  }
+
   get serviceId() {
-    return this.session.service?.id;
+    return parseInt(this.session.service?.id);
   }
 
   get isReadOnlyRole() {
@@ -21,12 +33,33 @@ export default class CustomEbauModulesService extends EbauModulesService {
     return this.session.isLeadRole;
   }
 
+  get isSupportRole() {
+    return this.session.isSupport;
+  }
+
+  get isMunicipalityLeadRole() {
+    return this.session.isMunicipalityLeadRole;
+  }
+
   get baseRole() {
     return this.session.rolePermission;
   }
 
+  get role() {
+    return this.session.role;
+  }
+
+  get portalURL() {
+    // TODO how to do ENV-specific config?
+    return "";
+  }
+
   get isApplicant() {
     return !this.session.isInternal;
+  }
+
+  get language() {
+    return this.session.language;
   }
 
   redirectToWorkItems() {

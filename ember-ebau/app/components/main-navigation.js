@@ -3,12 +3,11 @@ import { inject as service } from "@ember/service";
 import { isTesting, macroCondition } from "@embroider/macros";
 import Component from "@glimmer/component";
 import { dropTask } from "ember-concurrency";
+import mainConfig from "ember-ebau-core/config/main";
 import { trackedTask } from "ember-resources/util/ember-concurrency";
 import UIkit from "uikit";
 
-import config from "ebau/config/environment";
-
-const { languages, APPLICATION } = config;
+const { languages, name } = mainConfig;
 
 export default class MainNavigationComponent extends Component {
   @service session;
@@ -18,7 +17,7 @@ export default class MainNavigationComponent extends Component {
   languages = languages;
 
   get logoPath() {
-    if (APPLICATION.name === "gr") {
+    if (name === "gr") {
       return "/ebau-gr-logo.svg";
     }
 
