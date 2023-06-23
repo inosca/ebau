@@ -61,7 +61,6 @@ class CustomPermission(BasePermission):
         if get_role(request.caluma_info.context.user) != settings.APPLICATION.get(
             "ALEXANDRIA", {}
         ).get("PUBLIC_ROLE", "public"):
-            print(get_role(request.caluma_info.context.user))
             return True
 
         return False
