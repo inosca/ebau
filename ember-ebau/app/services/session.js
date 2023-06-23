@@ -70,7 +70,7 @@ export default class CustomSession extends Session {
     const groupId =
       this.group ??
       response.data.relationships["default-group"]?.data?.id ??
-      response.data.relationships.groups.data?.[0].id;
+      response.data.relationships.groups.data?.[0]?.id;
     const group = this.store.peekRecord("group", groupId);
 
     return {
@@ -153,9 +153,14 @@ export default class CustomSession extends Session {
     this.set("data.language", language);
     this._language = language;
 
-    const locale = `${language}-ch`;
+    const application =
+      getOwner(this).resolveRegistration("config:environment").APPLICATION.name;
 
-    this.intl.setLocale([locale, language]);
+    this.intl.setLocale([
+      language,
+      `${language}-ch`,
+      `${language}-${application}`,
+    ]);
   }
 
   get authHeaders() {

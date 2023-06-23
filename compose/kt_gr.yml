@@ -32,9 +32,14 @@ services:
       - DYNAMIC_GROUPS_CLASSES=camac.caluma.extensions.dynamic_groups.CustomDynamicGroups
       - DYNAMIC_TASKS_CLASSES=camac.caluma.extensions.dynamic_tasks.CustomDynamicTasks
       - LANGUAGE_CODE=de
-      - LANGUAGES=de
+      - LANGUAGES=de,it
       - META_FIELDS=camac-instance-id,submit-date
       - ENABLE_HISTORICAL_API=true
+      # alexandria
+      - ALEXANDRIA_VISIBILITY_CLASSES=camac.alexandria.extensions.visibilities.CustomVisibility
+      - ALEXANDRIA_PERMISSION_CLASSES=camac.alexandria.extensions.permissions.CustomPermission
+      - ALEXANDRIA_VALIDATION_CLASSES=camac.alexandria.extensions.validations.Validator
+
   ember-caluma-portal:
     build:
       context: ../
@@ -85,4 +90,3 @@ volumes:
   pgdata:
   djangomedia:
   djangotmpmedia:
-  minio_data:

@@ -42,3 +42,4 @@ tqdm==4.64.1
 uWSGI==2.0.20
 whitenoise==6.2.0
 xmlschema==2.0.4
+caluma-alexandria==1.2.0

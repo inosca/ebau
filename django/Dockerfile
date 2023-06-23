@@ -12,6 +12,19 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   gettext \
   locales \
   libreoffice \
+  # alexandria dependencies
+  zlib1g-dev \
+  libjpeg-dev \
+  python3-pythonmagick \
+  libmagic-dev \
+  inkscape \
+  xvfb \
+  poppler-utils \
+  libfile-mimeinfo-perl \
+  qpdf \
+  libimage-exiftool-perl \
+  ffmpeg \
+  scribus \
 && rm -rf /var/lib/apt/lists/* \
 && mkdir /app \
 && sed -i -e 's/# de_CH.UTF-8 UTF-8/de_CH.UTF-8 UTF-8/' /etc/locale.gen \
