@@ -1,4 +1,5 @@
 import { inject as service } from "@ember/service";
+import { macroCondition, getOwnConfig } from "@embroider/macros";
 import { Ability } from "ember-can";
 
 import mainConfig from "ember-ebau-core/config/main";
@@ -53,11 +54,9 @@ export default class InstanceAbility extends Ability {
   }
 
   get canWriteForm() {
-    switch (mainConfig.name) {
-      case "kt_schwyz":
-        return (this.model.meta?.editable || []).includes("form");
-      default:
-        return (this.model.meta?.permissions?.main || []).includes("write");
+    if (macroCondition(getOwnConfig().application === "sz")) {
+      return (this.model.meta?.editable || []).includes("form");
     }
+    return (this.model.meta?.permissions?.main || []).includes("write");
   }
 }
