@@ -1,0 +1,31 @@
+.be-navbar {
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+  border: none;
+  padding-top: 26px;
+  padding-bottom: 10px;
+  height: 107px;
+
+  .uk-container {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+
+    > div:first-child {
+      flex-grow: 1;
+
+      > div:first-child {
+        align-items: flex-start;
+        justify-content: flex-end;
+      }
+    }
+  }
+
+  ul.uk-navbar-nav > li {
+    font-weight: 700;
+
+    &.uk-active > a {
+      box-shadow: none !important;
+      background-color: $global-primary-background;
+    }
+  }
+}

@@ -1,0 +1,42 @@
+@import "fonts/frutiger";
+
+$global-font-family: Frutiger, "Open Sans", sans-serif;
+$global-font-size: 13px;
+$base-body-font-weight: 400;
+$base-strong-font-weight: 700;
+$base-heading-font-weight: 700;
+
+// Base colors
+$global-primary-background: rgb(204, 0, 0);
+$global-secondary-background: rgb(0, 0, 0);
+$global-danger-background: $global-primary-background;
+$global-muted-background: rgb(245, 245, 245);
+
+// Font colors
+$global-color: $global-secondary-background;
+$global-emphasis-color: $global-secondary-background;
+$global-muted-color: rgb(138, 138, 138);
+$global-link-color: $global-primary-background;
+$global-link-hover-color: $global-primary-background;
+$alert-danger-color: $global-secondary-background;
+
+// Form
+$form-focus-border: $global-secondary-background;
+
+// Misc
+$modal-z-index: 1;
+
+$button-disabled-background: $global-muted-background;
+
+// Ember-power-select
+$ember-power-select-trigger-icon-color: #757575;
+
+// Navbar
+$navbar-nav-gap: 10px;
+$navbar-nav-gap-m: 10px;
+$navbar-nav-item-font-size: 16px;
+$navbar-nav-item-padding-horizontal: 15px;
+$navbar-nav-item-height: 42px;
+$navbar-nav-item-color: rgb(101, 109, 120);
+$navbar-nav-item-hover-color: $global-primary-background;
+$navbar-nav-item-active-color: rgb(255, 255, 255);
