@@ -153,13 +153,10 @@ export default class CustomSession extends Session {
     this.set("data.language", language);
     this._language = language;
 
-    const application =
-      getOwner(this).resolveRegistration("config:environment").APPLICATION.name;
-
     this.intl.setLocale([
       language,
       `${language}-ch`,
-      `${language}-${application}`,
+      `${language}-${mainConfig.name}`,
     ]);
   }
 
