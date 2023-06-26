@@ -11,7 +11,9 @@ services:
       - keycloak
     volumes:
       - djangomedia:/var/lib/camac/media:ro
-      - djangotmpmedia:/tmp/camac/tmpfiles:ro
+      # Mounting a subdirectory of a named volume currently isn't possible:
+      # https://github.com/moby/moby/issues/32582
+      - djangotmpmedia:/tmp/external-tmp:ro
 
   django: &django
     build:
@@ -43,7 +45,7 @@ services:
       - ENABLE_HISTORICAL_API=true
     volumes:
       - djangomedia:/var/lib/camac/media
-      - djangotmpmedia:/tmp/camac/tmpfiles
+      - djangotmpmedia:/tmp
 
   django-q:
     <<: *django
