@@ -57,6 +57,7 @@ from rest_framework.status import (
             {"access": {"service": "Write"}},
         ),
         ("Service", "patch", HTTP_200_OK, {"access": {"service": "Write"}}),
+        ("Service", "patch", HTTP_200_OK, {"access": {"service": "InternalAdmin"}}),
         (
             "Service",
             "delete",
@@ -66,7 +67,7 @@ from rest_framework.status import (
     ],
 )
 def test_document_permission(
-    db, role, admin_client, instance, metainfo, method, status_code
+    db, role, admin_client, caluma_admin_user, instance, metainfo, method, status_code
 ):
     alexandria_category = CategoryFactory(metainfo=metainfo)
     url = reverse("document-list")
@@ -91,7 +92,10 @@ def test_document_permission(
 
     if method in ["patch", "delete"]:
         doc = DocumentFactory(
-            title="Foo", category=alexandria_category, metainfo={"case_id": instance.pk}
+            title="Foo",
+            category=alexandria_category,
+            metainfo={"case_id": instance.pk},
+            created_by_group=caluma_admin_user.group,
         )
         url = reverse("document-detail", args=[doc.pk])
         data["data"]["id"] = str(doc.pk)
@@ -257,3 +261,109 @@ def test_category_permission(
     response = getattr(admin_client, method)(url, data)
 
     assert response.status_code == HTTP_405_METHOD_NOT_ALLOWED
+
+
+@pytest.mark.parametrize(
+    "instance_state__name,role__name,service__name,method,status_code,metainfo",
+    [
+        # KtGrAdminServiceARE
+        (
+            "subm",
+            "Service",
+            "Amt für Raumentwicklung (ARE)",
+            "post",
+            HTTP_201_CREATED,
+            {"access": {"service": "KtGrAdminServiceARE"}},
+        ),
+        (
+            "subm",
+            "Service",
+            "Amt für Raumentwicklung (ARE)",
+            "delete",
+            HTTP_204_NO_CONTENT,
+            {"access": {"service": "KtGrAdminServiceARE"}},
+        ),
+        (
+            "subm",
+            "Service",
+            "Kanton",
+            "delete",
+            HTTP_403_FORBIDDEN,
+            {"access": {"service": "KtGrAdminServiceARE"}},
+        ),
+        # KtGrReadARECirculationDeletable
+        (
+            "subm",
+            "Service",
+            "Amt für Raumentwicklung (ARE)",
+            "delete",
+            HTTP_403_FORBIDDEN,
+            {"access": {"service": "KtGrReadARECirculationDeletable"}},
+        ),
+        (
+            "subm",
+            "Service",
+            "Kanton",
+            "post",
+            HTTP_201_CREATED,
+            {"access": {"service": "KtGrReadARECirculationDeletable"}},
+        ),
+        (
+            "subm",
+            "Service",
+            "Kanton",
+            "delete",
+            HTTP_403_FORBIDDEN,
+            {"access": {"service": "KtGrReadARECirculationDeletable"}},
+        ),
+        (
+            "circulation",
+            "Service",
+            "Kanton",
+            "delete",
+            HTTP_204_NO_CONTENT,
+            {"access": {"service": "KtGrReadARECirculationDeletable"}},
+        ),
+    ],
+)
+def test_kt_gr_permissions(
+    db, role, admin_client, caluma_admin_user, instance, metainfo, method, status_code
+):
+    alexandria_category = CategoryFactory(metainfo=metainfo)
+    url = reverse("document-list")
+
+    data = {
+        "data": {
+            "type": "documents",
+            "attributes": {
+                "title": {"de": "Important"},
+                "metainfo": {"case_id": instance.pk},
+            },
+            "relationships": {
+                "category": {
+                    "data": {
+                        "id": alexandria_category.pk,
+                        "type": "categories",
+                    },
+                },
+            },
+        },
+    }
+
+    if method in ["patch", "delete"]:
+        doc = DocumentFactory(
+            title="Foo",
+            category=alexandria_category,
+            metainfo={"case_id": instance.pk},
+            created_by_group=caluma_admin_user.group,
+        )
+        url = reverse("document-detail", args=[doc.pk])
+        data["data"]["id"] = str(doc.pk)
+
+    response = getattr(admin_client, method)(url, data)
+
+    assert response.status_code == status_code
+
+    if method == "post" and status_code == HTTP_201_CREATED:
+        result = response.json()
+        assert result["data"]["attributes"]["title"]["de"] == "Important"
