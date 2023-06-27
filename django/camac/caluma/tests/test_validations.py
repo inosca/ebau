@@ -129,7 +129,7 @@ def test_appeal_work_item(
         }
 
         assert created.name["de"] == "Stellungnahme zu Beschwerde abgeben"
-        assert created.name["fr"] == "Prendre position sur la plainte"
+        assert created.name["fr"] == "Prendre position sur le recours"
 
     with pytest.raises(WorkItem.DoesNotExist):
         work_item_to_delete.refresh_from_db()
