@@ -137,7 +137,7 @@ cases:
     SUSPENDED: ""
 
   paper:
-    only: "Seulment les dossiers papier"
+    only: "Seulement les dossiers papier"
     none: "Pas de dossiers papier"
 
   modification:
