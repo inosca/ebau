@@ -198,6 +198,13 @@ DISTRIBUTION_DUMP_CONFIG = {
     },
 }
 
+ALEXANDRIA_PUBLIC_TAGS = [
+    "dokument-grundstucksangaben",
+    "dokument-gutachten-nachweise-begrundungen",
+    "dokument-projektplane-projektbeschrieb",
+    "dokument-weitere-gesuchsunterlagen",
+]
+
 
 def generate_form_dump_config(regex=None, version=None):
     if regex:
@@ -3294,6 +3301,13 @@ APPLICATIONS = {
             },
             # Distribution
             **DISTRIBUTION_DUMP_CONFIG,
+            "alexandria_tags": {
+                "alexandria_core.Tag": Q(pk__in=ALEXANDRIA_PUBLIC_TAGS),
+                # needed to prevent deletion of unused tags
+                "alexandria_core.Document": Q(
+                    pk="a4c3e79f-f0c5-43ae-8965-fe99218d0ce0"
+                ),
+            },
         },
         "DUMP_CONFIG_EXCLUDED_MODELS": [
             "user.Group",
@@ -3301,14 +3315,7 @@ APPLICATIONS = {
             "user.Service",
             "user.ServiceT",
         ],
-        "ALEXANDRIA": {
-            "PUBLIC_TAGS": [
-                "dokument-grundstucksangaben",
-                "dokument-gutachten-nachweise-begrundungen",
-                "dokument-projektplane-projektbeschrieb",
-                "dokument-weitere-gesuchsunterlagen",
-            ]
-        },
+        "ALEXANDRIA": {"PUBLIC_TAGS": ALEXANDRIA_PUBLIC_TAGS},
         "DOCUMENT_MERGE_SERVICE": {
             "FORM": {
                 "_base": {
