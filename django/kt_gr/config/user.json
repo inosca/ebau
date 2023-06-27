@@ -81,6 +81,15 @@
     }
   },
   {
+    "model": "user.role",
+    "pk": 20001,
+    "fields": {
+      "role_parent": null,
+      "name": null,
+      "group_prefix": null
+    }
+  },
+  {
     "model": "user.rolet",
     "pk": 1,
     "fields": {
@@ -167,6 +176,26 @@
       "role": 10001,
       "language": "de",
       "name": "Gesuchsteller",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20031,
+    "fields": {
+      "role": 20001,
+      "language": "de",
+      "name": "Umweltschutzorganisation",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20032,
+    "fields": {
+      "role": 20001,
+      "language": "it",
+      "name": "Organizzazione per la protezione dell'ambiente",
       "group_prefix": null
     }
   },

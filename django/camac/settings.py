@@ -387,7 +387,9 @@ APPLICATIONS = {
         ],
         "ATTACHMENT_SECTION_INTERNAL": 4,
         "DOCUMENT_MERGE_SERVICE": {},
-        "ALEXANDRIA": {"PUBLIC_ROLE": "applicant"},
+        "ALEXANDRIA": {
+            "PUBLIC_ROLE": "applicant",
+        },
     },
     "kt_schwyz": {
         "INCLUDE_STATIC_FILES": [("xml", "kt_schwyz/static/ech0211/xml/")],
@@ -3208,6 +3210,7 @@ APPLICATIONS = {
             "service-admin": "service",
             "subservice": "service",
             "support": "support",
+            "uso": "uso",
         },
         "ADMIN_GROUP": 1,
         "IS_MULTILINGUAL": True,
