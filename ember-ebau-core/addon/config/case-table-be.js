@@ -100,6 +100,8 @@ export default {
         "responsibleMunicipality",
         "address",
         "personalDetails",
+        "submitDateAfter",
+        "submitDateBefore",
         "modification",
         "instanceState",
       ],
