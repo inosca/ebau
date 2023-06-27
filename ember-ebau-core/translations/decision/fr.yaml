@@ -5,19 +5,19 @@ decision:
 
   appeal:
     confirmed: |-
-      Après la saisie de la décision, ce dossier est placé dans le statut prévu
-      de la décision précédente <b>({status})</b>.
+      Ce dossier passe au statut de la décision précédente <b>({status})</b>
+      après la saisie de la décision.
     changed: |-
-      Ce dossier, une fois la décision confirmée, est placé dans le statut
-      opposé à celui de la décision précédente <b>({status})</b>.
+      Ce dossier passe au statut opposé à la décision précédente
+      <b>({status})</b> après la confirmation de la décision.
     rejected: |-
-      Ce dossier est copié après la saisie de la décision et placé en
-      <b>"{status}"</b>. Le dossier actuel est clôturé.
+      Ce dossier est copié après la saisie de la décision et passe au statut
+      <b>« {status} »</b>. Le dossier en cours est clôturé.
 
   appeal-confirm: |-
     Voulez-vous vraiment lancer la procédure de recours ? Ce dossier passe
-    irrévocablement au statut <b>"Terminé"</b>. Un dossier de plainte est
-    généré, sur lequel la procédure de plainte peut être documentée.
+    irrévocablement au statut <b>« Terminé »</b>. Un dossier de recours est
+    créé, permettant de documenter la procédure de recours.
 
   send-notification-error: "Erreur lors de l'envoi des notifications"
   appeal-error: "Erreur lors du lancement de la procédure de recours"
