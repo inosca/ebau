@@ -22,7 +22,7 @@ class CustomVisibility(BaseVisibility):
         for permission in normal_permissions:
             # first: directly readable
             aggregated_filter |= Q(
-                **{f"{prefix}category__metainfo__access__contains": {role: permission}}
+                **{f"{prefix}category__metainfo__access__{role}__icontains": permission}
             )
 
         return (
