@@ -136,6 +136,13 @@ export default {
     labelField: "label",
     showWithoutOptions: true,
   },
+  modification: {
+    type: "select",
+    options: "modificationOptions",
+    valueField: "value",
+    labelField: "label",
+    showWithoutOptions: true,
+  },
   ...(macroCondition(getOwnConfig().application === "ur")
     ? {
         legalStateOereb: {

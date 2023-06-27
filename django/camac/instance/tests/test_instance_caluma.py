@@ -1619,14 +1619,14 @@ def test_caluma_instance_list_filter(
     mock_public_status,
     mock_nfd_permissions,
 ):
-    # not paper instances
-    instance_with_case(instance_factory(user=admin_user))
-    instance_with_case(instance_factory(user=admin_user))
-
-    # paper instance
-    be_instance.case.document.answers.create(
-        question_id="is-paper", value="is-paper-yes"
-    )
+    for instance, paper in [
+        (instance_with_case(instance_factory(user=admin_user)), False),
+        (instance_with_case(instance_factory(user=admin_user)), False),
+        (be_instance, True),
+    ]:
+        instance.case.document.answers.create(
+            question_id="is-paper", value=f"is-paper-{'yes' if paper else 'no'}"
+        )
 
     url = reverse("instance-list")
     response = admin_client.get(url, data={"is_paper": is_paper})

@@ -100,6 +100,7 @@ export default {
         "responsibleMunicipality",
         "address",
         "personalDetails",
+        "modification",
         "instanceState",
       ],
     },

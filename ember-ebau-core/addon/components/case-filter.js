@@ -253,6 +253,13 @@ export default class CaseFilterComponent extends Component {
     ];
   }
 
+  get modificationOptions() {
+    return [
+      { value: "1", label: this.intl.t("cases.modification.only") },
+      { value: "0", label: this.intl.t("cases.modification.none") },
+    ];
+  }
+
   legalStateOerebOptions = trackedFunction(this, async () => {
     const response = await this.apollo.query(
       { query: oerebLegalStateAnswersQuery },
