@@ -89,6 +89,8 @@ cases:
     keywordSearchTooShort: 'Die einzelnen Begriffe der Stichwortsuche müssen mindestens drei Buchstaben beinhalten, z.B. Neubau EFH oder "KW 1"'
     landowner-placeholder: "Grundeigentümerschaft"
     landowner: "Grundeigentümerschaft"
+    modification-placeholder: "Alle"
+    modification: "Projektänderung"
     municipality-placeholder: "Alle Gemeinden"
     municipality: "Gemeinde"
     paper-placeholder: "Alle"
@@ -141,6 +143,10 @@ cases:
   paper:
     only: "Nur Papierdossiers"
     none: "Keine Papierdossiers"
+
+  modification:
+    only: "Nur Projektänderungen"
+    none: "Keine Projektänderungen"
 
   inquiryState:
     pending: "In Bearbeitung"

@@ -343,6 +343,7 @@ export default class CaseTableComponent extends Component {
             location: undefined,
             tags: this.args.filter.tags,
             is_paper: this.args.filter.paper,
+            is_modification: this.args.filter.modification,
             inquiry_state: this.args.filter.inquiryState,
             decision_date_before: this.args.filter.decisionDateBefore,
             decision_date_after: this.args.filter.decisionDateAfter,

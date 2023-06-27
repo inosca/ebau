@@ -543,6 +543,28 @@ class InquiryAnswerFilter(BaseInFilter):
         )
 
 
+class CalumaYesNoFilter(BooleanFilter):
+    def __init__(self, question, yes="yes", no="no", *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        self.question = question
+        self.yes = yes
+        self.no = no
+
+    def filter(self, queryset, value):
+        if value in EMPTY_VALUES:
+            return queryset
+
+        yes_no_value = "-".join([self.question, self.yes if value else self.no])
+
+        return queryset.filter(
+            **{
+                "case__document__answers__question_id": self.question,
+                "case__document__answers__value": yes_no_value,
+            }
+        )
+
+
 class InstanceFilterSet(FilterSet):
     instance_id = NumberMultiValueFilter()
     identifier = CharFilter(field_name="identifier", lookup_expr="icontains")
@@ -752,24 +774,16 @@ class InstanceFilterSet(FilterSet):
 
 
 class CalumaInstanceFilterSet(InstanceFilterSet):
-    is_paper = BooleanFilter(method="filter_is_paper")
+    is_paper = CalumaYesNoFilter(question="is-paper")
+    is_modification = CalumaYesNoFilter(
+        question="projektaenderung", yes="ja", no="nein"
+    )
 
     sanction_creator = NumberFilter(field_name="sanctions__service")
     sanction_control_instance = NumberFilter(field_name="sanctions__control_instance")
 
-    def filter_is_paper(self, queryset, name, value):
-        _filter = {
-            "case__document__answers__question_id": "is-paper",
-            "case__document__answers__value": "is-paper-yes",
-        }
-
-        if value:
-            return queryset.filter(**_filter)
-
-        return queryset.exclude(**_filter)
-
     class Meta(InstanceFilterSet.Meta):
-        fields = InstanceFilterSet.Meta.fields + ("is_paper",)
+        fields = InstanceFilterSet.Meta.fields + ("is_paper", "is_modification")
 
 
 class InstanceResponsibilityFilterSet(FilterSet):
