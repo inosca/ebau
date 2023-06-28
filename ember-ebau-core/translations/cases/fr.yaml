@@ -85,6 +85,8 @@ cases:
     intent: "Projet de construction"
     landowner-placeholder: ""
     landowner: ""
+    modification-placeholder: "Tous"
+    modification: "Modification du projet"
     municipality-placeholder: "Tous les communes"
     municipality: "Commune"
     paper-placeholder: "Tous"
@@ -135,8 +137,12 @@ cases:
     SUSPENDED: ""
 
   paper:
-    only: "Seulment les dossiers papier"
+    only: "Seulement les dossiers papier"
     none: "Pas de dossiers papier"
+
+  modification:
+    only: "Seulement les modifications de projet"
+    none: "Pas de modifications du projet"
 
   inquiryState:
     pending: "En cours"
