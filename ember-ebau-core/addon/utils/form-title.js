@@ -1,7 +1,7 @@
 import { getAnswerDisplayValue } from "ember-ebau-core/utils/get-answer";
 
-export default function getFormTitle(document, answerSlugs, calumaCase) {
-  const isKoorAfjCopy = calumaCase?.meta.oereb_copy;
+export default function getFormTitle(caseModel, document, answerSlugs) {
+  const isKoorAfjCopy = caseModel?.meta.oereb_copy;
 
   const oerebProcedure = getAnswerDisplayValue(
     document,
