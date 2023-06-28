@@ -11,7 +11,7 @@ global:
   empty: "Keine Einträge gefunden"
   cancel: "Abbrechen"
   date: "Datum"
-  from: "Von"
+  by: "Von"
   back: "Zurück"
   noMatch: "Keine Resultate gefunden"
   loadMore: "Mehr laden"
