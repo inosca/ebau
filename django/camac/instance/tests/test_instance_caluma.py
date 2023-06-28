@@ -17,7 +17,11 @@ from rest_framework import status
 
 from camac.caluma.api import CalumaApi
 from camac.conftest import CALUMA_FORM_TYPES_SLUGS
-from camac.constants import kt_bern as be_constants, kt_uri as ur_constants
+from camac.constants import (
+    kt_bern as be_constants,
+    kt_uri as ur_constants,
+    kt_uri as uri_constants,
+)
 from camac.core.models import Chapter, Question, QuestionType
 from camac.ech0211 import event_handlers
 from camac.ech0211.data_preparation import DocumentParser
@@ -718,7 +722,9 @@ def test_instance_submit_ur(
         # this is a special "diverse gemeinden" or "alle gemeinden" dossier
         # this is therefore an ÖREB dossier and in this case the leitbehörde
         # is the KOOR NP
-        assert leitbehoerde == "67", "incorrect leitbehoerde"
+        assert (
+            int(leitbehoerde) == uri_constants.KOOR_NP_AUTHORITY_ID
+        ), "incorrect leitbehoerde"
     else:
         if is_paper:
             assert leitbehoerde == str(authority.pk)
