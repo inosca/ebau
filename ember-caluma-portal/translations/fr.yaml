@@ -34,6 +34,8 @@ nav:
   overview: "Aperçu"
   faq: "FAQ"
   form-builder: "Form Builder"
+  profile: "Profil"
+  communications: "Communication"
 
 feedback:
   info: "Vous n'avez pas de commentaires pour le moment. Dès que le dossier aura été soumis, les réactions éventuelles de l'autorité chef de file ou des agences spécialisées seront affichées ici."
