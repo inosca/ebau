@@ -1188,23 +1188,76 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
                 gettext_noop("Dossier completed by resubmission"),
             )
 
+    def _complete_submit_work_item(self, instance):
+        work_item = instance.case.work_items.filter(
+            task_id__in=settings.APPLICATION["CALUMA"]["SUBMIT_TASKS"],
+            status=workflow_models.WorkItem.STATUS_READY,
+        ).first()
+
+        if work_item:
+            workflow_api.complete_work_item(
+                work_item=work_item,
+                user=self.context["request"].caluma_info.context.user,
+                context={"data_source_context": {"instanceId": instance.pk}},
+            )
+
+    def _be_extend_validity_skip_ebau_number(self, case):
+        if case.document.form.slug == settings.APPLICATION["CALUMA"].get(
+            "EXTEND_VALIDITY_FORM"
+        ):
+            workflow_api.skip_work_item(
+                work_item=case.work_items.get(task_id="ebau-number"),
+                user=self.context["request"].caluma_info.context.user,
+            )
+
+    def _be_handle_internal_workflow(self, case, instance):
+        if case.workflow.slug == "internal":
+            instance.instance_state = models.InstanceState.objects.get(
+                name="in_progress_internal"
+            )
+
+    def _handle_extend_validity_form(self, case, instance):
+        if case.document.form.slug == settings.APPLICATION["CALUMA"].get(
+            "EXTEND_VALIDITY_FORM"
+        ):
+            instance.instance_state = models.InstanceState.objects.get(
+                name="circulation_init"
+            )
+
+    def _set_location_for_municipality(self, case, instance):
+        if not settings.APPLICATION["CALUMA"].get("USE_LOCATION"):
+            return
+
+        instance.location = Location.objects.get(
+            communal_federal_number=case.document.answers.get(
+                question_id="municipality"
+            ).value
+        )
+        self._update_instance_location(instance)
+
     @permission_aware
-    def _internal_submission(self, instance, group):
+    def _ur_internal_submission(self, instance, group):
         """Run side effects when instance is submitted by internal role."""
         pass
 
-    def _internal_submission_for_municipality(self, instance, group):
-        instance.instance_state = models.InstanceState.objects.get(name="comm")
+    def _ur_internal_submission_for_municipality(self, instance, group):
+        if settings.APPLICATION_NAME == "kt_uri":
+            instance.instance_state = models.InstanceState.objects.get(name="comm")
 
-    def _internal_submission_for_coordination(self, instance, group):
+    def _ur_internal_submission_for_coordination(self, instance, group):
+        if settings.APPLICATION_NAME != "kt_uri":
+            return
+
         is_federal = group.service.pk == uri_constants.BUNDESSTELLE_SERVICE_ID
         instance.instance_state = models.InstanceState.objects.get(
             name="comm" if is_federal else "ext"
         )
-
         instance.group = group
 
-    def _prepare_cantonal_instances(self, instance):
+    def _ur_prepare_cantonal_instances(self, instance):
+        if settings.APPLICATION_NAME != "kt_uri":
+            return
+
         if instance.case.document.form.slug == "cantonal-territory-usage":
             event_type_answer = self.get_master_data(instance.case).veranstaltung_art
 
@@ -1212,6 +1265,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
                 instance.group = Group.objects.get(pk=uri_constants.KOOR_SD_GROUP_ID)
             else:
                 instance.group = Group.objects.get(pk=uri_constants.KOOR_BD_GROUP_ID)
+
         elif instance.case.document.form.slug in [
             "konzession-waermeentnahme",
             "bohrbewilligung-waermeentnahme",
@@ -1226,7 +1280,11 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
 
         self._update_instance_location(instance)
 
-    def _copy_oereb_instance_for_koor_afj(self, instance):
+    def _ur_copy_oereb_instance_for_koor_afj(self, instance):
+        """In Kt. UR, for specific ÖREB instances a copy for KOOR AFJ is created."""
+        if not settings.APPLICATION_NAME == "kt_uri":
+            return
+
         if instance.case.document.form.slug in [
             "oereb",
             "oereb-verfahren-gemeinde",
@@ -1300,7 +1358,13 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         ]:
             self._send_notification(**notification_config)
 
-    def _link_existing_instance(self, instance):
+    def _ur_link_technische_bewilligung(self, instance):
+        if settings.APPLICATION_NAME != "kt_uri":
+            return
+
+        if instance.case.document.form.slug != "technische-bewilligung":
+            return
+
         existing_instance_id = CalumaApi().get_answer_value(
             "dossier-id-laufendes-verfahren", instance
         )
@@ -1308,6 +1372,27 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         if existing_instance_id:
             existing_instance = models.Instance.objects.get(pk=existing_instance_id)
             link_instances(instance, existing_instance)
+
+    def _set_instance_service(self, case, instance):
+        if settings.APPLICATION.get(
+            "USE_INSTANCE_SERVICE"
+        ) and not instance.responsible_service(filter_type="municipality"):
+
+            municipality = case.document.answers.get(question_id="gemeinde").value
+            InstanceService.objects.create(
+                instance=self.instance,
+                service_id=int(municipality),
+                active=1,
+                activation_date=None,
+            )
+
+    def _generate_identifier(self, case, instance):
+        if settings.APPLICATION["CALUMA"].get("GENERATE_IDENTIFIER"):
+            # Give dossier a unique dossier number
+            case.meta[
+                "dossier-number"
+            ] = domain_logic.CreateInstanceLogic.generate_identifier(instance)
+            case.save()
 
     def _check_authority_for_forest_dossiers(self, instance):
         forest_answer = instance.case.document.answers.filter(
@@ -1341,38 +1426,40 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
 
         return None
 
-    def _set_authority(self, instance):
+    def _get_authority(self, instance):
+        if instance.case.document.form.slug == "pgv-gemeindestrasse":
+            return str(uri_constants.BAUDIREKTION_AUTHORITY_ID)
+        if instance.case.document.form.slug in [
+            "konzession-waermeentnahme",
+            "bohrbewilligung-waermeentnahme",
+        ]:
+            return str(uri_constants.AMT_FUER_ENERGIE_AUTHORITY_ID)
+        if internal_authority := self.get_master_data(
+            instance.case
+        ).leitbehoerde_internal_form:
+            # in internal forms, KOORs can set a custom authority by answering a specific question
+            # this takes precedence over the default authority given by the location
+            return internal_authority
+        if forest_authority := self._check_authority_for_forest_dossiers(instance):
+            return forest_authority
+        if special_location_authority := self._check_authority_for_special_locations(
+            instance
+        ):
+            return special_location_authority
+
+        # Fallback: Location-based authority
+        return (
+            AuthorityLocation.objects.filter(location_id=instance.location_id)
+            .first()
+            .authority_id
+        )
+
+    def _ur_set_authority(self, instance):
         """Fill the answer to the question 'leitbehorde' (only used in UR)."""
         if not settings.APPLICATION["CALUMA"].get("USE_LOCATION", False):
             return
 
-        if instance.case.document.form.slug == "pgv-gemeindestrasse":
-            authority = str(uri_constants.BAUDIREKTION_AUTHORITY_ID)
-        elif instance.case.document.form.slug in [
-            "konzession-waermeentnahme",
-            "bohrbewilligung-waermeentnahme",
-        ]:
-            authority = str(uri_constants.AMT_FUER_ENERGIE_AUTHORITY_ID)
-        else:
-            # in internal forms, KOORs can set a custom authority by answering a specific question
-            # this takes precedence over the default authority given by the location
-            authority = self.get_master_data(instance.case).leitbehoerde_internal_form
-
-        if forest_authority := self._check_authority_for_forest_dossiers(instance):
-            authority = forest_authority
-        if special_location_authority := self._check_authority_for_special_locations(
-            instance
-        ):
-            authority = special_location_authority
-
-        if not authority:
-            authority = (
-                AuthorityLocation.objects.filter(location_id=instance.location_id)
-                .first()
-                .authority_id
-            )
-
-        if authority:
+        if authority := self._get_authority(instance):
             caluma_api.update_or_create_answer(
                 instance.case.document,
                 "leitbehoerde",
@@ -1381,7 +1468,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             )
 
     @transaction.atomic
-    def update(self, instance, validated_data):  # noqa: C901
+    def update(self, instance, validated_data):
         request_logger.info(f"Submitting instance {instance.pk}")
 
         case = self.instance.case
@@ -1389,84 +1476,26 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         instance.previous_instance_state = instance.instance_state
         instance.instance_state = models.InstanceState.objects.get(name="subm")
 
-        if case.workflow.slug == "internal":
-            instance.instance_state = models.InstanceState.objects.get(
-                name="in_progress_internal"
-            )
-
-        if case.document.form.slug == settings.APPLICATION["CALUMA"].get(
-            "EXTEND_VALIDITY_FORM"
-        ):
-            instance.instance_state = models.InstanceState.objects.get(
-                name="circulation_init"
-            )
-
-        if settings.APPLICATION["CALUMA"].get("USE_LOCATION"):
-            instance.location = Location.objects.get(
-                communal_federal_number=case.document.answers.get(
-                    question_id="municipality"
-                ).value
-            )
-
-            self._update_instance_location(instance)
-
-        if settings.APPLICATION_NAME == "kt_uri":
-            self._internal_submission(instance, self.context["request"].group)
-            self._prepare_cantonal_instances(instance)
+        self._be_handle_internal_workflow(case, instance)
+        self._handle_extend_validity_form(case, instance)
+        self._set_location_for_municipality(case, instance)
+        self._ur_internal_submission(instance, self.context["request"].group)
+        self._ur_prepare_cantonal_instances(instance)
 
         instance.save()
 
-        if (
-            settings.APPLICATION_NAME == "kt_uri"
-            and instance.case.document.form.slug == "technische-bewilligung"
-        ):
-            self._link_existing_instance(instance)
-
-        if settings.APPLICATION.get(
-            "USE_INSTANCE_SERVICE"
-        ) and not instance.responsible_service(filter_type="municipality"):
-
-            municipality = case.document.answers.get(question_id="gemeinde").value
-
-            InstanceService.objects.create(
-                instance=self.instance,
-                service_id=int(municipality),
-                active=1,
-                activation_date=None,
-            )
-
-        if settings.APPLICATION["CALUMA"].get("GENERATE_IDENTIFIER"):
-            # Give dossier a unique dossier number
-            case.meta[
-                "dossier-number"
-            ] = domain_logic.CreateInstanceLogic.generate_identifier(instance)
-            case.save()
-
-        self._set_authority(instance)
+        self._ur_link_technische_bewilligung(instance)
+        self._set_instance_service(case, instance)
+        self._generate_identifier(case, instance)
+        self._ur_set_authority(instance)
         self._generate_and_store_pdf(instance)
         self._set_submit_date(validated_data)
         self._create_history_entry(gettext_noop("Dossier submitted"))
         self._update_rejected_instance(instance)
-
-        work_item = self.instance.case.work_items.filter(
-            task_id__in=settings.APPLICATION["CALUMA"]["SUBMIT_TASKS"],
-            status=workflow_models.WorkItem.STATUS_READY,
-        ).first()
-
-        if work_item:
-            workflow_api.complete_work_item(
-                work_item=work_item,
-                user=self.context["request"].caluma_info.context.user,
-                context={"data_source_context": {"instanceId": instance.pk}},
-            )
-
-        if case.document.form.slug == settings.APPLICATION["CALUMA"].get(
-            "EXTEND_VALIDITY_FORM"
-        ):
-            workflow_api.skip_work_item(
-                work_item=case.work_items.get(task_id="ebau-number"),
-                user=self.context["request"].caluma_info.context.user,
-            )
+        self._complete_submit_work_item(instance)
+        self._be_extend_validity_skip_ebau_number(case)
+        self._ur_copy_oereb_instance_for_koor_afj(instance)
+        self._send_notifications(case)
 
         instance_submitted.send(
             sender=self.__class__,
@@ -1474,11 +1503,6 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             user_pk=self.context["request"].user.pk,
             group_pk=self.context["request"].group.pk,
         )
-
-        if settings.APPLICATION_NAME == "kt_uri":
-            self._copy_oereb_instance_for_koor_afj(instance)
-
-        self._send_notifications(case)
 
         return instance
 
