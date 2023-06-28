@@ -147,8 +147,12 @@ export default class AlexandriaDocumentsFormComponent extends Component {
       );
 
       this.alexandriaTags.category = this.category;
-      yield this.alexandriaTags.fetchAllTags.perform();
-      yield this.alexandriaTags.add(documentModel[0], bucket);
+
+      let tag = this.store.peekRecord("tag", bucket);
+      if (!tag) {
+        tag = yield this.store.findRecord("tag", bucket);
+      }
+      yield this.alexandriaTags.add(documentModel[0], tag);
 
       this.uploadedAttachmentIds = [
         ...this.uploadedAttachmentIds,
