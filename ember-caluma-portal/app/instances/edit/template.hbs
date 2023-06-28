@@ -36,7 +36,7 @@
           </Tab.item>
         {{/if}}
       {{/each}}
-      {{#if (can "read feedback of instance" this.instance.value)}}
+      {{#if (and this.hasFeedbackSection (can "read feedback of instance" this.instance.value))}}
         <Tab.item @href={{concat "/instances/" @model "/feedback"}} as |active|>
           <AriaHeading @enabled={{active}}>
             {{t "nav.feedback"}}
