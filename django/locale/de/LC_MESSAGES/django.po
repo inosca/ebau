@@ -177,7 +177,7 @@ msgstr ""
 
 #: camac/core/apps.py:7
 msgid "Resource management"
-msgstr "Verwaltung der Ressourcen"
+msgstr "Verwaltung der Ressourcen (Achtung: Nur für Adfinis)"
 
 #: camac/document/filters.py:21
 msgid ""
