@@ -7728,47 +7728,17 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "gebaeude-tabelle.antrag-ausnahme-solarpflicht",
+    "pk": "gebaeude-tabelle.amtliche-gebaeudenummer",
     "fields": {
-      "created_at": "2023-05-19T10:17:48.859Z",
-      "modified_at": "2023-05-19T10:17:48.859Z",
+      "created_at": "2023-06-27T09:38:14.924Z",
+      "modified_at": "2023-06-27T09:38:14.924Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
-      "question": "antrag-ausnahme-solarpflicht",
-      "sort": 13
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "gebaeude-tabelle.art-der-reklamebaute",
-    "fields": {
-      "created_at": "2023-05-19T09:11:21.563Z",
-      "modified_at": "2023-05-19T09:11:21.563Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "gebaeude-tabelle",
-      "question": "art-der-reklamebaute",
-      "sort": 22
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "gebaeude-tabelle.begruendung-ausname-solarpflicht",
-    "fields": {
-      "created_at": "2023-05-19T10:19:51.688Z",
-      "modified_at": "2023-05-19T10:19:51.688Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "gebaeude-tabelle",
-      "question": "begruendung-ausname-solarpflicht",
-      "sort": 12
+      "question": "amtliche-gebaeudenummer",
+      "sort": 14
     }
   },
   {
@@ -7783,7 +7753,7 @@
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
       "question": "begruendung-energie-waermequelle-heizung",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -7813,7 +7783,7 @@
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
       "question": "begruendung-waermeerzeuger-heizung",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -7833,36 +7803,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "gebaeude-tabelle.beleuchtung",
-    "fields": {
-      "created_at": "2023-05-19T09:20:27.322Z",
-      "modified_at": "2023-05-19T09:20:27.322Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "gebaeude-tabelle",
-      "question": "beleuchtung",
-      "sort": 20
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "gebaeude-tabelle.egid",
-    "fields": {
-      "created_at": "2023-05-19T08:58:50.233Z",
-      "modified_at": "2023-05-19T08:58:50.233Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "gebaeude-tabelle",
-      "question": "egid",
-      "sort": 24
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "gebaeude-tabelle.energie-waermequelle-heizung",
     "fields": {
       "created_at": "2023-05-19T11:00:41.219Z",
@@ -7873,7 +7813,7 @@
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
       "question": "energie-waermequelle-heizung",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -7893,182 +7833,47 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "gebaeude-tabelle.fundationsart",
+    "pk": "gebaeude-tabelle.energiebezugsflaeche",
     "fields": {
-      "created_at": "2023-05-19T10:25:21.919Z",
-      "modified_at": "2023-05-19T10:25:21.919Z",
+      "created_at": "2023-06-26T09:56:24.135Z",
+      "modified_at": "2023-06-26T09:56:24.135Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
-      "question": "fundationsart",
-      "sort": 9
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "gebaeude-tabelle.gebaeudekategorie",
-    "fields": {
-      "created_at": "2023-05-19T10:24:24.645Z",
-      "modified_at": "2023-05-19T10:24:24.645Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "gebaeude-tabelle",
-      "question": "gebaeudekategorie",
+      "question": "energiebezugsflaeche",
       "sort": 10
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "gebaeude-tabelle.gebaeudenummer-bezeichnung",
+    "pk": "gebaeude-tabelle.gwr-gebaeudevolumen",
     "fields": {
-      "created_at": "2023-05-19T08:58:10.522Z",
-      "modified_at": "2023-05-19T08:58:10.522Z",
+      "created_at": "2023-06-27T09:39:01.301Z",
+      "modified_at": "2023-06-27T09:39:01.301Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
-      "question": "gebaeudenummer-bezeichnung",
-      "sort": 25
+      "question": "gwr-gebaeudevolumen",
+      "sort": 12
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "gebaeude-tabelle.gleiche-reklamen",
+    "pk": "gebaeude-tabelle.ist-ein-warmwasseranschluss-geplant",
     "fields": {
-      "created_at": "2023-05-19T10:10:30.147Z",
-      "modified_at": "2023-05-19T10:10:30.147Z",
+      "created_at": "2023-06-26T10:03:18.607Z",
+      "modified_at": "2023-06-26T10:03:18.607Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
-      "question": "gleiche-reklamen",
-      "sort": 18
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "gebaeude-tabelle.groesse-der-reklame-cm",
-    "fields": {
-      "created_at": "2023-05-19T09:21:43.406Z",
-      "modified_at": "2023-05-19T09:21:43.406Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "gebaeude-tabelle",
-      "question": "groesse-der-reklame-cm",
-      "sort": 19
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "gebaeude-tabelle.hinweis-erfassung-solaranlage",
-    "fields": {
-      "created_at": "2023-05-19T10:15:30.436Z",
-      "modified_at": "2023-05-19T10:15:30.436Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "gebaeude-tabelle",
-      "question": "hinweis-erfassung-solaranlage",
-      "sort": 14
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "gebaeude-tabelle.montageart",
-    "fields": {
-      "created_at": "2023-05-19T09:13:25.625Z",
-      "modified_at": "2023-05-19T09:13:25.625Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "gebaeude-tabelle",
-      "question": "montageart",
-      "sort": 21
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "gebaeude-tabelle.proposal",
-    "fields": {
-      "created_at": "2023-05-19T10:12:29.895Z",
-      "modified_at": "2023-05-19T10:12:29.895Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "gebaeude-tabelle",
-      "question": "proposal",
-      "sort": 17
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "gebaeude-tabelle.solaranlagenpflicht",
-    "fields": {
-      "created_at": "2023-05-19T10:13:07.696Z",
-      "modified_at": "2023-05-19T10:13:07.696Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "gebaeude-tabelle",
-      "question": "solaranlagenpflicht",
-      "sort": 16
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "gebaeude-tabelle.solarpflicht",
-    "fields": {
-      "created_at": "2023-05-19T10:14:07.545Z",
-      "modified_at": "2023-05-19T10:14:07.545Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "gebaeude-tabelle",
-      "question": "solarpflicht",
-      "sort": 15
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "gebaeude-tabelle.typ-des-bauwerks",
-    "fields": {
-      "created_at": "2023-05-19T09:07:50.934Z",
-      "modified_at": "2023-05-19T09:07:50.934Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "gebaeude-tabelle",
-      "question": "typ-des-bauwerks",
-      "sort": 23
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "gebaeude-tabelle.umbau",
-    "fields": {
-      "created_at": "2023-05-19T10:21:41.431Z",
-      "modified_at": "2023-05-19T10:21:41.431Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "gebaeude-tabelle",
-      "question": "umbau",
-      "sort": 11
+      "question": "ist-ein-warmwasseranschluss-geplant",
+      "sort": 5
     }
   },
   {
@@ -8083,7 +7888,7 @@
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
       "question": "waermeerzeuger-heizung",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -8099,6 +7904,21 @@
       "form": "gebaeude-tabelle",
       "question": "waermeerzeuger-warmwasser",
       "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "gebaeude-tabelle.werden-flaechen-beheizt",
+    "fields": {
+      "created_at": "2023-06-26T10:02:29.236Z",
+      "modified_at": "2023-06-26T10:02:29.236Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "gebaeude-tabelle",
+      "question": "werden-flaechen-beheizt",
+      "sort": 11
     }
   },
   {
@@ -8579,21 +8399,6 @@
       "form": "gwr",
       "question": "gwr-titel",
       "sort": 3
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "gwr.wohnungen",
-    "fields": {
-      "created_at": "2023-05-19T10:38:30.804Z",
-      "modified_at": "2023-05-19T10:38:30.804Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "gwr",
-      "question": "wohnungen",
-      "sort": 1
     }
   },
   {
@@ -10049,6 +9854,21 @@
       "form": "nutzung-bauvorhaben",
       "question": "ausserhalb-bauzone",
       "sort": 23
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "nutzung-bauvorhaben.baute-oder-anlage",
+    "fields": {
+      "created_at": "2023-06-26T09:48:37.227Z",
+      "modified_at": "2023-06-26T09:48:37.227Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "nutzung-bauvorhaben",
+      "question": "baute-oder-anlage",
+      "sort": 24
     }
   },
   {
@@ -16988,6 +16808,54 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "baute-oder-anlage-anlage",
+    "fields": {
+      "created_at": "2023-06-26T09:48:36.767Z",
+      "modified_at": "2023-06-26T09:48:36.767Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anlage\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "baute-oder-anlage-baute",
+    "fields": {
+      "created_at": "2023-06-26T09:48:36.804Z",
+      "modified_at": "2023-06-26T09:48:36.804Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Baute\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "baute-oder-anlage-beides",
+    "fields": {
+      "created_at": "2023-06-26T09:48:36.765Z",
+      "modified_at": "2023-06-26T09:48:36.765Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beides\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "bauvorhaben-mit-gewerbenutzung-landwirtschaftlichem-gewerbe-ja",
     "fields": {
       "created_at": "2023-04-05T10:50:36.287Z",
@@ -20908,6 +20776,38 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "gebaeudevolumen-nach-norm-sia-116",
+    "fields": {
+      "created_at": "2023-06-26T09:57:47.142Z",
+      "modified_at": "2023-06-26T09:57:47.142Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"SIA-116\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "gebaeudevolumen-nach-norm-sia-416",
+    "fields": {
+      "created_at": "2023-06-26T09:57:47.149Z",
+      "modified_at": "2023-06-26T09:57:47.149Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"SIA-416\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "geplanter-ausbau-entnahmebrunnen",
     "fields": {
       "created_at": "2023-04-20T14:57:10.244Z",
@@ -21539,6 +21439,38 @@
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "ist-ein-warmwasseranschluss-geplant-ja",
+    "fields": {
+      "created_at": "2023-06-26T10:03:18.308Z",
+      "modified_at": "2023-06-26T10:03:18.308Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "ist-ein-warmwasseranschluss-geplant-nein",
+    "fields": {
+      "created_at": "2023-06-26T10:03:18.311Z",
+      "modified_at": "2023-06-26T10:03:18.311Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null, \"rm\": null}",
       "is_archived": false,
@@ -28460,6 +28392,38 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "werden-flaechen-beheizt-ja",
+    "fields": {
+      "created_at": "2023-06-26T10:02:28.857Z",
+      "modified_at": "2023-06-26T10:02:28.857Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "werden-flaechen-beheizt-nein",
+    "fields": {
+      "created_at": "2023-06-26T10:02:28.864Z",
+      "modified_at": "2023-06-26T10:02:28.864Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "werden-schutzplaetze-erstellt-ja",
     "fields": {
       "created_at": "2023-04-18T18:56:31.659Z",
@@ -30549,6 +30513,40 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "amtliche-gebaeudenummer",
+    "fields": {
+      "created_at": "2023-06-27T09:38:14.803Z",
+      "modified_at": "2023-06-27T09:38:14.803Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Amtliche Geb\\u00e4udenummer\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -33757,6 +33755,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "baute-oder-anlage",
+    "fields": {
+      "created_at": "2023-06-26T09:48:37.043Z",
+      "modified_at": "2023-06-26T09:48:37.043Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Handelt es sich um eine Baute oder um eine Anlage?\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "bauten-ausserhalb-bauzone",
     "fields": {
       "created_at": "2023-04-12T08:22:43.441Z",
@@ -34048,14 +34077,14 @@
     "pk": "begruendung-energie-waermequelle-heizung",
     "fields": {
       "created_at": "2023-05-19T11:02:24.988Z",
-      "modified_at": "2023-05-19T11:06:27.062Z",
+      "modified_at": "2023-06-26T10:06:55.910Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Begr\\u00fcndung\", \"fr\": null, \"it\": null, \"rm\": null}",
       "type": "textarea",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "!(\"energie-waermequelle-heizung-noch-nicht-festgelegt\" == \"energie-waermequelle-heizung\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
@@ -34082,19 +34111,19 @@
     "pk": "begruendung-energie-waermequelle-warmwasser",
     "fields": {
       "created_at": "2023-05-19T11:13:18.146Z",
-      "modified_at": "2023-05-19T11:13:18.146Z",
+      "modified_at": "2023-06-27T09:41:54.483Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Begr\\u00fcndung\", \"fr\": null, \"it\": null, \"rm\": null}",
       "type": "textarea",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "!(\"energie-waermequelle-warmwasser-noch-nicht-festgelegt\" == \"energie-waermequelle-warmwasser\"|answer)",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -34388,19 +34417,19 @@
     "pk": "begruendung-waermeerzeuger-heizung",
     "fields": {
       "created_at": "2023-05-19T10:55:55.640Z",
-      "modified_at": "2023-05-19T10:55:55.640Z",
+      "modified_at": "2023-06-26T10:06:46.894Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Begr\\u00fcndung\", \"fr\": null, \"it\": null, \"rm\": null}",
       "type": "textarea",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "!(\"waermeerzeuger-heizung-noch-nicht-festgelegt\" == \"waermeerzeuger-heizung\"|answer)",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -34422,19 +34451,19 @@
     "pk": "begruendung-waermeerzeuger-warmwasser",
     "fields": {
       "created_at": "2023-05-19T11:08:22Z",
-      "modified_at": "2023-05-19T11:08:22Z",
+      "modified_at": "2023-06-27T09:41:45.316Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Begr\\u00fcndung\", \"fr\": null, \"it\": null, \"rm\": null}",
       "type": "textarea",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "!(\"waermeerzeuger-warmwasser-noch-nicht-festgelegt\" == \"waermeerzeuger-warmwasser\"|answer)",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -39982,15 +40011,15 @@
     "pk": "energie-waermequelle-heizung",
     "fields": {
       "created_at": "2023-05-19T11:00:40.873Z",
-      "modified_at": "2023-05-19T11:02:43.984Z",
+      "modified_at": "2023-06-27T09:40:27.765Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Energie-/W\\u00e4rmequelle Heizung\", \"fr\": null, \"it\": null, \"rm\": null}",
       "type": "choice",
-      "is_required": "false",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!(\"werden-flaechen-beheizt-ja\" == \"werden-flaechen-beheizt\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "info_text": "{\"de\": \"Mit \\u00abEnergie-/W\\u00e4rmequelle Heizung\\u00bb ist die vom W\\u00e4rmeerzeuger genutzte Hauptenergiequelle gemeint. Die Hilfsenergie, die f\\u00fcr das Funktionieren der Installation genutzt wird (z.B. Elektrizit\\u00e4t f\\u00fcr W\\u00e4rmepumpen), ist nicht zu nennen.\", \"fr\": null, \"it\": null, \"rm\": null}",
@@ -40013,21 +40042,55 @@
     "pk": "energie-waermequelle-warmwasser",
     "fields": {
       "created_at": "2023-05-19T11:12:25.778Z",
-      "modified_at": "2023-05-19T11:12:25.778Z",
+      "modified_at": "2023-06-27T09:41:50.097Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Energie-/W\\u00e4rmequelle Warmwasser\", \"fr\": null, \"it\": null, \"rm\": null}",
       "type": "choice",
-      "is_required": "false",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!(\"ist-ein-warmwasseranschluss-geplant-ja\" == \"ist-ein-warmwasseranschluss-geplant\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "info_text": "{\"de\": \"Mit \\u00abEnergie-/W\\u00e4rmequelle Warmwasser\\u00bb ist die vom W\\u00e4rmeerzeuger genutzte Hauptenergiequelle gemeint. Die Hilfsenergie, die f\\u00fcr das Funktionieren der Installation genutzt wird (z.B. Elektrizit\\u00e4t f\\u00fcr W\\u00e4rmepumpen), ist nicht zu nennen.\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "energiebezugsflaeche",
+    "fields": {
+      "created_at": "2023-06-26T09:56:23.969Z",
+      "modified_at": "2023-06-27T09:39:43.452Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Energiebezugsfl\\u00e4che (m\\u00b2)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "integer",
+      "is_required": "true",
+      "is_hidden": "!(\"werden-flaechen-beheizt-ja\" == \"werden-flaechen-beheizt\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -42113,7 +42176,7 @@
     "pk": "gebaeude-und-anlagen",
     "fields": {
       "created_at": "2023-05-19T09:00:43.844Z",
-      "modified_at": "2023-05-19T10:40:47.773Z",
+      "modified_at": "2023-06-27T09:43:16.585Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -42134,7 +42197,14 @@
           "typ-des-bauwerks",
           "proposal",
           "gebaeudekategorie",
-          "fundationsart"
+          "fundationsart",
+          "gebaeudevolumen-m",
+          "gebaeudevolumen-nach-norm",
+          "amtliche-gebaeudenummer",
+          "gwr-gebaeudevolumen",
+          "energiebezugsflaeche",
+          "waermeerzeuger-heizung",
+          "waermeerzeuger-warmwasser"
         ]
       },
       "data_source": null,
@@ -42310,19 +42380,19 @@
     "pk": "gebaeudenummer-bezeichnung",
     "fields": {
       "created_at": "2023-05-19T08:58:10.356Z",
-      "modified_at": "2023-05-19T08:58:10.356Z",
+      "modified_at": "2023-06-26T10:05:42.481Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Geb\\u00e4ude / Bezeichnung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Amtliche Geb\\u00e4udenummer\", \"fr\": null, \"it\": null, \"rm\": null}",
       "type": "text",
-      "is_required": "true",
+      "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"z.B. MFH A\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -42353,6 +42423,71 @@
       "type": "choice",
       "is_required": "false",
       "is_hidden": "!(\"art-des-gebaeude-landwirtschaftliche-bauten\" in \"art-des-gebaeude\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "gebaeudevolumen-m",
+    "fields": {
+      "created_at": "2023-06-26T09:57:09.401Z",
+      "modified_at": "2023-06-26T10:06:23.136Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Geb\\u00e4udevolumen nach SIA-416 (m\\u00b3)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "integer",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "gebaeudevolumen-nach-norm",
+    "fields": {
+      "created_at": "2023-06-26T09:57:47.458Z",
+      "modified_at": "2023-06-26T09:57:47.458Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Geb\\u00e4udevolumen nach Norm\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
@@ -43763,7 +43898,7 @@
     "pk": "gwr",
     "fields": {
       "created_at": "2023-05-19T08:54:12.486Z",
-      "modified_at": "2023-05-19T08:54:40.611Z",
+      "modified_at": "2023-06-26T09:49:57.621Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -43771,7 +43906,7 @@
       "label": "{\"de\": \"Geb\\u00e4ude- und Wohnungsregister\", \"fr\": null, \"it\": null, \"rm\": null}",
       "type": "form",
       "is_required": "false",
-      "is_hidden": "false",
+      "is_hidden": "!(\"baute-oder-anlage\"|answer in [\"baute-oder-anlage-baute\", \"baute-oder-anlage-beides\"])",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
@@ -43782,6 +43917,40 @@
       "data_source": null,
       "row_form": null,
       "sub_form": "gwr",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "gwr-gebaeudevolumen",
+    "fields": {
+      "created_at": "2023-06-27T09:39:01.192Z",
+      "modified_at": "2023-06-27T09:41:32.513Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Geb\\u00e4udevolumen nach SIA-416 (m\\u00b3)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "integer",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
@@ -45345,6 +45514,37 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "info_text": "{\"de\": \"#### INFO\\nDie Installation einer Solaranlage welche Gebiete, Baugruppen oder Einzelelemente gem\\u00e4ss Bundesinventar der sch\\u00fctzenswerten Ortsbilder von nationaler Bedeutung (ISOS) mit Erhaltungsziel A betrifft, sind nicht grunds\\u00e4tzlich ausgeschlossen. Entsprechende Projekte m\\u00fcssen jedoch zwingend im Rahmen eines ordentlichen Baubewilligungsverfahren durch die kantonale Denkmalpflege gepr\\u00fcft werden. Weitere Informationen zum [ISOS](https://gisos.bak.admin.ch/).\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "ist-ein-warmwasseranschluss-geplant",
+    "fields": {
+      "created_at": "2023-06-26T10:03:18.467Z",
+      "modified_at": "2023-06-27T09:41:36.497Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ist ein Warmwasseranschluss geplant?\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {},
@@ -55344,19 +55544,19 @@
     "pk": "waermeerzeuger-heizung",
     "fields": {
       "created_at": "2023-05-19T10:53:45.625Z",
-      "modified_at": "2023-05-19T10:53:45.625Z",
+      "modified_at": "2023-06-27T09:40:15.354Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"W\\u00e4rmeerzeuger Heizung\", \"fr\": null, \"it\": null, \"rm\": null}",
       "type": "choice",
-      "is_required": "false",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!(\"werden-flaechen-beheizt-ja\" == \"werden-flaechen-beheizt\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "info_text": "{\"de\": \"Der W\\u00e4rmeerzeuger entspricht der Art der technischen Installation, die im Geb\\u00e4ude f\\u00fcr die Heizung der R\\u00e4ume genutzt wird.\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -55375,15 +55575,15 @@
     "pk": "waermeerzeuger-warmwasser",
     "fields": {
       "created_at": "2023-05-19T11:05:12.873Z",
-      "modified_at": "2023-05-19T11:07:15.296Z",
+      "modified_at": "2023-06-27T09:41:40.949Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"W\\u00e4rmeerzeuger Warmwasser\", \"fr\": null, \"it\": null, \"rm\": null}",
       "type": "choice",
-      "is_required": "false",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!(\"ist-ein-warmwasseranschluss-geplant-ja\" == \"ist-ein-warmwasseranschluss-geplant\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "info_text": "{\"de\": \"Der W\\u00e4rmeerzeuger entspricht der Art der technischen Installation, die im Geb\\u00e4ude f\\u00fcr das Aufbereiten von Brauchwarmwasser genutzt wird. Kleinboiler sind dezentrale Installationen, die in der Regel Warmwasser f\\u00fcr einen einzigen Wasserhahn oder eine einzige Dusche aufbereiten. Zentrale Gasboiler werden als Heizkessel erfasst.\", \"fr\": null, \"it\": null, \"rm\": null}",
@@ -56066,6 +56266,37 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "werden-flaechen-beheizt",
+    "fields": {
+      "created_at": "2023-06-26T10:02:29.051Z",
+      "modified_at": "2023-06-26T10:06:27.928Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Werden Fl\\u00e4chen beheizt?\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -59997,6 +60228,51 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "baute-oder-anlage.baute-oder-anlage-anlage",
+    "fields": {
+      "created_at": "2023-06-26T09:48:37.059Z",
+      "modified_at": "2023-06-26T09:48:37.059Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "baute-oder-anlage",
+      "option": "baute-oder-anlage-anlage",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "baute-oder-anlage.baute-oder-anlage-baute",
+    "fields": {
+      "created_at": "2023-06-26T09:48:37.063Z",
+      "modified_at": "2023-06-26T09:48:37.063Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "baute-oder-anlage",
+      "option": "baute-oder-anlage-baute",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "baute-oder-anlage.baute-oder-anlage-beides",
+    "fields": {
+      "created_at": "2023-06-26T09:48:37.053Z",
+      "modified_at": "2023-06-26T09:48:37.053Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "baute-oder-anlage",
+      "option": "baute-oder-anlage-beides",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "bauvorhaben-mit-gewerbenutzung.bauvorhaben-mit-gewerbenutzung-landwirtschaftlichem-gewerbe-ja",
     "fields": {
       "created_at": "2023-04-05T10:50:36.426Z",
@@ -62219,8 +62495,8 @@
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-heizung.energie-waermequelle-heizung-abwaerme",
     "fields": {
-      "created_at": "2023-05-19T11:02:44.025Z",
-      "modified_at": "2023-05-19T11:02:44.025Z",
+      "created_at": "2023-06-27T09:40:27.801Z",
+      "modified_at": "2023-06-27T09:40:27.801Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -62234,8 +62510,8 @@
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-heizung.energie-waermequelle-heizung-andere",
     "fields": {
-      "created_at": "2023-05-19T11:02:43.998Z",
-      "modified_at": "2023-05-19T11:02:43.998Z",
+      "created_at": "2023-06-27T09:40:27.776Z",
+      "modified_at": "2023-06-27T09:40:27.776Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -62249,8 +62525,8 @@
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-heizung.energie-waermequelle-heizung-elektrizitaet",
     "fields": {
-      "created_at": "2023-05-19T11:02:44.021Z",
-      "modified_at": "2023-05-19T11:02:44.021Z",
+      "created_at": "2023-06-27T09:40:27.797Z",
+      "modified_at": "2023-06-27T09:40:27.797Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -62264,8 +62540,8 @@
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-heizung.energie-waermequelle-heizung-erdregister",
     "fields": {
-      "created_at": "2023-05-19T11:02:44.050Z",
-      "modified_at": "2023-05-19T11:02:44.050Z",
+      "created_at": "2023-06-27T09:40:27.823Z",
+      "modified_at": "2023-06-27T09:40:27.823Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -62279,8 +62555,8 @@
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-heizung.energie-waermequelle-heizung-erdwaerme-generisch",
     "fields": {
-      "created_at": "2023-05-19T11:02:44.056Z",
-      "modified_at": "2023-05-19T11:02:44.056Z",
+      "created_at": "2023-06-27T09:40:27.829Z",
+      "modified_at": "2023-06-27T09:40:27.829Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -62294,8 +62570,8 @@
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-heizung.energie-waermequelle-heizung-erdwaermesonde",
     "fields": {
-      "created_at": "2023-05-19T11:02:44.053Z",
-      "modified_at": "2023-05-19T11:02:44.053Z",
+      "created_at": "2023-06-27T09:40:27.825Z",
+      "modified_at": "2023-06-27T09:40:27.825Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -62309,8 +62585,8 @@
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-heizung.energie-waermequelle-heizung-fernwaerme-generisch",
     "fields": {
-      "created_at": "2023-05-19T11:02:44.014Z",
-      "modified_at": "2023-05-19T11:02:44.014Z",
+      "created_at": "2023-06-27T09:40:27.790Z",
+      "modified_at": "2023-06-27T09:40:27.791Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -62324,8 +62600,8 @@
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-heizung.energie-waermequelle-heizung-fernwaerme-hochtemperatur",
     "fields": {
-      "created_at": "2023-05-19T11:02:44.010Z",
-      "modified_at": "2023-05-19T11:02:44.010Z",
+      "created_at": "2023-06-27T09:40:27.788Z",
+      "modified_at": "2023-06-27T09:40:27.788Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -62339,8 +62615,8 @@
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-heizung.energie-waermequelle-heizung-fernwaerme-niedertemperatur",
     "fields": {
-      "created_at": "2023-05-19T11:02:44.006Z",
-      "modified_at": "2023-05-19T11:02:44.006Z",
+      "created_at": "2023-06-27T09:40:27.785Z",
+      "modified_at": "2023-06-27T09:40:27.785Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -62354,8 +62630,8 @@
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-heizung.energie-waermequelle-heizung-gas",
     "fields": {
-      "created_at": "2023-05-19T11:02:44.043Z",
-      "modified_at": "2023-05-19T11:02:44.043Z",
+      "created_at": "2023-06-27T09:40:27.817Z",
+      "modified_at": "2023-06-27T09:40:27.817Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -62369,8 +62645,8 @@
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-heizung.energie-waermequelle-heizung-heizoel",
     "fields": {
-      "created_at": "2023-05-19T11:02:44.039Z",
-      "modified_at": "2023-05-19T11:02:44.039Z",
+      "created_at": "2023-06-27T09:40:27.814Z",
+      "modified_at": "2023-06-27T09:40:27.814Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -62384,8 +62660,8 @@
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-heizung.energie-waermequelle-heizung-holz-generisch",
     "fields": {
-      "created_at": "2023-05-19T11:02:44.036Z",
-      "modified_at": "2023-05-19T11:02:44.036Z",
+      "created_at": "2023-06-27T09:40:27.809Z",
+      "modified_at": "2023-06-27T09:40:27.809Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -62399,8 +62675,8 @@
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-heizung.energie-waermequelle-heizung-holz-pellets",
     "fields": {
-      "created_at": "2023-05-19T11:02:44.029Z",
-      "modified_at": "2023-05-19T11:02:44.029Z",
+      "created_at": "2023-06-27T09:40:27.804Z",
+      "modified_at": "2023-06-27T09:40:27.804Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -62414,8 +62690,8 @@
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-heizung.energie-waermequelle-heizung-holz-stueckholz",
     "fields": {
-      "created_at": "2023-05-19T11:02:44.032Z",
-      "modified_at": "2023-05-19T11:02:44.032Z",
+      "created_at": "2023-06-27T09:40:27.807Z",
+      "modified_at": "2023-06-27T09:40:27.807Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -62429,8 +62705,8 @@
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-heizung.energie-waermequelle-heizung-keine",
     "fields": {
-      "created_at": "2023-05-19T11:02:44.062Z",
-      "modified_at": "2023-05-19T11:02:44.062Z",
+      "created_at": "2023-06-27T09:40:27.836Z",
+      "modified_at": "2023-06-27T09:40:27.836Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -62444,8 +62720,8 @@
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-heizung.energie-waermequelle-heizung-luft",
     "fields": {
-      "created_at": "2023-05-19T11:02:44.059Z",
-      "modified_at": "2023-05-19T11:02:44.059Z",
+      "created_at": "2023-06-27T09:40:27.833Z",
+      "modified_at": "2023-06-27T09:40:27.833Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -62459,8 +62735,8 @@
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-heizung.energie-waermequelle-heizung-noch-nicht-festgelegt",
     "fields": {
-      "created_at": "2023-05-19T11:02:43.993Z",
-      "modified_at": "2023-05-19T11:02:43.993Z",
+      "created_at": "2023-06-27T09:40:27.772Z",
+      "modified_at": "2023-06-27T09:40:27.772Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -62474,8 +62750,8 @@
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-heizung.energie-waermequelle-heizung-sonne-thermisch",
     "fields": {
-      "created_at": "2023-05-19T11:02:44.017Z",
-      "modified_at": "2023-05-19T11:02:44.017Z",
+      "created_at": "2023-06-27T09:40:27.793Z",
+      "modified_at": "2023-06-27T09:40:27.793Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -62489,8 +62765,8 @@
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-heizung.energie-waermequelle-heizung-unbestimmt",
     "fields": {
-      "created_at": "2023-05-19T11:02:44.002Z",
-      "modified_at": "2023-05-19T11:02:44.002Z",
+      "created_at": "2023-06-27T09:40:27.781Z",
+      "modified_at": "2023-06-27T09:40:27.781Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -62504,8 +62780,8 @@
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-heizung.energie-waermequelle-heizung-wasser",
     "fields": {
-      "created_at": "2023-05-19T11:02:44.046Z",
-      "modified_at": "2023-05-19T11:02:44.046Z",
+      "created_at": "2023-06-27T09:40:27.820Z",
+      "modified_at": "2023-06-27T09:40:27.820Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -62519,8 +62795,8 @@
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-warmwasser.energie-waermequelle-warmwasser-abwaerme-innerhalb-des-gebaeudes",
     "fields": {
-      "created_at": "2023-05-19T11:12:25.818Z",
-      "modified_at": "2023-05-19T11:12:25.818Z",
+      "created_at": "2023-06-27T09:41:50.129Z",
+      "modified_at": "2023-06-27T09:41:50.129Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -62534,8 +62810,8 @@
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-warmwasser.energie-waermequelle-warmwasser-andere",
     "fields": {
-      "created_at": "2023-05-19T11:12:25.791Z",
-      "modified_at": "2023-05-19T11:12:25.791Z",
+      "created_at": "2023-06-27T09:41:50.108Z",
+      "modified_at": "2023-06-27T09:41:50.108Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -62549,8 +62825,8 @@
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-warmwasser.energie-waermequelle-warmwasser-elektrizitaet",
     "fields": {
-      "created_at": "2023-05-19T11:12:25.814Z",
-      "modified_at": "2023-05-19T11:12:25.814Z",
+      "created_at": "2023-06-27T09:41:50.126Z",
+      "modified_at": "2023-06-27T09:41:50.126Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -62564,8 +62840,8 @@
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-warmwasser.energie-waermequelle-warmwasser-erdregister",
     "fields": {
-      "created_at": "2023-05-19T11:12:25.845Z",
-      "modified_at": "2023-05-19T11:12:25.845Z",
+      "created_at": "2023-06-27T09:41:50.154Z",
+      "modified_at": "2023-06-27T09:41:50.154Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -62579,8 +62855,8 @@
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-warmwasser.energie-waermequelle-warmwasser-erdwaerme-generisch",
     "fields": {
-      "created_at": "2023-05-19T11:12:25.853Z",
-      "modified_at": "2023-05-19T11:12:25.853Z",
+      "created_at": "2023-06-27T09:41:50.160Z",
+      "modified_at": "2023-06-27T09:41:50.160Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -62594,8 +62870,8 @@
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-warmwasser.energie-waermequelle-warmwasser-erdwaermesonde",
     "fields": {
-      "created_at": "2023-05-19T11:12:25.849Z",
-      "modified_at": "2023-05-19T11:12:25.849Z",
+      "created_at": "2023-06-27T09:41:50.157Z",
+      "modified_at": "2023-06-27T09:41:50.157Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -62609,8 +62885,8 @@
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-warmwasser.energie-waermequelle-warmwasser-fernwaerme-generisch",
     "fields": {
-      "created_at": "2023-05-19T11:12:25.806Z",
-      "modified_at": "2023-05-19T11:12:25.806Z",
+      "created_at": "2023-06-27T09:41:50.121Z",
+      "modified_at": "2023-06-27T09:41:50.121Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -62624,8 +62900,8 @@
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-warmwasser.energie-waermequelle-warmwasser-fernwaerme-hochtemperatur",
     "fields": {
-      "created_at": "2023-05-19T11:12:25.802Z",
-      "modified_at": "2023-05-19T11:12:25.802Z",
+      "created_at": "2023-06-27T09:41:50.117Z",
+      "modified_at": "2023-06-27T09:41:50.117Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -62639,8 +62915,8 @@
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-warmwasser.energie-waermequelle-warmwasser-fernwaerme-niedertemperatur",
     "fields": {
-      "created_at": "2023-05-19T11:12:25.798Z",
-      "modified_at": "2023-05-19T11:12:25.798Z",
+      "created_at": "2023-06-27T09:41:50.113Z",
+      "modified_at": "2023-06-27T09:41:50.113Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -62654,8 +62930,8 @@
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-warmwasser.energie-waermequelle-warmwasser-gas",
     "fields": {
-      "created_at": "2023-05-19T11:12:25.837Z",
-      "modified_at": "2023-05-19T11:12:25.837Z",
+      "created_at": "2023-06-27T09:41:50.145Z",
+      "modified_at": "2023-06-27T09:41:50.145Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -62669,8 +62945,8 @@
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-warmwasser.energie-waermequelle-warmwasser-heizoel",
     "fields": {
-      "created_at": "2023-05-19T11:12:25.834Z",
-      "modified_at": "2023-05-19T11:12:25.834Z",
+      "created_at": "2023-06-27T09:41:50.141Z",
+      "modified_at": "2023-06-27T09:41:50.141Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -62684,8 +62960,8 @@
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-warmwasser.energie-waermequelle-warmwasser-holz-generisch",
     "fields": {
-      "created_at": "2023-05-19T11:12:25.830Z",
-      "modified_at": "2023-05-19T11:12:25.830Z",
+      "created_at": "2023-06-27T09:41:50.138Z",
+      "modified_at": "2023-06-27T09:41:50.138Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -62699,8 +62975,8 @@
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-warmwasser.energie-waermequelle-warmwasser-holz-pellets",
     "fields": {
-      "created_at": "2023-05-19T11:12:25.822Z",
-      "modified_at": "2023-05-19T11:12:25.822Z",
+      "created_at": "2023-06-27T09:41:50.132Z",
+      "modified_at": "2023-06-27T09:41:50.132Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -62714,8 +62990,8 @@
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-warmwasser.energie-waermequelle-warmwasser-holz-stueckholz",
     "fields": {
-      "created_at": "2023-05-19T11:12:25.826Z",
-      "modified_at": "2023-05-19T11:12:25.827Z",
+      "created_at": "2023-06-27T09:41:50.135Z",
+      "modified_at": "2023-06-27T09:41:50.135Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -62729,8 +63005,8 @@
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-warmwasser.energie-waermequelle-warmwasser-keine",
     "fields": {
-      "created_at": "2023-05-19T11:12:25.860Z",
-      "modified_at": "2023-05-19T11:12:25.860Z",
+      "created_at": "2023-06-27T09:41:50.167Z",
+      "modified_at": "2023-06-27T09:41:50.167Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -62744,8 +63020,8 @@
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-warmwasser.energie-waermequelle-warmwasser-luft",
     "fields": {
-      "created_at": "2023-05-19T11:12:25.856Z",
-      "modified_at": "2023-05-19T11:12:25.856Z",
+      "created_at": "2023-06-27T09:41:50.164Z",
+      "modified_at": "2023-06-27T09:41:50.164Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -62759,8 +63035,8 @@
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-warmwasser.energie-waermequelle-warmwasser-noch-nicht-festgelegt",
     "fields": {
-      "created_at": "2023-05-19T11:12:25.786Z",
-      "modified_at": "2023-05-19T11:12:25.786Z",
+      "created_at": "2023-06-27T09:41:50.105Z",
+      "modified_at": "2023-06-27T09:41:50.105Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -62774,8 +63050,8 @@
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-warmwasser.energie-waermequelle-warmwasser-sonne-thermisch",
     "fields": {
-      "created_at": "2023-05-19T11:12:25.809Z",
-      "modified_at": "2023-05-19T11:12:25.810Z",
+      "created_at": "2023-06-27T09:41:50.124Z",
+      "modified_at": "2023-06-27T09:41:50.124Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -62789,8 +63065,8 @@
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-warmwasser.energie-waermequelle-warmwasser-unbestimmt",
     "fields": {
-      "created_at": "2023-05-19T11:12:25.795Z",
-      "modified_at": "2023-05-19T11:12:25.795Z",
+      "created_at": "2023-06-27T09:41:50.111Z",
+      "modified_at": "2023-06-27T09:41:50.111Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -62804,8 +63080,8 @@
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-warmwasser.energie-waermequelle-warmwasser-wasser",
     "fields": {
-      "created_at": "2023-05-19T11:12:25.841Z",
-      "modified_at": "2023-05-19T11:12:25.841Z",
+      "created_at": "2023-06-27T09:41:50.150Z",
+      "modified_at": "2023-06-27T09:41:50.150Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -63642,6 +63918,36 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "gebaeudevolumen-nach-norm.gebaeudevolumen-nach-norm-sia-116",
+    "fields": {
+      "created_at": "2023-06-26T09:57:47.468Z",
+      "modified_at": "2023-06-26T09:57:47.468Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "gebaeudevolumen-nach-norm",
+      "option": "gebaeudevolumen-nach-norm-sia-116",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "gebaeudevolumen-nach-norm.gebaeudevolumen-nach-norm-sia-416",
+    "fields": {
+      "created_at": "2023-06-26T09:57:47.473Z",
+      "modified_at": "2023-06-26T09:57:47.473Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "gebaeudevolumen-nach-norm",
+      "option": "gebaeudevolumen-nach-norm-sia-416",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "gebaeudevolumen.gebaeudevolumen-greater-3000",
     "fields": {
       "created_at": "2023-05-25T08:49:24.600Z",
@@ -64267,6 +64573,36 @@
       "modified_by_group": null,
       "question": "isos",
       "option": "isos-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "ist-ein-warmwasseranschluss-geplant.ist-ein-warmwasseranschluss-geplant-ja",
+    "fields": {
+      "created_at": "2023-06-27T09:41:36.509Z",
+      "modified_at": "2023-06-27T09:41:36.509Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "ist-ein-warmwasseranschluss-geplant",
+      "option": "ist-ein-warmwasseranschluss-geplant-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "ist-ein-warmwasseranschluss-geplant.ist-ein-warmwasseranschluss-geplant-nein",
+    "fields": {
+      "created_at": "2023-06-27T09:41:36.505Z",
+      "modified_at": "2023-06-27T09:41:36.505Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "ist-ein-warmwasseranschluss-geplant",
+      "option": "ist-ein-warmwasseranschluss-geplant-nein",
       "sort": 1
     }
   },
@@ -70049,8 +70385,8 @@
     "model": "caluma_form.questionoption",
     "pk": "waermeerzeuger-heizung.waermeerzeuger-heizung-andere",
     "fields": {
-      "created_at": "2023-05-19T10:53:45.643Z",
-      "modified_at": "2023-05-19T10:53:45.643Z",
+      "created_at": "2023-06-27T09:40:15.370Z",
+      "modified_at": "2023-06-27T09:40:15.370Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -70064,8 +70400,8 @@
     "model": "caluma_form.questionoption",
     "pk": "waermeerzeuger-heizung.waermeerzeuger-heizung-elektro-direkt",
     "fields": {
-      "created_at": "2023-05-19T10:53:45.662Z",
-      "modified_at": "2023-05-19T10:53:45.662Z",
+      "created_at": "2023-06-27T09:40:15.379Z",
+      "modified_at": "2023-06-27T09:40:15.379Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -70079,8 +70415,8 @@
     "model": "caluma_form.questionoption",
     "pk": "waermeerzeuger-heizung.waermeerzeuger-heizung-elektrospeicher-zentralheizung-fuer-ein-gebaeude",
     "fields": {
-      "created_at": "2023-05-19T10:53:45.671Z",
-      "modified_at": "2023-05-19T10:53:45.671Z",
+      "created_at": "2023-06-27T09:40:15.385Z",
+      "modified_at": "2023-06-27T09:40:15.385Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -70094,8 +70430,8 @@
     "model": "caluma_form.questionoption",
     "pk": "waermeerzeuger-heizung.waermeerzeuger-heizung-elektrospeicher-zentralheizung-fuer-mehrere-gebaeude",
     "fields": {
-      "created_at": "2023-05-19T10:53:45.666Z",
-      "modified_at": "2023-05-19T10:53:45.666Z",
+      "created_at": "2023-06-27T09:40:15.382Z",
+      "modified_at": "2023-06-27T09:40:15.382Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -70109,8 +70445,8 @@
     "model": "caluma_form.questionoption",
     "pk": "waermeerzeuger-heizung.waermeerzeuger-heizung-heizkessel-generisch-fuer-ein-gebaeude",
     "fields": {
-      "created_at": "2023-05-19T10:53:45.719Z",
-      "modified_at": "2023-05-19T10:53:45.719Z",
+      "created_at": "2023-06-27T09:40:15.412Z",
+      "modified_at": "2023-06-27T09:40:15.412Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -70124,8 +70460,8 @@
     "model": "caluma_form.questionoption",
     "pk": "waermeerzeuger-heizung.waermeerzeuger-heizung-heizkessel-generisch-fuer-mehrere-gebaeude",
     "fields": {
-      "created_at": "2023-05-19T10:53:45.715Z",
-      "modified_at": "2023-05-19T10:53:45.715Z",
+      "created_at": "2023-06-27T09:40:15.409Z",
+      "modified_at": "2023-06-27T09:40:15.409Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -70139,8 +70475,8 @@
     "model": "caluma_form.questionoption",
     "pk": "waermeerzeuger-heizung.waermeerzeuger-heizung-heizkessel-kondensierend-fuer-ein-gebaeude",
     "fields": {
-      "created_at": "2023-05-19T10:53:45.698Z",
-      "modified_at": "2023-05-19T10:53:45.698Z",
+      "created_at": "2023-06-27T09:40:15.400Z",
+      "modified_at": "2023-06-27T09:40:15.400Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -70154,8 +70490,8 @@
     "model": "caluma_form.questionoption",
     "pk": "waermeerzeuger-heizung.waermeerzeuger-heizung-heizkessel-kondensierend-fuer-mehrere-gebaeude",
     "fields": {
-      "created_at": "2023-05-19T10:53:45.693Z",
-      "modified_at": "2023-05-19T10:53:45.693Z",
+      "created_at": "2023-06-27T09:40:15.397Z",
+      "modified_at": "2023-06-27T09:40:15.397Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -70169,8 +70505,8 @@
     "model": "caluma_form.questionoption",
     "pk": "waermeerzeuger-heizung.waermeerzeuger-heizung-heizkessel-nicht-kondensierend-fuer-ein-gebaeude",
     "fields": {
-      "created_at": "2023-05-19T10:53:45.708Z",
-      "modified_at": "2023-05-19T10:53:45.708Z",
+      "created_at": "2023-06-27T09:40:15.407Z",
+      "modified_at": "2023-06-27T09:40:15.407Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -70184,8 +70520,8 @@
     "model": "caluma_form.questionoption",
     "pk": "waermeerzeuger-heizung.waermeerzeuger-heizung-heizkessel-nicht-kondensierend-fuer-mehrere-gebaeude",
     "fields": {
-      "created_at": "2023-05-19T10:53:45.702Z",
-      "modified_at": "2023-05-19T10:53:45.702Z",
+      "created_at": "2023-06-27T09:40:15.404Z",
+      "modified_at": "2023-06-27T09:40:15.404Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -70199,8 +70535,8 @@
     "model": "caluma_form.questionoption",
     "pk": "waermeerzeuger-heizung.waermeerzeuger-heizung-kein-waermeerzeuger",
     "fields": {
-      "created_at": "2023-05-19T10:53:45.745Z",
-      "modified_at": "2023-05-19T10:53:45.745Z",
+      "created_at": "2023-06-27T09:40:15.425Z",
+      "modified_at": "2023-06-27T09:40:15.425Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -70214,8 +70550,8 @@
     "model": "caluma_form.questionoption",
     "pk": "waermeerzeuger-heizung.waermeerzeuger-heizung-noch-nicht-festgelegt",
     "fields": {
-      "created_at": "2023-05-19T10:53:45.636Z",
-      "modified_at": "2023-05-19T10:53:45.636Z",
+      "created_at": "2023-06-27T09:40:15.363Z",
+      "modified_at": "2023-06-27T09:40:15.363Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -70229,8 +70565,8 @@
     "model": "caluma_form.questionoption",
     "pk": "waermeerzeuger-heizung.waermeerzeuger-heizung-ofen",
     "fields": {
-      "created_at": "2023-05-19T10:53:45.687Z",
-      "modified_at": "2023-05-19T10:53:45.687Z",
+      "created_at": "2023-06-27T09:40:15.394Z",
+      "modified_at": "2023-06-27T09:40:15.394Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -70244,8 +70580,8 @@
     "model": "caluma_form.questionoption",
     "pk": "waermeerzeuger-heizung.waermeerzeuger-heizung-thermische-solaranlage-fuer-ein-gebaeude",
     "fields": {
-      "created_at": "2023-05-19T10:53:45.729Z",
-      "modified_at": "2023-05-19T10:53:45.729Z",
+      "created_at": "2023-06-27T09:40:15.417Z",
+      "modified_at": "2023-06-27T09:40:15.417Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -70259,8 +70595,8 @@
     "model": "caluma_form.questionoption",
     "pk": "waermeerzeuger-heizung.waermeerzeuger-heizung-thermische-solaranlage-fuer-mehrere-gebaeude",
     "fields": {
-      "created_at": "2023-05-19T10:53:45.725Z",
-      "modified_at": "2023-05-19T10:53:45.725Z",
+      "created_at": "2023-06-27T09:40:15.415Z",
+      "modified_at": "2023-06-27T09:40:15.415Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -70274,8 +70610,8 @@
     "model": "caluma_form.questionoption",
     "pk": "waermeerzeuger-heizung.waermeerzeuger-heizung-waermekraftkopplungsanlage-fuer-ein-gebaeude",
     "fields": {
-      "created_at": "2023-05-19T10:53:45.683Z",
-      "modified_at": "2023-05-19T10:53:45.683Z",
+      "created_at": "2023-06-27T09:40:15.392Z",
+      "modified_at": "2023-06-27T09:40:15.392Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -70289,8 +70625,8 @@
     "model": "caluma_form.questionoption",
     "pk": "waermeerzeuger-heizung.waermeerzeuger-heizung-waermekraftkopplungsanlage-fuer-mehrere-gebaeude",
     "fields": {
-      "created_at": "2023-05-19T10:53:45.679Z",
-      "modified_at": "2023-05-19T10:53:45.679Z",
+      "created_at": "2023-06-27T09:40:15.389Z",
+      "modified_at": "2023-06-27T09:40:15.389Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -70304,8 +70640,8 @@
     "model": "caluma_form.questionoption",
     "pk": "waermeerzeuger-heizung.waermeerzeuger-heizung-waermepumpe-fuer-ein-gebaeude",
     "fields": {
-      "created_at": "2023-05-19T10:53:45.740Z",
-      "modified_at": "2023-05-19T10:53:45.740Z",
+      "created_at": "2023-06-27T09:40:15.423Z",
+      "modified_at": "2023-06-27T09:40:15.423Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -70319,8 +70655,8 @@
     "model": "caluma_form.questionoption",
     "pk": "waermeerzeuger-heizung.waermeerzeuger-heizung-waermepumpe-fuer-mehrere-gebaeude",
     "fields": {
-      "created_at": "2023-05-19T10:53:45.734Z",
-      "modified_at": "2023-05-19T10:53:45.734Z",
+      "created_at": "2023-06-27T09:40:15.420Z",
+      "modified_at": "2023-06-27T09:40:15.420Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -70334,8 +70670,8 @@
     "model": "caluma_form.questionoption",
     "pk": "waermeerzeuger-heizung.waermeerzeuger-heizung-waermetauscher-einschliesslich-fuer-fernwaerme-fuer-ein-gebaeude",
     "fields": {
-      "created_at": "2023-05-19T10:53:45.654Z",
-      "modified_at": "2023-05-19T10:53:45.654Z",
+      "created_at": "2023-06-27T09:40:15.377Z",
+      "modified_at": "2023-06-27T09:40:15.377Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -70349,8 +70685,8 @@
     "model": "caluma_form.questionoption",
     "pk": "waermeerzeuger-heizung.waermeerzeuger-heizung-waermetauscher-einschliesslich-fuer-fernwaerme-fuer-mehrere-gebaeude",
     "fields": {
-      "created_at": "2023-05-19T10:53:45.649Z",
-      "modified_at": "2023-05-19T10:53:45.649Z",
+      "created_at": "2023-06-27T09:40:15.373Z",
+      "modified_at": "2023-06-27T09:40:15.373Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -70364,8 +70700,8 @@
     "model": "caluma_form.questionoption",
     "pk": "waermeerzeuger-warmwasser.waermeerzeuger-warmwasser-andere",
     "fields": {
-      "created_at": "2023-05-19T11:07:15.309Z",
-      "modified_at": "2023-05-19T11:07:15.309Z",
+      "created_at": "2023-06-27T09:41:40.967Z",
+      "modified_at": "2023-06-27T09:41:40.967Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -70379,8 +70715,8 @@
     "model": "caluma_form.questionoption",
     "pk": "waermeerzeuger-warmwasser.waermeerzeuger-warmwasser-heizkessel-generisch",
     "fields": {
-      "created_at": "2023-05-19T11:07:15.336Z",
-      "modified_at": "2023-05-19T11:07:15.336Z",
+      "created_at": "2023-06-27T09:41:40.988Z",
+      "modified_at": "2023-06-27T09:41:40.988Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -70394,8 +70730,8 @@
     "model": "caluma_form.questionoption",
     "pk": "waermeerzeuger-warmwasser.waermeerzeuger-warmwasser-heizkessel-kondensierend",
     "fields": {
-      "created_at": "2023-05-19T11:07:15.328Z",
-      "modified_at": "2023-05-19T11:07:15.328Z",
+      "created_at": "2023-06-27T09:41:40.983Z",
+      "modified_at": "2023-06-27T09:41:40.983Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -70409,8 +70745,8 @@
     "model": "caluma_form.questionoption",
     "pk": "waermeerzeuger-warmwasser.waermeerzeuger-warmwasser-heizkessel-nicht-kondensierend",
     "fields": {
-      "created_at": "2023-05-19T11:07:15.332Z",
-      "modified_at": "2023-05-19T11:07:15.332Z",
+      "created_at": "2023-06-27T09:41:40.985Z",
+      "modified_at": "2023-06-27T09:41:40.985Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -70424,8 +70760,8 @@
     "model": "caluma_form.questionoption",
     "pk": "waermeerzeuger-warmwasser.waermeerzeuger-warmwasser-kein-waermeerzeuger",
     "fields": {
-      "created_at": "2023-05-19T11:07:15.348Z",
-      "modified_at": "2023-05-19T11:07:15.348Z",
+      "created_at": "2023-06-27T09:41:40.997Z",
+      "modified_at": "2023-06-27T09:41:40.997Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -70439,8 +70775,8 @@
     "model": "caluma_form.questionoption",
     "pk": "waermeerzeuger-warmwasser.waermeerzeuger-warmwasser-kleinboiler",
     "fields": {
-      "created_at": "2023-05-19T11:07:15.316Z",
-      "modified_at": "2023-05-19T11:07:15.316Z",
+      "created_at": "2023-06-27T09:41:40.973Z",
+      "modified_at": "2023-06-27T09:41:40.973Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -70454,8 +70790,8 @@
     "model": "caluma_form.questionoption",
     "pk": "waermeerzeuger-warmwasser.waermeerzeuger-warmwasser-noch-nicht-festgelegt",
     "fields": {
-      "created_at": "2023-05-19T11:07:15.305Z",
-      "modified_at": "2023-05-19T11:07:15.305Z",
+      "created_at": "2023-06-27T09:41:40.963Z",
+      "modified_at": "2023-06-27T09:41:40.963Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -70469,8 +70805,8 @@
     "model": "caluma_form.questionoption",
     "pk": "waermeerzeuger-warmwasser.waermeerzeuger-warmwasser-thermische-solaranlage",
     "fields": {
-      "created_at": "2023-05-19T11:07:15.340Z",
-      "modified_at": "2023-05-19T11:07:15.340Z",
+      "created_at": "2023-06-27T09:41:40.991Z",
+      "modified_at": "2023-06-27T09:41:40.991Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -70484,8 +70820,8 @@
     "model": "caluma_form.questionoption",
     "pk": "waermeerzeuger-warmwasser.waermeerzeuger-warmwasser-waermekraftkopplungsanlage",
     "fields": {
-      "created_at": "2023-05-19T11:07:15.324Z",
-      "modified_at": "2023-05-19T11:07:15.324Z",
+      "created_at": "2023-06-27T09:41:40.980Z",
+      "modified_at": "2023-06-27T09:41:40.980Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -70499,8 +70835,8 @@
     "model": "caluma_form.questionoption",
     "pk": "waermeerzeuger-warmwasser.waermeerzeuger-warmwasser-waermepumpe",
     "fields": {
-      "created_at": "2023-05-19T11:07:15.344Z",
-      "modified_at": "2023-05-19T11:07:15.344Z",
+      "created_at": "2023-06-27T09:41:40.995Z",
+      "modified_at": "2023-06-27T09:41:40.995Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -70514,8 +70850,8 @@
     "model": "caluma_form.questionoption",
     "pk": "waermeerzeuger-warmwasser.waermeerzeuger-warmwasser-waermetauscher-einschliesslich-fuer-fernwaerme",
     "fields": {
-      "created_at": "2023-05-19T11:07:15.312Z",
-      "modified_at": "2023-05-19T11:07:15.312Z",
+      "created_at": "2023-06-27T09:41:40.969Z",
+      "modified_at": "2023-06-27T09:41:40.969Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -70529,8 +70865,8 @@
     "model": "caluma_form.questionoption",
     "pk": "waermeerzeuger-warmwasser.waermeerzeuger-warmwasser-zentraler-elektroboiler",
     "fields": {
-      "created_at": "2023-05-19T11:07:15.320Z",
-      "modified_at": "2023-05-19T11:07:15.320Z",
+      "created_at": "2023-06-27T09:41:40.977Z",
+      "modified_at": "2023-06-27T09:41:40.977Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -70777,6 +71113,36 @@
       "modified_by_group": null,
       "question": "welche-abfaelle-fallen-in-ihrem-betrieb-an",
       "option": "welche-abfaelle-fallen-in-ihrem-betrieb-an-weitere",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "werden-flaechen-beheizt.werden-flaechen-beheizt-ja",
+    "fields": {
+      "created_at": "2023-06-26T10:06:27.943Z",
+      "modified_at": "2023-06-26T10:06:27.943Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "werden-flaechen-beheizt",
+      "option": "werden-flaechen-beheizt-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "werden-flaechen-beheizt.werden-flaechen-beheizt-nein",
+    "fields": {
+      "created_at": "2023-06-26T10:06:27.938Z",
+      "modified_at": "2023-06-26T10:06:27.938Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "werden-flaechen-beheizt",
+      "option": "werden-flaechen-beheizt-nein",
       "sort": 1
     }
   },
