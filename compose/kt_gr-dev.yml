@@ -128,12 +128,10 @@ services:
   document-merge-service:
     networks:
       - ebau.local
-    depends_on:
-      - db
     environment:
       - ENV=dev
       - OIDC_USERINFO_ENDPOINT=http://ebau-keycloak.local/auth/realms/ebau/protocol/openid-connect/userinfo
-      - OIDC_GROUPS_API=http://ember-ebau.local/api/v1/me?include=service,service.service_parent
+      - OIDC_GROUPS_API=http://ember-ebau.local/api/v1/me?include=service,service.service_parent,service.municipality
     # There appears to be bug where libreoffice can only be started as the root
     # user. The workaround of fixing owner and permissions of ~/.config did not
     # work in our case.
@@ -183,3 +181,4 @@ networks:
 
 volumes:
   minio_data:
+  templatefiles:
