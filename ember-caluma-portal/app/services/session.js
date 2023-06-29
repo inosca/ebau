@@ -125,9 +125,9 @@ export default class CustomSession extends Session {
       getOwner(this).resolveRegistration("config:environment").APPLICATION.name;
 
     this.intl.setLocale([
-      language,
       `${language}-ch`,
       `${language}-${application}`,
+      language,
     ]);
   }
 
