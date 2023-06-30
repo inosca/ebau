@@ -1418,10 +1418,11 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         municipality = instance.case.document.answers.get(
             question_id="municipality"
         ).value
+
         if municipality in [
             str(uri_constants.BFS_NR_DIVERSE_GEMEINDEN),
             str(uri_constants.BFS_NR_ALLE_GEMEINDEN),
-        ]:
+        ] and instance.case.document.form.slug in ["oereb", "oereb-verfahren-gemeinde"]:
             return str(uri_constants.KOOR_NP_AUTHORITY_ID)
 
         return None
@@ -1454,7 +1455,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             .authority_id
         )
 
-    def _ur_set_authority(self, instance):
+    def _set_authority(self, instance):
         """Fill the answer to the question 'leitbehorde' (only used in UR)."""
         if not settings.APPLICATION["CALUMA"].get("USE_LOCATION", False):
             return
@@ -1487,7 +1488,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         self._ur_link_technische_bewilligung(instance)
         self._set_instance_service(case, instance)
         self._generate_identifier(case, instance)
-        self._ur_set_authority(instance)
+        self._set_authority(instance)
         self._generate_and_store_pdf(instance)
         self._set_submit_date(validated_data)
         self._create_history_entry(gettext_noop("Dossier submitted"))
