@@ -8,4 +8,10 @@ export default {
   },
   answerSlugs: {},
   intentSlugs: [],
+  paperInstances: {
+    allowedGroups: {
+      roles: [],
+      serviceGroups: [],
+    },
+  },
 };
