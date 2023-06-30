@@ -1,7 +1,7 @@
 import { get } from "@ember/object";
+import mainConfig from "ember-ebau-core/config/main";
 import { module, test } from "qunit";
 
-import config from "caluma-portal/config/environment";
 import { setupTest } from "caluma-portal/tests/helpers";
 import testIf from "caluma-portal/tests/helpers/test-if";
 
@@ -110,11 +110,10 @@ module("Unit | Ability | instance", function (hooks) {
         id: 1,
         service: {
           serviceGroup: {
-            id: config.APPLICATION.paperInstances.allowedGroups
-              .serviceGroups[0],
+            id: mainConfig.paperInstances.allowedGroups.serviceGroups[0],
           },
         },
-        role: { id: config.APPLICATION.paperInstances.allowedGroups.roles[0] },
+        role: { id: mainConfig.paperInstances.allowedGroups.roles[0] },
         canCreatePaper: true,
       },
     });

@@ -51,6 +51,28 @@ export default {
     staticForestBoundaryMunicipality:
       "waldfeststellung-mit-statischen-waldgrenzen-gemeinde",
   },
+  paperInstances: {
+    allowedGroups: {
+      roles: [
+        6, // Sekretariat der Gemeindebaubehörde
+        3, // KOOR BG
+        1061, // KOOR NP
+        1101, // KOOR BD
+        1106, // KOOR AfU
+        1107, // KOOR ALA
+        1127, // KOOR AfE
+        1128, // KOOR AFJ
+        1129, // KOOR SD
+        1130, // Bundesstelle
+        1131, // Support
+      ],
+      serviceGroups: [
+        1, // Koordinationsstellen
+        68, // Sekretariate Gemeindebaubehörden
+        70, // Bundesstellen
+      ],
+    },
+  },
   instanceResourceRedirects: {
     journal: {
       3: 772, // KOOR BG

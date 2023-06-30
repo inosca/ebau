@@ -39,5 +39,17 @@ export default {
     isJuristicApplicantYes: "juristische-person-gesuchstellerin-ja",
     personalDataApplicant: "personalien-gesuchstellerin",
   },
+  paperInstances: {
+    allowedGroups: {
+      roles: [
+        3, // Leitung Leitbehörde
+        20004, // Sachbearbeiter Leitbehörde
+      ],
+      serviceGroups: [
+        2, // Gemeinde
+        20000, // Regierungsstatthalteramt
+      ],
+    },
+  },
   intentSlugs: ["beschreibung-bauvorhaben"],
 };

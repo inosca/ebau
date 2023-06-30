@@ -23,5 +23,15 @@ export default {
     isJuristicApplicantYes: "juristische-person-gesuchstellerin-ja",
     personalDataApplicant: "personalien-gesuchstellerin",
   },
+  paperInstances: {
+    allowedGroups: {
+      roles: [
+        3, // municipality
+      ],
+      serviceGroups: [
+        1, // municipality
+      ],
+    },
+  },
   intentSlugs: ["beschreibung-bauvorhaben"],
 };
