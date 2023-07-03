@@ -123,6 +123,9 @@ class CustomValidation(BaseValidation):
             settings.DISTRIBUTION
             and data["question"].slug == settings.DISTRIBUTION["QUESTIONS"]["DEADLINE"]
         ):
+            if not data["date"]:
+                raise exceptions.ValidationError("Deadline is required")
+
             sync_inquiry_deadline(data["document"].work_item, data["date"])
 
             return data
