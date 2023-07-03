@@ -3556,6 +3556,78 @@ APPLICATIONS = {
             "description_modification": ("answer", "projektaenderung"),
         },
     },
+    "kt_so": {
+        "ECH0211": {
+            "API_ACTIVE": env.bool("ECH0211_API_ACTIVE", default=False),
+        },
+        "USE_CAMAC_ADMIN": False,
+        "LOG_NOTIFICATIONS": True,
+        # Mapping between camac role and instance permission.
+        "ROLE_PERMISSIONS": {"support": "support"},
+        "ADMIN_GROUP": 1,
+        "IS_MULTILINGUAL": True,
+        "FORM_BACKEND": "caluma",
+        "THUMBNAIL_SIZE": "x300",
+        "SHOW_DJANGO_ADMIN_RESOURCE_MANAGEMENT": True,
+        "GROUP_RENAME_ON_SERVICE_RENAME": True,
+        "SERVICE_UPDATE_ALLOWED_ROLES": [],  # if unset, all are allowed
+        "SEQUENCE_NAMESPACE_APPS": [],
+        "NOTIFICATIONS_EXCLUDED_TASKS": [],
+        "OIDC_SYNC_USER_ATTRIBUTES": [
+            "language",
+            "email",
+            "username",
+            "name",
+            "surname",
+        ],
+        "PORTAL_GROUP": 2,
+        "CALUMA": {
+            "MANUAL_WORK_ITEM_TASK": "create-manual-workitems",
+            "SUBMIT_TASKS": ["submit"],
+            "FORM_PERMISSIONS": ["main"],
+            "HAS_PROJECT_CHANGE": True,
+            "CREATE_IN_PROCESS": False,
+            "GENERATE_IDENTIFIER": False,
+            "USE_LOCATION": False,
+            "SAVE_DOSSIER_NUMBER_IN_CALUMA": True,
+            "MODIFICATION_ALLOW_FORMS": [],
+            "SIMPLE_WORKFLOW": {},
+        },
+        "USE_INSTANCE_SERVICE": True,
+        "DOSSIER_IMPORT": {},
+        "CUSTOM_NOTIFICATION_TYPES": [],
+        "NOTIFICATIONS": {
+            "SUBMIT": [],
+            "APPLICANT": {},
+        },
+        "SUBSERVICE_ROLES": [],
+        "DUMP_CONFIG_GROUPS": {
+            "email_notifications": {
+                "notification.NotificationTemplate": Q(type="email"),
+                "notification.NotificationTemplateT": Q(template__type="email"),
+            },
+            # Sync the "core" groups (admin, support, portal) between servers, the rest is treated as data
+            "user_core_groups": {
+                "user.Group": Q(pk__lte=3),
+                "user.GroupT": Q(pk__lte=3),
+            },
+            # Dashboard
+            "dashboard": {
+                **generate_form_dump_config(regex=r"^dashboard?$"),
+                "caluma_form.Document": Q(form="dashboard"),
+            },
+        },
+        "DUMP_CONFIG_EXCLUDED_MODELS": [
+            "user.Group",
+            "user.GroupT",
+            "user.Service",
+            "user.ServiceT",
+        ],
+        "DOCUMENT_MERGE_SERVICE": {},
+        "MASTER_DATA": {
+            "canton": ("static", "SO"),
+        },
+    },
 }
 
 APPLICATION = APPLICATIONS.get(APPLICATION_NAME, {})

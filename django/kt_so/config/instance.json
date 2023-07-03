@@ -1,0 +1,48 @@
+[
+  {
+    "model": "instance.form",
+    "pk": 1,
+    "fields": {
+      "form_state": 1,
+      "name": null,
+      "description": null,
+      "family": null
+    }
+  },
+  {
+    "model": "instance.formstate",
+    "pk": 1,
+    "fields": {
+      "name": "Published"
+    }
+  },
+  {
+    "model": "instance.formt",
+    "pk": 1,
+    "fields": {
+      "form": 1,
+      "language": "de",
+      "name": "Baugesuch",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 1,
+    "fields": {
+      "name": "new",
+      "sort": 0,
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 1,
+    "fields": {
+      "instance_state": 1,
+      "language": "de",
+      "name": "Neu",
+      "description": null
+    }
+  }
+]

@@ -5,25 +5,8 @@ module.exports = function (environment) {
   console.log(
     `build env: APPLICATION: ${process.env.APPLICATION}, KEYCLOAK_HOST: ${process.env.KEYCLOAK_HOST}`
   );
-  const app = process.env.APPLICATION || "kt_bern";
-  const appConfig = {
-    demo: {
-      realm: "ebau",
-    },
-    kt_bern: {
-      realm: "ebau",
-    },
-    kt_uri: {
-      realm: "urec",
-    },
-    kt_schwyz: {
-      realm: "ebau",
-    },
-    kt_gr: {
-      realm: "ebau",
-    },
-  }[app];
   const oidcHost = process.env.KEYCLOAK_HOST || "http://ebau-keycloak.local";
+  const oidcRealm = process.env.APPLICATION === "kt_uri" ? "urec" : "ebau";
 
   const ENV = {
     modulePrefix: "ebau",
@@ -31,7 +14,7 @@ module.exports = function (environment) {
     rootURL: "/",
     locationType: "history",
     "ember-simple-auth-oidc": {
-      host: `${oidcHost}/auth/realms/${appConfig.realm}/protocol/openid-connect`,
+      host: `${oidcHost}/auth/realms/${oidcRealm}/protocol/openid-connect`,
       clientId: "camac",
       authEndpoint: "/auth",
       tokenEndpoint: "/token",

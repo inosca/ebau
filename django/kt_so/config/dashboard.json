@@ -1,0 +1,85 @@
+[
+  {
+    "model": "caluma_form.document",
+    "pk": "9c39c759-52af-4b66-9a13-61a6b27ded28",
+    "fields": {
+      "created_at": "2023-06-26T12:09:40.511Z",
+      "modified_at": "2023-06-26T12:09:40.511Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "family": "9c39c759-52af-4b66-9a13-61a6b27ded28",
+      "form": "dashboard",
+      "source": null,
+      "meta": {}
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "dashboard",
+    "fields": {
+      "created_at": "2023-06-26T12:08:23.581Z",
+      "modified_at": "2023-06-26T12:08:23.581Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Dashboard\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "meta": {},
+      "is_published": true,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dashboard.portal-inhalt-de",
+    "fields": {
+      "created_at": "2023-06-26T12:09:40.762Z",
+      "modified_at": "2023-06-26T12:09:40.762Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dashboard",
+      "question": "portal-inhalt-de",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "portal-inhalt-de",
+    "fields": {
+      "created_at": "2023-06-26T12:09:40.511Z",
+      "modified_at": "2023-06-26T12:09:40.511Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Portal Inhalt DE\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "textarea",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  }
+]

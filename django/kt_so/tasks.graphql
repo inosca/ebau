@@ -1,0 +1,7 @@
+mutation CreateSubmitTask {
+  saveCompleteWorkflowFormTask(
+    input: { slug: "submit", name: "Gesuch einreichen", addressGroups: "[]" }
+  ) {
+    clientMutationId
+  }
+}

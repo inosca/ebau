@@ -46,6 +46,9 @@ module.exports = function (environment) {
     circ: 120005,
     finished: 120006,
   };
+  const instanceStatesSo = {
+    new: 1,
+  };
   const appConfig = {
     demo: {
       name: "demo",
@@ -514,6 +517,52 @@ module.exports = function (environment) {
             "bauanzeige",
             "solaranlage",
           ],
+        },
+      ],
+    },
+    kt_so: {
+      name: "so",
+      realm: "ebau",
+      supportGroups: [3],
+      useConfidential: false,
+      defaultInstanceStateCategory: "pending",
+      instanceStateCategories: {
+        pending: [instanceStatesSo.new],
+      },
+      completePreliminaryClarificationSlugs: [],
+      selectableGroups: {
+        roles: [
+          3, // Support
+        ],
+      },
+      documents: {
+        backend: "alexandria",
+        excludeFromDocuments: [],
+      },
+      instanceStates: instanceStatesSo,
+      modification: {
+        allowForms: [],
+        disallowStates: [instanceStatesSo.new],
+      },
+      answerSlugs: {},
+      personalSuggestions: {
+        tableQuestions: [],
+        firstNameRegexp: "^todo-.*$",
+        lastNameRegexp: "^todo-.*$",
+        juristicNameRegexp: "^todo.*$",
+        emailRegexp: "^e-mail-.*$",
+      },
+      paperInstances: {
+        allowedGroups: {
+          roles: [],
+          serviceGroups: [],
+        },
+      },
+      // Who can create which forms. Roles can be given by ID, or magic key ("internal" or "public")
+      formCreationPermissions: [
+        {
+          roles: ["public", "internal"],
+          forms: ["baugesuch"],
         },
       ],
     },
