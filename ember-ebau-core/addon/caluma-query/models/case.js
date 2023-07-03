@@ -9,5 +9,8 @@ if (macroCondition(getOwnConfig().application === "be")) {
   config = importSync("ember-ebau-core/caluma-query/models/case-sz");
 } else if (macroCondition(getOwnConfig().application === "gr")) {
   config = importSync("ember-ebau-core/caluma-query/models/case-gr");
+} else if (macroCondition(getOwnConfig().application === "so")) {
+  config = importSync("ember-ebau-core/caluma-query/models/case-so");
 }
+
 export default config.default;

@@ -9,6 +9,8 @@ if (macroCondition(getOwnConfig().application === "be")) {
   config = importSync("ember-ebau-core/config/main-sz");
 } else if (macroCondition(getOwnConfig().application === "gr")) {
   config = importSync("ember-ebau-core/config/main-gr");
+} else if (macroCondition(getOwnConfig().application === "so")) {
+  config = importSync("ember-ebau-core/config/main-so");
 }
 
 const sharedConfig = {
