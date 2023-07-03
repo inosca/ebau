@@ -123,6 +123,7 @@ documents:
     selbstdeklaration-2: "Selbstdeklaration 2"
     nachweise: "Nachweise"
     weitere-unterlagen: "Weitere Unterlagen"
+    brandschutzdokumente: "Brandschutzdokumente"
 
 freigabequittung:
   downloadError: "Beim Export ist ein Problem aufgetreten. Bitte versuchen Sie es erneut."
