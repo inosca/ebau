@@ -209,6 +209,24 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "beschreibung-einzelfeuerung-form",
+    "fields": {
+      "created_at": "2023-07-03T08:25:43.922Z",
+      "modified_at": "2023-07-03T08:25:43.922Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Beschreibung Einzelfeuerung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "bestaetigung",
     "fields": {
       "created_at": "2023-05-17T14:05:16.071Z",
@@ -290,6 +308,24 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "name": "{\"de\": \"Dashboard\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "details-zentralheizung",
+    "fields": {
+      "created_at": "2023-07-03T15:39:29.730Z",
+      "modified_at": "2023-07-03T15:39:29.730Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Details Zentralheizung\", \"fr\": null, \"it\": null, \"rm\": null}",
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "meta": {},
       "is_published": false,
@@ -3253,7 +3289,7 @@
       "modified_by_group": null,
       "form": "bauanzeige",
       "question": "allgemeine-angaben",
-      "sort": 3
+      "sort": 5
     }
   },
   {
@@ -3268,7 +3304,37 @@
       "modified_by_group": null,
       "form": "bauanzeige",
       "question": "bauvorhaben",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauanzeige.brandschutz-bauliche-angaben",
+    "fields": {
+      "created_at": "2023-07-03T06:40:11.942Z",
+      "modified_at": "2023-07-03T06:40:11.942Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauanzeige",
+      "question": "brandschutz-bauliche-angaben",
       "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauanzeige.brandschutz-haustechnik-form",
+    "fields": {
+      "created_at": "2023-07-03T06:41:47.167Z",
+      "modified_at": "2023-07-03T06:41:47.167Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauanzeige",
+      "question": "brandschutz-haustechnik-form",
+      "sort": 3
     }
   },
   {
@@ -3313,7 +3379,7 @@
       "modified_by_group": null,
       "form": "bauanzeige",
       "question": "personalien",
-      "sort": 5
+      "sort": 7
     }
   },
   {
@@ -3408,6 +3474,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "bauvorhaben.bauanzeige-bauvorhaben-betrifft",
+    "fields": {
+      "created_at": "2023-07-03T06:36:22.009Z",
+      "modified_at": "2023-07-03T06:36:22.009Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauvorhaben",
+      "question": "bauanzeige-bauvorhaben-betrifft",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "bauvorhaben.baugespann",
     "fields": {
       "created_at": "2023-04-12T07:53:03.964Z",
@@ -3418,7 +3499,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "baugespann",
-      "sort": 3
+      "sort": 5
     }
   },
   {
@@ -3433,7 +3514,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "baugespann-erstellt-am",
-      "sort": 2
+      "sort": 4
     }
   },
   {
@@ -3448,7 +3529,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "baukosten",
-      "sort": 4
+      "sort": 6
     }
   },
   {
@@ -3463,7 +3544,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "beschreibung-bauvorhaben",
-      "sort": 8
+      "sort": 10
     }
   },
   {
@@ -3478,7 +3559,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "divider",
-      "sort": 7
+      "sort": 9
     }
   },
   {
@@ -3493,7 +3574,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "gebaeudekubatur",
-      "sort": 6
+      "sort": 8
     }
   },
   {
@@ -3508,7 +3589,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "haustechnische-anlagen-brandschutz",
-      "sort": 1
+      "sort": 3
     }
   },
   {
@@ -3523,7 +3604,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "kosten-pro-m3",
-      "sort": 5
+      "sort": 7
     }
   },
   {
@@ -3538,7 +3619,97 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "vorhaben",
-      "sort": 9
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "beschreibung-einzelfeuerung-form.anzahl",
+    "fields": {
+      "created_at": "2023-07-03T08:30:43.033Z",
+      "modified_at": "2023-07-03T08:30:43.033Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "beschreibung-einzelfeuerung-form",
+      "question": "anzahl",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "beschreibung-einzelfeuerung-form.art-der-einzelfeuerung",
+    "fields": {
+      "created_at": "2023-07-03T08:30:25.329Z",
+      "modified_at": "2023-07-03T08:30:25.329Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "beschreibung-einzelfeuerung-form",
+      "question": "art-der-einzelfeuerung",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "beschreibung-einzelfeuerung-form.fabrikat-einzelfeuerung",
+    "fields": {
+      "created_at": "2023-07-03T08:34:53.126Z",
+      "modified_at": "2023-07-03T08:34:53.126Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "beschreibung-einzelfeuerung-form",
+      "question": "fabrikat-einzelfeuerung",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "beschreibung-einzelfeuerung-form.modeltyp",
+    "fields": {
+      "created_at": "2023-07-03T08:35:08.687Z",
+      "modified_at": "2023-07-03T08:35:08.687Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "beschreibung-einzelfeuerung-form",
+      "question": "modeltyp",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "beschreibung-einzelfeuerung-form.nennwaermeleistung-kw",
+    "fields": {
+      "created_at": "2023-07-03T08:35:31.289Z",
+      "modified_at": "2023-07-03T08:35:31.289Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "beschreibung-einzelfeuerung-form",
+      "question": "nennwaermeleistung-kw",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "beschreibung-einzelfeuerung-form.svgw-nr",
+    "fields": {
+      "created_at": "2023-07-03T08:31:37.390Z",
+      "modified_at": "2023-07-03T08:31:37.390Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "beschreibung-einzelfeuerung-form",
+      "question": "svgw-nr",
+      "sort": 4
     }
   },
   {
@@ -4663,7 +4834,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "alter-der-feuerungsanlage",
-      "sort": 92
+      "sort": 79
     }
   },
   {
@@ -4788,6 +4959,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "brandschutz-haustechnik.aufstellung-im-freien",
+    "fields": {
+      "created_at": "2023-07-03T15:58:54.179Z",
+      "modified_at": "2023-07-03T15:58:54.179Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-haustechnik",
+      "question": "aufstellung-im-freien",
+      "sort": 69
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "brandschutz-haustechnik.aufstellungsraum-der-feuerungsanlage-titel",
     "fields": {
       "created_at": "2023-04-24T08:36:18.384Z",
@@ -4858,7 +5044,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "beschreibung-brennstoff",
-      "sort": 84
+      "sort": 77
     }
   },
   {
@@ -4878,6 +5064,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "brandschutz-haustechnik.beschreibung-einzelfeuerung",
+    "fields": {
+      "created_at": "2023-07-03T08:37:07.045Z",
+      "modified_at": "2023-07-03T08:37:07.045Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-haustechnik",
+      "question": "beschreibung-einzelfeuerung",
+      "sort": 76
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "brandschutz-haustechnik.brennstoff",
     "fields": {
       "created_at": "2023-05-24T15:30:18.654Z",
@@ -4888,22 +5089,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "brennstoff",
-      "sort": 85
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "brandschutz-haustechnik.brennstofflager",
-    "fields": {
-      "created_at": "2023-04-24T06:56:49.901Z",
-      "modified_at": "2023-04-24T06:56:49.901Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "brandschutz-haustechnik",
-      "question": "brennstofflager",
-      "sort": 86
+      "sort": 78
     }
   },
   {
@@ -4923,126 +5109,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "brandschutz-haustechnik.cheminee-anzahl",
-    "fields": {
-      "created_at": "2023-04-24T07:16:20.744Z",
-      "modified_at": "2023-04-24T07:16:20.744Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "brandschutz-haustechnik",
-      "question": "cheminee-anzahl",
-      "sort": 75
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "brandschutz-haustechnik.cheminee-bauart",
-    "fields": {
-      "created_at": "2023-04-24T07:16:49.417Z",
-      "modified_at": "2023-04-24T07:16:49.417Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "brandschutz-haustechnik",
-      "question": "cheminee-bauart",
-      "sort": 74
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "brandschutz-haustechnik.cheminee-leistungserklaerung",
-    "fields": {
-      "created_at": "2023-04-24T07:18:18.118Z",
-      "modified_at": "2023-04-24T07:18:18.118Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "brandschutz-haustechnik",
-      "question": "cheminee-leistungserklaerung",
-      "sort": 72
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "brandschutz-haustechnik.cheminee-vkf-nr",
-    "fields": {
-      "created_at": "2023-04-24T07:17:27.927Z",
-      "modified_at": "2023-04-24T07:17:27.927Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "brandschutz-haustechnik",
-      "question": "cheminee-vkf-nr",
-      "sort": 73
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "brandschutz-haustechnik.chemineeofen-anzahl",
-    "fields": {
-      "created_at": "2023-04-24T07:01:24.068Z",
-      "modified_at": "2023-04-24T07:01:24.068Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "brandschutz-haustechnik",
-      "question": "chemineeofen-anzahl",
-      "sort": 82
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "brandschutz-haustechnik.chemineeofen-bauart",
-    "fields": {
-      "created_at": "2023-04-24T07:06:12.358Z",
-      "modified_at": "2023-04-24T07:06:12.358Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "brandschutz-haustechnik",
-      "question": "chemineeofen-bauart",
-      "sort": 81
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "brandschutz-haustechnik.chemineeofen-leistungserklaerung",
-    "fields": {
-      "created_at": "2023-04-24T07:13:31.452Z",
-      "modified_at": "2023-04-24T07:13:31.452Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "brandschutz-haustechnik",
-      "question": "chemineeofen-leistungserklaerung",
-      "sort": 79
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "brandschutz-haustechnik.chemineeofen-vkf-nr",
-    "fields": {
-      "created_at": "2023-04-24T07:07:20.828Z",
-      "modified_at": "2023-04-24T07:07:20.828Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "brandschutz-haustechnik",
-      "question": "chemineeofen-vkf-nr",
-      "sort": 80
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "brandschutz-haustechnik.details-alternativenergien",
     "fields": {
       "created_at": "2023-04-24T07:33:47.999Z",
@@ -5058,32 +5124,17 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "brandschutz-haustechnik.details-einzelfeuerungen",
-    "fields": {
-      "created_at": "2023-04-24T06:59:18.656Z",
-      "modified_at": "2023-04-24T06:59:18.657Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "brandschutz-haustechnik",
-      "question": "details-einzelfeuerungen",
-      "sort": 83
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "brandschutz-haustechnik.details-zentralheizung",
     "fields": {
-      "created_at": "2023-04-24T06:38:12.274Z",
-      "modified_at": "2023-04-24T06:38:12.274Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_at": "2023-07-03T15:48:20.464Z",
+      "modified_at": "2023-07-03T15:48:20.464Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "details-zentralheizung",
-      "sort": 91
+      "sort": 75
     }
   },
   {
@@ -5143,7 +5194,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "errichter-haustechnik",
-      "sort": 94
+      "sort": 81
     }
   },
   {
@@ -5159,6 +5210,21 @@
       "form": "brandschutz-haustechnik",
       "question": "fabrikat",
       "sort": 49
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz-haustechnik.fabrikat-waermepumpe",
+    "fields": {
+      "created_at": "2023-07-03T15:57:02.686Z",
+      "modified_at": "2023-07-03T15:57:02.686Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-haustechnik",
+      "question": "fabrikat-waermepumpe",
+      "sort": 72
     }
   },
   {
@@ -5223,47 +5289,17 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "brandschutz-haustechnik.kochherd-anzahl",
+    "pk": "brandschutz-haustechnik.kaeltemittel-waermepumpe",
     "fields": {
-      "created_at": "2023-04-24T07:20:17.906Z",
-      "modified_at": "2023-04-24T07:20:17.906Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_at": "2023-07-03T15:56:42.857Z",
+      "modified_at": "2023-07-03T15:56:42.857Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
-      "question": "kochherd-anzahl",
-      "sort": 71
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "brandschutz-haustechnik.kochherd-leistungserklaerung",
-    "fields": {
-      "created_at": "2023-04-24T07:21:22.589Z",
-      "modified_at": "2023-04-24T07:21:22.589Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "brandschutz-haustechnik",
-      "question": "kochherd-leistungserklaerung",
-      "sort": 69
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "brandschutz-haustechnik.kochherd-vkf-nr",
-    "fields": {
-      "created_at": "2023-04-24T07:20:55.672Z",
-      "modified_at": "2023-04-24T07:20:55.672Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "brandschutz-haustechnik",
-      "question": "kochherd-vkf-nr",
-      "sort": 70
+      "question": "kaeltemittel-waermepumpe",
+      "sort": 73
     }
   },
   {
@@ -5279,36 +5315,6 @@
       "form": "brandschutz-haustechnik",
       "question": "korrosionsschutz",
       "sort": 11
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "brandschutz-haustechnik.kw-zentralheizung-brenner",
-    "fields": {
-      "created_at": "2023-04-24T06:45:26.414Z",
-      "modified_at": "2023-04-24T06:45:26.414Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "brandschutz-haustechnik",
-      "question": "kw-zentralheizung-brenner",
-      "sort": 88
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "brandschutz-haustechnik.kw-zentralheizung-heizkessel",
-    "fields": {
-      "created_at": "2023-04-24T06:41:54.876Z",
-      "modified_at": "2023-04-24T06:41:54.876Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "brandschutz-haustechnik",
-      "question": "kw-zentralheizung-heizkessel",
-      "sort": 90
     }
   },
   {
@@ -5538,47 +5544,32 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "brandschutz-haustechnik.ofen-anzahl",
+    "pk": "brandschutz-haustechnik.model-typ",
     "fields": {
-      "created_at": "2023-04-24T07:14:02.066Z",
-      "modified_at": "2023-04-24T07:14:02.066Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_at": "2023-07-03T15:57:20.036Z",
+      "modified_at": "2023-07-03T15:57:20.037Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
-      "question": "ofen-anzahl",
-      "sort": 78
+      "question": "model-typ",
+      "sort": 71
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "brandschutz-haustechnik.ofen-leistungserklaerung",
+    "pk": "brandschutz-haustechnik.nennwaermeleistung-waermepumpe",
     "fields": {
-      "created_at": "2023-04-24T07:15:28.150Z",
-      "modified_at": "2023-04-24T07:15:28.150Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_at": "2023-07-03T15:58:24.412Z",
+      "modified_at": "2023-07-03T15:58:24.412Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
-      "question": "ofen-leistungserklaerung",
-      "sort": 76
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "brandschutz-haustechnik.ofen-vkf-nr",
-    "fields": {
-      "created_at": "2023-04-24T07:14:58.831Z",
-      "modified_at": "2023-04-24T07:14:58.831Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "brandschutz-haustechnik",
-      "question": "ofen-vkf-nr",
-      "sort": 77
+      "question": "nennwaermeleistung-waermepumpe",
+      "sort": 70
     }
   },
   {
@@ -5743,7 +5734,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "sind-folgende-anlagen-betroffen",
-      "sort": 93
+      "sort": 80
     }
   },
   {
@@ -5868,6 +5859,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "brandschutz-haustechnik.typ-der-waermepumpe",
+    "fields": {
+      "created_at": "2023-07-03T15:34:00.728Z",
+      "modified_at": "2023-07-03T15:34:00.728Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-haustechnik",
+      "question": "typ-der-waermepumpe",
+      "sort": 74
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "brandschutz-haustechnik.typ-des-fluessiggas",
     "fields": {
       "created_at": "2023-04-24T08:49:25.408Z",
@@ -5958,36 +5964,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "brandschutz-haustechnik.vkf-nr-zentralheizung-brenner",
-    "fields": {
-      "created_at": "2023-04-24T06:50:40.707Z",
-      "modified_at": "2023-04-24T06:50:40.707Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "brandschutz-haustechnik",
-      "question": "vkf-nr-zentralheizung-brenner",
-      "sort": 87
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "brandschutz-haustechnik.vkf-nr-zentralheizung-heizkessel",
-    "fields": {
-      "created_at": "2023-04-24T06:42:49.142Z",
-      "modified_at": "2023-04-24T06:42:49.142Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "brandschutz-haustechnik",
-      "question": "vkf-nr-zentralheizung-heizkessel",
-      "sort": 89
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "brandschutz-haustechnik.weitere-anschluesse-ableitung-der-abgase",
     "fields": {
       "created_at": "2023-04-24T08:42:49.871Z",
@@ -6013,7 +5989,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "brandschutz-haustechnik-titel",
-      "sort": 95
+      "sort": 82
     }
   },
   {
@@ -6093,6 +6069,66 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "details-zentralheizung.art-der-zentralheizung",
+    "fields": {
+      "created_at": "2023-07-03T15:40:40.362Z",
+      "modified_at": "2023-07-03T15:40:40.362Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "details-zentralheizung",
+      "question": "art-der-zentralheizung",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "details-zentralheizung.nennwaermeleistung",
+    "fields": {
+      "created_at": "2023-07-03T15:44:47.715Z",
+      "modified_at": "2023-07-03T15:44:47.715Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "details-zentralheizung",
+      "question": "nennwaermeleistung",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "details-zentralheizung.svgw-nr-ce-erklaerung",
+    "fields": {
+      "created_at": "2023-07-03T15:43:52.042Z",
+      "modified_at": "2023-07-03T15:43:52.042Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "details-zentralheizung",
+      "question": "svgw-nr-ce-erklaerung",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "details-zentralheizung.vkf-nr",
+    "fields": {
+      "created_at": "2023-07-03T15:42:53.164Z",
+      "modified_at": "2023-07-03T15:42:53.164Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "details-zentralheizung",
+      "question": "vkf-nr",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "dieselgetriebene-motoren.baujahr",
     "fields": {
       "created_at": "2023-06-14T11:45:00.157Z",
@@ -6163,7 +6199,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "ausbildungsnachweis",
-      "sort": 11
+      "sort": 16
     }
   },
   {
@@ -6178,7 +6214,67 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "bodenkundliches-fachgutachten",
-      "sort": 6
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente.brandschutzkonzept",
+    "fields": {
+      "created_at": "2023-07-03T07:18:13.190Z",
+      "modified_at": "2023-07-03T07:18:13.190Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente",
+      "question": "brandschutzkonzept",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente.brandschutzplaene",
+    "fields": {
+      "created_at": "2023-07-03T07:19:09.767Z",
+      "modified_at": "2023-07-03T07:19:09.767Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente",
+      "question": "brandschutzplaene",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente.dispositionsplan-heizungsraum",
+    "fields": {
+      "created_at": "2023-07-03T07:56:06.008Z",
+      "modified_at": "2023-07-03T07:56:06.008Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente",
+      "question": "dispositionsplan-heizungsraum",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente.einfache-brandschutzplaene",
+    "fields": {
+      "created_at": "2023-07-03T07:21:27.222Z",
+      "modified_at": "2023-07-03T07:21:27.222Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente",
+      "question": "einfache-brandschutzplaene",
+      "sort": 3
     }
   },
   {
@@ -6193,7 +6289,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "feststellungsverfuegung",
-      "sort": 3
+      "sort": 8
     }
   },
   {
@@ -6208,7 +6304,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "gesuch-feuerpolizeiliche-bewilligung",
-      "sort": 13
+      "sort": 18
     }
   },
   {
@@ -6223,7 +6319,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "hinweistext-dokumente",
-      "sort": 14
+      "sort": 19
     }
   },
   {
@@ -6238,7 +6334,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "messbericht",
-      "sort": 12
+      "sort": 17
     }
   },
   {
@@ -6253,7 +6349,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "resultate-der-geforderten-bodenuntersuchung",
-      "sort": 10
+      "sort": 15
     }
   },
   {
@@ -6268,7 +6364,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "rodungsgesuchsformular",
-      "sort": 5
+      "sort": 10
     }
   },
   {
@@ -6283,7 +6379,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "sicherheitsdatenblatt",
-      "sort": 1
+      "sort": 6
     }
   },
   {
@@ -6298,7 +6394,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "tragbarkeitsberechnung",
-      "sort": 2
+      "sort": 7
     }
   },
   {
@@ -6313,7 +6409,22 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "vereinbarkeit-zweitwohnungsgesetz",
-      "sort": 4
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente.vkf-anerkennungenleistungserklaerung-dop",
+    "fields": {
+      "created_at": "2023-07-03T08:01:53.099Z",
+      "modified_at": "2023-07-03T08:01:53.099Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente",
+      "question": "vkf-anerkennungenleistungserklaerung-dop",
+      "sort": 1
     }
   },
   {
@@ -6328,7 +6439,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "zusatzbewilligung-kantonsstrassen",
-      "sort": 9
+      "sort": 14
     }
   },
   {
@@ -6343,7 +6454,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "zusatzbewilligung-kantonsstrassen-belasteter-standort",
-      "sort": 8
+      "sort": 13
     }
   },
   {
@@ -6358,7 +6469,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "zusatzbewilligung-naturgefahren",
-      "sort": 7
+      "sort": 12
     }
   },
   {
@@ -15254,6 +15365,86 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "art-der-einzelfeuerung-anderes",
+    "fields": {
+      "created_at": "2023-07-03T08:30:24.978Z",
+      "modified_at": "2023-07-03T08:30:24.978Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anderes\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "art-der-einzelfeuerung-durchlauferhitzer",
+    "fields": {
+      "created_at": "2023-07-03T08:30:24.994Z",
+      "modified_at": "2023-07-03T08:30:24.994Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Durchlauferhitzer\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "art-der-einzelfeuerung-gascheminee",
+    "fields": {
+      "created_at": "2023-07-03T08:30:24.961Z",
+      "modified_at": "2023-07-03T08:30:24.961Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gaschemin\\u00e9e\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "art-der-einzelfeuerung-heizstrahler",
+    "fields": {
+      "created_at": "2023-07-03T08:30:24.908Z",
+      "modified_at": "2023-07-03T08:30:24.908Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Heizstrahler\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "art-der-einzelfeuerung-kochherd",
+    "fields": {
+      "created_at": "2023-07-03T08:30:24.991Z",
+      "modified_at": "2023-07-03T08:30:24.992Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Kochherd\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "art-der-entfernung-hecken-oder-feldgehoelze",
     "fields": {
       "created_at": "2023-04-24T14:09:24.299Z",
@@ -15791,6 +15982,86 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Quellwasser\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "art-der-zentralheizung-andere",
+    "fields": {
+      "created_at": "2023-07-03T15:40:40.013Z",
+      "modified_at": "2023-07-03T15:40:40.013Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Andere\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "art-der-zentralheizung-erdgas",
+    "fields": {
+      "created_at": "2023-07-03T15:40:40.048Z",
+      "modified_at": "2023-07-03T15:40:40.048Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Erdgas\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "art-der-zentralheizung-feste-brennstoffe",
+    "fields": {
+      "created_at": "2023-07-03T15:40:39.985Z",
+      "modified_at": "2023-07-03T15:40:39.985Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Feste Brennstoffe\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "art-der-zentralheizung-fluessiggas",
+    "fields": {
+      "created_at": "2023-07-03T15:40:39.972Z",
+      "modified_at": "2023-07-03T15:40:39.972Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Fl\\u00fcssiggas\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "art-der-zentralheizung-oelfeuerung",
+    "fields": {
+      "created_at": "2023-07-03T15:40:39.966Z",
+      "modified_at": "2023-07-03T15:40:39.966Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"\\u00d6lfeuerung\", \"fr\": null, \"it\": null, \"rm\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -16422,6 +16693,38 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "aufstellung-im-freien-ja",
+    "fields": {
+      "created_at": "2023-07-03T15:58:53.817Z",
+      "modified_at": "2023-07-03T15:58:53.818Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "aufstellung-im-freien-nein",
+    "fields": {
+      "created_at": "2023-07-03T15:58:53.827Z",
+      "modified_at": "2023-07-03T15:58:53.827Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "ausbildungsnachweis-ja",
     "fields": {
       "created_at": "2023-04-26T07:34:30.129Z",
@@ -16790,6 +17093,38 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "bauanzeige-bauvorhaben-betrifft-neubau-anbau",
+    "fields": {
+      "created_at": "2023-07-03T06:36:21.697Z",
+      "modified_at": "2023-07-03T06:36:21.697Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Neubau / Anbau / Umbau / Ausbau / Umnutzung von Geb\\u00e4ude oder Geb\\u00e4udeteilen\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bauanzeige-bauvorhaben-betrifft-neubau-ausbau",
+    "fields": {
+      "created_at": "2023-07-03T06:36:21.689Z",
+      "modified_at": "2023-07-03T06:36:21.689Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Neubau / Ausbau / Umbau von haustechnischen (w\\u00e4rmetechnischen) Anlagen\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "bauart-angebaut",
     "fields": {
       "created_at": "2023-05-25T07:01:18.741Z",
@@ -16895,6 +17230,38 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Beides\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bauvorhaben-feuerpolizeilich-bewilligungspflichtig-ja",
+    "fields": {
+      "created_at": "2023-07-03T06:32:39.986Z",
+      "modified_at": "2023-07-03T06:32:39.986Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bauvorhaben-feuerpolizeilich-bewilligungspflichtig-nein",
+    "fields": {
+      "created_at": "2023-07-03T06:32:39.997Z",
+      "modified_at": "2023-07-03T06:32:39.998Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null, \"rm\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -18342,6 +18709,38 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "brandschutzkonzept-ja",
+    "fields": {
+      "created_at": "2023-07-03T07:18:12.800Z",
+      "modified_at": "2023-07-03T07:18:12.800Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Brandschutzkonzept\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "brandschutzplaene-ja",
+    "fields": {
+      "created_at": "2023-07-03T07:19:09.447Z",
+      "modified_at": "2023-07-03T07:19:09.447Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Brandschutzpl\\u00e4ne inkl. Grundrisse, Schnitte, Fassaden\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "brennstoff-andere",
     "fields": {
       "created_at": "2023-05-24T15:30:18.360Z",
@@ -18399,38 +18798,6 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"\\u00d6l\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "cheminee-bauart-b1",
-    "fields": {
-      "created_at": "2023-04-24T07:16:49.099Z",
-      "modified_at": "2023-04-24T07:16:49.099Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"B1\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "cheminee-bauart-b2",
-    "fields": {
-      "created_at": "2023-04-24T07:16:49.108Z",
-      "modified_at": "2023-04-24T07:16:49.108Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"B2\", \"fr\": null, \"it\": null, \"rm\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -18678,272 +19045,16 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "details-einzelfeuerungen-cheminee",
+    "pk": "dispositionsplan-heizungsraum-ja",
     "fields": {
-      "created_at": "2023-04-24T06:59:18.338Z",
-      "modified_at": "2023-04-27T13:48:01.585Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Chemin\\u00e9e\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "details-einzelfeuerungen-chemineeofen",
-    "fields": {
-      "created_at": "2023-04-24T06:59:18.139Z",
-      "modified_at": "2023-04-27T13:48:01.628Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Chemin\\u00e9eofen\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "details-einzelfeuerungen-feste-brennstoffe",
-    "fields": {
-      "created_at": "2023-04-24T06:59:18.247Z",
-      "modified_at": "2023-05-24T15:29:13.140Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Feste Brennstoffe\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "is_archived": true,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "details-einzelfeuerungen-gas",
-    "fields": {
-      "created_at": "2023-04-24T06:59:18.320Z",
-      "modified_at": "2023-05-24T15:29:13.108Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Gas\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "is_archived": true,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "details-einzelfeuerungen-kochherd",
-    "fields": {
-      "created_at": "2023-04-24T06:59:18.317Z",
-      "modified_at": "2023-04-27T13:48:01.690Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Kochherd\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "details-einzelfeuerungen-oel",
-    "fields": {
-      "created_at": "2023-04-24T06:59:18.137Z",
-      "modified_at": "2023-05-24T15:29:13.086Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "label": "{\"de\": \"\\u00d6l\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "is_archived": true,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "details-einzelfeuerungen-ofen",
-    "fields": {
-      "created_at": "2023-04-24T06:59:18.334Z",
-      "modified_at": "2023-04-27T13:48:01.738Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Ofen\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "details-einzelfeuerungen-vor-ort-aufgebaut",
-    "fields": {
-      "created_at": "2023-04-24T06:59:18.294Z",
-      "modified_at": "2023-04-27T13:48:01.761Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Feuerungsanlage vor Ort aufgebaut\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "details-zentralheizung-andere",
-    "fields": {
-      "created_at": "2023-06-30T14:29:59.914Z",
-      "modified_at": "2023-06-30T14:29:59.914Z",
+      "created_at": "2023-07-03T07:56:05.659Z",
+      "modified_at": "2023-07-03T07:56:05.659Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"Andere\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Dispositionsplan Heizungsraum\", \"fr\": null, \"it\": null, \"rm\": null}",
       "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "details-zentralheizung-brenner",
-    "fields": {
-      "created_at": "2023-04-24T06:38:11.979Z",
-      "modified_at": "2023-06-30T14:29:10.116Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Brenner\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "is_archived": true,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "details-zentralheizung-erdgas",
-    "fields": {
-      "created_at": "2023-04-24T06:38:11.968Z",
-      "modified_at": "2023-04-27T13:49:04.576Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Erdgas\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "details-zentralheizung-feste-brennstoffe",
-    "fields": {
-      "created_at": "2023-04-24T06:38:11.811Z",
-      "modified_at": "2023-04-27T13:49:04.591Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Feste Brennstoffe\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "details-zentralheizung-fluessiggas",
-    "fields": {
-      "created_at": "2023-04-24T06:38:11.890Z",
-      "modified_at": "2023-04-27T13:49:04.595Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Fl\\u00fcssiggas\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "details-zentralheizung-heizkessel",
-    "fields": {
-      "created_at": "2023-04-24T06:38:11.897Z",
-      "modified_at": "2023-06-30T14:29:10.110Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Heizkessel\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "is_archived": true,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "details-zentralheizung-oel",
-    "fields": {
-      "created_at": "2023-04-24T06:38:11.781Z",
-      "modified_at": "2023-06-30T14:29:10.115Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"\\u00d6lfeuerung\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "details-zentralheizung-waermepumpe-brennbar",
-    "fields": {
-      "created_at": "2023-04-24T06:38:11.829Z",
-      "modified_at": "2023-06-30T14:29:10.107Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"W\\u00e4rmepumpe mit brennbarem K\\u00fchlmedium\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "is_archived": true,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "details-zentralheizung-waermepumpe-nicht-brennbar",
-    "fields": {
-      "created_at": "2023-04-24T06:38:11.926Z",
-      "modified_at": "2023-06-30T14:29:10.103Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"W\\u00e4rmepumpe mit nichtbrennbarem K\\u00fchlmedium\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -19007,6 +19118,22 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Metallkasten\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "einfache-brandschutzplaene-ja",
+    "fields": {
+      "created_at": "2023-07-03T07:21:26.917Z",
+      "modified_at": "2023-07-03T07:21:26.917Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Einfache Brandschutzpl\\u00e4ne\", \"fr\": null, \"it\": null, \"rm\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -24598,6 +24725,22 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "sind-folgende-anlagen-betroffen-waermepumpe",
+    "fields": {
+      "created_at": "2023-07-03T15:29:50.963Z",
+      "modified_at": "2023-07-03T15:29:50.963Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"W\\u00e4rmepumpe\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "sind-folgende-anlagen-betroffen-zentralheizung",
     "fields": {
       "created_at": "2023-04-27T13:30:28.127Z",
@@ -26214,6 +26357,38 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "typ-der-waermepumpe-mit-brennbarem-kaeltemittel",
+    "fields": {
+      "created_at": "2023-07-03T15:34:00.336Z",
+      "modified_at": "2023-07-03T15:34:00.337Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Mit brennbarem K\\u00e4ltemittel\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "typ-der-waermepumpe-ohne-brennbarem-kaeltemittel",
+    "fields": {
+      "created_at": "2023-07-03T15:34:00.343Z",
+      "modified_at": "2023-07-03T15:34:00.343Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ohne brennbarem K\\u00e4ltemittel\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "typ-des-bauwerks-andere",
     "fields": {
       "created_at": "2023-05-19T09:07:50.449Z",
@@ -27151,6 +27326,22 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Warmwasser\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "vkf-anerkennungenleistungserklaerung-dop-ja",
+    "fields": {
+      "created_at": "2023-07-03T08:01:52.779Z",
+      "modified_at": "2023-07-03T08:01:52.779Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"VKF-Anerkennungen/Leistungserkl\\u00e4rung (DoP)\", \"fr\": null, \"it\": null, \"rm\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -30657,19 +30848,19 @@
     "pk": "andere-loeschwasserversorgungen",
     "fields": {
       "created_at": "2023-05-25T07:39:15.137Z",
-      "modified_at": "2023-05-25T07:39:15.137Z",
+      "modified_at": "2023-07-03T07:30:16.754Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Andere L\\u00f6schwasserversorgungen\", \"fr\": null, \"it\": null, \"rm\": null}",
       "type": "text",
       "is_required": "false",
-      "is_hidden": "!(\"ausserhalb-bauzone-ja\" == \"ausserhalb-bauzone\"|answer)",
+      "is_hidden": "!(\"ausserhalb-bauzone-ja\" == \"ausserhalb-bauzone\"|answer(null))",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -31166,6 +31357,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "anzahl",
+    "fields": {
+      "created_at": "2023-07-03T08:30:42.879Z",
+      "modified_at": "2023-07-03T08:30:42.879Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anzahl\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "anzahl-anlagen",
     "fields": {
       "created_at": "2023-06-14T11:27:20.045Z",
@@ -31305,19 +31530,19 @@
     "pk": "anzahl-hydranten",
     "fields": {
       "created_at": "2023-05-25T07:38:51.145Z",
-      "modified_at": "2023-05-25T07:38:51.145Z",
+      "modified_at": "2023-07-03T07:25:32.755Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Anzahl Hydranten\", \"fr\": null, \"it\": null, \"rm\": null}",
       "type": "integer",
       "is_required": "false",
-      "is_hidden": "!(\"ausserhalb-bauzone-ja\" == \"ausserhalb-bauzone\"|answer)",
+      "is_hidden": "!(\"ausserhalb-bauzone-ja\" == \"ausserhalb-bauzone\"|answer(null))",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {
         "max_value": null,
@@ -32072,6 +32297,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "art-der-einzelfeuerung",
+    "fields": {
+      "created_at": "2023-07-03T08:26:10.605Z",
+      "modified_at": "2023-07-03T08:30:25.158Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Art der Einzelfeuerung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "art-der-entfernung",
     "fields": {
       "created_at": "2023-04-24T14:09:24.433Z",
@@ -32463,6 +32722,37 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "art-der-zentralheizung",
+    "fields": {
+      "created_at": "2023-07-03T15:40:40.189Z",
+      "modified_at": "2023-07-03T15:40:40.189Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Art der Zentralheizung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -33014,6 +33304,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "aufstellung-im-freien",
+    "fields": {
+      "created_at": "2023-07-03T15:58:53.976Z",
+      "modified_at": "2023-07-03T16:03:37.899Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Aufstellung im Freien\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "!(\"sind-folgende-anlagen-betroffen-waermepumpe\" in \"sind-folgende-anlagen-betroffen\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "aufstellungsraum-der-feuerungsanlage-titel",
     "fields": {
       "created_at": "2023-04-24T08:36:18.213Z",
@@ -33530,6 +33851,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "bauanzeige-bauvorhaben-betrifft",
+    "fields": {
+      "created_at": "2023-07-03T06:36:21.859Z",
+      "modified_at": "2023-07-03T06:37:06.294Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bauvorhaben betrifft\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "!(\"bauanzeige\" in form)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "bauart",
     "fields": {
       "created_at": "2023-05-25T07:01:18.880Z",
@@ -34029,6 +34381,37 @@
       "data_source": null,
       "row_form": null,
       "sub_form": "bauvorhaben",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bauvorhaben-feuerpolizeilich-bewilligungspflichtig",
+    "fields": {
+      "created_at": "2023-07-03T06:32:40.151Z",
+      "modified_at": "2023-07-03T06:33:56.138Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ist das Bauvorhaben feuerpolizeilich bewilligungspflichtig?\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "!(\"bauanzeige\" in form)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
@@ -35763,6 +36146,44 @@
       "meta": {},
       "data_source": null,
       "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "beschreibung-einzelfeuerung",
+    "fields": {
+      "created_at": "2023-07-03T08:37:06.876Z",
+      "modified_at": "2023-07-03T09:07:57.796Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschreibung Einzelfeuerung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "table",
+      "is_required": "false",
+      "is_hidden": "!(\"sind-folgende-anlagen-betroffen-einzelfeuerungen\" in \"sind-folgende-anlagen-betroffen\"|answer || \"sind-folgende-anlagen-betroffen-einzelfeuerung-fuer-fluessig-oder-erdgas\" in \"sind-folgende-anlagen-betroffen\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "columnsToDisplay": [
+          "art-der-einzelfeuerung",
+          "anzahl",
+          "fabrikat-einzelfeuerung",
+          "modeltyp"
+        ]
+      },
+      "data_source": null,
+      "row_form": "beschreibung-einzelfeuerung-form",
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
@@ -38042,6 +38463,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "brandschutz-bauliche-angaben",
+    "fields": {
+      "created_at": "2023-07-03T06:40:11.779Z",
+      "modified_at": "2023-07-03T07:01:40.678Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Brandschutz - Bauliche Angaben\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "!(\"haustechnische-anlagen-brandschutz-ja\" == \"haustechnische-anlagen-brandschutz\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "brandschutz-bauliche-angaben",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "brandschutz-haustechnik",
     "fields": {
       "created_at": "2023-05-23T13:12:21.454Z",
@@ -38073,10 +38525,41 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "brandschutz-haustechnik-form",
+    "fields": {
+      "created_at": "2023-07-03T06:41:47.016Z",
+      "modified_at": "2023-07-03T07:01:54.010Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Brandschutz - Haustechnik\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "!(\"haustechnische-anlagen-brandschutz-ja\" == \"haustechnische-anlagen-brandschutz\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "brandschutz-haustechnik",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "brandschutz-haustechnik-titel",
     "fields": {
       "created_at": "2023-04-24T06:20:37.261Z",
-      "modified_at": "2023-06-29T13:54:18.702Z",
+      "modified_at": "2023-07-03T08:21:52.636Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -38087,7 +38570,7 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"[W\\u00e4rmetechnische Anlagen](https://www.bsvonline.ch/de/vorschriften/#c-richtlinien%20VKF-Brandschutzrichtlinie%2024-15)\", \"fr\": null, \"it\": null, \"rm\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"### Brandschutz - Haustechnik\\n\\n#### Angaben zur Feuerungsanlage\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {},
@@ -38123,6 +38606,74 @@
       "static_content": "{\"de\": \"---\\n#### Brandschutzeinrichtungen\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {},
       "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "brandschutzkonzept",
+    "fields": {
+      "created_at": "2023-07-03T07:18:13.031Z",
+      "modified_at": "2023-07-03T07:36:40.828Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Brandschutzkonzept\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "!(\"qualitaetssicherungsstufe-qss\"|answer in [\n\t\"qualitaetssicherungsstufe-qss-qss-2\", \n\t\"qualitaetssicherungsstufe-qss-qss-3\", \n\t\"qualitaetssicherungsstufe-qss-qss-4\"\n])",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true,
+        "documentCategory": "brandschutzdokumente"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "brandschutzplaene",
+    "fields": {
+      "created_at": "2023-07-03T07:19:09.615Z",
+      "modified_at": "2023-07-03T07:52:10.154Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Brandschutzpl\\u00e4ne inkl. Grundrisse, Schnitte, Fassaden\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "!(\"qualitaetssicherungsstufe-qss\"|answer in [\n\t\"qualitaetssicherungsstufe-qss-qss-2\", \n\t\"qualitaetssicherungsstufe-qss-qss-3\", \n\t\"qualitaetssicherungsstufe-qss-qss-4\"\n])",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true,
+        "documentCategory": "brandschutzdokumente"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -38200,40 +38751,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "brennstofflager",
-    "fields": {
-      "created_at": "2023-04-24T06:56:49.738Z",
-      "modified_at": "2023-04-24T06:56:49.738Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Brennstofflager (Menge)\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "type": "text",
-      "is_required": "false",
-      "is_hidden": "!(\"details-zentralheizung-brenner\" in \"details-zentralheizung\"|answer)",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
-      "configuration": {
-        "max_length": null,
-        "min_length": null
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "brennstofflager-titel",
     "fields": {
       "created_at": "2023-05-23T13:47:09.681Z",
@@ -38252,272 +38769,6 @@
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"---\\n#### Brennstofflager\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "cheminee-anzahl",
-    "fields": {
-      "created_at": "2023-04-24T07:16:20.619Z",
-      "modified_at": "2023-04-24T07:16:20.619Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Chemin\\u00e9e Anzahl\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "type": "integer",
-      "is_required": "false",
-      "is_hidden": "!(\"details-einzelfeuerungen-cheminee\" in \"details-einzelfeuerungen\"|answer)",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
-      "configuration": {
-        "max_value": null,
-        "min_value": null
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "cheminee-bauart",
-    "fields": {
-      "created_at": "2023-04-24T07:16:49.267Z",
-      "modified_at": "2023-04-24T07:16:49.267Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Chemin\\u00e9e Bauart\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "type": "choice",
-      "is_required": "false",
-      "is_hidden": "!(\"details-einzelfeuerungen-cheminee\" in \"details-einzelfeuerungen\"|answer)",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "cheminee-leistungserklaerung",
-    "fields": {
-      "created_at": "2023-04-24T07:18:17.961Z",
-      "modified_at": "2023-04-24T07:19:06.744Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Chemin\\u00e9e Leistungserkl\\u00e4rung (DOP-NR.)\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "type": "text",
-      "is_required": "false",
-      "is_hidden": "!(\"details-einzelfeuerungen-cheminee\" in \"details-einzelfeuerungen\"|answer)",
-      "is_archived": false,
-      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
-      "configuration": {
-        "max_length": null,
-        "min_length": null
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "cheminee-vkf-nr",
-    "fields": {
-      "created_at": "2023-04-24T07:17:27.798Z",
-      "modified_at": "2023-04-24T07:17:27.798Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Chemin\\u00e9e VKF-NR.\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "type": "integer",
-      "is_required": "false",
-      "is_hidden": "!(\"details-einzelfeuerungen-cheminee\" in \"details-einzelfeuerungen\"|answer)",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
-      "configuration": {
-        "max_value": null,
-        "min_value": null
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "chemineeofen-anzahl",
-    "fields": {
-      "created_at": "2023-04-24T07:01:23.906Z",
-      "modified_at": "2023-04-24T07:07:43.972Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Chemin\\u00e9eofen Anzahl\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "type": "integer",
-      "is_required": "false",
-      "is_hidden": "!(\"details-einzelfeuerungen-chemineeofen\" in \"details-einzelfeuerungen\"|answer)",
-      "is_archived": false,
-      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
-      "configuration": {
-        "max_value": null,
-        "min_value": null
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "chemineeofen-bauart",
-    "fields": {
-      "created_at": "2023-04-24T07:06:12.217Z",
-      "modified_at": "2023-04-24T07:08:03.805Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Chemin\\u00e9eofen Bauart\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "type": "choice",
-      "is_required": "false",
-      "is_hidden": "!(\"details-einzelfeuerungen-chemineeofen\" in \"details-einzelfeuerungen\"|answer)",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "chemineeofen-leistungserklaerung",
-    "fields": {
-      "created_at": "2023-04-24T07:13:31.306Z",
-      "modified_at": "2023-04-24T07:13:31.306Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Chemin\\u00e9eofen Leistungserkl\\u00e4rung (DOP-Nr.)\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "type": "text",
-      "is_required": "false",
-      "is_hidden": "!(\"details-einzelfeuerungen-chemineeofen\" in \"details-einzelfeuerungen\"|answer)",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
-      "configuration": {
-        "max_length": null,
-        "min_length": null
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "chemineeofen-vkf-nr",
-    "fields": {
-      "created_at": "2023-04-24T07:07:20.684Z",
-      "modified_at": "2023-04-24T07:07:20.685Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Chemin\\u00e9eofen VKF-Nr.\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "type": "integer",
-      "is_required": "false",
-      "is_hidden": "!(\"details-einzelfeuerungen-chemineeofen\" in \"details-einzelfeuerungen\"|answer)",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
-      "configuration": {
-        "max_length": null,
-        "min_length": null
-      },
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -38916,47 +39167,16 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "details-einzelfeuerungen",
-    "fields": {
-      "created_at": "2023-04-24T06:59:18.497Z",
-      "modified_at": "2023-05-24T15:29:13.296Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Beschreibung Einzelfeuerung\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "type": "multiple_choice",
-      "is_required": "false",
-      "is_hidden": "!(\"sind-folgende-anlagen-betroffen-einzelfeuerungen\" in \"sind-folgende-anlagen-betroffen\"|answer)",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "details-zentralheizung",
     "fields": {
-      "created_at": "2023-04-24T06:38:12.111Z",
-      "modified_at": "2023-06-30T14:30:00.076Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_at": "2023-07-03T15:48:20.303Z",
+      "modified_at": "2023-07-03T15:52:09.223Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Details Zentralheizung\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "type": "multiple_choice",
+      "type": "table",
       "is_required": "false",
       "is_hidden": "!(\"sind-folgende-anlagen-betroffen-zentralheizung\" in \"sind-folgende-anlagen-betroffen\"|answer)",
       "is_archived": false,
@@ -38967,7 +39187,7 @@
       "configuration": {},
       "meta": {},
       "data_source": null,
-      "row_form": null,
+      "row_form": "details-zentralheizung",
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
@@ -39108,22 +39328,56 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "dispositionsplan-heizungsraum",
+    "fields": {
+      "created_at": "2023-07-03T07:56:05.857Z",
+      "modified_at": "2023-07-03T08:10:12.932Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dispositionsplan Heizungsraum\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "!(\"sind-folgende-anlagen-betroffen-zentralheizung\" in \"sind-folgende-anlagen-betroffen\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true,
+        "documentCategory": "brandschutzdokumente"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "distanz-des-hydranten",
     "fields": {
       "created_at": "2023-05-25T07:38:30.792Z",
-      "modified_at": "2023-05-25T07:38:30.792Z",
+      "modified_at": "2023-07-03T07:24:31.822Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Distanz des Hydranten zum Geb\\u00e4ude (m)\", \"fr\": null, \"it\": null, \"rm\": null}",
       "type": "float",
       "is_required": "false",
-      "is_hidden": "!(\"ausserhalb-bauzone-ja\" == \"ausserhalb-bauzone\"|answer)",
+      "is_hidden": "!(\"ausserhalb-bauzone-ja\" == \"ausserhalb-bauzone\"|answer(null))",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {
         "max_value": null,
@@ -39525,6 +39779,40 @@
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {},
       "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "einfache-brandschutzplaene",
+    "fields": {
+      "created_at": "2023-07-03T07:21:27.067Z",
+      "modified_at": "2023-07-03T07:53:50.947Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Einfache Brandschutzpl\\u00e4ne\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "!(\"qualitaetssicherungsstufe-qss-qss-1\" in \"qualitaetssicherungsstufe-qss\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true,
+        "documentCategory": "brandschutzdokumente"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -41453,6 +41741,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "fabrikat-einzelfeuerung",
+    "fields": {
+      "created_at": "2023-07-03T08:34:52.982Z",
+      "modified_at": "2023-07-03T08:34:52.982Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Fabrikat\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "fabrikat-typ-der-anlage",
     "fields": {
       "created_at": "2023-04-24T12:24:05.984Z",
@@ -41469,6 +41791,40 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "hint_text": "{\"de\": \"evtl. Prospekt beilegen\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "fabrikat-waermepumpe",
+    "fields": {
+      "created_at": "2023-07-03T15:57:02.525Z",
+      "modified_at": "2023-07-03T16:02:27.516Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Fabrikat\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "!(\"sind-folgende-anlagen-betroffen-waermepumpe\" in \"sind-folgende-anlagen-betroffen\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -41910,7 +42266,7 @@
     "pk": "feuerwehrzugaenglichkeit",
     "fields": {
       "created_at": "2023-05-25T07:36:52.890Z",
-      "modified_at": "2023-05-25T07:37:12.828Z",
+      "modified_at": "2023-07-03T07:23:52.664Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -41918,7 +42274,7 @@
       "label": "{\"de\": \"Feuerwehrzug\\u00e4nglichkeit\", \"fr\": null, \"it\": null, \"rm\": null}",
       "type": "choice",
       "is_required": "false",
-      "is_hidden": "!(\"ausserhalb-bauzone-ja\" == \"ausserhalb-bauzone\"|answer)",
+      "is_hidden": "!(\"ausserhalb-bauzone-ja\" == \"ausserhalb-bauzone\"|answer(null))",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
@@ -44282,19 +44638,19 @@
     "pk": "handfeuerloescher-standorte",
     "fields": {
       "created_at": "2023-05-25T07:44:05.659Z",
-      "modified_at": "2023-05-25T07:44:05.659Z",
+      "modified_at": "2023-07-03T07:31:28.502Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Handfeuerl\\u00f6scher Standorte\", \"fr\": null, \"it\": null, \"rm\": null}",
       "type": "text",
       "is_required": "false",
-      "is_hidden": "!(\"ausserhalb-bauzone-ja\" == \"ausserhalb-bauzone\"|answer)",
+      "is_hidden": "!(\"ausserhalb-bauzone-ja\" == \"ausserhalb-bauzone\"|answer(null))",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -44316,19 +44672,19 @@
     "pk": "handfeuerloescher-stueck",
     "fields": {
       "created_at": "2023-05-25T07:43:48.531Z",
-      "modified_at": "2023-05-25T07:43:48.531Z",
+      "modified_at": "2023-07-03T07:31:11.767Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Handfeuerl\\u00f6scher (St\\u00fcck)\", \"fr\": null, \"it\": null, \"rm\": null}",
       "type": "integer",
       "is_required": "false",
-      "is_hidden": "!(\"ausserhalb-bauzone-ja\" == \"ausserhalb-bauzone\"|answer)",
+      "is_hidden": "!(\"ausserhalb-bauzone-ja\" == \"ausserhalb-bauzone\"|answer(null))",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {
         "max_value": null,
@@ -44350,7 +44706,7 @@
     "pk": "haustechnische-anlagen-brandschutz",
     "fields": {
       "created_at": "2023-04-12T08:12:57.951Z",
-      "modified_at": "2023-06-30T13:57:15.863Z",
+      "modified_at": "2023-07-03T07:03:25.454Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -45858,6 +46214,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "kaeltemittel-waermepumpe",
+    "fields": {
+      "created_at": "2023-07-03T15:56:42.692Z",
+      "modified_at": "2023-07-03T16:02:19.362Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"K\\u00e4ltemittel\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "!(\"sind-folgende-anlagen-betroffen-waermepumpe\" in \"sind-folgende-anlagen-betroffen\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "kantonsstrassen",
     "fields": {
       "created_at": "2023-04-12T08:10:14.647Z",
@@ -45972,108 +46362,6 @@
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "kochherd-anzahl",
-    "fields": {
-      "created_at": "2023-04-24T07:20:17.772Z",
-      "modified_at": "2023-04-24T07:20:17.773Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Kochherd Anzahl\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "type": "integer",
-      "is_required": "false",
-      "is_hidden": "!(\"details-einzelfeuerungen-kochherd\" in \"details-einzelfeuerungen\"|answer)",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
-      "configuration": {
-        "max_value": null,
-        "min_value": null
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "kochherd-leistungserklaerung",
-    "fields": {
-      "created_at": "2023-04-24T07:21:22.457Z",
-      "modified_at": "2023-04-24T07:21:22.457Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Kochherd Leistungserkl\\u00e4rung (DOP-Nr.)\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "type": "text",
-      "is_required": "false",
-      "is_hidden": "!(\"details-einzelfeuerungen-kochherd\" in \"details-einzelfeuerungen\"|answer)",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
-      "configuration": {
-        "max_length": null,
-        "min_length": null
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "kochherd-vkf-nr",
-    "fields": {
-      "created_at": "2023-04-24T07:20:55.522Z",
-      "modified_at": "2023-04-24T07:20:55.522Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Kochherd VKF-NR.\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "type": "integer",
-      "is_required": "false",
-      "is_hidden": "!(\"details-einzelfeuerungen-kochherd\" in \"details-einzelfeuerungen\"|answer)",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
-      "configuration": {
-        "max_value": null,
-        "min_value": null
-      },
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -46390,74 +46678,6 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "kw-zentralheizung-brenner",
-    "fields": {
-      "created_at": "2023-04-24T06:45:26.275Z",
-      "modified_at": "2023-04-24T06:53:21.497Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Brenner kW\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "type": "text",
-      "is_required": "false",
-      "is_hidden": "!(\"details-zentralheizung-brenner\" in \"details-zentralheizung\"|answer)",
-      "is_archived": false,
-      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
-      "configuration": {
-        "max_length": null,
-        "min_length": null
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "kw-zentralheizung-heizkessel",
-    "fields": {
-      "created_at": "2023-04-24T06:41:54.730Z",
-      "modified_at": "2023-04-24T06:53:02.979Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Heizkessel kW\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "type": "text",
-      "is_required": "false",
-      "is_hidden": "!(\"details-zentralheizung-heizkessel\" in \"details-zentralheizung\"|answer)",
-      "is_archived": false,
-      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
-      "configuration": {
-        "max_length": null,
-        "min_length": null
-      },
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -48983,6 +49203,74 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "model-typ",
+    "fields": {
+      "created_at": "2023-07-03T15:57:19.853Z",
+      "modified_at": "2023-07-03T16:02:37.130Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Model / Typ\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "!(\"sind-folgende-anlagen-betroffen-waermepumpe\" in \"sind-folgende-anlagen-betroffen\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "modeltyp",
+    "fields": {
+      "created_at": "2023-07-03T08:35:08.527Z",
+      "modified_at": "2023-07-03T08:35:08.527Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Model/Typ\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "montageart",
     "fields": {
       "created_at": "2023-05-19T09:13:25.462Z",
@@ -49293,6 +49581,108 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "nennwaermeleistung",
+    "fields": {
+      "created_at": "2023-07-03T15:44:47.523Z",
+      "modified_at": "2023-07-03T15:44:47.523Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nennw\\u00e4rmeleistung (kw)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "nennwaermeleistung-kw",
+    "fields": {
+      "created_at": "2023-07-03T08:35:31.123Z",
+      "modified_at": "2023-07-03T08:35:31.123Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nennw\\u00e4rmeleistung (kW)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "nennwaermeleistung-waermepumpe",
+    "fields": {
+      "created_at": "2023-07-03T15:58:24.218Z",
+      "modified_at": "2023-07-03T16:02:48.208Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nennw\\u00e4rmeleistung (kW)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "!(\"sind-folgende-anlagen-betroffen-waermepumpe\" in \"sind-folgende-anlagen-betroffen\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {
         "max_value": null,
@@ -49715,108 +50105,6 @@
       "configuration": {
         "max_value": null,
         "min_value": null
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "ofen-anzahl",
-    "fields": {
-      "created_at": "2023-04-24T07:14:01.931Z",
-      "modified_at": "2023-04-24T07:14:01.932Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Ofen Anzahl\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "type": "integer",
-      "is_required": "false",
-      "is_hidden": "!(\"details-einzelfeuerungen-ofen\" in \"details-einzelfeuerungen\"|answer)",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
-      "configuration": {
-        "max_value": null,
-        "min_value": null
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "ofen-leistungserklaerung",
-    "fields": {
-      "created_at": "2023-04-24T07:15:28.006Z",
-      "modified_at": "2023-04-24T07:15:28.006Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Ofen Leistungserkl\\u00e4rung (DOP-Nr.)\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "type": "text",
-      "is_required": "false",
-      "is_hidden": "!(\"details-einzelfeuerungen-ofen\" in \"details-einzelfeuerungen\"|answer)",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
-      "configuration": {
-        "max_length": null,
-        "min_length": null
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "ofen-vkf-nr",
-    "fields": {
-      "created_at": "2023-04-24T07:14:58.689Z",
-      "modified_at": "2023-04-24T07:14:58.689Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Ofen VKF-Nr.\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "type": "integer",
-      "is_required": "false",
-      "is_hidden": "!(\"details-einzelfeuerungen-ofen\" in \"details-einzelfeuerungen\"|answer)",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
-      "configuration": {
-        "max_length": null,
-        "min_length": null
       },
       "meta": {},
       "data_source": null,
@@ -51810,7 +52098,7 @@
     "pk": "sind-folgende-anlagen-betroffen",
     "fields": {
       "created_at": "2023-04-27T13:30:28.401Z",
-      "modified_at": "2023-06-30T14:16:41.285Z",
+      "modified_at": "2023-07-03T15:30:02.958Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -52845,6 +53133,74 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "svgw-nr",
+    "fields": {
+      "created_at": "2023-07-03T08:31:37.203Z",
+      "modified_at": "2023-07-03T08:31:37.203Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"SVGW-Nr. / CE-Erkl\\u00e4rung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "svgw-nr-ce-erklaerung",
+    "fields": {
+      "created_at": "2023-07-03T15:43:51.879Z",
+      "modified_at": "2023-07-03T15:54:14.002Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"SVGW-Nr. / CE-Erkl\\u00e4rung\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "!(\"art-der-zentralheizung-fluessiggas\" in \"art-der-zentralheizung\"|answer || \"art-der-zentralheizung-erdgas\" in \"art-der-zentralheizung\"|answer || \"art-der-zentralheizung-andere\" in \"art-der-zentralheizung\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {
         "max_value": null,
@@ -53909,6 +54265,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "typ-der-waermepumpe",
+    "fields": {
+      "created_at": "2023-07-03T15:34:00.529Z",
+      "modified_at": "2023-07-03T15:34:00.529Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Typ der W\\u00e4rmepumpe\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "!(\"sind-folgende-anlagen-betroffen-waermepumpe\" in \"sind-folgende-anlagen-betroffen\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "typ-des-bauwerks",
     "fields": {
       "created_at": "2023-05-19T09:07:50.621Z",
@@ -54888,6 +55275,74 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "vkf-anerkennungenleistungserklaerung-dop",
+    "fields": {
+      "created_at": "2023-07-03T08:01:52.940Z",
+      "modified_at": "2023-07-03T08:10:24.951Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"VKF-Anerkennungen/Leistungserkl\\u00e4rung (DoP)\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "!(\"triage-brandschutz-anlage\" in \"triage-brandschutz\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true,
+        "documentCategory": "brandschutzdokumente"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "vkf-nr",
+    "fields": {
+      "created_at": "2023-07-03T15:42:52.988Z",
+      "modified_at": "2023-07-03T15:53:28.167Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"VKF Nr.\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "!(\"art-der-zentralheizung-oelfeuerung\" in \"art-der-zentralheizung\"|answer || \"art-der-zentralheizung-feste-brennstoffe\" in \"art-der-zentralheizung\"|answer || \"art-der-zentralheizung-andere\" in \"art-der-zentralheizung\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "vkf-nr-ableitung-der-abgase",
     "fields": {
       "created_at": "2023-04-24T08:40:03.552Z",
@@ -54976,74 +55431,6 @@
       "configuration": {
         "max_value": null,
         "min_value": null
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "vkf-nr-zentralheizung-brenner",
-    "fields": {
-      "created_at": "2023-04-24T06:50:40.562Z",
-      "modified_at": "2023-04-24T06:53:59.887Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Brenner VKF-Nr.\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "type": "integer",
-      "is_required": "false",
-      "is_hidden": "!(\"details-zentralheizung-brenner\" in \"details-zentralheizung\"|answer)",
-      "is_archived": false,
-      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
-      "configuration": {
-        "max_length": null,
-        "min_length": null
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "vkf-nr-zentralheizung-heizkessel",
-    "fields": {
-      "created_at": "2023-04-24T06:42:48.977Z",
-      "modified_at": "2023-04-24T06:53:13.338Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Heizkessel VKF-Nr.\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "type": "integer",
-      "is_required": "false",
-      "is_hidden": "!(\"details-zentralheizung-heizkessel\" in \"details-zentralheizung\"|answer)",
-      "is_archived": false,
-      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
-      "configuration": {
-        "max_length": null,
-        "min_length": null
       },
       "meta": {},
       "data_source": null,
@@ -56247,19 +56634,19 @@
     "pk": "wasserloeschposten-standorte",
     "fields": {
       "created_at": "2023-05-25T07:41:01.520Z",
-      "modified_at": "2023-05-25T07:41:01.520Z",
+      "modified_at": "2023-07-03T07:30:54.878Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Wasserl\\u00f6schposten Standorte\", \"fr\": null, \"it\": null, \"rm\": null}",
       "type": "text",
       "is_required": "false",
-      "is_hidden": "!(\"ausserhalb-bauzone-ja\" == \"ausserhalb-bauzone\"|answer)",
+      "is_hidden": "!(\"ausserhalb-bauzone-ja\" == \"ausserhalb-bauzone\"|answer(null))",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -56281,19 +56668,19 @@
     "pk": "wasserloeschposten-stueck",
     "fields": {
       "created_at": "2023-05-25T07:40:39.981Z",
-      "modified_at": "2023-05-25T07:40:39.981Z",
+      "modified_at": "2023-07-03T07:30:35.848Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Wasserl\\u00f6schposten (St\\u00fcck)\", \"fr\": null, \"it\": null, \"rm\": null}",
       "type": "integer",
       "is_required": "false",
-      "is_hidden": "!(\"ausserhalb-bauzone-ja\" == \"ausserhalb-bauzone\"|answer)",
+      "is_hidden": "!(\"ausserhalb-bauzone-ja\" == \"ausserhalb-bauzone\"|answer(null))",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
       "configuration": {
         "max_value": null,
@@ -58938,6 +59325,81 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "art-der-einzelfeuerung.art-der-einzelfeuerung-anderes",
+    "fields": {
+      "created_at": "2023-07-03T08:30:25.166Z",
+      "modified_at": "2023-07-03T08:30:25.166Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "art-der-einzelfeuerung",
+      "option": "art-der-einzelfeuerung-anderes",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-der-einzelfeuerung.art-der-einzelfeuerung-durchlauferhitzer",
+    "fields": {
+      "created_at": "2023-07-03T08:30:25.175Z",
+      "modified_at": "2023-07-03T08:30:25.175Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "art-der-einzelfeuerung",
+      "option": "art-der-einzelfeuerung-durchlauferhitzer",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-der-einzelfeuerung.art-der-einzelfeuerung-gascheminee",
+    "fields": {
+      "created_at": "2023-07-03T08:30:25.184Z",
+      "modified_at": "2023-07-03T08:30:25.184Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "art-der-einzelfeuerung",
+      "option": "art-der-einzelfeuerung-gascheminee",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-der-einzelfeuerung.art-der-einzelfeuerung-heizstrahler",
+    "fields": {
+      "created_at": "2023-07-03T08:30:25.179Z",
+      "modified_at": "2023-07-03T08:30:25.180Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "art-der-einzelfeuerung",
+      "option": "art-der-einzelfeuerung-heizstrahler",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-der-einzelfeuerung.art-der-einzelfeuerung-kochherd",
+    "fields": {
+      "created_at": "2023-07-03T08:30:25.171Z",
+      "modified_at": "2023-07-03T08:30:25.171Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "art-der-einzelfeuerung",
+      "option": "art-der-einzelfeuerung-kochherd",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "art-der-entfernung.art-der-entfernung-hecken-oder-feldgehoelze",
     "fields": {
       "created_at": "2023-04-27T12:08:34.703Z",
@@ -59444,6 +59906,81 @@
       "question": "art-der-waermequelle",
       "option": "art-der-waermequelle-quellwasser",
       "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-der-zentralheizung.art-der-zentralheizung-andere",
+    "fields": {
+      "created_at": "2023-07-03T15:40:40.197Z",
+      "modified_at": "2023-07-03T15:40:40.197Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "art-der-zentralheizung",
+      "option": "art-der-zentralheizung-andere",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-der-zentralheizung.art-der-zentralheizung-erdgas",
+    "fields": {
+      "created_at": "2023-07-03T15:40:40.206Z",
+      "modified_at": "2023-07-03T15:40:40.206Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "art-der-zentralheizung",
+      "option": "art-der-zentralheizung-erdgas",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-der-zentralheizung.art-der-zentralheizung-feste-brennstoffe",
+    "fields": {
+      "created_at": "2023-07-03T15:40:40.209Z",
+      "modified_at": "2023-07-03T15:40:40.209Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "art-der-zentralheizung",
+      "option": "art-der-zentralheizung-feste-brennstoffe",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-der-zentralheizung.art-der-zentralheizung-fluessiggas",
+    "fields": {
+      "created_at": "2023-07-03T15:40:40.202Z",
+      "modified_at": "2023-07-03T15:40:40.202Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "art-der-zentralheizung",
+      "option": "art-der-zentralheizung-fluessiggas",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-der-zentralheizung.art-der-zentralheizung-oelfeuerung",
+    "fields": {
+      "created_at": "2023-07-03T15:40:40.213Z",
+      "modified_at": "2023-07-03T15:40:40.213Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "art-der-zentralheizung",
+      "option": "art-der-zentralheizung-oelfeuerung",
+      "sort": 5
     }
   },
   {
@@ -60063,6 +60600,36 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "aufstellung-im-freien.aufstellung-im-freien-ja",
+    "fields": {
+      "created_at": "2023-07-03T16:03:37.917Z",
+      "modified_at": "2023-07-03T16:03:37.917Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "aufstellung-im-freien",
+      "option": "aufstellung-im-freien-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "aufstellung-im-freien.aufstellung-im-freien-nein",
+    "fields": {
+      "created_at": "2023-07-03T16:03:37.912Z",
+      "modified_at": "2023-07-03T16:03:37.912Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "aufstellung-im-freien",
+      "option": "aufstellung-im-freien-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "ausbildungsnachweis-vorhanden.ausbildungsnachweis-vorhanden-ja",
     "fields": {
       "created_at": "2023-04-18T19:21:35.894Z",
@@ -60378,6 +60945,36 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "bauanzeige-bauvorhaben-betrifft.bauanzeige-bauvorhaben-betrifft-neubau-anbau",
+    "fields": {
+      "created_at": "2023-07-03T06:37:06.310Z",
+      "modified_at": "2023-07-03T06:37:06.310Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "bauanzeige-bauvorhaben-betrifft",
+      "option": "bauanzeige-bauvorhaben-betrifft-neubau-anbau",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bauanzeige-bauvorhaben-betrifft.bauanzeige-bauvorhaben-betrifft-neubau-ausbau",
+    "fields": {
+      "created_at": "2023-07-03T06:37:06.305Z",
+      "modified_at": "2023-07-03T06:37:06.305Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "bauanzeige-bauvorhaben-betrifft",
+      "option": "bauanzeige-bauvorhaben-betrifft-neubau-ausbau",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "bauart.bauart-angebaut",
     "fields": {
       "created_at": "2023-05-25T07:01:18.888Z",
@@ -60478,6 +61075,36 @@
       "modified_by_group": null,
       "question": "baute-oder-anlage",
       "option": "baute-oder-anlage-beides",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bauvorhaben-feuerpolizeilich-bewilligungspflichtig.bauvorhaben-feuerpolizeilich-bewilligungspflichtig-ja",
+    "fields": {
+      "created_at": "2023-07-03T06:33:56.151Z",
+      "modified_at": "2023-07-03T06:33:56.151Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "bauvorhaben-feuerpolizeilich-bewilligungspflichtig",
+      "option": "bauvorhaben-feuerpolizeilich-bewilligungspflichtig-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bauvorhaben-feuerpolizeilich-bewilligungspflichtig.bauvorhaben-feuerpolizeilich-bewilligungspflichtig-nein",
+    "fields": {
+      "created_at": "2023-07-03T06:33:56.147Z",
+      "modified_at": "2023-07-03T06:33:56.147Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "bauvorhaben-feuerpolizeilich-bewilligungspflichtig",
+      "option": "bauvorhaben-feuerpolizeilich-bewilligungspflichtig-nein",
       "sort": 1
     }
   },
@@ -61803,6 +62430,36 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "brandschutzkonzept.brandschutzkonzept-ja",
+    "fields": {
+      "created_at": "2023-07-03T07:36:40.837Z",
+      "modified_at": "2023-07-03T07:36:40.837Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "brandschutzkonzept",
+      "option": "brandschutzkonzept-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "brandschutzplaene.brandschutzplaene-ja",
+    "fields": {
+      "created_at": "2023-07-03T07:52:10.167Z",
+      "modified_at": "2023-07-03T07:52:10.167Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "brandschutzplaene",
+      "option": "brandschutzplaene-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "brennstoff.brennstoff-andere",
     "fields": {
       "created_at": "2023-05-24T15:31:54.667Z",
@@ -61859,66 +62516,6 @@
       "question": "brennstoff",
       "option": "brennstoff-oel",
       "sort": 3
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "cheminee-bauart.cheminee-bauart-b1",
-    "fields": {
-      "created_at": "2023-04-24T07:16:49.280Z",
-      "modified_at": "2023-04-24T07:16:49.280Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "question": "cheminee-bauart",
-      "option": "cheminee-bauart-b1",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "cheminee-bauart.cheminee-bauart-b2",
-    "fields": {
-      "created_at": "2023-04-24T07:16:49.275Z",
-      "modified_at": "2023-04-24T07:16:49.275Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "question": "cheminee-bauart",
-      "option": "cheminee-bauart-b2",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "chemineeofen-bauart.b1",
-    "fields": {
-      "created_at": "2023-04-24T07:08:03.816Z",
-      "modified_at": "2023-04-24T07:08:03.816Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "question": "chemineeofen-bauart",
-      "option": "b1",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "chemineeofen-bauart.b2",
-    "fields": {
-      "created_at": "2023-04-24T07:08:03.812Z",
-      "modified_at": "2023-04-24T07:08:03.812Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "question": "chemineeofen-bauart",
-      "option": "b2",
-      "sort": 1
     }
   },
   {
@@ -62148,257 +62745,17 @@
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "details-einzelfeuerungen.details-einzelfeuerungen-cheminee",
+    "pk": "dispositionsplan-heizungsraum.dispositionsplan-heizungsraum-ja",
     "fields": {
-      "created_at": "2023-05-24T15:29:13.312Z",
-      "modified_at": "2023-05-24T15:29:13.312Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_at": "2023-07-03T08:10:12.942Z",
+      "modified_at": "2023-07-03T08:10:12.942Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "question": "details-einzelfeuerungen",
-      "option": "details-einzelfeuerungen-cheminee",
-      "sort": 3
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "details-einzelfeuerungen.details-einzelfeuerungen-chemineeofen",
-    "fields": {
-      "created_at": "2023-05-24T15:29:13.320Z",
-      "modified_at": "2023-05-24T15:29:13.320Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "question": "details-einzelfeuerungen",
-      "option": "details-einzelfeuerungen-chemineeofen",
-      "sort": 5
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "details-einzelfeuerungen.details-einzelfeuerungen-feste-brennstoffe",
-    "fields": {
-      "created_at": "2023-05-24T15:29:13.329Z",
-      "modified_at": "2023-05-24T15:29:13.329Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "question": "details-einzelfeuerungen",
-      "option": "details-einzelfeuerungen-feste-brennstoffe",
-      "sort": 7
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "details-einzelfeuerungen.details-einzelfeuerungen-gas",
-    "fields": {
-      "created_at": "2023-05-24T15:29:13.326Z",
-      "modified_at": "2023-05-24T15:29:13.326Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "question": "details-einzelfeuerungen",
-      "option": "details-einzelfeuerungen-gas",
-      "sort": 6
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "details-einzelfeuerungen.details-einzelfeuerungen-kochherd",
-    "fields": {
-      "created_at": "2023-05-24T15:29:13.308Z",
-      "modified_at": "2023-05-24T15:29:13.308Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "question": "details-einzelfeuerungen",
-      "option": "details-einzelfeuerungen-kochherd",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "details-einzelfeuerungen.details-einzelfeuerungen-oel",
-    "fields": {
-      "created_at": "2023-05-24T15:29:13.333Z",
-      "modified_at": "2023-05-24T15:29:13.333Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "question": "details-einzelfeuerungen",
-      "option": "details-einzelfeuerungen-oel",
-      "sort": 8
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "details-einzelfeuerungen.details-einzelfeuerungen-ofen",
-    "fields": {
-      "created_at": "2023-05-24T15:29:13.316Z",
-      "modified_at": "2023-05-24T15:29:13.316Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "question": "details-einzelfeuerungen",
-      "option": "details-einzelfeuerungen-ofen",
-      "sort": 4
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "details-einzelfeuerungen.details-einzelfeuerungen-vor-ort-aufgebaut",
-    "fields": {
-      "created_at": "2023-05-24T15:29:13.304Z",
-      "modified_at": "2023-05-24T15:29:13.304Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "question": "details-einzelfeuerungen",
-      "option": "details-einzelfeuerungen-vor-ort-aufgebaut",
+      "question": "dispositionsplan-heizungsraum",
+      "option": "dispositionsplan-heizungsraum-ja",
       "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "details-zentralheizung.details-zentralheizung-andere",
-    "fields": {
-      "created_at": "2023-06-30T14:30:00.083Z",
-      "modified_at": "2023-06-30T14:30:00.083Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "details-zentralheizung",
-      "option": "details-zentralheizung-andere",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "details-zentralheizung.details-zentralheizung-brenner",
-    "fields": {
-      "created_at": "2023-06-30T14:30:00.086Z",
-      "modified_at": "2023-06-30T14:30:00.086Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "details-zentralheizung",
-      "option": "details-zentralheizung-brenner",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "details-zentralheizung.details-zentralheizung-erdgas",
-    "fields": {
-      "created_at": "2023-06-30T14:30:00.104Z",
-      "modified_at": "2023-06-30T14:30:00.105Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "details-zentralheizung",
-      "option": "details-zentralheizung-erdgas",
-      "sort": 8
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "details-zentralheizung.details-zentralheizung-feste-brennstoffe",
-    "fields": {
-      "created_at": "2023-06-30T14:30:00.096Z",
-      "modified_at": "2023-06-30T14:30:00.096Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "details-zentralheizung",
-      "option": "details-zentralheizung-feste-brennstoffe",
-      "sort": 5
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "details-zentralheizung.details-zentralheizung-fluessiggas",
-    "fields": {
-      "created_at": "2023-06-30T14:30:00.093Z",
-      "modified_at": "2023-06-30T14:30:00.093Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "details-zentralheizung",
-      "option": "details-zentralheizung-fluessiggas",
-      "sort": 4
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "details-zentralheizung.details-zentralheizung-heizkessel",
-    "fields": {
-      "created_at": "2023-06-30T14:30:00.090Z",
-      "modified_at": "2023-06-30T14:30:00.090Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "details-zentralheizung",
-      "option": "details-zentralheizung-heizkessel",
-      "sort": 3
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "details-zentralheizung.details-zentralheizung-oel",
-    "fields": {
-      "created_at": "2023-06-30T14:30:00.107Z",
-      "modified_at": "2023-06-30T14:30:00.107Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "details-zentralheizung",
-      "option": "details-zentralheizung-oel",
-      "sort": 9
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "details-zentralheizung.details-zentralheizung-waermepumpe-brennbar",
-    "fields": {
-      "created_at": "2023-06-30T14:30:00.102Z",
-      "modified_at": "2023-06-30T14:30:00.102Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "details-zentralheizung",
-      "option": "details-zentralheizung-waermepumpe-brennbar",
-      "sort": 7
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "details-zentralheizung.details-zentralheizung-waermepumpe-nicht-brennbar",
-    "fields": {
-      "created_at": "2023-06-30T14:30:00.099Z",
-      "modified_at": "2023-06-30T14:30:00.099Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "details-zentralheizung",
-      "option": "details-zentralheizung-waermepumpe-nicht-brennbar",
-      "sort": 6
     }
   },
   {
@@ -62459,6 +62816,21 @@
       "question": "einbauart",
       "option": "einbauart-metallkasten",
       "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "einfache-brandschutzplaene.einfache-brandschutzplaene-ja",
+    "fields": {
+      "created_at": "2023-07-03T07:53:50.957Z",
+      "modified_at": "2023-07-03T07:53:50.958Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "einfache-brandschutzplaene",
+      "option": "einfache-brandschutzplaene-ja",
+      "sort": 1
     }
   },
   {
@@ -63800,8 +64172,8 @@
     "model": "caluma_form.questionoption",
     "pk": "feuerwehrzugaenglichkeit.feuerwehrzugaenglichkeit-gewaehrleistet",
     "fields": {
-      "created_at": "2023-05-25T07:37:12.842Z",
-      "modified_at": "2023-05-25T07:37:12.842Z",
+      "created_at": "2023-07-03T07:23:52.682Z",
+      "modified_at": "2023-07-03T07:23:52.683Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -63815,8 +64187,8 @@
     "model": "caluma_form.questionoption",
     "pk": "feuerwehrzugaenglichkeit.feuerwehrzugaenglichkeit-nicht-gewaehrleistet",
     "fields": {
-      "created_at": "2023-05-25T07:37:12.837Z",
-      "modified_at": "2023-05-25T07:37:12.837Z",
+      "created_at": "2023-07-03T07:23:52.676Z",
+      "modified_at": "2023-07-03T07:23:52.676Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -64550,8 +64922,8 @@
     "model": "caluma_form.questionoption",
     "pk": "haustechnische-anlagen-brandschutz.haustechnische-anlagen-brandschutz-ja",
     "fields": {
-      "created_at": "2023-06-30T13:57:15.873Z",
-      "modified_at": "2023-06-30T13:57:15.873Z",
+      "created_at": "2023-07-03T07:03:25.471Z",
+      "modified_at": "2023-07-03T07:03:25.471Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -64565,8 +64937,8 @@
     "model": "caluma_form.questionoption",
     "pk": "haustechnische-anlagen-brandschutz.haustechnische-anlagen-brandschutz-nein",
     "fields": {
-      "created_at": "2023-06-30T13:57:15.870Z",
-      "modified_at": "2023-06-30T13:57:15.870Z",
+      "created_at": "2023-07-03T07:03:25.465Z",
+      "modified_at": "2023-07-03T07:03:25.466Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -67640,8 +68012,8 @@
     "model": "caluma_form.questionoption",
     "pk": "sind-folgende-anlagen-betroffen.sind-folgende-anlagen-betroffen-alternativenergien",
     "fields": {
-      "created_at": "2023-06-30T14:16:41.300Z",
-      "modified_at": "2023-06-30T14:16:41.300Z",
+      "created_at": "2023-07-03T15:30:02.976Z",
+      "modified_at": "2023-07-03T15:30:02.976Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -67655,8 +68027,8 @@
     "model": "caluma_form.questionoption",
     "pk": "sind-folgende-anlagen-betroffen.sind-folgende-anlagen-betroffen-brennstofflager",
     "fields": {
-      "created_at": "2023-06-30T14:16:41.297Z",
-      "modified_at": "2023-06-30T14:16:41.297Z",
+      "created_at": "2023-07-03T15:30:02.972Z",
+      "modified_at": "2023-07-03T15:30:02.972Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -67670,38 +68042,38 @@
     "model": "caluma_form.questionoption",
     "pk": "sind-folgende-anlagen-betroffen.sind-folgende-anlagen-betroffen-einzelfeuerung-fuer-fluessig-oder-erdgas",
     "fields": {
-      "created_at": "2023-06-30T14:16:41.306Z",
-      "modified_at": "2023-06-30T14:16:41.306Z",
+      "created_at": "2023-07-03T15:30:02.986Z",
+      "modified_at": "2023-07-03T15:30:02.986Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "sind-folgende-anlagen-betroffen",
       "option": "sind-folgende-anlagen-betroffen-einzelfeuerung-fuer-fluessig-oder-erdgas",
-      "sort": 6
+      "sort": 7
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "sind-folgende-anlagen-betroffen.sind-folgende-anlagen-betroffen-einzelfeuerungen",
     "fields": {
-      "created_at": "2023-06-30T14:16:41.308Z",
-      "modified_at": "2023-06-30T14:16:41.308Z",
+      "created_at": "2023-07-03T15:30:02.990Z",
+      "modified_at": "2023-07-03T15:30:02.990Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "sind-folgende-anlagen-betroffen",
       "option": "sind-folgende-anlagen-betroffen-einzelfeuerungen",
-      "sort": 7
+      "sort": 8
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "sind-folgende-anlagen-betroffen.sind-folgende-anlagen-betroffen-ortsfeste-fluessiggasbehaelter",
     "fields": {
-      "created_at": "2023-06-30T14:16:41.291Z",
-      "modified_at": "2023-06-30T14:16:41.291Z",
+      "created_at": "2023-07-03T15:30:02.965Z",
+      "modified_at": "2023-07-03T15:30:02.965Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -67715,8 +68087,8 @@
     "model": "caluma_form.questionoption",
     "pk": "sind-folgende-anlagen-betroffen.sind-folgende-anlagen-betroffen-tankstellen",
     "fields": {
-      "created_at": "2023-06-30T14:16:41.294Z",
-      "modified_at": "2023-06-30T14:16:41.294Z",
+      "created_at": "2023-07-03T15:30:02.969Z",
+      "modified_at": "2023-07-03T15:30:02.969Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -67728,17 +68100,32 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "sind-folgende-anlagen-betroffen.sind-folgende-anlagen-betroffen-waermepumpe",
+    "fields": {
+      "created_at": "2023-07-03T15:30:02.980Z",
+      "modified_at": "2023-07-03T15:30:02.980Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "sind-folgende-anlagen-betroffen",
+      "option": "sind-folgende-anlagen-betroffen-waermepumpe",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "sind-folgende-anlagen-betroffen.sind-folgende-anlagen-betroffen-zentralheizung",
     "fields": {
-      "created_at": "2023-06-30T14:16:41.303Z",
-      "modified_at": "2023-06-30T14:16:41.303Z",
+      "created_at": "2023-07-03T15:30:02.983Z",
+      "modified_at": "2023-07-03T15:30:02.983Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "sind-folgende-anlagen-betroffen",
       "option": "sind-folgende-anlagen-betroffen-zentralheizung",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -69243,6 +69630,36 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "typ-der-waermepumpe.typ-der-waermepumpe-mit-brennbarem-kaeltemittel",
+    "fields": {
+      "created_at": "2023-07-03T15:34:00.541Z",
+      "modified_at": "2023-07-03T15:34:00.541Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "typ-der-waermepumpe",
+      "option": "typ-der-waermepumpe-mit-brennbarem-kaeltemittel",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "typ-der-waermepumpe.typ-der-waermepumpe-ohne-brennbarem-kaeltemittel",
+    "fields": {
+      "created_at": "2023-07-03T15:34:00.537Z",
+      "modified_at": "2023-07-03T15:34:00.537Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "typ-der-waermepumpe",
+      "option": "typ-der-waermepumpe-ohne-brennbarem-kaeltemittel",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "typ-des-bauwerks.typ-des-bauwerks-andere",
     "fields": {
       "created_at": "2023-05-19T09:07:50.629Z",
@@ -70124,6 +70541,21 @@
       "question": "verwendungszweck-des-gases",
       "option": "verwendungszweck-des-gases-warmwasser",
       "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "vkf-anerkennungenleistungserklaerung-dop.vkf-anerkennungenleistungserklaerung-dop-ja",
+    "fields": {
+      "created_at": "2023-07-03T08:10:24.960Z",
+      "modified_at": "2023-07-03T08:10:24.960Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "vkf-anerkennungenleistungserklaerung-dop",
+      "option": "vkf-anerkennungenleistungserklaerung-dop-ja",
+      "sort": 1
     }
   },
   {
