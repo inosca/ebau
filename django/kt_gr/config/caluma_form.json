@@ -6783,6 +6783,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "einreichen.einleitung-des-verfahrens",
+    "fields": {
+      "created_at": "2023-07-03T06:20:14.075Z",
+      "modified_at": "2023-07-03T06:20:14.075Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "einreichen",
+      "question": "einleitung-des-verfahrens",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "einreichen.einreichen-button",
     "fields": {
       "created_at": "2022-09-21T12:51:45.387Z",
@@ -19056,6 +19071,22 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "einleitung-des-verfahrens-ja",
+    "fields": {
+      "created_at": "2023-07-03T06:20:13.725Z",
+      "modified_at": "2023-07-03T06:20:13.725Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ich nehme zur Kenntnis, dass das Verfahren erst eingeleitet wird, wenn die Eingabequittung ausgedruckt und unterzeichnet bei der Standortgemeinde eingereicht wurde.\", \"fr\": null, \"it\": null, \"rm\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -39683,6 +39714,39 @@
       "data_source": null,
       "row_form": null,
       "sub_form": "eingriffe-in-gewaesserschutzbereichen",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "einleitung-des-verfahrens",
+    "fields": {
+      "created_at": "2023-07-03T06:20:13.929Z",
+      "modified_at": "2023-07-03T06:20:13.929Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Einleitung des Verfahrens\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
@@ -62454,6 +62518,21 @@
       "modified_by_group": null,
       "question": "eingangskontrolle",
       "option": "eingangskontrolle-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "einleitung-des-verfahrens.einleitung-des-verfahrens-ja",
+    "fields": {
+      "created_at": "2023-07-03T06:20:13.939Z",
+      "modified_at": "2023-07-03T06:20:13.939Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "einleitung-des-verfahrens",
+      "option": "einleitung-des-verfahrens-ja",
       "sort": 1
     }
   },
