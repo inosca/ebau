@@ -17,10 +17,6 @@ $sidebar-width: 180px;
 $sidebar-padding: 48px;
 $border-color: darken($global-muted-background, 10%);
 
-tr[role="link"] {
-  cursor: pointer;
-}
-
 .main-navigation {
   position: fixed;
   left: 0;
