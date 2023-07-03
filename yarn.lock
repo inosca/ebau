@@ -1256,7 +1256,7 @@
     mkdirp "^1.0.4"
     silent-error "^1.1.1"
 
-"@ember/render-modifiers@2.1.0", "@ember/render-modifiers@^1.0.2 || ^2.0.0", "@ember/render-modifiers@^2.0.3", "@ember/render-modifiers@^2.0.4", "@ember/render-modifiers@^2.0.5", "@ember/render-modifiers@^2.1.0":
+"@ember/render-modifiers@2.1.0", "@ember/render-modifiers@^1.0.2 || ^2.0.0", "@ember/render-modifiers@^2.0.3", "@ember/render-modifiers@^2.0.5", "@ember/render-modifiers@^2.1.0":
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/@ember/render-modifiers/-/render-modifiers-2.1.0.tgz#f4fff95a8b5cfbe947ec46644732d511711c5bf9"
   integrity sha512-LruhfoDv2itpk0fA0IC76Sxjcnq/7BC6txpQo40hOko8Dn6OxwQfxkPIbZGV0Cz7df+iX+VJrcYzNIvlc3w2EQ==
@@ -1446,7 +1446,7 @@
   dependencies:
     tslib "^2.1.0"
 
-"@fortawesome/ember-fontawesome@0.4.3", "@fortawesome/ember-fontawesome@^0.4.1":
+"@fortawesome/ember-fontawesome@0.4.3", "@fortawesome/ember-fontawesome@^0.4.1", "@fortawesome/ember-fontawesome@^0.4.3":
   version "0.4.3"
   resolved "https://registry.yarnpkg.com/@fortawesome/ember-fontawesome/-/ember-fontawesome-0.4.3.tgz#076cb85febfe3316fba60ebdcc0a0ff306988d7d"
   integrity sha512-1qAYrpEH29JO74yGGyUYMHnrA9VBFD9QO/g8xDZov3YxcjIiHN9L2liu0X3YNkrNUXgySgx/xa4t1dGINN9WVg==
@@ -6916,14 +6916,14 @@ ember-destroyable-polyfill@^2.0.2, ember-destroyable-polyfill@^2.0.3:
     ember-cli-version-checker "^5.1.1"
     ember-compatibility-helpers "^1.2.1"
 
-ember-ebau-gwr@7.0.0:
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/ember-ebau-gwr/-/ember-ebau-gwr-7.0.0.tgz#87cd04e3cb708226b957387f52b1481a126c83b3"
-  integrity sha512-B3wqm/zSxCH+erdkfukWN7+36s4+f9osSnPIaJkHNwRW++HxH4MQLx9P4tn4iKH2d59aRgoZBe1WTD2hYL+EBg==
+ember-ebau-gwr@7.2.1:
+  version "7.2.1"
+  resolved "https://registry.yarnpkg.com/ember-ebau-gwr/-/ember-ebau-gwr-7.2.1.tgz#73e2677f63b7af5c42bae9b14e461e53f9ced42a"
+  integrity sha512-C2b/IZ1pUL2qou6iYD8EcTGo6oDRyrt45PGan4a71j6RXeWTGd7SJm2imRzCZXYIGwmRjc1ZIQn+cG+Of6MQRA==
   dependencies:
     "@ember/legacy-built-in-components" "^0.4.2"
-    "@ember/render-modifiers" "^2.0.4"
-    "@fortawesome/ember-fontawesome" "^0.4.1"
+    "@ember/render-modifiers" "^2.1.0"
+    "@fortawesome/ember-fontawesome" "^0.4.3"
     "@fortawesome/free-regular-svg-icons" "^6.4.0"
     "@fortawesome/free-solid-svg-icons" "^6.4.0"
     "@glimmer/component" "^1.1.2"
