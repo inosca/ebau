@@ -194,18 +194,6 @@ module.exports = function (environment) {
         juristicNameRegexp: "^name-juristische-person.*$",
         emailRegexp: "^e-mail-.*$",
       },
-      paperInstances: {
-        allowedGroups: {
-          roles: [
-            3, // Leitung Leitbehörde
-            20004, // Sachbearbeiter Leitbehörde
-          ],
-          serviceGroups: [
-            2, // Gemeinde
-            20000, // Regierungsstatthalteramt
-          ],
-        },
-      },
       // Who can create which forms. Roles can be given by ID, or magic key ("internal" or "public")
       formCreationPermissions: [
         {
@@ -323,28 +311,6 @@ module.exports = function (environment) {
         lastNameRegexp: "^last-name$",
         juristicNameRegexp: "^juristic-person-name$",
         emailRegexp: "^e-mail$",
-      },
-      paperInstances: {
-        allowedGroups: {
-          roles: [
-            6, // Sekretariat der Gemeindebaubehörde
-            3, // KOOR BG
-            1061, // KOOR NP
-            1101, // KOOR BD
-            1106, // KOOR AfU
-            1107, // KOOR ALA
-            1127, // KOOR AfE
-            1128, // KOOR AFJ
-            1129, // KOOR SD
-            1130, // Bundesstelle
-            1131, // Support
-          ],
-          serviceGroups: [
-            1, // Koordinationsstellen
-            68, // Sekretariate Gemeindebaubehörden
-            70, // Bundesstellen
-          ],
-        },
       },
       // Who can create which forms. Roles can be given by ID, or magic key ("internal" or "public")
       formCreationPermissions: [
@@ -497,16 +463,6 @@ module.exports = function (environment) {
         juristicNameRegexp: "^name-juristische-person.*$",
         emailRegexp: "^e-mail-.*$",
       },
-      paperInstances: {
-        allowedGroups: {
-          roles: [
-            3, // municipality
-          ],
-          serviceGroups: [
-            1, // municipality
-          ],
-        },
-      },
       // Who can create which forms. Roles can be given by ID, or magic key ("internal" or "public")
       formCreationPermissions: [
         {
@@ -551,12 +507,6 @@ module.exports = function (environment) {
         lastNameRegexp: "^todo-.*$",
         juristicNameRegexp: "^todo.*$",
         emailRegexp: "^e-mail-.*$",
-      },
-      paperInstances: {
-        allowedGroups: {
-          roles: [],
-          serviceGroups: [],
-        },
       },
       // Who can create which forms. Roles can be given by ID, or magic key ("internal" or "public")
       formCreationPermissions: [
