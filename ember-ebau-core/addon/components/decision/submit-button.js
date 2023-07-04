@@ -90,6 +90,10 @@ export default class DecisionSubmitButtonComponent extends CfFieldInputActionBut
           });
         })
       );
+
+      this.notification.success(
+        this.intl.t("decision.send-notification-success")
+      );
     } catch (error) {
       this.notification.danger(this.intl.t("decision.send-notification-error"));
     }

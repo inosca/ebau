@@ -19,5 +19,6 @@ decision:
     irrévocablement au statut <b>« Terminé »</b>. Un dossier de recours est
     créé, permettant de documenter la procédure de recours.
 
+  send-notification-success: "Notifications envoyées avec succès"
   send-notification-error: "Erreur lors de l'envoi des notifications"
   appeal-error: "Erreur lors du lancement de la procédure de recours"
