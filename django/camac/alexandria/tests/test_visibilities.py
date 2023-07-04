@@ -31,7 +31,7 @@ def test_document_visibility(
     municipality_category = CategoryFactory(
         metainfo={"access": {"municipality": "Read"}}
     )
-    service_category = CategoryFactory(metainfo={"access": {"service": "Internal"}})
+    service_category = CategoryFactory(metainfo={"access": {"service": "InternalRead"}})
 
     DocumentFactory.create_batch(
         2, category=applicant_category, metainfo={"case_id": instance.pk}
@@ -44,6 +44,11 @@ def test_document_visibility(
     DocumentFactory(
         category=service_category,
         created_by_group=caluma_admin_user.group,
+        metainfo={"case_id": instance.pk},
+    )
+    DocumentFactory(
+        category=service_category,
+        created_by_group=caluma_admin_user.group + 1,
         metainfo={"case_id": instance.pk},
     )
 
