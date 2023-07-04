@@ -11,6 +11,8 @@ communications:
     unread: Ungelesene
     read: Gelesene
     newMessage: Neue Nachricht erfassen
+    no-unread: Keine ungelesenen Nachrichten
+    has-unread: Ungelesene Nachrichten
 
   detail:
     sentDate: "am {date} um {time}"
