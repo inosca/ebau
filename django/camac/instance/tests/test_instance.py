@@ -446,6 +446,9 @@ def test_instance_plot_filter(
             "Inquiry answer 3",
             {"Municipality": 0, "Service": 0, "Applicant": 0},
         ),  # Search input too short
+        ('"Issue A"', {"Municipality": 1, "Service": 1, "Applicant": 0}),
+        ("Issue", {"Municipality": 1, "Service": 1, "Applicant": 0}),
+        ('"Issue B"', {"Municipality": 0, "Service": 0, "Applicant": 0}),
     ],
 )
 def test_keyword_search_filter_sz(
@@ -469,6 +472,7 @@ def test_keyword_search_filter_sz(
     role,
     user_factory,
     group_factory,
+    issue_factory,
 ):
     settings.APPLICATION_NAME = "kt_schwyz"
     application_settings["ROLE_PERMISSIONS"] = {
@@ -586,6 +590,14 @@ def test_keyword_search_filter_sz(
         ),
         value="Inquiry answer 3",
     )
+
+    # Visible issue
+    issue_factory(
+        instance=sz_instance, service=admin_user.groups.first().service, text="Issue A"
+    )
+
+    # Not visible issue
+    issue_factory(instance=other_instance, service=service_factory(), text="Issue B")
 
     url = reverse("instance-list")
     response = admin_client.get(url, data={"keyword_search": value})

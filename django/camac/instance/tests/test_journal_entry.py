@@ -66,13 +66,19 @@ def test_journal_entry_list(admin_client, journal_entry, activation, size):
 @pytest.mark.parametrize(
     "role__name,size",
     [
-        # TODO ("Applicant", 0),
-        ("Canton", 1),
+        ("Applicant", 0),
         ("Municipality", 1),
         ("Service", 1),
     ],
 )
-def test_journal_entry_visible_for(admin_client, journal_entry, group, size):
+def test_journal_entry_visible_for(
+    admin_client, journal_entry, group, size, application_settings
+):
+
+    application_settings["ROLE_PERMISSIONS"] = {
+        "Municipality": "municipality",
+        "Service": "service",
+    }
 
     journal_entries = (
         JournalEntry.objects.get_queryset()
