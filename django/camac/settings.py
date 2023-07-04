@@ -3627,6 +3627,17 @@ APPLICATIONS = {
         "MASTER_DATA": {
             "canton": ("static", "SO"),
         },
+        "ACTIVE_SERVICES": {
+            "MUNICIPALITY": {
+                "FILTERS": {
+                    "service__service_group__name__in": [
+                        "municipality",
+                    ]
+                },
+                "DEFAULT": True,
+            },
+        },
+        "REJECTION_FEEDBACK_QUESTION": {},
     },
 }
 
