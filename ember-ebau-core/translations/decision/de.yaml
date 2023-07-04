@@ -5,8 +5,8 @@ decision:
 
   appeal:
     confirmed: |-
-      Dieses Dossier wird nach dem Erfassen des Entscheides in den angedachten
-      Status des vorhergehenden Entscheides <b>({status})</b> versetzt.
+      Dieses Dossier wird nach dem Erfassen des Entscheides in den Status des
+      vorhergehenden Entscheides <b>({status})</b> versetzt.
     changed: |-
       Dieses Dossier wird nach dem Bestätigen des Entscheides in den
       gegenteiligen Status des vorhergehenden Entscheides <b>({status})</b>
