@@ -15,6 +15,8 @@ from rest_framework.status import (
     HTTP_405_METHOD_NOT_ALLOWED,
 )
 
+import camac.alexandria.extensions.permissions_kt_gr as permissions_kt_gr
+
 
 @pytest.mark.parametrize(
     "role__name,method,status_code,metainfo",
@@ -266,14 +268,14 @@ def test_category_permission(
 @pytest.mark.parametrize(
     "instance_state__name,role__name,service__name,method,status_code,metainfo",
     [
-        # KtGrAdminServiceARE
+        # AdminServiceARE
         (
             "subm",
             "Service",
             "Amt für Raumentwicklung (ARE)",
             "post",
             HTTP_201_CREATED,
-            {"access": {"service": "KtGrAdminServiceARE"}},
+            {"access": {"service": "AdminServiceARE"}},
         ),
         (
             "subm",
@@ -281,7 +283,7 @@ def test_category_permission(
             "Amt für Raumentwicklung (ARE)",
             "delete",
             HTTP_204_NO_CONTENT,
-            {"access": {"service": "KtGrAdminServiceARE"}},
+            {"access": {"service": "AdminServiceARE"}},
         ),
         (
             "subm",
@@ -289,16 +291,16 @@ def test_category_permission(
             "Kanton",
             "delete",
             HTTP_403_FORBIDDEN,
-            {"access": {"service": "KtGrAdminServiceARE"}},
+            {"access": {"service": "AdminServiceARE"}},
         ),
-        # KtGrReadARECirculationDeletable
+        # ARECategory
         (
             "subm",
             "Service",
             "Amt für Raumentwicklung (ARE)",
             "delete",
             HTTP_403_FORBIDDEN,
-            {"access": {"service": "KtGrReadARECirculationDeletable"}},
+            {"access": {"service": "ARECategory"}},
         ),
         (
             "subm",
@@ -306,7 +308,7 @@ def test_category_permission(
             "Kanton",
             "post",
             HTTP_201_CREATED,
-            {"access": {"service": "KtGrReadARECirculationDeletable"}},
+            {"access": {"service": "ARECategory"}},
         ),
         (
             "subm",
@@ -314,7 +316,7 @@ def test_category_permission(
             "Kanton",
             "delete",
             HTTP_403_FORBIDDEN,
-            {"access": {"service": "KtGrReadARECirculationDeletable"}},
+            {"access": {"service": "ARECategory"}},
         ),
         (
             "circulation",
@@ -322,13 +324,35 @@ def test_category_permission(
             "Kanton",
             "delete",
             HTTP_204_NO_CONTENT,
-            {"access": {"service": "KtGrReadARECirculationDeletable"}},
+            {"access": {"service": "ARECategory"}},
         ),
     ],
 )
 def test_kt_gr_permissions(
-    db, role, admin_client, caluma_admin_user, instance, metainfo, method, status_code
+    db,
+    role,
+    application_settings,
+    service,
+    mocker,
+    admin_client,
+    caluma_admin_user,
+    instance,
+    metainfo,
+    method,
+    status_code,
 ):
+    mocker.patch(
+        "camac.alexandria.extensions.permissions.permissions", permissions_kt_gr
+    )
+    mocker.patch(
+        "camac.alexandria.extensions.visibilities.special_visibilities",
+        permissions_kt_gr.special_visibilities,
+    )
+    if service.name == "Amt für Raumentwicklung (ARE)":
+        application_settings["ALEXANDRIA"]["ARE_SERVICE_ID"] = service.pk
+    else:
+        application_settings["ALEXANDRIA"]["ARE_SERVICE_ID"] = None
+
     alexandria_category = CategoryFactory(metainfo=metainfo)
     url = reverse("document-list")
 
