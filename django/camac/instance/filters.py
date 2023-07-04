@@ -359,6 +359,22 @@ class InstanceKeywordSearchFilter(CharFilter):
             output_field=TextField(),
         )
 
+    def get_processed_issues(self):
+        return Coalesce(
+            StringAggSubquery(
+                models.Issue.objects.filter(
+                    instance=OuterRef("pk"),
+                    text__isnull=False,
+                )
+                .visible_for(self.parent.request.group)
+                .values("text"),
+                column_name="text",
+                delimiter="|",
+            ),
+            Value(""),
+            output_field=TextField(),
+        )
+
     def filter(self, queryset, value, *args, **kwargs):
         if value in EMPTY_VALUES:
             return queryset
@@ -382,12 +398,14 @@ class InstanceKeywordSearchFilter(CharFilter):
                 Q(processed_form_fields__icontains=val)
                 | Q(processed_journal_entries__icontains=val)
                 | Q(processed_inquiry_answers__icontains=val)
+                | Q(processed_issues__icontains=val)
             )
 
         return queryset.annotate(
             processed_form_fields=self.get_processed_form_fields(),
             processed_journal_entries=self.get_processed_journal_entries(),
             processed_inquiry_answers=self.get_processed_inquiry_answers(),
+            processed_issues=self.get_processed_issues(),
         ).filter(filters)
 
 

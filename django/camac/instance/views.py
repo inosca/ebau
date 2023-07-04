@@ -791,13 +791,6 @@ class JournalEntryView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
     ordering = "-creation_date"
 
     def get_queryset(self):
-        """Return no result when user has no specific permission.
-
-        Specific permissions are defined in InstanceQuerysetMixin.
-        """
-
-        # TODO applicants currently don't have access to journal entries at all. Giving them access might
-        # require a dedicated "applicant" role in our permission layer?
         return super().get_queryset().visible_for(self.request.group)
 
     @permission_aware
@@ -911,15 +904,8 @@ class IssueView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
     filterset_class = filters.InstanceIssueFilterSet
     queryset = models.Issue.objects.all()
 
-    def get_base_queryset(self):
-        queryset = super().get_base_queryset()
-        return queryset.filter(service=self.request.group.service_id)
-
-    @permission_aware
     def get_queryset(self):
-        """Return no result when user has no specific permission."""
-        queryset = super().get_base_queryset()
-        return queryset.none()
+        return super().get_queryset().visible_for(self.request.group)
 
     @permission_aware
     def has_create_permission(self):
