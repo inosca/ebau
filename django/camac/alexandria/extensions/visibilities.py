@@ -5,6 +5,11 @@ from django.db.models import Q
 
 from .common import get_role
 
+if settings.APPLICATION_NAME == "kt_gr":
+    from camac.alexandria.extensions.permissions_kt_gr import special_visibilities
+else:
+    special_visibilities = None
+
 
 class CustomVisibility(BaseVisibility):
     @filter_queryset_for(BaseModel)
@@ -14,28 +19,34 @@ class CustomVisibility(BaseVisibility):
 
         return queryset.none()
 
-    def document_file_filter(self, user, prefix=""):
+    def document_and_file_filter(self, user, prefix=""):
         role = get_role(user)
         normal_permissions = ["Admin", "Read", "Write"]
 
         aggregated_filter = Q()
         for permission in normal_permissions:
-            # first: directly readable
+            # directly readable categories
             aggregated_filter |= Q(
-                **{f"{prefix}category__metainfo__access__{role}__icontains": permission}
+                **{
+                    f"{prefix}category__metainfo__access__{role}__istartswith": permission
+                }
             )
+
+        # application specific visibilities
+        if special_visibilities:
+            aggregated_filter |= special_visibilities(user, role, prefix)
 
         return (
             aggregated_filter
             | Q(
-                # second: categories where only documents from my own service are readable
+                # categories where only documents from my own service are readable
                 **{
                     f"{prefix}category__metainfo__access__{role}__icontains": "Internal",
                     f"{prefix}created_by_group": user.group,
                 }
             )
             | Q(
-                # third: instances where i'm invitee
+                # instances where i'm invitee
                 Q(**{f"{prefix}category__metainfo__access__has_key": "applicant"}),
                 Q(
                     **{
@@ -53,14 +64,16 @@ class CustomVisibility(BaseVisibility):
     @filter_queryset_for(Document)
     def filter_queryset_for_document(self, queryset, request):
         return queryset.filter(
-            self.document_file_filter(request.caluma_info.context.user)
+            self.document_and_file_filter(request.caluma_info.context.user)
         ).distinct()
 
     @filter_queryset_for(File)
     def filter_queryset_for_file(self, queryset, request):
         # Limitations for `Document` should also be enforced on `File`.
         return queryset.filter(
-            self.document_file_filter(request.caluma_info.context.user, "document__")
+            self.document_and_file_filter(
+                request.caluma_info.context.user, "document__"
+            )
         ).distinct()
 
     @filter_queryset_for(Category)
@@ -68,7 +81,7 @@ class CustomVisibility(BaseVisibility):
         if "swagger" in request.path:  # pragma: no cover
             return queryset.none()
 
-        # category is visible when the role is in the access, regardless of the permission
+        # TODO: need to evaluate some permissions to avoid displaying categories at useless times
         return queryset.filter(
             metainfo__access__has_key=get_role(request.caluma_info.context.user)
         )

@@ -125,7 +125,7 @@
       "metainfo": {
         "access": {
           "uso": "InternalAdmin",
-          "service": "KtGrReadARECirculationDeletable",
+          "service": "ARECategory",
           "support": "Admin"
         }
       },
@@ -147,7 +147,7 @@
       "metainfo": {
         "access": {
           "uso": "Read",
-          "service": "KtGrAdminServiceARE",
+          "service": "AdminServiceARE",
           "support": "Admin",
           "municipality": "AdminService"
         }
