@@ -312,8 +312,8 @@ class JournalEntryQuerySet(models.QuerySet):
         """
 
         role = get_role_name(group)
-        # Not visible to applicants or public users
-        # TODO: get_permission_func
+        # TODO applicants or public users currently don't have access to journal entries at all.
+        # Giving them access might require a dedicated "applicant" role in our permission layer?
         if not role or role == "public":
             return self.none()
 
@@ -354,6 +354,11 @@ class HistoryEntryT(models.Model):
     language = models.CharField(max_length=2)
 
 
+class IssueManager(models.Manager):
+    def get_queryset(self):
+        return IssueQuerySet(self.model, using=self._db)
+
+
 class Issue(models.Model):
     STATE_OPEN = "open"
     STATE_DELAYED = "delayed"
@@ -374,6 +379,24 @@ class Issue(models.Model):
         max_length=20, choices=STATE_CHOICES_TUPLE, default=STATE_OPEN
     )
     text = models.TextField()
+    objects = IssueManager()
+
+
+class IssueQuerySet(models.QuerySet):
+    def visible_for(self, group: Group) -> models.QuerySet[Issue]:
+        """
+        Additional visibility logic for issues in relation to the group.
+
+        The queryset is filtered according to the group's service.
+        General visibility logic regarding the associated instance is
+        handled in the instance queryset mixin.
+        """
+
+        role = get_role_name(group)
+        if not role or role == "public":
+            return self.none()
+
+        return self.filter(service=group.service)
 
 
 class IssueTemplate(models.Model):
