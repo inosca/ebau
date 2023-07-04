@@ -15,6 +15,7 @@ export default class WorkItemListItemComponent extends Component {
       this.editAction,
       this.toggleReadAction,
       this.assignToMeAction,
+      this.readAction,
     ].filter(Boolean);
   }
 
@@ -26,6 +27,20 @@ export default class WorkItemListItemComponent extends Component {
     return {
       action: performHelper([this.edit], {}),
       title: this.intl.t("workItems.actions.edit"),
+    };
+  }
+
+  get readAction() {
+    if (
+      this.can.cannot("read work-item", this.args.workItem) ||
+      this.can.can("edit work-item", this.args.workItem)
+    ) {
+      return null;
+    }
+
+    return {
+      action: performHelper([this.edit], {}),
+      title: this.intl.t("workItems.actions.read"),
     };
   }
 

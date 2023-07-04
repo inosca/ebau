@@ -39,6 +39,7 @@ workItems:
     markAsUnread: "Als ungelesen markieren"
     assignToMe: "Mir zuweisen"
     edit: "Aufgabe bearbeiten"
+    read: "Aufgabe ansehen"
     finish: "Aufgabe abschliessen"
 
   filters:
