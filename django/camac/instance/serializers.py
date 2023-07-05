@@ -1245,7 +1245,8 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             instance.instance_state = models.InstanceState.objects.get(name="comm")
 
     def _ur_internal_submission_for_coordination(self, instance, group):
-        if settings.APPLICATION_NAME != "kt_uri":
+        # This is not possible for other cantons because this service group only exists in uri
+        if settings.APPLICATION_NAME != "kt_uri":  # pragma: no cover
             return
 
         is_federal = group.service.pk == uri_constants.BUNDESSTELLE_SERVICE_ID

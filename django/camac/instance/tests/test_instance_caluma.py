@@ -618,7 +618,14 @@ def test_instance_submit_be(
     """,
     ],
 )
-@pytest.mark.parametrize("communal_federal_number", ["24", "1221", "1222"])
+@pytest.mark.parametrize(
+    "form_slug,communal_federal_number",
+    [
+        ("main-form", "1224"),
+        ("oereb", "1221"),
+        ("oereb-verfahren-gemeinde", "1222"),
+    ],
+)
 def test_instance_submit_ur(
     mocker,
     admin_client,
@@ -648,6 +655,7 @@ def test_instance_submit_ur(
     authority_location_factory,
     authority,
     is_paper,
+    form_slug,
     communal_federal_number,
 ):
     application_settings["NOTIFICATIONS"]["SUBMIT"] = [
@@ -662,6 +670,11 @@ def test_instance_submit_ur(
     application_settings["PAPER"]["ALLOWED_ROLES"]["DEFAULT"] = [
         ur_instance.group.role.pk
     ]
+
+    if form_slug != "main-form":
+        form = caluma_form_factories.FormFactory(slug=form_slug)
+        ur_instance.case.document.form = form
+        ur_instance.case.document.save()
 
     instance_state_factory(name="ext")
     instance_state_factory(name="comm")
