@@ -28,7 +28,7 @@ export default class CommunicationTopicListComponent extends Component {
   }
 
   get colspan() {
-    return this.args.instanceId ? 3 : 4;
+    return this.args.instanceId ? 4 : 5;
   }
 
   topics = paginatedQuery(this, "communications-topic", () => ({

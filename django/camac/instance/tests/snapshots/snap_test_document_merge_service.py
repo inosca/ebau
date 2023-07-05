@@ -239,11 +239,11 @@ snapshots['test_document_merge_service_snapshot baugesuch'] = [
                             },
                             {
                                 'checked': False,
-                                'label': 'Grundeigentümer/in'
+                                'label': 'Grundeigentümer/in (falls nicht mit Gesuchsteller/in identisch)'
                             },
                             {
                                 'checked': False,
-                                'label': 'Gebäudeeigentümer/in'
+                                'label': 'Gebäudeeigentümer/in (falls nicht mit Gesuchsteller/in identisch)'
                             }
                         ],
                         'label': 'Sind neben den Gesuchstellenden weitere Personen beteiligt?',
