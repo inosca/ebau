@@ -3,7 +3,7 @@ import JSONSerializer from "@ember-data/serializer/json";
 /*
  * If pagination is enabled in the backend, the response format will be changed.
  * The response data will be wrapped in a `results` object.
- * This would need some noramalizer configurations to work.
+ * This would need some configurable normalizer functionality to work.
  */
 export default class TemplateSerializer extends JSONSerializer {
   primaryKey = "slug";
