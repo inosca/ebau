@@ -146,7 +146,7 @@ export default class CustomCaseModel extends CustomCaseBaseModel {
     let label = getFormTitle(
       this,
       this.raw.document,
-      config.APPLICATION.answerSlugs
+      mainConfig.APPLICATION.answerSlugs
     );
 
     if (!label) {
