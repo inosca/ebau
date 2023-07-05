@@ -11,6 +11,8 @@ communications:
     unread: Non lus
     read: Lus
     newMessage: Saisir un nouveau message
+    no-unread: Aucun message non lu
+    has-unread: Messages non lus
 
   detail:
     sentDate: "le {date} à {time}"

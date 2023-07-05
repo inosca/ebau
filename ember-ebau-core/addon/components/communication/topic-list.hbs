@@ -23,6 +23,7 @@
 <table class="uk-table uk-table-striped uk-table-hover">
   <thead>
     <tr>
+      <th></th>
       {{#unless @instanceId}}
         <th data-test-instance-header>{{t "communications.dossier"}}</th>
       {{/unless}}
@@ -39,6 +40,13 @@
         role="link"
         {{on "click" (fn this.transitionToTopic topic)}}
       >
+        <td class="communications-status-cell uk-padding-remove-right">
+          <FaIcon
+            @fixedWidth={{true}}
+            @icon={{if topic.hasUnread "envelope" "envelope-open"}}
+            {{uk-tooltip (t (concat "communications.list." (if topic.hasUnread "has" "no") "-unread"))}}
+          />
+        </td>
         {{#unless @instanceId}}
           <td class="uk-text-nowrap" data-test-dossier-number>
             {{topic.dossierNumber}}
@@ -56,7 +64,7 @@
     {{else}}
       {{#unless this.topics.isLoading}}
         <tr>
-          <td colspan="4" class="uk-text-center">
+          <td colspan={{this.colspan}} class="uk-text-center">
             {{t "communications.empty"}}
           </td>
         </tr>
