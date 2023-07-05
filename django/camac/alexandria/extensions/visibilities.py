@@ -5,7 +5,7 @@ from django.db.models import Q
 
 from .common import get_role
 
-if settings.APPLICATION_NAME == "kt_gr":
+if settings.APPLICATION_NAME == "kt_gr":  # pragma: no cover
     from camac.alexandria.extensions.permissions_kt_gr import special_visibilities
 else:
     special_visibilities = None

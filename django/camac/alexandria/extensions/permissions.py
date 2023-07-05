@@ -10,7 +10,7 @@ from camac.user.utils import get_group
 
 from .common import get_role
 
-if settings.APPLICATION_NAME == "kt_gr":
+if settings.APPLICATION_NAME == "kt_gr":  # pragma: no cover
     import camac.alexandria.extensions.permissions_kt_gr as permissions
 else:
     import camac.alexandria.extensions.permissions_base as permissions
