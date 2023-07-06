@@ -4,12 +4,10 @@ import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
+import mainConfig from "ember-ebau-core/config/main";
 import { trackedTask } from "ember-resources/util/ember-concurrency";
 
-import config from "caluma-portal/config/environment";
 import getMunicipalities from "caluma-portal/gql/queries/get-municipalities.graphql";
-
-const { answerSlugs } = config.APPLICATION;
 
 export default class PublicInstancesIndexController extends Controller {
   @queryManager apollo;
@@ -75,7 +73,9 @@ export default class PublicInstancesIndexController extends Controller {
         (yield this.apollo.query(
           {
             query: getMunicipalities,
-            variables: { municipalityQuestion: answerSlugs.municipality },
+            variables: {
+              municipalityQuestion: mainConfig.answerSlugs.municipality,
+            },
           },
           "allQuestions.edges.firstObject.node.options.edges"
         )) || [];

@@ -1,11 +1,11 @@
 import { inject as service } from "@ember/service";
 import CaseModel from "@projectcaluma/ember-core/caluma-query/models/case";
+import mainConfig from "ember-ebau-core/config/main";
 import { getAnswerDisplayValue } from "ember-ebau-core/utils/get-answer";
 
-import config from "caluma-portal/config/environment";
 import getFormTitle from "caluma-portal/utils/form-title";
 
-const { answerSlugs } = config.APPLICATION;
+const { answerSlugs } = mainConfig;
 
 const DECISION_COLOR_MAPPING = {
   "decision-decision-assessment-positive": "uk-alert-success",
@@ -38,7 +38,7 @@ export default class CustomCaseModel extends CaseModel {
 
   get type() {
     return (
-      getFormTitle(this, this.raw.document, config.APPLICATION.answerSlugs) ||
+      getFormTitle(this, this.raw.document, answerSlugs) ||
       this.raw.document.form.name
     );
   }
