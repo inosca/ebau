@@ -17,7 +17,11 @@ from rest_framework import status
 
 from camac.caluma.api import CalumaApi
 from camac.conftest import CALUMA_FORM_TYPES_SLUGS
-from camac.constants import kt_bern as be_constants, kt_uri as ur_constants
+from camac.constants import (
+    kt_bern as be_constants,
+    kt_uri as ur_constants,
+    kt_uri as uri_constants,
+)
 from camac.core.models import Chapter, Question, QuestionType
 from camac.ech0211 import event_handlers
 from camac.ech0211.data_preparation import DocumentParser
@@ -614,6 +618,14 @@ def test_instance_submit_be(
     """,
     ],
 )
+@pytest.mark.parametrize(
+    "form_slug,communal_federal_number",
+    [
+        ("main-form", "1224"),
+        ("oereb", "1221"),
+        ("oereb-verfahren-gemeinde", "1222"),
+    ],
+)
 def test_instance_submit_ur(
     mocker,
     admin_client,
@@ -643,6 +655,8 @@ def test_instance_submit_ur(
     authority_location_factory,
     authority,
     is_paper,
+    form_slug,
+    communal_federal_number,
 ):
     application_settings["NOTIFICATIONS"]["SUBMIT"] = [
         {"template_slug": notification_template.slug, "recipient_types": ["applicant"]}
@@ -657,6 +671,11 @@ def test_instance_submit_ur(
         ur_instance.group.role.pk
     ]
 
+    if form_slug != "main-form":
+        form = caluma_form_factories.FormFactory(slug=form_slug)
+        ur_instance.case.document.form = form
+        ur_instance.case.document.save()
+
     instance_state_factory(name="ext")
     instance_state_factory(name="comm")
 
@@ -668,7 +687,7 @@ def test_instance_submit_ur(
 
     workflow_item_factory(workflow_item_id=ur_constants.WORKFLOW_ITEM_DOSSIER_ERFASST)
 
-    location = location_factory()
+    location = location_factory(communal_federal_number=communal_federal_number)
 
     ur_instance.case.document.answers.create(
         value=str(location.communal_federal_number), question_id="municipality"
@@ -706,14 +725,24 @@ def test_instance_submit_ur(
 
     assert mail.outbox[0].subject.startswith("[eBau Test]: ")
 
-    assert (
+    leitbehoerde = (
         ur_instance.case.document.answers.filter(question_id="leitbehoerde")
         .first()
         .value
-        == str(authority.pk)
-        if is_paper
-        else str(authority_location.authority.pk)
     )
+
+    if communal_federal_number in ["1221", "1222"]:
+        # this is a special "diverse gemeinden" or "alle gemeinden" dossier
+        # this is therefore an ÖREB dossier and in this case the leitbehörde
+        # is the KOOR NP
+        assert (
+            int(leitbehoerde) == uri_constants.KOOR_NP_AUTHORITY_ID
+        ), "incorrect leitbehoerde"
+    else:
+        if is_paper:
+            assert leitbehoerde == str(authority.pk)
+        else:
+            assert leitbehoerde == str(authority_location.authority.pk)
 
     if ur_instance.group.role.name == "Coordination":
         assert ur_instance.instance_state.name == "ext"
