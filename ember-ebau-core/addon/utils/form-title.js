@@ -1,6 +1,8 @@
 import { getAnswerDisplayValue } from "ember-ebau-core/utils/get-answer";
 
-export default function getFormTitle(document, answerSlugs) {
+export default function getFormTitle(caseModel, document, answerSlugs) {
+  const isKoorAfjCopy = caseModel?.meta.oereb_copy;
+
   const oerebProcedure = getAnswerDisplayValue(
     document,
     answerSlugs.oerebProcedure
@@ -16,7 +18,8 @@ export default function getFormTitle(document, answerSlugs) {
       "waldfeststellung-mit-statischen-waldgrenzen-kanton"
     ) === "Ja";
   const oerebTopics =
-    staticForestBoundaryCanton || staticForestBoundaryMunicipality
+    isKoorAfjCopy &&
+    (staticForestBoundaryCanton || staticForestBoundaryMunicipality)
       ? "Statische Waldgrenze"
       : getAnswerDisplayValue(document, answerSlugs.oerebTopicsCanton) ||
         getAnswerDisplayValue(document, answerSlugs.oerebTopicsMunicipality);
