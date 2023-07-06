@@ -143,11 +143,7 @@ export default class CustomCaseModel extends CustomCaseBaseModel {
   }
 
   get form() {
-    let label = getFormTitle(
-      this,
-      this.raw.document,
-      mainConfig.APPLICATION.answerSlugs
-    );
+    let label = getFormTitle(this, this.raw.document, mainConfig.answerSlugs);
 
     if (!label) {
       const answer =
