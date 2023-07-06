@@ -11,10 +11,140 @@
       "phone": null,
       "disabled": 0,
       "language": "de",
-      "last_login": "2023-07-04T11:19:45.094Z",
+      "last_login": "2023-07-06T09:47:07.801Z",
       "address": null,
       "city": null,
       "zip": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 4,
+    "fields": {
+      "role": 4,
+      "service": 1,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 5,
+    "fields": {
+      "role": 5,
+      "service": 1,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 6,
+    "fields": {
+      "role": 6,
+      "service": 1,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 7,
+    "fields": {
+      "role": 7,
+      "service": 1,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 8,
+    "fields": {
+      "role": 8,
+      "service": 1,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 4,
+    "fields": {
+      "group": 4,
+      "language": "de",
+      "name": "Administration Leitbehörde Solothurn",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 5,
+    "fields": {
+      "group": 5,
+      "language": "de",
+      "name": "Leitung Leitbehörde Solothurn",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 6,
+    "fields": {
+      "group": 6,
+      "language": "de",
+      "name": "Sachbearbeitung Leitbehörde Solothurn",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 7,
+    "fields": {
+      "group": 7,
+      "language": "de",
+      "name": "Baubegleitung Leitbehörde Solothurn",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 8,
+    "fields": {
+      "group": 8,
+      "language": "de",
+      "name": "Einsichtsberechtigt Leitbehörde Solothurn",
+      "city": null
     }
   },
   {
@@ -37,6 +167,37 @@
       "default_group": 0,
       "created_at": "2023-07-04T11:19:54.070Z",
       "created_by": 1
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 1,
+    "fields": {
+      "service_group": 1,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 0,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 1,
+    "fields": {
+      "service": 1,
+      "language": "de",
+      "name": "Leitbehörde Solothurn",
+      "description": null,
+      "city": null
     }
   }
 ]
