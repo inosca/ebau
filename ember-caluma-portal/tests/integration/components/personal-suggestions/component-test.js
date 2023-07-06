@@ -3,20 +3,20 @@ import click from "@ember/test-helpers/dom/click";
 import { faker } from "@faker-js/faker";
 import { hbs } from "ember-cli-htmlbars";
 import { setupMirage } from "ember-cli-mirage/test-support";
+import mainConfig from "ember-ebau-core/config/main";
 import { module, test } from "qunit";
 
-import config from "caluma-portal/config/environment";
 import { setupRenderingTest } from "caluma-portal/tests/helpers";
 
 const id = (type) => btoa(`${type}:${faker.string.uuid()}`);
-const personalSuggestionConfig = config.APPLICATION.personalSuggestions;
+const personalSuggestionConfig = mainConfig.personalSuggestions;
 
 module("Integration | Component | personal-suggestions", function (hooks) {
   setupRenderingTest(hooks);
   setupMirage(hooks);
 
   hooks.before(function () {
-    config.APPLICATION.personalSuggestions = {
+    mainConfig.personalSuggestions = {
       tableQuestions: ["test-1", "test-2"],
       emailRegexp: "^e-mail$",
       firstNameRegexp: "^first-name$",
@@ -26,7 +26,7 @@ module("Integration | Component | personal-suggestions", function (hooks) {
   });
 
   hooks.after(function () {
-    config.APPLICATION.personalSuggestions = personalSuggestionConfig;
+    mainConfig.personalSuggestions = personalSuggestionConfig;
   });
 
   test("it renders", async function (assert) {

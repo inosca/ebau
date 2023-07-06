@@ -80,21 +80,6 @@ module.exports = function (environment) {
         allowForms: ["baugesuch"],
         disallowStates: [instanceStatesDemo.new, instanceStatesDemo.finished],
       },
-      answerSlugs: {},
-      personalSuggestions: {
-        tableQuestions: [
-          "personalien-gesuchstellerin",
-          "personalien-vertreterin-mit-vollmacht",
-          "personalien-grundeigentumerin",
-          "personalien-projektverfasserin",
-          "personalien-gebaudeeigentumerin",
-          "personalien-sb",
-        ],
-        firstNameRegexp: "^vorname-.*$",
-        lastNameRegexp: "^name-.*$",
-        juristicNameRegexp: "^name-juristische-person.*$",
-        emailRegexp: "^e-mail-.*$",
-      },
       // Who can create which forms. Roles can be given by ID, or magic key ("internal" or "public")
       formCreationPermissions: [
         {
@@ -163,36 +148,6 @@ module.exports = function (environment) {
           instanceStatesBe.archived,
           instanceStatesBe.finished,
         ],
-      },
-      answerSlugs: {
-        objectStreet: "strasse-flurname",
-        objectNumber: "nr",
-        objectZIP: "plz-grundstueck-v3",
-        objectLocation: "ort-grundstueck",
-        description: "beschreibung-bauvorhaben",
-        municipality: "gemeinde",
-        specialId: "ebau-number",
-        parcelNumber: "parzellennummer",
-        firstNameApplicant: "vorname-gesuchstellerin",
-        lastNameApplicant: "name-gesuchstellerin",
-        juristicNameApplicant: "name-juristische-person-gesuchstellerin",
-        isJuristicApplicant: "juristische-person-gesuchstellerin",
-        isJuristicApplicantYes: "juristische-person-gesuchstellerin-ja",
-        personalDataApplicant: "personalien-gesuchstellerin",
-      },
-      personalSuggestions: {
-        tableQuestions: [
-          "personalien-gesuchstellerin",
-          "personalien-vertreterin-mit-vollmacht",
-          "personalien-grundeigentumerin",
-          "personalien-projektverfasserin",
-          "personalien-gebaudeeigentumerin",
-          "personalien-sb",
-        ],
-        firstNameRegexp: "^vorname-.*$",
-        lastNameRegexp: "^name-.*$",
-        juristicNameRegexp: "^name-juristische-person.*$",
-        emailRegexp: "^e-mail-.*$",
       },
       // Who can create which forms. Roles can be given by ID, or magic key ("internal" or "public")
       formCreationPermissions: [
@@ -279,38 +234,6 @@ module.exports = function (environment) {
           instanceStatesUr.finished,
           instanceStatesUr.old,
         ],
-      },
-      answerSlugs: {
-        objectStreet: "parcel-street",
-        objectNumber: "street-number",
-        objectLocation: "parcel-city",
-        applicantZip: "zip",
-        description: "proposal-description",
-        municipality: "municipality",
-        specialId: "dossier-number",
-        parcelNumber: "parcel-number",
-        oerebProcedure: "typ-des-verfahrens",
-        oerebTopicsCanton: "oereb-thema",
-        oerebTopicsMunicipality: "oereb-thema-gemeinde",
-        oerebPartialState: "teilstatus",
-        procedureCanton: "mbv-type",
-        procedureConfederation: "mbv-bund-type",
-        staticForestBoundaryCanton:
-          "waldfeststellung-mit-statischen-waldgrenzen-kanton",
-        staticForestBoundaryMunicipality:
-          "waldfeststellung-mit-statischen-waldgrenzen-gemeinde",
-      },
-      personalSuggestions: {
-        tableQuestions: [
-          "applicant",
-          "landowner",
-          "project-author",
-          "invoice-recipient",
-        ],
-        firstNameRegexp: "^first-name$",
-        lastNameRegexp: "^last-name$",
-        juristicNameRegexp: "^juristic-person-name$",
-        emailRegexp: "^e-mail$",
       },
       // Who can create which forms. Roles can be given by ID, or magic key ("internal" or "public")
       formCreationPermissions: [
@@ -435,34 +358,6 @@ module.exports = function (environment) {
         allowForms: ["baugesuch"],
         disallowStates: [instanceStatesGr.new, instanceStatesGr.finished],
       },
-      answerSlugs: {
-        objectStreet: "strasse-flurname",
-        objectNumber: "nr",
-        objectLocation: "ort-grundstueck",
-        description: "beschreibung-bauvorhaben",
-        municipality: "gemeinde",
-        parcelNumber: "parzellennummer",
-        firstNameApplicant: "vorname-gesuchstellerin",
-        lastNameApplicant: "name-gesuchstellerin",
-        juristicNameApplicant: "name-juristische-person-gesuchstellerin",
-        isJuristicApplicant: "juristische-person-gesuchstellerin",
-        isJuristicApplicantYes: "juristische-person-gesuchstellerin-ja",
-        personalDataApplicant: "personalien-gesuchstellerin",
-      },
-      personalSuggestions: {
-        tableQuestions: [
-          "personalien-gesuchstellerin",
-          "personalien-vertreterin-mit-vollmacht",
-          "personalien-grundeigentumerin",
-          "personalien-projektverfasserin",
-          "personalien-gebaudeeigentumerin",
-          "personalien-sb",
-        ],
-        firstNameRegexp: "^vorname-.*$",
-        lastNameRegexp: "^name-.*$",
-        juristicNameRegexp: "^name-juristische-person.*$",
-        emailRegexp: "^e-mail-.*$",
-      },
       // Who can create which forms. Roles can be given by ID, or magic key ("internal" or "public")
       formCreationPermissions: [
         {
@@ -499,14 +394,6 @@ module.exports = function (environment) {
       modification: {
         allowForms: [],
         disallowStates: [instanceStatesSo.new],
-      },
-      answerSlugs: {},
-      personalSuggestions: {
-        tableQuestions: [],
-        firstNameRegexp: "^todo-.*$",
-        lastNameRegexp: "^todo-.*$",
-        juristicNameRegexp: "^todo.*$",
-        emailRegexp: "^e-mail-.*$",
       },
       // Who can create which forms. Roles can be given by ID, or magic key ("internal" or "public")
       formCreationPermissions: [

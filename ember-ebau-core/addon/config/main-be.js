@@ -39,6 +39,20 @@ export default {
     isJuristicApplicantYes: "juristische-person-gesuchstellerin-ja",
     personalDataApplicant: "personalien-gesuchstellerin",
   },
+  personalSuggestions: {
+    tableQuestions: [
+      "personalien-gesuchstellerin",
+      "personalien-vertreterin-mit-vollmacht",
+      "personalien-grundeigentumerin",
+      "personalien-projektverfasserin",
+      "personalien-gebaudeeigentumerin",
+      "personalien-sb",
+    ],
+    firstNameRegexp: "^vorname-.*$",
+    lastNameRegexp: "^name-.*$",
+    juristicNameRegexp: "^name-juristische-person.*$",
+    emailRegexp: "^e-mail-.*$",
+  },
   paperInstances: {
     allowedGroups: {
       roles: [
