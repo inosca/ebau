@@ -224,6 +224,9 @@ class MasterDataField(AliasedMixin, serializers.ReadOnlyField):
         return self.parser(super().to_representation(value))
 
     def get_attribute(self, instance):
+        if not settings.APPLICATION["MASTER_DATA"].get(self.source):  # pragma: no cover
+            return None
+
         return getattr(instance._master_data, self.source)
 
 

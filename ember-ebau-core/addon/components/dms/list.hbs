@@ -3,7 +3,10 @@
 {{else}}
   <div class="uk-flex uk-flex-between uk-flex-middle uk-margin-bottom">
     <h2 class="uk-margin-remove">{{t "dms.own"}}</h2>
-    <LinkTo @route={{module-route "dms-admin" "new"}} class="uk-button uk-button-primary">
+    <LinkTo
+      @route={{module-route "dms-admin" "new"}}
+      class="uk-button uk-button-primary"
+    >
       {{t "dms.new"}}
     </LinkTo>
   </div>
@@ -19,36 +22,36 @@
       </tr>
     </thead>
     <tbody>
-      {{#if this.ownTemplates}}
-        {{#each this.ownTemplates as |template|}}
-          <tr>
-            <td>{{template.description}}</td>
-            <td>{{or template.meta.category "-"}}</td>
-            <td class="uk-text-right">
-              <LinkTo
-                @route={{module-route "dms-admin" "edit"}}
-                @model={{template.id}}
-                class="uk-button uk-button-link uk-margin-small-right"
-                {{uk-tooltip (t "dms.edit") pos="left"}}
-              >
-                <UkIcon @icon="pencil" />
-              </LinkTo>
-              <button
-                type="button"
-                class="uk-button uk-button-link"
-                {{uk-tooltip (t "dms.download") pos="left"}}
-                {{on "click" (perform this.downloadTemplate template)}}
-              >
-                <UkIcon @icon="download" />
-              </button>
-            </td>
-          </tr>
-        {{/each}}
+      {{#each this.ownTemplates as |template|}}
+        <tr>
+          <td>{{template.description}}</td>
+          <td>{{or template.meta.category "-"}}</td>
+          <td class="uk-text-right">
+            <LinkTo
+              @route={{module-route "dms-admin" "edit"}}
+              @model={{template.id}}
+              class="uk-button uk-button-link uk-margin-small-right"
+              {{uk-tooltip (t "dms.edit") pos="left"}}
+            >
+              <UkIcon @icon="pencil" />
+            </LinkTo>
+            <button
+              type="button"
+              class="uk-button uk-button-link"
+              {{uk-tooltip (t "dms.download") pos="left"}}
+              {{on "click" (perform this.downloadTemplate template)}}
+            >
+              <UkIcon @icon="download" />
+            </button>
+          </td>
+        </tr>
       {{else}}
         <tr>
-          <td colspan="3" class="uk-text-center uk-text-italic">{{t "dms.empty"}}</td>
+          <td colspan="3" class="uk-text-center uk-text-italic">
+            {{t "dms.empty"}}
+          </td>
         </tr>
-      {{/if}}
+      {{/each}}
     </tbody>
   </table>
 
@@ -106,6 +109,12 @@
             >
               <UkIcon @icon="download" />
             </button>
+          </td>
+        </tr>
+      {{else}}
+        <tr>
+          <td colspan="2" class="uk-text-center uk-text-italic">
+            {{t "dms.empty"}}
           </td>
         </tr>
       {{/each}}

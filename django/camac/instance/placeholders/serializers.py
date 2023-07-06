@@ -891,6 +891,9 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
 
     def get_administrative_district(self, instance):
         sheet = settings.APPLICATION.get("MUNICIPALITY_DATA_SHEET")
+        if not sheet:  # pragma: no cover
+            return None
+
         reader = csv.DictReader(open(sheet))
         municipalities = {row["Gemeinde"]: row["Verwaltungskreis"] for row in reader}
 
