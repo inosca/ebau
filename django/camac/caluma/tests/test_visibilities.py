@@ -1,5 +1,3 @@
-from datetime import timedelta
-
 import pytest
 from caluma.caluma_core.relay import extract_global_id
 from caluma.caluma_form import factories as caluma_form_factories
@@ -12,7 +10,6 @@ from caluma.caluma_workflow import (
 from caluma.caluma_workflow.api import skip_work_item
 from caluma.schema import schema
 from django.db.models import Q
-from django.utils import timezone
 from pytest_factoryboy import LazyFixture
 
 from camac.caluma.extensions.visibilities import (
@@ -448,61 +445,6 @@ def test_public_visibility(
     assert len(cases_result.data["allCases"]["edges"]) == 0
 
 
-def test_public_document_visibility(
-    db,
-    rf,
-    be_instance,
-    application_settings,
-    settings,
-):
-    application_settings["PUBLICATION_BACKEND"] = "caluma"
-
-    publication_document = caluma_form_factories.DocumentFactory()
-    caluma_form_factories.AnswerFactory(
-        document=publication_document,
-        question__slug="publikation-startdatum",
-        date=timezone.now() - timedelta(days=1),
-    )
-    caluma_form_factories.AnswerFactory(
-        document=publication_document,
-        question__slug="publikation-ablaufdatum",
-        date=timezone.now() + timedelta(days=12),
-    )
-    caluma_workflow_factories.WorkItemFactory(
-        task_id="fill-publication",
-        status="completed",
-        document=publication_document,
-        case=be_instance.case,
-        closed_by_user="admin",
-        meta={"is-published": True},
-    )
-
-    query = """
-        query {
-            allDocuments {
-                edges {
-                    node {
-                        id
-                        answers {
-                            edges {
-                                node {
-                                    id
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    """
-    request = rf.get("/graphql")
-    request.user = AnonymousUser()
-    result = schema.execute(query, context_value=request, middleware=[])
-
-    assert len(result.data["allDocuments"]["edges"]) == 2
-    assert len(result.data["allDocuments"]["edges"][1]["node"]["answers"]["edges"]) == 2
-
-
 @pytest.mark.parametrize(
     "role__name,service__name,expected_form_count_public,expected_form_count_sz",
     [
@@ -790,7 +732,7 @@ def test_inquiry_visibility_be(
 
 @pytest.mark.parametrize("role__name", ["Applicant"])
 @pytest.mark.parametrize("is_public_user,expected_answers", [(False, 5), (True, 2)])
-def test_data_scrubbing(
+def test_public_document_visibility(
     db,
     admin_user,
     answer_factory,
