@@ -8,12 +8,9 @@ const REQUIRED_ROLES = {
 };
 
 export default class StatisticAbility extends Ability {
-  @service shoebox;
+  @service ebauModules;
 
   get canView() {
-    return (
-      (this.shoebox.isSupportRole || this.shoebox.isAdminRole) &&
-      (REQUIRED_ROLES[this.model] || []).includes(this.shoebox.role)
-    );
+    return (REQUIRED_ROLES[this.model] ?? []).includes(this.ebauModules.role);
   }
 }

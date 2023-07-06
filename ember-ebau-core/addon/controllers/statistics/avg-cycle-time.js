@@ -6,7 +6,7 @@ import { queryManager } from "ember-apollo-client";
 import { dropTask, lastValue } from "ember-concurrency";
 import { trackedTask } from "ember-resources/util/ember-concurrency";
 
-import decisionProceduresQuery from "camac-ng/gql/queries/decision-procedures.graphql";
+import decisionProceduresQuery from "ember-ebau-core/gql/queries/decision-procedures.graphql";
 
 export default class StatisticsAvgCycleTimeController extends Controller {
   @service fetch;
