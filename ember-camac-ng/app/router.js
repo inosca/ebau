@@ -5,6 +5,7 @@ import registerCommunicationsGlobal from "ember-ebau-core/modules/communications
 import registerDMSAdmin from "ember-ebau-core/modules/dms-admin";
 import registerLegalSubmission from "ember-ebau-core/modules/legal-submission";
 import registerServicePermissions from "ember-ebau-core/modules/service-permissions";
+import registerStatistics from "ember-ebau-core/modules/statistics";
 import registerTaskForm from "ember-ebau-core/modules/task-form";
 
 import config from "camac-ng/config/environment";
@@ -72,12 +73,6 @@ Router.map(function () {
       this.route("edit", { path: "/:work_item_id" });
     }
   );
-  this.route("statistics", function () {
-    this.route("avg-cycle-time");
-    this.route("cycle-time");
-    this.route("process-time");
-    this.route("processing-time");
-  });
 
   this.route("dossier-import", function () {
     this.route("new");
@@ -97,4 +92,5 @@ Router.map(function () {
   registerServicePermissions(this);
   registerCommunicationsGlobal(this);
   registerCommunications(this);
+  registerStatistics(this);
 });
