@@ -51,6 +51,18 @@ export default {
     staticForestBoundaryMunicipality:
       "waldfeststellung-mit-statischen-waldgrenzen-gemeinde",
   },
+  personalSuggestions: {
+    tableQuestions: [
+      "applicant",
+      "landowner",
+      "project-author",
+      "invoice-recipient",
+    ],
+    firstNameRegexp: "^first-name$",
+    lastNameRegexp: "^last-name$",
+    juristicNameRegexp: "^juristic-person-name$",
+    emailRegexp: "^e-mail$",
+  },
   paperInstances: {
     allowedGroups: {
       roles: [

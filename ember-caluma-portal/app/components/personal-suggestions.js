@@ -1,9 +1,9 @@
 import Component from "@glimmer/component";
 import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
+import mainConfig from "ember-ebau-core/config/main";
 import { trackedTask } from "ember-resources/util/ember-concurrency";
 
-import config from "caluma-portal/config/environment";
 import getPersonals from "caluma-portal/gql/queries/get-personals.graphql";
 
 function findAnswerByRegex(answers, regexp) {
@@ -18,19 +18,19 @@ function preparePerson(document) {
   return {
     firstName: findAnswerByRegex(
       answers,
-      config.APPLICATION.personalSuggestions.firstNameRegexp
+      mainConfig.personalSuggestions.firstNameRegexp
     ),
     lastName: findAnswerByRegex(
       answers,
-      config.APPLICATION.personalSuggestions.lastNameRegexp
+      mainConfig.personalSuggestions.lastNameRegexp
     ),
     juristicName: findAnswerByRegex(
       answers,
-      config.APPLICATION.personalSuggestions.juristicNameRegexp
+      mainConfig.personalSuggestions.juristicNameRegexp
     ),
     email: findAnswerByRegex(
       answers,
-      config.APPLICATION.personalSuggestions.emailRegexp
+      mainConfig.personalSuggestions.emailRegexp
     ),
   };
 }
@@ -50,7 +50,7 @@ export default class PersonalSuggestionsComponent extends Component {
         fetchPolicy: "network-only",
         variables: {
           instanceId: this.args.instanceId,
-          tableQuestions: config.APPLICATION.personalSuggestions.tableQuestions,
+          tableQuestions: mainConfig.personalSuggestions.tableQuestions,
         },
       },
       "allCases.edges"

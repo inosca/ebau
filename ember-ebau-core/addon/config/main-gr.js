@@ -10,11 +10,9 @@ export default {
   answerSlugs: {
     objectStreet: "strasse-flurname",
     objectNumber: "nr",
-    objectZIP: "plz-grundstueck-v3",
     objectLocation: "ort-grundstueck",
     description: "beschreibung-bauvorhaben",
     municipality: "gemeinde",
-    specialId: "ebau-number",
     parcelNumber: "parzellennummer",
     firstNameApplicant: "vorname-gesuchstellerin",
     lastNameApplicant: "name-gesuchstellerin",
@@ -22,6 +20,20 @@ export default {
     isJuristicApplicant: "juristische-person-gesuchstellerin",
     isJuristicApplicantYes: "juristische-person-gesuchstellerin-ja",
     personalDataApplicant: "personalien-gesuchstellerin",
+  },
+  personalSuggestions: {
+    tableQuestions: [
+      "personalien-gesuchstellerin",
+      "personalien-vertreterin-mit-vollmacht",
+      "personalien-grundeigentumerin",
+      "personalien-projektverfasserin",
+      "personalien-gebaudeeigentumerin",
+      "personalien-sb",
+    ],
+    firstNameRegexp: "^vorname-.*$",
+    lastNameRegexp: "^name-.*$",
+    juristicNameRegexp: "^name-juristische-person.*$",
+    emailRegexp: "^e-mail-.*$",
   },
   paperInstances: {
     allowedGroups: {
