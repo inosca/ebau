@@ -91,7 +91,7 @@ services:
       - db
     volumes:
       - ../keycloak/config/${APPLICATION}-test-config.json:/opt/keycloak/data/import/test-config.json
-      - ../keycloak/themes/src/main/resources/theme/kanton-gr:/opt/keycloak/themes/kanton-gr-dev
+      - ../keycloak/themes/src/main/resources/theme/kanton-so:/opt/keycloak/themes/kanton-so-dev
     environment:
       - KC_DB_PASSWORD=camac
       - KC_DB_URL=jdbc:postgresql://db:5432/${APPLICATION}?currentSchema=keycloak
