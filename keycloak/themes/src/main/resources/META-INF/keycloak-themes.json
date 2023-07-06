@@ -2,30 +2,23 @@
   "themes": [
     {
       "name": "ebau-be",
-      "types": [
-        "login"
-      ]
+      "types": ["login"]
     },
     {
       "name": "kanton-uri",
-      "types": [
-        "account",
-        "login"
-      ]
+      "types": ["account", "login"]
     },
     {
       "name": "kanton-schwyz",
-      "types": [
-        "account",
-        "login"
-      ]
+      "types": ["account", "login"]
     },
     {
       "name": "kanton-gr",
-      "types": [
-        "account",
-        "login"
-      ]
+      "types": ["account", "login"]
+    },
+    {
+      "name": "kanton-so",
+      "types": ["account", "login"]
     }
   ]
 }
