@@ -3,35 +3,37 @@
     <div class="uk-container uk-container-large">
       <div class="uk-width-1-1 uk-position-relative">
         <div class="uk-flex uk-flex-middle uk-flex-between uk-height-1-1">
-          <LinkTo @route="index" class={{concat "main-logo-" (application-name) " uk-link-reset"}}>
-            {{#if (is-application "be")}}
-              <img
-                class="uk-height-1-1"
-                src="/assets/images/logo-ebau-bern-1-{{this.session.language}}.svg"
-                alt={{t "global.title"}}
-              />
-            {{else if (is-application "ur")}}
-              <img
-                class="uk-height-1-1"
-                src="/assets/images/logo-urec.svg"
-                alt={{t "global.urec"}}
-              />
-             {{else if (is-application "gr")}}
-              <div class="uk-flex uk-flex-middle logo-gr">
+          {{#unless (is-application "so")}}
+            <LinkTo @route="index" class={{concat "main-logo-" (application-name) " uk-link-reset"}}>
+              {{#if (is-application "be")}}
                 <img
                   class="uk-height-1-1"
-                  src="/assets/images/logo-kanton-gr.svg"
+                  src="/assets/images/logo-ebau-bern-1-{{this.session.language}}.svg"
                   alt={{t "global.title"}}
                 />
-              </div>
-            {{else if (is-application "demo")}}
-              <img
-                class="uk-height-1-1"
-                src="/assets/images/logo-ebau-inosca-wide.svg"
-                alt={{t "global.title"}}
-              />
-            {{/if}}
-          </LinkTo>
+              {{else if (is-application "ur")}}
+                <img
+                  class="uk-height-1-1"
+                  src="/assets/images/logo-urec.svg"
+                  alt={{t "global.urec"}}
+                />
+              {{else if (is-application "gr")}}
+                <div class="uk-flex uk-flex-middle logo-gr">
+                  <img
+                    class="uk-height-1-1"
+                    src="/assets/images/logo-kanton-gr.svg"
+                    alt={{t "global.title"}}
+                  />
+                </div>
+              {{else if (is-application "demo")}}
+                <img
+                  class="uk-height-1-1"
+                  src="/assets/images/logo-ebau-inosca-wide.svg"
+                  alt={{t "global.title"}}
+                />
+              {{/if}}
+            </LinkTo>
+          {{/unless}}
           <div class="uk-text-right">
             {{#if (is-application "ur")}}
               <img
@@ -39,9 +41,13 @@
                 src="/assets/images/logo-kanton-uri.svg"
                 alt={{t "global.title"}}
               />
+            {{else if (is-application "so")}}
+              <LinkTo @route="index" class="main-logo-so uk-link-reset">
+                <img src="/assets/images/logo-kanton-so.svg" alt={{t "global.title"}} />
+              </LinkTo>
             {{/if}}
             {{#if (and this.session.isAuthenticated this.session.groups.length)}}
-              <div class="uk-margin-small-top uk-margin-small-bottom">
+              <div class="uk-margin-small-top {{unless (is-application "so") "uk-margin-small-bottom"}}">
                 <a href="{{this.internalLink}}" class="be-navbar-internal-link">
                   {{t "nav.internal"}}
                   <UkIcon @icon="arrow-right" />
@@ -127,13 +133,15 @@
                 {{/if}}
               </li>
             {{/if}}
-            {{#each this.languages as |lang|}}
-              <li class={{if (eq lang this.session.language) "uk-active"}}>
-                <a href="#" {{on "click" (fn this.setLanguage lang)}}>
-                  {{lang}}
-                </a>
-              </li>
-            {{/each}}
+            {{#if (gt this.languages.length 1)}}
+              {{#each this.languages as |lang|}}
+                <li class={{if (eq lang this.session.language) "uk-active"}}>
+                  <a href="#" {{on "click" (fn this.setLanguage lang)}}>
+                    {{lang}}
+                  </a>
+                </li>
+              {{/each}}
+            {{/if}}
             {{#if (macroCondition (macroGetOwnConfig "showProfileLink"))}}
               <li>
                 <a href={{this.profileURL}} title={{t "nav.profile" }} uk-icon="user">
