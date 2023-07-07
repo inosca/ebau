@@ -493,7 +493,6 @@ def use_instance_service(application_settings):
 def caluma_workflow_config_be(
     settings, caluma_forms_be, caluma_config_be, use_instance_service
 ):
-
     for slug in CALUMA_FORM_TYPES_SLUGS:
         caluma_form_models.Form.objects.create(slug=slug)
 
@@ -577,7 +576,6 @@ def caluma_workflow_config_gr(
     caluma_forms_gr,
     caluma_config_gr,
 ):
-
     for slug in CALUMA_FORM_TYPES_SLUGS:
         caluma_form_models.Form.objects.create(slug=slug)
 
@@ -1127,6 +1125,15 @@ def be_distribution_settings(settings, distribution_settings):
 def sz_distribution_settings(settings, distribution_settings):
     distribution_dict = copy.deepcopy(
         always_merger.merge(distribution_settings, DISTRIBUTION["kt_schwyz"])
+    )
+    settings.DISTRIBUTION = distribution_dict
+    return distribution_dict
+
+
+@pytest.fixture
+def gr_distribution_settings(settings, distribution_settings):
+    distribution_dict = copy.deepcopy(
+        always_merger.merge(distribution_settings, DISTRIBUTION["kt_gr"])
     )
     settings.DISTRIBUTION = distribution_dict
     return distribution_dict

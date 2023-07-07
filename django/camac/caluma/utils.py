@@ -191,6 +191,15 @@ def visible_inquiries_expression(group: Group) -> Expression:
         additional_inquiries_filter = work_item_by_addressed_service_condition(
             Q(service_parent__isnull=True) | Q(service_parent_id=service.pk)
         )
+    elif settings.APPLICATION_NAME == "kt_gr":
+        if group.role.name == "subservice":
+            # Subservices can see "adjecent" subservices inquiries
+            additional_inquiries_filter = work_item_by_addressed_service_condition(
+                Q(service_parent_id=service.service_parent_id)
+            )
+        else:
+            # Services only see their own inquiries
+            additional_inquiries_filter = Value(False)
 
     return Case(
         When(
