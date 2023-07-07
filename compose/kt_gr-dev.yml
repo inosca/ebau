@@ -126,6 +126,8 @@ services:
       - MH_UI_WEB_PATH=mailhog
 
   document-merge-service:
+    depends_on:
+      - db
     networks:
       - ebau.local
     environment:
