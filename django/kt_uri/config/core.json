@@ -17189,6 +17189,24 @@
     }
   },
   {
+    "model": "core.broleacl",
+    "pk": 12000111,
+    "fields": {
+      "button": 12000005,
+      "role": 6,
+      "instance_state": 24
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000112,
+    "fields": {
+      "button": 12000006,
+      "role": 1061,
+      "instance_state": 25
+    }
+  },
+  {
     "model": "core.billingconfig",
     "pk": 1,
     "fields": {
