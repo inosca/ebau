@@ -71,8 +71,6 @@ services:
 
   document-merge-service:
     image: ghcr.io/adfinis/document-merge-service:5.0.5
-    depends_on:
-      - db
     volumes:
       - ../document-merge-service/uwsgi.ini:/app/uwsgi.ini:ro
       - ../document-merge-service/kt_gr/templatefiles:/var/lib/document-merge-service/media
