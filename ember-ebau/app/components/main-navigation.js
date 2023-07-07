@@ -9,6 +9,8 @@ import UIkit from "uikit";
 
 const { languages, name } = mainConfig;
 
+const adminGroup = "1";
+
 export default class MainNavigationComponent extends Component {
   @service session;
   @service store;
@@ -90,6 +92,10 @@ export default class MainNavigationComponent extends Component {
     event?.preventDefault();
 
     this.session.group = group;
+
+    if (this.session.group === adminGroup) {
+      window.location.href = "/django/admin";
+    }
 
     UIkit.dropdown("#group-dropdown").hide();
 
