@@ -11,10 +11,13 @@
       "modified_by_group": null,
       "metainfo": {
         "access": {
+          "are": "AdminService",
+          "canton": "AdminService",
           "public": "Read",
-          "service": "AdminService",
           "support": "Admin",
-          "municipality": "AdminService"
+          "subservice": "AdminService",
+          "service-lead": "AdminService",
+          "municipality-lead": "AdminService"
         }
       },
       "name": "{\"de\": \"Alle Beteiligten\", \"fr\": \"\", \"it\": \"Tutti coinvolti\"}",
@@ -24,7 +27,7 @@
   },
   {
     "model": "alexandria_core.category",
-    "pk": "alle-kantone",
+    "pk": "alle-kanton",
     "fields": {
       "created_at": "2020-08-04T13:24:00.690Z",
       "created_by_user": null,
@@ -34,12 +37,12 @@
       "modified_by_group": null,
       "metainfo": {
         "access": {
-          "service": "AdminService",
+          "canton": "AdminService",
           "support": "Admin"
         }
       },
-      "name": "{\"de\": \"Alle Kantone\", \"fr\": \"\", \"it\": \"Tutti i cantoni\", \"rm\": \"\"}",
-      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "name": "{\"de\": \"Alle Kanton\", \"fr\": \"\", \"it\": \"Tutti i canton\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "color": "#66CFC9"
     }
   },
@@ -55,11 +58,14 @@
       "modified_by_group": null,
       "metainfo": {
         "access": {
+          "are": "Read",
           "uso": "Read",
-          "public": "Admin",
-          "service": "Read",
+          "canton": "Read",
+          "public": "AdminNew",
           "support": "Admin",
-          "municipality": "Read"
+          "subservice": "Read",
+          "service-lead": "Read",
+          "municipality-lead": "Read"
         }
       },
       "name": "{\"de\": \"Beilagen zum Gesuch\", \"fr\": \"\", \"it\": \"Allegati alla domanda\"}",
@@ -79,9 +85,12 @@
       "modified_by_group": null,
       "metainfo": {
         "access": {
-          "service": "AdminService",
+          "are": "AdminService",
+          "canton": "AdminService",
           "support": "Admin",
-          "municipality": "AdminService"
+          "subservice": "AdminService",
+          "service-lead": "AdminService",
+          "municipality-lead": "AdminService"
         }
       },
       "name": "{\"de\": \"Beteiligte Beh\\u00f6rden\", \"fr\": \"\", \"it\": \"Autorit\\u00e0 coinvolte\"}",
@@ -101,10 +110,13 @@
       "modified_by_group": null,
       "metainfo": {
         "access": {
+          "are": "InternalAdmin",
           "uso": "InternalAdmin",
-          "service": "InternalAdmin",
+          "canton": "InternalAdmin",
           "support": "Admin",
-          "municipality": "InternalAdmin"
+          "subservice": "InternalAdmin",
+          "service-lead": "InternalAdmin",
+          "municipality-lead": "InternalAdmin"
         }
       },
       "name": "{\"de\": \"Intern\", \"fr\": \"\", \"it\": \"Interno\"}",
@@ -124,8 +136,9 @@
       "modified_by_group": null,
       "metainfo": {
         "access": {
-          "uso": "InternalAdmin",
-          "service": "ARECategory",
+          "are": "Read",
+          "uso": "InternalAdminCirculation",
+          "canton": "InternalAdminCirculation",
           "support": "Admin"
         }
       },
@@ -146,10 +159,10 @@
       "modified_by_group": null,
       "metainfo": {
         "access": {
+          "are": "AdminService",
           "uso": "Read",
-          "service": "AdminServiceARE",
           "support": "Admin",
-          "municipality": "AdminService"
+          "municipality-lead": "AdminService"
         }
       },
       "name": "{\"de\": \"Umweltschutzorganisationen\", \"fr\": \"\", \"it\": \"Organizzazioni di protezione ambientale\"}",
