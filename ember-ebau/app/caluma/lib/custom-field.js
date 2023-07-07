@@ -25,6 +25,10 @@ export default class CustomField extends Field {
   }
 
   get enabledOptions() {
+    if (this.question.slug !== "decision-decision") {
+      return null;
+    }
+
     if (!this.caseInformation.value) return [];
 
     const form = this.caseInformation.value;
