@@ -1203,7 +1203,7 @@
     "model": "core.instanceresource",
     "pk": 12000001,
     "fields": {
-      "available_instance_resource": "editformpage",
+      "available_instance_resource": "page",
       "resource": 14000002,
       "name": null,
       "description": null,
@@ -1233,7 +1233,7 @@
     "model": "core.instanceresource",
     "pk": 12000003,
     "fields": {
-      "available_instance_resource": "editformpage",
+      "available_instance_resource": "page",
       "resource": 14000002,
       "name": null,
       "description": null,
@@ -1248,7 +1248,7 @@
     "model": "core.instanceresource",
     "pk": 12000004,
     "fields": {
-      "available_instance_resource": "editformpage",
+      "available_instance_resource": "page",
       "resource": 14000002,
       "name": null,
       "description": null,
@@ -1263,7 +1263,7 @@
     "model": "core.instanceresource",
     "pk": 12000005,
     "fields": {
-      "available_instance_resource": "editformpage",
+      "available_instance_resource": "page",
       "resource": 14000002,
       "name": null,
       "description": null,
