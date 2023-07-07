@@ -27,6 +27,78 @@
     }
   },
   {
+    "model": "user.role",
+    "pk": 4,
+    "fields": {
+      "role_parent": null,
+      "name": "municipality-admin",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 5,
+    "fields": {
+      "role_parent": null,
+      "name": "municipality-lead",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 6,
+    "fields": {
+      "role_parent": null,
+      "name": "municipality-clerk",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 7,
+    "fields": {
+      "role_parent": null,
+      "name": "municipality-construction-supervision",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 8,
+    "fields": {
+      "role_parent": null,
+      "name": "municipality-read",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 9,
+    "fields": {
+      "role_parent": null,
+      "name": "service-admin",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 10,
+    "fields": {
+      "role_parent": null,
+      "name": "service-lead",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 11,
+    "fields": {
+      "role_parent": null,
+      "name": "service-clerk",
+      "group_prefix": null
+    }
+  },
+  {
     "model": "user.rolet",
     "pk": 1,
     "fields": {
@@ -54,6 +126,137 @@
       "language": "de",
       "name": "Support",
       "group_prefix": null
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 4,
+    "fields": {
+      "role": 4,
+      "language": "de",
+      "name": "Administration Leitbehörde (Gemeinde)",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 5,
+    "fields": {
+      "role": 5,
+      "language": "de",
+      "name": "Leitung Leitbehörde (Gemeinde)",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 6,
+    "fields": {
+      "role": 6,
+      "language": "de",
+      "name": "Sachbearbeitung Leitbehörde (Gemeinde)",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 7,
+    "fields": {
+      "role": 7,
+      "language": "de",
+      "name": "Baubegleitung Leitbehörde (Gemeinde)",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 8,
+    "fields": {
+      "role": 8,
+      "language": "de",
+      "name": "Einsichtsberechtigt Leitbehörde (Gemeinde)",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 9,
+    "fields": {
+      "role": 9,
+      "language": "de",
+      "name": "Administration Fachstelle",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 10,
+    "fields": {
+      "role": 10,
+      "language": "de",
+      "name": "Leitung Fachstelle",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 11,
+    "fields": {
+      "role": 11,
+      "language": "de",
+      "name": "Sachbearbeitung Fachstelle",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.servicegroup",
+    "pk": 1,
+    "fields": {
+      "name": "municipality",
+      "sort": null
+    }
+  },
+  {
+    "model": "user.servicegroup",
+    "pk": 2,
+    "fields": {
+      "name": "service-cantonal",
+      "sort": null
+    }
+  },
+  {
+    "model": "user.servicegroup",
+    "pk": 3,
+    "fields": {
+      "name": "service-extra-cantonal",
+      "sort": null
+    }
+  },
+  {
+    "model": "user.servicegroupt",
+    "pk": 1,
+    "fields": {
+      "service_group": 1,
+      "language": "de",
+      "name": "Leitbehörde (Gemeinde)"
+    }
+  },
+  {
+    "model": "user.servicegroupt",
+    "pk": 2,
+    "fields": {
+      "service_group": 2,
+      "language": "de",
+      "name": "Kantonale Fachstelle"
+    }
+  },
+  {
+    "model": "user.servicegroupt",
+    "pk": 3,
+    "fields": {
+      "service_group": 3,
+      "language": "de",
+      "name": "Ausserkantonale Fachstelle"
     }
   }
 ]
