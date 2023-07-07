@@ -5,11 +5,6 @@ from django.db.models import Q
 
 from .common import get_role
 
-if settings.APPLICATION_NAME == "kt_gr":  # pragma: no cover
-    from camac.alexandria.extensions.permissions_kt_gr import special_visibilities
-else:
-    special_visibilities = None
-
 
 class CustomVisibility(BaseVisibility):
     @filter_queryset_for(BaseModel)
@@ -31,10 +26,6 @@ class CustomVisibility(BaseVisibility):
                     f"{prefix}category__metainfo__access__{role}__istartswith": permission
                 }
             )
-
-        # application specific visibilities
-        if special_visibilities:
-            aggregated_filter |= special_visibilities(user, role, prefix)
 
         return (
             aggregated_filter

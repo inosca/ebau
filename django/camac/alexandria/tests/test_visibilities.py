@@ -13,9 +13,9 @@ from rest_framework.status import HTTP_200_OK
 @pytest.mark.parametrize(
     "role__name,instance__user,expected_count",
     [
-        ("Applicant", LazyFixture("user"), 3),
-        ("Municipality", LazyFixture("user"), 2),
-        ("Service", LazyFixture("user"), 1),
+        ("applicant", LazyFixture("user"), 3),
+        ("municipality", LazyFixture("user"), 2),
+        ("service", LazyFixture("user"), 1),
     ],
 )
 def test_document_visibility(
@@ -66,9 +66,9 @@ def test_document_visibility(
 @pytest.mark.parametrize(
     "role__name,expected_count",
     [
-        ("Applicant", 3),
-        ("Municipality", 2),
-        ("Service", 1),
+        ("applicant", 3),
+        ("municipality", 2),
+        ("service", 1),
     ],
 )
 def test_file_visibility(
@@ -111,9 +111,9 @@ def test_file_visibility(
 @pytest.mark.parametrize(
     "role__name,expected_count",
     [
-        ("Applicant", 1),
-        ("Municipality", 3),
-        ("Service", 2),
+        ("applicant", 1),
+        ("municipality", 3),
+        ("service", 2),
     ],
 )
 def test_category_visibility(db, admin_client, role, expected_count, snapshot):
@@ -139,9 +139,9 @@ def test_category_visibility(db, admin_client, role, expected_count, snapshot):
 @pytest.mark.parametrize(
     "role__name,expected_count",
     [
-        ("Applicant", 1),
-        ("Municipality", 2),
-        ("Service", 2),
+        ("applicant", 1),
+        ("municipality", 2),
+        ("service", 2),
     ],
 )
 def test_tag_visibility(

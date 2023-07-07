@@ -6,6 +6,7 @@ from alexandria.core.permissions import (
 )
 from django.conf import settings
 
+from camac.instance.models import Instance
 from camac.user.utils import get_group
 
 from .common import get_role
@@ -39,7 +40,8 @@ class CustomPermission(BasePermission):
         if not permission:
             return False
 
-        return self.get_permission(permission).can_write(get_group(request))
+        instance = Instance.objects.get(pk=request.data["metainfo"]["case_id"])
+        return self.get_permission(permission).can_create(get_group(request), instance)
 
     @object_permission_for(Document)
     def has_object_permission_for_document(self, request, document):
@@ -53,17 +55,19 @@ class CustomPermission(BasePermission):
                 get_group(request), document
             )
 
-        return self.get_permission(permission).can_write(get_group(request), document)
+        return self.get_permission(permission).can_update(get_group(request), document)
 
     @permission_for(File)
     def has_permission_for_file(self, request):
         user = request.caluma_info.context.user
-        category = Document.objects.get(pk=request.data["document"]["id"]).category
-        permission = category.metainfo["access"].get(get_role(user))
+        document = Document.objects.get(pk=request.data["document"]["id"])
+        permission = document.category.metainfo["access"].get(get_role(user))
         if not permission:
             return False
 
-        return self.get_permission(permission).can_write(get_group(request))
+        return self.get_permission(permission).can_create(
+            get_group(request), document.instance_document.instance
+        )
 
     @permission_for(Tag)
     def has_permission_for_tag(self, request):

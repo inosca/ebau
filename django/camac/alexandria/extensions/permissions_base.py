@@ -3,7 +3,11 @@ class Permission:
     destroy = False
 
     @classmethod
-    def can_write(cls, group, document=None) -> bool:
+    def can_create(cls, group, instance) -> bool:
+        return cls.write
+
+    @classmethod
+    def can_update(cls, group, document) -> bool:
         return cls.write
 
     @classmethod
@@ -53,8 +57,12 @@ class InternalAdminPermission(AdminServicePermission):
     """Read, write and delete permission on attachments owned by the current service."""
 
     @classmethod
-    def can_write(cls, group, document) -> bool:
-        return cls.is_owned_by_service(group, document) and super().can_write(
+    def can_create(cls, group, instance) -> bool:
+        return super().can_create(group, instance)
+
+    @classmethod
+    def can_update(cls, group, document) -> bool:
+        return cls.is_owned_by_service(group, document) and super().can_update(
             group, document
         )
 
@@ -65,15 +73,40 @@ class AdminDeletableStatePermission(AdminPermission):
     deletable_states = []
 
     @classmethod
-    def in_deleteable_state(cls, group, document) -> bool:
-        return not document or (
-            document.instance_document.instance.instance_state.name
-            in cls.deletable_states
-        )
+    def in_deleteable_state(cls, instance) -> bool:
+        return instance.instance_state.name in cls.deletable_states
 
     @classmethod
     def can_destroy(cls, group, document) -> bool:
-        return cls.in_deleteable_state(group, document) and super().can_destroy(
+        return cls.in_deleteable_state(
+            document.instance_document.instance
+        ) and super().can_destroy(
+            group,
+            document,
+        )
+
+
+class AdminStatePermission(AdminDeletableStatePermission):
+    """Read, but write and delete only in certain states."""
+
+    writable_states = []
+
+    @classmethod
+    def in_writable_state(cls, instance) -> bool:
+        return instance.instance_state.name in cls.writable_states
+
+    @classmethod
+    def can_create(cls, group, instance) -> bool:
+        return cls.in_writable_state(instance) and super().can_create(
+            group,
+            instance,
+        )
+
+    @classmethod
+    def can_update(cls, group, document) -> bool:
+        return cls.in_writable_state(
+            document.instance_document.instance
+        ) and super().can_update(
             group,
             document,
         )
