@@ -22,46 +22,46 @@ import camac.alexandria.extensions.permissions_kt_gr as permissions_kt_gr
     "role__name,method,status_code,metainfo",
     [
         (
-            "Applicant",
+            "applicant",
             "post",
             HTTP_201_CREATED,
             {"access": {"applicant": "Admin"}},
         ),
-        ("Applicant", "patch", HTTP_200_OK, {"access": {"applicant": "Admin"}}),
+        ("applicant", "patch", HTTP_200_OK, {"access": {"applicant": "Admin"}}),
         (
-            "Applicant",
+            "applicant",
             "delete",
             HTTP_204_NO_CONTENT,
             {"access": {"applicant": "Admin"}},
         ),
         (
-            "Municipality",
+            "municipality",
             "post",
             HTTP_403_FORBIDDEN,
             {"access": {"applicant": "Admin"}},
         ),
         (
-            "Municipality",
+            "municipality",
             "patch",
             HTTP_404_NOT_FOUND,
             {"access": {"applicant": "Admin"}},
         ),
         (
-            "Municipality",
+            "municipality",
             "delete",
             HTTP_404_NOT_FOUND,
             {"access": {"applicant": "Admin"}},
         ),
         (
-            "Service",
+            "service",
             "post",
             HTTP_201_CREATED,
             {"access": {"service": "Write"}},
         ),
-        ("Service", "patch", HTTP_200_OK, {"access": {"service": "Write"}}),
-        ("Service", "patch", HTTP_200_OK, {"access": {"service": "InternalAdmin"}}),
+        ("service", "patch", HTTP_200_OK, {"access": {"service": "Write"}}),
+        ("service", "patch", HTTP_200_OK, {"access": {"service": "InternalAdmin"}}),
         (
-            "Service",
+            "service",
             "delete",
             HTTP_403_FORBIDDEN,
             {"access": {"service": "Write"}},
@@ -115,31 +115,31 @@ def test_document_permission(
     "role__name,method,status_code,metainfo",
     [
         (
-            "Applicant",
+            "applicant",
             "post",
             HTTP_201_CREATED,
             {"access": {"applicant": "Admin"}},
         ),
         (
-            "Applicant",
+            "applicant",
             "patch",
             HTTP_405_METHOD_NOT_ALLOWED,
             {"access": {"applicant": "Admin"}},
         ),
         (
-            "Applicant",
+            "applicant",
             "delete",
             HTTP_405_METHOD_NOT_ALLOWED,
             {"access": {"applicant": "Admin"}},
         ),
         (
-            "Municipality",
+            "municipality",
             "post",
             HTTP_403_FORBIDDEN,
             {"access": {"applicant": "Admin"}},
         ),
         (
-            "Service",
+            "service",
             "post",
             HTTP_201_CREATED,
             {"access": {"service": "Write"}},
@@ -186,16 +186,16 @@ def test_file_permission(
 @pytest.mark.parametrize(
     "role__name,method,status_code",
     [
-        ("Applicant", "post", HTTP_403_FORBIDDEN),
-        ("Applicant", "delete", HTTP_403_FORBIDDEN),
-        ("Municipality", "post", HTTP_201_CREATED),
-        ("Municipality", "delete", HTTP_204_NO_CONTENT),
-        ("Municipality", "delete", HTTP_404_NOT_FOUND),
-        ("Service", "post", HTTP_201_CREATED),
-        ("Service", "patch", HTTP_200_OK),
-        ("Service", "patch", HTTP_404_NOT_FOUND),
-        ("Support", "post", HTTP_201_CREATED),
-        ("Support", "delete", HTTP_204_NO_CONTENT),
+        ("applicant", "post", HTTP_403_FORBIDDEN),
+        ("applicant", "delete", HTTP_403_FORBIDDEN),
+        ("municipality", "post", HTTP_201_CREATED),
+        ("municipality", "delete", HTTP_204_NO_CONTENT),
+        ("municipality", "delete", HTTP_404_NOT_FOUND),
+        ("service", "post", HTTP_201_CREATED),
+        ("service", "patch", HTTP_200_OK),
+        ("service", "patch", HTTP_404_NOT_FOUND),
+        ("support", "post", HTTP_201_CREATED),
+        ("support", "delete", HTTP_204_NO_CONTENT),
     ],
 )
 def test_tag_permission(db, role, caluma_admin_user, admin_client, method, status_code):
@@ -233,9 +233,9 @@ def test_tag_permission(db, role, caluma_admin_user, admin_client, method, statu
 @pytest.mark.parametrize(
     "role__name,method",
     [
-        ("Support", "patch"),
-        ("Support", "post"),
-        ("Support", "delete"),
+        ("support", "patch"),
+        ("support", "post"),
+        ("support", "delete"),
     ],
 )
 def test_category_permission(
@@ -266,73 +266,73 @@ def test_category_permission(
 
 
 @pytest.mark.parametrize(
-    "instance_state__name,role__name,service__name,method,status_code,metainfo",
+    "instance_state__name,role__name,service_group__name,method,status_code,metainfo",
     [
-        # AdminServiceARE
+        # AdminNew
         (
-            "subm",
-            "Service",
-            "Amt für Raumentwicklung (ARE)",
+            "new",
+            "applicant",
+            None,
             "post",
             HTTP_201_CREATED,
-            {"access": {"service": "AdminServiceARE"}},
+            {"access": {"applicant": "AdminNew"}},
+        ),
+        (
+            "new",
+            "applicant",
+            None,
+            "patch",
+            HTTP_200_OK,
+            {"access": {"applicant": "AdminNew"}},
         ),
         (
             "subm",
-            "Service",
-            "Amt für Raumentwicklung (ARE)",
-            "delete",
-            HTTP_204_NO_CONTENT,
-            {"access": {"service": "AdminServiceARE"}},
-        ),
-        (
-            "subm",
-            "Service",
-            "Kanton",
-            "delete",
+            "applicant",
+            None,
+            "post",
             HTTP_403_FORBIDDEN,
-            {"access": {"service": "AdminServiceARE"}},
+            {"access": {"applicant": "AdminNew"}},
         ),
-        # ARECategory
+        # InternalAdminCirculation
         (
             "subm",
-            "Service",
-            "Amt für Raumentwicklung (ARE)",
+            "service",
+            "authority-bab",
             "delete",
-            HTTP_403_FORBIDDEN,
-            {"access": {"service": "ARECategory"}},
+            HTTP_404_NOT_FOUND,
+            {"access": {"canton": "InternalAdminCirculation"}},
         ),
         (
             "subm",
-            "Service",
-            "Kanton",
+            "service",
+            "service",
             "post",
             HTTP_201_CREATED,
-            {"access": {"service": "ARECategory"}},
+            {"access": {"canton": "InternalAdminCirculation"}},
         ),
         (
             "subm",
-            "Service",
-            "Kanton",
+            "service",
+            "service",
             "delete",
             HTTP_403_FORBIDDEN,
-            {"access": {"service": "ARECategory"}},
+            {"access": {"canton": "InternalAdminCirculation"}},
         ),
         (
             "circulation",
-            "Service",
-            "Kanton",
+            "service",
+            "service",
             "delete",
             HTTP_204_NO_CONTENT,
-            {"access": {"service": "ARECategory"}},
+            {"access": {"canton": "InternalAdminCirculation"}},
         ),
     ],
 )
 def test_kt_gr_permissions(
     db,
     role,
-    application_settings,
-    service,
+    set_application_gr,
+    settings,
     mocker,
     admin_client,
     caluma_admin_user,
@@ -341,17 +341,10 @@ def test_kt_gr_permissions(
     method,
     status_code,
 ):
+    settings.APPLICATION_NAME = "kt_gr"
     mocker.patch(
         "camac.alexandria.extensions.permissions.permissions", permissions_kt_gr
     )
-    mocker.patch(
-        "camac.alexandria.extensions.visibilities.special_visibilities",
-        permissions_kt_gr.special_visibilities,
-    )
-    if service.name == "Amt für Raumentwicklung (ARE)":
-        application_settings["ALEXANDRIA"]["ARE_SERVICE_ID"] = service.pk
-    else:
-        application_settings["ALEXANDRIA"]["ARE_SERVICE_ID"] = None
 
     alexandria_category = CategoryFactory(metainfo=metainfo)
     url = reverse("document-list")

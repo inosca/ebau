@@ -3351,7 +3351,7 @@ APPLICATIONS = {
             "user.Service",
             "user.ServiceT",
         ],
-        "ALEXANDRIA": {"PUBLIC_TAGS": ALEXANDRIA_PUBLIC_TAGS, "ARE_SERVICE_ID": 1},
+        "ALEXANDRIA": {"PUBLIC_TAGS": ALEXANDRIA_PUBLIC_TAGS},
         "DOCUMENT_MERGE_SERVICE": {
             "FORM": {
                 "_base": {
