@@ -205,6 +205,32 @@ ALEXANDRIA_PUBLIC_TAGS = [
     "dokument-weitere-gesuchsunterlagen",
 ]
 
+SO_PERSONAL_DATA_MAPPING = {
+    "last_name": "nachname",
+    "first_name": "vorname",
+    "street": "strasse",
+    "street_number": "strasse-nummer",
+    "zip": "plz",
+    "town": "ort",
+    "email": "e-mail",
+    "tel": "telefon",
+    "is_juristic_person": (
+        "juristische-person",
+        {
+            "value_parser": (
+                "value_mapping",
+                {
+                    "mapping": {
+                        "juristische-person-ja": True,
+                        "juristische-person-nein": False,
+                    }
+                },
+            )
+        },
+    ),
+    "juristic_name": "juristische-person-name",
+}
+
 
 def generate_form_dump_config(regex=None, version=None):
     if regex:
@@ -3629,9 +3655,53 @@ APPLICATIONS = {
             "user.Service",
             "user.ServiceT",
         ],
-        "DOCUMENT_MERGE_SERVICE": {},
         "MASTER_DATA": {
             "canton": ("static", "SO"),
+            "applicants": (
+                "table",
+                "bauherrin",
+                {"column_mapping": SO_PERSONAL_DATA_MAPPING},
+            ),
+            "landowners": (
+                "table",
+                "grundeigentuemerin",
+                {"column_mapping": SO_PERSONAL_DATA_MAPPING},
+            ),
+            "project_authors": (
+                "table",
+                "projektverfasserin",
+                {"column_mapping": SO_PERSONAL_DATA_MAPPING},
+            ),
+            "proposal": ("answer", "umschreibung-bauprojekt"),
+            "street": ("answer", "strasse-flurname"),
+            "street_number": ("answer", "strasse-nummer"),
+            "zip": ("answer", "plz"),
+            "city": ("answer", "ort"),
+            "construction_costs": ("answer", "gesamtkosten"),
+            "municipality": ("answer", "gemeinde", {"value_parser": "dynamic_option"}),
+            "plot_data": (
+                "table",
+                "parzellen",
+                {
+                    "column_mapping": {
+                        "plot_number": "parzellennummer",
+                        "egrid_number": "e-grid",
+                        "coord_east": "lagekoordinaten-ost",
+                        "coord_north": "lagekoordinaten-nord",
+                    }
+                },
+            ),
+            "submit_date": ("case_meta", "submit-date", {"value_parser": "datetime"}),
+            "is_paper": (
+                "answer",
+                "is-paper",
+                {
+                    "value_parser": (
+                        "value_mapping",
+                        {"mapping": {"is-paper-yes": True, "is-paper-no": False}},
+                    )
+                },
+            ),
         },
         "ACTIVE_SERVICES": {
             "MUNICIPALITY": {
@@ -3644,6 +3714,36 @@ APPLICATIONS = {
             },
         },
         "REJECTION_FEEDBACK_QUESTION": {},
+        "DOCUMENT_MERGE_SERVICE": {
+            "FORM": {
+                "_base": {
+                    "people_sources": [
+                        "bauherrin",
+                        "grundeigentuemerin",
+                        "projektverfasserin",
+                    ],
+                    "people_names": {
+                        "nachname": "familyName",
+                        "vorname": "givenName",
+                        "juristische-person-name": "juristicName",
+                    },
+                },
+                "baugesuch": {
+                    "forms": ["baugesuch"],
+                    "template": "form",
+                    "personalien": "personalien",
+                    "exclude_slugs": [
+                        # Forms
+                        "einreichen",
+                        "allgemeine-informationen",
+                        # Questions
+                        "is-paper",
+                        "projektaenderung",
+                    ],
+                },
+            },
+            "ADD_HEADER_DATA": True,
+        },
     },
 }
 

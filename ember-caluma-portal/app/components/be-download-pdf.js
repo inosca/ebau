@@ -11,13 +11,25 @@ export default class BeDownloadPdfComponent extends Component {
   @dropTask
   *export() {
     try {
-      const query = this.args.field.document.rootForm.raw.meta["is-main-form"]
-        ? ""
-        : `?form-slug=${this.args.field.document.rootForm.slug}`;
+      const params = {};
+
+      if (!this.args.field.document.rootForm.raw.meta["is-main-form"]) {
+        params["form-slug"] = this.args.field.document.rootForm.slug;
+      }
+
+      if (this.args.field.question.raw.meta.template) {
+        params.template = this.args.field.question.raw.meta.template;
+      }
+
+      const query = Object.entries(params)
+        .map(([k, v]) => `${k}=${v}`)
+        .join("&");
+
+      const fullQuery = query ? `?${query}` : "";
 
       // generate document in CAMAC
       const response = yield this.fetch.fetch(
-        `/api/v1/instances/${this.args.context.instanceId}/generate-pdf${query}`
+        `/api/v1/instances/${this.args.context.instanceId}/generate-pdf${fullQuery}`
       );
 
       const filename = response.headers

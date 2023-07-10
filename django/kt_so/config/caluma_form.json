@@ -1149,7 +1149,7 @@
       "modified_by_group": null,
       "form": "einreichen",
       "question": "einreichen-button",
-      "sort": 2
+      "sort": 1
     }
   },
   {
@@ -1179,7 +1179,7 @@
       "modified_by_group": null,
       "form": "einreichen",
       "question": "hinweis-pdf-und-einreichen",
-      "sort": 6
+      "sort": 5
     }
   },
   {
@@ -1194,6 +1194,21 @@
       "modified_by_group": null,
       "form": "einreichen",
       "question": "umfrage-externe",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "einreichen.unterschriftenblatt-pdf",
+    "fields": {
+      "created_at": "2023-07-07T08:42:24.372Z",
+      "modified_at": "2023-07-07T08:42:24.372Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "einreichen",
+      "question": "unterschriftenblatt-pdf",
       "sort": 3
     }
   },
@@ -14747,6 +14762,40 @@
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "unterschriftenblatt-pdf",
+    "fields": {
+      "created_at": "2023-07-07T08:42:24.155Z",
+      "modified_at": "2023-07-07T08:42:24.155Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Unterschriftenblatt (PDF)\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "template": "signatures",
+        "widgetOverride": "be-download-pdf"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
