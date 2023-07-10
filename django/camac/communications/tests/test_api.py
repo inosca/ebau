@@ -322,3 +322,56 @@ def test_included_dossier_number(
         resp.json()["data"][0]["attributes"]["dossier-number"]
         == be_instance.case.meta["ebau-number"]
     )
+
+
+@pytest.mark.parametrize(
+    "role__name,should_send_notification",
+    [("Municipality", True), ("Applicant", False)],
+)
+def test_notification(
+    db,
+    admin_client,
+    communications_topic,
+    be_instance,
+    admin_user,
+    mailoutbox,
+    should_send_notification,
+    notification_template,
+    application_settings,
+    role,
+):
+    application_settings["COMMUNICATIONS"]["template_slug"] = notification_template.slug
+
+    communications_topic.involved_entities = [
+        admin_user.get_default_group().service_id,
+        "APPLICANT",
+    ]
+    communications_topic.save()
+
+    if role.name == "Applicant":
+        be_instance.involved_applicants.update(invitee=admin_user)
+        default_group = admin_client.user.get_default_group()
+        default_group.service = None
+        default_group.save()
+
+    resp = admin_client.post(
+        reverse("communications-message-list"),
+        data={
+            "body": "hello world",
+            "topic": json.dumps(
+                {
+                    "id": str(communications_topic.pk),
+                    "type": "communications-topics",
+                }
+            ),
+            "attachments": [],
+        },
+        format="multipart",
+    )
+    assert resp.status_code == status.HTTP_201_CREATED
+
+    if should_send_notification:
+        assert len(mailoutbox) == 1
+        assert notification_template.subject in mailoutbox[0].subject
+    else:
+        assert len(mailoutbox) == 0
