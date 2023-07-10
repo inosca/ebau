@@ -10448,7 +10448,7 @@
     "pk": "energienachweis",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "modified_at": "2023-07-07T07:39:53.217Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -10456,7 +10456,7 @@
       "label": "{\"de\": \"Energienachweis\", \"fr\": null, \"it\": null, \"rm\": null}",
       "type": "multiple_choice",
       "is_required": "true",
-      "is_hidden": "!(\n\t[\n\t\t\"typ-des-bauwerks-einfamilienhaus\",\n\t\t\"typ-des-bauwerks-doppeleinfamilienhaus\",\n\t\t\"typ-des-bauwerks-mehrfamilienhaus\",\n\t\t\"typ-des-bauwerks-geschaftshaus\",\n\t\t\"typ-des-bauwerks-wohn-und-geschaftshaus\",\n\t\t\"typ-des-bauwerks-industrie\",\n\t\t\"typ-des-bauwerks-bauten-und-anlagen-gastgewerbe\",\n\t\t\"typ-des-bauwerks-heim-mit-unterkunft\",\n\t\t\"typ-des-bauwerks-wohnheim-ohne-pflege\",\n\t\t\"typ-des-bauwerks-spital\",\n\t\t\"typ-des-bauwerks-schulen\",\n\t\t\"typ-des-bauwerks-sporthallen\",\n\t\t\"typ-des-bauwerks-tourismusanlagen\",\n\t\t\"typ-des-bauwerks-kirchen\",\n\t\t\"typ-des-bauwerks-kulturbauten\",\n\t\t\"typ-des-bauwerks-landwirtschaft-betrieb-wohnteil\"\n\t]\n\tintersects \"gebaeude\"|answer|mapby(\"typ-des-bauwerks\") &&\n\t(\n\t\t\"energienachweis-nachtraeglich-ja\"\n\t\t!=\n\t\t\"energienachweis-nachtraeglich\"|answer\n\t) &&\n\t!(\n\t\t\"das-vorhaben-betrifft-keine-energetisch-relevanten-bauten\"\n\t\tin\n\t\t\"das-vorhaben-betrifft\"|answer\n\t)\n)",
+      "is_hidden": "!(\n\t[\n\t\t\"typ-des-bauwerks-einfamilienhaus\",\n\t\t\"typ-des-bauwerks-doppeleinfamilienhaus\",\n\t\t\"typ-des-bauwerks-mehrfamilienhaus\",\n\t\t\"typ-des-bauwerks-geschaftshaus\",\n\t\t\"typ-des-bauwerks-wohn-und-geschaftshaus\",\n\t\t\"typ-des-bauwerks-industrie\",\n\t\t\"typ-des-bauwerks-bauten-und-anlagen-gastgewerbe\",\n\t\t\"typ-des-bauwerks-heim-mit-unterkunft\",\n\t\t\"typ-des-bauwerks-wohnheim-ohne-pflege\",\n\t\t\"typ-des-bauwerks-spital\",\n\t\t\"typ-des-bauwerks-schulen\",\n\t\t\"typ-des-bauwerks-sporthallen\",\n\t\t\"typ-des-bauwerks-tourismusanlagen\",\n\t\t\"typ-des-bauwerks-kirchen\",\n\t\t\"typ-des-bauwerks-kulturbauten\",\n\t\t\"typ-des-bauwerks-landwirtschaft-betrieb-wohnteil\"\n\t]\n\tintersects \"gebaeude\"|answer|mapby(\"typ-des-bauwerks\")\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
