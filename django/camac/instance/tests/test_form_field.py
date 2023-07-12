@@ -72,11 +72,14 @@ def test_form_field_list(admin_client, form_field, size):
 @pytest.mark.parametrize(
     "form_field__name", [("einsprecher"), ("kategorie-des-vorhabens")]
 )
-def test_form_field_visible_for(admin_client, form_field, group, size, settings):
+def test_form_field_visible_for(
+    admin_client, request, form_field, group, size, settings
+):
+    request.group = group
 
     form_fields = (
         models.FormField.objects.get_queryset()
-        .visible_for(group)
+        .visible_for(request)
         .values_list("pk", flat=True)
     )
 

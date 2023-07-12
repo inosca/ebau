@@ -267,7 +267,7 @@ class InstanceKeywordSearchFilter(CharFilter):
                     instance=OuterRef("pk"),
                     value__isnull=False,
                 )
-                .visible_for(self.parent.request.group)
+                .visible_for(self.parent.request)
                 .annotate(value_as_text=Cast(F("value"), TextField()))
                 .values("value_as_text"),
                 column_name="value_as_text",
@@ -292,7 +292,7 @@ class InstanceKeywordSearchFilter(CharFilter):
                     instance=OuterRef("pk"),
                     text__isnull=False,
                 )
-                .visible_for(self.parent.request.group)
+                .visible_for(self.parent.request)
                 .values("text"),
                 column_name="text",
                 delimiter="|",
@@ -366,7 +366,7 @@ class InstanceKeywordSearchFilter(CharFilter):
                     instance=OuterRef("pk"),
                     text__isnull=False,
                 )
-                .visible_for(self.parent.request.group)
+                .visible_for(self.parent.request)
                 .values("text"),
                 column_name="text",
                 delimiter="|",
