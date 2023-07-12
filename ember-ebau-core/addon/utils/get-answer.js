@@ -5,10 +5,8 @@ export function getAnswer(document, slugOrSlugs) {
   );
 }
 
-export function getAnswerDisplayValue(document, slug, useLabel = true) {
-  const answer = document.answers?.edges
-    .map(({ node }) => node)
-    .find((answer) => answer.question.slug === slug);
+export function getAnswerDisplayValue(document, slugOrSlugs, useLabel = true) {
+  const answer = getAnswer(document, slugOrSlugs)?.node;
 
   if (!answer) {
     return null;

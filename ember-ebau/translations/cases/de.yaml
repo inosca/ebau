@@ -75,7 +75,7 @@ cases:
     instanceId: "ID"
     instanceId-placeholder: "123456"
     dossierNumber: "Dossier Nummer"
-    dossierNumber-placeholder: "0101-20-001"
+    dossierNumber-placeholder: "2023-123"
     instanceIdentifier: "Dossier Nummer"
     instanceIdentifier-placeholder: "0101-20-001"
     intent: "Vorhaben"
