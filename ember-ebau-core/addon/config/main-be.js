@@ -28,6 +28,7 @@ export default {
     objectNumber: "nr",
     objectZIP: "plz-grundstueck-v3",
     objectLocation: "ort-grundstueck",
+    objectMigrated: "standort-migriert",
     description: "beschreibung-bauvorhaben",
     municipality: "gemeinde",
     specialId: "ebau-number",

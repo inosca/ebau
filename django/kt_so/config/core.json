@@ -390,5 +390,276 @@
       "group": 1,
       "permission_id": "module_data-loader"
     }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 1,
+    "fields": {
+      "available_instance_resource": "workitemlistinstance",
+      "resource": 3,
+      "name": null,
+      "description": null,
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 1,
+      "form_group": 1
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 2,
+    "fields": {
+      "available_instance_resource": "page",
+      "resource": 3,
+      "name": null,
+      "description": null,
+      "template": "/ember-camac-ng/alexandria.phtml",
+      "class_field": null,
+      "hidden": 0,
+      "sort": 2,
+      "form_group": 1
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 3,
+    "fields": {
+      "available_instance_resource": "page",
+      "resource": 3,
+      "name": null,
+      "description": null,
+      "template": "/ember/instance.phtml",
+      "class_field": null,
+      "hidden": 0,
+      "sort": 3,
+      "form_group": 1
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 1,
+    "fields": {
+      "instance_resource": 1,
+      "language": "de",
+      "name": "Aufgaben",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 2,
+    "fields": {
+      "instance_resource": 2,
+      "language": "de",
+      "name": "Dokumente",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 3,
+    "fields": {
+      "instance_resource": 3,
+      "language": "de",
+      "name": "Formular",
+      "description": null
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 1,
+    "fields": {
+      "instance_resource": 1,
+      "role": 5,
+      "instance_state": 2
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2,
+    "fields": {
+      "instance_resource": 2,
+      "role": 5,
+      "instance_state": 2
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 3,
+    "fields": {
+      "instance_resource": 3,
+      "role": 5,
+      "instance_state": 2
+    }
+  },
+  {
+    "model": "core.remberlist",
+    "pk": 2,
+    "fields": {
+      "instance_states": "1"
+    }
+  },
+  {
+    "model": "core.remberlist",
+    "pk": 3,
+    "fields": {
+      "instance_states": "2"
+    }
+  },
+  {
+    "model": "core.remberlist",
+    "pk": 4,
+    "fields": {
+      "instance_states": "2"
+    }
+  },
+  {
+    "model": "core.remberlist",
+    "pk": 5,
+    "fields": {
+      "instance_states": "2"
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 1,
+    "fields": {
+      "resource": 1,
+      "role": 5
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 2,
+    "fields": {
+      "resource": 1,
+      "role": 6
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 3,
+    "fields": {
+      "resource": 1,
+      "role": 7
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 4,
+    "fields": {
+      "resource": 1,
+      "role": 10
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 5,
+    "fields": {
+      "resource": 1,
+      "role": 11
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 6,
+    "fields": {
+      "resource": 2,
+      "role": 3
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 7,
+    "fields": {
+      "resource": 3,
+      "role": 5
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 8,
+    "fields": {
+      "resource": 3,
+      "role": 6
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 9,
+    "fields": {
+      "resource": 3,
+      "role": 8
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 1,
+    "fields": {
+      "available_resource": "workitemlistall",
+      "name": null,
+      "description": null,
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 0
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 2,
+    "fields": {
+      "available_resource": "emberlist",
+      "name": null,
+      "description": null,
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 1
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 3,
+    "fields": {
+      "available_resource": "emberlist",
+      "name": null,
+      "description": null,
+      "template": null,
+      "class_field": "displaySearch",
+      "hidden": 0,
+      "sort": 2
+    }
+  },
+  {
+    "model": "core.resourcet",
+    "pk": 1,
+    "fields": {
+      "resource": 1,
+      "language": "de",
+      "name": "Aufgaben",
+      "description": "Aufgabenliste für alle Rollen"
+    }
+  },
+  {
+    "model": "core.resourcet",
+    "pk": 2,
+    "fields": {
+      "resource": 2,
+      "language": "de",
+      "name": "Alle Dossiers",
+      "description": "Dossierliste für Support"
+    }
+  },
+  {
+    "model": "core.resourcet",
+    "pk": 3,
+    "fields": {
+      "resource": 3,
+      "language": "de",
+      "name": "Meine Dossiers",
+      "description": "Dossierliste für Gemeinden"
+    }
   }
 ]

@@ -36,12 +36,31 @@
     }
   },
   {
+    "model": "instance.instancestate",
+    "pk": 2,
+    "fields": {
+      "name": "subm",
+      "sort": 0,
+      "description": null
+    }
+  },
+  {
     "model": "instance.instancestatet",
     "pk": 1,
     "fields": {
       "instance_state": 1,
       "language": "de",
       "name": "Neu",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 2,
+    "fields": {
+      "instance_state": 2,
+      "language": "de",
+      "name": "Eingereicht",
       "description": null
     }
   }

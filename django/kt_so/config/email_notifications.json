@@ -24,6 +24,30 @@
     }
   },
   {
+    "model": "notification.notificationtemplate",
+    "pk": 3,
+    "fields": {
+      "slug": "eingang-dossier-gesuchsteller",
+      "purpose": null,
+      "subject": null,
+      "body": null,
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
+    "model": "notification.notificationtemplate",
+    "pk": 4,
+    "fields": {
+      "slug": "eingang-dossier-leitbehoerde",
+      "purpose": null,
+      "subject": null,
+      "body": null,
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
     "model": "notification.notificationtemplatet",
     "pk": 1,
     "fields": {
@@ -45,6 +69,30 @@
       "purpose": "Gesuchsbearbeitungs Einladung, Neu",
       "subject": "Einsicht respektive Mitarbeit in Dossier (Nr. {{ INSTANCE_ID }})",
       "body": "Guten Tag\r\n\r\nSie haben vom/von der Bauherr/in den Zugriff auf das Dossier-Nr. {{ INSTANCE_ID }} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}, {{ PUBLIC_DOSSIER_LINK }}) erhalten. Damit können Sie dieses einsehen respektive mitbearbeiten.\r\n\r\nUm das Dossier einsehen respektive mitbearbeiten zu können, ist eine Registrierung auf dem eBau Portal des Kantons Bern erforderlich.\r\n\r\nUnter folgendem Link können Sie sich registrieren: {{ REGISTRATION_LINK }}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse"
+    }
+  },
+  {
+    "model": "notification.notificationtemplatet",
+    "pk": 3,
+    "fields": {
+      "template": 3,
+      "template_slug": "eingang-dossier-gesuchsteller",
+      "language": "de",
+      "purpose": "Eingang Dossier (Gesuchsteller)",
+      "subject": "Erfolgreiche Einreichung",
+      "body": "Guten Tag\r\n\r\nIhr Dossier mit der Dossier-Nr. {{INSTANCE_ID}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde erfolgreich übermittelt.\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{LEITBEHOERDE_NAME_DE}}"
+    }
+  },
+  {
+    "model": "notification.notificationtemplatet",
+    "pk": 4,
+    "fields": {
+      "template": 4,
+      "template_slug": "eingang-dossier-leitbehoerde",
+      "language": "de",
+      "purpose": "Eingang Dossier (Leitbehörde)",
+      "subject": "Neu eingegangen",
+      "body": "Guten Tag\r\n\r\nIm eBau gibt es einen neuen Eingang mit der Dossier-Nr. {{INSTANCE_ID}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}).\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\neBau"
     }
   }
 ]
