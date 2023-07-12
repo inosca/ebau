@@ -578,7 +578,6 @@ snapshots['test_master_data[kt_uri-de-ur_master_data_case-select_related2-prefet
         'label': 'Altdorf',
         'slug': '1'
     },
-    'oereb_copy': None,
     'oereb_topic': [
         'oereb-thema-knp'
     ],
