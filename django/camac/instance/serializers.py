@@ -2248,11 +2248,7 @@ class PublicCalumaInstanceSerializer(serializers.Serializer):  # pragma: no cove
 
     def get_oereb_topic(self, case):
         if settings.APPLICATION.get("USE_OEREB_FIELDS_FOR_PUBLIC_ENDPOINT"):
-            if self.get_master_data(case).oereb_copy:
-                return self.get_master_data(case).oereb_topic + "-copy"
-
             return self.get_master_data(case).oereb_topic
-
         return ""
 
     def get_legal_state(self, case):

@@ -2462,7 +2462,6 @@ APPLICATIONS = {
                 "answer",
                 ["oereb-thema", "oereb-thema-gemeinde"],
             ),
-            "oereb_copy": ("case_meta", "oereb_copy"),
             "legal_state": (
                 "answer",
                 "typ-des-verfahrens",
