@@ -1,4 +1,3 @@
-import locale
 import sys
 from functools import partial
 
@@ -26,8 +25,6 @@ def transform_coordinates(coordinates):
             "+proj=somerc +lat_0=46.95240555555556 +lon_0=7.439583333333333 +k_0=1 +x_0=2600000 +y_0=1200000 +ellps=bessel +towgs84=674.374,15.056,405.346,0,0,0,0 +units=m +no_defs"
         ),
     )
-
-    locale.setlocale(locale.LC_ALL, f"{settings.LOCALE_NAME}.UTF-8")
 
     for coord_set in coordinates:
         if not isinstance(coord_set, list):
