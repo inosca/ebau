@@ -59,4 +59,13 @@ export default class InstanceAbility extends Ability {
     }
     return (this.model.meta?.permissions?.main || []).includes("write");
   }
+
+  // GR
+  get canCorrect() {
+    return (
+      (this.ebauModules.isSupportRole ||
+        this.ebauModules.isMunicipalityLeadRole) &&
+      !hasInstanceState(this.model, "archived")
+    );
+  }
 }

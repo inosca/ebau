@@ -44,3 +44,11 @@ support:
     input-label: "Neuer Baubeschrieb"
     info-text: "Im unteren Textfeld können Sie den neuen Baubeschrieb (bestehend aus dem Baubeschrieb und der Projektänderung) nach Belieben abändern."
     conversion-error: "Fehler beim Umwandeln des Dossiers"
+
+  correction:
+    title: "Dossier korrigieren"
+    description: "Bitte beachten Sie, dass die Dossierkorrektur nur für kleine Änderungen gedacht ist. Bitte prüfen Sie, ob allenfalls eine Rückweisung angebracht wäre.<br><br>Wollen Sie mit der Dossierkorrektur fortfahren?"
+    button: "Korrigieren"
+
+    confirm: "Wollen Sie das Dossier wirklich korrigieren?"
+    error: "Fehler beim Korrigieren des Dossiers"
