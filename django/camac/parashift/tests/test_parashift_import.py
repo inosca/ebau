@@ -1,6 +1,7 @@
 import io
 from pathlib import Path
 
+import pytest
 from django.conf import settings
 from django.core.management import call_command
 from PyPDF2 import PdfReader
@@ -77,17 +78,25 @@ def test_import_validation_error(requests_mock, capsys):
     assert capsys.readouterr().out == "138866: parzelle-nr: Must be an integer!\n"
 
 
+@pytest.mark.parametrize(
+    "bfs_nr",
+    (
+        "1214",
+        "KOOR_BG",
+    ),
+)
 def test_command(
     parashift_data,
     parashift_mock,
     application_settings,
     master_data_is_visible_mock,
     workflow_item_factory,
+    bfs_nr,
 ):
     application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_uri"]["MASTER_DATA"]
     workflow_item_factory(pk=uri_constants.WORKFLOW_ITEM_DOSSIER_ERFASST)
 
-    client = ParashiftImporter(bfs_nr="KOOR_BG")
+    client = ParashiftImporter(bfs_nr=bfs_nr)
     instances = client.run("138866", "138867")
     instance = instances[0]
     master_data = MasterData(instance.case)

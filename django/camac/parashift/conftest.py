@@ -162,8 +162,10 @@ def parashift_data(
     user_factory,
 ):
     user_factory(username="import@urec.ch")
+    user_factory(username="import.gem@urec.ch")
     instance_state_factory(instance_state_id=25)
     group_factory(group_id=142)
+    group_factory(group_id=151)
     location = location_factory(communal_federal_number=1209)
     authority_location_factory(location=location)
     form_models.Form.objects.create(slug="building-permit")
