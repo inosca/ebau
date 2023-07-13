@@ -26,6 +26,10 @@ export default class InstancesEditController extends Controller {
     ],
   }));
 
+  get hasFeedbackSection() {
+    return Boolean(config.APPLICATION.documents.feedbackSections);
+  }
+
   get case() {
     return this.cases.value?.[0];
   }
