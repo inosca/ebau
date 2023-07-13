@@ -601,7 +601,7 @@
       "type": "simple",
       "meta": {
         "directLink": {
-          "route": "cases.detail.distribution",
+          "route": "cases.detail.distribution.distribution-engine",
           "models": ["INSTANCE_ID", "DISTRIBUTION_CASE_UUID"]
         }
       },
@@ -629,7 +629,7 @@
       "type": "simple",
       "meta": {
         "directLink": {
-          "route": "cases.detail.distribution",
+          "route": "cases.detail.distribution.distribution-engine",
           "models": ["INSTANCE_ID", "DISTRIBUTION_CASE_UUID"]
         }
       },
@@ -749,7 +749,7 @@
       "type": "simple",
       "meta": {
         "directLink": {
-          "route": "cases.detail.distribution",
+          "route": "cases.detail.distribution.distribution-engine",
           "models": ["INSTANCE_ID", "DISTRIBUTION_CASE_UUID"]
         }
       },
@@ -777,7 +777,7 @@
       "type": "complete_task_form",
       "meta": {
         "directLink": {
-          "route": "cases.detail.distribution.inquiry.detail.answer",
+          "route": "cases.detail.distribution.distribution-engine.inquiry.detail.answer",
           "models": [
             "INSTANCE_ID",
             "DISTRIBUTION_CASE_UUID",
