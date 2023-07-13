@@ -72,8 +72,9 @@ def test_journal_entry_list(admin_client, journal_entry, activation, size):
     ],
 )
 def test_journal_entry_visible_for(
-    admin_client, journal_entry, group, size, application_settings
+    admin_client, request, journal_entry, group, size, application_settings
 ):
+    request.group = group
 
     application_settings["ROLE_PERMISSIONS"] = {
         "Municipality": "municipality",
@@ -82,7 +83,7 @@ def test_journal_entry_visible_for(
 
     journal_entries = (
         JournalEntry.objects.get_queryset()
-        .visible_for(group)
+        .visible_for(request)
         .values_list("pk", flat=True)
     )
 

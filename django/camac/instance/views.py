@@ -777,7 +777,7 @@ class FormFieldView(
         return False
 
     def get_queryset(self):
-        return super().get_queryset().visible_for(self.request.group)
+        return super().get_queryset().visible_for(self.request)
 
 
 class JournalEntryView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
@@ -791,7 +791,7 @@ class JournalEntryView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
     ordering = "-creation_date"
 
     def get_queryset(self):
-        return super().get_queryset().visible_for(self.request.group)
+        return super().get_queryset().visible_for(self.request)
 
     @permission_aware
     def has_create_permission(self):
@@ -905,7 +905,7 @@ class IssueView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
     queryset = models.Issue.objects.all()
 
     def get_queryset(self):
-        return super().get_queryset().visible_for(self.request.group)
+        return super().get_queryset().visible_for(self.request)
 
     @permission_aware
     def has_create_permission(self):
