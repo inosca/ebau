@@ -95,7 +95,10 @@ def test_issue_destroy(admin_client, issue, activation, status_code):
         ("Service", 1),
     ],
 )
-def test_issue_visible_for(admin_client, issue, group, size, application_settings):
+def test_issue_visible_for(
+    admin_client, request, issue, group, size, application_settings
+):
+    request.group = group
 
     application_settings["ROLE_PERMISSIONS"] = {
         "Municipality": "municipality",
@@ -103,7 +106,7 @@ def test_issue_visible_for(admin_client, issue, group, size, application_setting
     }
 
     issues = (
-        Issue.objects.get_queryset().visible_for(group).values_list("pk", flat=True)
+        Issue.objects.get_queryset().visible_for(request).values_list("pk", flat=True)
     )
 
     assert len(issues) == size
