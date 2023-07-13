@@ -699,6 +699,10 @@ class InstanceView(
             request, pk, status_code=status.HTTP_201_CREATED
         )
 
+    @swagger_auto_schema(auto_schema=None)
+    @action(methods=["post"], detail=True, url_path="correction")
+    def correction(self, request, pk=None):
+        return self._custom_serializer_action(request, pk)
 
 class InstanceResponsibilityView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
 
