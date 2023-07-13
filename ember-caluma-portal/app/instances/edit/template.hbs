@@ -44,16 +44,18 @@
           </AriaHeading>
         </Tab.item>
       {{/if}}
-      {{#if (can "read communication of instance" this.instance.value)}}
-        <Tab.item
-          @href={{concat "/instances/" @model "/communications"}}
-          as |active|
-        >
-          <AriaHeading @enabled={{active}}>
-            {{t "nav.communications"}}
-            <Communication::UnreadMessageBadge @instanceId={{this.instance.value.id}} class="uk-margin-small-left" />
-          </AriaHeading>
-        </Tab.item>
+      {{#if (macroCondition (macroGetOwnConfig "enableCommunications"))}}
+        {{#if (can "read communication of instance" this.instance.value)}}
+          <Tab.item
+            @href={{concat "/instances/" @model "/communications"}}
+            as |active|
+          >
+            <AriaHeading @enabled={{active}}>
+              {{t "nav.communications"}}
+              <Communication::UnreadMessageBadge @instanceId={{this.instance.value.id}} class="uk-margin-small-left" />
+            </AriaHeading>
+          </Tab.item>
+        {{/if}}
       {{/if}}
       {{#if (can "read applicants of instance" this.instance.value)}}
         <Tab.item @href={{concat "/instances/" @model "/applicants"}} as |active|>
