@@ -22,11 +22,16 @@ def import_dossiers(records, bfs_nr):
     return [_import_dossier(record, bfs_nr) for record in records]
 
 
+def _get_username(bfs_nr):
+    if bfs_nr == "KOOR_BG":
+        return settings.APPLICATION["DOSSIER_IMPORT"]["USER"]["KOOR_BG"]
+    else:
+        return settings.APPLICATION["DOSSIER_IMPORT"]["USER"]["MUNICIPALITY"]
+
+
 def _import_dossier(data, bfs_nr):
     caluma_user = BaseUser()
-    camac_user = User.objects.get(
-        username=settings.APPLICATION["DOSSIER_IMPORT"]["USER"]
-    )
+    camac_user = User.objects.get(username=_get_username(bfs_nr))
     instance_state = models.InstanceState.objects.get(
         instance_state_id=INSTANCE_STATE_DONE_ID
     )
@@ -138,9 +143,8 @@ def _write_answers(instance, data):
 
 
 def _write_attachments(instance, data, bfs_nr):
-    user = User.objects.get(username=settings.APPLICATION["DOSSIER_IMPORT"]["USER"])
+    user = User.objects.get(username=_get_username(bfs_nr))
     group = Group.objects.get(group_id=settings.PARASHIFT[bfs_nr]["CAMAC_GROUP_ID"])
-
     for document in data["documents"]:
         path = f"{settings.MEDIA_ROOT}/attachments/files/{instance.pk}"
         Path(path).mkdir(parents=True, exist_ok=True)
