@@ -338,7 +338,10 @@ APPLICATIONS = {
                 "gesuchsteller",
                 "documents",
             ],
-            "USER": "import@urec.ch",
+            "USER": {
+                "KOOR_BG": "import@urec.ch",
+                "MUNICIPALITY": "import.gem@urec.ch",
+            },
         },
         "CUSTOM_NOTIFICATION_TYPES": [
             # BE
@@ -2809,7 +2812,10 @@ APPLICATIONS = {
                 "gesuchsteller",
                 "documents",
             ],
-            "USER": "import@urec.ch",
+            "USER": {
+                "KOOR_BG": "import@urec.ch",
+                "MUNICIPALITY": "import.gem@urec.ch",
+            },
         },
     },
     "demo": {

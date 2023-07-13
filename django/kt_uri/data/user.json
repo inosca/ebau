@@ -96,7 +96,7 @@
       "username": "import@urec.ch",
       "password": null,
       "name": "Import",
-      "surname": "Dossier",
+      "surname": "KOOR BG",
       "email": "import@urec.ch",
       "phone": null,
       "disabled": 0,
@@ -123,6 +123,24 @@
       "address": "",
       "city": "",
       "zip": ""
+    }
+  },
+  {
+    "model": "user.user",
+    "pk": 1214,
+    "fields": {
+      "username": "import.gem@urec.ch",
+      "password": null,
+      "name": "Import",
+      "surname": "Gemeinde",
+      "email": "import.gem@urec.ch",
+      "phone": null,
+      "disabled": 0,
+      "language": "de",
+      "last_login": null,
+      "address": null,
+      "city": null,
+      "zip": null
     }
   },
   {
