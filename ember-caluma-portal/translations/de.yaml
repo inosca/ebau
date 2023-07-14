@@ -344,6 +344,9 @@ instances:
     old: "Archivdossier"
     control: "Bau- und Einspracheentscheid zugestellt"
 
+    # GR
+    circulation: "In Zirkulation"
+
     # Shared
     done: "Abgeschlossen"
 
