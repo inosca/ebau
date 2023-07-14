@@ -50,9 +50,11 @@ Router.map(function () {
         this.route("journal");
         this.route("history");
         this.route("dms-generate");
-        this.mount("@projectcaluma/ember-distribution", {
-          as: "distribution",
-          path: "/distribution/:case",
+        this.route("distribution", function () {
+          this.mount("@projectcaluma/ember-distribution", {
+            as: "distribution-engine",
+            path: "/:case",
+          });
         });
         registerLegalSubmission(this);
         registerTaskForm(this);

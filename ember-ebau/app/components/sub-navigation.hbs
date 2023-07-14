@@ -1,6 +1,6 @@
 <aside class="nav-sidebar uk-navbar-container">
   <ul class="uk-nav uk-nav-default uk-nav-divider">
-    {{#each this.instanceResources.value as |ir|}}
+    {{#each this.instanceResources.records as |ir|}}
       {{#if ir.link}}
         <UkSubnav::Item
           @href={{concat "/cases/" @instanceId "/" ir.link}}
