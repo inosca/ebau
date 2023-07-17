@@ -7174,7 +7174,7 @@
       "modified_by_group": null,
       "id": "17dd5206-7f1a-4b90-a266-34acac568255",
       "slug": "18",
-      "label": "{\"de\": \"Chur\", \"fr\": \"Chur\", \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Chur\", \"fr\": \"Chur\", \"it\": null}",
       "document": "9b763904-9b1d-44d1-8459-d2c950c813a8",
       "question": "gemeinde",
       "history_date": "2023-06-08T14:53:06.728Z",
@@ -7195,7 +7195,7 @@
       "modified_by_group": null,
       "id": "864cac10-cbac-49ed-95d7-ea5a13729604",
       "slug": "18",
-      "label": "{\"de\": \"Chur\", \"fr\": \"Chur\", \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Chur\", \"fr\": \"Chur\", \"it\": null}",
       "document": "11b0b3fc-a5a7-4dd5-9166-9d12739da88f",
       "question": "gemeinde",
       "history_date": "2023-06-23T08:35:37.060Z",
@@ -7214,7 +7214,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "slug": "18",
-      "label": "{\"de\": \"Chur\", \"fr\": \"Chur\", \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Chur\", \"fr\": \"Chur\", \"it\": null}",
       "document": "9b763904-9b1d-44d1-8459-d2c950c813a8",
       "question": "gemeinde"
     }
@@ -7230,7 +7230,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "slug": "18",
-      "label": "{\"de\": \"Chur\", \"fr\": \"Chur\", \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Chur\", \"fr\": \"Chur\", \"it\": null}",
       "document": "11b0b3fc-a5a7-4dd5-9166-9d12739da88f",
       "question": "gemeinde"
     }

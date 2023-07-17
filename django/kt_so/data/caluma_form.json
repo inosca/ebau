@@ -1218,7 +1218,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "slug": "1",
-      "label": "{\"de\": \"Solothurn\", \"fr\": \"Solothurn\", \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Solothurn\", \"fr\": \"Solothurn\", \"it\": null}",
       "document": "88099d1f-7c40-48fc-8e66-a86c7c3a42f2",
       "question": "gemeinde"
     }
@@ -1234,7 +1234,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "slug": "Schweiz",
-      "label": "{\"de\": \"Schweiz\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Schweiz\", \"fr\": null, \"it\": null}",
       "document": "2b450a93-28b6-4cd8-a0e9-48708a66eca9",
       "question": "land"
     }
@@ -1250,7 +1250,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "slug": "1",
-      "label": "{\"de\": \"Gemeinde Solothurn\", \"fr\": \"Gemeinde Solothurn\", \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Gemeinde Solothurn\", \"fr\": \"Gemeinde Solothurn\", \"it\": null}",
       "document": "f02b0999-cc76-431b-a76b-70ab34f2bcee",
       "question": "amts-fachstelle"
     }

@@ -928,10 +928,6 @@ msgstr "Français"
 msgid "Italian"
 msgstr "L'italien"
 
-#: camac/settings.py:3787
-msgid "Romansh"
-msgstr "Romanche"
-
 #: camac/settings_distribution.py:70 camac/settings_distribution.py:563
 msgid "Circulation completed"
 msgstr "Procédure de circulation close"
