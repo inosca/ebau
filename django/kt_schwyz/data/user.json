@@ -32908,14 +32908,14 @@
       "description": "CKW",
       "sort": 189,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -32928,14 +32928,14 @@
       "description": "AFA",
       "sort": 2,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -32948,14 +32948,14 @@
       "description": "AGS",
       "sort": 8,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -32968,14 +32968,14 @@
       "description": "Gemeinde Schwyz",
       "sort": 180,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -32988,14 +32988,14 @@
       "description": "BGZ Kanton Schwyz",
       "sort": 188,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -33008,14 +33008,14 @@
       "description": "AFK",
       "sort": 12,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -33028,14 +33028,14 @@
       "description": "AFL",
       "sort": 26,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -33048,14 +33048,14 @@
       "description": "AMFZ (Brandschutz)",
       "sort": 30,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -33068,14 +33068,14 @@
       "description": "ANJF",
       "sort": 42,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -33088,14 +33088,14 @@
       "description": "ARE (Ortsplanung)",
       "sort": 56,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -33108,14 +33108,14 @@
       "description": "AFU",
       "sort": 61,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -33128,14 +33128,14 @@
       "description": "AVG",
       "sort": 66,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -33148,14 +33148,14 @@
       "description": "AWN",
       "sort": 151,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -33168,14 +33168,14 @@
       "description": "AWB",
       "sort": 152,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -33188,14 +33188,14 @@
       "description": "OEV",
       "sort": 153,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -33208,14 +33208,14 @@
       "description": "Kapo",
       "sort": 154,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -33228,14 +33228,14 @@
       "description": "HBA",
       "sort": 155,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -33248,14 +33248,14 @@
       "description": "TBA",
       "sort": 156,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -33268,14 +33268,14 @@
       "description": "VASZ",
       "sort": 158,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -33288,14 +33288,14 @@
       "description": "LABURK",
       "sort": 157,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -33308,14 +33308,14 @@
       "description": "SOB",
       "sort": 190,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -33328,14 +33328,14 @@
       "description": "SBB-Ost",
       "sort": 191,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -33348,14 +33348,14 @@
       "description": "SBB-Mitte",
       "sort": 192,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -33368,14 +33368,14 @@
       "description": "ASTRA Winterthur",
       "sort": 193,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -33388,14 +33388,14 @@
       "description": "ASTRA Zofingen",
       "sort": 194,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -33408,14 +33408,14 @@
       "description": "EBS",
       "sort": 195,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -33428,14 +33428,14 @@
       "description": "Elektro. Bisisthal",
       "sort": 196,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -33448,14 +33448,14 @@
       "description": "EKZ",
       "sort": 197,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -33468,14 +33468,14 @@
       "description": "EWZ",
       "sort": 198,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -33488,14 +33488,14 @@
       "description": "EWS",
       "sort": 199,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -33508,14 +33508,14 @@
       "description": "AXPO",
       "sort": 200,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -33528,14 +33528,14 @@
       "description": "EWA",
       "sort": 201,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -33548,14 +33548,14 @@
       "description": "Swissgrid AG",
       "sort": 202,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -33568,14 +33568,14 @@
       "description": "Alpiq",
       "sort": 203,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -33588,14 +33588,14 @@
       "description": "ZSG",
       "sort": 204,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -33608,14 +33608,14 @@
       "description": "SGV",
       "sort": 205,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -33628,14 +33628,14 @@
       "description": "ZSG",
       "sort": 206,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -33648,14 +33648,14 @@
       "description": "Bez Schwyz (Gewässer)",
       "sort": 208,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -33668,14 +33668,14 @@
       "description": "Bez Höfe",
       "sort": 209,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -33688,14 +33688,14 @@
       "description": "Bez March (Gewässer)",
       "sort": 211,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -33708,14 +33708,14 @@
       "description": "Schiessoffizier",
       "sort": 212,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -33728,14 +33728,14 @@
       "description": "LEM",
       "sort": 213,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -33748,14 +33748,14 @@
       "description": "ESTI Fehraltorf",
       "sort": 214,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -33768,14 +33768,14 @@
       "description": "BAFU",
       "sort": 215,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -33788,14 +33788,14 @@
       "description": "BAV",
       "sort": 216,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -33808,14 +33808,14 @@
       "description": "Bezirk Einsiedeln",
       "sort": 51,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -33828,14 +33828,14 @@
       "description": "Bezirk Küssnacht",
       "sort": 159,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -33848,14 +33848,14 @@
       "description": "Bezirk Gersau",
       "sort": 160,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -33868,14 +33868,14 @@
       "description": "Gemeinde Altendorf",
       "sort": 161,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -33888,14 +33888,14 @@
       "description": "Gemeinde Alpthal",
       "sort": 162,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -33908,14 +33908,14 @@
       "description": "Gemeinde Arth",
       "sort": 163,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -33928,14 +33928,14 @@
       "description": "Gemeinde Feusisberg",
       "sort": 164,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -33948,14 +33948,14 @@
       "description": "Gemeinde Freienbach",
       "sort": 165,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -33968,14 +33968,14 @@
       "description": "Gemeinde Galgenen",
       "sort": 166,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -33988,14 +33988,14 @@
       "description": "Gemeinde Illgau",
       "sort": 167,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -34008,14 +34008,14 @@
       "description": "Gemeinde Ingenbohl",
       "sort": 168,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -34028,14 +34028,14 @@
       "description": "Gemeinde Innerthal",
       "sort": 169,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -34048,14 +34048,14 @@
       "description": "Gemeinde Lachen",
       "sort": 170,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -34068,14 +34068,14 @@
       "description": "Gemeinde Lauerz",
       "sort": 171,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -34088,14 +34088,14 @@
       "description": "Gemeinde Morschach",
       "sort": 172,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -34108,14 +34108,14 @@
       "description": "Gemeinde Muotathal",
       "sort": 173,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -34128,14 +34128,14 @@
       "description": "Gemeinde Oberiberg",
       "sort": 174,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -34148,14 +34148,14 @@
       "description": "Gemeinde Reichenburg",
       "sort": 175,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -34168,14 +34168,14 @@
       "description": "Gemeinde Riemenstalden",
       "sort": 176,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -34188,14 +34188,14 @@
       "description": "Gemeinde Rothenthurm",
       "sort": 177,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -34208,14 +34208,14 @@
       "description": "Gemeinde Schübelbach",
       "sort": 178,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -34228,14 +34228,14 @@
       "description": "Gemeinde Sattel",
       "sort": 179,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -34248,14 +34248,14 @@
       "description": "Gemeinde Steinen",
       "sort": 181,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -34268,14 +34268,14 @@
       "description": "Gemeinde Steinerberg",
       "sort": 182,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -34288,14 +34288,14 @@
       "description": "Gemeinde Tuggen",
       "sort": 183,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -34308,14 +34308,14 @@
       "description": "Gemeinde Unteriberg",
       "sort": 184,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -34328,14 +34328,14 @@
       "description": "Gemeinde Vorderthal",
       "sort": 185,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -34348,14 +34348,14 @@
       "description": "Gemeinde Wangen",
       "sort": 186,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -34368,14 +34368,14 @@
       "description": "Gemeinde Wollerau",
       "sort": 187,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -34388,14 +34388,14 @@
       "description": "Tiefbau Altendorf",
       "sort": 27,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -34408,14 +34408,14 @@
       "description": "Wasserversorgung Altendorf",
       "sort": 31,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -34428,14 +34428,14 @@
       "description": "AMFZ (Zivilschutz)",
       "sort": 34,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -34448,14 +34448,14 @@
       "description": "Bez Schwyz (Strassen)",
       "sort": 207,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -34468,14 +34468,14 @@
       "description": "AWN (Naturgefahren)",
       "sort": 1,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -34488,14 +34488,14 @@
       "description": "AWN (Forstrecht)",
       "sort": 0,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -34508,14 +34508,14 @@
       "description": "Bez March (Strassen)",
       "sort": 210,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -34528,14 +34528,14 @@
       "description": "AWN (Langsamverkehr)",
       "sort": 2,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -34548,14 +34548,14 @@
       "description": "LdU (Lebensmittel)",
       "sort": 1,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -34568,14 +34568,14 @@
       "description": "LdU (Trinkwasser)",
       "sort": 2,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -34588,14 +34588,14 @@
       "description": "LdU (Chemikalien)",
       "sort": 3,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -34608,14 +34608,14 @@
       "description": "LdU (Kantonstierarzt)",
       "sort": 4,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -34628,14 +34628,14 @@
       "description": "AFL (Agrarmassnahmen)",
       "sort": 1,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -34648,14 +34648,14 @@
       "description": "AFL (Strukturverbesserungen)",
       "sort": 2,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -34668,14 +34668,14 @@
       "description": "AFK (Denkmalpflege)",
       "sort": 1,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -34688,14 +34688,14 @@
       "description": "AFK (Archäologie)",
       "sort": 2,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -34708,14 +34708,14 @@
       "description": "TBA (Fachstelle Strassenmanagement)",
       "sort": 0,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -34728,14 +34728,14 @@
       "description": "TBA (Planung)",
       "sort": 1,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -34748,14 +34748,14 @@
       "description": "TBA (Kunstbauten)",
       "sort": 2,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -34768,14 +34768,14 @@
       "description": "TBA (Betrieb)",
       "sort": 3,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -34788,14 +34788,14 @@
       "description": "ANJF (Natur- und Landschaftsschutz)",
       "sort": 1,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -34808,14 +34808,14 @@
       "description": "ANJF (Jagd)",
       "sort": 2,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -34828,14 +34828,14 @@
       "description": "ANJF (Fischerei)",
       "sort": 3,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -34848,14 +34848,14 @@
       "description": "AfU (Luftreinhaltung Emissionen)",
       "sort": 1,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -34868,14 +34868,14 @@
       "description": "AfU (Störfallkoordination)",
       "sort": 2,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -34888,14 +34888,14 @@
       "description": "AfU (Lärm)",
       "sort": 3,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -34908,14 +34908,14 @@
       "description": "AfU (Nichtionisierende Strahlung)",
       "sort": 4,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -34928,14 +34928,14 @@
       "description": "Energienachweis Gersau",
       "sort": 86,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -34948,14 +34948,14 @@
       "description": "AfU (Sonderabfälle)",
       "sort": 6,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -34968,14 +34968,14 @@
       "description": "AfU (Abfälle)",
       "sort": 7,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -34988,14 +34988,14 @@
       "description": "AfU (Abfallanlagen)",
       "sort": 8,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -35008,14 +35008,14 @@
       "description": "AfU (Bodenschutz)",
       "sort": 9,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -35028,14 +35028,14 @@
       "description": "AfU (Luftreinhaltung Immissionen)",
       "sort": 10,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -35048,14 +35048,14 @@
       "description": "AfU (Licht)",
       "sort": 11,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -35068,14 +35068,14 @@
       "description": "AfU (Verkehrsintensive Einrichtungen)",
       "sort": 12,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -35088,14 +35088,14 @@
       "description": "AfU (Wasserversorgung)",
       "sort": 13,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -35108,14 +35108,14 @@
       "description": "AfU (Wassergefährdende Flüssigkeiten)",
       "sort": 14,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -35128,14 +35128,14 @@
       "description": "AfU (Pfählung, Bohrung)",
       "sort": 15,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -35148,14 +35148,14 @@
       "description": "AfU (Bauen im Grundwasser)",
       "sort": 16,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -35168,14 +35168,14 @@
       "description": "AfU (Deponien)",
       "sort": 17,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -35188,14 +35188,14 @@
       "description": "AfU (Belastete Standorte)",
       "sort": 18,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -35208,14 +35208,14 @@
       "description": "AfU (Abbaustellen)",
       "sort": 19,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -35228,14 +35228,14 @@
       "description": "AfU (Neobiota)",
       "sort": 20,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -35248,14 +35248,14 @@
       "description": "AfU (Industrie- und Gewerbeabwasser)",
       "sort": 21,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -35268,14 +35268,14 @@
       "description": "AfU (Kläranlagen)",
       "sort": 22,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -35288,14 +35288,14 @@
       "description": "AfU (Bauten in und an stehenden Gewässern)",
       "sort": 23,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -35308,14 +35308,14 @@
       "description": "AfU (Entwässerung)",
       "sort": 24,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -35328,14 +35328,14 @@
       "description": "AfU (Wasserentnahme und -rückgabe)",
       "sort": 25,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -35348,14 +35348,14 @@
       "description": "Wuhrkorporation Rütibach",
       "sort": 40,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -35368,14 +35368,14 @@
       "description": "ARE (Kantonale Planung)",
       "sort": 46,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -35388,14 +35388,14 @@
       "description": "Baukommission Altendorf",
       "sort": 29,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -35408,14 +35408,14 @@
       "description": "EVA Altendorf",
       "sort": 28,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -35428,14 +35428,14 @@
       "description": "Geoterra AG (Geometer)",
       "sort": 0,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -35448,14 +35448,14 @@
       "description": "Keller und Bombana (Brandschutz)",
       "sort": 17,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -35468,14 +35468,14 @@
       "description": "Kuster und Hager (Abwasser)",
       "sort": 22,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -35488,14 +35488,14 @@
       "description": "EW Höfe (Telecom, Strom)",
       "sort": 32,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -35508,14 +35508,14 @@
       "description": "Baukommission Illgau",
       "sort": 124,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -35528,14 +35528,14 @@
       "description": "Korporation Wollerau (Wasserversorgung)",
       "sort": 33,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -35548,14 +35548,14 @@
       "description": "Remund und Kuster (Raumplanung)",
       "sort": 23,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -35568,14 +35568,14 @@
       "description": "EW Reichenburg",
       "sort": 38,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -35588,14 +35588,14 @@
       "description": "Brandschutz Wollerau",
       "sort": 44,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -35608,14 +35608,14 @@
       "description": "Baubehörde Wollerau",
       "sort": 45,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -35628,14 +35628,14 @@
       "description": "Hochbaukommission Lachen",
       "sort": 47,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -35648,14 +35648,14 @@
       "description": "Gemeinderat Lachen",
       "sort": 48,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -35668,14 +35668,14 @@
       "description": "Ingenieurbüro Marty AG",
       "sort": 13,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -35688,14 +35688,14 @@
       "description": "EW Lachen AG",
       "sort": 49,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -35708,14 +35708,14 @@
       "description": "ProCap",
       "sort": 24,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -35728,14 +35728,14 @@
       "description": "geometrie plus ag (Gde_Bez Ingenieur)",
       "sort": 11,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -35748,14 +35748,14 @@
       "description": "Allgemeine Genossame Reichenburg",
       "sort": 39,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -35768,14 +35768,14 @@
       "description": "Energie ZürichseeLinth",
       "sort": 43,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -35788,14 +35788,14 @@
       "description": "Geoterra AG (Gde_Bez Ingenieur)",
       "sort": 1,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -35808,14 +35808,14 @@
       "description": "HSK Ingenieur AG (Geometer)",
       "sort": 3,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -35828,14 +35828,14 @@
       "description": "HSK Ingenieur AG (Gde_Bez Ingenieur)",
       "sort": 4,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -35848,14 +35848,14 @@
       "description": "Wild Ingenieure AG (Geometer)",
       "sort": 5,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -35868,14 +35868,14 @@
       "description": "Wild Ingenieure AG (Gde_Bez Ingenieur)",
       "sort": 6,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -35888,14 +35888,14 @@
       "description": "Trigonet AG (Geometer)",
       "sort": 7,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -35908,14 +35908,14 @@
       "description": "Lukas Domeisen AG (Geometer)",
       "sort": 9,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -35928,14 +35928,14 @@
       "description": "geometrie plus ag (Geometer)",
       "sort": 10,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -35948,14 +35948,14 @@
       "description": "Sekretariat Küssnacht",
       "sort": 50,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -35968,14 +35968,14 @@
       "description": "Baukommission Küssnacht",
       "sort": 52,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -35988,14 +35988,14 @@
       "description": "Raumplaner Küssnacht",
       "sort": 53,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -36008,14 +36008,14 @@
       "description": "Ressort Infrastruktur Küssnacht",
       "sort": 54,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -36028,14 +36028,14 @@
       "description": "Gemeinderat Illgau",
       "sort": 125,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -36048,14 +36048,14 @@
       "description": "Energieberater Küssnacht",
       "sort": 55,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -36068,14 +36068,14 @@
       "description": "Baukommission Schwyz",
       "sort": 57,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -36088,14 +36088,14 @@
       "description": "Sekretariat Schwyz",
       "sort": 58,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -36108,14 +36108,14 @@
       "description": "Abteilung Tiefbau Schwyz",
       "sort": 59,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -36128,14 +36128,14 @@
       "description": "Abteilung Hochbau Schwyz",
       "sort": 60,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -36148,14 +36148,14 @@
       "description": "Raumplanung Schwyz",
       "sort": 62,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -36168,14 +36168,14 @@
       "description": "Kommunaler Brandschutz Schwyz",
       "sort": 63,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -36188,14 +36188,14 @@
       "description": "Umweltschutzbeauftragter Schwyz",
       "sort": 64,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -36208,14 +36208,14 @@
       "description": "Sachbearbeitung Objektwesen Schwyz",
       "sort": 65,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -36228,14 +36228,14 @@
       "description": "Abteilung Finanzen Schwyz",
       "sort": 67,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -36248,14 +36248,14 @@
       "description": "Einwohneramt Schwyz",
       "sort": 68,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -36268,14 +36268,14 @@
       "description": "Gemeindewerkhof Schwyz",
       "sort": 69,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -36288,14 +36288,14 @@
       "description": "Dorfgenossenschaft Schwyz",
       "sort": 70,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -36308,14 +36308,14 @@
       "description": "Wassergenossenschaft Ibach",
       "sort": 71,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -36328,14 +36328,14 @@
       "description": "Wasserversorgung Aufiberg",
       "sort": 72,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -36348,14 +36348,14 @@
       "description": "bob Architektur und Beratung AG",
       "sort": 41,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -36368,14 +36368,14 @@
       "description": "Baukommission Arth",
       "sort": 73,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -36388,14 +36388,14 @@
       "description": "Hochbaukommission Ingenbohl",
       "sort": 74,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -36408,14 +36408,14 @@
       "description": "protec-plan gmbh (Brandschutzexperte)",
       "sort": 16,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -36428,14 +36428,14 @@
       "description": "Gemeinderat Reichenburg",
       "sort": 37,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -36448,14 +36448,14 @@
       "description": "Bauko Tiefbau und Umwelt Reichenburg",
       "sort": 36,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -36468,14 +36468,14 @@
       "description": "Baukommission Morschach",
       "sort": 75,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -36488,14 +36488,14 @@
       "description": "Gemeinderat Lauerz",
       "sort": 127,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -36508,14 +36508,14 @@
       "description": "CES Bauingenieur AG",
       "sort": 76,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -36528,14 +36528,14 @@
       "description": "Baukommission Reichenburg",
       "sort": 35,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -36548,14 +36548,14 @@
       "description": "Baukommission Steinen",
       "sort": 77,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -36568,14 +36568,14 @@
       "description": "Brandschutzexperte Horat Erwin",
       "sort": 18,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -36588,14 +36588,14 @@
       "description": "Baukommission Wangen",
       "sort": 79,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -36608,14 +36608,14 @@
       "description": "Brandschutzexperte Wangen",
       "sort": 80,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -36628,14 +36628,14 @@
       "description": "Kassieramt Wangen",
       "sort": 81,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -36648,14 +36648,14 @@
       "description": "EW Wangen",
       "sort": 82,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -36668,14 +36668,14 @@
       "description": "Wasserversorgung Wangen",
       "sort": 83,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -36688,14 +36688,14 @@
       "description": "Bezirksrat Gersau",
       "sort": 84,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -36708,14 +36708,14 @@
       "description": "Baukommission Gersau",
       "sort": 85,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -36728,14 +36728,14 @@
       "description": "Baukommission Lauerz",
       "sort": 128,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -36748,14 +36748,14 @@
       "description": "AF Toscano AG",
       "sort": 15,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -36768,14 +36768,14 @@
       "description": "Kantonale Steuerverwaltung",
       "sort": 88,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -36788,14 +36788,14 @@
       "description": "Wasserversorgung, Brunnenmeister Gersau",
       "sort": 87,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -36808,14 +36808,14 @@
       "description": "Energienachweis Steinen",
       "sort": 78,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -36828,14 +36828,14 @@
       "description": "Brandschutz Feusisberg",
       "sort": 89,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -36848,14 +36848,14 @@
       "description": "Fachbüro LWP Feusisberg",
       "sort": 90,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -36868,14 +36868,14 @@
       "description": "Baukommission Steinerberg",
       "sort": 91,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -36888,14 +36888,14 @@
       "description": "Einwohneramt Steinerberg",
       "sort": 92,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -36908,14 +36908,14 @@
       "description": "Kassieramt Steinerberg",
       "sort": 93,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -36928,14 +36928,14 @@
       "description": "Baupräsident Steinerberg",
       "sort": 94,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -36948,14 +36948,14 @@
       "description": "Brandschutzexperte Arnold Josef",
       "sort": 21,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -36968,14 +36968,14 @@
       "description": "Wassermeister Steinerberg",
       "sort": 95,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -36988,14 +36988,14 @@
       "description": "Baukommission Galgenen",
       "sort": 96,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -37008,14 +37008,14 @@
       "description": "Tiefbauamt Galgenen",
       "sort": 97,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -37028,14 +37028,14 @@
       "description": "Werksingenieur Galgenen",
       "sort": 98,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -37048,14 +37048,14 @@
       "description": "EW Galgenen",
       "sort": 99,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -37068,14 +37068,14 @@
       "description": "Wasserversorgung Illgau",
       "sort": 126,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -37088,14 +37088,14 @@
       "description": "Gemeindeschreiber Galgenen",
       "sort": 100,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -37108,14 +37108,14 @@
       "description": "Gemeinderat Freienbach",
       "sort": 101,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -37128,14 +37128,14 @@
       "description": "Hochbaukommission Freienbach",
       "sort": 102,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -37148,14 +37148,14 @@
       "description": "Korporation Pfäffikon",
       "sort": 103,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -37168,14 +37168,14 @@
       "description": "Notariat Höfe",
       "sort": 104,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -37188,14 +37188,14 @@
       "description": "Baukommission Innerthal",
       "sort": 105,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -37208,14 +37208,14 @@
       "description": "Baukommission Vorderthal",
       "sort": 106,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -37228,14 +37228,14 @@
       "description": "Gemeinderat Vorderthal",
       "sort": 107,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -37248,14 +37248,14 @@
       "description": "Wasserversorgung Vorderthal",
       "sort": 108,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -37268,14 +37268,14 @@
       "description": "EW Gemeindeingenieur Vorderthal",
       "sort": 109,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -37288,14 +37288,14 @@
       "description": "Umweltbeauftragter Schübelbach",
       "sort": 110,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -37308,14 +37308,14 @@
       "description": "Gemeindewerke Schübelbach",
       "sort": 111,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -37328,14 +37328,14 @@
       "description": "Feuerwehr Schübelbach",
       "sort": 112,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -37348,14 +37348,14 @@
       "description": "Albertin Partner Architekten",
       "sort": 113,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -37368,14 +37368,14 @@
       "description": "Baukommission Muotathal",
       "sort": 114,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -37388,14 +37388,14 @@
       "description": "Brandschutzexperte Föhn Bruno",
       "sort": 19,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -37408,14 +37408,14 @@
       "description": "Wasserversorgung Muotathal",
       "sort": 115,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -37428,14 +37428,14 @@
       "description": "BG Ingenieure und Berater AG",
       "sort": 14,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -37448,14 +37448,14 @@
       "description": "Baukommission Oberiberg",
       "sort": 116,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -37468,14 +37468,14 @@
       "description": "Gemeindepräsident Oberiberg",
       "sort": 117,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -37488,14 +37488,14 @@
       "description": "EW Tuggen",
       "sort": 118,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -37508,14 +37508,14 @@
       "description": "Gemeinderat Tuggen",
       "sort": 119,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -37528,14 +37528,14 @@
       "description": "Genossame Tuggen",
       "sort": 120,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -37548,14 +37548,14 @@
       "description": "Abwasserverband Obersee",
       "sort": 121,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -37568,14 +37568,14 @@
       "description": "Gemeinderat Alpthal",
       "sort": 122,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -37588,14 +37588,14 @@
       "description": "Externer Berater Alpthal",
       "sort": 123,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -37608,14 +37608,14 @@
       "description": "Brandschutzexperte Marty Josef",
       "sort": 20,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -37628,14 +37628,14 @@
       "description": "Baukommission Riemenstalden",
       "sort": 129,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -37648,14 +37648,14 @@
       "description": "Wasserversorgung Riemenstalden",
       "sort": 130,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -37668,14 +37668,14 @@
       "description": "Bezirksrat Einsiedeln",
       "sort": 131,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -37688,14 +37688,14 @@
       "description": "Planung und Gewässer Einsiedeln",
       "sort": 132,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -37708,14 +37708,14 @@
       "description": "Umwelt und Energie Einsiedeln",
       "sort": 133,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -37728,14 +37728,14 @@
       "description": "Sekretariat Einsiedeln",
       "sort": 134,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -37748,14 +37748,14 @@
       "description": "Ressort Infrastruktur Einsiedeln",
       "sort": 135,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -37768,14 +37768,14 @@
       "description": "Baubehörde Einsiedeln",
       "sort": 136,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -37788,14 +37788,14 @@
       "description": "Brandschutz Einsiedeln",
       "sort": 137,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -37808,14 +37808,14 @@
       "description": "Baubehörde Rothenthurm",
       "sort": 138,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -37828,14 +37828,14 @@
       "description": "Visplanum GmbH",
       "sort": 139,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -37848,14 +37848,14 @@
       "description": "Wasserversorgung Rothenthurm",
       "sort": 140,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -37868,14 +37868,14 @@
       "description": "Wuhrkorporation Biber",
       "sort": 141,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -37888,14 +37888,14 @@
       "description": "ZKRI",
       "sort": 25,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -37908,14 +37908,14 @@
       "description": "Baukommission Sattel",
       "sort": 142,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -37928,14 +37928,14 @@
       "description": "Tiefbaukommission Sattel",
       "sort": 143,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -37948,14 +37948,14 @@
       "description": "Öffentliche Wasserversorgung Sattel",
       "sort": 144,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -37968,14 +37968,14 @@
       "description": "Gemeinderat Sattel",
       "sort": 145,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -37988,14 +37988,14 @@
       "description": "Strassengenossenschaft Sattel-Mostel",
       "sort": 146,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -38008,14 +38008,14 @@
       "description": "Wasserversorgungsgenossenschaft Eggried",
       "sort": 147,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -38028,14 +38028,14 @@
       "description": "Wasserversorgung Mostelberg AG",
       "sort": 148,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -38048,14 +38048,14 @@
       "description": "Wasserversorgung Mostelberg NORD",
       "sort": 149,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -38068,14 +38068,14 @@
       "description": "Wuhrkorporation Steineraa III",
       "sort": 150,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -38088,14 +38088,14 @@
       "description": "Bundesamt für Zivilluftfahrt (BAZL)",
       "sort": 217,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -38108,14 +38108,14 @@
       "description": "Rigi Bahnen AG",
       "sort": 218,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -38128,14 +38128,14 @@
       "description": "IKSS",
       "sort": 219,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -38148,14 +38148,14 @@
       "description": "TBA (Realisierung)",
       "sort": 4,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   }
 ]

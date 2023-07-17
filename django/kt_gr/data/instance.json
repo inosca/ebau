@@ -104,16 +104,6 @@
   },
   {
     "model": "instance.historyentryt",
-    "pk": 4,
-    "fields": {
-      "title": "Dossier eingereicht",
-      "body": "",
-      "history_entry": 1,
-      "language": "rm"
-    }
-  },
-  {
-    "model": "instance.historyentryt",
     "pk": 5,
     "fields": {
       "title": "Notifikation gesendet an admin@example.com (Gesuchsteller/in) ([eBau Test]: Erfolgreiche Einreichung / Formulaire déposé avec succès)",
@@ -144,16 +134,6 @@
   },
   {
     "model": "instance.historyentryt",
-    "pk": 8,
-    "fields": {
-      "title": "Notifikation gesendet an admin@example.com (Gesuchsteller/in) ([eBau Test]: Erfolgreiche Einreichung / Formulaire déposé avec succès)",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nIhr Dossier mit der Dossier-Nr. 1 (Bauanzeige, Gemeinde Chur)  wurde erfolgreich übermittelt. Alle auf eBau hochgeladenen Pläne und Dokumente müssen unterschrieben, datiert und in mindestens zweifacher Ausfertigung mit dem Gesuchsformular bei der zuständigen Gemeinde eingereicht werden. Das Dossier wird erst bearbeitet, wenn die Gemeinde das Papierdossier erhalten hat.\n\nhttp://ebau-portal.local/instances/1\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\nLeitbehörde Chur\n\n*** version française ***\n\nMadame, Monsieur,\n\nVotre dossier portant le numéro de dossier 1 (, Gemeinde Chur) a été déposé/e avec succès. Tous les plans et documents téléchargés sur eBau doivent être signés, datés et envoyés en au moins deux exemplaires avec le formulaire de demande de permis de construire à la commune responsable. Le dossier ne sera traité que lorsque la commune aura reçu le dossier papier.\n\nhttp://ebau-portal.local/instances/1\n\nCe message a été généré automatiquement, veuillez ne pas y répondre.\n\nVeuillez agréer, Madame, Monsieur, nos salutations les meilleures.\nLeitbehörde Chur",
-      "history_entry": 2,
-      "language": "rm"
-    }
-  },
-  {
-    "model": "instance.historyentryt",
     "pk": 9,
     "fields": {
       "title": "Notifikation gesendet an email@example.ch (Leitbehörde) ([eBau Test]: Neu eingegangen / Nouvelle entrée)",
@@ -180,16 +160,6 @@
       "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nIm eBau gibt es einen neuen Eingang mit der Dossier-Nr. 1 (Bauanzeige, Gemeinde Chur).\n\nhttp://ember-ebau.local/index/redirect-to-instance-resource/instance-id/1\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\neBau\n\n*** version française ***\n\nMadame, Monsieur,\n\neBau a enregistré une nouvelle entrée portant le numéro de dossier 1 (, Gemeinde Chur).\n\nhttp://ember-ebau.local/index/redirect-to-instance-resource/instance-id/1\n\nCe message a été généré automatiquement, veuillez ne pas y répondre.\n\neBau",
       "history_entry": 3,
       "language": "it"
-    }
-  },
-  {
-    "model": "instance.historyentryt",
-    "pk": 12,
-    "fields": {
-      "title": "Notifikation gesendet an email@example.ch (Leitbehörde) ([eBau Test]: Neu eingegangen / Nouvelle entrée)",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nIm eBau gibt es einen neuen Eingang mit der Dossier-Nr. 1 (Bauanzeige, Gemeinde Chur).\n\nhttp://ember-ebau.local/index/redirect-to-instance-resource/instance-id/1\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\neBau\n\n*** version française ***\n\nMadame, Monsieur,\n\neBau a enregistré une nouvelle entrée portant le numéro de dossier 1 (, Gemeinde Chur).\n\nhttp://ember-ebau.local/index/redirect-to-instance-resource/instance-id/1\n\nCe message a été généré automatiquement, veuillez ne pas y répondre.\n\neBau",
-      "history_entry": 3,
-      "language": "rm"
     }
   }
 ]

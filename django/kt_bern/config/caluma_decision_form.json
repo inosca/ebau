@@ -9,8 +9,8 @@
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "name": "{\"de\": \"Entscheid\", \"fr\": \"D\\u00e9cision\", \"it\": null, \"rm\": null}",
-      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": null, \"rm\": null}",
+      "name": "{\"de\": \"Entscheid\", \"fr\": \"D\\u00e9cision\", \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
       "meta": {},
       "is_published": false,
       "is_archived": false,
@@ -192,7 +192,7 @@
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Baubewilligung\", \"fr\": \"Permis de construire\", \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Baubewilligung\", \"fr\": \"Permis de construire\", \"it\": null}",
       "is_archived": false,
       "meta": {
         "identifier": "BAUBEWILLIGUNG"
@@ -210,7 +210,7 @@
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Baubewilligungsfrei\", \"fr\": \"Non soumis \\u00e0 l'octroi d'un permis de construire\", \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Baubewilligungsfrei\", \"fr\": \"Non soumis \\u00e0 l'octroi d'un permis de construire\", \"it\": null}",
       "is_archived": false,
       "meta": {
         "identifier": "BAUBEWILLIGUNGSFREI"
@@ -228,7 +228,7 @@
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Bauabschlag mit Wiederherstellung\", \"fr\": \"Refus de permis de construire avec r\\u00e9tablissement\", \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Bauabschlag mit Wiederherstellung\", \"fr\": \"Refus de permis de construire avec r\\u00e9tablissement\", \"it\": null}",
       "is_archived": false,
       "meta": {
         "identifier": "BAUABSCHLAG_MIT_WHST"
@@ -246,7 +246,7 @@
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Bauabschlag ohne Wiederherstellung\", \"fr\": \"Refus du permis de construire sans r\\u00e9tablissement\", \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Bauabschlag ohne Wiederherstellung\", \"fr\": \"Refus du permis de construire sans r\\u00e9tablissement\", \"it\": null}",
       "is_archived": false,
       "meta": {
         "identifier": "BAUABSCHLAG_OHNE_WHST"
@@ -264,7 +264,7 @@
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Abschreibungsverf\\u00fcgung (R\\u00fcckzug)\", \"fr\": \"Radiation du r\\u00f4le\", \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Abschreibungsverf\\u00fcgung (R\\u00fcckzug)\", \"fr\": \"Radiation du r\\u00f4le\", \"it\": null}",
       "is_archived": false,
       "meta": {
         "identifier": "ABSCHREIBUNGSVERFUEGUNG"
@@ -282,7 +282,7 @@
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Generelle Baubewilligung\", \"fr\": \"Permis de construire g\\u00e9n\\u00e9ral\", \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Generelle Baubewilligung\", \"fr\": \"Permis de construire g\\u00e9n\\u00e9ral\", \"it\": null}",
       "is_archived": false,
       "meta": {
         "identifier": "GENERELL"
@@ -300,7 +300,7 @@
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Andere\", \"fr\": \"Autre\", \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Andere\", \"fr\": \"Autre\", \"it\": null}",
       "is_archived": false,
       "meta": {
         "identifier": "ANDERE"
@@ -318,7 +318,7 @@
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Gesamtbaubewilligung\", \"fr\": \"Permis de construire global\", \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Gesamtbaubewilligung\", \"fr\": \"Permis de construire global\", \"it\": null}",
       "is_archived": false,
       "meta": {
         "identifier": "GESAMT"
@@ -336,7 +336,7 @@
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Teilbaubewilligung\", \"fr\": \"Permis de construire partiel\", \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Teilbaubewilligung\", \"fr\": \"Permis de construire partiel\", \"it\": null}",
       "is_archived": false,
       "meta": {
         "identifier": "TEILBAUBEWILLIGUNG"
@@ -354,7 +354,7 @@
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Teilweise Baubewilligung mit teilweisem Bauabschlag und teilweiser Wiederherstellung\", \"fr\": \"Permis de construire partiel avec refus partiel du permis de construire et r\\u00e9tablissement partiel\", \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Teilweise Baubewilligung mit teilweisem Bauabschlag und teilweiser Wiederherstellung\", \"fr\": \"Permis de construire partiel avec refus partiel du permis de construire et r\\u00e9tablissement partiel\", \"it\": null}",
       "is_archived": false,
       "meta": {
         "identifier": "TEILWEISE_BAUBEWILLIGUNG_MIT_TEILWEISEM_BAUABSCHLAG_UND_TEILWEISER_WIEDERHERSTELLUNG"
@@ -372,7 +372,7 @@
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Projekt\\u00e4nderung\", \"fr\": \"Modification du projet\", \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Projekt\\u00e4nderung\", \"fr\": \"Modification du projet\", \"it\": null}",
       "is_archived": false,
       "meta": {
         "identifier": "PROJEKTAENDERUNG"
@@ -390,7 +390,7 @@
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Kleine Baubewilligung\", \"fr\": \"Petit permis de construire\", \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Kleine Baubewilligung\", \"fr\": \"Petit permis de construire\", \"it\": null}",
       "is_archived": false,
       "meta": {
         "identifier": "KLEIN"
@@ -408,7 +408,7 @@
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Unbekannt (eCH / Import)\", \"fr\": \"Inconnu (eCH / Import)\", \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Unbekannt (eCH / Import)\", \"fr\": \"Inconnu (eCH / Import)\", \"it\": null}",
       "is_archived": true,
       "meta": {
         "identifier": "UNBEKANNT"
@@ -426,7 +426,7 @@
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Bewilligt\", \"fr\": \"Approuve\\u00e9\", \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Bewilligt\", \"fr\": \"Approuve\\u00e9\", \"it\": null}",
       "is_archived": false,
       "meta": {
         "identifier": "accepted"
@@ -444,7 +444,7 @@
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Entscheid ge\\u00e4ndert / aufgehoben\", \"fr\": \"D\\u00e9cision modifi\\u00e9e / annul\\u00e9e\", \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Entscheid ge\\u00e4ndert / aufgehoben\", \"fr\": \"D\\u00e9cision modifi\\u00e9e / annul\\u00e9e\", \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -460,7 +460,7 @@
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Entscheid best\\u00e4tigt\", \"fr\": \"D\\u00e9cision confirm\\u00e9e\", \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Entscheid best\\u00e4tigt\", \"fr\": \"D\\u00e9cision confirm\\u00e9e\", \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -476,7 +476,7 @@
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Entscheid zur\\u00fcckgewiesen\", \"fr\": \"D\\u00e9cision renvoy\\u00e9e\", \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Entscheid zur\\u00fcckgewiesen\", \"fr\": \"D\\u00e9cision renvoy\\u00e9e\", \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -492,7 +492,7 @@
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Bauabschlag\", \"fr\": \"Refus du permis de construire\", \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Bauabschlag\", \"fr\": \"Refus du permis de construire\", \"it\": null}",
       "is_archived": false,
       "meta": {
         "identifier": "constructionTee"
@@ -510,7 +510,7 @@
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Abgelehnt\", \"fr\": \"Rejet\\u00e9\", \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Abgelehnt\", \"fr\": \"Rejet\\u00e9\", \"it\": null}",
       "is_archived": false,
       "meta": {
         "identifier": "denied"
@@ -528,7 +528,7 @@
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Abgeschrieben\", \"fr\": \"Radi\\u00e9\", \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Abgeschrieben\", \"fr\": \"Radi\\u00e9\", \"it\": null}",
       "is_archived": false,
       "meta": {
         "identifier": "writtenOff"
@@ -546,7 +546,7 @@
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Negativ\", \"fr\": \"N\\u00e9gative\", \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Negativ\", \"fr\": \"N\\u00e9gative\", \"it\": null}",
       "is_archived": false,
       "meta": {
         "identifier": "negative"
@@ -564,7 +564,7 @@
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Nicht baubewilligungspflichtig\", \"fr\": \"Non soumis \\u00e0 l'octroi d'un permis de construire\", \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Nicht baubewilligungspflichtig\", \"fr\": \"Non soumis \\u00e0 l'octroi d'un permis de construire\", \"it\": null}",
       "is_archived": false,
       "meta": {
         "identifier": "notObligated"
@@ -582,7 +582,7 @@
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Baubewilligungspflichtig\", \"fr\": \"Soumis \\u00e0 l'octroi d'un permis de construire\", \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Baubewilligungspflichtig\", \"fr\": \"Soumis \\u00e0 l'octroi d'un permis de construire\", \"it\": null}",
       "is_archived": false,
       "meta": {
         "identifier": "obligated"
@@ -600,7 +600,7 @@
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Anderweitiger Gesch\\u00e4ftsabschluss\", \"fr\": \"Autre d\\u00e9cision / cl\\u00f4ture\", \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Anderweitiger Gesch\\u00e4ftsabschluss\", \"fr\": \"Autre d\\u00e9cision / cl\\u00f4ture\", \"it\": null}",
       "is_archived": false,
       "meta": {
         "identifier": "other"
@@ -618,7 +618,7 @@
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Positiv\", \"fr\": \"Positive\", \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Positiv\", \"fr\": \"Positive\", \"it\": null}",
       "is_archived": false,
       "meta": {
         "identifier": "positive"
@@ -636,7 +636,7 @@
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Mit Vorbehalt positiv (Projekt muss angepasst werden)\", \"fr\": \"Positive avec r\\u00e9serve (le projet doit \\u00eatre adapt\\u00e9)\", \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Mit Vorbehalt positiv (Projekt muss angepasst werden)\", \"fr\": \"Positive avec r\\u00e9serve (le projet doit \\u00eatre adapt\\u00e9)\", \"it\": null}",
       "is_archived": false,
       "meta": {
         "identifier": "conditionallyPositive"
@@ -654,7 +654,7 @@
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"R\\u00fcckzug\", \"fr\": \"Retrait\", \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"R\\u00fcckzug\", \"fr\": \"Retrait\", \"it\": null}",
       "is_archived": false,
       "meta": {
         "identifier": "retreat"
@@ -672,15 +672,15 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"Beschwerde eingegangen\", \"fr\": \"Recours re\\u00e7u\", \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Beschwerde eingegangen\", \"fr\": \"Recours re\\u00e7u\", \"it\": null}",
       "type": "static",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
         "hideLabel": true,
@@ -706,15 +706,15 @@
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Bewilligungstyp\", \"fr\": \"Cat\\u00e9gorie d'autorisation\", \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Bewilligungstyp\", \"fr\": \"Cat\\u00e9gorie d'autorisation\", \"it\": null}",
       "type": "choice",
       "is_required": "true",
       "is_hidden": "'decision-workflow'|answer != 'building-permit' || 'decision-decision-assessment'|answer(null) in [null, 'decision-decision-assessment-appeal-confirmed', 'decision-decision-assessment-appeal-changed', 'decision-decision-assessment-appeal-rejected']",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null, \"rm\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null, \"rm\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -737,15 +737,15 @@
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Datum\", \"fr\": \"Date\", \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Datum\", \"fr\": \"Date\", \"it\": null}",
       "type": "date",
       "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null, \"rm\": null}",
-      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null, \"rm\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -768,15 +768,15 @@
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Entscheid / Beurteilung\", \"fr\": \"D\\u00e9cision / Evaluation\", \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Entscheid / Beurteilung\", \"fr\": \"D\\u00e9cision / Evaluation\", \"it\": null}",
       "type": "choice",
       "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null, \"rm\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null, \"rm\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -799,15 +799,15 @@
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Hilfetext Beschwerdeverfahren\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Hilfetext Beschwerdeverfahren\", \"fr\": null, \"it\": null}",
       "type": "static",
       "is_required": "false",
       "is_hidden": "!(\n\t'decision-decision-assessment'|answer in [\n\t\t'decision-decision-assessment-appeal-confirmed',\n\t\t'decision-decision-assessment-appeal-changed',\n\t\t'decision-decision-assessment-appeal-rejected'\n\t]\n)",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "static_content": "{\"de\": \"x\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"x\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
         "widgetOverride": "decision/info-appeal"
@@ -832,15 +832,15 @@
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Hilfetext Beschwerdeverfahren best\\u00e4tigen\", \"fr\": \"Hilfetext Beschwerdeverfahren best\\u00e4tigen\", \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Hilfetext Beschwerdeverfahren best\\u00e4tigen\", \"fr\": \"Hilfetext Beschwerdeverfahren best\\u00e4tigen\", \"it\": null}",
       "type": "static",
       "is_required": "false",
       "is_hidden": "!(\n\t'decision-decision-assessment'|answer in [\n\t\t'decision-decision-assessment-appeal-confirmed',\n\t\t'decision-decision-assessment-appeal-changed',\n\t\t'decision-decision-assessment-appeal-rejected'\n\t]\n)",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null, \"rm\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "static_content": "{\"de\": \"<div class=\\\"uk-alert uk-alert-default uk-margin-remove\\\"><strong>Achtung:</strong> Der Entscheid kann in eBau erst best\\u00e4tigt werden, wenn das Rechtsverfahren definitiv abgeschlossen ist.</div>\", \"fr\": \"<div class=\\\"uk-alert uk-alert-default uk-margin-remove\\\"><strong>Attention :</strong> la d\\u00e9cision ne peut \\u00eatre confirm\\u00e9e dans eBau que lorsque la proc\\u00e9dure juridique est d\\u00e9finitivement close.</div>\", \"it\": \"\", \"rm\": \"\"}",
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"<div class=\\\"uk-alert uk-alert-default uk-margin-remove\\\"><strong>Achtung:</strong> Der Entscheid kann in eBau erst best\\u00e4tigt werden, wenn das Rechtsverfahren definitiv abgeschlossen ist.</div>\", \"fr\": \"<div class=\\\"uk-alert uk-alert-default uk-margin-remove\\\"><strong>Attention :</strong> la d\\u00e9cision ne peut \\u00eatre confirm\\u00e9e dans eBau que lorsque la proc\\u00e9dure juridique est d\\u00e9finitivement close.</div>\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -863,15 +863,15 @@
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Hilfetext Teilbaubewilligungen\", \"fr\": \"Texte d'aide permis de construire partiel\", \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Hilfetext Teilbaubewilligungen\", \"fr\": \"Texte d'aide permis de construire partiel\", \"it\": null}",
       "type": "static",
       "is_required": "false",
       "is_hidden": "!(\n\t'decision-approval-type-partial-building-permit' == 'decision-approval-type'|answer\n)",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null, \"rm\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "static_content": "{\"de\": \"<div class=\\\"uk-alert uk-alert-default uk-margin-remove\\\">Bei Teilbaubewilligungen wechselt der Status von \\\"In Koordination\\\" nach \\\"Selbstdeklaration (SB1)\\\" erst mit dem definitiven Bauentscheid.</div>\", \"fr\": \"<div class=\\\"uk-alert uk-alert-default uk-margin-remove\\\">Dans le cas des permis de construire partiels, le statut passe de \\\"En cours de coordination\\\" \\u00e0 \\\"D\\u00e9claration spontan\\u00e9e (DC1)\\\" uniquement avec l'octroi du permis de construire final.</div>\", \"it\": \"\", \"rm\": \"\"}",
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"<div class=\\\"uk-alert uk-alert-default uk-margin-remove\\\">Bei Teilbaubewilligungen wechselt der Status von \\\"In Koordination\\\" nach \\\"Selbstdeklaration (SB1)\\\" erst mit dem definitiven Bauentscheid.</div>\", \"fr\": \"<div class=\\\"uk-alert uk-alert-default uk-margin-remove\\\">Dans le cas des permis de construire partiels, le statut passe de \\\"En cours de coordination\\\" \\u00e0 \\\"D\\u00e9claration spontan\\u00e9e (DC1)\\\" uniquement avec l'octroi du permis de construire final.</div>\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
         "hideLabel": true
@@ -896,15 +896,15 @@
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Beschreibung\", \"fr\": \"Description\", \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Beschreibung\", \"fr\": \"Description\", \"it\": null}",
       "type": "text",
       "is_required": "false",
       "is_hidden": "'decision-decision-assessment'|answer != 'decision-decision-assessment-other' || ('decision-workflow'|answer == 'building-permit' && 'decision-approval-type'|answer != 'decision-approval-type-other')",
       "is_archived": false,
-      "placeholder": "{\"de\": \"\", \"fr\": \"\", \"it\": null, \"rm\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null, \"rm\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null, \"rm\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "placeholder": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
         "min_length": null
@@ -930,15 +930,15 @@
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Bemerkungen\", \"fr\": \"Remarques\", \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Bemerkungen\", \"fr\": \"Remarques\", \"it\": null}",
       "type": "textarea",
       "is_required": "false",
       "is_hidden": "'decision-workflow'|answer != 'preliminary-clarification'",
       "is_archived": false,
-      "placeholder": "{\"de\": \"\", \"fr\": \"\", \"it\": null, \"rm\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null, \"rm\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null, \"rm\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "placeholder": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
         "min_length": null
@@ -966,15 +966,15 @@
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Entscheid verf\\u00fcgen\", \"fr\": \"Rendre la d\\u00e9cision\", \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Entscheid verf\\u00fcgen\", \"fr\": \"Rendre la d\\u00e9cision\", \"it\": null}",
       "type": "action_button",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "info_text": "{\"de\": \"Haben Sie den Entscheid im Men\\u00fc \\\"Dokumente\\\" hochgeladen und m\\u00f6chten Sie den Entscheid jetzt verf\\u00fcgen? Dieser Schritt kann nicht r\\u00fcckg\\u00e4ngig gemacht werden.\\n<br><br>\\nAnsonsten k\\u00f6nnen Sie unter \\\"Vorlagen\\\" den Entscheid generieren. Nachdem der Entscheid unter \\\"Dokumente\\\" abgelegt wurde, kann dieser verf\\u00fcgt werden.\", \"fr\": \"Vous avez t\\u00e9l\\u00e9charg\\u00e9 la d\\u00e9cision dans le menu \\\"Documents\\\" et vous souhaitez maintenant rendre la d\\u00e9cision ? Cette \\u00e9tape ne peut pas \\u00eatre annul\\u00e9e.\\n<br><br>\\nSinon, vous pouvez cr\\u00e9er la d\\u00e9cision sous \\\"Mod\\u00e8les\\\". Une fois que la d\\u00e9cision a \\u00e9t\\u00e9 d\\u00e9pos\\u00e9e sous \\\"Documents\\\", vous pouvez en disposer.\", \"it\": null, \"rm\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Haben Sie den Entscheid im Men\\u00fc \\\"Dokumente\\\" hochgeladen und m\\u00f6chten Sie den Entscheid jetzt verf\\u00fcgen? Dieser Schritt kann nicht r\\u00fcckg\\u00e4ngig gemacht werden.\\n<br><br>\\nAnsonsten k\\u00f6nnen Sie unter \\\"Vorlagen\\\" den Entscheid generieren. Nachdem der Entscheid unter \\\"Dokumente\\\" abgelegt wurde, kann dieser verf\\u00fcgt werden.\", \"fr\": \"Vous avez t\\u00e9l\\u00e9charg\\u00e9 la d\\u00e9cision dans le menu \\\"Documents\\\" et vous souhaitez maintenant rendre la d\\u00e9cision ? Cette \\u00e9tape ne peut pas \\u00eatre annul\\u00e9e.\\n<br><br>\\nSinon, vous pouvez cr\\u00e9er la d\\u00e9cision sous \\\"Mod\\u00e8les\\\". Une fois que la d\\u00e9cision a \\u00e9t\\u00e9 d\\u00e9pos\\u00e9e sous \\\"Documents\\\", vous pouvez en disposer.\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "color": "primary",
         "action": "complete",
@@ -1003,15 +1003,15 @@
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Workflow\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Workflow\", \"fr\": null, \"it\": null}",
       "type": "text",
       "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null, \"rm\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null, \"rm\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
         "hideLabel": true,

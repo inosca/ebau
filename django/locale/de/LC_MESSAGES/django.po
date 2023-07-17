@@ -921,10 +921,6 @@ msgstr "Französisch"
 msgid "Italian"
 msgstr "Italienisch"
 
-#: camac/settings.py:3787
-msgid "Romansh"
-msgstr "Rätoromanisch"
-
 #: camac/settings_distribution.py:70 camac/settings_distribution.py:563
 msgid "Circulation completed"
 msgstr "Zirkulation abgeschlossen"

@@ -17,8 +17,8 @@
           "municipality": "Admin"
         }
       },
-      "name": "{\"de\": \"Alle Beteiligten\", \"fr\": \"\", \"it\": \"Tutti coinvolti\", \"rm\": \"Tous les participants\"}",
-      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "name": "{\"de\": \"Alle Beteiligten\", \"fr\": \"\", \"it\": \"Tutti coinvolti\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "color": "#CB68C1"
     }
   },
@@ -40,8 +40,8 @@
           "municipality": "Admin"
         }
       },
-      "name": "{\"de\": \"Beilagen zum Gesuch\", \"fr\": \"\", \"it\": \"Allegati alla domanda\", \"rm\": \"Annexes \\u00e0 la demande\"}",
-      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "name": "{\"de\": \"Beilagen zum Gesuch\", \"fr\": \"\", \"it\": \"Allegati alla domanda\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "color": "#9CDD69"
     }
   },
@@ -62,8 +62,8 @@
           "municipality": "Admin"
         }
       },
-      "name": "{\"de\": \"Beteiligte Beh\\u00f6rden\", \"fr\": \"\", \"it\": \"Autorit\\u00e0 coinvolte\", \"rm\": \"Autorit\\u00e9s concern\\u00e9es\"}",
-      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "name": "{\"de\": \"Beteiligte Beh\\u00f6rden\", \"fr\": \"\", \"it\": \"Autorit\\u00e0 coinvolte\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "color": "#8791EC"
     }
   },
@@ -84,8 +84,8 @@
           "municipality": "InternalAdmin"
         }
       },
-      "name": "{\"de\": \"Intern\", \"fr\": \"\", \"it\": \"Interno\", \"rm\": \"Interne\"}",
-      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "name": "{\"de\": \"Intern\", \"fr\": \"\", \"it\": \"Interno\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "color": "#DB8B72"
     }
   },
@@ -106,8 +106,8 @@
           "municipality": "Admin"
         }
       },
-      "name": "{\"de\": \"Nachforderungen\", \"fr\": \"\", \"it\": \"Ulteriori richieste di risarcimento\", \"rm\": \"Demandes suppl\\u00e9mentaires\"}",
-      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "name": "{\"de\": \"Nachforderungen\", \"fr\": \"\", \"it\": \"Ulteriori richieste di risarcimento\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "color": "#66CFC9"
     }
   }
