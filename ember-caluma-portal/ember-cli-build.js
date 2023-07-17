@@ -28,7 +28,7 @@ module.exports = function (defaults) {
         enableModificationConfirm: ENV === "be",
         enableCommunications: ["be", "so"].includes(ENV),
         instancePaperFilterDefault: ENV === "ur",
-        showProfileLink: ENV === "gr",
+        showProfileLink: ["gr", "so"].includes(ENV),
         documentBackend: ENV === "gr" ? "alexandria" : "camac",
       },
       setConfig: {
