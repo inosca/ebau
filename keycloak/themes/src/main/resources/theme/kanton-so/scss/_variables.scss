@@ -1,0 +1,24 @@
+$global-font-family: Frutiger, "Open Sans", sans-serif;
+$global-font-size: 13px;
+$base-body-font-weight: 400;
+$base-strong-font-weight: 700;
+$base-heading-font-weight: 700;
+
+// Base colors
+$global-primary-background: rgb(204, 0, 0);
+$global-secondary-background: rgb(0, 0, 0);
+
+// Font colors
+$global-color: $global-secondary-background;
+$global-emphasis-color: $global-secondary-background;
+$global-muted-color: rgb(138, 138, 138);
+$global-link-color: $global-primary-background;
+$global-link-hover-color: $global-primary-background;
+$alert-danger-color: $global-secondary-background;
+
+// Form
+$form-focus-border: $global-secondary-background;
+
+.uk-form-label {
+  font-weight: bolder;
+}
