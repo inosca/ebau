@@ -137,12 +137,13 @@ MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "mozilla_django_oidc.middleware.SessionRefresh",
+    "django.middleware.locale.LocaleMiddleware",
+    "camac.middleware.SystemLocaleMiddleware",
     "django.middleware.common.CommonMiddleware",
     "camac.user.middleware.GroupMiddleware",
     "camac.caluma.middleware.CalumaInfoMiddleware",
     "camac.middleware.LoggingMiddleware",
     "reversion.middleware.RevisionMiddleware",
-    "django.middleware.locale.LocaleMiddleware",
     "simple_history.middleware.HistoryRequestMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
@@ -3852,7 +3853,7 @@ def add_django_foreign_locale(locale_info: Dict[str, dict]):
     django.conf.locale.LANG_INFO.update(locale_info)
 
 
-LOCALE_NAME = "de_CH"
+DEFAULT_LOCALE_CODE = "de_CH"
 LANGUAGE_CODE = "de"
 LANGUAGES = [
     ("de", _("German")),
