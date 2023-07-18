@@ -12,8 +12,8 @@
       "metainfo": {
         "case_id": 1
       },
-      "title": "{\"de\": \"Test\", \"fr\": \"\", \"it\": \"Test\", \"rm\": \"\"}",
-      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "title": "{\"de\": \"Test\", \"fr\": \"\", \"it\": \"Test\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "category": "beilagen-zum-gesuch",
       "tags": [
         "dokument-grundstucksangaben",
@@ -35,7 +35,7 @@
       "modified_by_group": null,
       "metainfo": {},
       "name": "Grundstucksangaben",
-      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "tag_synonym_group": null
     }
   },
@@ -51,7 +51,7 @@
       "modified_by_group": null,
       "metainfo": {},
       "name": "Gutachten, Nachweise, Begrundungen",
-      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "tag_synonym_group": null
     }
   },
@@ -67,7 +67,7 @@
       "modified_by_group": null,
       "metainfo": {},
       "name": "Projektplane, Projektbeschrieb",
-      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "tag_synonym_group": null
     }
   },
@@ -83,7 +83,7 @@
       "modified_by_group": null,
       "metainfo": {},
       "name": "Weitere Gesuchsunterlagen",
-      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\", \"rm\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "tag_synonym_group": null
     }
   }
