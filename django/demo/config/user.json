@@ -409,14 +409,14 @@
       "description": null,
       "sort": 81,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {
@@ -429,14 +429,14 @@
       "description": null,
       "sort": 707,
       "phone": null,
-      "responsibility_construction_control": false,
       "zip": null,
       "city": null,
       "address": null,
       "email": "email@example.com",
       "website": null,
       "disabled": 0,
-      "notification": 1
+      "notification": 1,
+      "responsibility_construction_control": false
     }
   },
   {

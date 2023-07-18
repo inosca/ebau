@@ -868,10 +868,6 @@ msgstr ""
 msgid "Italian"
 msgstr ""
 
-#: camac/settings.py:3787
-msgid "Romansh"
-msgstr ""
-
 #: camac/settings_distribution.py:70 camac/settings_distribution.py:563
 msgid "Circulation completed"
 msgstr ""
