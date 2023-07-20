@@ -217,7 +217,7 @@ def token(admin_user):
 def caluma_admin_user(admin_user, group, token):
     user = OIDCUser(
         token=token,
-        userinfo={
+        claims={
             settings.OIDC_USERNAME_CLAIM: admin_user.username,
             settings.OIDC_GROUPS_CLAIM: [group.service_id],
             "sub": admin_user.username,
