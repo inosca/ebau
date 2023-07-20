@@ -66,7 +66,7 @@ snapshots['test_document_merge_service_cover_sheet_with_header_values 1'] = {
 snapshots['test_document_merge_service_cover_sheet_without_header_values 1'] = {
     'addressHeader': '',
     'addressHeaderLabel': 'Adresse',
-    'applicantHeader': None,
+    'applicantHeader': '',
     'applicantHeaderLabel': 'Gesuchsteller/in',
     'applicants': [
     ],
@@ -94,7 +94,7 @@ snapshots['test_document_merge_service_cover_sheet_without_header_values 1'] = {
     'municipalityHeader': None,
     'municipalityHeaderLabel': 'Gemeinde',
     'paperInputDateHeader': None,
-    'plotsHeader': None,
+    'plotsHeader': '',
     'plotsHeaderLabel': 'Parzelle(n)',
     'projectAuthorHeaderLabel': 'Projektverfasser/in',
     'projectAuthors': [

@@ -1,1 +1,22 @@
-[]
+[
+  {
+    "model": "api.template",
+    "pk": "form",
+    "fields": {
+      "description": "Formular",
+      "template": "form.docx",
+      "engine": "docx-template",
+      "meta": {}
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "signatures",
+    "fields": {
+      "description": "Unterschriftenblatt",
+      "template": "signatures.docx",
+      "engine": "docx-template",
+      "meta": {}
+    }
+  }
+]
