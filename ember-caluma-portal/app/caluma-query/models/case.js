@@ -93,7 +93,7 @@ export default class CustomCaseModel extends CaseModel {
       .map((row) => {
         const isJuristicPerson = getAnswerDisplayValue(
           row,
-          answerSlugs.isJuristicApplicant
+          answerSlugs.isJuristicApplicant,
         );
         if (isJuristicPerson === answerSlugs.isJuristicApplicantYes) {
           return getAnswerDisplayValue(row, answerSlugs.juristicNameApplicant);
@@ -118,7 +118,7 @@ export default class CustomCaseModel extends CaseModel {
     const remarks = getAnswerDisplayValue(document, "decision-remarks");
     const decision = getAnswerDisplayValue(
       document,
-      "decision-decision-assessment"
+      "decision-decision-assessment",
     );
 
     return { remarks, color, decision };

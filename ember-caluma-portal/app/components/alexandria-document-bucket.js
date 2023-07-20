@@ -63,7 +63,7 @@ export default class AlexandriaDocumentBucketComponent extends Component {
 
     yield attachment.save();
     this.attachmentLoading = this.attachmentLoading.filter(
-      (id) => id !== attachment.id
+      (id) => id !== attachment.id,
     );
   }
 

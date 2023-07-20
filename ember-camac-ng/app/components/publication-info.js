@@ -23,7 +23,7 @@ export default class PublicationInfoComponent extends Component {
           query: municipality,
           variables: { instanceId: this.args.instanceId },
         },
-        "allCases.edges"
+        "allCases.edges",
       );
 
       const id = response[0].node.document.answers.edges[0].node.value;

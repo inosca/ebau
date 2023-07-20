@@ -67,7 +67,7 @@ module("Integration | Component | document-validity-button", function (hooks) {
 
   test("it can be disabled", async function (assert) {
     await render(
-      hbs`<DocumentValidityButton @disabled={{true}} @field={{this.field}} />`
+      hbs`<DocumentValidityButton @disabled={{true}} @field={{this.field}} />`,
     );
 
     assert.dom("button").isDisabled();

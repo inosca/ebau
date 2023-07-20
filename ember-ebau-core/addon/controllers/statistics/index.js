@@ -24,7 +24,7 @@ export default class StatisticsIndexController extends Controller {
       `/api/v1/stats/instances-summary?period=${this.period}`,
       {
         headers: { accept: "application/json" },
-      }
+      },
     );
 
     return yield response.json();
@@ -37,7 +37,7 @@ export default class StatisticsIndexController extends Controller {
       `/api/v1/stats/claims-summary?period=${this.period}`,
       {
         headers: { accept: "application/json" },
-      }
+      },
     );
 
     return yield response.json();

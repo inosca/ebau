@@ -41,7 +41,7 @@ export default class DecisionAppealButtonComponent extends Component {
         INSTANCE_STATES.coordination &&
       // Instance state is "Selbstdeklaration 1 (SB1)" or "Abgeschlossen"
       [INSTANCE_STATES.sb1, INSTANCE_STATES.finished].includes(
-        parseInt(this.instance.record.belongsTo("instanceState").id())
+        parseInt(this.instance.record.belongsTo("instanceState").id()),
       ) &&
       // Instance doesn't already have an appeal
       !this.hasAppeal.value
@@ -54,7 +54,7 @@ export default class DecisionAppealButtonComponent extends Component {
     try {
       const response = yield this.fetch.fetch(
         `/api/v1/instances/${this.args.context.instanceId}/appeal`,
-        { method: "POST" }
+        { method: "POST" },
       );
 
       const result = yield response.json();
@@ -64,7 +64,7 @@ export default class DecisionAppealButtonComponent extends Component {
         this.args.redirectTo(newInstanceId);
       } else {
         window.location.replace(
-          `/index/redirect-to-instance-resource/instance-id/${newInstanceId}`
+          `/index/redirect-to-instance-resource/instance-id/${newInstanceId}`,
         );
       }
     } catch (e) {

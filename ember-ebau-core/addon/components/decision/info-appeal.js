@@ -34,7 +34,7 @@ export default class DecisionInfoAppealComponent extends Component {
         query: getSourceCaseMeta,
         variables: { instanceId: this.args.context.instanceId },
       },
-      "allCases.edges"
+      "allCases.edges",
     );
 
     const sourceInstanceId =
@@ -49,7 +49,7 @@ export default class DecisionInfoAppealComponent extends Component {
     const INSTANCE_STATES = mainConfig.instanceStates;
 
     const previous = parseInt(
-      this.sourceInstance.value?.get("previousInstanceState.id")
+      this.sourceInstance.value?.get("previousInstanceState.id"),
     );
 
     let instanceStateId;

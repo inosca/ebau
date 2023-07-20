@@ -40,7 +40,7 @@ export default class PublicInstancesIndexController extends Controller {
 
   get selectedMunicipality() {
     return this.municipalities.value?.find(
-      ({ value }) => value === this.municipality
+      ({ value }) => value === this.municipality,
     );
   }
 
@@ -77,7 +77,7 @@ export default class PublicInstancesIndexController extends Controller {
               municipalityQuestion: mainConfig.answerSlugs.municipality,
             },
           },
-          "allQuestions.edges.firstObject.node.options.edges"
+          "allQuestions.edges.firstObject.node.options.edges",
         )) || [];
 
       return options.map(({ node }) => ({

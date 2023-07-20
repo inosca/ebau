@@ -23,7 +23,7 @@ module("Unit | Utility | parse-error", function () {
     assert.strictEqual(parseError(error), "Some error, Some other error");
     assert.strictEqual(
       parseError(error, false),
-      "Some error, Some other error, Some field error"
+      "Some error, Some other error, Some field error",
     );
   });
 });

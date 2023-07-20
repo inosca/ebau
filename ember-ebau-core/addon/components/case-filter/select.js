@@ -14,7 +14,8 @@ export default class CaseFilterSelectComponent extends Component {
     return this.args.value && options.length
       ? options.find(
           (option) =>
-            JSON.stringify(option[valueKey]) === JSON.stringify(this.args.value)
+            JSON.stringify(option[valueKey]) ===
+            JSON.stringify(this.args.value),
         )
       : null;
   }

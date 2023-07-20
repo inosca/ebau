@@ -63,7 +63,7 @@ module("Acceptance | organisation", function (hooks) {
 
     assert.deepEqual(
       this.server.schema.find("service", SERVICE_ID).toJSON(),
-      DATA
+      DATA,
     );
 
     assert.dom(".uk-alert.uk-alert-success").exists({ count: 1 });

@@ -38,7 +38,7 @@ export default class PublicationController extends Controller {
     try {
       return yield this.apollo.watchQuery(
         { query: getPublications, variables },
-        "allWorkItems.edges"
+        "allWorkItems.edges",
       );
     } catch (error) {
       this.notification.danger(this.intl.t("publication.loadingError"));

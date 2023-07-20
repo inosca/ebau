@@ -135,7 +135,7 @@ export default class CustomSession extends Session {
     if (!this.isAuthenticated) return {};
 
     const { authHeaderName, authPrefix, tokenPropertyName } = getConfig(
-      getOwner(this)
+      getOwner(this),
     );
 
     const token = this.data.authenticated[tokenPropertyName];

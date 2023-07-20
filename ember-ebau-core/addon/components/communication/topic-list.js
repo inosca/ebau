@@ -49,7 +49,7 @@ export default class CommunicationTopicListComponent extends Component {
     const instanceId = topic.get("instance.id");
     const routeName = this.ebauModules.resolveModuleRoute(
       "communications",
-      "detail"
+      "detail",
     );
 
     if (applicationName === "camac-ng") {
@@ -57,7 +57,7 @@ export default class CommunicationTopicListComponent extends Component {
         this.router.currentRouteName ===
         this.ebauModules.resolveModuleRoute(
           "communications-global",
-          "communications-global"
+          "communications-global",
         )
       ) {
         // If we are on the global page in ember-camac-ng, we need to use a hard

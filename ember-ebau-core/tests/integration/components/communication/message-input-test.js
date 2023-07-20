@@ -12,7 +12,7 @@ module(
     hooks.beforeEach(function () {
       this.owner.lookup("service:ebauModules").resolveModuleRoute = (
         _,
-        routeName
+        routeName,
       ) => routeName;
     });
 
@@ -40,7 +40,6 @@ module(
     });
 
     test("it renders, updates and sends a message", async function (assert) {
-      assert.expect(4);
       const store = getOwner(this).lookup("service:store");
       this.message = store.createRecord("communications-message");
 
@@ -69,8 +68,6 @@ module(
     });
 
     test("it is disabled if @disabled or @loading is passed", async function (assert) {
-      assert.expect(8);
-
       this.sendMessage = () => {};
       this.set("disabled", false);
       this.set("loading", false);
@@ -103,8 +100,6 @@ module(
     });
 
     test("it show loading state if @loading", async function (assert) {
-      assert.expect(2);
-
       this.sendMessage = () => {};
       this.set("loading", false);
 
@@ -128,5 +123,5 @@ module(
         @updateFiles={{this.updateFiles}}
       />`);
     });
-  }
+  },
 );

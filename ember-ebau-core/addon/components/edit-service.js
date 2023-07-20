@@ -23,7 +23,7 @@ export default class EditServiceComponent extends Component {
     if (!this.args.id) {
       const serviceParent = await this.store.findRecord(
         "service",
-        this.ebauModules.serviceId
+        this.ebauModules.serviceId,
       );
 
       this.postfix = serviceParent.get("name");
@@ -66,7 +66,7 @@ export default class EditServiceComponent extends Component {
       yield this.service.value.save();
 
       this.notification.success(
-        this.intl.t("service-permissions.organisation-save-success")
+        this.intl.t("service-permissions.organisation-save-success"),
       );
 
       if (this.args.backRoute) {
@@ -75,7 +75,7 @@ export default class EditServiceComponent extends Component {
     } catch (error) {
       this.notification.danger(
         parseError(error, false) ??
-          this.intl.t("service-permissions.organisation-save-error")
+          this.intl.t("service-permissions.organisation-save-error"),
       );
     }
   }

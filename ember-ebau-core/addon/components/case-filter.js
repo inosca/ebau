@@ -98,7 +98,7 @@ export default class CaseFilterComponent extends Component {
 
   selectedTags = trackedFunction(this, async () => {
     const key = Object.entries(this.caseFilters).find(
-      ([, config]) => config.options === "selectedTags"
+      ([, config]) => config.options === "selectedTags",
     )?.[0];
 
     const selected = this._filter[key];
@@ -134,7 +134,7 @@ export default class CaseFilterComponent extends Component {
   buildingPermitTypes = trackedFunction(this, async () => {
     const response = await this.apollo.query(
       { query: getBuildingPermitQuestion },
-      "allQuestions.edges"
+      "allQuestions.edges",
     );
 
     return response[0]?.node.options.edges.map((edge) => edge.node);
@@ -189,7 +189,7 @@ export default class CaseFilterComponent extends Component {
 
     const rawForms = await this.apollo.query(
       { query: rootFormsQuery },
-      "allForms.edges"
+      "allForms.edges",
     );
 
     const forms = rawForms
@@ -223,7 +223,7 @@ export default class CaseFilterComponent extends Component {
   municipalitiesFromCaluma = trackedFunction(this, async () => {
     const response = await this.apollo.query(
       { query: municipalitiesQuery },
-      "allQuestions.edges"
+      "allQuestions.edges",
     );
 
     return response[0]?.node.options.edges.map((edge) => edge.node);
@@ -263,7 +263,7 @@ export default class CaseFilterComponent extends Component {
   legalStateOerebOptions = trackedFunction(this, async () => {
     const response = await this.apollo.query(
       { query: oerebLegalStateAnswersQuery },
-      "allQuestions.edges"
+      "allQuestions.edges",
     );
 
     return response[0]?.node.options.edges.map((edge) => edge.node);
@@ -282,7 +282,7 @@ export default class CaseFilterComponent extends Component {
   decisionOptions = trackedFunction(this, async () => {
     const response = await this.apollo.query(
       { query: decisionsQuery },
-      "allQuestions.edges"
+      "allQuestions.edges",
     );
 
     return response[0]?.node.options.edges.map((edge) => edge.node);
@@ -291,7 +291,7 @@ export default class CaseFilterComponent extends Component {
   inquiryAnswerOptions = trackedFunction(this, async () => {
     const response = await this.apollo.query(
       { query: inquiryAnswersQuery },
-      "allQuestions.edges"
+      "allQuestions.edges",
     );
 
     return response[0]?.node.options.edges.map((edge) => edge.node);
@@ -325,7 +325,7 @@ export default class CaseFilterComponent extends Component {
                 ...config,
                 component: ensureSafeComponent(
                   COMPONENT_MAPPING[config.type],
-                  this
+                  this,
                 ),
               },
             }
@@ -385,7 +385,7 @@ export default class CaseFilterComponent extends Component {
         .map((v) => v.replace(/^"(.*)"$/, "$1")); // remove leading and trailing quotes
       if (keywordSearch && keywords.some((keyword) => keyword.length < 3)) {
         this.notification.danger(
-          this.intl.t("cases.filters.keywordSearchTooShort")
+          this.intl.t("cases.filters.keywordSearchTooShort"),
         );
         return false;
       }

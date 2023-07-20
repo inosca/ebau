@@ -49,7 +49,7 @@ export default class CaseDashboardComponent extends Component {
 
   get linkedAndOnSamePlot() {
     return this.currentInstance.linkedInstances.filter((value) =>
-      this.instancesOnSamePlot.includes(value)
+      this.instancesOnSamePlot.includes(value),
     );
   }
 
@@ -120,7 +120,7 @@ export default class CaseDashboardComponent extends Component {
             hasAnswerFilter: this.samePlotFilters,
           },
         },
-        "allCases.edges"
+        "allCases.edges",
       );
 
       const instanceIds = caseEdges
@@ -169,16 +169,16 @@ export default class CaseDashboardComponent extends Component {
             ],
           },
         },
-        "allCases.edges"
+        "allCases.edges",
       );
       const modelInstance = new CustomCaseModel(caseRecord?.[0]?.node);
       return yield this.linkDossier.perform(
-        modelInstance.meta["camac-instance-id"]
+        modelInstance.meta["camac-instance-id"],
       );
     } catch (e) {
       console.error(e);
       this.notification.danger(
-        this.intl.t("cases.miscellaneous.linkInstanceError")
+        this.intl.t("cases.miscellaneous.linkInstanceError"),
       );
     }
   }
@@ -201,12 +201,12 @@ export default class CaseDashboardComponent extends Component {
       yield this.fetchCurrentInstance.perform(true);
       this.dossierNumber = null;
       this.notification.success(
-        this.intl.t("cases.miscellaneous.linkInstanceSuccess")
+        this.intl.t("cases.miscellaneous.linkInstanceSuccess"),
       );
     } catch (e) {
       console.error(e);
       this.notification.danger(
-        this.intl.t("cases.miscellaneous.linkInstanceError")
+        this.intl.t("cases.miscellaneous.linkInstanceError"),
       );
     }
   }
@@ -217,12 +217,12 @@ export default class CaseDashboardComponent extends Component {
       yield instance.unlink();
       yield this.fetchCurrentInstance.perform();
       this.notification.success(
-        this.intl.t("cases.miscellaneous.unLinkInstanceSuccess")
+        this.intl.t("cases.miscellaneous.unLinkInstanceSuccess"),
       );
     } catch (e) {
       console.error(e);
       this.notification.danger(
-        this.intl.t("cases.miscellaneous.unLinkInstanceError")
+        this.intl.t("cases.miscellaneous.unLinkInstanceError"),
       );
     }
   }
@@ -252,13 +252,13 @@ export default class CaseDashboardComponent extends Component {
     const acceptDate =
       workflowEntries.find(
         (we) =>
-          we.belongsTo("workflowItem").id() === WORKFLOW_ITEM_IDS[1].toString()
+          we.belongsTo("workflowItem").id() === WORKFLOW_ITEM_IDS[1].toString(),
       )?.workflowDate || workflowEntries.firstObject?.workflowDate;
 
     const ownActivation = activations.find(
       (activation) =>
         parseInt(activation.get("service.id")) ===
-          this.shoebox.content.serviceId && activation.state === "RUN"
+          this.shoebox.content.serviceId && activation.state === "RUN",
     );
 
     const attachment = yield this.store.query("attachment", {
@@ -280,7 +280,7 @@ export default class CaseDashboardComponent extends Component {
           `${attachment.get("firstObject").path}`,
           {
             headers: { accept: undefined },
-          }
+          },
         );
         const blob = yield response.blob();
         parcelPicture = yield convertToBase64(blob);
@@ -313,7 +313,7 @@ export default class CaseDashboardComponent extends Component {
           ],
         },
       },
-      "allCases.edges"
+      "allCases.edges",
     );
     const caseModel = new CustomCaseModel(caseRecord?.[0]?.node);
     setOwner(caseModel, getOwner(this));

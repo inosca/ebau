@@ -21,11 +21,11 @@ module("Integration | Component | communication/message", function (hooks) {
     this.store = getOwner(this).lookup("service:store");
     await this.store.findRecord(
       "communications-topic",
-      this.mirageMessage.topicId
+      this.mirageMessage.topicId,
     );
     this.message = await this.store.findRecord(
       "communications-message",
-      this.mirageMessage.id
+      this.mirageMessage.id,
     );
     this.refresh = fake(() => {});
   });
@@ -38,8 +38,6 @@ module("Integration | Component | communication/message", function (hooks) {
   });
 
   test("it renders a read message", async function (assert) {
-    assert.expect(9);
-
     this.mirageMessage.update({
       body: "Hello there, Im a test message, so you you should probably not respond.",
       createdAt: DateTime.fromISO("2020-02-12T08:12:21").toISO(),
@@ -47,15 +45,15 @@ module("Integration | Component | communication/message", function (hooks) {
     await this.message.reload();
 
     await render(
-      hbs`<Communication::Message @message={{this.message}} @refresh={{this.refresh}} />`
+      hbs`<Communication::Message @message={{this.message}} @refresh={{this.refresh}} />`,
     );
 
     assert
       .dom("[data-test-created-by]")
       .hasText(
         `${this.message.createdBy.name} (${this.message.get(
-          "createdByUser.fullName"
-        )})`
+          "createdByUser.fullName",
+        )})`,
       );
     assert.dom("[data-test-sent-date]").hasText("am 12.02.2020 um 08:12");
     assert.dom("[data-test-read-details-trigger]").exists();
@@ -70,15 +68,13 @@ module("Integration | Component | communication/message", function (hooks) {
   });
 
   test("it renders a unread message", async function (assert) {
-    assert.expect(7);
-
     this.mirageMessage.update({
       readAt: null,
     });
     await this.message.reload();
 
     await render(
-      hbs`<Communication::Message @message={{this.message}} @refresh={{this.refresh}} />`
+      hbs`<Communication::Message @message={{this.message}} @refresh={{this.refresh}} />`,
     );
 
     assert.dom("[data-test-read-details-trigger]").doesNotExist();
@@ -93,17 +89,15 @@ module("Integration | Component | communication/message", function (hooks) {
 
     assert.deepEqual(
       url,
-      `/api/v1/communications-messages/${this.message.id}/read`
+      `/api/v1/communications-messages/${this.message.id}/read`,
     );
     assert.ok(JSON.parse(response)?.data?.attributes?.["read-at"]);
     assert.strictEqual(this.refresh.callCount, 0);
   });
 
   test("it marks a message as unread", async function (assert) {
-    assert.expect(7);
-
     await render(
-      hbs`<Communication::Message @message={{this.message}} @refresh={{this.refresh}} />`
+      hbs`<Communication::Message @message={{this.message}} @refresh={{this.refresh}} />`,
     );
 
     assert.dom("[data-test-read-details-trigger]").exists();
@@ -118,22 +112,20 @@ module("Integration | Component | communication/message", function (hooks) {
 
     assert.deepEqual(
       url,
-      `/api/v1/communications-messages/${this.message.id}/unread`
+      `/api/v1/communications-messages/${this.message.id}/unread`,
     );
     assert.notOk(JSON.parse(response)?.data?.attributes?.["read-at"]);
     assert.strictEqual(this.refresh.callCount, 0);
   });
 
   test("it renders collapsed message", async function (assert) {
-    assert.expect(10);
-
     this.mirageMessage.update({
       body: faker.lorem.paragraphs(3),
     });
     await this.message.reload();
 
     await render(
-      hbs`<Communication::Message @message={{this.message}} @refresh={{this.refresh}} />`
+      hbs`<Communication::Message @message={{this.message}} @refresh={{this.refresh}} />`,
     );
 
     assert.dom("[data-test-expand]").hasClass("collapsed");

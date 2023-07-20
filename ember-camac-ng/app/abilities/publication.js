@@ -12,7 +12,7 @@ export default class PublicationAbility extends Ability {
 
   get isAddressed() {
     return (this.model?.addressedGroups ?? []).includes(
-      String(this.shoebox.content?.serviceId)
+      String(this.shoebox.content?.serviceId),
     );
   }
 

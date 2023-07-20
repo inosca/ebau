@@ -9,7 +9,7 @@ export default class CustomCaseModel extends CustomCaseBaseModel {
       .filter(
         (formField) =>
           formField.instance.get("id") === String(this.instanceId) &&
-          !isEmpty(formField.value)
+          !isEmpty(formField.value),
       );
     // The order of the "fields" array is important, otherwise the overrides will not work.
     return fields

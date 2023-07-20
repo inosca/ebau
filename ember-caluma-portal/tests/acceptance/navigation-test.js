@@ -18,8 +18,6 @@ module("Acceptance | navigation", function (hooks) {
   });
 
   test("it renders a group switcher", async function (assert) {
-    assert.expect(4);
-
     this.server.create("public-group", { name: "Test Group" });
 
     await visit("/");
@@ -77,8 +75,8 @@ module("Acceptance | navigation", function (hooks) {
         .dom("a.be-navbar-internal-link")
         .hasAttribute(
           "href",
-          "http://ebau.local/index/redirect-to-instance-resource/instance-id/1"
+          "http://ebau.local/index/redirect-to-instance-resource/instance-id/1",
         );
-    }
+    },
   );
 });

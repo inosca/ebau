@@ -146,7 +146,7 @@ export default class CustomWorkItemModel extends WorkItemModel {
       const formFields = this.store
         .peekAll("form-field")
         .filter(
-          (field) => field.instance.get("id") === this.instanceId.toString()
+          (field) => field.instance.get("id") === this.instanceId.toString(),
         );
 
       const formField =
@@ -210,7 +210,7 @@ export default class CustomWorkItemModel extends WorkItemModel {
       const hash = this.router.urlFor(
         "work-items.instance.edit",
         this.instanceId,
-        this.id
+        this.id,
       );
 
       return url && `${url}${hash}`;
@@ -257,7 +257,7 @@ export default class CustomWorkItemModel extends WorkItemModel {
       return query
         ? Object.entries(this._getLinkPlaceholders()).reduce(
             (url, [key, value]) => url.replace(`{{${key}}}`, value),
-            `/index/redirect-to-instance-resource/instance-id/${this.instanceId}?${query}`
+            `/index/redirect-to-instance-resource/instance-id/${this.instanceId}?${query}`,
           )
         : null;
     }

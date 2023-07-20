@@ -156,7 +156,7 @@ function reduceArrayValues(data) {
         } else {
           result[key] = Boolean(result[key] || curr[key]);
         }
-      }
+      },
     );
     return result;
   });
@@ -177,7 +177,7 @@ export default class BeGisComponent extends Component {
 
   get isBuildingPermitForm() {
     return /^(baugesuch|vorabklaerung-vollstaendig)/.test(
-      this.args.field.document.rootForm.slug
+      this.args.field.document.rootForm.slug,
     );
   }
 
@@ -337,7 +337,7 @@ export default class BeGisComponent extends Component {
         // Keep the value only if the status is "valid"
         if (
           !["0", "gültig", "valable"].includes(
-            coords.keyvalue[project_status_index]
+            coords.keyvalue[project_status_index],
           )
         ) {
           return null;
@@ -389,7 +389,7 @@ export default class BeGisComponent extends Component {
       parcels.map(async (parcel) => {
         const newDocumentRaw = await this.apollo.mutate(
           mutation,
-          "saveDocument.document"
+          "saveDocument.document",
         );
 
         const owner = getOwner(this);
@@ -400,11 +400,11 @@ export default class BeGisComponent extends Component {
             raw: parseDocument(newDocumentRaw),
             parentDocument: this.args.field.document,
             owner,
-          })
+          }),
         );
 
         const fields = newDocument.fields.filter((field) =>
-          KEYS_TABLE.includes(field.question.slug)
+          KEYS_TABLE.includes(field.question.slug),
         );
 
         await Promise.all(
@@ -417,11 +417,11 @@ export default class BeGisComponent extends Component {
               await field.save.perform();
               await field.validate.perform();
             }
-          })
+          }),
         );
 
         rows.push(newDocument);
-      })
+      }),
     );
 
     table.answer.value = rows;
@@ -439,15 +439,15 @@ export default class BeGisComponent extends Component {
     const responses = yield Promise.all(
       parcels.map(
         async (parcel) =>
-          await this.fetch.fetch(`/api/v1/egrid/${parcel[KEY_TABLE_EGRID]}`)
-      )
+          await this.fetch.fetch(`/api/v1/egrid/${parcel[KEY_TABLE_EGRID]}`),
+      ),
     );
 
     const success = responses.every((response) => response.ok);
 
     if (success) {
       const raw = yield Promise.all(
-        responses.map((res) => res.json().then(({ data }) => data))
+        responses.map((res) => res.json().then(({ data }) => data)),
       );
 
       this.gisData = Object.entries(FIELD_MAP)
@@ -470,7 +470,7 @@ export default class BeGisComponent extends Component {
             if (type === "ChoiceQuestion") {
               value = values[value];
               valuePretty = field.options.find(
-                ({ slug }) => slug === value
+                ({ slug }) => slug === value,
               )?.label;
             } else if (type === "MultipleChoiceQuestion") {
               value = Array.isArray(value) ? value : [value];
@@ -492,7 +492,7 @@ export default class BeGisComponent extends Component {
       this.showConfirmation = true;
     } else {
       this.notification.danger(
-        this.intl.t("gis.notifications.error-additional")
+        this.intl.t("gis.notifications.error-additional"),
       );
     }
   }
@@ -517,7 +517,7 @@ export default class BeGisComponent extends Component {
 
           await field.validate.perform();
           await field.save.perform();
-        })
+        }),
     );
 
     this.showConfirmation = false;

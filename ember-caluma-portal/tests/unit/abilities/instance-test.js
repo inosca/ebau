@@ -9,8 +9,6 @@ module("Unit | Ability | instance", function (hooks) {
   setupTest(hooks);
 
   test("it computes form read/write permissions", async function (assert) {
-    assert.expect(6);
-
     const ability = this.owner.lookup("ability:instance");
 
     ability.set("model", {
@@ -40,8 +38,6 @@ module("Unit | Ability | instance", function (hooks) {
   });
 
   test("it computes read permissions", async function (assert) {
-    assert.expect(2);
-
     const ability = this.owner.lookup("ability:instance");
 
     ability.set("model", {
@@ -70,8 +66,6 @@ module("Unit | Ability | instance", function (hooks) {
   });
 
   test("it computes write permissions", async function (assert) {
-    assert.expect(2);
-
     const ability = this.owner.lookup("ability:instance");
 
     ability.set("model", {
@@ -100,8 +94,6 @@ module("Unit | Ability | instance", function (hooks) {
   });
 
   test("it computes create permissions", async function (assert) {
-    assert.expect(6);
-
     const ability = this.owner.lookup("ability:instance");
 
     ability.set("session", {

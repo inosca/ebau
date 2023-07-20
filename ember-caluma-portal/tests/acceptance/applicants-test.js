@@ -37,14 +37,10 @@ module("Acceptance | applicants", function (hooks) {
   });
 
   test("can list applicants", async function (assert) {
-    assert.expect(1);
-
     assert.dom("tbody tr").exists({ count: 2 });
   });
 
   test("can add an applicant", async function (assert) {
-    assert.expect(2);
-
     assert.dom("tbody tr").exists({ count: 2 });
 
     await fillIn("input[name=email]", "test@example.com");
@@ -54,8 +50,6 @@ module("Acceptance | applicants", function (hooks) {
   });
 
   test("can delete an applicant", async function (assert) {
-    assert.expect(4);
-
     assert.dom("tbody tr").exists({ count: 2 });
     assert.dom("tbody tr button").exists({ count: 2 });
 

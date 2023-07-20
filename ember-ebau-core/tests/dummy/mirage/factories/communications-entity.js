@@ -7,7 +7,7 @@ export default Factory.extend({
 
     communicationsEntity.update({
       service: faker.helpers.arrayElement(
-        services.length ? services.models : server.createList("service", 5)
+        services.length ? services.models : server.createList("service", 5),
       ),
     });
   },

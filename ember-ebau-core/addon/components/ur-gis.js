@@ -50,7 +50,7 @@ L.CRS.EPSG2056 = new L.Proj.CRS(
   {
     resolutions: RESOLUTIONS,
     origin: [2420000, 1350000],
-  }
+  },
 );
 
 /**
@@ -137,7 +137,7 @@ export default class UrGisComponent extends Component {
       this._map = target;
 
       const table = this.args.field.document.findAnswer(
-        KEY_TABLE_QUESTION || []
+        KEY_TABLE_QUESTION || [],
       );
 
       const coordinatesEast = table ? table[0]["coordinates-east"] : null;
@@ -173,7 +173,7 @@ export default class UrGisComponent extends Component {
         `/lisag/wms?SERVICE=WMS&VERSION=1.3.0&HEIGHT=101&WIDTH=101&request=GetCapabilities&REQUEST=GetFeatureInfo&FORMAT=image/png&LAYERS=${layers}&QUERY_LAYERS=${layers}&INFO_FORMAT=application/json&I=50&J=50&CRS=EPSG:3857&BBOX=${minX},${minY},${maxX},${maxY}&FEATURE_COUNT=10`,
         {
           mode: "cors",
-        }
+        },
       );
       const data = yield response.json();
       if (data.features) {
@@ -190,34 +190,34 @@ export default class UrGisComponent extends Component {
 
         const gebaeudeAdressenFeature = filterFeatureById(
           data.features,
-          "ch060_gebaeudeadresse_gebeudeeingaenge"
+          "ch060_gebaeudeadresse_gebeudeeingaenge",
         );
 
         const liegenschaftFeature = filterFeatureById(
           data.features,
-          "ch059_liegenschaften_flaechen"
+          "ch059_liegenschaften_flaechen",
         );
 
         const selbstrechtFeature = filterFeatureById(
           data.features,
-          "ch059_liegenschaften_selbstrechte"
+          "ch059_liegenschaften_selbstrechte",
         );
 
         const archFeature = filterFeatureById(
           data.features,
-          "archaeologische_funderwartungsgebiete"
+          "archaeologische_funderwartungsgebiete",
         );
 
         const grundwasser = addFeatureStaticText(
           data.features,
           "ch131_rkr_grundwasserschutzzonen_inkraft",
-          "Grundwasserschutzzone"
+          "Grundwasserschutzzone",
         );
 
         const fruchtfolgefläche = addFeatureStaticText(
           data.features,
           "ch068_fruchtfolgeflaeche",
-          "Fruchtfolgefläche"
+          "Fruchtfolgefläche",
         );
 
         features.push(grundwasser, fruchtfolgefläche);
@@ -319,8 +319,8 @@ export default class UrGisComponent extends Component {
       parcels.map(async (parcel) => {
         const fields = this.args.field.document.fields.filter((field) =>
           [...SIMPLE_FIELD_KEYS, ...CHOICE_FIELD_KEYS].includes(
-            field.question.slug
-          )
+            field.question.slug,
+          ),
         );
 
         await all(
@@ -328,7 +328,7 @@ export default class UrGisComponent extends Component {
             let value;
             if (CHOICE_FIELD_KEYS.includes(field.question.slug)) {
               value = field.question.options.find(
-                ({ label }) => label === parcel[field.question.slug]
+                ({ label }) => label === parcel[field.question.slug],
               )?.slug;
             } else {
               value = parcel[field.question.slug];
@@ -341,16 +341,16 @@ export default class UrGisComponent extends Component {
             field.answer.value = value;
             await field.save.perform();
             await field.validate.perform();
-          })
+          }),
         );
-      })
+      }),
     );
   }
 
   @dropTask
   *populateTable(parcels) {
     const table = this.args.field.document.fields.find(
-      (field) => field.question.slug === KEY_TABLE_QUESTION
+      (field) => field.question.slug === KEY_TABLE_QUESTION,
     );
 
     const mutation = {
@@ -362,7 +362,7 @@ export default class UrGisComponent extends Component {
       parcels.map(async (parcel) => {
         const newDocumentRaw = await this.apollo.mutate(
           mutation,
-          "saveDocument.document"
+          "saveDocument.document",
         );
 
         const owner = getOwner(this);
@@ -373,11 +373,11 @@ export default class UrGisComponent extends Component {
             raw: parseDocument(newDocumentRaw),
             parentDocument: this.args.field.document,
             owner,
-          })
+          }),
         );
 
         const fields = newDocument.fields.filter((field) =>
-          KEYS_TABLE.includes(field.question.slug)
+          KEYS_TABLE.includes(field.question.slug),
         );
 
         await all(
@@ -393,11 +393,11 @@ export default class UrGisComponent extends Component {
 
             await field.save.perform();
             await field.validate.perform();
-          })
+          }),
         );
 
         return newDocument;
-      })
+      }),
     );
 
     table.answer.value = rows;
@@ -433,7 +433,7 @@ export default class UrGisComponent extends Component {
         return;
       }
       const coordinates = getCenter(
-        data.features[0].geometry.coordinates[0][0].map(EPSG3857toLatLng)
+        data.features[0].geometry.coordinates[0][0].map(EPSG3857toLatLng),
       );
       this.latlng = coordinates;
       this.zoom = 10;
@@ -468,7 +468,7 @@ export default class UrGisComponent extends Component {
     formData.append("instance", instanceId);
     formData.append(
       "attachment_sections",
-      mainConfig.attachmentSections.applicant
+      mainConfig.attachmentSections.applicant,
     );
     formData.append("path", blob, "Parzellenbild.png");
 
@@ -492,12 +492,12 @@ export default class UrGisComponent extends Component {
         return;
       }
       const municipality = field.question.options.find(
-        ({ slug }) => slug === field.value
+        ({ slug }) => slug === field.value,
       );
 
       yield this.fetchCoordinates.perform(
         parcelOrBuildingleaseNr,
-        municipality.label
+        municipality.label,
       );
     } catch (error) {
       console.error(error);
