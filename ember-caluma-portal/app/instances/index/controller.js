@@ -102,6 +102,10 @@ export default class InstancesIndexController extends Controller {
 
   rootForms = trackedTask(this, this.fetchRootForms, () => {});
 
+  get hasSpecialId() {
+    return Boolean(answerSlugs.specialId);
+  }
+
   get categories() {
     return Object.keys(config.APPLICATION.instanceStateCategories);
   }
@@ -118,16 +122,20 @@ export default class InstancesIndexController extends Controller {
         label: "instances.instance-id",
         direction: "instances.asc",
       },
-      {
-        value: `${answerSlugs.specialId}:desc`,
-        label: "instances.special-id",
-        direction: "instances.desc",
-      },
-      {
-        value: `${answerSlugs.specialId}:asc`,
-        label: "instances.special-id",
-        direction: "instances.asc",
-      },
+      ...(this.hasSpecialId
+        ? [
+            {
+              value: `${answerSlugs.specialId}:desc`,
+              label: "instances.special-id",
+              direction: "instances.desc",
+            },
+            {
+              value: `${answerSlugs.specialId}:asc`,
+              label: "instances.special-id",
+              direction: "instances.asc",
+            },
+          ]
+        : []),
       {
         value: "submit-date:desc",
         label: "instances.submitDate",
