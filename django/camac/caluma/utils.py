@@ -250,6 +250,6 @@ class CalumaInfo:
     class _Context:
         def __init__(self, request):
             _, token = get_authorization_header(request).split()
-            oidc_user = OIDCUser(token=token, userinfo=request.auth)
+            oidc_user = OIDCUser(token=token, claims=request.auth)
 
             self.user = extend_user(oidc_user, request)

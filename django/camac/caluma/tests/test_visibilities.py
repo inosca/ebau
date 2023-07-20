@@ -536,7 +536,7 @@ def test_form_visibility_sz(
 
     oidc_user = OIDCUser(
         token=token,
-        userinfo={
+        claims={
             settings.OIDC_USERNAME_CLAIM: user.username,
             settings.OIDC_GROUPS_CLAIM: [group.service_id],
             "sub": user.username,
