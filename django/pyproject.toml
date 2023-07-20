@@ -67,7 +67,9 @@ filterwarnings = [
     # Remove this when requests-toolbelt fixes its use
     "ignore:'urllib3.contrib.pyopenssl' module is deprecated*:DeprecationWarning",
     # Deprecated usage of django-filters method in drf-yasg
-    "ignore:Built-in schema generation is deprecated*:DeprecationWarning"
+    "ignore:Built-in schema generation is deprecated.*:DeprecationWarning",
+    # Issue in pytest-factoryboy
+    "ignore:.*_after_postgeneration will stop saving the instance.*:DeprecationWarning"
 ]
 
 [tool.coverage.run]
