@@ -21,6 +21,7 @@ services:
       - DJANGO_CACHE_LOCATION=cache:11211
       - DJANGO_MEDIA_ROOT=/var/lib/camac/media
       - DJANGO_CLAMD_ENABLED=false
+      - DJANGO_TEMPFILE_DOWNLOAD_URL=/tmp
       - APPLICATION=${APPLICATION}
       - CACHE_BACKEND=django.core.cache.backends.memcached.MemcachedCache
       - CACHE_LOCATION=cache:11211
@@ -64,11 +65,12 @@ services:
         - acr.run/camac-ng/camac-ng/keycloak:master
 
   document-merge-service:
-    image: ghcr.io/adfinis/document-merge-service:5.0.5
+    image: ghcr.io/adfinis/document-merge-service:6.2.0
     volumes:
       - ../document-merge-service/uwsgi.ini:/app/uwsgi.ini:ro
       - ../document-merge-service/kt_so/templatefiles:/var/lib/document-merge-service/media
       - ../document-merge-service/kt_so/dump.json:/tmp/document-merge-service/dump.json
+      - ../document-merge-service/kt_so/fonts:/usr/local/share/fonts
     environment:
       - DATABASE_ENGINE=django.db.backends.postgresql
       - DATABASE_HOST=db
@@ -76,9 +78,6 @@ services:
       - DATABASE_USER=camac
       - DATABASE_PASSWORD=camac
       - REQUIRE_AUTHENTICATION=True
-      - GROUP_ACCESS_ONLY=True
-      - OIDC_GROUPS_API_JSONPATH=$$.included[?(@.type=='services')].id
-      - OIDC_GROUPS_API_HEADERS=AUTHORIZATION,X-CAMAC-GROUP
 
 volumes:
   pgdata:

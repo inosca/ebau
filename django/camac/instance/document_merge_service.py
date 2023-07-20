@@ -95,6 +95,18 @@ def get_header_labels():
     }
 
 
+def graceful_get(master_data, prop, key=None, default=None):
+    if prop not in settings.APPLICATION["MASTER_DATA"]:  # pragma: no cover
+        return default
+
+    value = getattr(master_data, prop, default)
+
+    if value and key:
+        return value.get(key)
+
+    return value
+
+
 class DMSHandler:
     def get_meta_data(self, instance, document, service):
         master_data = MasterData(instance.case)
@@ -114,10 +126,8 @@ class DMSHandler:
             "formType": str(document.form.name)
             if instance.case.document.pk != document.pk
             else None,
-            "dossierNr": master_data.dossier_number,
-            "municipality": master_data.municipality.get("label")
-            if master_data.municipality
-            else None,
+            "dossierNr": graceful_get(master_data, "dossier_number"),
+            "municipality": graceful_get(master_data, "municipality", key="label"),
             "signatureSectionTitle": _("Signatures"),
             "signatureTitle": _("Signature"),
             "signatureMetadata": _("Place and date"),
@@ -144,51 +154,66 @@ class DMSHandler:
             header_data = {
                 "addressHeader": clean_join(
                     clean_join(
-                        master_data.street,
-                        master_data.street_number,
+                        graceful_get(master_data, "street"),
+                        graceful_get(master_data, "street_number"),
                     ),
                     clean_join(
-                        master_data.zip,
-                        master_data.city,
+                        graceful_get(master_data, "city"),
+                        graceful_get(master_data, "zip"),
                     ),
                     separator=", ",
                 ),
                 "plotsHeader": clean_join(
-                    *[obj["plot_number"] for obj in master_data.plot_data],
+                    *[
+                        obj["plot_number"]
+                        for obj in graceful_get(master_data, "plot_data", default=[])
+                    ],
                     separator=", ",
-                )
-                if master_data.plot_data
-                else None,
+                ),
                 # all applicant names as comma-separated string
                 "applicantHeader": clean_join(
                     *[
                         get_person_name(applicant)
-                        for applicant in master_data.applicants
+                        for applicant in graceful_get(
+                            master_data, "applicants", default=[]
+                        )
                     ],
                     separator=", ",
-                )
-                if master_data.applicants
-                else None,
+                ),
                 # all applicants as structured data
-                "applicants": enrich_personal_data(master_data.applicants),
-                "landowners": enrich_personal_data(master_data.landowners),
-                "projectAuthors": enrich_personal_data(master_data.project_authors),
-                "municipalityHeader": master_data.municipality.get("label")
-                if master_data.municipality
-                else None,
+                "applicants": enrich_personal_data(
+                    graceful_get(master_data, "applicants")
+                ),
+                "landowners": enrich_personal_data(
+                    graceful_get(master_data, "landowners")
+                ),
+                "projectAuthors": enrich_personal_data(
+                    graceful_get(master_data, "project_authors")
+                ),
+                "municipalityHeader": graceful_get(
+                    master_data, "municipality", key="label"
+                ),
                 "tagHeader": get_header_tags(instance, service),
                 "authorityHeader": get_header_authority(instance),
                 "responsibleHeader": get_header_responsible(instance, service),
-                "inputDateHeader": master_data.submit_date,
-                "paperInputDateHeader": master_data.paper_submit_date,
-                "descriptionHeader": master_data.proposal,
-                "modificationHeader": master_data.description_modification,
+                "inputDateHeader": graceful_get(master_data, "submit_date"),
+                "paperInputDateHeader": graceful_get(master_data, "paper_submit_date"),
+                "descriptionHeader": graceful_get(master_data, "proposal"),
+                "modificationHeader": graceful_get(
+                    master_data, "description_modification"
+                ),
                 "coordEast": clean_join(
-                    *[obj["coord_east"] for obj in master_data.plot_data],
+                    *[
+                        obj["coord_east"]
+                        for obj in graceful_get(master_data, "plot_data", default=[])
+                    ],
                     separator=", ",
                 ),
                 "coordNorth": clean_join(
-                    *[obj["coord_north"] for obj in master_data.plot_data],
+                    *[
+                        obj["coord_north"]
+                        for obj in graceful_get(master_data, "plot_data", default=[])
+                    ],
                     separator=", ",
                 ),
             }
@@ -243,12 +268,15 @@ class DMSHandler:
 
         return (instance, document)
 
-    def generate_pdf(self, instance_id, request, form_slug=None, document_id=None):
+    def generate_pdf(
+        self, instance_id, request, form_slug=None, document_id=None, template=None
+    ):
         instance, document = self.get_instance_and_document(
             instance_id, form_slug, document_id
         )
 
-        template = get_form_type_config(document.form.slug).get("template")
+        if template is None:
+            template = get_form_type_config(document.form.slug).get("template")
 
         if template is None:  # pragma: no cover
             raise exceptions.ValidationError(
