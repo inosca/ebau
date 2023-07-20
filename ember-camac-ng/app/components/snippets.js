@@ -49,7 +49,7 @@ export default class SnippetsComponent extends Component {
     event.preventDefault();
 
     const response = yield this.fetch.fetch(
-      `/api/v1/notification-templates/${id}/merge?instance=${this.calumaOptions.currentInstanceId}`
+      `/api/v1/notification-templates/${id}/merge?instance=${this.calumaOptions.currentInstanceId}`,
     );
 
     const { data } = yield response.json();

@@ -9,7 +9,7 @@ export default class RelatedPublicationsComponent extends Component {
   relatedPublicInstances = trackedTask(
     this,
     this.fetchRelatedPublicInstances,
-    () => [this.args.dossierNr, this.args.instanceId]
+    () => [this.args.dossierNr, this.args.instanceId],
   );
 
   @dropTask

@@ -54,7 +54,7 @@ module("Acceptance | responsible", function (hooks) {
 
     await selectChoose(
       "[data-test-responsible-user-select]",
-      `${users[1].name} ${users[1].surname}`
+      `${users[1].name} ${users[1].surname}`,
     );
     await click("[data-test-save-responsible]");
 

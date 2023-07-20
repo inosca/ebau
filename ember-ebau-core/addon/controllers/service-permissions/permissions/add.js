@@ -32,21 +32,21 @@ export default class ServicePermissionsPermissionsAddController extends Controll
       await userGroup.save();
 
       this.notification.success(
-        this.intl.t("service-permissions.permissions-save-success")
+        this.intl.t("service-permissions.permissions-save-success"),
       );
 
       this.router.transitionTo(
         this.ebauModules.resolveModuleRoute(
           "service-permissions",
-          "permissions.index"
-        )
+          "permissions.index",
+        ),
       );
     } catch (error) {
       userGroup.rollbackAttributes();
 
       this.notification.danger(
         parseError(error, false) ??
-          this.intl.t("service-permissions.permissions-save-error")
+          this.intl.t("service-permissions.permissions-save-error"),
       );
     }
   });

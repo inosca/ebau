@@ -17,14 +17,14 @@ export default class CasesDetailDistibutionIndexRoute extends Route {
         fetchPolicy: "network-only",
         variables: { instanceId },
       },
-      "allCases.edges.firstObject.node.workItems.edges.firstObject.node.childCase.id"
+      "allCases.edges.firstObject.node.workItems.edges.firstObject.node.childCase.id",
     );
   }
 
   redirect(distributionId) {
     this.router.replaceWith(
       "cases.detail.distribution.distribution-engine",
-      decodeId(distributionId)
+      decodeId(distributionId),
     );
   }
 }

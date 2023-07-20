@@ -33,7 +33,7 @@ export default class CommunicationNewTopicComponent extends Component {
     const services = this.services
       ?.filter(
         (service) =>
-          parseInt(service.id) !== parseInt(this.ebauModules.serviceId)
+          parseInt(service.id) !== parseInt(this.ebauModules.serviceId),
       )
       .map((service) => ({ id: service.get("id"), name: service.name }));
 
@@ -61,7 +61,7 @@ export default class CommunicationNewTopicComponent extends Component {
       const instance = await this.store.findRecord(
         "instance",
         this.args.instanceId,
-        { include: "involved_services,active_service", reload: true }
+        { include: "involved_services,active_service", reload: true },
       );
       const topic = this.store.createRecord("communications-topic", {
         instance,
@@ -94,7 +94,7 @@ export default class CommunicationNewTopicComponent extends Component {
 
       this.router.transitionTo(
         this.ebauModules.resolveModuleRoute("communications", "detail"),
-        topic.id
+        topic.id,
       );
     } catch (error) {
       console.error(error);

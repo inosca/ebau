@@ -69,7 +69,7 @@ export default class InstancesIndexController extends Controller {
     },
     deserialize(value) {
       return this.forms.filter((form) =>
-        form.value.some((v) => value.split(",").includes(v))
+        form.value.some((v) => value.split(",").includes(v)),
       );
     },
     defaultValue: "",
@@ -182,12 +182,12 @@ export default class InstancesIndexController extends Controller {
       (perm) =>
         perm.roles.includes(parseInt(this.session.group?.role.get("id"))) ||
         (perm.roles.includes("internal") && this.session.isInternal) ||
-        (perm.roles.includes("public") && !this.session.isInternal)
+        (perm.roles.includes("public") && !this.session.isInternal),
     );
     const raw = (this.rootForms.value ?? []).filter((edge) =>
       permissions.find((perm) =>
-        perm.forms.includes(edge.node.slug.replace(/-v\d/, ""))
-      )
+        perm.forms.includes(edge.node.slug.replace(/-v\d/, "")),
+      ),
     );
 
     return raw
@@ -293,7 +293,7 @@ export default class InstancesIndexController extends Controller {
   *fetchRootForms() {
     return yield this.apollo.watchQuery(
       { query: getRootFormsQuery },
-      "allForms.edges"
+      "allForms.edges",
     );
   }
 

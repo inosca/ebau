@@ -41,7 +41,7 @@ export default class CommunicationMessageInputComponent extends Component {
   @action
   remove(list, toRemove) {
     this.args.message[list] = this.args.message[list].filter(
-      (file) => file !== toRemove
+      (file) => file !== toRemove,
     );
   }
 

@@ -25,7 +25,7 @@ module("Integration | Component | communication/new-topic", function (hooks) {
     this.transitionToFake = replace(
       this.router,
       "transitionTo",
-      fake(() => {})
+      fake(() => {}),
     );
   });
 
@@ -38,13 +38,11 @@ module("Integration | Component | communication/new-topic", function (hooks) {
   });
 
   test("it renders the form for applicant", async function (assert) {
-    assert.expect(13);
-
     this.ebauModules.isApplicant = true;
     this.instance = this.server.create("instance");
 
     await render(
-      hbs`<Communication::NewTopic @instanceId={{this.instance.id}} />`
+      hbs`<Communication::NewTopic @instanceId={{this.instance.id}} />`,
     );
 
     assert.dom("[data-test-involved-entities]").doesNotExist();
@@ -101,8 +99,6 @@ module("Integration | Component | communication/new-topic", function (hooks) {
   });
 
   test("it renders the form for internal", async function (assert) {
-    assert.expect(9);
-
     const involvedServices = this.server.createList("service", 2);
     this.instance = this.server.create("instance");
     this.instance.update({
@@ -110,7 +106,7 @@ module("Integration | Component | communication/new-topic", function (hooks) {
     });
 
     await render(
-      hbs`<Communication::NewTopic @instanceId={{this.instance.id}} />`
+      hbs`<Communication::NewTopic @instanceId={{this.instance.id}} />`,
     );
 
     assert.dom("[data-test-allow-answers]").doesNotExist();
@@ -119,7 +115,7 @@ module("Integration | Component | communication/new-topic", function (hooks) {
       // Check applicant is not selectable
       await selectChoose(
         "[data-test-involved-entities]",
-        this.intl.t("communications.new.applicant")
+        this.intl.t("communications.new.applicant"),
       );
     } catch (error) {
       assert.ok(error);
@@ -127,7 +123,7 @@ module("Integration | Component | communication/new-topic", function (hooks) {
 
     await selectChoose(
       "[data-test-involved-entities]",
-      involvedServices[0].name
+      involvedServices[0].name,
     );
 
     assert
@@ -180,8 +176,6 @@ module("Integration | Component | communication/new-topic", function (hooks) {
   });
 
   test("it renders the form for active instance service", async function (assert) {
-    assert.expect(8);
-
     const group = this.server.create("public-group", {
       service: this.server.create("public-service", { name: "test-service" }),
     });
@@ -191,7 +185,7 @@ module("Integration | Component | communication/new-topic", function (hooks) {
     });
 
     await render(
-      hbs`<Communication::NewTopic @instanceId={{this.instance.id}} />`
+      hbs`<Communication::NewTopic @instanceId={{this.instance.id}} />`,
     );
 
     assert.dom("[data-test-allow-answers]").exists();
@@ -250,20 +244,18 @@ module("Integration | Component | communication/new-topic", function (hooks) {
   });
 
   test("it redirects to index route on discard", async function (assert) {
-    assert.expect(2);
-
     this._routing = getOwner(this).lookup("service:-routing");
     this._transitionTo = this._routing.transitionTo;
     this._transitionToFake = replace(
       this._routing,
       "transitionTo",
-      fake(() => {})
+      fake(() => {}),
     );
 
     this.instance = this.server.create("instance");
 
     await render(
-      hbs`<Communication::NewTopic @instanceId={{this.instance.id}} />`
+      hbs`<Communication::NewTopic @instanceId={{this.instance.id}} />`,
     );
 
     await click("[data-test-discard]");

@@ -13,13 +13,11 @@ module("Integration | Component | communication/topic", function (hooks) {
   hooks.beforeEach(function () {
     this.owner.lookup("service:ebauModules").resolveModuleRoute = (
       _,
-      routeName
+      routeName,
     ) => routeName;
   });
 
   test("it renders a topic", async function (assert) {
-    assert.expect(7);
-
     this.topic = this.server.create("communications-topic", {});
     this.server.createList("communications-message", 4, {
       topic: this.topic,
@@ -31,7 +29,7 @@ module("Integration | Component | communication/topic", function (hooks) {
     assert
       .dom("[data-test-created-by]")
       .hasText(
-        `Erstellt von ${this.topic.initiatedByEntity.name} (${this.topic.initiatedBy.name} ${this.topic.initiatedBy.surname})`
+        `Erstellt von ${this.topic.initiatedByEntity.name} (${this.topic.initiatedBy.name} ${this.topic.initiatedBy.surname})`,
       );
     assert.dom("[data-test-message-list]").exists();
     assert.dom("[data-test-message-input]").exists();
@@ -50,8 +48,6 @@ module("Integration | Component | communication/topic", function (hooks) {
   });
 
   test("it renders a read only topic", async function (assert) {
-    assert.expect(3);
-
     this.topic = this.server.create("communications-topic", {
       allowReplies: false,
     });

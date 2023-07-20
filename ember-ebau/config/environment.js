@@ -3,7 +3,7 @@
 module.exports = function (environment) {
   // eslint-disable-next-line no-console
   console.log(
-    `build env: APPLICATION: ${process.env.APPLICATION}, KEYCLOAK_HOST: ${process.env.KEYCLOAK_HOST}`
+    `build env: APPLICATION: ${process.env.APPLICATION}, KEYCLOAK_HOST: ${process.env.KEYCLOAK_HOST}`,
   );
   const oidcHost = process.env.KEYCLOAK_HOST || "http://ebau-keycloak.local";
   const oidcRealm = process.env.APPLICATION === "kt_uri" ? "urec" : "ebau";

@@ -17,7 +17,7 @@ export default class CaseTableHeaderComponent extends Component {
     this.args.onSetOrder(
       this.args.currentOrder === this.args.column.order
         ? `-${this.args.column.order}`
-        : this.args.column.order
+        : this.args.column.order,
     );
   }
 }

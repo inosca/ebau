@@ -28,11 +28,11 @@ export default class CommunicationAttachmentSectionDropdownComponent extends Com
         sections.map(async (section) => {
           const canUpload = await section.canUpload(
             this.args.instanceId,
-            this.ebauModules.serviceId
+            this.ebauModules.serviceId,
           );
 
           return canUpload ? section : null;
-        })
+        }),
       )
     ).filter(Boolean);
   });

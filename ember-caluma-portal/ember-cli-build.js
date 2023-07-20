@@ -48,17 +48,17 @@ module.exports = function (defaults) {
 
   app.trees.styles = stew.rm(
     stew.rename(app.trees.styles, `-${ENV}.scss`, ".scss"),
-    `*/*-{${UNUSED_ENVS}}.scss`
+    `*/*-{${UNUSED_ENVS}}.scss`,
   );
 
   app.trees.app = stew.rm(
     stew.rename(app.trees.app, `-${ENV}.hbs`, ".hbs"),
-    `*/*-{${UNUSED_ENVS}}.hbs`
+    `*/*-{${UNUSED_ENVS}}.hbs`,
   );
 
   app.trees.public = stew.rm(
     stew.rename(app.trees.public, `-${ENV}.ico`, ".ico"),
-    `*/*-{${UNUSED_ENVS}}.ico`
+    `*/*-{${UNUSED_ENVS}}.ico`,
   );
 
   return app.toTree();

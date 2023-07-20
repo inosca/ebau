@@ -35,7 +35,7 @@ export default class LinkAttachmentsComponent extends Component {
   hasUploadPermission = trackedFunction(this, async () => {
     return await this.attachmentSection.record?.canUpload(
       this.instanceId,
-      this.calumaOptions.currentGroupId
+      this.calumaOptions.currentGroupId,
     );
   });
 

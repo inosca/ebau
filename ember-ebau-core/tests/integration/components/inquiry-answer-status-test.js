@@ -21,7 +21,7 @@ module("Integration | Component | inquiry-answer-status", function (hooks) {
       "service:calumaOptions",
       class extends Service {
         currentInstanceId = 1;
-      }
+      },
     );
 
     this.formSlug = "baugesuch-v2";
@@ -48,7 +48,7 @@ module("Integration | Component | inquiry-answer-status", function (hooks) {
           },
         },
       }),
-      200
+      200,
     );
 
     this.field = {
@@ -71,7 +71,7 @@ module("Integration | Component | inquiry-answer-status", function (hooks) {
       OBLIGATION_ANSWERS.forEach((slug) => {
         assert.dom(`select > option[value=${slug}]`).doesNotExist();
       });
-    }
+    },
   );
 
   testBE(
@@ -85,6 +85,6 @@ module("Integration | Component | inquiry-answer-status", function (hooks) {
       OBLIGATION_ANSWERS.forEach((slug) => {
         assert.dom(`select > option[value=${slug}]`).exists();
       });
-    }
+    },
   );
 });

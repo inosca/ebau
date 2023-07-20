@@ -7,7 +7,7 @@ export default class ServicePermissionsIndexRoute extends Route {
 
   redirect() {
     this.router.replaceWith(
-      this.ebauModules.resolveModuleRoute("service-permissions", "permissions")
+      this.ebauModules.resolveModuleRoute("service-permissions", "permissions"),
     );
   }
 }

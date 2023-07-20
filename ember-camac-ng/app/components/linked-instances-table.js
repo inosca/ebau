@@ -64,7 +64,7 @@ export default class LinkedInstancesTableComponent extends Component {
   @action
   redirectToCase(caseRecord) {
     location.assign(
-      `/index/redirect-to-instance-resource/instance-id/${caseRecord.instanceId}/`
+      `/index/redirect-to-instance-resource/instance-id/${caseRecord.instanceId}/`,
     );
   }
 }

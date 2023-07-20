@@ -283,7 +283,7 @@ export default class CaseTableComponent extends Component {
 
     const searchFilters = Object.entries(filter)
       .filter(
-        ([key, value]) => Boolean(value) && Boolean(availableFilterSet[key])
+        ([key, value]) => Boolean(value) && Boolean(availableFilterSet[key]),
       )
       .map(([key]) => availableFilterSet[key]);
 
@@ -425,7 +425,7 @@ export default class CaseTableComponent extends Component {
       : tableColumns[this.ebauModules.baseRole] ?? tableColumns.default ?? [];
 
     const availableOrderings = Object.keys(
-      caseTableConfig.availableOrderings ?? []
+      caseTableConfig.availableOrderings ?? [],
     );
 
     return columnNames.map((name) => ({
@@ -477,13 +477,13 @@ export default class CaseTableComponent extends Component {
             headers: this.camacFilter,
           },
         },
-        "allCases.edges"
+        "allCases.edges",
       );
 
       const ids = response.map((edge) => edge.node.meta["camac-instance-id"]);
 
       const exportResponse = yield this.fetch.fetch(
-        `/api/v1/instances/export?instance_id=${ids.join(",")}`
+        `/api/v1/instances/export?instance_id=${ids.join(",")}`,
       );
 
       saveAs(yield exportResponse.blob(), "export.xlsx");

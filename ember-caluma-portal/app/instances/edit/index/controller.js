@@ -82,7 +82,7 @@ export default class InstancesEditIndexController extends Controller {
     yield this.router.transitionTo(
       "instances.edit.form",
       data.id,
-      this.instance.value.calumaForm
+      this.instance.value.calumaForm,
     );
   }
 
@@ -123,7 +123,7 @@ export default class InstancesEditIndexController extends Controller {
     yield this.router.transitionTo(
       "instances.edit.form",
       instanceId,
-      "verlaengerung-geltungsdauer"
+      "verlaengerung-geltungsdauer",
     );
   }
 
@@ -148,7 +148,7 @@ export default class InstancesEditIndexController extends Controller {
     yield this.router.transitionTo(
       "instances.edit.form",
       instanceId,
-      "technische-bewilligung"
+      "technische-bewilligung",
     );
   }
 }

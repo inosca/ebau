@@ -14,7 +14,7 @@ module("Integration | Component | qr-code", function (hooks) {
       "service:shoebox",
       class extends Service {
         content = { config: { portalURL: location.origin } };
-      }
+      },
     );
 
     const uuid = v4();
@@ -35,7 +35,7 @@ module("Integration | Component | qr-code", function (hooks) {
       .dom("img")
       .hasAttribute(
         "alt",
-        `${location.origin}/public-instances/1?key=${uuid.substr(0, 7)}`
+        `${location.origin}/public-instances/1?key=${uuid.substr(0, 7)}`,
       );
   });
 });

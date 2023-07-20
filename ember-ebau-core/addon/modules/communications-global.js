@@ -13,6 +13,6 @@ export default function register(router, options = {}) {
       routes: { "communications-global": CommunicationsGlobalRoute },
       controllers: {},
       templates: { "communications-global": CommunicationsGlobalTemplate },
-    }
+    },
   );
 }

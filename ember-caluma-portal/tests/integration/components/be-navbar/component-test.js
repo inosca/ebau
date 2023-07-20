@@ -60,8 +60,6 @@ module("Integration | Component | be-navbar", function (hooks) {
       "t:nav.support:()",
     ];
 
-    assert.expect(navItems.length);
-
     await authenticateSession();
 
     await render(hbs`<BeNavbar />`);

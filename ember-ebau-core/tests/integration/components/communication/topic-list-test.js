@@ -23,11 +23,10 @@ module("Integration | Component | communication/topic-list", function (hooks) {
   });
 
   test("it renders topic list", async function (assert) {
-    assert.expect(7);
     this.instance = this.server.create("instance", "withTopics");
 
     await render(
-      hbs`<Communication::TopicList @instanceId={{this.instance.id}} />`
+      hbs`<Communication::TopicList @instanceId={{this.instance.id}} />`,
     );
 
     assert.dom("[data-test-new-topic]").exists();
@@ -49,12 +48,11 @@ module("Integration | Component | communication/topic-list", function (hooks) {
     assert
       .dom("[data-test-involved-entities]")
       .hasText(
-        firstTopic.involvedEntities.map((entity) => entity.name).join("\n")
+        firstTopic.involvedEntities.map((entity) => entity.name).join("\n"),
       );
   });
 
   test("it renders global list", async function (assert) {
-    assert.expect(4);
     const instance = this.server.create("instance", "withTopics");
 
     await render(hbs`<Communication::TopicList />`);
@@ -66,12 +64,11 @@ module("Integration | Component | communication/topic-list", function (hooks) {
     assert
       .dom("[data-test-dossier-number]")
       .hasText(
-        `${this.server.db.communicationsTopics[0].dossierNumber} (${instance.id})`
+        `${this.server.db.communicationsTopics[0].dossierNumber} (${instance.id})`,
       );
   });
 
   test("it toggles between all, read and unread", async function (assert) {
-    assert.expect(5);
     const instance = this.server.create("instance");
     this.server.create("communications-topic", {
       hasUnread: true,
@@ -120,7 +117,6 @@ module("Integration | Component | communication/topic-list", function (hooks) {
   });
 
   test("it links to detail and new", async function (assert) {
-    assert.expect(4);
     this.server.create("communications-topic");
 
     const router = this.owner.lookup("service:router");
@@ -129,12 +125,12 @@ module("Integration | Component | communication/topic-list", function (hooks) {
     const detailFake = replace(
       router,
       "transitionTo",
-      fake.returns("transisioned")
+      fake.returns("transisioned"),
     );
     const newFake = replace(
       routing,
       "transitionTo",
-      fake.returns("transisioned")
+      fake.returns("transisioned"),
     );
 
     await render(hbs`<Communication::TopicList @instanceId={{1}} />`);
@@ -149,7 +145,6 @@ module("Integration | Component | communication/topic-list", function (hooks) {
   });
 
   test("it has infinite loading and resets page on query change", async function (assert) {
-    assert.expect(5);
     this.server.createList("communications-topic", 40);
 
     await render(hbs`<Communication::TopicList @instanceId={{1}} />`);
