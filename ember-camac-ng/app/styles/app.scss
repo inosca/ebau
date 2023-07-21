@@ -2,7 +2,8 @@
   --uk-position-margin-offset: 0px;
 }
 
-#ember-camac-ng {
+#ember-camac-ng,
+#ember-testing {
   @import "variables";
   @import "ember-uikit";
   @import "@projectcaluma/ember-distribution";
