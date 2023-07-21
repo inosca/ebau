@@ -46,13 +46,14 @@ export default class DmsGenerateComponent extends Component {
       .sort(sortByDescription);
 
     const ownTemplates = templates.filter(
-      (t) => parseInt(t.group) === parseInt(this.ebauModules.serviceId),
+      (t) => parseInt(t.meta.service) === parseInt(this.ebauModules.serviceId),
     );
     const inheritedTemplates = templates.filter(
       (t) =>
-        t.group && parseInt(t.group) !== parseInt(this.ebauModules.serviceId),
+        t.meta.service &&
+        parseInt(t.meta.service) !== parseInt(this.ebauModules.serviceId),
     );
-    const systemTemplates = templates.filter((t) => !t.group);
+    const systemTemplates = templates.filter((t) => !t.meta.service);
 
     const ownUncategorized = ownTemplates.filter((t) => !t.meta.category);
     const inheritedUncategorized = inheritedTemplates.filter(
