@@ -1,7 +1,8 @@
 from django.db.models import Q
+from generic_permissions.visibilities import filter_queryset_for
+
 from document_merge_service.api.models import Template
 from document_merge_service.extensions.utils import get_services
-from generic_permissions.visibilities import filter_queryset_for
 
 
 class CustomVisibility:
