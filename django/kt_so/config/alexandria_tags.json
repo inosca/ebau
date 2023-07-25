@@ -1,0 +1,90 @@
+[
+  {
+    "model": "alexandria_core.document",
+    "pk": "a4c3e79f-f0c5-43ae-8965-fe99218d0ce0",
+    "fields": {
+      "created_at": "2023-07-25T15:49:00.677Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2023-07-25T15:49:00.677Z",
+      "modified_by_user": "1",
+      "modified_by_group": null,
+      "metainfo": {
+        "case_id": 1
+      },
+      "title": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "category": "beilagen-zum-gesuch",
+      "tags": [
+        "dokument-grundstucksangaben",
+        "dokument-gutachten-nachweise-begrundungen",
+        "dokument-projektplane-projektbeschrieb",
+        "dokument-weitere-gesuchsunterlagen"
+      ]
+    }
+  },
+  {
+    "model": "alexandria_core.tag",
+    "pk": "dokument-grundstucksangaben",
+    "fields": {
+      "created_at": "2023-07-25T15:49:00.677Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2023-07-25T15:49:00.677Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {},
+      "name": "Grundstücksangaben",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "tag_synonym_group": null
+    }
+  },
+  {
+    "model": "alexandria_core.tag",
+    "pk": "dokument-gutachten-nachweise-begrundungen",
+    "fields": {
+      "created_at": "2023-07-25T15:49:00.677Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2023-07-25T15:49:00.677Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {},
+      "name": "Gutachten, Nachweise, Begründungen",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "tag_synonym_group": null
+    }
+  },
+  {
+    "model": "alexandria_core.tag",
+    "pk": "dokument-projektplane-projektbeschrieb",
+    "fields": {
+      "created_at": "2023-07-25T15:49:00.677Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2023-07-25T15:49:00.677Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {},
+      "name": "Projektpläne, Projektbeschrieb",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "tag_synonym_group": null
+    }
+  },
+  {
+    "model": "alexandria_core.tag",
+    "pk": "dokument-weitere-gesuchsunterlagen",
+    "fields": {
+      "created_at": "2023-07-25T15:49:00.677Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2023-07-25T15:49:00.677Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {},
+      "name": "Weitere Gesuchsunterlagen",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "tag_synonym_group": null
+    }
+  }
+]

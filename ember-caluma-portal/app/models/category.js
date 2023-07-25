@@ -1,3 +1,1 @@
-import CategoryModel from "ember-alexandria/models/category";
-
-export default CategoryModel;
+export { default } from "ember-alexandria/models/category";
