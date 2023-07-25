@@ -1,9 +1,10 @@
 import json
 
 from django.urls import resolve
+from generic_permissions.permissions import object_permission_for, permission_for
+
 from document_merge_service.api.models import Template
 from document_merge_service.extensions.utils import get_services
-from generic_permissions.permissions import object_permission_for, permission_for
 
 
 class CustomPermission:
