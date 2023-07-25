@@ -276,3 +276,16 @@ unlink-ember-caluma:
 	@projectcaluma/ember-workflow \
 	@projectcaluma/ember-distribution
 	@yarn --force
+
+.PHONY: watch-templatefiles
+watch-templatefiles: # Upload DMS templates to minio on change
+	@if command -v inotifywait >/dev/null; then \
+		while inotifywait -e close_write document-merge-service/${APPLICATION}/templatefiles; do make update-templatefiles; done; \
+	else \
+		echo "Please install inotify-tools to use this target"; \
+		exit 1; \
+	fi
+
+.PHONY: update-templatefiles
+update-templatefiles: # Upload DMS templates to minio
+	@docker compose run --rm --no-deps mc -u
