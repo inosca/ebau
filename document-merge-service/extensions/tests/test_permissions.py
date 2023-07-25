@@ -64,3 +64,21 @@ def test_custom_update_permission(
     )
 
     assert response.status_code == expected_status
+
+
+@pytest.mark.parametrize(
+    "template__engine,template__template,template__meta",
+    [(Template.DOCX_TEMPLATE, django_file("docx-template.docx"), {})],
+)
+def test_custom_merge_permission(admin_client, mock_services, template):
+    response = admin_client.post(
+        reverse("template-merge", args=[template.pk]),
+        data={"data": {"test": "Test input"}},
+        format="json",
+    )
+
+    assert response.status_code == status.HTTP_200_OK
+    assert (
+        response.get("content-type")
+        == "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+    )
