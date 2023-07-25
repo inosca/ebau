@@ -29,7 +29,7 @@ export default class InstancesEditApplicantsController extends Controller {
       email: this.email,
       instance: this.store.peekRecord(
         "instance",
-        this.editController.instance.value.id
+        this.editController.instance.value.id,
       ),
     });
 
@@ -44,7 +44,7 @@ export default class InstancesEditApplicantsController extends Controller {
       console.error(error);
       yield user.destroyRecord();
       this.notification.danger(
-        parseError(error) || this.intl.t("instances.applicants.addError")
+        parseError(error) || this.intl.t("instances.applicants.addError"),
       );
     }
   }
@@ -57,13 +57,13 @@ export default class InstancesEditApplicantsController extends Controller {
       yield applicant.destroyRecord();
 
       this.notification.success(
-        this.intl.t("instances.applicants.deleteSuccess")
+        this.intl.t("instances.applicants.deleteSuccess"),
       );
     } catch (error) {
       // eslint-ignore-next-line no-console
       console.error(error);
       this.notification.danger(
-        parseError(error) || this.intl.t("instances.applicants.deleteError")
+        parseError(error) || this.intl.t("instances.applicants.deleteError"),
       );
     }
   }

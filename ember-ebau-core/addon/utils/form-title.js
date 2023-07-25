@@ -5,17 +5,17 @@ export default function getFormTitle(caseModel, document, answerSlugs) {
 
   const oerebProcedure = getAnswerDisplayValue(
     document,
-    answerSlugs.oerebProcedure
+    answerSlugs.oerebProcedure,
   );
   const staticForestBoundaryMunicipality =
     getAnswerDisplayValue(
       document,
-      "waldfeststellung-mit-statischen-waldgrenzen-gemeinde"
+      "waldfeststellung-mit-statischen-waldgrenzen-gemeinde",
     ) === "Ja";
   const staticForestBoundaryCanton =
     getAnswerDisplayValue(
       document,
-      "waldfeststellung-mit-statischen-waldgrenzen-kanton"
+      "waldfeststellung-mit-statischen-waldgrenzen-kanton",
     ) === "Ja";
   const oerebTopics =
     isKoorAfjCopy &&
@@ -26,15 +26,15 @@ export default function getFormTitle(caseModel, document, answerSlugs) {
 
   const oerebPartialState = getAnswerDisplayValue(
     document,
-    answerSlugs.oerebPartialState
+    answerSlugs.oerebPartialState,
   );
   const procedureCanton = getAnswerDisplayValue(
     document,
-    answerSlugs.procedureCanton
+    answerSlugs.procedureCanton,
   );
   const procedureConfederation = getAnswerDisplayValue(
     document,
-    answerSlugs.procedureConfederation
+    answerSlugs.procedureConfederation,
   );
 
   if (oerebProcedure && oerebTopics) {

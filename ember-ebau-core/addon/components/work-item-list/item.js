@@ -105,7 +105,7 @@ export default class WorkItemListItemComponent extends Component {
     if (this.router.currentRouteName === `${this.args.baseRoute}.index`) {
       return yield this.router.transitionTo(
         `${this.args.baseRoute}.edit`,
-        this.args.workItem.id
+        this.args.workItem.id,
       );
     }
 
@@ -120,7 +120,7 @@ export default class WorkItemListItemComponent extends Component {
     yield this.router.transitionTo(
       `cases.detail.work-items.edit`,
       this.args.workItem.editLink.models[0],
-      this.args.workItem.editLink.models[1]
+      this.args.workItem.editLink.models[1],
     );
   }
 }

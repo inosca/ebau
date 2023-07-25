@@ -58,11 +58,11 @@ export default class SupportController extends Controller {
         query: getConstructionDescriptionQuery,
         variables: { instanceId: this.model },
       },
-      "allCases.edges"
+      "allCases.edges",
     );
 
     const answers = response[0].node.document.answers.edges.map(
-      (edge) => edge.node.value
+      (edge) => edge.node.value,
     );
 
     this.constructionDescription = answers.join("\r\n");
@@ -84,7 +84,7 @@ export default class SupportController extends Controller {
               },
             },
           }),
-        }
+        },
       );
       this.toggleModal();
 
@@ -92,7 +92,7 @@ export default class SupportController extends Controller {
       location.reload();
     } catch (e) {
       this.notification.danger(
-        this.intl.t("support.modification-to-new-dossier.conversion-error")
+        this.intl.t("support.modification-to-new-dossier.conversion-error"),
       );
     }
   }
@@ -122,11 +122,11 @@ export default class SupportController extends Controller {
         query: getFormsQuery,
         variables: {
           forms: mainConfig.interchangeableForms.find((forms) =>
-            forms.includes(this.instance.calumaForm)
+            forms.includes(this.instance.calumaForm),
           ),
         },
       },
-      "allForms.edges"
+      "allForms.edges",
     );
 
     return forms.map(({ node }) => ({ value: node.slug, label: node.name }));
@@ -142,7 +142,7 @@ export default class SupportController extends Controller {
 
       // sadly we need this to have current data on the whole page
       location.assign(
-        `/index/redirect-to-instance-resource/instance-id/${this.model}`
+        `/index/redirect-to-instance-resource/instance-id/${this.model}`,
       );
     } catch (error) {
       this.notification.danger(this.intl.t("support.archive.error"));
@@ -166,7 +166,7 @@ export default class SupportController extends Controller {
               },
             },
           }),
-        }
+        },
       );
 
       // sadly we need this to have current data on the whole page
@@ -226,7 +226,7 @@ export default class SupportController extends Controller {
               },
             },
           }),
-        }
+        },
       );
 
       const { data } = yield response.json();

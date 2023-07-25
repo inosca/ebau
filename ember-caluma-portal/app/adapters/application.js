@@ -19,7 +19,7 @@ export default class ApplicationAdapter extends OIDCJSONAPIAdapter {
 
     return this._appendInclude(
       super.urlForUpdateRecord(...args),
-      adapterOptions
+      adapterOptions,
     );
   }
 
@@ -28,7 +28,7 @@ export default class ApplicationAdapter extends OIDCJSONAPIAdapter {
 
     return this._appendInclude(
       super.urlForCreateRecord(...args),
-      adapterOptions
+      adapterOptions,
     );
   }
 }

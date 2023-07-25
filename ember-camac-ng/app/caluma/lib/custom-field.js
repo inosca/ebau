@@ -26,7 +26,7 @@ export default class CustomField extends Field {
   get isTestItem() {
     const testItemQuestion = this.question.slug.replace(
       /(-ergebnis|-bemerkungen)$/,
-      ""
+      "",
     );
 
     const field =
@@ -41,7 +41,7 @@ export default class CustomField extends Field {
   get isDefect() {
     const defectQuestion = `${this.question.slug.replace(
       /(-ergebnis|-bemerkungen)$/,
-      ""
+      "",
     )}-ergebnis`;
 
     const field =
@@ -92,7 +92,7 @@ export default class CustomField extends Field {
         query: workItemCaseInformationQuery,
         variables: { id },
       },
-      "allWorkItems.edges"
+      "allWorkItems.edges",
     );
 
     const workflow = response[0].node.case.workflow.slug;

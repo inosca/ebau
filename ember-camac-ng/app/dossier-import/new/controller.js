@@ -34,7 +34,7 @@ export default class DossierImportIndexController extends Controller {
     }
     const group = yield this.store.findRecord(
       "group",
-      this.shoebox.content.groupId
+      this.shoebox.content.groupId,
     );
     return [group];
   }
@@ -50,7 +50,7 @@ export default class DossierImportIndexController extends Controller {
     }
     const group = yield this.store.findRecord(
       "group",
-      this.shoebox.content.groupId
+      this.shoebox.content.groupId,
     );
     return group.locations;
   }
@@ -66,13 +66,13 @@ export default class DossierImportIndexController extends Controller {
     const formData = new FormData();
     formData.append(
       "group",
-      this.selectedGroup?.id || this.groups.firstObject?.id
+      this.selectedGroup?.id || this.groups.firstObject?.id,
     );
 
     if (mainConfig.useLocation) {
       formData.append(
         "location_id",
-        this.selectedLocation?.id || this.locations.firstObject?.id
+        this.selectedLocation?.id || this.locations.firstObject?.id,
       );
     }
 
@@ -83,7 +83,7 @@ export default class DossierImportIndexController extends Controller {
       // Force component template to reload
       yield timeout(200);
       this.notification.danger(
-        this.intl.t("dossierImport.new.uploadError.fileTooLarge")
+        this.intl.t("dossierImport.new.uploadError.fileTooLarge"),
       );
       return (this.fileUpload = {
         id: null,
@@ -118,7 +118,7 @@ export default class DossierImportIndexController extends Controller {
   async handleUploadError(response) {
     if (response.status === 413) {
       this.notification.danger(
-        this.intl.t(`dossierImport.new.uploadError.fileTooLarge`)
+        this.intl.t(`dossierImport.new.uploadError.fileTooLarge`),
       );
       return;
     }

@@ -71,7 +71,7 @@ export default class CasesNewController extends Controller {
     } = yield response.json();
 
     location.assign(
-      `/index/redirect-to-instance-resource/instance-id/${instanceId}/`
+      `/index/redirect-to-instance-resource/instance-id/${instanceId}/`,
     );
   }
 }

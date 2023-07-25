@@ -22,7 +22,7 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
       .map((model) => model.id);
 
     const uncachedIdentifiers = identifiers.filter(
-      (identifier) => !cachedIdentifiers.includes(String(identifier))
+      (identifier) => !cachedIdentifiers.includes(String(identifier)),
     );
 
     if (uncachedIdentifiers.length) {

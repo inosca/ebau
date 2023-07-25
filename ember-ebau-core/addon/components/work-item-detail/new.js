@@ -33,7 +33,7 @@ export default class WorkItemDetailNewComponent extends Component {
 
   get responsibleService() {
     return this.services.find((service) =>
-      this.workItem.addressedGroups.includes(service.id)
+      this.workItem.addressedGroups.includes(service.id),
     );
   }
 
@@ -47,7 +47,7 @@ export default class WorkItemDetailNewComponent extends Component {
 
   get responsibleUser() {
     return this.users.records?.find((user) =>
-      this.workItem.assignedUsers.includes(user.username)
+      this.workItem.assignedUsers.includes(user.username),
     );
   }
 
@@ -111,7 +111,7 @@ export default class WorkItemDetailNewComponent extends Component {
             ],
           },
         },
-        "allCases.edges"
+        "allCases.edges",
       ))[0].node.id;
 
       yield this.apollo.mutate({

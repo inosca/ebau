@@ -34,7 +34,7 @@ export default class extends JSONAPISerializer {
 
         json.data = json.data.slice(
           (intPage - 1) * intLimit,
-          intPage * intLimit
+          intPage * intLimit,
         );
       }
     }

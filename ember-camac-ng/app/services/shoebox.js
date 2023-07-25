@@ -21,7 +21,7 @@ export default class ShoeboxService extends Service {
     if (!roleId || !roles) return null;
 
     const role = Object.entries(roles).find(([, ids]) =>
-      ids.map((id) => parseInt(id)).includes(roleId)
+      ids.map((id) => parseInt(id)).includes(roleId),
     );
 
     return role && role[0];

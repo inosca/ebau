@@ -26,7 +26,7 @@ export default class InquiryAnswerStatusComponent extends Component {
         query: caseFormTypeQuery,
         variables: { instanceId: this.calumaOptions.currentInstanceId },
       },
-      "allCases.edges"
+      "allCases.edges",
     );
 
     return response[0].node.document.form.slug;
@@ -42,14 +42,14 @@ export default class InquiryAnswerStatusComponent extends Component {
 
       return this.args.field.options.filter(
         (option) =>
-          isObligationForm === OBLIGATION_ANSWERS.includes(option.slug)
+          isObligationForm === OBLIGATION_ANSWERS.includes(option.slug),
       );
     } else if (macroCondition(getOwnConfig().application === "gr")) {
       const isAuthorityBaB =
         parseInt(
           this.store
             .peekRecord("service", this.calumaOptions.currentGroupId)
-            ?.get("serviceGroup.id")
+            ?.get("serviceGroup.id"),
         ) === mainConfig.serviceGroups?.authorityBaB;
 
       return this.args.field.options.filter((option) => {

@@ -33,7 +33,7 @@ export default class CommunicationAttachmentModel extends DownloadableModel {
         {
           method: "PATCH",
           body: JSON.stringify(this.serialize({ includeId: true })),
-        }
+        },
       );
 
       if (!response.ok) {
@@ -43,7 +43,7 @@ export default class CommunicationAttachmentModel extends DownloadableModel {
       const json = await response.json();
       this.store.pushPayload(json);
       this.notification.success(
-        this.intl.t("communications.detail.uploadedToDMS")
+        this.intl.t("communications.detail.uploadedToDMS"),
       );
     } catch (error) {
       this.notification.danger(this.intl.t("link-attachments.upload-error"));

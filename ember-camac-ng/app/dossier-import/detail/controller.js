@@ -34,7 +34,7 @@ export default class DossierImportDetailController extends Controller {
     } catch (e) {
       console.error(e);
       this.notification.danger(
-        this.intl.t("dossierImport.detail.fetchImportError")
+        this.intl.t("dossierImport.detail.fetchImportError"),
       );
       this.router.transitionTo("index");
     }
@@ -48,13 +48,13 @@ export default class DossierImportDetailController extends Controller {
       yield this.import.destroyRecord();
 
       this.notification.success(
-        this.intl.t("dossierImport.detail.actions.deleteImport.success")
+        this.intl.t("dossierImport.detail.actions.deleteImport.success"),
       );
       this.router.transitionTo("dossier-import.index");
     } catch (e) {
       console.error(e);
       this.notification.danger(
-        this.intl.t("dossierImport.detail.actions.deleteImport.error")
+        this.intl.t("dossierImport.detail.actions.deleteImport.error"),
       );
     }
   }
@@ -70,14 +70,14 @@ export default class DossierImportDetailController extends Controller {
 
       // success notification only shown until next refresh
       this.notification.success(
-        this.intl.t("dossierImport.detail.actions.startImport.success")
+        this.intl.t("dossierImport.detail.actions.startImport.success"),
       );
 
       this.refresh.perform();
     } catch (e) {
       console.error(e);
       this.notification.danger(
-        this.intl.t("dossierImport.detail.actions.startImport.error")
+        this.intl.t("dossierImport.detail.actions.startImport.error"),
       );
     }
   }
@@ -92,12 +92,12 @@ export default class DossierImportDetailController extends Controller {
       yield this.fetchImport.perform();
 
       this.notification.success(
-        this.intl.t("dossierImport.detail.actions.confirmImport.success")
+        this.intl.t("dossierImport.detail.actions.confirmImport.success"),
       );
     } catch (e) {
       console.error(e);
       this.notification.danger(
-        this.intl.t("dossierImport.detail.actions.confirmImport.error")
+        this.intl.t("dossierImport.detail.actions.confirmImport.error"),
       );
     }
   }
@@ -110,14 +110,14 @@ export default class DossierImportDetailController extends Controller {
       yield this.import.undo();
 
       this.notification.success(
-        this.intl.t("dossierImport.detail.actions.undoImport.started")
+        this.intl.t("dossierImport.detail.actions.undoImport.started"),
       );
       yield this.fetchImport.perform();
       this.refresh.perform();
     } catch (e) {
       console.error(e);
       this.notification.danger(
-        this.intl.t("dossierImport.detail.actions.undoImport.error")
+        this.intl.t("dossierImport.detail.actions.undoImport.error"),
       );
     }
   }
@@ -131,12 +131,12 @@ export default class DossierImportDetailController extends Controller {
       yield this.fetchImport.perform();
 
       this.notification.success(
-        this.intl.t("dossierImport.detail.actions.cleanImport.success")
+        this.intl.t("dossierImport.detail.actions.cleanImport.success"),
       );
     } catch (e) {
       console.error(e);
       this.notification.danger(
-        this.intl.t("dossierImport.detail.actions.cleanImport.error")
+        this.intl.t("dossierImport.detail.actions.cleanImport.error"),
       );
     }
   }
@@ -151,14 +151,14 @@ export default class DossierImportDetailController extends Controller {
       yield this.fetchImport.perform();
 
       this.notification.success(
-        this.intl.t("dossierImport.detail.actions.transmitImport.success")
+        this.intl.t("dossierImport.detail.actions.transmitImport.success"),
       );
 
       this.refresh.perform();
     } catch (e) {
       console.error(e);
       this.notification.danger(
-        this.intl.t("dossierImport.detail.actions.transmitImport.error")
+        this.intl.t("dossierImport.detail.actions.transmitImport.error"),
       );
     }
   }
@@ -167,13 +167,13 @@ export default class DossierImportDetailController extends Controller {
   *downloadImport() {
     try {
       const response = yield this.fetch.fetch(
-        `/api/v1/dossier-imports/${this.model}/download`
+        `/api/v1/dossier-imports/${this.model}/download`,
       );
       saveAs(yield response.blob(), this.import.filename);
     } catch (e) {
       console.error(e);
       this.notification.danger(
-        this.intl.t("dossierImport.detail.actions.downloadImport.error")
+        this.intl.t("dossierImport.detail.actions.downloadImport.error"),
       );
     }
   }
@@ -186,7 +186,7 @@ export default class DossierImportDetailController extends Controller {
 
     while (
       ["in-progress", "undo-in-progress", "transmitting"].includes(
-        this.import?.status
+        this.import?.status,
       )
     ) {
       yield timeout(2000);
@@ -199,7 +199,7 @@ export default class DossierImportDetailController extends Controller {
         // if a dossier import "disappears" during refresh, it should be safe to assume that
         // it has just been undone/deleted
         this.notification.success(
-          this.intl.t("dossierImport.detail.actions.deleteImport.success")
+          this.intl.t("dossierImport.detail.actions.deleteImport.success"),
         );
         this.router.transitionTo("dossier-import.index");
       }

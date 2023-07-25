@@ -12,8 +12,6 @@ module(
     setupMirage(hooks);
 
     test("it renders count of unread messages", async function (assert) {
-      assert.expect(3);
-
       this.server.createList("communications-message", 2);
 
       await render(hbs`<Communication::UnreadMessageBadge />`);
@@ -28,5 +26,5 @@ module(
         "page[size]": "1",
       });
     });
-  }
+  },
 );

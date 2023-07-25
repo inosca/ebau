@@ -31,12 +31,12 @@ export default class extends Ability {
     }
     if (this.shoebox.isSupportRole) {
       return ["imported", "import-failed", "confirmed", "undo-failed"].includes(
-        this.model?.status
+        this.model?.status,
       );
     }
     if (this.shoebox.baseRole === "municipality") {
       return ["imported", "import-failed", "undo-failed"].includes(
-        this.model?.status
+        this.model?.status,
       );
     }
     return false;
@@ -52,7 +52,7 @@ export default class extends Ability {
 
   get canDelete() {
     return ["verified", "failed", "cleaned", "undone"].includes(
-      this.model?.status
+      this.model?.status,
     );
   }
 }

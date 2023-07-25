@@ -18,7 +18,7 @@ export default class SuggestEbauNumberComponent extends Component {
         query: getSourceCaseMeta,
         variables: { instanceId: this.args.context.instanceId },
       },
-      "allCases.edges"
+      "allCases.edges",
     );
 
     return response[0]?.node.document.source?.case.meta ?? null;
@@ -27,13 +27,13 @@ export default class SuggestEbauNumberComponent extends Component {
   @dropTask
   *applyEbauNumber() {
     const existingEbauNrField = this.args.field.document.findField(
-      "ebau-number-has-existing"
+      "ebau-number-has-existing",
     );
     existingEbauNrField.answer.value = "ebau-number-has-existing-yes";
     yield existingEbauNrField.save.perform();
 
     const ebauNumberField = this.args.field.document.findField(
-      "ebau-number-existing"
+      "ebau-number-existing",
     );
     ebauNumberField.answer.value = this.sourceMeta.value["ebau-number"];
     yield ebauNumberField.save.perform();

@@ -55,7 +55,7 @@ export default class CustomEbauModulesService extends EbauModulesService {
 
   redirectToWorkItems() {
     window.location.replace(
-      `/index/redirect-to-instance-resource/instance-id/${this.instanceId}`
+      `/index/redirect-to-instance-resource/instance-id/${this.instanceId}`,
     );
   }
 

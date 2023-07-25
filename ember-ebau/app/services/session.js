@@ -52,17 +52,17 @@ export default class CustomSession extends Session {
       response.included
         .filter(({ type }) => type === "groups")
         .forEach((entry) =>
-          this.store.push(this.store.normalize("group", entry))
+          this.store.push(this.store.normalize("group", entry)),
         );
       response.included
         .filter(({ type }) => type === "roles")
         .forEach((entry) =>
-          this.store.push(this.store.normalize("role", entry))
+          this.store.push(this.store.normalize("role", entry)),
         );
       response.included
         .filter(({ type }) => type === "services")
         .forEach((entry) =>
-          this.store.push(this.store.normalize("service", entry))
+          this.store.push(this.store.normalize("service", entry)),
         );
     }
 
@@ -164,7 +164,7 @@ export default class CustomSession extends Session {
     if (!this.isAuthenticated) return {};
 
     const { authHeaderName, authPrefix, tokenPropertyName } = getConfig(
-      getOwner(this)
+      getOwner(this),
     );
 
     const token = this.data.authenticated[tokenPropertyName];

@@ -18,8 +18,6 @@ module(
     setupRenderingTest(hooks);
 
     test("it renders", async function (assert) {
-      assert.expect(1);
-
       this.person = person;
 
       await render(hbs`<PersonalSuggestions::Entry @person={{this.person}} />`);
@@ -28,8 +26,6 @@ module(
     });
 
     test("it renders a juristic person", async function (assert) {
-      assert.expect(1);
-
       this.person = { ...person, juristicName: "ACME Inc." };
 
       await render(hbs`<PersonalSuggestions::Entry @person={{this.person}} />`);
@@ -38,12 +34,10 @@ module(
     });
 
     test("it renders as used", async function (assert) {
-      assert.expect(2);
-
       this.person = person;
 
       await render(
-        hbs`<PersonalSuggestions::Entry @person={{this.person}} @used={{true}} />`
+        hbs`<PersonalSuggestions::Entry @person={{this.person}} @used={{true}} />`,
       );
 
       assert.dom("li s").hasText("John Doe jd@example.com");
@@ -51,8 +45,6 @@ module(
     });
 
     test("it triggers an action on click", async function (assert) {
-      assert.expect(3);
-
       this.person = person;
       this.select = (selectedEmail) => {
         assert.strictEqual(selectedEmail, person.email);
@@ -60,12 +52,12 @@ module(
       };
 
       await render(
-        hbs`<PersonalSuggestions::Entry @person={{this.person}} @onSelect={{this.select}} />`
+        hbs`<PersonalSuggestions::Entry @person={{this.person}} @onSelect={{this.select}} />`,
       );
 
       await click("a");
 
       assert.verifySteps(["select"]);
     });
-  }
+  },
 );

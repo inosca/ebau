@@ -27,7 +27,7 @@ module("Integration | Component | decision/appeal-button", function (hooks) {
       (obj, [key, state]) => {
         return { ...obj, [key]: parseInt(state.id) };
       },
-      {}
+      {},
     );
 
     this.server.post("/graphql", () => {
@@ -70,7 +70,7 @@ module("Integration | Component | decision/appeal-button", function (hooks) {
       this.initialize(current, previous, hasAppeal);
 
       await render(
-        hbs`<Decision::AppealButton @field={{this.field}} @context={{hash instanceId=this.instance.id}} />`
+        hbs`<Decision::AppealButton @field={{this.field}} @context={{hash instanceId=this.instance.id}} />`,
       );
 
       if (hasButton) {
@@ -78,12 +78,10 @@ module("Integration | Component | decision/appeal-button", function (hooks) {
       } else {
         assert.dom("button").doesNotExist();
       }
-    }
+    },
   );
 
   test("it redirects after successful appeal", async function (assert) {
-    assert.expect(4);
-
     this.initialize("finished", "coordination");
 
     this.server.post(
@@ -92,7 +90,7 @@ module("Integration | Component | decision/appeal-button", function (hooks) {
         assert.step("request");
         return { data: { id: 99 } };
       },
-      201
+      201,
     );
 
     this.redirect = (id) => {

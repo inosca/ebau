@@ -59,7 +59,7 @@ export default function trackedFilter({
           ({ privateKey, publicKey, dirtyKey, serialize }) => {
             this[privateKey] = serialize.call(this, this[publicKey]);
             this._filters[dirtyKey] = false;
-          }
+          },
         );
       };
       target._resetFilters = function () {
@@ -68,7 +68,7 @@ export default function trackedFilter({
             this._filters[publicKey] = defaultValue;
             this._filters[dirtyKey] = false;
             this[privateKey] = defaultValue;
-          }
+          },
         );
       };
     }
@@ -79,7 +79,7 @@ export default function trackedFilter({
     Object.defineProperty(
       target,
       privateKey,
-      tracked(target, privateKey, { initializer: () => defaultValue })
+      tracked(target, privateKey, { initializer: () => defaultValue }),
     );
 
     target._filters[property] = defaultValue;

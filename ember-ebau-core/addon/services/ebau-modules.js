@@ -29,7 +29,7 @@ export default class EbauModulesService extends Service {
     routeName,
     asURL = false,
     models = [],
-    queryParams = {}
+    queryParams = {},
   ) {
     if (!routeName.startsWith(moduleName)) {
       routeName = [moduleName, routeName].join(".");

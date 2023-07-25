@@ -8,7 +8,7 @@ module("Unit | Controller | public-instances/detail/form", function (hooks) {
   // TODO: Replace this with your real tests.
   test("it exists", function (assert) {
     const controller = this.owner.lookup(
-      "controller:public-instances/detail/form"
+      "controller:public-instances/detail/form",
     );
     assert.ok(controller);
   });

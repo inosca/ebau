@@ -88,11 +88,11 @@ export default class DecisionSubmitButtonComponent extends CfFieldInputActionBut
               },
             }),
           });
-        })
+        }),
       );
 
       this.notification.success(
-        this.intl.t("decision.send-notification-success")
+        this.intl.t("decision.send-notification-success"),
       );
     } catch (error) {
       this.notification.danger(this.intl.t("decision.send-notification-error"));
@@ -107,18 +107,18 @@ export default class DecisionSubmitButtonComponent extends CfFieldInputActionBut
 
     const copiedCaseMetas =
       response.allCases.edges[0].node.document.copies.edges.map(
-        (edge) => edge.node.case.meta
+        (edge) => edge.node.case.meta,
       );
 
     const copiedInstanceId = copiedCaseMetas.find(
-      (meta) => meta["is-rejected-appeal"]
+      (meta) => meta["is-rejected-appeal"],
     )["camac-instance-id"];
 
     if (macroCondition(isTesting())) {
       this.args.redirectTo(copiedInstanceId);
     } else {
       window.location.replace(
-        `/index/redirect-to-instance-resource/instance-id/${copiedInstanceId}`
+        `/index/redirect-to-instance-resource/instance-id/${copiedInstanceId}`,
       );
     }
   }

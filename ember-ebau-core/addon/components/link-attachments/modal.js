@@ -37,7 +37,7 @@ export default class LinkAttachmentsModalComponent extends Component {
     const ids = this.args.selected.map((id) => parseInt(id));
 
     return this.attachments.records?.filter((attachment) =>
-      ids.includes(parseInt(attachment.id))
+      ids.includes(parseInt(attachment.id)),
     );
   }
 

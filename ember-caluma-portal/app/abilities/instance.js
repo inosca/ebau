@@ -59,8 +59,8 @@ export default class InstanceAbility extends Ability {
         (!this.session.isInternal &&
           Boolean(
             applicants?.find(
-              (applicant) => parseInt(applicant.get("invitee.id")) === userId
-            )
+              (applicant) => parseInt(applicant.get("invitee.id")) === userId,
+            ),
           )))
     );
   }
@@ -93,7 +93,7 @@ export default class InstanceAbility extends Ability {
       form &&
       (config.APPLICATION?.modification?.allowForms || []).includes(form) &&
       !(config.APPLICATION?.modification?.disallowStates || []).includes(
-        this.instanceStateId
+        this.instanceStateId,
       )
     );
   }
@@ -104,7 +104,7 @@ export default class InstanceAbility extends Ability {
 
   get canConvertToBuildingPermit() {
     return config.APPLICATION.completePreliminaryClarificationSlugs.includes(
-      this.model?.calumaForm
+      this.model?.calumaForm,
     );
   }
 

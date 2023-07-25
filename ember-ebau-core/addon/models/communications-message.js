@@ -27,7 +27,7 @@ export default class CommunicationMessageModel extends Model {
     formData.append("body", body);
     formData.append(
       "topic",
-      JSON.stringify({ id: topic.get("id"), type: "communications-topics" })
+      JSON.stringify({ id: topic.get("id"), type: "communications-topics" }),
     );
     this.filesToSave.forEach((file) => {
       formData.append("attachments", file);
@@ -35,7 +35,7 @@ export default class CommunicationMessageModel extends Model {
     this.documentAttachmentsToSave.forEach((documentAttachment) => {
       formData.append(
         "attachments",
-        JSON.stringify({ id: documentAttachment })
+        JSON.stringify({ id: documentAttachment }),
       );
     });
     await this.fetch.fetch("/api/v1/communications-messages", {

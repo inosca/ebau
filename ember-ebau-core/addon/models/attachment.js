@@ -33,8 +33,8 @@ export default class Attachment extends DownloadableModel {
     if (this.context.isReplaced) {
       return htmlSafe(
         `<del>${this.displayName}</del> ${this.intl.t(
-          "link-attachments.replaced"
-        )}`
+          "link-attachments.replaced",
+        )}`,
       );
     }
     return this.displayName;
@@ -43,7 +43,7 @@ export default class Attachment extends DownloadableModel {
   thumbnail = trackedFunction(this, async () => {
     try {
       const response = await this.fetch.fetch(
-        `/api/v1/attachments/${this.id}/thumbnail`
+        `/api/v1/attachments/${this.id}/thumbnail`,
       );
 
       return await new Promise((resolve) => {

@@ -10,7 +10,7 @@ export default class GwrDataImportService extends Service {
         headers: {
           accept: "application/json",
         },
-      }
+      },
     );
     return await data.json();
   }
@@ -27,7 +27,7 @@ export default class GwrDataImportService extends Service {
   async fetchDwellings(instanceId) {
     const importData = await this.fetchImportData(instanceId);
     return importData.work.flatMap(
-      (buildingWork) => buildingWork.building.dwellings
+      (buildingWork) => buildingWork.building.dwellings,
     );
   }
 

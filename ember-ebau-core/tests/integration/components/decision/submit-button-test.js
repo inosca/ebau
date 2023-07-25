@@ -51,7 +51,7 @@ module("Integration | Component | decision/submit-button", function (hooks) {
     this.server.post(
       "/api/v1/notification-templates/sendmail",
       () => assert.step("notification"),
-      201
+      201,
     );
 
     this.server.post("/graphql", (_, request) => {
@@ -133,24 +133,24 @@ module("Integration | Component | decision/submit-button", function (hooks) {
     ],
     async function (
       assert,
-      [isAppeal, isPreliminaryClarification, expectedLabel]
+      [isAppeal, isPreliminaryClarification, expectedLabel],
     ) {
       this.isAppeal = isAppeal;
       this.isPreliminaryClarification = isPreliminaryClarification;
 
       await render(
-        hbs`<Decision::SubmitButton @field={{this.field}} @context={{hash instanceId=1}} />`
+        hbs`<Decision::SubmitButton @field={{this.field}} @context={{hash instanceId=1}} />`,
       );
 
       assert.dom("button").hasText(expectedLabel);
-    }
+    },
   );
 
   test("it only sends notifications on submit of partial decisions", async function (assert) {
     this.isPartial = true;
 
     await render(
-      hbs`<Decision::SubmitButton @field={{this.field}} @context={{hash instanceId=1}} />`
+      hbs`<Decision::SubmitButton @field={{this.field}} @context={{hash instanceId=1}} />`,
     );
 
     await click("button");
@@ -159,8 +159,6 @@ module("Integration | Component | decision/submit-button", function (hooks) {
   });
 
   test("it redirects to the new instance after submitting rejected appeal decisions", async function (assert) {
-    assert.expect(4);
-
     this.isAppeal = true;
 
     this.redirect = (id) => {

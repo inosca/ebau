@@ -39,7 +39,7 @@ export default class CommunicationMessageComponent extends Component {
     } catch (error) {
       console.error(error);
       this.notification.danger(
-        this.intl.t("communications.detail.markAsReadError")
+        this.intl.t("communications.detail.markAsReadError"),
       );
     }
   });
@@ -50,7 +50,7 @@ export default class CommunicationMessageComponent extends Component {
     } catch (error) {
       console.error(error);
       this.notification.danger(
-        this.intl.t("communications.detail.markAsUnreadError")
+        this.intl.t("communications.detail.markAsUnreadError"),
       );
     }
   });

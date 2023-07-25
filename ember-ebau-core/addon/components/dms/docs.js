@@ -35,7 +35,7 @@ export default class DmsDocsComponent extends Component {
     if (!this.search) return this.allPlaceholders;
 
     return this.allPlaceholders.filter(({ placeholder }) =>
-      placeholder.toLowerCase().includes(this.search.toLowerCase())
+      placeholder.toLowerCase().includes(this.search.toLowerCase()),
     );
   }
 
@@ -61,10 +61,10 @@ export default class DmsDocsComponent extends Component {
             }
 
             return { ...newItem, [alias]: v };
-          }, {})
+          }, {}),
         ),
         null,
-        "  "
+        "  ",
       );
     }
 
