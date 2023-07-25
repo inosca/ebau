@@ -2,9 +2,10 @@ import json
 
 import pytest
 from django.urls import reverse
+from rest_framework import status
+
 from document_merge_service.api.data import django_file
 from document_merge_service.api.models import Template
-from rest_framework import status
 
 
 @pytest.mark.parametrize(
