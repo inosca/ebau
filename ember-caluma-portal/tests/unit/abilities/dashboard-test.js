@@ -6,8 +6,6 @@ module("Unit | Ability | dashboard", function (hooks) {
   setupTest(hooks);
 
   test("computes edit permission", async function (assert) {
-    assert.expect(2);
-
     const ability = this.owner.lookup("ability:dashboard");
 
     ability.set("session", { isSupport: true });

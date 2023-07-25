@@ -46,7 +46,7 @@ export default class PublicationEditController extends Controller {
         query: getPublication,
         variables: { id: btoa(`WorkItem:${id}`) },
       },
-      "node"
+      "node",
     );
 
     // Set documentId manually so it's dedupe tracked. This is needed so the
@@ -62,7 +62,7 @@ export default class PublicationEditController extends Controller {
     try {
       if (
         !(yield confirm(
-          this.intl.t(`publication.cancelConfirm.${this.model.type}`)
+          this.intl.t(`publication.cancelConfirm.${this.model.type}`),
         ))
       ) {
         return;

@@ -32,7 +32,7 @@ export function objectFromQueryParams(filterConfig) {
           configurable: true,
           writable: true,
           initializer: null,
-        })
+        }),
       );
     });
 
@@ -52,7 +52,7 @@ export function objectFromQueryParams(filterConfig) {
               config.type === "select-multiple" ? value?.split(",") : value,
           };
         },
-        {}
+        {},
       );
     };
     desc.set = function (object) {

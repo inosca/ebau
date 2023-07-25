@@ -21,7 +21,7 @@ export default class AttachmentSection extends Model {
       return true;
     } else if (
       ["admin-service-before-decision", "admin-before-decision"].includes(
-        permission
+        permission,
       )
     ) {
       const instance =
@@ -36,7 +36,7 @@ export default class AttachmentSection extends Model {
             query: hasRunningInquiriesQuery,
             variables: { serviceId, instanceId },
           },
-          "allWorkItems.totalCount"
+          "allWorkItems.totalCount",
         )) > 0
       );
     }

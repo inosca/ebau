@@ -48,7 +48,7 @@ export default class FetchService extends Service {
       throw {
         response,
         error: new Error(
-          `Fetch request to URL ${response.url} returned ${response.status} ${response.statusText}:\n\n${body}`
+          `Fetch request to URL ${response.url} returned ${response.status} ${response.statusText}:\n\n${body}`,
         ),
       };
     }

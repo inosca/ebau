@@ -53,7 +53,7 @@ export default class Instance extends Model {
         query: getFormQuery,
         variables: { form: this.calumaForm },
       },
-      "allForms.edges.firstObject.node"
+      "allForms.edges.firstObject.node",
     );
   }
 
@@ -65,7 +65,7 @@ export default class Instance extends Model {
         query: getEbauNumberQuery,
         variables: { instanceId: parseInt(this.id) },
       },
-      "allCases.edges.firstObject.node.meta.ebau-number"
+      "allCases.edges.firstObject.node.meta.ebau-number",
     ) || null;
   }
 }

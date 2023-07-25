@@ -10,7 +10,7 @@ export default class ModuleRoute extends Helper {
       routeName,
       options.asURL ?? false,
       options.models ?? [],
-      options.queryParams ?? {}
+      options.queryParams ?? {},
     );
   }
 }

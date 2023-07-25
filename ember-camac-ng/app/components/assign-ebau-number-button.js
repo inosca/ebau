@@ -16,7 +16,7 @@ export default class TaskFormButtonComponent extends Component {
 
     try {
       const ebauNumber = this.args.field.document.findAnswer(
-        "ebau-number-existing"
+        "ebau-number-existing",
       );
 
       yield this.fetch.fetch(
@@ -32,11 +32,11 @@ export default class TaskFormButtonComponent extends Component {
               },
             },
           }),
-        }
+        },
       );
 
       window.location.replace(
-        `/index/redirect-to-instance-resource/instance-id/${this.args.context.instanceId}`
+        `/index/redirect-to-instance-resource/instance-id/${this.args.context.instanceId}`,
       );
     } catch (error) {
       this.notification.danger(this.intl.t("ebauNumber.completeInvalid"));

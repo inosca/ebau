@@ -61,7 +61,7 @@ module("Integration | Component | publication-info", function (hooks) {
     assert
       .dom(this.element)
       .hasText(
-        "t:publication.info.note:() t:publication.info.published.public:() http://ebau-portal.local/public-instances?municipality=1"
+        "t:publication.info.note:() t:publication.info.published.public:() http://ebau-portal.local/public-instances?municipality=1",
       );
   });
 
@@ -78,7 +78,7 @@ module("Integration | Component | publication-info", function (hooks) {
     assert
       .dom(this.element)
       .hasText(
-        "t:publication.info.attention:() t:publication.info.unpublished.public:() t:publication.info.documents:()"
+        "t:publication.info.attention:() t:publication.info.unpublished.public:() t:publication.info.documents:()",
       );
   });
 
@@ -95,7 +95,7 @@ module("Integration | Component | publication-info", function (hooks) {
     assert
       .dom(this.element)
       .hasText(
-        "t:publication.info.note:() t:publication.info.canceled.public:()"
+        "t:publication.info.note:() t:publication.info.canceled.public:()",
       );
   });
 
@@ -112,7 +112,7 @@ module("Integration | Component | publication-info", function (hooks) {
     assert
       .dom(this.element)
       .hasText(
-        "t:publication.info.attention:() t:publication.info.unpublished.neighbors:() t:publication.info.documents:()"
+        "t:publication.info.attention:() t:publication.info.unpublished.neighbors:() t:publication.info.documents:()",
       );
   });
 
@@ -129,7 +129,7 @@ module("Integration | Component | publication-info", function (hooks) {
     assert
       .dom(this.element)
       .hasText(
-        "t:publication.info.note:() t:publication.info.canceled.neighbors:()"
+        "t:publication.info.note:() t:publication.info.canceled.neighbors:()",
       );
   });
 });

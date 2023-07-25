@@ -18,7 +18,7 @@ export default class CustomField extends Field {
         query: workItemCaseInformationQuery,
         variables: { id },
       },
-      "allWorkItems.edges"
+      "allWorkItems.edges",
     );
 
     return response[0].node.case.document.form.slug;

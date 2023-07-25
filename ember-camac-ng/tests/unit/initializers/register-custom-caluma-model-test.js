@@ -34,7 +34,7 @@ module("Unit | Initializer | register-custom-caluma-models", function (hooks) {
 
     assert.strictEqual(
       this.application.resolveRegistration("caluma-model:field"),
-      CustomField
+      CustomField,
     );
   });
 });

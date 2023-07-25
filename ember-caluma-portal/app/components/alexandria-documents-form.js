@@ -28,14 +28,14 @@ export default class AlexandriaDocumentsFormComponent extends Component {
   get category() {
     return this.args.document.jexl.evalSync(
       this.args.fieldset.field.question.raw.meta["alexandria-category"],
-      this.args.document.jexlContext
+      this.args.document.jexlContext,
     );
   }
 
   get deletable() {
     const instance = this.store.peekRecord(
       "instance",
-      this.args.context.instanceId
+      this.args.context.instanceId,
     );
     const state = parseInt(instance?.belongsTo("instanceState").id());
 
@@ -50,7 +50,7 @@ export default class AlexandriaDocumentsFormComponent extends Component {
       (field) =>
         !field.hidden &&
         !field.optional &&
-        field.questionType === "MultipleChoiceQuestion"
+        field.questionType === "MultipleChoiceQuestion",
     );
   }
 
@@ -59,8 +59,8 @@ export default class AlexandriaDocumentsFormComponent extends Component {
       (field) =>
         field.questionType !== "MultipleChoiceQuestion" &&
         !config.APPLICATION.documents.excludeFromDocuments.includes(
-          field.question.slug
-        )
+          field.question.slug,
+        ),
     );
   }
 
@@ -77,7 +77,7 @@ export default class AlexandriaDocumentsFormComponent extends Component {
 
   get allAttachments() {
     const fetchedAttachmentIds = this.fetchAttachments.value?.map(
-      (attachment) => attachment.id
+      (attachment) => attachment.id,
     );
 
     const byInstance = (attachment) =>
@@ -111,7 +111,7 @@ export default class AlexandriaDocumentsFormComponent extends Component {
         return {
           [bucket]: attachments,
         };
-      })
+      }),
     );
 
     return buckets.reduce((obj, item) => {
@@ -143,7 +143,7 @@ export default class AlexandriaDocumentsFormComponent extends Component {
       const documentModel = yield this.alexandriaDocuments.upload(
         this.category,
         [file],
-        this.args.context
+        this.args.context,
       );
 
       this.alexandriaTags.category = this.category;

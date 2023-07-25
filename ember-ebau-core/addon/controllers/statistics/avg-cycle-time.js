@@ -26,7 +26,7 @@ export default class StatisticsAvgCycleTimeController extends Controller {
       {
         query: decisionProceduresQuery,
       },
-      "allQuestions.edges"
+      "allQuestions.edges",
     );
 
     return [
@@ -46,7 +46,7 @@ export default class StatisticsAvgCycleTimeController extends Controller {
       `/api/v1/stats/instances-cycle-times?procedure=${this.procedure}`,
       {
         headers: { accept: "application/json" },
-      }
+      },
     );
 
     return yield response.json();

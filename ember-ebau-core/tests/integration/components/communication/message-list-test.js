@@ -17,7 +17,7 @@ module(
       this.scrollIntoViewFake = replace(
         Element.prototype,
         "scrollIntoView",
-        fake(Element.prototype.scrollIntoView)
+        fake(Element.prototype.scrollIntoView),
       );
     });
 
@@ -40,7 +40,7 @@ module(
       this.refresh = () => {};
 
       await render(
-        hbs`<Communication::MessageList @messages={{this.messages}} @refresh={{this.refresh}}/>`
+        hbs`<Communication::MessageList @messages={{this.messages}} @refresh={{this.refresh}}/>`,
       );
 
       assert.dom("[data-test-empty]").exists();
@@ -51,8 +51,8 @@ module(
       assert.strictEqual(this.scrollIntoViewFake.callCount, 1);
       assert.strictEqual(
         this.scrollIntoViewFake.lastCall.thisValue.dataset.testMessage,
-        this.messages.lastObject.id
+        this.messages.lastObject.id,
       );
     });
-  }
+  },
 );

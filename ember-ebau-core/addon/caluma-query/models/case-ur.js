@@ -153,7 +153,7 @@ export default class CustomCaseModel extends CustomCaseBaseModel {
         getAnswer(this.raw.document, "form-type");
 
       label = answer?.node.question.options.edges.find(
-        (edge) => edge.node.slug === answer?.node.stringValue
+        (edge) => edge.node.slug === answer?.node.stringValue,
       )?.node.label;
     }
 
@@ -176,7 +176,7 @@ export default class CustomCaseModel extends CustomCaseBaseModel {
   get buildingProjectStatus() {
     const answer = getAnswer(this.raw.document, "status-bauprojekt");
     return answer?.node.question.options.edges.find(
-      (edge) => edge.node.slug === answer?.node.stringValue
+      (edge) => edge.node.slug === answer?.node.stringValue,
     )?.node.label;
   }
 
@@ -184,7 +184,7 @@ export default class CustomCaseModel extends CustomCaseBaseModel {
     const answer = getAnswer(this.raw.document, "parcels");
     const tableAnswers = answer?.node.value ?? [];
     return tableAnswers.map(
-      (answer) => getAnswer(answer, "parcel-number")?.node.stringValue
+      (answer) => getAnswer(answer, "parcel-number")?.node.stringValue,
     );
   }
 
@@ -210,7 +210,7 @@ export default class CustomCaseModel extends CustomCaseBaseModel {
     const activations = this.store.peekAll("activation");
     const activation = activations?.find(
       (activation) =>
-        Number(activation.get("circulation.instance.id")) === this.instanceId
+        Number(activation.get("circulation.instance.id")) === this.instanceId,
     );
     return activation?.deadlineDate;
   }
@@ -222,7 +222,7 @@ export default class CustomCaseModel extends CustomCaseBaseModel {
         (responsibility) =>
           Number(responsibility.get("instance.id")) === this.instanceId &&
           Number(responsibility.get("service.id")) ===
-            this.ebauModules.serviceId
+            this.ebauModules.serviceId,
       );
 
     return responsibilities
@@ -237,7 +237,7 @@ export default class CustomCaseModel extends CustomCaseBaseModel {
     const activations = this.store.peekAll("activation");
     const activation = activations.find(
       (activation) =>
-        Number(activation.get("circulation.instance.id")) === this.instanceId
+        Number(activation.get("circulation.instance.id")) === this.instanceId,
     );
 
     return getActivationIndicator(activation);

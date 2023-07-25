@@ -18,19 +18,19 @@ function preparePerson(document) {
   return {
     firstName: findAnswerByRegex(
       answers,
-      mainConfig.personalSuggestions.firstNameRegexp
+      mainConfig.personalSuggestions.firstNameRegexp,
     ),
     lastName: findAnswerByRegex(
       answers,
-      mainConfig.personalSuggestions.lastNameRegexp
+      mainConfig.personalSuggestions.lastNameRegexp,
     ),
     juristicName: findAnswerByRegex(
       answers,
-      mainConfig.personalSuggestions.juristicNameRegexp
+      mainConfig.personalSuggestions.juristicNameRegexp,
     ),
     email: findAnswerByRegex(
       answers,
-      mainConfig.personalSuggestions.emailRegexp
+      mainConfig.personalSuggestions.emailRegexp,
     ),
   };
 }
@@ -53,7 +53,7 @@ export default class PersonalSuggestionsComponent extends Component {
           tableQuestions: mainConfig.personalSuggestions.tableQuestions,
         },
       },
-      "allCases.edges"
+      "allCases.edges",
     );
 
     return (response[0]?.node.document.answers.edges ?? []).map(
@@ -62,7 +62,7 @@ export default class PersonalSuggestionsComponent extends Component {
           label: table.question.label,
           suggestions: table.value.map(preparePerson),
         };
-      }
+      },
     );
   }
 }

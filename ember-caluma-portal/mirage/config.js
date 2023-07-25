@@ -19,7 +19,7 @@ export default function makeServer(config) {
 
       this.get(
         "/api/v1/attachments/:id/thumbnail",
-        () => new File(["Filename"], { type: "image/jpeg" })
+        () => new File(["Filename"], { type: "image/jpeg" }),
       );
 
       this.get("/api/v1/instances");

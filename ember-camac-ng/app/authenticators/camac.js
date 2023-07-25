@@ -8,7 +8,7 @@ export default class CamacAuthenticator extends BaseAuthenticator {
 
   restore() {
     assert(
-      "Token can't be restored since we don't have a persistent session store"
+      "Token can't be restored since we don't have a persistent session store",
     );
   }
 
@@ -40,7 +40,7 @@ export default class CamacAuthenticator extends BaseAuthenticator {
       ...raw,
       refreshAt: new Date(
         new Date().getTime() +
-          (raw.expires_in - raw.token_refresh_leeway) * 1000
+          (raw.expires_in - raw.token_refresh_leeway) * 1000,
       ),
     };
   }

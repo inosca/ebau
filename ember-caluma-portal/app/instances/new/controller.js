@@ -32,7 +32,7 @@ export default class InstancesNewController extends Controller {
     ];
 
     return Object.keys(this.forms).sort(
-      (a, b) => order.indexOf(a) - order.indexOf(b)
+      (a, b) => order.indexOf(a) - order.indexOf(b),
     );
   }
 
@@ -42,7 +42,7 @@ export default class InstancesNewController extends Controller {
     if (this.convert_from) {
       const instance = yield this.store.findRecord(
         "instance",
-        this.convertFrom
+        this.convertFrom,
       );
       yield instance.fetchEbauNumber.perform();
       return instance.ebauNumber;
@@ -54,7 +54,7 @@ export default class InstancesNewController extends Controller {
   *fetchForms() {
     return yield this.apollo.query(
       { query: getRootFormsQuery },
-      "allForms.edges"
+      "allForms.edges",
     );
   }
 
@@ -63,14 +63,14 @@ export default class InstancesNewController extends Controller {
       (perm) =>
         perm.roles.includes(parseInt(this.session.group?.role.get("id"))) ||
         (perm.roles.includes("internal") && this.session.isInternal) ||
-        (perm.roles.includes("public") && !this.session.isInternal)
+        (perm.roles.includes("public") && !this.session.isInternal),
     );
     return (this.allForms || [])
       .filter(({ node }) => node.meta["is-creatable"] && node.isPublished)
       .filter((form) =>
         permissions.find((perm) =>
-          perm.forms.includes(form.node.slug.replace(/-v\d/, ""))
-        )
+          perm.forms.includes(form.node.slug.replace(/-v\d/, "")),
+        ),
       )
       .reduce(
         (grouped, { node: form }) => ({
@@ -80,7 +80,7 @@ export default class InstancesNewController extends Controller {
             form,
           ].sort((a, b) => a.meta.order - b.meta.order),
         }),
-        {}
+        {},
       );
   }
 
@@ -117,7 +117,7 @@ export default class InstancesNewController extends Controller {
     yield this.router.transitionTo(
       "instances.edit.form",
       instanceId,
-      this.selectedForm.slug
+      this.selectedForm.slug,
     );
   }
 
@@ -140,7 +140,7 @@ export default class InstancesNewController extends Controller {
     yield this.router.transitionTo(
       "instances.edit.form",
       data.id,
-      formName.slug
+      formName.slug,
     );
   }
 }

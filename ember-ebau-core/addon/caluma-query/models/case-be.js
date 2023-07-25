@@ -72,7 +72,7 @@ export default class CustomCaseModel extends CustomCaseBaseModel {
       const lastName = getAnswer(row, "name-gesuchstellerin")?.node.stringValue;
       const juristicName = getAnswer(
         row,
-        "name-juristische-person-gesuchstellerin"
+        "name-juristische-person-gesuchstellerin",
       )?.node.stringValue;
 
       return (

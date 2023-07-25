@@ -9,7 +9,7 @@ export default class extends Ability {
       this.model.status === "READY" &&
       !this.ebauModules.isReadOnlyRole &&
       this.model.addressedGroups.find(
-        (groupId) => parseInt(groupId) === parseInt(this.ebauModules.serviceId)
+        (groupId) => parseInt(groupId) === parseInt(this.ebauModules.serviceId),
       );
 
     if (this.task === "decision") {

@@ -21,8 +21,8 @@ export default function (server) {
   attachments.forEach((attachment, index) =>
     attachment.update({
       communicationsMessage: server.schema.communicationsMessages.find(
-        index + 1
+        index + 1,
       ),
-    })
+    }),
   );
 }

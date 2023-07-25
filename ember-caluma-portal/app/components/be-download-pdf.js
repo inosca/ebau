@@ -29,7 +29,7 @@ export default class BeDownloadPdfComponent extends Component {
 
       // generate document in CAMAC
       const response = yield this.fetch.fetch(
-        `/api/v1/instances/${this.args.context.instanceId}/generate-pdf${fullQuery}`
+        `/api/v1/instances/${this.args.context.instanceId}/generate-pdf${fullQuery}`,
       );
 
       const filename = response.headers

@@ -40,7 +40,7 @@ Router.map(function () {
       function () {
         this.route("edit", { path: "/:work_item_id" });
         this.route("new");
-      }
+      },
     );
   });
   this.route("form", { path: "/instances/:id/form" });
@@ -71,7 +71,7 @@ Router.map(function () {
     { path: "instances/:instance_id/publication/:type" },
     function () {
       this.route("edit", { path: "/:work_item_id" });
-    }
+    },
   );
 
   this.route("dossier-import", function () {

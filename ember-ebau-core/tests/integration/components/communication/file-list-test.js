@@ -20,7 +20,7 @@ module("Integration | Component | communication/file-list", function (hooks) {
     this.removeFile = fake(() => {});
 
     await render(
-      hbs`<Communication::FileList @files={{this.files}} @removeFile={{this.removeFile}}/>`
+      hbs`<Communication::FileList @files={{this.files}} @removeFile={{this.removeFile}}/>`,
     );
 
     assert.dom("[data-test-attachment]").exists({ count: 2 });

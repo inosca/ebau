@@ -17,7 +17,7 @@ export default class PublicGroup extends Model {
     return (
       mainConfig.paperInstances?.allowedGroups.roles.includes(roleId) &&
       mainConfig.paperInstances?.allowedGroups.serviceGroups.includes(
-        serviceGroupId
+        serviceGroupId,
       )
     );
   }

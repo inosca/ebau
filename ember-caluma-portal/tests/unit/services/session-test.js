@@ -7,8 +7,6 @@ module("Unit | Service | session", function (hooks) {
   setupTest(hooks);
 
   test("it computes the headers", async function (assert) {
-    assert.expect(1);
-
     const service = this.owner.lookup("service:session");
 
     await authenticateSession({

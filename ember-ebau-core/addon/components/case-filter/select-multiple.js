@@ -15,8 +15,8 @@ export default class CaseFilterSelectMultipleComponent extends Component {
       ? this.args.value.map((value) =>
           options.find(
             (option) =>
-              JSON.stringify(option[valueKey]) === JSON.stringify(value)
-          )
+              JSON.stringify(option[valueKey]) === JSON.stringify(value),
+          ),
         )
       : [];
   }
@@ -24,7 +24,7 @@ export default class CaseFilterSelectMultipleComponent extends Component {
   @action
   onChange(options) {
     const value = options.map(
-      (option) => option[this.args.valueField ?? "slug"]
+      (option) => option[this.args.valueField ?? "slug"],
     );
 
     this.args.updateFilter({

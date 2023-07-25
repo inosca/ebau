@@ -12,5 +12,5 @@ module(
     todo("it renders", async function () {
       await render(hbs`<Communication::FileList::File />`);
     });
-  }
+  },
 );
