@@ -10,4 +10,11 @@ install-dev: ## Install development environment
 
 .PHONY: test
 test: ## Test the extensions
+	@poetry run black --check document_merge_service/extensions/
+	@poetry run flake8 document_merge_service/extensions/
 	@poetry run pytest -vv --no-cov-on-fail --cov=document_merge_service/extensions/ document_merge_service/extensions/
+
+.PHONY: format
+format: ## Format the extensions
+	@poetry run black document_merge_service/extensions/
+	@poetry run isort document_merge_service/extensions/
