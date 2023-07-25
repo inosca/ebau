@@ -6,7 +6,6 @@
       "description": "",
       "template": "audit-form.docx",
       "engine": "docx-template",
-      "group": null,
       "meta": {}
     }
   },
@@ -17,7 +16,6 @@
       "description": "DE Amtsbericht",
       "template": "de-amtsbericht.docx",
       "engine": "docx-template",
-      "group": null,
       "meta": {}
     }
   },
@@ -28,7 +26,6 @@
       "description": "DE Aufforderung Ergänzung",
       "template": "de-aufforderung-ergaenzung.docx",
       "engine": "docx-template",
-      "group": null,
       "meta": {}
     }
   },
@@ -39,7 +36,6 @@
       "description": "DE Bestätigung Wärmeerzeugerersatz",
       "template": "de-bestaetigung-waermeerzeugerersatz.docx",
       "engine": "docx-template",
-      "group": null,
       "meta": {}
     }
   },
@@ -50,7 +46,6 @@
       "description": "FR Confirmation du remplacement du générateur de chaleur",
       "template": "fr-confirmation-remplacement-generateur-chaleur.docx",
       "engine": "docx-template",
-      "group": null,
       "meta": {}
     }
   },
@@ -61,7 +56,6 @@
       "description": "DE Gesamtbauentscheid",
       "template": "de-gesamtbauentscheid.docx",
       "engine": "docx-template",
-      "group": null,
       "meta": {}
     }
   },
@@ -72,7 +66,6 @@
       "description": "DE Mängelbrief Formell",
       "template": "de-maengelbrief-formell.docx",
       "engine": "docx-template",
-      "group": null,
       "meta": {}
     }
   },
@@ -83,7 +76,6 @@
       "description": "DE Mängelbrief Formell Materiell",
       "template": "de-maengelbrief-formell-materiell.docx",
       "engine": "docx-template",
-      "group": null,
       "meta": {}
     }
   },
@@ -94,7 +86,6 @@
       "description": "DE Mängelbrief Materiell",
       "template": "de-maengelbrief-materiell.docx",
       "engine": "docx-template",
-      "group": null,
       "meta": {}
     }
   },
@@ -105,7 +96,6 @@
       "description": "DE Nachbarschaftsorientierung",
       "template": "de-nachbarschaftsorientierung.docx",
       "engine": "docx-template",
-      "group": null,
       "meta": {}
     }
   },
@@ -116,7 +106,6 @@
       "description": "DE Publikation",
       "template": "de-publikation.docx",
       "engine": "docx-template",
-      "group": null,
       "meta": {}
     }
   },
@@ -127,7 +116,6 @@
       "description": "DE Verfahrensprogramm Normal",
       "template": "de-verfahrensprogramm-normal.docx",
       "engine": "docx-template",
-      "group": null,
       "meta": {}
     }
   },
@@ -138,7 +126,6 @@
       "description": "DE Verfahrensprogramm Voranfrage",
       "template": "de-verfahrensprogramm-voranfrage.docx",
       "engine": "docx-template",
-      "group": null,
       "meta": {}
     }
   },
@@ -149,7 +136,6 @@
       "description": "",
       "template": "form.docx",
       "engine": "docx-template",
-      "group": null,
       "meta": {}
     }
   },
@@ -160,7 +146,6 @@
       "description": "FR Avis de construction",
       "template": "fr-avis-de-construction.docx",
       "engine": "docx-template",
-      "group": null,
       "meta": {}
     }
   },
@@ -171,7 +156,6 @@
       "description": "FR Communication aux voisins et aux voisines",
       "template": "fr-communication-aux-voisins-et-aux-voisines.docx",
       "engine": "docx-template",
-      "group": null,
       "meta": {}
     }
   },
@@ -182,7 +166,6 @@
       "description": "FR Décision globale",
       "template": "fr-decision-globale.docx",
       "engine": "docx-template",
-      "group": null,
       "meta": {}
     }
   },
@@ -193,7 +176,6 @@
       "description": "FR Demande de complément d'information",
       "template": "fr-demande-de-complement-d-information.docx",
       "engine": "docx-template",
-      "group": null,
       "meta": {}
     }
   },
@@ -204,7 +186,6 @@
       "description": "FR Notification de défauts formel",
       "template": "fr-notification-de-defauts-formel.docx",
       "engine": "docx-template",
-      "group": null,
       "meta": {}
     }
   },
@@ -215,7 +196,6 @@
       "description": "FR Notification de défauts formel matériel",
       "template": "fr-notification-de-defauts-formel-materiel.docx",
       "engine": "docx-template",
-      "group": null,
       "meta": {}
     }
   },
@@ -226,7 +206,6 @@
       "description": "FR Notification de défauts matériel",
       "template": "fr-notification-de-defauts-materiel.docx",
       "engine": "docx-template",
-      "group": null,
       "meta": {}
     }
   },
@@ -237,7 +216,6 @@
       "description": "FR Programme de procedure normal",
       "template": "fr-programme-de-procedure-normal.docx",
       "engine": "docx-template",
-      "group": null,
       "meta": {}
     }
   },
@@ -248,7 +226,6 @@
       "description": "FR Rapport officiel",
       "template": "fr-rapport-officiel.docx",
       "engine": "docx-template",
-      "group": null,
       "meta": {}
     }
   }
