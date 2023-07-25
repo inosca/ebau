@@ -17,6 +17,9 @@ const UNUSED_ENVS = ENVS.filter((e) => e !== ENV).join("|");
 
 module.exports = function (defaults) {
   const app = new EmberApp(defaults, {
+    "localized-model": {
+      sanitizeLocale: true,
+    },
     "ember-simple-auth": {
       useSessionSetupMethod: true,
     },

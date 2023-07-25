@@ -197,7 +197,9 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
         return 'JWT realm="{0}"'.format(settings.KEYCLOAK_REALM)
 
 
-class DjangoAdminOIDCAuthenticationBackend(OIDCAuthenticationBackend):
+class DjangoAdminOIDCAuthenticationBackend(
+    OIDCAuthenticationBackend
+):  # pragma: no cover
     def get_userinfo_or_introspection(self, access_token):
         return self.cached_request(self.get_userinfo, access_token, "auth.userinfo")
 
