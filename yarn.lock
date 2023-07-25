@@ -7248,11 +7248,12 @@ ember-load-initializers@2.1.2:
     ember-cli-babel "^7.13.0"
     ember-cli-typescript "^2.0.2"
 
-ember-localized-model@3.1.0, ember-localized-model@^3.0.1:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/ember-localized-model/-/ember-localized-model-3.1.0.tgz#8ec5c3191146a01937ad4a532f66c1060b2fbd35"
-  integrity sha512-WKi4eBhj2AcI1MAfPqAX2FZqiuP8Ixim0pliSKT+zCbR5Zs7B/WcoiYrcVdz63jN/eKqWpt9BaJ/c1zMOeIRAg==
+ember-localized-model@3.2.0, ember-localized-model@^3.0.1:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/ember-localized-model/-/ember-localized-model-3.2.0.tgz#02565bcf5d0a28615a364834a86bbf26933ea8e7"
+  integrity sha512-aA6MahdQ+dhI9BJrFsNZV5p423Cq7vqYBlOjVKZNuG1nZGTv4quFQ94qY3PYYI49+8u2sSbhogwdgHliXTVOmw==
   dependencies:
+    "@embroider/macros" "^1.13.0"
     "@glimmer/tracking" "^1.1.2"
     ember-cli-babel "^7.26.11"
     ember-cli-htmlbars "^6.2.0"
