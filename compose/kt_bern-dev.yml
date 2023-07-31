@@ -15,7 +15,6 @@ services:
       ebau.local:
         aliases:
           - ebau.local
-          - ember-ebau.local
           - ebau-portal.local
           - ebau-rest-portal.local
           - ebau-keycloak.local
@@ -80,18 +79,6 @@ services:
     image: acr.run/camac-ng/camac-ng/ember-caluma-portal:master
     environment:
       - BE_GIS_URL=https://map2-test.apps.be.ch
-    networks:
-      - ebau.local
-
-  ember-ebau:
-    image: acr.run/camac-ng/camac-ng/ember-ebau:master
-    build:
-      context: ../
-      dockerfile: ./ember-ebau/Dockerfile
-      cache_from:
-        - acr.run/camac-ng/camac-ng/ember-ebau:master
-      args:
-        - APPLICATION=${APPLICATION}
     networks:
       - ebau.local
 
