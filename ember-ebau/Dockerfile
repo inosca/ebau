@@ -17,7 +17,7 @@ ARG INTERNAL_URL
 
 RUN yarn deploy production
 
-FROM nginx:1.23-alpine
+FROM nginx:1.25-alpine
 
 COPY --from=build /myapp/ember-ebau/build /usr/share/nginx/html
 COPY ./ember-ebau/nginx.conf /etc/nginx/conf.d/default.conf
