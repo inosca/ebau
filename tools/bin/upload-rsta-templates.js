@@ -9,16 +9,26 @@ import chalk from "chalk";
 
 const argv = yargs(hideBin(process.argv)).argv;
 
-const DEFAULT_GROUPS = {
-  "http://ebau.local": [
-    22527, 22528, 22529, 22530, 22531, 22532, 22533, 22534, 22535, 22536,
-  ],
-  "https://ebau-test.sycloud.ch": [
-    22615, 22616, 22617, 22674, 22675, 22676, 22677, 22678, 22679, 22680, 23395,
-  ],
-  "https://www.ebau.apps.be.ch": [
-    23602, 23603, 23604, 23605, 23606, 23607, 23608, 23609, 23610, 23616,
-  ],
+const ENVIRONMENTS = {
+  local: {
+    url: "http://ebau.local",
+    groups: [
+      22527, 22528, 22529, 22530, 22531, 22532, 22533, 22534, 22535, 22536,
+    ],
+  },
+  test: {
+    url: "https://ebau-test.sycloud.ch",
+    groups: [
+      22615, 22616, 22617, 22674, 22675, 22676, 22677, 22678, 22679, 22680,
+      23395,
+    ],
+  },
+  prod: {
+    url: "https://www.ebau.apps.be.ch",
+    groups: [
+      23602, 23603, 23604, 23605, 23606, 23607, 23608, 23609, 23610, 23616,
+    ],
+  },
 };
 
 const getLength = (form) =>
@@ -28,8 +38,9 @@ async function run() {
   const globPattern =
     argv.pattern ||
     "../document-merge-service/kt_bern/rsta_templates/**/*.docx";
-  const host = argv.host || "http://ebau.local";
-  const groupIds = argv.groups || DEFAULT_GROUPS[host];
+  const environment = argv.environment || "local";
+  const url = ENVIRONMENTS[environment].url;
+  const groupIds = argv.groups || ENVIRONMENTS[environment].groups;
   const token = argv.token || process.env.TOKEN;
   const del = Boolean(argv.delete || false);
   const dry = Boolean(argv["dry-run"] || argv["dry"] || false);
@@ -42,7 +53,7 @@ async function run() {
 
   for (let group of groups) {
     console.log(
-      chalk.bold(`\nDistributing ${files.length} files to group ${group}\n`)
+      chalk.bold(`\nDistributing ${files.length} files to group ${group}\n`),
     );
 
     const headers = {
@@ -51,19 +62,19 @@ async function run() {
     };
 
     const existingResponse = await fetch(
-      `${host}/document-merge-service/api/v1/template/`,
-      { headers }
+      `${url}/document-merge-service/api/v1/template/`,
+      { headers },
     );
 
     if (!existingResponse.ok) {
       console.log(
         chalk.red(
           `${chalk.bold(
-            "GET"
-          )} "${host}/document-merge-service/api/v1/template/" failed with HTTP status ${
+            "GET",
+          )} "${url}/document-merge-service/api/v1/template/" failed with HTTP status ${
             existingResponse.status
-          }`
-        )
+          }`,
+        ),
       );
       return;
     }
@@ -71,7 +82,7 @@ async function run() {
     const existingTemplates = await existingResponse.json();
 
     if (del) {
-      await deleteExisting(existingTemplates, host, headers, dry);
+      await deleteExisting(existingTemplates, url, headers, dry);
       continue;
     }
 
@@ -85,8 +96,8 @@ async function run() {
         (template) =>
           template.group !== null &&
           [template.description, template.meta.rstaIdentifier].includes(
-            filename
-          )
+            filename,
+          ),
       );
 
       const slug = existing ? existing.slug : v4();
@@ -96,7 +107,7 @@ async function run() {
       body.append("description", filename);
       body.append(
         "meta",
-        JSON.stringify({ category, rstaIdentifier: filename })
+        JSON.stringify({ category, rstaIdentifier: filename }),
       );
       body.append("slug", slug);
       body.append("engine", "docx-template");
@@ -112,7 +123,7 @@ async function run() {
       if (!dry) {
         const segment = method === "PATCH" ? `${slug}/` : "";
         const response = await fetch(
-          `${host}/document-merge-service/api/v1/template/${segment}`,
+          `${url}/document-merge-service/api/v1/template/${segment}`,
           {
             headers: {
               ...headers,
@@ -121,15 +132,17 @@ async function run() {
             },
             method,
             body,
-          }
+          },
         );
         if (response.ok) {
           console.log(
-            chalk.green(`${msg} successful with HTTP status ${response.status}`)
+            chalk.green(
+              `${msg} successful with HTTP status ${response.status}`,
+            ),
           );
         } else {
           console.log(
-            chalk.red(`${msg} failed with HTTP status ${response.status}`)
+            chalk.red(`${msg} failed with HTTP status ${response.status}`),
           );
           return;
         }
@@ -140,13 +153,13 @@ async function run() {
   }
 }
 
-async function deleteExisting(existing, host, headers, dry) {
+async function deleteExisting(existing, url, headers, dry) {
   const method = "DELETE";
 
   const templatesToDelete = existing?.filter(
     (template) =>
       template.meta.rstaIdentifier ||
-      /^(bpv|nhhe|nhsb|rsta)_/.test(template.description)
+      /^(bpv|nhhe|nhsb|rsta)_/.test(template.description),
   );
 
   if (!templatesToDelete?.length) {
@@ -158,16 +171,16 @@ async function deleteExisting(existing, host, headers, dry) {
 
     if (!dry) {
       const response = await fetch(
-        `${host}/document-merge-service/api/v1/template/${template.slug}`,
-        { headers, method }
+        `${url}/document-merge-service/api/v1/template/${template.slug}`,
+        { headers, method },
       );
       if (response.ok) {
         console.log(
-          chalk.green(`${msg} successful with HTTP status ${response.status}`)
+          chalk.green(`${msg} successful with HTTP status ${response.status}`),
         );
       } else {
         console.log(
-          chalk.red(`${msg} failed with HTTP status ${response.status}`)
+          chalk.red(`${msg} failed with HTTP status ${response.status}`),
         );
       }
     } else {
