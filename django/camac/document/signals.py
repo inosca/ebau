@@ -4,11 +4,12 @@ from django.db.models import signals
 from django.dispatch import receiver
 from sorl.thumbnail import delete
 
-from .models import Attachment
+from .models import Attachment, AttachmentVersion
 
 logger = logging.getLogger(__name__)
 
 
+@receiver(signals.pre_delete, sender=AttachmentVersion)
 @receiver(signals.pre_delete, sender=Attachment)
 def auto_delete_attachment_file(sender, instance, **kwargs):
     if instance.path:

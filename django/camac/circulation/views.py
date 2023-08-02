@@ -79,7 +79,7 @@ class CirculationView(InstanceQuerysetMixin, InstanceEditableMixin, views.ModelV
 
 class ActivationView(InstanceQuerysetMixin, views.ReadOnlyModelViewSet):
     swagger_schema = None
-    instance_field = "circulation.instance"
+    instance_field = "circulation__instance"
     serializer_class = serializers.ActivationSerializer
     queryset = Activation.objects.select_related("circulation")
     filterset_class = filters.ActivationFilterSet

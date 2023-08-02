@@ -16,6 +16,10 @@ def attachment_path_directory_path(attachment, filename):
     return "attachments/files/{0}/{1}".format(attachment.instance.pk, filename)
 
 
+def version_path_directory_path(attachment, filename):
+    return "attachment-versions/files/{0}/{1}".format(attachment.instance.pk, filename)
+
+
 @reversion.register()
 class Attachment(models.Model):
     attachment_id = models.AutoField(db_column="ATTACHMENT_ID", primary_key=True)
@@ -105,6 +109,31 @@ class Attachment(models.Model):
     class Meta:
         managed = True
         db_table = "ATTACHMENT"
+
+
+class AttachmentVersion(models.Model):
+    version = models.IntegerField()
+    name = models.CharField(max_length=255)
+    attachment = models.ForeignKey(
+        "Attachment",
+        models.CASCADE,
+        related_name="version_history",
+    )
+    path = models.FileField(max_length=1024, upload_to=version_path_directory_path)
+    size = models.IntegerField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    created_by_user = models.ForeignKey(
+        "user.User",
+        models.PROTECT,
+        related_name="version",
+    )
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=["attachment", "version"], name="unique_attachment_version"
+            )
+        ]
 
 
 class AttachmentSectionQuerySet(models.QuerySet):
