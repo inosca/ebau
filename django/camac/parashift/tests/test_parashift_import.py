@@ -24,8 +24,10 @@ def test_import(
         "parzelle-nr": 11,
         "baurecht-nr": None,
         "gemeinde": "Gurtnellen 1209",
-        "ort": "Platti, Amsteg",
         "vorhaben": "Erschliessungsstrasse",
+        "vorhaben-backup": "Erschliessungsstrasse",
+        "ort": "Platti, Amsteg",
+        "ort-backup": "Platti, Amsteg",
         "external-id": "138866",
         "barcodes": [
             {"type": "Gurtnellen 1209", "page": 0},
