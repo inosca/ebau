@@ -122,3 +122,9 @@ class AttachmentDownloadHistoryFilterSet(FilterSet):
             "group__role",
             "only_involved_applicants",
         )
+
+
+class AttachmentVersionFilterSet(FilterSet):
+    class Meta:
+        model = models.AttachmentVersion
+        fields = ("attachment",)
