@@ -18,7 +18,7 @@ docxtpl==0.16.4
 drf-yasg==1.21.3
 ebau_gwr==0.6.2
 Jinja2==3.1.2
-manabi==0.7.1
+manabi==1.2.0
 mozilla-django-oidc==2.0.0
 openpyxl==3.0.10
 Pillow==9.2.0
