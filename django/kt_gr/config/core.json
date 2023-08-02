@@ -1171,21 +1171,6 @@
   },
   {
     "model": "core.instanceresource",
-    "pk": 2000003,
-    "fields": {
-      "available_instance_resource": "taskform",
-      "resource": 20006,
-      "name": null,
-      "description": null,
-      "template": null,
-      "class_field": null,
-      "hidden": 0,
-      "sort": 7,
-      "form_group": 2000000
-    }
-  },
-  {
-    "model": "core.instanceresource",
     "pk": 12000000,
     "fields": {
       "available_instance_resource": "workitemlistinstance",
@@ -1938,17 +1923,7 @@
     "fields": {
       "instance_resource": 2000002,
       "language": "de",
-      "name": "Formelle Prüfung",
-      "description": null
-    }
-  },
-  {
-    "model": "core.instanceresourcet",
-    "pk": 2000003,
-    "fields": {
-      "instance_resource": 2000003,
-      "language": "de",
-      "name": "Materielle Prüfung",
+      "name": "Vorläufige Prüfung",
       "description": null
     }
   },
@@ -2144,6 +2119,16 @@
   },
   {
     "model": "core.instanceresourcet",
+    "pk": 14000014,
+    "fields": {
+      "instance_resource": 2000002,
+      "language": "it",
+      "name": "Esame preliminare",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
     "pk": 15000000,
     "fields": {
       "instance_resource": 15000000,
@@ -2315,33 +2300,6 @@
     "pk": 2000009,
     "fields": {
       "instance_resource": 2000002,
-      "role": 3,
-      "instance_state": 120007
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 2000010,
-    "fields": {
-      "instance_resource": 2000003,
-      "role": 3,
-      "instance_state": 120004
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 2000011,
-    "fields": {
-      "instance_resource": 2000003,
-      "role": 3,
-      "instance_state": 120005
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 2000012,
-    "fields": {
-      "instance_resource": 2000003,
       "role": 3,
       "instance_state": 120007
     }
@@ -3152,13 +3110,6 @@
     "pk": 2000002,
     "fields": {
       "task": "formal-exam"
-    }
-  },
-  {
-    "model": "core.irtaskform",
-    "pk": 2000003,
-    "fields": {
-      "task": "material-exam"
     }
   },
   {
