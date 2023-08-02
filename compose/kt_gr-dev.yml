@@ -81,6 +81,7 @@ services:
       - OIDC_OP_USER_ENDPOINT=http://ebau-keycloak.local/auth/realms/ebau/protocol/openid-connect/userinfo
       - ALLOWED_HOSTS=*
       - MINIO_STORAGE_ENDPOINT=ember-ebau.local
+      - DOCUMENT_MERGE_SERVICE_URL=http://document-merge-service:8000/document-merge-service/api/v1/
     networks:
       - ebau.local
     command: /bin/sh -c "./wait-for-it.sh db:5432 -- ./manage.py migrate && ./manage.py collectstatic --noinput && ./manage.py runserver 0:80 --pythonpath /app/$APPLICATION"
@@ -126,26 +127,36 @@ services:
       - MH_UI_WEB_PATH=mailhog
 
   document-merge-service:
-    depends_on:
-      - db
+    image: acr.run/camac-ng/camac-ng/document-merge-service:master
     networks:
       - ebau.local
+    cap_add:
+      - CAP_SYS_ADMIN
+    security_opt:
+      - apparmor:unconfined
     environment:
       - ENV=dev
+      - ISOLATE_UNOCONV=true
       - OIDC_USERINFO_ENDPOINT=http://ebau-keycloak.local/auth/realms/ebau/protocol/openid-connect/userinfo
-      - OIDC_GROUPS_API=http://ember-ebau.local/api/v1/me?include=service,service.service_parent,service.municipality
-    # There appears to be bug where libreoffice can only be started as the root
-    # user. The workaround of fixing owner and permissions of ~/.config did not
-    # work in our case.
-    #
-    # https://github.com/unoconv/unoconv/issues/241#issuecomment-549434601
-    # https://superuser.com/questions/564534/only-root-user-is-able-to-open-libreoffice
-    # user: "${UID:?Set UID env variable to your user id}"
+      - CACHE_LOCATION=cache:11211
+      - DATABASE_HOST=db
+      - DATABASE_NAME=${APPLICATION}
+      - DATABASE_USER=camac
+      - DATABASE_PASSWORD=camac
+      - URL_PREFIX=document-merge-service/
+      - EXTENSIONS_ARGUMENTS=DJANGO_API=http://ember-ebau.local
+      - AWS_S3_ACCESS_KEY_ID=minio
+      - AWS_S3_SECRET_ACCESS_KEY=minio123
+      - AWS_S3_ENDPOINT_URL=http://minio:9000
+    user: "${UID:?Set UID env variable to your user id}"
+    volumes:
+      - ../document-merge-service/extensions:/app/document_merge_service/extensions
+      - ../document-merge-service/${APPLICATION}/dump.json:/tmp/document-merge-service/dump.json
     command:
       [
         "/bin/sh",
         "-c",
-        "wait-for-it.sh db:5432 -- poetry run python manage.py migrate && poetry run uwsgi",
+        "wait-for-it db:5432 -- poetry run python manage.py migrate && poetry run python manage.py runserver 0.0.0.0:8000",
       ]
 
   minio:
@@ -155,6 +166,7 @@ services:
     environment:
       - MINIO_ACCESS_KEY=minio
       - MINIO_SECRET_KEY=minio123
+      # TODO: Rename webhook to alexandria
       - MINIO_NOTIFY_WEBHOOK_ENABLE_CALUMA=on
       - MINIO_NOTIFY_WEBHOOK_ENDPOINT_CALUMA=http://django:8000/alexandria/api/v1/hook
     command: server data
@@ -167,12 +179,11 @@ services:
     environment:
       - MINIO_ACCESS_KEY=minio
       - MINIO_SECRET_KEY=minio123
-    entrypoint: >
-      /bin/sh -c "
-      mc config host add dc-minio http://minio:9000 $${MINIO_ACCESS_KEY} $${MINIO_SECRET_KEY} --api S3v4;
-      mc mb dc-minio/caluma-media;
-      mc event add dc-minio/caluma-media arn:minio:sqs::CALUMA:webhook --event put;
-      mc event list dc-minio/caluma-media;"
+      - APPLICATION=${APPLICATION}
+    volumes:
+      - ../mc/entrypoint.sh:/entrypoint.sh
+      - ../document-merge-service/${APPLICATION}/templatefiles:/tmp/dms-media
+    entrypoint: /entrypoint.sh
     depends_on:
       - minio
     networks:
