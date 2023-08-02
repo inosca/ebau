@@ -123,12 +123,12 @@ def _write_answers(instance, data):
 
     # write simple answers
     Answer.objects.create(
-        value=data["vorhaben"],
+        value=data["vorhaben"] if data["vorhaben"] else data["vorhaben-backup"],
         document=instance.case.document,
         question=Question.objects.get(slug="proposal-description"),
     )
     Answer.objects.create(
-        value=data["ort"],
+        value=data["ort"] if data["ort"] else data["ort-backup"],
         document=instance.case.document,
         question=Question.objects.get(slug="parcel-street"),
     )

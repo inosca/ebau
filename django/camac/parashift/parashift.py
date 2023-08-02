@@ -214,7 +214,24 @@ class ParashiftImporter:
         "336901": {"erfassungsjahr": 2005},
         "336905": {"erfassungsjahr": 2007},
         "4530658": {"gemeinde": "Gurtnellen 1209"},
+        "5076182": {"parzelle-nr": 793},
+        "6286188": {"erfassungsjahr": 1980},
+        "6286189": {"erfassungsjahr": 1980},
     }
+
+    def _set_location(self, value, identifier, record):
+        if identifier == "nähere ortsbezeichnung":
+            record["ort"] = value
+
+        if identifier == "ort-backup":
+            record["ort-backup"] = value
+
+    def _set_intent(self, value, identifier, record):
+        if identifier == "vorhaben":
+            record["vorhaben"] = value
+
+        if identifier == "vorhaben-backup":
+            record["vorhaben-backup"] = value
 
     def fetch_data(self, para_id):
         json_doc = self._get(self.DATA_URI_FORMAT.format(document_id=para_id)).json()
@@ -249,6 +266,9 @@ class ParashiftImporter:
                 )
 
                 continue
+
+            self._set_location(value, identifier, record)
+            self._set_intent(value, identifier, record)
 
             if identifier not in record or value is None:
                 continue

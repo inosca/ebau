@@ -22,10 +22,23 @@ PARASHIFT = {
             "API_KEY": env.str("PARASHIFT_API_KEY_KOOR_BG", default="ey..."),
             "CAMAC_GROUP_ID": 142,
         },
+        # Seedorf
         "1214": {
             "TENANT_ID": env.int("PARASHIFT_TENANT_ID_1214", default=0000),
             "API_KEY": env.str("PARASHIFT_API_KEY_1214", default="ey..."),
             "CAMAC_GROUP_ID": 151,
+        },
+        # Erstfeld
+        "1206": {
+            "TENANT_ID": env.int("PARASHIFT_TENANT_ID_1206", default=0000),
+            "API_KEY": env.str("PARASHIFT_API_KEY_1206", default="ey..."),
+            "CAMAC_GROUP_ID": 145,
+        },
+        # Seelisberg
+        "1215": {
+            "TENANT_ID": env.int("PARASHIFT_TENANT_ID_1215", default=0000),
+            "API_KEY": env.str("PARASHIFT_API_KEY_1215", default="ey..."),
+            "CAMAC_GROUP_ID": 152,
         },
     },
 }
