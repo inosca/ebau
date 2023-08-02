@@ -26,7 +26,7 @@ class InstanceQuerysetMixin(object):
     """
     Mixin to filter queryset by instances which may be read by given role.
 
-    Define `instance_field` where instance is located on model (dot annotation).
+    Define `instance_field` where instance is located on model.
 
     This mixin was written for usage in views. Meanwhile we also use it in different
     places. To make it work outside of a view, make sure you set the `user` and `group`
@@ -40,7 +40,9 @@ class InstanceQuerysetMixin(object):
         result = field
 
         if self.instance_field:
-            instance_field = self.instance_field.replace(".", LOOKUP_SEP)
+            # We switched away from dot-notation
+            assert "." not in self.instance_field
+            instance_field = self.instance_field
             result = instance_field + LOOKUP_SEP + result
 
         if (
