@@ -70,22 +70,16 @@ services:
         - acr.run/camac-ng/camac-ng/keycloak:master
 
   document-merge-service:
-    image: ghcr.io/adfinis/document-merge-service:5.0.5
-    volumes:
-      - ../document-merge-service/uwsgi.ini:/app/uwsgi.ini:ro
-      - ../document-merge-service/kt_gr/templatefiles:/var/lib/document-merge-service/media
-      - ../document-merge-service/kt_gr/dump.json:/tmp/document-merge-service/dump.json
+    depends_on:
+      - db
+    build:
+      context: ../document-merge-service
+      cache_from:
+        - acr.run/camac-ng/camac-ng/document-merge-service:master
     environment:
-      - DATABASE_ENGINE=django.db.backends.postgresql
-      - DATABASE_HOST=db
-      - DATABASE_NAME=${APPLICATION}
-      - DATABASE_USER=camac
-      - DATABASE_PASSWORD=camac
-      - REQUIRE_AUTHENTICATION=True
-      - GROUP_ACCESS_ONLY=True
-      - OIDC_GROUPS_API_JSONPATH=$$.included[?(@.type=='services')].id
-      - OIDC_GROUPS_API_HEADERS=AUTHORIZATION,X-CAMAC-GROUP
-      - PAGINATION_ENABLED=False
+      - FILE_STORAGE=storages.backends.s3boto3.S3Boto3Storage
+      - AWS_STORAGE_BUCKET_NAME=dms-media
+      - AWS_S3_SIGNATURE_VERSION=s3v4
 
 volumes:
   pgdata:

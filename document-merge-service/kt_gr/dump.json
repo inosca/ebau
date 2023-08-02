@@ -6,7 +6,6 @@
       "description": "",
       "template": "eingabequittung.docx",
       "engine": "docx-template",
-      "group": null,
       "meta": {}
     }
   }
