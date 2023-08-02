@@ -164,7 +164,6 @@ def test_work_item_visibility_sz(
     mocker,
     settings,
 ):
-
     settings.APPLICATION_NAME = "kt_schwyz"
     mocker.patch(
         "caluma.caluma_core.types.Node.visibility_classes", [CustomVisibilitySZ]
@@ -728,6 +727,66 @@ def test_inquiry_visibility_be(
     assert len(ids) == 3
     assert visible_ids == ids
     assert str(invisible_inquiry.pk) not in ids
+
+
+@pytest.mark.parametrize(
+    "role__name,expected_count",
+    [("service", 0), ("subservice", 3)],
+)
+def test_inquiry_visibility_gr(
+    db,
+    caluma_admin_schema_executor,
+    gr_distribution_settings,
+    active_inquiry_factory,
+    role,
+    mocker,
+    service,
+    gr_instance,
+    service_factory,
+    settings,
+    expected_count,
+):
+    settings.APPLICATION_NAME = "kt_gr"
+    mocker.patch("caluma.caluma_core.types.Node.visibility_classes", [CustomVisibility])
+
+    other_service = service_factory()
+    other_subservice = service_factory(service_parent=other_service)
+
+    [
+        active_inquiry_factory(controlling_service=c, addressed_service=a)
+        for c, a in [
+            (other_service, service),
+            (service, other_service),
+            (other_service, other_subservice),
+            (service_factory(), other_service),
+        ]
+    ]
+
+    result = caluma_admin_schema_executor(
+        """
+        query($task: ID!) {
+            allWorkItems(filter: [{ task: $task }]) {
+                edges {
+                    node {
+                        id
+                    }
+                }
+            }
+        }
+    """,
+        variables={"task": gr_distribution_settings["INQUIRY_TASK"]},
+    )
+
+    assert not result.errors
+
+    ids = set(
+        [
+            extract_global_id(edge["node"]["id"])
+            for edge in result.data["allWorkItems"]["edges"]
+        ]
+    )
+
+    assert len(ids) == expected_count
 
 
 @pytest.mark.parametrize("role__name", ["Applicant"])
