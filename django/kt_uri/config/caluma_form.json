@@ -5667,6 +5667,51 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "gebaeude-tabelle.abwasserentsorgung",
+    "fields": {
+      "created_at": "2023-08-02T06:39:59.099Z",
+      "modified_at": "2023-08-02T06:39:59.099Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "gebaeude-tabelle",
+      "question": "abwasserentsorgung",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "gebaeude-tabelle.angabe-material-und-durchmesser",
+    "fields": {
+      "created_at": "2023-08-02T06:41:28.880Z",
+      "modified_at": "2023-08-02T06:41:28.880Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "gebaeude-tabelle",
+      "question": "angabe-material-und-durchmesser",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "gebaeude-tabelle.anschluesse",
+    "fields": {
+      "created_at": "2023-08-02T06:34:51.812Z",
+      "modified_at": "2023-08-02T06:34:51.812Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "gebaeude-tabelle",
+      "question": "anschluesse",
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "gebaeude-tabelle.antrag-ausnahme-solarpflicht",
     "fields": {
       "created_at": "2022-12-20T14:39:22.942Z",
@@ -5677,7 +5722,7 @@
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
       "question": "antrag-ausnahme-solarpflicht",
-      "sort": 15
+      "sort": 28
     }
   },
   {
@@ -5692,7 +5737,7 @@
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
       "question": "art-der-hochbaute",
-      "sort": 25
+      "sort": 38
     }
   },
   {
@@ -5707,7 +5752,7 @@
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
       "question": "art-der-montage",
-      "sort": 23
+      "sort": 36
     }
   },
   {
@@ -5722,7 +5767,37 @@
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
       "question": "art-der-reklamebaute",
-      "sort": 24
+      "sort": 37
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "gebaeude-tabelle.beauftragter-elektroinstallatuer",
+    "fields": {
+      "created_at": "2023-08-02T06:43:54.625Z",
+      "modified_at": "2023-08-02T06:43:54.625Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "gebaeude-tabelle",
+      "question": "beauftragter-elektroinstallatuer",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "gebaeude-tabelle.beauftragter-sanitaerinstallateur-bitte-infotext-beachten",
+    "fields": {
+      "created_at": "2023-08-02T06:39:16.609Z",
+      "modified_at": "2023-08-02T06:39:16.609Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "gebaeude-tabelle",
+      "question": "beauftragter-sanitaerinstallateur-bitte-infotext-beachten",
+      "sort": 8
     }
   },
   {
@@ -5737,7 +5812,7 @@
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
       "question": "bedachung",
-      "sort": 3
+      "sort": 16
     }
   },
   {
@@ -5752,7 +5827,7 @@
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
       "question": "bedachung-beschreibung",
-      "sort": 2
+      "sort": 15
     }
   },
   {
@@ -5767,7 +5842,7 @@
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
       "question": "bedachung-farbe",
-      "sort": 1
+      "sort": 14
     }
   },
   {
@@ -5782,7 +5857,22 @@
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
       "question": "begruendung-ausname-solarpflicht",
-      "sort": 14
+      "sort": 27
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "gebaeude-tabelle.durchmesser-wasseranschlussleitung-zoll-oder-mm",
+    "fields": {
+      "created_at": "2023-08-02T06:37:43.558Z",
+      "modified_at": "2023-08-02T06:37:43.559Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "gebaeude-tabelle",
+      "question": "durchmesser-wasseranschlussleitung-zoll-oder-mm",
+      "sort": 10
     }
   },
   {
@@ -5797,7 +5887,22 @@
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
       "question": "egid",
-      "sort": 26
+      "sort": 39
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "gebaeude-tabelle.energieversorgung",
+    "fields": {
+      "created_at": "2023-08-02T06:42:48.101Z",
+      "modified_at": "2023-08-02T06:42:48.102Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "gebaeude-tabelle",
+      "question": "energieversorgung",
+      "sort": 3
     }
   },
   {
@@ -5812,7 +5917,7 @@
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
       "question": "fassade",
-      "sort": 9
+      "sort": 22
     }
   },
   {
@@ -5827,7 +5932,7 @@
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
       "question": "fassade-beschreibung",
-      "sort": 8
+      "sort": 21
     }
   },
   {
@@ -5842,7 +5947,7 @@
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
       "question": "fassade-farbe",
-      "sort": 7
+      "sort": 20
     }
   },
   {
@@ -5857,7 +5962,7 @@
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
       "question": "fassade-titel",
-      "sort": 10
+      "sort": 23
     }
   },
   {
@@ -5872,7 +5977,7 @@
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
       "question": "fenster",
-      "sort": 6
+      "sort": 19
     }
   },
   {
@@ -5887,7 +5992,7 @@
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
       "question": "fenster-beschreibung",
-      "sort": 5
+      "sort": 18
     }
   },
   {
@@ -5902,7 +6007,7 @@
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
       "question": "fenster-farbe",
-      "sort": 4
+      "sort": 17
     }
   },
   {
@@ -5917,7 +6022,7 @@
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
       "question": "fundationsart",
-      "sort": 11
+      "sort": 24
     }
   },
   {
@@ -5932,7 +6037,7 @@
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
       "question": "gebaeudekategorie",
-      "sort": 12
+      "sort": 25
     }
   },
   {
@@ -5947,7 +6052,7 @@
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
       "question": "gebaeudenummer-bezeichnung",
-      "sort": 27
+      "sort": 40
     }
   },
   {
@@ -5962,7 +6067,7 @@
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
       "question": "gleiche-reklamen",
-      "sort": 20
+      "sort": 33
     }
   },
   {
@@ -5977,7 +6082,7 @@
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
       "question": "groesse-der-reklame-cm",
-      "sort": 21
+      "sort": 34
     }
   },
   {
@@ -5992,7 +6097,22 @@
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
       "question": "hinweis-erfassung-solaranlage",
-      "sort": 16
+      "sort": 29
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "gebaeude-tabelle.kanalisationsanschluss",
+    "fields": {
+      "created_at": "2023-08-02T06:40:51.449Z",
+      "modified_at": "2023-08-02T06:40:51.449Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "gebaeude-tabelle",
+      "question": "kanalisationsanschluss",
+      "sort": 6
     }
   },
   {
@@ -6007,7 +6127,7 @@
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
       "question": "proposal",
-      "sort": 19
+      "sort": 32
     }
   },
   {
@@ -6022,7 +6142,7 @@
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
       "question": "reklamebeleuchtung",
-      "sort": 22
+      "sort": 35
     }
   },
   {
@@ -6037,7 +6157,7 @@
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
       "question": "solaranlagenpflicht",
-      "sort": 18
+      "sort": 31
     }
   },
   {
@@ -6052,7 +6172,22 @@
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
       "question": "solarpflicht",
-      "sort": 17
+      "sort": 30
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "gebaeude-tabelle.stromanschluss",
+    "fields": {
+      "created_at": "2023-08-02T06:43:25.509Z",
+      "modified_at": "2023-08-02T06:43:25.509Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "gebaeude-tabelle",
+      "question": "stromanschluss",
+      "sort": 2
     }
   },
   {
@@ -6067,7 +6202,67 @@
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
       "question": "umbau",
-      "sort": 13
+      "sort": 26
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "gebaeude-tabelle.wasseranschluss",
+    "fields": {
+      "created_at": "2023-08-02T06:36:53.550Z",
+      "modified_at": "2023-08-02T06:36:53.550Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "gebaeude-tabelle",
+      "question": "wasseranschluss",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "gebaeude-tabelle.wasserverbrauchszaehler-und-dimensionierung-abwasserleitung",
+    "fields": {
+      "created_at": "2023-08-02T06:42:12.384Z",
+      "modified_at": "2023-08-02T06:42:12.384Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "gebaeude-tabelle",
+      "question": "wasserverbrauchszaehler-und-dimensionierung-abwasserleitung",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "gebaeude-tabelle.wasserversorgung",
+    "fields": {
+      "created_at": "2023-08-02T06:35:39.728Z",
+      "modified_at": "2023-08-02T06:35:39.728Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "gebaeude-tabelle",
+      "question": "wasserversorgung",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "gebaeude-tabelle.wasserzaehler",
+    "fields": {
+      "created_at": "2023-08-02T06:38:34.090Z",
+      "modified_at": "2023-08-02T06:38:34.090Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "gebaeude-tabelle",
+      "question": "wasserzaehler",
+      "sort": 9
     }
   },
   {
@@ -15217,6 +15412,38 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "abwasserentsorgung-ja",
+    "fields": {
+      "created_at": "2023-08-02T06:39:58.693Z",
+      "modified_at": "2023-08-02T06:39:58.693Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "abwasserentsorgung-nein",
+    "fields": {
+      "created_at": "2023-08-02T06:39:58.706Z",
+      "modified_at": "2023-08-02T06:39:58.706Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "altes-heizsystem-auswahl-andere",
     "fields": {
       "created_at": "2022-10-20T11:57:38.934Z",
@@ -19448,6 +19675,38 @@
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "energieversorgung-ja",
+    "fields": {
+      "created_at": "2023-08-02T06:42:47.781Z",
+      "modified_at": "2023-08-02T06:42:47.781Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "energieversorgung-nein",
+    "fields": {
+      "created_at": "2023-08-02T06:42:47.783Z",
+      "modified_at": "2023-08-02T06:42:47.783Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
       "is_archived": false,
@@ -24097,6 +24356,54 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "kanalisationsanschluss-bestehend",
+    "fields": {
+      "created_at": "2023-08-02T06:40:51.006Z",
+      "modified_at": "2023-08-02T06:40:51.006Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bestehend\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kanalisationsanschluss-kein-anschluss",
+    "fields": {
+      "created_at": "2023-08-02T06:40:51.073Z",
+      "modified_at": "2023-08-02T06:40:51.073Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Kein Anschluss (lokale Abwasserentsorgungsanlage)\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kanalisationsanschluss-neu",
+    "fields": {
+      "created_at": "2023-08-02T06:40:51.065Z",
+      "modified_at": "2023-08-02T06:40:51.065Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Neu\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "kind-of-work-underground-abbruch",
     "fields": {
       "created_at": "2021-10-05T12:40:10.562Z",
@@ -27745,6 +28052,38 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "stromanschluss-bestehend",
+    "fields": {
+      "created_at": "2023-08-02T06:43:25.154Z",
+      "modified_at": "2023-08-02T06:43:25.154Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bestehend\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "stromanschluss-neu",
+    "fields": {
+      "created_at": "2023-08-02T06:43:25.162Z",
+      "modified_at": "2023-08-02T06:43:25.162Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Neu\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "tankform-kugeltank",
     "fields": {
       "created_at": "2021-11-26T08:46:41.508Z",
@@ -30977,6 +31316,38 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "wasseranschluss-bestehend",
+    "fields": {
+      "created_at": "2023-08-02T06:36:53.194Z",
+      "modified_at": "2023-08-02T06:36:53.194Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bestehend\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "wasseranschluss-neu",
+    "fields": {
+      "created_at": "2023-08-02T06:36:53.202Z",
+      "modified_at": "2023-08-02T06:36:53.202Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Neu\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "wasserrueckgabe-andere",
     "fields": {
       "created_at": "2022-09-22T14:56:29.647Z",
@@ -31082,6 +31453,38 @@
       "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Versickerungsanlage\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "wasserversorgung-ja",
+    "fields": {
+      "created_at": "2023-08-02T06:35:39.346Z",
+      "modified_at": "2023-08-02T06:35:39.346Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "wasserversorgung-nein",
+    "fields": {
+      "created_at": "2023-08-02T06:35:39.339Z",
+      "modified_at": "2023-08-02T06:35:39.339Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -32229,6 +32632,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "abwasserentsorgung",
+    "fields": {
+      "created_at": "2023-08-02T06:39:58.893Z",
+      "modified_at": "2023-08-02T06:39:58.893Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ist oder wird das Objekt an die Kanalisation angeschlossen?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "afu-umweltschutz",
     "fields": {
       "created_at": "2020-10-31T19:54:58.689Z",
@@ -33319,6 +33753,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "angabe-material-und-durchmesser",
+    "fields": {
+      "created_at": "2023-08-02T06:41:28.719Z",
+      "modified_at": "2023-08-02T06:41:28.719Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Angabe zum Material und zum Innendurchmesser der bestehenden Leitung (z.B. PVC 100)\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "\"kanalisationsanschluss-bestehend\" != \"kanalisationsanschluss\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "angaben-dieselbetankungsanlagen",
     "fields": {
       "created_at": "2021-11-25T12:35:42.760Z",
@@ -33744,6 +34212,37 @@
       "info_text": "{\"de\": \"####ANLEITUNG\\nNachdem Sie die Gemeinde, in der das Vorhaben geplant ist und das Verfahren ausgew\\u00e4hlt haben k\\u00f6nnen Sie nun Ihr Vorhaben und alle dazu geh\\u00f6renden Angaben und Unterlagen Schrittweise wie folgt erfassen:\\n\\n###Punkt 1\\nBestimmen Sie im Menu LOKALISIERUNG (wird links eingeblendet) den genauen Standort wo das Vorhaben realisiert wird. Sie k\\u00f6nnen:\\n- einen Punktstandort ausw\\u00e4hlen (z.B. f\\u00fcr kleinere Objekte, f\\u00fcr eine Mobilfunkanlage usw.)\\n- ein Linienobjekt ausw\\u00e4hlen (z.B. f\\u00fcr die Erfassung eines Bewirtschaftungsweges, eines Wanderweges, einer Fernw\\u00e4rmeleitung usw.) \\n- eine Fl\\u00e4che ausw\\u00e4hlen (z.B. Eintrag des Grundrisses eines MFH, oder die Festlegung des Perimeters einer Terrainver\\u00e4nderung usw.) \\n\\nDas System wird die betroffenen Parzellen Nummern, die Egrid Nummern und die entsprechenden Daten aus der Nutzungsplanung sowie weitere, im Geoinformationssystem des Kantons erfasste Daten auslesen und teilweise direkt in die daf\\u00fcr vorgesehenen Felder abf\\u00fcllen.\\n\\n###Punkt 2\\nErfassen Sie im Menu PERSONALIEN die Daten von allen Personen die am Verfahren beteiligt sind. Dabei ist zu beachten, dass, sofern Grundeigent\\u00fcmer, Projektverfasser oder Rechnungsempf\\u00e4nger nicht indentisch sind, f\\u00fcr diese Personen ein separates Datenblatt auszuf\\u00fcllen ist. Es k\\u00f6nnen beliebig viele Personen erfasst werden. Ebenfalls k\\u00f6nnen bei allen Personen die Daten von stellvertretenden Personen erfasst werden.\\n\\n###Punkt 3\\nErfassen Sie das BAUPROJEKT. Je nachdem, ob das Bauprojekt Hochbauten und Tiefbauten beinhaltet, m\\u00fcssen allenfalls unter \\\"Art des Bauwerks\\\" beide Arten ausgew\\u00e4hlt werden. \\n\\nDie Formulare werden, je nach getroffener Auswahl in der Menuf\\u00fchrung, links angezeigt (z.B. wenn Sie bei der Auswahl \\\"Nutzung / Zweck\\\" die Rubrik \\\"Dienstleistung und Verkauf\\\" ausw\\u00e4hlen, wird das Fachthema Arbeitssicherheit und Gesundheitsschutz angezeigt usw. \\n\\nErfassen Sie nun mit der Tabelle \\\"Geb\\u00e4ude und Anlagen\\\" f\\u00fcr jeden Teil des Bauprojekts einen entsprechenden Datensatz. Hier ist zu beachten, dass f\\u00fcr jedes Geb\\u00e4ude eine Bezeichnung anzugeben ist (z.B. HAUS A) damit die Daten aus der Tabelle \\\"Haus- und Geb\\u00e4udetechnik\\\" den entsprechenden Bauten zugeordnet werden kann.\\nVerfahren Sie gleich mit der Tabelle \\\"Haus- und Geb\\u00e4udetechnik\\\" und bezeichen Sie im obersten Feld das Geb\\u00e4ude, zu der die erfasste Haustechnik geh\\u00f6rt.\\n\\nUnter dem Menu Tiefbau k\\u00f6nnen Sie nach dem gleichen Muster mehrere Tiebbauanlagen erfassen.\\n\\n###Punkt 4\\nF\\u00fcllen Sie alle Felder aus, die je nach Fachthema eingeblendet sind. Ein Thema ist vollst\\u00e4ndig ausgef\\u00fcllt wenn alle Pflichtfelder ausgef\\u00fcllt sind und hinter dem Formular ein H\\u00e4ckchen erscheint.\\n\\n###Punkt 5\\nDokumente; im Menu GESUCHSUNTERLAGEN stehen verschiedene Unterlagenkategorien zur Verf\\u00fcgung, in die Sie Ihre Gesuchsunterlagen hochladen k\\u00f6nnen.\\n\\n###Punkt 6\\nUnterschriften. Bitte beachten Sie, dass aus rechtlichen Gr\\u00fcnden (\\u00f6ffentliche Bauplanauflage und Visierung der bewilligten Pl\\u00e4ne) in der Regel, nebst der digitalen Eingabe, zwei physische Dossiers samt Unterschriften (Planunterlagen) bei der zust\\u00e4ndigen Gemeinde eingereicht werden m\\u00fcssen.  Bei kleinen Vorhaben mit entsprechend wenig Planbeilagen (maximal A3) kann allenfalls (mit R\\u00fccksprache bei der zust\\u00e4ndigen Gemeinde) auf die physische Zustellung der Unterlagen verzichtet werden. Das Unterschriftenblatt ist jedoch, in jedem Fall auszuf\\u00fcllen, auszudrucken und der Gemeindebaubeh\\u00f6rde zuzustellen. Einzig bei so genannten qualifiziert digital signierten Dokumenten entf\\u00e4llt die physische Zustellung der Unterlagen g\\u00e4nzlich. \\n\\nBitte beachten: Bei s\\u00e4mtlichen Baurechtssituationen (ZGB Baurechte und Allmend-Baurechte) ist der Baurechtsnehmer in der Regel zwat Eigent\\u00fcmer der Baute jedoch nicht Grundeigent\\u00fcmer. Ein Baugesuch muss deshalb entweder vom Gesuchsteller unterzeichnet sein oder es muss, falls es sich beim Grundeigent\\u00fcmer um eine juristische Person handelt (Korporation Uri und Korporation Ursern) ein entsprechneder Protokollauszug vorliegen.\\n\\n###Online Anzeige\\nDie hier hochgeladenen Dokumente sind Bestandteil der \\u00f6ffentlichen Bauplanauflage und k\\u00f6nnen auch online eingesehen werden. Sie haben die M\\u00f6glichkeit, im Portal jene Dokumente, die Sie als vertraulich einstufen und nicht f\\u00fcr die Online Publikation freigeben m\\u00f6chten, entsprechend zu kennzeichnen.\\n\\n###Speichern / Drucken\\nIhre Eingaben werden automatisch gespeichert, sobald Sie das Feld verlassen. So haben Sie die M\\u00f6glichkeit, jederzeit abzubrechen und zu einem beliebigen Zeitpunkt fortzufahren. Sie k\\u00f6nnen Ihr Gesuchsformular jederzeit als pdf-Dokument abspeichern und folglich auch ausdrucken (unter EINREICHEN mit Klick auf PDF GENERIEREN).\\n\\n###Gesuch einreichen\\nDas Gesuch kann erst eingereicht werden, wenn alle Pflichtangaben gemacht wurden. Nach dem Einreichen k\\u00f6nnen keine Anpassungen mehr vorgenommen werden. Im Falle nachtr\\u00e4glicher Erg\\u00e4nzungen oder Korrekturen bitten wir Sie sich mit der zust\\u00e4ndigen Bauverwaltung der Gemeinde in Verbindung zu setzen.\\n\\n###L\\u00f6schen\\nBegonnene, aber noch nicht eingereichte Gesuche, k\\u00f6nnen Sie l\\u00f6schen.\\n\\n###Verfahrensstand\\nSolange Sie ein Gesuch nicht eingereicht haben, bleibt der Status auf \\u201eNeu\\u201c. Nach Einreichung des Gesuchs wird sich der Status immer dem jeweiligen Verfahrensstand anpassen. Das Dossier durchl\\u00e4uft folgende Status: Neu / Eingereicht / Von Gemeinde angenommen / In Zirkulation / Bauentscheid ausstehend / Nachforderung / Bewilligt / (Abgelehnt) / Archiviert.\\n\\n###Hilfe\\nIm Falle von Problemen oder Fragen, welche durch die hinterlegten Hilfestellungen nicht gekl\\u00e4rt werden, k\\u00f6nnen Sie sich entweder an die zust\\u00e4ndige Bauverwaltung der entsprechenden Gemeinde oder an das Amt f\\u00fcr Raumentwicklung mailto:urec@ur.ch wenden.\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"##Willkommen bei URec.\\n\\nWir danken Ihnen, dass Sie diese Dienstleistung nutzen.\\n\\nSie m\\u00fcssen kein Computerprofi sein, damit Sie sich hier zurechtfinden. Das Ausf\\u00fcllen der Formulare wird jedoch etwas Zeit beanspruchen. Zeit die gut investiert ist. Die Erfahrungen der letzten Jahre aus hunderten von Dossiers haben gezeigt, dass die meiste Zeit dann verloren geht, wenn Dossiers unvollst\\u00e4ndig sind oder gar falsche Angaben enthalten.\\n\\nDieses benutzergef\\u00fchrte Formular ersetzt das bisherige Formular A (pdf) und weitere teils fachthemenbezogene Einzelformulare. Das Gesuchsformular ist mit einer logischen Nutzerf\\u00fchrung hinterlegt.\\n\\nBei vielen Portalen muss man sich von A nach B durchklicken. Hier k\\u00f6nnen Sie jederzeit und von Beginn an von einem Thema zum anderen wechseln. Ihre Eingaben werden fortlaufend gespeichert. **Das hat den Vorteil, dass Sie die Formulare in beliebiger Reihenfolge ausf\\u00fcllen k\\u00f6nnen.** Das System zeigt Ihnen ganz zum Schluss an, welche Pflichtfelder noch ausgef\\u00fcllt werden m\\u00fcssen.\\n\\nIm Infotext rechts finden Sie eine kurze Anleitung zu den wichtigsten Schritten die beim Ausf\\u00fcllen der Formulare zu beachten sind.\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "anschluesse",
+    "fields": {
+      "created_at": "2023-08-02T06:34:51.651Z",
+      "modified_at": "2023-08-02T06:34:51.651Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anschl\\u00fcsse\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"#### Erschliessung (Geb\\u00e4udeanschl\\u00fcsse)\\nBitte erfassen Sie die erforderlichen Angaben f\\u00fcr die Geb\\u00e4udeanschl\\u00fcsse (Wasserversorgung, Abwasserentsorgung und Energieversorgung)\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -36258,6 +36757,74 @@
       "configuration": {
         "max_value": null,
         "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "beauftragter-elektroinstallatuer",
+    "fields": {
+      "created_at": "2023-08-02T06:43:54.464Z",
+      "modified_at": "2023-08-02T06:43:54.465Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beauftragter Elektroinstallatuer\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "\"stromanschluss-neu\" != \"stromanschluss\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "beauftragter-sanitaerinstallateur-bitte-infotext-beachten",
+    "fields": {
+      "created_at": "2023-08-02T06:39:16.457Z",
+      "modified_at": "2023-08-02T06:39:16.457Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beauftragter Sanit\\u00e4rinstallateur (bitte Infotext beachten)\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "\"wasseranschluss-neu\" != \"wasseranschluss\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Die Dimensionierung neuer Anschl\\u00fcsse wird durch die \\u00f6rtliche Wasserversorgung \\nfestgelegt. Zudem sind bei neuen Anschl\\u00fcssen Angaben zum Sanit\\u00e4rplaner oder der Installationsfirma zu erfassen.\\nNeue Wasserz\\u00e4hler werden durch die Abwasser Uri eingebaut.\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
       },
       "meta": {},
       "data_source": null,
@@ -41032,6 +41599,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "durchmesser-wasseranschlussleitung-zoll-oder-mm",
+    "fields": {
+      "created_at": "2023-08-02T06:37:43.411Z",
+      "modified_at": "2023-08-02T06:37:43.411Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Durchmesser Wasseranschlussleitung (Zoll oder mm)\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "\"wasseranschluss-bestehend\" != \"wasseranschluss\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "e-grid",
     "fields": {
       "created_at": "2020-09-01T15:03:01.611Z",
@@ -41727,6 +42328,37 @@
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"**Hinweis**\\nDer Energienachweis wird in der Regel auf der Basis von Detailpl\\u00e4nen erstellt. Da diese zum Zeitpunkt der Baueingabe oftmals noch nicht vorliegen, kann der Energienachweis im Rahmen des laufenden Bewilligungsverfahrens nachgereicht werden. Bitte verwenden Sie dazu das Formular \\\"Geb\\u00e4udetechnik\\\". Die Baubewilligung/Baufreigabe erfolgt erst nach positiver Pr\\u00fcfung des Energienachweises.\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "energieversorgung",
+    "fields": {
+      "created_at": "2023-08-02T06:42:47.944Z",
+      "modified_at": "2023-08-02T06:42:47.944Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ist oder wird das Objekt an die Stromversorgung angeschlossen?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -47566,6 +48198,37 @@
         "max_value": null,
         "min_value": null
       },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "kanalisationsanschluss",
+    "fields": {
+      "created_at": "2023-08-02T06:40:51.258Z",
+      "modified_at": "2023-08-02T06:40:51.258Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Kanalisationsanschluss\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "\"abwasserentsorgung-ja\" != \"abwasserentsorgung\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -55443,6 +56106,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "stromanschluss",
+    "fields": {
+      "created_at": "2023-08-02T06:43:25.364Z",
+      "modified_at": "2023-08-02T06:43:25.364Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Stromanschluss\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "\"energieversorgung-ja\" != \"energieversorgung\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "systemnachweis",
     "fields": {
       "created_at": "2020-11-16T15:28:59.567Z",
@@ -58596,6 +59290,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "wasseranschluss",
+    "fields": {
+      "created_at": "2023-08-02T06:36:53.396Z",
+      "modified_at": "2023-08-02T06:36:53.396Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wasseranschluss\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "\"wasserversorgung-ja\" != \"wasserversorgung\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "wasserrueckgabe",
     "fields": {
       "created_at": "2022-09-22T14:56:29.722Z",
@@ -58614,6 +59339,102 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "wasserverbrauchszaehler-und-dimensionierung-abwasserleitung",
+    "fields": {
+      "created_at": "2023-08-02T06:42:12.224Z",
+      "modified_at": "2023-08-02T06:42:12.224Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Neue Wasserverbrauchsz\\u00e4hler und Dimensionierung der Abwasserleitung\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "\"kanalisationsanschluss-neu\" != \"kanalisationsanschluss\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"Bitte beachten: F\\u00fcr die Liegenschaftsentw\\u00e4sserung ist die Abwasser Uri zust\\u00e4ndig. Neue Wasserverbrauchsz\\u00e4hler werden durch dir Abwasser Uri eingebaut. Die Dimensionierung der Abwasserleitung wird ebenfalls durch die Abwasser Uri festgelegt.\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "wasserversorgung",
+    "fields": {
+      "created_at": "2023-08-02T06:35:39.570Z",
+      "modified_at": "2023-08-02T06:35:39.570Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ist oder wird das Objekt an die Wasserversorgung angeschlossen?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "wasserzaehler",
+    "fields": {
+      "created_at": "2023-08-02T06:38:33.898Z",
+      "modified_at": "2023-08-02T06:38:33.898Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nummer des installierten Wasserz\\u00e4hlers\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "\"wasseranschluss-bestehend\" != \"wasseranschluss\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -59619,6 +60440,36 @@
       "modified_by_group": null,
       "question": "abstand-oberkante-anlage-dachrand",
       "option": "abstand-oberkante-anlage-dachrand-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "abwasserentsorgung.abwasserentsorgung-ja",
+    "fields": {
+      "created_at": "2023-08-02T06:39:58.909Z",
+      "modified_at": "2023-08-02T06:39:58.910Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "abwasserentsorgung",
+      "option": "abwasserentsorgung-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "abwasserentsorgung.abwasserentsorgung-nein",
+    "fields": {
+      "created_at": "2023-08-02T06:39:58.902Z",
+      "modified_at": "2023-08-02T06:39:58.902Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "abwasserentsorgung",
+      "option": "abwasserentsorgung-nein",
       "sort": 1
     }
   },
@@ -63669,6 +64520,36 @@
       "modified_by_group": null,
       "question": "energienachweis",
       "option": "energienachweis-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "energieversorgung.energieversorgung-ja",
+    "fields": {
+      "created_at": "2023-08-02T06:42:47.958Z",
+      "modified_at": "2023-08-02T06:42:47.958Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "energieversorgung",
+      "option": "energieversorgung-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "energieversorgung.energieversorgung-nein",
+    "fields": {
+      "created_at": "2023-08-02T06:42:47.953Z",
+      "modified_at": "2023-08-02T06:42:47.953Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "energieversorgung",
+      "option": "energieversorgung-nein",
       "sort": 1
     }
   },
@@ -67904,6 +68785,51 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "kanalisationsanschluss.kanalisationsanschluss-bestehend",
+    "fields": {
+      "created_at": "2023-08-02T06:40:51.275Z",
+      "modified_at": "2023-08-02T06:40:51.275Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "kanalisationsanschluss",
+      "option": "kanalisationsanschluss-bestehend",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kanalisationsanschluss.kanalisationsanschluss-kein-anschluss",
+    "fields": {
+      "created_at": "2023-08-02T06:40:51.265Z",
+      "modified_at": "2023-08-02T06:40:51.265Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "kanalisationsanschluss",
+      "option": "kanalisationsanschluss-kein-anschluss",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kanalisationsanschluss.kanalisationsanschluss-neu",
+    "fields": {
+      "created_at": "2023-08-02T06:40:51.271Z",
+      "modified_at": "2023-08-02T06:40:51.271Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "kanalisationsanschluss",
+      "option": "kanalisationsanschluss-neu",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "kind-of-work-underground.kind-of-work-underground-abbruch",
     "fields": {
       "created_at": "2021-10-05T13:01:38.588Z",
@@ -71159,6 +72085,36 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "stromanschluss.stromanschluss-bestehend",
+    "fields": {
+      "created_at": "2023-08-02T06:43:25.376Z",
+      "modified_at": "2023-08-02T06:43:25.376Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "stromanschluss",
+      "option": "stromanschluss-bestehend",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "stromanschluss.stromanschluss-neu",
+    "fields": {
+      "created_at": "2023-08-02T06:43:25.371Z",
+      "modified_at": "2023-08-02T06:43:25.372Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "stromanschluss",
+      "option": "stromanschluss-neu",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "tankform.tankform-kugeltank",
     "fields": {
       "created_at": "2021-11-26T09:51:10.589Z",
@@ -74189,6 +75145,36 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "wasseranschluss.wasseranschluss-bestehend",
+    "fields": {
+      "created_at": "2023-08-02T06:36:53.408Z",
+      "modified_at": "2023-08-02T06:36:53.408Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "wasseranschluss",
+      "option": "wasseranschluss-bestehend",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "wasseranschluss.wasseranschluss-neu",
+    "fields": {
+      "created_at": "2023-08-02T06:36:53.403Z",
+      "modified_at": "2023-08-02T06:36:53.403Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "wasseranschluss",
+      "option": "wasseranschluss-neu",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "wasserrueckgabe.wasserrueckgabe-andere",
     "fields": {
       "created_at": "2022-09-22T18:11:58.980Z",
@@ -74290,6 +75276,36 @@
       "question": "wasserrueckgabe",
       "option": "wasserrueckgabe-versickerungsanlage",
       "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "wasserversorgung.wasserversorgung-ja",
+    "fields": {
+      "created_at": "2023-08-02T06:35:39.582Z",
+      "modified_at": "2023-08-02T06:35:39.582Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "wasserversorgung",
+      "option": "wasserversorgung-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "wasserversorgung.wasserversorgung-nein",
+    "fields": {
+      "created_at": "2023-08-02T06:35:39.577Z",
+      "modified_at": "2023-08-02T06:35:39.577Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "wasserversorgung",
+      "option": "wasserversorgung-nein",
+      "sort": 1
     }
   },
   {
