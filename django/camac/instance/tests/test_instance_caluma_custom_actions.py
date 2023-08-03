@@ -747,3 +747,53 @@ def test_instance_convert_modification(
             == "projektaenderung-nein"
         )
         assert be_instance.case.document.source is None
+
+
+@pytest.mark.parametrize("instance__user", [LazyFixture("admin_user")])
+@pytest.mark.parametrize(
+    "role__name,expected_status",
+    [
+        ("Support", status.HTTP_200_OK),
+        ("Municipality", status.HTTP_200_OK),
+        ("Municipality", status.HTTP_400_BAD_REQUEST),
+        ("Applicant", status.HTTP_403_FORBIDDEN),
+    ],
+)
+def test_correction(
+    db,
+    admin_client,
+    be_instance,
+    role,
+    active_inquiry_factory,
+    instance_state_factory,
+    application_settings,
+    expected_status,
+):
+    application_settings["INSTANCE_STATE_CORRECTION_ALLOWED"] = ["subm"]
+    instance_state_factory(name="correction")
+    instance_state = instance_state_factory(name="subm")
+    be_instance.instance_state = instance_state
+    be_instance.save()
+
+    be_instance.case.meta["camac-instance-id"] = be_instance.pk
+    be_instance.case.save()
+
+    if expected_status == status.HTTP_400_BAD_REQUEST:
+        active_inquiry_factory(be_instance)
+
+    response = admin_client.post(reverse("instance-correction", args=[be_instance.pk]))
+
+    assert response.status_code == expected_status
+
+    if expected_status == status.HTTP_200_OK:
+        be_instance.refresh_from_db()
+
+        assert be_instance.instance_state.name == "correction"
+
+        response = admin_client.post(
+            reverse("instance-correction", args=[be_instance.pk])
+        )
+        be_instance.refresh_from_db()
+
+        assert response.status_code == expected_status
+        assert be_instance.instance_state.name == "subm"

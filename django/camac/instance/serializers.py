@@ -6,7 +6,7 @@ from io import StringIO
 from logging import getLogger
 
 from caluma.caluma_form import models as form_models
-from caluma.caluma_form.validators import DocumentValidator, CustomValidationError
+from caluma.caluma_form.validators import CustomValidationError, DocumentValidator
 from caluma.caluma_workflow import api as workflow_api, models as workflow_models
 from django.conf import settings
 from django.contrib.auth import get_user_model
@@ -2361,19 +2361,24 @@ class CalumaInstanceAppealSerializer(serializers.Serializer):
 class CalumaInstanceCorrectionSerializer(serializers.Serializer):
     INSTANCE_STATE_CORRECTION = "correction"
 
+    def validate(self, data):
+        if bool(
+            workflow_models.WorkItem.objects.filter(
+                task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
+                status=workflow_models.WorkItem.STATUS_READY,
+                case__family__meta__contains={
+                    "camac-instance-id": self.instance.pk,
+                },
+            ).count()
+        ):
+            raise exceptions.ValidationError(_("There are running inquiries."))
+
+        return data
+
     @transaction.atomic
     def update(self, instance, validated_data):
         if instance.instance_state.name in settings.APPLICATION.get(
             "INSTANCE_STATE_CORRECTION_ALLOWED", []
-        ) and not bool(
-            # check if there are running inquiries
-            workflow_models.WorkItem.objects.filter(
-                task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
-                status=workflow_models.WorkItem.STATUS_READY,
-                case__meta__contains=[
-                    {"key": "camac-instance-id", "value": instance.pk}
-                ],
-            ).count()
         ):
             user = self.context["request"].caluma_info.context.user
             workflow_api.suspend_case(instance.case, user)
@@ -2392,9 +2397,7 @@ class CalumaInstanceCorrectionSerializer(serializers.Serializer):
                 instance.instance_state,
             )
             instance.save()
-            create_history_entry(
-                instance, self.context["request"].user, gettext_noop("Corrected")
-            )
+            create_history_entry(instance, self.context["request"].user, _("Corrected"))
 
         return instance
 

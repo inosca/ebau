@@ -4,17 +4,26 @@
   <div class="uk-child-width-1-2" uk-grid>
     <div>
       <p class="uk-text-large">{{t "corrections.document.title"}}</p>
-      <p>{{t "corrections.document.description" htmlSafe=true}}</p>
-      {{log this.instance.record}}
-      <UkButton
-        @color="primary"
-        @label={{t "corrections.document.button"}}
-        @onClick={{perform this.documentCorrection}}
-        @disabled={{or
-          this.documentCorrection.isRunning
-          (cannot "correct instance" this.instance.record)
-        }}
-      />
+      {{#if (can "finish correct instance" this.instance.record)}}
+        <p>{{t "corrections.document.description-finish" htmlSafe=true}}</p>
+        <UkButton
+          @color="primary"
+          @label={{t "corrections.document.button-finish"}}
+          @onClick={{perform this.documentCorrection}}
+          @disabled={{this.documentCorrection.isRunning}}
+        />
+      {{else}}
+        <p>{{t "corrections.document.description" htmlSafe=true}}</p>
+        <UkButton
+          @color="primary"
+          @label={{t "corrections.document.button"}}
+          @onClick={{perform this.startCorrection}}
+          @disabled={{or
+            this.documentCorrection.isRunning
+            (cannot "correct instance" this.instance.record)
+          }}
+        />
+      {{/if}}
     </div>
   </div>
 {{/if}}
