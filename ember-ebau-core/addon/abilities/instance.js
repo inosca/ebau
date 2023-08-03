@@ -69,4 +69,12 @@ export default class InstanceAbility extends Ability {
         hasInstanceState(this.model, "circulation"))
     );
   }
+
+  get canFinishCorrect() {
+    return (
+      (this.ebauModules.isSupportRole ||
+        this.ebauModules.isMunicipalityLeadRole) &&
+      hasInstanceState(this.model, "correction")
+    );
+  }
 }

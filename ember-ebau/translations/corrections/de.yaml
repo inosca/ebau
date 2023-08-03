@@ -3,6 +3,8 @@ corrections:
     title: "Dossier korrigieren"
     description: "Bitte beachten Sie, dass die Dossierkorrektur nur für kleine Änderungen gedacht ist. Bitte prüfen Sie, ob allenfalls eine Rückweisung angebracht wäre.<br><br>Wollen Sie mit der Dossierkorrektur fortfahren?"
     button: "Korrigieren"
+    description-finish: "Dossierkorrektur abschliessen"
+    button-finish: "Abschliessen"
 
     confirm: "Wollen Sie das Dossier wirklich korrigieren?"
     error: "Fehler beim Korrigieren des Dossiers"
