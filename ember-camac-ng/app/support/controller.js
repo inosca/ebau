@@ -237,16 +237,4 @@ export default class SupportController extends Controller {
       this.notification.danger(this.intl.t("support.fix-work-items.error"));
     }
   }
-
-  @dropTask
-  @confirmTask("support.correction.confirm")
-  *documentCorrection() {
-    try {
-      yield this.fetch.fetch(`/api/v1/instances/${this.model}/correction`, {
-        method: "POST",
-      });
-    } catch (error) {
-      this.notification.danger(this.intl.t("support.correction.error"));
-    }
-  }
 }
