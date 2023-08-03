@@ -15,7 +15,7 @@ ARG APPLICATION
 
 RUN yarn deploy production
 
-FROM nginx:1.23-alpine
+FROM nginx:1.25-alpine
 
 COPY --from=build /myapp/ember-camac-ng/build /usr/share/nginx/html
 COPY ./ember-camac-ng/nginx.conf /etc/nginx/conf.d/default.conf
