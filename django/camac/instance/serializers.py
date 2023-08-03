@@ -2363,7 +2363,26 @@ class CalumaInstanceCorrectionSerializer(serializers.Serializer):
 
     @transaction.atomic
     def update(self, instance, validated_data):
-        if instance.instance_state == self.INSTANCE_STATE_CORRECTION:
+        if instance.instance_state.name in settings.APPLICATION.get(
+            "INSTANCE_STATE_CORRECTION_ALLOWED", []
+        ) and not bool(
+            # check if there are running inquiries
+            workflow_models.WorkItem.objects.filter(
+                task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
+                status=workflow_models.WorkItem.STATUS_READY,
+                case__meta__contains=[
+                    {"key": "camac-instance-id", "value": instance.pk}
+                ],
+            ).count()
+        ):
+            user = self.context["request"].caluma_info.context.user
+            workflow_api.suspend_case(instance.case, user)
+            instance.previous_instance_state = instance.instance_state
+            instance.instance_state = models.InstanceState.objects.get(
+                name=self.INSTANCE_STATE_CORRECTION
+            )
+            instance.save()
+        elif instance.instance_state.name == self.INSTANCE_STATE_CORRECTION:
             user = self.context["request"].caluma_info.context.user
             DocumentValidator().validate(instance.case.document, user)
 
@@ -2376,48 +2395,8 @@ class CalumaInstanceCorrectionSerializer(serializers.Serializer):
             create_history_entry(
                 instance, self.context["request"].user, gettext_noop("Corrected")
             )
-        else:
-            # check if there are running inquiries
-            if not bool(
-                workflow_models.WorkItem.objects.filter(
-                    task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
-                    status=workflow_models.WorkItem.STATUS_READY,
-                    case__meta__contains=[
-                        {"key": "camac-instance-id", "value": instance.pk}
-                    ],
-                ).count()
-            ):
-                user = self.context["request"].caluma_info.context.user
-                workflow_api.suspend_case(instance.case, user)
-                instance.previous_instance_state = instance.instance_state
-                instance.instance_state = models.InstanceState.objects.get(
-                    name=self.INSTANCE_STATE_CORRECTION
-                )
-                instance.save()
 
         return instance
 
     class Meta:
         resource_name = "instance-corrections"
-
-
-class CalumaInstanceFinishCorrectionSerializer(serializers.Serializer):
-    @transaction.atomic
-    def update(self, instance, validated_data):
-        user = self.context["request"].caluma_info.context.user
-        DocumentValidator().validate(instance.case.document, user)
-
-        workflow_api.resume_case(instance.case, user)
-        instance.instance_state, instance.previous_instance_state = (
-            instance.previous_instance_state,
-            instance.instance_state,
-        )
-        instance.save()
-        create_history_entry(
-            instance, self.context["request"].user, gettext_noop("Corrected")
-        )
-
-        return instance
-
-    class Meta:
-        resource_name = "instance-finish-corrections"

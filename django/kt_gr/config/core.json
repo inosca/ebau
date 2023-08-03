@@ -1480,6 +1480,21 @@
   },
   {
     "model": "core.instanceresource",
+    "pk": 14000014,
+    "fields": {
+      "available_instance_resource": "page",
+      "resource": 20006,
+      "name": null,
+      "description": null,
+      "template": "/ember-camac-ng/corrections.phtml",
+      "class_field": null,
+      "hidden": 0,
+      "sort": 28,
+      "form_group": 2000000
+    }
+  },
+  {
+    "model": "core.instanceresource",
     "pk": 15000000,
     "fields": {
       "available_instance_resource": "taskform",
@@ -2158,6 +2173,16 @@
       "instance_resource": 2000002,
       "language": "it",
       "name": "Esame preliminare",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 14000015,
+    "fields": {
+      "instance_resource": 14000014,
+      "language": "de",
+      "name": "Korrekturhilfen",
       "description": null
     }
   },
@@ -2930,6 +2955,24 @@
       "instance_resource": 12000001,
       "role": 10001,
       "instance_state": 120007
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 14000051,
+    "fields": {
+      "instance_resource": 14000014,
+      "role": 3,
+      "instance_state": 120004
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 14000052,
+    "fields": {
+      "instance_resource": 14000014,
+      "role": 3,
+      "instance_state": 120005
     }
   },
   {

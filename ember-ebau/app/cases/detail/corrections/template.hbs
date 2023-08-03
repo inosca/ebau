@@ -1,0 +1,20 @@
+{{#if this.instance.isLoading}}
+  <div class="uk-text-center"><UkSpinner @ratio={{2}} /></div>
+{{else if this.instance.record}}
+  <div class="uk-child-width-1-2" uk-grid>
+    <div>
+      <p class="uk-text-large">{{t "corrections.document.title"}}</p>
+      <p>{{t "corrections.document.description" htmlSafe=true}}</p>
+      {{log this.instance.record}}
+      <UkButton
+        @color="primary"
+        @label={{t "corrections.document.button"}}
+        @onClick={{perform this.documentCorrection}}
+        @disabled={{or
+          this.documentCorrection.isRunning
+          (cannot "correct instance" this.instance.record)
+        }}
+      />
+    </div>
+  </div>
+{{/if}}

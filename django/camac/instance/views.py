@@ -166,6 +166,7 @@ class InstanceView(
                 "dms_placeholders": DMSPlaceholdersSerializer,
                 "appeal": serializers.CalumaInstanceAppealSerializer,
                 "default": serializers.CalumaInstanceSerializer,
+                "correction": serializers.CalumaInstanceCorrectionSerializer,
             },
             "camac-ng": {
                 "submit": serializers.InstanceSubmitSerializer,
@@ -700,12 +701,12 @@ class InstanceView(
         )
 
     @swagger_auto_schema(auto_schema=None)
-    @action(methods=["post"], detail=True, url_path="correction")
+    @action(methods=["post"], detail=True)
     def correction(self, request, pk=None):
         return self._custom_serializer_action(request, pk)
 
-class InstanceResponsibilityView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
 
+class InstanceResponsibilityView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
     swagger_schema = None
     serializer_class = serializers.InstanceResponsibilitySerializer
     filterset_class = filters.InstanceResponsibilityFilterSet

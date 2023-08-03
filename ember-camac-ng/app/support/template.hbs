@@ -18,19 +18,6 @@
       />
     </div>
     <div>
-      <p class="uk-text-large">{{t "support.correction.title"}}</p>
-      <p>{{t "support.correction.description" htmlSafe=true}}</p>
-      <UkButton
-        @color="primary"
-        @label={{t "support.correction.button"}}
-        @onClick={{perform this.documentCorrection}}
-        @disabled={{or
-          this.documentCorrection.isRunning
-          (cannot "correct instance" this.instance)
-        }}
-      />
-    </div>
-    <div>
       <p class="uk-text-large">{{t "support.ebau-number.title"}}</p>
       <p>{{t "support.ebau-number.description"}}</p>
       <form

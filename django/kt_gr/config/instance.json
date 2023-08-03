@@ -79,6 +79,15 @@
     }
   },
   {
+    "model": "instance.instancestate",
+    "pk": 120008,
+    "fields": {
+      "name": "correction",
+      "sort": 4,
+      "description": null
+    }
+  },
+  {
     "model": "instance.instancestatet",
     "pk": 1,
     "fields": {
@@ -125,6 +134,16 @@
       "instance_state": 120007,
       "language": "de",
       "name": "Entscheid ausstehend",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 120038,
+    "fields": {
+      "instance_state": 120008,
+      "language": "de",
+      "name": "In Korrektur",
       "description": null
     }
   }
