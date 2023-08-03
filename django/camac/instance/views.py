@@ -328,6 +328,19 @@ class InstanceView(
             and instance.instance_state.name in ["finished", "sb1"]
         )
 
+    @permission_aware
+    def has_object_correction_permission(self, instance):
+        return False
+
+    def has_object_correction_permission_for_municipality(self, instance):
+        return instance.instance_state.name in [
+            *settings.APPLICATION.get("INSTANCE_STATE_CORRECTION_ALLOWED", []),
+            "correction",
+        ]
+
+    def has_object_correction_permission_for_support(self, instance):
+        return True
+
     @swagger_auto_schema(auto_schema=None)
     def retrieve(self, request, *args, **kwargs):  # pragma: no cover
         return super().retrieve(request, *args, **kwargs)

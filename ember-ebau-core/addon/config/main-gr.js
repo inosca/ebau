@@ -11,6 +11,7 @@ export default {
     new: 1,
     subm: 120004,
     circulation: 120005,
+    correction: 120008,
   },
   answerSlugs: {
     objectStreet: "strasse-flurname",
