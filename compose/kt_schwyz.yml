@@ -3,7 +3,7 @@ services:
     image: memcached:1.6-alpine
 
   proxy:
-    image: nginx:1.23-alpine
+    image: nginx:1.25-alpine
     depends_on:
       - ember
       - ember-camac-ng

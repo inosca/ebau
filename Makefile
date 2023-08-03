@@ -50,12 +50,12 @@ css-watch: ## Watch the sass files and create the css when they change
 .PHONY: dumpconfig
 dumpconfig: ## Dump the current camac and caluma configuration
 	docker-compose exec django python manage.py camac_dump_config
-	@yarn prettier --loglevel silent --write "django/${APPLICATION}/config/*.json"
+	@yarn prettier --log-level silent --write "django/${APPLICATION}/config/*.json"
 
 .PHONY: dumpdata
 dumpdata: ## Dump the current camac and caluma data
 	docker-compose exec django /app/manage.py camac_dump_data
-	@yarn prettier --loglevel silent --write "django/${APPLICATION}/data/*.json"
+	@yarn prettier --log-level silent --write "django/${APPLICATION}/data/*.json"
 
 .PHONY: loadconfig-camac
 loadconfig-camac: ## Load the camac configuration
@@ -73,7 +73,7 @@ loadconfig-dms: ## Load the DMS configuration
 dumpconfig-dms: ## Dump the DMS configuration
 	@if docker-compose config|grep -q document-merge-service; then \
 		docker-compose exec -u root document-merge-service bash -c "poetry run python manage.py dumpdata api.Template > /tmp/document-merge-service/dump.json" ; \
-		yarn prettier --loglevel silent --write "document-merge-service/${APPLICATION}/dump.json"; \
+		yarn prettier --log-level silent --write "document-merge-service/${APPLICATION}/dump.json"; \
 	fi
 
 
@@ -84,7 +84,7 @@ loadconfig-keycloak: ## Load the keycloak configuration
 .PHONY: dumpconfig-keycloak
 dumpconfig-keycloak: ## Dump the keycloak configuration
 	docker-compose exec keycloak /opt/keycloak/bin/kc.sh export --file /opt/keycloak/data/import/test-config.json;  \
-	yarn prettier --loglevel silent --write "keycloak/config/${APPLICATION}-test-config.json"; \
+	yarn prettier --log-level silent --write "keycloak/config/${APPLICATION}-test-config.json"; \
 
 .PHONY: loadconfig
 loadconfig: loadconfig-camac loadconfig-dms loadconfig-keycloak ## Load all configuration

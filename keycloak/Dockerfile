@@ -13,7 +13,7 @@ COPY themes/src ./src
 RUN ["./mvnw", "deploy"]
 
 # stage 2: build keycloak
-FROM quay.io/keycloak/keycloak:21.0.2 as keycloak-builder
+FROM quay.io/keycloak/keycloak:22.0.1 as keycloak-builder
 
 ENV KC_DB=postgres
 ENV KC_HTTP_RELATIVE_PATH=/auth
@@ -24,7 +24,7 @@ COPY --from=theme-builder /app/target/keycloak-themes-inosca-ebau.jar /opt/keycl
 RUN /opt/keycloak/bin/kc.sh build
 
 # stage 3: runtime image
-FROM quay.io/keycloak/keycloak:21.0.2
+FROM quay.io/keycloak/keycloak:22.0.1
 
 COPY --from=keycloak-builder /opt/keycloak/ /opt/keycloak/
 COPY custom-entrypoint.sh /opt/keycloak/bin/
