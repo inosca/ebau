@@ -128,14 +128,6 @@ services:
     networks:
       - ebau.local
 
-  ember-ebau-core:
-    image: acr.run/camac-ng/camac-ng/ember-ebau-core:${CI_COMMIT_REF_SLUG:-master}
-    build:
-      context: ../
-      dockerfile: ./ember-ebau-core/Dockerfile
-      cache_from:
-        - acr.run/camac-ng/camac-ng/ember-ebau-core:master
-
   ember-ebau:
     image: acr.run/camac-ng/camac-ng/ember-ebau:${CI_COMMIT_REF_SLUG:-master}
     build:
@@ -166,7 +158,11 @@ services:
       - ebau.local
 
   keycloak:
-    image: acr.run/camac-ng/camac-ng/keycloak-${APPLICATION}:master
+    image: acr.run/camac-ng/camac-ng/keycloak:${CI_COMMIT_REF_SLUG:-master}
+    build:
+      context: ../keycloak
+      cache_from:
+        - acr.run/camac-ng/camac-ng/keycloak:${CI_COMMIT_REF_SLUG:-master}
     volumes:
       - ../keycloak/config/${APPLICATION}-test-config.json:/opt/keycloak/data/import/test-config.json:ro
     environment:
@@ -180,6 +176,7 @@ services:
       - ebau.local
 
   document-merge-service:
+    image: acr.run/camac-ng/camac-ng/document-merge-service:${CI_COMMIT_REF_SLUG:-master}
     build:
       context: ../document-merge-service
       cache_from:
