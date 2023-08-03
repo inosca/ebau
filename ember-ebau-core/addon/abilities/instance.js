@@ -65,7 +65,8 @@ export default class InstanceAbility extends Ability {
     return (
       (this.ebauModules.isSupportRole ||
         this.ebauModules.isMunicipalityLeadRole) &&
-      !hasInstanceState(this.model, "archived")
+      (hasInstanceState(this.model, "subm") ||
+        hasInstanceState(this.model, "circulation"))
     );
   }
 }
