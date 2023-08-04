@@ -481,6 +481,7 @@ def test_public_caluma_instance_be(
     application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_bern"][
         "MASTER_DATA"
     ]
+    application_settings["PUBLICATION_USE_PUBLIC_ACCESS_KEY"] = True
 
     create_caluma_publication(be_instance)
 
@@ -530,6 +531,7 @@ def test_public_caluma_instance_municipality_filter(
     application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_bern"][
         "MASTER_DATA"
     ]
+    application_settings["PUBLICATION_USE_PUBLIC_ACCESS_KEY"] = True
 
     instances = [
         instance_with_case(instance) for instance in instance_factory.create_batch(5)
@@ -560,54 +562,6 @@ def test_public_caluma_instance_municipality_filter(
     assert len(response.json()["data"]) == 3
 
 
-def test_public_caluma_instance_form_type_filter(
-    db,
-    application_settings,
-    admin_client,
-    instance_factory,
-    instance_with_case,
-    enable_public_urls,
-    create_caluma_publication,
-):
-    application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_uri"]["MASTER_DATA"]
-
-    instances = [
-        instance_with_case(instance) for instance in instance_factory.create_batch(5)
-    ]
-    Question.objects.create(slug="form-type", type=Question.TYPE_CHOICE)
-
-    for instance in instances:
-        create_caluma_publication(instance)
-
-    for instance in instances[:3]:
-        AnswerFactory(
-            question_id="form-type",
-            value="form-type-baubewilligungsverfahren",
-            document=instance.case.document,
-        )
-
-    for instance in instances[3:]:
-        AnswerFactory(
-            question_id="form-type",
-            value="form-type-oereb",
-            document=instance.case.document,
-        )
-
-    url = reverse("public-caluma-instance")
-
-    response = admin_client.get(
-        url,
-        {
-            "form_type": "form-type-baubewilligungsverfahren",
-            "fields[public-caluma-instances]": "id",
-        },
-        HTTP_X_CAMAC_PUBLIC_ACCESS=True,
-    )
-
-    assert response.status_code == status.HTTP_200_OK
-    assert len(response.json()["data"]) == 3
-
-
 def test_information_of_neighbors_instance_be(
     db,
     application_settings,
@@ -616,6 +570,7 @@ def test_information_of_neighbors_instance_be(
     enable_public_urls,
 ):
     application_settings["PUBLICATION_BACKEND"] = "caluma"
+    application_settings["PUBLICATION_USE_PUBLIC_ACCESS_KEY"] = True
     application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_bern"][
         "MASTER_DATA"
     ]
