@@ -1,0 +1,38 @@
+services:
+  django:
+    image: acr.run/camac-ng/camac-ng/django:${CI_COMMIT_REF_SLUG}-${APPLICATION}
+    build:
+      cache_from:
+        - acr.run/camac-ng/camac-ng/django:${CI_COMMIT_REF_SLUG}-${APPLICATION}
+
+  document-merge-service:
+    image: acr.run/camac-ng/camac-ng/document-merge-service:${CI_COMMIT_REF_SLUG}-${APPLICATION}
+    build:
+      cache_from:
+        - acr.run/camac-ng/camac-ng/document-merge-service:${CI_COMMIT_REF_SLUG}-${APPLICATION}
+
+  ember-caluma-portal:
+    image: acr.run/camac-ng/camac-ng/ember-caluma-portal:${CI_COMMIT_REF_SLUG}-${APPLICATION}
+    build:
+      cache_from:
+        - acr.run/camac-ng/camac-ng/ember-caluma-portal:${CI_COMMIT_REF_SLUG}-${APPLICATION}
+      args:
+        - APPLICATION=${APPLICATION}
+        - KEYCLOAK_HOST=${KEYCLOAK_HOST}
+        - INTERNAL_URL=${INTERNAL_URL}
+
+  ember-ebau:
+    image: acr.run/camac-ng/camac-ng/ember-ebau:${CI_COMMIT_REF_SLUG}-${APPLICATION}
+    build:
+      cache_from:
+        - acr.run/camac-ng/camac-ng/ember-ebau:${CI_COMMIT_REF_SLUG}-${APPLICATION}
+      args:
+        - APPLICATION=${APPLICATION}
+        - KEYCLOAK_HOST=${KEYCLOAK_HOST}
+
+  keycloak:
+    image: acr.run/camac-ng/camac-ng/keycloak:${CI_COMMIT_REF_SLUG}-${APPLICATION}
+    build:
+      context: ../keycloak
+      cache_from:
+        - acr.run/camac-ng/camac-ng/keycloak:${CI_COMMIT_REF_SLUG}-${APPLICATION}
