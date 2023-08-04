@@ -26,4 +26,4 @@ def get_service_group(service_id):
 def get_kt_gr_mapped_role(user, role):
     service_group = get_service_group(user.group)
 
-    return KT_GR_MAPPING[service_group] if KT_GR_MAPPING[service_group] else role
+    return KT_GR_MAPPING.get(service_group, role)
