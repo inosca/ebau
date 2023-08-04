@@ -36,6 +36,14 @@ export default {
         labelField: "label",
         showWithoutOptions: true,
       }
+    : macroCondition(getOwnConfig().application === "gr")
+    ? {
+        type: "select",
+        options: "municipalitiesFromCaluma",
+        valueField: "slug",
+        labelField: "label",
+        showWithoutOptions: true,
+      }
     : macroCondition(getOwnConfig().application === "sz")
     ? {
         type: "select",
