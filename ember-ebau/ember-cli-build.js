@@ -27,6 +27,11 @@ module.exports = function (defaults) {
       setOwnConfig: {
         application: ENV,
       },
+      setConfig: {
+        "ember-localized-model": {
+          sanitizeLocale: true,
+        },
+      },
     },
   });
 

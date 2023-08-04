@@ -13,9 +13,9 @@ from rest_framework.status import HTTP_200_OK
 @pytest.mark.parametrize(
     "role__name,instance__user,expected_count",
     [
-        ("Applicant", LazyFixture("user"), 3),
-        ("Municipality", LazyFixture("user"), 2),
-        ("Service", LazyFixture("user"), 1),
+        ("applicant", LazyFixture("user"), 3),
+        ("municipality", LazyFixture("user"), 2),
+        ("service", LazyFixture("user"), 1),
     ],
 )
 def test_document_visibility(
@@ -31,7 +31,7 @@ def test_document_visibility(
     municipality_category = CategoryFactory(
         metainfo={"access": {"municipality": "Read"}}
     )
-    service_category = CategoryFactory(metainfo={"access": {"service": "Internal"}})
+    service_category = CategoryFactory(metainfo={"access": {"service": "InternalRead"}})
 
     DocumentFactory.create_batch(
         2, category=applicant_category, metainfo={"case_id": instance.pk}
@@ -44,6 +44,11 @@ def test_document_visibility(
     DocumentFactory(
         category=service_category,
         created_by_group=caluma_admin_user.group,
+        metainfo={"case_id": instance.pk},
+    )
+    DocumentFactory(
+        category=service_category,
+        created_by_group=caluma_admin_user.group + 1,
         metainfo={"case_id": instance.pk},
     )
 
@@ -61,9 +66,9 @@ def test_document_visibility(
 @pytest.mark.parametrize(
     "role__name,expected_count",
     [
-        ("Applicant", 3),
-        ("Municipality", 2),
-        ("Service", 1),
+        ("applicant", 3),
+        ("municipality", 2),
+        ("service", 1),
     ],
 )
 def test_file_visibility(
@@ -106,9 +111,9 @@ def test_file_visibility(
 @pytest.mark.parametrize(
     "role__name,expected_count",
     [
-        ("Applicant", 1),
-        ("Municipality", 3),
-        ("Service", 2),
+        ("applicant", 1),
+        ("municipality", 3),
+        ("service", 2),
     ],
 )
 def test_category_visibility(db, admin_client, role, expected_count, snapshot):
@@ -134,9 +139,9 @@ def test_category_visibility(db, admin_client, role, expected_count, snapshot):
 @pytest.mark.parametrize(
     "role__name,expected_count",
     [
-        ("Applicant", 1),
-        ("Municipality", 2),
-        ("Service", 2),
+        ("applicant", 1),
+        ("municipality", 2),
+        ("service", 2),
     ],
 )
 def test_tag_visibility(

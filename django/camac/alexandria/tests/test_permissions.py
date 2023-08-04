@@ -15,50 +15,53 @@ from rest_framework.status import (
     HTTP_405_METHOD_NOT_ALLOWED,
 )
 
+import camac.alexandria.extensions.permissions_kt_gr as permissions_kt_gr
+
 
 @pytest.mark.parametrize(
     "role__name,method,status_code,metainfo",
     [
         (
-            "Applicant",
+            "applicant",
             "post",
             HTTP_201_CREATED,
             {"access": {"applicant": "Admin"}},
         ),
-        ("Applicant", "patch", HTTP_200_OK, {"access": {"applicant": "Admin"}}),
+        ("applicant", "patch", HTTP_200_OK, {"access": {"applicant": "Admin"}}),
         (
-            "Applicant",
+            "applicant",
             "delete",
             HTTP_204_NO_CONTENT,
             {"access": {"applicant": "Admin"}},
         ),
         (
-            "Municipality",
+            "municipality",
             "post",
             HTTP_403_FORBIDDEN,
             {"access": {"applicant": "Admin"}},
         ),
         (
-            "Municipality",
+            "municipality",
             "patch",
             HTTP_404_NOT_FOUND,
             {"access": {"applicant": "Admin"}},
         ),
         (
-            "Municipality",
+            "municipality",
             "delete",
             HTTP_404_NOT_FOUND,
             {"access": {"applicant": "Admin"}},
         ),
         (
-            "Service",
+            "service",
             "post",
             HTTP_201_CREATED,
             {"access": {"service": "Write"}},
         ),
-        ("Service", "patch", HTTP_200_OK, {"access": {"service": "Write"}}),
+        ("service", "patch", HTTP_200_OK, {"access": {"service": "Write"}}),
+        ("service", "patch", HTTP_200_OK, {"access": {"service": "InternalAdmin"}}),
         (
-            "Service",
+            "service",
             "delete",
             HTTP_403_FORBIDDEN,
             {"access": {"service": "Write"}},
@@ -66,7 +69,7 @@ from rest_framework.status import (
     ],
 )
 def test_document_permission(
-    db, role, admin_client, instance, metainfo, method, status_code
+    db, role, admin_client, caluma_admin_user, instance, metainfo, method, status_code
 ):
     alexandria_category = CategoryFactory(metainfo=metainfo)
     url = reverse("document-list")
@@ -91,7 +94,10 @@ def test_document_permission(
 
     if method in ["patch", "delete"]:
         doc = DocumentFactory(
-            title="Foo", category=alexandria_category, metainfo={"case_id": instance.pk}
+            title="Foo",
+            category=alexandria_category,
+            metainfo={"case_id": instance.pk},
+            created_by_group=caluma_admin_user.group,
         )
         url = reverse("document-detail", args=[doc.pk])
         data["data"]["id"] = str(doc.pk)
@@ -109,31 +115,31 @@ def test_document_permission(
     "role__name,method,status_code,metainfo",
     [
         (
-            "Applicant",
+            "applicant",
             "post",
             HTTP_201_CREATED,
             {"access": {"applicant": "Admin"}},
         ),
         (
-            "Applicant",
+            "applicant",
             "patch",
             HTTP_405_METHOD_NOT_ALLOWED,
             {"access": {"applicant": "Admin"}},
         ),
         (
-            "Applicant",
+            "applicant",
             "delete",
             HTTP_405_METHOD_NOT_ALLOWED,
             {"access": {"applicant": "Admin"}},
         ),
         (
-            "Municipality",
+            "municipality",
             "post",
             HTTP_403_FORBIDDEN,
             {"access": {"applicant": "Admin"}},
         ),
         (
-            "Service",
+            "service",
             "post",
             HTTP_201_CREATED,
             {"access": {"service": "Write"}},
@@ -180,16 +186,16 @@ def test_file_permission(
 @pytest.mark.parametrize(
     "role__name,method,status_code",
     [
-        ("Applicant", "post", HTTP_403_FORBIDDEN),
-        ("Applicant", "delete", HTTP_403_FORBIDDEN),
-        ("Municipality", "post", HTTP_201_CREATED),
-        ("Municipality", "delete", HTTP_204_NO_CONTENT),
-        ("Municipality", "delete", HTTP_404_NOT_FOUND),
-        ("Service", "post", HTTP_201_CREATED),
-        ("Service", "patch", HTTP_200_OK),
-        ("Service", "patch", HTTP_404_NOT_FOUND),
-        ("Support", "post", HTTP_201_CREATED),
-        ("Support", "delete", HTTP_204_NO_CONTENT),
+        ("applicant", "post", HTTP_403_FORBIDDEN),
+        ("applicant", "delete", HTTP_403_FORBIDDEN),
+        ("municipality", "post", HTTP_201_CREATED),
+        ("municipality", "delete", HTTP_204_NO_CONTENT),
+        ("municipality", "delete", HTTP_404_NOT_FOUND),
+        ("service", "post", HTTP_201_CREATED),
+        ("service", "patch", HTTP_200_OK),
+        ("service", "patch", HTTP_404_NOT_FOUND),
+        ("support", "post", HTTP_201_CREATED),
+        ("support", "delete", HTTP_204_NO_CONTENT),
     ],
 )
 def test_tag_permission(db, role, caluma_admin_user, admin_client, method, status_code):
@@ -227,9 +233,9 @@ def test_tag_permission(db, role, caluma_admin_user, admin_client, method, statu
 @pytest.mark.parametrize(
     "role__name,method",
     [
-        ("Support", "patch"),
-        ("Support", "post"),
-        ("Support", "delete"),
+        ("support", "patch"),
+        ("support", "post"),
+        ("support", "delete"),
     ],
 )
 def test_category_permission(
@@ -257,3 +263,124 @@ def test_category_permission(
     response = getattr(admin_client, method)(url, data)
 
     assert response.status_code == HTTP_405_METHOD_NOT_ALLOWED
+
+
+@pytest.mark.parametrize(
+    "instance_state__name,role__name,service_group__name,method,status_code,metainfo",
+    [
+        # AdminNew
+        (
+            "new",
+            "applicant",
+            None,
+            "post",
+            HTTP_201_CREATED,
+            {"access": {"applicant": "AdminNew"}},
+        ),
+        (
+            "new",
+            "applicant",
+            None,
+            "patch",
+            HTTP_200_OK,
+            {"access": {"applicant": "AdminNew"}},
+        ),
+        (
+            "subm",
+            "applicant",
+            None,
+            "post",
+            HTTP_403_FORBIDDEN,
+            {"access": {"applicant": "AdminNew"}},
+        ),
+        # InternalAdminCirculation
+        (
+            "subm",
+            "service",
+            "authority-bab",
+            "delete",
+            HTTP_404_NOT_FOUND,
+            {"access": {"canton": "InternalAdminCirculation"}},
+        ),
+        (
+            "subm",
+            "service",
+            "service",
+            "post",
+            HTTP_201_CREATED,
+            {"access": {"canton": "InternalAdminCirculation"}},
+        ),
+        (
+            "subm",
+            "service",
+            "service",
+            "delete",
+            HTTP_403_FORBIDDEN,
+            {"access": {"canton": "InternalAdminCirculation"}},
+        ),
+        (
+            "circulation",
+            "service",
+            "service",
+            "delete",
+            HTTP_204_NO_CONTENT,
+            {"access": {"canton": "InternalAdminCirculation"}},
+        ),
+    ],
+)
+def test_kt_gr_permissions(
+    db,
+    role,
+    set_application_gr,
+    settings,
+    mocker,
+    admin_client,
+    caluma_admin_user,
+    instance,
+    metainfo,
+    method,
+    status_code,
+):
+    settings.APPLICATION_NAME = "kt_gr"
+    mocker.patch(
+        "camac.alexandria.extensions.permissions.permissions", permissions_kt_gr
+    )
+
+    alexandria_category = CategoryFactory(metainfo=metainfo)
+    url = reverse("document-list")
+
+    data = {
+        "data": {
+            "type": "documents",
+            "attributes": {
+                "title": {"de": "Important"},
+                "metainfo": {"case_id": instance.pk},
+            },
+            "relationships": {
+                "category": {
+                    "data": {
+                        "id": alexandria_category.pk,
+                        "type": "categories",
+                    },
+                },
+            },
+        },
+    }
+
+    if method in ["patch", "delete"]:
+        doc = DocumentFactory(
+            title="Foo",
+            category=alexandria_category,
+            metainfo={"case_id": instance.pk},
+            created_by_group=caluma_admin_user.group,
+        )
+        url = reverse("document-detail", args=[doc.pk])
+        data["data"]["id"] = str(doc.pk)
+
+    response = getattr(admin_client, method)(url, data)
+
+    assert response.status_code == status_code
+
+    if method == "post" and status_code == HTTP_201_CREATED:
+        result = response.json()
+        assert result["data"]["attributes"]["title"]["de"] == "Important"
