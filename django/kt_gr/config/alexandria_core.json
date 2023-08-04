@@ -11,15 +11,39 @@
       "modified_by_group": null,
       "metainfo": {
         "access": {
+          "are": "AdminService",
+          "canton": "AdminService",
           "public": "Read",
-          "service": "Admin",
           "support": "Admin",
-          "municipality": "Admin"
+          "subservice": "AdminService",
+          "service-lead": "AdminService",
+          "municipality-lead": "AdminService"
         }
       },
       "name": "{\"de\": \"Alle Beteiligten\", \"fr\": \"\", \"it\": \"Tutti coinvolti\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "color": "#CB68C1"
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "alle-kanton",
+    "fields": {
+      "created_at": "2020-08-04T13:24:00.690Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2020-08-04T13:24:00.690Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "access": {
+          "canton": "AdminService",
+          "support": "Admin"
+        }
+      },
+      "name": "{\"de\": \"Alle Kanton\", \"fr\": \"\", \"it\": \"Tutti i canton\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "color": "#66CFC9"
     }
   },
   {
@@ -34,10 +58,14 @@
       "modified_by_group": null,
       "metainfo": {
         "access": {
-          "public": "Admin",
-          "service": "Read",
+          "are": "Read",
+          "uso": "Read",
+          "canton": "Read",
+          "public": "AdminNew",
           "support": "Admin",
-          "municipality": "Admin"
+          "subservice": "Read",
+          "service-lead": "Read",
+          "municipality-lead": "Read"
         }
       },
       "name": "{\"de\": \"Beilagen zum Gesuch\", \"fr\": \"\", \"it\": \"Allegati alla domanda\"}",
@@ -57,9 +85,12 @@
       "modified_by_group": null,
       "metainfo": {
         "access": {
-          "service": "Admin",
+          "are": "AdminService",
+          "canton": "AdminService",
           "support": "Admin",
-          "municipality": "Admin"
+          "subservice": "AdminService",
+          "service-lead": "AdminService",
+          "municipality-lead": "AdminService"
         }
       },
       "name": "{\"de\": \"Beteiligte Beh\\u00f6rden\", \"fr\": \"\", \"it\": \"Autorit\\u00e0 coinvolte\"}",
@@ -79,9 +110,13 @@
       "modified_by_group": null,
       "metainfo": {
         "access": {
-          "service": "InternalAdmin",
+          "are": "InternalAdmin",
+          "uso": "InternalAdmin",
+          "canton": "InternalAdmin",
           "support": "Admin",
-          "municipality": "InternalAdmin"
+          "subservice": "InternalAdmin",
+          "service-lead": "InternalAdmin",
+          "municipality-lead": "InternalAdmin"
         }
       },
       "name": "{\"de\": \"Intern\", \"fr\": \"\", \"it\": \"Interno\"}",
@@ -91,7 +126,7 @@
   },
   {
     "model": "alexandria_core.category",
-    "pk": "nachforderungen",
+    "pk": "stellungnahmen-are",
     "fields": {
       "created_at": "2020-08-04T13:24:00.690Z",
       "created_by_user": null,
@@ -101,12 +136,36 @@
       "modified_by_group": null,
       "metainfo": {
         "access": {
-          "public": "Admin",
-          "support": "Admin",
-          "municipality": "Admin"
+          "are": "Read",
+          "uso": "InternalAdminCirculation",
+          "canton": "InternalAdminCirculation",
+          "support": "Admin"
         }
       },
-      "name": "{\"de\": \"Nachforderungen\", \"fr\": \"\", \"it\": \"Ulteriori richieste di risarcimento\"}",
+      "name": "{\"de\": \"Stellungnahmen ans ARE\", \"fr\": \"\", \"it\": \"Dichiarazioni all'ARE\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "color": "#66CFC9"
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "umweltschutzorganisationen",
+    "fields": {
+      "created_at": "2020-08-04T13:24:00.690Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2020-08-04T13:24:00.690Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "access": {
+          "are": "AdminService",
+          "uso": "Read",
+          "support": "Admin",
+          "municipality-lead": "AdminService"
+        }
+      },
+      "name": "{\"de\": \"Umweltschutzorganisationen\", \"fr\": \"\", \"it\": \"Organizzazioni di protezione ambientale\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "color": "#66CFC9"
     }

@@ -154,9 +154,9 @@ export default class CustomSession extends Session {
     this._language = language;
 
     this.intl.setLocale([
-      language,
       `${language}-ch`,
       `${language}-${mainConfig.name}`,
+      language,
     ]);
   }
 

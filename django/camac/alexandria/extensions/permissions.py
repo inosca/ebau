@@ -6,10 +6,21 @@ from alexandria.core.permissions import (
 )
 from django.conf import settings
 
+from camac.instance.models import Instance
+from camac.user.utils import get_group
+
 from .common import get_role
+
+if settings.APPLICATION_NAME == "kt_gr":  # pragma: no cover
+    import camac.alexandria.extensions.permissions_kt_gr as permissions
+else:
+    import camac.alexandria.extensions.permissions_base as permissions
 
 
 class CustomPermission(BasePermission):
+    def get_permission(self, name):
+        return getattr(permissions, f"{name}Permission")()
+
     @permission_for(BaseModel)
     def has_permission_default(self, request):  # pragma: no cover
         if get_role(request.caluma_info.context.user) == "support":
@@ -23,38 +34,40 @@ class CustomPermission(BasePermission):
         if request.method != "POST":
             return True
 
+        user = request.caluma_info.context.user
         category = Category.objects.get(pk=request.data["category"]["id"])
-        permission = category.metainfo["access"].get(
-            get_role(request.caluma_info.context.user)
-        )
+        permission = category.metainfo["access"].get(get_role(user))
         if not permission:
             return False
 
-        return globals()[f"{permission}Permission"]().can_write(request)
+        instance = Instance.objects.get(pk=request.data["metainfo"]["case_id"])
+        return self.get_permission(permission).can_create(get_group(request), instance)
 
     @object_permission_for(Document)
     def has_object_permission_for_document(self, request, document):
-        permission = document.category.metainfo["access"].get(
-            get_role(request.caluma_info.context.user)
-        )
+        user = request.caluma_info.context.user
+        permission = document.category.metainfo["access"].get(get_role(user))
         if not permission:  # pragma: no cover
             return False
 
         if request.method == "DELETE":
-            return globals()[f"{permission}Permission"]().can_destroy(request)
+            return self.get_permission(permission).can_destroy(
+                get_group(request), document
+            )
 
-        return globals()[f"{permission}Permission"]().can_write(request)
+        return self.get_permission(permission).can_update(get_group(request), document)
 
     @permission_for(File)
     def has_permission_for_file(self, request):
-        category = Document.objects.get(pk=request.data["document"]["id"]).category
-        permission = category.metainfo["access"].get(
-            get_role(request.caluma_info.context.user)
-        )
+        user = request.caluma_info.context.user
+        document = Document.objects.get(pk=request.data["document"]["id"])
+        permission = document.category.metainfo["access"].get(get_role(user))
         if not permission:
             return False
 
-        return globals()[f"{permission}Permission"]().can_write(request)
+        return self.get_permission(permission).can_create(
+            get_group(request), document.instance_document.instance
+        )
 
     @permission_for(Tag)
     def has_permission_for_tag(self, request):
@@ -74,36 +87,3 @@ class CustomPermission(BasePermission):
             "ALEXANDRIA", {}
         ).get("PUBLIC_ROLE", "public"):
             return tag.created_by_group == str(request.caluma_info.context.user.group)
-
-
-class Permission:
-    write = False
-    destroy = False
-
-    @classmethod
-    def can_write(cls, request) -> bool:
-        return cls.write
-
-    @classmethod
-    def can_destroy(cls, request) -> bool:
-        return cls.destroy
-
-
-class ReadPermission(Permission):
-    pass
-
-
-class WritePermission(Permission):
-    write = True
-
-
-class AdminPermission(WritePermission):
-    destroy = True
-
-
-class InternalReadPermission(ReadPermission):
-    pass
-
-
-class InternalAdminPermission(AdminPermission):
-    pass

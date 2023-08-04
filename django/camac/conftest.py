@@ -284,6 +284,14 @@ def set_application_ur(settings):
 
 
 @pytest.fixture
+def set_application_gr(settings):
+    application_dict = copy.deepcopy(settings.APPLICATIONS["kt_gr"])
+    settings.APPLICATION = application_dict
+    settings.INTERNAL_BASE_URL = "http://ember-ebau.local"
+    return application_dict
+
+
+@pytest.fixture
 def application_settings(settings):
     application_dict = copy.deepcopy(settings.APPLICATION)
     # settings fixture only restores per attribute
