@@ -129,6 +129,8 @@ services:
 
   document-merge-service:
     image: acr.run/camac-ng/camac-ng/document-merge-service:master
+    depends_on:
+      - db
     networks:
       - ebau.local
     cap_add:
