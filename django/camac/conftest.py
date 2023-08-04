@@ -1246,7 +1246,7 @@ def minio_mock(mocker):
 
     stat_response = MinioStatObject(
         # taken from a real-world minio stat() call
-        bucket_name="caluma-media",
+        bucket_name="alexandria-media",
         object_name="a3d0429d-5400-47ac-9d02-124592302631_attack.wav",
         etag="5d41402abc4b2a76b9719d911017c592",
         size=8200,

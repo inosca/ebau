@@ -17,18 +17,16 @@ RUN \
   # manabi dependencies
   libsodium23=1.0.18-1 \
   # alexandria dependencies
-  zlib1g-dev \
-  libjpeg-dev \
-  python3-pythonmagick \
-  libmagic-dev \
-  inkscape \
-  xvfb \
-  poppler-utils \
-  libfile-mimeinfo-perl \
-  qpdf \
-  libimage-exiftool-perl \
   ffmpeg \
-  scribus \
+  inkscape \
+  libfile-mimeinfo-perl \
+  libimage-exiftool-perl \
+  libjpeg-dev \
+  libmagic1 \
+  libsecret-1-0 \
+  poppler-utils \
+  webp \
+  zlib1g-dev \
 && rm -rf /var/lib/apt/lists/*
 
 RUN \
