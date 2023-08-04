@@ -40,7 +40,7 @@ services:
       cache_from:
         - acr.run/camac-ng/camac-ng/django:master
       args:
-        REQUIREMENTS: ${REQUIREMENTS:-requirements-dev.txt}
+        REQUIREMENTS: ${REQUIREMENTS:-requirements.txt}
     depends_on:
       - db
       - cache
