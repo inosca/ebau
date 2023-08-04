@@ -1,93 +1,70 @@
+# This configuration is much slimmer than in other cantons as it is only being
+# used for building and pushing the application images into the registry and not
+# for running an environment via `-prod` or `-stage` compose configuration.
+
 services:
-  cache:
-    image: memcached:1.6-alpine
-
-  proxy:
-    image: nginx:1.25-alpine
-
   django:
+    image: acr.run/camac-ng/camac-ng/django:${TAG:-master}
     build:
       context: ../django
       cache_from:
-        - acr.run/camac-ng/camac-ng/django:master
-    depends_on:
-      - cache
-      - keycloak
-      - mailhog
+        - acr.run/camac-ng/camac-ng/django:${TAG:-master}
     environment:
-      - DATABASE_HOST=db
-      - DATABASE_NAME=${APPLICATION}
-      - DJANGO_CACHE_LOCATION=cache:11211
-      - DJANGO_MEDIA_ROOT=/var/lib/camac/media
-      - DJANGO_CLAMD_ENABLED=false
-      - DJANGO_TEMPFILE_DOWNLOAD_URL=/tmp
-      - APPLICATION=${APPLICATION}
-      - CACHE_BACKEND=django.core.cache.backends.memcached.MemcachedCache
-      - CACHE_LOCATION=cache:11211
-      - EVENT_RECEIVER_MODULES=camac.caluma.extensions.events
-      - VISIBILITY_CLASSES=camac.caluma.extensions.visibilities.CustomVisibility
-      - PERMISSION_CLASSES=camac.caluma.extensions.permissions.CustomPermission
-      - VALIDATION_CLASSES=camac.caluma.extensions.validations.CustomValidation
-      - DATA_SOURCE_CLASSES=camac.caluma.extensions.data_sources.Municipalities,camac.caluma.extensions.data_sources.Services,camac.caluma.extensions.data_sources.Countries
-      - DYNAMIC_GROUPS_CLASSES=camac.caluma.extensions.dynamic_groups.CustomDynamicGroups
-      - DYNAMIC_TASKS_CLASSES=camac.caluma.extensions.dynamic_tasks.CustomDynamicTasks
-      - LANGUAGE_CODE=de
-      - LANGUAGES=de
-      - ENABLE_HISTORICAL_API=true
+      APPLICATION: ${APPLICATION}
+      DJANGO_CLAMD_ENABLED: false
+      DJANGO_MEDIA_ROOT: /var/lib/camac/media
+      DJANGO_TEMPFILE_DOWNLOAD_URL: /tmp
+      ENABLE_HISTORICAL_API: true
+      LANGUAGE_CODE: de
+      LANGUAGES: de
+      # Caluma
+      EVENT_RECEIVER_MODULES: camac.caluma.extensions.events
+      VISIBILITY_CLASSES: camac.caluma.extensions.visibilities.CustomVisibility
+      PERMISSION_CLASSES: camac.caluma.extensions.permissions.CustomPermission
+      VALIDATION_CLASSES: camac.caluma.extensions.validations.CustomValidation
+      DATA_SOURCE_CLASSES: camac.caluma.extensions.data_sources.Municipalities,camac.caluma.extensions.data_sources.Services,camac.caluma.extensions.data_sources.Countries
+      DYNAMIC_GROUPS_CLASSES: camac.caluma.extensions.dynamic_groups.CustomDynamicGroups
+      DYNAMIC_TASKS_CLASSES: camac.caluma.extensions.dynamic_tasks.CustomDynamicTasks
       # Alexandria
-      - ALEXANDRIA_VISIBILITY_CLASSES=camac.alexandria.extensions.visibilities.CustomVisibility
-      - ALEXANDRIA_PERMISSION_CLASSES=camac.alexandria.extensions.permissions.CustomPermission
-      - ALEXANDRIA_VALIDATION_CLASSES=camac.alexandria.extensions.validations.Validator
+      ALEXANDRIA_VISIBILITY_CLASSES: camac.alexandria.extensions.visibilities.CustomVisibility
+      ALEXANDRIA_PERMISSION_CLASSES: camac.alexandria.extensions.permissions.CustomPermission
+      ALEXANDRIA_VALIDATION_CLASSES: camac.alexandria.extensions.validations.Validator
+
   ember-caluma-portal:
+    image: acr.run/camac-ng/camac-ng/ember-caluma-portal:${TAG:-master}
     build:
       context: ../
       dockerfile: ./ember-caluma-portal/Dockerfile
       cache_from:
-        - acr.run/camac-ng/camac-ng/ember-caluma-portal:master
+        - acr.run/camac-ng/camac-ng/ember-caluma-portal:${TAG:-master}
       args:
-        - APPLICATION=${APPLICATION}
+        APPLICATION: ${APPLICATION}
 
   ember-ebau:
+    image: acr.run/camac-ng/camac-ng/ember-ebau:${TAG:-master}
     build:
       context: ../
       dockerfile: ./ember-ebau/Dockerfile
       cache_from:
-        - acr.run/camac-ng/camac-ng/ember-ebau:master
+        - acr.run/camac-ng/camac-ng/ember-ebau:${TAG:-master}
       args:
-        - APPLICATION=${APPLICATION}
-
-  mailhog:
-    image: mailhog/mailhog
-    environment:
-      - MH_UI_WEB_PATH=mailhog
+        APPLICATION: ${APPLICATION}
 
   keycloak:
+    image: acr.run/camac-ng/camac-ng/keycloak:${TAG:-master}
     build:
       context: ../keycloak
       cache_from:
-        - acr.run/camac-ng/camac-ng/keycloak:master
+        - acr.run/camac-ng/camac-ng/keycloak:${TAG:-master}
 
   document-merge-service:
-    depends_on:
-      - db
+    image: acr.run/camac-ng/camac-ng/document-merge-service:${TAG:-master}
     build:
       context: ../document-merge-service
       cache_from:
-        - acr.run/camac-ng/camac-ng/document-merge-service:master
+        - acr.run/camac-ng/camac-ng/document-merge-service:${TAG:-master}
     environment:
-      - FILE_STORAGE=storages.backends.s3boto3.S3Boto3Storage
-      - AWS_STORAGE_BUCKET_NAME=dms-media
-      - AWS_S3_SIGNATURE_VERSION=s3v4
-
-  minio:
-    image: minio/minio:RELEASE.2023-07-21T21-12-44Z
-    environment:
-      - MINIO_NOTIFY_WEBHOOK_ENABLE_ALEXANDRIA=on
-    command: server data --console-address ":9090"
-
-volumes:
-  pgdata:
-  djangomedia:
-  djangotmpmedia:
-  minio_data:
-    driver: local
+      ISOLATE_UNOCONV: true
+      FILE_STORAGE: storages.backends.s3boto3.S3Boto3Storage
+      AWS_STORAGE_BUCKET_NAME: dms-media
+      AWS_S3_SIGNATURE_VERSION: s3v4
