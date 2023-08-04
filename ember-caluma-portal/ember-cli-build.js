@@ -29,7 +29,7 @@ module.exports = function (defaults) {
         enableCommunications: ["be", "so"].includes(ENV),
         instancePaperFilterDefault: ENV === "ur",
         showProfileLink: ["gr", "so"].includes(ENV),
-        documentBackend: ENV === "gr" ? "alexandria" : "camac",
+        documentBackend: ["gr", "so"].includes(ENV) ? "alexandria" : "camac",
       },
       setConfig: {
         "@ember-data/store": {
@@ -37,6 +37,9 @@ module.exports = function (defaults) {
           polyfillUUID: true,
         },
       },
+    },
+    "localized-model": {
+      sanitizeLocale: true,
     },
     "ember-simple-auth": {
       useSessionSetupMethod: true,

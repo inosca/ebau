@@ -1,3 +1,1 @@
-import FileModel from "ember-alexandria/models/file";
-
-export default FileModel;
+export { default } from "ember-alexandria/models/file";

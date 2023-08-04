@@ -1,3 +1,1 @@
-import TagsService from "ember-alexandria/services/tags";
-
-export default TagsService;
+export { default } from "ember-alexandria/services/tags";

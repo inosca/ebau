@@ -1,1 +1,22 @@
-[]
+[
+  {
+    "model": "alexandria_core.category",
+    "pk": "beilagen-zum-gesuch",
+    "fields": {
+      "created_at": "2023-07-25T15:49:00.677Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2023-07-25T15:49:00.677Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "access": {
+          "public": "Admin"
+        }
+      },
+      "name": "{\"de\": \"Beilagen zum Gesuch\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "color": "#CC0000"
+    }
+  }
+]

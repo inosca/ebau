@@ -18,6 +18,7 @@ services:
       - mailhog
       - document-merge-service
       - ember-ebau
+      - minio
     ports:
       - "80:80"
     networks:
@@ -77,10 +78,10 @@ services:
       - PYTHONDONTWRITEBYTECODE=1
       - GWR_FERNET_KEY=GUdwT6yKxqfszrnHC7wyKDmtVZdhjSVQEPnpeJYNLf8=
       - DJANGO_INTERNAL_BASE_URL=http://ember-ebau.local
-        # alexandria
-      - OIDC_OP_USER_ENDPOINT=http://ebau-keycloak.local/auth/realms/ebau/protocol/openid-connect/userinfo
-      - ALLOWED_HOSTS=*
-      - MINIO_STORAGE_ENDPOINT=ember-ebau.local
+      # Alexandria
+      - ALEXANDRIA_MINIO_STORAGE_ENDPOINT=ember-ebau.local
+      - ALEXANDRIA_MINIO_STORAGE_ACCESS_KEY=minio
+      - ALEXANDRIA_MINIO_STORAGE_SECRET_KEY=minio123
       - DOCUMENT_MERGE_SERVICE_URL=http://document-merge-service:8000/document-merge-service/api/v1/
     networks:
       - ebau.local
@@ -160,26 +161,25 @@ services:
       ]
 
   minio:
-    image: minio/minio:latest@sha256:7f84f4d07cf0d3562911c6b072e1183436fbc3cad8ccef8157ec5c27456ed452
+    image: minio/minio:RELEASE.2023-07-21T21-12-44Z
     volumes:
       - minio_data:/data
     environment:
-      - MINIO_ACCESS_KEY=minio
-      - MINIO_SECRET_KEY=minio123
-      # TODO: Rename webhook to alexandria
-      - MINIO_NOTIFY_WEBHOOK_ENABLE_CALUMA=on
-      - MINIO_NOTIFY_WEBHOOK_ENDPOINT_CALUMA=http://django:8000/alexandria/api/v1/hook
-    command: server data
+      - MINIO_ROOT_USER=minio
+      - MINIO_ROOT_PASSWORD=minio123
+      - MINIO_BROWSER_REDIRECT_URL=http://ember-ebau.local/minio/ui
+      - MINIO_NOTIFY_WEBHOOK_ENABLE_ALEXANDRIA=on
+      - MINIO_NOTIFY_WEBHOOK_ENDPOINT_ALEXANDRIA=http://django:80/alexandria/api/v1/hook
+    command: server data --console-address ":9090"
     networks:
       - ebau.local
 
   mc:
-    image: minio/mc:RELEASE.2020-10-03T02-54-56Z
+    image: minio/mc:RELEASE.2023-07-21T20-44-27Z
     restart: on-failure
     environment:
-      - MINIO_ACCESS_KEY=minio
-      - MINIO_SECRET_KEY=minio123
-      - APPLICATION=${APPLICATION}
+      - MINIO_ROOT_USER=minio
+      - MINIO_ROOT_PASSWORD=minio123
     volumes:
       - ../mc/entrypoint.sh:/entrypoint.sh
       - ../document-merge-service/${APPLICATION}/templatefiles:/tmp/dms-media
@@ -194,4 +194,5 @@ networks:
 
 volumes:
   minio_data:
+    driver: local
   templatefiles:

@@ -134,6 +134,8 @@ After, you should be able to use to the following services:
 - [ebau-portal.local](http://ebau-portal.local) - public-facing portal (Caluma-based, default choice for new projects, used in Kt. BE, UR)
 - [ebau.local/django/admin/](http://ebau.local/django/admin/) - Django admin interface
 - [ebau-keycloak.local/auth](http://ebau-keycloak.local/auth/) - IAM solution
+- [ember-ebau.local/mailhog/](http://ember-ebau.local/mailhog/) - Mailhog UI
+- [ember-ebau.local/minio/ui/](http://ember-ebau.local/minio/ui/) - MinIO Admin UI
 
 ### Predefined credentials
 
@@ -186,7 +188,7 @@ http://ebau.local/api/silk/.
 
 ### Switching tenant
 
-To switch from the `demo` config to `kt_bern`, one has to make sure that the frontend apps take up the right 
+To switch from the `demo` config to `kt_bern`, one has to make sure that the frontend apps take up the right
 environment variables.
 
 #### Working locally with ember

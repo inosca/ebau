@@ -37,6 +37,7 @@ if env.str("APPLICATION_ENV", default="production") != "ci" and os.path.exists(
 # file (which doesn't exist)
 
 from caluma.settings.caluma import *  # noqa isort:skip
+from alexandria.settings.alexandria import *  # noqa isort:skip
 
 ENV = env.str("APPLICATION_ENV", default="production")
 APPLICATION_NAME = env.str("APPLICATION")
@@ -3648,7 +3649,16 @@ APPLICATIONS = {
                 **generate_form_dump_config(regex=r"^dashboard?$"),
                 "caluma_form.Document": Q(form="dashboard"),
             },
+            # Alexandria static tags
+            "alexandria_tags": {
+                "alexandria_core.Tag": Q(pk__in=ALEXANDRIA_PUBLIC_TAGS),
+                # needed to prevent deletion of unused tags
+                "alexandria_core.Document": Q(
+                    pk="a4c3e79f-f0c5-43ae-8965-fe99218d0ce0"
+                ),
+            },
         },
+        "ALEXANDRIA": {"PUBLIC_TAGS": ALEXANDRIA_PUBLIC_TAGS},
         "DUMP_CONFIG_EXCLUDED_MODELS": [
             "user.Group",
             "user.GroupT",
@@ -4289,13 +4299,6 @@ APPEAL = load_module_settings("appeal")
 DISTRIBUTION = load_module_settings("distribution")
 PARASHIFT = load_module_settings("parashift")
 
-# TODO: import from alexandria settings, currently causes errors
-ALEXANDRIA_PERMISSION_CLASSES = [
-    "camac.alexandria.extensions.permissions.CustomPermission"
-]
-ALEXANDRIA_VISIBILITY_CLASSES = [
-    "camac.alexandria.extensions.visibilities.CustomVisibility"
-]
-ALEXANDRIA_VALIDATION_CLASSES = ["camac.alexandria.extensions.validations.Validator"]
+# Alexandria
 ALEXANDRIA_CREATED_BY_USER_PROPERTY = "alexandria_user"
 ALEXANDRIA_CREATED_BY_GROUP_PROPERTY = "alexandria_group"
