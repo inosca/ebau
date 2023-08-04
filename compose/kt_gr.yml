@@ -70,8 +70,6 @@ services:
         - acr.run/camac-ng/camac-ng/keycloak:master
 
   document-merge-service:
-    depends_on:
-      - db
     build:
       context: ../document-merge-service
       cache_from:
