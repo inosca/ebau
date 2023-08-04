@@ -188,7 +188,7 @@ PUBLICATION_FORM_SLUGS_GR = [
     "beginn-publikationsorgan-gemeinde",
     "ende-publikation-kantonsamtsblatt",
     "ende-publikationsorgan-der-gemeinde",
-    "keine-oeffentliche-auflage",
+    "oeffentliche-auflage",
     "publikation-freigeben",
     "text-publikation",
 ]
@@ -2154,6 +2154,7 @@ APPLICATIONS = {
         ),
         "ENABLE_PUBLIC_ENDPOINTS": True,
         "PUBLICATION_BACKEND": "caluma",
+        "PUBLICATION_USE_PUBLIC_ACCESS_KEY": True,
         "PUBLICATION_SCRUBBED_ANSWERS": [
             "e-mail-energie",
             "e-mail-gastgewerbe",
@@ -3222,7 +3223,8 @@ APPLICATIONS = {
         },
         "ADMIN_GROUP": 1,
         "IS_MULTILINGUAL": True,
-        "PUBLICATION_BACKEND": "camac-ng",
+        "PUBLICATION_BACKEND": "caluma",
+        "ENABLE_PUBLIC_ENDPOINTS": True,
         "FORM_BACKEND": "caluma",
         "THUMBNAIL_SIZE": "x300",
         "SHOW_DJANGO_ADMIN_RESOURCE_MANAGEMENT": True,
@@ -3328,6 +3330,9 @@ APPLICATIONS = {
                 | Q(question_id__in=COMMON_QUESTION_SLUGS_BE),
                 "caluma_form.Option": Q(questions__forms__pk__in=COMMON_FORM_SLUGS_BE)
                 | Q(questions__pk__in=COMMON_QUESTION_SLUGS_BE),
+                "caluma_form.Answer": Q(
+                    document__isnull=True,
+                ),
             },
             "caluma_decision_form": generate_form_dump_config(regex=r"^decision$"),
             "caluma_formal_exam_form": generate_form_dump_config(
