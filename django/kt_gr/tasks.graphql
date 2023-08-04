@@ -20,6 +20,46 @@ mutation CreateManualWorkItemTask {
   }
 }
 
+mutation CreatePublicationTask {
+  saveSimpleTask(
+    input: {
+      slug: "publication"
+      name: "Dossier publizieren"
+      addressGroups: "['municipality']|groups"
+      controlGroups: "['municipality']|groups"
+      leadTime: 864000 # 10 days
+      meta: "{\"is-manually-completable\":true}"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateFillPublicationTask {
+  saveCompleteTaskFormTask(
+    input: {
+      slug: "fill-publication"
+      name: "Publikation"
+      form: "publikation"
+      addressGroups: "['municipality']|groups"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateNewPublicationTask {
+  saveSimpleTask(
+    input: {
+      slug: "create-publication"
+      name: "Neue Publikation erfassen"
+      addressGroups: "['municipality']|groups"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
 mutation DecisionTask {
   saveCompleteTaskFormTask(
     input: {

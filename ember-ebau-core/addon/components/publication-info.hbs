@@ -23,8 +23,10 @@
       <span class="uk-text-bold">{{t "publication.info.attention"}}</span>
       {{t (concat "publication.info.unpublished." @type)}}
     </p>
-    <p class="uk-text-italic uk-margin-remove-bottom">
-      {{t "publication.info.documents"}}
-    </p>
+    {{#if (macroCondition (macroGetOwnConfig "isBE"))}}
+      <p class="uk-text-italic uk-margin-remove-bottom">
+        {{t "publication.info.documents"}}
+      </p>
+    {{/if}}
   </div>
 {{/if}}

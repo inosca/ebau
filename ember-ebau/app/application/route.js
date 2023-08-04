@@ -1,6 +1,8 @@
 import Route from "@ember/routing/route";
 import { inject as service } from "@ember/service";
+import CalculatedPublicationDateComponent from "ember-ebau-core/components/calculated-publication-date";
 import InquiryAnswerStatus from "ember-ebau-core/components/inquiry-answer-status";
+import PublicationDateKantonsamtsblattComponent from "ember-ebau-core/components/publication-date-kantonsamtsblatt";
 
 export default class ApplicationRoute extends Route {
   @service session;
@@ -21,6 +23,16 @@ export default class ApplicationRoute extends Route {
       component: "inquiry-answer-status",
       componentClass: InquiryAnswerStatus,
       type: "ChoiceQuestion",
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "Berechnetes Publikations-Enddatum",
+      component: "calculated-publication-date",
+      componentClass: CalculatedPublicationDateComponent,
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "Publikationsbeginn Kanton (jeweils Donnerstag)",
+      component: "publication-date-kantonsamtsblatt",
+      componentClass: PublicationDateKantonsamtsblattComponent,
     });
   }
 }

@@ -182,6 +182,16 @@ COMMON_FORM_SLUGS_BE = [
     "gebaudeeigentumerin",
     "vertreterin-mit-vollmacht",
 ]
+PUBLICATION_FORM_SLUGS_GR = [
+    "publikation",
+    "beginn-publikation-kantonsamtsblatt",
+    "beginn-publikationsorgan-gemeinde",
+    "ende-publikation-kantonsamtsblatt",
+    "ende-publikationsorgan-der-gemeinde",
+    "keine-oeffentliche-auflage",
+    "publikation-freigeben",
+    "text-publikation",
+]
 
 DISTRIBUTION_REGEX = r"(inquir(y|ies)|distribution)"
 
@@ -3198,6 +3208,7 @@ APPLICATIONS = {
         "ECH0211": {
             "API_ACTIVE": env.bool("ECH0211_API_ACTIVE", default=False),
         },
+        "PUBLICATION_USE_CALCULATED_DATES": True,
         "USE_CAMAC_ADMIN": False,
         "LOG_NOTIFICATIONS": True,
         # Mapping between camac role and instance permission.
@@ -3244,6 +3255,7 @@ APPLICATIONS = {
         "PORTAL_GROUP": 3,
         "CALUMA": {
             "MANUAL_WORK_ITEM_TASK": "create-manual-workitems",
+            "FILL_PUBLICATION_TASK": "fill-publication",
             "SUBMIT_TASKS": ["submit"],
             "FORM_PERMISSIONS": ["main", "inquiry", "inquiry-answer"],
             "HAS_PROJECT_CHANGE": True,
@@ -3340,6 +3352,20 @@ APPLICATIONS = {
                 "alexandria_core.Document": Q(
                     pk="a4c3e79f-f0c5-43ae-8965-fe99218d0ce0"
                 ),
+            },
+            "publication": {
+                "caluma_form.Form": Q(pk__in=PUBLICATION_FORM_SLUGS_GR),
+                "caluma_form.FormQuestion": Q(form__pk__in=PUBLICATION_FORM_SLUGS_GR),
+                "caluma_form.Question": Q(forms__pk__in=PUBLICATION_FORM_SLUGS_GR)
+                | Q(pk__in=PUBLICATION_FORM_SLUGS_GR),
+                "caluma_form.QuestionOption": Q(
+                    question__forms__pk__in=PUBLICATION_FORM_SLUGS_GR
+                )
+                | Q(question_id__in=PUBLICATION_FORM_SLUGS_GR),
+                "caluma_form.Option": Q(
+                    questions__forms__pk__in=PUBLICATION_FORM_SLUGS_GR
+                )
+                | Q(questions__pk__in=PUBLICATION_FORM_SLUGS_GR),
             },
         },
         "DUMP_CONFIG_EXCLUDED_MODELS": [

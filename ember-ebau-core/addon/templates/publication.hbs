@@ -4,13 +4,10 @@
   <UkTab @right={{true}} as |Tab|>
     {{#each this.publications.value as |publication index|}}
       <Tab.item
-        @href={{concat
-          "/instances/"
-          @model.instanceId
-          "/publication/"
-          @model.type
-          "/"
-          (decode-id publication.node.id)
+        @href={{
+          module-route "publication" "edit"
+          models=(array @model.type (decode-id publication.node.id))
+          asURL=true
         }}
       >
         {{t
