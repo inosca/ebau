@@ -31,6 +31,7 @@ services:
       - pgdata:/var/lib/postgresql/data
     networks:
       - ebau.local
+    command: -c fsync=off -c full_page_writes=off -c synchronous_commit=off -c wal_level=minimal -c max_wal_senders=0 -c archive_mode=off
 
   django: &django
     image: acr.run/camac-ng/camac-ng/django:${CI_COMMIT_REF_SLUG:-master}
