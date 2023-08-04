@@ -246,7 +246,11 @@ class InstanceQuerysetMixin(object):
     def get_queryset_for_public(self, group=None):
         queryset = self.get_base_queryset()
 
-        if settings.APPLICATION.get("PUBLICATION_BACKEND") == "caluma":
+        if settings.APPLICATION.get(
+            "PUBLICATION_BACKEND"
+        ) == "caluma" and settings.APPLICATION.get(
+            "PUBLICATION_USE_PUBLIC_ACCESS_KEY", False
+        ):
             public_access_key = self._get_request().META.get(
                 "HTTP_X_CAMAC_PUBLIC_ACCESS_KEY"
             )
@@ -285,6 +289,42 @@ class InstanceQuerysetMixin(object):
             return queryset.filter(
                 **{self._get_instance_filter_expr("case__pk__in"): public_cases}
             )
+        elif settings.APPLICATION.get(
+            "PUBLICATION_BACKEND"
+        ) == "caluma" and not settings.APPLICATION.get(
+            "PUBLICATION_USE_PUBLIC_ACCESS_KEY", False
+        ):
+            filters = {
+                "task_id": "fill-publication",
+                "meta__is-published": True,
+                "status": WorkItem.STATUS_COMPLETED,
+            }
+            start_question = "beginn-publikationsorgan-gemeinde"
+            end_question = "ende-publikationsorgan-der-gemeinde"
+            publish_question = "oeffentliche-auflage"
+
+            public_cases = list(
+                WorkItem.objects.filter(**filters)
+                .filter(
+                    document__answers__question_id=start_question,
+                    document__answers__date__lte=timezone.now(),
+                )
+                .filter(
+                    document__answers__question_id=end_question,
+                    document__answers__date__gte=timezone.now(),
+                )
+                .filter(
+                    document__answers__question_id=publish_question,
+                    document__answers__value=["oeffentliche-auflage-ja"],
+                )
+                .values_list("case__family", flat=True)
+            )
+
+            qs = queryset.filter(
+                **{self._get_instance_filter_expr("case__pk__in"): public_cases}
+            )
+
+            return qs
         elif settings.APPLICATION.get("PUBLICATION_BACKEND") == "camac-ng":
             return (
                 queryset.filter(
