@@ -36,6 +36,9 @@ module.exports = function (defaults) {
           // https://github.com/emberjs/data/pull/8109
           polyfillUUID: true,
         },
+        "ember-localized-model": {
+          sanitizeLocale: true,
+        },
       },
     },
     "localized-model": {
