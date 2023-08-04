@@ -21,12 +21,15 @@ import SelectComponent from "ember-ebau-core/components/case-filter/select";
 import SelectMultipleComponent from "ember-ebau-core/components/case-filter/select-multiple";
 import ToggleSwitchComponent from "ember-ebau-core/components/case-filter/toggle-switch";
 import caseTableConfig from "ember-ebau-core/config/case-table";
+import mainConfig from "ember-ebau-core/config/main";
 import decisionsQuery from "ember-ebau-core/gql/queries/decisions.graphql";
 import getBuildingPermitQuestion from "ember-ebau-core/gql/queries/get-building-permit-question.graphql";
 import inquiryAnswersQuery from "ember-ebau-core/gql/queries/inquiry-answers.graphql";
 import municipalitiesQuery from "ember-ebau-core/gql/queries/municipalities.graphql";
 import oerebLegalStateAnswersQuery from "ember-ebau-core/gql/queries/oereb-legal-state-answers.graphql";
 import rootFormsQuery from "ember-ebau-core/gql/queries/root-forms.graphql";
+
+const { decisionSlug } = mainConfig;
 
 const COMPONENT_MAPPING = {
   "async-select-multiple": AsyncSelectMultipleComponent,
@@ -281,7 +284,10 @@ export default class CaseFilterComponent extends Component {
 
   decisionOptions = trackedFunction(this, async () => {
     const response = await this.apollo.query(
-      { query: decisionsQuery },
+      {
+        query: decisionsQuery,
+        variables: { decisionSlug },
+      },
       "allQuestions.edges",
     );
 

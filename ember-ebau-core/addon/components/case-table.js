@@ -192,6 +192,48 @@ export default class CaseTableComponent extends Component {
               ],
             },
           }
+        : macroCondition(getOwnConfig().application === "gr")
+        ? {
+            address: {
+              searchAnswers: [
+                {
+                  questions: ["strasse-flurname", "nr", "ort-grundstueck"],
+                  lookup: "CONTAINS",
+                  value: filter.address,
+                },
+              ],
+            },
+            parcel: {
+              searchAnswers: [
+                {
+                  questions: ["parzellennummer"],
+                  lookup: "CONTAINS",
+                  value: filter.parcel,
+                },
+              ],
+            },
+            personalDetails: {
+              searchAnswers: [
+                {
+                  questions: [
+                    "name-juristische-person-gesuchstellerin",
+                    "name-gesuchstellerin",
+                    "vorname-gesuchstellerin",
+                  ],
+                  value: filter.personalDetails,
+                },
+              ],
+            },
+            municipality: {
+              hasAnswer: [
+                {
+                  question: "gemeinde",
+                  value: filter.municipality,
+                  lookup: "EXACT",
+                },
+              ],
+            },
+          }
         : macroCondition(getOwnConfig().application === "sz")
         ? {
             caseStatus: {
@@ -354,6 +396,11 @@ export default class CaseTableComponent extends Component {
             inquiry_completed_after: this.args.filter.inquiryCompletedAfter,
             inquiry_answer: this.args.filter.inquiryAnswer,
           }
+        : macroCondition(getOwnConfig().application === "gr")
+        ? {
+            tags: this.args.filter.tags,
+            decision: this.args.filter.decision,
+          }
         : {}),
     };
 
@@ -402,6 +449,11 @@ export default class CaseTableComponent extends Component {
         ? {
             "fields[instances]":
               "id,name,decision,decision_date,involved_at,instance_state,is_paper,ebau_number",
+          }
+        : {}),
+      ...(macroCondition(getOwnConfig().application === "gr")
+        ? {
+            "fields[instances]": "id,name,decision",
           }
         : {}),
     });
