@@ -8,7 +8,7 @@ export default class CustomDocumentModel extends DocumentModel {
     event?.preventDefault();
 
     try {
-      const file = this.files.find((file) => file.type === "original");
+      const file = this.files.find((file) => file.variant === "original");
       const extension = file.name.includes(".")
         ? `.${file.name.split(".").slice(-1)[0]}`
         : "";

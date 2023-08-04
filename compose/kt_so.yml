@@ -35,6 +35,10 @@ services:
       - LANGUAGE_CODE=de
       - LANGUAGES=de
       - ENABLE_HISTORICAL_API=true
+      # Alexandria
+      - ALEXANDRIA_VISIBILITY_CLASSES=camac.alexandria.extensions.visibilities.CustomVisibility
+      - ALEXANDRIA_PERMISSION_CLASSES=camac.alexandria.extensions.permissions.CustomPermission
+      - ALEXANDRIA_VALIDATION_CLASSES=camac.alexandria.extensions.validations.Validator
   ember-caluma-portal:
     build:
       context: ../
@@ -76,8 +80,15 @@ services:
       - AWS_STORAGE_BUCKET_NAME=dms-media
       - AWS_S3_SIGNATURE_VERSION=s3v4
 
+  minio:
+    image: minio/minio:RELEASE.2023-07-21T21-12-44Z
+    environment:
+      - MINIO_NOTIFY_WEBHOOK_ENABLE_ALEXANDRIA=on
+    command: server data --console-address ":9090"
+
 volumes:
   pgdata:
   djangomedia:
   djangotmpmedia:
   minio_data:
+    driver: local

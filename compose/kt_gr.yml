@@ -35,7 +35,7 @@ services:
       - LANGUAGES=de,it
       - META_FIELDS=camac-instance-id,submit-date
       - ENABLE_HISTORICAL_API=true
-      # alexandria
+      # Alexandria
       - ALEXANDRIA_VISIBILITY_CLASSES=camac.alexandria.extensions.visibilities.CustomVisibility
       - ALEXANDRIA_PERMISSION_CLASSES=camac.alexandria.extensions.permissions.CustomPermission
       - ALEXANDRIA_VALIDATION_CLASSES=camac.alexandria.extensions.validations.Validator

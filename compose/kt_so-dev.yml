@@ -18,6 +18,7 @@ services:
       - mailhog
       - document-merge-service
       - ember-ebau
+      - minio
     ports:
       - "80:80"
     networks:
@@ -72,6 +73,10 @@ services:
       - GWR_FERNET_KEY=GUdwT6yKxqfszrnHC7wyKDmtVZdhjSVQEPnpeJYNLf8=
       - DJANGO_INTERNAL_BASE_URL=http://ember-ebau.local
       - DOCUMENT_MERGE_SERVICE_URL=http://document-merge-service:8000/document-merge-service/api/v1/
+      # Alexandria
+      - ALEXANDRIA_MINIO_STORAGE_ENDPOINT=ember-ebau.local
+      - ALEXANDRIA_MINIO_STORAGE_ACCESS_KEY=minio
+      - ALEXANDRIA_MINIO_STORAGE_SECRET_KEY=minio123
     networks:
       - ebau.local
     command: /bin/sh -c "./wait-for-it.sh db:5432 -- ./manage.py migrate && ./manage.py collectstatic --noinput && ./manage.py runserver 0:80 --pythonpath /app/$APPLICATION"
@@ -150,25 +155,22 @@ services:
       ]
 
   minio:
-    image: minio/minio:latest@sha256:7f84f4d07cf0d3562911c6b072e1183436fbc3cad8ccef8157ec5c27456ed452
     volumes:
       - minio_data:/data
     environment:
-      - MINIO_ACCESS_KEY=minio
-      - MINIO_NOTIFY_WEBHOOK_ENABLE_ALEXANDRIA=on
-      - MINIO_NOTIFY_WEBHOOK_ENDPOINT_ALEXANDRIA=http://alexandria:8000/api/v1/hook
-      - MINIO_SECRET_KEY=minio123
-    command: server data
+      - MINIO_ROOT_USER=minio
+      - MINIO_ROOT_PASSWORD=minio123
+      - MINIO_NOTIFY_WEBHOOK_ENDPOINT_ALEXANDRIA=http://django:80/alexandria/api/v1/hook
+      - MINIO_BROWSER_REDIRECT_URL=http://ember-ebau.local/minio/ui
     networks:
       - ebau.local
 
   mc:
-    image: minio/mc:RELEASE.2020-10-03T02-54-56Z
+    image: minio/mc:RELEASE.2023-07-21T20-44-27Z
     restart: on-failure
     environment:
-      - MINIO_ACCESS_KEY=minio
-      - MINIO_SECRET_KEY=minio123
-      - APPLICATION=${APPLICATION}
+      - MINIO_ROOT_USER=minio
+      - MINIO_ROOT_PASSWORD=minio123
     volumes:
       - ../mc/entrypoint.sh:/entrypoint.sh
       - ../document-merge-service/${APPLICATION}/templatefiles:/tmp/dms-media
