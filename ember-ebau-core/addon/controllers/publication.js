@@ -4,11 +4,12 @@ import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
 import { trackedTask } from "ember-resources/util/ember-concurrency";
 
-import getPublications from "camac-ng/gql/queries/get-publications.graphql";
+import getPublications from "ember-ebau-core/gql/queries/get-publications.graphql";
 
 export default class PublicationController extends Controller {
   @service notification;
   @service intl;
+  @service ebauModules;
 
   @queryManager apollo;
 
@@ -18,7 +19,7 @@ export default class PublicationController extends Controller {
 
   get variables() {
     return {
-      instanceId: this.model.instanceId,
+      instanceId: this.ebauModules.instanceId,
       ...(this.model.type === "neighbors"
         ? {
             task: "information-of-neighbors",

@@ -2,17 +2,18 @@ import { inject as service } from "@ember/service";
 import { Ability } from "ember-can";
 
 export default class PublicationAbility extends Ability {
-  @service shoebox;
+  @service ebauModules;
 
   get hasBasePermission() {
     return (
-      this.shoebox.baseRole === "municipality" && !this.shoebox.isReadOnlyRole
+      this.ebauModules.baseRole === "municipality" &&
+      !this.ebauModules.isReadOnlyRole
     );
   }
 
   get isAddressed() {
     return (this.model?.addressedGroups ?? []).includes(
-      String(this.shoebox.content?.serviceId),
+      String(this.ebauModules.serviceId),
     );
   }
 
