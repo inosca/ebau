@@ -481,7 +481,6 @@ def test_public_caluma_instance_be(
     application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_bern"][
         "MASTER_DATA"
     ]
-    application_settings["PUBLICATION_USE_PUBLIC_ACCESS_KEY"] = True
 
     create_caluma_publication(be_instance)
 
@@ -531,7 +530,6 @@ def test_public_caluma_instance_municipality_filter(
     application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_bern"][
         "MASTER_DATA"
     ]
-    application_settings["PUBLICATION_USE_PUBLIC_ACCESS_KEY"] = True
 
     instances = [
         instance_with_case(instance) for instance in instance_factory.create_batch(5)
@@ -570,7 +568,6 @@ def test_information_of_neighbors_instance_be(
     enable_public_urls,
 ):
     application_settings["PUBLICATION_BACKEND"] = "caluma"
-    application_settings["PUBLICATION_USE_PUBLIC_ACCESS_KEY"] = True
     application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_bern"][
         "MASTER_DATA"
     ]

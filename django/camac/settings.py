@@ -2154,32 +2154,35 @@ APPLICATIONS = {
         ),
         "ENABLE_PUBLIC_ENDPOINTS": True,
         "PUBLICATION_BACKEND": "caluma",
-        "PUBLICATION_USE_PUBLIC_ACCESS_KEY": True,
-        "PUBLICATION_SCRUBBED_ANSWERS": [
-            "e-mail-energie",
-            "e-mail-gastgewerbe",
-            "e-mail-gebaeudeeigentuemerin",
-            "e-mail-gesuchstellerin",
-            "e-mail-gewaesserschutzfragen",
-            "e-mail-grundeigentuemerin",
-            "e-mail-kontaktperson",
-            "e-mail-projektverfasserin",
-            "e-mail-sendeanlage",
-            "e-mail-vertreterin",
-            "e-mail-waermepumpen",
-            "telefon-oder-mobile-energie",
-            "telefon-oder-mobile-gastgewerbe",
-            "telefon-oder-mobile-gebaeudeeigentuemerin",
-            "telefon-oder-mobile-gesuchstellerin",
-            "telefon-oder-mobile-gewaesserschutzfragen",
-            "telefon-oder-mobile-grundeigentuemerin",
-            "telefon-oder-mobile-kontaktperson",
-            "telefon-oder-mobile-projektverfasserin",
-            "telefon-oder-mobile-sendeanlage",
-            "telefon-oder-mobile-vertreterin",
-            "telefon-oder-mobile-vorabklaerungen",
-            "telefon-oder-mobile-waermepumpen",
-        ],
+        "PUBLICATION": {
+            "START_QUESTION": "publikation-startdatum",
+            "END_QUESTION": "publikation-ablaufdatum",
+            "SCRUBBED_ANSWERS": [
+                "e-mail-energie",
+                "e-mail-gastgewerbe",
+                "e-mail-gebaeudeeigentuemerin",
+                "e-mail-gesuchstellerin",
+                "e-mail-gewaesserschutzfragen",
+                "e-mail-grundeigentuemerin",
+                "e-mail-kontaktperson",
+                "e-mail-projektverfasserin",
+                "e-mail-sendeanlage",
+                "e-mail-vertreterin",
+                "e-mail-waermepumpen",
+                "telefon-oder-mobile-energie",
+                "telefon-oder-mobile-gastgewerbe",
+                "telefon-oder-mobile-gebaeudeeigentuemerin",
+                "telefon-oder-mobile-gesuchstellerin",
+                "telefon-oder-mobile-gewaesserschutzfragen",
+                "telefon-oder-mobile-grundeigentuemerin",
+                "telefon-oder-mobile-kontaktperson",
+                "telefon-oder-mobile-projektverfasserin",
+                "telefon-oder-mobile-sendeanlage",
+                "telefon-oder-mobile-vertreterin",
+                "telefon-oder-mobile-vorabklaerungen",
+                "telefon-oder-mobile-waermepumpen",
+            ],
+        },
         "ATTACHMENT_MAX_SIZE": 100 * 1024 * 1024,
     },
     "kt_uri": {
@@ -3209,7 +3212,6 @@ APPLICATIONS = {
         "ECH0211": {
             "API_ACTIVE": env.bool("ECH0211_API_ACTIVE", default=False),
         },
-        "PUBLICATION_USE_CALCULATED_DATES": True,
         "USE_CAMAC_ADMIN": False,
         "LOG_NOTIFICATIONS": True,
         # Mapping between camac role and instance permission.
@@ -3224,6 +3226,12 @@ APPLICATIONS = {
         "ADMIN_GROUP": 1,
         "IS_MULTILINGUAL": True,
         "PUBLICATION_BACKEND": "caluma",
+        "PUBLICATION": {
+            "USE_CALCULATED_DATES": True,
+            "START_QUESTION": "beginn-publikationsorgan-gemeinde",
+            "END_QUESTION": "ende-publikationsorgan-der-gemeinde",
+            "PUBLISH_QUESTION": "oeffentliche-auflage",
+        },
         "ENABLE_PUBLIC_ENDPOINTS": True,
         "FORM_BACKEND": "caluma",
         "THUMBNAIL_SIZE": "x300",
@@ -3359,18 +3367,7 @@ APPLICATIONS = {
                 ),
             },
             "publication": {
-                "caluma_form.Form": Q(pk__in=PUBLICATION_FORM_SLUGS_GR),
-                "caluma_form.FormQuestion": Q(form__pk__in=PUBLICATION_FORM_SLUGS_GR),
-                "caluma_form.Question": Q(forms__pk__in=PUBLICATION_FORM_SLUGS_GR)
-                | Q(pk__in=PUBLICATION_FORM_SLUGS_GR),
-                "caluma_form.QuestionOption": Q(
-                    question__forms__pk__in=PUBLICATION_FORM_SLUGS_GR
-                )
-                | Q(question_id__in=PUBLICATION_FORM_SLUGS_GR),
-                "caluma_form.Option": Q(
-                    questions__forms__pk__in=PUBLICATION_FORM_SLUGS_GR
-                )
-                | Q(questions__pk__in=PUBLICATION_FORM_SLUGS_GR),
+                **generate_form_dump_config(regex=r"^publikation?$"),
             },
         },
         "DUMP_CONFIG_EXCLUDED_MODELS": [
