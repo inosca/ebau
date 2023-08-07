@@ -63,17 +63,19 @@ export default class InstanceAbility extends Ability {
   // GR
   get canCorrect() {
     return (
-      (this.ebauModules.isSupportRole ||
-        this.ebauModules.isMunicipalityLeadRole) &&
-      (hasInstanceState(this.model, "subm") ||
-        hasInstanceState(this.model, "circulation"))
+      // disabled until isMunicipalityLeadRole works in ember-ebau
+      // (this.ebauModules.isSupportRole ||
+      //   this.ebauModules.isMunicipalityLeadRole) &&
+      hasInstanceState(this.model, "subm") ||
+      hasInstanceState(this.model, "circulation")
     );
   }
 
   get canFinishCorrect() {
     return (
-      (this.ebauModules.isSupportRole ||
-        this.ebauModules.isMunicipalityLeadRole) &&
+      // disabled until isMunicipalityLeadRole works in ember-ebau
+      // (this.ebauModules.isSupportRole ||
+      //   this.ebauModules.isMunicipalityLeadRole) &&
       hasInstanceState(this.model, "correction")
     );
   }

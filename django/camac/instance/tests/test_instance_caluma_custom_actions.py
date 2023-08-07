@@ -751,12 +751,13 @@ def test_instance_convert_modification(
 
 @pytest.mark.parametrize("instance__user", [LazyFixture("admin_user")])
 @pytest.mark.parametrize(
-    "role__name,expected_status",
+    "role__name,has_inquiry,expected_status",
     [
-        ("Support", status.HTTP_200_OK),
-        ("Municipality", status.HTTP_200_OK),
-        ("Municipality", status.HTTP_400_BAD_REQUEST),
-        ("Applicant", status.HTTP_403_FORBIDDEN),
+        ("Support", False, status.HTTP_200_OK),
+        ("municipality-lead", False, status.HTTP_200_OK),
+        ("municipality-lead", True, status.HTTP_400_BAD_REQUEST),
+        ("Applicant", False, status.HTTP_403_FORBIDDEN),
+        ("Municipality", False, status.HTTP_403_FORBIDDEN),
     ],
 )
 def test_correction(
@@ -767,6 +768,7 @@ def test_correction(
     active_inquiry_factory,
     instance_state_factory,
     application_settings,
+    has_inquiry,
     expected_status,
 ):
     application_settings["INSTANCE_STATE_CORRECTION_ALLOWED"] = ["subm"]
@@ -778,7 +780,7 @@ def test_correction(
     be_instance.case.meta["camac-instance-id"] = be_instance.pk
     be_instance.case.save()
 
-    if expected_status == status.HTTP_400_BAD_REQUEST:
+    if has_inquiry:
         active_inquiry_factory(be_instance)
 
     response = admin_client.post(reverse("instance-correction", args=[be_instance.pk]))
