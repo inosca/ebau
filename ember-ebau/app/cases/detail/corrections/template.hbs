@@ -5,7 +5,7 @@
     <div>
       <p class="uk-text-large">{{t "corrections.document.title"}}</p>
       {{#if (can "finish correct instance" this.instance.record)}}
-        <p>{{t "corrections.document.description-finish" htmlSafe=true}}</p>
+        <p>{{t "corrections.document.description-finish" htmlSafe=true link=(concat "/cases/" this.instance.record.id "/form")}}</p>
         <UkButton
           @color="primary"
           @label={{t "corrections.document.button-finish"}}

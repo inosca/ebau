@@ -1,10 +1,10 @@
 corrections:
   document:
     title: "Dossier korrigieren"
-    description: "Bitte beachten Sie, dass die Dossierkorrektur nur für kleine Änderungen gedacht ist. Bitte prüfen Sie, ob allenfalls eine Rückweisung angebracht wäre.<br><br>Wollen Sie mit der Dossierkorrektur fortfahren?"
-    button: "Korrigieren"
-    description-finish: "Dossierkorrektur abschliessen"
-    button-finish: "Abschliessen"
+    description: "Diese Funktion erlaubt es, kleine Korrekturen am Gesuchsformular vorzunehmen (z.B. Präzisierung des Baubeschriebs)."
+    button: "Dossier korrigieren"
+    description-finish: "Sie können die Dossierkorrektur jetzt im Menü <a href={link}>Formular</a> vornehmen. Bitte vergessen sie nicht die Korrektur anschliessend abzuschliessen."
+    button-finish: "Korrektur abschliessen"
 
-    confirm: "Wollen Sie das Dossier wirklich korrigieren?"
+    confirm: "Bitte beachten Sie, dass die Dossierkorrektur nur für kleine Änderungen gedacht ist. Bitte prüfen Sie, ob allenfalls eine Rückweisung angebracht wäre.<br><br>Wollen Sie mit der Dossierkorrektur fortfahren?"
     error: "Fehler beim Korrigieren des Dossiers"
