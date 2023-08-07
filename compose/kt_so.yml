@@ -39,6 +39,8 @@ services:
         - acr.run/camac-ng/camac-ng/ember-caluma-portal:${TAG:-master}
       args:
         APPLICATION: ${APPLICATION}
+        KEYCLOAK_HOST: ${KEYCLOAK_HOST:-http://ebau-keycloak.local}
+        INTERNAL_URL: ${INTERNAL_URL:-http://ember-ebau.local}
 
   ember-ebau:
     image: acr.run/camac-ng/camac-ng/ember-ebau:${TAG:-master}
@@ -49,6 +51,7 @@ services:
         - acr.run/camac-ng/camac-ng/ember-ebau:${TAG:-master}
       args:
         APPLICATION: ${APPLICATION}
+        KEYCLOAK_HOST: ${KEYCLOAK_HOST:-http://ebau-keycloak.local}
 
   keycloak:
     image: acr.run/camac-ng/camac-ng/keycloak:${TAG:-master}
