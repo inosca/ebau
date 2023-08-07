@@ -567,6 +567,10 @@ DISTRIBUTION = {
         "REDO_INQUIRY": {
             "REOPEN_TASKS": ["fill-inquiry"],
         },
+        "QUESTIONS": {
+            "STATEMENT": "inquiry-answer-assessment",
+            "ANCILLARY_CLAUSES": "inquiry-answer-ancillary-clauses",
+        },
     },
     "demo": {"ENABLED": True},
 }
