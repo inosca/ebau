@@ -41,12 +41,12 @@ def create_caluma_publication(db, caluma_publication, application_settings):
         publication_document = DocumentFactory()
         AnswerFactory(
             document=publication_document,
-            question_id="publikation-startdatum",
+            question_id=application_settings["PUBLICATION"]["START_QUESTION"],
             date=start,
         )
         AnswerFactory(
             document=publication_document,
-            question_id="publikation-ablaufdatum",
+            question_id=application_settings["PUBLICATION"]["END_QUESTION"],
             date=end,
         )
         WorkItemFactory(
@@ -560,6 +560,58 @@ def test_public_caluma_instance_municipality_filter(
     assert len(response.json()["data"]) == 3
 
 
+def test_public_caluma_instance_form_type_filter(
+    db,
+    application_settings,
+    admin_client,
+    instance_factory,
+    instance_with_case,
+    enable_public_urls,
+    caluma_workflow_config_ur,
+    publication_entry_factory,
+):
+    application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_uri"]["MASTER_DATA"]
+    application_settings["PUBLICATION_BACKEND"] = "camac-ng"
+
+    instances = [
+        instance_with_case(instance) for instance in instance_factory.create_batch(5)
+    ]
+
+    for instance in instances[:3]:
+        AnswerFactory(
+            question_id="form-type",
+            value="form-type-baubewilligungsverfahren",
+            document=instance.case.document,
+        )
+
+        publication_entry_factory(
+            publication_date=timezone.now() - timedelta(days=1),
+            publication_end_date=timezone.now() + timedelta(days=10),
+            is_published=True,
+            instance_id=instance.pk,
+        )
+
+    for instance in instances[3:]:
+        AnswerFactory(
+            question_id="form-type",
+            value="does-not-exist",
+            document=instance.case.document,
+        )
+
+    url = reverse("public-caluma-instance")
+
+    response = admin_client.get(
+        url,
+        {
+            "form_type": "form-type-baubewilligungsverfahren",
+        },
+        HTTP_X_CAMAC_PUBLIC_ACCESS=True,
+    )
+
+    assert response.status_code == status.HTTP_200_OK
+    assert len(response.json()["data"]) == 3
+
+
 def test_information_of_neighbors_instance_be(
     db,
     application_settings,
@@ -617,6 +669,56 @@ def test_information_of_neighbors_instance_be(
     assert response.status_code == status.HTTP_200_OK
 
     assert len(response.json()["data"])
+
+
+@pytest.mark.parametrize(
+    "publish_answer_slug,expected_instances",
+    [(["oeffentliche-auflage-ja"], 1), (["oeffentliche-auflage-nein"], 0)],
+)
+def test_public_caluma_instance_gr(
+    db,
+    application_settings,
+    client,
+    gr_instance,
+    enable_public_urls,
+    publish_answer_slug,
+    expected_instances,
+):
+    application_settings["PUBLICATION"] = settings.APPLICATIONS["kt_gr"]["PUBLICATION"]
+    application_settings["PUBLICATION_BACKEND"] = "caluma"
+    application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_gr"]["MASTER_DATA"]
+
+    document = DocumentFactory()
+    AnswerFactory(
+        document=document,
+        question__slug="oeffentliche-auflage",
+        value=publish_answer_slug,
+    )
+    AnswerFactory(
+        document=document,
+        question__slug="beginn-publikationsorgan-gemeinde",
+        date=timezone.now().date() - timedelta(days=2),
+    )
+    AnswerFactory(
+        document=document,
+        question__slug="ende-publikationsorgan-der-gemeinde",
+        date=timezone.now().date() + timedelta(days=2),
+    )
+    WorkItemFactory(
+        task_id="fill-publication",
+        status="completed",
+        document=document,
+        case=gr_instance.case,
+        meta={"is-published": True},
+    )
+
+    url = reverse("public-caluma-instance")
+
+    response = client.get(url, {"instance": gr_instance.pk})
+
+    assert response.status_code == status.HTTP_200_OK
+
+    assert len(response.json()["data"]) == expected_instances
 
 
 @pytest.mark.freeze_time("2022-04-12")
