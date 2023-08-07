@@ -157,7 +157,7 @@ def get_documents(attachments):
                 ]
             ),
         )
-        for attachment in attachments.order_by("-date")
+        for attachment in attachments.order_by("-date", "pk")
     ]
     if not documents:
         documents = [
