@@ -132,7 +132,7 @@ export default class CustomSession extends Session {
 
   get isMunicipalityLeadRole() {
     // TODO we used to do this.role === "municipality-lead", but now we only have translated names
-    return this.rolePermission === "municipality";
+    return false;
   }
 
   @cached
