@@ -33,7 +33,11 @@ export default class CorrectionsController extends Controller {
       // sadly we need this to have current data on the whole page
       location.reload();
     } catch (error) {
-      this.notification.danger(this.intl.t("corrections.document.error"));
+      if (error.cause) {
+        this.notification.danger(error.cause.map((e) => e.detail).join("<br>"));
+      } else {
+        this.notification.danger(this.intl.t("corrections.document.error"));
+      }
     }
   }
 }

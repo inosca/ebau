@@ -2371,16 +2371,19 @@ class CalumaInstanceCorrectionSerializer(serializers.Serializer):
                 },
             ).count()
         ):
-            raise exceptions.ValidationError(_("There are running inquiries."))
+            raise exceptions.ValidationError(
+                _("The Dossier can't be correct because there are running inquiries.")
+            )
 
         return data
 
     @transaction.atomic
     def update(self, instance, validated_data):
+        user = self.context["request"].caluma_info.context.user
+
         if instance.instance_state.name in settings.APPLICATION.get(
             "INSTANCE_STATE_CORRECTION_ALLOWED", []
         ):
-            user = self.context["request"].caluma_info.context.user
             workflow_api.suspend_case(instance.case, user)
             instance.previous_instance_state = instance.instance_state
             instance.instance_state = models.InstanceState.objects.get(
@@ -2388,7 +2391,6 @@ class CalumaInstanceCorrectionSerializer(serializers.Serializer):
             )
             instance.save()
         elif instance.instance_state.name == self.INSTANCE_STATE_CORRECTION:
-            user = self.context["request"].caluma_info.context.user
             DocumentValidator().validate(instance.case.document, user)
 
             workflow_api.resume_case(instance.case, user)
@@ -2397,7 +2399,9 @@ class CalumaInstanceCorrectionSerializer(serializers.Serializer):
                 instance.instance_state,
             )
             instance.save()
-            create_history_entry(instance, self.context["request"].user, _("Corrected"))
+            create_history_entry(
+                instance, self.context["request"].user, _("Dossier corrected")
+            )
 
         return instance
 
