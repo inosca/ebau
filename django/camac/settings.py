@@ -315,6 +315,10 @@ APPLICATIONS = {
         "IS_MULTILINGUAL": False,
         "NOTIFICATIONS": {"SUBMIT": None, "APPLICANT": {"NEW": None, "EXISTING": None}},
         "PUBLICATION_BACKEND": "camac-ng",
+        "PUBLICATION": {
+            "START_QUESTION": "publikation-startdatum",
+            "END_QUESTION": "publikation-ablaufdatum",
+        },
         "FORM_BACKEND": "camac-ng",
         "THUMBNAIL_SIZE": "x300",
         "WORKFLOW_ITEMS": {
