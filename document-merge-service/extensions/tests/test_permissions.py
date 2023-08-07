@@ -68,6 +68,31 @@ def test_custom_update_permission(
 
 
 @pytest.mark.parametrize(
+    "template__engine,template__template",
+    [(Template.DOCX_TEMPLATE, django_file("docx-template.docx"))],
+)
+@pytest.mark.parametrize(
+    "template__meta,expected_status",
+    [
+        ({"service": "1"}, status.HTTP_204_NO_CONTENT),
+        ({}, status.HTTP_403_FORBIDDEN),
+        ({"service": "10"}, status.HTTP_404_NOT_FOUND),
+    ],
+)
+def test_custom_update_delete(
+    admin_client,
+    expected_status,
+    mock_services,
+    template,
+):
+    response = admin_client.delete(
+        reverse("template-detail", args=[template.pk]),
+    )
+
+    assert response.status_code == expected_status
+
+
+@pytest.mark.parametrize(
     "template__engine,template__template,template__meta",
     [(Template.DOCX_TEMPLATE, django_file("docx-template.docx"), {})],
 )
