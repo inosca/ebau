@@ -20683,6 +20683,15 @@
     }
   },
   {
+    "model": "core.docgentemplate",
+    "pk": 232,
+    "fields": {
+      "name": "Publikation Bausperre",
+      "path": "publish_print_bausperre.docx",
+      "type": 1.0
+    }
+  },
+  {
     "model": "core.docgentemplateclass",
     "pk": 42,
     "fields": {
@@ -43823,6 +43832,15 @@
   },
   {
     "model": "core.publicationsetting",
+    "pk": 26,
+    "fields": {
+      "key": "text",
+      "value": "Gemeinde [@location]\r\n\r\n[@location], [@date]\r\n\r\nMeldung eines Auflage- und Einspracheverfahrens zur Publikation im Amtsblatt unter der Rubrik \"Bau und Planungsrecht\" und im amtlichen Publikationsorgan (APO)\r\n\r\nSehr geehrte Damen und Herren\r\n\r\nWir bitten Sie, folgendes Auflage- und Einspracheverfahren im Amtsblatt vom Freitag [@publishDate] bzw. ab Freitag [@publishDate] im APO zu publizieren:\r\n\r\nBausperre in der Gemeinde [@location]\r\n\r\nMit Beschluss vom DATUM hat der Gemeinderat [@location] gestützt auf Art. 60ff Planungs- und Baugesetz des Kantons Uri (PBG; RB 40.1111) über folgende Gebiete im Sinne einer vorsorglichen Massnahme die Bausperre verfügt:\r\n\r\nZ.B: PARZELLE NR. XXX ODER KERNZONE\r\n\r\nBEISPIEL ZWECK:\r\n\r\nDie Bausperre bezweckt, künftige planerische Massnahmen in der Kernzone sicherzustellen sowie genügende Bauvorschriften zu schaffen. Bauliche Massnahmen im gesperrten Gebiet werden nur bewilligt, wenn sie der vorgesehenen Planung bzw. die Verwirklichung der neuen Vorschrift nicht erschweren oder beeinträchtigen.\r\n\r\nBEISPIEL DAUER:\r\n\r\nDie Bausperre gilt bis zum Inkraftreten der vorgenannten Vorschrift in der Kernzone, jedoch längstens für ein Jahr.\r\n\r\nDie Auflage erfolgt auf der Gemeindekanzlei. Die öffentliche Auflage der massgeblichen digitalen Daten erfolgt gestützt auf Art. 1 und Art. 13 Abs. 1 Bst. a des Gesetzes über die amtliche Publikation (Publikationsgesetz, PUG; RB 3.1310) im Kataster der öffentlich-rechtlichen Eigentumsbeschränkungen (oereb.ur.ch/auflage).\r\n\r\n[@location], [@date] Gemeinderat [@location]\r\n\r\nWir danken Ihnen für Ihre Bemühungen und stehen bei Fragen gerne zur Verfügung\r\n\r\nFreundliche Grüsse\r\n\r\nGemeinderat [@location]",
+      "type": 12000009
+    }
+  },
+  {
+    "model": "core.publicationsetting",
     "pk": 12000000,
     "fields": {
       "key": "duration",
@@ -43900,6 +43918,285 @@
       "key": "duration",
       "value": "30 Tage",
       "type": 12000008
+    }
+  },
+  {
+    "model": "core.publicationsetting",
+    "pk": 12000009,
+    "fields": {
+      "key": "duration",
+      "value": "30 Tage",
+      "type": 12000009
+    }
+  },
+  {
+    "model": "core.publicationsetting",
+    "pk": 12000010,
+    "fields": {
+      "key": "fromEmail",
+      "value": "urec@ur.ch",
+      "type": 12000000
+    }
+  },
+  {
+    "model": "core.publicationsetting",
+    "pk": 12000011,
+    "fields": {
+      "key": "fromEmail",
+      "value": "urec@ur.ch",
+      "type": 12000001
+    }
+  },
+  {
+    "model": "core.publicationsetting",
+    "pk": 12000012,
+    "fields": {
+      "key": "fromEmail",
+      "value": "urec@ur.ch",
+      "type": 12000002
+    }
+  },
+  {
+    "model": "core.publicationsetting",
+    "pk": 12000013,
+    "fields": {
+      "key": "fromEmail",
+      "value": "urec@ur.ch",
+      "type": 12000003
+    }
+  },
+  {
+    "model": "core.publicationsetting",
+    "pk": 12000014,
+    "fields": {
+      "key": "fromEmail",
+      "value": "urec@ur.ch",
+      "type": 12000004
+    }
+  },
+  {
+    "model": "core.publicationsetting",
+    "pk": 12000015,
+    "fields": {
+      "key": "fromEmail",
+      "value": "urec@ur.ch",
+      "type": 12000005
+    }
+  },
+  {
+    "model": "core.publicationsetting",
+    "pk": 12000016,
+    "fields": {
+      "key": "fromEmail",
+      "value": "urec@ur.ch",
+      "type": 12000006
+    }
+  },
+  {
+    "model": "core.publicationsetting",
+    "pk": 12000017,
+    "fields": {
+      "key": "fromEmail",
+      "value": "urec@ur.ch",
+      "type": 12000007
+    }
+  },
+  {
+    "model": "core.publicationsetting",
+    "pk": 12000018,
+    "fields": {
+      "key": "fromEmail",
+      "value": "urec@ur.ch",
+      "type": 12000008
+    }
+  },
+  {
+    "model": "core.publicationsetting",
+    "pk": 12000019,
+    "fields": {
+      "key": "fromEmail",
+      "value": "urec@ur.ch",
+      "type": 12000009
+    }
+  },
+  {
+    "model": "core.publicationsetting",
+    "pk": 12000020,
+    "fields": {
+      "key": "toEmail",
+      "value": "amtsblatt@ur.ch,oereb@lisag.ch,koornp@ur.ch",
+      "type": 12000000
+    }
+  },
+  {
+    "model": "core.publicationsetting",
+    "pk": 12000021,
+    "fields": {
+      "key": "toEmail",
+      "value": "amtsblatt@ur.ch,oereb@lisag.ch,koornp@ur.ch",
+      "type": 12000001
+    }
+  },
+  {
+    "model": "core.publicationsetting",
+    "pk": 12000022,
+    "fields": {
+      "key": "toEmail",
+      "value": "amtsblatt@ur.ch,oereb@lisag.ch,koornp@ur.ch",
+      "type": 12000002
+    }
+  },
+  {
+    "model": "core.publicationsetting",
+    "pk": 12000023,
+    "fields": {
+      "key": "toEmail",
+      "value": "amtsblatt@ur.ch,oereb@lisag.ch,koornp@ur.ch",
+      "type": 12000003
+    }
+  },
+  {
+    "model": "core.publicationsetting",
+    "pk": 12000024,
+    "fields": {
+      "key": "toEmail",
+      "value": "amtsblatt@ur.ch,oereb@lisag.ch,koornp@ur.ch",
+      "type": 12000004
+    }
+  },
+  {
+    "model": "core.publicationsetting",
+    "pk": 12000025,
+    "fields": {
+      "key": "toEmail",
+      "value": "amtsblatt@ur.ch,oereb@lisag.ch,koornp@ur.ch",
+      "type": 12000005
+    }
+  },
+  {
+    "model": "core.publicationsetting",
+    "pk": 12000026,
+    "fields": {
+      "key": "toEmail",
+      "value": "amtsblatt@ur.ch,oereb@lisag.ch,koornp@ur.ch",
+      "type": 12000006
+    }
+  },
+  {
+    "model": "core.publicationsetting",
+    "pk": 12000027,
+    "fields": {
+      "key": "toEmail",
+      "value": "amtsblatt@ur.ch,oereb@lisag.ch,koornp@ur.ch",
+      "type": 12000007
+    }
+  },
+  {
+    "model": "core.publicationsetting",
+    "pk": 12000028,
+    "fields": {
+      "key": "toEmail",
+      "value": "amtsblatt@ur.ch,oereb@lisag.ch,koornp@ur.ch",
+      "type": 12000008
+    }
+  },
+  {
+    "model": "core.publicationsetting",
+    "pk": 12000029,
+    "fields": {
+      "key": "toEmail",
+      "value": "amtsblatt@ur.ch,oereb@lisag.ch,koornp@ur.ch",
+      "type": 12000009
+    }
+  },
+  {
+    "model": "core.publicationsetting",
+    "pk": 12000030,
+    "fields": {
+      "key": "stopText",
+      "value": "Gemeindebaubehörde [@location]\n\nStandeskanzlei Uri\nRedaktion Amtsblatt\nRathaus\n6460 Altdorf\n\nLisag AG\nNeuland 11\n6460 Altdorf\n\n[@zip] [@location], [@date]\n\n\nSTOPP - Meldung eines Auflage- und Einspracheverfahrens\n\nSehr geehrte Damen und Herren\n\nVia URec haben Sie die Meldung zu folgendem Auflage- und Einspracheverfahren erhalten.\n\n[@community]\n\n\nVorhaben: [@intent]\nPublikationsdatum: [@publishDate]\n\n\nWir bitten Sie, die Auflage zu STOPPEN. Sofern das Vorhaben weiterverfolgt wird, erhalten Sie zu gegebener Zeit eine neue Publikationsmeldung.\n\nWir danken Ihnen für Ihre Bemühungen und stehen bei Fragen gerne zur Verfügung\n\nFreundliche Grüsse\n\n[@authority]\n\n\n[@zip] [@location], [@date]\n",
+      "type": 12000000
+    }
+  },
+  {
+    "model": "core.publicationsetting",
+    "pk": 12000031,
+    "fields": {
+      "key": "stopText",
+      "value": "Gemeindebaubehörde [@location]\n\nStandeskanzlei Uri\nRedaktion Amtsblatt\nRathaus\n6460 Altdorf\n\nLisag AG\nNeuland 11\n6460 Altdorf\n\n[@zip] [@location], [@date]\n\n\nSTOPP - Meldung eines Auflage- und Einspracheverfahrens\n\nSehr geehrte Damen und Herren\n\nVia URec haben Sie die Meldung zu folgendem Auflage- und Einspracheverfahren erhalten.\n\n[@community]\n\n\nVorhaben: [@intent]\nPublikationsdatum: [@publishDate]\n\n\nWir bitten Sie, die Auflage zu STOPPEN. Sofern das Vorhaben weiterverfolgt wird, erhalten Sie zu gegebener Zeit eine neue Publikationsmeldung.\n\nWir danken Ihnen für Ihre Bemühungen und stehen bei Fragen gerne zur Verfügung\n\nFreundliche Grüsse\n\n[@authority]\n\n\n[@zip] [@location], [@date]\n",
+      "type": 12000001
+    }
+  },
+  {
+    "model": "core.publicationsetting",
+    "pk": 12000032,
+    "fields": {
+      "key": "stopText",
+      "value": "Gemeindebaubehörde [@location]\n\nStandeskanzlei Uri\nRedaktion Amtsblatt\nRathaus\n6460 Altdorf\n\nLisag AG\nNeuland 11\n6460 Altdorf\n\n[@zip] [@location], [@date]\n\n\nSTOPP - Meldung eines Auflage- und Einspracheverfahrens\n\nSehr geehrte Damen und Herren\n\nVia URec haben Sie die Meldung zu folgendem Auflage- und Einspracheverfahren erhalten.\n\n[@community]\n\n\nVorhaben: [@intent]\nPublikationsdatum: [@publishDate]\n\n\nWir bitten Sie, die Auflage zu STOPPEN. Sofern das Vorhaben weiterverfolgt wird, erhalten Sie zu gegebener Zeit eine neue Publikationsmeldung.\n\nWir danken Ihnen für Ihre Bemühungen und stehen bei Fragen gerne zur Verfügung\n\nFreundliche Grüsse\n\n[@authority]\n\n\n[@zip] [@location], [@date]\n",
+      "type": 12000002
+    }
+  },
+  {
+    "model": "core.publicationsetting",
+    "pk": 12000033,
+    "fields": {
+      "key": "stopText",
+      "value": "Gemeindebaubehörde [@location]\n\nStandeskanzlei Uri\nRedaktion Amtsblatt\nRathaus\n6460 Altdorf\n\nLisag AG\nNeuland 11\n6460 Altdorf\n\n[@zip] [@location], [@date]\n\n\nSTOPP - Meldung eines Auflage- und Einspracheverfahrens\n\nSehr geehrte Damen und Herren\n\nVia URec haben Sie die Meldung zu folgendem Auflage- und Einspracheverfahren erhalten.\n\n[@community]\n\n\nVorhaben: [@intent]\nPublikationsdatum: [@publishDate]\n\n\nWir bitten Sie, die Auflage zu STOPPEN. Sofern das Vorhaben weiterverfolgt wird, erhalten Sie zu gegebener Zeit eine neue Publikationsmeldung.\n\nWir danken Ihnen für Ihre Bemühungen und stehen bei Fragen gerne zur Verfügung\n\nFreundliche Grüsse\n\n[@authority]\n\n\n[@zip] [@location], [@date]\n",
+      "type": 12000003
+    }
+  },
+  {
+    "model": "core.publicationsetting",
+    "pk": 12000034,
+    "fields": {
+      "key": "stopText",
+      "value": "Gemeindebaubehörde [@location]\n\nStandeskanzlei Uri\nRedaktion Amtsblatt\nRathaus\n6460 Altdorf\n\nLisag AG\nNeuland 11\n6460 Altdorf\n\n[@zip] [@location], [@date]\n\n\nSTOPP - Meldung eines Auflage- und Einspracheverfahrens\n\nSehr geehrte Damen und Herren\n\nVia URec haben Sie die Meldung zu folgendem Auflage- und Einspracheverfahren erhalten.\n\n[@community]\n\n\nVorhaben: [@intent]\nPublikationsdatum: [@publishDate]\n\n\nWir bitten Sie, die Auflage zu STOPPEN. Sofern das Vorhaben weiterverfolgt wird, erhalten Sie zu gegebener Zeit eine neue Publikationsmeldung.\n\nWir danken Ihnen für Ihre Bemühungen und stehen bei Fragen gerne zur Verfügung\n\nFreundliche Grüsse\n\n[@authority]\n\n\n[@zip] [@location], [@date]\n",
+      "type": 12000004
+    }
+  },
+  {
+    "model": "core.publicationsetting",
+    "pk": 12000035,
+    "fields": {
+      "key": "stopText",
+      "value": "Gemeindebaubehörde [@location]\n\nStandeskanzlei Uri\nRedaktion Amtsblatt\nRathaus\n6460 Altdorf\n\nLisag AG\nNeuland 11\n6460 Altdorf\n\n[@zip] [@location], [@date]\n\n\nSTOPP - Meldung eines Auflage- und Einspracheverfahrens\n\nSehr geehrte Damen und Herren\n\nVia URec haben Sie die Meldung zu folgendem Auflage- und Einspracheverfahren erhalten.\n\n[@community]\n\n\nVorhaben: [@intent]\nPublikationsdatum: [@publishDate]\n\n\nWir bitten Sie, die Auflage zu STOPPEN. Sofern das Vorhaben weiterverfolgt wird, erhalten Sie zu gegebener Zeit eine neue Publikationsmeldung.\n\nWir danken Ihnen für Ihre Bemühungen und stehen bei Fragen gerne zur Verfügung\n\nFreundliche Grüsse\n\n[@authority]\n\n\n[@zip] [@location], [@date]\n",
+      "type": 12000005
+    }
+  },
+  {
+    "model": "core.publicationsetting",
+    "pk": 12000036,
+    "fields": {
+      "key": "stopText",
+      "value": "Gemeindebaubehörde [@location]\n\nStandeskanzlei Uri\nRedaktion Amtsblatt\nRathaus\n6460 Altdorf\n\nLisag AG\nNeuland 11\n6460 Altdorf\n\n[@zip] [@location], [@date]\n\n\nSTOPP - Meldung eines Auflage- und Einspracheverfahrens\n\nSehr geehrte Damen und Herren\n\nVia URec haben Sie die Meldung zu folgendem Auflage- und Einspracheverfahren erhalten.\n\n[@community]\n\n\nVorhaben: [@intent]\nPublikationsdatum: [@publishDate]\n\n\nWir bitten Sie, die Auflage zu STOPPEN. Sofern das Vorhaben weiterverfolgt wird, erhalten Sie zu gegebener Zeit eine neue Publikationsmeldung.\n\nWir danken Ihnen für Ihre Bemühungen und stehen bei Fragen gerne zur Verfügung\n\nFreundliche Grüsse\n\n[@authority]\n\n\n[@zip] [@location], [@date]\n",
+      "type": 12000006
+    }
+  },
+  {
+    "model": "core.publicationsetting",
+    "pk": 12000037,
+    "fields": {
+      "key": "stopText",
+      "value": "Gemeindebaubehörde [@location]\n\nStandeskanzlei Uri\nRedaktion Amtsblatt\nRathaus\n6460 Altdorf\n\nLisag AG\nNeuland 11\n6460 Altdorf\n\n[@zip] [@location], [@date]\n\n\nSTOPP - Meldung eines Auflage- und Einspracheverfahrens\n\nSehr geehrte Damen und Herren\n\nVia URec haben Sie die Meldung zu folgendem Auflage- und Einspracheverfahren erhalten.\n\n[@community]\n\n\nVorhaben: [@intent]\nPublikationsdatum: [@publishDate]\n\n\nWir bitten Sie, die Auflage zu STOPPEN. Sofern das Vorhaben weiterverfolgt wird, erhalten Sie zu gegebener Zeit eine neue Publikationsmeldung.\n\nWir danken Ihnen für Ihre Bemühungen und stehen bei Fragen gerne zur Verfügung\n\nFreundliche Grüsse\n\n[@authority]\n\n\n[@zip] [@location], [@date]\n",
+      "type": 12000007
+    }
+  },
+  {
+    "model": "core.publicationsetting",
+    "pk": 12000038,
+    "fields": {
+      "key": "stopText",
+      "value": "Gemeindebaubehörde [@location]\n\nStandeskanzlei Uri\nRedaktion Amtsblatt\nRathaus\n6460 Altdorf\n\nLisag AG\nNeuland 11\n6460 Altdorf\n\n[@zip] [@location], [@date]\n\n\nSTOPP - Meldung eines Auflage- und Einspracheverfahrens\n\nSehr geehrte Damen und Herren\n\nVia URec haben Sie die Meldung zu folgendem Auflage- und Einspracheverfahren erhalten.\n\n[@community]\n\n\nVorhaben: [@intent]\nPublikationsdatum: [@publishDate]\n\n\nWir bitten Sie, die Auflage zu STOPPEN. Sofern das Vorhaben weiterverfolgt wird, erhalten Sie zu gegebener Zeit eine neue Publikationsmeldung.\n\nWir danken Ihnen für Ihre Bemühungen und stehen bei Fragen gerne zur Verfügung\n\nFreundliche Grüsse\n\n[@authority]\n\n\n[@zip] [@location], [@date]\n",
+      "type": 12000008
+    }
+  },
+  {
+    "model": "core.publicationsetting",
+    "pk": 12000039,
+    "fields": {
+      "key": "stopText",
+      "value": "Gemeindebaubehörde [@location]\n\nStandeskanzlei Uri\nRedaktion Amtsblatt\nRathaus\n6460 Altdorf\n\nLisag AG\nNeuland 11\n6460 Altdorf\n\n[@zip] [@location], [@date]\n\n\nSTOPP - Meldung eines Auflage- und Einspracheverfahrens\n\nSehr geehrte Damen und Herren\n\nVia URec haben Sie die Meldung zu folgendem Auflage- und Einspracheverfahren erhalten.\n\n[@community]\n\n\nVorhaben: [@intent]\nPublikationsdatum: [@publishDate]\n\n\nWir bitten Sie, die Auflage zu STOPPEN. Sofern das Vorhaben weiterverfolgt wird, erhalten Sie zu gegebener Zeit eine neue Publikationsmeldung.\n\nWir danken Ihnen für Ihre Bemühungen und stehen bei Fragen gerne zur Verfügung\n\nFreundliche Grüsse\n\n[@authority]\n\n\n[@zip] [@location], [@date]\n",
+      "type": 12000009
     }
   },
   {
@@ -43984,6 +44281,13 @@
     "pk": 12000008,
     "fields": {
       "name": "Statische Waldgrenze"
+    }
+  },
+  {
+    "model": "core.publicationtype",
+    "pk": 12000009,
+    "fields": {
+      "name": "Bausperre"
     }
   },
   {
