@@ -1,22 +1,22 @@
 services:
   cache:
-    ports:
-      - "11211:11211"
+    image: memcached:1.6-alpine
     networks:
       - ebau.local
 
   proxy:
+    image: nginx:1.25-alpine
     volumes:
       - ../proxy/kt_so.conf:/etc/nginx/conf.d/default.conf:ro
       - djangomedia:/var/lib/camac/media:ro
       - djangotmpmedia:/tmp/camac/tmpfiles:ro
     depends_on:
-      - ember-caluma-portal
       - django
+      - document-merge-service
+      - ember-caluma-portal
+      - ember-ebau
       - keycloak
       - mailhog
-      - document-merge-service
-      - ember-ebau
       - minio
     ports:
       - "80:80"
@@ -28,17 +28,15 @@ services:
           - ebau-keycloak.local
 
   db:
+    image: acr.run/camac-ng/camac-ng/db:master
     build:
       context: ../db
       cache_from:
         - acr.run/camac-ng/camac-ng/db:master
-    image: acr.run/camac-ng/camac-ng/db:master
-    ports:
-      - "5432:5432"
     environment:
-      - POSTGRES_USER=camac
-      - POSTGRES_PASSWORD=camac
-      - POSTGRES_DATABASE=${APPLICATION}
+      POSTGRES_USER: camac
+      POSTGRES_PASSWORD: camac
+      POSTGRES_DATABASE: ${APPLICATION}
     volumes:
       - ../db/init-user-db.sh:/docker-entrypoint-initdb.d/init-user-db.sh:ro
       - pgdata:/var/lib/postgresql/data
@@ -46,9 +44,12 @@ services:
       - ebau.local
 
   django:
-    image: acr.run/camac-ng/camac-ng/django:master
     depends_on:
+      - cache
       - db
+      - document-merge-service
+      - keycloak
+      - mailhog
     build:
       args:
         REQUIREMENTS: requirements-dev.txt
@@ -60,50 +61,52 @@ services:
       - djangomedia:/var/lib/camac/media
       - djangotmpmedia:/tmp/camac/tmpfiles
     environment:
-      - APPLICATION_ENV=development
-      - KEYCLOAK_URL=http://ebau-keycloak.local/auth/
-      - DATABASE_PASSWORD=camac
-      - DATABASE_USER=camac
-      - DJANGO_EMAIL_HOST=mailhog
-      - DJANGO_EMAIL_PORT=1025
-      - OAUTHLIB_INSECURE_TRANSPORT=1
-      - OIDC_USERINFO_ENDPOINT=http://ebau-keycloak.local/auth/realms/ebau/protocol/openid-connect/userinfo
-      - PYTHONDONTWRITEBYTECODE=1
-      - GWR_FERNET_KEY=GUdwT6yKxqfszrnHC7wyKDmtVZdhjSVQEPnpeJYNLf8=
-      - DJANGO_INTERNAL_BASE_URL=http://ember-ebau.local
-      - DOCUMENT_MERGE_SERVICE_URL=http://document-merge-service:8000/document-merge-service/api/v1/
+      APPLICATION_ENV: development
+      DATABASE_HOST: db
+      DATABASE_NAME: ${APPLICATION}
+      DATABASE_PASSWORD: camac
+      DATABASE_USER: camac
+      DJANGO_CACHE_LOCATION: cache:11211
+      DJANGO_EMAIL_HOST: mailhog
+      DJANGO_EMAIL_PORT: 1025
+      DJANGO_INTERNAL_BASE_URL: http://ember-ebau.local
+      DOCUMENT_MERGE_SERVICE_URL: http://document-merge-service:8000/document-merge-service/api/v1/
+      OAUTHLIB_INSECURE_TRANSPORT: 1
+      PYTHONDONTWRITEBYTECODE: 1
+      # OIDC
+      KEYCLOAK_URL: http://ebau-keycloak.local/auth/
+      OIDC_USERINFO_ENDPOINT: http://ebau-keycloak.local/auth/realms/ebau/protocol/openid-connect/userinfo
+      # GWR
+      GWR_FERNET_KEY: GUdwT6yKxqfszrnHC7wyKDmtVZdhjSVQEPnpeJYNLf8=
       # Alexandria
-      - ALEXANDRIA_MINIO_STORAGE_ENDPOINT=ember-ebau.local
-      - ALEXANDRIA_MINIO_STORAGE_ACCESS_KEY=minio
-      - ALEXANDRIA_MINIO_STORAGE_SECRET_KEY=minio123
+      ALEXANDRIA_MINIO_STORAGE_ENDPOINT: ember-ebau.local
+      ALEXANDRIA_MINIO_STORAGE_ACCESS_KEY: minio
+      ALEXANDRIA_MINIO_STORAGE_SECRET_KEY: minio123
     networks:
       - ebau.local
     command: /bin/sh -c "./wait-for-it.sh db:5432 -- ./manage.py migrate && ./manage.py collectstatic --noinput && ./manage.py runserver 0:80 --pythonpath /app/$APPLICATION"
 
   ember-caluma-portal:
-    image: acr.run/camac-ng/camac-ng/ember-caluma-portal:master
     networks:
       - ebau.local
 
   ember-ebau:
-    image: acr.run/camac-ng/camac-ng/ember-ebau:master
     networks:
       - ebau.local
 
   keycloak:
-    image: acr.run/camac-ng/camac-ng/keycloak-${APPLICATION}:master
     depends_on:
       - db
     volumes:
       - ../keycloak/config/${APPLICATION}-test-config.json:/opt/keycloak/data/import/test-config.json
       - ../keycloak/themes/src/main/resources/theme/kanton-so:/opt/keycloak/themes/kanton-so-dev
     environment:
-      - KC_DB_PASSWORD=camac
-      - KC_DB_URL=jdbc:postgresql://db:5432/${APPLICATION}?currentSchema=keycloak
-      - KC_DB_USERNAME=camac
-      - KC_HOSTNAME=ebau-keycloak.local
-      - KEYCLOAK_ADMIN=admin
-      - KEYCLOAK_ADMIN_PASSWORD=camac
+      KC_DB_PASSWORD: camac
+      KC_DB_URL: jdbc:postgresql://db:5432/${APPLICATION}?currentSchema=keycloak
+      KC_DB_USERNAME: camac
+      KC_HOSTNAME: ebau-keycloak.local
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: camac
     networks:
       - ebau.local
     command:
@@ -115,13 +118,16 @@ services:
       ]
 
   mailhog:
+    image: mailhog/mailhog
     networks:
       - ebau.local
     environment:
-      - MH_UI_WEB_PATH=mailhog
+      MH_UI_WEB_PATH: mailhog
 
   document-merge-service:
-    image: acr.run/camac-ng/camac-ng/document-merge-service:master
+    depends_on:
+      - db
+      - minio
     networks:
       - ebau.local
     cap_add:
@@ -129,19 +135,18 @@ services:
     security_opt:
       - apparmor:unconfined
     environment:
-      - ENV=dev
-      - ISOLATE_UNOCONV=true
-      - OIDC_USERINFO_ENDPOINT=http://ebau-keycloak.local/auth/realms/ebau/protocol/openid-connect/userinfo
-      - CACHE_LOCATION=cache:11211
-      - DATABASE_HOST=db
-      - DATABASE_NAME=${APPLICATION}
-      - DATABASE_USER=camac
-      - DATABASE_PASSWORD=camac
-      - URL_PREFIX=document-merge-service/
-      - EXTENSIONS_ARGUMENTS=DJANGO_API=http://ember-ebau.local
-      - AWS_S3_ACCESS_KEY_ID=minio
-      - AWS_S3_SECRET_ACCESS_KEY=minio123
-      - AWS_S3_ENDPOINT_URL=http://minio:9000
+      ENV: dev
+      OIDC_USERINFO_ENDPOINT: http://ebau-keycloak.local/auth/realms/ebau/protocol/openid-connect/userinfo
+      CACHE_LOCATION: cache:11211
+      DATABASE_HOST: db
+      DATABASE_NAME: ${APPLICATION}
+      DATABASE_USER: camac
+      DATABASE_PASSWORD: camac
+      URL_PREFIX: document-merge-service/
+      EXTENSIONS_ARGUMENTS: DJANGO_API=http://ember-ebau.local
+      AWS_S3_ACCESS_KEY_ID: minio
+      AWS_S3_SECRET_ACCESS_KEY: minio123
+      AWS_S3_ENDPOINT_URL: http://minio:9000
     user: "${UID:?Set UID env variable to your user id}"
     volumes:
       - ../document-merge-service/extensions:/app/document_merge_service/extensions
@@ -154,30 +159,40 @@ services:
       ]
 
   minio:
+    image: minio/minio:RELEASE.2023-07-21T21-12-44Z
     volumes:
       - minio_data:/data
     environment:
-      - MINIO_ROOT_USER=minio
-      - MINIO_ROOT_PASSWORD=minio123
-      - MINIO_NOTIFY_WEBHOOK_ENDPOINT_ALEXANDRIA=http://django:80/alexandria/api/v1/hook
-      - MINIO_BROWSER_REDIRECT_URL=http://ember-ebau.local/minio/ui
+      MINIO_ROOT_USER: minio
+      MINIO_ROOT_PASSWORD: minio123
+      MINIO_NOTIFY_WEBHOOK_ENDPOINT_ALEXANDRIA: http://django:80/alexandria/api/v1/hook
+      MINIO_NOTIFY_WEBHOOK_ENABLE_ALEXANDRIA: on
+      MINIO_BROWSER_REDIRECT_URL: http://ember-ebau.local/minio/ui
     networks:
       - ebau.local
+    command: server data --console-address ":9090"
 
   mc:
     image: minio/mc:RELEASE.2023-07-21T20-44-27Z
+    depends_on:
+      - minio
     restart: on-failure
     environment:
-      - MINIO_ROOT_USER=minio
-      - MINIO_ROOT_PASSWORD=minio123
+      MINIO_ROOT_USER: minio
+      MINIO_ROOT_PASSWORD: minio123
     volumes:
       - ../mc/entrypoint.sh:/entrypoint.sh
       - ../document-merge-service/${APPLICATION}/templatefiles:/tmp/dms-media
     entrypoint: /entrypoint.sh
-    depends_on:
-      - minio
     networks:
       - ebau.local
 
 networks:
   ebau.local:
+
+volumes:
+  pgdata:
+  djangomedia:
+  djangotmpmedia:
+  minio_data:
+    driver: local
