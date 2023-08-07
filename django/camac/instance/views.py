@@ -333,6 +333,9 @@ class InstanceView(
         return False
 
     def has_object_correction_permission_for_municipality(self, instance):
+        if self.request.group.role.name != "municipality-lead":
+            return False
+
         return instance.instance_state.name in [
             *settings.APPLICATION.get("INSTANCE_STATE_CORRECTION_ALLOWED", []),
             "correction",
