@@ -8329,7 +8329,7 @@
       "modified_by_group": null,
       "form": "feuerungsanlagen",
       "question": "abfaelle-und-erzeugnisse-der-landwirtschaft",
-      "sort": 28
+      "sort": 27
     }
   },
   {
@@ -8344,7 +8344,7 @@
       "modified_by_group": null,
       "form": "feuerungsanlagen",
       "question": "angaben-zum-feuerungsbetrieb",
-      "sort": 41
+      "sort": 40
     }
   },
   {
@@ -8359,7 +8359,7 @@
       "modified_by_group": null,
       "form": "feuerungsanlagen",
       "question": "anzahl-starts-auf-display-rauchgasbehandlung",
-      "sort": 10
+      "sort": 5
     }
   },
   {
@@ -8374,22 +8374,7 @@
       "modified_by_group": null,
       "form": "feuerungsanlagen",
       "question": "art-der-installation",
-      "sort": 22
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "feuerungsanlagen.art-des-bypassbetriebs",
-    "fields": {
-      "created_at": "2023-07-14T12:23:33.794Z",
-      "modified_at": "2023-07-14T12:23:33.795Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "feuerungsanlagen",
-      "question": "art-des-bypassbetriebs",
-      "sort": 9
+      "sort": 21
     }
   },
   {
@@ -8404,7 +8389,7 @@
       "modified_by_group": null,
       "form": "feuerungsanlagen",
       "question": "art-des-saegemehls",
-      "sort": 33
+      "sort": 32
     }
   },
   {
@@ -8419,7 +8404,7 @@
       "modified_by_group": null,
       "form": "feuerungsanlagen",
       "question": "beschreibung-brennstofftyp",
-      "sort": 36
+      "sort": 35
     }
   },
   {
@@ -8434,7 +8419,7 @@
       "modified_by_group": null,
       "form": "feuerungsanlagen",
       "question": "beschreibung-bypassbetrieb",
-      "sort": 5
+      "sort": 8
     }
   },
   {
@@ -8449,7 +8434,7 @@
       "modified_by_group": null,
       "form": "feuerungsanlagen",
       "question": "betriebsstunden-auf-display-rauchgasbehandlung",
-      "sort": 11
+      "sort": 6
     }
   },
   {
@@ -8464,7 +8449,7 @@
       "modified_by_group": null,
       "form": "feuerungsanlagen",
       "question": "biogener-brennstoff-feuerungsanlage",
-      "sort": 37
+      "sort": 36
     }
   },
   {
@@ -8479,7 +8464,7 @@
       "modified_by_group": null,
       "form": "feuerungsanlagen",
       "question": "brennstoff-titel",
-      "sort": 40
+      "sort": 39
     }
   },
   {
@@ -8494,7 +8479,7 @@
       "modified_by_group": null,
       "form": "feuerungsanlagen",
       "question": "brennstofftyp-feuerungsanlage",
-      "sort": 39
+      "sort": 38
     }
   },
   {
@@ -8509,7 +8494,7 @@
       "modified_by_group": null,
       "form": "feuerungsanlagen",
       "question": "elektrisch-kombiniert",
-      "sort": 14
+      "sort": 13
     }
   },
   {
@@ -8524,7 +8509,7 @@
       "modified_by_group": null,
       "form": "feuerungsanlagen",
       "question": "fabrikat-absetzkammer",
-      "sort": 21
+      "sort": 20
     }
   },
   {
@@ -8539,7 +8524,7 @@
       "modified_by_group": null,
       "form": "feuerungsanlagen",
       "question": "fabrikat-elektrofilter",
-      "sort": 17
+      "sort": 16
     }
   },
   {
@@ -8554,7 +8539,7 @@
       "modified_by_group": null,
       "form": "feuerungsanlagen",
       "question": "fabrikat-entschwadungseinrichtung",
-      "sort": 7
+      "sort": 10
     }
   },
   {
@@ -8569,7 +8554,7 @@
       "modified_by_group": null,
       "form": "feuerungsanlagen",
       "question": "fabrikat-entstickungseinrichtung",
-      "sort": 6
+      "sort": 9
     }
   },
   {
@@ -8584,7 +8569,7 @@
       "modified_by_group": null,
       "form": "feuerungsanlagen",
       "question": "fabrikat-gewerbefilter",
-      "sort": 15
+      "sort": 14
     }
   },
   {
@@ -8599,7 +8584,7 @@
       "modified_by_group": null,
       "form": "feuerungsanlagen",
       "question": "fabrikat-rekuperator",
-      "sort": 8
+      "sort": 11
     }
   },
   {
@@ -8614,7 +8599,7 @@
       "modified_by_group": null,
       "form": "feuerungsanlagen",
       "question": "fabrikat-waescher",
-      "sort": 13
+      "sort": 12
     }
   },
   {
@@ -8629,7 +8614,7 @@
       "modified_by_group": null,
       "form": "feuerungsanlagen",
       "question": "fabrikat-zyklonabscheider",
-      "sort": 19
+      "sort": 18
     }
   },
   {
@@ -8644,7 +8629,7 @@
       "modified_by_group": null,
       "form": "feuerungsanlagen",
       "question": "feuerungsanlagen-titel",
-      "sort": 42
+      "sort": 41
     }
   },
   {
@@ -8659,7 +8644,7 @@
       "modified_by_group": null,
       "form": "feuerungsanlagen",
       "question": "gewerbefilter-aus-metall",
-      "sort": 16
+      "sort": 15
     }
   },
   {
@@ -8674,7 +8659,7 @@
       "modified_by_group": null,
       "form": "feuerungsanlagen",
       "question": "hinweis-betriebsstunden-rauchgasbehandlung",
-      "sort": 12
+      "sort": 7
     }
   },
   {
@@ -8689,7 +8674,7 @@
       "modified_by_group": null,
       "form": "feuerungsanlagen",
       "question": "holz-in-form-von",
-      "sort": 35
+      "sort": 34
     }
   },
   {
@@ -8704,7 +8689,7 @@
       "modified_by_group": null,
       "form": "feuerungsanlagen",
       "question": "holzabfaelle-altholz",
-      "sort": 31
+      "sort": 30
     }
   },
   {
@@ -8719,7 +8704,7 @@
       "modified_by_group": null,
       "form": "feuerungsanlagen",
       "question": "holzfeuereung",
-      "sort": 24
+      "sort": 23
     }
   },
   {
@@ -8734,7 +8719,7 @@
       "modified_by_group": null,
       "form": "feuerungsanlagen",
       "question": "holzfeuerung-titel",
-      "sort": 25
+      "sort": 24
     }
   },
   {
@@ -8749,7 +8734,7 @@
       "modified_by_group": null,
       "form": "feuerungsanlagen",
       "question": "installation-zur-rauchgasbehandlung-titel",
-      "sort": 23
+      "sort": 22
     }
   },
   {
@@ -8764,7 +8749,7 @@
       "modified_by_group": null,
       "form": "feuerungsanlagen",
       "question": "integriert-elektrofilter",
-      "sort": 18
+      "sort": 17
     }
   },
   {
@@ -8779,7 +8764,7 @@
       "modified_by_group": null,
       "form": "feuerungsanlagen",
       "question": "integriert-zyklonabscheider",
-      "sort": 20
+      "sort": 19
     }
   },
   {
@@ -8854,7 +8839,7 @@
       "modified_by_group": null,
       "form": "feuerungsanlagen",
       "question": "normierter-brennstoff",
-      "sort": 38
+      "sort": 37
     }
   },
   {
@@ -8869,7 +8854,7 @@
       "modified_by_group": null,
       "form": "feuerungsanlagen",
       "question": "oel-oder-gasfeuerung",
-      "sort": 26
+      "sort": 25
     }
   },
   {
@@ -8884,7 +8869,7 @@
       "modified_by_group": null,
       "form": "feuerungsanlagen",
       "question": "oel-oder-gasfeuerung-titel",
-      "sort": 27
+      "sort": 26
     }
   },
   {
@@ -8899,7 +8884,7 @@
       "modified_by_group": null,
       "form": "feuerungsanlagen",
       "question": "problematische-holzabfaelle",
-      "sort": 30
+      "sort": 29
     }
   },
   {
@@ -8914,7 +8899,7 @@
       "modified_by_group": null,
       "form": "feuerungsanlagen",
       "question": "restholz-aus-holzverarbeitung",
-      "sort": 32
+      "sort": 31
     }
   },
   {
@@ -8929,7 +8914,7 @@
       "modified_by_group": null,
       "form": "feuerungsanlagen",
       "question": "siedlungsabfaelle",
-      "sort": 29
+      "sort": 28
     }
   },
   {
@@ -8944,7 +8929,7 @@
       "modified_by_group": null,
       "form": "feuerungsanlagen",
       "question": "wassergehalt",
-      "sort": 34
+      "sort": 33
     }
   },
   {
@@ -18196,6 +18181,22 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "art-der-installation-andere",
+    "fields": {
+      "created_at": "2023-08-07T14:01:08.733Z",
+      "modified_at": "2023-08-07T14:01:08.733Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Andere\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "art-der-installation-elektrofilter",
     "fields": {
       "created_at": "2023-07-14T11:56:32.007Z",
@@ -18212,6 +18213,38 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "art-der-installation-entschwadungseinrichtung",
+    "fields": {
+      "created_at": "2023-08-07T14:01:08.728Z",
+      "modified_at": "2023-08-07T14:01:08.729Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Entschwadungseinrichtung\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "art-der-installation-entstickungseinrichtung",
+    "fields": {
+      "created_at": "2023-08-07T14:01:08.731Z",
+      "modified_at": "2023-08-07T14:01:08.731Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Entstickungseinrichtung\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "art-der-installation-gewerbefilter",
     "fields": {
       "created_at": "2023-07-14T11:56:31.944Z",
@@ -18221,6 +18254,22 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Gewerbefilter\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "art-der-installation-rekuperator",
+    "fields": {
+      "created_at": "2023-08-07T14:01:08.743Z",
+      "modified_at": "2023-08-07T14:01:08.743Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Rekuperator\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -38272,10 +38321,10 @@
     "pk": "art-der-installation",
     "fields": {
       "created_at": "2023-07-14T11:56:32.151Z",
-      "modified_at": "2023-07-14T11:56:32.151Z",
+      "modified_at": "2023-08-07T14:01:08.997Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Art der Installation\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
@@ -38283,8 +38332,8 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -42235,19 +42284,19 @@
     "pk": "beschreibung-bypassbetrieb",
     "fields": {
       "created_at": "2023-07-14T12:26:58.218Z",
-      "modified_at": "2023-07-14T12:26:58.218Z",
+      "modified_at": "2023-08-07T14:06:08.837Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Beschreibung\", \"fr\": null, \"it\": null}",
       "type": "textarea",
       "is_required": "false",
-      "is_hidden": "!(\"art-des-bypassbetriebs-andere\" in \"art-des-bypassbetriebs\"|answer)",
+      "is_hidden": "!(\"art-der-installation-andere\" in \"art-der-installation\"|answer)",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -49148,19 +49197,19 @@
     "pk": "fabrikat-entschwadungseinrichtung",
     "fields": {
       "created_at": "2023-07-14T12:25:41.346Z",
-      "modified_at": "2023-07-14T12:25:41.346Z",
+      "modified_at": "2023-08-07T14:04:18.901Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Fabrikat Entschwadungseinrichtung\", \"fr\": null, \"it\": null}",
       "type": "text",
       "is_required": "false",
-      "is_hidden": "!(\"art-des-bypassbetriebs-entschwadungseinrichtung\" in \"art-des-bypassbetriebs\"|answer)",
+      "is_hidden": "!(\"art-der-installation-entschwadungseinrichtung\" in \"art-der-installation\"|answer)",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -49182,19 +49231,19 @@
     "pk": "fabrikat-entstickungseinrichtung",
     "fields": {
       "created_at": "2023-07-14T12:26:28.224Z",
-      "modified_at": "2023-07-14T12:26:28.224Z",
+      "modified_at": "2023-08-07T14:05:02.593Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Fabrikat Entstickungseinrichtung\", \"fr\": null, \"it\": null}",
       "type": "text",
       "is_required": "false",
-      "is_hidden": "!(\"art-des-bypassbetriebs-entstickungseinrichtung\" in \"art-des-bypassbetriebs\"|answer)",
+      "is_hidden": "!(\"art-der-installation-entstickungseinrichtung\" in \"art-der-installation\"|answer)",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -49318,19 +49367,19 @@
     "pk": "fabrikat-rekuperator",
     "fields": {
       "created_at": "2023-07-14T12:24:42.375Z",
-      "modified_at": "2023-07-14T12:24:42.375Z",
+      "modified_at": "2023-08-07T14:03:28.038Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Fabrikat Rekuperator\", \"fr\": null, \"it\": null}",
       "type": "text",
       "is_required": "false",
-      "is_hidden": "!(\"art-des-bypassbetriebs-rekuperator\" in \"art-des-bypassbetriebs\"|answer)",
+      "is_hidden": "!(\"art-der-installation-rekuperator\" in \"art-der-installation\"|answer)",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -54166,18 +54215,18 @@
     "pk": "holzfeuerung-titel",
     "fields": {
       "created_at": "2023-08-07T12:12:35.853Z",
-      "modified_at": "2023-08-07T12:12:35.853Z",
+      "modified_at": "2023-08-07T14:12:19.371Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Holzfeuerung Titel\", \"fr\": null, \"it\": null}",
       "type": "static",
       "is_required": "false",
-      "is_hidden": "false",
+      "is_hidden": "!(\n\t[\n\t\t\"holz-in-form-von-stueckholz\",\n\t\t\"holz-in-form-von-hackschnitzel\",\n\t\t\"holz-in-form-von-saegemehl-spaehne\",\n\t\t\"holz-in-form-von-pellets\"\n\t] intersects \"holz-in-form-von\"|answer ||\n\t[\n\t\t\"restholz-aus-holzverarbeitung-ausschliesslich-mechanisch\",\n\t\t\"restholz-aus-holzverarbeitung-spanplatten\",\n\t\t\"restholz-aus-holzverarbeitung-einwegpaletten\"\n\t] intersects \"restholz-aus-holzverarbeitung\"|answer ||\n\t[\n\t\t\"holzabfaelle-altholz-schalungstafeln\",\n\t\t\"holzabfaelle-altholz-altholz\"\n\t] intersects \"holzabfaelle-altholz\"|answer ||\n\t[\n\t\t\"problematische-holzabfaelle-beschichtungen\",\n\t\t\"problematische-holzabfaelle-druckimpraegniertes-holz\",\n\t\t\"problematische-holzabfaelle-uebrige-verbundwerkstoffe\"\n\t] intersects \"problematische-holzabfaelle\"|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"---\\n#### Holzfeuerung\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -60123,7 +60172,7 @@
     "pk": "oel-oder-gasfeuerung",
     "fields": {
       "created_at": "2023-07-13T11:48:58.798Z",
-      "modified_at": "2023-07-14T11:46:34.327Z",
+      "modified_at": "2023-08-07T14:09:05.487Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -60131,7 +60180,7 @@
       "label": "{\"de\": \"\\u00d6l- oder Gasfeuerung\", \"fr\": null, \"it\": null}",
       "type": "table",
       "is_required": "false",
-      "is_hidden": "!(\n\t[\n\t\t\"normierter-brennstoff-diesel\",\n\t\t\"normierter-brennstoff-oeko-heizoel\",\n\t\t\"normierter-brennstoff-heizoel-euro-extra-leicht\",\n\t\t\"normierter-brennstoff-erdgas\",\n\t\t\"normierter-brennstoff-fluessiggas\"\n\t] intersects \"normierter-brennstoff\"|answer\n\n)",
+      "is_hidden": "!( \"brennstofftyp-feuerungsanlage-normierter-brennstoff\" in \"brennstofftyp-feuerungsanlage\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -60154,18 +60203,18 @@
     "pk": "oel-oder-gasfeuerung-titel",
     "fields": {
       "created_at": "2023-08-07T12:10:06.319Z",
-      "modified_at": "2023-08-07T12:10:06.319Z",
+      "modified_at": "2023-08-07T14:09:19.146Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"\\u00d6l- oder Gasfeuerung Titel\", \"fr\": null, \"it\": null}",
       "type": "static",
       "is_required": "false",
-      "is_hidden": "false",
+      "is_hidden": "!( \"brennstofftyp-feuerungsanlage-normierter-brennstoff\" in \"brennstofftyp-feuerungsanlage\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"---\\n#### \\u00d6l- oder Gasfeuerung\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -71018,75 +71067,135 @@
     "model": "caluma_form.questionoption",
     "pk": "art-der-installation.art-der-installation-absetzkammer",
     "fields": {
-      "created_at": "2023-07-14T11:56:32.178Z",
-      "modified_at": "2023-07-14T11:56:32.178Z",
+      "created_at": "2023-08-07T14:01:09.037Z",
+      "modified_at": "2023-08-07T14:01:09.037Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "art-der-installation",
       "option": "art-der-installation-absetzkammer",
-      "sort": 5
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-der-installation.art-der-installation-andere",
+    "fields": {
+      "created_at": "2023-08-07T14:01:09.007Z",
+      "modified_at": "2023-08-07T14:01:09.007Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "art-der-installation",
+      "option": "art-der-installation-andere",
+      "sort": 1
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "art-der-installation.art-der-installation-elektrofilter",
     "fields": {
-      "created_at": "2023-07-14T11:56:32.170Z",
-      "modified_at": "2023-07-14T11:56:32.170Z",
+      "created_at": "2023-08-07T14:01:09.030Z",
+      "modified_at": "2023-08-07T14:01:09.030Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "art-der-installation",
       "option": "art-der-installation-elektrofilter",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-der-installation.art-der-installation-entschwadungseinrichtung",
+    "fields": {
+      "created_at": "2023-08-07T14:01:09.015Z",
+      "modified_at": "2023-08-07T14:01:09.015Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "art-der-installation",
+      "option": "art-der-installation-entschwadungseinrichtung",
       "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-der-installation.art-der-installation-entstickungseinrichtung",
+    "fields": {
+      "created_at": "2023-08-07T14:01:09.011Z",
+      "modified_at": "2023-08-07T14:01:09.011Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "art-der-installation",
+      "option": "art-der-installation-entstickungseinrichtung",
+      "sort": 2
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "art-der-installation.art-der-installation-gewerbefilter",
     "fields": {
-      "created_at": "2023-07-14T11:56:32.166Z",
-      "modified_at": "2023-07-14T11:56:32.166Z",
+      "created_at": "2023-08-07T14:01:09.026Z",
+      "modified_at": "2023-08-07T14:01:09.026Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "art-der-installation",
       "option": "art-der-installation-gewerbefilter",
-      "sort": 2
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-der-installation.art-der-installation-rekuperator",
+    "fields": {
+      "created_at": "2023-08-07T14:01:09.019Z",
+      "modified_at": "2023-08-07T14:01:09.019Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "art-der-installation",
+      "option": "art-der-installation-rekuperator",
+      "sort": 4
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "art-der-installation.art-der-installation-waescher",
     "fields": {
-      "created_at": "2023-07-14T11:56:32.161Z",
-      "modified_at": "2023-07-14T11:56:32.161Z",
+      "created_at": "2023-08-07T14:01:09.022Z",
+      "modified_at": "2023-08-07T14:01:09.023Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "art-der-installation",
       "option": "art-der-installation-waescher",
-      "sort": 1
+      "sort": 5
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "art-der-installation.art-der-installation-zyklonabscheider",
     "fields": {
-      "created_at": "2023-07-14T11:56:32.174Z",
-      "modified_at": "2023-07-14T11:56:32.174Z",
+      "created_at": "2023-08-07T14:01:09.033Z",
+      "modified_at": "2023-08-07T14:01:09.033Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "art-der-installation",
       "option": "art-der-installation-zyklonabscheider",
-      "sort": 4
+      "sort": 8
     }
   },
   {
