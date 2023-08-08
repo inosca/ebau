@@ -80,23 +80,7 @@ mutation CreateFormalExamTask {
     input: {
       slug: "formal-exam"
       form: "formal-exam"
-      name: "Formelle Prüfung"
-      addressGroups: "['municipality']|groups"
-      controlGroups: "['municipality']|groups"
-      leadTime: 864000 # 10 days
-      meta: "{\"is-manually-completable\":true,\"directLink\":{\"route\":\"cases.detail.task-form\",\"models\":[\"INSTANCE_ID\",\"TASK_SLUG\"]}}"
-    }
-  ) {
-    clientMutationId
-  }
-}
-
-mutation CreateMaterialExamTask {
-  saveCompleteTaskFormTask(
-    input: {
-      slug: "material-exam"
-      form: "material-exam"
-      name: "Materielle Prüfung"
+      name: "Vorläufige Prüfung"
       addressGroups: "['municipality']|groups"
       controlGroups: "['municipality']|groups"
       leadTime: 864000 # 10 days
