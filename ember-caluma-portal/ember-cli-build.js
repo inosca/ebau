@@ -23,7 +23,7 @@ module.exports = function (defaults) {
         application: ENV,
         enableFaq: ENV === "be",
         enableInstanceSupport: ENV === "be",
-        enablePublicationForm: ENV === "be",
+        enablePublicationForm: ["be", "gr"].includes(ENV),
         enablePublicationEndDate: ENV === "ur",
         enableModificationConfirm: ENV === "be",
         enableCommunications: ["be", "so"].includes(ENV),

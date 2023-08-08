@@ -256,8 +256,9 @@ class InstanceQuerysetMixin(object):
                 "meta__is-published": True,
                 "status": WorkItem.STATUS_COMPLETED,
             }
-            start_question = "publikation-startdatum"
-            end_question = "publikation-ablaufdatum"
+            start_question = settings.PUBLICATION.get("START_QUESTION")
+            end_question = settings.PUBLICATION.get("END_QUESTION")
+            publish_question = settings.PUBLICATION.get("PUBLISH_QUESTION")
 
             if public_access_key:
                 filters.update(
@@ -269,7 +270,7 @@ class InstanceQuerysetMixin(object):
                 start_question = "information-of-neighbors-start-date"
                 end_question = "information-of-neighbors-end-date"
 
-            public_cases = list(
+            public_cases = (
                 WorkItem.objects.filter(**filters)
                 .filter(
                     document__answers__question_id=start_question,
@@ -279,9 +280,14 @@ class InstanceQuerysetMixin(object):
                     document__answers__question_id=end_question,
                     document__answers__date__gte=timezone.now(),
                 )
-                .values_list("case__family", flat=True)
             )
+            if publish_question:
+                public_cases = public_cases.filter(
+                    document__answers__question_id=publish_question,
+                    document__answers__value=["oeffentliche-auflage-ja"],
+                )
 
+            public_cases = list(public_cases.values_list("case__family", flat=True))
             return queryset.filter(
                 **{self._get_instance_filter_expr("case__pk__in"): public_cases}
             )

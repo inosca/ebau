@@ -16,6 +16,7 @@ from rest_framework import status
 
 from camac.document import permissions
 from camac.instance import urls
+from camac.settings_publication import PUBLICATION as PUBLICATION_SETTINGS
 
 
 @pytest.fixture
@@ -29,7 +30,7 @@ def enable_public_urls(application_settings):
 
 
 @pytest.fixture
-def create_caluma_publication(db, caluma_publication, application_settings):
+def create_caluma_publication(db, caluma_publication, settings, application_settings):
     application_settings["PUBLICATION_BACKEND"] = "caluma"
 
     def wrapper(
@@ -41,12 +42,12 @@ def create_caluma_publication(db, caluma_publication, application_settings):
         publication_document = DocumentFactory()
         AnswerFactory(
             document=publication_document,
-            question_id="publikation-startdatum",
+            question_id=settings.PUBLICATION["START_QUESTION"],
             date=start,
         )
         AnswerFactory(
             document=publication_document,
-            question_id="publikation-ablaufdatum",
+            question_id=settings.PUBLICATION["END_QUESTION"],
             date=end,
         )
         WorkItemFactory(
@@ -567,17 +568,15 @@ def test_public_caluma_instance_form_type_filter(
     instance_factory,
     instance_with_case,
     enable_public_urls,
-    create_caluma_publication,
+    caluma_workflow_config_ur,
+    publication_entry_factory,
 ):
     application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_uri"]["MASTER_DATA"]
+    application_settings["PUBLICATION_BACKEND"] = "camac-ng"
 
     instances = [
         instance_with_case(instance) for instance in instance_factory.create_batch(5)
     ]
-    Question.objects.create(slug="form-type", type=Question.TYPE_CHOICE)
-
-    for instance in instances:
-        create_caluma_publication(instance)
 
     for instance in instances[:3]:
         AnswerFactory(
@@ -586,10 +585,17 @@ def test_public_caluma_instance_form_type_filter(
             document=instance.case.document,
         )
 
+        publication_entry_factory(
+            publication_date=timezone.now() - timedelta(days=1),
+            publication_end_date=timezone.now() + timedelta(days=10),
+            is_published=True,
+            instance_id=instance.pk,
+        )
+
     for instance in instances[3:]:
         AnswerFactory(
             question_id="form-type",
-            value="form-type-oereb",
+            value="does-not-exist",
             document=instance.case.document,
         )
 
@@ -599,7 +605,6 @@ def test_public_caluma_instance_form_type_filter(
         url,
         {
             "form_type": "form-type-baubewilligungsverfahren",
-            "fields[public-caluma-instances]": "id",
         },
         HTTP_X_CAMAC_PUBLIC_ACCESS=True,
     )
@@ -667,6 +672,57 @@ def test_information_of_neighbors_instance_be(
     assert len(response.json()["data"])
 
 
+@pytest.mark.parametrize(
+    "publish_answer_slug,expected_instances",
+    [(["oeffentliche-auflage-ja"], 1), (["oeffentliche-auflage-nein"], 0)],
+)
+def test_public_caluma_instance_gr(
+    db,
+    application_settings,
+    settings,
+    client,
+    gr_instance,
+    enable_public_urls,
+    publish_answer_slug,
+    expected_instances,
+):
+    settings.PUBLICATION = PUBLICATION_SETTINGS["kt_gr"]
+    application_settings["PUBLICATION_BACKEND"] = "caluma"
+    application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_gr"]["MASTER_DATA"]
+
+    document = DocumentFactory()
+    AnswerFactory(
+        document=document,
+        question__slug="oeffentliche-auflage",
+        value=publish_answer_slug,
+    )
+    AnswerFactory(
+        document=document,
+        question__slug="beginn-publikationsorgan-gemeinde",
+        date=timezone.now().date() - timedelta(days=2),
+    )
+    AnswerFactory(
+        document=document,
+        question__slug="ende-publikationsorgan-der-gemeinde",
+        date=timezone.now().date() + timedelta(days=2),
+    )
+    WorkItemFactory(
+        task_id="fill-publication",
+        status="completed",
+        document=document,
+        case=gr_instance.case,
+        meta={"is-published": True},
+    )
+
+    url = reverse("public-caluma-instance")
+
+    response = client.get(url, {"instance": gr_instance.pk})
+
+    assert response.status_code == status.HTTP_200_OK
+
+    assert len(response.json()["data"]) == expected_instances
+
+
 @pytest.mark.freeze_time("2022-04-12")
 def test_disabled_publication(
     db,
@@ -675,6 +731,7 @@ def test_disabled_publication(
     enable_public_urls,
     caluma_workflow_config_be,
     create_caluma_publication,
+    application_settings,
 ):
     # active date range but disabled
     create_caluma_publication(

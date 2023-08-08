@@ -79,7 +79,7 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "publikation.keine-oeffentliche-auflage",
+    "pk": "publikation.oeffentliche-auflage",
     "fields": {
       "created_at": "2023-07-19T06:46:14.794Z",
       "modified_at": "2023-07-19T06:46:14.794Z",
@@ -88,7 +88,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "publikation",
-      "question": "keine-oeffentliche-auflage",
+      "question": "oeffentliche-auflage",
       "sort": 2
     }
   },
@@ -124,7 +124,7 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "keine-oeffentliche-auflage-ja",
+    "pk": "oeffentliche-auflage-ja",
     "fields": {
       "created_at": "2023-07-19T06:46:14.483Z",
       "modified_at": "2023-07-19T06:46:14.483Z",
@@ -132,7 +132,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"Publikation nicht in der \\u00f6ffentlichen Auflage publizieren\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Publikation in der \\u00f6ffentlichen Auflage publizieren\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -277,7 +277,7 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "keine-oeffentliche-auflage",
+    "pk": "oeffentliche-auflage",
     "fields": {
       "created_at": "2023-07-19T06:46:14.644Z",
       "modified_at": "2023-07-19T06:46:45.628Z",
@@ -285,7 +285,7 @@
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Publikation nicht in der \\u00f6ffentlichen Auflage publizieren\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Publikation in der \\u00f6ffentlichen Auflage publizieren\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
       "is_required": "false",
       "is_hidden": "false",
@@ -303,7 +303,7 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
-      "default_answer": null,
+      "default_answer": "3a9d3dc8-f770-4115-8be8-92ef8cbcecfa",
       "calc_expression": null,
       "calc_dependents": "[]"
     }
@@ -348,19 +348,19 @@
     "pk": "text-publikation",
     "fields": {
       "created_at": "2023-06-26T08:00:20.400Z",
-      "modified_at": "2023-06-26T08:00:20.400Z",
+      "modified_at": "2023-08-04T11:57:21.669Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Text\", \"fr\": null, \"it\": null}",
       "type": "textarea",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -379,7 +379,7 @@
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "keine-oeffentliche-auflage.keine-oeffentliche-auflage-ja",
+    "pk": "oeffentliche-auflage.oeffentliche-auflage-ja",
     "fields": {
       "created_at": "2023-07-19T06:46:45.638Z",
       "modified_at": "2023-07-19T06:46:45.638Z",
@@ -387,8 +387,8 @@
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "question": "keine-oeffentliche-auflage",
-      "option": "keine-oeffentliche-auflage-ja",
+      "question": "oeffentliche-auflage",
+      "option": "oeffentliche-auflage-ja",
       "sort": 1
     }
   }

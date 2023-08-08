@@ -145,7 +145,9 @@ class CustomValidation(BaseValidation):
             ).update(deadline=date_to_deadline(data["date"]))
 
         if (
-            settings.APPLICATION.get("PUBLICATION_USE_CALCULATED_DATES", False)
+            settings.APPLICATION.get("PUBLICATION", {}).get(
+                "USE_CALCULATED_DATES", False
+            )
             and data["question"].meta["calculatedPublicationDateSlug"]
         ):
             end_question = Question.objects.get(
