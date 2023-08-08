@@ -46,3 +46,5 @@ services:
       context: ../document-merge-service
       cache_from:
         - acr.run/camac-ng/camac-ng/document-merge-service:${TAG:-master}
+      args:
+        APPLICATION: ${APPLICATION}
