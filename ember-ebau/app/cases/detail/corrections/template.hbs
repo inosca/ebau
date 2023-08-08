@@ -1,0 +1,29 @@
+{{#if this.instance.isLoading}}
+  <div class="uk-text-center"><UkSpinner @ratio={{2}} /></div>
+{{else if this.instance.record}}
+  <div class="uk-child-width-1-2" uk-grid>
+    <div>
+      <p class="uk-text-large">{{t "corrections.document.title"}}</p>
+      {{#if (can "finish correct instance" this.instance.record)}}
+        <p>{{t "corrections.document.description-finish" htmlSafe=true link=(concat "/cases/" this.instance.record.id "/form")}}</p>
+        <UkButton
+          @color="primary"
+          @label={{t "corrections.document.button-finish"}}
+          @onClick={{perform this.documentCorrection}}
+          @disabled={{this.documentCorrection.isRunning}}
+        />
+      {{else}}
+        <p>{{t "corrections.document.description" htmlSafe=true}}</p>
+        <UkButton
+          @color="primary"
+          @label={{t "corrections.document.button"}}
+          @onClick={{perform this.startCorrection}}
+          @disabled={{or
+            this.documentCorrection.isRunning
+            (cannot "correct instance" this.instance.record)
+          }}
+        />
+      {{/if}}
+    </div>
+  </div>
+{{/if}}

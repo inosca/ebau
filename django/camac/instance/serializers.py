@@ -6,7 +6,7 @@ from io import StringIO
 from logging import getLogger
 
 from caluma.caluma_form import models as form_models
-from caluma.caluma_form.validators import CustomValidationError
+from caluma.caluma_form.validators import CustomValidationError, DocumentValidator
 from caluma.caluma_workflow import api as workflow_api, models as workflow_models
 from django.conf import settings
 from django.contrib.auth import get_user_model
@@ -333,7 +333,6 @@ class SchwyzInstanceSerializer(InstanceSerializer):
 
         # Creation logic for caluma based forms
         if caluma_workflow != "building-permit":
-
             identifier = domain_logic.CreateInstanceLogic.generate_identifier(instance)
             instance.case.meta["dossier-number"] = identifier
             instance.case.meta["form-backend"] = "caluma"
@@ -1378,7 +1377,6 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         if settings.APPLICATION.get(
             "USE_INSTANCE_SERVICE"
         ) and not instance.responsible_service(filter_type="municipality"):
-
             municipality = case.document.answers.get(question_id="gemeinde").value
             InstanceService.objects.create(
                 instance=self.instance,
@@ -1947,7 +1945,6 @@ class InstanceSubmitSerializer(InstanceSerializer):
 
 
 class FormFieldSerializer(InstanceEditableMixin, serializers.ModelSerializer):
-
     included_serializers = {"instance": InstanceSerializer}
 
     def validate_name(self, name):
@@ -2359,3 +2356,54 @@ class CalumaInstanceAppealSerializer(serializers.Serializer):
 
     class Meta:
         resource_name = "instance-appeals"
+
+
+class CalumaInstanceCorrectionSerializer(serializers.Serializer):
+    INSTANCE_STATE_CORRECTION = "correction"
+
+    def validate(self, data):
+        if bool(
+            workflow_models.WorkItem.objects.filter(
+                task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
+                status=workflow_models.WorkItem.STATUS_READY,
+                case__family__meta__contains={
+                    "camac-instance-id": self.instance.pk,
+                },
+            ).count()
+        ):
+            raise exceptions.ValidationError(
+                _("The Dossier can't be correct because there are running inquiries.")
+            )
+
+        return data
+
+    @transaction.atomic
+    def update(self, instance, validated_data):
+        user = self.context["request"].caluma_info.context.user
+
+        if instance.instance_state.name in settings.APPLICATION.get(
+            "INSTANCE_STATE_CORRECTION_ALLOWED", []
+        ):
+            workflow_api.suspend_case(instance.case, user)
+            instance.previous_instance_state = instance.instance_state
+            instance.instance_state = models.InstanceState.objects.get(
+                name=self.INSTANCE_STATE_CORRECTION
+            )
+            instance.save()
+        elif instance.instance_state.name == self.INSTANCE_STATE_CORRECTION:
+            DocumentValidator().validate(instance.case.document, user)
+
+            workflow_api.resume_case(instance.case, user)
+            instance.instance_state, instance.previous_instance_state = (
+                instance.previous_instance_state,
+                instance.instance_state,
+            )
+            instance.save()
+            create_history_entry(
+                instance, self.context["request"].user, _("Dossier corrected")
+            )
+
+        return instance
+
+    class Meta:
+        resource_name = "instance-corrections"

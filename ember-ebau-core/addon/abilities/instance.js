@@ -59,4 +59,24 @@ export default class InstanceAbility extends Ability {
     }
     return (this.model.meta?.permissions?.main || []).includes("write");
   }
+
+  // GR
+  get canCorrect() {
+    return (
+      // disabled until isMunicipalityLeadRole works in ember-ebau
+      // (this.ebauModules.isSupportRole ||
+      //   this.ebauModules.isMunicipalityLeadRole) &&
+      hasInstanceState(this.model, "subm") ||
+      hasInstanceState(this.model, "circulation")
+    );
+  }
+
+  get canFinishCorrect() {
+    return (
+      // disabled until isMunicipalityLeadRole works in ember-ebau
+      // (this.ebauModules.isSupportRole ||
+      //   this.ebauModules.isMunicipalityLeadRole) &&
+      hasInstanceState(this.model, "correction")
+    );
+  }
 }
