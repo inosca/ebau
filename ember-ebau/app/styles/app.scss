@@ -47,8 +47,11 @@ $border-color: darken($global-muted-background, 10%);
 
 .main-content {
   margin-top: $main-nav-height;
-  margin-left: $sidebar-width;
   padding-top: 1rem;
+}
+
+.nav-sidebar + .main-content {
+  padding-left: calc($sidebar-width + 3rem);
 }
 
 .ca-label {
