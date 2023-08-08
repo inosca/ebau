@@ -315,10 +315,6 @@ APPLICATIONS = {
         "IS_MULTILINGUAL": False,
         "NOTIFICATIONS": {"SUBMIT": None, "APPLICANT": {"NEW": None, "EXISTING": None}},
         "PUBLICATION_BACKEND": "camac-ng",
-        "PUBLICATION": {
-            "START_QUESTION": "publikation-startdatum",
-            "END_QUESTION": "publikation-ablaufdatum",
-        },
         "FORM_BACKEND": "camac-ng",
         "THUMBNAIL_SIZE": "x300",
         "WORKFLOW_ITEMS": {
@@ -2158,35 +2154,6 @@ APPLICATIONS = {
         ),
         "ENABLE_PUBLIC_ENDPOINTS": True,
         "PUBLICATION_BACKEND": "caluma",
-        "PUBLICATION": {
-            "START_QUESTION": "publikation-startdatum",
-            "END_QUESTION": "publikation-ablaufdatum",
-            "SCRUBBED_ANSWERS": [
-                "e-mail-energie",
-                "e-mail-gastgewerbe",
-                "e-mail-gebaeudeeigentuemerin",
-                "e-mail-gesuchstellerin",
-                "e-mail-gewaesserschutzfragen",
-                "e-mail-grundeigentuemerin",
-                "e-mail-kontaktperson",
-                "e-mail-projektverfasserin",
-                "e-mail-sendeanlage",
-                "e-mail-vertreterin",
-                "e-mail-waermepumpen",
-                "telefon-oder-mobile-energie",
-                "telefon-oder-mobile-gastgewerbe",
-                "telefon-oder-mobile-gebaeudeeigentuemerin",
-                "telefon-oder-mobile-gesuchstellerin",
-                "telefon-oder-mobile-gewaesserschutzfragen",
-                "telefon-oder-mobile-grundeigentuemerin",
-                "telefon-oder-mobile-kontaktperson",
-                "telefon-oder-mobile-projektverfasserin",
-                "telefon-oder-mobile-sendeanlage",
-                "telefon-oder-mobile-vertreterin",
-                "telefon-oder-mobile-vorabklaerungen",
-                "telefon-oder-mobile-waermepumpen",
-            ],
-        },
         "ATTACHMENT_MAX_SIZE": 100 * 1024 * 1024,
     },
     "kt_uri": {
@@ -3230,12 +3197,6 @@ APPLICATIONS = {
         "ADMIN_GROUP": 1,
         "IS_MULTILINGUAL": True,
         "PUBLICATION_BACKEND": "caluma",
-        "PUBLICATION": {
-            "USE_CALCULATED_DATES": True,
-            "START_QUESTION": "beginn-publikationsorgan-gemeinde",
-            "END_QUESTION": "ende-publikationsorgan-der-gemeinde",
-            "PUBLISH_QUESTION": "oeffentliche-auflage",
-        },
         "ENABLE_PUBLIC_ENDPOINTS": True,
         "FORM_BACKEND": "caluma",
         "THUMBNAIL_SIZE": "x300",
@@ -4330,6 +4291,7 @@ def load_module_settings(module_name, application_name=APPLICATION_NAME):
 APPEAL = load_module_settings("appeal")
 DISTRIBUTION = load_module_settings("distribution")
 PARASHIFT = load_module_settings("parashift")
+PUBLICATION = load_module_settings("publication")
 
 # Alexandria
 ALEXANDRIA_CREATED_BY_USER_PROPERTY = "alexandria_user"

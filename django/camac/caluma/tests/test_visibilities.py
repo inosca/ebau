@@ -797,6 +797,7 @@ def test_public_document_visibility(
     answer_factory,
     applicant_factory,
     application_settings,
+    settings,
     be_instance,
     caluma_admin_public_schema_executor,
     caluma_admin_schema_executor,
@@ -813,7 +814,7 @@ def test_public_document_visibility(
     scrubbed_answers = answer_factory.create_batch(3, document=document)
     scrubbed_questions = [answer.question_id for answer in scrubbed_answers]
 
-    application_settings["PUBLICATION"]["SCRUBBED_ANSWERS"] = scrubbed_questions
+    settings.PUBLICATION["SCRUBBED_ANSWERS"] = scrubbed_questions
 
     executor = (
         caluma_admin_public_schema_executor
