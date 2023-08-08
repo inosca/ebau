@@ -12,7 +12,10 @@ ENV PAGINATION_ENABLED=False
 ENV DMS_VISIBILITY_CLASSES=document_merge_service.extensions.visibilities.CustomVisibility
 ENV DMS_PERMISSION_CLASSES=document_merge_service.extensions.permissions.CustomPermission
 
+ARG APPLICATION
+
 COPY Makefile .
 COPY uwsgi.ini .
 COPY fonts /usr/local/share/fonts
 COPY extensions document_merge_service/extensions
+COPY $APPLICATION /tmp/document-merge-service/
