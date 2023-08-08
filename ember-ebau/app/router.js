@@ -51,6 +51,7 @@ Router.map(function () {
         this.route("journal");
         this.route("history");
         this.route("dms-generate");
+        this.route("corrections");
         this.route("distribution", function () {
           this.mount("@projectcaluma/ember-distribution", {
             as: "distribution-engine",
