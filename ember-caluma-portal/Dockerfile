@@ -13,6 +13,7 @@ WORKDIR /myapp/ember-caluma-portal
 
 ARG APPLICATION
 ARG KEYCLOAK_HOST
+ARG BE_GIS_URL
 ARG INTERNAL_URL
 
 RUN yarn deploy production
