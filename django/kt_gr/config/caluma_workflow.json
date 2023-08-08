@@ -9,7 +9,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "['distribution']|tasks"
+      "next": "['distribution', 'fill-publication']|tasks"
     }
   },
   {
@@ -48,7 +48,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "['create-manual-workitems', 'distribution', 'formal-exam', 'fill-publication']|tasks"
+      "next": "['create-manual-workitems', 'formal-exam']|tasks"
     }
   },
   {
@@ -187,10 +187,7 @@
       "meta": {
         "directLink": {
           "route": "cases.detail.task-form",
-          "models": [
-            "INSTANCE_ID",
-            "TASK_SLUG"
-          ]
+          "models": ["INSTANCE_ID", "TASK_SLUG"]
         },
         "is-manually-completable": true
       },
@@ -198,38 +195,6 @@
       "control_groups": "['municipality']|groups",
       "is_archived": false,
       "form": "formal-exam",
-      "lead_time": 864000,
-      "is_multiple_instance": false,
-      "continue_async": false
-    }
-  },
-  {
-    "model": "caluma_workflow.task",
-    "pk": "material-exam",
-    "fields": {
-      "created_at": "2023-06-09T10:14:40.839Z",
-      "modified_at": "2023-06-09T10:33:47.700Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "name": "{\"de\": \"Materielle Pr\\u00fcfung\", \"fr\": null, \"it\": null}",
-      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "type": "complete_task_form",
-      "meta": {
-        "directLink": {
-          "route": "cases.detail.task-form",
-          "models": [
-            "INSTANCE_ID",
-            "TASK_SLUG"
-          ]
-        },
-        "is-manually-completable": true
-      },
-      "address_groups": "['municipality']|groups",
-      "control_groups": "['municipality']|groups",
-      "is_archived": false,
-      "form": "material-exam",
       "lead_time": 864000,
       "is_multiple_instance": false,
       "continue_async": false
@@ -395,9 +360,7 @@
       "is_published": true,
       "is_archived": false,
       "allow_all_forms": true,
-      "start_tasks": [
-        "submit"
-      ],
+      "start_tasks": ["submit"],
       "allow_forms": []
     }
   }
