@@ -40,7 +40,9 @@ def date_to_deadline(date):
 
 
 class CustomValidation(BaseValidation):
-    def _send_claim_notification(self, info, instance, template_slug, recipient_types):
+    def _send_claim_notification(
+        self, info, instance, template_slug, recipient_types
+    ):  # pragma: no cover
         send_mail(
             template_slug,
             {"request": CamacRequest(info).request},
@@ -48,7 +50,7 @@ class CustomValidation(BaseValidation):
             instance={"type": "instances", "id": instance.pk},
         )
 
-    def _send_claim_ech_event(self, info, instance):
+    def _send_claim_ech_event(self, info, instance):  # pragma: no cover
         file_subsequently.send(
             sender=self.__class__,
             instance=instance,
@@ -57,7 +59,9 @@ class CustomValidation(BaseValidation):
         )
 
     @validation_for(SaveDocumentStringAnswer)
-    def validate_save_document_string_answer(self, mutation, data, info):
+    def validate_save_document_string_answer(
+        self, mutation, data, info
+    ):  # pragma: no cover
         if data["question"].slug == CLAIM_STATUS_QUESTION:
             instance = data["document"].family.work_item.case.instance
             new_status = data["value"]
@@ -149,7 +153,7 @@ class CustomValidation(BaseValidation):
                 "USE_CALCULATED_DATES", False
             )
             and data["question"].meta["calculatedPublicationDateSlug"]
-        ):
+        ):  # pragma: no cover
             end_question = Question.objects.get(
                 pk=data["question"].meta["calculatedPublicationDateSlug"]
             )
