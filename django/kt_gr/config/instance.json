@@ -88,6 +88,15 @@
     }
   },
   {
+    "model": "instance.instancestate",
+    "pk": 120009,
+    "fields": {
+      "name": "init-distribution",
+      "sort": 5,
+      "description": ""
+    }
+  },
+  {
     "model": "instance.instancestatet",
     "pk": 1,
     "fields": {
@@ -145,6 +154,16 @@
       "language": "de",
       "name": "In Korrektur",
       "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 120039,
+    "fields": {
+      "instance_state": 120009,
+      "language": "de",
+      "name": "Zirkulation initialisieren",
+      "description": ""
     }
   }
 ]

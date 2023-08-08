@@ -43,6 +43,7 @@ module.exports = function (environment) {
   const instanceStatesGr = {
     new: 1,
     subm: 120004,
+    circulationInit: 120009,
     circ: 120005,
     finished: 120006,
   };
@@ -338,6 +339,7 @@ module.exports = function (environment) {
         pending: [
           instanceStatesGr.new,
           instanceStatesGr.subm,
+          instanceStatesGr.circulationInit,
           instanceStatesGr.circ,
         ],
         done: [instanceStatesGr.finished],

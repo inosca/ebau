@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-07 17:28+0200\n"
-"PO-Revision-Date: 2023-08-07 17:29+0200\n"
+"POT-Creation-Date: 2023-08-08 16:06+0200\n"
+"PO-Revision-Date: 2023-08-08 16:06+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
@@ -69,7 +69,7 @@ msgstr "Meldeformular an AWA weiterleiten"
 msgid "Inform load compensation bodies"
 msgstr "Lastenausgleichstellende informieren"
 
-#: camac/caluma/extensions/validations.py:219
+#: camac/caluma/extensions/validations.py:221
 msgid "Issue statement on appeal"
 msgstr "Stellungnahme zu Beschwerde abgeben"
 
@@ -623,7 +623,7 @@ msgstr "Datum Bauentscheid"
 msgid "Decision Date Cantonal"
 msgstr "Datum Gesamtentscheid"
 
-#: camac/instance/mixins.py:457 camac/instance/mixins.py:494
+#: camac/instance/mixins.py:463 camac/instance/mixins.py:500
 #, python-format
 msgid "Not allowed to add data to instance %(instance)s"
 msgstr "Keine Berechtigung um Daten zum Dossier %(instance)s hinzuzufügen"
@@ -911,7 +911,7 @@ msgstr ""
 msgid "Objection %(objection) already has a representative"
 msgstr "Einsprache %(objection) hat bereits einen Vertreter"
 
-#: camac/settings.py:1470 camac/settings.py:3275
+#: camac/settings.py:1470 camac/settings.py:3254
 msgid "Circulation started"
 msgstr "Zirkulation gestartet"
 
@@ -919,15 +919,19 @@ msgstr "Zirkulation gestartet"
 msgid "Procedure completed"
 msgstr "Baugesuchsverfahren abgeschlossen"
 
-#: camac/settings.py:4006
+#: camac/settings.py:3250
+msgid "Formal exam performed"
+msgstr "Vorläufige Prüfung durchgeführt"
+
+#: camac/settings.py:3977
 msgid "German"
 msgstr "Deutsch"
 
-#: camac/settings.py:4007
+#: camac/settings.py:3978
 msgid "French"
 msgstr "Französisch"
 
-#: camac/settings.py:4008
+#: camac/settings.py:3979
 msgid "Italian"
 msgstr "Italienisch"
 

@@ -10,7 +10,7 @@ from deepmerge import always_merger
 from django.db.models.expressions import Q
 from django.utils.translation import gettext_lazy as _
 
-from camac.constants import kt_bern as be_constants
+from camac.constants import kt_bern as be_constants, kt_gr as gr_constants
 from camac.constants.kt_bern import (
     INSTANCE_STATE_DONE,
     INSTANCE_STATE_EVALUATED,
@@ -3245,6 +3245,10 @@ APPLICATIONS = {
                 "baugesuch",
             ],
             "SIMPLE_WORKFLOW": {
+                "formal-exam": {
+                    "next_instance_state": "init-distribution",
+                    "history_text": _("Formal exam performed"),
+                },
                 "init-distribution": {
                     "next_instance_state": "circulation",
                     "history_text": _("Circulation started"),
@@ -3252,6 +3256,18 @@ APPLICATIONS = {
                 "complete-distribution": {
                     "next_instance_state": "decision",
                 },
+            },
+            "PUBLIC_STATUS": {
+                "MAP": {
+                    gr_constants.INSTANCE_STATE_NEW: gr_constants.PUBLIC_INSTANCE_STATE_CREATING,
+                    gr_constants.INSTANCE_STATE_SUBM: gr_constants.PUBLIC_INSTANCE_STATE_RECEIVING,
+                    gr_constants.INSTANCE_STATE_INIT_DISTRIBUTION: gr_constants.PUBLIC_INSTANCE_STATE_IN_PROGRESS,
+                    gr_constants.INSTANCE_STATE_CORRECTION: gr_constants.PUBLIC_INSTANCE_STATE_IN_PROGRESS,
+                    gr_constants.INSTANCE_STATE_CIRCULATION: gr_constants.PUBLIC_INSTANCE_STATE_IN_PROGRESS,
+                    gr_constants.INSTANCE_STATE_DECISION: gr_constants.PUBLIC_INSTANCE_STATE_IN_PROGRESS,
+                    gr_constants.INSTANCE_STATE_FINISHED: gr_constants.PUBLIC_INSTANCE_STATE_FINISHED,
+                },
+                "DEFAULT": gr_constants.PUBLIC_INSTANCE_STATE_CREATING,
             },
         },
         "INSTANCE_STATE_REJECTION_COMPLETE": "finished",
