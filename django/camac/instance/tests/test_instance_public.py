@@ -16,6 +16,7 @@ from rest_framework import status
 
 from camac.document import permissions
 from camac.instance import urls
+from camac.settings_publication import PUBLICATION as PUBLICATION_SETTINGS
 
 
 @pytest.fixture
@@ -29,7 +30,7 @@ def enable_public_urls(application_settings):
 
 
 @pytest.fixture
-def create_caluma_publication(db, caluma_publication, application_settings):
+def create_caluma_publication(db, caluma_publication, settings, application_settings):
     application_settings["PUBLICATION_BACKEND"] = "caluma"
 
     def wrapper(
@@ -41,12 +42,12 @@ def create_caluma_publication(db, caluma_publication, application_settings):
         publication_document = DocumentFactory()
         AnswerFactory(
             document=publication_document,
-            question_id=application_settings["PUBLICATION"]["START_QUESTION"],
+            question_id=settings.PUBLICATION["START_QUESTION"],
             date=start,
         )
         AnswerFactory(
             document=publication_document,
-            question_id=application_settings["PUBLICATION"]["END_QUESTION"],
+            question_id=settings.PUBLICATION["END_QUESTION"],
             date=end,
         )
         WorkItemFactory(
@@ -678,13 +679,14 @@ def test_information_of_neighbors_instance_be(
 def test_public_caluma_instance_gr(
     db,
     application_settings,
+    settings,
     client,
     gr_instance,
     enable_public_urls,
     publish_answer_slug,
     expected_instances,
 ):
-    application_settings["PUBLICATION"] = settings.APPLICATIONS["kt_gr"]["PUBLICATION"]
+    settings.PUBLICATION = PUBLICATION_SETTINGS["kt_gr"]
     application_settings["PUBLICATION_BACKEND"] = "caluma"
     application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_gr"]["MASTER_DATA"]
 
@@ -729,6 +731,7 @@ def test_disabled_publication(
     enable_public_urls,
     caluma_workflow_config_be,
     create_caluma_publication,
+    application_settings,
 ):
     # active date range but disabled
     create_caluma_publication(
