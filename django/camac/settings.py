@@ -188,7 +188,7 @@ PUBLICATION_FORM_SLUGS_GR = [
     "beginn-publikationsorgan-gemeinde",
     "ende-publikation-kantonsamtsblatt",
     "ende-publikationsorgan-der-gemeinde",
-    "keine-oeffentliche-auflage",
+    "oeffentliche-auflage",
     "publikation-freigeben",
     "text-publikation",
 ]
@@ -2156,31 +2156,6 @@ APPLICATIONS = {
         ),
         "ENABLE_PUBLIC_ENDPOINTS": True,
         "PUBLICATION_BACKEND": "caluma",
-        "PUBLICATION_SCRUBBED_ANSWERS": [
-            "e-mail-energie",
-            "e-mail-gastgewerbe",
-            "e-mail-gebaeudeeigentuemerin",
-            "e-mail-gesuchstellerin",
-            "e-mail-gewaesserschutzfragen",
-            "e-mail-grundeigentuemerin",
-            "e-mail-kontaktperson",
-            "e-mail-projektverfasserin",
-            "e-mail-sendeanlage",
-            "e-mail-vertreterin",
-            "e-mail-waermepumpen",
-            "telefon-oder-mobile-energie",
-            "telefon-oder-mobile-gastgewerbe",
-            "telefon-oder-mobile-gebaeudeeigentuemerin",
-            "telefon-oder-mobile-gesuchstellerin",
-            "telefon-oder-mobile-gewaesserschutzfragen",
-            "telefon-oder-mobile-grundeigentuemerin",
-            "telefon-oder-mobile-kontaktperson",
-            "telefon-oder-mobile-projektverfasserin",
-            "telefon-oder-mobile-sendeanlage",
-            "telefon-oder-mobile-vertreterin",
-            "telefon-oder-mobile-vorabklaerungen",
-            "telefon-oder-mobile-waermepumpen",
-        ],
         "ATTACHMENT_MAX_SIZE": 100 * 1024 * 1024,
     },
     "kt_uri": {
@@ -3210,7 +3185,6 @@ APPLICATIONS = {
         "ECH0211": {
             "API_ACTIVE": env.bool("ECH0211_API_ACTIVE", default=False),
         },
-        "PUBLICATION_USE_CALCULATED_DATES": True,
         "USE_CAMAC_ADMIN": False,
         "LOG_NOTIFICATIONS": True,
         # Mapping between camac role and instance permission.
@@ -3225,7 +3199,8 @@ APPLICATIONS = {
         },
         "ADMIN_GROUP": 1,
         "IS_MULTILINGUAL": True,
-        "PUBLICATION_BACKEND": "camac-ng",
+        "PUBLICATION_BACKEND": "caluma",
+        "ENABLE_PUBLIC_ENDPOINTS": True,
         "FORM_BACKEND": "caluma",
         "THUMBNAIL_SIZE": "x300",
         "SHOW_DJANGO_ADMIN_RESOURCE_MANAGEMENT": True,
@@ -3333,6 +3308,9 @@ APPLICATIONS = {
                 | Q(question_id__in=COMMON_QUESTION_SLUGS_BE),
                 "caluma_form.Option": Q(questions__forms__pk__in=COMMON_FORM_SLUGS_BE)
                 | Q(questions__pk__in=COMMON_QUESTION_SLUGS_BE),
+                "caluma_form.Answer": Q(
+                    document__isnull=True,
+                ),
             },
             "caluma_decision_form": generate_form_dump_config(regex=r"^decision$"),
             "caluma_formal_exam_form": generate_form_dump_config(
@@ -3359,18 +3337,7 @@ APPLICATIONS = {
                 ),
             },
             "publication": {
-                "caluma_form.Form": Q(pk__in=PUBLICATION_FORM_SLUGS_GR),
-                "caluma_form.FormQuestion": Q(form__pk__in=PUBLICATION_FORM_SLUGS_GR),
-                "caluma_form.Question": Q(forms__pk__in=PUBLICATION_FORM_SLUGS_GR)
-                | Q(pk__in=PUBLICATION_FORM_SLUGS_GR),
-                "caluma_form.QuestionOption": Q(
-                    question__forms__pk__in=PUBLICATION_FORM_SLUGS_GR
-                )
-                | Q(question_id__in=PUBLICATION_FORM_SLUGS_GR),
-                "caluma_form.Option": Q(
-                    questions__forms__pk__in=PUBLICATION_FORM_SLUGS_GR
-                )
-                | Q(questions__pk__in=PUBLICATION_FORM_SLUGS_GR),
+                **generate_form_dump_config(regex=r"^publikation?$"),
             },
         },
         "DUMP_CONFIG_EXCLUDED_MODELS": [
@@ -4329,6 +4296,7 @@ def load_module_settings(module_name, application_name=APPLICATION_NAME):
 APPEAL = load_module_settings("appeal")
 DISTRIBUTION = load_module_settings("distribution")
 PARASHIFT = load_module_settings("parashift")
+PUBLICATION = load_module_settings("publication")
 
 # Alexandria
 ALEXANDRIA_CREATED_BY_USER_PROPERTY = "alexandria_user"
