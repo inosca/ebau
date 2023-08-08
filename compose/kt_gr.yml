@@ -74,6 +74,8 @@ services:
       context: ../document-merge-service
       cache_from:
         - acr.run/camac-ng/camac-ng/document-merge-service:master
+      args:
+        APPLICATION: ${APPLICATION}
     environment:
       - CACHE_LOCATION=cache:11211
       - FILE_STORAGE=storages.backends.s3boto3.S3Boto3Storage
