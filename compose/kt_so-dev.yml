@@ -48,7 +48,6 @@ services:
       - cache
       - db
       - document-merge-service
-      - keycloak
       - mailhog
     build:
       args:
@@ -62,15 +61,22 @@ services:
       - djangotmpmedia:/tmp/camac/tmpfiles
     environment:
       APPLICATION_ENV: development
+      APPLICATION: ${APPLICATION}
       DATABASE_HOST: db
       DATABASE_NAME: ${APPLICATION}
       DATABASE_PASSWORD: camac
       DATABASE_USER: camac
       DJANGO_CACHE_LOCATION: cache:11211
+      DJANGO_CLAMD_ENABLED: false
       DJANGO_EMAIL_HOST: mailhog
       DJANGO_EMAIL_PORT: 1025
       DJANGO_INTERNAL_BASE_URL: http://ember-ebau.local
+      DJANGO_MEDIA_ROOT: /var/lib/camac/media
+      DJANGO_TEMPFILE_DOWNLOAD_URL: /tmp
       DOCUMENT_MERGE_SERVICE_URL: http://document-merge-service:8000/document-merge-service/api/v1/
+      ENABLE_HISTORICAL_API: true
+      LANGUAGE_CODE: de
+      LANGUAGES: de
       OAUTHLIB_INSECURE_TRANSPORT: 1
       PYTHONDONTWRITEBYTECODE: 1
       # OIDC
@@ -78,10 +84,21 @@ services:
       OIDC_USERINFO_ENDPOINT: http://ebau-keycloak.local/auth/realms/ebau/protocol/openid-connect/userinfo
       # GWR
       GWR_FERNET_KEY: GUdwT6yKxqfszrnHC7wyKDmtVZdhjSVQEPnpeJYNLf8=
+      # Caluma
+      EVENT_RECEIVER_MODULES: camac.caluma.extensions.events
+      VISIBILITY_CLASSES: camac.caluma.extensions.visibilities.CustomVisibility
+      PERMISSION_CLASSES: camac.caluma.extensions.permissions.CustomPermission
+      VALIDATION_CLASSES: camac.caluma.extensions.validations.CustomValidation
+      DATA_SOURCE_CLASSES: camac.caluma.extensions.data_sources.Municipalities,camac.caluma.extensions.data_sources.Services,camac.caluma.extensions.data_sources.Countries
+      DYNAMIC_GROUPS_CLASSES: camac.caluma.extensions.dynamic_groups.CustomDynamicGroups
+      DYNAMIC_TASKS_CLASSES: camac.caluma.extensions.dynamic_tasks.CustomDynamicTasks
       # Alexandria
       ALEXANDRIA_MINIO_STORAGE_ENDPOINT: ember-ebau.local
       ALEXANDRIA_MINIO_STORAGE_ACCESS_KEY: minio
       ALEXANDRIA_MINIO_STORAGE_SECRET_KEY: minio123
+      ALEXANDRIA_VISIBILITY_CLASSES: camac.alexandria.extensions.visibilities.CustomVisibility
+      ALEXANDRIA_PERMISSION_CLASSES: camac.alexandria.extensions.permissions.CustomPermission
+      ALEXANDRIA_VALIDATION_CLASSES: camac.alexandria.extensions.validations.Validator
     networks:
       - ebau.local
     command: /bin/sh -c "./wait-for-it.sh db:5432 -- ./manage.py migrate && ./manage.py collectstatic --noinput && ./manage.py runserver 0:80 --pythonpath /app/$APPLICATION"
@@ -126,6 +143,7 @@ services:
 
   document-merge-service:
     depends_on:
+      - cache
       - db
       - minio
     networks:
@@ -135,18 +153,22 @@ services:
     security_opt:
       - apparmor:unconfined
     environment:
-      ENV: dev
-      OIDC_USERINFO_ENDPOINT: http://ebau-keycloak.local/auth/realms/ebau/protocol/openid-connect/userinfo
+      AWS_S3_ACCESS_KEY_ID: minio
+      AWS_S3_ENDPOINT_URL: http://minio:9000
+      AWS_S3_SECRET_ACCESS_KEY: minio123
+      AWS_S3_SIGNATURE_VERSION: s3v4
+      AWS_STORAGE_BUCKET_NAME: dms-media
       CACHE_LOCATION: cache:11211
       DATABASE_HOST: db
       DATABASE_NAME: ${APPLICATION}
-      DATABASE_USER: camac
       DATABASE_PASSWORD: camac
-      URL_PREFIX: document-merge-service/
+      DATABASE_USER: camac
+      ENV: dev
       EXTENSIONS_ARGUMENTS: DJANGO_API=http://ember-ebau.local
-      AWS_S3_ACCESS_KEY_ID: minio
-      AWS_S3_SECRET_ACCESS_KEY: minio123
-      AWS_S3_ENDPOINT_URL: http://minio:9000
+      FILE_STORAGE: storages.backends.s3boto3.S3Boto3Storage
+      ISOLATE_UNOCONV: true
+      OIDC_USERINFO_ENDPOINT: http://ebau-keycloak.local/auth/realms/ebau/protocol/openid-connect/userinfo
+      URL_PREFIX: document-merge-service/
     user: "${UID:?Set UID env variable to your user id}"
     volumes:
       - ../document-merge-service/extensions:/app/document_merge_service/extensions
