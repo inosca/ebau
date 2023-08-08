@@ -256,10 +256,9 @@ class InstanceQuerysetMixin(object):
                 "meta__is-published": True,
                 "status": WorkItem.STATUS_COMPLETED,
             }
-            publication_settings = settings.APPLICATION.get("PUBLICATION", {})
-            start_question = publication_settings.get("START_QUESTION")
-            end_question = publication_settings.get("END_QUESTION")
-            publish_question = publication_settings.get("PUBLISH_QUESTION")
+            start_question = settings.PUBLICATION.get("START_QUESTION")
+            end_question = settings.PUBLICATION.get("END_QUESTION")
+            publish_question = settings.PUBLICATION.get("PUBLISH_QUESTION")
 
             if public_access_key:
                 filters.update(
