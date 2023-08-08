@@ -79,7 +79,7 @@ class CustomVisibility(Authenticated, InstanceQuerysetMixin):
     def filter_queryset_for_answer_for_public(self, node, queryset, info):
         # Scrub sensitive data from answer queryset for public users
         return queryset.exclude(
-            question_id__in=settings.APPLICATION.get("PUBLICATION_SCRUBBED_ANSWERS", [])
+            question_id__in=settings.PUBLICATION.get("SCRUBBED_ANSWERS", [])
         )
 
     @filter_queryset_for(workflow_schema.Case)
