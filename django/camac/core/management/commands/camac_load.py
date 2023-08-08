@@ -21,6 +21,13 @@ class Command(BaseCommand):
             "See settings.SEQUENCE_NAMESPACES",
             required=False,
         )
+        parser.add_argument(
+            "--no-data",
+            action="store_true",
+            dest="no_data",
+            help="Don't load any data",
+            required=False,
+        )
 
     def get_fixtures_in_path(self, path):
         return sorted(glob(os.path.join(path, "*.json")))
@@ -28,16 +35,19 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         fixtures = self.get_fixtures_in_path(settings.APPLICATION_DIR("config"))
 
-        model = get_user_model()
-        try:
-            # init.json only needs to be called when no admin user is
-            # available in db
-            model.objects.get(pk=1)
-        except model.DoesNotExist:
-            fixtures.append(settings.APPLICATION_DIR("init.json"))
-            if settings.ENV != "production":
-                # load test data in dev setup
-                fixtures += self.get_fixtures_in_path(settings.APPLICATION_DIR("data"))
+        if not options["no_data"]:
+            model = get_user_model()
+            try:
+                # init.json only needs to be called when no admin user is
+                # available in db
+                model.objects.get(pk=1)
+            except model.DoesNotExist:
+                fixtures.append(settings.APPLICATION_DIR("init.json"))
+                if settings.ENV != "production":
+                    # load test data in dev setup
+                    fixtures += self.get_fixtures_in_path(
+                        settings.APPLICATION_DIR("data")
+                    )
 
         self.stdout.write("Flushing 'pure' config models...")
         for model_name in set(config.DUMP_CONFIG_MODELS) - set(
