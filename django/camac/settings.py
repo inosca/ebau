@@ -3280,6 +3280,8 @@ APPLICATIONS = {
             },
         },
         "INSTANCE_STATE_REJECTION_COMPLETE": "finished",
+        "INSTANCE_STATE_CORRECTION_ALLOWED": ["subm", "circulation"],
+        "INSTANCE_PERMISSIONS": {"MUNICIPALITY_WRITE": ["correction"]},
         "REJECTION_FEEDBACK_QUESTION": {},
         "USE_INSTANCE_SERVICE": True,
         "ACTIVE_SERVICES": {

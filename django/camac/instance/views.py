@@ -166,6 +166,7 @@ class InstanceView(
                 "dms_placeholders": DMSPlaceholdersSerializer,
                 "appeal": serializers.CalumaInstanceAppealSerializer,
                 "default": serializers.CalumaInstanceSerializer,
+                "correction": serializers.CalumaInstanceCorrectionSerializer,
             },
             "camac-ng": {
                 "submit": serializers.InstanceSubmitSerializer,
@@ -326,6 +327,22 @@ class InstanceView(
             and instance.previous_instance_state.name == "coordination"
             and instance.instance_state.name in ["finished", "sb1"]
         )
+
+    @permission_aware
+    def has_object_correction_permission(self, instance):
+        return False
+
+    def has_object_correction_permission_for_municipality(self, instance):
+        if self.request.group.role.name != "municipality-lead":
+            return False
+
+        return instance.instance_state.name in [
+            *settings.APPLICATION.get("INSTANCE_STATE_CORRECTION_ALLOWED", []),
+            "correction",
+        ]
+
+    def has_object_correction_permission_for_support(self, instance):
+        return True
 
     @swagger_auto_schema(auto_schema=None)
     def retrieve(self, request, *args, **kwargs):  # pragma: no cover
@@ -699,9 +716,13 @@ class InstanceView(
             request, pk, status_code=status.HTTP_201_CREATED
         )
 
+    @swagger_auto_schema(auto_schema=None)
+    @action(methods=["post"], detail=True)
+    def correction(self, request, pk=None):
+        return self._custom_serializer_action(request, pk)
+
 
 class InstanceResponsibilityView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
-
     swagger_schema = None
     serializer_class = serializers.InstanceResponsibilitySerializer
     filterset_class = filters.InstanceResponsibilityFilterSet

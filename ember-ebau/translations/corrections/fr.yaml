@@ -1,0 +1,8 @@
+corrections:
+  document:
+    title: "Corriger un dossier"
+    description: "Veuillez noter que la correction de dossier n'est destinée qu'aux modifications mineures. Veuillez vérifier si, le cas échéant, un renvoi serait approprié.<br><br>Souhaitez-vous poursuivre la correction du dossier?"
+    button: "Corriger"
+
+    confirm: "Voulez-vous vraiment corriger le dossier ?"
+    error: "Erreur lors de la correction du dossier"
