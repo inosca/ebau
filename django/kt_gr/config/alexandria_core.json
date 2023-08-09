@@ -12,11 +12,11 @@
       "metainfo": {
         "access": {
           "are": "AdminService",
-          "cantonal-service": "AdminService",
           "public": "Read",
           "support": "Admin",
           "subservice": "AdminService",
           "service-lead": "AdminService",
+          "cantonal-service": "AdminService",
           "municipality-lead": "AdminService"
         }
       },
@@ -38,8 +38,8 @@
       "metainfo": {
         "access": {
           "are": "AdminService",
-          "cantonal-service": "AdminService",
-          "support": "Admin"
+          "support": "Admin",
+          "cantonal-service": "AdminService"
         }
       },
       "name": "{\"de\": \"Alle Kanton\", \"fr\": \"\", \"it\": \"Tutti i canton\"}",
@@ -61,11 +61,11 @@
         "access": {
           "are": "Read",
           "uso": "Read",
-          "cantonal-service": "Read",
           "public": "AdminNew",
           "support": "Admin",
           "subservice": "Read",
           "service-lead": "Read",
+          "cantonal-service": "Read",
           "municipality-lead": "Read"
         }
       },
@@ -87,10 +87,10 @@
       "metainfo": {
         "access": {
           "are": "AdminService",
-          "cantonal-service": "AdminService",
           "support": "Admin",
           "subservice": "AdminService",
           "service-lead": "AdminService",
+          "cantonal-service": "AdminService",
           "municipality-lead": "AdminService"
         }
       },
@@ -113,10 +113,10 @@
         "access": {
           "are": "InternalAdmin",
           "uso": "InternalAdmin",
-          "cantonal-service": "InternalAdmin",
           "support": "Admin",
           "subservice": "InternalAdmin",
           "service-lead": "InternalAdmin",
+          "cantonal-service": "InternalAdmin",
           "municipality-lead": "InternalAdmin"
         }
       },
@@ -139,8 +139,8 @@
         "access": {
           "are": "Read",
           "uso": "InternalAdminCirculation",
-          "cantonal-service": "InternalAdminCirculation",
-          "support": "Admin"
+          "support": "Admin",
+          "cantonal-service": "InternalAdminCirculation"
         }
       },
       "name": "{\"de\": \"Stellungnahmen ans ARE\", \"fr\": \"\", \"it\": \"Dichiarazioni all'ARE\"}",
