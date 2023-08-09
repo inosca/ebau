@@ -18,7 +18,10 @@ def parashift_mock(request, requests_mock):
         "parzelle-nr": "11",
         "erfassungsjahr": "92",
         "vorhaben": "Erschliessungsstrasse",
+        "vorhaben-backup": "Erschliessungsstrasse",
+        "nähere ortsbezeichnung": "Platti, Amsteg",
         "ort": "Platti, Amsteg",
+        "ort-backup": "Platti, Amsteg",
         "baurecht-nr": None,
         "gesuchsteller": "Kanton Uri, v.d. Baudirektion Uri" if request.param else None,
         "gesuchsteller-backup": "Kanton Uri, v.d. Baudirektion Uri"
