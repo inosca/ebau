@@ -14772,6 +14772,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "veranstaltungsgesuch.benuetzung-kantonsgebiet-hinweis",
+    "fields": {
+      "created_at": "2023-08-09T07:19:42.631Z",
+      "modified_at": "2023-08-09T07:19:42.631Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "veranstaltungsgesuch",
+      "question": "benuetzung-kantonsgebiet-hinweis",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "veranstaltungsgesuch.date-time-migrated",
     "fields": {
       "created_at": "2021-03-22T16:43:29.563Z",
@@ -14812,7 +14827,7 @@
       "modified_by_group": null,
       "form": "veranstaltungsgesuch",
       "question": "leitbehoerde-internal-form",
-      "sort": 11
+      "sort": 12
     }
   },
   {
@@ -14827,7 +14842,7 @@
       "modified_by_group": null,
       "form": "veranstaltungsgesuch",
       "question": "migrated-from-camac",
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -14872,7 +14887,7 @@
       "modified_by_group": null,
       "form": "veranstaltungsgesuch",
       "question": "veranstaltung-beginn",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -14902,7 +14917,7 @@
       "modified_by_group": null,
       "form": "veranstaltungsgesuch",
       "question": "veranstaltung-beschrieb",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -14917,7 +14932,7 @@
       "modified_by_group": null,
       "form": "veranstaltungsgesuch",
       "question": "veranstaltung-ende",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -38153,6 +38168,37 @@
         "max_length": null,
         "min_length": null
       },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "benuetzung-kantonsgebiet-hinweis",
+    "fields": {
+      "created_at": "2023-08-09T07:19:42.487Z",
+      "modified_at": "2023-08-09T07:21:32.793Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ben\\u00fctzung Kantonsgebiet Hinweis\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"###<span style=\\\"color:red\\\">Bitte beachten</span>\\n\\n\\nJe nach Art der Beanspruchung liegt die Zust\\u00e4ndigkeit entweder bei der Baudirektion oder bei der Sicherheitsdirektion. Sportanl\\u00e4sse, Foto- und Filmaufnahmen und alle anderen, nicht separat aufgef\\u00fchrten Beanspruchungen von Kantonsgebiet werden direkt an die Sicherheitsdirektion weitergeleitet. Wenn Sie sich nicht sicher sind, welche Art der Beanspruchung Sie w\\u00e4hlen m\\u00fcssen, bitten wir Sie dies vor Einreichung des Dossiers mit der Baudirektion zu kl\\u00e4ren E-Mail: ds.bd@ur.ch.\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
       "meta": {},
       "data_source": null,
       "row_form": null,
