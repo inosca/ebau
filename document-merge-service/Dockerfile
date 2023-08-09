@@ -1,4 +1,4 @@
-FROM ghcr.io/adfinis/document-merge-service:6.4.0
+FROM ghcr.io/adfinis/document-merge-service:6.4.1
 
 # Only root user can install packages
 USER root
@@ -19,3 +19,8 @@ COPY uwsgi.ini .
 COPY fonts /usr/local/share/fonts
 COPY extensions document_merge_service/extensions
 COPY $APPLICATION /tmp/document-merge-service/
+
+CMD /bin/sh -c "poetry run python ./manage.py migrate \
+  && poetry run python manage.py loaddata /tmp/document-merge-service/dump.json \
+  && poetry run python manage.py upload_local_templates -s '/tmp/document-merge-service/templatefiles/*.docx' \
+  && poetry run uwsgi"
