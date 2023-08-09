@@ -47026,7 +47026,7 @@
       "label": "{\"de\": \"Einfache Brandschutzpl\\u00e4ne\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
       "is_required": "true",
-      "is_hidden": "!(\"qualitaetssicherungsstufe-qss-qss-1\" in \"qualitaetssicherungsstufe-qss\"|answer)",
+      "is_hidden": "!(\"qualitaetssicherungsstufe-qss-qss-1\" == \"qualitaetssicherungsstufe-qss\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
