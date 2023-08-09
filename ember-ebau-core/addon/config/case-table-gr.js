@@ -91,4 +91,6 @@ export default {
     },
   },
   defaultOrder: "instanceId",
+  addressSlugs: ["strasse-flurname", "nr", "ort-grundstueck"],
+  parcelSlugs: ["parzellennummer"],
 };
