@@ -12,7 +12,7 @@
       "metainfo": {
         "access": {
           "are": "AdminService",
-          "canton": "AdminService",
+          "cantonal-service": "AdminService",
           "public": "Read",
           "support": "Admin",
           "subservice": "AdminService",
@@ -37,7 +37,8 @@
       "modified_by_group": null,
       "metainfo": {
         "access": {
-          "canton": "AdminService",
+          "are": "AdminService",
+          "cantonal-service": "AdminService",
           "support": "Admin"
         }
       },
@@ -60,7 +61,7 @@
         "access": {
           "are": "Read",
           "uso": "Read",
-          "canton": "Read",
+          "cantonal-service": "Read",
           "public": "AdminNew",
           "support": "Admin",
           "subservice": "Read",
@@ -86,7 +87,7 @@
       "metainfo": {
         "access": {
           "are": "AdminService",
-          "canton": "AdminService",
+          "cantonal-service": "AdminService",
           "support": "Admin",
           "subservice": "AdminService",
           "service-lead": "AdminService",
@@ -112,7 +113,7 @@
         "access": {
           "are": "InternalAdmin",
           "uso": "InternalAdmin",
-          "canton": "InternalAdmin",
+          "cantonal-service": "InternalAdmin",
           "support": "Admin",
           "subservice": "InternalAdmin",
           "service-lead": "InternalAdmin",
@@ -138,7 +139,7 @@
         "access": {
           "are": "Read",
           "uso": "InternalAdminCirculation",
-          "canton": "InternalAdminCirculation",
+          "cantonal-service": "InternalAdminCirculation",
           "support": "Admin"
         }
       },
