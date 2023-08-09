@@ -149,6 +149,28 @@ export default class CaseTableComponent extends Component {
           },
         ],
       },
+      address: {
+        searchAnswers: [
+          {
+            // UR: questions: ["parcel-street", "street-number", "parcel-city"],
+            // GR : questions: ["strasse-flurname", "nr", "ort-grundstueck"],
+            // BE: questions: [ "strasse-flurname", "nr", "plz-grundstueck-v3", "ort-grundstueck", "standort-migriert" ],
+            lookup: "CONTAINS",
+            value: filter.address,
+          },
+        ],
+      },
+      parcel: {
+        searchAnswers: [
+          {
+            // UR: questions: ["parcel-number", "building-law-number"],
+            // GR: questions: ["parzellennummer"],
+            // BE: questions: ["parzellennummer"],
+            lookup: "CONTAINS",
+            value: filter.parcel,
+          },
+        ],
+      },
       ...(macroCondition(getOwnConfig().application === "ur")
         ? {
             buildingPermitType: {
@@ -173,45 +195,9 @@ export default class CaseTableComponent extends Component {
                 },
               ],
             },
-            address: {
-              searchAnswers: [
-                {
-                  questions: ["parcel-street", "street-number", "parcel-city"],
-                  lookup: "CONTAINS",
-                  value: filter.address,
-                },
-              ],
-            },
-            parcel: {
-              searchAnswers: [
-                {
-                  questions: ["parcel-number", "building-law-number"],
-                  lookup: "CONTAINS",
-                  value: filter.parcel,
-                },
-              ],
-            },
           }
         : macroCondition(getOwnConfig().application === "gr")
         ? {
-            address: {
-              searchAnswers: [
-                {
-                  questions: ["strasse-flurname", "nr", "ort-grundstueck"],
-                  lookup: "CONTAINS",
-                  value: filter.address,
-                },
-              ],
-            },
-            parcel: {
-              searchAnswers: [
-                {
-                  questions: ["parzellennummer"],
-                  lookup: "CONTAINS",
-                  value: filter.parcel,
-                },
-              ],
-            },
             personalDetails: {
               searchAnswers: [
                 {
@@ -244,6 +230,8 @@ export default class CaseTableComponent extends Component {
             },
             submitDateBefore: undefined,
             submitDateAfter: undefined,
+            address: undefined,
+            parcel: undefined,
             ...(this.args.casesBackend === "camac-ng"
               ? { intent: undefined }
               : {}),
@@ -255,30 +243,6 @@ export default class CaseTableComponent extends Component {
                 {
                   key: "ebau-number",
                   value: filter.dossierNumber,
-                },
-              ],
-            },
-            address: {
-              searchAnswers: [
-                {
-                  questions: [
-                    "strasse-flurname",
-                    "nr",
-                    "plz-grundstueck-v3",
-                    "ort-grundstueck",
-                    "standort-migriert",
-                  ],
-                  lookup: "CONTAINS",
-                  value: filter.address,
-                },
-              ],
-            },
-            parcel: {
-              searchAnswers: [
-                {
-                  questions: ["parzellennummer"],
-                  lookup: "CONTAINS",
-                  value: filter.parcel,
                 },
               ],
             },
