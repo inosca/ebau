@@ -115,4 +115,6 @@ export default {
   },
   defaultOrder: "-municipality",
   pageSize: 20,
+  addressSlugs: ["parcel-street", "street-number", "parcel-city"],
+  parcelSlugs: ["parcel-number", "building-law-number"],
 };
