@@ -152,9 +152,7 @@ export default class CaseTableComponent extends Component {
       address: {
         searchAnswers: [
           {
-            // UR: questions: ["parcel-street", "street-number", "parcel-city"],
-            // GR : questions: ["strasse-flurname", "nr", "ort-grundstueck"],
-            // BE: questions: [ "strasse-flurname", "nr", "plz-grundstueck-v3", "ort-grundstueck", "standort-migriert" ],
+            questions: caseTableConfig.addressSlugs,
             lookup: "CONTAINS",
             value: filter.address,
           },
@@ -163,9 +161,7 @@ export default class CaseTableComponent extends Component {
       parcel: {
         searchAnswers: [
           {
-            // UR: questions: ["parcel-number", "building-law-number"],
-            // GR: questions: ["parzellennummer"],
-            // BE: questions: ["parzellennummer"],
+            questions: caseTableConfig.parcelSlugs,
             lookup: "CONTAINS",
             value: filter.parcel,
           },

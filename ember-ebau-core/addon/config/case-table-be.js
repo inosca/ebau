@@ -143,4 +143,12 @@ export default {
     },
   },
   defaultOrder: "instanceId",
+  addressSlugs: [
+    "strasse-flurname",
+    "nr",
+    "plz-grundstueck-v3",
+    "ort-grundstueck",
+    "standort-migriert",
+  ],
+  parcelSlugs: ["parzellennummer"],
 };
