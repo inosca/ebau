@@ -39,6 +39,7 @@ export default {
     isJuristicApplicantYes: "juristische-person-gesuchstellerin-ja",
     personalDataApplicant: "personalien-gesuchstellerin",
   },
+  decisionSlug: "decision-decision-assessment",
   personalSuggestions: {
     tableQuestions: [
       "personalien-gesuchstellerin",

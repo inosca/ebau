@@ -20,6 +20,7 @@ global:
   form: "Formular"
   applicant: "Gesuchsteller"
   search: "Suche"
+  searchPrompt: "Suchen..."
   reset: "Zurücksetzen"
   ok: "Ok"
   continue: "Weiter"
