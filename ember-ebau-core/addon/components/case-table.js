@@ -149,6 +149,24 @@ export default class CaseTableComponent extends Component {
           },
         ],
       },
+      address: {
+        searchAnswers: [
+          {
+            questions: caseTableConfig.addressSlugs,
+            lookup: "CONTAINS",
+            value: filter.address,
+          },
+        ],
+      },
+      parcel: {
+        searchAnswers: [
+          {
+            questions: caseTableConfig.parcelSlugs,
+            lookup: "CONTAINS",
+            value: filter.parcel,
+          },
+        ],
+      },
       ...(macroCondition(getOwnConfig().application === "ur")
         ? {
             buildingPermitType: {
@@ -173,21 +191,27 @@ export default class CaseTableComponent extends Component {
                 },
               ],
             },
-            address: {
+          }
+        : macroCondition(getOwnConfig().application === "gr")
+        ? {
+            personalDetails: {
               searchAnswers: [
                 {
-                  questions: ["parcel-street", "street-number", "parcel-city"],
-                  lookup: "CONTAINS",
-                  value: filter.address,
+                  questions: [
+                    "name-juristische-person-gesuchstellerin",
+                    "name-gesuchstellerin",
+                    "vorname-gesuchstellerin",
+                  ],
+                  value: filter.personalDetails,
                 },
               ],
             },
-            parcel: {
-              searchAnswers: [
+            municipality: {
+              hasAnswer: [
                 {
-                  questions: ["parcel-number", "building-law-number"],
-                  lookup: "CONTAINS",
-                  value: filter.parcel,
+                  question: "gemeinde",
+                  value: filter.municipality,
+                  lookup: "EXACT",
                 },
               ],
             },
@@ -202,6 +226,8 @@ export default class CaseTableComponent extends Component {
             },
             submitDateBefore: undefined,
             submitDateAfter: undefined,
+            address: undefined,
+            parcel: undefined,
             ...(this.args.casesBackend === "camac-ng"
               ? { intent: undefined }
               : {}),
@@ -213,30 +239,6 @@ export default class CaseTableComponent extends Component {
                 {
                   key: "ebau-number",
                   value: filter.dossierNumber,
-                },
-              ],
-            },
-            address: {
-              searchAnswers: [
-                {
-                  questions: [
-                    "strasse-flurname",
-                    "nr",
-                    "plz-grundstueck-v3",
-                    "ort-grundstueck",
-                    "standort-migriert",
-                  ],
-                  lookup: "CONTAINS",
-                  value: filter.address,
-                },
-              ],
-            },
-            parcel: {
-              searchAnswers: [
-                {
-                  questions: ["parzellennummer"],
-                  lookup: "CONTAINS",
-                  value: filter.parcel,
                 },
               ],
             },
@@ -354,6 +356,11 @@ export default class CaseTableComponent extends Component {
             inquiry_completed_after: this.args.filter.inquiryCompletedAfter,
             inquiry_answer: this.args.filter.inquiryAnswer,
           }
+        : macroCondition(getOwnConfig().application === "gr")
+        ? {
+            tags: this.args.filter.tags,
+            decision: this.args.filter.decision,
+          }
         : {}),
     };
 
@@ -402,6 +409,11 @@ export default class CaseTableComponent extends Component {
         ? {
             "fields[instances]":
               "id,name,decision,decision_date,involved_at,instance_state,is_paper,ebau_number",
+          }
+        : {}),
+      ...(macroCondition(getOwnConfig().application === "gr")
+        ? {
+            "fields[instances]": "id,name,decision",
           }
         : {}),
     });
