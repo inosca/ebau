@@ -20,7 +20,9 @@ def get_role(user):
 
 @lru_cache
 def get_service_group(service_id):
-    return Service.objects.get(pk=service_id).service_group.name
+    service = Service.objects.filter(pk=service_id).first()
+
+    return service.service_group.name if service else None
 
 
 def get_kt_gr_mapped_role(user, role):
