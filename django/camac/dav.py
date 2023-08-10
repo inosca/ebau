@@ -15,14 +15,6 @@ from wsgidav.error_printer import ErrorPrinter
 from wsgidav.mw.debug_filter import WsgiDavDebugFilter
 from wsgidav.request_resolver import RequestResolver
 
-from camac.base import base36
-from camac.document.models import (
-    Attachment,
-    AttachmentVersion,
-    version_path_directory_path,
-)
-from camac.user.models import User
-
 
 def get_dav():
     key = settings.MANABI_SHARED_KEY
@@ -71,6 +63,9 @@ def get_dav():
 
 @transaction.atomic
 def post_write_callback(token):
+    from camac.document.models import Attachment
+    from camac.user.models import User
+
     user, attachment = token.payload
     user = User.objects.get(id=user)
     attachment = Attachment.objects.get(attachment_id=attachment)
@@ -84,6 +79,14 @@ def post_write_callback(token):
 
 @transaction.atomic
 def pre_write_callback(token):
+    from camac.base import base36
+    from camac.document.models import (
+        Attachment,
+        AttachmentVersion,
+        version_path_directory_path,
+    )
+    from camac.user.models import User
+
     user, attachment = token.payload
     user = User.objects.get(id=user)
     attachment = Attachment.objects.get(attachment_id=attachment)
