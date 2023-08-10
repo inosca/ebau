@@ -155,7 +155,7 @@ services:
       - ebau.local
 
   clamav:
-    image: tiredofit/clamav:2.3.0
+    image: tiredofit/clamav:2.6.8
     networks:
       - ebau.local
 
