@@ -96,9 +96,6 @@ services:
       ALEXANDRIA_MINIO_STORAGE_ENDPOINT: ember-ebau.local
       ALEXANDRIA_MINIO_STORAGE_ACCESS_KEY: minio
       ALEXANDRIA_MINIO_STORAGE_SECRET_KEY: minio123
-      ALEXANDRIA_VISIBILITY_CLASSES: camac.alexandria.extensions.visibilities.CustomVisibility
-      ALEXANDRIA_PERMISSION_CLASSES: camac.alexandria.extensions.permissions.CustomPermission
-      ALEXANDRIA_VALIDATION_CLASSES: camac.alexandria.extensions.validations.Validator
     networks:
       - ebau.local
     command: /bin/sh -c "./wait-for-it.sh db:5432 -- ./manage.py migrate && ./manage.py collectstatic --noinput && ./manage.py runserver 0:80 --pythonpath /app/$APPLICATION"
