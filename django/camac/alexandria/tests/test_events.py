@@ -10,11 +10,13 @@ def test_event_creation(db, instance):
     post_save.connect(create_instance_document_relation, sender=Document)
 
     document = Document.objects.create(
-        title="Test", category=alexandria_category, metainfo={"case_id": instance.pk}
+        title="Test",
+        category=alexandria_category,
+        metainfo={"camac-instance-id": instance.pk},
     )
     assert document.instance_document.instance.pk == instance.pk
 
-    document.metainfo["case_id"] = 2
+    document.metainfo["camac-instance-id"] = 2
     document.save()
     assert document.instance_document.instance.pk == instance.pk
 

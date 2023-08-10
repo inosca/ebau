@@ -8,13 +8,13 @@ export default class AlexandriaConfigService extends Service {
 
   get modelMetaFilters() {
     return {
-      document: [{ key: "case_id", value: this.caseId.toString() }],
+      document: [{ key: "camac-instance-id", value: this.caseId.toString() }],
     };
   }
 
   get defaultModelMeta() {
     return {
-      document: { case_id: this.caseId },
+      document: { "camac-instance-id": this.caseId },
     };
   }
 
