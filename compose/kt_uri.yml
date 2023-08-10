@@ -84,7 +84,7 @@ services:
 
 
   clamav:
-    image: tiredofit/clamav:2.3.0
+    image: tiredofit/clamav:2.6.8
     environment:
       - CONCURRENT_DATABASE_RELOAD=false
       - DEFINITIONS_UPDATE_FREQUENCY=1440
