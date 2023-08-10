@@ -1,4 +1,5 @@
 import os
+import warnings
 from glob import glob
 
 from django.apps import apps
@@ -58,10 +59,13 @@ class Command(BaseCommand):
             model.objects.all().delete()
 
         self.stdout.write("Loading fixtures...")
-        call_command("loaddata", *fixtures)
+        with warnings.catch_warnings():
+            warnings.filterwarnings("ignore", message="No fixture data found")
+            call_command("loaddata", *fixtures)
 
         sequence_apps = settings.APPLICATION.get("SEQUENCE_NAMESPACE_APPS")
         if sequence_apps and options["user"]:
+            self.stdout.write("Initializing sequence namespaces...")
             call_command(
                 "sequencenamespace", *sequence_apps, user=options["user"], execute=True
             )
