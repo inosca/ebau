@@ -15214,7 +15214,7 @@
       "modified_by_group": null,
       "form": "vollstaendigkeitspruefung",
       "question": "einverstaendnis-grundeigentuemerin-vorhanden",
-      "sort": 5
+      "sort": 4
     }
   },
   {
@@ -15229,7 +15229,7 @@
       "modified_by_group": null,
       "form": "vollstaendigkeitspruefung",
       "question": "gesuchsunterlagen-vollstaendig",
-      "sort": 8
+      "sort": 5
     }
   },
   {
@@ -15244,7 +15244,7 @@
       "modified_by_group": null,
       "form": "vollstaendigkeitspruefung",
       "question": "hinweis-auflistung",
-      "sort": 9
+      "sort": 8
     }
   },
   {
@@ -15259,7 +15259,7 @@
       "modified_by_group": null,
       "form": "vollstaendigkeitspruefung",
       "question": "lage-des-vorhabens-korrekt",
-      "sort": 4
+      "sort": 3
     }
   },
   {
@@ -15289,7 +15289,7 @@
       "modified_by_group": null,
       "form": "vollstaendigkeitspruefung",
       "question": "vorabklaerung-ersichtlich",
-      "sort": 2
+      "sort": 1
     }
   },
   {
@@ -15304,7 +15304,7 @@
       "modified_by_group": null,
       "form": "vollstaendigkeitspruefung",
       "question": "vorabklaerungspflicht",
-      "sort": 3
+      "sort": 2
     }
   },
   {
@@ -47114,19 +47114,19 @@
     "pk": "eingabequittung-korrekt",
     "fields": {
       "created_at": "2023-06-19T08:30:18.622Z",
-      "modified_at": "2023-06-19T08:30:18.622Z",
+      "modified_at": "2023-08-10T07:07:32.526Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Eingabequittung erhalten, korrekt und unterschrieben?\", \"fr\": null, \"it\": null}",
       "type": "choice",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -75342,8 +75342,8 @@
     "model": "caluma_form.questionoption",
     "pk": "eingabequittung-korrekt.eingabequittung-korrekt-ja",
     "fields": {
-      "created_at": "2023-06-19T08:30:18.637Z",
-      "modified_at": "2023-06-19T08:30:18.637Z",
+      "created_at": "2023-08-10T07:07:32.540Z",
+      "modified_at": "2023-08-10T07:07:32.540Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -75357,8 +75357,8 @@
     "model": "caluma_form.questionoption",
     "pk": "eingabequittung-korrekt.eingabequittung-korrekt-nein",
     "fields": {
-      "created_at": "2023-06-19T08:30:18.632Z",
-      "modified_at": "2023-06-19T08:30:18.632Z",
+      "created_at": "2023-08-10T07:07:32.536Z",
+      "modified_at": "2023-08-10T07:07:32.536Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
