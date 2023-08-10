@@ -227,7 +227,7 @@
       "configuration": {},
       "meta": {
         "widgetOverride": "calculated-publication-date",
-        "publicationDuration": 21,
+        "publicationDuration": 20,
         "initialPublicationDateSlug": "beginn-publikation-kantonsamtsblatt"
       },
       "data_source": null,
@@ -262,7 +262,7 @@
       "configuration": {},
       "meta": {
         "widgetOverride": "calculated-publication-date",
-        "publicationDuration": 21,
+        "publicationDuration": 20,
         "initialPublicationDateSlug": "beginn-publikationsorgan-gemeinde"
       },
       "data_source": null,
