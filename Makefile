@@ -8,6 +8,7 @@ include .env
 
 GIT_USER=$(shell git config user.email)
 DB_CONTAINER=$(shell docker-compose ps -q db)
+APPLICATION_ENV=$(shell docker-compose exec django bash -c 'echo $APPLICATION_ENV')
 
 define set_app
 	sed 's/^\(APPLICATION=\).*$//\1$(1)/' -i .env django/.env
@@ -77,7 +78,9 @@ dumpconfig-dms: ## Dump the DMS configuration
 
 .PHONY: loadconfig-keycloak
 loadconfig-keycloak: ## Load the keycloak configuration
-	docker-compose exec keycloak /opt/keycloak/bin/kc.sh import --override true --file /opt/keycloak/data/import/test-config.json >/dev/null 2>&1 || true; \
+	@if ${APPLICATION_ENV} == "development"; then \
+		docker-compose exec keycloak /opt/keycloak/bin/kc.sh import --override true --file /opt/keycloak/data/import/test-config.json >/dev/null 2>&1 || true; \
+	fi
 
 .PHONY: dumpconfig-keycloak
 dumpconfig-keycloak: ## Dump the keycloak configuration
