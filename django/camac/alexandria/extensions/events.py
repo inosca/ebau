@@ -7,8 +7,10 @@ from camac.instance.models import InstanceAlexandriaDocument
 
 @receiver(post_save, sender=Document)
 def create_instance_document_relation(sender, instance, created, **kwargs):
-    if created:
+    instance_id = instance.metainfo.get("camac-instance-id")
+
+    if created and instance_id:
         InstanceAlexandriaDocument.objects.create(
-            instance_id=instance.metainfo["case_id"],
+            instance_id=instance_id,
             document=instance,
         )

@@ -40,7 +40,9 @@ class CustomPermission(BasePermission):
         if not permission:
             return False
 
-        instance = Instance.objects.get(pk=request.data["metainfo"]["case_id"])
+        instance = Instance.objects.get(
+            pk=request.data["metainfo"]["camac-instance-id"]
+        )
         return self.get_permission(permission).can_create(get_group(request), instance)
 
     @object_permission_for(Document)

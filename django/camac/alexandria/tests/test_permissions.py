@@ -79,7 +79,7 @@ def test_document_permission(
             "type": "documents",
             "attributes": {
                 "title": {"de": "Important"},
-                "metainfo": {"case_id": instance.pk},
+                "metainfo": {"camac-instance-id": instance.pk},
             },
             "relationships": {
                 "category": {
@@ -96,7 +96,7 @@ def test_document_permission(
         doc = DocumentFactory(
             title="Foo",
             category=alexandria_category,
-            metainfo={"case_id": instance.pk},
+            metainfo={"camac-instance-id": instance.pk},
             created_by_group=caluma_admin_user.group,
         )
         url = reverse("document-detail", args=[doc.pk])
@@ -151,7 +151,9 @@ def test_file_permission(
 ):
     alexandria_category = CategoryFactory(metainfo=metainfo)
     doc = DocumentFactory(
-        title="Foo", category=alexandria_category, metainfo={"case_id": instance.pk}
+        title="Foo",
+        category=alexandria_category,
+        metainfo={"camac-instance-id": instance.pk},
     )
     url = reverse("file-list")
 
@@ -354,7 +356,7 @@ def test_kt_gr_permissions(
             "type": "documents",
             "attributes": {
                 "title": {"de": "Important"},
-                "metainfo": {"case_id": instance.pk},
+                "metainfo": {"camac-instance-id": instance.pk},
             },
             "relationships": {
                 "category": {
@@ -371,7 +373,7 @@ def test_kt_gr_permissions(
         doc = DocumentFactory(
             title="Foo",
             category=alexandria_category,
-            metainfo={"case_id": instance.pk},
+            metainfo={"camac-instance-id": instance.pk},
             created_by_group=caluma_admin_user.group,
         )
         url = reverse("document-detail", args=[doc.pk])
