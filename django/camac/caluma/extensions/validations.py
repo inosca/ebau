@@ -150,7 +150,7 @@ class CustomValidation(BaseValidation):
 
         if (
             settings.PUBLICATION.get("USE_CALCULATED_DATES", False)
-            and data["question"].meta["calculatedPublicationDateSlug"]
+            and "calculatedPublicationDateSlug" in data["question"].meta
         ):  # pragma: no cover
             end_question = Question.objects.get(
                 pk=data["question"].meta["calculatedPublicationDateSlug"]
