@@ -11,7 +11,9 @@
     </LinkTo>
   </div>
 
-  <Dms::Docs @title={{t "dms.docs.title-admin"}} @showGeneralInfo={{true}} />
+  {{#if (macroCondition (macroGetOwnConfig "showDMSPlaceholderDocs"))}}
+    <Dms::Docs @title={{t "dms.docs.title-admin"}} @showGeneralInfo={{true}} />
+  {{/if}}
 
   <table class="uk-table uk-table-striped uk-table-middle">
     <thead>
