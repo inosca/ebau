@@ -8,5 +8,15 @@
       "engine": "docx-template",
       "meta": {}
     }
+  },
+  {
+    "model": "api.template",
+    "pk": "anleitung-platzhalter",
+    "fields": {
+      "description": "Anleitung Platzhalter",
+      "template": "anleitung-platzhalter.docx",
+      "engine": "docx-template",
+      "meta": {}
+    }
   }
 ]

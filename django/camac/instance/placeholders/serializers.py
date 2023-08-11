@@ -14,7 +14,7 @@ from camac.user.models import Service
 from camac.utils import build_url
 
 from ..master_data import MasterData
-from . import fields
+from . import dms_aliases, fields
 from .utils import clean_join, get_option_label, human_readable_date
 
 
@@ -251,7 +251,9 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
         description=_("Decision type"),
     )
     bauentscheid = fields.DecisionField(
-        source="decision-decision-assessment",
+        source="decision-decision-assessment"
+        if settings.APPLICATION_NAME == "kt_be"
+        else "decision-decision",
         aliases=[_("DECISION")],
         description=_("Decision"),
     )
@@ -292,7 +294,7 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
     dossier_link = fields.AliasedMethodField()
     ebau_number = fields.MasterDataField(
         source="dossier_number",
-        aliases=[_("EBAU_NUMBER")],
+        aliases=[_(dms_aliases.get("DOSSIER_NUMBER"))],
         description=_("The eBau number of the instance"),
     )
     eigene_gebuehren_total = fields.BillingEntriesField(
@@ -468,7 +470,7 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
     )
     instance_id = fields.AliasedIntegerField(
         source="pk",
-        aliases=[_("INSTANCE_ID")],
+        aliases=[_(dms_aliases.get("INSTANCE_ID"))],
         description=_("ID of the instance"),
     )
     interior_seating = fields.MasterDataField(
