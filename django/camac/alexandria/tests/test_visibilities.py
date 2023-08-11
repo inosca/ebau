@@ -34,26 +34,28 @@ def test_document_visibility(
     service_category = CategoryFactory(metainfo={"access": {"service": "InternalRead"}})
 
     DocumentFactory.create_batch(
-        2, category=applicant_category, metainfo={"case_id": instance.pk}
+        2, category=applicant_category, metainfo={"camac-instance-id": instance.pk}
     )
     DocumentFactory.create_batch(
-        2, category=municipality_category, metainfo={"case_id": instance.pk}
+        2, category=municipality_category, metainfo={"camac-instance-id": instance.pk}
     )
 
     # readable from service
     DocumentFactory(
         category=service_category,
         created_by_group=caluma_admin_user.group,
-        metainfo={"case_id": instance.pk},
+        metainfo={"camac-instance-id": instance.pk},
     )
     DocumentFactory(
         category=service_category,
         created_by_group=caluma_admin_user.group + 1,
-        metainfo={"case_id": instance.pk},
+        metainfo={"camac-instance-id": instance.pk},
     )
 
     # readable as invitee
-    DocumentFactory(category=applicant_category, metainfo={"case_id": instance.pk})
+    DocumentFactory(
+        category=applicant_category, metainfo={"camac-instance-id": instance.pk}
+    )
 
     url = reverse("document-list")
     response = admin_client.get(url)
@@ -86,15 +88,15 @@ def test_file_visibility(
     )
     service_category = CategoryFactory(metainfo={"access": {"service": "Internal"}})
     applicant_document = DocumentFactory(
-        category=applicant_category, metainfo={"case_id": instance.pk}
+        category=applicant_category, metainfo={"camac-instance-id": instance.pk}
     )
     municipality_document = DocumentFactory(
-        category=municipality_category, metainfo={"case_id": instance.pk}
+        category=municipality_category, metainfo={"camac-instance-id": instance.pk}
     )
     service_document = DocumentFactory(
         category=service_category,
         created_by_group=caluma_admin_user.group,
-        metainfo={"case_id": instance.pk},
+        metainfo={"camac-instance-id": instance.pk},
     )
     FileFactory.create_batch(3, document=applicant_document)
     FileFactory.create_batch(2, document=municipality_document)

@@ -9,9 +9,7 @@
       "modified_at": "2023-06-15T13:00:53.270Z",
       "modified_by_user": "1",
       "modified_by_group": null,
-      "metainfo": {
-        "case_id": 1
-      },
+      "metainfo": {},
       "title": "{\"de\": \"Test\", \"fr\": \"\", \"it\": \"Test\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "category": "beilagen-zum-gesuch",
