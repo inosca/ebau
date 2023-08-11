@@ -50,6 +50,10 @@ def default(default_dev=env.NOTSET, default_prod=env.NOTSET):
     return default_prod if ENV == "production" else default_dev
 
 
+def require_if(condition, default_value=None):
+    return env.NOTSET if condition else default_value
+
+
 SECRET_KEY = env.str("DJANGO_SECRET_KEY", default=default("uuuuuuuuuu"))
 DEBUG = env.bool("DJANGO_DEBUG", default=default(True, False))
 ALLOWED_HOSTS = env.list("DJANGO_ALLOWED_HOSTS", default=default(["*"]))
@@ -4225,7 +4229,11 @@ MANABI_ENABLE = env.bool("MANABI_ENABLE", default=default(True, False))
 
 # These are security relevant: provide a default that cannot be abused
 MANABI_SHARED_KEY = env.str(
-    "MANABI_SHARED_KEY", default=default("bNEZsIjvxDAiLhDA1chvF9zL9OJYPNlCqNPlm7KbhmU")
+    "MANABI_SHARED_KEY",
+    default=default(
+        "bNEZsIjvxDAiLhDA1chvF9zL9OJYPNlCqNPlm7KbhmU",
+        require_if(MANABI_ENABLE),
+    ),
 )
 
 MANABI_TOKEN_ACTIVATE_TIMEOUT = env.int("MANABI_TOKEN_ACTIVATE_TIMEOUT", default=600)
