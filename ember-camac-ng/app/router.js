@@ -54,7 +54,7 @@ Router.map(function () {
   this.mount("ember-ebau-gwr", { as: "gwr-global", path: "/gwr" });
   this.mount("ember-ebau-gwr", { as: "gwr", path: "/gwr/:id" });
   this.route("cases", function () {
-    this.route("detail", { path: "/:case_id" }, function () {
+    this.route("detail", { path: "/:instance_id" }, function () {
       this.route("dashboard");
     });
     this.route("new");

@@ -81,7 +81,7 @@ export default class AlexandriaDocumentsFormComponent extends Component {
     );
 
     const byInstance = (attachment) =>
-      parseInt(attachment.metainfo.case_id) ===
+      parseInt(attachment.metainfo["camac-instance-id"]) ===
       parseInt(this.args.context.instanceId);
 
     const bySection = (attachment) =>
@@ -129,7 +129,7 @@ export default class AlexandriaDocumentsFormComponent extends Component {
       filter: {
         category: this.category,
         metainfo: JSON.stringify([
-          { key: "case_id", value: this.args.context.instanceId },
+          { key: "camac-instance-id", value: this.args.context.instanceId },
         ]),
       },
       include: "category,files,tags",

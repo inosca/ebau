@@ -4,17 +4,19 @@ import { tracked } from "@glimmer/tracking";
 export default class AlexandriaConfigService extends Service {
   @service store;
 
-  @tracked caseId;
+  @tracked instanceId;
 
   get modelMetaFilters() {
     return {
-      document: [{ key: "case_id", value: this.caseId.toString() }],
+      document: [
+        { key: "camac-instance-id", value: this.instanceId.toString() },
+      ],
     };
   }
 
   get defaultModelMeta() {
     return {
-      document: { case_id: this.caseId },
+      document: { "camac-instance-id": this.instanceId },
     };
   }
 
