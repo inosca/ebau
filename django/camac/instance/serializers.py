@@ -5,6 +5,8 @@ from collections import namedtuple
 from io import StringIO
 from logging import getLogger
 
+from alexandria.core import models as alexandria_models
+from alexandria.core.storage_clients import Minio
 from caluma.caluma_form import models as form_models
 from caluma.caluma_form.validators import CustomValidationError, DocumentValidator
 from caluma.caluma_workflow import api as workflow_api, models as workflow_models
@@ -1147,17 +1149,32 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             instance.pk, request, form_slug
         )
 
-        attachment_section = self._get_pdf_section(instance, form_slug)
-        attachment_section.attachments.create(
-            instance=instance,
-            path=pdf,
-            name=pdf.name,
-            size=pdf.size,
-            mime_type=pdf.content_type,
-            user=request.user,
-            group=request.group,
-            question="dokument-weitere-gesuchsunterlagen",
-        )
+        if settings.APPLICATION["DOCUMENT_BACKEND"] == "alexandria":
+            document = alexandria_models.Document.objects.create(
+                title=pdf.name,
+                category=alexandria_models.Category.objects.get(
+                    pk="beilagen-zum-gesuch"
+                ),
+                metainfo={"camac-instance-id": instance.pk},
+            )
+            file = alexandria_models.File.objects.create(
+                name=pdf.name, document=document
+            )
+            Minio().client.put_object(
+                "alexandria-media", f"{file.pk}_{pdf.name}", pdf, pdf.size
+            )
+        else:
+            attachment_section = self._get_pdf_section(instance, form_slug)
+            attachment_section.attachments.create(
+                instance=instance,
+                path=pdf,
+                name=pdf.name,
+                size=pdf.size,
+                mime_type=pdf.content_type,
+                user=request.user,
+                group=request.group,
+                question="dokument-weitere-gesuchsunterlagen",
+            )
 
     def _update_rejected_instance(self, instance):
         caluma_api = CalumaApi()
