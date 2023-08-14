@@ -1,83 +1,81 @@
-{{#if (macroCondition (macroGetOwnConfig "showDMSPlaceholderDocs"))}}
-  <div class="uk-margin">
-    <button type="button" class="uk-button uk-button-link uk-text-default uk-text-bold" {{on "click" (fn (mut this.expand) (not this.expand))}}>
-      <UkIcon @icon={{if this.expand "triangle-down" "triangle-right"}} />
-      {{@title}}
-    </button>
+<div class="uk-margin">
+  <button type="button" class="uk-button uk-button-link uk-text-default uk-text-bold" {{on "click" (fn (mut this.expand) (not this.expand))}}>
+    <UkIcon @icon={{if this.expand "triangle-down" "triangle-right"}} />
+    {{@title}}
+  </button>
 
-    {{#if this.expand}}
-      {{#if @showGeneralInfo}}
-      <p class="uk-text-bold">{{t "dms.docs.general-info-title"}}</p>
-      <p>{{t "dms.docs.general-info-text" htmlSafe=true}}</p>
-      <p class="uk-text-bold">{{t "dms.docs.title-placeholders"}}</p>
-      {{/if}}
+  {{#if this.expand}}
+    {{#if @showGeneralInfo}}
+    <p class="uk-text-bold">{{t "dms.docs.general-info-title"}}</p>
+    <p>{{t "dms.docs.general-info-text" htmlSafe=true}}</p>
+    <p class="uk-text-bold">{{t "dms.docs.title-placeholders"}}</p>
+    {{/if}}
 
-      <div class="uk-margin">
-        <div class="uk-search uk-search-default uk-width-1">
-          <span uk-search-icon></span>
-          <Input
-            @type="search"
-            @value={{this.search}}
-            class="uk-search-input"
-            placeholder={{t "dms.docs.search"}}
-            aria-label={{t "dms.docs.search"}}
-          />
-        </div>
+    <div class="uk-margin">
+      <div class="uk-search uk-search-default uk-width-1">
+        <span uk-search-icon></span>
+        <Input
+          @type="search"
+          @value={{this.search}}
+          class="uk-search-input"
+          placeholder={{t "dms.docs.search"}}
+          aria-label={{t "dms.docs.search"}}
+        />
       </div>
+    </div>
 
-      {{#if this.docs.isLoading}}
-        <div class="uk-text-center"><UkSpinner @ratio="2" /></div>
-      {{else}}
-        <table class="uk-table uk-table-striped">
-          <thead>
+    {{#if this.docs.isLoading}}
+      <div class="uk-text-center"><UkSpinner @ratio="2" /></div>
+    {{else}}
+      <table class="uk-table uk-table-striped">
+        <thead>
+          <tr>
+            <th>{{t "dms.docs.placeholder-and-description"}}</th>
+            {{#if @data}}
+              <th>{{t "dms.docs.value"}}</th>
+            {{/if}}
+          </tr>
+        </thead>
+        <tbody>
+          {{#each this.placeholders as |placeholder|}}
             <tr>
-              <th>{{t "dms.docs.placeholder-and-description"}}</th>
+              <td>
+                <div class="uk-text-nowrap uk-text-bold uk-margin-small-bottom">
+                  {{placeholder.placeholder}}
+                  {{#if placeholder.isComplex}}
+                    <button
+                      type="button"
+                      class="uk-button uk-button-link uk-text-danger uk-margin-small-left"
+                      {{on "click" (fn (mut this.showComplexInfo) true)}}
+                    >
+                      <UkIcon @icon="info" />
+                    </button>
+                  {{/if}}
+                </div>
+                <span class="uk-text-italic">{{placeholder.description}}</span>
+              </td>
               {{#if @data}}
-                <th>{{t "dms.docs.value"}}</th>
+                <td>
+                  {{#if placeholder.isComplex}}
+                    <pre class="uk-width-medium">{{placeholder.value}}</pre>
+                  {{else if placeholder.isLink}}
+                    <a
+                      href={{placeholder.value}}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >{{placeholder.value}}</a>
+                  {{else}}
+                    {{placeholder.value}}
+                  {{/if}}
+                </td>
               {{/if}}
             </tr>
-          </thead>
-          <tbody>
-            {{#each this.placeholders as |placeholder|}}
-              <tr>
-                <td>
-                  <div class="uk-text-nowrap uk-text-bold uk-margin-small-bottom">
-                    {{placeholder.placeholder}}
-                    {{#if placeholder.isComplex}}
-                      <button
-                        type="button"
-                        class="uk-button uk-button-link uk-text-danger uk-margin-small-left"
-                        {{on "click" (fn (mut this.showComplexInfo) true)}}
-                      >
-                        <UkIcon @icon="info" />
-                      </button>
-                    {{/if}}
-                  </div>
-                  <span class="uk-text-italic">{{placeholder.description}}</span>
-                </td>
-                {{#if @data}}
-                  <td>
-                    {{#if placeholder.isComplex}}
-                      <pre class="uk-width-medium">{{placeholder.value}}</pre>
-                    {{else if placeholder.isLink}}
-                      <a
-                        href={{placeholder.value}}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >{{placeholder.value}}</a>
-                    {{else}}
-                      {{placeholder.value}}
-                    {{/if}}
-                  </td>
-                {{/if}}
-              </tr>
-            {{/each}}
-          </tbody>
-        </table>
-      {{/if}}
+          {{/each}}
+        </tbody>
+      </table>
     {{/if}}
-  </div>
-{{/if}}
+  {{/if}}
+</div>
 
 <UkModal
   @visible={{this.showComplexInfo}}

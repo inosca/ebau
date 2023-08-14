@@ -48,7 +48,11 @@ from . import (
     validators,
 )
 from .domain_logic import link_instances
-from .placeholders.serializers import DMSPlaceholdersSerializer
+from .placeholders.serializers import (
+    BeDMSPlaceholdersSerializer,
+    DMSPlaceholdersSerializer,
+    GrDMSPlaceholdersSerializer,
+)
 
 
 class InstanceStateView(ReadOnlyModelViewSet):
@@ -163,7 +167,11 @@ class InstanceView(
                 "change_form": serializers.CalumaInstanceChangeFormSerializer,
                 "fix_work_items": serializers.CalumaInstanceFixWorkItemsSerializer,
                 "convert_modification": serializers.CalumaInstanceConvertModificationSerializer,
-                "dms_placeholders": DMSPlaceholdersSerializer,
+                "dms_placeholders": {
+                    "kt_bern": BeDMSPlaceholdersSerializer,
+                    "gr_bern": GrDMSPlaceholdersSerializer,
+                    "default": DMSPlaceholdersSerializer,
+                },
                 "appeal": serializers.CalumaInstanceAppealSerializer,
                 "default": serializers.CalumaInstanceSerializer,
                 "correction": serializers.CalumaInstanceCorrectionSerializer,
@@ -175,9 +183,13 @@ class InstanceView(
             },
         }
 
-        return SERIALIZER_CLASS[backend].get(
+        serializer_config = SERIALIZER_CLASS[backend].get(
             self.action, SERIALIZER_CLASS[backend]["default"]
         )
+        if type(serializer_config) == dict:
+            return serializer_config.get(settings.APPLICATION_NAME, "default")
+
+        return serializer_config
 
     @permission_aware
     def has_base_permission(self, instance):
