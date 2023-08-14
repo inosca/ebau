@@ -3404,6 +3404,45 @@ APPLICATIONS = {
                     "exclude_slugs": [
                         "is-paper",
                         "einreichen-button",
+                        "dokumente",
+                    ],
+                },
+                "bauanzeige": {
+                    "forms": [
+                        "bauanzeige",
+                    ],
+                    "template": "eingabequittung",
+                    "personalien": "personalien",
+                    "exclude_slugs": [
+                        "is-paper",
+                        "einreichen-button",
+                        "dokumente-ohne-pflichtdokumente",
+                        "dokumente-platzhalter",
+                    ],
+                },
+                "vorlaeufige-beurteilung": {
+                    "forms": [
+                        "vorlaeufige-beurteilung",
+                    ],
+                    "template": "eingabequittung",
+                    "personalien": "personalien",
+                    "exclude_slugs": [
+                        "is-paper",
+                        "einreichen-button",
+                        "dokumente-ohne-pflichtdokumente",
+                        "dokumente-platzhalter",
+                    ],
+                },
+                "solaranlage": {
+                    "forms": [
+                        "solaranlage",
+                    ],
+                    "template": "eingabequittung",
+                    "personalien": "personalien",
+                    "exclude_slugs": [
+                        "is-paper",
+                        "einreichen-button",
+                        "dokumente-ohne-pflichtdokumente",
                         "dokumente-platzhalter",
                     ],
                 },
