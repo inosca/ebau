@@ -14,7 +14,7 @@ from camac.user.models import Service
 from camac.utils import build_url
 
 from ..master_data import MasterData
-from . import dms_aliases, fields
+from . import fields
 from .utils import clean_join, get_option_label, human_readable_date
 
 
@@ -99,10 +99,6 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
     administrative_district = fields.AliasedMethodField(
         aliases=[_("ADMINISTRATIVE_DISTRICT")],
         description=_("Administrative district"),
-    )
-    alcohol_serving = fields.MasterDataField(
-        aliases=[_("ALCOHOL_SERVING")],
-        description=_("With or without alcohol serving"),
     )
     alle_gebaeudeeigentuemer_name_address = fields.MasterDataPersonField(
         source="building_owners",
@@ -292,11 +288,6 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
         description=_("Project modification"),
     )
     dossier_link = fields.AliasedMethodField()
-    ebau_number = fields.MasterDataField(
-        source="dossier_number",
-        aliases=[_(dms_aliases.get("DOSSIER_NUMBER"))],
-        description=_("The eBau number of the instance"),
-    )
     eigene_gebuehren_total = fields.BillingEntriesField(
         own=True,
         total=True,
@@ -467,11 +458,6 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
         only_first=True,
         aliases=[_("LANDOWNER")],
         description=_("Name of the landowner"),
-    )
-    instance_id = fields.AliasedIntegerField(
-        source="pk",
-        aliases=[_(dms_aliases.get("INSTANCE_ID"))],
-        description=_("ID of the instance"),
     )
     interior_seating = fields.MasterDataField(
         sum_by="total_seats",
@@ -1004,3 +990,33 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
 
     def get_uvp_ja_nein(self, instance):
         return "mit-uvp" in instance.case.document.form_id
+
+
+class GrDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
+    instance_id = fields.AliasedIntegerField(
+        source="pk",
+        aliases=[_("ID")],
+        description=_("ID of the instance"),
+    )
+    dossier_number = fields.AliasedIntegerField(
+        source="pk",
+        aliases=[_("DOSSIER_NUMBER")],
+        description=_("Dossier number of the instance"),
+    )
+
+
+class BeDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
+    ebau_number = fields.MasterDataField(
+        source="dossier_number",
+        aliases=[_("EBAU_NUMBER")],
+        description=_("The eBau number of the instance"),
+    )
+    instance_id = fields.AliasedIntegerField(
+        source="pk",
+        aliases=[_("INSTANCE_ID")],
+        description=_("ID of the instance"),
+    )
+    alcohol_serving = fields.MasterDataField(
+        aliases=[_("ALCOHOL_SERVING")],
+        description=_("With or without alcohol serving"),
+    )
