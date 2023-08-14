@@ -3192,6 +3192,7 @@ APPLICATIONS = {
         },
         "USE_CAMAC_ADMIN": False,
         "LOG_NOTIFICATIONS": True,
+        "STORE_PDF": {"SECTION": 1},
         # Mapping between camac role and instance permission.
         "ROLE_PERMISSIONS": {
             "municipality-lead": "municipality",

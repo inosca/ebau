@@ -3,6 +3,8 @@ from datetime import date, datetime
 from pathlib import Path
 
 import pytest
+from alexandria.core.factories import CategoryFactory
+from alexandria.core.models import Document as AlexandriaDocument
 from caluma.caluma_form import (
     factories as caluma_form_factories,
     models as caluma_form_models,
@@ -1586,6 +1588,7 @@ def test_generate_and_store_pdf(
     caluma_workflow_config_be,
     caluma_admin_user,
 ):
+    application_settings["DOCUMENT_BACKEND"] = "camac-ng"
     mocker.patch("camac.caluma.api.CalumaApi.is_paper", lambda s, i: paper)
 
     attachment_section_default = attachment_section_factory()
@@ -1638,6 +1641,49 @@ def test_generate_and_store_pdf(
 
     assert attachment_section_paper.attachments.count() == 1 if paper else 0
     assert attachment_section_default.attachments.count() == 0 if paper else 1
+
+
+def test_generate_and_store_pdf_in_alexandria(
+    db,
+    gr_instance,
+    application_settings,
+    caluma_admin_user,
+    mocker,
+):
+    application_settings["STORE_PDF"] = True
+    application_settings["DOCUMENT_BACKEND"] = "alexandria"
+
+    client = mocker.patch(
+        "camac.instance.document_merge_service.DMSClient"
+    ).return_value
+    client.merge.return_value = b"some binary data"
+    mocker.patch("camac.instance.document_merge_service.DMSVisitor.visit")
+    mocker.patch("camac.instance.serializers.CalumaInstanceSubmitSerializer.context")
+
+    serializer = CalumaInstanceSubmitSerializer()
+
+    application_settings["DOCUMENT_MERGE_SERVICE"] = {
+        "FORM": {
+            "main-form": {"template": "some-template"},
+        },
+    }
+
+    workflow_api.complete_work_item(
+        work_item=gr_instance.case.work_items.get(task_id="submit"),
+        user=caluma_admin_user,
+    )
+
+    alexandria_category = CategoryFactory(pk="beilagen-zum-gesuch")
+
+    document = AlexandriaDocument.objects.create(
+        title="Test",
+        category=alexandria_category,
+        metainfo={"camac-instance-id": gr_instance.pk},
+    )
+
+    serializer._generate_and_store_pdf(gr_instance)
+
+    assert document.instance_document.instance.pk == gr_instance.pk
 
 
 @pytest.mark.parametrize(
