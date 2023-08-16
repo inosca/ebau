@@ -358,6 +358,7 @@ export default class CaseTableComponent extends Component {
           }
         : macroCondition(getOwnConfig().application === "gr")
         ? {
+            location: undefined,
             tags: this.args.filter.tags,
             decision: this.args.filter.decision,
           }
