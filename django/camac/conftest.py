@@ -51,6 +51,7 @@ from camac.dossier_import import factories as dossier_import_factories
 from camac.ech0211 import factories as ech_factories
 from camac.ech0211.urls import BEUrlsConf, SZUrlsConf
 from camac.faker import FreezegunAwareDatetimeProvider
+from camac.gis import factories as gis_factories
 from camac.instance import factories as instance_factories
 from camac.instance.serializers import SUBMIT_DATE_FORMAT
 from camac.notification import factories as notification_factories
@@ -103,6 +104,7 @@ register_module(ech_factories)
 register_module(objection_factories)
 register_module(tags_factories)
 register_module(communications_factories)
+register_module(gis_factories)
 
 # caluma factories
 register_module(caluma_form_factories, prefix="caluma")

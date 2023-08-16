@@ -1,0 +1,56 @@
+[
+  {
+    "model": "gis.gisconfig",
+    "pk": "gemeinde",
+    "fields": {
+      "client": "camac.gis.clients.sogis.SoGisClient",
+      "config": {
+        "layer": "ch.so.agi.gemeindegrenzen.data",
+        "properties": {
+          "gemeindename": {
+            "question": "gemeinde"
+          }
+        }
+      },
+      "disabled": false
+    }
+  },
+  {
+    "model": "gis.gisconfig",
+    "pk": "koordinaten",
+    "fields": {
+      "client": "camac.gis.clients.param.ParamClient",
+      "config": {
+        "x": {
+          "cast": "float",
+          "question": "parzellen.lagekoordinaten-ost"
+        },
+        "y": {
+          "cast": "float",
+          "question": "parzellen.lagekoordinaten-nord"
+        }
+      },
+      "disabled": false
+    }
+  },
+  {
+    "model": "gis.gisconfig",
+    "pk": "parzelle",
+    "fields": {
+      "client": "camac.gis.clients.sogis.SoGisClient",
+      "config": {
+        "layer": "ch.so.agi.av.grundstuecke.rechtskraeftig.data",
+        "properties": {
+          "egrid": {
+            "question": "parzellen.e-grid"
+          },
+          "nummer": {
+            "cast": "integer",
+            "question": "parzellen.parzellennummer"
+          }
+        }
+      },
+      "disabled": false
+    }
+  }
+]

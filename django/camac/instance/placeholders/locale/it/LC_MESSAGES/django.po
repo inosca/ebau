@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-27 18:26+0200\n"
+"POT-Creation-Date: 2023-08-21 16:48+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,88 +30,88 @@ msgstr ""
 msgid "AMOUNT"
 msgstr ""
 
-#: camac/instance/placeholders/fields.py:266
+#: camac/instance/placeholders/fields.py:269
 msgid "ANSWER"
 msgstr ""
 
-#: camac/instance/placeholders/fields.py:267
+#: camac/instance/placeholders/fields.py:270
 msgid "ANSWERED"
 msgstr ""
 
-#: camac/instance/placeholders/fields.py:268
+#: camac/instance/placeholders/fields.py:271
 msgid "CREATED"
 msgstr ""
 
-#: camac/instance/placeholders/fields.py:269
+#: camac/instance/placeholders/fields.py:272
 msgid "SERVICE"
 msgstr ""
 
-#: camac/instance/placeholders/fields.py:270
+#: camac/instance/placeholders/fields.py:273
 msgid "DEADLINE"
 msgstr ""
 
-#: camac/instance/placeholders/fields.py:271
-#: camac/instance/placeholders/fields.py:473
-#: camac/instance/placeholders/fields.py:596
+#: camac/instance/placeholders/fields.py:274
+#: camac/instance/placeholders/fields.py:476
+#: camac/instance/placeholders/fields.py:599
 msgid "NAME"
 msgstr ""
 
-#: camac/instance/placeholders/fields.py:272
+#: camac/instance/placeholders/fields.py:275
 #: camac/instance/placeholders/serializers.py:642
 msgid "ANCILLARY_CLAUSES"
 msgstr ""
 
-#: camac/instance/placeholders/fields.py:273
+#: camac/instance/placeholders/fields.py:276
 msgid "OPINION"
 msgstr ""
 
-#: camac/instance/placeholders/fields.py:274
+#: camac/instance/placeholders/fields.py:277
 msgid "TEXT"
 msgstr ""
 
-#: camac/instance/placeholders/fields.py:275
+#: camac/instance/placeholders/fields.py:278
 msgid "BY"
 msgstr ""
 
-#: camac/instance/placeholders/fields.py:385
+#: camac/instance/placeholders/fields.py:388
 msgid "DATE_DOCUMENT"
 msgstr ""
 
-#: camac/instance/placeholders/fields.py:386
+#: camac/instance/placeholders/fields.py:389
 msgid "DATE_RECEIPT"
 msgstr ""
 
-#: camac/instance/placeholders/fields.py:387
+#: camac/instance/placeholders/fields.py:390
 #: camac/instance/placeholders/serializers.py:670
 msgid "LEGAL_CLAIMANTS"
 msgstr ""
 
-#: camac/instance/placeholders/fields.py:388
+#: camac/instance/placeholders/fields.py:391
 msgid "TITLE"
 msgstr ""
 
-#: camac/instance/placeholders/fields.py:392
+#: camac/instance/placeholders/fields.py:395
 msgid "REPRIMANDS"
 msgstr ""
 
-#: camac/instance/placeholders/fields.py:394
+#: camac/instance/placeholders/fields.py:397
 msgid "REQUEST"
 msgstr ""
 
-#: camac/instance/placeholders/fields.py:394
+#: camac/instance/placeholders/fields.py:397
 msgid "CONCERN"
 msgstr ""
 
-#: camac/instance/placeholders/fields.py:473
+#: camac/instance/placeholders/fields.py:476
 #: camac/instance/placeholders/serializers.py:96
 msgid "ADDRESS"
 msgstr ""
 
-#: camac/instance/placeholders/fields.py:594
+#: camac/instance/placeholders/fields.py:597
 msgid "ADDRESS_1"
 msgstr ""
 
-#: camac/instance/placeholders/fields.py:595
+#: camac/instance/placeholders/fields.py:598
 msgid "ADDRESS_2"
 msgstr ""
 
