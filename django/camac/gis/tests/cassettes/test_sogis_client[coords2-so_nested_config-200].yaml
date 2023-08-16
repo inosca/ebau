@@ -1,0 +1,50 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: https://geo-i.so.ch/api/data/v1/ch.so.agi.av.grundstuecke.rechtskraeftig.data/?bbox=2607160.642708333,1228434.884375,2607160.642708333,1228434.884375
+  response:
+    body:
+      string: '{"type": "FeatureCollection", "features": [{"type": "Feature", "id":
+        15123582, "geometry": {"type": "Polygon", "coordinates": [[[2607134.538, 1228425.539],
+        [2607159.839, 1228452.789], [2607159.626, 1228452.976], [2607163.969, 1228457.741],
+        [2607181.523, 1228441.805], [2607177.022, 1228436.926], [2607151.654, 1228409.464],
+        [2607134.538, 1228425.539]]]}, "properties": {"nummer": "850", "art_txt":
+        "Liegenschaft", "egrid": "CH354732700648", "nbident": "SO0200002601"}}], "crs":
+        {"type": "name", "properties": {"name": "urn:ogc:def:crs:EPSG::2056"}}, "bbox":
+        [2607134.538, 1228409.464, 2607181.523, 1228457.741]}
+
+        '
+    headers:
+      Connection:
+      - Keep-Alive
+      Date:
+      - Mon, 21 Aug 2023 16:09:59 GMT
+      Keep-Alive:
+      - timeout=10, max=300
+      Server:
+      - Kanton Solothurn
+      Set-Cookie:
+      - SCDID_S=0aUlEvmi_c2rFPGEP88828DUQmP2CO2622SyAYBPsaSlXJtgTnBr1A$$; path=/;
+        Secure; HttpOnly
+      access-control-allow-origin:
+      - '*'
+      cache-control:
+      - private
+      content-length:
+      - '612'
+      content-type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+version: 1

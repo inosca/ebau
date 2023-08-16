@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-07 17:28+0200\n"
+"POT-Creation-Date: 2023-08-21 16:48+0200\n"
 "PO-Revision-Date: 2023-08-07 17:32+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -68,7 +68,7 @@ msgstr "Transmettre la notification à l'AWA"
 msgid "Inform load compensation bodies"
 msgstr "Informer requérants en compensation des charges"
 
-#: camac/caluma/extensions/validations.py:219
+#: camac/caluma/extensions/validations.py:223
 msgid "Issue statement on appeal"
 msgstr "Prendre position sur le recours"
 
@@ -438,6 +438,14 @@ msgstr "DC1 envoyé"
 msgid "SB2 submitted"
 msgstr "DC2 envoyé"
 
+#: camac/gis/models.py:10
+msgid "GIS Canton Solothurn"
+msgstr ""
+
+#: camac/gis/models.py:11
+msgid "Parameter"
+msgstr ""
+
 #: camac/instance/document_merge_service.py:83
 #: camac/instance/export/serializers.py:85
 #: camac/instance/export/serializers.py:174 camac/user/models.py:76
@@ -624,7 +632,7 @@ msgstr ""
 msgid "Decision Date Cantonal"
 msgstr ""
 
-#: camac/instance/mixins.py:457 camac/instance/mixins.py:494
+#: camac/instance/mixins.py:463 camac/instance/mixins.py:500
 #, python-format
 msgid "Not allowed to add data to instance %(instance)s"
 msgstr "Pas autorisé à ajouter des données à l'instance %(instance)s"
@@ -918,23 +926,27 @@ msgstr "delete_by_purpose n'a pas été fourni avec le paramètre requis"
 msgid "Objection %(objection) already has a representative"
 msgstr "Objection %(objection) a déjà un représentant"
 
-#: camac/settings.py:1470 camac/settings.py:3275
+#: camac/settings.py:1476 camac/settings.py:3260
 msgid "Circulation started"
 msgstr "Procédure de circulation lancée"
 
-#: camac/settings.py:1487
+#: camac/settings.py:1493
 msgid "Procedure completed"
 msgstr "Procédure de demande de permis de construire complétée"
 
-#: camac/settings.py:4006
+#: camac/settings.py:3256
+msgid "Formal exam performed"
+msgstr ""
+
+#: camac/settings.py:4034
 msgid "German"
 msgstr "Allemand"
 
-#: camac/settings.py:4007
+#: camac/settings.py:4035
 msgid "French"
 msgstr "Français"
 
-#: camac/settings.py:4008
+#: camac/settings.py:4036
 msgid "Italian"
 msgstr "L'italien"
 

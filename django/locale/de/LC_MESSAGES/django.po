@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-08 16:06+0200\n"
+"POT-Creation-Date: 2023-08-21 16:48+0200\n"
 "PO-Revision-Date: 2023-08-08 16:06+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -69,7 +69,7 @@ msgstr "Meldeformular an AWA weiterleiten"
 msgid "Inform load compensation bodies"
 msgstr "Lastenausgleichstellende informieren"
 
-#: camac/caluma/extensions/validations.py:221
+#: camac/caluma/extensions/validations.py:223
 msgid "Issue statement on appeal"
 msgstr "Stellungnahme zu Beschwerde abgeben"
 
@@ -436,6 +436,14 @@ msgstr "SB1 eingereicht"
 #: camac/ech0211/event_handlers.py:290 camac/instance/serializers.py:1853
 msgid "SB2 submitted"
 msgstr "SB2 eingereicht"
+
+#: camac/gis/models.py:10
+msgid "GIS Canton Solothurn"
+msgstr "GIS Kanton Solothurn"
+
+#: camac/gis/models.py:11
+msgid "Parameter"
+msgstr "Parameter"
 
 #: camac/instance/document_merge_service.py:83
 #: camac/instance/export/serializers.py:85
@@ -911,27 +919,27 @@ msgstr ""
 msgid "Objection %(objection) already has a representative"
 msgstr "Einsprache %(objection) hat bereits einen Vertreter"
 
-#: camac/settings.py:1470 camac/settings.py:3254
+#: camac/settings.py:1476 camac/settings.py:3260
 msgid "Circulation started"
 msgstr "Zirkulation gestartet"
 
-#: camac/settings.py:1487
+#: camac/settings.py:1493
 msgid "Procedure completed"
 msgstr "Baugesuchsverfahren abgeschlossen"
 
-#: camac/settings.py:3250
+#: camac/settings.py:3256
 msgid "Formal exam performed"
 msgstr "Vorläufige Prüfung durchgeführt"
 
-#: camac/settings.py:3977
+#: camac/settings.py:4034
 msgid "German"
 msgstr "Deutsch"
 
-#: camac/settings.py:3978
+#: camac/settings.py:4035
 msgid "French"
 msgstr "Französisch"
 
-#: camac/settings.py:3979
+#: camac/settings.py:4036
 msgid "Italian"
 msgstr "Italienisch"
 
