@@ -6,5 +6,5 @@ corrections:
     description-finish: "Sie können die Dossierkorrektur jetzt im Menü <a href={link}>Formular</a> vornehmen. Bitte vergessen sie nicht die Korrektur anschliessend abzuschliessen."
     button-finish: "Korrektur abschliessen"
 
-    confirm: "Bitte beachten Sie, dass die Dossierkorrektur nur für kleine Änderungen gedacht ist. Bitte prüfen Sie, ob allenfalls eine Rückweisung angebracht wäre.<br><br>Wollen Sie mit der Dossierkorrektur fortfahren?"
+    confirm: "Bitte beachten Sie, dass die Dossierkorrektur nur für kleine Änderungen gedacht ist (z.B. Korrektur von Kontaktinformationen, Präzisierung Baubeschrieb). Gegebenenfalls sind die Gesuchstellenden über die Änderungen zu informieren.<br><br>Bitte prüfen Sie bei grösserem Änderungsbedarf, ob allenfalls eine Rückweisung angebracht wäre."
     error: "Fehler beim Korrigieren des Dossiers"
