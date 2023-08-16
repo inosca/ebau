@@ -1204,7 +1204,7 @@
       "template": "/ember-camac-ng/alexandria.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 30,
+      "sort": 26,
       "form_group": 2000000
     }
   },
@@ -1219,7 +1219,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 24,
+      "sort": 25,
       "form_group": 2000000
     }
   },
@@ -1234,7 +1234,7 @@
       "template": "/ember/instance.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 25,
+      "sort": 27,
       "form_group": 2000000
     }
   },
@@ -1249,7 +1249,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 26,
+      "sort": 28,
       "form_group": 2000000
     }
   },
@@ -1264,7 +1264,7 @@
       "template": "/ember-camac-ng/journal.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 27,
+      "sort": 29,
       "form_group": 2000000
     }
   },
@@ -1279,7 +1279,7 @@
       "template": "/ember-camac-ng/dms-generate.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 28,
+      "sort": 30,
       "form_group": 2000000
     }
   },
@@ -1294,7 +1294,7 @@
       "template": "/ember-camac-ng/distribution.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 29,
+      "sort": 31,
       "form_group": 2000000
     }
   },
@@ -1310,6 +1310,21 @@
       "class_field": null,
       "hidden": 0,
       "sort": 8,
+      "form_group": 2000000
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 12000007,
+    "fields": {
+      "available_instance_resource": "editformpage",
+      "resource": 150000,
+      "name": null,
+      "description": null,
+      "template": "/ember-camac-ng/alexandria.phtml",
+      "class_field": null,
+      "hidden": 0,
+      "sort": 19,
       "form_group": 2000000
     }
   },
@@ -1369,7 +1384,7 @@
       "template": "/ember/instance.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 19,
+      "sort": 20,
       "form_group": 2000000
     }
   },
@@ -1414,7 +1429,7 @@
       "template": "/ember-camac-ng/distribution.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 23,
+      "sort": 24,
       "form_group": 2000000
     }
   },
@@ -1459,7 +1474,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 21,
+      "sort": 22,
       "form_group": 2000000
     }
   },
@@ -1504,7 +1519,7 @@
       "template": "/ember-camac-ng/dms-generate.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 22,
+      "sort": 23,
       "form_group": 2000000
     }
   },
@@ -1594,7 +1609,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 20,
+      "sort": 21,
       "form_group": 2000000
     }
   },
@@ -2088,6 +2103,16 @@
   },
   {
     "model": "core.instanceresourcet",
+    "pk": 12000007,
+    "fields": {
+      "instance_resource": 12000007,
+      "language": "de",
+      "name": "Dokumente",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
     "pk": 14000001,
     "fields": {
       "instance_resource": 14000001,
@@ -2526,7 +2551,7 @@
     "pk": 2000022,
     "fields": {
       "instance_resource": 2000004,
-      "role": 10000,
+      "role": 20000,
       "instance_state": 1
     }
   },
@@ -2535,7 +2560,7 @@
     "pk": 2000023,
     "fields": {
       "instance_resource": 2000004,
-      "role": 10000,
+      "role": 20000,
       "instance_state": 120004
     }
   },
@@ -2544,7 +2569,7 @@
     "pk": 2000024,
     "fields": {
       "instance_resource": 2000004,
-      "role": 10000,
+      "role": 20000,
       "instance_state": 120005
     }
   },
@@ -2553,7 +2578,7 @@
     "pk": 2000025,
     "fields": {
       "instance_resource": 2000004,
-      "role": 10000,
+      "role": 20000,
       "instance_state": 120006
     }
   },
@@ -2562,7 +2587,7 @@
     "pk": 2000026,
     "fields": {
       "instance_resource": 2000004,
-      "role": 10000,
+      "role": 20000,
       "instance_state": 120007
     }
   },
@@ -2571,7 +2596,7 @@
     "pk": 2000027,
     "fields": {
       "instance_resource": 2000004,
-      "role": 10000,
+      "role": 20000,
       "instance_state": 120008
     }
   },
@@ -2580,7 +2605,7 @@
     "pk": 2000028,
     "fields": {
       "instance_resource": 2000004,
-      "role": 10000,
+      "role": 20000,
       "instance_state": 120009
     }
   },
@@ -2753,6 +2778,69 @@
       "instance_resource": 12000006,
       "role": 3,
       "instance_state": 120007
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000027,
+    "fields": {
+      "instance_resource": 12000007,
+      "role": 10000,
+      "instance_state": 120005
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000028,
+    "fields": {
+      "instance_resource": 12000007,
+      "role": 10000,
+      "instance_state": 1
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000029,
+    "fields": {
+      "instance_resource": 12000007,
+      "role": 10000,
+      "instance_state": 120004
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000030,
+    "fields": {
+      "instance_resource": 12000007,
+      "role": 10000,
+      "instance_state": 120006
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000031,
+    "fields": {
+      "instance_resource": 12000007,
+      "role": 10000,
+      "instance_state": 120007
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000032,
+    "fields": {
+      "instance_resource": 12000007,
+      "role": 10000,
+      "instance_state": 120008
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000033,
+    "fields": {
+      "instance_resource": 12000007,
+      "role": 10000,
+      "instance_state": 120009
     }
   },
   {
