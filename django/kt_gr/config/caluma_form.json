@@ -2449,7 +2449,7 @@
       "modified_by_group": null,
       "form": "allgemeine-informationen",
       "question": "allgemeine-angaben",
-      "sort": 1
+      "sort": 3
     }
   },
   {
@@ -2464,7 +2464,7 @@
       "modified_by_group": null,
       "form": "allgemeine-informationen",
       "question": "bauvorhaben",
-      "sort": 2
+      "sort": 1
     }
   },
   {
@@ -2479,7 +2479,7 @@
       "modified_by_group": null,
       "form": "allgemeine-informationen",
       "question": "personalien",
-      "sort": 3
+      "sort": 2
     }
   },
   {
@@ -3784,7 +3784,7 @@
       "modified_by_group": null,
       "form": "bauanzeige",
       "question": "allgemeine-angaben",
-      "sort": 5
+      "sort": 7
     }
   },
   {
@@ -3799,7 +3799,7 @@
       "modified_by_group": null,
       "form": "bauanzeige",
       "question": "bauvorhaben",
-      "sort": 6
+      "sort": 5
     }
   },
   {
@@ -3874,7 +3874,7 @@
       "modified_by_group": null,
       "form": "bauanzeige",
       "question": "personalien",
-      "sort": 7
+      "sort": 6
     }
   },
   {
@@ -12124,7 +12124,7 @@
       "modified_by_group": null,
       "form": "solaranlage",
       "question": "allgemeine-angaben",
-      "sort": 4
+      "sort": 6
     }
   },
   {
@@ -12139,7 +12139,7 @@
       "modified_by_group": null,
       "form": "solaranlage",
       "question": "bauvorhaben",
-      "sort": 5
+      "sort": 4
     }
   },
   {
@@ -12184,7 +12184,7 @@
       "modified_by_group": null,
       "form": "solaranlage",
       "question": "personalien",
-      "sort": 6
+      "sort": 5
     }
   },
   {
