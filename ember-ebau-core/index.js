@@ -31,6 +31,7 @@ module.exports = {
         isUR: ENV === "ur",
         isSO: ENV === "so",
         excelExportEnabled: ["be", "sz"].includes(ENV),
+        soGisUrl: process.env.SO_GIS_URL || "https://geo-i.so.ch",
       },
     },
   },

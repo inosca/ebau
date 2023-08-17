@@ -3,6 +3,7 @@ import { inject as service } from "@ember/service";
 import CalculatedPublicationDateComponent from "ember-ebau-core/components/calculated-publication-date";
 import InquiryAnswerStatus from "ember-ebau-core/components/inquiry-answer-status";
 import PublicationDateKantonsamtsblattComponent from "ember-ebau-core/components/publication-date-kantonsamtsblatt";
+import SoGisComponent from "ember-ebau-core/components/so-gis";
 
 export default class ApplicationRoute extends Route {
   @service session;
@@ -33,6 +34,11 @@ export default class ApplicationRoute extends Route {
       label: "Publikationsbeginn Kanton (jeweils Donnerstag)",
       component: "publication-date-kantonsamtsblatt",
       componentClass: PublicationDateKantonsamtsblattComponent,
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "GIS-Karte (Kt. SO)",
+      component: "so-gis",
+      componentClass: SoGisComponent,
     });
   }
 }

@@ -9,6 +9,7 @@ import DocumentValidityButtonComponent from "ember-ebau-core/components/document
 import InquiryAnswerStatus from "ember-ebau-core/components/inquiry-answer-status";
 import LinkAttachmentsComponent from "ember-ebau-core/components/link-attachments";
 import PublicationDateKantonsamtsblattComponent from "ember-ebau-core/components/publication-date-kantonsamtsblatt";
+import SoGisComponent from "ember-ebau-core/components/so-gis";
 import UrGisComponent from "ember-ebau-core/components/ur-gis";
 
 import AlexandriaDocumentsFormComponent from "caluma-portal/components/alexandria-documents-form";
@@ -151,6 +152,11 @@ export default class ApplicationRoute extends Route {
       label: "Publikationsbeginn Kanton (jeweils Donnerstag)",
       component: "publication-date-kantonsamtsblatt",
       componentClass: PublicationDateKantonsamtsblattComponent,
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "GIS-Karte (Kt. SO)",
+      component: "so-gis",
+      componentClass: SoGisComponent,
     });
   }
 }
