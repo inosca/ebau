@@ -90,6 +90,28 @@ class CreateInstanceLogic:
                 instance=instance, location_id=instance.location_id
             )
 
+    def generate_identifier_gr(instance: Instance) -> str:
+        year = timezone.now().year
+        case = (
+            workflow_models.Case.objects.filter(
+                **{"meta__dossier-number__isnull": False}
+            )
+            .order_by("-meta__dossier-number")
+            .first()
+        )
+
+        if not case or "dossier-number" not in case.meta:
+            return "-".join([str(year), "1"])
+
+        last_position = int(case.meta["dossier-number"].split("-")[-1])
+
+        return "-".join(
+            [
+                str(year),
+                str(last_position + 1),
+            ]
+        )
+
     def generate_identifier(
         instance: Instance,
         year: int = None,

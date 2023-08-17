@@ -4,7 +4,7 @@ import { getAnswer } from "ember-ebau-core/utils/get-answer";
 // TODO copy of BE
 export default class CustomCaseModel extends CustomCaseBaseModel {
   get dossierNumber() {
-    return this.raw.meta["ebau-number"];
+    return this.raw.meta["dossier-number"];
   }
 
   get form() {
