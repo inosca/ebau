@@ -23,7 +23,7 @@
   <table class="uk-table uk-table-striped uk-table-hover uk-table-responsive">
     <thead>
       <tr>
-        <th class="uk-text-nowrap">{{if (is-application "gr") (t "instances.instance-id") (t "instances.special-id")}}</th>
+        <th class="uk-text-nowrap">{{t "instances.special-id"}}</th>
         <th class="uk-text-nowrap">{{t "instances.municipality"}}</th>
         <th class="uk-text-nowrap">{{t "publicInstances.applicant"}}</th>
         <th class="uk-text-nowrap">{{t "instances.description"}}</th>
@@ -43,7 +43,7 @@
               @route="public-instances.detail"
               @model={{publicInstance.instanceId}}
             >
-              {{if (is-application "gr") publicInstance.instanceId publicInstance.dossierNr}}
+              {{publicInstance.dossierNr}}
             </LinkTo>
           </td>
           <td>{{publicInstance.municipality}}</td>

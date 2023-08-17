@@ -1388,9 +1388,11 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
     def _generate_identifier(self, case, instance):
         if settings.APPLICATION["CALUMA"].get("GENERATE_IDENTIFIER"):
             # Give dossier a unique dossier number
-            case.meta[
-                "dossier-number"
-            ] = domain_logic.CreateInstanceLogic.generate_identifier(instance)
+            case.meta["dossier-number"] = (
+                domain_logic.CreateInstanceLogic.generate_identifier_gr(instance)
+                if settings.APPLICATION_NAME == "kt_gr"
+                else domain_logic.CreateInstanceLogic.generate_identifier(instance)
+            )
             case.save()
 
     def _check_authority_for_forest_dossiers(self, instance):

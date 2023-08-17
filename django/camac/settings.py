@@ -3242,7 +3242,7 @@ APPLICATIONS = {
             "FORM_PERMISSIONS": ["main", "inquiry", "inquiry-answer"],
             "HAS_PROJECT_CHANGE": True,
             "CREATE_IN_PROCESS": False,
-            "GENERATE_IDENTIFIER": False,
+            "GENERATE_IDENTIFIER": True,
             "USE_LOCATION": False,
             "SAVE_DOSSIER_NUMBER_IN_CALUMA": True,
             "MODIFICATION_ALLOW_FORMS": [
