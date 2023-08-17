@@ -146,7 +146,7 @@ services:
       - DATABASE_USER=camac
       - DATABASE_PASSWORD=camac
       - URL_PREFIX=document-merge-service/
-      - EXTENSIONS_ARGUMENTS=DJANGO_API=http://ember-ebau.local
+      - EXTENSIONS_ARGUMENTS=DJANGO_API=http://django
       - AWS_S3_ACCESS_KEY_ID=minio
       - AWS_S3_SECRET_ACCESS_KEY=minio123
       - AWS_S3_ENDPOINT_URL=http://minio:9000

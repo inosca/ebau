@@ -149,7 +149,7 @@ services:
       - DATABASE_USER=camac
       - DATABASE_PASSWORD=camac
       - URL_PREFIX=document-merge-service/
-      - EXTENSIONS_ARGUMENTS=DJANGO_API=http://ebau.local
+      - EXTENSIONS_ARGUMENTS=DJANGO_API=http://django
     user: "${UID:?Set UID env variable to your user id}"
     volumes:
       - ../document-merge-service/uwsgi.ini:/app/uwsgi.ini:ro
