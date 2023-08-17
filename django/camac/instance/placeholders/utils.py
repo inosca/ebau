@@ -1,7 +1,9 @@
 from datetime import date, datetime
 from typing import Any, Optional, Union
 
+from alexandria.core import models as alexandria_models
 from babel.dates import format_date
+from django.conf import settings
 from django.utils.translation import get_language
 
 
@@ -102,3 +104,21 @@ def human_readable_date(value: Union[datetime, date, None]) -> str:
         return None
 
     return format_date(value, "long", locale=get_language())
+
+
+def prepare_documents(instance):
+    if settings.APPLICATION["DOCUMENT_BACKEND"] == "camac-ng":  # pragma: no cover
+        # not implemented
+        return []
+
+    alexandria_document_filter = {"metainfo__camac-instance-id": instance.pk}
+
+    documents = alexandria_models.Document.objects.filter(**alexandria_document_filter)
+
+    data = []
+    for document in documents:
+        data.append(
+            f"{document.title['de']}, erstellt am {document.created_at.strftime('%d.%m.%Y um %H:%M Uhr')}"
+        )
+
+    return data

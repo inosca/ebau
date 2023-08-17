@@ -400,6 +400,7 @@ APPLICATIONS = {
             "responsible_koor",
         ],
         "ATTACHMENT_SECTION_INTERNAL": 4,
+        "DOCUMENT_BACKEND": "alexandria",
         "DOCUMENT_MERGE_SERVICE": {},
         "ALEXANDRIA": {
             "PUBLIC_ROLE": "applicant",
@@ -1672,6 +1673,7 @@ APPLICATIONS = {
             },
             "ALLOWED_SERVICE_GROUPS": {"SB1": [3], "SB2": [3], "DEFAULT": [2, 20000]},
         },
+        "DOCUMENT_BACKEND": "camac-ng",
         "DOCUMENT_MERGE_SERVICE": {
             "FORM": {
                 "_base": {
@@ -2222,6 +2224,7 @@ APPLICATIONS = {
                 "MAIN": {"DEFAULT": 12000000, "PAPER": 12000000},
             },
         },
+        "DOCUMENT_BACKEND": "camac-ng",
         "DOCUMENT_MERGE_SERVICE": {
             "FORM": {
                 "building-permit": {
@@ -2952,6 +2955,7 @@ APPLICATIONS = {
             **DISTRIBUTION_DUMP_CONFIG,
         },
         "ATTACHMENT_SECTION_INTERNAL": 4,
+        "DOCUMENT_BACKEND": "camac-ng",
         "DOCUMENT_MERGE_SERVICE": {
             "FORM": {
                 "_base": {
@@ -3367,6 +3371,7 @@ APPLICATIONS = {
             "user.ServiceT",
         ],
         "ALEXANDRIA": {"PUBLIC_TAGS": ALEXANDRIA_PUBLIC_TAGS},
+        "DOCUMENT_BACKEND": "alexandria",
         "DOCUMENT_MERGE_SERVICE": {
             "FORM": {
                 "_base": {
@@ -3781,6 +3786,7 @@ APPLICATIONS = {
             },
         },
         "REJECTION_FEEDBACK_QUESTION": {},
+        "DOCUMENT_BACKEND": "alexandria",
         "DOCUMENT_MERGE_SERVICE": {
             "FORM": {
                 "_base": {
