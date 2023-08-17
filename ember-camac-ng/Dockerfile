@@ -4,7 +4,9 @@ COPY package.json yarn.lock /myapp/
 COPY ember-ebau-core/package.json /myapp/ember-ebau-core/
 COPY ember-camac-ng/package.json /myapp/ember-camac-ng/
 
-RUN yarn workspace camac-ng install
+RUN --mount=type=cache,target=.yarn \
+  YARN_CACHE_FOLDER=.yarn \
+  yarn workspace camac-ng install
 
 COPY ember-ebau-core /myapp/ember-ebau-core
 COPY ember-camac-ng /myapp/ember-camac-ng
