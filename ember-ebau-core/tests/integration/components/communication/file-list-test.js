@@ -34,6 +34,14 @@ module("Integration | Component | communication/file-list", function (hooks) {
       id = 1;
       name = "File A";
       downloadUrl = "test";
+      documentAttachment = {
+        content: {
+          context: {
+            displayName: "New Name File A",
+            isReplaced: true,
+          },
+        },
+      };
       @task download() {}
     };
 
