@@ -199,7 +199,7 @@ services:
       - DATABASE_PASSWORD=camac
       - OIDC_USERINFO_ENDPOINT=http://ebau-keycloak.local/auth/realms/ebau/protocol/openid-connect/userinfo
       - OIDC_BEARER_TOKEN_REVALIDATION_TIME=300
-      - EXTENSIONS_ARGUMENTS=DJANGO_API=http://ebau.local
+      - EXTENSIONS_ARGUMENTS=DJANGO_API=http://django
 
 volumes:
   pgdata:

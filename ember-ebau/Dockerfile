@@ -4,7 +4,9 @@ COPY package.json yarn.lock /myapp/
 COPY ember-ebau-core/package.json /myapp/ember-ebau-core/
 COPY ember-ebau/package.json /myapp/ember-ebau/
 
-RUN yarn workspace ebau install
+RUN --mount=type=cache,target=.yarn \
+  YARN_CACHE_FOLDER=.yarn \
+  yarn workspace ebau install
 
 COPY ember-ebau-core /myapp/ember-ebau-core
 COPY ember-ebau /myapp/ember-ebau

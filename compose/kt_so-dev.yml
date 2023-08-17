@@ -161,7 +161,7 @@ services:
       DATABASE_PASSWORD: camac
       DATABASE_USER: camac
       ENV: dev
-      EXTENSIONS_ARGUMENTS: DJANGO_API=http://ember-ebau.local
+      EXTENSIONS_ARGUMENTS: DJANGO_API=http://django
       FILE_STORAGE: storages.backends.s3boto3.S3Boto3Storage
       ISOLATE_UNOCONV: true
       OIDC_USERINFO_ENDPOINT: http://ebau-keycloak.local/auth/realms/ebau/protocol/openid-connect/userinfo
