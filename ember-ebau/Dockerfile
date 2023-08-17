@@ -16,6 +16,7 @@ WORKDIR /myapp/ember-ebau
 ARG APPLICATION
 ARG KEYCLOAK_HOST
 ARG INTERNAL_URL
+ARG SO_GIS_URL
 
 RUN yarn deploy production
 

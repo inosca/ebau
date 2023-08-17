@@ -1,3 +1,4 @@
+import graphqlHandler from "@projectcaluma/ember-testing/mirage-graphql";
 import { discoverEmberDataModels } from "ember-cli-mirage";
 import { DateTime } from "luxon";
 import { createServer } from "miragejs";
@@ -49,6 +50,8 @@ export default function makeServer(config) {
       });
 
       this.namespace = ""; // reset namespace
+
+      this.post("/graphql", graphqlHandler(this), 200);
     },
   });
 }
