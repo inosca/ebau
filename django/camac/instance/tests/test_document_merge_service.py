@@ -2,6 +2,8 @@ from datetime import datetime
 from pathlib import Path
 
 import pytest
+from alexandria.core.factories import CategoryFactory
+from alexandria.core.models import Document as AlexandriaDocument
 from caluma.caluma_form.models import DynamicOption
 from caluma.caluma_user.models import BaseUser
 from django.conf import settings
@@ -79,22 +81,22 @@ def test_document_merge_service_snapshot(
         (
             "baugesuch",
             {"instance_id": 1},
-            21,
+            22,
         ),
         (
             "sb1",
             {"instance_id": 3, "form_slug": "sb1"},
-            27,
+            28,
         ),
         (
             "sb2",
             {"instance_id": 3, "form_slug": "sb2"},
-            27,
+            28,
         ),
         (
             "mp-form",
             {"instance_id": 3, "document_id": "da618b68-b4a8-414f-9d5e-50e0fda43cde"},
-            25,
+            26,
         ),
     ]:
         with django_assert_num_queries(expected_queries):
@@ -312,6 +314,14 @@ def test_eingabebestaetigung_gr(
     )
     group.service = municipality
     group.save()
+
+    alexandria_category = CategoryFactory(pk="beilagen-zum-gesuch")
+
+    AlexandriaDocument.objects.create(
+        title="Test",
+        category=alexandria_category,
+        metainfo={"camac-instance-id": gr_instance.pk},
+    )
 
     # Prepare plot answer
     add_table_answer(
