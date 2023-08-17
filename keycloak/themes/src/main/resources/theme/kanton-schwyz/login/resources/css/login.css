@@ -328,3 +328,20 @@ a.zocial:hover {
   border-color: #dc3545;
   box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
 }
+
+#kc-username {
+  display: block;
+  margin: 0;
+  padding: 5px 0;
+  text-align: center;
+}
+
+#kc-username label {
+  display: none;
+}
+
+.alert-info {
+  background-color: #f6f4f3;
+  padding-right: 15px;
+  text-align: right;
+}
