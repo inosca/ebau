@@ -20,6 +20,7 @@ from camac.instance.placeholders.utils import (
     clean_join,
     enrich_personal_data,
     get_person_name,
+    prepare_documents,
 )
 from camac.instance.utils import build_document_prefetch_statements
 from camac.utils import build_url
@@ -216,6 +217,7 @@ class DMSHandler:
                     ],
                     separator=", ",
                 ),
+                "documents": prepare_documents(instance),
             }
 
             data.update(get_header_labels())

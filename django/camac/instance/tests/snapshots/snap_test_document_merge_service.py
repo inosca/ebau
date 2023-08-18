@@ -34,6 +34,8 @@ snapshots['test_document_merge_service_cover_sheet_with_header_values 1'] = {
     'createdAt': 'Erstellt am 03.08.2022 um 09:19',
     'descriptionHeader': 'Bau Einfamilienhaus',
     'descriptionHeaderLabel': 'Beschreibung',
+    'documents': [
+    ],
     'dossierNr': '2021-99',
     'formType': None,
     'generatedAt': 'Generiert am 07.09.2022 um 14:01',
@@ -79,6 +81,8 @@ snapshots['test_document_merge_service_cover_sheet_without_header_values 1'] = {
     'createdAt': 'Erstellt am 06.09.2022 um 15:37',
     'descriptionHeader': None,
     'descriptionHeaderLabel': 'Beschreibung',
+    'documents': [
+    ],
     'dossierNr': None,
     'formType': None,
     'generatedAt': 'Generiert am 06.09.2022 um 15:37',
@@ -1704,6 +1708,8 @@ snapshots['test_document_merge_service_snapshot baugesuch_header'] = {
     'createdAt': 'Erstellt am 06.03.2020 um 12:10',
     'descriptionHeader': 'Testanfrage',
     'descriptionHeaderLabel': 'Beschreibung',
+    'documents': [
+    ],
     'dossierNr': None,
     'formType': None,
     'generatedAt': 'Generiert am 06.01.2023 um 17:10',
@@ -1838,6 +1844,8 @@ snapshots['test_document_merge_service_snapshot mp-form_header'] = {
     'createdAt': 'Erstellt am 05.07.2022 um 18:29',
     'descriptionHeader': 'Neubad',
     'descriptionHeaderLabel': 'Beschreibung',
+    'documents': [
+    ],
     'dossierNr': '2021-1',
     'formType': 'Materielle Prüfung',
     'generatedAt': 'Generiert am 06.01.2023 um 17:10',
@@ -2142,6 +2150,8 @@ snapshots['test_document_merge_service_snapshot sb1_header'] = {
     'createdAt': 'Erstellt am 06.04.2021 um 14:19',
     'descriptionHeader': 'Neubad',
     'descriptionHeaderLabel': 'Beschreibung',
+    'documents': [
+    ],
     'dossierNr': '2021-1',
     'formType': 'Selbstdeklaration Baukontrolle 1',
     'generatedAt': 'Generiert am 06.01.2023 um 17:10',
@@ -2505,6 +2515,8 @@ snapshots['test_document_merge_service_snapshot sb2_header'] = {
     'createdAt': 'Erstellt am 06.04.2021 um 14:23',
     'descriptionHeader': 'Neubad',
     'descriptionHeaderLabel': 'Beschreibung',
+    'documents': [
+    ],
     'dossierNr': '2021-1',
     'formType': 'Selbstdeklaration Baukontrolle 2',
     'generatedAt': 'Generiert am 06.01.2023 um 17:10',
@@ -2563,6 +2575,9 @@ snapshots['test_eingabebestaetigung_gr 1'] = {
     'createdAt': 'Erstellt am 03.08.2022 um 09:19',
     'descriptionHeader': 'Bau Einfamilienhaus',
     'descriptionHeaderLabel': 'Beschreibung',
+    'documents': [
+        'Test, erstellt am 06.09.2022 um 13:37 Uhr'
+    ],
     'dossierNr': None,
     'formType': None,
     'generatedAt': 'Generiert am 07.09.2022 um 14:01',
