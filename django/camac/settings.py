@@ -281,6 +281,7 @@ def generate_form_dump_config(regex=None, version=None):
 # an application is defined by the customer e.g. uri, schwyz, etc.
 APPLICATIONS = {
     "test": {
+        "SHORT_NAME": "test",
         "ECH0211": {
             "API_ACTIVE": env.bool("ECH0211_API_ACTIVE", default=False),
         },
@@ -406,6 +407,7 @@ APPLICATIONS = {
         },
     },
     "kt_schwyz": {
+        "SHORT_NAME": "sz",
         "INCLUDE_STATIC_FILES": [("xml", "kt_schwyz/static/ech0211/xml/")],
         "USE_CAMAC_ADMIN": True,
         "LOG_NOTIFICATIONS": True,
@@ -1301,6 +1303,7 @@ APPLICATIONS = {
         },
     },
     "kt_bern": {
+        "SHORT_NAME": "be",
         "ECH0211": {
             "API_ACTIVE": env.bool("ECH0211_API_ACTIVE", default=True),
             "API_LEVEL": "full",
@@ -2163,6 +2166,7 @@ APPLICATIONS = {
         "ATTACHMENT_MAX_SIZE": 100 * 1024 * 1024,
     },
     "kt_uri": {
+        "SHORT_NAME": "ur",
         "ECH0211": {
             "API_ACTIVE": env.bool("ECH0211_API_ACTIVE", default=False),
         },
@@ -2837,6 +2841,7 @@ APPLICATIONS = {
         },
     },
     "demo": {
+        "SHORT_NAME": "demo",
         "ECH0211": {
             "API_ACTIVE": env.bool("ECH0211_API_ACTIVE", default=False),
         },
@@ -3186,6 +3191,7 @@ APPLICATIONS = {
         },
     },
     "kt_gr": {
+        "SHORT_NAME": "gr",
         "ECH0211": {
             "API_ACTIVE": env.bool("ECH0211_API_ACTIVE", default=False),
         },
@@ -3647,6 +3653,7 @@ APPLICATIONS = {
         },
     },
     "kt_so": {
+        "SHORT_NAME": "so",
         "ECH0211": {
             "API_ACTIVE": env.bool("ECH0211_API_ACTIVE", default=False),
         },

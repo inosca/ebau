@@ -1,3 +1,4 @@
+from functools import wraps
 from typing import Callable
 
 from caluma.caluma_workflow.models import Case
@@ -90,3 +91,16 @@ def create_history_entry(
             body=body,
             language=language,
         )
+
+
+def canton_aware(func):
+    @wraps(func)
+    def wrapper(self, *args, **kwargs):
+        canton = settings.APPLICATION["SHORT_NAME"]
+        func_name = f"{func.__name__}_{canton}"
+        if hasattr(self, func_name):
+            return getattr(self, func_name)(*args, **kwargs)
+
+        return func(self, *args, **kwargs)
+
+    return wrapper

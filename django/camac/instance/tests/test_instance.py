@@ -1648,14 +1648,16 @@ def test_instance_generate_identifier_gr(
     existing_dossier_number,
     expected_dossier_number,
     case_with_dossier_number,
+    application_settings,
 ):
+    application_settings["SHORT_NAME"] = "gr"
     if case_with_dossier_number:
         gr_instance.case = case_factory(
             meta={"dossier-number": existing_dossier_number}
         )
         gr_instance.save()
 
-    new_identifier = domain_logic.CreateInstanceLogic.generate_identifier_gr(instance)
+    new_identifier = domain_logic.CreateInstanceLogic.generate_identifier(instance)
 
     assert new_identifier == expected_dossier_number
 
