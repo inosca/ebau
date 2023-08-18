@@ -1,3 +1,4 @@
+<#-- adapted from https://github.com/keycloak/keycloak/blob/main/themes/src/main/resources/theme/base/login/login.ftl -->
 <#import "template.ftl" as layout>
 <@layout.registrationLayout displayInfo=social.displayInfo isLogin=true displayWide=(realm.password && social.providers??); section>
     <#if section = "form">
