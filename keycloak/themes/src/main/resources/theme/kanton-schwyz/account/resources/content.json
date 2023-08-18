@@ -39,15 +39,6 @@
     ]
   },
   {
-    "id": "applications",
-    "icon": "pf-icon-applications",
-    "path": "applications",
-    "label": "applications",
-    "descriptionLabel": "applicationsIntroMessage",
-    "modulePath": "/content/applications-page/ApplicationsPage.js",
-    "componentName": "ApplicationsPage"
-  },
-  {
     "id": "groups",
     "path": "groups",
     "icon": "pf-icon-server-group",
