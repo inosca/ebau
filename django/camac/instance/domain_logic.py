@@ -204,7 +204,7 @@ class CreateInstanceLogic:
             .first()
         )
 
-        if not case or "dossier-number" not in case.meta:
+        if not case:
             return "-".join([str(year), "1"])
 
         last_position = int(case.meta["dossier-number"].split("-")[-1])
