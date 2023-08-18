@@ -2,7 +2,6 @@ export default {
   columns: {
     caluma: {
       service: [
-        "instanceId",
         "dossierNumber",
         "form",
         "address",
@@ -12,7 +11,6 @@ export default {
         "applicants",
       ],
       default: [
-        "instanceId",
         "dossierNumber",
         "form",
         "address",
@@ -27,7 +25,6 @@ export default {
     caluma: {
       service: [
         "form",
-        "instanceId",
         "dossierNumber",
         "municipality",
         // "responsibleServiceUser",
@@ -47,7 +44,6 @@ export default {
       ],
       municipality: [
         "form",
-        "instanceId",
         "dossierNumber",
         "municipality",
         // "responsibleServiceUser",
@@ -64,7 +60,6 @@ export default {
       ],
       default: [
         "form",
-        "instanceId",
         "dossierNumber",
         "municipality",
         "address",
@@ -83,14 +78,14 @@ export default {
     },
   },
   availableOrderings: {
-    instanceId: {
-      caluma: [{ meta: "camac-instance-id" }],
+    dossierNumber: {
+      caluma: [{ meta: "dossier-number" }],
     },
     submitDate: {
       caluma: [{ meta: "submit-date" }],
     },
   },
-  defaultOrder: "instanceId",
+  defaultOrder: "dossierNumber",
   addressSlugs: ["strasse-flurname", "nr", "ort-grundstueck"],
   parcelSlugs: ["parzellennummer"],
 };
