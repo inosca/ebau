@@ -53,7 +53,8 @@
     display: flex;
     flex-direction: column;
     background-color: var(--pf-c-data-list__item--BackgroundColor);
-    border-bottom: var(--pf-c-data-list__item--BorderBottomWidth) solid var(--pf-c-data-list__item--BorderBottomColor);
+    border-bottom: var(--pf-c-data-list__item--BorderBottomWidth) solid
+      var(--pf-c-data-list__item--BorderBottomColor);
   }
 
   .signed-in-device-list.pf-c-data-list {
@@ -71,7 +72,7 @@
 .title-case:first-letter,
 .cred-title:first-letter,
 #otp-not-set-up .pf-c-empty-state__body:first-letter {
-  text-transform: capitalize
+  text-transform: capitalize;
 }
 
 /* Applications screen */
@@ -91,12 +92,20 @@
 
 .pf-c-page__header .pf-c-button {
   --pf-c-button--m-primary--Color: var(--pf-global--Color--light-100);
-  --pf-c-button--m-primary--BackgroundColor: var(--pf-global--link--Color--dark);
+  --pf-c-button--m-primary--BackgroundColor: var(
+    --pf-global--link--Color--dark
+  );
 }
 
 .pf-c-page__header .pf-c-button:hover {
   --pf-c-button--m-primary--Color: var(--pf-global--Color--light-100);
-  --pf-c-button--m-primary--BackgroundColor: var(--pf-global--link--Color--dark--hover);
+  --pf-c-button--m-primary--BackgroundColor: var(
+    --pf-global--link--Color--dark--hover
+  );
+}
+
+.pf-c-button {
+  border-radius: 0;
 }
 
 #nav-toggle {
@@ -109,14 +118,21 @@
 
 .pf-c-nav__link.pf-m-current {
   background-color: rgba(0, 0, 0, 0.1);
-  color: #e10a16;
+  color: black;
+}
+
+.pf-c-nav__link.pf-m-current::after,
+.pf-c-nav__link.pf-m-current:hover::after {
+  border-color: #e10a16;
 }
 
 .pf-c-nav__link {
-  color: #e10a16;
+  color: black;
 }
 
-.pf-c-nav__link:hover, .pf-c-nav__link:focus, .pf-c-nav__link.pf-m-current:hover {
+.pf-c-nav__link:hover,
+.pf-c-nav__link:focus,
+.pf-c-nav__link.pf-m-current:hover {
   background-color: rgba(0, 0, 0, 0.1);
-  color: #e10a16;
+  color: black;
 }
