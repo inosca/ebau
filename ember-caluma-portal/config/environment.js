@@ -417,7 +417,7 @@ module.exports = function (environment) {
     environment,
     rootURL: "/",
     locationType: "history",
-    profileURL: `${oidcHost}/auth/realms/${appConfig.realm}/account?referrer=portal`,
+    profileURL: `${oidcHost}/auth/realms/${appConfig.realm}/account?referrer=portal#/personal-info`,
     historySupportMiddleware: true,
     "ember-simple-auth-oidc": {
       host: `${oidcHost}/auth/realms/${appConfig.realm}/protocol/openid-connect`,
