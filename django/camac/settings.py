@@ -769,7 +769,6 @@ APPLICATIONS = {
         },
         "THUMBNAIL_SIZE": "x300",
         "MASTER_DATA": {
-            "canton": ("static", "SZ"),
             "organization_category": (
                 "static",
                 "ebausz",
@@ -1901,7 +1900,6 @@ APPLICATIONS = {
             "RESOURCE_ID_PATH": "/index/template/resource-id/2000000#/dossier-import/",  # That's required for `reversing` the URL to the dossier-import resource tab in the UI
         },
         "MASTER_DATA": {
-            "canton": ("static", "BE"),
             "organisation_category": ("static", "ebaube"),
             "remark": ("answer", "bemerkungen"),
             "nature_risk_type": (
@@ -2434,7 +2432,6 @@ APPLICATIONS = {
             "ITEM": 1,
         },
         "MASTER_DATA": {
-            "canton": ("static", "UR"),
             "applicants": (
                 "table",
                 "applicant",
@@ -3001,7 +2998,6 @@ APPLICATIONS = {
             "ADD_HEADER_DATA": False,
         },
         "MASTER_DATA": {
-            "canton": ("static", "demo"),
             "applicants": (
                 "table",
                 "personalien-gesuchstellerin",
@@ -3456,7 +3452,6 @@ APPLICATIONS = {
             "ADD_HEADER_DATA": True,
         },
         "MASTER_DATA": {
-            "canton": ("static", "GR"),
             "applicants": (
                 "table",
                 "personalien-gesuchstellerin",
@@ -3730,7 +3725,6 @@ APPLICATIONS = {
             "user.ServiceT",
         ],
         "MASTER_DATA": {
-            "canton": ("static", "SO"),
             "applicants": (
                 "table",
                 "bauherrin",
