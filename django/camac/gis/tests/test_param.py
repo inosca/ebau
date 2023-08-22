@@ -1,4 +1,5 @@
 import pytest
+from caluma.caluma_form.models import Question
 from django.urls import reverse
 from rest_framework import status
 
@@ -7,16 +8,24 @@ from camac.gis.models import GISConfig
 
 @pytest.fixture
 def param_config(gis_config_factory, question_factory):
-    question_factory(slug="parzellen")
-    question_factory(slug="lagekoordinaten-ost")
-    question_factory(slug="lagekoordinaten-nord")
+    question_factory(slug="parzellen", type=Question.TYPE_TABLE)
+    question_factory(slug="lagekoordinaten-ost", type=Question.TYPE_FLOAT)
+    question_factory(slug="lagekoordinaten-nord", type=Question.TYPE_FLOAT)
 
     return gis_config_factory(
         client=GISConfig.CLIENT_PARAM,
-        config={
-            "x": {"question": "parzellen.lagekoordinaten-ost", "cast": "float"},
-            "y": {"question": "parzellen.lagekoordinaten-nord", "cast": "float"},
-        },
+        config=[
+            {
+                "parameterName": "x",
+                "question": "parzellen.lagekoordinaten-ost",
+                "cast": "float",
+            },
+            {
+                "parameterName": "y",
+                "question": "parzellen.lagekoordinaten-nord",
+                "cast": "float",
+            },
+        ],
     )
 
 
@@ -32,9 +41,9 @@ def test_param_client(db, admin_client, param_config, snapshot):
 def test_required_params(db, admin_client, gis_config_factory):
     gis_config_factory(
         client=GISConfig.CLIENT_PARAM,
-        config={
-            "test": {"question": "some-question"},
-        },
+        config=[
+            {"parameterName": "test", "question": "some-question"},
+        ],
     )
 
     response = admin_client.get(reverse("gis-data"))
