@@ -8,7 +8,7 @@ import DecisionSubmitButtonComponent from "ember-ebau-core/components/decision/s
 import DocumentValidityButtonComponent from "ember-ebau-core/components/document-validity-button";
 import InquiryAnswerStatus from "ember-ebau-core/components/inquiry-answer-status";
 import LinkAttachmentsComponent from "ember-ebau-core/components/link-attachments";
-import PublicationDateKantonsamtsblattComponent from "ember-ebau-core/components/link-attachments";
+import PublicationDateKantonsamtsblattComponent from "ember-ebau-core/components/publication-date-kantonsamtsblatt";
 import UrGisComponent from "ember-ebau-core/components/ur-gis";
 
 import AlexandriaDocumentsFormComponent from "caluma-portal/components/alexandria-documents-form";
