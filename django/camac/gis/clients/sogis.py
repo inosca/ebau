@@ -33,10 +33,10 @@ class SoGisClient(GISBaseClient):
         Example config:
         {
             "layer": "sogis.some_layername",
-            "properties": {
-                "property_name_1": { "question": "pathto.myquestion1" },
-                "property_name_2": { "question": "pathto.myquestion2", "cast": "integer" }
-            }
+            "properties": [
+                { "propertyName": "property_name_1", "question": "pathto.myquestion1" },
+                { "propertyName": "property_name_2", "question": "pathto.myquestion2", "cast": "integer" }
+            ]
         }
         """
         base_url = build_url(
@@ -69,9 +69,10 @@ class SoGisClient(GISBaseClient):
 
         data = {}
 
-        for prop, conf in config["properties"].items():
-            data[conf["question"]] = self.cast(
-                properties.get(prop, None), conf.get("cast")
+        for property_config in config["properties"]:
+            data[property_config["question"]] = self.cast(
+                properties.get(property_config["propertyName"], None),
+                property_config.get("cast"),
             )
 
         return data
