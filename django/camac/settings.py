@@ -118,6 +118,7 @@ INSTALLED_APPS = [
     "camac.dossier_import.apps.DossierImportConfig",
     "camac.gisbern.apps.GisbernConfig",
     "camac.communications.apps.CommunicationsConfig",
+    "camac.gis.apps.GisConfig",
     "sorl.thumbnail",
     "django_clamd",
     "django_q",
@@ -130,6 +131,7 @@ INSTALLED_APPS = [
     "camac.file.apps.DefaultConfig",
     "manabi_migrations",
     "adminsortable2",
+    "django_json_widget",
 ]
 
 if DEBUG:
@@ -410,7 +412,7 @@ APPLICATIONS = {
         "INCLUDE_STATIC_FILES": [("xml", "kt_schwyz/static/ech0211/xml/")],
         "USE_CAMAC_ADMIN": True,
         "LOG_NOTIFICATIONS": True,
-        "SHOW_DJANGO_ADMIN_RESOURCE_MANAGEMENT": False,
+        "DJANGO_ADMIN": {"ENABLE_RESOURCES": False, "ENABLE_GIS": False},
         "ROLE_PERMISSIONS": {
             "Gemeinde": "municipality",
             "Gemeinde Sachbearbeiter": "municipality",
@@ -1313,7 +1315,7 @@ APPLICATIONS = {
         "LOG_NOTIFICATIONS": True,
         "SYSTEM_USER": "service-account-camac-admin",
         "ATTACHMENT_SECTION_INTERNAL": 4,
-        "SHOW_DJANGO_ADMIN_RESOURCE_MANAGEMENT": False,
+        "DJANGO_ADMIN": {"ENABLE_RESOURCES": False, "ENABLE_GIS": False},
         "ROLE_PERMISSIONS": {
             "service-lead": "service",
             "service-clerk": "service",
@@ -2181,7 +2183,7 @@ APPLICATIONS = {
         "SEQUENCE_NAMESPACE_APPS": ["core", "document", "responsible"],
         "THUMBNAIL_SIZE": "x600",
         "ATTACHMENT_SECTION_INTERNAL": None,
-        "SHOW_DJANGO_ADMIN_RESOURCE_MANAGEMENT": False,
+        "DJANGO_ADMIN": {"ENABLE_RESOURCES": False, "ENABLE_GIS": False},
         "CUSTOM_NOTIFICATION_TYPES": [
             "submitter_list",
             "municipality_users",
@@ -2856,7 +2858,7 @@ APPLICATIONS = {
         "PUBLICATION_BACKEND": "camac-ng",
         "FORM_BACKEND": "caluma",
         "THUMBNAIL_SIZE": "x300",
-        "SHOW_DJANGO_ADMIN_RESOURCE_MANAGEMENT": True,
+        "DJANGO_ADMIN": {"ENABLE_RESOURCES": True, "ENABLE_GIS": False},
         "WORKFLOW_ITEMS": {
             "SUBMIT": None,
             "INSTANCE_COMPLETE": None,
@@ -3211,7 +3213,7 @@ APPLICATIONS = {
         "ENABLE_PUBLIC_ENDPOINTS": True,
         "FORM_BACKEND": "caluma",
         "THUMBNAIL_SIZE": "x300",
-        "SHOW_DJANGO_ADMIN_RESOURCE_MANAGEMENT": True,
+        "DJANGO_ADMIN": {"ENABLE_RESOURCES": True, "ENABLE_GIS": False},
         "WORKFLOW_ITEMS": {
             "SUBMIT": None,
             "INSTANCE_COMPLETE": None,
@@ -3663,7 +3665,7 @@ APPLICATIONS = {
         "IS_MULTILINGUAL": True,
         "FORM_BACKEND": "caluma",
         "THUMBNAIL_SIZE": "x300",
-        "SHOW_DJANGO_ADMIN_RESOURCE_MANAGEMENT": True,
+        "DJANGO_ADMIN": {"ENABLE_RESOURCES": True, "ENABLE_GIS": True},
         "GROUP_RENAME_ON_SERVICE_RENAME": True,
         "SERVICE_UPDATE_ALLOWED_ROLES": [],  # if unset, all are allowed
         "SEQUENCE_NAMESPACE_APPS": [],
@@ -4195,6 +4197,10 @@ GIS_API_PASSWORD = env.str("GIS_API_PASSWORD", "")
 GIS_SKIP_BOOLEAN_LAYERS = env.list("GIS_SKIP_BOOLEAN_LAYERS", default=[])
 
 GIS_SKIP_SPECIAL_LAYERS = env.list("GIS_SKIP_SPECIAL_LAYERS", default=[])
+
+SO_GIS_BASE_URL = env.str(
+    "SO_GIS_BASE_URL", default=default("https://geo-i.so.ch", "https://geo.so.ch")
+)
 
 DOCUMENT_MERGE_SERVICE_URL = build_url(
     env.str("DOCUMENT_MERGE_SERVICE_URL", "http://document-merge-service:8000/api/v1/")
