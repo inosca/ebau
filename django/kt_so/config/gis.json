@@ -17,6 +17,7 @@
             "propertyName": "hausnummer"
           },
           {
+            "cast": "string",
             "question": "parzellen.plz",
             "propertyName": "plz"
           },
