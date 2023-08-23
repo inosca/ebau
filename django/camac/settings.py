@@ -215,13 +215,6 @@ DISTRIBUTION_DUMP_CONFIG = {
     },
 }
 
-ALEXANDRIA_PUBLIC_TAGS = [
-    "dokument-grundstucksangaben",
-    "dokument-gutachten-nachweise-begrundungen",
-    "dokument-projektplane-projektbeschrieb",
-    "dokument-weitere-gesuchsunterlagen",
-]
-
 SO_PERSONAL_DATA_MAPPING = {
     "last_name": "nachname",
     "first_name": "vorname",
@@ -3357,13 +3350,6 @@ APPLICATIONS = {
             },
             # Distribution
             **DISTRIBUTION_DUMP_CONFIG,
-            "alexandria_tags": {
-                "alexandria_core.Tag": Q(pk__in=ALEXANDRIA_PUBLIC_TAGS),
-                # needed to prevent deletion of unused tags
-                "alexandria_core.Document": Q(
-                    pk="a4c3e79f-f0c5-43ae-8965-fe99218d0ce0"
-                ),
-            },
             "publication": {
                 **generate_form_dump_config(regex=r"^publikation?$"),
             },
@@ -3374,7 +3360,6 @@ APPLICATIONS = {
             "user.Service",
             "user.ServiceT",
         ],
-        "ALEXANDRIA": {"PUBLIC_TAGS": ALEXANDRIA_PUBLIC_TAGS},
         "DOCUMENT_BACKEND": "alexandria",
         "DOCUMENT_MERGE_SERVICE": {
             "FORM": {
@@ -3715,16 +3700,7 @@ APPLICATIONS = {
                 **generate_form_dump_config(regex=r"^dashboard?$"),
                 "caluma_form.Document": Q(form="dashboard"),
             },
-            # Alexandria static tags
-            "alexandria_tags": {
-                "alexandria_core.Tag": Q(pk__in=ALEXANDRIA_PUBLIC_TAGS),
-                # needed to prevent deletion of unused tags
-                "alexandria_core.Document": Q(
-                    pk="a4c3e79f-f0c5-43ae-8965-fe99218d0ce0"
-                ),
-            },
         },
-        "ALEXANDRIA": {"PUBLIC_TAGS": ALEXANDRIA_PUBLIC_TAGS},
         "DUMP_CONFIG_EXCLUDED_MODELS": [
             "user.Group",
             "user.GroupT",

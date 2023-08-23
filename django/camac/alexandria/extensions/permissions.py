@@ -17,6 +17,13 @@ else:
     import camac.alexandria.extensions.permissions_base as permissions
 
 
+def get_permission_name(category, user):
+    if category.parent:
+        return get_permission_name(category.parent, user)
+
+    return category.metainfo["access"].get(get_role(user))
+
+
 class CustomPermission(BasePermission):
     def get_permission(self, name):
         return getattr(permissions, f"{name}Permission")()
@@ -36,7 +43,7 @@ class CustomPermission(BasePermission):
 
         user = request.caluma_info.context.user
         category = Category.objects.get(pk=request.data["category"]["id"])
-        permission = category.metainfo["access"].get(get_role(user))
+        permission = get_permission_name(category, user)
         if not permission:
             return False
 
@@ -48,7 +55,7 @@ class CustomPermission(BasePermission):
     @object_permission_for(Document)
     def has_object_permission_for_document(self, request, document):
         user = request.caluma_info.context.user
-        permission = document.category.metainfo["access"].get(get_role(user))
+        permission = get_permission_name(document.category, user)
         if not permission:  # pragma: no cover
             return False
 
@@ -63,7 +70,7 @@ class CustomPermission(BasePermission):
     def has_permission_for_file(self, request):
         user = request.caluma_info.context.user
         document = Document.objects.get(pk=request.data["document"]["id"])
-        permission = document.category.metainfo["access"].get(get_role(user))
+        permission = get_permission_name(document.category, user)
         if not permission:
             return False
 
