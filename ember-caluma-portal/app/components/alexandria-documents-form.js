@@ -14,22 +14,21 @@ export default class AlexandriaDocumentsFormComponent extends Component {
   @service notification;
   @service store;
   @service alexandriaDocuments;
-  @service alexandriaTags;
 
   @tracked uploadedAttachmentIds = [];
 
-  get buckets() {
-    return (
-      this.args.fieldset.field.question.raw.meta.buckets ??
-      config.ebau.attachments.buckets
-    );
-  }
+  categories = trackedFunction(this, async () => {
+    await Promise.resolve();
 
-  get category() {
-    return this.args.document.jexl.evalSync(
-      this.args.fieldset.field.question.raw.meta["alexandria-category"],
-      this.args.document.jexlContext,
-    );
+    return await this.store.query("category", {
+      filter: {
+        slugs: String(this.categorySlugs),
+      },
+    });
+  });
+
+  get categorySlugs() {
+    return this.args.fieldset.field.question.raw.meta["alexandria-categories"];
   }
 
   get deletable() {
@@ -85,7 +84,7 @@ export default class AlexandriaDocumentsFormComponent extends Component {
       parseInt(this.args.context.instanceId);
 
     const bySection = (attachment) =>
-      attachment.category.get("id") === this.category;
+      this.categorySlugs.includes(attachment.category.get("id"));
 
     const isUploadedOrInQuery = (attachment) =>
       this.uploadedAttachmentIds.includes(attachment.id) ||
@@ -99,25 +98,12 @@ export default class AlexandriaDocumentsFormComponent extends Component {
   }
 
   attachments = trackedFunction(this, async () => {
-    const buckets = await Promise.all(
-      this.buckets.map(async (bucket) => {
-        const attachments = [];
-        for (const attachment of this.allAttachments) {
-          const tags = await attachment.tags; // eslint-disable-line no-await-in-loop
-          if (tags.findBy("id", bucket)) {
-            attachments.push(attachment);
-          }
-        }
-        return {
-          [bucket]: attachments,
-        };
-      }),
-    );
-
-    return buckets.reduce((obj, item) => {
+    return (this.categories.value ?? []).reduce((obj, category) => {
       return {
         ...obj,
-        ...item,
+        [category.get("id")]: this.allAttachments.filter(
+          (attachment) => attachment.get("category.id") === category.get("id"),
+        ),
       };
     }, {});
   });
@@ -132,7 +118,7 @@ export default class AlexandriaDocumentsFormComponent extends Component {
           { key: "camac-instance-id", value: this.args.context.instanceId },
         ]),
       },
-      include: "category,files,tags",
+      include: "category,files",
       sort: "title",
     });
   });
@@ -141,18 +127,10 @@ export default class AlexandriaDocumentsFormComponent extends Component {
   *upload({ file, bucket }) {
     try {
       const documentModel = yield this.alexandriaDocuments.upload(
-        this.category,
+        bucket,
         [file],
         this.args.context,
       );
-
-      this.alexandriaTags.category = this.category;
-
-      let tag = this.store.peekRecord("tag", bucket);
-      if (!tag) {
-        tag = yield this.store.findRecord("tag", bucket);
-      }
-      yield this.alexandriaTags.add(documentModel[0], tag);
 
       this.uploadedAttachmentIds = [
         ...this.uploadedAttachmentIds,
