@@ -22,7 +22,7 @@ class DMSPlaceholdersDocsView(RetrieveAPIView):
     def get_serializer_class(self):
         if settings.APPLICATION_NAME == "kt_bern":
             return BeDMSPlaceholdersSerializer
-        elif settings.APPLICATION_NAME == "kt_gr":  # pragma: no cover
+        elif settings.APPLICATION_NAME == "kt_gr":  # pragma: todo cover
             return GrDMSPlaceholdersSerializer
 
         return DMSPlaceholdersSerializer  # pragma: no cover
