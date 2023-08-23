@@ -16,7 +16,8 @@
       },
       "name": "{\"de\": \"Beilagen zum Gesuch\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "color": "#CC0000"
+      "color": "#CC0000",
+      "parent": null
     }
   }
 ]

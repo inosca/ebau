@@ -22,7 +22,8 @@
       },
       "name": "{\"de\": \"Alle Beteiligten\", \"fr\": \"\", \"it\": \"Tutti coinvolti\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "color": "#CB68C1"
+      "color": "#CB68C1",
+      "parent": null
     }
   },
   {
@@ -44,7 +45,8 @@
       },
       "name": "{\"de\": \"Alle Kanton\", \"fr\": \"\", \"it\": \"Tutti i canton\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "color": "#66CFC9"
+      "color": "#66CFC9",
+      "parent": null
     }
   },
   {
@@ -71,7 +73,8 @@
       },
       "name": "{\"de\": \"Beilagen zum Gesuch\", \"fr\": \"\", \"it\": \"Allegati alla domanda\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "color": "#9CDD69"
+      "color": "#9CDD69",
+      "parent": null
     }
   },
   {
@@ -96,7 +99,8 @@
       },
       "name": "{\"de\": \"Beteiligte Beh\\u00f6rden\", \"fr\": \"\", \"it\": \"Autorit\\u00e0 coinvolte\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "color": "#8791EC"
+      "color": "#8791EC",
+      "parent": null
     }
   },
   {
@@ -122,7 +126,8 @@
       },
       "name": "{\"de\": \"Intern\", \"fr\": \"\", \"it\": \"Interno\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "color": "#DB8B72"
+      "color": "#DB8B72",
+      "parent": null
     }
   },
   {
@@ -145,7 +150,8 @@
       },
       "name": "{\"de\": \"Stellungnahmen ans ARE\", \"fr\": \"\", \"it\": \"Dichiarazioni all'ARE\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "color": "#66CFC9"
+      "color": "#66CFC9",
+      "parent": null
     }
   },
   {
@@ -168,7 +174,8 @@
       },
       "name": "{\"de\": \"Umweltschutzorganisationen\", \"fr\": \"\", \"it\": \"Organizzazioni di protezione ambientale\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "color": "#66CFC9"
+      "color": "#66CFC9",
+      "parent": null
     }
   }
 ]

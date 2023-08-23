@@ -12,11 +12,15 @@
   "//": [
     "ember-concurrency: pending update in ember-simple-auth-oidc, ember-alexandria, ember-ebau-gwr and ember-power-select",
     "ember-resources: pending update in ember-ebau-gwr",
-    "ember-power-select: 7.1.0 has issues in tests"
+    "ember-power-select: 7.1.0 has issues in tests",
+    "ember-data: ember-alexandria already uses v4.12",
+    "ember-fontawesome: ember-ebau-gwr still uses v0.4.3 - but v1 is not breaking"
   ],
   "resolutions": {
     "ember-concurrency": "3.0.0",
     "ember-resources": "6.3.0",
-    "ember-power-select": "7.0.0"
+    "ember-power-select": "7.0.0",
+    "ember-data": "3.28.13",
+    "@fortawesome/ember-fontawesome": "1.0.1"
   }
 }
