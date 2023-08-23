@@ -1,19 +1,31 @@
 from collections import OrderedDict
 from itertools import chain
 
+from django.conf import settings
 from rest_framework import status
 from rest_framework.generics import RetrieveAPIView
 from rest_framework.renderers import JSONRenderer
 from rest_framework.response import Response
 
 from camac.core.translations import get_translations
-from camac.instance.placeholders.serializers import DMSPlaceholdersSerializer
+from camac.instance.placeholders.serializers import (
+    BeDMSPlaceholdersSerializer,
+    DMSPlaceholdersSerializer,
+    GrDMSPlaceholdersSerializer,
+)
 
 
 class DMSPlaceholdersDocsView(RetrieveAPIView):
     swagger_schema = None
-    serializer_class = DMSPlaceholdersSerializer
     renderer_classes = [JSONRenderer]
+
+    def get_serializer_class(self):
+        if settings.APPLICATION_NAME == "kt_bern":
+            return BeDMSPlaceholdersSerializer
+        elif settings.APPLICATION_NAME == "kt_gr":  # pragma: todo cover
+            return GrDMSPlaceholdersSerializer
+
+        return DMSPlaceholdersSerializer  # pragma: no cover
 
     def get_field_docs(self, field):
         return {

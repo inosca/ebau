@@ -7,7 +7,6 @@ from caluma.caluma_form.factories import AnswerFactory, DocumentFactory
 from caluma.caluma_form.models import Question
 from caluma.caluma_workflow.factories import WorkItemFactory
 from caluma.caluma_workflow.models import WorkItem
-from django.conf import settings
 from django.urls import reverse
 from django.utils.timezone import make_aware
 from django.utils.translation import override
@@ -23,11 +22,14 @@ from .test_master_data import add_answer, add_table_answer, be_master_data_case 
 
 
 @pytest.fixture
-def be_languages(settings):
+def be_dms_config(settings):
     original_languages = settings.LANGUAGES
     settings.LANGUAGES = [
         (code, name) for code, name in settings.LANGUAGES if code in ["de", "fr"]
     ]
+    settings.APPLICATION_NAME = "kt_bern"
+    settings.INTERNAL_BASE_URL = "http://ebau.local"
+    settings.INTERNAL_INSTANCE_URL_TEMPLATE = "http://ebau.local/index/redirect-to-instance-resource/instance-id/{instance_id}"
     yield
     settings.LANGUAGES = original_languages
 
@@ -59,6 +61,7 @@ def test_dms_placeholders(
     active_inquiry_factory,
     admin_client,
     application_settings,
+    settings,
     be_instance,
     be_master_data_case,  # noqa
     billing_v2_entry_factory,
@@ -77,9 +80,8 @@ def test_dms_placeholders(
     status_question,
     stellungnahme_question,
     nebenbestimmungen_question,
-    be_languages,
+    be_dms_config,
 ):
-
     application_settings["MUNICIPALITY_DATA_SHEET"] = settings.ROOT_DIR(
         "kt_bern",
         pathlib.Path(settings.APPLICATIONS["kt_bern"]["MUNICIPALITY_DATA_SHEET"]).name,
@@ -386,9 +388,10 @@ def test_dms_placeholders_empty(
     db,
     admin_client,
     application_settings,
+    settings,
     be_instance,
     snapshot,
-    be_languages,
+    be_dms_config,
 ):
     application_settings["MUNICIPALITY_DATA_SHEET"] = settings.ROOT_DIR(
         "kt_bern",
@@ -415,14 +418,14 @@ def test_human_readable_date(language, expected):
         assert human_readable_date(date.today()) == expected
 
 
-def test_dms_placeholders_docs(admin_client, snapshot, be_languages):
+def test_dms_placeholders_docs(admin_client, snapshot, be_dms_config):
     response = admin_client.get(reverse("dms-placeholders-docs"))
     assert response.status_code == status.HTTP_200_OK
     snapshot.assert_match(response.json())
 
 
 def test_dms_placeholders_docs_available_placeholders(
-    admin_client, snapshot, be_languages
+    admin_client, snapshot, be_dms_config
 ):
     response = admin_client.get(
         reverse("dms-placeholders-docs"), data={"available_placeholders": True}
