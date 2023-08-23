@@ -47,3 +47,24 @@ def test_assign_ebau_nr(
     case_factory(meta={"ebau-number": "2017-420"})
     inst4 = instance_with_case(instance_factory())
     assert utils.assign_ebau_nr(inst4, 2017) == "2017-421"
+
+
+class FakeClass:
+    @utils.canton_aware
+    def foo(self):
+        return "fallback"
+
+    def foo_be(self):
+        return "BE"
+
+
+@pytest.mark.parametrize(
+    "canton,expected",
+    [
+        ("be", "BE"),
+        ("gr", "fallback"),
+    ],
+)
+def test_canton_aware_decorator(db, role, expected, canton, application_settings):
+    application_settings["SHORT_NAME"] = canton
+    assert FakeClass().foo() == expected

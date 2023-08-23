@@ -477,6 +477,7 @@ def test_public_caluma_instance_be(
     num_instances,
     master_data_is_visible_mock,
 ):
+    settings.APPLICATION_NAME = "kt_bern"
     be_instance.involved_applicants.first().delete()
 
     application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_bern"][
