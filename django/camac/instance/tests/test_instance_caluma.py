@@ -1065,11 +1065,19 @@ def test_oereb_instance_copy_for_koor_afj(
     service_factory,
     authority_location_factory,
     form_slug,
+    attachment_factory,
 ):
     settings.APPLICATION_NAME = "kt_uri"
     application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_uri"]["MASTER_DATA"]
 
     ur_instance.form = form_factory(name="camac-form")
+    ur_instance.attachments.add(
+        attachment_factory(
+            name=ur_instance.case.document.form.name,
+            instance=ur_instance,
+            service=ur_instance.group.service,
+        )
+    )
     ur_instance.save()
 
     oereb_form = caluma_form_factories.FormFactory(slug=form_slug)

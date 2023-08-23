@@ -1315,6 +1315,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
                 is_paper=True,
                 caluma_form=caluma_form,
                 source_instance=instance,
+                skip_exported_form_attachment=True,
             )
             koor_afj_instance.case.meta["oereb_copy"] = True
             koor_afj_instance.case.save()
