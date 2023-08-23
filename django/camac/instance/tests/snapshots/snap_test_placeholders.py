@@ -58,7 +58,6 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'BASE_URL': 'http://ebau.local',
     'BAUEINGABE_DATUM': '31. März 2021',
     'BAUENTSCHEID': 'Positiv',
-    'BAUENTSCHEID_ABSCHREIBUNGSVERFUEGUNG': False,
     'BAUENTSCHEID_BAUABSCHLAG': False,
     'BAUENTSCHEID_BAUABSCHLAG_MIT_WHST': False,
     'BAUENTSCHEID_BAUABSCHLAG_OHNE_WHST': False,
@@ -1264,17 +1263,6 @@ snapshots['test_dms_placeholders_docs 1'] = {
             'de': 'Bauentscheid',
             'fr': 'Décision relative à la demande de permis de construire'
         },
-        'nested_aliases': {
-        }
-    },
-    'BAUENTSCHEID_ABSCHREIBUNGSVERFUEGUNG': {
-        'aliases': [
-            {
-                'de': 'BAUENTSCHEID_ABSCHREIBUNGSVERFUEGUNG',
-                'fr': 'BAUENTSCHEID_ABSCHREIBUNGSVERFUEGUNG'
-            }
-        ],
-        'description': None,
         'nested_aliases': {
         }
     },
@@ -3279,7 +3267,6 @@ snapshots['test_dms_placeholders_docs_available_placeholders 1'] = [
     'BASE_URL',
     'BAUEINGABE_DATUM',
     'BAUENTSCHEID',
-    'BAUENTSCHEID_ABSCHREIBUNGSVERFUEGUNG',
     'BAUENTSCHEID_BAUABSCHLAG',
     'BAUENTSCHEID_BAUABSCHLAG_MIT_WHST',
     'BAUENTSCHEID_BAUABSCHLAG_OHNE_WHST',
@@ -3880,7 +3867,6 @@ snapshots['test_dms_placeholders_empty[Municipality] 1'] = {
     'BASE_URL': 'http://ebau.local',
     'BAUEINGABE_DATUM': '30. August 2021',
     'BAUENTSCHEID': '',
-    'BAUENTSCHEID_ABSCHREIBUNGSVERFUEGUNG': '',
     'BAUENTSCHEID_BAUABSCHLAG': '',
     'BAUENTSCHEID_BAUABSCHLAG_MIT_WHST': '',
     'BAUENTSCHEID_BAUABSCHLAG_OHNE_WHST': '',
