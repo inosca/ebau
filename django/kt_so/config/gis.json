@@ -1,16 +1,52 @@
 [
   {
     "model": "gis.gisconfig",
+    "pk": "adresse",
+    "fields": {
+      "client": "camac.gis.clients.sogis.SoGisClient",
+      "config": {
+        "layer": "ch.so.agi.av.gebaeudeadressen.gebaeudeeingaenge",
+        "buffer": 20,
+        "properties": [
+          {
+            "question": "strasse-flurname",
+            "propertyName": "strassenname"
+          },
+          {
+            "question": "strasse-nummer",
+            "propertyName": "hausnummer"
+          },
+          {
+            "cast": "string",
+            "question": "parzellen.plz",
+            "propertyName": "plz"
+          },
+          {
+            "question": "parzellen.strasse-flurname",
+            "propertyName": "strassenname"
+          },
+          {
+            "question": "parzellen.strasse-nummer",
+            "propertyName": "hausnummer"
+          }
+        ]
+      },
+      "disabled": false
+    }
+  },
+  {
+    "model": "gis.gisconfig",
     "pk": "gemeinde",
     "fields": {
       "client": "camac.gis.clients.sogis.SoGisClient",
       "config": {
         "layer": "ch.so.agi.gemeindegrenzen.data",
-        "properties": {
-          "gemeindename": {
-            "question": "gemeinde"
+        "properties": [
+          {
+            "question": "gemeinde",
+            "propertyName": "gemeindename"
           }
-        }
+        ]
       },
       "disabled": false
     }
@@ -20,15 +56,38 @@
     "pk": "koordinaten",
     "fields": {
       "client": "camac.gis.clients.param.ParamClient",
-      "config": {
-        "x": {
+      "config": [
+        {
           "cast": "float",
-          "question": "parzellen.lagekoordinaten-ost"
+          "question": "parzellen.lagekoordinaten-ost",
+          "parameterName": "x"
         },
-        "y": {
+        {
           "cast": "float",
-          "question": "parzellen.lagekoordinaten-nord"
+          "question": "parzellen.lagekoordinaten-nord",
+          "parameterName": "y"
         }
+      ],
+      "disabled": false
+    }
+  },
+  {
+    "model": "gis.gisconfig",
+    "pk": "ort",
+    "fields": {
+      "client": "camac.gis.clients.sogis.SoGisClient",
+      "config": {
+        "layer": "ch.so.agi.av.grundbuchkreis.data",
+        "properties": [
+          {
+            "question": "ort",
+            "propertyName": "aname"
+          },
+          {
+            "question": "parzellen.ort",
+            "propertyName": "aname"
+          }
+        ]
       },
       "disabled": false
     }
@@ -40,15 +99,33 @@
       "client": "camac.gis.clients.sogis.SoGisClient",
       "config": {
         "layer": "ch.so.agi.av.grundstuecke.rechtskraeftig.data",
-        "properties": {
-          "egrid": {
-            "question": "parzellen.e-grid"
+        "properties": [
+          {
+            "question": "parzellen.e-grid",
+            "propertyName": "egrid"
           },
-          "nummer": {
-            "cast": "integer",
-            "question": "parzellen.parzellennummer"
+          {
+            "question": "parzellen.parzellennummer",
+            "propertyName": "nummer"
           }
-        }
+        ]
+      },
+      "disabled": false
+    }
+  },
+  {
+    "model": "gis.gisconfig",
+    "pk": "zone",
+    "fields": {
+      "client": "camac.gis.clients.sogis.SoGisClient",
+      "config": {
+        "layer": "ch.so.arp.nutzungsplanung.grundnutzung.data",
+        "properties": [
+          {
+            "question": "zone",
+            "propertyName": "typ_bezeichnung"
+          }
+        ]
       },
       "disabled": false
     }
