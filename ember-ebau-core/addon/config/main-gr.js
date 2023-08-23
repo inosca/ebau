@@ -19,6 +19,7 @@ export default {
     objectLocation: "ort-grundstueck",
     description: "beschreibung-bauvorhaben",
     municipality: "gemeinde",
+    specialId: "dossier-number",
     parcelNumber: "parzellennummer",
     firstNameApplicant: "vorname-gesuchstellerin",
     lastNameApplicant: "name-gesuchstellerin",

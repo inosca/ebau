@@ -1177,8 +1177,19 @@ class PublicCalumaInstanceView(mixins.InstanceQuerysetMixin, ListAPIView):
         )
 
         if settings.APPLICATION.get("PUBLICATION_BACKEND") == "caluma":
+            special_id = (
+                "ebau-number"
+                if settings.APPLICATION_NAME == "kt_bern"
+                else "dossier-number"
+            )
             return queryset.annotate(
-                dossier_nr=Cast(KeyTextTransform("ebau-number", "meta"), CharField()),
+                dossier_nr=Cast(
+                    KeyTextTransform(
+                        special_id,
+                        "meta",
+                    ),
+                    CharField(),
+                ),
                 year=Cast(
                     Func(
                         F("dossier_nr"),

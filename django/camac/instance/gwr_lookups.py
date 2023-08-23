@@ -1,6 +1,7 @@
 from functools import wraps
 from logging import getLogger
 
+from django.conf import settings
 from django.utils import timezone
 from rest_framework import serializers
 
@@ -186,9 +187,7 @@ class GwrSerializer(serializers.Serializer):
     @catch_and_log()
     def get_energy_device(self, building, is_heating, is_main_heating):
 
-        canton = self.master_data.canton
-
-        if canton == "SZ" and is_main_heating:
+        if settings.APPLICATION_NAME == "kt_schwyz" and is_main_heating:
             heat_generator = (
                 building.get("heating_heat_generator")
                 if is_heating
@@ -208,7 +207,7 @@ class GwrSerializer(serializers.Serializer):
                 "energySourceHeating": energy_source,
             }
 
-        if canton == "UR":
+        if settings.APPLICATION_NAME == "kt_uri":
             heating_type = "is_heating" if is_heating else "is_warm_water"
             building_name = building.get("name")
             return next(
@@ -230,13 +229,11 @@ class GwrSerializer(serializers.Serializer):
 
     @catch_and_log(fallback=[])
     def get_dwellings(self, building):
-        canton = self.master_data.canton
-
-        if canton == "SZ":
+        if settings.APPLICATION_NAME == "kt_schwyz":
             dwellings = building.get("dwellings") if building.get("dwellings") else []
             return [dwelling_data(dwelling) for dwelling in dwellings]
 
-        if canton == "UR":
+        if settings.APPLICATION_NAME == "kt_uri":
             return [
                 dwelling_data(dwelling)
                 for dwelling in self.master_data.dwellings
@@ -271,7 +268,7 @@ class GwrSerializer(serializers.Serializer):
                     "numberOfFloors": building.get("number_of_floors"),
                     "numberOfSeparateHabitableRooms": building.get("number_of_rooms"),
                     "dateOfConstruction": self.get_construction_date(building)
-                    if self.master_data.canton == "UR"
+                    if settings.APPLICATION_NAME == "kt_uri"
                     else None,
                     "thermotechnicalDeviceForHeating1": self.get_energy_device(
                         building, is_heating=True, is_main_heating=True
@@ -286,7 +283,7 @@ class GwrSerializer(serializers.Serializer):
                         building, is_heating=False, is_main_heating=False
                     ),
                     "realestateIdentification": self.get_realestateIdentification(case)
-                    if self.master_data.canton == "UR"
+                    if settings.APPLICATION_NAME == "kt_uri"
                     else None,
                     "dwellings": self.get_dwellings(building),
                 },
@@ -305,7 +302,7 @@ class GwrSerializer(serializers.Serializer):
         # TODO Configure this for BE and SZ
         type_of_applicant = (
             self.master_data.type_of_applicant
-            if self.master_data.canton == "UR"
+            if settings.APPLICATION_NAME == "kt_uri"
             else None
         )
         if type_of_applicant:
