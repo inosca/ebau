@@ -1,4 +1,5 @@
 import pytest
+from caluma.caluma_form.models import Question
 from django.urls import reverse
 from pytest_lazyfixture import lazy_fixture
 from rest_framework import status
@@ -11,20 +12,20 @@ FOREST_COORDS = (2606252.261979167, 1230759.5796875001)
 
 @pytest.fixture
 def so_simple_config(gis_config_factory, question_factory):
-    question_factory(slug="gemeinde")
+    question_factory(slug="gemeinde", type=Question.TYPE_DYNAMIC_CHOICE)
 
     return gis_config_factory(
         client=GISConfig.CLIENT_SOGIS,
         config={
             "layer": "ch.so.agi.gemeindegrenzen.data",
-            "properties": {"gemeindename": {"question": "gemeinde"}},
+            "properties": [{"propertyName": "gemeindename", "question": "gemeinde"}],
         },
     )
 
 
 @pytest.fixture
 def so_filter_config(gis_config_factory, question_factory):
-    question_factory(slug="wald")
+    question_factory(slug="wald", type=Question.TYPE_TEXT)
 
     return gis_config_factory(
         client=GISConfig.CLIENT_SOGIS,
@@ -32,25 +33,30 @@ def so_filter_config(gis_config_factory, question_factory):
             "layer": "ch.so.agi.av.bodenbedeckung.data",
             "filter": '[["art_txt","ilike","%Wald%"]]',
             "buffer": 50,
-            "properties": {"art_txt": {"question": "wald"}},
+            "properties": [{"propertyName": "art_txt", "question": "wald"}],
         },
     )
 
 
 @pytest.fixture
 def so_nested_config(gis_config_factory, question_factory):
-    question_factory(slug="parzellen")
-    question_factory(slug="e-grid")
-    question_factory(slug="parzellennummer")
+    question_factory(slug="e-grid-global", type=Question.TYPE_TEXT)
+    question_factory(slug="parzellen", type=Question.TYPE_TABLE)
+    question_factory(slug="e-grid", type=Question.TYPE_TEXT)
+    question_factory(slug="parzellennummer", type=Question.TYPE_INTEGER)
 
     return gis_config_factory(
         client=GISConfig.CLIENT_SOGIS,
         config={
             "layer": "ch.so.agi.av.grundstuecke.rechtskraeftig.data",
-            "properties": {
-                "egrid": {"question": "parzellen.e-grid"},
-                "nummer": {"question": "parzellen.parzellennummer", "cast": "integer"},
-            },
+            "properties": [
+                {"propertyName": "egrid", "question": "e-grid-global"},
+                {"propertyName": "egrid", "question": "parzellen.e-grid"},
+                {
+                    "propertyName": "nummer",
+                    "question": "parzellen.parzellennummer",
+                },
+            ],
         },
     )
 
@@ -65,8 +71,7 @@ def so_unknown_layer_config(so_simple_config):
 
 @pytest.fixture
 def so_unknown_property_config(so_simple_config):
-    del so_simple_config.config["properties"]["gemeindename"]
-    so_simple_config.config["properties"]["unknown_property"] = {"question": "gemeinde"}
+    so_simple_config.config["properties"][0]["propertyName"] = "unknown_property"
     so_simple_config.save()
 
     return so_simple_config
@@ -74,9 +79,7 @@ def so_unknown_property_config(so_simple_config):
 
 @pytest.fixture
 def so_unknown_question_config(so_simple_config):
-    so_simple_config.config["properties"]["gemeindename"][
-        "question"
-    ] = "unknown_question"
+    so_simple_config.config["properties"][0]["question"] = "unknown_question"
     so_simple_config.save()
 
     return so_simple_config

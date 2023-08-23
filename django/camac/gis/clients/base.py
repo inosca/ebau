@@ -32,12 +32,14 @@ class GISBaseClient:
                 return float(value)
             elif type == "integer":
                 return int(value)
-        except ValueError:  # pragma: no cover
+            elif type == "string":
+                return str(value)
+        except ValueError:
             return None
 
         return value
 
-    def process_config(self, config: dict) -> dict:  # pragma: no cover
+    def process_config(self, config: dict) -> dict:
         raise NotImplementedError()
 
     def get_data(self) -> dict:

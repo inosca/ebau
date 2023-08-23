@@ -22,42 +22,51 @@ snapshots['test_sogis_client[coords1-so_filter_config-200] 1'] = {
 }
 
 snapshots['test_sogis_client[coords2-so_nested_config-200] 1'] = {
-    'parzellen': {
+    'e-grid-global': {
         'label': 'Suse Junk',
+        'value': 'CH354732700648'
+    },
+    'parzellen': {
+        'form': 'white-art-tonight',
+        'label': 'Elise Thanel',
         'value': {
             'e-grid': {
-                'label': 'Trudi Thanel',
+                'label': 'Lieselotte Otto',
                 'value': 'CH354732700648'
             },
             'parzellennummer': {
-                'label': 'Elwira Pärtzelt',
-                'value': 850
+                'label': 'Karl-Otto Hecker',
+                'value': '850'
             }
         }
     }
 }
 
 snapshots['test_sogis_client[coords3-so_all_config-200] 1'] = {
+    'e-grid-global': {
+        'label': 'Annemarie Textor',
+        'value': 'CH354732700648'
+    },
     'gemeinde': {
         'label': 'Suse Junk',
         'value': 'Solothurn'
     },
     'parzellen': {
-        'label': 'Valerij Hahn-Holt',
+        'form': 'woman-brother-that',
+        'label': 'Valeska Pölitz',
         'value': {
             'e-grid': {
-                'label': 'Sandor Wulf',
+                'label': 'Prof. Heinz-Wilhelm Trapp',
                 'value': 'CH354732700648'
             },
             'parzellennummer': {
-                'form': 'total-series-worry',
-                'label': 'Angelica Flantz',
-                'value': 850
+                'label': 'Dr. Myriam Junk B.A.',
+                'value': '850'
             }
         }
     },
     'wald': {
-        'label': 'Prof. Leila Heser MBA.',
+        'label': 'Ignaz Schäfer-Ruppert',
         'value': None
     }
 }
