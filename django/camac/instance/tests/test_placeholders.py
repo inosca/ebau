@@ -418,14 +418,14 @@ def test_human_readable_date(language, expected):
         assert human_readable_date(date.today()) == expected
 
 
-def test_dms_placeholders_docs(admin_client, snapshot, be_dms_config, settings):
+def test_dms_placeholders_docs(admin_client, snapshot, be_dms_config):
     response = admin_client.get(reverse("dms-placeholders-docs"))
     assert response.status_code == status.HTTP_200_OK
     snapshot.assert_match(response.json())
 
 
 def test_dms_placeholders_docs_available_placeholders(
-    admin_client, snapshot, be_dms_config, settings
+    admin_client, snapshot, be_dms_config
 ):
     response = admin_client.get(
         reverse("dms-placeholders-docs"), data={"available_placeholders": True}
