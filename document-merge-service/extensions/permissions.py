@@ -21,7 +21,10 @@ class CustomPermission:
 
     @object_permission_for(Template)
     def has_object_permission_template(self, request, template=None):
-        view_name = resolve(request.get_full_path()).view_name
+        # we need to use get_full_path_info instead of get_full_path for
+        # uwsgi mount point compat, see here for details:
+        # https://docs.djangoproject.com/en/3.2/ref/request-response/#django.http.HttpRequest.path_info
+        view_name = resolve(request.get_full_path_info()).view_name
 
         # Everyone can merge a template if it's visible
         if view_name == "template-merge":
