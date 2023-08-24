@@ -336,7 +336,14 @@ def test_send_inquiry(
 
 @pytest.mark.freeze_time("2022-03-23")
 @pytest.mark.parametrize("service__email", ["service@example.com"])
-@pytest.mark.parametrize("has_multiple_inquiries", [True, False])
+@pytest.mark.parametrize(
+    "has_multiple_inquiries",
+    [True, False],
+)
+@pytest.mark.parametrize(
+    "is_lead_authority",
+    [True, False],
+)
 def test_complete_inquiry(
     db,
     caluma_admin_user,
@@ -347,9 +354,25 @@ def test_complete_inquiry(
     service,
     has_multiple_inquiries,
     work_item_factory,
+    service_factory,
+    is_lead_authority,
 ):
-    inquiry1 = inquiry_factory_be(sent=True)
-    inquiry2 = inquiry_factory_be(sent=True) if has_multiple_inquiries else None
+    service1 = service_factory()
+    to_service = service if is_lead_authority else service1
+    from_service = service1 if is_lead_authority else service
+
+    if is_lead_authority:
+        inquiry_factory_be(sent=True, to_service=service1)
+
+    inquiry1 = inquiry_factory_be(
+        sent=True, from_service=from_service, to_service=to_service
+    )
+
+    inquiry2 = (
+        inquiry_factory_be(sent=True, from_service=from_service, to_service=to_service)
+        if has_multiple_inquiries
+        else None
+    )
 
     addressed_check_work_item = work_item_factory(
         task_id=be_distribution_settings["INQUIRY_CHECK_TASK"],
@@ -398,7 +421,10 @@ def test_complete_inquiry(
 
     assert addressed_check_work_item.status == WorkItem.STATUS_COMPLETED
 
-    if not has_multiple_inquiries:
+    if has_multiple_inquiries or is_lead_authority:
+        assert addressed_redo_work_item.status == WorkItem.STATUS_READY
+        assert addressed_create_work_item.status == WorkItem.STATUS_READY
+    else:
         assert addressed_redo_work_item.status == WorkItem.STATUS_CANCELED
         assert addressed_create_work_item.status == WorkItem.STATUS_CANCELED
 
@@ -416,14 +442,17 @@ def test_complete_inquiry(
         addressed_groups=[str(service.pk)],
     )
 
-    assert check_inquiries_work_items.exists() != has_multiple_inquiries
-    assert check_distribution_work_items.exists() != has_multiple_inquiries
+    if not is_lead_authority:
+        assert check_inquiries_work_items.exists() != has_multiple_inquiries
+        assert check_distribution_work_items.exists() != has_multiple_inquiries
 
     assert inquiry1.child_case.status == Case.STATUS_COMPLETED
     assert inquiry1.status == WorkItem.STATUS_COMPLETED
 
     assert len(mailoutbox) == 1
-    assert mailoutbox[0].to[0] == "service@example.com"
+    assert mailoutbox[0].to[0] == (
+        service1.email if is_lead_authority else service.email
+    )
 
     if has_multiple_inquiries:
         save_answer(
@@ -437,13 +466,19 @@ def test_complete_inquiry(
             work_item=inquiry2.child_case.work_items.first(), user=caluma_admin_user
         )
 
-        assert check_inquiries_work_items.exists()
-        assert check_distribution_work_items.exists()
+        if not is_lead_authority:
+            assert check_inquiries_work_items.exists()
+            assert check_distribution_work_items.exists()
 
         addressed_redo_work_item.refresh_from_db()
         addressed_create_work_item.refresh_from_db()
-        assert addressed_redo_work_item.status == WorkItem.STATUS_CANCELED
-        assert addressed_create_work_item.status == WorkItem.STATUS_CANCELED
+
+        if not is_lead_authority:
+            assert addressed_redo_work_item.status == WorkItem.STATUS_CANCELED
+            assert addressed_create_work_item.status == WorkItem.STATUS_CANCELED
+        else:
+            assert addressed_redo_work_item.status == WorkItem.STATUS_READY
+            assert addressed_create_work_item.status == WorkItem.STATUS_READY
 
 
 def test_complete_distribution(
