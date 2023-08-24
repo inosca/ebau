@@ -155,6 +155,11 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
         aliases=[_("PROPOSAL")],
         description=_("Description of the project"),
     )
+    decision_date = fields.DecisionField(
+        source="decision-date",
+        aliases=[_("DECISION_DATE")],
+        description=_("Decision date"),
+    )
     description_modification = fields.MasterDataField(
         "description_modification",
         aliases=[_("DESCRIPTION_MODIFICATION")],
@@ -163,6 +168,10 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
     fachstellen_kantonal = fields.InquiriesField(
         aliases=[_("CIRCULATION_ALL"), _("SERVICES_CANTONAL")],
         description=_("Involved organisations of the instance"),
+    )
+    form_name = fields.AliasedMethodField(
+        aliases=[_("FORM_NAME")],
+        description=_("Type of the instance"),
     )
     gemeinde_email = fields.MunicipalityField(
         source="email",
@@ -263,6 +272,10 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
     koordinaten = fields.AliasedMethodField(
         aliases=[_("COORDINATES")],
         description=_("Coordinates of the parcel"),
+    )
+    language = fields.AliasedMethodField(
+        aliases=[_("LANGUAGE")],
+        description=_("Currently selected language"),
     )
     leitbehoerde_address_1 = fields.ResponsibleServiceField(
         source="address",
@@ -434,6 +447,21 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
         aliases=[_("PUBLICATION_LINK")],
         description=_("Link to publication"),
     )
+    status = fields.AliasedMethodField(
+        aliases=[_("STATUS")],
+        description=_("Current status of the instance"),
+    )
+    stellungnahme = fields.InquiriesField(
+        only_own=True,
+        props=["opinion"],
+        join_by="\n\n",
+        aliases=[_("OWN_OPINIONS"), _("OPINIONS")],
+        description=_("Own opinions"),
+    )
+    today = fields.AliasedMethodField(
+        aliases=[_("TODAY")],
+        description=_("Current date"),
+    )
     zirkulation_fachstellen = fields.InquiriesField(
         service_group="service",
         aliases=[_("CIRCULATION_SERVICES")],
@@ -459,6 +487,9 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
     def get_base_url(self, instance):
         return settings.INTERNAL_BASE_URL
 
+    def get_form_name(self, instance):
+        return instance.case.document.form.name.get(get_language())
+
     def get_koordinaten(self, instance):
         return clean_join(
             *[
@@ -475,6 +506,9 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
             separator="; ",
         )
 
+    def get_language(self, instance):
+        return get_language()
+
     def get_parzelle(self, instance):
         return clean_join(
             *[plot.get("plot_number") for plot in instance._master_data.plot_data],
@@ -483,6 +517,12 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
 
     def get_publikation_link(self, instance):
         return build_url(settings.PUBLIC_BASE_URL, f"public-instances/{instance.pk}")
+
+    def get_status(self, instance):
+        return instance.instance_state.get_name()
+
+    def get_today(self, instance):
+        return human_readable_date(now().date())
 
 
 class GrDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
@@ -625,11 +665,6 @@ class BeDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         aliases=[_("DECISION")],
         description=_("Decision"),
     )
-    decision_date = fields.DecisionField(
-        source="decision-date",
-        aliases=[_("DECISION_DATE")],
-        description=_("Decision date"),
-    )
     decision_type = fields.DecisionField(
         source="decision-approval-type",
         use_identifier=True,
@@ -656,10 +691,6 @@ class BeDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         join_by="\n",
         aliases=[_("SERVICES_CANTONAL_LIST")],
         description=_("Names of all involved cantonal services as list"),
-    )
-    form_name = fields.AliasedMethodField(
-        aliases=[_("FORM_NAME")],
-        description=_("Type of the instance"),
     )
     gebaeudeeigentuemer_address_1 = fields.MasterDataPersonField(
         source="building_owners",
@@ -725,10 +756,6 @@ class BeDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
     inventar = fields.AliasedMethodField(
         aliases=[_("INVENTORY")],
         description=_("Inventory"),
-    )
-    language = fields.AliasedMethodField(
-        aliases=[_("LANGUAGE")],
-        description=_("Currently selected language"),
     )
     lastenausgleichsbegehren = fields.LegalSubmissionField(
         type="legal-submission-type-load-compensation-request",
@@ -860,24 +887,9 @@ class BeDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         aliases=[_("SITUATION")],
         description=_("Situation of the request"),
     )
-    status = fields.AliasedMethodField(
-        aliases=[_("STATUS")],
-        description=_("Current status of the instance"),
-    )
-    stellungnahme = fields.InquiriesField(
-        only_own=True,
-        props=["opinion"],
-        join_by="\n\n",
-        aliases=[_("OWN_OPINIONS"), _("OPINIONS")],
-        description=_("Own opinions"),
-    )
     stichworte = fields.AliasedMethodField(
         aliases=[_("TAGS")],
         description=_("List of all tags"),
-    )
-    today = fields.AliasedMethodField(
-        aliases=[_("TODAY")],
-        description=_("Current date"),
     )
     ueberbauungsordnung = fields.MasterDataField(
         source="development_regulations",
@@ -955,9 +967,6 @@ class BeDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
     def get_dossier_link(self, instance):
         return settings.INTERNAL_INSTANCE_URL_TEMPLATE.format(instance_id=instance.pk)
 
-    def get_form_name(self, instance):
-        return instance.case.document.form.name.get(get_language())
-
     def get_inventar(self, instance):
         inventory = []
 
@@ -999,12 +1008,6 @@ class BeDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
 
         return ", ".join(inventory)
 
-    def get_language(self, instance):
-        return get_language()
-
-    def get_status(self, instance):
-        return instance.instance_state.get_name()
-
     def get_stichworte(self, instance):
         return clean_join(
             *instance.tags.filter(service=self.context["request"].group.service)
@@ -1012,9 +1015,6 @@ class BeDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
             .values_list("name", flat=True),
             separator=", ",
         )
-
-    def get_today(self, instance):
-        return human_readable_date(now().date())
 
     def get_uvp_ja_nein(self, instance):
         return "mit-uvp" in instance.case.document.form_id
