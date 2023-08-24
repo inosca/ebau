@@ -169,7 +169,7 @@ class InstanceView(
                 "convert_modification": serializers.CalumaInstanceConvertModificationSerializer,
                 "dms_placeholders": {
                     "kt_bern": BeDMSPlaceholdersSerializer,
-                    "gr_bern": GrDMSPlaceholdersSerializer,
+                    "kt_gr": GrDMSPlaceholdersSerializer,
                     "default": DMSPlaceholdersSerializer,
                 },
                 "appeal": serializers.CalumaInstanceAppealSerializer,
