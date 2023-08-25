@@ -4198,20 +4198,6 @@ snapshots['test_dms_placeholders_gr[Municipality] 1'] = {
     'ALLE_PROJEKTVERFASSER': 'Hans Muster',
     'ALLE_PROJEKTVERFASSER_NAME_ADDRESS': 'Hans Muster, Bahnhofstrasse 3, 3600 Thun',
     'ALLE_PROJEKTVERFASSER_NAME_ADRESSE': 'Hans Muster, Bahnhofstrasse 3, 3600 Thun',
-    'AUJOURD_HUI': '30. August 2021',
-    'AUTEUR_PROJET': 'Hans Muster',
-    'AUTEUR_PROJET_ADRESSE_1': 'Bahnhofstrasse 3',
-    'AUTEUR_PROJET_ADRESSE_2': '3600 Thun',
-    'AUTEUR_PROJET_NOM_ADRESSE': 'Hans Muster, Bahnhofstrasse 3, 3600 Thun',
-    'AUTEUR_PROJET_TOUS': 'Hans Muster',
-    'AUTEUR_PROJET_TOUS_NOM_ADRESSE': 'Hans Muster, Bahnhofstrasse 3, 3600 Thun',
-    'AUTORITE_DIRECTRICE_ADRESSE_1': 'Teststrasse 1, 1234 Testdorf',
-    'AUTORITE_DIRECTRICE_ADRESSE_2': '1234 Testdorf',
-    'AUTORITE_DIRECTRICE_EMAIL': 'michelleboone@example.org',
-    'AUTORITE_DIRECTRICE_LIEU': 'Testdorf',
-    'AUTORITE_DIRECTRICE_NOM': 'Alex Smith',
-    'AUTORITE_DIRECTRICE_NOM_ABR': 'Alex Smith',
-    'AUTORITE_DIRECTRICE_TELEPHONE': '032163546546',
     'BASE_URL': 'http://ember-ebau.local',
     'BAUEINGABE_DATUM': '31. März 2021',
     'BAUENTSCHEID': 'Bewilligt',
@@ -4219,153 +4205,50 @@ snapshots['test_dms_placeholders_gr[Municipality] 1'] = {
     'BAUVORHABEN': 'Einfamilienhaus',
     'BESCHREIBUNG_BAUVORHABEN': 'Einfamilienhaus',
     'BESCHREIBUNG_PROJEKTAENDERUNG': 'Anbau Wintergarten',
-    'CIRCULATION_COMMUNES': [
-        {
-            'BEANTWORTET': '',
-            'CREE': '30.08.2021',
-            'DELAI': '21.03.1970',
-            'ERSTELLT': '30.08.2021',
-            'FRIST': '21.03.1970',
-            'NAME': 'Kathryn Brewer',
-            'NOM': 'Kathryn Brewer',
-            'REPONDU': ''
-        },
-        {
-            'BEANTWORTET': '',
-            'CREE': '30.08.2021',
-            'DELAI': '23.04.2013',
-            'ERSTELLT': '30.08.2021',
-            'FRIST': '23.04.2013',
-            'NAME': 'Joshua Huffman MD',
-            'NOM': 'Joshua Huffman MD',
-            'REPONDU': ''
-        }
-    ],
-    'CIRCULATION_PREAVIS': [
-        {
-            'ANTWORT': '',
-            'DE': 'Gregory Lawrence',
-            'DISPOSITIONS_ACCESSOIRES': 'Nebenbestimmungen 5',
-            'NEBENBESTIMMUNGEN': 'Nebenbestimmungen 5',
-            'POINT_DE_VUE': 'Stellungnahme 5',
-            'REPONSE': '',
-            'STELLUNGNAHME': 'Stellungnahme 5',
-            'VON': 'Gregory Lawrence'
-        },
-        {
-            'ANTWORT': '',
-            'DE': 'Timothy Mata',
-            'DISPOSITIONS_ACCESSOIRES': 'Nebenbestimmungen 6',
-            'NEBENBESTIMMUNGEN': 'Nebenbestimmungen 6',
-            'POINT_DE_VUE': 'Stellungnahme 6',
-            'REPONSE': '',
-            'STELLUNGNAHME': 'Stellungnahme 6',
-            'VON': 'Timothy Mata'
-        }
-    ],
-    'CIRCULATION_SERVICES': [
-        {
-            'BEANTWORTET': '10.01.1983',
-            'CREE': '30.08.2021',
-            'DELAI': '22.03.1999',
-            'ERSTELLT': '30.08.2021',
-            'FRIST': '22.03.1999',
-            'NAME': 'Gregory Lawrence',
-            'NOM': 'Gregory Lawrence',
-            'REPONDU': '10.01.1983'
-        },
-        {
-            'BEANTWORTET': '25.03.1977',
-            'CREE': '30.08.2021',
-            'DELAI': '22.06.1989',
-            'ERSTELLT': '30.08.2021',
-            'FRIST': '22.06.1989',
-            'NAME': 'Timothy Mata',
-            'NOM': 'Timothy Mata',
-            'REPONDU': '25.03.1977'
-        }
-    ],
-    'COMMUNE': 'Douglas Williams',
-    'COMMUNE_ADRESSE': '',
-    'COMMUNE_EMAIL': 'fischeramber@example.org',
-    'COMMUNE_LIEU': '',
-    'COMMUNE_NOM_ADRESSE': 'Gemeinde Douglas Williams',
-    'COMMUNE_TELEPHONE': '',
-    'COORDONEE': '2’569’941 / 1’298’923; 2’609’995 / 1’271’340',
-    'DECISION': 'Bewilligt',
     'DECISION_DATE': '30. August 2021',
-    'DEPOT_DEMANDE_DATE': '31. März 2021',
     'DESCRIPTION_MODIFICATION': 'Anbau Wintergarten',
-    'DISPOSITIONS_ACCESSOIRES': '',
-    'DISPOSITIONS_ANNEXES': '',
     'DOSSIER_NUMBER': 1,
     'DOSSIER_NUMMER': 1,
     'DOSSIER_TYP': 'Baugesuch',
-    'DOSSIER_TYPE': 'Baugesuch',
     'EBAU_URL': 'http://ember-ebau.local',
     'EIGENE_NEBENBESTIMMUNGEN': '',
     'EIGENE_STELLUNGNAHMEN': '',
-    'ETAT': 'David Rangel',
     'FACHSTELLEN_KANTONAL': [
         {
             'BEANTWORTET': '',
-            'CREE': '30.08.2021',
-            'DELAI': '06.04.1994',
             'ERSTELLT': '30.08.2021',
             'FRIST': '06.04.1994',
-            'NAME': 'Veronica Pacheco',
-            'NOM': 'Veronica Pacheco',
-            'REPONDU': ''
+            'NAME': 'Veronica Pacheco'
         },
         {
             'BEANTWORTET': '',
-            'CREE': '30.08.2021',
-            'DELAI': '12.02.1977',
             'ERSTELLT': '30.08.2021',
             'FRIST': '12.02.1977',
-            'NAME': 'Laura Long',
-            'NOM': 'Laura Long',
-            'REPONDU': ''
+            'NAME': 'Laura Long'
         },
         {
             'BEANTWORTET': '',
-            'CREE': '30.08.2021',
-            'DELAI': '21.03.1970',
             'ERSTELLT': '30.08.2021',
             'FRIST': '21.03.1970',
-            'NAME': 'Kathryn Brewer',
-            'NOM': 'Kathryn Brewer',
-            'REPONDU': ''
+            'NAME': 'Kathryn Brewer'
         },
         {
             'BEANTWORTET': '',
-            'CREE': '30.08.2021',
-            'DELAI': '23.04.2013',
             'ERSTELLT': '30.08.2021',
             'FRIST': '23.04.2013',
-            'NAME': 'Joshua Huffman MD',
-            'NOM': 'Joshua Huffman MD',
-            'REPONDU': ''
+            'NAME': 'Joshua Huffman MD'
         },
         {
             'BEANTWORTET': '10.01.1983',
-            'CREE': '30.08.2021',
-            'DELAI': '22.03.1999',
             'ERSTELLT': '30.08.2021',
             'FRIST': '22.03.1999',
-            'NAME': 'Gregory Lawrence',
-            'NOM': 'Gregory Lawrence',
-            'REPONDU': '10.01.1983'
+            'NAME': 'Gregory Lawrence'
         },
         {
             'BEANTWORTET': '25.03.1977',
-            'CREE': '30.08.2021',
-            'DELAI': '22.06.1989',
             'ERSTELLT': '30.08.2021',
             'FRIST': '22.06.1989',
-            'NAME': 'Timothy Mata',
-            'NOM': 'Timothy Mata',
-            'REPONDU': '25.03.1977'
+            'NAME': 'Timothy Mata'
         }
     ],
     'FORM_NAME': 'Baugesuch',
@@ -4396,7 +4279,6 @@ snapshots['test_dms_placeholders_gr[Municipality] 1'] = {
     'JURISTISCHER_NAME': 'Test AG',
     'KOORDINATEN': '2’569’941 / 1’298’923; 2’609’995 / 1’271’340',
     'LANGUAGE': 'de',
-    'LANGUE': 'de',
     'LEITBEHOERDE_ADDRESS_1': 'Teststrasse 1, 1234 Testdorf',
     'LEITBEHOERDE_ADDRESS_2': '1234 Testdorf',
     'LEITBEHOERDE_ADRESSE_1': 'Teststrasse 1, 1234 Testdorf',
@@ -4408,7 +4290,6 @@ snapshots['test_dms_placeholders_gr[Municipality] 1'] = {
     'LEITBEHOERDE_PHONE': '032163546546',
     'LEITBEHOERDE_STADT': 'Testdorf',
     'LEITBEHOERDE_TELEFON': '032163546546',
-    'LIEN_PUBLICATION': 'http://ebau-portal.local/public-instances/1',
     'MEINE_ORGANISATION_ADRESSE_1': 'Teststrasse 1, 1234 Testdorf',
     'MEINE_ORGANISATION_ADRESSE_2': '1234 Testdorf',
     'MEINE_ORGANISATION_EMAIL': 'michelleboone@example.org',
@@ -4417,88 +4298,13 @@ snapshots['test_dms_placeholders_gr[Municipality] 1'] = {
     'MEINE_ORGANISATION_NAME_KURZ': 'Alex Smith',
     'MEINE_ORGANISATION_ORT': 'Testdorf',
     'MEINE_ORGANISATION_TELEFON': '032163546546',
-    'MON_ORGANISATION_ADRESSE_1': 'Teststrasse 1, 1234 Testdorf',
-    'MON_ORGANISATION_ADRESSE_2': '1234 Testdorf',
-    'MON_ORGANISATION_EMAIL': 'michelleboone@example.org',
-    'MON_ORGANISATION_LIEU': 'Testdorf',
-    'MON_ORGANISATION_NOM': 'Alex Smith',
-    'MON_ORGANISATION_NOM_ABR': 'Alex Smith',
-    'MON_ORGANISATION_NOM_ADRESSE': 'Alex Smith, Teststrasse 1, 1234 Testdorf, 1234 Testdorf',
-    'MON_ORGANISATION_TELEPHONE': '032163546546',
     'MUNICIPALITY': 'Douglas Williams',
     'MUNICIPALITY_ADDRESS': '',
     'NAME': '',
     'NEBENBESTIMMUNGEN': '',
     'NEBENBESTIMMUNGEN_MAPPED': [
     ],
-    'NOM_LEGAL': 'Test AG',
-    'NUMERO_DU_DOSSIER': 1,
-    'OFFICES_CANTONAUX': [
-        {
-            'BEANTWORTET': '',
-            'CREE': '30.08.2021',
-            'DELAI': '06.04.1994',
-            'ERSTELLT': '30.08.2021',
-            'FRIST': '06.04.1994',
-            'NAME': 'Veronica Pacheco',
-            'NOM': 'Veronica Pacheco',
-            'REPONDU': ''
-        },
-        {
-            'BEANTWORTET': '',
-            'CREE': '30.08.2021',
-            'DELAI': '12.02.1977',
-            'ERSTELLT': '30.08.2021',
-            'FRIST': '12.02.1977',
-            'NAME': 'Laura Long',
-            'NOM': 'Laura Long',
-            'REPONDU': ''
-        },
-        {
-            'BEANTWORTET': '',
-            'CREE': '30.08.2021',
-            'DELAI': '21.03.1970',
-            'ERSTELLT': '30.08.2021',
-            'FRIST': '21.03.1970',
-            'NAME': 'Kathryn Brewer',
-            'NOM': 'Kathryn Brewer',
-            'REPONDU': ''
-        },
-        {
-            'BEANTWORTET': '',
-            'CREE': '30.08.2021',
-            'DELAI': '23.04.2013',
-            'ERSTELLT': '30.08.2021',
-            'FRIST': '23.04.2013',
-            'NAME': 'Joshua Huffman MD',
-            'NOM': 'Joshua Huffman MD',
-            'REPONDU': ''
-        },
-        {
-            'BEANTWORTET': '10.01.1983',
-            'CREE': '30.08.2021',
-            'DELAI': '22.03.1999',
-            'ERSTELLT': '30.08.2021',
-            'FRIST': '22.03.1999',
-            'NAME': 'Gregory Lawrence',
-            'NOM': 'Gregory Lawrence',
-            'REPONDU': '10.01.1983'
-        },
-        {
-            'BEANTWORTET': '25.03.1977',
-            'CREE': '30.08.2021',
-            'DELAI': '22.06.1989',
-            'ERSTELLT': '30.08.2021',
-            'FRIST': '22.06.1989',
-            'NAME': 'Timothy Mata',
-            'NOM': 'Timothy Mata',
-            'REPONDU': '25.03.1977'
-        }
-    ],
-    'PARCELLE': '123465, 789876',
     'PARZELLE': '123465, 789876',
-    'POINT_DE_VUE': '',
-    'PRISE_DE_POSITION': '',
     'PROJEKTVERFASSER': 'Hans Muster',
     'PROJEKTVERFASSER_ADDRESS_1': 'Bahnhofstrasse 3',
     'PROJEKTVERFASSER_ADDRESS_2': '3600 Thun',
@@ -4506,21 +4312,7 @@ snapshots['test_dms_placeholders_gr[Municipality] 1'] = {
     'PROJEKTVERFASSER_ADRESSE_2': '3600 Thun',
     'PROJEKTVERFASSER_NAME_ADDRESS': 'Hans Muster, Bahnhofstrasse 3, 3600 Thun',
     'PROJEKTVERFASSER_NAME_ADRESSE': 'Hans Muster, Bahnhofstrasse 3, 3600 Thun',
-    'PROJET_CONSTR': 'Einfamilienhaus',
-    'PROJET_CONSTR_DESCR': 'Einfamilienhaus',
-    'PROPRIETAIRE_FONC': 'Sandra Beispiel',
-    'PROPRIETAIRE_FONC_ADRESSE_1': 'Beispielstrasse 16',
-    'PROPRIETAIRE_FONC_ADRESSE_2': '2222 Beispieldorf',
-    'PROPRIETAIRE_FONC_NOM_ADRESSE': 'Sandra Beispiel, Beispielstrasse 16, 2222 Beispieldorf',
-    'PROPRIETAIRE_FONC_TOUS': 'Sandra Beispiel',
-    'PROPRIETAIRE_FONC_TOUS_NOM_ADRESSE': 'Sandra Beispiel, Beispielstrasse 16, 2222 Beispieldorf',
     'PUBLIKATION_LINK': 'http://ebau-portal.local/public-instances/1',
-    'REQUERANT': 'Test AG, Esther Tester',
-    'REQUERANT_ADRESSE_1': 'Testweg 321',
-    'REQUERANT_ADRESSE_2': '4321 Testingen',
-    'REQUERANT_NOM_ADRESSE': 'Test AG, Esther Tester, Testweg 321, 4321 Testingen',
-    'REQUERANT_TOUS': 'Test AG, Esther Tester',
-    'REQUERANT_TOUS_NOM_ADRESSE': 'Test AG, Esther Tester, Testweg 321, 4321 Testingen',
     'SPRACHE': 'de',
     'STATUS': 'David Rangel',
     'STELLUNGNAHME': '',
@@ -4528,127 +4320,79 @@ snapshots['test_dms_placeholders_gr[Municipality] 1'] = {
     'ZIRKULATION_ALLE': [
         {
             'BEANTWORTET': '',
-            'CREE': '30.08.2021',
-            'DELAI': '06.04.1994',
             'ERSTELLT': '30.08.2021',
             'FRIST': '06.04.1994',
-            'NAME': 'Veronica Pacheco',
-            'NOM': 'Veronica Pacheco',
-            'REPONDU': ''
+            'NAME': 'Veronica Pacheco'
         },
         {
             'BEANTWORTET': '',
-            'CREE': '30.08.2021',
-            'DELAI': '12.02.1977',
             'ERSTELLT': '30.08.2021',
             'FRIST': '12.02.1977',
-            'NAME': 'Laura Long',
-            'NOM': 'Laura Long',
-            'REPONDU': ''
+            'NAME': 'Laura Long'
         },
         {
             'BEANTWORTET': '',
-            'CREE': '30.08.2021',
-            'DELAI': '21.03.1970',
             'ERSTELLT': '30.08.2021',
             'FRIST': '21.03.1970',
-            'NAME': 'Kathryn Brewer',
-            'NOM': 'Kathryn Brewer',
-            'REPONDU': ''
+            'NAME': 'Kathryn Brewer'
         },
         {
             'BEANTWORTET': '',
-            'CREE': '30.08.2021',
-            'DELAI': '23.04.2013',
             'ERSTELLT': '30.08.2021',
             'FRIST': '23.04.2013',
-            'NAME': 'Joshua Huffman MD',
-            'NOM': 'Joshua Huffman MD',
-            'REPONDU': ''
+            'NAME': 'Joshua Huffman MD'
         },
         {
             'BEANTWORTET': '10.01.1983',
-            'CREE': '30.08.2021',
-            'DELAI': '22.03.1999',
             'ERSTELLT': '30.08.2021',
             'FRIST': '22.03.1999',
-            'NAME': 'Gregory Lawrence',
-            'NOM': 'Gregory Lawrence',
-            'REPONDU': '10.01.1983'
+            'NAME': 'Gregory Lawrence'
         },
         {
             'BEANTWORTET': '25.03.1977',
-            'CREE': '30.08.2021',
-            'DELAI': '22.06.1989',
             'ERSTELLT': '30.08.2021',
             'FRIST': '22.06.1989',
-            'NAME': 'Timothy Mata',
-            'NOM': 'Timothy Mata',
-            'REPONDU': '25.03.1977'
+            'NAME': 'Timothy Mata'
         }
     ],
     'ZIRKULATION_FACHSTELLEN': [
         {
             'BEANTWORTET': '10.01.1983',
-            'CREE': '30.08.2021',
-            'DELAI': '22.03.1999',
             'ERSTELLT': '30.08.2021',
             'FRIST': '22.03.1999',
-            'NAME': 'Gregory Lawrence',
-            'NOM': 'Gregory Lawrence',
-            'REPONDU': '10.01.1983'
+            'NAME': 'Gregory Lawrence'
         },
         {
             'BEANTWORTET': '25.03.1977',
-            'CREE': '30.08.2021',
-            'DELAI': '22.06.1989',
             'ERSTELLT': '30.08.2021',
             'FRIST': '22.06.1989',
-            'NAME': 'Timothy Mata',
-            'NOM': 'Timothy Mata',
-            'REPONDU': '25.03.1977'
+            'NAME': 'Timothy Mata'
         }
     ],
     'ZIRKULATION_GEMEINDEN': [
         {
             'BEANTWORTET': '',
-            'CREE': '30.08.2021',
-            'DELAI': '21.03.1970',
             'ERSTELLT': '30.08.2021',
             'FRIST': '21.03.1970',
-            'NAME': 'Kathryn Brewer',
-            'NOM': 'Kathryn Brewer',
-            'REPONDU': ''
+            'NAME': 'Kathryn Brewer'
         },
         {
             'BEANTWORTET': '',
-            'CREE': '30.08.2021',
-            'DELAI': '23.04.2013',
             'ERSTELLT': '30.08.2021',
             'FRIST': '23.04.2013',
-            'NAME': 'Joshua Huffman MD',
-            'NOM': 'Joshua Huffman MD',
-            'REPONDU': ''
+            'NAME': 'Joshua Huffman MD'
         }
     ],
     'ZIRKULATION_RUECKMELDUNGEN': [
         {
             'ANTWORT': '',
-            'DE': 'Gregory Lawrence',
-            'DISPOSITIONS_ACCESSOIRES': 'Nebenbestimmungen 5',
             'NEBENBESTIMMUNGEN': 'Nebenbestimmungen 5',
-            'POINT_DE_VUE': 'Stellungnahme 5',
-            'REPONSE': '',
             'STELLUNGNAHME': 'Stellungnahme 5',
             'VON': 'Gregory Lawrence'
         },
         {
             'ANTWORT': '',
-            'DE': 'Timothy Mata',
-            'DISPOSITIONS_ACCESSOIRES': 'Nebenbestimmungen 6',
             'NEBENBESTIMMUNGEN': 'Nebenbestimmungen 6',
-            'POINT_DE_VUE': 'Stellungnahme 6',
-            'REPONSE': '',
             'STELLUNGNAHME': 'Stellungnahme 6',
             'VON': 'Timothy Mata'
         }
