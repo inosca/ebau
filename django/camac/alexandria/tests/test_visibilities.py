@@ -10,6 +10,7 @@ from pytest_factoryboy import LazyFixture
 from rest_framework.status import HTTP_200_OK
 
 
+@pytest.mark.parametrize("is_nested_category", [True, False])
 @pytest.mark.parametrize(
     "role__name,instance__user,expected_count",
     [
@@ -25,6 +26,7 @@ def test_document_visibility(
     admin_client,
     instance,
     expected_count,
+    is_nested_category,
 ):
     # directly readble
     applicant_category = CategoryFactory(metainfo={"access": {"applicant": "Admin"}})
@@ -32,6 +34,11 @@ def test_document_visibility(
         metainfo={"access": {"municipality": "Read"}}
     )
     service_category = CategoryFactory(metainfo={"access": {"service": "InternalRead"}})
+
+    if is_nested_category:
+        applicant_category = CategoryFactory(parent=applicant_category)
+        municipality_category = CategoryFactory(parent=municipality_category)
+        service_category = CategoryFactory(parent=service_category)
 
     DocumentFactory.create_batch(
         2, category=applicant_category, metainfo={"camac-instance-id": instance.pk}
@@ -65,6 +72,7 @@ def test_document_visibility(
     assert len(json["data"]) == expected_count
 
 
+@pytest.mark.parametrize("is_nested_category", [True, False])
 @pytest.mark.parametrize(
     "role__name,expected_count",
     [
@@ -81,12 +89,19 @@ def test_file_visibility(
     admin_client,
     role,
     expected_count,
+    is_nested_category,
 ):
     applicant_category = CategoryFactory(metainfo={"access": {"applicant": "Admin"}})
     municipality_category = CategoryFactory(
         metainfo={"access": {"municipality": "Read"}}
     )
     service_category = CategoryFactory(metainfo={"access": {"service": "Internal"}})
+
+    if is_nested_category:
+        applicant_category = CategoryFactory(parent=applicant_category)
+        municipality_category = CategoryFactory(parent=municipality_category)
+        service_category = CategoryFactory(parent=service_category)
+
     applicant_document = DocumentFactory(
         category=applicant_category, metainfo={"camac-instance-id": instance.pk}
     )
@@ -110,6 +125,7 @@ def test_file_visibility(
     assert len(json["data"]) == expected_count
 
 
+@pytest.mark.parametrize("is_nested_category", [True, False])
 @pytest.mark.parametrize(
     "role__name,expected_count",
     [
@@ -118,16 +134,30 @@ def test_file_visibility(
         ("service", 2),
     ],
 )
-def test_category_visibility(db, admin_client, role, expected_count, snapshot):
-    CategoryFactory(
-        metainfo={
-            "access": {"applicant": "Admin", "municipality": "Read", "service": "Read"}
-        }
-    )
-    CategoryFactory(metainfo={"access": {"municipality": "Read"}})
-    CategoryFactory(
-        metainfo={"access": {"service": "Internal", "municipality": "Read"}}
-    )
+def test_category_visibility(
+    db, admin_client, role, expected_count, snapshot, is_nested_category
+):
+    categories = [
+        CategoryFactory(
+            metainfo={
+                "access": {
+                    "applicant": "Admin",
+                    "municipality": "Read",
+                    "service": "Read",
+                }
+            }
+        ),
+        CategoryFactory(metainfo={"access": {"municipality": "Read"}}),
+        CategoryFactory(
+            metainfo={"access": {"service": "Internal", "municipality": "Read"}}
+        ),
+    ]
+
+    if is_nested_category:
+        for category in categories:
+            CategoryFactory(parent=category)
+
+        expected_count *= 2
 
     url = reverse("category-list")
     response = admin_client.get(url)
@@ -135,15 +165,20 @@ def test_category_visibility(db, admin_client, role, expected_count, snapshot):
     assert response.status_code == HTTP_200_OK
     json = response.json()
     assert len(json["data"]) == expected_count
-    snapshot.assert_match(json["data"][0]["attributes"]["metainfo"])
+    snapshot.assert_match(
+        [
+            {"id": obj["id"], "metainfo": obj["attributes"]["metainfo"]}
+            for obj in json["data"]
+        ]
+    )
 
 
 @pytest.mark.parametrize(
     "role__name,expected_count",
     [
-        ("applicant", 1),
-        ("municipality", 2),
-        ("service", 2),
+        ("applicant", 0),
+        ("municipality", 1),
+        ("service", 1),
     ],
 )
 def test_tag_visibility(
@@ -155,8 +190,6 @@ def test_tag_visibility(
     expected_count,
 ):
     TagFactory(created_by_group=caluma_admin_user.group)
-    public_tag = TagFactory()
-    application_settings["ALEXANDRIA"]["PUBLIC_TAGS"] = [public_tag.pk]
 
     url = reverse("tag-list")
     response = admin_client.get(url)

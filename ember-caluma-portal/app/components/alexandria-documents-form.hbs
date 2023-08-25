@@ -32,13 +32,13 @@
   masonry="true"
   class="uk-grid-small uk-child-width-1-1 uk-child-width-1-2@m"
 >
-  {{#each this.buckets as |bucket|}}
+  {{#each this.categories.value as |category|}}
     <AlexandriaDocumentBucket
-      @slug={{bucket}}
+      @category={{category}}
       @disabled={{@disabled}}
       @deletable={{this.deletable}}
       @loading={{this.fetchAttachments.isPending}}
-      @attachments={{get this.attachments.value bucket}}
+      @attachments={{get this.attachments.value category.id}}
       @onUpload={{perform this.upload}}
       @onDelete={{perform this.delete}}
     />
