@@ -330,7 +330,8 @@
       "configuration": {
         "color": "primary",
         "action": "complete",
-        "validate_on_enter": false
+        "validate_on_enter": false,
+        "show_validation": false
       },
       "meta": {},
       "data_source": null,

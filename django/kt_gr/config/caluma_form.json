@@ -45911,7 +45911,8 @@
       "configuration": {
         "color": "primary",
         "action": "complete",
-        "validate_on_enter": false
+        "validate_on_enter": false,
+        "show_validation": true
       },
       "meta": {},
       "data_source": null,
