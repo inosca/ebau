@@ -112,13 +112,13 @@ interactions:
       Content-Type:
       - text/html
       Date:
-      - Mon, 21 Aug 2023 16:10:01 GMT
+      - Tue, 29 Aug 2023 12:42:02 GMT
       Keep-Alive:
       - timeout=10, max=300
       Server:
       - Kanton Solothurn
       Set-Cookie:
-      - SCDID_S=Aziys-vXErTbwr-uvNpZMaZ3ADeL8rLMX4A6OMYRLLXPJKtsKeuQPw$$; path=/;
+      - SCDID_S=rtpkdeYw-8iUSyxaPPmD3ICWzsooNabfblZQMiLkvxsv02DhBZ1Qkg$$; path=/;
         Secure; HttpOnly
     status:
       code: 404

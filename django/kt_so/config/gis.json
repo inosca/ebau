@@ -1,8 +1,419 @@
 [
   {
-    "model": "gis.gisconfig",
-    "pk": "adresse",
+    "model": "gis.gisdatasource",
+    "pk": "1426549a-b37e-4510-9cb9-204b59895bee",
     "fields": {
+      "description": "Nutzungsplanung, weitere Festlegungen (Grundwasserschutz)",
+      "client": "camac.gis.clients.sogis.SoGisClient",
+      "config": {
+        "layer": "ch.so.afu.gewaesserschutz.zonen_areale.data_v2",
+        "properties": [
+          {
+            "question": "nutzungsplanung-weitere-festlegungen",
+            "template": "Grundwasserschutz: {value}",
+            "propertyName": "typ"
+          }
+        ]
+      },
+      "disabled": false
+    }
+  },
+  {
+    "model": "gis.gisdatasource",
+    "pk": "1cfd54fd-a8df-4f80-b031-370805faac19",
+    "fields": {
+      "description": "Koordinaten",
+      "client": "camac.gis.clients.param.ParamGisClient",
+      "config": [
+        {
+          "cast": "float",
+          "question": "parzellen.lagekoordinaten-ost",
+          "parameterName": "x"
+        },
+        {
+          "cast": "float",
+          "question": "parzellen.lagekoordinaten-nord",
+          "parameterName": "y"
+        }
+      ],
+      "disabled": false
+    }
+  },
+  {
+    "model": "gis.gisdatasource",
+    "pk": "21af2392-47c2-41c6-b762-ef5eca96ec21",
+    "fields": {
+      "description": "Nutzungsplanung, weitere Festlegungen (Erschliessungsplan, Fläche)",
+      "client": "camac.gis.clients.sogis.SoGisClient",
+      "config": {
+        "layer": "ch.so.arp.nutzungsplanung.erschliessungsplanung_flaeche.data",
+        "properties": [
+          {
+            "question": "nutzungsplanung-weitere-festlegungen",
+            "template": "Erschliessungsplan (Fläche): {value}",
+            "propertyName": "typ_bezeichnung"
+          }
+        ]
+      },
+      "disabled": false
+    }
+  },
+  {
+    "model": "gis.gisdatasource",
+    "pk": "2c339bb0-f61f-458f-90c5-e777d1e3e9f7",
+    "fields": {
+      "description": "Nutzungsplanung (Grundnutzung)",
+      "client": "camac.gis.clients.sogis.SoGisClient",
+      "config": {
+        "layer": "ch.so.arp.nutzungsplanung.grundnutzung.data",
+        "properties": [
+          {
+            "question": "nutzungsplanung-grundnutzung",
+            "propertyName": "typ_bezeichnung"
+          }
+        ]
+      },
+      "disabled": false
+    }
+  },
+  {
+    "model": "gis.gisdatasource",
+    "pk": "36bb43f8-3c00-404b-8be6-56a943960c7e",
+    "fields": {
+      "description": "Bundesinventare (Amphibien, Vogelreservate, Auen, Moore, Jagdbanngebiete, Trockenwiesen)",
+      "client": "camac.gis.clients.admin.AdminGisClient",
+      "config": {
+        "layers": [
+          "ch.bafu.bundesinventare-amphibien",
+          "ch.bafu.bundesinventare-amphibien_wanderobjekte",
+          "ch.bafu.bundesinventare-vogelreservate",
+          "ch.bafu.bundesinventare-auen",
+          "ch.bafu.bundesinventare-auen_anhang2",
+          "ch.bafu.bundesinventare-auen_vegetation_alpin",
+          "ch.bafu.bundesinventare-flachmoore",
+          "ch.bafu.bundesinventare-hochmoore",
+          "ch.bafu.bundesinventare-moorlandschaften",
+          "ch.bafu.bundesinventare-jagdbanngebiete",
+          "ch.bafu.bundesinventare-trockenwiesen_trockenweiden",
+          "ch.bafu.bundesinventare-trockenwiesen_trockenweiden_anhang2"
+        ],
+        "attributes": [
+          {
+            "question": "bundesinventare",
+            "template": "{label}: {value}",
+            "attributeName": "name"
+          }
+        ],
+        "invalidLayers": ["ch.bafu.bundesinventare-flachmoore_regional"]
+      },
+      "disabled": false
+    }
+  },
+  {
+    "model": "gis.gisdatasource",
+    "pk": "39fe69f2-f0ec-4d4d-8b3c-f956cfcf0ba5",
+    "fields": {
+      "description": "Nutzungsplanung, weitere Festlegungen (überlagernd, Punkt)",
+      "client": "camac.gis.clients.sogis.SoGisClient",
+      "config": {
+        "layer": "ch.so.arp.nutzungsplanung.ueberlagernd_punkt.data",
+        "buffer": 50,
+        "properties": [
+          {
+            "question": "nutzungsplanung-weitere-festlegungen",
+            "template": "Punkt: {value}",
+            "propertyName": "typ_bezeichnung"
+          }
+        ]
+      },
+      "disabled": false
+    }
+  },
+  {
+    "model": "gis.gisdatasource",
+    "pk": "3f82ea33-1434-4659-9860-349d078231e5",
+    "fields": {
+      "description": "Richtplan, weiteres (Linie)",
+      "client": "camac.gis.clients.sogis.SoGisClient",
+      "config": {
+        "layer": "ch.so.arp.richtplan.ueberlagernd_linie.data",
+        "buffer": 50,
+        "properties": [
+          {
+            "question": "richtplan-weiteres",
+            "template": "Linie: {value}",
+            "propertyName": "objekttyp"
+          }
+        ]
+      },
+      "disabled": false
+    }
+  },
+  {
+    "model": "gis.gisdatasource",
+    "pk": "42de2d8f-efc7-43e8-9c6e-833a7965eb10",
+    "fields": {
+      "description": "Weitere GIS-Informationen (Denkmalschutz, Fläche)",
+      "client": "camac.gis.clients.sogis.SoGisClient",
+      "config": {
+        "layer": "ch.so.ada.denkmalschutz.flaechenobjekt.data",
+        "buffer": 25,
+        "properties": [
+          {
+            "question": "weitere-gis-informationen",
+            "template": "Denkmalschutz Schutzstufe: {value}",
+            "propertyName": "schutzstufe_text"
+          },
+          {
+            "question": "weitere-gis-informationen",
+            "template": "Denkmalschutzobjekt: {value}",
+            "propertyName": "objektname"
+          }
+        ]
+      },
+      "disabled": false
+    }
+  },
+  {
+    "model": "gis.gisdatasource",
+    "pk": "46ee308e-8d6a-461a-ad32-863dd8418cdd",
+    "fields": {
+      "description": "Weitere GIS-Informationen (Bodenbedeckung, Wald)",
+      "client": "camac.gis.clients.sogis.SoGisClient",
+      "config": {
+        "layer": "ch.so.agi.av.bodenbedeckung.data",
+        "buffer": 50,
+        "filter": "[[\"art_txt\",\"ilike\",\"%Wald%\"]]",
+        "properties": [
+          {
+            "question": "weitere-gis-informationen",
+            "template": "Bodenbedeckung: {value}",
+            "propertyName": "art_txt"
+          }
+        ]
+      },
+      "disabled": false
+    }
+  },
+  {
+    "model": "gis.gisdatasource",
+    "pk": "4904db70-17d4-4ba8-bf21-1408b9a0a871",
+    "fields": {
+      "description": "Bundesinventare (BLN)",
+      "client": "camac.gis.clients.admin.AdminGisClient",
+      "config": {
+        "buffer": 100,
+        "layers": ["ch.bafu.bundesinventare-bln"],
+        "attributes": [
+          {
+            "question": "bundesinventare",
+            "template": "{label}: {value}",
+            "attributeName": "bln_name"
+          },
+          {
+            "question": "bundesinventare",
+            "template": "Nr. des {label}: {value}",
+            "attributeName": "bln_obj"
+          }
+        ]
+      },
+      "disabled": false
+    }
+  },
+  {
+    "model": "gis.gisdatasource",
+    "pk": "53bd545f-0284-4ab2-89f1-afacf6831eae",
+    "fields": {
+      "description": "Ort",
+      "client": "camac.gis.clients.sogis.SoGisClient",
+      "config": {
+        "layer": "ch.so.agi.av.grundbuchkreis.data",
+        "properties": [
+          {
+            "question": "ort",
+            "propertyName": "aname"
+          },
+          {
+            "question": "parzellen.ort",
+            "propertyName": "aname"
+          }
+        ]
+      },
+      "disabled": false
+    }
+  },
+  {
+    "model": "gis.gisdatasource",
+    "pk": "53c330a0-ef63-4da3-94f9-e8a15a57d5c0",
+    "fields": {
+      "description": "Nutzungsplanung, weitere Festlegungen (überlagernd, Linie)",
+      "client": "camac.gis.clients.sogis.SoGisClient",
+      "config": {
+        "layer": "ch.so.arp.nutzungsplanung.ueberlagernd_linie.data",
+        "buffer": 50,
+        "properties": [
+          {
+            "question": "nutzungsplanung-weitere-festlegungen",
+            "template": "Linie: {value}",
+            "propertyName": "typ_bezeichnung"
+          }
+        ]
+      },
+      "disabled": false
+    }
+  },
+  {
+    "model": "gis.gisdatasource",
+    "pk": "5adc2865-3911-4f36-a183-f2b03492861c",
+    "fields": {
+      "description": "Weitere GIS-Informationen (Denkmalschutz, Punkt)",
+      "client": "camac.gis.clients.sogis.SoGisClient",
+      "config": {
+        "layer": "ch.so.ada.denkmalschutz.punktobjekt.data",
+        "buffer": 25,
+        "properties": [
+          {
+            "question": "weitere-gis-informationen",
+            "template": "Denkmalschutz Schutzstufe: {value}",
+            "propertyName": "schutzstufe_text"
+          },
+          {
+            "question": "weitere-gis-informationen",
+            "template": "Denkmalschutzobjekt: {value}",
+            "propertyName": "objektname"
+          }
+        ]
+      },
+      "disabled": false
+    }
+  },
+  {
+    "model": "gis.gisdatasource",
+    "pk": "71cc24dd-53bb-4f00-bec4-b3272030f249",
+    "fields": {
+      "description": "Richtplan, weiteres (Punkt)",
+      "client": "camac.gis.clients.sogis.SoGisClient",
+      "config": {
+        "layer": "ch.so.arp.richtplan.ueberlagernd_punkt.data",
+        "buffer": 100,
+        "properties": [
+          {
+            "question": "richtplan-weiteres",
+            "template": "Punkt: {value}",
+            "propertyName": "objekttyp"
+          }
+        ]
+      },
+      "disabled": false
+    }
+  },
+  {
+    "model": "gis.gisdatasource",
+    "pk": "7ee5e1d7-37c9-46ca-894e-14cc9cd15ea8",
+    "fields": {
+      "description": "Weitere GIS-Informationen (Bodenbedeckung, Gewässer)",
+      "client": "camac.gis.clients.sogis.SoGisClient",
+      "config": {
+        "layer": "ch.so.agi.av.bodenbedeckung.data",
+        "buffer": 50,
+        "filter": "[[\"art_txt\",\"ilike\",\"%Gewaesser%\"]]",
+        "properties": [
+          {
+            "question": "weitere-gis-informationen",
+            "template": "Bodenbedeckung: {value}",
+            "propertyName": "art_txt"
+          }
+        ]
+      },
+      "disabled": false
+    }
+  },
+  {
+    "model": "gis.gisdatasource",
+    "pk": "990573ea-7a21-44b8-ad0f-6ab070286ce1",
+    "fields": {
+      "description": "Richtplan Grundnutzung",
+      "client": "camac.gis.clients.sogis.SoGisClient",
+      "config": {
+        "layer": "ch.so.arp.richtplan.grundnutzung.data",
+        "properties": [
+          {
+            "question": "richtplan-grundnutzung",
+            "propertyName": "grundnutzungsart"
+          }
+        ]
+      },
+      "disabled": false
+    }
+  },
+  {
+    "model": "gis.gisdatasource",
+    "pk": "a8f19109-e838-45fb-b716-b31016d4b041",
+    "fields": {
+      "description": "Richtplan, weiteres (Waldnähe)",
+      "client": "camac.gis.clients.sogis.SoGisClient",
+      "config": {
+        "layer": "ch.so.arp.richtplan.grundnutzung.data",
+        "buffer": 50,
+        "filter": "[[\"grundnutzungsart\",\"ilike\",\"Wald\"]]",
+        "properties": [
+          {
+            "yesNo": true,
+            "question": "richtplan-weiteres",
+            "template": "Waldnähe (aus Richtplan): {value}",
+            "propertyName": "grundnutzungsart"
+          }
+        ]
+      },
+      "disabled": false
+    }
+  },
+  {
+    "model": "gis.gisdatasource",
+    "pk": "ae6241e2-3905-4b37-9304-5f90d3d17fe4",
+    "fields": {
+      "description": "Nutzungsplanung, weitere Festlegungen (überlagernd, Fläche)",
+      "client": "camac.gis.clients.sogis.SoGisClient",
+      "config": {
+        "layer": "ch.so.arp.nutzungsplanung.ueberlagernd_flaeche.data",
+        "properties": [
+          {
+            "question": "nutzungsplanung-weitere-festlegungen",
+            "template": "Fläche: {value}",
+            "propertyName": "typ_bezeichnung"
+          }
+        ]
+      },
+      "disabled": false
+    }
+  },
+  {
+    "model": "gis.gisdatasource",
+    "pk": "b1a09bf3-757f-4c23-b879-f5f1c940bc51",
+    "fields": {
+      "description": "Gemeinde & BfS Nr.",
+      "client": "camac.gis.clients.sogis.SoGisClient",
+      "config": {
+        "layer": "ch.so.agi.gemeindegrenzen.data",
+        "properties": [
+          {
+            "question": "gemeinde",
+            "propertyName": "gemeindename"
+          },
+          {
+            "question": "gemeindenummer-bfs",
+            "propertyName": "bfs_gemeindenummer"
+          }
+        ]
+      },
+      "disabled": false
+    }
+  },
+  {
+    "model": "gis.gisdatasource",
+    "pk": "cf5f31b3-6b38-4776-8bd4-347a3b68dd64",
+    "fields": {
+      "description": "Adresse",
       "client": "camac.gis.clients.sogis.SoGisClient",
       "config": {
         "layer": "ch.so.agi.av.gebaeudeadressen.gebaeudeeingaenge",
@@ -35,16 +446,18 @@
     }
   },
   {
-    "model": "gis.gisconfig",
-    "pk": "gemeinde",
+    "model": "gis.gisdatasource",
+    "pk": "dd11163a-994d-4815-a38a-1c4e81a7e9d3",
     "fields": {
+      "description": "Richtplan, weiteres (Fläche)",
       "client": "camac.gis.clients.sogis.SoGisClient",
       "config": {
-        "layer": "ch.so.agi.gemeindegrenzen.data",
+        "layer": "ch.so.arp.richtplan.ueberlagernd_flaeche.data",
         "properties": [
           {
-            "question": "gemeinde",
-            "propertyName": "gemeindename"
+            "question": "richtplan-weiteres",
+            "template": "Fläche: {value}",
+            "propertyName": "objekttyp"
           }
         ]
       },
@@ -52,40 +465,19 @@
     }
   },
   {
-    "model": "gis.gisconfig",
-    "pk": "koordinaten",
+    "model": "gis.gisdatasource",
+    "pk": "ee062d64-5103-4261-ab54-ce6d8cb1fc53",
     "fields": {
-      "client": "camac.gis.clients.param.ParamClient",
-      "config": [
-        {
-          "cast": "float",
-          "question": "parzellen.lagekoordinaten-ost",
-          "parameterName": "x"
-        },
-        {
-          "cast": "float",
-          "question": "parzellen.lagekoordinaten-nord",
-          "parameterName": "y"
-        }
-      ],
-      "disabled": false
-    }
-  },
-  {
-    "model": "gis.gisconfig",
-    "pk": "ort",
-    "fields": {
+      "description": "Nutzungsplanung, weitere Festlegungen (Erschliessungsplan, Linie)",
       "client": "camac.gis.clients.sogis.SoGisClient",
       "config": {
-        "layer": "ch.so.agi.av.grundbuchkreis.data",
+        "layer": "ch.so.arp.nutzungsplanung.erschliessungsplanung_linie.data",
+        "buffer": 50,
         "properties": [
           {
-            "question": "ort",
-            "propertyName": "aname"
-          },
-          {
-            "question": "parzellen.ort",
-            "propertyName": "aname"
+            "question": "nutzungsplanung-weitere-festlegungen",
+            "template": "Erschliessungsplan (Linie): {value}",
+            "propertyName": "typ_bezeichnung"
           }
         ]
       },
@@ -93,9 +485,10 @@
     }
   },
   {
-    "model": "gis.gisconfig",
-    "pk": "parzelle",
+    "model": "gis.gisdatasource",
+    "pk": "f2169071-f7bc-4449-8e24-c2743f4b90c7",
     "fields": {
+      "description": "EGRID & Parzellennummer",
       "client": "camac.gis.clients.sogis.SoGisClient",
       "config": {
         "layer": "ch.so.agi.av.grundstuecke.rechtskraeftig.data",
@@ -114,16 +507,24 @@
     }
   },
   {
-    "model": "gis.gisconfig",
-    "pk": "zone",
+    "model": "gis.gisdatasource",
+    "pk": "f373b257-88d3-4eff-8e39-a9e6a69f6888",
     "fields": {
-      "client": "camac.gis.clients.sogis.SoGisClient",
+      "description": "Bundesinventare (IVS National, Regional und Lokal)",
+      "client": "camac.gis.clients.admin.AdminGisClient",
       "config": {
-        "layer": "ch.so.arp.nutzungsplanung.grundnutzung.data",
-        "properties": [
+        "buffer": 50,
+        "layers": ["ch.astra.ivs-nat", "ch.astra.ivs-reg_loc"],
+        "attributes": [
           {
-            "question": "zone",
-            "propertyName": "typ_bezeichnung"
+            "question": "bundesinventare",
+            "template": "{label}: {value}",
+            "attributeName": "ivs_slaname"
+          },
+          {
+            "question": "bundesinventare",
+            "template": "Nr. des {label}: {value}",
+            "attributeName": "ivs_nummer"
           }
         ]
       },

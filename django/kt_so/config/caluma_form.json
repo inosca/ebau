@@ -5438,6 +5438,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "lokalisierung.bundesinventare",
+    "fields": {
+      "created_at": "2023-08-28T09:13:15.922Z",
+      "modified_at": "2023-08-28T09:13:15.922Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "lokalisierung",
+      "question": "bundesinventare",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "lokalisierung.gemeinde",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -5448,7 +5463,22 @@
       "modified_by_group": null,
       "form": "lokalisierung",
       "question": "gemeinde",
-      "sort": 6
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "lokalisierung.gemeindenummer-bfs",
+    "fields": {
+      "created_at": "2023-08-28T09:06:35.560Z",
+      "modified_at": "2023-08-28T09:06:35.560Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "lokalisierung",
+      "question": "gemeindenummer-bfs",
+      "sort": 12
     }
   },
   {
@@ -5463,7 +5493,7 @@
       "modified_by_group": null,
       "form": "lokalisierung",
       "question": "gis-karte",
-      "sort": 7
+      "sort": 14
     }
   },
   {
@@ -5478,7 +5508,7 @@
       "modified_by_group": null,
       "form": "lokalisierung",
       "question": "lokalisierung-anleitung",
-      "sort": 8
+      "sort": 15
     }
   },
   {
@@ -5493,7 +5523,37 @@
       "modified_by_group": null,
       "form": "lokalisierung",
       "question": "lokalisierung-titel",
-      "sort": 9
+      "sort": 16
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "lokalisierung.nutzungsplanung-grundnutzung",
+    "fields": {
+      "created_at": "2023-08-28T09:12:35.102Z",
+      "modified_at": "2023-08-28T09:12:35.102Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "lokalisierung",
+      "question": "nutzungsplanung-grundnutzung",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "lokalisierung.nutzungsplanung-weitere-festlegungen",
+    "fields": {
+      "created_at": "2023-08-28T09:12:50.002Z",
+      "modified_at": "2023-08-28T09:12:50.002Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "lokalisierung",
+      "question": "nutzungsplanung-weitere-festlegungen",
+      "sort": 3
     }
   },
   {
@@ -5508,7 +5568,7 @@
       "modified_by_group": null,
       "form": "lokalisierung",
       "question": "ort",
-      "sort": 3
+      "sort": 9
     }
   },
   {
@@ -5523,7 +5583,37 @@
       "modified_by_group": null,
       "form": "lokalisierung",
       "question": "parzellen",
-      "sort": 2
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "lokalisierung.richtplan-grundnutzung",
+    "fields": {
+      "created_at": "2023-08-28T09:07:58.357Z",
+      "modified_at": "2023-08-28T09:07:58.357Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "lokalisierung",
+      "question": "richtplan-grundnutzung",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "lokalisierung.richtplan-weiteres",
+    "fields": {
+      "created_at": "2023-08-28T09:15:55.507Z",
+      "modified_at": "2023-08-28T09:15:55.507Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "lokalisierung",
+      "question": "richtplan-weiteres",
+      "sort": 6
     }
   },
   {
@@ -5538,7 +5628,7 @@
       "modified_by_group": null,
       "form": "lokalisierung",
       "question": "strasse-flurname",
-      "sort": 5
+      "sort": 11
     }
   },
   {
@@ -5553,7 +5643,22 @@
       "modified_by_group": null,
       "form": "lokalisierung",
       "question": "strasse-nummer",
-      "sort": 4
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "lokalisierung.weitere-gis-informationen",
+    "fields": {
+      "created_at": "2023-08-28T09:13:02.190Z",
+      "modified_at": "2023-08-28T09:13:02.190Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "lokalisierung",
+      "question": "weitere-gis-informationen",
+      "sort": 2
     }
   },
   {
@@ -5568,7 +5673,7 @@
       "modified_by_group": null,
       "form": "lokalisierung",
       "question": "zone",
-      "sort": 1
+      "sort": 5
     }
   },
   {
@@ -19065,6 +19170,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "bundesinventare",
+    "fields": {
+      "created_at": "2023-08-28T09:13:15.686Z",
+      "modified_at": "2023-08-28T09:13:15.686Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bundesinventare\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "das-vorhaben-betrifft",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -19391,7 +19530,7 @@
     "pk": "e-grid",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "modified_at": "2023-08-28T09:13:31.999Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -19403,7 +19542,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -21791,7 +21930,7 @@
     "pk": "gemeinde",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "modified_at": "2023-08-28T09:05:59.124Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -21803,7 +21942,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -21813,6 +21952,40 @@
         "widgetOverride": "cf-field/input/powerselect"
       },
       "data_source": "Municipalities",
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "gemeindenummer-bfs",
+    "fields": {
+      "created_at": "2023-08-28T09:06:35.361Z",
+      "modified_at": "2023-08-28T09:06:35.361Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gemeindenummer BfS\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
       "row_form": null,
       "sub_form": null,
       "source": null,
@@ -24112,7 +24285,7 @@
     "pk": "lagekoordinaten-nord",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "modified_at": "2023-08-28T09:14:16.968Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -24122,9 +24295,9 @@
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_value": null,
@@ -24146,7 +24319,7 @@
     "pk": "lagekoordinaten-ost",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "modified_at": "2023-08-28T09:14:23.996Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -24156,9 +24329,9 @@
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_value": null,
@@ -25735,6 +25908,74 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "nutzungsplanung-grundnutzung",
+    "fields": {
+      "created_at": "2023-08-28T09:12:34.961Z",
+      "modified_at": "2023-08-28T09:12:34.961Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nutzungsplanung (Grundnutzung)\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "nutzungsplanung-weitere-festlegungen",
+    "fields": {
+      "created_at": "2023-08-28T09:12:49.760Z",
+      "modified_at": "2023-08-28T09:12:49.760Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nutzungsplanung, weitere Festlegungen\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "nutzungszwecke",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -25831,7 +26072,7 @@
     "pk": "ort",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "modified_at": "2023-08-28T09:13:50.148Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -25933,7 +26174,7 @@
     "pk": "parzellen",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "modified_at": "2023-08-28T09:15:07.846Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -25945,7 +26186,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
@@ -25971,7 +26212,7 @@
     "pk": "parzellennummer",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "modified_at": "2023-08-28T09:13:39.318Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -25981,9 +26222,9 @@
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -26290,7 +26531,7 @@
     "pk": "plz",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "modified_at": "2023-08-28T09:13:57.029Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -26789,6 +27030,74 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "richtplan-grundnutzung",
+    "fields": {
+      "created_at": "2023-08-28T09:07:58.109Z",
+      "modified_at": "2023-08-28T09:07:58.109Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Richtplan Grundnutzung\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "richtplan-weiteres",
+    "fields": {
+      "created_at": "2023-08-28T09:15:55.243Z",
+      "modified_at": "2023-08-28T09:15:55.243Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Richtplan, weiteres\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -27731,7 +28040,7 @@
     "pk": "strasse-flurname",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "modified_at": "2023-08-28T09:14:09.737Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -27796,7 +28105,7 @@
     "pk": "strasse-nummer",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "modified_at": "2023-08-28T09:14:04.418Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -29926,6 +30235,40 @@
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"---\\n\\n**Unter den nachfolgenden Links finden Sie alle Formulare die auf der Websites der EnDK aufgeschaltet sind.**\\n\\n[Formulare EN-1 bis EN-16 (MuKEn 2008](https://www.endk.ch/de/fachleute-1/energienachweis/energienachweis-muken-2008)\\n\\n\\n[Formulare EN-100 bis EN-142 (MuKEn 2014](https://www.endk.ch/de/fachleute-1/energienachweis/EN-101%20bis%20EN-141)\\n\\nBei Fragen im Zusammenhang mit dem Ausf\\u00fcllen der EN Formulare wenden Sie sich bitte an den Sachverst\\u00e4ndigen der jeweiligen Gemeinde oder direkt an das [Amt f\\u00fcr Energie des Kantons Uri](https://www.ur.ch/aemter/828)\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "weitere-gis-informationen",
+    "fields": {
+      "created_at": "2023-08-28T09:13:02.021Z",
+      "modified_at": "2023-08-28T09:13:02.021Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Weitere GIS-Informationen\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
       "meta": {},
       "data_source": null,
       "row_form": null,
