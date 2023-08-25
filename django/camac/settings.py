@@ -4178,6 +4178,7 @@ GIS_SKIP_SPECIAL_LAYERS = env.list("GIS_SKIP_SPECIAL_LAYERS", default=[])
 SO_GIS_BASE_URL = env.str(
     "SO_GIS_BASE_URL", default=default("https://geo-i.so.ch", "https://geo.so.ch")
 )
+ADMIN_GIS_BASE_URL = env.str("ADMIN_GIS_BASE_URL", default="https://api3.geo.admin.ch")
 
 DOCUMENT_MERGE_SERVICE_URL = build_url(
     env.str("DOCUMENT_MERGE_SERVICE_URL", "http://document-merge-service:8000/api/v1/")

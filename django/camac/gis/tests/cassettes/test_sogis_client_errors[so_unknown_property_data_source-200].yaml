@@ -467,13 +467,13 @@ interactions:
       Connection:
       - Keep-Alive
       Date:
-      - Mon, 21 Aug 2023 16:09:59 GMT
+      - Tue, 29 Aug 2023 12:42:03 GMT
       Keep-Alive:
       - timeout=10, max=300
       Server:
       - Kanton Solothurn
       Set-Cookie:
-      - SCDID_S=Oi_TQhFxh_a5IyoFMbIssVBkulrgGqEc6TpchyScLw5Qgreu3Ryl6A$$; path=/;
+      - SCDID_S=zY5-5578DaA8tmEbKmbvvtM_Dp8t767G4dNRfdT7jtCHq8KUt268Rw$$; path=/;
         Secure; HttpOnly
       access-control-allow-origin:
       - '*'
