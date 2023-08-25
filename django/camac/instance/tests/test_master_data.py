@@ -399,6 +399,100 @@ def be_master_data_case(db, be_instance, group, master_data_is_visible_mock):
 
 
 @pytest.fixture
+def gr_master_data_case(db, gr_instance, group, master_data_is_visible_mock):
+    gr_instance.case.meta = {
+        "dossier-number": "2023-1",
+        "submit-date": "2021-03-31T13:17:08+0000",
+    }
+    gr_instance.case.save()
+
+    document = gr_instance.case.document
+
+    # Simple data
+    add_answer(document, "beschreibung-bauvorhaben", "Einfamilienhaus")
+    add_answer(document, "projektaenderung", "Anbau Wintergarten")
+    add_answer(document, "strasse-flurname", "Teststrasse")
+    add_answer(document, "nr", 12)
+    add_answer(document, "plz-grundstueck-v3", 1234)
+    add_answer(document, "ort-grundstueck", "Testhausen")
+
+    # Municipality
+    add_answer(document, "gemeinde", "18")
+    caluma_form_factories.DynamicOptionFactory(
+        question_id="gemeinde",
+        document=gr_instance.case.document,
+        slug="18",
+        label={"de": "Chur", "fr": "Chur"},
+    )
+
+    # Table data
+    add_table_answer(
+        document,
+        "parzelle",
+        [
+            {
+                "parzellennummer": 123465,
+                "e-grid-nr": "CH334687150542",
+                "lagekoordinaten-ost": 2569941,
+                "lagekoordinaten-nord": 1298923,
+            },
+            {
+                "parzellennummer": 789876,
+                "e-grid-nr": "CH913545967614",
+                "lagekoordinaten-ost": 2609995,
+                "lagekoordinaten-nord": 1271340,
+            },
+        ],
+    )
+    add_table_answer(
+        document,
+        "personalien-gesuchstellerin",
+        [
+            {
+                "vorname-gesuchstellerin": "Esther",
+                "name-gesuchstellerin": "Tester",
+                "juristische-person-gesuchstellerin": "juristische-person-gesuchstellerin-ja",
+                "name-juristische-person-gesuchstellerin": "Test AG",
+                "strasse-gesuchstellerin": "Testweg",
+                "nummer-gesuchstellerin": 321,
+                "ort-gesuchstellerin": "Testingen",
+                "plz-gesuchstellerin": 4321,
+            }
+        ],
+    )
+    add_table_answer(
+        document,
+        "personalien-projektverfasserin",
+        [
+            {
+                "vorname-gesuchstellerin": "Hans",
+                "name-gesuchstellerin": "Muster",
+                "strasse-gesuchstellerin": "Bahnhofstrasse",
+                "nummer-gesuchstellerin": 3,
+                "plz-gesuchstellerin": 3600,
+                "ort-gesuchstellerin": "Thun",
+            },
+        ],
+    )
+    add_table_answer(
+        document,
+        "personalien-grundeigentumerin",
+        [
+            {
+                "vorname-gesuchstellerin": "Sandra",
+                "name-gesuchstellerin": "Beispiel",
+                "strasse-gesuchstellerin": "Beispielstrasse",
+                "nummer-gesuchstellerin": 16,
+                "plz-gesuchstellerin": 2222,
+                "ort-gesuchstellerin": "Beispieldorf",
+            },
+        ],
+    )
+
+    return gr_instance.case
+
+
+@pytest.fixture
 def ur_master_data_case(
     db,
     ur_instance,
