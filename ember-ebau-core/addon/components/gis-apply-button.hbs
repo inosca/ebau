@@ -1,0 +1,54 @@
+<UkButton
+  data-test-apply
+  @color="primary"
+  @label={{t "so-gis.apply"}}
+  @onClick={{perform this.getData}}
+  @disabled={{or @disabled this.getData.isRunning}}
+  @loading={{this.getData.isRunning}}
+/>
+
+<UkModal
+  @visible={{this.showModal}}
+  @onHide={{fn (mut this.showModal) false}}
+  as |modal|
+>
+  <modal.body>
+    <ul class="uk-list uk-list-divider">
+      {{#each-in this.data as |question data|}}
+        <li data-test-gis-data-row>
+          <p class="uk-text-bold uk-margin-remove" data-test-gis-data-label>{{data.label}}</p>
+          {{#if data.form}}
+            <table class="uk-table uk-table-small uk-table-divider uk-table-justify uk-margin-remove">
+              <tbody>
+                {{#each-in data.value as |tableQuestion rowData|}}
+                  <tr>
+                    <td data-test-gis-data-table-label>{{rowData.label}}</td>
+                    <td data-test-gis-data-table-value>{{or rowData.value "-"}}</td>
+                  </tr>
+                {{/each-in}}
+              </tbody>
+            </table>
+          {{else}}
+            <p class="uk-margin-remove" data-test-gis-data-value>{{or data.value "-"}}</p>
+          {{/if}}
+        </li>
+      {{/each-in}}
+    </ul>
+  </modal.body>
+
+  <modal.footer class="uk-text-right">
+    <UkButton
+      @label={{t "global.cancel"}}
+      @onClick={{fn (mut this.showModal) false}}
+    />
+
+    <UkButton
+      @color="primary"
+      @label={{t "global.save"}}
+      @onClick={{perform this.applyData}}
+      @disabled={{this.applyData.isRunning}}
+      @loading={{this.applyData.isRunning}}
+      data-test-confirm
+    />
+  </modal.footer>
+</UkModal>

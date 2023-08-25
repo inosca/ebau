@@ -1,0 +1,73 @@
+{{#unless @disabled}}
+  <div class="uk-margin uk-grid uk-grid-small" data-test-search>
+    <div class="uk-width-expand">
+      <PowerSelect
+        @selected={{this.selectedSearchResult}}
+        @searchField="label"
+        @placeholder={{t "caluma.form.power-select.placeholder-single"}}
+        @loadingMessage={{t "caluma.form.power-select.options-loading"}}
+        @searchEnabled={{true}}
+        @searchMessage=""
+        @searchPlaceholder={{t "caluma.form.power-select.search-placeholder"}}
+        @noMatchesMessage={{t "caluma.form.power-select.search-empty"}}
+        @onChange={{fn (mut this.selectedSearchResult)}}
+        @search={{perform this.search}}
+        as |result|
+      >
+        {{result.label}}
+      </PowerSelect>
+    </div>
+
+    <div>
+      <UkButton
+        @color="primary"
+        @disabled={{not this.selectedSearchResult}}
+        @label={{t "so-gis.select"}}
+        @onClick={{fn this.setPoint this.selectedSearchResult.value.lat this.selectedSearchResult.value.lng}}
+      />
+    </div>
+  </div>
+{{/unless}}
+
+<LeafletMap
+  @lat={{this.center.lat}}
+  @lng={{this.center.lng}}
+  @zoom={{this.zoom}}
+  @minZoom={{this.zoomMin}}
+  @maxZoom={{this.zoomMax}}
+  @onClick={{this.setMapPoint}}
+  @onLoad={{this.initMap}}
+  @crs={{this.crs}}
+  class="uk-width-1-1 uk-height-large uk-margin"
+  data-test-map
+  as |map|
+>
+  <map.wms-tile
+    @transparent={{true}}
+    @format="image/png"
+    @layers="ch.so.agi.gemeindegrenzen"
+    @url="{{macroGetOwnConfig "soGisUrl"}}/api/wms"
+  />
+  <map.tile
+    @opacity={{0.4}}
+    @url="{{macroGetOwnConfig "soGisUrl"}}/api/wmts/1.0.0/ch.so.agi.hintergrundkarte_ortho/default/2056/{z}/{y}/{x}"
+  />
+  <map.tile
+    @opacity={{0.7}}
+    @url="{{macroGetOwnConfig "soGisUrl"}}/api/wmts/1.0.0/ch.so.agi.hintergrundkarte_sw/default/2056/{z}/{y}/{x}"
+  />
+  {{#if this.point}}
+    <map.marker
+      @lat={{this.point.lat}}
+      @lng={{this.point.lng}}
+    />
+  {{/if}}
+</LeafletMap>
+
+{{#unless @disabled}}
+  <GisApplyButton
+    @document={{@field.document}}
+    @disabled={{not this.point}}
+    @params={{hash x=this.point.x y=this.point.y}}
+  />
+{{/unless}}
