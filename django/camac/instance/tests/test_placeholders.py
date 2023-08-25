@@ -40,6 +40,23 @@ def be_dms_config(settings):
 
 
 @pytest.fixture
+def gr_dms_config(settings):
+    original_languages = settings.LANGUAGES
+    settings.LANGUAGES = [
+        (code, name)
+        for code, name in settings.LANGUAGES
+        if code in ["de"]  # TODO: add IT
+    ]
+    settings.APPLICATION_NAME = "kt_gr"
+    settings.INTERNAL_BASE_URL = "http://ember-ebau.local"
+    settings.INTERNAL_INSTANCE_URL_TEMPLATE = (
+        "http://ember-ebau.local/cases/{instance_id}"
+    )
+    yield
+    settings.LANGUAGES = original_languages
+
+
+@pytest.fixture
 def status_question(be_distribution_settings):
     return Question.objects.get(pk=be_distribution_settings["QUESTIONS"]["STATUS"])
 
@@ -76,11 +93,8 @@ def test_dms_placeholders_gr(
     question_factory,
     form_question_factory,
     active_inquiry_factory,
+    gr_dms_config,
 ):
-    settings.APPLICATION_NAME = "kt_gr"
-    settings.INTERNAL_BASE_URL = "http://ember-ebau.local"
-    settings.INTERNAL_INSTANCE_URL_TEMPLATE = "http://ember-ebau.local/index/redirect-to-instance-resource/instance-id/{instance_id}"
-
     application_settings["MUNICIPALITY_DATA_SHEET"] = settings.ROOT_DIR(
         "kt_gr",
         pathlib.Path(settings.APPLICATIONS["kt_bern"]["MUNICIPALITY_DATA_SHEET"]).name,
