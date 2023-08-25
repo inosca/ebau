@@ -571,6 +571,7 @@ DISTRIBUTION = {
             "STATEMENT": "inquiry-answer-assessment",
             "ANCILLARY_CLAUSES": "inquiry-answer-ancillary-clauses",
         },
+        "INQUIRY_TASK": "inquiry",
     },
     "demo": {"ENABLED": True},
 }

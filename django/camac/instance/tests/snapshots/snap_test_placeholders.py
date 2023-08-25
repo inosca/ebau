@@ -4185,3 +4185,216 @@ snapshots['test_dms_placeholders_empty[Municipality] 1'] = {
     'ZUSTAENDIG_PHONE': '',
     'ZUSTAENDIG_TELEFON': ''
 }
+
+snapshots['test_dms_placeholders_gr[Municipality] 1'] = {
+    'ADDRESS': 'Teststrasse 12, Testhausen',
+    'ADRESSE': 'Teststrasse 12, Testhausen',
+    'ALLE_GESUCHSTELLER': 'Test AG, Esther Tester',
+    'ALLE_GESUCHSTELLER_NAME_ADDRESS': 'Test AG, Esther Tester, Testweg 321, 4321 Testingen',
+    'ALLE_GESUCHSTELLER_NAME_ADRESSE': 'Test AG, Esther Tester, Testweg 321, 4321 Testingen',
+    'ALLE_GRUNDEIGENTUEMER': 'Sandra Beispiel',
+    'ALLE_GRUNDEIGENTUEMER_NAME_ADDRESS': 'Sandra Beispiel, Beispielstrasse 16, 2222 Beispieldorf',
+    'ALLE_GRUNDEIGENTUEMER_NAME_ADRESSE': 'Sandra Beispiel, Beispielstrasse 16, 2222 Beispieldorf',
+    'ALLE_PROJEKTVERFASSER': 'Hans Muster',
+    'ALLE_PROJEKTVERFASSER_NAME_ADDRESS': 'Hans Muster, Bahnhofstrasse 3, 3600 Thun',
+    'ALLE_PROJEKTVERFASSER_NAME_ADRESSE': 'Hans Muster, Bahnhofstrasse 3, 3600 Thun',
+    'BASE_URL': 'http://ember-ebau.local',
+    'BAUEINGABE_DATUM': '31. März 2021',
+    'BAUENTSCHEID': 'Bewilligt',
+    'BAUENTSCHEID_DATUM': '30. August 2021',
+    'BAUVORHABEN': 'Einfamilienhaus',
+    'BESCHREIBUNG_BAUVORHABEN': 'Einfamilienhaus',
+    'BESCHREIBUNG_PROJEKTAENDERUNG': 'Anbau Wintergarten',
+    'DECISION_DATE': '30. August 2021',
+    'DESCRIPTION_MODIFICATION': 'Anbau Wintergarten',
+    'DOSSIER_NUMBER': 1,
+    'DOSSIER_NUMMER': 1,
+    'DOSSIER_TYP': 'Baugesuch',
+    'EBAU_URL': 'http://ember-ebau.local',
+    'EIGENE_NEBENBESTIMMUNGEN': '',
+    'EIGENE_STELLUNGNAHMEN': '',
+    'FACHSTELLEN_KANTONAL': [
+        {
+            'BEANTWORTET': '',
+            'ERSTELLT': '30.08.2021',
+            'FRIST': '06.04.1994',
+            'NAME': 'Veronica Pacheco'
+        },
+        {
+            'BEANTWORTET': '',
+            'ERSTELLT': '30.08.2021',
+            'FRIST': '12.02.1977',
+            'NAME': 'Laura Long'
+        },
+        {
+            'BEANTWORTET': '',
+            'ERSTELLT': '30.08.2021',
+            'FRIST': '21.03.1970',
+            'NAME': 'Kathryn Brewer'
+        },
+        {
+            'BEANTWORTET': '',
+            'ERSTELLT': '30.08.2021',
+            'FRIST': '23.04.2013',
+            'NAME': 'Joshua Huffman MD'
+        },
+        {
+            'BEANTWORTET': '10.01.1983',
+            'ERSTELLT': '30.08.2021',
+            'FRIST': '22.03.1999',
+            'NAME': 'Gregory Lawrence'
+        },
+        {
+            'BEANTWORTET': '25.03.1977',
+            'ERSTELLT': '30.08.2021',
+            'FRIST': '22.06.1989',
+            'NAME': 'Timothy Mata'
+        }
+    ],
+    'FORM_NAME': 'Baugesuch',
+    'GEMEINDE': 'Douglas Williams',
+    'GEMEINDE_ADRESSE': '',
+    'GEMEINDE_EMAIL': 'fischeramber@example.org',
+    'GEMEINDE_NAME_ADRESSE': 'Gemeinde Douglas Williams',
+    'GEMEINDE_ORT': '',
+    'GEMEINDE_TELEFON': '',
+    'GESUCHSTELLER': 'Test AG, Esther Tester',
+    'GESUCHSTELLER_ADDRESS_1': 'Testweg 321',
+    'GESUCHSTELLER_ADDRESS_2': '4321 Testingen',
+    'GESUCHSTELLER_ADRESSE_1': 'Testweg 321',
+    'GESUCHSTELLER_ADRESSE_2': '4321 Testingen',
+    'GESUCHSTELLER_NAME_ADDRESS': 'Test AG, Esther Tester, Testweg 321, 4321 Testingen',
+    'GESUCHSTELLER_NAME_ADRESSE': 'Test AG, Esther Tester, Testweg 321, 4321 Testingen',
+    'GRUNDEIGENTUEMER': 'Sandra Beispiel',
+    'GRUNDEIGENTUEMER_ADDRESS_1': 'Beispielstrasse 16',
+    'GRUNDEIGENTUEMER_ADDRESS_2': '2222 Beispieldorf',
+    'GRUNDEIGENTUEMER_ADRESSE_1': 'Beispielstrasse 16',
+    'GRUNDEIGENTUEMER_ADRESSE_2': '2222 Beispieldorf',
+    'GRUNDEIGENTUEMER_NAME_ADDRESS': 'Sandra Beispiel, Beispielstrasse 16, 2222 Beispieldorf',
+    'GRUNDEIGENTUEMER_NAME_ADRESSE': 'Sandra Beispiel, Beispielstrasse 16, 2222 Beispieldorf',
+    'HEUTE': '30. August 2021',
+    'ID': 1,
+    'INSTANCE_ID': 1,
+    'JURISTIC_NAME': 'Test AG',
+    'JURISTISCHER_NAME': 'Test AG',
+    'KOORDINATEN': '2’569’941 / 1’298’923; 2’609’995 / 1’271’340',
+    'LANGUAGE': 'de',
+    'LEITBEHOERDE_ADDRESS_1': 'Teststrasse 1, 1234 Testdorf',
+    'LEITBEHOERDE_ADDRESS_2': '1234 Testdorf',
+    'LEITBEHOERDE_ADRESSE_1': 'Teststrasse 1, 1234 Testdorf',
+    'LEITBEHOERDE_ADRESSE_2': '1234 Testdorf',
+    'LEITBEHOERDE_CITY': 'Testdorf',
+    'LEITBEHOERDE_EMAIL': 'michelleboone@example.org',
+    'LEITBEHOERDE_NAME': 'Alex Smith',
+    'LEITBEHOERDE_NAME_KURZ': 'Alex Smith',
+    'LEITBEHOERDE_PHONE': '032163546546',
+    'LEITBEHOERDE_STADT': 'Testdorf',
+    'LEITBEHOERDE_TELEFON': '032163546546',
+    'MEINE_ORGANISATION_ADRESSE_1': 'Teststrasse 1, 1234 Testdorf',
+    'MEINE_ORGANISATION_ADRESSE_2': '1234 Testdorf',
+    'MEINE_ORGANISATION_EMAIL': 'michelleboone@example.org',
+    'MEINE_ORGANISATION_NAME': 'Alex Smith',
+    'MEINE_ORGANISATION_NAME_ADRESSE': 'Alex Smith, Teststrasse 1, 1234 Testdorf, 1234 Testdorf',
+    'MEINE_ORGANISATION_NAME_KURZ': 'Alex Smith',
+    'MEINE_ORGANISATION_ORT': 'Testdorf',
+    'MEINE_ORGANISATION_TELEFON': '032163546546',
+    'MUNICIPALITY': 'Douglas Williams',
+    'MUNICIPALITY_ADDRESS': '',
+    'NAME': '',
+    'NEBENBESTIMMUNGEN': '',
+    'NEBENBESTIMMUNGEN_MAPPED': [
+    ],
+    'PARZELLE': '123465, 789876',
+    'PROJEKTVERFASSER': 'Hans Muster',
+    'PROJEKTVERFASSER_ADDRESS_1': 'Bahnhofstrasse 3',
+    'PROJEKTVERFASSER_ADDRESS_2': '3600 Thun',
+    'PROJEKTVERFASSER_ADRESSE_1': 'Bahnhofstrasse 3',
+    'PROJEKTVERFASSER_ADRESSE_2': '3600 Thun',
+    'PROJEKTVERFASSER_NAME_ADDRESS': 'Hans Muster, Bahnhofstrasse 3, 3600 Thun',
+    'PROJEKTVERFASSER_NAME_ADRESSE': 'Hans Muster, Bahnhofstrasse 3, 3600 Thun',
+    'PUBLIKATION_LINK': 'http://ebau-portal.local/public-instances/1',
+    'SPRACHE': 'de',
+    'STATUS': 'David Rangel',
+    'STELLUNGNAHME': '',
+    'TODAY': '30. August 2021',
+    'ZIRKULATION_ALLE': [
+        {
+            'BEANTWORTET': '',
+            'ERSTELLT': '30.08.2021',
+            'FRIST': '06.04.1994',
+            'NAME': 'Veronica Pacheco'
+        },
+        {
+            'BEANTWORTET': '',
+            'ERSTELLT': '30.08.2021',
+            'FRIST': '12.02.1977',
+            'NAME': 'Laura Long'
+        },
+        {
+            'BEANTWORTET': '',
+            'ERSTELLT': '30.08.2021',
+            'FRIST': '21.03.1970',
+            'NAME': 'Kathryn Brewer'
+        },
+        {
+            'BEANTWORTET': '',
+            'ERSTELLT': '30.08.2021',
+            'FRIST': '23.04.2013',
+            'NAME': 'Joshua Huffman MD'
+        },
+        {
+            'BEANTWORTET': '10.01.1983',
+            'ERSTELLT': '30.08.2021',
+            'FRIST': '22.03.1999',
+            'NAME': 'Gregory Lawrence'
+        },
+        {
+            'BEANTWORTET': '25.03.1977',
+            'ERSTELLT': '30.08.2021',
+            'FRIST': '22.06.1989',
+            'NAME': 'Timothy Mata'
+        }
+    ],
+    'ZIRKULATION_FACHSTELLEN': [
+        {
+            'BEANTWORTET': '10.01.1983',
+            'ERSTELLT': '30.08.2021',
+            'FRIST': '22.03.1999',
+            'NAME': 'Gregory Lawrence'
+        },
+        {
+            'BEANTWORTET': '25.03.1977',
+            'ERSTELLT': '30.08.2021',
+            'FRIST': '22.06.1989',
+            'NAME': 'Timothy Mata'
+        }
+    ],
+    'ZIRKULATION_GEMEINDEN': [
+        {
+            'BEANTWORTET': '',
+            'ERSTELLT': '30.08.2021',
+            'FRIST': '21.03.1970',
+            'NAME': 'Kathryn Brewer'
+        },
+        {
+            'BEANTWORTET': '',
+            'ERSTELLT': '30.08.2021',
+            'FRIST': '23.04.2013',
+            'NAME': 'Joshua Huffman MD'
+        }
+    ],
+    'ZIRKULATION_RUECKMELDUNGEN': [
+        {
+            'ANTWORT': '',
+            'NEBENBESTIMMUNGEN': 'Nebenbestimmungen 5',
+            'STELLUNGNAHME': 'Stellungnahme 5',
+            'VON': 'Gregory Lawrence'
+        },
+        {
+            'ANTWORT': '',
+            'NEBENBESTIMMUNGEN': 'Nebenbestimmungen 6',
+            'STELLUNGNAHME': 'Stellungnahme 6',
+            'VON': 'Timothy Mata'
+        }
+    ]
+}
