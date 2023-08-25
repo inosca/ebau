@@ -22,7 +22,7 @@ export default class AlexandriaDocumentBucketComponent extends Component {
   @service notification;
   @service intl;
 
-  @requiredArgument slug;
+  @requiredArgument category;
   @requiredArgument onUpload;
   @requiredArgument onDelete;
 
@@ -38,7 +38,10 @@ export default class AlexandriaDocumentBucketComponent extends Component {
 
   @task
   *upload(file) {
-    return yield this.onUpload({ file: file.file, bucket: this.slug });
+    return yield this.onUpload({
+      file: file.file,
+      bucket: this.category.get("id"),
+    });
   }
 
   @dropTask
@@ -50,7 +53,7 @@ export default class AlexandriaDocumentBucketComponent extends Component {
       return;
     }
 
-    return yield this.onDelete({ attachment, bucket: this.slug });
+    return yield this.onDelete({ attachment, bucket: this.category.get("id") });
   }
 
   @task

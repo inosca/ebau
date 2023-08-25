@@ -386,3 +386,44 @@ def test_kt_gr_permissions(
     if method == "post" and status_code == HTTP_201_CREATED:
         result = response.json()
         assert result["data"]["attributes"]["title"]["de"] == "Important"
+
+
+@pytest.mark.parametrize("role__name", ["applicant"])
+def test_nested_permission(db, role, admin_client, instance):
+    parent_category = CategoryFactory(metainfo={"access": {"applicant": "Admin"}})
+    category = CategoryFactory(parent=parent_category)
+
+    data = {
+        "data": {
+            "type": "documents",
+            "attributes": {
+                "title": {"de": "Important"},
+                "metainfo": {"camac-instance-id": instance.pk},
+            },
+            "relationships": {
+                "category": {
+                    "data": {
+                        "id": category.pk,
+                        "type": "categories",
+                    },
+                },
+            },
+        },
+    }
+
+    response = admin_client.post(reverse("document-list"), data)
+    assert response.status_code == HTTP_201_CREATED
+
+    result = response.json()
+    assert result["data"]["attributes"]["title"]["de"] == "Important"
+
+    data["data"]["id"] = result["data"]["id"]
+    data["data"]["attributes"]["title"]["de"] = "More important"
+
+    patch_response = admin_client.patch(
+        reverse("document-detail", args=[result["data"]["id"]]), data
+    )
+    assert patch_response.status_code == HTTP_200_OK
+
+    patch_result = patch_response.json()
+    assert patch_result["data"]["attributes"]["title"]["de"] == "More important"
