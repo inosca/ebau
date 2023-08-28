@@ -167,6 +167,10 @@ kt_uri: ## Set APPLICATION to kt_uri
 kt_schwyz: ## Set APPLICATION to kt_schwyz
 	$(call set_app,kt_schwyz)
 
+.PHONY: kt_so
+kt_so: ## Set APPLICATION to kt_so
+	$(call set_app,kt_so)
+
 .PHONY: kt_bern
 kt_bern: ## Set APPLICATION to kt_bern
 	$(call set_app,kt_bern)
