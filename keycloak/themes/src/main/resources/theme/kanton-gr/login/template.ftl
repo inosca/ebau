@@ -49,18 +49,20 @@
       <div id="kc-header-wrapper" class="${properties.kcHeaderWrapperClass!}">
         <div class="gr-logo"></div>
         <#if realm.internationalizationEnabled  && locale.supported?size gt 1>
-            <div id="kc-locale">
-                <div id="kc-locale-wrapper" class="${properties.kcLocaleWrapperClass!}">
-                    <div class="kc-dropdown" id="kc-locale-dropdown">
-                        <a href="#" id="kc-current-locale-link">${locale.current}</a>
-                        <ul>
-                            <#list locale.supported as l>
-                                <li class="kc-dropdown-item"><a href="${l.url}">${l.label}</a></li>
-                            </#list>
-                        </ul>
-                    </div>
-                </div>
+          <div class="${properties.kcLocaleMainClass!}" id="kc-locale">
+            <div id="kc-locale-wrapper" class="${properties.kcLocaleWrapperClass!}">
+              <div id="kc-locale-dropdown" class="${properties.kcLocaleDropDownClass!}">
+                <a href="#" id="kc-current-locale-link">${locale.current}</a>
+                <ul class="${properties.kcLocaleListClass!}">
+                  <#list locale.supported as l>
+                    <li class="${properties.kcLocaleListItemClass!}">
+                      <a class="${properties.kcLocaleItemClass!}" href="${l.url}">${l.label}</a>
+                    </li>
+                  </#list>
+                </ul>
+              </div>
             </div>
+          </div>
         </#if>
       </div>
     </div>
