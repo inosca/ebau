@@ -10087,3 +10087,29 @@ h1 {
 
 ul.nav {
   margin-top: 0; }
+
+/* locale switcher */
+#kc-locale ul {
+  background-color: white;
+  display: none;
+  top: 20px;
+  min-width: 100px;
+  padding: 0; }
+
+#kc-locale-dropdown {
+  display: inline-block;
+  padding: 0.5rem; }
+
+#kc-locale-dropdown:hover ul {
+  display: block;
+  position: absolute;
+  top: 47px;
+  padding: 1rem;
+  box-shadow: 1px 1px 4px grey; }
+
+#kc-locale-dropdown a {
+  text-align: right; }
+
+a#kc-current-locale-link::after {
+  content: "\2c5";
+  margin-left: 4px; }
