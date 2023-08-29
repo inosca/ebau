@@ -1134,10 +1134,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
     def _get_pdf_section(self, instance, form_slug):
         form_name = form_slug.upper() if form_slug else "MAIN"
         section_type = "PAPER" if CalumaApi().is_paper(instance) else "DEFAULT"
-
-        return AttachmentSection.objects.get(
-            pk=settings.APPLICATION["STORE_PDF"]["SECTION"][form_name][section_type]
-        )
+        return settings.APPLICATION["STORE_PDF"]["SECTION"][form_name][section_type]
 
     def _generate_and_store_pdf(self, instance, form_slug=None):
         if not settings.APPLICATION.get("STORE_PDF", False):  # pragma: no cover
@@ -1149,12 +1146,11 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             instance.pk, request, form_slug
         )
 
+        target_lookup = self._get_pdf_section(instance, form_slug)
         if settings.APPLICATION["DOCUMENT_BACKEND"] == "alexandria":
             document = alexandria_models.Document.objects.create(
                 title=pdf.name,
-                category=alexandria_models.Category.objects.get(
-                    pk="beilagen-zum-gesuch"
-                ),
+                category=alexandria_models.Category.objects.get(pk=target_lookup),
                 metainfo={"camac-instance-id": instance.pk},
             )
             file = alexandria_models.File.objects.create(
@@ -1164,7 +1160,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
                 "alexandria-media", f"{file.pk}_{pdf.name}", pdf, pdf.size
             )
         else:
-            attachment_section = self._get_pdf_section(instance, form_slug)
+            attachment_section = AttachmentSection.objects.get(pk=target_lookup)
             attachment_section.attachments.create(
                 instance=instance,
                 path=pdf,

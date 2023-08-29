@@ -3192,7 +3192,14 @@ APPLICATIONS = {
         },
         "USE_CAMAC_ADMIN": False,
         "LOG_NOTIFICATIONS": True,
-        "STORE_PDF": {"SECTION": 1},
+        "STORE_PDF": {
+            "SECTION": {
+                "MAIN": {
+                    "DEFAULT": "beilagen-zum-gesuch-weitere-gesuchsunterlagen",
+                    "PAPER": "beilagen-zum-gesuch-weitere-gesuchsunterlagen",
+                }
+            },
+        },
         # Mapping between camac role and instance permission.
         "ROLE_PERMISSIONS": {
             "municipality-lead": "municipality",
