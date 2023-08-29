@@ -1,20 +1,21 @@
 from itertools import chain
 
 from camac.gis.clients.base import GISBaseClient
+from camac.gis.utils import cast
 
 
-class ParamClient(GISBaseClient):
+class ParamGisClient(GISBaseClient):
     @property
     def required_params(self):
         return chain(
             *[
-                [param_config["parameterName"] for param_config in config.config]
-                for config in self.configs
+                [param_config["parameterName"] for param_config in data_source.config]
+                for data_source in self.data_sources
             ]
         )
 
-    def process_config(self, config: dict) -> dict:
-        """Process param config.
+    def process_data_source(self, config: dict) -> dict:
+        """Process param data source.
 
         This is used to put data that the frontend already has into the same
         structure as the other data that needs to be fetched from third party.
@@ -30,7 +31,7 @@ class ParamClient(GISBaseClient):
         data = {}
 
         for param_config in config:
-            data[param_config["question"]] = self.cast(
+            data[param_config["question"]] = cast(
                 self.params.get(param_config["parameterName"], None),
                 param_config.get("cast"),
             )
