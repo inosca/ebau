@@ -6,7 +6,7 @@ from rest_framework.generics import ListAPIView
 from rest_framework.renderers import JSONRenderer
 from rest_framework.response import Response
 
-from camac.gis.models import GISConfig
+from camac.gis.models import GISDataSource
 
 
 def get_client(identifier):
@@ -19,7 +19,7 @@ def get_client(identifier):
 class GISDataView(ListAPIView):
     swagger_schema = None
     renderer_classes = [JSONRenderer]
-    queryset = GISConfig.objects.filter(disabled=False)
+    queryset = GISDataSource.objects.filter(disabled=False)
 
     def parse_nested(self, data: dict) -> dict:
         new_data = {}
@@ -65,9 +65,11 @@ class GISDataView(ListAPIView):
         data = {}
 
         try:
-            for client_identifier in set(queryset.values_list("client", flat=True)):
+            for client_identifier in sorted(
+                set(queryset.values_list("client", flat=True))
+            ):
                 client = get_client(client_identifier)(
-                    queryset.filter(client=client_identifier),
+                    queryset.filter(client=client_identifier).order_by("pk"),
                     request.query_params,
                 )
 

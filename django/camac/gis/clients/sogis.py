@@ -2,6 +2,7 @@ import requests
 from django.conf import settings
 
 from camac.gis.clients.base import GISBaseClient
+from camac.gis.utils import cast, get_bbox, join, to_query
 from camac.utils import build_url
 
 
@@ -13,29 +14,18 @@ class SoGisClient(GISBaseClient):
 
         self.session: requests.Session = requests.Session()
 
-    def get_bbox(self, buffer: int = 0) -> str:
-        delta = 0
-
-        if buffer:
-            delta = buffer / 2
-
-        try:
-            x = float(self.params["x"])
-            y = float(self.params["y"])
-        except ValueError:
-            raise ValueError("Coordinates must be floats")
-
-        return ",".join(map(str, [x - delta, y - delta, x + delta, y + delta]))
-
-    def process_config(self, config: dict) -> dict:
-        """Process SOGIS config.
+    def process_data_source(self, config: dict) -> dict:
+        """Process SOGIS data source.
 
         Example config:
         {
             "layer": "sogis.some_layername",
+            "buffer": 100,
             "properties": [
                 { "propertyName": "property_name_1", "question": "pathto.myquestion1" },
-                { "propertyName": "property_name_2", "question": "pathto.myquestion2", "cast": "integer" }
+                { "propertyName": "property_name_2", "question": "pathto.myquestion2", "cast": "integer" },
+                { "propertyName": "property_name_2", "question": "pathto.myquestion2", "yesNo": true },
+                { "propertyName": "property_name_2", "question": "pathto.myquestion2", "template": "Description: {value}" }
             ]
         }
         """
@@ -46,33 +36,63 @@ class SoGisClient(GISBaseClient):
             trailing=True,
         )
 
-        query_params = {"bbox": self.get_bbox(config.get("buffer", 0))}
-        if config.get("filter"):
-            query_params["filter"] = config.get("filter")
+        query = to_query(
+            {
+                "filter": config.get("filter", None),
+                "bbox": get_bbox(
+                    self.params["x"],
+                    self.params["y"],
+                    config.get("buffer", 0),
+                ),
+            }
+        )
 
-        search = "&".join([f"{k}={v}" for k, v in query_params.items()])
-
-        response = self.session.get(f"{base_url}?{search}")
+        response = self.session.get(f"{base_url}?{query}")
 
         try:
             response.raise_for_status()
         except requests.HTTPError:
             raise RuntimeError(
-                f"Error {response.status_code} while fetching data from the API"
+                f"Error {response.status_code} while fetching data from the SOGIS API"
             )
 
+        result = response.json()
+
         try:
-            result = response.json()
-            properties = result["features"][0]["properties"]
-        except (IndexError, KeyError):
-            properties = {}
+            results = result["features"]
+        except KeyError:  # pragma: no cover
+            return {}
 
         data = {}
 
         for property_config in config["properties"]:
-            data[property_config["question"]] = self.cast(
-                properties.get(property_config["propertyName"], None),
-                property_config.get("cast"),
-            )
+            value = None
+
+            if property_config.get("yesNo"):
+                value = property_config.get("template", "{value}").format(
+                    value="Ja" if len(result) > 0 else "Nein"
+                )
+            else:
+                for result in results:
+                    properties = result["properties"]
+
+                    value = join(value, self.get_value(properties, property_config))
+
+            if property_config["question"] in data:
+                value = join(data[property_config["question"]], value)
+
+            data[property_config["question"]] = value
 
         return data
+
+    def get_value(self, properties, property_config):
+        raw_value = cast(
+            properties.get(property_config["propertyName"], None),
+            property_config.get("cast"),
+        )
+
+        return (
+            property_config.get("template", "{value}").format(value=raw_value)
+            if raw_value
+            else raw_value
+        )

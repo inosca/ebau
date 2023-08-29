@@ -143,7 +143,7 @@ DUMP_CONFIG_MODELS = [
     "caluma_form.FormQuestion",
     "caluma_workflow.TaskFlow",
     "caluma_workflow.Flow",
-    "gis.GISConfig",
+    "gis.GISDataSource",
 ]
 
 # List of models that have foreign keys referencing non-config tables
