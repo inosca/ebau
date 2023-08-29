@@ -4,7 +4,6 @@ from pathlib import Path
 
 import pytest
 from alexandria.core.factories import CategoryFactory
-from alexandria.core.models import Document as AlexandriaDocument
 from caluma.caluma_form import (
     factories as caluma_form_factories,
     models as caluma_form_models,
@@ -1650,7 +1649,12 @@ def test_generate_and_store_pdf_in_alexandria(
     caluma_admin_user,
     mocker,
 ):
-    application_settings["STORE_PDF"] = True
+    alexandria_category = CategoryFactory()
+    application_settings["STORE_PDF"] = {
+        "SECTION": {
+            "MAIN": {"DEFAULT": alexandria_category.pk, "PAPER": alexandria_category.pk}
+        },
+    }
     application_settings["DOCUMENT_BACKEND"] = "alexandria"
 
     client = mocker.patch(
@@ -1668,22 +1672,9 @@ def test_generate_and_store_pdf_in_alexandria(
         },
     }
 
-    workflow_api.complete_work_item(
-        work_item=gr_instance.case.work_items.get(task_id="submit"),
-        user=caluma_admin_user,
-    )
-
-    alexandria_category = CategoryFactory(pk="beilagen-zum-gesuch")
-
-    document = AlexandriaDocument.objects.create(
-        title="Test",
-        category=alexandria_category,
-        metainfo={"camac-instance-id": gr_instance.pk},
-    )
-
     serializer._generate_and_store_pdf(gr_instance)
 
-    assert document.instance_document.instance.pk == gr_instance.pk
+    assert alexandria_category.documents.count() == 1
 
 
 @pytest.mark.parametrize(
