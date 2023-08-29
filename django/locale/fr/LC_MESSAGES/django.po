@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-21 16:48+0200\n"
+"POT-Creation-Date: 2023-08-30 13:00+0200\n"
 "PO-Revision-Date: 2023-08-07 17:32+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -74,7 +74,7 @@ msgstr "Prendre position sur le recours"
 
 #: camac/communications/serializers.py:28
 #: camac/communications/tests/test_behaviour.py:61
-#: camac/instance/document_merge_service.py:85
+#: camac/instance/document_merge_service.py:86
 #: camac/instance/export/serializers.py:93 camac/notification/serializers.py:59
 msgid "Applicant"
 msgstr "Requérant/e"
@@ -153,7 +153,7 @@ msgstr "Rôles"
 msgid "Name"
 msgstr "Nom"
 
-#: camac/core/admin/views.py:36 camac/instance/document_merge_service.py:93
+#: camac/core/admin/views.py:36 camac/instance/document_merge_service.py:94
 #: camac/user/models.py:560 camac/user/models.py:630
 msgid "Description"
 msgstr "Description"
@@ -339,7 +339,7 @@ msgid ""
 "The import took more than %(timeout)i seconds to complete and timed out."
 msgstr ""
 
-#: camac/dossier_import/serializers.py:57 camac/instance/serializers.py:1907
+#: camac/dossier_import/serializers.py:57 camac/instance/serializers.py:1921
 msgid "No location assigned."
 msgstr "Location n'a pas été attribuée."
 
@@ -430,113 +430,136 @@ msgstr ""
 msgid "Inquiry sent"
 msgstr "Demande de prise de position"
 
-#: camac/ech0211/event_handlers.py:285 camac/instance/serializers.py:1534
+#: camac/ech0211/event_handlers.py:285 camac/instance/serializers.py:1548
 msgid "SB1 submitted"
 msgstr "DC1 envoyé"
 
-#: camac/ech0211/event_handlers.py:290 camac/instance/serializers.py:1853
+#: camac/ech0211/event_handlers.py:290 camac/instance/serializers.py:1867
 msgid "SB2 submitted"
 msgstr "DC2 envoyé"
 
-#: camac/gis/models.py:10
+#: camac/gis/clients/admin.py:60
+#, python-format
+msgid "Error %(code)s while fetching data from the geo.admin.ch API"
+msgstr ""
+
+#: camac/gis/clients/base.py:28
+#, python-format
+msgid "Required parameter %(parameter)s was not passed"
+msgstr ""
+
+#: camac/gis/clients/sogis.py:57
+#, python-format
+msgid "Error %(code)s while fetching data from the geo.so.ch API"
+msgstr ""
+
+#: camac/gis/models.py:13
 msgid "GIS Canton Solothurn"
 msgstr ""
 
-#: camac/gis/models.py:11
+#: camac/gis/models.py:14
 msgid "Parameter"
 msgstr ""
 
-#: camac/instance/document_merge_service.py:83
+#: camac/gis/models.py:15
+msgid "Federal GIS Switzerland"
+msgstr ""
+
+#: camac/gis/utils.py:16
+msgid "Coordinates must be floats"
+msgstr ""
+
+#: camac/instance/document_merge_service.py:84
 #: camac/instance/export/serializers.py:85
 #: camac/instance/export/serializers.py:174 camac/user/models.py:76
 #: camac/user/models.py:236 camac/user/models.py:581
 msgid "Address"
 msgstr "Adresse"
 
-#: camac/instance/document_merge_service.py:84
+#: camac/instance/document_merge_service.py:85
 msgid "Plots"
 msgstr "Parcelle(s)"
 
-#: camac/instance/document_merge_service.py:86
+#: camac/instance/document_merge_service.py:87
 msgid "Landowner"
 msgstr ""
 
-#: camac/instance/document_merge_service.py:87
+#: camac/instance/document_merge_service.py:88
 msgid "Project Author"
 msgstr ""
 
-#: camac/instance/document_merge_service.py:88
+#: camac/instance/document_merge_service.py:89
 msgid "Keywords"
 msgstr "Mots-clés"
 
-#: camac/instance/document_merge_service.py:89
+#: camac/instance/document_merge_service.py:90
 #: camac/instance/export/serializers.py:94 camac/notification/serializers.py:69
 msgid "Municipality"
 msgstr "Municipalité"
 
-#: camac/instance/document_merge_service.py:90
+#: camac/instance/document_merge_service.py:91
 #: camac/notification/serializers.py:68
 msgid "Authority"
 msgstr "Autorité directrice"
 
-#: camac/instance/document_merge_service.py:91
+#: camac/instance/document_merge_service.py:92
 #: camac/instance/export/serializers.py:36
 msgid "Responsible"
 msgstr "Personne requérante"
 
-#: camac/instance/document_merge_service.py:92
+#: camac/instance/document_merge_service.py:93
 msgid "Input date"
 msgstr "Date de réception"
 
-#: camac/instance/document_merge_service.py:94
+#: camac/instance/document_merge_service.py:95
 msgid "Modification"
 msgstr "Modification du projet"
 
-#: camac/instance/document_merge_service.py:131
-#: camac/instance/document_merge_service.py:637
+#: camac/instance/document_merge_service.py:132
+#: camac/instance/document_merge_service.py:639
 msgid "Signatures"
 msgstr "Signatures"
 
-#: camac/instance/document_merge_service.py:132
+#: camac/instance/document_merge_service.py:133
 msgid "Signature"
 msgstr "Signature"
 
-#: camac/instance/document_merge_service.py:133
+#: camac/instance/document_merge_service.py:134
 msgid "Place and date"
 msgstr "Lieu et date"
 
-#: camac/instance/document_merge_service.py:134
+#: camac/instance/document_merge_service.py:135
 #, python-format
 msgid "Generated %(date)s at %(time)s"
 msgstr "Généré le %(date)s à %(time)s"
 
-#: camac/instance/document_merge_service.py:139
+#: camac/instance/document_merge_service.py:140
 #, python-format
 msgid "Modified %(date)s at %(time)s"
 msgstr "Dernière modification le %(date)s à %(time)s"
 
-#: camac/instance/document_merge_service.py:144
+#: camac/instance/document_merge_service.py:145
 #, python-format
 msgid "Created %(date)s at %(time)s"
 msgstr "Créé le %(date)s à %(time)s"
 
-#: camac/instance/document_merge_service.py:264
+#: camac/instance/document_merge_service.py:266
 #, python-format
 msgid "None or multiple caluma Documents found for instance: %(instance)s"
 msgstr ""
 "Aucun ou plusieurs documents caluma trouvés pour l'instance : %(instance)s"
 
-#: camac/instance/document_merge_service.py:283
+#: camac/instance/document_merge_service.py:285
 #, python-format
 msgid "No template specified for form '%(form_slug)s'."
 msgstr "Aucun modèle n'est spécifié pour le formulaire '%(form_slug)s'."
 
-#: camac/instance/document_merge_service.py:298
+#: camac/instance/document_merge_service.py:300
 msgid "Draft"
 msgstr "Brouillon"
 
-#: camac/instance/document_merge_service.py:331
-#: camac/instance/tests/test_document_merge_service.py:424
+#: camac/instance/document_merge_service.py:333
+#: camac/instance/tests/test_document_merge_service.py:434
 #: camac/user/authentication.py:79
 msgid "Signature has expired."
 msgstr "La signature a expiré."
@@ -637,143 +660,143 @@ msgstr ""
 msgid "Not allowed to add data to instance %(instance)s"
 msgstr "Pas autorisé à ajouter des données à l'instance %(instance)s"
 
-#: camac/instance/serializers.py:210
+#: camac/instance/serializers.py:212
 msgid "Location may not be changed."
 msgstr "Le lieu ne peut être modifié."
 
-#: camac/instance/serializers.py:217
+#: camac/instance/serializers.py:219
 msgid "Form may not be changed."
 msgstr "La forme ne peut être modifiée."
 
-#: camac/instance/serializers.py:405 camac/instance/serializers.py:1606
+#: camac/instance/serializers.py:407 camac/instance/serializers.py:1620
 #, python-format
 msgid "'%(form)s' is not a valid form type"
 msgstr "'%(form)s' est un type de dossier non valable"
 
-#: camac/instance/serializers.py:415 camac/instance/serializers.py:1600
+#: camac/instance/serializers.py:417 camac/instance/serializers.py:1614
 #, python-format
 msgid "The current form '%(form)s' can't be changed"
 msgstr "Le type de dossier actuel '%(form)s' ne peut être modifié"
 
-#: camac/instance/serializers.py:420
+#: camac/instance/serializers.py:422
 #, python-format
 msgid "Form is already of type '%(form)s'"
 msgstr "Le formulaire est déjà du type '%(form)s'."
 
-#: camac/instance/serializers.py:927 camac/instance/serializers.py:933
+#: camac/instance/serializers.py:929 camac/instance/serializers.py:935
 msgid "migrated"
 msgstr "migré"
 
-#: camac/instance/serializers.py:936
+#: camac/instance/serializers.py:938
 msgid "paper"
 msgstr "papier"
 
-#: camac/instance/serializers.py:939
+#: camac/instance/serializers.py:941
 msgid "modification"
 msgstr "modification du projet"
 
-#: camac/instance/serializers.py:942
+#: camac/instance/serializers.py:944
 msgid "coordinated"
 msgstr "LCoord"
 
-#: camac/instance/serializers.py:945
+#: camac/instance/serializers.py:947
 msgid "appeal"
 msgstr "procédure de recours"
 
-#: camac/instance/serializers.py:976
+#: camac/instance/serializers.py:978
 msgid "Source instance not found"
 msgstr "Instance source non trouvée"
 
-#: camac/instance/serializers.py:1012
+#: camac/instance/serializers.py:1014
 #, python-format
 msgid "The form '%(form)s' can only be used by an internal role"
 msgstr ""
 "Le formulaire '%(form)s' ne peut être utilisé que pour les rôles internes"
 
-#: camac/instance/serializers.py:1023
+#: camac/instance/serializers.py:1025
 msgid "Project modification is not allowed"
 msgstr "Modification du projet non autorisée"
 
-#: camac/instance/serializers.py:1187
+#: camac/instance/serializers.py:1200
 msgid "Dossier completed by resubmission"
 msgstr "Dossier complété par une nouvelle soumission"
 
-#: camac/instance/serializers.py:1493
+#: camac/instance/serializers.py:1507
 msgid "Dossier submitted"
 msgstr "Dossier envoyé"
 
-#: camac/instance/serializers.py:1573
+#: camac/instance/serializers.py:1587
 msgid "Archived"
 msgstr "Archivé"
 
-#: camac/instance/serializers.py:1622
+#: camac/instance/serializers.py:1636
 msgid "Changed form type"
 msgstr "Changement de type de formulaire"
 
-#: camac/instance/serializers.py:1652
+#: camac/instance/serializers.py:1666
 msgid "Invalid format"
 msgstr "Format non valide"
 
-#: camac/instance/serializers.py:1659
+#: camac/instance/serializers.py:1673
 msgid "This eBau number doesn't exist"
 msgstr "Ce numéro eBau n'existe pas"
 
-#: camac/instance/serializers.py:1663
+#: camac/instance/serializers.py:1677
 msgid "This eBau number is already in use by a different municipality"
 msgstr "Ce numéro eBau a déjà été attribué par une autre autorité directrice"
 
-#: camac/instance/serializers.py:1712
+#: camac/instance/serializers.py:1726
 #, python-format
 msgid "%(value)s is not a valid service type - valid types are: %(expected)s"
 msgstr ""
 "%(value)s n'est pas un type de service correct - les types corrects sont "
 "%(expected)s"
 
-#: camac/instance/serializers.py:1726
+#: camac/instance/serializers.py:1740
 msgid "Invalid audit"
 msgstr "Examen non valide"
 
-#: camac/instance/serializers.py:1766
+#: camac/instance/serializers.py:1780
 #, python-format
 msgid "Changed responsible service to: %(service)s"
 msgstr "Nouvelle autorité directrice: %(service)s"
 
-#: camac/instance/serializers.py:1788
+#: camac/instance/serializers.py:1802
 #, python-format
 msgid "Responsible service did not change for instance %(instance_id)s"
 msgstr "N'a pas changé d'autorité directrice pour le dossier %(instance_id)s"
 
-#: camac/instance/serializers.py:1881
+#: camac/instance/serializers.py:1895
 #, python-format
 msgid "User %(user)s does not belong to service %(service)s."
 msgstr "L'utilisateur %(user)s n'appartient pas au service %(service)s."
 
-#: camac/instance/serializers.py:1929
+#: camac/instance/serializers.py:1943
 #, python-format
 msgid "No group found for location %(name)s."
 msgstr "Aucun groupe trouvé pour l'emplacement %(name)s."
 
-#: camac/instance/serializers.py:1960
+#: camac/instance/serializers.py:1974
 #, python-format
 msgid "invalid question %(question)s."
 msgstr "question invalide %(question)s."
 
-#: camac/instance/serializers.py:1967
+#: camac/instance/serializers.py:1981
 #, python-format
 msgid "%(permission)s is not allowed to edit question %(question)s."
 msgstr "Le %(permission)s n'est pas autorisé à modifier les %(question)s."
 
-#: camac/instance/serializers.py:2344
+#: camac/instance/serializers.py:2358
 msgid "Appeal received"
 msgstr "Recours reçu"
 
-#: camac/instance/serializers.py:2375
+#: camac/instance/serializers.py:2389
 msgid "The Dossier can't be correct because there are running inquiries."
 msgstr ""
 "Le dossier ne peut pas être corrigé, car des prises de position ont déjà été "
 "demandées."
 
-#: camac/instance/serializers.py:2403
+#: camac/instance/serializers.py:2417
 msgid "Dossier corrected"
 msgstr "Dossier corrigé"
 
@@ -926,27 +949,27 @@ msgstr "delete_by_purpose n'a pas été fourni avec le paramètre requis"
 msgid "Objection %(objection) already has a representative"
 msgstr "Objection %(objection) a déjà un représentant"
 
-#: camac/settings.py:1476 camac/settings.py:3260
+#: camac/settings.py:1472 camac/settings.py:3267
 msgid "Circulation started"
 msgstr "Procédure de circulation lancée"
 
-#: camac/settings.py:1493
+#: camac/settings.py:1489
 msgid "Procedure completed"
 msgstr "Procédure de demande de permis de construire complétée"
 
-#: camac/settings.py:3256
+#: camac/settings.py:3263
 msgid "Formal exam performed"
 msgstr ""
 
-#: camac/settings.py:4034
+#: camac/settings.py:4026
 msgid "German"
 msgstr "Allemand"
 
-#: camac/settings.py:4035
+#: camac/settings.py:4027
 msgid "French"
 msgstr "Français"
 
-#: camac/settings.py:4036
+#: camac/settings.py:4028
 msgid "Italian"
 msgstr "L'italien"
 
