@@ -1,5 +1,7 @@
 from typing import Any, Union
 
+from django.utils.translation import gettext as _
+
 
 def get_bbox(x: Union[float, str], y: Union[float, str], buffer: int = 0) -> str:
     delta = 0
@@ -11,7 +13,7 @@ def get_bbox(x: Union[float, str], y: Union[float, str], buffer: int = 0) -> str
         x = float(x)
         y = float(y)
     except ValueError:
-        raise ValueError("Coordinates must be floats")
+        raise ValueError(_("Coordinates must be floats"))
 
     return ",".join(map(str, [x - delta, y - delta, x + delta, y + delta]))
 
