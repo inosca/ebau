@@ -13,6 +13,7 @@ services:
       - document-merge-service
       - minio
     volumes:
+      - ../proxy/demo.conf:/etc/nginx/conf.d/default.conf:ro
       - djangomedia:/var/lib/camac/media:ro
       - djangotmpmedia:/tmp/camac/tmpfiles:ro
     networks:
