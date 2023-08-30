@@ -161,7 +161,7 @@ snapshots['test_sogis_client[crop-rotation-area-coords6] 1'] = {
     },
     'richtplan-weiteres': {
         'label': 'Ing. Helen Jungfer',
-        'value': 'Waldnähe (aus Richtplan): Ja, Fläche: Fruchtfolgeflaeche, Fläche: Witischutzzone'
+        'value': 'Waldnähe (aus Richtplan): Nein, Fläche: Fruchtfolgeflaeche, Fläche: Witischutzzone'
     },
     'strasse-flurname': {
         'label': 'Muzaffer Reuter',
@@ -246,7 +246,7 @@ snapshots['test_sogis_client[default-coords0] 1'] = {
     },
     'richtplan-weiteres': {
         'label': 'Ing. Helen Jungfer',
-        'value': 'Waldnähe (aus Richtplan): Ja'
+        'value': 'Waldnähe (aus Richtplan): Nein'
     },
     'strasse-flurname': {
         'label': 'Muzaffer Reuter',
@@ -331,7 +331,7 @@ snapshots['test_sogis_client[highway-coords7] 1'] = {
     },
     'richtplan-weiteres': {
         'label': 'Ing. Helen Jungfer',
-        'value': 'Linie: Nationalstrasse.Strasse, Waldnähe (aus Richtplan): Ja'
+        'value': 'Linie: Nationalstrasse.Strasse, Waldnähe (aus Richtplan): Nein'
     },
     'strasse-flurname': {
         'label': 'Muzaffer Reuter',
@@ -586,7 +586,7 @@ snapshots['test_sogis_client[moor-and-sanctuary-coords2] 1'] = {
     },
     'richtplan-weiteres': {
         'label': 'Ing. Helen Jungfer',
-        'value': 'Waldnähe (aus Richtplan): Ja, Fläche: kantonales_Naturreservat, Fläche: kantonale_Uferschutzzone, Fläche: Witischutzzone'
+        'value': 'Waldnähe (aus Richtplan): Nein, Fläche: kantonales_Naturreservat, Fläche: kantonale_Uferschutzzone, Fläche: Witischutzzone'
     },
     'strasse-flurname': {
         'label': 'Muzaffer Reuter',
