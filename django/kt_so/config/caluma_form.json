@@ -4358,21 +4358,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "haustechnik.angaben-zu-haustechnischen-anlagen",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "form": "haustechnik",
-      "question": "angaben-zu-haustechnischen-anlagen",
-      "sort": 50
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "haustechnik.angaben-zum-tank",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -4868,21 +4853,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "haustechnik.haustechnische-anlagen-erstellt",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "form": "haustechnik",
-      "question": "haustechnische-anlagen-erstellt",
-      "sort": 51
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "haustechnik.heizsystem-art",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -5093,36 +5063,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "haustechnik.zulaessigkeit-erdwaermesonden",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "form": "haustechnik",
-      "question": "zulaessigkeit-erdwaermesonden",
-      "sort": 43
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "haustechnik.zulaessigkeit-grundwasserwaermepumpen",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "form": "haustechnik",
-      "question": "zulaessigkeit-grundwasserwaermepumpen",
-      "sort": 42
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "hochbau.gebaeude",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -5133,7 +5073,7 @@
       "modified_by_group": null,
       "form": "hochbau",
       "question": "gebaeude",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -5153,6 +5093,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "hochbau.haustechnische-anlagen-erstellt",
+    "fields": {
+      "created_at": "2023-08-30T08:52:12.290Z",
+      "modified_at": "2023-08-30T08:52:12.290Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "hochbau",
+      "question": "haustechnische-anlagen-erstellt",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "hochbau.hochbau-titel",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -5163,7 +5118,7 @@
       "modified_by_group": null,
       "form": "hochbau",
       "question": "hochbau-titel",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -5178,7 +5133,7 @@
       "modified_by_group": null,
       "form": "hochbau",
       "question": "wohnungen",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -6698,6 +6653,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "umweltschutz.200m3-abfall",
+    "fields": {
+      "created_at": "2023-08-30T06:48:39.185Z",
+      "modified_at": "2023-08-30T06:48:39.185Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "umweltschutz",
+      "question": "200m3-abfall",
+      "sort": 37
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "umweltschutz.abbruch",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -6708,7 +6678,7 @@
       "modified_by_group": null,
       "form": "umweltschutz",
       "question": "abbruch",
-      "sort": 36
+      "sort": 38
     }
   },
   {
@@ -6723,7 +6693,7 @@
       "modified_by_group": null,
       "form": "umweltschutz",
       "question": "abbruch-aushub-entsorgung-titel",
-      "sort": 37
+      "sort": 39
     }
   },
   {
@@ -6768,7 +6738,7 @@
       "modified_by_group": null,
       "form": "umweltschutz",
       "question": "asbest",
-      "sort": 35
+      "sort": 36
     }
   },
   {
@@ -6783,7 +6753,7 @@
       "modified_by_group": null,
       "form": "umweltschutz",
       "question": "aushub-erforderlich",
-      "sort": 33
+      "sort": 34
     }
   },
   {
@@ -6843,7 +6813,7 @@
       "modified_by_group": null,
       "form": "umweltschutz",
       "question": "beschreibung-aushub",
-      "sort": 29
+      "sort": 30
     }
   },
   {
@@ -6888,7 +6858,7 @@
       "modified_by_group": null,
       "form": "umweltschutz",
       "question": "entsorgungskonzept",
-      "sort": 34
+      "sort": 35
     }
   },
   {
@@ -6934,6 +6904,21 @@
       "form": "umweltschutz",
       "question": "groesse-der-baustelle",
       "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "umweltschutz.hinweis-bodenschutzkonzept",
+    "fields": {
+      "created_at": "2023-08-30T06:54:32.896Z",
+      "modified_at": "2023-08-30T06:54:32.896Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "umweltschutz",
+      "question": "hinweis-bodenschutzkonzept",
+      "sort": 29
     }
   },
   {
@@ -7113,7 +7098,7 @@
       "modified_by_group": null,
       "form": "umweltschutz",
       "question": "ort-verwendung-humus",
-      "sort": 31
+      "sort": 32
     }
   },
   {
@@ -7128,7 +7113,7 @@
       "modified_by_group": null,
       "form": "umweltschutz",
       "question": "pruefung-umweltschutz",
-      "sort": 38
+      "sort": 40
     }
   },
   {
@@ -7248,7 +7233,7 @@
       "modified_by_group": null,
       "form": "umweltschutz",
       "question": "verwendung-aushub",
-      "sort": 30
+      "sort": 31
     }
   },
   {
@@ -7263,22 +7248,7 @@
       "modified_by_group": null,
       "form": "umweltschutz",
       "question": "verwendung-humus",
-      "sort": 32
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "verkehr.art-der-anlage",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "form": "verkehr",
-      "question": "art-der-anlage",
-      "sort": 8
+      "sort": 33
     }
   },
   {
@@ -7298,21 +7268,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "verkehr.beeintraechtigung-weg",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "form": "verkehr",
-      "question": "beeintraechtigung-weg",
-      "sort": 7
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "verkehr.beschreibung-beeintraechtigung",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -7324,111 +7279,6 @@
       "form": "verkehr",
       "question": "beschreibung-beeintraechtigung",
       "sort": 10
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "verkehr.beschreibung-schiffsverkehr",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "form": "verkehr",
-      "question": "beschreibung-schiffsverkehr",
-      "sort": 4
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "verkehr.beschreibung-seilbahnanlage",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "form": "verkehr",
-      "question": "beschreibung-seilbahnanlage",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "verkehr.beschreibung-weg",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "form": "verkehr",
-      "question": "beschreibung-weg",
-      "sort": 6
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "verkehr.langsamverkehr",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "form": "verkehr",
-      "question": "langsamverkehr",
-      "sort": 9
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "verkehr.schiffsverkehr",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "form": "verkehr",
-      "question": "schiffsverkehr",
-      "sort": 5
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "verkehr.seilbahnanlage",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "form": "verkehr",
-      "question": "seilbahnanlage",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "verkehr.seilbahnanlage-betroffen",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "form": "verkehr",
-      "question": "seilbahnanlage-betroffen",
-      "sort": 3
     }
   },
   {
@@ -7885,6 +7735,38 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "200m3-abfall-ja",
+    "fields": {
+      "created_at": "2023-08-30T06:48:38.672Z",
+      "modified_at": "2023-08-30T06:48:38.673Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "200m3-abfall-nein",
+    "fields": {
+      "created_at": "2023-08-30T06:48:38.710Z",
+      "modified_at": "2023-08-30T06:48:38.710Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "Beratung-Landschaftsbild-ja",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -8086,38 +7968,6 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Der Betankungs- und Umschlagplatz ist teilweise \\u00fcberdacht\", \"fr\": null, \"it\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "angaben-zu-haustechnischen-anlagen-ja",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "angaben-zu-haustechnischen-anlagen-nein",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -8455,86 +8305,6 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Beteiligung an einem Zusammenschluss zum Eigenverbrauch ZEV gem\\u00e4ss Energiegesetz Bund\", \"fr\": null, \"it\": null}",
       "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "art-der-anlage-historischer-verkehrsweg-ivs",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Historischer Verkehrsweg (IVS)\", \"fr\": null, \"it\": null}",
-      "is_archived": true,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "art-der-anlage-ivs",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Historischer Verkehrsweg (Inventar historischer Verkehrswege IVS)\", \"fr\": null, \"it\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "art-der-anlage-veloweg",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Veloweg\", \"fr\": null, \"it\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "art-der-anlage-wanderweg",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Wanderweg (Haupt- und Nebenwanderwege gem\\u00e4ss Wanderwegrichtplan)\", \"fr\": null, \"it\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "art-der-anlage-wanderweg-wanderwegrichtplan",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Wanderweg (Wanderwegrichtplan)\", \"fr\": null, \"it\": null}",
-      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -9357,22 +9127,6 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "beeintraechtigung-",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "is_archived": true,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
     "pk": "beeintraechtigung-aenderung-einfahrt",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -9405,22 +9159,6 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "beeintraechtigung-mehrverkehr",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Durch das Vorhaben entsteht Mehrverkehr\", \"fr\": null, \"it\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
     "pk": "beeintraechtigung-neue-einfahrt",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -9446,54 +9184,6 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Beeinflussung der Sichtweiten\", \"fr\": null, \"it\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "beeintraechtigung-weg-andere",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"andere\", \"fr\": null, \"it\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "beeintraechtigung-weg-verlegt",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"wird verlegt (neue Linienf\\u00fchrung)\", \"fr\": null, \"it\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "beeintraechtigung-weg-voruebergehend-gesperrt",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"wird vor\\u00fcbergehend gesperrt\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -9829,7 +9519,7 @@
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"nein\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -9965,15 +9655,15 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "erschliessungen-bewirtschaftungsweg-befahrbar",
+    "pk": "erschliessungen-flurweg-befahrbar",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "modified_at": "2023-08-30T06:37:51.529Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Bewirtschaftungsweg (befahrbar)\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Flurweg (befahrbar)\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -10022,22 +9712,6 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"G\\u00fcterstrasse\", \"fr\": null, \"it\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "erschliessungen-korporationsstrasse",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Korporationsstrasse\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -10477,22 +10151,6 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "gebaeudehuelle-nicht-betroffen",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Geb\\u00e4udeh\\u00fclle nicht betroffen\", \"fr\": null, \"it\": null}",
-      "is_archived": true,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
     "pk": "gebaeudehuelle-systemnachweis",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -10709,7 +10367,7 @@
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Die Baustelle ist gr\\u00f6sser als 4'000 m2 bzw. das Bauvolumen ist mehr als 10'000 m3\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Die Baustelle ist gr\\u00f6sser als 4'000 m\\u00b2 bzw. das Bauvolumen ist mehr als 10'000 m\\u00b3\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -10725,7 +10383,7 @@
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Die Baustelle ist kleiner als 4'000 m2 bzw. das Bauvolumen weniger als 10'000 m3\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Die Baustelle ist kleiner als 4'000 m\\u00b2 bzw. das Bauvolumen weniger als 10'000 m\\u00b3\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -11015,22 +10673,6 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Standardl\\u00f6sung\", \"fr\": null, \"it\": null}",
       "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "hoechstanteil-standart",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Standardl\\u00f6sung\", \"fr\": null, \"it\": null}",
-      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -11413,7 +11055,7 @@
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Kochnische (< 4 m2)\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Kochnische (< 4 m\\u00b2)\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -11429,7 +11071,7 @@
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"K\\u00fcche (> 4 m2)\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"K\\u00fcche (> 4 m\\u00b2)\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -11614,38 +11256,6 @@
   {
     "model": "caluma_form.option",
     "pk": "landwirtschaftlich-begruendet-nein",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "langsamverkehr-ja",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "langsamverkehr-nein",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
       "modified_at": "2023-07-05T09:47:01.796Z",
@@ -12413,38 +12023,6 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "projekt-energienachweis-keine-bereiche",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Es sind keine energetisch relevanten Themenbereiche betroffen\", \"fr\": null, \"it\": null}",
-      "is_archived": true,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "projekt-energienachweis-keine-bereiche-betroffen",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Es sind keine energetisch relevanten Themenbereiche betroffen\", \"fr\": null, \"it\": null}",
-      "is_archived": true,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
     "pk": "projekt-energienachweis-kuehlung",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -12621,38 +12199,6 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "schiffsverkehr-ja",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "schiffsverkehr-nein",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
     "pk": "schnittplaene-ja",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -12758,70 +12304,6 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "seilbahnanlage-betroffen-ja",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "seilbahnanlage-betroffen-nein",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "seilbahnanlage-personenseilbahn",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Personenseilbahn\", \"fr\": null, \"it\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "seilbahnanlage-warenseilbahn",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Waren-und Transportseilbahn\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -12935,22 +12417,6 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Heizungen im Freien\", \"fr\": null, \"it\": null}",
       "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "spezielle-bauen-keine",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Keine speziellen Bauten und Anlagen\", \"fr\": null, \"it\": null}",
-      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -13149,15 +12615,15 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "strassentyp-mgb",
+    "pk": "strassentyp-eisenbahnanlage",
     "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "created_at": "2023-08-30T07:26:30.167Z",
+      "modified_at": "2023-08-30T07:26:30.167Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"MGB\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Eisenbahnanlage\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -13222,38 +12688,6 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Korporationsstrasse\", \"fr\": null, \"it\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "strassentyp-sbb",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"SBB\", \"fr\": null, \"it\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "strassentyp-sob",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"SOB (Gotthard Bergstrecke)\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -13389,6 +12823,22 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "terrainveraenderungen-kiesabbau",
+    "fields": {
+      "created_at": "2023-07-05T09:47:01.796Z",
+      "modified_at": "2023-08-30T06:34:38.025Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Kiesabbau\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "terrainveraenderungen-steinabbau",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -13398,22 +12848,6 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Steinabbau\", \"fr\": null, \"it\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "terrainveraenderungen-steingewinnung-abbau-oberflaechlich",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Steingewinnung (Abbau oberfl\\u00e4chlich)\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -13941,7 +13375,7 @@
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Spielpl\\u00e4tze (m2)\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Spielpl\\u00e4tze (m\\u00b2)\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -13989,7 +13423,7 @@
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Velopl\\u00e4tze (m2)\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Velopl\\u00e4tze (m\\u00b2)\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -15005,22 +14439,6 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "welche-foerderanlagen-stapeleinrichtungen",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Stapeleinrichtungen\", \"fr\": null, \"it\": null}",
-      "is_archived": true,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
     "pk": "werkleitungsplan-ja",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -15197,6 +14615,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "200m3-abfall",
+    "fields": {
+      "created_at": "2023-08-30T06:48:38.911Z",
+      "modified_at": "2023-08-30T06:50:29.919Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Fallen mehr als 200m\\u00b3 Abfall an?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "'abbruch-ja' != 'abbruch'|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "abbruch",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -15244,7 +14693,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"####Abbruch, Aushub, Entsorgung\\nBei Neubau-, Umbau- oder R\\u00fcckbauarbeiten fallen Bauabf\\u00e4lle an. Bei Bauarbeiten bei denen voraussichtlich mehr als 200 m3 Bauabf\\u00e4lle anfallen oder Bauabf\\u00e4lle mit umwelt- oder gesundheitsgef\\u00e4hrdenden Stoffen wie polychlorierte Biphenyle (PCB), polyaromatische Kohlenwasserstoffe (PAK), Blei oder Asbest zu erwarten sind, muss die Bauherrschaft bei der Baubewilligungs Beh\\u00f6rde ein Entsorgungskonzept einreichen.\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"####Abbruch, Aushub, Entsorgung\\nBei Neubau-, Umbau- oder R\\u00fcckbauarbeiten fallen Bauabf\\u00e4lle an. Bei Bauarbeiten bei denen voraussichtlich mehr als 200 m\\u00b3 Bauabf\\u00e4lle anfallen oder Bauabf\\u00e4lle mit umwelt- oder gesundheitsgef\\u00e4hrdenden Stoffen wie polychlorierte Biphenyle (PCB), polyaromatische Kohlenwasserstoffe (PAK), Blei oder Asbest zu erwarten sind, muss die Bauherrschaft bei der Baubewilligungs Beh\\u00f6rde ein Entsorgungskonzept einreichen.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -15605,37 +15054,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "angaben-zu-haustechnischen-anlagen",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Liegen die Angaben zu den geb\\u00e4udetechnischen Anlagen (Heizung usw.) bereits vor?\", \"fr\": null, \"it\": null}",
-      "type": "choice",
-      "is_required": "true",
-      "is_hidden": "true",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "angaben-zum-tank",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -15673,7 +15091,7 @@
     "pk": "anlagetyp",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "modified_at": "2023-08-30T08:55:58.678Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -15681,7 +15099,7 @@
       "label": "{\"de\": \"Anlagetyp\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "true",
-      "is_hidden": "!(\"technische-bewilligung\" in form ||\n\"haustechnische-anlagen-erstellt-ja\" == \"haustechnische-anlagen-erstellt\"|answer(null))",
+      "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -16039,7 +15457,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"---\\n\\n#### Arbeitsr\\u00e4ume (Raumh\\u00f6he, Bodenfl\\u00e4che, Fenster)\\n\\nDie lichte Raumh\\u00f6he (cm) und die Bodenfl\\u00e4che (m2) m\\u00fcssen aus den Pl\\u00e4nen ersichtlich sein. Bei unterirdischen Arbeitsr\\u00e4umen m\\u00fcssen ausserdem die H\\u00f6he von B\\u00f6schungen, Abgrabungen und Br\\u00fcstungen in den Pl\\u00e4nen ersichtlich sein.\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"---\\n\\n#### Arbeitsr\\u00e4ume (Raumh\\u00f6he, Bodenfl\\u00e4che, Fenster)\\n\\nDie lichte Raumh\\u00f6he (cm) und die Bodenfl\\u00e4che (m\\u00b2) m\\u00fcssen aus den Pl\\u00e4nen ersichtlich sein. Bei unterirdischen Arbeitsr\\u00e4umen m\\u00fcssen ausserdem die H\\u00f6he von B\\u00f6schungen, Abgrabungen und Br\\u00fcstungen in den Pl\\u00e4nen ersichtlich sein.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -16076,37 +15494,6 @@
       "data_source": null,
       "row_form": null,
       "sub_form": "arbeitssicherheit",
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "art-der-anlage",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Art der Anlage\", \"fr\": null, \"it\": null}",
-      "type": "multiple_choice",
-      "is_required": "true",
-      "is_hidden": "!(\n  \"langsamverkehr-ja\" == \"langsamverkehr\"|answer\n)",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
@@ -16892,7 +16279,7 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"**Definition Nebenbauten / Einliegerwohnung**\\n\\nAls Nebenbauten gelten eingeschossige Geb\\u00e4ude die nicht f\\u00fcr den dauernden Aufenthalt von Personen bestimmt sind, keine offenen Feuerstellen aufweisen und keine gef\\u00e4hrlichen Stoffe in massgebender Menge gelagert werden (z.B. Fahrzeugunterst\\u00e4nde, Garagen, Gartenh\\u00e4user, Kleintierst\\u00e4lle, Kleinlager) wenn ihre Grundfl\\u00e4che 150 m2 nicht \\u00fcbersteigt (BSR 10-15).\\n\\nNebenbauten sind von den Brandschutzabstandvorschriften gegen\\u00fcber grundst\\u00fcckinternen Bauten und Anlagen befreit. Diese Bauten haben untereinander und gegen\\u00fcber benachbarten, grundst\\u00fccksfremden Bauten und Anlagen einen Brandschutzabstand von 4 m einzuhalten.\\nMehrere Nebenbauten sind untereinander von Brandschutzabst\\u00e4nden befreit, sofern die zusammenh\\u00e4ngende Arealfl\\u00e4che 150 m2 nicht \\u00fcbersteigt (BSR 15-15 7 2.3.1)\\n\\nAls Einliegerwohnung wird eine zus\\u00e4tzliche Wohnung in einem Einfamilienhaus bezeichnet, die gegen\\u00fcber der Hauptwohnung von untergeordneter Bedeutung ist (BSR 10-15). In der Vollzugspraxis max. 2.5 Zimmer Wohnung.\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"**Definition Nebenbauten / Einliegerwohnung**\\n\\nAls Nebenbauten gelten eingeschossige Geb\\u00e4ude die nicht f\\u00fcr den dauernden Aufenthalt von Personen bestimmt sind, keine offenen Feuerstellen aufweisen und keine gef\\u00e4hrlichen Stoffe in massgebender Menge gelagert werden (z.B. Fahrzeugunterst\\u00e4nde, Garagen, Gartenh\\u00e4user, Kleintierst\\u00e4lle, Kleinlager) wenn ihre Grundfl\\u00e4che 150 m\\u00b2 nicht \\u00fcbersteigt (BSR 10-15).\\n\\nNebenbauten sind von den Brandschutzabstandvorschriften gegen\\u00fcber grundst\\u00fcckinternen Bauten und Anlagen befreit. Diese Bauten haben untereinander und gegen\\u00fcber benachbarten, grundst\\u00fccksfremden Bauten und Anlagen einen Brandschutzabstand von 4 m einzuhalten.\\nMehrere Nebenbauten sind untereinander von Brandschutzabst\\u00e4nden befreit, sofern die zusammenh\\u00e4ngende Arealfl\\u00e4che 150 m\\u00b2 nicht \\u00fcbersteigt (BSR 15-15 7 2.3.1)\\n\\nAls Einliegerwohnung wird eine zus\\u00e4tzliche Wohnung in einem Einfamilienhaus bezeichnet, die gegen\\u00fcber der Hauptwohnung von untergeordneter Bedeutung ist (BSR 10-15). In der Vollzugspraxis max. 2.5 Zimmer Wohnung.\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -17264,7 +16651,7 @@
     "pk": "beeintraechtigung",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "modified_at": "2023-08-30T07:32:02.384Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -17276,38 +16663,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "beeintraechtigung-weg",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Art der Beeintr\\u00e4chtigung\", \"fr\": null, \"it\": null}",
-      "type": "multiple_choice",
-      "is_required": "true",
-      "is_hidden": "!(\n  \"langsamverkehr-ja\" == \"langsamverkehr\"|answer\n)",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -17472,7 +16828,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"---\\n\\n####Vorkehren f\\u00fcr hindernisfreies Bauen\\n \\nBei folgenden Projekten sind Vorkehren f\\u00fcr das hindernisfreie Bauen gest\\u00fctzt auf Artikel 80 des Planungs- und Baugesetzes des Kantons Uri (PBG) im besonderen Mass zu ber\\u00fccksichtigen:\\n- \\u00d6ffentlich zug\\u00e4ngliche Bauten und Anlagen\\n- Wohn\\u00fcberbauungen und Gesch\\u00e4ftsh\\u00e4user\\n- Mehrfamilienh\\u00e4user mit vier und mehr Wohneinheiten\\n- Geb\\u00e4ude mit Arbeitspl\\u00e4tzen ab einer gesamten Nutzungsfl\\u00e4che von 500 m2\\n- Parkpl\\u00e4tze von \\u00f6ffentlich zug\\u00e4nglichen Geb\\u00e4uden\\n\\n**Hinweis:** Es empfiehlt sich, die Normen und besonderen Vorkehren f\\u00fcr das hindernisfreie Bauen bei s\\u00e4mtlichen Hochbauten, insbesondere auch bei Wohnbauten die vom Eigent\\u00fcmer selber genutzt werden, zu beachten.\\n\\nHier gehts zu den [Merkbl\\u00e4ttern und Checklisten - Procap](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjqsaiaovbsAhUJxBQKHTDLAY0QFjAAegQIARAC&url=https%3A%2F%2Fwww.procap.ch%2Fde%2Fangebote%2Fberatung-information%2Fbauen-und-verkehr%2Fmerkblaetter-und-checklisten.html&usg=AOvVaw22mufgjOdttc4H6GIjwIa_)\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"---\\n\\n####Vorkehren f\\u00fcr hindernisfreies Bauen\\n \\nBei folgenden Projekten sind Vorkehren f\\u00fcr das hindernisfreie Bauen gest\\u00fctzt auf Artikel 80 des Planungs- und Baugesetzes des Kantons Uri (PBG) im besonderen Mass zu ber\\u00fccksichtigen:\\n- \\u00d6ffentlich zug\\u00e4ngliche Bauten und Anlagen\\n- Wohn\\u00fcberbauungen und Gesch\\u00e4ftsh\\u00e4user\\n- Mehrfamilienh\\u00e4user mit vier und mehr Wohneinheiten\\n- Geb\\u00e4ude mit Arbeitspl\\u00e4tzen ab einer gesamten Nutzungsfl\\u00e4che von 500 m\\u00b2\\n- Parkpl\\u00e4tze von \\u00f6ffentlich zug\\u00e4nglichen Geb\\u00e4uden\\n\\n**Hinweis:** Es empfiehlt sich, die Normen und besonderen Vorkehren f\\u00fcr das hindernisfreie Bauen bei s\\u00e4mtlichen Hochbauten, insbesondere auch bei Wohnbauten die vom Eigent\\u00fcmer selber genutzt werden, zu beachten.\\n\\nHier gehts zu den [Merkbl\\u00e4ttern und Checklisten - Procap](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjqsaiaovbsAhUJxBQKHTDLAY0QFjAAegQIARAC&url=https%3A%2F%2Fwww.procap.ch%2Fde%2Fangebote%2Fberatung-information%2Fbauen-und-verkehr%2Fmerkblaetter-und-checklisten.html&usg=AOvVaw22mufgjOdttc4H6GIjwIa_)\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -18294,40 +17650,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "beschreibung-schiffsverkehr",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Beschreibung der Beeintr\\u00e4chtigung\", \"fr\": null, \"it\": null}",
-      "type": "text",
-      "is_required": "false",
-      "is_hidden": "!(\n  \"schiffsverkehr-ja\" == \"schiffsverkehr\"|answer\n)",
-      "is_archived": false,
-      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "max_length": null,
-        "min_length": null
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "beschreibung-schweissanlage",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -18340,40 +17662,6 @@
       "type": "text",
       "is_required": "false",
       "is_hidden": "!(\"themen-arbeitssicherheit-schweissanlagen\" in \"themen-arbeitssicherheit\"|answer)",
-      "is_archived": false,
-      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "max_length": null,
-        "min_length": null
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "beschreibung-seilbahnanlage",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Beschreibung der Beeintr\\u00e4chtigung\", \"fr\": null, \"it\": null}",
-      "type": "text",
-      "is_required": "true",
-      "is_hidden": "!(\n  \"seilbahnanlage-betroffen-ja\" == \"seilbahnanlage-betroffen\"|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -18510,40 +17798,6 @@
       "type": "text",
       "is_required": "false",
       "is_hidden": "!(\"welche-foerderanlagen-rampen\" in \"welche-foerderanlagen\"|answer)",
-      "is_archived": false,
-      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "max_length": null,
-        "min_length": null
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "beschreibung-weg",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Beschreibung\", \"fr\": null, \"it\": null}",
-      "type": "textarea",
-      "is_required": "false",
-      "is_hidden": "!(\n  \"beeintraechtigung-weg-andere\" in \"beeintraechtigung-weg\"|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -18823,7 +18077,7 @@
     "pk": "bezeichnung-dazugehoeriges-gebaeude",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "modified_at": "2023-08-30T08:55:46.109Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -18831,7 +18085,7 @@
       "label": "{\"de\": \"Dazugeh\\u00f6riges Geb\\u00e4ude\", \"fr\": null, \"it\": null}",
       "type": "text",
       "is_required": "true",
-      "is_hidden": "!(\"technische-bewilligung\" in form ||\n\"haustechnische-anlagen-erstellt-ja\" == \"haustechnische-anlagen-erstellt\"|answer(null))",
+      "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"z.M- MFH A\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"Bezeichnen Sie das Geb\\u00e4ude, zu welchem die geb\\u00e4udetechnische Anlage geh\\u00f6rt. Falls das Gesuch mehrere Geb\\u00e4ude mit technischen Anlagen beinhaltet, dann ordnen Sie die jeweils erfasste Anlage dem entsprechenden Geb\\u00e4ude zu.\", \"fr\": null, \"it\": null}",
@@ -19382,7 +18636,12 @@
       "configuration": {},
       "meta": {
         "widgetOverride": "alexandria-documents-form",
-        "alexandria-category": "\"beilagen-zum-gesuch\""
+        "alexandria-categories": [
+          "beilagen-zum-gesuch-grundstuecksangaben",
+          "beilagen-zum-gesuch-gutachten-nachweise-begruendungen",
+          "beilagen-zum-gesuch-projektplaene-projektbeschrieb",
+          "beilagen-zum-gesuch-weitere-gesuchsunterlagen"
+        ]
       },
       "data_source": null,
       "row_form": null,
@@ -19827,13 +19086,13 @@
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Energiebezugsfl\\u00e4che in m2\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Energiebezugsfl\\u00e4che in m\\u00b2\", \"fr\": null, \"it\": null}",
       "type": "integer",
       "is_required": "true",
       "is_hidden": "!(\n[\n\"das-vorhaben-betrifft-beheizte-oder-gekuehlte-neu-und-umbauten\", \"das-vorhaben-betrifft-aenderung-beheizter-oder-gekuehlter-bauten\", \"das-vorhaben-betrifft-installation-technischer-anlagen\"\n] intersects (\"das-vorhaben-betrifft\"|answer || [])\n)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"##Definition der Energiebezugsfl\\u00e4che\\n\\nDie Energiebezugsfl\\u00e4che auch EBF genannt, ist die Summe aller ober- und unterirdischen Geschossfl\\u00e4chen, die innerhalb der thermischen Geb\\u00e4udeh\\u00fclle liegen und f\\u00fcr die ein Beheizen oder Klimatisieren notwendig ist.\\n\\nZur Energiebezugsfl\\u00e4che z\\u00e4hlen Hauptnutzfl\\u00e4chen (Wohnzimmer, Schlafzimmer etc.), Verkehrsfl\\u00e4chen (Treppenhaus, Gang), Garderoben und Fl\\u00e4chen der Sanit\\u00e4rr\\u00e4ume, sofern diese Fl\\u00e4chen innerhalb der thermischen Geb\\u00e4udeh\\u00fclle liegen.\\n\\nDie thermische Geb\\u00e4udeh\\u00fclle ist ein geschlossener geometrischer K\\u00f6rper, der aus den Bauteilen (Aussenwand, Innenwand, Dach, Decke, Boden, Fenster, T\\u00fcren usw.) gebildet wird, welche den beheizten Raum vom Aussenklima und den nicht beheizten R\\u00e4umen abgrenzen.\\n\\nZur Energiebezugsfl\\u00e4che z\\u00e4hlen auch Nebennutzfl\\u00e4chen welche eine Fl\\u00e4che kleiner als 10m2 aufweisen. Als Nebennutzfl\\u00e4chen gelten zum Beispiel Ver- und Entsorgungssch\\u00e4chte, Abstellr\\u00e4ume (Keller), Waschk\\u00fcchen, Heizr\\u00e4ume usw.\\n\\nNicht zur Energiebezugsfl\\u00e4che z\\u00e4hlen Nebennutzfl\\u00e4chen und Funktionsfl\\u00e4chen, die ohne Heizung verwendbar sind (Waschk\\u00fcchen, Technische R\\u00e4ume, Heizzentralen, Garagen, Abstellr\\u00e4ume, Estrich usw.), auch wenn diese beheizt sind (Ausnahme: Fl\\u00e4chen kleiner als 10 m2 die innerhalb der thermischen Geb\\u00e4udeh\\u00fclle liegen). Fl\\u00e4chenteile mit einer Raumh\\u00f6he kleiner als 1.0 m (siehe Beispiel Dachgeschoss) z\\u00e4hlen nicht zur Energiebezugsfl\\u00e4che.\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"##Definition der Energiebezugsfl\\u00e4che\\n\\nDie Energiebezugsfl\\u00e4che auch EBF genannt, ist die Summe aller ober- und unterirdischen Geschossfl\\u00e4chen, die innerhalb der thermischen Geb\\u00e4udeh\\u00fclle liegen und f\\u00fcr die ein Beheizen oder Klimatisieren notwendig ist.\\n\\nZur Energiebezugsfl\\u00e4che z\\u00e4hlen Hauptnutzfl\\u00e4chen (Wohnzimmer, Schlafzimmer etc.), Verkehrsfl\\u00e4chen (Treppenhaus, Gang), Garderoben und Fl\\u00e4chen der Sanit\\u00e4rr\\u00e4ume, sofern diese Fl\\u00e4chen innerhalb der thermischen Geb\\u00e4udeh\\u00fclle liegen.\\n\\nDie thermische Geb\\u00e4udeh\\u00fclle ist ein geschlossener geometrischer K\\u00f6rper, der aus den Bauteilen (Aussenwand, Innenwand, Dach, Decke, Boden, Fenster, T\\u00fcren usw.) gebildet wird, welche den beheizten Raum vom Aussenklima und den nicht beheizten R\\u00e4umen abgrenzen.\\n\\nZur Energiebezugsfl\\u00e4che z\\u00e4hlen auch Nebennutzfl\\u00e4chen welche eine Fl\\u00e4che kleiner als 10m\\u00b2 aufweisen. Als Nebennutzfl\\u00e4chen gelten zum Beispiel Ver- und Entsorgungssch\\u00e4chte, Abstellr\\u00e4ume (Keller), Waschk\\u00fcchen, Heizr\\u00e4ume usw.\\n\\nNicht zur Energiebezugsfl\\u00e4che z\\u00e4hlen Nebennutzfl\\u00e4chen und Funktionsfl\\u00e4chen, die ohne Heizung verwendbar sind (Waschk\\u00fcchen, Technische R\\u00e4ume, Heizzentralen, Garagen, Abstellr\\u00e4ume, Estrich usw.), auch wenn diese beheizt sind (Ausnahme: Fl\\u00e4chen kleiner als 10 m\\u00b2 die innerhalb der thermischen Geb\\u00e4udeh\\u00fclle liegen). Fl\\u00e4chenteile mit einer Raumh\\u00f6he kleiner als 1.0 m (siehe Beispiel Dachgeschoss) z\\u00e4hlen nicht zur Energiebezugsfl\\u00e4che.\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
@@ -19951,7 +19210,7 @@
     "pk": "entsorgungskonzept",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "modified_at": "2023-08-30T06:49:32.531Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -19959,7 +19218,7 @@
       "label": "{\"de\": \"Entsorgungskonzept\", \"fr\": null, \"it\": null}",
       "type": "static",
       "is_required": "false",
-      "is_hidden": "!(\n  \"asbest-ja\" == \"asbest\"|answer\n)",
+      "is_hidden": "!(\n  \"asbest-ja\" == \"asbest\"|answer || \"200m3-abfall\"|answer == \"200m3-abfall-ja\"\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -20266,7 +19525,7 @@
     "pk": "erschliessungen",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "modified_at": "2023-08-30T06:37:51.901Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -20278,7 +19537,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -21343,7 +20602,7 @@
       "label": "{\"de\": \"Fotodokumentation\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
       "is_required": "true",
-      "is_hidden": "!(\n\t[\n\t\t\"terrainveraenderungen-gelaendeaufschuettung\",\n\t\t\"terrainveraenderungen-steingewinnung-abbau-oberflaechlich\",\n\t\t\"terrainveraenderungen-steinabbau\",\n\t\t\"terrainveraenderungen-bodenverbesserungohne-materialzufuhr\",\n\t\t\"terrainveraenderungen-bodenverbesserung-mit-materialzufuhr\"\n\t]\n\tintersects \"tiefbauten-landschaft\"|answer|mapby(\"terrainveraenderungen\") ||\n\t[\n\t\t\"erschliessungen-viehtriebweg\",\n\t\t\"erschliessungen-bewirtschaftungsweg-befahrbar\",\n\t\t\"erschliessungen-gueterstrasse\",\n\t\t\"erschliessungen-gemeindestrasse\"\n\t]\n\tintersects \"tiefbauten-landschaft\"|answer|mapby(\"erschliessungen\")\n)",
+      "is_hidden": "!(\n\t[\n\t\t\"terrainveraenderungen-gelaendeaufschuettung\",\n\t\t\"terrainveraenderungen-kiesabbau\",\n\t\t\"terrainveraenderungen-steinabbau\",\n\t\t\"terrainveraenderungen-bodenverbesserungohne-materialzufuhr\",\n\t\t\"terrainveraenderungen-bodenverbesserung-mit-materialzufuhr\"\n\t]\n\tintersects \"tiefbauten-landschaft\"|answer|mapby(\"terrainveraenderungen\") ||\n\t[\n\t\t\"erschliessungen-viehtriebweg\",\n\t\t\"erschliessungen-flurweg-befahrbar\",\n\t\t\"erschliessungen-gueterstrasse\",\n\t\t\"erschliessungen-gemeindestrasse\"\n\t]\n\tintersects \"tiefbauten-landschaft\"|answer|mapby(\"erschliessungen\")\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -21760,7 +21019,7 @@
     "pk": "gebaeudetechnik",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "modified_at": "2023-08-30T08:52:42.309Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -21768,11 +21027,11 @@
       "label": "{\"de\": \"Geb\\u00e4udetechnik\", \"fr\": null, \"it\": null}",
       "type": "table",
       "is_required": "true",
-      "is_hidden": "false",
+      "is_hidden": "\"haustechnische-anlagen-erstellt\"|answer != \"haustechnische-anlagen-erstellt-ja\"",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
@@ -21938,7 +21197,7 @@
       "label": "{\"de\": \"Gemeinde\", \"fr\": null, \"it\": null}",
       "type": "dynamic_choice",
       "is_required": "true",
-      "is_hidden": "True",
+      "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -22830,6 +22089,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "hinweis-bodenschutzkonzept",
+    "fields": {
+      "created_at": "2023-08-30T06:54:32.587Z",
+      "modified_at": "2023-08-30T06:55:06.061Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis Bodenschutzkonzept\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "\"aushub-erforderlich\"|answer != \"aushub-erforderlich-ja\"",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"# Hinweis\\n\\nWenn mehr als 5000m\\u00b2 betroffen sind ...\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "hinweis-erfassung-solaranlage",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -22926,7 +22216,7 @@
     "pk": "hinweis-parkplaetze-uvp",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "modified_at": "2023-08-30T06:39:26.901Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -22939,7 +22229,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"**Wichtige Hinweise**\\n\\n- Parkpl\\u00e4tze mit mehr als 300 Stellpl\\u00e4tzen sind UVP pflichtig.\\n\\n- Grunds\\u00e4tzlich ist bei allen Parkierungsanlagen zu pr\\u00fcfen, ob und wie viele behindertengerechte Parkpl\\u00e4tze erstellt werden m\\u00fcssen.\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"**Wichtige Hinweise**\\n\\n- Parkpl\\u00e4tze mit mehr als 500 Stellpl\\u00e4tzen sind UVP pflichtig.\\n\\n- Grunds\\u00e4tzlich ist bei allen Parkierungsanlagen zu pr\\u00fcfen, ob und wie viele behindertengerechte Parkpl\\u00e4tze erstellt werden m\\u00fcssen.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -23154,7 +22444,7 @@
       "is_hidden": "!(\n  \"projekt-energienachweis-hoechstanteil\" in \"projekt-energienachweis\"|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"####INFO\\nNachweis H\\u00f6chstanteil nichterneuerbarer Energien\\nDer Nachweis kann entweder durch die Wahl einer Standardl\\u00f6sung oder durch eine Berechnung des H\\u00f6chstanteils nichterneuerbarer Energien erbracht werden. Dieser Nachweis ist zu erbringen bei: \\n\\u2013Neubauten\\n\\u2013neubauartigen Umbauten\\n\\u2013Anbauten und Aufstockungen, wenn die neu geschaffene Energiebezugsfl\\u00e4che mehr als 50 m2 und gleichzeitig mehr als 20% der Energiebezugsfl\\u00e4che des bestehenden Geb\\u00e4udeteiles betr\\u00e4gt; oder wenn mehr als 1000 m2 Energie-bezugsfl\\u00e4che neu geschaffen werden.\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"####INFO\\nNachweis H\\u00f6chstanteil nichterneuerbarer Energien\\nDer Nachweis kann entweder durch die Wahl einer Standardl\\u00f6sung oder durch eine Berechnung des H\\u00f6chstanteils nichterneuerbarer Energien erbracht werden. Dieser Nachweis ist zu erbringen bei: \\n\\u2013Neubauten\\n\\u2013neubauartigen Umbauten\\n\\u2013Anbauten und Aufstockungen, wenn die neu geschaffene Energiebezugsfl\\u00e4che mehr als 50 m\\u00b2 und gleichzeitig mehr als 20% der Energiebezugsfl\\u00e4che des bestehenden Geb\\u00e4udeteiles betr\\u00e4gt; oder wenn mehr als 1000 m\\u00b2 Energie-bezugsfl\\u00e4che neu geschaffen werden.\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -24662,37 +23952,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "langsamverkehr",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Ist eine Anlage des Langsamverkehrs betroffen?\", \"fr\": null, \"it\": null}",
-      "type": "choice",
-      "is_required": "true",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "leckschutz",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -25027,7 +24286,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"####Luftreinhaltung auf Baustellen\\nGem\\u00e4ss [Baurichtlinie Luft](https://www.bafu.admin.ch/dam/bafu/de/dokumente/luft/uv-umwelt-vollzug/luftreinhaltung_aufbaustellenergaenzteausgabe.pdf.download.pdf/luftreinhaltung_aufbaustellenergaenzteausgabe.pdf) des BAFU bez\\u00fcglich Massnahmen zur Luftreinhaltung auf Baustellen gilt bei Baustellenfl\\u00e4chen die gr\\u00f6sser sind als 4'000 m2 oder Bauvolumen von mehr als 10'000 m3 aufweisen, Massnahmenstufe B. F\\u00fcr kleinenere Vorhaben gilt Massnahmenstufe A.\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"####Luftreinhaltung auf Baustellen\\nGem\\u00e4ss [Baurichtlinie Luft](https://www.bafu.admin.ch/dam/bafu/de/dokumente/luft/uv-umwelt-vollzug/luftreinhaltung_aufbaustellenergaenzteausgabe.pdf.download.pdf/luftreinhaltung_aufbaustellenergaenzteausgabe.pdf) des BAFU bez\\u00fcglich Massnahmen zur Luftreinhaltung auf Baustellen gilt bei Baustellenfl\\u00e4chen die gr\\u00f6sser sind als 4'000 m\\u00b2 oder Bauvolumen von mehr als 10'000 m\\u00b3 aufweisen, Massnahmenstufe B. F\\u00fcr kleinenere Vorhaben gilt Massnahmenstufe A.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -25722,7 +24981,7 @@
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Nicht \\u00fcberdachte Fl\\u00e4che in m2\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Nicht \\u00fcberdachte Fl\\u00e4che in m\\u00b2\", \"fr\": null, \"it\": null}",
       "type": "integer",
       "is_required": "true",
       "is_hidden": "!(\n  [\"angaben-dieselbetankungsanlagen-teilweise-ueberdacht\", \"angaben-dieselbetankungsanlagen-nicht-ueberdacht\"] intersects (\"angaben-dieselbetankungsanlagen\"|answer || [])\n)",
@@ -25821,7 +25080,7 @@
       "label": "{\"de\": \"Normalprofil\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
       "is_required": "true",
-      "is_hidden": "!(\n\t[\n\t\t\"erschliessungen-wanderweg\",\n\t\t\"erschliessungen-fussweg\",\n\t\t\"erschliessungen-veloweg\",\n\t\t\"erschliessungen-viehtriebweg\",\n\t\t\"erschliessungen-bewirtschaftungsweg-befahrbar\",\n\t\t\"erschliessungen-liegenschaftszufahrt\",\n\t\t\"erschliessungen-baupiste-temporaer\"\n\t]\n\tintersects \"tiefbauten-landschaft\"|answer|mapby(\"erschliessungen\")\n)",
+      "is_hidden": "!(\n\t[\n\t\t\"erschliessungen-wanderweg\",\n\t\t\"erschliessungen-fussweg\",\n\t\t\"erschliessungen-veloweg\",\n\t\t\"erschliessungen-viehtriebweg\",\n\t\t\"erschliessungen-flurweg-befahrbar\",\n\t\t\"erschliessungen-liegenschaftszufahrt\",\n\t\t\"erschliessungen-baupiste-temporaer\"\n\t]\n\tintersects \"tiefbauten-landschaft\"|answer|mapby(\"erschliessungen\")\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -26894,7 +26153,7 @@
       "label": "{\"de\": \"Querprofile\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
       "is_required": "true",
-      "is_hidden": "!(\n\t[\n\t\t\"terrainveraenderungen-gelaendeaufschuettung\",\n\t\t\"terrainveraenderungen-deponie\",\n\t\t\"terrainveraenderungen-steingewinnung-abbau-oberflaechlich\",\n\t\t\"terrainveraenderungen-steinabbau\",\n\t\t\"terrainveraenderungen-bodenverbesserungohne-materialzufuhr\",\n\t\t\"terrainveraenderungen-bodenverbesserung-mit-materialzufuhr\"\n\t]\n\tintersects \"tiefbauten-landschaft\"|answer|mapby(\"terrainveraenderungen\") ||\n\t[\n\t\t\"erschliessungen-gueterstrasse\",\n\t\t\"erschliessungen-quartierstrasse\",\n\t\t\"erschliessungen-korporationsstrasse\",\n\t\t\"erschliessungen-gemeindestrasse\"\n\t]\n\tintersects \"tiefbauten-landschaft\"|answer|mapby(\"erschliessungen\")\n)",
+      "is_hidden": "!(\n\t[\n\t\t\"terrainveraenderungen-gelaendeaufschuettung\",\n\t\t\"terrainveraenderungen-deponie\",\n\t\t\"terrainveraenderungen-kiesabbau\",\n\t\t\"terrainveraenderungen-steinabbau\",\n\t\t\"terrainveraenderungen-bodenverbesserungohne-materialzufuhr\",\n\t\t\"terrainveraenderungen-bodenverbesserung-mit-materialzufuhr\"\n\t]\n\tintersects \"tiefbauten-landschaft\"|answer|mapby(\"terrainveraenderungen\") ||\n\t[\n\t\t\"erschliessungen-gueterstrasse\",\n\t\t\"erschliessungen-quartierstrasse\",\n\t\t\"erschliessungen-korporationsstrasse\",\n\t\t\"erschliessungen-gemeindestrasse\"\n\t]\n\tintersects \"tiefbauten-landschaft\"|answer|mapby(\"erschliessungen\")\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -26932,7 +26191,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"**Radon** Gema\\u0308ss Strahlenschutzverordnung (StSV, SR 814.501) ist die Geba\\u0308udeeigentu\\u0308merschaft oder bei Neubauten die Bauherrschaft dafu\\u0308r besorgt, dass dem Stand der Technik entsprechende pra\\u0308ventive Massnahmen getroffen werden, um eine Radonkonzentration zu erreichen, die unter dem Radonreferenzwert von 300 Bq/m3 in Ra\\u0308umen mit Personenaufenthalt liegt.\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"**Radon** Gema\\u0308ss Strahlenschutzverordnung (StSV, SR 814.501) ist die Geba\\u0308udeeigentu\\u0308merschaft oder bei Neubauten die Bauherrschaft dafu\\u0308r besorgt, dass dem Stand der Technik entsprechende pra\\u0308ventive Massnahmen getroffen werden, um eine Radonkonzentration zu erreichen, die unter dem Radonreferenzwert von 300 Bq/m\\u00b3 in Ra\\u0308umen mit Personenaufenthalt liegt.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -26961,7 +26220,7 @@
       "is_hidden": "False",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"####Hinweise und Erkl\\u00e4rungen\\n\\n- 0 Nachweis MINERGIE-Label\\nF\\u00fcr das Projekt besteht ein MINERGIE-Label: Kopie des provisorischen  Zertifikats beilegen. Auf Formular EN-2b \\u00abSystemnachweis W\\u00e4rmed\\u00e4mmung\\u00bb  bei Beilagen auf MINERGIE-Label hinweisen. Mit der Unterschrift bei \\u00abNachweis erarbeitet durch\\u00bb wird best\\u00e4tigt, dass das Bauvorhaben gem\\u00e4ss MINERGIE- Label ausgef\\u00fchrt wird. Bei Privater Kontrolle sind ausser dem erw\\u00e4hnten Formu-lar EN-2b und der Kopie des provisorischen Zertifikats keine weiteren Beilagen zu den Bereichen W\\u00e4rmed\\u00e4mmung und H\\u00f6chstanteil n\\u00f6tig. Fehlt die Unterschrift Private Kontrolle, sind alle Unterlagen beizulegen, da die Beh\\u00f6rde diese f\\u00fcr die Ausf\\u00fchrungskontrolle ben\\u00f6tigt.\\n\\n- 1Nachweis H\\u00f6chstanteil nichterneuerbarer Energien\\n(EnG Artikel 3 bis 5, EnR Artiekl 14 und 15)\\n\\nDer Nachweis kann entweder durch die Wahl einer Standardl\\u00f6sung oder durch eine Berechnung des H\\u00f6chstanteils nichterneuerbarer Energien erbracht werden. Dieser Nachweis ist zu erbringen bei:\\n\\u2013Neubauten\\n\\u2013neubauartigen Umbauten\\n\\u2013Anbauten und Aufstockungen, wenn die neu geschaffene Energiebezugsfl\\u00e4che mehr als 50 m2 und gleichzeitig mehr als 20% der Energiebezugsfl\\u00e4che des bestehenden Geb\\u00e4udeteiles betr\\u00e4gt; oder wenn mehr als 1000 m2 Energie-bezugsfl\\u00e4che neu geschaffen werden.\\n\\n- 2a Einzelbauteilnachweis W\\u00e4rmed\\u00e4mmung\\nEnG Artiekl 3 bis 5; EnR Artikel 5 bis 7)\\n\\nGem\\u00e4ss Norm SIA 380/1 \\u00abThermische Energie im Hochbau\\u00bb, Ausgabe 2009. Bei Neubauten sind alle Bauteile nachzuweisen, welche die beheizte oder gek\\u00fchlte Zone l\\u00fcckenlos umschliessen. Bei Umbauten oder Umnutzungen sind nur die betroffenen Bauteile nachzuweisen.\\n\\n- 2b Systemnachweis W\\u00e4rmed\\u00e4mmung\\n(EnG Artikel 3 bis 5; EnR Artiekl 5 bis 7)\\n\\nGem\\u00e4ss Norm SIA 380/1 \\u00abThermische Energie im Hochbau\\u00bb, Ausgabe 2009. Bei Neubauten ist der Heizw\\u00e4rmebedarf f\\u00fcr die gesamte beheizte oder gek\\u00fchlte Zone nachzuweisen. Der Systemnachweis f\\u00fcr Umbauten und Umnutzungen hat im Minimum alle R\\u00e4ume zu umfassen, die Bauteile aufweisen, die vom Umbau oder von der Umnutzung betroffen werden.\\n\\n- 3 Nachweis Heizungs- und Warmwasseranlagen\\n(EnG Artikel 3 bis 5; EnR Artikel 12 bis 13 und 20 bis 21)\\n\\nDer Nachweis ist f\\u00fcr alle neuen und f\\u00fcr die von einem Umbau betroffenen  bestehenden Anlagenteile zu erbringen.\\n\\n- 4 Nachweis L\\u00fcftungstechnische Anlagen\\n(EnG Artikel 3 bis 5; EnR Artikel 18 bis 21)\\n\\nDer Nachweis ist f\\u00fcr alle neuen und f\\u00fcr die von einem Umbau betroffenen  bestehenden Anlagenteile zu erbringen.\\n\\n- 5 Nachweis f\\u00fcr K\\u00fchlung und/oder Befeuchtung\\n(EnG Artikel 3 bis 5; EnR Artikel 17,20,21)\\n\\nDer Nachweis ist f\\u00fcr alle neuen und f\\u00fcr die von einem Umbau betroffenen  bestehenden Anlagenteile zu erbringen.\\n\\n- 6/7/8 Nachweis K\\u00fchlr\\u00e4ume/Gew\\u00e4chsh\\u00e4user/Traglufthallen\\n(EnG Artikel 3 bis 5; EnR Artikel 9 bis 11)\\n\\nDer Nachweis ist f\\u00fcr alle neuen und f\\u00fcr die von einem Umbau oder einer  Umnutzung betroffenen Bauteile zu erbringen. Bei K\\u00fchlr\\u00e4umen: Angaben  \\u00fcber die bei der K\\u00e4lteerzeugung allenfalls entstehende Abw\\u00e4rme sind bei  den Heizungsanlagen (vgl. EN-3) anzubringen.\\n\\n- 10/11 Nachweis Heizungen im Freien/Freiluftb\\u00e4der\\n(EnG Artikel 3 bis 5; EnR Artikel 24 und 25)\\n\\nDer Nachweis ist f\\u00fcr alle neuen, ersetzten und von einem Umbau betroffenen  bestehenden Anlagenteile, sowie bei einem Ersatz der W\\u00e4rmeerzeugung zu erbringen.\\n\\n- 12 Nachweis ortsfeste elektrische Widerstandsheizungen\\n(EnG Artikel 7; EnR Artikel 23)\\n\\nDer Nachweis ist f\\u00fcr alle neuen Elektroheizungen mit mehr als 3 kW oder f\\u00fcr  die Erweiterung um mehr als 3 kW Anschlussleistung zu erbringen.\\n\\nEnG Energiegesetz des Kantons Uri vom 18. April 1999 - RB 40.7211\\nEnV Energiereglement des Kantons Uri vom 16. Dezember 2008 - RB40.7215\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"####Hinweise und Erkl\\u00e4rungen\\n\\n- 0 Nachweis MINERGIE-Label\\nF\\u00fcr das Projekt besteht ein MINERGIE-Label: Kopie des provisorischen  Zertifikats beilegen. Auf Formular EN-2b \\u00abSystemnachweis W\\u00e4rmed\\u00e4mmung\\u00bb  bei Beilagen auf MINERGIE-Label hinweisen. Mit der Unterschrift bei \\u00abNachweis erarbeitet durch\\u00bb wird best\\u00e4tigt, dass das Bauvorhaben gem\\u00e4ss MINERGIE- Label ausgef\\u00fchrt wird. Bei Privater Kontrolle sind ausser dem erw\\u00e4hnten Formu-lar EN-2b und der Kopie des provisorischen Zertifikats keine weiteren Beilagen zu den Bereichen W\\u00e4rmed\\u00e4mmung und H\\u00f6chstanteil n\\u00f6tig. Fehlt die Unterschrift Private Kontrolle, sind alle Unterlagen beizulegen, da die Beh\\u00f6rde diese f\\u00fcr die Ausf\\u00fchrungskontrolle ben\\u00f6tigt.\\n\\n- 1Nachweis H\\u00f6chstanteil nichterneuerbarer Energien\\n(EnG Artikel 3 bis 5, EnR Artiekl 14 und 15)\\n\\nDer Nachweis kann entweder durch die Wahl einer Standardl\\u00f6sung oder durch eine Berechnung des H\\u00f6chstanteils nichterneuerbarer Energien erbracht werden. Dieser Nachweis ist zu erbringen bei:\\n\\u2013Neubauten\\n\\u2013neubauartigen Umbauten\\n\\u2013Anbauten und Aufstockungen, wenn die neu geschaffene Energiebezugsfl\\u00e4che mehr als 50 m\\u00b2 und gleichzeitig mehr als 20% der Energiebezugsfl\\u00e4che des bestehenden Geb\\u00e4udeteiles betr\\u00e4gt; oder wenn mehr als 1000 m\\u00b2 Energie-bezugsfl\\u00e4che neu geschaffen werden.\\n\\n- 2a Einzelbauteilnachweis W\\u00e4rmed\\u00e4mmung\\nEnG Artiekl 3 bis 5; EnR Artikel 5 bis 7)\\n\\nGem\\u00e4ss Norm SIA 380/1 \\u00abThermische Energie im Hochbau\\u00bb, Ausgabe 2009. Bei Neubauten sind alle Bauteile nachzuweisen, welche die beheizte oder gek\\u00fchlte Zone l\\u00fcckenlos umschliessen. Bei Umbauten oder Umnutzungen sind nur die betroffenen Bauteile nachzuweisen.\\n\\n- 2b Systemnachweis W\\u00e4rmed\\u00e4mmung\\n(EnG Artikel 3 bis 5; EnR Artiekl 5 bis 7)\\n\\nGem\\u00e4ss Norm SIA 380/1 \\u00abThermische Energie im Hochbau\\u00bb, Ausgabe 2009. Bei Neubauten ist der Heizw\\u00e4rmebedarf f\\u00fcr die gesamte beheizte oder gek\\u00fchlte Zone nachzuweisen. Der Systemnachweis f\\u00fcr Umbauten und Umnutzungen hat im Minimum alle R\\u00e4ume zu umfassen, die Bauteile aufweisen, die vom Umbau oder von der Umnutzung betroffen werden.\\n\\n- 3 Nachweis Heizungs- und Warmwasseranlagen\\n(EnG Artikel 3 bis 5; EnR Artikel 12 bis 13 und 20 bis 21)\\n\\nDer Nachweis ist f\\u00fcr alle neuen und f\\u00fcr die von einem Umbau betroffenen  bestehenden Anlagenteile zu erbringen.\\n\\n- 4 Nachweis L\\u00fcftungstechnische Anlagen\\n(EnG Artikel 3 bis 5; EnR Artikel 18 bis 21)\\n\\nDer Nachweis ist f\\u00fcr alle neuen und f\\u00fcr die von einem Umbau betroffenen  bestehenden Anlagenteile zu erbringen.\\n\\n- 5 Nachweis f\\u00fcr K\\u00fchlung und/oder Befeuchtung\\n(EnG Artikel 3 bis 5; EnR Artikel 17,20,21)\\n\\nDer Nachweis ist f\\u00fcr alle neuen und f\\u00fcr die von einem Umbau betroffenen  bestehenden Anlagenteile zu erbringen.\\n\\n- 6/7/8 Nachweis K\\u00fchlr\\u00e4ume/Gew\\u00e4chsh\\u00e4user/Traglufthallen\\n(EnG Artikel 3 bis 5; EnR Artikel 9 bis 11)\\n\\nDer Nachweis ist f\\u00fcr alle neuen und f\\u00fcr die von einem Umbau oder einer  Umnutzung betroffenen Bauteile zu erbringen. Bei K\\u00fchlr\\u00e4umen: Angaben  \\u00fcber die bei der K\\u00e4lteerzeugung allenfalls entstehende Abw\\u00e4rme sind bei  den Heizungsanlagen (vgl. EN-3) anzubringen.\\n\\n- 10/11 Nachweis Heizungen im Freien/Freiluftb\\u00e4der\\n(EnG Artikel 3 bis 5; EnR Artikel 24 und 25)\\n\\nDer Nachweis ist f\\u00fcr alle neuen, ersetzten und von einem Umbau betroffenen  bestehenden Anlagenteile, sowie bei einem Ersatz der W\\u00e4rmeerzeugung zu erbringen.\\n\\n- 12 Nachweis ortsfeste elektrische Widerstandsheizungen\\n(EnG Artikel 7; EnR Artikel 23)\\n\\nDer Nachweis ist f\\u00fcr alle neuen Elektroheizungen mit mehr als 3 kW oder f\\u00fcr  die Erweiterung um mehr als 3 kW Anschlussleistung zu erbringen.\\n\\nEnG Energiegesetz des Kantons Uri vom 18. April 1999 - RB 40.7211\\nEnV Energiereglement des Kantons Uri vom 16. Dezember 2008 - RB40.7215\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"##Energienachweis\\n\\nEin Energienachweis ist in der Regel notwendig bei beheizten oder gek\\u00fchlten Neubauten, Umbauten, Erweiterungen und Zweck\\u00e4nderungen, oder wenn in der Geb\\u00e4udeh\\u00fclle einzelne Bauteile ersetzt, oder neu ged\\u00e4mmt werden. Ebenfalls notwendig ist der Nachweis, wenn geb\\u00e4udetechnische Anlagen wie Heizungen, L\\u00fcftungen, Klima- und/oder K\\u00e4lteanlagen ersetzt oder neu eingebaut werden. Bitte w\\u00e4hlen Sie die entsprechenden baulichen Umst\\u00e4nde aus, die bei Ihrem Vorhaben zutreffen.\\n\\nIm Zweifelsfall kontaktieren Sie bitte zur Kl\\u00e4rung der Notwendigkeit eines Energienachweises direkt das [Amt f\\u00fcr Energie](https://www.ur.ch/_rte/amt/828).\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -27132,37 +26391,6 @@
         "max_length": null,
         "min_length": null
       },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "schiffsverkehr",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Ist der Schiffsverkehr auf Urner Gew\\u00e4ssern betroffen?\", \"fr\": null, \"it\": null}",
-      "type": "choice",
-      "is_required": "true",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -27432,68 +26660,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "seilbahnanlage",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Typ der Seilbahnanlage\", \"fr\": null, \"it\": null}",
-      "type": "choice",
-      "is_required": "true",
-      "is_hidden": "!(\n  \"seilbahnanlage-betroffen-ja\" == \"seilbahnanlage-betroffen\"|answer\n)",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "seilbahnanlage-betroffen",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Ist eine bestehende Seilbahnanlage betroffen?\", \"fr\": null, \"it\": null}",
-      "type": "choice",
-      "is_required": "true",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "situationsplan-1-1000",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -27538,7 +26704,7 @@
       "label": "{\"de\": \"Situationsplan 1 : 500\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
       "is_required": "true",
-      "is_hidden": "!(\n\t[\n\t\t\"typ-des-bauwerks-einfamilienhaus\",\n\t\t\"typ-des-bauwerks-doppeleinfamilienhaus\",\n\t\t\"typ-des-bauwerks-mehrfamilienhaus\",\n\t\t\"typ-des-bauwerks-geschaftshaus\",\n\t\t\"typ-des-bauwerks-wohn-und-geschaftshaus\",\n\t\t\"typ-des-bauwerks-industrie\",\n\t\t\"typ-des-bauwerks-garage-oder-carport\",\n\t\t\"typ-des-bauwerks-parkhaus\",\n\t\t\"typ-des-bauwerks-bauten-und-anlagen-gastgewerbe\",\n\t\t\"typ-des-bauwerks-heim-mit-unterkunft\",\n\t\t\"typ-des-bauwerks-wohnheim-ohne-pflege\",\n\t\t\"typ-des-bauwerks-spital\",\n\t\t\"typ-des-bauwerks-schulen\",\n\t\t\"typ-des-bauwerks-sporthallen\",\n\t\t\"typ-des-bauwerks-tourismusanlagen\",\n\t\t\"typ-des-bauwerks-kirchen\",\n\t\t\"typ-des-bauwerks-kulturbauten\",\n\t\t\"typ-des-bauwerks-ekonomie-mit-tieren-mit-tieren\",\n\t\t\"typ-des-bauwerks-oekonomiegebaude\",\n\t\t\"typ-des-bauwerks-landwirtschaft-betrieb-wohnteil\",\n\t\t\"typ-des-bauwerks-forstwirtschaft\",\n\t\t\"typ-des-bauwerks-energieholzlager\",\n\t\t\"typ-des-bauwerks-materiallager\",\n\t\t\"typ-des-bauwerks-brennstofflager\",\n\t\t\"typ-des-bauwerks-silo\",\n\t\t\"typ-des-bauwerks-reklamebauten\",\n\t\t\"typ-des-bauwerks-kommunikationsanlagen\",\n\t\t\"typ-des-bauwerks-kehrichtentsorgungsanlagen\",\n\t\t\"typ-des-bauwerks-andere\"\n\t]\n\tintersects \"gebaeude\"|answer|mapby(\"typ-des-bauwerks\") ||\n\t[\n\t\t\"terrainveraenderungen-gelaendeaufschuettung\",\n\t\t\"terrainveraenderungen-deponie\",\n\t\t\"terrainveraenderungen-steingewinnung-abbau-oberflaechlich\",\n\t\t\"terrainveraenderungen-steinabbau\",\n\t\t\"terrainveraenderungen-bodenverbesserungohne-materialzufuhr\",\n\t\t\"terrainveraenderungen-bodenverbesserung-mit-materialzufuhr\"\n\t]\n\tintersects \"tiefbauten-landschaft\"|answer|mapby(\"terrainveraenderungen\") ||\n\t[\n\t\t\"erschliessungen-bewirtschaftungsweg-befahrbar\",\n\t\t\"erschliessungen-liegenschaftszufahrt\",\n\t\t\"erschliessungen-baupiste-temporaer\"\n\t]\n\tintersects \"tiefbauten-landschaft\"|answer|mapby(\"erschliessungen\") ||\n\t[\n\t\t\"tiefbau-landschaft-art-schutzbauten\",\n\t\t\"tiefbau-landschaft-art-revitalisierung\"\n\t]\n\tintersects \"tiefbauten-landschaft\"|answer|mapby(\"tiefbau-landschaft-art\") ||\n\t[\n\t\t\"tiefbau-siedlung-art-parkplaetze\",\n\t\t\"tiefbau-siedlung-art-veloabstellplaetze\",\n\t\t\"tiefbau-siedlung-art-spielplaetze\",\n\t\t\"tiefbau-siedlung-art-stromanschluss\",\n\t\t\"tiefbau-siedlung-art-trinkwasser\",\n\t\t\"tiefbau-siedlung-art-fernheizung\",\n\t\t\"tiefbau-siedlung-art-gasnetz\",\n\t\t\"tiefbau-siedlung-art-abwasser\",\n\t\t\"tiefbau-siedlung-art-datenleitung\"\n\t]\n\tintersects \"tiefbauten\"|answer|mapby(\"tiefbau-siedlung-art\")\n)",
+      "is_hidden": "!(\n\t[\n\t\t\"typ-des-bauwerks-einfamilienhaus\",\n\t\t\"typ-des-bauwerks-doppeleinfamilienhaus\",\n\t\t\"typ-des-bauwerks-mehrfamilienhaus\",\n\t\t\"typ-des-bauwerks-geschaftshaus\",\n\t\t\"typ-des-bauwerks-wohn-und-geschaftshaus\",\n\t\t\"typ-des-bauwerks-industrie\",\n\t\t\"typ-des-bauwerks-garage-oder-carport\",\n\t\t\"typ-des-bauwerks-parkhaus\",\n\t\t\"typ-des-bauwerks-bauten-und-anlagen-gastgewerbe\",\n\t\t\"typ-des-bauwerks-heim-mit-unterkunft\",\n\t\t\"typ-des-bauwerks-wohnheim-ohne-pflege\",\n\t\t\"typ-des-bauwerks-spital\",\n\t\t\"typ-des-bauwerks-schulen\",\n\t\t\"typ-des-bauwerks-sporthallen\",\n\t\t\"typ-des-bauwerks-tourismusanlagen\",\n\t\t\"typ-des-bauwerks-kirchen\",\n\t\t\"typ-des-bauwerks-kulturbauten\",\n\t\t\"typ-des-bauwerks-ekonomie-mit-tieren-mit-tieren\",\n\t\t\"typ-des-bauwerks-oekonomiegebaude\",\n\t\t\"typ-des-bauwerks-landwirtschaft-betrieb-wohnteil\",\n\t\t\"typ-des-bauwerks-forstwirtschaft\",\n\t\t\"typ-des-bauwerks-energieholzlager\",\n\t\t\"typ-des-bauwerks-materiallager\",\n\t\t\"typ-des-bauwerks-brennstofflager\",\n\t\t\"typ-des-bauwerks-silo\",\n\t\t\"typ-des-bauwerks-reklamebauten\",\n\t\t\"typ-des-bauwerks-kommunikationsanlagen\",\n\t\t\"typ-des-bauwerks-kehrichtentsorgungsanlagen\",\n\t\t\"typ-des-bauwerks-andere\"\n\t]\n\tintersects \"gebaeude\"|answer|mapby(\"typ-des-bauwerks\") ||\n\t[\n\t\t\"terrainveraenderungen-gelaendeaufschuettung\",\n\t\t\"terrainveraenderungen-deponie\",\n\t\t\"terrainveraenderungen-kiesabbau\",\n\t\t\"terrainveraenderungen-steinabbau\",\n\t\t\"terrainveraenderungen-bodenverbesserungohne-materialzufuhr\",\n\t\t\"terrainveraenderungen-bodenverbesserung-mit-materialzufuhr\"\n\t]\n\tintersects \"tiefbauten-landschaft\"|answer|mapby(\"terrainveraenderungen\") ||\n\t[\n\t\t\"erschliessungen-flurweg-befahrbar\",\n\t\t\"erschliessungen-liegenschaftszufahrt\",\n\t\t\"erschliessungen-baupiste-temporaer\"\n\t]\n\tintersects \"tiefbauten-landschaft\"|answer|mapby(\"erschliessungen\") ||\n\t[\n\t\t\"tiefbau-landschaft-art-schutzbauten\",\n\t\t\"tiefbau-landschaft-art-revitalisierung\"\n\t]\n\tintersects \"tiefbauten-landschaft\"|answer|mapby(\"tiefbau-landschaft-art\") ||\n\t[\n\t\t\"tiefbau-siedlung-art-parkplaetze\",\n\t\t\"tiefbau-siedlung-art-veloabstellplaetze\",\n\t\t\"tiefbau-siedlung-art-spielplaetze\",\n\t\t\"tiefbau-siedlung-art-stromanschluss\",\n\t\t\"tiefbau-siedlung-art-trinkwasser\",\n\t\t\"tiefbau-siedlung-art-fernheizung\",\n\t\t\"tiefbau-siedlung-art-gasnetz\",\n\t\t\"tiefbau-siedlung-art-abwasser\",\n\t\t\"tiefbau-siedlung-art-datenleitung\"\n\t]\n\tintersects \"tiefbauten\"|answer|mapby(\"tiefbau-siedlung-art\")\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -27576,7 +26742,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"####Pflicht zur Nutzung der Sonnenenergie bei Geb\\u00e4uden (Neubauten) gem\\u00e4ss Energiegesetz (EnG)\\n\\nGem\\u00e4ss Artikel 45a EnG ist beim Bau neuer Geb\\u00e4ude mit einer anrechenbaren Geb\\u00e4udefl\\u00e4che von mehr als 300 m2 auf den D\\u00e4chern oder an den Fassaden eine Solaranlage, beispielsweise eine Photovoltaik- oder eine Solarthermieanlage, zu erstellen. \\n\\nGem\\u00e4ss Artikel 29a des Energiereglements (EnR) muss die Leistung der installierten Solaranlage mindestens  20 W pro m2 anrechenbarer Geb\\u00e4udefl\\u00e4che betragen.\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"####Pflicht zur Nutzung der Sonnenenergie bei Geb\\u00e4uden (Neubauten) gem\\u00e4ss Energiegesetz (EnG)\\n\\nGem\\u00e4ss Artikel 45a EnG ist beim Bau neuer Geb\\u00e4ude mit einer anrechenbaren Geb\\u00e4udefl\\u00e4che von mehr als 300 m\\u00b2 auf den D\\u00e4chern oder an den Fassaden eine Solaranlage, beispielsweise eine Photovoltaik- oder eine Solarthermieanlage, zu erstellen. \\n\\nGem\\u00e4ss Artikel 29a des Energiereglements (EnR) muss die Leistung der installierten Solaranlage mindestens  20 W pro m\\u00b2 anrechenbarer Geb\\u00e4udefl\\u00e4che betragen.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -27599,7 +26765,7 @@
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Betr\\u00e4gt die Grundfl\\u00e4che des Geb\\u00e4udes mehr als 300 m2? (als anrechenbare Geb\\u00e4udefl\\u00e4che gilt die Fl\\u00e4che innerhalb der projizierten Fassadenlinie)\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Betr\\u00e4gt die Grundfl\\u00e4che des Geb\\u00e4udes mehr als 300 m\\u00b2? (als anrechenbare Geb\\u00e4udefl\\u00e4che gilt die Fl\\u00e4che innerhalb der projizierten Fassadenlinie)\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "true",
       "is_hidden": "!(\"art-der-arbeiten-neubau\" in \"art-der-arbeiten\"|answer)",
@@ -28204,7 +27370,7 @@
     "pk": "strassentyp",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "modified_at": "2023-08-30T07:26:30.592Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -28216,7 +27382,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -28367,7 +27533,7 @@
       "label": "{\"de\": \"Technischer Beschrieb\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
       "is_required": "true",
-      "is_hidden": "!(\n\t[\n\t\t\"typ-des-bauwerks-brennstofflager\",\n\t\t\"typ-des-bauwerks-kehrichtentsorgungsanlagen\"\n\t]\n\tintersects \"gebaeude\"|answer|mapby(\"typ-des-bauwerks\") ||\n\t[\n\t\t\"terrainveraenderungen-gelaendeaufschuettung\",\n\t\t\"terrainveraenderungen-deponie\",\n\t\t\"terrainveraenderungen-steingewinnung-abbau-oberflaechlich\",\n\t\t\"terrainveraenderungen-steinabbau\",\n\t\t\"terrainveraenderungen-bodenverbesserungohne-materialzufuhr\",\n\t\t\"terrainveraenderungen-bodenverbesserung-mit-materialzufuhr\"\n\t]\n\tintersects \"tiefbauten-landschaft\"|answer|mapby(\"terrainveraenderungen\")\n)",
+      "is_hidden": "!(\n\t[\n\t\t\"typ-des-bauwerks-brennstofflager\",\n\t\t\"typ-des-bauwerks-kehrichtentsorgungsanlagen\"\n\t]\n\tintersects \"gebaeude\"|answer|mapby(\"typ-des-bauwerks\") ||\n\t[\n\t\t\"terrainveraenderungen-gelaendeaufschuettung\",\n\t\t\"terrainveraenderungen-deponie\",\n\t\t\"terrainveraenderungen-kiesabbau\",\n\t\t\"terrainveraenderungen-steinabbau\",\n\t\t\"terrainveraenderungen-bodenverbesserungohne-materialzufuhr\",\n\t\t\"terrainveraenderungen-bodenverbesserung-mit-materialzufuhr\"\n\t]\n\tintersects \"tiefbauten-landschaft\"|answer|mapby(\"terrainveraenderungen\")\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -28460,7 +27626,7 @@
     "pk": "terrainveraenderungen",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "modified_at": "2023-08-30T06:34:38.404Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -28472,7 +27638,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -30349,19 +29515,19 @@
     "pk": "wohnungen",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "modified_at": "2023-08-30T08:50:50.948Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Wohnungen\", \"fr\": null, \"it\": null}",
       "type": "table",
-      "is_required": "false",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!(\n\t[\n\t\t\"typ-des-bauwerks-einfamilienhaus\",\n\t\t\"typ-des-bauwerks-doppeleinfamilienhaus\",\n\t\t\"typ-des-bauwerks-mehrfamilienhaus\",\n\t\t\"typ-des-bauwerks-wohn-und-geschaftshaus\",\n\t\t\"typ-des-bauwerks-bauten-und-anlagen-gastgewerbe\",\n\t\t\"typ-des-bauwerks-heim-mit-unterkunft\",\n\t\t\"typ-des-bauwerks-wohnheim-ohne-pflege\",\n\t\t\"typ-des-bauwerks-spital\",\n\t\t\"typ-des-bauwerks-schulen\",\n\t\t\"typ-des-bauwerks-landwirtschaft-betrieb-wohnteil\"\n\t] intersects \"gebaeude\"|answer|mapby(\"typ-des-bauwerks\")\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
@@ -30514,74 +29680,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "zulaessigkeit-erdwaermesonden",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Zul\\u00e4ssigkeit Erdw\\u00e4rmesonden\", \"fr\": null, \"it\": null}",
-      "type": "text",
-      "is_required": "false",
-      "is_hidden": "true",
-      "is_archived": false,
-      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "max_length": null,
-        "min_length": null
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "zulaessigkeit-grundwasserwaermepumpen",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Zul\\u00e4ssigkeit Grundwasserw\\u00e4rmepumpen\", \"fr\": null, \"it\": null}",
-      "type": "text",
-      "is_required": "false",
-      "is_hidden": "true",
-      "is_archived": false,
-      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "max_length": null,
-        "min_length": null
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "zweck",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -30640,6 +29738,36 @@
       "default_answer": null,
       "calc_expression": null,
       "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "200m3-abfall.200m3-abfall-ja",
+    "fields": {
+      "created_at": "2023-08-30T06:50:29.935Z",
+      "modified_at": "2023-08-30T06:50:29.935Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "200m3-abfall",
+      "option": "200m3-abfall-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "200m3-abfall.200m3-abfall-nein",
+    "fields": {
+      "created_at": "2023-08-30T06:50:29.929Z",
+      "modified_at": "2023-08-30T06:50:29.929Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "200m3-abfall",
+      "option": "200m3-abfall-nein",
+      "sort": 1
     }
   },
   {
@@ -30809,36 +29937,6 @@
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "angaben-zu-haustechnischen-anlagen.angaben-zu-haustechnischen-anlagen-ja",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "angaben-zu-haustechnischen-anlagen",
-      "option": "angaben-zu-haustechnischen-anlagen-ja",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "angaben-zu-haustechnischen-anlagen.angaben-zu-haustechnischen-anlagen-nein",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "angaben-zu-haustechnischen-anlagen",
-      "option": "angaben-zu-haustechnischen-anlagen-nein",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
     "pk": "anlagetyp-art.anlagetyp-art-aenderung",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -30886,150 +29984,150 @@
     "model": "caluma_form.questionoption",
     "pk": "anlagetyp.anlagetyp-analgetyp-klima",
     "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "created_at": "2023-08-30T08:55:58.736Z",
+      "modified_at": "2023-08-30T08:55:58.736Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "anlagetyp",
       "option": "anlagetyp-analgetyp-klima",
-      "sort": 13
+      "sort": 10
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "anlagetyp.anlagetyp-aufzuege",
     "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "created_at": "2023-08-30T08:55:58.727Z",
+      "modified_at": "2023-08-30T08:55:58.727Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "anlagetyp",
       "option": "anlagetyp-aufzuege",
-      "sort": 11
+      "sort": 8
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "anlagetyp.anlagetyp-betankungsanlage",
     "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "created_at": "2023-08-30T08:55:58.702Z",
+      "modified_at": "2023-08-30T08:55:58.702Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "anlagetyp",
       "option": "anlagetyp-betankungsanlage",
-      "sort": 5
+      "sort": 3
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "anlagetyp.anlagetyp-gasanlage",
     "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "created_at": "2023-08-30T08:55:58.690Z",
+      "modified_at": "2023-08-30T08:55:58.690Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "anlagetyp",
       "option": "anlagetyp-gasanlage",
-      "sort": 2
+      "sort": 1
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "anlagetyp.anlagetyp-hauptheizung",
     "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "created_at": "2023-08-30T08:55:58.722Z",
+      "modified_at": "2023-08-30T08:55:58.722Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "anlagetyp",
       "option": "anlagetyp-hauptheizung",
-      "sort": 10
+      "sort": 7
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "anlagetyp.anlagetyp-lueftungsanlage",
     "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "created_at": "2023-08-30T08:55:58.732Z",
+      "modified_at": "2023-08-30T08:55:58.732Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "anlagetyp",
       "option": "anlagetyp-lueftungsanlage",
-      "sort": 12
+      "sort": 9
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "anlagetyp.anlagetyp-notstrom-aggregat",
     "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "created_at": "2023-08-30T08:55:58.697Z",
+      "modified_at": "2023-08-30T08:55:58.697Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "anlagetyp",
       "option": "anlagetyp-notstrom-aggregat",
-      "sort": 3
+      "sort": 2
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "anlagetyp.anlagetyp-photovoltaische-solaranlage",
     "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "created_at": "2023-08-30T08:55:58.707Z",
+      "modified_at": "2023-08-30T08:55:58.707Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "anlagetyp",
       "option": "anlagetyp-photovoltaische-solaranlage",
-      "sort": 6
+      "sort": 4
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "anlagetyp.anlagetyp-thermische-solaranlage",
     "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "created_at": "2023-08-30T08:55:58.712Z",
+      "modified_at": "2023-08-30T08:55:58.712Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "anlagetyp",
       "option": "anlagetyp-thermische-solaranlage",
-      "sort": 7
+      "sort": 5
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "anlagetyp.anlagetyp-warmwasser",
     "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "created_at": "2023-08-30T08:55:58.717Z",
+      "modified_at": "2023-08-30T08:55:58.717Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "anlagetyp",
       "option": "anlagetyp-warmwasser",
-      "sort": 9
+      "sort": 6
     }
   },
   {
@@ -31150,81 +30248,6 @@
       "question": "antrag-ausnahme-solarpflicht",
       "option": "antrag-ausnahme-solarpflicht-zev",
       "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "art-der-anlage.art-der-anlage-historischer-verkehrsweg-ivs",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "art-der-anlage",
-      "option": "art-der-anlage-historischer-verkehrsweg-ivs",
-      "sort": 3
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "art-der-anlage.art-der-anlage-ivs",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "art-der-anlage",
-      "option": "art-der-anlage-ivs",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "art-der-anlage.art-der-anlage-veloweg",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "art-der-anlage",
-      "option": "art-der-anlage-veloweg",
-      "sort": 5
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "art-der-anlage.art-der-anlage-wanderweg",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "art-der-anlage",
-      "option": "art-der-anlage-wanderweg",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "art-der-anlage.art-der-anlage-wanderweg-wanderwegrichtplan",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "art-der-anlage",
-      "option": "art-der-anlage-wanderweg-wanderwegrichtplan",
-      "sort": 4
     }
   },
   {
@@ -32024,70 +31047,10 @@
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "beeintraechtigung-weg.beeintraechtigung-weg-andere",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "beeintraechtigung-weg",
-      "option": "beeintraechtigung-weg-andere",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "beeintraechtigung-weg.beeintraechtigung-weg-verlegt",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "beeintraechtigung-weg",
-      "option": "beeintraechtigung-weg-verlegt",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "beeintraechtigung-weg.beeintraechtigung-weg-voruebergehend-gesperrt",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "beeintraechtigung-weg",
-      "option": "beeintraechtigung-weg-voruebergehend-gesperrt",
-      "sort": 3
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "beeintraechtigung.beeintraechtigung-",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "beeintraechtigung",
-      "option": "beeintraechtigung-",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
     "pk": "beeintraechtigung.beeintraechtigung-aenderung-einfahrt",
     "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "created_at": "2023-08-30T07:32:02.418Z",
+      "modified_at": "2023-08-30T07:32:02.418Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -32101,8 +31064,8 @@
     "model": "caluma_form.questionoption",
     "pk": "beeintraechtigung.beeintraechtigung-andere",
     "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "created_at": "2023-08-30T07:32:02.402Z",
+      "modified_at": "2023-08-30T07:32:02.402Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -32114,25 +31077,10 @@
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "beeintraechtigung.beeintraechtigung-mehrverkehr",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "beeintraechtigung",
-      "option": "beeintraechtigung-mehrverkehr",
-      "sort": 3
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
     "pk": "beeintraechtigung.beeintraechtigung-neue-einfahrt",
     "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "created_at": "2023-08-30T07:32:02.423Z",
+      "modified_at": "2023-08-30T07:32:02.423Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -32146,8 +31094,8 @@
     "model": "caluma_form.questionoption",
     "pk": "beeintraechtigung.beeintraechtigung-sichtweiten",
     "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "created_at": "2023-08-30T07:32:02.412Z",
+      "modified_at": "2023-08-30T07:32:02.412Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -32611,53 +31559,53 @@
     "model": "caluma_form.questionoption",
     "pk": "erschliessungen.erschliessungen-baupiste-temporaer",
     "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "created_at": "2023-08-30T06:37:51.934Z",
+      "modified_at": "2023-08-30T06:37:51.934Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "erschliessungen",
       "option": "erschliessungen-baupiste-temporaer",
-      "sort": 8
+      "sort": 5
     }
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "erschliessungen.erschliessungen-bewirtschaftungsweg-befahrbar",
+    "pk": "erschliessungen.erschliessungen-flurweg-befahrbar",
     "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "created_at": "2023-08-30T06:37:51.946Z",
+      "modified_at": "2023-08-30T06:37:51.946Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "erschliessungen",
-      "option": "erschliessungen-bewirtschaftungsweg-befahrbar",
-      "sort": 10
+      "option": "erschliessungen-flurweg-befahrbar",
+      "sort": 7
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "erschliessungen.erschliessungen-fussweg",
     "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "created_at": "2023-08-30T06:37:51.963Z",
+      "modified_at": "2023-08-30T06:37:51.963Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "erschliessungen",
       "option": "erschliessungen-fussweg",
-      "sort": 13
+      "sort": 10
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "erschliessungen.erschliessungen-gemeindestrasse",
     "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "created_at": "2023-08-30T06:37:51.911Z",
+      "modified_at": "2023-08-30T06:37:51.911Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -32671,53 +31619,38 @@
     "model": "caluma_form.questionoption",
     "pk": "erschliessungen.erschliessungen-gueterstrasse",
     "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "created_at": "2023-08-30T06:37:51.926Z",
+      "modified_at": "2023-08-30T06:37:51.926Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "erschliessungen",
       "option": "erschliessungen-gueterstrasse",
-      "sort": 7
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "erschliessungen.erschliessungen-korporationsstrasse",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "erschliessungen",
-      "option": "erschliessungen-korporationsstrasse",
-      "sort": 2
+      "sort": 4
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "erschliessungen.erschliessungen-liegenschaftszufahrt",
     "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "created_at": "2023-08-30T06:37:51.939Z",
+      "modified_at": "2023-08-30T06:37:51.939Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "erschliessungen",
       "option": "erschliessungen-liegenschaftszufahrt",
-      "sort": 9
+      "sort": 6
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "erschliessungen.erschliessungen-quartierstrasse",
     "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "created_at": "2023-08-30T06:37:51.920Z",
+      "modified_at": "2023-08-30T06:37:51.920Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -32731,45 +31664,45 @@
     "model": "caluma_form.questionoption",
     "pk": "erschliessungen.erschliessungen-veloweg",
     "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "created_at": "2023-08-30T06:37:51.957Z",
+      "modified_at": "2023-08-30T06:37:51.957Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "erschliessungen",
       "option": "erschliessungen-veloweg",
-      "sort": 12
+      "sort": 9
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "erschliessungen.erschliessungen-viehtriebweg",
     "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "created_at": "2023-08-30T06:37:51.952Z",
+      "modified_at": "2023-08-30T06:37:51.952Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "erschliessungen",
       "option": "erschliessungen-viehtriebweg",
-      "sort": 11
+      "sort": 8
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "erschliessungen.erschliessungen-wanderweg",
     "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "created_at": "2023-08-30T06:37:51.971Z",
+      "modified_at": "2023-08-30T06:37:51.971Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "erschliessungen",
       "option": "erschliessungen-wanderweg",
-      "sort": 14
+      "sort": 11
     }
   },
   {
@@ -33100,21 +32033,6 @@
       "question": "gebaeudehuelle",
       "option": "gebaeudehuelle-einzelbauteilnachweis",
       "sort": 3
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "gebaeudehuelle.gebaeudehuelle-nicht-betroffen",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "gebaeudehuelle",
-      "option": "gebaeudehuelle-nicht-betroffen",
-      "sort": 1
     }
   },
   {
@@ -33640,21 +32558,6 @@
       "question": "hoechstanteil",
       "option": "hoechstanteil-standard",
       "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "hoechstanteil.hoechstanteil-standart",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "hoechstanteil",
-      "option": "hoechstanteil-standart",
-      "sort": 3
     }
   },
   {
@@ -34209,36 +33112,6 @@
       "modified_by_group": null,
       "question": "landwirtschaftlich-begruendet",
       "option": "landwirtschaftlich-begruendet-nein",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "langsamverkehr.langsamverkehr-ja",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "langsamverkehr",
-      "option": "langsamverkehr-ja",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "langsamverkehr.langsamverkehr-nein",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "langsamverkehr",
-      "option": "langsamverkehr-nein",
       "sort": 1
     }
   },
@@ -34949,36 +33822,6 @@
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "projekt-energienachweis.projekt-energienachweis-keine-bereiche",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "projekt-energienachweis",
-      "option": "projekt-energienachweis-keine-bereiche",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "projekt-energienachweis.projekt-energienachweis-keine-bereiche-betroffen",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "projekt-energienachweis",
-      "option": "projekt-energienachweis-keine-bereiche-betroffen",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
     "pk": "projekt-energienachweis.projekt-energienachweis-kuehlung",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -35144,36 +33987,6 @@
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "schiffsverkehr.schiffsverkehr-ja",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "schiffsverkehr",
-      "option": "schiffsverkehr-ja",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "schiffsverkehr.schiffsverkehr-nein",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "schiffsverkehr",
-      "option": "schiffsverkehr-nein",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
     "pk": "schnittplaene.schnittplaene-ja",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -35274,66 +34087,6 @@
       "modified_by_group": null,
       "question": "schutzraumrelevante-massnahmen",
       "option": "schutzraumrelevante-massnahmen-nein",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "seilbahnanlage-betroffen.seilbahnanlage-betroffen-ja",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "seilbahnanlage-betroffen",
-      "option": "seilbahnanlage-betroffen-ja",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "seilbahnanlage-betroffen.seilbahnanlage-betroffen-nein",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "seilbahnanlage-betroffen",
-      "option": "seilbahnanlage-betroffen-nein",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "seilbahnanlage.seilbahnanlage-personenseilbahn",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "seilbahnanlage",
-      "option": "seilbahnanlage-personenseilbahn",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "seilbahnanlage.seilbahnanlage-warenseilbahn",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "seilbahnanlage",
-      "option": "seilbahnanlage-warenseilbahn",
       "sort": 1
     }
   },
@@ -35440,21 +34193,6 @@
       "question": "spezielle-bauen",
       "option": "spezielle-bauen-heinzungen-im-freien",
       "sort": 4
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "spezielle-bauen.spezielle-bauen-keine",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "spezielle-bauen",
-      "option": "spezielle-bauen-keine",
-      "sort": 1
     }
   },
   {
@@ -35639,16 +34377,16 @@
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "strassentyp.strassentyp-mgb",
+    "pk": "strassentyp.strassentyp-eisenbahnanlage",
     "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "created_at": "2023-08-30T07:26:30.604Z",
+      "modified_at": "2023-08-30T07:26:30.604Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "strassentyp",
-      "option": "strassentyp-mgb",
+      "option": "strassentyp-eisenbahnanlage",
       "sort": 1
     }
   },
@@ -35656,90 +34394,60 @@
     "model": "caluma_form.questionoption",
     "pk": "strassentyp.strassentyp-nationalstrasse",
     "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "created_at": "2023-08-30T07:26:30.631Z",
+      "modified_at": "2023-08-30T07:26:30.631Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "strassentyp",
       "option": "strassentyp-nationalstrasse",
-      "sort": 4
+      "sort": 5
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "strassentyp.strassentyp-oeffentliche-strasse-gemeindestrasse",
     "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "created_at": "2023-08-30T07:26:30.646Z",
+      "modified_at": "2023-08-30T07:26:30.646Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "strassentyp",
       "option": "strassentyp-oeffentliche-strasse-gemeindestrasse",
-      "sort": 6
+      "sort": 7
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "strassentyp.strassentyp-oeffentliche-strasse-kantonsstrasse",
     "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "created_at": "2023-08-30T07:26:30.652Z",
+      "modified_at": "2023-08-30T07:26:30.652Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "strassentyp",
       "option": "strassentyp-oeffentliche-strasse-kantonsstrasse",
-      "sort": 7
+      "sort": 8
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "strassentyp.strassentyp-oeffentliche-strasse-korporationsstrasse",
     "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "created_at": "2023-08-30T07:26:30.638Z",
+      "modified_at": "2023-08-30T07:26:30.638Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "strassentyp",
       "option": "strassentyp-oeffentliche-strasse-korporationsstrasse",
-      "sort": 5
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "strassentyp.strassentyp-sbb",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "strassentyp",
-      "option": "strassentyp-sbb",
-      "sort": 3
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "strassentyp.strassentyp-sob",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "strassentyp",
-      "option": "strassentyp-sob",
-      "sort": 2
+      "sort": 6
     }
   },
   {
@@ -35806,8 +34514,8 @@
     "model": "caluma_form.questionoption",
     "pk": "terrainveraenderungen.terrainveraenderungen-bodenverbesserung-mit-materialzufuhr",
     "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "created_at": "2023-08-30T06:34:38.416Z",
+      "modified_at": "2023-08-30T06:34:38.417Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -35821,8 +34529,8 @@
     "model": "caluma_form.questionoption",
     "pk": "terrainveraenderungen.terrainveraenderungen-bodenverbesserungohne-materialzufuhr",
     "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "created_at": "2023-08-30T06:34:38.423Z",
+      "modified_at": "2023-08-30T06:34:38.423Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -35836,8 +34544,8 @@
     "model": "caluma_form.questionoption",
     "pk": "terrainveraenderungen.terrainveraenderungen-deponie",
     "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "created_at": "2023-08-30T06:34:38.440Z",
+      "modified_at": "2023-08-30T06:34:38.440Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -35851,8 +34559,8 @@
     "model": "caluma_form.questionoption",
     "pk": "terrainveraenderungen.terrainveraenderungen-gelaendeaufschuettung",
     "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "created_at": "2023-08-30T06:34:38.445Z",
+      "modified_at": "2023-08-30T06:34:38.445Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -35864,10 +34572,25 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "terrainveraenderungen.terrainveraenderungen-kiesabbau",
+    "fields": {
+      "created_at": "2023-08-30T06:34:38.435Z",
+      "modified_at": "2023-08-30T06:34:38.435Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "terrainveraenderungen",
+      "option": "terrainveraenderungen-kiesabbau",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "terrainveraenderungen.terrainveraenderungen-steinabbau",
     "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "created_at": "2023-08-30T06:34:38.429Z",
+      "modified_at": "2023-08-30T06:34:38.429Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -35875,21 +34598,6 @@
       "question": "terrainveraenderungen",
       "option": "terrainveraenderungen-steinabbau",
       "sort": 3
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "terrainveraenderungen.terrainveraenderungen-steingewinnung-abbau-oberflaechlich",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "terrainveraenderungen",
-      "option": "terrainveraenderungen-steingewinnung-abbau-oberflaechlich",
-      "sort": 4
     }
   },
   {
@@ -37375,21 +36083,6 @@
       "question": "welche-foerderanlagen",
       "option": "welche-foerderanlagen-rampen",
       "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "welche-foerderanlagen.welche-foerderanlagen-stapeleinrichtungen",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "welche-foerderanlagen",
-      "option": "welche-foerderanlagen-stapeleinrichtungen",
-      "sort": 1
     }
   },
   {
