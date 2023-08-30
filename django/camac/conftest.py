@@ -1291,6 +1291,7 @@ def minio_mock(mocker):
     mocker.patch.object(Minio, "make_bucket")
     mocker.patch.object(Minio, "remove_object")
     mocker.patch.object(Minio, "copy_object")
+    mocker.patch.object(Minio, "put_object")
     Minio.presigned_get_object.side_effect = side_effect
     Minio.presigned_put_object.return_value = "http://minio/upload-url"
     Minio.stat_object.return_value = stat_response

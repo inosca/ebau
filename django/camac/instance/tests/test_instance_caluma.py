@@ -1647,6 +1647,7 @@ def test_generate_and_store_pdf_in_alexandria(
     gr_instance,
     application_settings,
     caluma_admin_user,
+    minio_mock,
     mocker,
 ):
     alexandria_category = CategoryFactory()
