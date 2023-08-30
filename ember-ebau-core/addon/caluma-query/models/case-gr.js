@@ -1,35 +1,38 @@
 import CustomCaseBaseModel from "ember-ebau-core/caluma-query/models/-case";
-import { getAnswer } from "ember-ebau-core/utils/get-answer";
+import mainConfig from "ember-ebau-core/config/main";
+import {
+  getAnswer,
+  getAnswerDisplayValue,
+} from "ember-ebau-core/utils/get-answer";
 
-// TODO copy of BE
+const { answerSlugs } = mainConfig;
 export default class CustomCaseModel extends CustomCaseBaseModel {
+  _getAnswerDisplayValue(slug) {
+    return getAnswerDisplayValue(this.raw.document, slug);
+  }
+  _getAnswer(slug) {
+    return getAnswer(this.raw.document, slug);
+  }
   get dossierNumber() {
     return this.raw.meta["dossier-number"];
   }
 
-  get form() {
-    return this.instance?.name;
+  get municipality() {
+    return this._getAnswerDisplayValue(answerSlugs.municipality);
   }
 
   get address() {
-    const street = getAnswer(this.raw.document, "strasse-flurname")?.node
-      .stringValue;
-    const number = getAnswer(this.raw.document, "nr")?.node.stringValue;
-    const zip = getAnswer(this.raw.document, "plz-grundstueck-v3")?.node
-      .integerValue;
-    const city = getAnswer(this.raw.document, "ort-grundstueck")?.node
-      .stringValue;
-    const migrated = getAnswer(this.raw.document, "standort-migriert")?.node
-      .stringValue;
+    const street = this._getAnswer("strasse-flurname")?.node.stringValue;
+    const number = this._getAnswer("nr")?.node.stringValue;
+    const city = this._getAnswer("ort-grundstueck")?.node.stringValue;
 
-    return (
-      [
-        [street, number].filter(Boolean).join(" ").trim(),
-        [zip, city].filter(Boolean).join(" ").trim(),
-      ]
-        .filter(Boolean)
-        .join(", ") || (migrated ?? "").trim()
-    );
+    return [[street, number].filter(Boolean).join(" ").trim(), city]
+      .filter(Boolean)
+      .join(", ");
+  }
+
+  get description() {
+    return this._getAnswerDisplayValue(answerSlugs.description);
   }
 
   get decision() {
@@ -62,10 +65,16 @@ export default class CustomCaseModel extends CustomCaseBaseModel {
     return state;
   }
 
+  get plot() {
+    const tableAnswers = this._getAnswer("parzelle")?.node.value ?? [];
+    return tableAnswers
+      .map((answer) => getAnswer(answer, "parzellennummer")?.node.stringValue)
+      .join(", ");
+  }
+
   get applicants() {
     const applicants =
-      getAnswer(this.raw.document, "personalien-gesuchstellerin")?.node.value ??
-      [];
+      this._getAnswer("personalien-gesuchstellerin")?.node.value ?? [];
 
     const applicantNames = applicants.map((row) => {
       const firstName = getAnswer(row, "vorname-gesuchstellerin")?.node
@@ -104,6 +113,8 @@ export default class CustomCaseModel extends CustomCaseBaseModel {
               "standort-migriert"
               "beschreibung-bauvorhaben"
               "personalien-gesuchstellerin"
+              "gemeinde"
+              "parzelle"
             ]
           }
         ]
@@ -132,6 +143,10 @@ export default class CustomCaseModel extends CustomCaseBaseModel {
             }
             ... on StringAnswer {
               stringValue: value
+              selectedOption {
+                slug
+                label
+              }
             }
             ... on IntegerAnswer {
               integerValue: value
