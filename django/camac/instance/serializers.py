@@ -5,6 +5,8 @@ from collections import namedtuple
 from io import StringIO
 from logging import getLogger
 
+from alexandria.core import models as alexandria_models
+from alexandria.core.storage_clients import Minio
 from caluma.caluma_form import models as form_models
 from caluma.caluma_form.validators import CustomValidationError, DocumentValidator
 from caluma.caluma_workflow import api as workflow_api, models as workflow_models
@@ -1132,10 +1134,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
     def _get_pdf_section(self, instance, form_slug):
         form_name = form_slug.upper() if form_slug else "MAIN"
         section_type = "PAPER" if CalumaApi().is_paper(instance) else "DEFAULT"
-
-        return AttachmentSection.objects.get(
-            pk=settings.APPLICATION["STORE_PDF"]["SECTION"][form_name][section_type]
-        )
+        return settings.APPLICATION["STORE_PDF"]["SECTION"][form_name][section_type]
 
     def _generate_and_store_pdf(self, instance, form_slug=None):
         if not settings.APPLICATION.get("STORE_PDF", False):  # pragma: no cover
@@ -1147,17 +1146,31 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             instance.pk, request, form_slug
         )
 
-        attachment_section = self._get_pdf_section(instance, form_slug)
-        attachment_section.attachments.create(
-            instance=instance,
-            path=pdf,
-            name=pdf.name,
-            size=pdf.size,
-            mime_type=pdf.content_type,
-            user=request.user,
-            group=request.group,
-            question="dokument-weitere-gesuchsunterlagen",
-        )
+        target_lookup = self._get_pdf_section(instance, form_slug)
+        if settings.APPLICATION["DOCUMENT_BACKEND"] == "alexandria":
+            document = alexandria_models.Document.objects.create(
+                title=pdf.name,
+                category=alexandria_models.Category.objects.get(pk=target_lookup),
+                metainfo={"camac-instance-id": instance.pk},
+            )
+            file = alexandria_models.File.objects.create(
+                name=pdf.name, document=document
+            )
+            Minio().client.put_object(
+                "alexandria-media", f"{file.pk}_{pdf.name}", pdf, pdf.size
+            )
+        else:
+            attachment_section = AttachmentSection.objects.get(pk=target_lookup)
+            attachment_section.attachments.create(
+                instance=instance,
+                path=pdf,
+                name=pdf.name,
+                size=pdf.size,
+                mime_type=pdf.content_type,
+                user=request.user,
+                group=request.group,
+                question="dokument-weitere-gesuchsunterlagen",
+            )
 
     def _update_rejected_instance(self, instance):
         caluma_api = CalumaApi()
