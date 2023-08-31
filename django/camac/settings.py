@@ -3607,7 +3607,7 @@ APPLICATIONS = {
                     }
                 },
             ),
-            "dossier_number": ("case_meta", "ebau-number"),
+            "dossier_number": ("case_meta", "dossier-number"),
             "project": ("answer", "baubeschrieb", {"value_parser": "option"}),
             "proposal": ("answer", "beschreibung-bauvorhaben"),
             "street": ("answer", "strasse-flurname"),
