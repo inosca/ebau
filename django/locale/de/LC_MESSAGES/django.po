@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-30 13:00+0200\n"
-"PO-Revision-Date: 2023-08-30 13:00+0200\n"
+"POT-Creation-Date: 2023-08-31 16:48+0200\n"
+"PO-Revision-Date: 2023-08-31 15:41+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
@@ -543,7 +543,12 @@ msgstr "Zuletzt bearbeitet am %(date)s um %(time)s"
 msgid "Created %(date)s at %(time)s"
 msgstr "Erstellt am %(date)s um %(time)s"
 
-#: camac/instance/document_merge_service.py:266
+#: camac/instance/document_merge_service.py:150
+#, python-format
+msgid "Uploaded %(date)s at %(time)s"
+msgstr "Hochgeladen am %(date)s um %(time)s"
+
+#: camac/instance/document_merge_service.py:264
 #, python-format
 msgid "None or multiple caluma Documents found for instance: %(instance)s"
 msgstr ""

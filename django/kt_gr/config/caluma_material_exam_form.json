@@ -69,8 +69,8 @@
       "configuration": {
         "color": "primary",
         "action": "complete",
-        "validate_on_enter": false,
-        "show_validation": true
+        "show_validation": true,
+        "validate_on_enter": false
       },
       "meta": {},
       "data_source": null,

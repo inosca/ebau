@@ -62,7 +62,8 @@ snapshots['test_document_merge_service_cover_sheet_with_header_values 1'] = {
     'signatureSectionTitle': 'Unterschriften',
     'signatureTitle': 'Unterschrift',
     'tagHeader': 'some tag',
-    'tagHeaderLabel': 'Stichworte'
+    'tagHeaderLabel': 'Stichworte',
+    'uploadedAt': 'Hochgeladen am 07.09.2022 um 14:01'
 }
 
 snapshots['test_document_merge_service_cover_sheet_without_header_values 1'] = {
@@ -109,7 +110,8 @@ snapshots['test_document_merge_service_cover_sheet_without_header_values 1'] = {
     'signatureSectionTitle': 'Unterschriften',
     'signatureTitle': 'Unterschrift',
     'tagHeader': None,
-    'tagHeaderLabel': 'Stichworte'
+    'tagHeaderLabel': 'Stichworte',
+    'uploadedAt': 'Hochgeladen am 06.09.2022 um 15:37'
 }
 
 snapshots['test_document_merge_service_snapshot baugesuch'] = [
@@ -1736,7 +1738,8 @@ snapshots['test_document_merge_service_snapshot baugesuch_header'] = {
     'signatureSectionTitle': 'Unterschriften',
     'signatureTitle': 'Unterschrift',
     'tagHeader': None,
-    'tagHeaderLabel': 'Stichworte'
+    'tagHeaderLabel': 'Stichworte',
+    'uploadedAt': 'Hochgeladen am 06.01.2023 um 17:10'
 }
 
 snapshots['test_document_merge_service_snapshot mp-form'] = [
@@ -1872,7 +1875,8 @@ snapshots['test_document_merge_service_snapshot mp-form_header'] = {
     'signatureSectionTitle': 'Unterschriften',
     'signatureTitle': 'Unterschrift',
     'tagHeader': None,
-    'tagHeaderLabel': 'Stichworte'
+    'tagHeaderLabel': 'Stichworte',
+    'uploadedAt': 'Hochgeladen am 06.01.2023 um 17:10'
 }
 
 snapshots['test_document_merge_service_snapshot sb1'] = [
@@ -2178,7 +2182,8 @@ snapshots['test_document_merge_service_snapshot sb1_header'] = {
     'signatureSectionTitle': 'Unterschriften',
     'signatureTitle': 'Unterschrift',
     'tagHeader': None,
-    'tagHeaderLabel': 'Stichworte'
+    'tagHeaderLabel': 'Stichworte',
+    'uploadedAt': 'Hochgeladen am 06.01.2023 um 17:10'
 }
 
 snapshots['test_document_merge_service_snapshot sb2'] = [
@@ -2543,7 +2548,8 @@ snapshots['test_document_merge_service_snapshot sb2_header'] = {
     'signatureSectionTitle': 'Unterschriften',
     'signatureTitle': 'Unterschrift',
     'tagHeader': None,
-    'tagHeaderLabel': 'Stichworte'
+    'tagHeaderLabel': 'Stichworte',
+    'uploadedAt': 'Hochgeladen am 06.01.2023 um 17:10'
 }
 
 snapshots['test_eingabebestaetigung_gr 1'] = {
@@ -2576,7 +2582,7 @@ snapshots['test_eingabebestaetigung_gr 1'] = {
     'descriptionHeader': 'Bau Einfamilienhaus',
     'descriptionHeaderLabel': 'Beschreibung',
     'documents': [
-        'Test, erstellt am 06.09.2022 um 13:37 Uhr'
+        'Test, erstellt am 06.09.2022 um 15:37 Uhr'
     ],
     'dossierNr': None,
     'formType': None,
@@ -2630,5 +2636,6 @@ snapshots['test_eingabebestaetigung_gr 1'] = {
     'signatureSectionTitle': 'Unterschriften',
     'signatureTitle': 'Unterschrift',
     'tagHeader': None,
-    'tagHeaderLabel': 'Stichworte'
+    'tagHeaderLabel': 'Stichworte',
+    'uploadedAt': 'Hochgeladen am 07.09.2022 um 14:01'
 }

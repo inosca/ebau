@@ -19,6 +19,7 @@ import BeDocumentsFormComponent from "caluma-portal/components/be-documents-form
 import BeDownloadPdfComponent from "caluma-portal/components/be-download-pdf";
 import BeGisComponent from "caluma-portal/components/be-gis";
 import BeSubmitInstanceComponent from "caluma-portal/components/be-submit-instance";
+import GRSubmitInstanceComponent from "caluma-portal/components/gr-submit-instance";
 import { isEmbedded } from "caluma-portal/helpers/is-embedded";
 
 export default class ApplicationRoute extends Route {
@@ -69,9 +70,15 @@ export default class ApplicationRoute extends Route {
       componentClass: UrGisComponent,
     });
     this.calumaOptions.registerComponentOverride({
-      label: "Einreichen Button",
+      label: "Einreichen Button BE",
       component: "be-submit-instance",
       componentClass: BeSubmitInstanceComponent,
+      type: "CheckboxQuestion",
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "Einreichen Button GR",
+      component: "gr-submit-instance",
+      componentClass: GRSubmitInstanceComponent,
       type: "CheckboxQuestion",
     });
     this.calumaOptions.registerComponentOverride({
