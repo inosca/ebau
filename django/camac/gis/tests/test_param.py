@@ -49,4 +49,4 @@ def test_required_params(db, admin_client, gis_data_source_factory):
     response = admin_client.get(reverse("gis-data"))
 
     assert response.status_code == status.HTTP_400_BAD_REQUEST
-    assert response.json()[0] == "Required parameter test was not passed"
+    assert response.json()[0] == "Erforderlicher Parameter test wurde nicht übergeben"

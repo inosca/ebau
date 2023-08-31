@@ -32,7 +32,7 @@ def test_get_bbox():
     with pytest.raises(ValueError) as e:
         utils.get_bbox("abc", "def")
 
-    assert str(e.value) == "Coordinates must be floats"
+    assert str(e.value) == "Koordinaten müssen Gleitkommazahlen sein"
 
 
 def test_join():

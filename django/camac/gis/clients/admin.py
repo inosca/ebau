@@ -1,5 +1,6 @@
 import requests
 from django.conf import settings
+from django.utils.translation import gettext as _
 
 from camac.gis.clients.base import GISBaseClient
 from camac.gis.utils import cast, get_bbox, join, to_query
@@ -56,7 +57,8 @@ class AdminGisClient(GISBaseClient):
             response.raise_for_status()
         except requests.HTTPError:
             raise RuntimeError(
-                f"Error {response.status_code} while fetching data from the admin API"
+                _("Error %(code)s while fetching data from the geo.admin.ch API")
+                % {"code": response.status_code}
             )
 
         try:

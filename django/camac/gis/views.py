@@ -63,6 +63,7 @@ class GISDataView(ListAPIView):
     def list(self, request):
         queryset = self.get_queryset()
         data = {}
+        errors = []
 
         try:
             for client_identifier in sorted(
@@ -73,8 +74,16 @@ class GISDataView(ListAPIView):
                     request.query_params,
                 )
 
-                data.update(client.get_data())
-        except (ValueError, RuntimeError) as e:
-            raise ValidationError(str(e))
+                new_data, new_errors = client.get_data()
 
-        return Response(self.add_labels(self.parse_nested(data)))
+                data.update(new_data)
+                errors.extend(new_errors)
+        except ValueError as e:
+            raise ValidationError(e)
+
+        response = {"data": self.add_labels(self.parse_nested(data))}
+
+        if len(errors) > 0:
+            response["errors"] = errors
+
+        return Response(response)

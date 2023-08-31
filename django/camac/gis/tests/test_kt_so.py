@@ -71,6 +71,7 @@ def so_fake_data_source(gis_data_source_factory, question_factory):
     question_factory(slug="gemeinde", type=Question.TYPE_DYNAMIC_CHOICE)
 
     return gis_data_source_factory(
+        pk="49992886-4602-4eb3-8499-ebeb58c9f17d",
         client=GISDataSource.CLIENT_SOGIS,
         config={
             "layer": "ch.so.agi.gemeindegrenzen.data",
@@ -106,7 +107,7 @@ def so_unknown_question_data_source(so_fake_data_source):
 @pytest.mark.parametrize(
     "data_source,expected_status",
     [
-        (lazy_fixture("so_unknown_layer_data_source"), status.HTTP_400_BAD_REQUEST),
+        (lazy_fixture("so_unknown_layer_data_source"), status.HTTP_200_OK),
         (lazy_fixture("so_unknown_property_data_source"), status.HTTP_200_OK),
         (lazy_fixture("so_unknown_question_data_source"), status.HTTP_200_OK),
     ],

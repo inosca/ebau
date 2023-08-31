@@ -30,7 +30,15 @@ export default class GisApplyButtonComponent extends Component {
         headers: { accept: "application/json" },
       });
 
-      this.data = await response.json();
+      const { data, errors = [] } = await response.json();
+
+      if (errors.length) {
+        errors.forEach(({ detail }) => {
+          this.notification.danger(detail);
+        });
+      }
+
+      this.data = data;
       this.showModal = true;
     } catch {
       this.notification.danger(this.intl.t("so-gis.apply-error"));

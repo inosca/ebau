@@ -40,14 +40,16 @@ module("Integration | Component | gis-apply-button", function (hooks) {
       );
 
       return {
-        "some-question": { label: "Some Question", value: "My value" },
-        "some-table": {
-          label: "Some Table",
-          form: "some-table-form",
-          value: {
-            "some-table-question": {
-              label: "Some Table Question",
-              value: "My 2nd value",
+        data: {
+          "some-question": { label: "Some Question", value: "My value" },
+          "some-table": {
+            label: "Some Table",
+            form: "some-table-form",
+            value: {
+              "some-table-question": {
+                label: "Some Table Question",
+                value: "My 2nd value",
+              },
             },
           },
         },
