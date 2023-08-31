@@ -59,7 +59,7 @@ class SoGisClient(GISBaseClient):
         result = response.json()
 
         try:
-            results = result["features"]
+            features = result["features"]
         except KeyError:  # pragma: no cover
             return {}
 
@@ -70,11 +70,11 @@ class SoGisClient(GISBaseClient):
 
             if property_config.get("yesNo"):
                 value = property_config.get("template", "{value}").format(
-                    value="Ja" if len(result) > 0 else "Nein"
+                    value="Ja" if len(features) > 0 else "Nein"
                 )
             else:
-                for result in results:
-                    properties = result["properties"]
+                for feature in features:
+                    properties = feature["properties"]
 
                     value = join(value, self.get_value(properties, property_config))
 
