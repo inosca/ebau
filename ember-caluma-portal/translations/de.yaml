@@ -346,6 +346,8 @@ instances:
 
     # GR
     circulation: "In Zirkulation"
+    inProcedure: "Im Verfahren"
+    submitted: "Eingereicht"
 
     # Shared
     done: "Abgeschlossen"
