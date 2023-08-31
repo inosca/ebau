@@ -462,7 +462,7 @@ export default class CaseTableComponent extends Component {
       parseInt(caseRecord.instance.get("instanceState.id")) ===
         parseInt(mainConfig.instanceStates?.new)
     ) {
-      const portalURL = this.ebauModules.portalURL;
+      const portalURL = getOwnConfig().portalUrl;
       const group = this.ebauModules.groupId;
       const language = this.ebauModules.language;
       url = `${portalURL}/instances/${instanceId}?group=${group}&language=${language}`;

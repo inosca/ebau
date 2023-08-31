@@ -100,9 +100,28 @@ dbshell: ## Start a psql shell
 	@docker-compose exec db psql -Ucamac ${APPLICATION}
 
 .PHONY: ember-dev
-ember-dev: ## Set ember.development to true in application.ini
-	@sed -re 's/ember\.development.*/ember.development = true/' -i php/${APPLICATION}/configs/application.ini
+ember-dev: ## Set up .env and application.ini for local ember development
+	@if docker-compose config|grep -q php; then \
+		sed -re 's/ember\.development.*/ember\.development = true/' -i php/${APPLICATION}/configs/application.ini; \
+		sed -re 's/portal\.uri.*/portal\.uri = http:\/\/localhost:4200/' -i php/${APPLICATION}/configs/application.ini; \
+		sed -re 's/baseURLPortal.*/baseURLPortal = http:\/\/localhost:4200/' -i php/${APPLICATION}/configs/application.ini; \
+		echo "Set ember.development = true in application.ini"; \
+	fi
+	@grep -q PORTAL_URL .env || echo PORTAL_URL=http://localhost:4200 >> .env
+	@grep -q INTERNAL_URL .env || echo INTERNAL_URL=http://localhost:4400 >> .env
+	@echo "Added local PORTAL_URL and INTERNAL_URL to .env."
 
+.PHONY: ember-dev-reset
+ember-dev-reset: ## Set up .env and application.ini for non-local runtime (docker)
+	@if docker-compose config|grep -q php; then \
+		sed -re 's/ember\.development.*/ember.development = false/' -i php/${APPLICATION}/configs/application.ini; \
+		sed -re 's/portal\.uri.*/portal.uri = http:\/\/ebau-portal.local/' -i php/${APPLICATION}/configs/application.ini; \
+		sed -re 's/baseURLPortal.*/baseURLPortal = http:\/\/ebau-portal.local/' -i php/${APPLICATION}/configs/application.ini; \
+		echo "Set ember.development = false in application.ini"; \
+	fi
+	@sed -i '/PORTAL_URL/d' .env
+	@sed -i '/INTERNAL_URL/d' .env
+	@echo "Removed PORTAL_URL and INTERNAL_URL from .env."
 
 ######### Changes from eBau Bern #########
 

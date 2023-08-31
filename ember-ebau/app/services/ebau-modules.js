@@ -46,12 +46,7 @@ export default class CustomEbauModulesService extends EbauModulesService {
   }
 
   get role() {
-    return this.session.role;
-  }
-
-  get portalURL() {
-    // TODO how to do ENV-specific config?
-    return "";
+    return this.session.role.slug;
   }
 
   get isApplicant() {

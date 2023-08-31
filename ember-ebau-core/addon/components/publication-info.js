@@ -1,4 +1,4 @@
-import { inject as service } from "@ember/service";
+import { getOwnConfig } from "@embroider/macros";
 import Component from "@glimmer/component";
 import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
@@ -7,8 +7,6 @@ import { trackedTask } from "ember-resources/util/ember-concurrency";
 import municipality from "ember-ebau-core/gql/queries/municipality.graphql";
 
 export default class PublicationInfoComponent extends Component {
-  @service shoebox;
-
   @queryManager apollo;
 
   publicInstancesLink = trackedTask(this, this.getPublicInstancesLink, () => [
@@ -27,9 +25,9 @@ export default class PublicationInfoComponent extends Component {
       );
 
       const id = response[0].node.document.answers.edges[0].node.value;
-      const host = this.shoebox.content?.config?.portalURL;
+      const portalURL = getOwnConfig().portalUrl;
 
-      return `${host}/public-instances?municipality=${id}`;
+      return `${portalURL}/public-instances?municipality=${id}`;
     } catch (e) {
       return null;
     }
