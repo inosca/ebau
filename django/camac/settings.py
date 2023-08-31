@@ -3225,8 +3225,16 @@ APPLICATIONS = {
             "DECISION": None,
         },
         "PAPER": {
-            "ALLOWED_ROLES": {"DEFAULT": []},
-            "ALLOWED_SERVICE_GROUPS": {"DEFAULT": []},
+            "ALLOWED_ROLES": {
+                "DEFAULT": [
+                    3,  # municipality-lead
+                ]
+            },
+            "ALLOWED_SERVICE_GROUPS": {
+                "DEFAULT": [
+                    2,  # municipality
+                ]
+            },
         },
         "GROUP_RENAME_ON_SERVICE_RENAME": True,
         "SERVICE_UPDATE_ALLOWED_ROLES": [
