@@ -4,6 +4,7 @@ from typing import Any, Optional, Union
 from alexandria.core import models as alexandria_models
 from babel.dates import format_date
 from django.conf import settings
+from django.utils.timezone import get_current_timezone
 from django.utils.translation import get_language
 
 
@@ -118,7 +119,7 @@ def prepare_documents(instance):
     data = []
     for document in documents:
         data.append(
-            f"{document.title['de']}, erstellt am {document.created_at.strftime('%d.%m.%Y um %H:%M Uhr')}"
+            f"{document.title['de']}, erstellt am {document.created_at.astimezone(get_current_timezone()).strftime('%d.%m.%Y um %H:%M Uhr')}"
         )
 
     return data
