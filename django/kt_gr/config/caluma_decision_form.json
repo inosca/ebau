@@ -388,8 +388,8 @@
       "configuration": {
         "color": "primary",
         "action": "complete",
-        "validate_on_enter": false,
-        "show_validation": false
+        "show_validation": false,
+        "validate_on_enter": false
       },
       "meta": {
         "widgetOverride": "decision/submit-button"

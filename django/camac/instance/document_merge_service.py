@@ -147,6 +147,11 @@ class DMSHandler:
                 "date": created_at.strftime("%d.%m.%Y"),
                 "time": created_at.strftime("%H:%M"),
             },
+            "uploadedAt": _("Uploaded %(date)s at %(time)s")
+            % {
+                "date": generated_at.strftime("%d.%m.%Y"),
+                "time": generated_at.strftime("%H:%M"),
+            },
         }
 
         if settings.APPLICATION.get("DOCUMENT_MERGE_SERVICE", {}).get(
