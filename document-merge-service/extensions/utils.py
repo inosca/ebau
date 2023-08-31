@@ -23,7 +23,6 @@ def get_services(request):
 def get_services_from_api(request):
     response = requests.get(
         f"{settings.EXTENSIONS_ARGUMENTS['DJANGO_API']}/api/v1/me?include=service,service.service_parent,service.municipality",
-        verify=True,
         headers={
             "authorization": request.headers.get("AUTHORIZATION"),
             "x-camac-group": request.headers.get("X-CAMAC-GROUP"),
