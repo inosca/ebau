@@ -9,6 +9,7 @@ const {
   languages,
   environment,
   profileURL,
+  APPLICATION: { internalBackend },
   ebau: { internalURL },
 } = config;
 
@@ -49,7 +50,12 @@ export default class BeNavbarComponent extends Component {
 
       if (!instanceId) return internalURL;
 
-      return `${internalURL}/index/redirect-to-instance-resource/instance-id/${instanceId}`;
+      const path =
+        internalBackend === "camac"
+          ? "/index/redirect-to-instance-resource/instance-id/"
+          : "/cases/";
+
+      return internalURL + path + instanceId;
     }
 
     return internalURL;

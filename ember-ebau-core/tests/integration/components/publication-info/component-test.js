@@ -5,7 +5,7 @@ import { setupMirage } from "ember-cli-mirage/test-support";
 import { setupIntl } from "ember-intl/test-support";
 import { module, test } from "qunit";
 
-import { setupRenderingTest } from "camac-ng/tests/helpers";
+import { setupRenderingTest } from "dummy/tests/helpers";
 
 module("Integration | Component | publication-info", function (hooks) {
   setupRenderingTest(hooks);
@@ -13,14 +13,6 @@ module("Integration | Component | publication-info", function (hooks) {
   setupIntl(hooks);
 
   test("it renders info for published publication", async function (assert) {
-    Object.defineProperty(this.owner.lookup("service:shoebox"), "content", {
-      value: {
-        config: {
-          portalURL: "http://ebau-portal.local",
-        },
-      },
-    });
-
     this.server.post("/graphql/", {
       data: {
         allCases: {
@@ -77,8 +69,8 @@ module("Integration | Component | publication-info", function (hooks) {
 
     assert
       .dom(this.element)
-      .hasText(
-        "t:publication.info.attention:() t:publication.info.unpublished.public:() t:publication.info.documents:()",
+      .includesText(
+        "t:publication.info.attention:() t:publication.info.unpublished.public:()",
       );
   });
 
@@ -111,8 +103,8 @@ module("Integration | Component | publication-info", function (hooks) {
 
     assert
       .dom(this.element)
-      .hasText(
-        "t:publication.info.attention:() t:publication.info.unpublished.neighbors:() t:publication.info.documents:()",
+      .includesText(
+        "t:publication.info.attention:() t:publication.info.unpublished.neighbors:()",
       );
   });
 

@@ -23,15 +23,23 @@ module.exports = {
 
   options: {
     "@embroider/macros": {
+      // This config is only used for feature flags (when code
+      // should be stripped during build time) and environment-specific
+      // settings. Other config should go into `ember-ebau-core/addon/config`.
       setOwnConfig: {
+        // basic setup
         application: ENV,
-        hasBuildingControl: ENV === "be",
         isBE: ENV === "be",
         isSZ: ENV === "sz",
         isUR: ENV === "ur",
         isSO: ENV === "so",
-        excelExportEnabled: ["be", "sz"].includes(ENV),
+        // environment-specific settings
+        portalUrl: process.env.PORTAL_URL || "http://ebau-portal.local",
         soGisUrl: process.env.SO_GIS_URL || "https://geo-i.so.ch",
+        // feature flags
+        hasBuildingControl: ENV === "be",
+        excelExportEnabled: ["be", "sz"].includes(ENV),
+        showCreatePaperButton: ["be", "gr"].includes(ENV),
       },
     },
   },
