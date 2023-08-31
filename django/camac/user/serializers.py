@@ -120,14 +120,18 @@ class PublicUserSerializer(serializers.ModelSerializer):
 
 class RoleSerializer(MultilingualSerializer, serializers.ModelSerializer):
     permission = serializers.SerializerMethodField()
+    slug = serializers.SerializerMethodField()
 
     def get_permission(self, role):
         perms = settings.APPLICATION.get("ROLE_PERMISSIONS", {})
         return perms.get(role.name)
 
+    def get_slug(self, role):
+        return role.name
+
     class Meta:
         model = models.Role
-        fields = ("name", "permission")
+        fields = ("name", "permission", "slug")
 
 
 class LocationSerializer(serializers.ModelSerializer):

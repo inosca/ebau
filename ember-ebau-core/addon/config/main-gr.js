@@ -49,7 +49,7 @@ export default {
         3, // municipality
       ],
       serviceGroups: [
-        1, // municipality
+        2, // municipality
       ],
     },
   },

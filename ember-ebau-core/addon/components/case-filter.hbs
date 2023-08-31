@@ -30,10 +30,10 @@
       </button>
     {{/each-in}}
 
-    {{#if (macroCondition (macroGetOwnConfig "isBE"))}}
+    {{#if (macroCondition (macroGetOwnConfig "showCreatePaperButton"))}}
       {{#if (can "create paper of instance")}}
         <a
-          href="{{this.ebauModules.portalURL}}/instances/new?group={{this.ebauModules.groupId}}&language={{this.ebauModules.language}}"
+          href="{{macroGetOwnConfig 'portalUrl'}}/instances/new?group={{this.ebauModules.groupId}}&language={{this.ebauModules.language}}"
           class="uk-button uk-button-default uk-float-right"
         >{{t "cases.new.paper"}}</a>
       {{/if}}

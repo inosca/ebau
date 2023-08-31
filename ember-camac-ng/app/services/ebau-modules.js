@@ -66,11 +66,6 @@ export default class CustomEbauModulesService extends EbauModulesService {
   }
 
   // careful: only works in ember-camac-ng!
-  get portalURL() {
-    return this.shoebox.content.config.portalURL;
-  }
-
-  // careful: only works in ember-camac-ng!
   get resourceId() {
     return this.shoebox.content.resourceId;
   }

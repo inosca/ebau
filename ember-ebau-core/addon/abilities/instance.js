@@ -39,6 +39,7 @@ export default class InstanceAbility extends Ability {
     );
   }
 
+  // BE and GR
   get canCreatePaper() {
     return ["municipality-lead", "municipality-clerk"].includes(
       this.ebauModules.role,
