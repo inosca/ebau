@@ -30,6 +30,7 @@ module.exports = function (defaults) {
         instancePaperFilterDefault: ENV === "ur",
         showProfileLink: ["gr", "so"].includes(ENV),
         documentBackend: ["gr", "so"].includes(ENV) ? "alexandria" : "camac",
+        useEbauNumber: ENV === "be",
       },
       setConfig: {
         "@ember-data/store": {
