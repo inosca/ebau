@@ -65,7 +65,7 @@
       "modified_by_group": null,
       "form": "inquiry-answer",
       "question": "inquiry-answer-ancillary-clauses",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -80,7 +80,7 @@
       "modified_by_group": null,
       "form": "inquiry-answer",
       "question": "inquiry-answer-assessment",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -95,7 +95,7 @@
       "modified_by_group": null,
       "form": "inquiry-answer",
       "question": "inquiry-answer-considerations",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -110,7 +110,7 @@
       "modified_by_group": null,
       "form": "inquiry-answer",
       "question": "inquiry-answer-situation",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -125,7 +125,22 @@
       "modified_by_group": null,
       "form": "inquiry-answer",
       "question": "inquiry-answer-status",
-      "sort": 5
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "inquiry-answer.stellungnahme-in-dokumentanablage",
+    "fields": {
+      "created_at": "2023-08-31T12:20:36.046Z",
+      "modified_at": "2023-08-31T12:20:36.046Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "inquiry-answer",
+      "question": "stellungnahme-in-dokumentanablage",
+      "sort": 1
     }
   },
   {
@@ -233,6 +248,22 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Abschreibung\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "ja",
+    "fields": {
+      "created_at": "2023-08-31T12:20:35.710Z",
+      "modified_at": "2023-08-31T12:20:35.710Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Die Stellungnahme/Bewilligung/Verf\\u00fcgung befindet sich in der Dokumentenablage\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -473,6 +504,39 @@
     }
   },
   {
+    "model": "caluma_form.question",
+    "pk": "stellungnahme-in-dokumentanablage",
+    "fields": {
+      "created_at": "2023-08-31T12:20:35.877Z",
+      "modified_at": "2023-08-31T12:20:35.877Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Stellungnahme in Dokumentanablage\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
     "model": "caluma_form.questionoption",
     "pk": "inquiry-answer-status.inquiry-answer-status-approved",
     "fields": {
@@ -545,6 +609,21 @@
       "question": "inquiry-answer-status",
       "option": "inquiry-answer-status-written-off",
       "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "stellungnahme-in-dokumentanablage.ja",
+    "fields": {
+      "created_at": "2023-08-31T12:20:35.887Z",
+      "modified_at": "2023-08-31T12:20:35.887Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "stellungnahme-in-dokumentanablage",
+      "option": "ja",
+      "sort": 1
     }
   },
   {
