@@ -22,13 +22,14 @@ module.exports = function (defaults) {
       setOwnConfig: {
         application: ENV,
         enableFaq: ENV === "be",
+        enableSupport: ["be", "ur", "gr"].includes(ENV),
         enableInstanceSupport: ENV === "be",
         enablePublicationForm: ["be", "gr"].includes(ENV),
         enablePublicationEndDate: ENV === "ur",
         enableModificationConfirm: ENV === "be",
         enableCommunications: ["be", "so"].includes(ENV),
         instancePaperFilterDefault: ENV === "ur",
-        showProfileLink: ["gr", "so"].includes(ENV),
+        showProfileLink: ENV === "gr",
         documentBackend: ["gr", "so"].includes(ENV) ? "alexandria" : "camac",
       },
       setConfig: {
