@@ -116,7 +116,7 @@ def pre_write_callback(token):
             size=attachment.size,
             path=new_path,
             created_at=attachment.date,
-            created_by_user=user,
+            created_by_user=attachment.user,
             version=version,
         )
         version_path.parent.mkdir(parents=True, exist_ok=True)
