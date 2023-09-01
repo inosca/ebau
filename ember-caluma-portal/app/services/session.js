@@ -7,6 +7,7 @@ import { getConfig } from "ember-simple-auth-oidc/config";
 import Session from "ember-simple-auth-oidc/services/session";
 import { getUserLocales } from "get-user-locale";
 import { localCopy, cached } from "tracked-toolbox";
+import UIkit from "uikit";
 
 import config from "caluma-portal/config/environment";
 import { isEmbedded } from "caluma-portal/helpers/is-embedded";
@@ -129,6 +130,11 @@ export default class CustomSession extends Session {
       `${language}-${application}`,
       language,
     ]);
+
+    UIkit.modal.i18n = {
+      ok: this.intl.t("global.ok"),
+      cancel: this.intl.t("global.cancel"),
+    };
   }
 
   get authHeaders() {
