@@ -1,5 +1,16 @@
 # Not needed in french
 cases:
+  header:
+    address: ""
+    plot: ""
+    applicant: ""
+    tags: ""
+    municipality: ""
+    responsible: ""
+    receiptDate: ""
+    printPreview: ""
+    description: ""
+    form: ""
   tableHeaders:
     deadlineColor: ""
     instanceId: ""

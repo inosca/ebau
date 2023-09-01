@@ -1,4 +1,15 @@
 cases:
+  header:
+    address: "Adresse"
+    plot: "Parzelle"
+    applicant: "Gesuchsteller/in"
+    tags: "Stichworte"
+    municipality: "Gemeinde"
+    responsible: "Zuständig"
+    submitDate: "Eingangsdatum"
+    printPreview: "Druckansicht"
+    description: "Beschreibung"
+    form: "Formular"
   tableHeaders:
     deadlineColor: ""
     instanceId: "ID"
