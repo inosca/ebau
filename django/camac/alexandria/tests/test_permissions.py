@@ -302,7 +302,7 @@ def test_category_permission(
             "authority-bab",
             "delete",
             HTTP_404_NOT_FOUND,
-            {"access": {"canton": "InternalAdminCirculation"}},
+            {"access": {"service": "InternalAdminCirculation"}},
         ),
         (
             "subm",
@@ -310,7 +310,7 @@ def test_category_permission(
             "service",
             "post",
             HTTP_201_CREATED,
-            {"access": {"canton": "InternalAdminCirculation"}},
+            {"access": {"service": "InternalAdminCirculation"}},
         ),
         (
             "subm",
@@ -318,7 +318,7 @@ def test_category_permission(
             "service",
             "delete",
             HTTP_403_FORBIDDEN,
-            {"access": {"canton": "InternalAdminCirculation"}},
+            {"access": {"service": "InternalAdminCirculation"}},
         ),
         (
             "circulation",
@@ -326,7 +326,7 @@ def test_category_permission(
             "service",
             "delete",
             HTTP_204_NO_CONTENT,
-            {"access": {"canton": "InternalAdminCirculation"}},
+            {"access": {"service": "InternalAdminCirculation"}},
         ),
     ],
 )

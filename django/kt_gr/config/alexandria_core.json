@@ -16,7 +16,6 @@
           "support": "Admin",
           "subservice": "AdminService",
           "service-lead": "AdminService",
-          "cantonal-service": "AdminService",
           "municipality-lead": "AdminService"
         }
       },
@@ -40,7 +39,7 @@
         "access": {
           "are": "AdminService",
           "support": "Admin",
-          "cantonal-service": "AdminService"
+          "service-lead": "AdminService"
         }
       },
       "name": "{\"de\": \"Alle Kanton\", \"fr\": \"\", \"it\": \"Tutti i canton\"}",
@@ -67,7 +66,6 @@
           "support": "Admin",
           "subservice": "Read",
           "service-lead": "Read",
-          "cantonal-service": "Read",
           "municipality-lead": "Read"
         }
       },
@@ -161,7 +159,6 @@
           "support": "Admin",
           "subservice": "AdminService",
           "service-lead": "AdminService",
-          "cantonal-service": "AdminService",
           "municipality-lead": "AdminService"
         }
       },
@@ -188,7 +185,6 @@
           "support": "Admin",
           "subservice": "InternalAdmin",
           "service-lead": "InternalAdmin",
-          "cantonal-service": "InternalAdmin",
           "municipality-lead": "InternalAdmin"
         }
       },
@@ -213,7 +209,7 @@
           "are": "Read",
           "uso": "InternalAdminCirculation",
           "support": "Admin",
-          "cantonal-service": "InternalAdminCirculation"
+          "service-lead": "InternalAdminCirculation"
         }
       },
       "name": "{\"de\": \"Stellungnahmen ans ARE\", \"fr\": \"\", \"it\": \"Dichiarazioni all'ARE\"}",
