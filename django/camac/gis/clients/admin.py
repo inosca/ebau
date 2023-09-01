@@ -3,7 +3,7 @@ from django.conf import settings
 from django.utils.translation import gettext as _
 
 from camac.gis.clients.base import GISBaseClient
-from camac.gis.utils import cast, get_bbox, join, to_query
+from camac.gis.utils import cast, concat_values, get_bbox, to_query
 from camac.utils import build_url
 
 
@@ -75,26 +75,31 @@ class AdminGisClient(GISBaseClient):
                 attributes = result["attributes"]
                 label = result["layerName"]
 
-                value = join(value, self.get_value(attributes, label, attribute_config))
+                value = concat_values(
+                    value, self.get_value(attributes, label, attribute_config)
+                )
 
             if attribute_config["question"] in data:
-                value = join(data[attribute_config["question"]], value)
+                value = concat_values(data[attribute_config["question"]], value)
 
             data[attribute_config["question"]] = value
 
         return data
 
     def get_value(self, attributes, label, attribute_config):
+        cast_to = attribute_config.get("cast")
         raw_value = cast(
-            attributes.get(attribute_config["attributeName"], None),
-            attribute_config.get("cast"),
+            attributes.get(attribute_config["attributeName"], None), cast_to
         )
+
+        if not raw_value:
+            return None
 
         return (
             attribute_config.get("template", "{value}").format(
                 label=label,
                 value=raw_value,
             )
-            if raw_value
+            if not cast_to or cast_to == "string"
             else raw_value
         )

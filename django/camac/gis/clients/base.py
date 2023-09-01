@@ -5,7 +5,7 @@ from django.http import QueryDict
 from django.utils.translation import gettext as _
 
 from camac.gis.models import GISDataSource
-from camac.gis.utils import join
+from camac.gis.utils import concat_values
 
 
 class GISBaseClient:
@@ -52,7 +52,7 @@ class GISBaseClient:
                 if key in data:
                     # If a previous data source already returned a value for a
                     # certain question we concat the new and old value
-                    value = join(data[key], value)
+                    value = concat_values(data[key], value)
 
                 data[key] = value
 

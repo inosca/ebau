@@ -19,7 +19,7 @@ snapshots['test_sogis_client[bln-and-ivs-regional-local-coords3] 1'] = {
         },
         'gemeindenummer-bfs': {
             'label': 'Elise Thanel',
-            'value': '2430'
+            'value': 2430
         },
         'nutzungsplanung-grundnutzung': {
             'label': 'Tülay Rose',
@@ -106,7 +106,7 @@ snapshots['test_sogis_client[crop-rotation-area-coords6] 1'] = {
         },
         'gemeindenummer-bfs': {
             'label': 'Elise Thanel',
-            'value': '2464'
+            'value': 2464
         },
         'nutzungsplanung-grundnutzung': {
             'label': 'Tülay Rose',
@@ -193,7 +193,7 @@ snapshots['test_sogis_client[default-coords0] 1'] = {
         },
         'gemeindenummer-bfs': {
             'label': 'Elise Thanel',
-            'value': '2601'
+            'value': 2601
         },
         'nutzungsplanung-grundnutzung': {
             'label': 'Tülay Rose',
@@ -280,7 +280,7 @@ snapshots['test_sogis_client[highway-coords7] 1'] = {
         },
         'gemeindenummer-bfs': {
             'label': 'Elise Thanel',
-            'value': '2527'
+            'value': 2527
         },
         'nutzungsplanung-grundnutzung': {
             'label': 'Tülay Rose',
@@ -367,7 +367,7 @@ snapshots['test_sogis_client[ivs-national-coords4] 1'] = {
         },
         'gemeindenummer-bfs': {
             'label': 'Elise Thanel',
-            'value': '2555'
+            'value': 2555
         },
         'nutzungsplanung-grundnutzung': {
             'label': 'Tülay Rose',
@@ -454,7 +454,7 @@ snapshots['test_sogis_client[monument-coords5] 1'] = {
         },
         'gemeindenummer-bfs': {
             'label': 'Elise Thanel',
-            'value': '2555'
+            'value': 2555
         },
         'nutzungsplanung-grundnutzung': {
             'label': 'Tülay Rose',
@@ -541,7 +541,7 @@ snapshots['test_sogis_client[moor-and-sanctuary-coords2] 1'] = {
         },
         'gemeindenummer-bfs': {
             'label': 'Elise Thanel',
-            'value': '2546'
+            'value': 2546
         },
         'nutzungsplanung-grundnutzung': {
             'label': 'Tülay Rose',
@@ -628,7 +628,7 @@ snapshots['test_sogis_client[near-forest-coords1] 1'] = {
         },
         'gemeindenummer-bfs': {
             'label': 'Elise Thanel',
-            'value': '2550'
+            'value': 2550
         },
         'nutzungsplanung-grundnutzung': {
             'label': 'Tülay Rose',

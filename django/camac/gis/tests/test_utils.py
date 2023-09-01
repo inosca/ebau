@@ -35,5 +35,10 @@ def test_get_bbox():
     assert str(e.value) == "Koordinaten müssen Gleitkommazahlen sein"
 
 
-def test_join():
-    assert utils.join("test", 1.123, None, "", "test", 0) == "test, 1.123, 0"
+def test_concat_values():
+    assert (
+        utils.concat_values("test  ", 1.123, None, "", "  test", 0) == "test, 1.123, 0"
+    )
+    assert utils.concat_values("test  ") == "test"
+    assert utils.concat_values(17) == 17
+    assert utils.concat_values(None, 12.3) == 12.3
