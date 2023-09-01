@@ -63,8 +63,9 @@ export default class MainNavigationComponent extends Component {
     if (!this.session.isAuthenticated) {
       return;
     }
-    const resources = yield this.store.query("resource", {});
+    const resources = yield this.store.findAll("resource");
 
+    // Check if this has flakey behaviour, might need to be implemented with router hooks
     if (resources.length && this.router.currentURL === "/") {
       this.router.transitionTo(resources.firstObject.link);
     }
@@ -106,6 +107,7 @@ export default class MainNavigationComponent extends Component {
     if (macroCondition(isTesting())) {
       // Don't reload in testing
     } else {
+      this.store.unloadAll();
       this.router.transitionTo("index");
     }
   }
