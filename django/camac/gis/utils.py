@@ -41,11 +41,31 @@ def cast(value: Any, type: str) -> Any:
     return value
 
 
-def join(*parts: Any) -> str:
-    clean_parts = [str(part).strip() for part in parts if part not in [None, ""]]
-    deduped_parts = sorted(set(clean_parts), key=clean_parts.index)
+def concat_values(*parts: Any) -> str:
+    """Clean, deduplicate and concatenate values.
 
-    if len(deduped_parts) == 0:
+    This function cleans out empty values, deduplicates, and concatenates them
+    using a comma as separator. If there is no meaningful value, it returns none
+    and if there is only one value it returns it without converting it to a
+    string.
+    """
+
+    # Filter out empty values
+    non_empty_parts = [part for part in parts if part not in [None, ""]]
+
+    # Return None if there are only empty values
+    if len(non_empty_parts) == 0:
         return None
+    # Return single value without joining to preserve the data type
+    elif len(non_empty_parts) == 1:
+        value = non_empty_parts[0]
+
+        if isinstance(value, str):
+            value = value.strip()
+
+        return value
+
+    clean_parts = [str(part).strip() for part in non_empty_parts]
+    deduped_parts = sorted(set(clean_parts), key=clean_parts.index)
 
     return ", ".join(deduped_parts).strip()
