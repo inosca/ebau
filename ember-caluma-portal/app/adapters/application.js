@@ -15,7 +15,7 @@ export default class ApplicationAdapter extends OIDCJSONAPIAdapter {
   }
 
   urlForUpdateRecord(...args) {
-    const [, { adapterOptions }] = args;
+    const [, , { adapterOptions }] = args;
 
     return this._appendInclude(
       super.urlForUpdateRecord(...args),
