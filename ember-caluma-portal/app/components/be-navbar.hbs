@@ -72,7 +72,9 @@
                   </UkSubnav::Item>
                 {{/unless}}
               {{/if}}
-              <UkSubnav::Item @href="/support">{{t "nav.support"}}</UkSubnav::Item>
+              {{#if (macroCondition (macroGetOwnConfig "enableSupport"))}}
+                <UkSubnav::Item @href="/support">{{t "nav.support"}}</UkSubnav::Item>
+              {{/if}}
             {{/if}}
             {{#if (or this.session.isAuthenticated (is-application "ur"))}}
               <UkSubnav::Item @href="/public-instances">

@@ -2,6 +2,7 @@ import Controller, { inject as controller } from "@ember/controller";
 import { inject as service } from "@ember/service";
 import { macroCondition, getOwnConfig } from "@embroider/macros";
 import { dropTask } from "ember-concurrency";
+import mainConfig from "ember-ebau-core/config/main";
 import { confirm } from "ember-uikit";
 
 import config from "caluma-portal/config/environment";
@@ -44,6 +45,10 @@ export default class InstancesEditIndexController extends Controller {
         config.APPLICATION.instanceStates.finished &&
       this.instance.value?.mainForm.slug === "building-permit"
     );
+  }
+
+  get hasSpecialId() {
+    return Boolean(mainConfig.answerSlugs.specialId);
   }
 
   @dropTask
