@@ -4,3 +4,6 @@ global:
 
 index:
   welcome: "Willkommen im eBau-Portal des Kanton Solothurn"
+
+instances:
+  parcel: "Parzellennummer"
