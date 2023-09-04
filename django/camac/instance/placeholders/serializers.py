@@ -541,6 +541,44 @@ class GrDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         aliases=[_("DECISION")],
         description=_("Decision"),
     )
+    beginn_publikationsorgan_gemeinde = fields.PublicationField(
+        source="beginn-publikationsorgan-gemeinde",
+        value_key="date",
+        parser=human_readable_date,
+        aliases=[_("START_PUBLICATION_MUNICIPALITY")],
+        description=_(
+            "Start date of the publication in the publication organ of the municipality"
+        ),
+    )
+    ende_publikationsorgan_gemeinde = fields.PublicationField(
+        source="ende-publikationsorgan-der-gemeinde",
+        value_key="date",
+        parser=human_readable_date,
+        aliases=[_("END_PUBLICATION_MUNICIPALITY")],
+        description=_(
+            "End date of the publication in the publication organ of the municipality"
+        ),
+    )
+    beginn_publikation_kantonsamtsblatt = fields.PublicationField(
+        source="beginn-publikation-kantonsamtsblatt",
+        value_key="date",
+        parser=human_readable_date,
+        aliases=[_("START_PUBLICATION_CANTON")],
+        description=_("Start date of the publication in the cantonal Gazette"),
+    )
+    ende_publikation_kantonsamtsblatt = fields.PublicationField(
+        source="ende-publikation-kantonsamtsblatt",
+        value_key="date",
+        parser=human_readable_date,
+        aliases=[_("END_PUBLICATION_CANTON")],
+        description=_("End date of the publication in the cantonal Gazette"),
+    )
+    publikations_text = fields.PublicationField(
+        source="text-publikation",
+        value_key="value",
+        aliases=[_("PUBLICATION_TEXT")],
+        description=_("Publication text of the instance"),
+    )
 
 
 class BeDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
