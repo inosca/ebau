@@ -51,7 +51,10 @@ class AdminGisClient(GISBaseClient):
             }
         )
 
-        response = self.session.get(f"{base_url}?{query}")
+        response = self.session.get(
+            f"{base_url}?{query}",
+            verify=settings.ADMIN_GIS_VERIFY_SSL,
+        )
 
         try:
             response.raise_for_status()
