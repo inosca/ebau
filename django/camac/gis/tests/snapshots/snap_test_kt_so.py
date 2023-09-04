@@ -19,7 +19,7 @@ snapshots['test_sogis_client[bln-and-ivs-regional-local-coords3] 1'] = {
         },
         'gemeindenummer-bfs': {
             'label': 'Elise Thanel',
-            'value': '2430'
+            'value': 2430
         },
         'nutzungsplanung-grundnutzung': {
             'label': 'Tülay Rose',
@@ -94,6 +94,93 @@ snapshots['test_sogis_client[bln-and-ivs-regional-local-coords3] 1'] = {
     }
 }
 
+snapshots['test_sogis_client[building-law-coords8] 1'] = {
+    'data': {
+        'bundesinventare': {
+            'label': 'Kay-Uwe Walter',
+            'value': None
+        },
+        'gemeinde': {
+            'label': 'Suse Junk',
+            'value': 'Bettlach'
+        },
+        'gemeindenummer-bfs': {
+            'label': 'Elise Thanel',
+            'value': 2543
+        },
+        'nutzungsplanung-grundnutzung': {
+            'label': 'Tülay Rose',
+            'value': 'Wohnzone 3'
+        },
+        'nutzungsplanung-weitere-festlegungen': {
+            'label': 'Sinaida Söding-Christoph',
+            'value': None
+        },
+        'ort': {
+            'label': 'Herr Hans-Rainer Zänker',
+            'value': 'Bettlach'
+        },
+        'parzellen': {
+            'form': 'those-charge-why',
+            'label': 'Elwira Pärtzelt',
+            'value': {
+                'e-grid': {
+                    'label': 'Apostolos Klapp',
+                    'value': 'CH427250320619, CH107306383226'
+                },
+                'lagekoordinaten-nord': {
+                    'label': 'Ilona Henck B.Eng.',
+                    'value': 1227706.570833333
+                },
+                'lagekoordinaten-ost': {
+                    'label': 'Marc Caspar MBA.',
+                    'value': 2599196.9568125005
+                },
+                'ort': {
+                    'label': 'Herr Hans-Rainer Zänker',
+                    'value': 'Bettlach'
+                },
+                'parzellennummer': {
+                    'label': 'Univ.Prof. Randolf Oestrovsky B.A.',
+                    'value': '2117, 2128'
+                },
+                'plz': {
+                    'label': None,
+                    'value': '2544'
+                },
+                'strasse-flurname': {
+                    'label': 'Muzaffer Reuter',
+                    'value': 'Sägereiweg'
+                },
+                'strasse-nummer': {
+                    'label': 'Ing. Monique Hoffmann MBA.',
+                    'value': '19, 19a, 19b, 19c, 19d'
+                }
+            }
+        },
+        'richtplan-grundnutzung': {
+            'label': 'Traugott Kaul',
+            'value': 'Siedlungsgebiet.Wohnen_oeffentliche_Bauten'
+        },
+        'richtplan-weiteres': {
+            'label': 'Ing. Helen Jungfer',
+            'value': 'Waldnähe (aus Richtplan): Nein'
+        },
+        'strasse-flurname': {
+            'label': 'Muzaffer Reuter',
+            'value': 'Sägereiweg'
+        },
+        'strasse-nummer': {
+            'label': 'Ing. Monique Hoffmann MBA.',
+            'value': '19, 19a, 19b, 19c, 19d'
+        },
+        'weitere-gis-informationen': {
+            'label': 'Rainer van der Dussen',
+            'value': None
+        }
+    }
+}
+
 snapshots['test_sogis_client[crop-rotation-area-coords6] 1'] = {
     'data': {
         'bundesinventare': {
@@ -106,7 +193,7 @@ snapshots['test_sogis_client[crop-rotation-area-coords6] 1'] = {
         },
         'gemeindenummer-bfs': {
             'label': 'Elise Thanel',
-            'value': '2464'
+            'value': 2464
         },
         'nutzungsplanung-grundnutzung': {
             'label': 'Tülay Rose',
@@ -193,7 +280,7 @@ snapshots['test_sogis_client[default-coords0] 1'] = {
         },
         'gemeindenummer-bfs': {
             'label': 'Elise Thanel',
-            'value': '2601'
+            'value': 2601
         },
         'nutzungsplanung-grundnutzung': {
             'label': 'Tülay Rose',
@@ -280,7 +367,7 @@ snapshots['test_sogis_client[highway-coords7] 1'] = {
         },
         'gemeindenummer-bfs': {
             'label': 'Elise Thanel',
-            'value': '2527'
+            'value': 2527
         },
         'nutzungsplanung-grundnutzung': {
             'label': 'Tülay Rose',
@@ -367,7 +454,7 @@ snapshots['test_sogis_client[ivs-national-coords4] 1'] = {
         },
         'gemeindenummer-bfs': {
             'label': 'Elise Thanel',
-            'value': '2555'
+            'value': 2555
         },
         'nutzungsplanung-grundnutzung': {
             'label': 'Tülay Rose',
@@ -454,7 +541,7 @@ snapshots['test_sogis_client[monument-coords5] 1'] = {
         },
         'gemeindenummer-bfs': {
             'label': 'Elise Thanel',
-            'value': '2555'
+            'value': 2555
         },
         'nutzungsplanung-grundnutzung': {
             'label': 'Tülay Rose',
@@ -541,7 +628,7 @@ snapshots['test_sogis_client[moor-and-sanctuary-coords2] 1'] = {
         },
         'gemeindenummer-bfs': {
             'label': 'Elise Thanel',
-            'value': '2546'
+            'value': 2546
         },
         'nutzungsplanung-grundnutzung': {
             'label': 'Tülay Rose',
@@ -628,7 +715,7 @@ snapshots['test_sogis_client[near-forest-coords1] 1'] = {
         },
         'gemeindenummer-bfs': {
             'label': 'Elise Thanel',
-            'value': '2550'
+            'value': 2550
         },
         'nutzungsplanung-grundnutzung': {
             'label': 'Tülay Rose',

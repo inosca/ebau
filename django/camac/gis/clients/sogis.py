@@ -3,7 +3,7 @@ from django.conf import settings
 from django.utils.translation import gettext as _
 
 from camac.gis.clients.base import GISBaseClient
-from camac.gis.utils import cast, get_bbox, join, to_query
+from camac.gis.utils import cast, concat_values, get_bbox, to_query
 from camac.utils import build_url
 
 
@@ -78,23 +78,26 @@ class SoGisClient(GISBaseClient):
                 for feature in features:
                     properties = feature["properties"]
 
-                    value = join(value, self.get_value(properties, property_config))
+                    value = concat_values(
+                        value, self.get_value(properties, property_config)
+                    )
 
             if property_config["question"] in data:
-                value = join(data[property_config["question"]], value)
+                value = concat_values(data[property_config["question"]], value)
 
             data[property_config["question"]] = value
 
         return data
 
     def get_value(self, properties, property_config):
-        raw_value = cast(
-            properties.get(property_config["propertyName"], None),
-            property_config.get("cast"),
-        )
+        cast_to = property_config.get("cast")
+        raw_value = cast(properties.get(property_config["propertyName"], None), cast_to)
+
+        if not raw_value:
+            return None
 
         return (
             property_config.get("template", "{value}").format(value=raw_value)
-            if raw_value
+            if not cast_to or cast_to == "string"
             else raw_value
         )
