@@ -3698,7 +3698,10 @@ APPLICATIONS = {
         "CUSTOM_NOTIFICATION_TYPES": [],
         "NOTIFICATIONS": {
             "SUBMIT": [],
-            "APPLICANT": {},
+            "APPLICANT": {
+                "NEW": "gesuchsbearbeitungs-einladung-neu",
+                "EXISTING": "gesuchsbearbeitungs-einladung-bestehend",
+            },
         },
         "SUBSERVICE_ROLES": [],
         "DUMP_CONFIG_GROUPS": {
