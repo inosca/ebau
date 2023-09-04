@@ -51,11 +51,6 @@ class CustomVisibility(BaseVisibility):
                         f"{prefix}instance_document__instance__involved_applicants__invitee__username": user.username
                     }
                 )
-                | Q(
-                    **{
-                        f"{prefix}instance_document__instance__user__username": user.username
-                    }
-                ),
             )
         )
 
