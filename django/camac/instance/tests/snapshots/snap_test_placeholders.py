@@ -4203,6 +4203,8 @@ snapshots['test_dms_placeholders_gr[Municipality] 1'] = {
     'BAUENTSCHEID': 'Bewilligt',
     'BAUENTSCHEID_DATUM': '30. August 2021',
     'BAUVORHABEN': 'Einfamilienhaus',
+    'BEGINN_PUBLIKATIONSORGAN_GEMEINDE': '',
+    'BEGINN_PUBLIKATION_KANTONSAMTSBLATT': '',
     'BESCHREIBUNG_BAUVORHABEN': 'Einfamilienhaus',
     'BESCHREIBUNG_PROJEKTAENDERUNG': 'Anbau Wintergarten',
     'DECISION_DATE': '30. August 2021',
@@ -4213,49 +4215,53 @@ snapshots['test_dms_placeholders_gr[Municipality] 1'] = {
     'EBAU_URL': 'http://ember-ebau.local',
     'EIGENE_NEBENBESTIMMUNGEN': '',
     'EIGENE_STELLUNGNAHMEN': '',
+    'ENDE_PUBLIKATIONSORGAN_GEMEINDE': '',
+    'ENDE_PUBLIKATION_GEMEINDE': '',
+    'ENDE_PUBLIKATION_KANTON': '',
+    'ENDE_PUBLIKATION_KANTONSAMTSBLATT': '',
     'FACHSTELLEN_KANTONAL': [
         {
             'BEANTWORTET': '',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '06.04.1994',
-            'NAME': 'Veronica Pacheco'
+            'FRIST': '28.07.2006',
+            'NAME': 'David Ellis'
         },
         {
             'BEANTWORTET': '',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '12.02.1977',
-            'NAME': 'Laura Long'
+            'FRIST': '06.03.1980',
+            'NAME': 'Jermaine Walker'
         },
         {
             'BEANTWORTET': '',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '21.03.1970',
-            'NAME': 'Kathryn Brewer'
+            'FRIST': '03.10.2014',
+            'NAME': 'Lynn Drake'
         },
         {
             'BEANTWORTET': '',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '23.04.2013',
-            'NAME': 'Joshua Huffman MD'
+            'FRIST': '24.02.1974',
+            'NAME': 'Amy Greer'
         },
         {
-            'BEANTWORTET': '10.01.1983',
+            'BEANTWORTET': '21.11.1983',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '22.03.1999',
-            'NAME': 'Gregory Lawrence'
+            'FRIST': '07.12.1993',
+            'NAME': 'Robert Martin'
         },
         {
-            'BEANTWORTET': '25.03.1977',
+            'BEANTWORTET': '06.09.1981',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '22.06.1989',
-            'NAME': 'Timothy Mata'
+            'FRIST': '08.09.2019',
+            'NAME': 'Jeffery Lowe'
         }
     ],
     'FORM_NAME': 'Baugesuch',
-    'GEMEINDE': 'Douglas Williams',
+    'GEMEINDE': 'Patricia Shelton',
     'GEMEINDE_ADRESSE': '',
-    'GEMEINDE_EMAIL': 'fischeramber@example.org',
-    'GEMEINDE_NAME_ADRESSE': 'Gemeinde Douglas Williams',
+    'GEMEINDE_EMAIL': 'jameslong@example.net',
+    'GEMEINDE_NAME_ADRESSE': 'Gemeinde Patricia Shelton',
     'GEMEINDE_ORT': '',
     'GEMEINDE_TELEFON': '',
     'GESUCHSTELLER': 'Test AG, Esther Tester',
@@ -4298,7 +4304,7 @@ snapshots['test_dms_placeholders_gr[Municipality] 1'] = {
     'MEINE_ORGANISATION_NAME_KURZ': 'Alex Smith',
     'MEINE_ORGANISATION_ORT': 'Testdorf',
     'MEINE_ORGANISATION_TELEFON': '032163546546',
-    'MUNICIPALITY': 'Douglas Williams',
+    'MUNICIPALITY': 'Patricia Shelton',
     'MUNICIPALITY_ADDRESS': '',
     'NAME': '',
     'NEBENBESTIMMUNGEN': '',
@@ -4312,8 +4318,12 @@ snapshots['test_dms_placeholders_gr[Municipality] 1'] = {
     'PROJEKTVERFASSER_ADRESSE_2': '3600 Thun',
     'PROJEKTVERFASSER_NAME_ADDRESS': 'Hans Muster, Bahnhofstrasse 3, 3600 Thun',
     'PROJEKTVERFASSER_NAME_ADRESSE': 'Hans Muster, Bahnhofstrasse 3, 3600 Thun',
+    'PUBLIKATIONS_TEXT': '',
     'PUBLIKATION_LINK': 'http://ebau-portal.local/public-instances/1',
+    'PUBLIKATION_TEXT': '',
     'SPRACHE': 'de',
+    'START_PUBLIKATION_GEMEINDE': '',
+    'START_PUBLIKATION_KANTON': '',
     'STATUS': 'David Rangel',
     'STELLUNGNAHME': '',
     'TODAY': '30. August 2021',
@@ -4321,66 +4331,66 @@ snapshots['test_dms_placeholders_gr[Municipality] 1'] = {
         {
             'BEANTWORTET': '',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '06.04.1994',
-            'NAME': 'Veronica Pacheco'
+            'FRIST': '28.07.2006',
+            'NAME': 'David Ellis'
         },
         {
             'BEANTWORTET': '',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '12.02.1977',
-            'NAME': 'Laura Long'
+            'FRIST': '06.03.1980',
+            'NAME': 'Jermaine Walker'
         },
         {
             'BEANTWORTET': '',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '21.03.1970',
-            'NAME': 'Kathryn Brewer'
+            'FRIST': '03.10.2014',
+            'NAME': 'Lynn Drake'
         },
         {
             'BEANTWORTET': '',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '23.04.2013',
-            'NAME': 'Joshua Huffman MD'
+            'FRIST': '24.02.1974',
+            'NAME': 'Amy Greer'
         },
         {
-            'BEANTWORTET': '10.01.1983',
+            'BEANTWORTET': '21.11.1983',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '22.03.1999',
-            'NAME': 'Gregory Lawrence'
+            'FRIST': '07.12.1993',
+            'NAME': 'Robert Martin'
         },
         {
-            'BEANTWORTET': '25.03.1977',
+            'BEANTWORTET': '06.09.1981',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '22.06.1989',
-            'NAME': 'Timothy Mata'
+            'FRIST': '08.09.2019',
+            'NAME': 'Jeffery Lowe'
         }
     ],
     'ZIRKULATION_FACHSTELLEN': [
         {
-            'BEANTWORTET': '10.01.1983',
+            'BEANTWORTET': '21.11.1983',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '22.03.1999',
-            'NAME': 'Gregory Lawrence'
+            'FRIST': '07.12.1993',
+            'NAME': 'Robert Martin'
         },
         {
-            'BEANTWORTET': '25.03.1977',
+            'BEANTWORTET': '06.09.1981',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '22.06.1989',
-            'NAME': 'Timothy Mata'
+            'FRIST': '08.09.2019',
+            'NAME': 'Jeffery Lowe'
         }
     ],
     'ZIRKULATION_GEMEINDEN': [
         {
             'BEANTWORTET': '',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '21.03.1970',
-            'NAME': 'Kathryn Brewer'
+            'FRIST': '03.10.2014',
+            'NAME': 'Lynn Drake'
         },
         {
             'BEANTWORTET': '',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '23.04.2013',
-            'NAME': 'Joshua Huffman MD'
+            'FRIST': '24.02.1974',
+            'NAME': 'Amy Greer'
         }
     ],
     'ZIRKULATION_RUECKMELDUNGEN': [
@@ -4388,13 +4398,13 @@ snapshots['test_dms_placeholders_gr[Municipality] 1'] = {
             'ANTWORT': '',
             'NEBENBESTIMMUNGEN': 'Nebenbestimmungen 5',
             'STELLUNGNAHME': 'Stellungnahme 5',
-            'VON': 'Gregory Lawrence'
+            'VON': 'Robert Martin'
         },
         {
             'ANTWORT': '',
             'NEBENBESTIMMUNGEN': 'Nebenbestimmungen 6',
             'STELLUNGNAHME': 'Stellungnahme 6',
-            'VON': 'Timothy Mata'
+            'VON': 'Jeffery Lowe'
         }
     ]
 }

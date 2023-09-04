@@ -109,6 +109,51 @@ def test_dms_placeholders_gr(
     responsible_service.website = "www.example.com"
     responsible_service.save()
 
+    # publication
+    publication_work_item = work_item_factory(
+        case=gr_instance.case,
+        task_id="fill-publication",
+        status=WorkItem.STATUS_COMPLETED,
+        document=document_factory(form_id="publikation"),
+    )
+    start_publication_municipality = question_factory(
+        slug="beginn-publikationsorgan-gemeinde", type=Question.TYPE_DATE
+    )
+    end_publication_municipality = question_factory(
+        slug="ende-publikationsorgan-der-gemeinde", type=Question.TYPE_DATE
+    )
+    start_publication_canton = question_factory(
+        slug="beginn-publikation-kantonsamtsblatt", type=Question.TYPE_DATE
+    )
+    end_publication_canton = question_factory(
+        slug="ende-publikation-kantonsamtsblatt", type=Question.TYPE_DATE
+    )
+    publication_text = question_factory(
+        slug="text-publikation", type=Question.TYPE_TEXT
+    )
+    form_question_factory(
+        form_id="publikation", question=start_publication_municipality
+    )
+    form_question_factory(form_id="publikation", question=end_publication_municipality)
+    form_question_factory(form_id="publikation", question=start_publication_canton)
+    form_question_factory(form_id="publikation", question=end_publication_canton)
+    form_question_factory(form_id="publikation", question=publication_text)
+    publication_work_item.document.answers.create(
+        question_id="beginn-publikationsorgan-gemeinde", date=date.today()
+    )
+    publication_work_item.document.answers.create(
+        question_id="ende-publikationsorgan-der-gemeinde", date=date.today()
+    )
+    publication_work_item.document.answers.create(
+        question_id="beginn-publikation-kantonsamtsblatt", date=date.today()
+    )
+    publication_work_item.document.answers.create(
+        question_id="ende-publikation-kantonsamtsblatt", date=date.today()
+    )
+    publication_work_item.document.answers.create(
+        question_id="text-publikation", value="Publikationstext Beispiel"
+    )
+
     # decision
     decision_work_item = work_item_factory(
         case=gr_instance.case,
