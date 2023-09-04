@@ -401,6 +401,7 @@
             "propertyName": "gemeindename"
           },
           {
+            "cast": "integer",
             "question": "gemeindenummer-bfs",
             "propertyName": "bfs_gemeindenummer"
           }
