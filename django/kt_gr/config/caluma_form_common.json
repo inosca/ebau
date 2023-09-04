@@ -240,36 +240,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "parzelle-tabelle.lagekoordinaten-nord",
-    "fields": {
-      "created_at": "2019-09-25T10:19:39.484Z",
-      "modified_at": "2019-09-25T10:19:39.484Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "parzelle-tabelle",
-      "question": "lagekoordinaten-nord",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "parzelle-tabelle.lagekoordinaten-ost",
-    "fields": {
-      "created_at": "2019-09-25T10:19:39.311Z",
-      "modified_at": "2019-09-25T10:19:39.311Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "parzelle-tabelle",
-      "question": "lagekoordinaten-ost",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "parzelle-tabelle.liegenschaftsnummer",
     "fields": {
       "created_at": "2019-09-25T10:19:36.233Z",
@@ -285,36 +255,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "parzelle-tabelle.nummer-parzelle",
-    "fields": {
-      "created_at": "2019-09-25T10:19:37.648Z",
-      "modified_at": "2019-09-25T10:19:37.648Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "parzelle-tabelle",
-      "question": "nummer-parzelle",
-      "sort": 5
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "parzelle-tabelle.ort-parzelle",
-    "fields": {
-      "created_at": "2019-09-25T10:19:38.720Z",
-      "modified_at": "2019-09-25T10:19:38.720Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "parzelle-tabelle",
-      "question": "ort-parzelle",
-      "sort": 3
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "parzelle-tabelle.parzellennummer",
     "fields": {
       "created_at": "2019-09-25T10:19:35.880Z",
@@ -326,36 +266,6 @@
       "form": "parzelle-tabelle",
       "question": "parzellennummer",
       "sort": 10
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "parzelle-tabelle.plz-parzelle",
-    "fields": {
-      "created_at": "2019-09-25T10:19:37.976Z",
-      "modified_at": "2019-09-25T10:19:37.976Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "parzelle-tabelle",
-      "question": "plz-parzelle",
-      "sort": 4
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "parzelle-tabelle.strasse-parzelle",
-    "fields": {
-      "created_at": "2019-09-25T10:19:37.331Z",
-      "modified_at": "2019-09-25T10:19:37.331Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "parzelle-tabelle",
-      "question": "strasse-parzelle",
-      "sort": 6
     }
   },
   {
@@ -1020,74 +930,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "lagekoordinaten-nord",
-    "fields": {
-      "created_at": "2019-03-28T14:14:29.069Z",
-      "modified_at": "2020-01-14T13:43:48.418Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Lagekoordinaten - Nord\", \"fr\": \"Coordonn\\u00e9es planim\\u00e9triques - nord\", \"it\": null}",
-      "type": "float",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "max_value": 1300000.999,
-        "min_value": 1070000.0
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "lagekoordinaten-ost",
-    "fields": {
-      "created_at": "2019-03-28T14:14:04.276Z",
-      "modified_at": "2020-01-14T13:43:43.444Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Lagekoordinaten - Ost\", \"fr\": \"Coordonn\\u00e9es planim\\u00e9triques - Est\", \"it\": null}",
-      "type": "float",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "max_value": 2840000.999,
-        "min_value": 2480000.0
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "liegenschaftsnummer",
     "fields": {
       "created_at": "2019-05-13T07:43:38.657Z",
@@ -1258,39 +1100,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "nummer-parzelle",
-    "fields": {
-      "created_at": "2019-04-04T09:23:04.205Z",
-      "modified_at": "2019-04-04T09:23:04.205Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Nummer\", \"fr\": \"Num\\u00e9ro\", \"it\": null}",
-      "type": "text",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "max_length": null
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "ort-gesuchstellerin",
     "fields": {
       "created_at": "2019-04-04T07:54:43.501Z",
@@ -1359,46 +1168,13 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "ort-parzelle",
-    "fields": {
-      "created_at": "2019-04-04T09:24:26.527Z",
-      "modified_at": "2020-01-14T15:05:42.465Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Ort\", \"fr\": \"Localit\\u00e9\", \"it\": null}",
-      "type": "text",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "max_length": 40
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "parzelle",
     "fields": {
       "created_at": "2019-03-28T14:16:48.858Z",
-      "modified_at": "2020-12-14T13:10:12.289Z",
+      "modified_at": "2023-09-04T12:31:40.680Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Parzelle\", \"fr\": \"parcelle\", \"it\": null}",
       "type": "table",
@@ -1407,14 +1183,17 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
         "columnsToDisplay": [
           "parzellennummer",
           "lagekoordinaten-ost",
-          "lagekoordinaten-nord"
+          "lagekoordinaten-nord",
+          "liegenschaftsnummer",
+          "baurecht-nummer",
+          "e-grid-nr"
         ]
       },
       "data_source": null,
@@ -1661,40 +1440,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "plz-parzelle",
-    "fields": {
-      "created_at": "2019-04-04T09:23:41.093Z",
-      "modified_at": "2019-04-04T09:23:41.093Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"PLZ\", \"fr\": \"NPA\", \"it\": null}",
-      "type": "integer",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "max_value": null,
-        "min_value": null
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "projektaenderung",
     "fields": {
       "created_at": "2023-05-01T14:09:45.238Z",
@@ -1817,39 +1562,6 @@
       "configuration": {
         "max_length": 60,
         "min_length": null
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "strasse-parzelle",
-    "fields": {
-      "created_at": "2019-04-04T09:22:13.048Z",
-      "modified_at": "2019-04-04T09:22:13.048Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Strasse\", \"fr\": \"Rue\", \"it\": null}",
-      "type": "text",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "max_length": null
       },
       "meta": {},
       "data_source": null,
