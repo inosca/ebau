@@ -1,6 +1,22 @@
 # Remember to update volume mounts for certificates in kt_uri-prod.yml when updating version
 FROM python:3.8-slim
 
+# Needs to be set for users with manually set UID
+ENV HOME=/home/ebau
+
+ENV APP_HOME=/app
+ENV DJANGO_SETTINGS_MODULE camac.settings
+ENV UWSGI_INI $APP_HOME/uwsgi.ini
+ENV DATABASE_PORT 5432
+
+RUN mkdir -p $APP_HOME \
+    && useradd -u 901 -r ebau --create-home \
+    # All project specific folders need to be accessible by newly created user
+    # but also for unknown users (when UID is set manually). Such users are in
+    # group root.
+    && chown -R ebau:root $HOME \
+    && chmod -R 770 $HOME
+
 RUN \
   --mount=type=cache,target=/var/cache/apt \
   apt-get update && apt-get install -y --no-install-recommends \
@@ -30,26 +46,20 @@ RUN \
 && rm -rf /var/lib/apt/lists/*
 
 RUN \
-  # Create necessary folders
-  mkdir /app \
   # Locale configuration
-  && sed -i -e 's/# de_CH.UTF-8 UTF-8/de_CH.UTF-8 UTF-8/' /etc/locale.gen \
+  sed -i -e 's/# de_CH.UTF-8 UTF-8/de_CH.UTF-8 UTF-8/' /etc/locale.gen \
   && dpkg-reconfigure --frontend=noninteractive locales \
   && update-locale LANG=de_CH.UTF-8 \
   # Fix ImageMagick policy for creating thumbnails
   && sed -i 's/<policy domain="coder" rights="none" pattern="PDF" \/>/<policy domain="coder" rights="read | write" pattern="PDF" \/>/' /etc/ImageMagick-6/policy.xml
 
-WORKDIR /app
-
-ENV DJANGO_SETTINGS_MODULE camac.settings
-ENV UWSGI_INI /app/uwsgi.ini
-ENV DATABASE_PORT 5432
+WORKDIR $APP_HOME
 
 ARG REQUIREMENTS=requirements.txt
-COPY requirements.txt requirements-dev.txt /app/
+COPY requirements.txt requirements-dev.txt $APP_HOME/
 RUN pip install --no-cache-dir --upgrade -r $REQUIREMENTS --disable-pip-version-check
 
-COPY . /app
+COPY . $APP_HOME
 
 EXPOSE 80
 
