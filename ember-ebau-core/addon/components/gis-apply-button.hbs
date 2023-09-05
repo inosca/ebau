@@ -15,23 +15,33 @@
   <modal.body>
     <ul class="uk-list uk-list-divider">
       {{#each-in this.data as |question data|}}
-        <li data-test-gis-data-row>
-          <p class="uk-text-bold uk-margin-remove" data-test-gis-data-label>{{data.label}}</p>
-          {{#if data.form}}
-            <table class="uk-table uk-table-small uk-table-divider uk-table-justify uk-margin-remove">
-              <tbody>
-                {{#each-in data.value as |tableQuestion rowData|}}
-                  <tr>
-                    <td data-test-gis-data-table-label>{{rowData.label}}</td>
-                    <td data-test-gis-data-table-value>{{or rowData.value "-"}}</td>
-                  </tr>
-                {{/each-in}}
-              </tbody>
-            </table>
-          {{else}}
+        {{#if data.form}}
+          {{#each data.value as |row i|}}
+            <li data-test-gis-data-row>
+              <p class="uk-text-bold uk-margin-remove" data-test-gis-data-label>
+                {{data.label}}
+                {{#if (gt data.value.length 1)}}
+                  {{t "so-gis.row-count" count=(add i 1)}}
+                {{/if}}
+              </p>
+              <table class="uk-table uk-table-small uk-table-divider uk-table-justify uk-margin-remove">
+                <tbody>
+                  {{#each-in row as |rowQuestion rowData|}}
+                    <tr>
+                      <td data-test-gis-data-table-label>{{rowData.label}}</td>
+                      <td data-test-gis-data-table-value>{{or rowData.value "-"}}</td>
+                    </tr>
+                  {{/each-in}}
+                </tbody>
+              </table>
+            </li>
+          {{/each}}
+        {{else}}
+          <li data-test-gis-data-row>
+            <p class="uk-text-bold uk-margin-remove" data-test-gis-data-label>{{data.label}}</p>
             <p class="uk-margin-remove" data-test-gis-data-value>{{or data.value "-"}}</p>
-          {{/if}}
-        </li>
+          </li>
+        {{/if}}
       {{/each-in}}
     </ul>
   </modal.body>

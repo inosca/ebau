@@ -82,32 +82,36 @@ export default class GisApplyButtonComponent extends Component {
   }
 
   async applyTableAnswer(value, form) {
-    const rawDocument = await this.apollo.mutate(
-      {
-        mutation: saveDocumentMutation,
-        variables: { input: { form } },
-      },
-      "saveDocument.document",
-    );
+    return Promise.all(
+      value.map(async (row) => {
+        const rawDocument = await this.apollo.mutate(
+          {
+            mutation: saveDocumentMutation,
+            variables: { input: { form } },
+          },
+          "saveDocument.document",
+        );
 
-    const owner = getOwner(this);
-    const Document = owner.factoryFor("caluma-model:document").class;
+        const owner = getOwner(this);
+        const Document = owner.factoryFor("caluma-model:document").class;
 
-    const newDocument = this.calumaStore.push(
-      new Document({
-        raw: parseDocument(rawDocument),
-        parentDocument: this.args.document,
-        owner,
+        const newDocument = this.calumaStore.push(
+          new Document({
+            raw: parseDocument(rawDocument),
+            parentDocument: this.args.document,
+            owner,
+          }),
+        );
+
+        await Promise.all(
+          Object.entries(row).map(
+            async ([question, cell]) =>
+              await this.applyAnswer(question, cell, newDocument),
+          ),
+        );
+
+        return newDocument;
       }),
     );
-
-    await Promise.all(
-      Object.entries(value).map(
-        async ([question, cell]) =>
-          await this.applyAnswer(question, cell, newDocument),
-      ),
-    );
-
-    return [newDocument];
   }
 }

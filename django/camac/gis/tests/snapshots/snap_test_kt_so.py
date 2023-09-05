@@ -10,7 +10,7 @@ snapshots = Snapshot()
 snapshots['test_sogis_client[bln-and-ivs-regional-local-coords3] 1'] = {
     'data': {
         'bundesinventare': {
-            'label': 'Kay-Uwe Walter',
+            'label': 'Herr Michail Sauer B.Eng.',
             'value': 'BLN: Weissenstein, Nr. des BLN: 1010, IVS Regional und Lokal: Hächler - Schitterwald, Nr. des IVS Regional und Lokal: SO 421'
         },
         'gemeinde': {
@@ -22,11 +22,11 @@ snapshots['test_sogis_client[bln-and-ivs-regional-local-coords3] 1'] = {
             'value': 2430
         },
         'nutzungsplanung-grundnutzung': {
-            'label': 'Tülay Rose',
+            'label': 'Sinaida Söding-Christoph',
             'value': 'Wald'
         },
         'nutzungsplanung-weitere-festlegungen': {
-            'label': 'Sinaida Söding-Christoph',
+            'label': 'Rainer van der Dussen',
             'value': None
         },
         'ort': {
@@ -36,59 +36,61 @@ snapshots['test_sogis_client[bln-and-ivs-regional-local-coords3] 1'] = {
         'parzellen': {
             'form': 'those-charge-why',
             'label': 'Elwira Pärtzelt',
-            'value': {
-                'e-grid': {
-                    'label': 'Apostolos Klapp',
-                    'value': 'CH607506603227'
-                },
-                'lagekoordinaten-nord': {
-                    'label': 'Ilona Henck B.Eng.',
-                    'value': 1235122.657259761
-                },
-                'lagekoordinaten-ost': {
-                    'label': 'Marc Caspar MBA.',
-                    'value': 2606265.992581233
-                },
-                'ort': {
-                    'label': 'Herr Hans-Rainer Zänker',
-                    'value': 'Welschenrohr'
-                },
-                'parzellennummer': {
-                    'label': 'Univ.Prof. Randolf Oestrovsky B.A.',
-                    'value': '685'
-                },
-                'plz': {
-                    'label': None,
-                    'value': None
-                },
-                'strasse-flurname': {
-                    'label': 'Muzaffer Reuter',
-                    'value': None
-                },
-                'strasse-nummer': {
-                    'label': 'Ing. Monique Hoffmann MBA.',
-                    'value': None
+            'value': [
+                {
+                    'e-grid': {
+                        'label': 'Marc Caspar MBA.',
+                        'value': 'CH607506603227'
+                    },
+                    'lagekoordinaten-nord': {
+                        'label': 'Traugott Kaul',
+                        'value': 1235122.657259761
+                    },
+                    'lagekoordinaten-ost': {
+                        'label': 'Ilona Henck B.Eng.',
+                        'value': 2606265.992581233
+                    },
+                    'ort': {
+                        'label': 'Herr Hans-Rainer Zänker',
+                        'value': 'Welschenrohr'
+                    },
+                    'parzellennummer': {
+                        'label': 'Univ.Prof. Randolf Oestrovsky B.A.',
+                        'value': '685'
+                    },
+                    'plz': {
+                        'label': 'Muzaffer Reuter',
+                        'value': None
+                    },
+                    'strasse-flurname': {
+                        'label': 'Ing. Monique Hoffmann MBA.',
+                        'value': None
+                    },
+                    'strasse-nummer': {
+                        'label': 'Apostolos Klapp',
+                        'value': None
+                    }
                 }
-            }
+            ]
         },
         'richtplan-grundnutzung': {
-            'label': 'Traugott Kaul',
+            'label': 'Ing. Helen Jungfer',
             'value': 'Wald'
         },
         'richtplan-weiteres': {
-            'label': 'Ing. Helen Jungfer',
+            'label': 'Tülay Rose',
             'value': 'Linie: Historischer_Verkehrsweg, Waldnähe (aus Richtplan): Ja, Fläche: Juraschutzzone, Fläche: Naturpark, Fläche: BLN_Gebiet'
         },
         'strasse-flurname': {
-            'label': 'Muzaffer Reuter',
-            'value': None
-        },
-        'strasse-nummer': {
             'label': 'Ing. Monique Hoffmann MBA.',
             'value': None
         },
+        'strasse-nummer': {
+            'label': 'Apostolos Klapp',
+            'value': None
+        },
         'weitere-gis-informationen': {
-            'label': 'Rainer van der Dussen',
+            'label': 'Kay-Uwe Walter',
             'value': 'Bodenbedeckung: geschlossener_Wald'
         }
     }
@@ -97,7 +99,7 @@ snapshots['test_sogis_client[bln-and-ivs-regional-local-coords3] 1'] = {
 snapshots['test_sogis_client[building-law-coords8] 1'] = {
     'data': {
         'bundesinventare': {
-            'label': 'Kay-Uwe Walter',
+            'label': 'Herr Michail Sauer B.Eng.',
             'value': None
         },
         'gemeinde': {
@@ -109,11 +111,11 @@ snapshots['test_sogis_client[building-law-coords8] 1'] = {
             'value': 2543
         },
         'nutzungsplanung-grundnutzung': {
-            'label': 'Tülay Rose',
+            'label': 'Sinaida Söding-Christoph',
             'value': 'Wohnzone 3'
         },
         'nutzungsplanung-weitere-festlegungen': {
-            'label': 'Sinaida Söding-Christoph',
+            'label': 'Rainer van der Dussen',
             'value': None
         },
         'ort': {
@@ -123,59 +125,61 @@ snapshots['test_sogis_client[building-law-coords8] 1'] = {
         'parzellen': {
             'form': 'those-charge-why',
             'label': 'Elwira Pärtzelt',
-            'value': {
-                'e-grid': {
-                    'label': 'Apostolos Klapp',
-                    'value': 'CH427250320619, CH107306383226'
-                },
-                'lagekoordinaten-nord': {
-                    'label': 'Ilona Henck B.Eng.',
-                    'value': 1227706.570833333
-                },
-                'lagekoordinaten-ost': {
-                    'label': 'Marc Caspar MBA.',
-                    'value': 2599196.9568125005
-                },
-                'ort': {
-                    'label': 'Herr Hans-Rainer Zänker',
-                    'value': 'Bettlach'
-                },
-                'parzellennummer': {
-                    'label': 'Univ.Prof. Randolf Oestrovsky B.A.',
-                    'value': '2117, 2128'
-                },
-                'plz': {
-                    'label': None,
-                    'value': '2544'
-                },
-                'strasse-flurname': {
-                    'label': 'Muzaffer Reuter',
-                    'value': 'Sägereiweg'
-                },
-                'strasse-nummer': {
-                    'label': 'Ing. Monique Hoffmann MBA.',
-                    'value': '19, 19a, 19b, 19c, 19d'
+            'value': [
+                {
+                    'e-grid': {
+                        'label': 'Marc Caspar MBA.',
+                        'value': 'CH427250320619, CH107306383226'
+                    },
+                    'lagekoordinaten-nord': {
+                        'label': 'Traugott Kaul',
+                        'value': 1227706.570833333
+                    },
+                    'lagekoordinaten-ost': {
+                        'label': 'Ilona Henck B.Eng.',
+                        'value': 2599196.9568125005
+                    },
+                    'ort': {
+                        'label': 'Herr Hans-Rainer Zänker',
+                        'value': 'Bettlach'
+                    },
+                    'parzellennummer': {
+                        'label': 'Univ.Prof. Randolf Oestrovsky B.A.',
+                        'value': '2117, 2128'
+                    },
+                    'plz': {
+                        'label': 'Muzaffer Reuter',
+                        'value': '2544'
+                    },
+                    'strasse-flurname': {
+                        'label': 'Ing. Monique Hoffmann MBA.',
+                        'value': 'Sägereiweg'
+                    },
+                    'strasse-nummer': {
+                        'label': 'Apostolos Klapp',
+                        'value': '19, 19a, 19b, 19c, 19d'
+                    }
                 }
-            }
+            ]
         },
         'richtplan-grundnutzung': {
-            'label': 'Traugott Kaul',
+            'label': 'Ing. Helen Jungfer',
             'value': 'Siedlungsgebiet.Wohnen_oeffentliche_Bauten'
         },
         'richtplan-weiteres': {
-            'label': 'Ing. Helen Jungfer',
+            'label': 'Tülay Rose',
             'value': 'Waldnähe (aus Richtplan): Nein'
         },
         'strasse-flurname': {
-            'label': 'Muzaffer Reuter',
+            'label': 'Ing. Monique Hoffmann MBA.',
             'value': 'Sägereiweg'
         },
         'strasse-nummer': {
-            'label': 'Ing. Monique Hoffmann MBA.',
+            'label': 'Apostolos Klapp',
             'value': '19, 19a, 19b, 19c, 19d'
         },
         'weitere-gis-informationen': {
-            'label': 'Rainer van der Dussen',
+            'label': 'Kay-Uwe Walter',
             'value': None
         }
     }
@@ -184,7 +188,7 @@ snapshots['test_sogis_client[building-law-coords8] 1'] = {
 snapshots['test_sogis_client[crop-rotation-area-coords6] 1'] = {
     'data': {
         'bundesinventare': {
-            'label': 'Kay-Uwe Walter',
+            'label': 'Herr Michail Sauer B.Eng.',
             'value': None
         },
         'gemeinde': {
@@ -196,11 +200,11 @@ snapshots['test_sogis_client[crop-rotation-area-coords6] 1'] = {
             'value': 2464
         },
         'nutzungsplanung-grundnutzung': {
-            'label': 'Tülay Rose',
+            'label': 'Sinaida Söding-Christoph',
             'value': 'Landwirtschaftszone'
         },
         'nutzungsplanung-weitere-festlegungen': {
-            'label': 'Sinaida Söding-Christoph',
+            'label': 'Rainer van der Dussen',
             'value': 'Fläche: Kommunale Schutzzone Wildtierkorridor'
         },
         'ort': {
@@ -210,59 +214,61 @@ snapshots['test_sogis_client[crop-rotation-area-coords6] 1'] = {
         'parzellen': {
             'form': 'those-charge-why',
             'label': 'Elwira Pärtzelt',
-            'value': {
-                'e-grid': {
-                    'label': 'Apostolos Klapp',
-                    'value': 'CH727351320675'
-                },
-                'lagekoordinaten-nord': {
-                    'label': 'Ilona Henck B.Eng.',
-                    'value': 1227634.5322569455
-                },
-                'lagekoordinaten-ost': {
-                    'label': 'Marc Caspar MBA.',
-                    'value': 2603913.165006131
-                },
-                'ort': {
-                    'label': 'Herr Hans-Rainer Zänker',
-                    'value': 'Lüsslingen'
-                },
-                'parzellennummer': {
-                    'label': 'Univ.Prof. Randolf Oestrovsky B.A.',
-                    'value': '9'
-                },
-                'plz': {
-                    'label': None,
-                    'value': None
-                },
-                'strasse-flurname': {
-                    'label': 'Muzaffer Reuter',
-                    'value': None
-                },
-                'strasse-nummer': {
-                    'label': 'Ing. Monique Hoffmann MBA.',
-                    'value': None
+            'value': [
+                {
+                    'e-grid': {
+                        'label': 'Marc Caspar MBA.',
+                        'value': 'CH727351320675'
+                    },
+                    'lagekoordinaten-nord': {
+                        'label': 'Traugott Kaul',
+                        'value': 1227634.5322569455
+                    },
+                    'lagekoordinaten-ost': {
+                        'label': 'Ilona Henck B.Eng.',
+                        'value': 2603913.165006131
+                    },
+                    'ort': {
+                        'label': 'Herr Hans-Rainer Zänker',
+                        'value': 'Lüsslingen'
+                    },
+                    'parzellennummer': {
+                        'label': 'Univ.Prof. Randolf Oestrovsky B.A.',
+                        'value': '9'
+                    },
+                    'plz': {
+                        'label': 'Muzaffer Reuter',
+                        'value': None
+                    },
+                    'strasse-flurname': {
+                        'label': 'Ing. Monique Hoffmann MBA.',
+                        'value': None
+                    },
+                    'strasse-nummer': {
+                        'label': 'Apostolos Klapp',
+                        'value': None
+                    }
                 }
-            }
+            ]
         },
         'richtplan-grundnutzung': {
-            'label': 'Traugott Kaul',
+            'label': 'Ing. Helen Jungfer',
             'value': 'Landwirtschaftsgebiet'
         },
         'richtplan-weiteres': {
-            'label': 'Ing. Helen Jungfer',
+            'label': 'Tülay Rose',
             'value': 'Waldnähe (aus Richtplan): Nein, Fläche: Fruchtfolgeflaeche, Fläche: Witischutzzone'
         },
         'strasse-flurname': {
-            'label': 'Muzaffer Reuter',
-            'value': None
-        },
-        'strasse-nummer': {
             'label': 'Ing. Monique Hoffmann MBA.',
             'value': None
         },
+        'strasse-nummer': {
+            'label': 'Apostolos Klapp',
+            'value': None
+        },
         'weitere-gis-informationen': {
-            'label': 'Rainer van der Dussen',
+            'label': 'Kay-Uwe Walter',
             'value': None
         }
     }
@@ -271,7 +277,7 @@ snapshots['test_sogis_client[crop-rotation-area-coords6] 1'] = {
 snapshots['test_sogis_client[default-coords0] 1'] = {
     'data': {
         'bundesinventare': {
-            'label': 'Kay-Uwe Walter',
+            'label': 'Herr Michail Sauer B.Eng.',
             'value': None
         },
         'gemeinde': {
@@ -283,11 +289,11 @@ snapshots['test_sogis_client[default-coords0] 1'] = {
             'value': 2601
         },
         'nutzungsplanung-grundnutzung': {
-            'label': 'Tülay Rose',
+            'label': 'Sinaida Söding-Christoph',
             'value': 'Kernzone, offene Bauweise, 3-geschossig AZ max. 1.0'
         },
         'nutzungsplanung-weitere-festlegungen': {
-            'label': 'Sinaida Söding-Christoph',
+            'label': 'Rainer van der Dussen',
             'value': None
         },
         'ort': {
@@ -297,59 +303,61 @@ snapshots['test_sogis_client[default-coords0] 1'] = {
         'parzellen': {
             'form': 'those-charge-why',
             'label': 'Elwira Pärtzelt',
-            'value': {
-                'e-grid': {
-                    'label': 'Apostolos Klapp',
-                    'value': 'CH354732700648'
-                },
-                'lagekoordinaten-nord': {
-                    'label': 'Ilona Henck B.Eng.',
-                    'value': 1228434.884375
-                },
-                'lagekoordinaten-ost': {
-                    'label': 'Marc Caspar MBA.',
-                    'value': 2607160.642708333
-                },
-                'ort': {
-                    'label': 'Herr Hans-Rainer Zänker',
-                    'value': 'Solothurn'
-                },
-                'parzellennummer': {
-                    'label': 'Univ.Prof. Randolf Oestrovsky B.A.',
-                    'value': '850'
-                },
-                'plz': {
-                    'label': None,
-                    'value': None
-                },
-                'strasse-flurname': {
-                    'label': 'Muzaffer Reuter',
-                    'value': None
-                },
-                'strasse-nummer': {
-                    'label': 'Ing. Monique Hoffmann MBA.',
-                    'value': None
+            'value': [
+                {
+                    'e-grid': {
+                        'label': 'Marc Caspar MBA.',
+                        'value': 'CH354732700648'
+                    },
+                    'lagekoordinaten-nord': {
+                        'label': 'Traugott Kaul',
+                        'value': 1228434.884375
+                    },
+                    'lagekoordinaten-ost': {
+                        'label': 'Ilona Henck B.Eng.',
+                        'value': 2607160.642708333
+                    },
+                    'ort': {
+                        'label': 'Herr Hans-Rainer Zänker',
+                        'value': 'Solothurn'
+                    },
+                    'parzellennummer': {
+                        'label': 'Univ.Prof. Randolf Oestrovsky B.A.',
+                        'value': '850'
+                    },
+                    'plz': {
+                        'label': 'Muzaffer Reuter',
+                        'value': None
+                    },
+                    'strasse-flurname': {
+                        'label': 'Ing. Monique Hoffmann MBA.',
+                        'value': None
+                    },
+                    'strasse-nummer': {
+                        'label': 'Apostolos Klapp',
+                        'value': None
+                    }
                 }
-            }
+            ]
         },
         'richtplan-grundnutzung': {
-            'label': 'Traugott Kaul',
+            'label': 'Ing. Helen Jungfer',
             'value': 'Siedlungsgebiet.Wohnen_oeffentliche_Bauten'
         },
         'richtplan-weiteres': {
-            'label': 'Ing. Helen Jungfer',
+            'label': 'Tülay Rose',
             'value': 'Waldnähe (aus Richtplan): Nein'
         },
         'strasse-flurname': {
-            'label': 'Muzaffer Reuter',
-            'value': None
-        },
-        'strasse-nummer': {
             'label': 'Ing. Monique Hoffmann MBA.',
             'value': None
         },
+        'strasse-nummer': {
+            'label': 'Apostolos Klapp',
+            'value': None
+        },
         'weitere-gis-informationen': {
-            'label': 'Rainer van der Dussen',
+            'label': 'Kay-Uwe Walter',
             'value': None
         }
     }
@@ -358,7 +366,7 @@ snapshots['test_sogis_client[default-coords0] 1'] = {
 snapshots['test_sogis_client[highway-coords7] 1'] = {
     'data': {
         'bundesinventare': {
-            'label': 'Kay-Uwe Walter',
+            'label': 'Herr Michail Sauer B.Eng.',
             'value': None
         },
         'gemeinde': {
@@ -370,11 +378,11 @@ snapshots['test_sogis_client[highway-coords7] 1'] = {
             'value': 2527
         },
         'nutzungsplanung-grundnutzung': {
-            'label': 'Tülay Rose',
+            'label': 'Sinaida Söding-Christoph',
             'value': None
         },
         'nutzungsplanung-weitere-festlegungen': {
-            'label': 'Sinaida Söding-Christoph',
+            'label': 'Rainer van der Dussen',
             'value': None
         },
         'ort': {
@@ -384,59 +392,61 @@ snapshots['test_sogis_client[highway-coords7] 1'] = {
         'parzellen': {
             'form': 'those-charge-why',
             'label': 'Elwira Pärtzelt',
-            'value': {
-                'e-grid': {
-                    'label': 'Apostolos Klapp',
-                    'value': 'CH667932069772'
-                },
-                'lagekoordinaten-nord': {
-                    'label': 'Ilona Henck B.Eng.',
-                    'value': 1228741.4541305029
-                },
-                'lagekoordinaten-ost': {
-                    'label': 'Marc Caspar MBA.',
-                    'value': 2611103.2977669733
-                },
-                'ort': {
-                    'label': 'Herr Hans-Rainer Zänker',
-                    'value': 'Luterbach'
-                },
-                'parzellennummer': {
-                    'label': 'Univ.Prof. Randolf Oestrovsky B.A.',
-                    'value': '2501'
-                },
-                'plz': {
-                    'label': None,
-                    'value': None
-                },
-                'strasse-flurname': {
-                    'label': 'Muzaffer Reuter',
-                    'value': None
-                },
-                'strasse-nummer': {
-                    'label': 'Ing. Monique Hoffmann MBA.',
-                    'value': None
+            'value': [
+                {
+                    'e-grid': {
+                        'label': 'Marc Caspar MBA.',
+                        'value': 'CH667932069772'
+                    },
+                    'lagekoordinaten-nord': {
+                        'label': 'Traugott Kaul',
+                        'value': 1228741.4541305029
+                    },
+                    'lagekoordinaten-ost': {
+                        'label': 'Ilona Henck B.Eng.',
+                        'value': 2611103.2977669733
+                    },
+                    'ort': {
+                        'label': 'Herr Hans-Rainer Zänker',
+                        'value': 'Luterbach'
+                    },
+                    'parzellennummer': {
+                        'label': 'Univ.Prof. Randolf Oestrovsky B.A.',
+                        'value': '2501'
+                    },
+                    'plz': {
+                        'label': 'Muzaffer Reuter',
+                        'value': None
+                    },
+                    'strasse-flurname': {
+                        'label': 'Ing. Monique Hoffmann MBA.',
+                        'value': None
+                    },
+                    'strasse-nummer': {
+                        'label': 'Apostolos Klapp',
+                        'value': None
+                    }
                 }
-            }
+            ]
         },
         'richtplan-grundnutzung': {
-            'label': 'Traugott Kaul',
+            'label': 'Ing. Helen Jungfer',
             'value': 'Nationalstrasse'
         },
         'richtplan-weiteres': {
-            'label': 'Ing. Helen Jungfer',
+            'label': 'Tülay Rose',
             'value': 'Linie: Nationalstrasse.Strasse, Waldnähe (aus Richtplan): Nein'
         },
         'strasse-flurname': {
-            'label': 'Muzaffer Reuter',
-            'value': None
-        },
-        'strasse-nummer': {
             'label': 'Ing. Monique Hoffmann MBA.',
             'value': None
         },
+        'strasse-nummer': {
+            'label': 'Apostolos Klapp',
+            'value': None
+        },
         'weitere-gis-informationen': {
-            'label': 'Rainer van der Dussen',
+            'label': 'Kay-Uwe Walter',
             'value': None
         }
     }
@@ -445,7 +455,7 @@ snapshots['test_sogis_client[highway-coords7] 1'] = {
 snapshots['test_sogis_client[ivs-national-coords4] 1'] = {
     'data': {
         'bundesinventare': {
-            'label': 'Kay-Uwe Walter',
+            'label': 'Herr Michail Sauer B.Eng.',
             'value': 'IVS National: St. Niklaus - Einsiedelei; Verenaschlucht, Nr. des IVS National: SO 365.0.1'
         },
         'gemeinde': {
@@ -457,11 +467,11 @@ snapshots['test_sogis_client[ivs-national-coords4] 1'] = {
             'value': 2555
         },
         'nutzungsplanung-grundnutzung': {
-            'label': 'Tülay Rose',
+            'label': 'Sinaida Söding-Christoph',
             'value': None
         },
         'nutzungsplanung-weitere-festlegungen': {
-            'label': 'Sinaida Söding-Christoph',
+            'label': 'Rainer van der Dussen',
             'value': 'Fläche: Perimeter kantonaler Nutzungsplan'
         },
         'ort': {
@@ -471,59 +481,61 @@ snapshots['test_sogis_client[ivs-national-coords4] 1'] = {
         'parzellen': {
             'form': 'those-charge-why',
             'label': 'Elwira Pärtzelt',
-            'value': {
-                'e-grid': {
-                    'label': 'Apostolos Klapp',
-                    'value': 'CH810699329948'
-                },
-                'lagekoordinaten-nord': {
-                    'label': 'Ilona Henck B.Eng.',
-                    'value': 1230212.5463196996
-                },
-                'lagekoordinaten-ost': {
-                    'label': 'Marc Caspar MBA.',
-                    'value': 2607372.235299003
-                },
-                'ort': {
-                    'label': 'Herr Hans-Rainer Zänker',
-                    'value': 'Rüttenen'
-                },
-                'parzellennummer': {
-                    'label': 'Univ.Prof. Randolf Oestrovsky B.A.',
-                    'value': '90041'
-                },
-                'plz': {
-                    'label': None,
-                    'value': None
-                },
-                'strasse-flurname': {
-                    'label': 'Muzaffer Reuter',
-                    'value': None
-                },
-                'strasse-nummer': {
-                    'label': 'Ing. Monique Hoffmann MBA.',
-                    'value': None
+            'value': [
+                {
+                    'e-grid': {
+                        'label': 'Marc Caspar MBA.',
+                        'value': 'CH810699329948'
+                    },
+                    'lagekoordinaten-nord': {
+                        'label': 'Traugott Kaul',
+                        'value': 1230212.5463196996
+                    },
+                    'lagekoordinaten-ost': {
+                        'label': 'Ilona Henck B.Eng.',
+                        'value': 2607372.235299003
+                    },
+                    'ort': {
+                        'label': 'Herr Hans-Rainer Zänker',
+                        'value': 'Rüttenen'
+                    },
+                    'parzellennummer': {
+                        'label': 'Univ.Prof. Randolf Oestrovsky B.A.',
+                        'value': '90041'
+                    },
+                    'plz': {
+                        'label': 'Muzaffer Reuter',
+                        'value': None
+                    },
+                    'strasse-flurname': {
+                        'label': 'Ing. Monique Hoffmann MBA.',
+                        'value': None
+                    },
+                    'strasse-nummer': {
+                        'label': 'Apostolos Klapp',
+                        'value': None
+                    }
                 }
-            }
+            ]
         },
         'richtplan-grundnutzung': {
-            'label': 'Traugott Kaul',
+            'label': 'Ing. Helen Jungfer',
             'value': 'Wald'
         },
         'richtplan-weiteres': {
-            'label': 'Ing. Helen Jungfer',
+            'label': 'Tülay Rose',
             'value': 'Linie: Historischer_Verkehrsweg, Waldnähe (aus Richtplan): Ja, Fläche: kantonales_Naturreservat'
         },
         'strasse-flurname': {
-            'label': 'Muzaffer Reuter',
-            'value': None
-        },
-        'strasse-nummer': {
             'label': 'Ing. Monique Hoffmann MBA.',
             'value': None
         },
+        'strasse-nummer': {
+            'label': 'Apostolos Klapp',
+            'value': None
+        },
         'weitere-gis-informationen': {
-            'label': 'Rainer van der Dussen',
+            'label': 'Kay-Uwe Walter',
             'value': 'Denkmalschutz Schutzstufe: geschützt, Denkmalschutzobjekt: Verenaschlucht, Bodenbedeckung: geschlossener_Wald, Denkmalschutz Schutzstufe: geschützt, Denkmalschutzobjekt: Gedenkstein für Amanz Gressly, Bodenbedeckung: fliessendes Gewaesser'
         }
     }
@@ -532,7 +544,7 @@ snapshots['test_sogis_client[ivs-national-coords4] 1'] = {
 snapshots['test_sogis_client[monument-coords5] 1'] = {
     'data': {
         'bundesinventare': {
-            'label': 'Kay-Uwe Walter',
+            'label': 'Herr Michail Sauer B.Eng.',
             'value': 'IVS Regional und Lokal: Solothurn/Hübeli - Kreuzen - Einsiedelei, Nr. des IVS Regional und Lokal: SO 441'
         },
         'gemeinde': {
@@ -544,11 +556,11 @@ snapshots['test_sogis_client[monument-coords5] 1'] = {
             'value': 2555
         },
         'nutzungsplanung-grundnutzung': {
-            'label': 'Tülay Rose',
+            'label': 'Sinaida Söding-Christoph',
             'value': None
         },
         'nutzungsplanung-weitere-festlegungen': {
-            'label': 'Sinaida Söding-Christoph',
+            'label': 'Rainer van der Dussen',
             'value': None
         },
         'ort': {
@@ -558,59 +570,61 @@ snapshots['test_sogis_client[monument-coords5] 1'] = {
         'parzellen': {
             'form': 'those-charge-why',
             'label': 'Elwira Pärtzelt',
-            'value': {
-                'e-grid': {
-                    'label': 'Apostolos Klapp',
-                    'value': 'CH227060320651'
-                },
-                'lagekoordinaten-nord': {
-                    'label': 'Ilona Henck B.Eng.',
-                    'value': 1230171.7275696846
-                },
-                'lagekoordinaten-ost': {
-                    'label': 'Marc Caspar MBA.',
-                    'value': 2607376.2625398953
-                },
-                'ort': {
-                    'label': 'Herr Hans-Rainer Zänker',
-                    'value': 'Rüttenen'
-                },
-                'parzellennummer': {
-                    'label': 'Univ.Prof. Randolf Oestrovsky B.A.',
-                    'value': '99'
-                },
-                'plz': {
-                    'label': None,
-                    'value': '4500'
-                },
-                'strasse-flurname': {
-                    'label': 'Muzaffer Reuter',
-                    'value': 'Kreuzen'
-                },
-                'strasse-nummer': {
-                    'label': 'Ing. Monique Hoffmann MBA.',
-                    'value': '6'
+            'value': [
+                {
+                    'e-grid': {
+                        'label': 'Marc Caspar MBA.',
+                        'value': 'CH227060320651'
+                    },
+                    'lagekoordinaten-nord': {
+                        'label': 'Traugott Kaul',
+                        'value': 1230171.7275696846
+                    },
+                    'lagekoordinaten-ost': {
+                        'label': 'Ilona Henck B.Eng.',
+                        'value': 2607376.2625398953
+                    },
+                    'ort': {
+                        'label': 'Herr Hans-Rainer Zänker',
+                        'value': 'Rüttenen'
+                    },
+                    'parzellennummer': {
+                        'label': 'Univ.Prof. Randolf Oestrovsky B.A.',
+                        'value': '99'
+                    },
+                    'plz': {
+                        'label': 'Muzaffer Reuter',
+                        'value': '4500'
+                    },
+                    'strasse-flurname': {
+                        'label': 'Ing. Monique Hoffmann MBA.',
+                        'value': 'Kreuzen'
+                    },
+                    'strasse-nummer': {
+                        'label': 'Apostolos Klapp',
+                        'value': '6'
+                    }
                 }
-            }
+            ]
         },
         'richtplan-grundnutzung': {
-            'label': 'Traugott Kaul',
+            'label': 'Ing. Helen Jungfer',
             'value': 'Wald'
         },
         'richtplan-weiteres': {
-            'label': 'Ing. Helen Jungfer',
+            'label': 'Tülay Rose',
             'value': 'Waldnähe (aus Richtplan): Ja'
         },
         'strasse-flurname': {
-            'label': 'Muzaffer Reuter',
+            'label': 'Ing. Monique Hoffmann MBA.',
             'value': 'Kreuzen'
         },
         'strasse-nummer': {
-            'label': 'Ing. Monique Hoffmann MBA.',
+            'label': 'Apostolos Klapp',
             'value': '6'
         },
         'weitere-gis-informationen': {
-            'label': 'Rainer van der Dussen',
+            'label': 'Kay-Uwe Walter',
             'value': 'Denkmalschutz Schutzstufe: geschützt, Denkmalschutzobjekt: Sigristenhaus zu Kreuzen, Denkmalschutzobjekt: Verenaschlucht, Bodenbedeckung: geschlossener_Wald'
         }
     }
@@ -619,7 +633,7 @@ snapshots['test_sogis_client[monument-coords5] 1'] = {
 snapshots['test_sogis_client[moor-and-sanctuary-coords2] 1'] = {
     'data': {
         'bundesinventare': {
-            'label': 'Kay-Uwe Walter',
+            'label': 'Herr Michail Sauer B.Eng.',
             'value': 'Amphibien Ortsfeste Objekte: Grenchner Witi, Wasser- und Zugvogelreservate: Witi (BE,SO), Flachmoore: Altwasser'
         },
         'gemeinde': {
@@ -631,11 +645,11 @@ snapshots['test_sogis_client[moor-and-sanctuary-coords2] 1'] = {
             'value': 2546
         },
         'nutzungsplanung-grundnutzung': {
-            'label': 'Tülay Rose',
+            'label': 'Sinaida Söding-Christoph',
             'value': 'Landwirtschaftszone'
         },
         'nutzungsplanung-weitere-festlegungen': {
-            'label': 'Sinaida Söding-Christoph',
+            'label': 'Rainer van der Dussen',
             'value': None
         },
         'ort': {
@@ -645,59 +659,61 @@ snapshots['test_sogis_client[moor-and-sanctuary-coords2] 1'] = {
         'parzellen': {
             'form': 'those-charge-why',
             'label': 'Elwira Pärtzelt',
-            'value': {
-                'e-grid': {
-                    'label': 'Apostolos Klapp',
-                    'value': 'CH470673043283'
-                },
-                'lagekoordinaten-nord': {
-                    'label': 'Ilona Henck B.Eng.',
-                    'value': 1223872.4541323201
-                },
-                'lagekoordinaten-ost': {
-                    'label': 'Marc Caspar MBA.',
-                    'value': 2595908.1098607033
-                },
-                'ort': {
-                    'label': 'Herr Hans-Rainer Zänker',
-                    'value': 'Grenchen'
-                },
-                'parzellennummer': {
-                    'label': 'Univ.Prof. Randolf Oestrovsky B.A.',
-                    'value': '5'
-                },
-                'plz': {
-                    'label': None,
-                    'value': None
-                },
-                'strasse-flurname': {
-                    'label': 'Muzaffer Reuter',
-                    'value': None
-                },
-                'strasse-nummer': {
-                    'label': 'Ing. Monique Hoffmann MBA.',
-                    'value': None
+            'value': [
+                {
+                    'e-grid': {
+                        'label': 'Marc Caspar MBA.',
+                        'value': 'CH470673043283'
+                    },
+                    'lagekoordinaten-nord': {
+                        'label': 'Traugott Kaul',
+                        'value': 1223872.4541323201
+                    },
+                    'lagekoordinaten-ost': {
+                        'label': 'Ilona Henck B.Eng.',
+                        'value': 2595908.1098607033
+                    },
+                    'ort': {
+                        'label': 'Herr Hans-Rainer Zänker',
+                        'value': 'Grenchen'
+                    },
+                    'parzellennummer': {
+                        'label': 'Univ.Prof. Randolf Oestrovsky B.A.',
+                        'value': '5'
+                    },
+                    'plz': {
+                        'label': 'Muzaffer Reuter',
+                        'value': None
+                    },
+                    'strasse-flurname': {
+                        'label': 'Ing. Monique Hoffmann MBA.',
+                        'value': None
+                    },
+                    'strasse-nummer': {
+                        'label': 'Apostolos Klapp',
+                        'value': None
+                    }
                 }
-            }
+            ]
         },
         'richtplan-grundnutzung': {
-            'label': 'Traugott Kaul',
+            'label': 'Ing. Helen Jungfer',
             'value': 'Landwirtschaftsgebiet'
         },
         'richtplan-weiteres': {
-            'label': 'Ing. Helen Jungfer',
+            'label': 'Tülay Rose',
             'value': 'Waldnähe (aus Richtplan): Nein, Fläche: kantonales_Naturreservat, Fläche: kantonale_Uferschutzzone, Fläche: Witischutzzone'
         },
         'strasse-flurname': {
-            'label': 'Muzaffer Reuter',
-            'value': None
-        },
-        'strasse-nummer': {
             'label': 'Ing. Monique Hoffmann MBA.',
             'value': None
         },
+        'strasse-nummer': {
+            'label': 'Apostolos Klapp',
+            'value': None
+        },
         'weitere-gis-informationen': {
-            'label': 'Rainer van der Dussen',
+            'label': 'Kay-Uwe Walter',
             'value': None
         }
     }
@@ -706,7 +722,7 @@ snapshots['test_sogis_client[moor-and-sanctuary-coords2] 1'] = {
 snapshots['test_sogis_client[near-forest-coords1] 1'] = {
     'data': {
         'bundesinventare': {
-            'label': 'Kay-Uwe Walter',
+            'label': 'Herr Michail Sauer B.Eng.',
             'value': None
         },
         'gemeinde': {
@@ -718,11 +734,11 @@ snapshots['test_sogis_client[near-forest-coords1] 1'] = {
             'value': 2550
         },
         'nutzungsplanung-grundnutzung': {
-            'label': 'Tülay Rose',
+            'label': 'Sinaida Söding-Christoph',
             'value': 'Landwirtschaftszone'
         },
         'nutzungsplanung-weitere-festlegungen': {
-            'label': 'Sinaida Söding-Christoph',
+            'label': 'Rainer van der Dussen',
             'value': 'Grundwasserschutz: S2, Fläche: kommunale Landschaftsschutzzone'
         },
         'ort': {
@@ -732,59 +748,61 @@ snapshots['test_sogis_client[near-forest-coords1] 1'] = {
         'parzellen': {
             'form': 'those-charge-why',
             'label': 'Elwira Pärtzelt',
-            'value': {
-                'e-grid': {
-                    'label': 'Apostolos Klapp',
-                    'value': 'CH640632711258'
-                },
-                'lagekoordinaten-nord': {
-                    'label': 'Ilona Henck B.Eng.',
-                    'value': 1230671.22757022
-                },
-                'lagekoordinaten-ost': {
-                    'label': 'Marc Caspar MBA.',
-                    'value': 2606261.686890635
-                },
-                'ort': {
-                    'label': 'Herr Hans-Rainer Zänker',
-                    'value': 'Langendorf'
-                },
-                'parzellennummer': {
-                    'label': 'Univ.Prof. Randolf Oestrovsky B.A.',
-                    'value': '298'
-                },
-                'plz': {
-                    'label': None,
-                    'value': None
-                },
-                'strasse-flurname': {
-                    'label': 'Muzaffer Reuter',
-                    'value': None
-                },
-                'strasse-nummer': {
-                    'label': 'Ing. Monique Hoffmann MBA.',
-                    'value': None
+            'value': [
+                {
+                    'e-grid': {
+                        'label': 'Marc Caspar MBA.',
+                        'value': 'CH640632711258'
+                    },
+                    'lagekoordinaten-nord': {
+                        'label': 'Traugott Kaul',
+                        'value': 1230671.22757022
+                    },
+                    'lagekoordinaten-ost': {
+                        'label': 'Ilona Henck B.Eng.',
+                        'value': 2606261.686890635
+                    },
+                    'ort': {
+                        'label': 'Herr Hans-Rainer Zänker',
+                        'value': 'Langendorf'
+                    },
+                    'parzellennummer': {
+                        'label': 'Univ.Prof. Randolf Oestrovsky B.A.',
+                        'value': '298'
+                    },
+                    'plz': {
+                        'label': 'Muzaffer Reuter',
+                        'value': None
+                    },
+                    'strasse-flurname': {
+                        'label': 'Ing. Monique Hoffmann MBA.',
+                        'value': None
+                    },
+                    'strasse-nummer': {
+                        'label': 'Apostolos Klapp',
+                        'value': None
+                    }
                 }
-            }
+            ]
         },
         'richtplan-grundnutzung': {
-            'label': 'Traugott Kaul',
+            'label': 'Ing. Helen Jungfer',
             'value': 'Landwirtschaftsgebiet'
         },
         'richtplan-weiteres': {
-            'label': 'Ing. Helen Jungfer',
+            'label': 'Tülay Rose',
             'value': 'Waldnähe (aus Richtplan): Ja, Fläche: Grundwasserschutzzone_areal'
         },
         'strasse-flurname': {
-            'label': 'Muzaffer Reuter',
-            'value': None
-        },
-        'strasse-nummer': {
             'label': 'Ing. Monique Hoffmann MBA.',
             'value': None
         },
+        'strasse-nummer': {
+            'label': 'Apostolos Klapp',
+            'value': None
+        },
         'weitere-gis-informationen': {
-            'label': 'Rainer van der Dussen',
+            'label': 'Kay-Uwe Walter',
             'value': 'Bodenbedeckung: geschlossener_Wald'
         }
     }

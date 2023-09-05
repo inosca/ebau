@@ -12,16 +12,18 @@ snapshots['test_param_client 1'] = {
         'parzellen': {
             'form': 'owner-car-kitchen',
             'label': 'Suse Junk',
-            'value': {
-                'lagekoordinaten-nord': {
-                    'label': 'Mechtild Kobelt MBA.',
-                    'value': 1228434.884375
-                },
-                'lagekoordinaten-ost': {
-                    'label': 'Frau Isolde Zimmer MBA.',
-                    'value': 2607160.642708333
+            'value': [
+                {
+                    'lagekoordinaten-nord': {
+                        'label': 'Mechtild Kobelt MBA.',
+                        'value': 1228434.884375
+                    },
+                    'lagekoordinaten-ost': {
+                        'label': 'Frau Isolde Zimmer MBA.',
+                        'value': 2607160.642708333
+                    }
                 }
-            }
+            ]
         }
     }
 }

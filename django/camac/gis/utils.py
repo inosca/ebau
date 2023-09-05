@@ -1,6 +1,11 @@
-from typing import Any, Union
+from enum import Enum
+from typing import Any, List, Union
 
 from django.utils.translation import gettext as _
+
+
+class MergeStrategy(Enum):
+    MERGE_FIRST = "merge_first"
 
 
 def get_bbox(x: Union[float, str], y: Union[float, str], buffer: int = 0) -> str:
@@ -69,3 +74,28 @@ def concat_values(*parts: Any) -> str:
     deduped_parts = sorted(set(clean_parts), key=clean_parts.index)
 
     return ", ".join(deduped_parts).strip()
+
+
+def merge_table(
+    existing_rows: List[dict],
+    new_row: dict,
+    merge_strategy: MergeStrategy,
+) -> List[dict]:
+    if merge_strategy == MergeStrategy.MERGE_FIRST:
+        merge_data(existing_rows[0], new_row, merge_strategy)
+
+    return existing_rows
+
+
+def merge_data(data: dict, new_data: dict, merge_strategy: MergeStrategy) -> dict:
+    for key, value in new_data.items():
+        if key in data:
+            if isinstance(data[key], list):
+                for row in value:
+                    value = merge_table(data[key], row, merge_strategy)
+            else:
+                # If a previous data source already returned a value for a
+                # certain question we concat the new and old value
+                value = concat_values(data[key], value)
+
+        data[key] = value
