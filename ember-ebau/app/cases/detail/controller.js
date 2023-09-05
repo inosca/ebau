@@ -8,6 +8,7 @@ import { saveAs } from "file-saver";
 export default class DetailController extends Controller {
   @service router;
   @service fetch;
+  @service store;
 
   cases = useCalumaQuery(this, allCases, () => ({
     filter: [
@@ -15,7 +16,15 @@ export default class DetailController extends Controller {
         metaValue: [{ key: "camac-instance-id", value: this.model }],
       },
     ],
+    options: {
+      processNew: (cases) => this.processNew(cases),
+    },
   }));
+
+  async processNew(cases) {
+    await this.store.findRecord("instance", this.model);
+    return cases;
+  }
 
   get useFullScreen() {
     return (
