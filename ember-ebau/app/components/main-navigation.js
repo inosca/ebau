@@ -52,9 +52,7 @@ export default class MainNavigationComponent extends Component {
     }
   }
 
-  resources = trackedTask(this, this.fetchResources, () => [
-    this.session.group,
-  ]);
+  resources = trackedTask(this, this.fetchResources);
 
   @dropTask
   *fetchResources() {
@@ -63,13 +61,7 @@ export default class MainNavigationComponent extends Component {
     if (!this.session.isAuthenticated) {
       return;
     }
-    const resources = yield this.store.query("resource", {});
-
-    if (resources.length && this.router.currentURL === "/") {
-      this.router.transitionTo(resources.firstObject.link);
-    }
-
-    return resources;
+    return yield this.store.findAll("resource");
   }
 
   @action
@@ -103,10 +95,10 @@ export default class MainNavigationComponent extends Component {
       method: "POST",
     });
 
-    if (macroCondition(isTesting())) {
-      // Don't reload in testing
-    } else {
-      this.router.transitionTo("index");
+    this.store.unloadAll();
+    await this.fetchResources.perform();
+    if (this.resources.value.length) {
+      this.router.transitionTo(this.resources.value.firstObject.link);
     }
   }
 

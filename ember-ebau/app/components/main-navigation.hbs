@@ -43,7 +43,7 @@
               id="group-dropdown"
             >
               <ul class="uk-nav uk-dropdown-nav">
-                {{#each this.groups.value as |g|}}
+                {{#each (sort-by "name" this.groups.value) as |g|}}
                   <li class={{if (eq g.id this.group.id) "uk-active"}}>
                     <a
                       data-test-group={{g.id}}
