@@ -30,7 +30,7 @@ module.exports = function (defaults) {
         enableCommunications: ["be", "so"].includes(ENV),
         instancePaperFilterDefault: ENV === "ur",
         showProfileLink: ENV === "gr",
-        documentBackend: ["gr", "so"].includes(ENV) ? "alexandria" : "camac",
+        documentBackendCamac: !["gr", "so"].includes(ENV),
         useEbauNumber: ENV === "be",
       },
       setConfig: {
