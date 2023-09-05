@@ -7,7 +7,7 @@
 {{else}}
   <div class="uk-container main-content with-sidebar">
     {{! template-lint-disable no-bare-strings}}
-    <h2>Dossier {{or this.case.dossierNumber "-"}}</h2>
+    <h2>{{this.case.form}} {{or this.case.dossierNumber "-"}}</h2>
     {{! template-lint-enable no-bare-strings}}
     <div class="uk-child-width-1-4@s uk-text-left uk-margin-bottom" uk-grid>
       <div>
