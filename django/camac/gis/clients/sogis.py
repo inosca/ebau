@@ -85,10 +85,7 @@ class SoGisClient(GISBaseClient):
                         value, self.get_value(properties, property_config)
                     )
 
-            if property_config["question"] in data:
-                value = concat_values(data[property_config["question"]], value)
-
-            data[property_config["question"]] = value
+            self.set_question_value(data, property_config["question"], value)
 
         return data
 
