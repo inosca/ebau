@@ -13,8 +13,13 @@ export default class CustomCaseModel extends CustomCaseBaseModel {
   _getAnswer(slug) {
     return getAnswer(this.raw.document, slug);
   }
+
   get dossierNumber() {
     return this.raw.meta["dossier-number"];
+  }
+
+  get form() {
+    return this.instance?.name;
   }
 
   get municipality() {
