@@ -1156,9 +1156,12 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             file = alexandria_models.File.objects.create(
                 name=pdf.name, document=document
             )
-            Minio().client.put_object(
-                "alexandria-media", f"{file.pk}_{pdf.name}", pdf, pdf.size
+            minio = Minio()
+            minio.client.put_object(
+                minio.bucket, f"{file.pk}_{pdf.name}", pdf, pdf.size
             )
+            file.upload_status = alexandria_models.File.COMPLETED
+            file.save()
         else:
             attachment_section = AttachmentSection.objects.get(pk=target_lookup)
             attachment_section.attachments.create(
