@@ -64,7 +64,7 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "publikation.ende-publikationsorgan-der-gemeinde",
+    "pk": "publikation.ende-publikationsorgan-gemeinde",
     "fields": {
       "created_at": "2023-06-26T07:54:24.237Z",
       "modified_at": "2023-06-26T07:54:24.237Z",
@@ -73,7 +73,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "publikation",
-      "question": "ende-publikationsorgan-der-gemeinde",
+      "question": "ende-publikationsorgan-gemeinde",
       "sort": 6
     }
   },
@@ -109,16 +109,16 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "publikation.text-publikation",
+    "pk": "publikation.publikation-text",
     "fields": {
-      "created_at": "2023-06-26T08:00:20.576Z",
-      "modified_at": "2023-06-26T08:00:20.576Z",
+      "created_at": "2023-09-05T04:58:49.388Z",
+      "modified_at": "2023-09-05T04:58:49.388Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "publikation",
-      "question": "text-publikation",
+      "question": "publikation-text",
       "sort": 3
     }
   },
@@ -193,7 +193,7 @@
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
-        "calculatedPublicationDateSlug": "ende-publikationsorgan-der-gemeinde"
+        "calculatedPublicationDateSlug": "ende-publikationsorgan-gemeinde"
       },
       "data_source": null,
       "row_form": null,
@@ -202,7 +202,7 @@
       "format_validators": "[]",
       "default_answer": null,
       "calc_expression": null,
-      "calc_dependents": "[\"ende-publikationsorgan-der-gemeinde\"]"
+      "calc_dependents": "[\"ende-publikationsorgan-gemeinde\"]"
     }
   },
   {
@@ -242,7 +242,7 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "ende-publikationsorgan-der-gemeinde",
+    "pk": "ende-publikationsorgan-gemeinde",
     "fields": {
       "created_at": "2023-06-26T07:54:24.081Z",
       "modified_at": "2023-07-20T15:28:31.410Z",
@@ -346,10 +346,10 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "text-publikation",
+    "pk": "publikation-text",
     "fields": {
-      "created_at": "2023-06-26T08:00:20.400Z",
-      "modified_at": "2023-08-04T11:57:21.669Z",
+      "created_at": "2023-09-05T04:58:49.265Z",
+      "modified_at": "2023-09-05T04:58:58.346Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
