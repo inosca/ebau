@@ -64,7 +64,7 @@ def test_submit_event_sz(
     caplog.clear()
     serializer.update(
         ech_instance_sz,
-        data={
+        validated_data={
             "data": {
                 "type": "instances",
                 "attributes": {
