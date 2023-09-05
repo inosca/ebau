@@ -223,13 +223,13 @@ clean: ## Remove temporary files / build artefacts etc
 	@rm -rf ./ember/tmp ./ember-caluma-portal/tmp ./ember-camac-ng/tmp
 	@rm -rf ./ember/build ./ember-caluma-portal/build ./ember-camac-ng/build
 
+.PHONY: next-version
+next-version: ## Determine next version number
+	@node tools/bin/next-version.js
+
 .PHONY: release
 release: ## Draft a new release
-	@if [ -z $(version) ]; then echo "Please pass a version: make release version=x.x.x"; exit 1; fi
-	@echo $(version) > VERSION.txt
-	@sed -i -e 's/"version": ".*",/"version": "$(version)",/g' ember-camac-ng/package.json
-	@sed -i -e 's/"version": ".*",/"version": "$(version)",/g' ember-caluma-portal/package.json
-	@sed -i -e 's/__version__ = ".*"/__version__ = "$(version)"/g' django/camac/camac_metadata.py
+	@tools/bump-version.sh $(version)
 
 .PHONY: release-folder
 release-folder: ## Add a template for a release folder
