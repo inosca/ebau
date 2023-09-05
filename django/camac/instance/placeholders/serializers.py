@@ -447,6 +447,11 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
         aliases=[_("PUBLICATION_LINK")],
         description=_("Link to publication"),
     )
+    publikation_text = fields.PublicationField(
+        source="publikation-text",
+        aliases=[_("PUBLICATION_TEXT")],
+        description=_("Publication text of the instance"),
+    )
     status = fields.AliasedMethodField(
         aliases=[_("STATUS")],
         description=_("Current status of the instance"),
@@ -551,7 +556,7 @@ class GrDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         ),
     )
     ende_publikationsorgan_gemeinde = fields.PublicationField(
-        source="ende-publikationsorgan-der-gemeinde",
+        source="ende-publikationsorgan-gemeinde",
         value_key="date",
         parser=human_readable_date,
         aliases=[_("END_PUBLICATION_MUNICIPALITY")],
@@ -572,12 +577,6 @@ class GrDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         parser=human_readable_date,
         aliases=[_("END_PUBLICATION_CANTON")],
         description=_("End date of the publication in the cantonal Gazette"),
-    )
-    publikations_text = fields.PublicationField(
-        source="text-publikation",
-        value_key="value",
-        aliases=[_("PUBLICATION_TEXT")],
-        description=_("Publication text of the instance"),
     )
 
 
@@ -909,11 +908,6 @@ class BeDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         parser=human_readable_date,
         aliases=[_("PUBLICATION_START")],
         description=_("Start date of the publication of the instance"),
-    )
-    publikation_text = fields.PublicationField(
-        source="publikation-text",
-        aliases=[_("PUBLICATION_TEXT")],
-        description=_("Publication text of the instance"),
     )
     rechtsverwahrungen = fields.LegalSubmissionField(
         type="legal-submission-type-legal-custody",

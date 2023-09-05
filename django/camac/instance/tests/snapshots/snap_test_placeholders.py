@@ -4203,8 +4203,8 @@ snapshots['test_dms_placeholders_gr[Municipality] 1'] = {
     'BAUENTSCHEID': 'Bewilligt',
     'BAUENTSCHEID_DATUM': '30. August 2021',
     'BAUVORHABEN': 'Einfamilienhaus',
-    'BEGINN_PUBLIKATIONSORGAN_GEMEINDE': '',
-    'BEGINN_PUBLIKATION_KANTONSAMTSBLATT': '',
+    'BEGINN_PUBLIKATIONSORGAN_GEMEINDE': '20. August 2021',
+    'BEGINN_PUBLIKATION_KANTONSAMTSBLATT': '22. August 2021',
     'BESCHREIBUNG_BAUVORHABEN': 'Einfamilienhaus',
     'BESCHREIBUNG_PROJEKTAENDERUNG': 'Anbau Wintergarten',
     'DECISION_DATE': '30. August 2021',
@@ -4215,53 +4215,53 @@ snapshots['test_dms_placeholders_gr[Municipality] 1'] = {
     'EBAU_URL': 'http://ember-ebau.local',
     'EIGENE_NEBENBESTIMMUNGEN': '',
     'EIGENE_STELLUNGNAHMEN': '',
-    'ENDE_PUBLIKATIONSORGAN_GEMEINDE': '',
-    'ENDE_PUBLIKATION_GEMEINDE': '',
-    'ENDE_PUBLIKATION_KANTON': '',
-    'ENDE_PUBLIKATION_KANTONSAMTSBLATT': '',
+    'ENDE_PUBLIKATIONSORGAN_GEMEINDE': '21. August 2021',
+    'ENDE_PUBLIKATION_GEMEINDE': '21. August 2021',
+    'ENDE_PUBLIKATION_KANTON': '23. August 2021',
+    'ENDE_PUBLIKATION_KANTONSAMTSBLATT': '23. August 2021',
     'FACHSTELLEN_KANTONAL': [
         {
             'BEANTWORTET': '',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '28.07.2006',
-            'NAME': 'David Ellis'
+            'FRIST': '14.10.2011',
+            'NAME': 'Diane Adams'
         },
         {
             'BEANTWORTET': '',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '06.03.1980',
-            'NAME': 'Jermaine Walker'
+            'FRIST': '22.01.2004',
+            'NAME': 'Colleen Villanueva'
         },
         {
             'BEANTWORTET': '',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '03.10.2014',
-            'NAME': 'Lynn Drake'
+            'FRIST': '02.05.1973',
+            'NAME': 'Melissa Crawford'
         },
         {
             'BEANTWORTET': '',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '24.02.1974',
-            'NAME': 'Amy Greer'
+            'FRIST': '28.01.1976',
+            'NAME': 'Amber Hunt'
         },
         {
-            'BEANTWORTET': '21.11.1983',
+            'BEANTWORTET': '28.08.2019',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '07.12.1993',
-            'NAME': 'Robert Martin'
+            'FRIST': '13.02.1997',
+            'NAME': 'Charles Skinner'
         },
         {
-            'BEANTWORTET': '06.09.1981',
+            'BEANTWORTET': '03.09.1994',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '08.09.2019',
-            'NAME': 'Jeffery Lowe'
+            'FRIST': '25.08.1998',
+            'NAME': 'Mark Keller'
         }
     ],
     'FORM_NAME': 'Baugesuch',
-    'GEMEINDE': 'Patricia Shelton',
+    'GEMEINDE': 'Gabriella Webb',
     'GEMEINDE_ADRESSE': '',
-    'GEMEINDE_EMAIL': 'jameslong@example.net',
-    'GEMEINDE_NAME_ADRESSE': 'Gemeinde Patricia Shelton',
+    'GEMEINDE_EMAIL': 'stephaniemoss@example.org',
+    'GEMEINDE_NAME_ADRESSE': 'Gemeinde Gabriella Webb',
     'GEMEINDE_ORT': '',
     'GEMEINDE_TELEFON': '',
     'GESUCHSTELLER': 'Test AG, Esther Tester',
@@ -4304,7 +4304,7 @@ snapshots['test_dms_placeholders_gr[Municipality] 1'] = {
     'MEINE_ORGANISATION_NAME_KURZ': 'Alex Smith',
     'MEINE_ORGANISATION_ORT': 'Testdorf',
     'MEINE_ORGANISATION_TELEFON': '032163546546',
-    'MUNICIPALITY': 'Patricia Shelton',
+    'MUNICIPALITY': 'Gabriella Webb',
     'MUNICIPALITY_ADDRESS': '',
     'NAME': '',
     'NEBENBESTIMMUNGEN': '',
@@ -4318,12 +4318,11 @@ snapshots['test_dms_placeholders_gr[Municipality] 1'] = {
     'PROJEKTVERFASSER_ADRESSE_2': '3600 Thun',
     'PROJEKTVERFASSER_NAME_ADDRESS': 'Hans Muster, Bahnhofstrasse 3, 3600 Thun',
     'PROJEKTVERFASSER_NAME_ADRESSE': 'Hans Muster, Bahnhofstrasse 3, 3600 Thun',
-    'PUBLIKATIONS_TEXT': '',
     'PUBLIKATION_LINK': 'http://ebau-portal.local/public-instances/1',
-    'PUBLIKATION_TEXT': '',
+    'PUBLIKATION_TEXT': 'Text',
     'SPRACHE': 'de',
-    'START_PUBLIKATION_GEMEINDE': '',
-    'START_PUBLIKATION_KANTON': '',
+    'START_PUBLIKATION_GEMEINDE': '20. August 2021',
+    'START_PUBLIKATION_KANTON': '22. August 2021',
     'STATUS': 'David Rangel',
     'STELLUNGNAHME': '',
     'TODAY': '30. August 2021',
@@ -4331,66 +4330,66 @@ snapshots['test_dms_placeholders_gr[Municipality] 1'] = {
         {
             'BEANTWORTET': '',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '28.07.2006',
-            'NAME': 'David Ellis'
+            'FRIST': '14.10.2011',
+            'NAME': 'Diane Adams'
         },
         {
             'BEANTWORTET': '',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '06.03.1980',
-            'NAME': 'Jermaine Walker'
+            'FRIST': '22.01.2004',
+            'NAME': 'Colleen Villanueva'
         },
         {
             'BEANTWORTET': '',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '03.10.2014',
-            'NAME': 'Lynn Drake'
+            'FRIST': '02.05.1973',
+            'NAME': 'Melissa Crawford'
         },
         {
             'BEANTWORTET': '',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '24.02.1974',
-            'NAME': 'Amy Greer'
+            'FRIST': '28.01.1976',
+            'NAME': 'Amber Hunt'
         },
         {
-            'BEANTWORTET': '21.11.1983',
+            'BEANTWORTET': '28.08.2019',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '07.12.1993',
-            'NAME': 'Robert Martin'
+            'FRIST': '13.02.1997',
+            'NAME': 'Charles Skinner'
         },
         {
-            'BEANTWORTET': '06.09.1981',
+            'BEANTWORTET': '03.09.1994',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '08.09.2019',
-            'NAME': 'Jeffery Lowe'
+            'FRIST': '25.08.1998',
+            'NAME': 'Mark Keller'
         }
     ],
     'ZIRKULATION_FACHSTELLEN': [
         {
-            'BEANTWORTET': '21.11.1983',
+            'BEANTWORTET': '28.08.2019',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '07.12.1993',
-            'NAME': 'Robert Martin'
+            'FRIST': '13.02.1997',
+            'NAME': 'Charles Skinner'
         },
         {
-            'BEANTWORTET': '06.09.1981',
+            'BEANTWORTET': '03.09.1994',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '08.09.2019',
-            'NAME': 'Jeffery Lowe'
+            'FRIST': '25.08.1998',
+            'NAME': 'Mark Keller'
         }
     ],
     'ZIRKULATION_GEMEINDEN': [
         {
             'BEANTWORTET': '',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '03.10.2014',
-            'NAME': 'Lynn Drake'
+            'FRIST': '02.05.1973',
+            'NAME': 'Melissa Crawford'
         },
         {
             'BEANTWORTET': '',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '24.02.1974',
-            'NAME': 'Amy Greer'
+            'FRIST': '28.01.1976',
+            'NAME': 'Amber Hunt'
         }
     ],
     'ZIRKULATION_RUECKMELDUNGEN': [
@@ -4398,13 +4397,13 @@ snapshots['test_dms_placeholders_gr[Municipality] 1'] = {
             'ANTWORT': '',
             'NEBENBESTIMMUNGEN': 'Nebenbestimmungen 5',
             'STELLUNGNAHME': 'Stellungnahme 5',
-            'VON': 'Robert Martin'
+            'VON': 'Charles Skinner'
         },
         {
             'ANTWORT': '',
             'NEBENBESTIMMUNGEN': 'Nebenbestimmungen 6',
             'STELLUNGNAHME': 'Stellungnahme 6',
-            'VON': 'Jeffery Lowe'
+            'VON': 'Mark Keller'
         }
     ]
 }

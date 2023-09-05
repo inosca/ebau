@@ -94,6 +94,7 @@ def test_dms_placeholders_gr(
     form_question_factory,
     active_inquiry_factory,
     gr_dms_config,
+    group,
 ):
     application_settings["MUNICIPALITY_DATA_SHEET"] = settings.ROOT_DIR(
         "kt_gr",
@@ -110,48 +111,22 @@ def test_dms_placeholders_gr(
     responsible_service.save()
 
     # publication
-    publication_work_item = work_item_factory(
+    document = DocumentFactory()
+
+    add_answer(document, "publikation-anzeiger-von", "Bärnerblatt")
+    add_answer(document, "publikation-text", "Text")
+    add_answer(document, "beginn-publikationsorgan-gemeinde", date(2021, 8, 20))
+    add_answer(document, "ende-publikationsorgan-gemeinde", date(2021, 8, 21))
+    add_answer(document, "beginn-publikation-kantonsamtsblatt", date(2021, 8, 22))
+    add_answer(document, "ende-publikation-kantonsamtsblatt", date(2021, 8, 23))
+
+    WorkItemFactory(
         case=gr_instance.case,
         task_id="fill-publication",
         status=WorkItem.STATUS_COMPLETED,
-        document=document_factory(form_id="publikation"),
-    )
-    start_publication_municipality = question_factory(
-        slug="beginn-publikationsorgan-gemeinde", type=Question.TYPE_DATE
-    )
-    end_publication_municipality = question_factory(
-        slug="ende-publikationsorgan-der-gemeinde", type=Question.TYPE_DATE
-    )
-    start_publication_canton = question_factory(
-        slug="beginn-publikation-kantonsamtsblatt", type=Question.TYPE_DATE
-    )
-    end_publication_canton = question_factory(
-        slug="ende-publikation-kantonsamtsblatt", type=Question.TYPE_DATE
-    )
-    publication_text = question_factory(
-        slug="text-publikation", type=Question.TYPE_TEXT
-    )
-    form_question_factory(
-        form_id="publikation", question=start_publication_municipality
-    )
-    form_question_factory(form_id="publikation", question=end_publication_municipality)
-    form_question_factory(form_id="publikation", question=start_publication_canton)
-    form_question_factory(form_id="publikation", question=end_publication_canton)
-    form_question_factory(form_id="publikation", question=publication_text)
-    publication_work_item.document.answers.create(
-        question_id="beginn-publikationsorgan-gemeinde", date=date.today()
-    )
-    publication_work_item.document.answers.create(
-        question_id="ende-publikationsorgan-der-gemeinde", date=date.today()
-    )
-    publication_work_item.document.answers.create(
-        question_id="beginn-publikation-kantonsamtsblatt", date=date.today()
-    )
-    publication_work_item.document.answers.create(
-        question_id="ende-publikation-kantonsamtsblatt", date=date.today()
-    )
-    publication_work_item.document.answers.create(
-        question_id="text-publikation", value="Publikationstext Beispiel"
+        addressed_groups=[str(group.service_id)],
+        document=document,
+        meta={"is-published": True},
     )
 
     # decision
