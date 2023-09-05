@@ -1920,9 +1920,6 @@ class InstanceSubmitSerializer(InstanceSerializer):
         if location is None:
             raise exceptions.ValidationError(_("No location assigned."))
 
-        data["identifier"] = domain_logic.CreateInstanceLogic.generate_identifier(
-            self.instance
-        )
         form_validator = validators.FormDataValidator(self.instance)
         form_validator.validate()
 
@@ -1947,8 +1944,17 @@ class InstanceSubmitSerializer(InstanceSerializer):
 
         return data
 
-    def update(self, instance, data):
-        instance = super().update(instance, data)
+    @transaction.atomic
+    def update(self, instance, validated_data):
+        instance = super().update(instance, validated_data)
+
+        # Generate identifier and save it immediately to minimize the
+        # possibility of submitting instances with the same identifier
+        instance.identifier = domain_logic.CreateInstanceLogic.generate_identifier(
+            instance
+        )
+        instance.save()
+
         instance_submitted.send(
             sender=self.__class__,
             instance=instance,
