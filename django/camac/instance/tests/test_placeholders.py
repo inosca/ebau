@@ -94,6 +94,7 @@ def test_dms_placeholders_gr(
     form_question_factory,
     active_inquiry_factory,
     gr_dms_config,
+    group,
 ):
     application_settings["MUNICIPALITY_DATA_SHEET"] = settings.ROOT_DIR(
         "kt_gr",
@@ -108,6 +109,25 @@ def test_dms_placeholders_gr(
     responsible_service.zip = "1234"
     responsible_service.website = "www.example.com"
     responsible_service.save()
+
+    # publication
+    document = DocumentFactory()
+
+    add_answer(document, "publikation-anzeiger-von", "Bärnerblatt")
+    add_answer(document, "publikation-text", "Text")
+    add_answer(document, "beginn-publikationsorgan-gemeinde", date(2021, 8, 20))
+    add_answer(document, "ende-publikationsorgan-gemeinde", date(2021, 8, 21))
+    add_answer(document, "beginn-publikation-kantonsamtsblatt", date(2021, 8, 22))
+    add_answer(document, "ende-publikation-kantonsamtsblatt", date(2021, 8, 23))
+
+    WorkItemFactory(
+        case=gr_instance.case,
+        task_id="fill-publication",
+        status=WorkItem.STATUS_COMPLETED,
+        addressed_groups=[str(group.service_id)],
+        document=document,
+        meta={"is-published": True},
+    )
 
     # decision
     decision_work_item = work_item_factory(

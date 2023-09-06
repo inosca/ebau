@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-30 13:00+0200\n"
-"PO-Revision-Date: 2023-08-24 14:28+0200\n"
+"PO-Revision-Date: 2023-09-04 14:03+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
@@ -630,6 +630,38 @@ msgstr "BAUENTSCHEID"
 msgid "Decision"
 msgstr "Bauentscheid"
 
+#: camac/instance/placeholders/serializers.py:548
+msgid "START_PUBLICATION_MUNICIPALITY"
+msgstr "START_PUBLIKATION_GEMEINDE"
+
+#: camac/instance/placeholders/serializers.py:550
+msgid "Start date of the publication in the publication organ of the municipality"
+msgstr "Startdatum der Publikation im Publikationsorgan der Gemeinde"
+
+#: camac/instance/placeholders/serializers.py:557
+msgid "END_PUBLICATION_MUNICIPALITY"
+msgstr "ENDE_PUBLIKATION_GEMEINDE"
+
+#: camac/instance/placeholders/serializers.py:559
+msgid "End date of the publication in the publication organ of the municipality"
+msgstr "Enddatum der Publikation im Publikationsorgan der Gemeinde"
+
+#: camac/instance/placeholders/serializers.py:566
+msgid "START_PUBLICATION_CANTON"
+msgstr "START_PUBLIKATION_KANTON"
+
+#: camac/instance/placeholders/serializers.py:567
+msgid "Start date of the publication in the cantonal Gazette"
+msgstr "Startdatum der Publikation im Kantonsamtsblatt"
+
+#: camac/instance/placeholders/serializers.py:573
+msgid "END_PUBLICATION_CANTON"
+msgstr "ENDE_PUBLIKATION_KANTON"
+
+#: camac/instance/placeholders/serializers.py:574
+msgid "End date of the publication in the cantonal Gazette"
+msgstr "Enddatum der Publikation im Kantonsamtsblatt"
+
 #: camac/instance/placeholders/serializers.py:549
 msgid "EBAU_NUMBER"
 msgstr "EBAU_NR"
@@ -1010,10 +1042,12 @@ msgstr "PUBLIKATION_START"
 msgid "Start date of the publication of the instance"
 msgstr "Startdatum der Publikation des Dossiers"
 
+#: camac/instance/placeholders/serializers.py:579
 #: camac/instance/placeholders/serializers.py:877
 msgid "PUBLICATION_TEXT"
 msgstr "PUBLIKATION_TEXT"
 
+#: camac/instance/placeholders/serializers.py:580
 #: camac/instance/placeholders/serializers.py:878
 msgid "Publication text of the instance"
 msgstr "Publikationstext des Dossiers"
