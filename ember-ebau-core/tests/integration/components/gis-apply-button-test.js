@@ -45,12 +45,20 @@ module("Integration | Component | gis-apply-button", function (hooks) {
           "some-table": {
             label: "Some Table",
             form: "some-table-form",
-            value: {
-              "some-table-question": {
-                label: "Some Table Question",
-                value: "My 2nd value",
+            value: [
+              {
+                "some-table-question": {
+                  label: "Some Table Question",
+                  value: "My 2nd value",
+                },
               },
-            },
+              {
+                "some-table-question": {
+                  label: "Some Table Question",
+                  value: "My 3rd value",
+                },
+              },
+            ],
           },
         },
       };
@@ -67,6 +75,7 @@ module("Integration | Component | gis-apply-button", function (hooks) {
     await click("[data-test-apply]");
     await waitFor("[data-test-gis-data-row]");
 
+    // Root level questions
     assert
       .dom("[data-test-gis-data-row]:nth-of-type(1) [data-test-gis-data-label]")
       .hasText("Some Question");
@@ -74,9 +83,10 @@ module("Integration | Component | gis-apply-button", function (hooks) {
       .dom("[data-test-gis-data-row]:nth-of-type(1) [data-test-gis-data-value]")
       .hasText("My value");
 
+    // Table row 1
     assert
       .dom("[data-test-gis-data-row]:nth-of-type(2) [data-test-gis-data-label]")
-      .hasText("Some Table");
+      .hasText('Some Table t:so-gis.row-count:("count":1)');
     assert
       .dom(
         "[data-test-gis-data-row]:nth-of-type(2) [data-test-gis-data-table-label]",
@@ -87,6 +97,21 @@ module("Integration | Component | gis-apply-button", function (hooks) {
         "[data-test-gis-data-row]:nth-of-type(2) [data-test-gis-data-table-value]",
       )
       .hasText("My 2nd value");
+
+    // Table row 2
+    assert
+      .dom("[data-test-gis-data-row]:nth-of-type(3) [data-test-gis-data-label]")
+      .hasText('Some Table t:so-gis.row-count:("count":2)');
+    assert
+      .dom(
+        "[data-test-gis-data-row]:nth-of-type(3) [data-test-gis-data-table-label]",
+      )
+      .hasText("Some Table Question");
+    assert
+      .dom(
+        "[data-test-gis-data-row]:nth-of-type(3) [data-test-gis-data-table-value]",
+      )
+      .hasText("My 3rd value");
 
     await click("[data-test-confirm]");
 

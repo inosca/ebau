@@ -82,10 +82,7 @@ class AdminGisClient(GISBaseClient):
                     value, self.get_value(attributes, label, attribute_config)
                 )
 
-            if attribute_config["question"] in data:
-                value = concat_values(data[attribute_config["question"]], value)
-
-            data[attribute_config["question"]] = value
+            self.set_question_value(data, attribute_config["question"], value)
 
         return data
 
