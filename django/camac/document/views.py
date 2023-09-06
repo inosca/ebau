@@ -13,7 +13,7 @@ from drf_yasg import openapi
 from drf_yasg.errors import SwaggerGenerationError
 from drf_yasg.inspectors import SwaggerAutoSchema
 from drf_yasg.utils import param_list_to_odict, swagger_auto_schema
-from rest_framework import exceptions, generics
+from rest_framework import exceptions, generics, status
 from rest_framework.decorators import action
 from rest_framework.exceptions import NotFound, ValidationError
 from rest_framework.permissions import IsAuthenticated
@@ -23,6 +23,7 @@ from sorl.thumbnail import get_thumbnail
 from sorl.thumbnail.engines.convert_engine import EngineError
 
 from camac.core.views import SendfileHttpResponse
+from camac.instance.document_merge_service import DMSHandler
 from camac.instance.mixins import InstanceEditableMixin, InstanceQuerysetMixin
 from camac.instance.models import Instance
 from camac.notification.serializers import InstanceMergeSerializer
@@ -256,6 +257,29 @@ class AttachmentView(
         # - EngineError: sorl-thumbnail engine throws an error
         except (AttributeError, ValueError, FileNotFoundError, EngineError):
             raise exceptions.NotFound()
+
+    @action(methods=["post"], detail=True)
+    @swagger_auto_schema(auto_schema=None)
+    def convert(self, request, **kwargs):
+        attachment = self.get_object()
+        temporary_pdf_file = DMSHandler().convert_docx_to_pdf(
+            request, attachment.path.file
+        )
+
+        filename_as_pdf = attachment.name.replace(".docx", ".pdf")
+
+        existing_pdf_copy = models.Attachment.objects.filter(
+            name=filename_as_pdf, instance=attachment.instance
+        ).first()
+
+        if existing_pdf_copy:
+            existing_pdf_copy.delete()
+
+        attachment.make_copy_with_new_file(
+            temporary_pdf_file, request.group, request.user
+        )
+
+        return HttpResponse(status=status.HTTP_201_CREATED)
 
 
 attachments_param = openapi.Parameter(
