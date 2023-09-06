@@ -40,5 +40,11 @@ PARASHIFT = {
             "API_KEY": env.str("PARASHIFT_API_KEY_1215", default="ey..."),
             "CAMAC_GROUP_ID": 152,
         },
+        # Seedorf (Ortsteil Bauen)
+        "1204": {
+            "TENANT_ID": env.int("PARASHIFT_TENANT_ID_1204", default=0000),
+            "API_KEY": env.str("PARASHIFT_API_KEY_1204", default="ey..."),
+            "CAMAC_GROUP_ID": 144,
+        },
     },
 }
