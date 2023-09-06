@@ -1632,34 +1632,32 @@ def test_instance_generate_identifier(
 
 
 @pytest.mark.parametrize(
-    "existing_dossier_number,expected_dossier_number,case_with_dossier_number",
+    "existing_dossier_numbers,expected_dossier_number",
     [
-        (None, "2023-1", False),
-        ("2023-1", "2023-2", True),
-        ("2023-2", "2023-3", True),
-        ("2023-999", "2023-1000", True),
+        (None, "2023-1"),
+        (["2023-1"], "2023-2"),
+        (["1999-9999", "2022-99999", "2023-9", "2023-10"], "2023-11"),
     ],
 )
+@pytest.mark.freeze_time("2023-7-27")
 def test_instance_generate_identifier_gr(
     db,
     gr_instance,
     instance,
     case_factory,
-    existing_dossier_number,
+    existing_dossier_numbers,
     expected_dossier_number,
-    case_with_dossier_number,
     application_settings,
 ):
     application_settings["SHORT_NAME"] = "gr"
-    if case_with_dossier_number:
-        gr_instance.case = case_factory(
-            meta={"dossier-number": existing_dossier_number}
-        )
-        gr_instance.save()
+    if existing_dossier_numbers:
+        for nr in existing_dossier_numbers:
+            case_factory(meta={"dossier-number": nr})
 
-    new_identifier = domain_logic.CreateInstanceLogic.generate_identifier(instance)
-
-    assert new_identifier == expected_dossier_number
+    assert (
+        domain_logic.CreateInstanceLogic.generate_identifier(instance)
+        == expected_dossier_number
+    )
 
 
 @pytest.mark.freeze_time("2017-7-27")
