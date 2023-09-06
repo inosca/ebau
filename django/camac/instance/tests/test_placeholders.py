@@ -129,6 +129,11 @@ def test_dms_placeholders_gr(
         meta={"is-published": True},
     )
 
+    # Prepare project modification
+    add_answer(
+        gr_instance.case.document, "beschreibung-projektaenderung", "Projektänderung"
+    )
+
     # decision
     decision_work_item = work_item_factory(
         case=gr_instance.case,
