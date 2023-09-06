@@ -3979,7 +3979,22 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "bauanzeige-bauvorhaben-betrifft",
-      "sort": 2
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauvorhaben.bauanzeige-haustechnische-anlagen-brandschutz",
+    "fields": {
+      "created_at": "2023-09-06T07:17:38.677Z",
+      "modified_at": "2023-09-06T07:17:38.677Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauvorhaben",
+      "question": "bauanzeige-haustechnische-anlagen-brandschutz",
+      "sort": 1
     }
   },
   {
@@ -19951,6 +19966,38 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Neubau / Ausbau / Umbau von haustechnischen (w\\u00e4rmetechnischen) Anlagen\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bauanzeige-haustechnische-anlagen-brandschutz-ja",
+    "fields": {
+      "created_at": "2023-09-06T07:17:38.383Z",
+      "modified_at": "2023-09-06T07:17:38.383Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bauanzeige-haustechnische-anlagen-brandschutz-nein",
+    "fields": {
+      "created_at": "2023-09-06T07:17:38.375Z",
+      "modified_at": "2023-09-06T07:17:38.375Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -39854,6 +39901,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "bauanzeige-haustechnische-anlagen-brandschutz",
+    "fields": {
+      "created_at": "2023-09-06T07:17:38.540Z",
+      "modified_at": "2023-09-06T07:19:11.481Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ist das Bauvorhaben feuerpolizeilich bewilligungspflichtig?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "!(form == \"bauanzeige\")",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"### Feuerpolizeiliche Bewilligung\\n\\nGem\\u00e4ss Brandschutzgesetz, Art. 7 Abs. 1 Feuerpolizeiliche Bewilligungspflicht: Bewilligungspflichtig sind: \\n\\n\\n1. Neu-, An-, Um- und Ausbauten sowie die Umnutzung von Geb\\u00e4uden oder Geb\\u00e4udeteilen;<br>\\n1. Neu-, Aus- und Umbauten von haustechnischen Anlagen und technischen Brandschutzeinrichtungen;<br>\\n1. Betriebe, Anlagen und Einrichtungen, die der Herstellung, Verarbeitung oder Lagerung feuer- oder explosionsgef\\u00e4hrlicher Stoffe und Waren dienen;<br>\\n1. Veranstaltungen mit besonderer Gef\\u00e4hrdung von Personen, Tieren oder Sachen;<br>\\n1. das Abbrennen von pyrotechnischen Gegenst\\u00e4nden zu Vergn\\u00fcgungszwecken (Feuerwerksk\\u00f6rper) und zu gewerblichen Zwecken.<br>\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "bauart",
     "fields": {
       "created_at": "2023-05-25T07:01:18.880Z",
@@ -45254,18 +45332,18 @@
     "pk": "brandbekaempfung-titel",
     "fields": {
       "created_at": "2023-05-25T07:34:56.281Z",
-      "modified_at": "2023-05-25T07:34:56.281Z",
+      "modified_at": "2023-09-06T07:14:47.080Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Brandbek\\u00e4mpfung Titel\", \"fr\": null, \"it\": null}",
       "type": "static",
       "is_required": "false",
-      "is_hidden": "!(\"ausserhalb-bauzone-ja\" == \"ausserhalb-bauzone\"|answer)",
+      "is_hidden": "!(\"ausserhalb-bauzone-ja\" == \"ausserhalb-bauzone\"|answer(null))",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"---\\n#### Brandbek\\u00e4mpfung\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -45285,7 +45363,7 @@
     "pk": "brandschutz-bauliche-angaben",
     "fields": {
       "created_at": "2023-07-03T06:40:11.779Z",
-      "modified_at": "2023-07-03T07:01:40.678Z",
+      "modified_at": "2023-09-06T07:24:01.594Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -45293,7 +45371,7 @@
       "label": "{\"de\": \"Brandschutz - Bauliche Angaben\", \"fr\": null, \"it\": null}",
       "type": "form",
       "is_required": "false",
-      "is_hidden": "!(\"haustechnische-anlagen-brandschutz-ja\" == \"haustechnische-anlagen-brandschutz\"|answer)",
+      "is_hidden": "!(\"bauanzeige-haustechnische-anlagen-brandschutz-ja\" == \"bauanzeige-haustechnische-anlagen-brandschutz\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -45347,7 +45425,7 @@
     "pk": "brandschutz-haustechnik-form",
     "fields": {
       "created_at": "2023-07-03T06:41:47.016Z",
-      "modified_at": "2023-07-03T07:01:54.010Z",
+      "modified_at": "2023-09-06T07:24:29.424Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -45355,7 +45433,7 @@
       "label": "{\"de\": \"Brandschutz - Haustechnik\", \"fr\": null, \"it\": null}",
       "type": "form",
       "is_required": "false",
-      "is_hidden": "!(\"haustechnische-anlagen-brandschutz-ja\" == \"haustechnische-anlagen-brandschutz\"|answer)",
+      "is_hidden": "!(\"bauanzeige-haustechnische-anlagen-brandschutz-ja\" == \"bauanzeige-haustechnische-anlagen-brandschutz\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -72949,6 +73027,36 @@
       "modified_by_group": null,
       "question": "bauanzeige-bauvorhaben-betrifft",
       "option": "bauanzeige-bauvorhaben-betrifft-neubau-ausbau",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bauanzeige-haustechnische-anlagen-brandschutz.bauanzeige-haustechnische-anlagen-brandschutz-ja",
+    "fields": {
+      "created_at": "2023-09-06T07:19:11.495Z",
+      "modified_at": "2023-09-06T07:19:11.495Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "bauanzeige-haustechnische-anlagen-brandschutz",
+      "option": "bauanzeige-haustechnische-anlagen-brandschutz-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bauanzeige-haustechnische-anlagen-brandschutz.bauanzeige-haustechnische-anlagen-brandschutz-nein",
+    "fields": {
+      "created_at": "2023-09-06T07:19:11.491Z",
+      "modified_at": "2023-09-06T07:19:11.491Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "bauanzeige-haustechnische-anlagen-brandschutz",
+      "option": "bauanzeige-haustechnische-anlagen-brandschutz-nein",
       "sort": 1
     }
   },
