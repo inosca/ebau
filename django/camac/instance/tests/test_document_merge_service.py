@@ -385,6 +385,12 @@ def test_eingabebestaetigung_gr(
         ],
     )
 
+    # Prepare project modification
+    add_answer(gr_instance.case.document, "projektaenderung", "projektaenderung-ja")
+    add_answer(
+        gr_instance.case.document, "beschreibung-projektaenderung", "Projekt Änderung"
+    )
+
     # Prepare plot address
     add_answer(gr_instance.case.document, "strasse-flurname", "Bahnhofstrasse")
     add_answer(gr_instance.case.document, "nr", "2")

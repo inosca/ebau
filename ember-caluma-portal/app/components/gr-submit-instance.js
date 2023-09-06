@@ -62,7 +62,7 @@ export default class BeSubmitInstanceComponent extends DocumentValidityButtonCom
     try {
       // generate document in CAMAC
       const response = yield this.fetch.fetch(
-        `/api/v1/instances/${this.args.context.instanceId}/generate-pdf`,
+        `/api/v1/instances/${this.args.context.instanceId}/generate-pdf?template=eingabequittung`,
       );
 
       const filename = response.headers

@@ -47487,7 +47487,8 @@
       "meta": {
         "action": "submit",
         "hideLabel": true,
-        "widgetOverride": "gr-submit-instance"
+        "widgetOverride": "gr-submit-instance",
+        "template": "eingabequittung"
       },
       "data_source": null,
       "row_form": null,
