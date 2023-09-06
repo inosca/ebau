@@ -3,21 +3,35 @@ import { tracked } from "@glimmer/tracking";
 
 export default class AlexandriaConfigService extends Service {
   @service store;
+  @service session;
 
   @tracked instanceId;
 
   get modelMetaFilters() {
     return {
-      document: [
-        { key: "camac-instance-id", value: this.instanceId.toString() },
-      ],
+      document: [{ key: "camac-instance-id", value: String(this.instanceId) }],
     };
   }
 
   get defaultModelMeta() {
     return {
-      document: { "camac-instance-id": this.instanceId },
+      document: { "camac-instance-id": String(this.instanceId) },
     };
+  }
+
+  get activeGroup() {
+    return this.session.service.id;
+  }
+  set activeGroup(_) {
+    // we do not need the setter
+  }
+
+  get activeUser() {
+    return this.session.user.id;
+  }
+
+  get accessToken() {
+    return this.session.data.authenticated.access_token;
   }
 
   resolveUser(id) {
@@ -33,4 +47,5 @@ export default class AlexandriaConfigService extends Service {
   }
 
   namespace = "/alexandria/api/v1";
+  zipDownloadNamespace = "/alexandria";
 }
