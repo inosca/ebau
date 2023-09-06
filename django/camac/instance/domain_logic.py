@@ -16,7 +16,7 @@ from camac.caluma.api import CalumaApi
 from camac.caluma.extensions.data_sources import Municipalities
 from camac.constants import kt_uri as ur_constants
 from camac.core.models import InstanceLocation, InstanceService
-from camac.core.utils import canton_aware
+from camac.core.utils import canton_aware, generate_dossier_nr
 from camac.instance.models import Instance, InstanceGroup
 from camac.user.permissions import permission_aware
 
@@ -196,26 +196,7 @@ class CreateInstanceLogic:
 
     @classmethod
     def generate_identifier_gr(cls, instance: Instance) -> str:
-        year = timezone.now().year
-        case = (
-            workflow_models.Case.objects.filter(
-                **{"meta__dossier-number__isnull": False}
-            )
-            .order_by("-meta__dossier-number")
-            .first()
-        )
-
-        if not case:
-            return "-".join([str(year), "1"])
-
-        last_position = int(case.meta["dossier-number"].split("-")[-1])
-
-        return "-".join(
-            [
-                str(year),
-                str(last_position + 1),
-            ]
-        )
+        return generate_dossier_nr(timezone.now().year)
 
     @staticmethod
     def initialize_caluma(
