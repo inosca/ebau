@@ -3710,10 +3710,11 @@ APPLICATIONS = {
                 "notification.NotificationTemplateT": Q(template__type="email"),
             },
             # Sync the "core" groups (admin, support, portal) between servers, the rest is treated as data
-            "user_core_groups": {
-                "user.Group": Q(pk__lte=3),
-                "user.GroupT": Q(pk__lte=3),
-            },
+            # TODO: uncomment as soon as the customer manages the services
+            # "user_core_groups": {
+            #     "user.Group": Q(pk__lte=3),
+            #     "user.GroupT": Q(pk__lte=3),
+            # },
             # Dashboard
             "dashboard": {
                 **generate_form_dump_config(regex=r"^dashboard?$"),
@@ -3721,10 +3722,11 @@ APPLICATIONS = {
             },
         },
         "DUMP_CONFIG_EXCLUDED_MODELS": [
-            "user.Group",
-            "user.GroupT",
-            "user.Service",
-            "user.ServiceT",
+            # TODO: uncomment as soon as the customer manages the services
+            # "user.Group",
+            # "user.GroupT",
+            # "user.Service",
+            # "user.ServiceT",
         ],
         "MASTER_DATA": {
             "applicants": (
