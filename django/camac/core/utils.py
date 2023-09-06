@@ -14,21 +14,31 @@ from camac.instance.models import HistoryEntry, HistoryEntryT, Instance
 from camac.user.models import User
 
 
-def generate_ebau_nr(year: int) -> str:
-    max_number = (
-        Case.objects.filter(**{"meta__ebau-number__startswith": year})
+def generate_special_id(special_id_key: str, year: int) -> str:
+    max_increment = (
+        Case.objects.filter(**{f"meta__{special_id_key}__startswith": year})
         .annotate(
-            ebau_nr=Cast(
-                Substr(Cast(KeyTextTransform("ebau-number", "meta"), CharField()), 6),
+            increment=Cast(
+                Substr(Cast(KeyTextTransform(special_id_key, "meta"), CharField()), 6),
                 IntegerField(),
             )
         )
-        .order_by("-ebau_nr")
-        .values_list("ebau_nr", flat=True)
+        .order_by("-increment")
+        .values_list("increment", flat=True)
         .first()
     )
 
-    return "%d-%d" % (year, (max_number or 0) + 1)
+    return "%d-%d" % (year, (max_increment or 0) + 1)
+
+
+def generate_ebau_nr(year: int) -> str:
+    """Generate the next eBau number (Kt. BE)."""
+    return generate_special_id("ebau-number", year)
+
+
+def generate_dossier_nr(year: int) -> str:
+    """Generate the next Dossier number (Kt. GR, SO)."""
+    return generate_special_id("dossier-number", year)
 
 
 def assign_ebau_nr(instance: Instance, year=None) -> str:
