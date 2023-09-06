@@ -134,6 +134,11 @@ export default class CustomWorkItemModel extends WorkItemModel {
     const ebauNr = this.case?.meta["ebau-number"];
     const suffix = ebauNr ? `(${ebauNr})` : "";
 
+    if (mainConfig.name === "gr") {
+      const dossierNr = this.case?.meta["dossier-number"];
+      return `${dossierNr} - ${name}`;
+    }
+
     if (name) {
       return `${identifier} - ${name} ${suffix}`.trim();
     }
