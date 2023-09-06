@@ -1,3 +1,4 @@
+import mimetypes
 from uuid import uuid4
 
 import reversion
@@ -6,6 +7,7 @@ from django.contrib.postgres.fields import ArrayField
 from django.core.validators import MaxValueValidator
 from django.db import models
 from django.utils import timezone
+from django.utils.timezone import now
 
 from camac.core import models as core_models
 
@@ -105,6 +107,24 @@ class Attachment(models.Model):
         if not display_name:
             display_name = ".".join(self.name.split(".")[:-1])
         return display_name
+
+    def make_copy_with_new_file(self, new_file, group, user):
+        copy = Attachment.objects.create(
+            path=new_file,
+            instance=self.instance,
+            name=new_file.name,
+            size=new_file.size,
+            user=user,
+            mime_type=mimetypes.guess_type(new_file.name)[0],
+            date=now(),
+            group=group,
+            service=group.service,
+            context=self.context,
+        )
+        copy.attachment_sections.set(self.attachment_sections.all())
+        copy.save()
+
+        return copy
 
     class Meta:
         managed = True
