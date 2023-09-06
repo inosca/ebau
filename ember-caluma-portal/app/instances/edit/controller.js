@@ -63,14 +63,25 @@ export default class InstancesEditController extends Controller {
       return [];
     }
 
-    if (macroCondition(getOwnConfig().documentBackend === "camac")) {
-      yield Promise.resolve();
-
+    yield Promise.resolve();
+    if (macroCondition(getOwnConfig().documentBackendCamac)) {
       return yield this.store.query("attachment", {
         instance: this.model,
         attachment_sections:
           config.APPLICATION.documents.feedbackSections.join(","),
         include: "attachment_sections",
+      });
+      // eslint-disable-next-line no-else-return
+    } else {
+      return yield this.store.query("document", {
+        filter: {
+          category: config.APPLICATION.documents.feedbackSections.join(","),
+          metainfo: JSON.stringify([
+            { key: "camac-instance-id", value: String(this.model) },
+          ]),
+        },
+        include: "category,files",
+        sort: "title",
       });
     }
   }
@@ -78,7 +89,7 @@ export default class InstancesEditController extends Controller {
   @dropTask
   *fetchDecisionAttachments() {
     yield Promise.resolve();
-    if (macroCondition(getOwnConfig().documentBackend === "camac")) {
+    if (macroCondition(getOwnConfig().documentBackendCamac)) {
       return yield this.store.query("attachment", {
         instance: this.model,
         context: JSON.stringify({
