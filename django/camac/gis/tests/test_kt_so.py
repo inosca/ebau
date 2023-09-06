@@ -30,6 +30,7 @@ def so_data_sources(question_factory, settings):
         ("parzellen", Question.TYPE_TABLE),
         ("parzellennummer", Question.TYPE_TEXT),
         ("ort", Question.TYPE_TEXT),
+        ("plz", Question.TYPE_TEXT),
         ("strasse-flurname", Question.TYPE_TEXT),
         ("strasse-nummer", Question.TYPE_TEXT),
         ("e-grid", Question.TYPE_TEXT),

@@ -7,6 +7,7 @@ from rest_framework.renderers import JSONRenderer
 from rest_framework.response import Response
 
 from camac.gis.models import GISDataSource
+from camac.gis.utils import merge_data
 
 
 def get_client(identifier):
@@ -21,22 +22,6 @@ class GISDataView(ListAPIView):
     renderer_classes = [JSONRenderer]
     queryset = GISDataSource.objects.filter(disabled=False)
 
-    def parse_nested(self, data: dict) -> dict:
-        new_data = {}
-
-        for key, value in data.items():
-            if "." in key:
-                root_key, child_key = key.split(".")
-
-                if root_key not in new_data:
-                    new_data[root_key] = {}
-
-                new_data[root_key][child_key] = value
-            else:
-                new_data[key] = value
-
-        return new_data
-
     def add_labels(self, data: dict) -> dict:
         labeled_data = {}
 
@@ -47,8 +32,8 @@ class GISDataView(ListAPIView):
                 .first()
             )
 
-            if isinstance(value, dict):
-                value = self.add_labels(value)
+            if isinstance(value, list):
+                value = [self.add_labels(row) for row in value]
 
             labeled_data[question_slug] = {
                 "label": str(question.label) if question else None,
@@ -76,12 +61,13 @@ class GISDataView(ListAPIView):
 
                 new_data, new_errors = client.get_data()
 
-                data.update(new_data)
+                merge_data(data, new_data, client.merge_strategy)
+
                 errors.extend(new_errors)
         except ValueError as e:
             raise ValidationError(e)
 
-        response = {"data": self.add_labels(self.parse_nested(data))}
+        response = {"data": self.add_labels(data)}
 
         if len(errors) > 0:
             response["errors"] = errors

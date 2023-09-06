@@ -31,9 +31,11 @@ class ParamGisClient(GISBaseClient):
         data = {}
 
         for param_config in config:
-            data[param_config["question"]] = cast(
+            value = cast(
                 self.params.get(param_config["parameterName"], None),
                 param_config.get("cast"),
             )
+
+            self.set_question_value(data, param_config["question"], value)
 
         return data

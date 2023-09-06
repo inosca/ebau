@@ -5,3 +5,4 @@ so-gis:
   point-error: Die Parzelle konnte nicht ausgewählt werden.
   select: Auswählen
   search-error: Die Suche ist fehlgeschlagen
+  row-count: "(Zeile {count})"
