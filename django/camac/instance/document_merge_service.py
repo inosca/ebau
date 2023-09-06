@@ -315,23 +315,30 @@ class DMSHandler:
 
         return _file
 
+    def convert_docx_to_pdf(self, request, file):
+        auth = get_authorization_header(request)
+        dms_client = DMSClient(auth)
+        pdf_binary = dms_client.convert_docx_to_pdf(file)
+
+        filename = file.name.split("/")[-1].split(".")[0]
+
+        _file = ContentFile(pdf_binary, f"{filename}.pdf")
+        _file.content_type = "application/pdf"
+
+        return _file
+
 
 class DMSClient:
     def __init__(self, auth_token, url=settings.DOCUMENT_MERGE_SERVICE_URL):
         self.auth_token = auth_token
         self.url = url
 
-    def merge(self, data, template, convert="pdf", add_headers={}):
-        headers = {"authorization": self.auth_token, "content-type": "application/json"}
-        headers.update(add_headers)
-        url = build_url(self.url, f"/template/{template}/merge", trailing=True)
-
+    def _make_dms_request(self, url, **kwargs):
         response = requests.post(
             url,
-            # use the django json encoder to correctly encode dates and
-            # datetimes without manual parsing
-            data=json.dumps({"convert": convert, "data": data}, cls=DjangoJSONEncoder),
-            headers=headers,
+            data=kwargs.get("data", None),
+            headers=kwargs.get("headers", None),
+            files=kwargs.get("files", None),
         )
 
         if response.status_code == status.HTTP_401_UNAUTHORIZED:
@@ -340,6 +347,28 @@ class DMSClient:
         response.raise_for_status()
 
         return response.content
+
+    def merge(self, data, template, convert="pdf", add_headers={}):
+        headers = {"authorization": self.auth_token, "content-type": "application/json"}
+        headers.update(add_headers)
+        url = build_url(self.url, f"/template/{template}/merge", trailing=True)
+
+        return self._make_dms_request(
+            url,
+            data=json.dumps({"convert": convert, "data": data}, cls=DjangoJSONEncoder),
+            headers=headers,
+        )
+
+    def convert_docx_to_pdf(self, file):
+        headers = {"authorization": self.auth_token}
+        url = build_url(self.url, "/convert", trailing=False)
+
+        return self._make_dms_request(
+            url,
+            files={"file": file},
+            data={"target_format": "pdf"},
+            headers=headers,
+        )
 
 
 class DMSVisitor:
