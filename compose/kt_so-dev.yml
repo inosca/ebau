@@ -178,7 +178,7 @@ services:
       ]
 
   minio:
-    image: minio/minio:RELEASE.2023-07-21T21-12-44Z
+    image: minio/minio:RELEASE.2023-09-04T19-57-37Z
     volumes:
       - minio_data:/data
     environment:
@@ -192,7 +192,7 @@ services:
     command: server data --console-address ":9090"
 
   mc:
-    image: minio/mc:RELEASE.2023-07-21T20-44-27Z
+    image: minio/mc:RELEASE.2023-09-02T21-28-03Z
     depends_on:
       - minio
     restart: on-failure
