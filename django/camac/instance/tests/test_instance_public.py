@@ -704,7 +704,7 @@ def test_public_caluma_instance_gr(
     )
     AnswerFactory(
         document=document,
-        question__slug="ende-publikationsorgan-der-gemeinde",
+        question__slug="ende-publikationsorgan-gemeinde",
         date=timezone.now().date() + timedelta(days=2),
     )
     WorkItemFactory(

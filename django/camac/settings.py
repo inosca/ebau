@@ -188,16 +188,6 @@ COMMON_FORM_SLUGS_BE = [
     "gebaudeeigentumerin",
     "vertreterin-mit-vollmacht",
 ]
-PUBLICATION_FORM_SLUGS_GR = [
-    "publikation",
-    "beginn-publikation-kantonsamtsblatt",
-    "beginn-publikationsorgan-gemeinde",
-    "ende-publikation-kantonsamtsblatt",
-    "ende-publikationsorgan-der-gemeinde",
-    "oeffentliche-auflage",
-    "publikation-freigeben",
-    "text-publikation",
-]
 
 DISTRIBUTION_REGEX = r"(inquir(y|ies)|distribution)"
 

@@ -447,6 +447,11 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
         aliases=[_("PUBLICATION_LINK")],
         description=_("Link to publication"),
     )
+    publikation_text = fields.PublicationField(
+        source="publikation-text",
+        aliases=[_("PUBLICATION_TEXT")],
+        description=_("Publication text of the instance"),
+    )
     status = fields.AliasedMethodField(
         aliases=[_("STATUS")],
         description=_("Current status of the instance"),
@@ -540,6 +545,38 @@ class GrDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         source="decision-decision",
         aliases=[_("DECISION")],
         description=_("Decision"),
+    )
+    beginn_publikationsorgan_gemeinde = fields.PublicationField(
+        source="beginn-publikationsorgan-gemeinde",
+        value_key="date",
+        parser=human_readable_date,
+        aliases=[_("START_PUBLICATION_MUNICIPALITY")],
+        description=_(
+            "Start date of the publication in the publication organ of the municipality"
+        ),
+    )
+    ende_publikationsorgan_gemeinde = fields.PublicationField(
+        source="ende-publikationsorgan-gemeinde",
+        value_key="date",
+        parser=human_readable_date,
+        aliases=[_("END_PUBLICATION_MUNICIPALITY")],
+        description=_(
+            "End date of the publication in the publication organ of the municipality"
+        ),
+    )
+    beginn_publikation_kantonsamtsblatt = fields.PublicationField(
+        source="beginn-publikation-kantonsamtsblatt",
+        value_key="date",
+        parser=human_readable_date,
+        aliases=[_("START_PUBLICATION_CANTON")],
+        description=_("Start date of the publication in the cantonal Gazette"),
+    )
+    ende_publikation_kantonsamtsblatt = fields.PublicationField(
+        source="ende-publikation-kantonsamtsblatt",
+        value_key="date",
+        parser=human_readable_date,
+        aliases=[_("END_PUBLICATION_CANTON")],
+        description=_("End date of the publication in the cantonal Gazette"),
     )
 
 
@@ -871,11 +908,6 @@ class BeDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         parser=human_readable_date,
         aliases=[_("PUBLICATION_START")],
         description=_("Start date of the publication of the instance"),
-    )
-    publikation_text = fields.PublicationField(
-        source="publikation-text",
-        aliases=[_("PUBLICATION_TEXT")],
-        description=_("Publication text of the instance"),
     )
     rechtsverwahrungen = fields.LegalSubmissionField(
         type="legal-submission-type-legal-custody",

@@ -38,7 +38,7 @@ PUBLICATION = {
         "ENABLED": True,
         "USE_CALCULATED_DATES": True,
         "START_QUESTION": "beginn-publikationsorgan-gemeinde",
-        "END_QUESTION": "ende-publikationsorgan-der-gemeinde",
+        "END_QUESTION": "ende-publikationsorgan-gemeinde",
         "PUBLISH_QUESTION": "oeffentliche-auflage",
     },
 }
