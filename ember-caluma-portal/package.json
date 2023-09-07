@@ -33,6 +33,8 @@
     "@ember/test-helpers": "3.2.0",
     "@embroider/macros": "1.13.1",
     "@faker-js/faker": "8.0.2",
+    "@fortawesome/ember-fontawesome": "1.0.1",
+    "@fortawesome/free-solid-svg-icons": "6.4.2",
     "@glimmer/component": "1.1.2",
     "@glimmer/tracking": "1.1.2",
     "@projectcaluma/ember-core": "12.3.1",

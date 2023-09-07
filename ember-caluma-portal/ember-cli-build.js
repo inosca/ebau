@@ -32,6 +32,7 @@ module.exports = function (defaults) {
         showProfileLink: ENV === "gr",
         documentBackendCamac: !["gr", "so"].includes(ENV),
         useEbauNumber: ENV === "be",
+        eGovPortalURL: process.env.EGOV_PORTAL_URL ?? "https://my-t.so.ch",
       },
       setConfig: {
         "@ember-data/store": {
