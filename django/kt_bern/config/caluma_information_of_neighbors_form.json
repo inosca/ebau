@@ -247,6 +247,7 @@
       "configuration": {
         "color": "primary",
         "action": "complete",
+        "show_validation": false,
         "validate_on_enter": false
       },
       "meta": {},
