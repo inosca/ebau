@@ -7,11 +7,15 @@ from caluma.caluma_workflow.api import (
     cancel_work_item,
     complete_work_item,
     redo_work_item,
+    resume_case,
     resume_work_item,
     skip_work_item,
+    suspend_case,
 )
 from caluma.caluma_workflow.models import Case, WorkItem
 from django.utils.timezone import now
+
+from camac.constants import kt_bern as bern_constants
 
 
 def _inquiry_factory(
@@ -64,6 +68,10 @@ def distribution_case_be(
     notification_template_factory(slug="03-verfahren-vorzeitig-beendet")
     instance_state_factory(name="circulation")
     instance_state_factory(name="coordination")
+    instance_state_factory(
+        instance_state_id=bern_constants.INSTANCE_STATE_CORRECTION_IN_PROGRESS,
+        name="correction",
+    )
 
     case = be_instance.case
 
@@ -332,6 +340,78 @@ def test_send_inquiry(
     assert len(mailoutbox) == 2
     assert mailoutbox[0].to[0] == "applicant@example.com"
     assert mailoutbox[1].to[0] == addressed_service.email
+
+
+@pytest.mark.freeze_time("2022-03-23")
+@pytest.mark.parametrize("user__email", ["applicant@example.com"])
+def test_do_not_send_inquiry_in_correction(
+    db,
+    caluma_admin_user,
+    be_instance,
+    distribution_child_case_be,
+    be_distribution_settings,
+    inquiry_factory_be,
+    mailoutbox,
+    mocker,
+    service_factory,
+    instance_state_factory,
+    service,
+    settings,
+):
+    settings.APPLICATION_NAME = "kt_bern"
+    instance_state_correction = instance_state_factory(name="correction")
+    mocker.patch(
+        "camac.constants.kt_bern.INSTANCE_STATE_CORRECTION_IN_PROGRESS",
+        instance_state_correction.pk,
+    )
+
+    addressed_service1 = service_factory()
+    addressed_service2 = service_factory()
+
+    inquiry1 = inquiry_factory_be(
+        to_service=addressed_service1, from_service=service, sent=True
+    )
+    inquiry2 = inquiry_factory_be(
+        to_service=addressed_service2, from_service=addressed_service1, sent=True
+    )
+    inquiry3 = inquiry_factory_be(
+        to_service=addressed_service2, from_service=addressed_service1, sent=False
+    )
+
+    assert inquiry1.status == WorkItem.STATUS_READY
+    assert inquiry2.status == WorkItem.STATUS_READY
+    assert inquiry3.status == WorkItem.STATUS_SUSPENDED
+    assert len(mailoutbox) == 3
+    mailoutbox.clear()
+
+    # dossier correction
+    suspend_case(be_instance.case, caluma_admin_user)
+
+    be_instance.instance_state = instance_state_correction
+    be_instance.save()
+
+    be_instance.refresh_from_db()
+    inquiry1.refresh_from_db()
+    inquiry2.refresh_from_db()
+    inquiry3.refresh_from_db()
+
+    assert inquiry1.status == WorkItem.STATUS_SUSPENDED
+    assert inquiry2.status == WorkItem.STATUS_SUSPENDED
+    assert inquiry3.status == WorkItem.STATUS_SUSPENDED
+    assert len(mailoutbox) == 0
+
+    # finish dossier correction
+    resume_case(be_instance.case, caluma_admin_user)
+
+    be_instance.refresh_from_db()
+    inquiry1.refresh_from_db()
+    inquiry2.refresh_from_db()
+    inquiry3.refresh_from_db()
+
+    assert inquiry1.status == WorkItem.STATUS_READY
+    assert inquiry2.status == WorkItem.STATUS_READY
+    assert inquiry3.status == WorkItem.STATUS_SUSPENDED
+    assert len(mailoutbox) == 0
 
 
 @pytest.mark.freeze_time("2022-03-23")
