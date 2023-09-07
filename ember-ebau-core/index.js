@@ -40,6 +40,7 @@ module.exports = {
         hasBuildingControl: ENV === "be",
         excelExportEnabled: ["be", "sz"].includes(ENV),
         showCreatePaperButton: ["be", "gr"].includes(ENV),
+        showMergeAndSaveButton: ENV !== "gr",
       },
     },
   },
