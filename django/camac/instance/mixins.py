@@ -256,8 +256,8 @@ class InstanceQuerysetMixin(object):
                 "meta__is-published": True,
                 "status": WorkItem.STATUS_COMPLETED,
             }
-            start_question = settings.PUBLICATION.get("START_QUESTION")
-            end_question = settings.PUBLICATION.get("END_QUESTION")
+            start_questions = settings.PUBLICATION.get("START_QUESTIONS")
+            end_questions = settings.PUBLICATION.get("END_QUESTIONS")
             publish_question = settings.PUBLICATION.get("PUBLISH_QUESTION")
 
             if public_access_key:
@@ -267,20 +267,21 @@ class InstanceQuerysetMixin(object):
                         "document__pk__startswith": public_access_key,
                     }
                 )
-                start_question = "information-of-neighbors-start-date"
-                end_question = "information-of-neighbors-end-date"
+                start_questions = ["information-of-neighbors-start-date"]
+                end_questions = ["information-of-neighbors-end-date"]
 
             public_cases = (
                 WorkItem.objects.filter(**filters)
                 .filter(
-                    document__answers__question_id=start_question,
+                    document__answers__question_id__in=start_questions,
                     document__answers__date__lte=timezone.now(),
                 )
                 .filter(
-                    document__answers__question_id=end_question,
+                    document__answers__question_id__in=end_questions,
                     document__answers__date__gte=timezone.now(),
                 )
             )
+
             if publish_question:
                 public_cases = public_cases.filter(
                     document__answers__question_id=publish_question,

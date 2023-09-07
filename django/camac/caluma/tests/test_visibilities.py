@@ -806,6 +806,7 @@ def test_public_document_visibility(
     gql,
     is_public_user,
 ):
+    settings.APPLICATION_NAME = "kt_bern"
     create_caluma_publication(be_instance)
     applicant_factory(instance=be_instance, invitee=admin_user)
 
