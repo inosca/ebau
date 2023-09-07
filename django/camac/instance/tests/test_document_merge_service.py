@@ -81,22 +81,22 @@ def test_document_merge_service_snapshot(
         (
             "baugesuch",
             {"instance_id": 1},
-            22,
+            21,
         ),
         (
             "sb1",
             {"instance_id": 3, "form_slug": "sb1"},
-            28,
+            27,
         ),
         (
             "sb2",
             {"instance_id": 3, "form_slug": "sb2"},
-            28,
+            27,
         ),
         (
             "mp-form",
             {"instance_id": 3, "document_id": "da618b68-b4a8-414f-9d5e-50e0fda43cde"},
-            26,
+            25,
         ),
     ]:
         with django_assert_num_queries(expected_queries):
@@ -298,6 +298,7 @@ def test_eingabebestaetigung_gr(
     master_data_is_visible_mock,
 ):
     settings.APPLICATION_NAME = "kt_gr"
+    application_settings["DOCUMENT_BACKEND"] = "alexandria"
     application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_gr"]["MASTER_DATA"]
 
     gr_instance.case.meta = {
@@ -315,10 +316,14 @@ def test_eingabebestaetigung_gr(
     group.service = municipality
     group.save()
 
-    alexandria_category = CategoryFactory(pk="beilagen-zum-gesuch")
+    alexandria_category = CategoryFactory()
+
+    application_settings["DOCUMENT_MERGE_SERVICE"]["ALEXANDRIA_DOCUMENT_CATEGORIES"] = [
+        alexandria_category.pk
+    ]
 
     AlexandriaDocument.objects.create(
-        title="Test",
+        title="Lageplan.pdf",
         category=alexandria_category,
         metainfo={"camac-instance-id": gr_instance.pk},
     )
