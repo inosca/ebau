@@ -3709,6 +3709,10 @@ APPLICATIONS = {
             "dashboard": {
                 **generate_form_dump_config(regex=r"^dashboard?$"),
                 "caluma_form.Document": Q(form="dashboard"),
+                # Static content
+                "caluma_form.Answer": Q(
+                    question_id__in=["portal-faq-inhalt-de", "portal-terms-inhalt-de"]
+                ),
             },
         },
         "DUMP_CONFIG_EXCLUDED_MODELS": [
