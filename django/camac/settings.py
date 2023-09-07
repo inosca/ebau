@@ -386,7 +386,7 @@ APPLICATIONS = {
             "responsible_koor",
         ],
         "ATTACHMENT_SECTION_INTERNAL": 4,
-        "DOCUMENT_BACKEND": "alexandria",
+        "DOCUMENT_BACKEND": "camac-ng",
         "DOCUMENT_MERGE_SERVICE": {},
         "ALEXANDRIA": {
             "PUBLIC_ROLE": "applicant",
@@ -3448,6 +3448,12 @@ APPLICATIONS = {
                 },
             },
             "ADD_HEADER_DATA": True,
+            "ALEXANDRIA_DOCUMENT_CATEGORIES": [
+                "beilagen-zum-gesuch-grundstuecksangaben",
+                "beilagen-zum-gesuch-gutachten-nachweise-begruendungen",
+                "beilagen-zum-gesuch-projektplaene-projektbeschrieb",
+                "beilagen-zum-gesuch-weitere-gesuchsunterlagen",
+            ],
         },
         "MASTER_DATA": {
             "applicants": (
@@ -3806,6 +3812,12 @@ APPLICATIONS = {
                 },
             },
             "ADD_HEADER_DATA": True,
+            "ALEXANDRIA_DOCUMENT_CATEGORIES": [
+                "beilagen-zum-gesuch-grundstuecksangaben",
+                "beilagen-zum-gesuch-gutachten-nachweise-begruendungen",
+                "beilagen-zum-gesuch-projektplaene-projektbeschrieb",
+                "beilagen-zum-gesuch-weitere-gesuchsunterlagen",
+            ],
         },
     },
 }

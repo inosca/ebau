@@ -2582,7 +2582,11 @@ snapshots['test_eingabebestaetigung_gr 1'] = {
     'descriptionHeader': 'Bau Einfamilienhaus',
     'descriptionHeaderLabel': 'Beschreibung',
     'documents': [
-        'Test, erstellt am 06.09.2022 um 15:37 Uhr'
+        {
+            'date': '06.09.2022',
+            'filename': 'Lageplan.pdf',
+            'time': '15:37'
+        }
     ],
     'dossierNr': None,
     'formType': None,
