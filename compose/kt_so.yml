@@ -17,10 +17,13 @@ services:
       dockerfile: ./ember-caluma-portal/Dockerfile
       cache_from:
         - acr.run/camac-ng/camac-ng/ember-caluma-portal:${TAG:-master}
+      target: env-prod
       args:
         APPLICATION: ${APPLICATION}
-        KEYCLOAK_HOST: ${KEYCLOAK_HOST:-http://ebau-keycloak.local}
-        INTERNAL_URL: ${INTERNAL_URL:-http://ember-ebau.local}
+        KEYCLOAK_HOST: $$KEYCLOAK_HOST
+        SO_GIS_URL: $$SO_GIS_URL
+        INTERNAL_URL: $$INTERNAL_URL
+        EGOV_PORTAL_URL: $$EGOV_PORTAL_URL
 
   ember-ebau:
     image: acr.run/camac-ng/camac-ng/ember-ebau:${TAG:-master}
@@ -29,9 +32,12 @@ services:
       dockerfile: ./ember-ebau/Dockerfile
       cache_from:
         - acr.run/camac-ng/camac-ng/ember-ebau:${TAG:-master}
+      target: env-prod
       args:
         APPLICATION: ${APPLICATION}
-        KEYCLOAK_HOST: ${KEYCLOAK_HOST:-http://ebau-keycloak.local}
+        KEYCLOAK_HOST: $$KEYCLOAK_HOST
+        PORTAL_URL: $$PORTAL_URL
+        SO_GIS_URL: $$SO_GIS_URL
 
   keycloak:
     image: acr.run/camac-ng/camac-ng/keycloak:${TAG:-master}
