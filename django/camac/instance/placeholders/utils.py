@@ -112,14 +112,26 @@ def prepare_documents(instance):
         # not implemented
         return []
 
-    alexandria_document_filter = {"metainfo__camac-instance-id": instance.pk}
+    categories = settings.APPLICATION.get("DOCUMENT_MERGE_SERVICE", {}).get(
+        "ALEXANDRIA_DOCUMENT_CATEGORIES", []
+    )
 
-    documents = alexandria_models.Document.objects.filter(**alexandria_document_filter)
-
-    data = []
-    for document in documents:
-        data.append(
-            f"{document.title['de']}, erstellt am {document.created_at.astimezone(get_current_timezone()).strftime('%d.%m.%Y um %H:%M Uhr')}"
+    documents = (
+        alexandria_models.Document.objects.filter(
+            category_id__in=categories,
+            instance_document__instance=instance,
         )
+        .order_by("-created_at")
+        .values("title", "created_at")
+    )
 
-    return data
+    timezone = get_current_timezone()
+
+    return [
+        {
+            "filename": str(document["title"]),
+            "date": document["created_at"].astimezone(timezone).strftime("%d.%m.%Y"),
+            "time": document["created_at"].astimezone(timezone).strftime("%H:%M"),
+        }
+        for document in documents
+    ]
