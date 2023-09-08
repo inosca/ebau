@@ -22,6 +22,15 @@ ARG EGOV_PORTAL_URL
 
 RUN yarn deploy production
 
+# Currently only used by SO
+FROM nginxinc/nginx-unprivileged:1.25-alpine as env-prod
+
+COPY --from=build /myapp/ember-caluma-portal/build /usr/share/nginx/html
+COPY nginx/ember.conf /etc/nginx/conf.d/default.conf
+COPY nginx/replace-env-vars.sh /usr/local/bin/replace-env-vars
+
+CMD /bin/sh -c "replace-env-vars '\${KEYCLOAK_HOST},\${BE_GIS_URL},\${SO_GIS_URL},\${INTERNAL_URL},\${EGOV_PORTAL_URL}' /usr/share/nginx/html && nginx -g 'daemon off;'"
+
 FROM nginxinc/nginx-unprivileged:1.25-alpine
 
 COPY --from=build /myapp/ember-caluma-portal/build /usr/share/nginx/html
