@@ -3803,8 +3803,9 @@ APPLICATIONS = {
                     "personalien": "personalien",
                     "exclude_slugs": [
                         # Forms
-                        "einreichen",
                         "allgemeine-informationen",
+                        "dokumente",
+                        "einreichen",
                         # Questions
                         "is-paper",
                         "projektaenderung",
