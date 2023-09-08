@@ -127,23 +127,22 @@ export default class CustomWorkItemModel extends WorkItemModel {
   }
 
   get instanceName() {
-    const identifier = this.instance?.identifier || this.instanceId;
     const name = this.isCalumaBackend
       ? this.case?.document.form.name
       : this.instance?.name || this.instance?.form.get("description");
-    const ebauNr = this.case?.meta["ebau-number"];
-    const suffix = ebauNr ? `(${ebauNr})` : "";
-
-    if (mainConfig.name === "gr") {
-      const dossierNr = this.case?.meta["dossier-number"];
-      return `${dossierNr} - ${name}`;
-    }
+    const specialId =
+      this.case?.meta[mainConfig.answerSlugs.specialId] ||
+      this.instance?.identifier;
+    const suffix = specialId ? `(${specialId})` : "";
 
     if (name) {
-      return `${identifier} - ${name} ${suffix}`.trim();
+      const prefix = mainConfig.showInstanceIdAfterSubmission
+        ? `${this.instanceId} - `
+        : "";
+      return `${prefix}${name} ${suffix}`.trim();
     }
 
-    return identifier;
+    return this.instanceId;
   }
 
   get instanceDescription() {

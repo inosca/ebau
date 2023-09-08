@@ -3,6 +3,7 @@ export default {
   languages: ["de", "fr"],
   fallbackLanguage: "de",
   prodUrl: "www.ebau.apps.be.ch",
+  showInstanceIdAfterSubmission: true,
   gwr: {
     cantonAbbreviation: "BE",
     importModels: ["project"],
