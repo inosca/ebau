@@ -20,7 +20,7 @@ ARG SO_GIS_URL
 
 RUN yarn deploy production
 
-FROM nginx:1.25-alpine
+FROM nginxinc/nginx-unprivileged:1.25-alpine
 
 COPY --from=build /myapp/ember-ebau/build /usr/share/nginx/html
 COPY ./ember-ebau/nginx.conf /etc/nginx/conf.d/default.conf
