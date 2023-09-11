@@ -8,14 +8,15 @@ ENV APP_HOME=/app
 ENV DJANGO_SETTINGS_MODULE camac.settings
 ENV UWSGI_INI $APP_HOME/uwsgi.ini
 ENV DATABASE_PORT 5432
+ENV STATIC_DIR=$APP_HOME/staticfiles
 
-RUN mkdir -p $APP_HOME \
+RUN mkdir -p $APP_HOME $STATIC_DIR \
     && useradd -u 901 -r ebau --create-home \
     # All project specific folders need to be accessible by newly created user
     # but also for unknown users (when UID is set manually). Such users are in
     # group root.
-    && chown -R ebau:root $HOME \
-    && chmod -R 770 $HOME
+    && chown -R ebau:root $HOME $STATIC_DIR \
+    && chmod -R 770 $HOME $STATIC_DIR
 
 RUN \
   --mount=type=cache,target=/var/cache/apt \
