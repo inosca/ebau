@@ -11,6 +11,7 @@ import { getConfig } from "ember-simple-auth-oidc/config";
 import Session from "ember-simple-auth-oidc/services/session";
 import { getUserLocales } from "get-user-locale";
 import { localCopy, cached } from "tracked-toolbox";
+import UIkit from "uikit";
 
 const { languages, fallbackLanguage } = mainConfig;
 
@@ -158,6 +159,11 @@ export default class CustomSession extends Session {
       `${language}-${mainConfig.name}`,
       language,
     ]);
+
+    UIkit.modal.i18n = {
+      ok: this.intl.t("global.ok"),
+      cancel: this.intl.t("global.cancel"),
+    };
   }
 
   get authHeaders() {

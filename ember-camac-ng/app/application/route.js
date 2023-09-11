@@ -8,6 +8,7 @@ import InquiryAnswerStatus from "ember-ebau-core/components/inquiry-answer-statu
 import LinkAttachmentsComponent from "ember-ebau-core/components/link-attachments";
 import UrGisComponent from "ember-ebau-core/components/ur-gis";
 import mainConfig from "ember-ebau-core/config/main";
+import UIkit from "uikit";
 
 import AssignEbauNumberButtonComponent from "camac-ng/components/assign-ebau-number-button";
 import CfCollapsibleTextareaComponent from "camac-ng/components/cf-collapsible-textarea";
@@ -40,6 +41,11 @@ export default class ApplicationRoute extends Route {
         `${language}-${application}`,
         language,
       ]);
+
+      UIkit.modal.i18n = {
+        ok: this.intl.t("global.ok"),
+        cancel: this.intl.t("global.cancel"),
+      };
     }
 
     this.calumaOptions.registerComponentOverride({
