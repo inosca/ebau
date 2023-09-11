@@ -49,6 +49,7 @@ module.exports = function (environment) {
   };
   const instanceStatesSo = {
     new: 1,
+    subm: 2,
   };
   const appConfig = {
     demo: {
@@ -385,7 +386,7 @@ module.exports = function (environment) {
       useConfidential: false,
       defaultInstanceStateCategory: "pending",
       instanceStateCategories: {
-        pending: [instanceStatesSo.new],
+        pending: [instanceStatesSo.new, instanceStatesSo.subm],
       },
       completePreliminaryClarificationSlugs: [],
       selectableGroups: {

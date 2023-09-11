@@ -1,10 +1,11 @@
-export default {
+const config = {
   name: "so",
   languages: ["de"],
   fallbackLanguage: "de",
   allowApplicantManualWorkItem: false,
   instanceStates: {
     new: 1,
+    subm: 2,
   },
   answerSlugs: {
     objectStreet: "strasse-flurname",
@@ -12,6 +13,7 @@ export default {
     objectLocation: "ort",
     description: "umschreibung-bauprojekt",
     municipality: "gemeinde",
+    specialId: "dossier-number",
     parcelNumber: "parzellennummer",
     firstNameApplicant: "vorname",
     lastNameApplicant: "nachname",
@@ -27,7 +29,6 @@ export default {
     juristicNameRegexp: "^juristische-person-name$",
     emailRegexp: "^e-mail$",
   },
-  intentSlugs: [],
   paperInstances: {
     allowedGroups: {
       roles: [],
@@ -35,3 +36,7 @@ export default {
     },
   },
 };
+
+config.intentSlugs = [config.answerSlugs.description];
+
+export default config;

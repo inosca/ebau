@@ -3659,7 +3659,17 @@ APPLICATIONS = {
         "USE_CAMAC_ADMIN": False,
         "LOG_NOTIFICATIONS": True,
         # Mapping between camac role and instance permission.
-        "ROLE_PERMISSIONS": {"support": "support"},
+        "ROLE_PERMISSIONS": {
+            "municipality-admin": "municipality",
+            "municipality-lead": "municipality",
+            "municipality-clerk": "municipality",
+            "municipality-construction-supervision": "municipality",
+            "municipality-read": "municipality",
+            "service-admin": "service",
+            "service-lead": "service",
+            "service-clerk": "service",
+            "support": "support",
+        },
         "ADMIN_GROUP": 1,
         "IS_MULTILINGUAL": True,
         "FORM_BACKEND": "caluma",
@@ -3683,7 +3693,7 @@ APPLICATIONS = {
             "FORM_PERMISSIONS": ["main"],
             "HAS_PROJECT_CHANGE": True,
             "CREATE_IN_PROCESS": False,
-            "GENERATE_IDENTIFIER": False,
+            "GENERATE_IDENTIFIER": True,
             "USE_LOCATION": False,
             "SAVE_DOSSIER_NUMBER_IN_CALUMA": True,
             "MODIFICATION_ALLOW_FORMS": [],
@@ -3693,7 +3703,16 @@ APPLICATIONS = {
         "DOSSIER_IMPORT": {},
         "CUSTOM_NOTIFICATION_TYPES": [],
         "NOTIFICATIONS": {
-            "SUBMIT": [],
+            "SUBMIT": [
+                {
+                    "template_slug": "eingang-dossier-gesuchsteller",
+                    "recipient_types": ["applicant"],
+                },
+                {
+                    "template_slug": "eingang-dossier-leitbehoerde",
+                    "recipient_types": ["leitbehoerde"],
+                },
+            ],
             "APPLICANT": {
                 "NEW": "gesuchsbearbeitungs-einladung-neu",
                 "EXISTING": "gesuchsbearbeitungs-einladung-bestehend",
