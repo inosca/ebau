@@ -4,19 +4,19 @@
 
 services:
   django:
-    image: acr.run/camac-ng/camac-ng/django:${TAG:-master}
+    image: acr.run/camac-ng/camac-ng/django:${CI_COMMIT_TAG:-master}
     build:
       context: ../django
       cache_from:
-        - acr.run/camac-ng/camac-ng/django:${TAG:-master}
+        - acr.run/camac-ng/camac-ng/django:${CI_COMMIT_TAG:-master}
 
   ember-caluma-portal:
-    image: acr.run/camac-ng/camac-ng/ember-caluma-portal:${TAG:-master}
+    image: acr.run/camac-ng/camac-ng/ember-caluma-portal:${CI_COMMIT_TAG:-master}
     build:
       context: ../
       dockerfile: ./ember-caluma-portal/Dockerfile
       cache_from:
-        - acr.run/camac-ng/camac-ng/ember-caluma-portal:${TAG:-master}
+        - acr.run/camac-ng/camac-ng/ember-caluma-portal:${CI_COMMIT_TAG:-master}
       target: env-prod
       args:
         APPLICATION: ${APPLICATION}
@@ -26,12 +26,12 @@ services:
         EGOV_PORTAL_URL: $$EGOV_PORTAL_URL
 
   ember-ebau:
-    image: acr.run/camac-ng/camac-ng/ember-ebau:${TAG:-master}
+    image: acr.run/camac-ng/camac-ng/ember-ebau:${CI_COMMIT_TAG:-master}
     build:
       context: ../
       dockerfile: ./ember-ebau/Dockerfile
       cache_from:
-        - acr.run/camac-ng/camac-ng/ember-ebau:${TAG:-master}
+        - acr.run/camac-ng/camac-ng/ember-ebau:${CI_COMMIT_TAG:-master}
       target: env-prod
       args:
         APPLICATION: ${APPLICATION}
@@ -40,17 +40,17 @@ services:
         SO_GIS_URL: $$SO_GIS_URL
 
   keycloak:
-    image: acr.run/camac-ng/camac-ng/keycloak:${TAG:-master}
+    image: acr.run/camac-ng/camac-ng/keycloak:${CI_COMMIT_TAG:-master}
     build:
       context: ../keycloak
       cache_from:
-        - acr.run/camac-ng/camac-ng/keycloak:${TAG:-master}
+        - acr.run/camac-ng/camac-ng/keycloak:${CI_COMMIT_TAG:-master}
 
   document-merge-service:
-    image: acr.run/camac-ng/camac-ng/document-merge-service:${TAG:-master}
+    image: acr.run/camac-ng/camac-ng/document-merge-service:${CI_COMMIT_TAG:-master}
     build:
       context: ../document-merge-service
       cache_from:
-        - acr.run/camac-ng/camac-ng/document-merge-service:${TAG:-master}
+        - acr.run/camac-ng/camac-ng/document-merge-service:${CI_COMMIT_TAG:-master}
       args:
         APPLICATION: ${APPLICATION}
