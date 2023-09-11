@@ -25,9 +25,15 @@ RUN yarn deploy production
 # Currently only used by SO
 FROM nginxinc/nginx-unprivileged:1.25-alpine as env-prod
 
-COPY --from=build /myapp/ember-caluma-portal/build /usr/share/nginx/html
+USER root
+RUN chown -R nginx:nginx /usr/share/nginx/html
+USER nginx
+
+COPY --from=build --chown=nginx:nginx /myapp/ember-caluma-portal/build /usr/share/nginx/html
 COPY nginx/ember.conf /etc/nginx/conf.d/default.conf
 COPY nginx/replace-env-vars.sh /usr/local/bin/replace-env-vars
+
+RUN find /usr/share/nginx/html -iname "*.gz" -o -iname "*.br" | xargs rm -rf
 
 CMD /bin/sh -c "replace-env-vars '\${KEYCLOAK_HOST},\${BE_GIS_URL},\${SO_GIS_URL},\${INTERNAL_URL},\${EGOV_PORTAL_URL}' /usr/share/nginx/html && nginx -g 'daemon off;'"
 
