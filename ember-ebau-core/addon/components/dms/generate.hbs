@@ -25,13 +25,15 @@
   >
     {{t "dms.merge"}}
   </UkButton>
-  <UkButton
-    @color="default"
-    @disabled={{or this.merge.isRunning this.placeholders.isLoading (not this.template)}}
-    @onClick={{perform this.merge true}}
-  >
-    {{t "dms.merge-and-save"}}
-  </UkButton>
+  {{#if (macroCondition (macroGetOwnConfig "showMergeAndSaveButton"))}}
+    <UkButton
+      @color="default"
+      @disabled={{or this.merge.isRunning this.placeholders.isLoading (not this.template)}}
+      @onClick={{perform this.merge true}}
+    >
+      {{t "dms.merge-and-save"}}
+    </UkButton>
+  {{/if}}
 </div>
 
 <Dms::Docs
