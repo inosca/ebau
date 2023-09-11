@@ -1,5 +1,12 @@
 {{page-title (t "global.page-title")}}
-<main>
-  <BeNavbar />
+<main class={{if (is-application "so") "fill"}}>
+  {{#if (is-application "so")}}
+    <SoNavbar />
+  {{else}}
+    <BeNavbar />
+  {{/if}}
   <section class="uk-container uk-container-large uk-padding">{{outlet}}</section>
 </main>
+{{#if (is-application "so")}}
+  <SoFooter />
+{{/if}}

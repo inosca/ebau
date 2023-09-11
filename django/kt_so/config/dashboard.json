@@ -1,5 +1,39 @@
 [
   {
+    "model": "caluma_form.answer",
+    "pk": "7cf3e58c-2e90-4ae5-bf6f-98105ff2147e",
+    "fields": {
+      "created_at": "2023-09-07T12:44:41.086Z",
+      "modified_at": "2023-09-07T12:44:41.086Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "portal-terms-inhalt-de",
+      "value": "# Nutzungsbedingungen",
+      "meta": {},
+      "document": "9c39c759-52af-4b66-9a13-61a6b27ded28",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "fa82fe64-c014-4b74-b824-9546cb9de5b6",
+    "fields": {
+      "created_at": "2023-09-07T12:44:23.935Z",
+      "modified_at": "2023-09-07T12:44:23.935Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "portal-faq-inhalt-de",
+      "value": "# Online-Hilfe",
+      "meta": {},
+      "document": "9c39c759-52af-4b66-9a13-61a6b27ded28",
+      "date": null
+    }
+  },
+  {
     "model": "caluma_form.document",
     "pk": "9c39c759-52af-4b66-9a13-61a6b27ded28",
     "fields": {
@@ -35,6 +69,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "dashboard.portal-faq-inhalt-de",
+    "fields": {
+      "created_at": "2023-09-07T12:38:48.658Z",
+      "modified_at": "2023-09-07T12:38:48.658Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dashboard",
+      "question": "portal-faq-inhalt-de",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "dashboard.portal-inhalt-de",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -45,7 +94,56 @@
       "modified_by_group": null,
       "form": "dashboard",
       "question": "portal-inhalt-de",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dashboard.portal-terms-inhalt-de",
+    "fields": {
+      "created_at": "2023-09-07T12:39:18.436Z",
+      "modified_at": "2023-09-07T12:39:18.436Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dashboard",
+      "question": "portal-terms-inhalt-de",
       "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "portal-faq-inhalt-de",
+    "fields": {
+      "created_at": "2023-09-07T12:38:48.106Z",
+      "modified_at": "2023-09-07T12:39:38.148Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Portal Online-Hilfe\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
     }
   },
   {
@@ -53,19 +151,53 @@
     "pk": "portal-inhalt-de",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "modified_at": "2023-09-07T12:39:32.360Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Portal Inhalt DE\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Portal Inhalt\", \"fr\": null, \"it\": null}",
       "type": "textarea",
       "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "portal-terms-inhalt-de",
+    "fields": {
+      "created_at": "2023-09-07T12:39:18.236Z",
+      "modified_at": "2023-09-07T12:39:42.395Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Portal Nutzungsbedingungen\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,

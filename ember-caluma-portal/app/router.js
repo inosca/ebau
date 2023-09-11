@@ -50,6 +50,7 @@ Router.map(function () {
 
     this.route("support", { resetNamespace });
     this.route("faq", { resetNamespace });
+    this.route("terms", { resetNamespace });
     registerCommunicationsGlobal(this, { resetNamespace });
   });
 
