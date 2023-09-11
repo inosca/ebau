@@ -102,11 +102,20 @@ services:
 
   ember-caluma-portal:
     user: ${UID}
+    environment:
+      KEYCLOAK_HOST: http://ebau-keycloak.local
+      SO_GIS_URL: https://geo-i.so.ch
+      INTERNAL_URL: http://ember-ebau.local
+      EGOV_PORTAL_URL: "https://my-t.so.ch"
     networks:
       - ebau.local
 
   ember-ebau:
     user: ${UID}
+    environment:
+      KEYCLOAK_HOST: http://ebau-keycloak.local
+      PORTAL_URL: http://ember-portal.local
+      SO_GIS_URL: https://geo-i.so.ch
     networks:
       - ebau.local
 
