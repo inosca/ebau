@@ -1,11 +1,13 @@
 services:
   cache:
-    image: memcached:1.6-alpine
+    image: memcached:1.6
+    user: ${UID}
     networks:
       - ebau.local
 
   proxy:
-    image: nginx:1.25-alpine
+    image: nginxinc/nginx-unprivileged:1.25-alpine
+    user: ${UID}
     volumes:
       - ../proxy/kt_so.conf:/etc/nginx/conf.d/default.conf:ro
       - djangomedia:/var/lib/camac/media:ro
@@ -28,11 +30,8 @@ services:
           - ebau-keycloak.local
 
   db:
-    image: acr.run/camac-ng/camac-ng/db:master
-    build:
-      context: ../db
-      cache_from:
-        - acr.run/camac-ng/camac-ng/db:master
+    image: postgres:15-bullseye
+    user: ${UID}
     environment:
       POSTGRES_USER: camac
       POSTGRES_PASSWORD: camac
@@ -44,6 +43,7 @@ services:
       - ebau.local
 
   django:
+    user: ${UID}
     depends_on:
       - cache
       - db
@@ -101,14 +101,17 @@ services:
     command: /bin/sh -c "./wait-for-it.sh db:5432 -- ./manage.py migrate && ./manage.py collectstatic --noinput && ./manage.py runserver 0:80 --pythonpath /app/$APPLICATION"
 
   ember-caluma-portal:
+    user: ${UID}
     networks:
       - ebau.local
 
   ember-ebau:
+    user: ${UID}
     networks:
       - ebau.local
 
   keycloak:
+    user: ${UID}
     depends_on:
       - db
     volumes:
@@ -132,6 +135,7 @@ services:
       ]
 
   mailhog:
+    user: ${UID}
     image: mailhog/mailhog
     networks:
       - ebau.local
@@ -139,6 +143,7 @@ services:
       MH_UI_WEB_PATH: mailhog
 
   document-merge-service:
+    user: ${UID}
     depends_on:
       - cache
       - db
@@ -166,7 +171,6 @@ services:
       ISOLATE_UNOCONV: true
       OIDC_USERINFO_ENDPOINT: http://ebau-keycloak.local/auth/realms/ebau/protocol/openid-connect/userinfo
       URL_PREFIX: document-merge-service/
-    user: "${UID:?Set UID env variable to your user id}"
     volumes:
       - ../document-merge-service/extensions:/app/document_merge_service/extensions
       - ../document-merge-service/${APPLICATION}/dump.json:/tmp/document-merge-service/dump.json
@@ -179,6 +183,7 @@ services:
 
   minio:
     image: minio/minio:RELEASE.2023-09-04T19-57-37Z
+    user: ${UID}
     volumes:
       - minio_data:/data
     environment:
@@ -205,6 +210,17 @@ services:
     entrypoint: /entrypoint.sh
     networks:
       - ebau.local
+
+  # Fix permissions on named volumes
+  volume-permission-companion:
+    image: alpine
+    restart: on-failure
+    volumes:
+      - pgdata:/data/pgdata
+      - djangomedia:/data/djangomedia
+      - djangotmpmedia:/data/djangotmpmedia
+      - minio_data:/data/minio_data
+    command: /bin/sh -c "chown ${UID} -R /data;"
 
 networks:
   ebau.local:
