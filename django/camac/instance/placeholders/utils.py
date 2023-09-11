@@ -1,10 +1,7 @@
 from datetime import date, datetime
 from typing import Any, Optional, Union
 
-from alexandria.core import models as alexandria_models
 from babel.dates import format_date
-from django.conf import settings
-from django.utils.timezone import get_current_timezone
 from django.utils.translation import get_language
 
 
@@ -105,33 +102,3 @@ def human_readable_date(value: Union[datetime, date, None]) -> str:
         return None
 
     return format_date(value, "long", locale=get_language())
-
-
-def prepare_documents(instance):
-    if settings.APPLICATION["DOCUMENT_BACKEND"] == "camac-ng":  # pragma: no cover
-        # not implemented
-        return []
-
-    categories = settings.APPLICATION.get("DOCUMENT_MERGE_SERVICE", {}).get(
-        "ALEXANDRIA_DOCUMENT_CATEGORIES", []
-    )
-
-    documents = (
-        alexandria_models.Document.objects.filter(
-            category_id__in=categories,
-            instance_document__instance=instance,
-        )
-        .order_by("-created_at")
-        .values("title", "created_at")
-    )
-
-    timezone = get_current_timezone()
-
-    return [
-        {
-            "filename": str(document["title"]),
-            "date": document["created_at"].astimezone(timezone).strftime("%d.%m.%Y"),
-            "time": document["created_at"].astimezone(timezone).strftime("%H:%M"),
-        }
-        for document in documents
-    ]
