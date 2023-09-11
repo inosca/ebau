@@ -365,6 +365,24 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "naturgefahren",
+    "fields": {
+      "created_at": "2023-09-11T12:47:30.650Z",
+      "modified_at": "2023-09-11T12:47:30.650Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Naturgefahren\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "parzelle-tabelle",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -2118,7 +2136,7 @@
       "modified_by_group": null,
       "form": "bauprojekt",
       "question": "abstandsvorschriften",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -2138,21 +2156,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "bauprojekt.allgemeine-hinweise",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "form": "bauprojekt",
-      "question": "allgemeine-hinweise",
-      "sort": 4
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "bauprojekt.art-der-bauwerke",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -2163,21 +2166,6 @@
       "modified_by_group": null,
       "form": "bauprojekt",
       "question": "art-der-bauwerke",
-      "sort": 20
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "bauprojekt.art-der-tiefbauarbeiten",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "form": "bauprojekt",
-      "question": "art-der-tiefbauarbeiten",
       "sort": 18
     }
   },
@@ -2193,7 +2181,7 @@
       "modified_by_group": null,
       "form": "bauprojekt",
       "question": "bauprojekt-titel",
-      "sort": 24
+      "sort": 22
     }
   },
   {
@@ -2208,7 +2196,7 @@
       "modified_by_group": null,
       "form": "bauprojekt",
       "question": "begruendung-ausnahme",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -2223,7 +2211,7 @@
       "modified_by_group": null,
       "form": "bauprojekt",
       "question": "behig",
-      "sort": 15
+      "sort": 13
     }
   },
   {
@@ -2238,7 +2226,7 @@
       "modified_by_group": null,
       "form": "bauprojekt",
       "question": "bemerkungen",
-      "sort": 1
+      "sort": 3
     }
   },
   {
@@ -2253,22 +2241,7 @@
       "modified_by_group": null,
       "form": "bauprojekt",
       "question": "beschreibung",
-      "sort": 16
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "bauprojekt.erdbebensicherheit",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "form": "bauprojekt",
-      "question": "erdbebensicherheit",
-      "sort": 3
+      "sort": 14
     }
   },
   {
@@ -2298,7 +2271,7 @@
       "modified_by_group": null,
       "form": "bauprojekt",
       "question": "hinweis-art-der-arbeiten",
-      "sort": 19
+      "sort": 17
     }
   },
   {
@@ -2313,7 +2286,7 @@
       "modified_by_group": null,
       "form": "bauprojekt",
       "question": "hochbau",
-      "sort": 14
+      "sort": 2
     }
   },
   {
@@ -2328,7 +2301,7 @@
       "modified_by_group": null,
       "form": "bauprojekt",
       "question": "mindest-und-grenzabstaende",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -2343,22 +2316,7 @@
       "modified_by_group": null,
       "form": "bauprojekt",
       "question": "nutzungszwecke",
-      "sort": 17
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "bauprojekt.radon",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "form": "bauprojekt",
-      "question": "radon",
-      "sort": 2
+      "sort": 15
     }
   },
   {
@@ -2373,7 +2331,7 @@
       "modified_by_group": null,
       "form": "bauprojekt",
       "question": "stand-der-realisierung",
-      "sort": 22
+      "sort": 20
     }
   },
   {
@@ -2388,7 +2346,7 @@
       "modified_by_group": null,
       "form": "bauprojekt",
       "question": "status-bauprojekt",
-      "sort": 23
+      "sort": 21
     }
   },
   {
@@ -2403,7 +2361,7 @@
       "modified_by_group": null,
       "form": "bauprojekt",
       "question": "tiefbau",
-      "sort": 13
+      "sort": 1
     }
   },
   {
@@ -2433,7 +2391,7 @@
       "modified_by_group": null,
       "form": "bauprojekt",
       "question": "umschreibung-bauprojekt",
-      "sort": 21
+      "sort": 19
     }
   },
   {
@@ -4308,7 +4266,7 @@
       "modified_by_group": null,
       "form": "generelle-fachthemen",
       "question": "afu-umweltschutz",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -4323,6 +4281,21 @@
       "modified_by_group": null,
       "form": "generelle-fachthemen",
       "question": "landschaft-ortsbild",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "generelle-fachthemen.naturgefahren",
+    "fields": {
+      "created_at": "2023-09-11T12:48:34.459Z",
+      "modified_at": "2023-09-11T12:48:34.459Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "generelle-fachthemen",
+      "question": "naturgefahren",
       "sort": 1
     }
   },
@@ -4338,7 +4311,7 @@
       "modified_by_group": null,
       "form": "generelle-fachthemen",
       "question": "verkehr",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -5629,6 +5602,51 @@
       "form": "lokalisierung",
       "question": "zone",
       "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "naturgefahren.erdbebensicherheit",
+    "fields": {
+      "created_at": "2023-09-11T12:47:40.588Z",
+      "modified_at": "2023-09-11T12:47:40.588Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "naturgefahren",
+      "question": "erdbebensicherheit",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "naturgefahren.naturgefahren-titel",
+    "fields": {
+      "created_at": "2023-09-11T12:50:37.665Z",
+      "modified_at": "2023-09-11T12:50:37.665Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "naturgefahren",
+      "question": "naturgefahren-titel",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "naturgefahren.radon",
+    "fields": {
+      "created_at": "2023-09-11T12:47:44.428Z",
+      "modified_at": "2023-09-11T12:47:44.428Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "naturgefahren",
+      "question": "radon",
+      "sort": 1
     }
   },
   {
@@ -8727,54 +8745,6 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "art-der-tiefbauarbeiten-abbruch",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Abbruch\", \"fr\": null, \"it\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "art-der-tiefbauarbeiten-neubau",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Neubau\", \"fr\": null, \"it\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "art-der-tiefbauarbeiten-umbau",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Sanierung / Umbau\", \"fr\": null, \"it\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
     "pk": "asbest-ja",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -11399,15 +11369,15 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "mindest-und-grenzabstaende-fliessgewaesser",
+    "pk": "mindest-und-grenzabstaende-gewaesser",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "modified_at": "2023-09-11T12:46:59.971Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Mindestabstand zu Fliessgew\\u00e4ssern\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Mindestabstand zu Gew\\u00e4ssern\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -11440,22 +11410,6 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Es werden keine Mindest- und/oder Grenzabst\\u00e4nde unterschritten\", \"fr\": null, \"it\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "mindest-und-grenzabstaende-seeufer",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Mindestabstand zum See\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -14801,37 +14755,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "allgemeine-hinweise",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Allgemeine Hinweise\", \"fr\": null, \"it\": null}",
-      "type": "static",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"---\\n\\n####Allgemeine Hinweise (diverse Themen)\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "allgemeine-informationen",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -15884,37 +15807,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "art-der-tiefbauarbeiten",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Art der Tiefbauarbeiten\", \"fr\": null, \"it\": null}",
-      "type": "choice",
-      "is_required": "false",
-      "is_hidden": "!(\"art-der-bauwerke-tiefbaute\" in \"art-der-bauwerke\"|answer)",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "artenschutz",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -16690,7 +16582,7 @@
       "label": "{\"de\": \"Begr\\u00fcndung\", \"fr\": null, \"it\": null}",
       "type": "textarea",
       "is_required": "false",
-      "is_hidden": "!(\n\t[\n\t\t\"mindest-und-grenzabstaende-fliessgewaesser\",\n\t\t\"mindest-und-grenzabstaende-verkehrsflaechen\",\n\t\t\"mindest-und-grenzabstaende-waldabstand\",\n\t\t\"mindest-und-grenzabstaende-seeufer\",\n\t\t\"mindest-und-grenzabstaende-grenzabstand\"\n\t]\n\tintersects \"mindest-und-grenzabstaende\"|answer\n)",
+      "is_hidden": "!(\n\t[\n\t\t\"mindest-und-grenzabstaende-gewaesser\",\n\t\t\"mindest-und-grenzabstaende-verkehrsflaechen\",\n\t\t\"mindest-und-grenzabstaende-waldabstand\",\n\t\t\"mindest-und-grenzabstaende-grenzabstand\"\n\t]\n\tintersects \"mindest-und-grenzabstaende\"|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"####INFO\\nDie Unterschreitung eines gesetzlich festgeslegten Mindestabstandes kann ausnahmsweise bewilligt werden, wenn objektive Gr\\u00fcnde dies rechtfertigen und die \\u00f6ffentlichen Interessen gewahrt bleiben. Bitte umschreiben Sie im daf\\u00fcr vorgesehen Feld kurz die Hintergr\\u00fcnde, weshalb der vorgeschriebene Mindestabstand nicht eingehalten werden kann.\", \"fr\": null, \"it\": null}",
@@ -16716,7 +16608,7 @@
     "pk": "begruendung-ausname-solarpflicht",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "modified_at": "2023-09-11T13:03:31.372Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -16724,7 +16616,7 @@
       "label": "{\"de\": \"Begr\\u00fcndung\", \"fr\": null, \"it\": null}",
       "type": "textarea",
       "is_required": "true",
-      "is_hidden": "\"solarpflicht\"|answer != \"solarpflicht-ja\"",
+      "is_hidden": "\"antrag-ausnahme-solarpflicht\"|answer([])|stringify == \"[]\"",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -16815,7 +16707,7 @@
     "pk": "behig",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "modified_at": "2023-09-11T11:26:31.335Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -16828,7 +16720,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"---\\n\\n####Vorkehren f\\u00fcr hindernisfreies Bauen\\n \\nBei folgenden Projekten sind Vorkehren f\\u00fcr das hindernisfreie Bauen gest\\u00fctzt auf Artikel 80 des Planungs- und Baugesetzes des Kantons Uri (PBG) im besonderen Mass zu ber\\u00fccksichtigen:\\n- \\u00d6ffentlich zug\\u00e4ngliche Bauten und Anlagen\\n- Wohn\\u00fcberbauungen und Gesch\\u00e4ftsh\\u00e4user\\n- Mehrfamilienh\\u00e4user mit vier und mehr Wohneinheiten\\n- Geb\\u00e4ude mit Arbeitspl\\u00e4tzen ab einer gesamten Nutzungsfl\\u00e4che von 500 m\\u00b2\\n- Parkpl\\u00e4tze von \\u00f6ffentlich zug\\u00e4nglichen Geb\\u00e4uden\\n\\n**Hinweis:** Es empfiehlt sich, die Normen und besonderen Vorkehren f\\u00fcr das hindernisfreie Bauen bei s\\u00e4mtlichen Hochbauten, insbesondere auch bei Wohnbauten die vom Eigent\\u00fcmer selber genutzt werden, zu beachten.\\n\\nHier gehts zu den [Merkbl\\u00e4ttern und Checklisten - Procap](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjqsaiaovbsAhUJxBQKHTDLAY0QFjAAegQIARAC&url=https%3A%2F%2Fwww.procap.ch%2Fde%2Fangebote%2Fberatung-information%2Fbauen-und-verkehr%2Fmerkblaetter-und-checklisten.html&usg=AOvVaw22mufgjOdttc4H6GIjwIa_)\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"---\\n\\n####Vorkehren f\\u00fcr hindernisfreies Bauen\\n \\nBei folgenden Projekten sind Vorkehrungen f\\u00fcr das hindernisfreie Bauen im besonderen Mass zu ber\\u00fccksichtigen:\\n- \\u00d6ffentlich zug\\u00e4ngliche Bauten und Anlagen\\n- Wohn\\u00fcberbauungen und Gesch\\u00e4ftsh\\u00e4user\\n- Mehrfamilienh\\u00e4user mit vier und mehr Wohneinheiten\\n- Geb\\u00e4ude mit Arbeitspl\\u00e4tzen ab einer gesamten Nutzungsfl\\u00e4che von 500 m\\u00b2\\n- Parkpl\\u00e4tze von \\u00f6ffentlich zug\\u00e4nglichen Geb\\u00e4uden\\n\\n**Hinweis:** Es empfiehlt sich, die Normen und besonderen Vorkehrungen f\\u00fcr das hindernisfreie Bauen bei s\\u00e4mtlichen Hochbauten, insbesondere auch bei Wohnbauten,  die vom Eigent\\u00fcmer selber genutzt werden, zu beachten.\\n\\nHier gehts zu den [Merkbl\\u00e4ttern und Checklisten - Procap](https://www.procap.ch/angebote/beratung-information/bauen-und-verkehr/merkblaetter-und-checklisten/)\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -18588,7 +18480,7 @@
     "pk": "denkmalpflege",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "modified_at": "2023-09-11T11:27:42.878Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -18601,7 +18493,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"---\\n\\n##Ortsbildschutz / Denkmalpflege / Arch\\u00e4ologie\\n\\n####Ortsbildschutz\\n\\n- **[Bundesinventar der sch\\u00fctzenswerten Ortsbilder der Schweiz, ISOS](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjVjsminvbsAhWLlxQKHUP-BZEQFjAAegQIBBAC&url=https%3A%2F%2Fwww.bak.admin.ch%2Fbak%2Fde%2Fhome%2Fkulturerbe%2Fheimatschutz-und-denkmalpflege%2Fisos.html&usg=AOvVaw0YCkIX55e_bkDvjBo9xLOe)** Im [ISOS](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjVjsminvbsAhWLlxQKHUP-BZEQFjAAegQIBBAC&url=https%3A%2F%2Fwww.bak.admin.ch%2Fbak%2Fde%2Fhome%2Fkulturerbe%2Fheimatschutz-und-denkmalpflege%2Fisos.html&usg=AOvVaw0YCkIX55e_bkDvjBo9xLOe) sind zw\\u00f6lf Ortsbilder von nationaler Bedeutung, vier regional bedeutende und neun lokal bedeutende Ortsbilder erfasst. In diesen Gebieten m\\u00fcssen Bauvorhaben bedeutend h\\u00f6here Anforderungen erf\\u00fcllen als in anderen Ortsbildern.  Die Einpassung von Vorhaben in das Ortsbild muss allerdings an allen Orten des Kantons Uri, insbesondere auch ausserhalb der Hauptsiedlungen, in den Weilern und teilweise auch in Alpsiedlungen ber\\u00fccksichtig werden.\\n\\n####Denkmalpflege\\n- Der Anblick eines denkmalgesch\\u00fctzten Geb\\u00e4udes fasziniert und wirkt wie eine Reise in vergangene Epochen. Abgesehen davon dass bei Umbauten von Schutzobjekten auch Kostenbeitr\\u00e4ge der \\u00f6ffentliche Hand m\\u00f6glich sind, ist allein schon dieser Gedanke \\u00e4usserst vorteilhaft.\\n\\n- Gem\\u00e4ss Artikel 13 des kantonalen Natur- und Heimatschutzgesetzes (NHG) sind Massnahmen, die ein Schutzobjekt nachhaltig ver\\u00e4ndern, bewilligungspflichtig. Es empfiehlt sich, beim Umbau und bei der Sanierung von Schutzobjekten, fr\\u00fchzeitig mit der [kantonalen Fachstelle f\\u00fcr Denkmalpflege und Arch\\u00e4ologie](https://www.ur.ch/_rte/amt/1324) Kontakt aufzunehmen um unerw\\u00fcnschte Plan\\u00e4nderungen und Folgekosten zu vermeiden. \\n\\n####Arch\\u00e4ologie \\n- **Bauen an arch\\u00e4ologisch bedeutsamen Stellen** \\nIm Geoinformationsystem des Kantons sind an diversen Stellen, Orten und Gebieten so genannte arch\\u00e4ologische Funderwartungsgebiete ausgeschieden. F\\u00fcr Bauherrschaften, die in einem solchen Gebiet ein Vorhaben realisieren m\\u00f6chte, bedeutet das in erster Linie, dass im Zeitplan eine gewisse Reserve f\\u00fcr die arch\\u00e4ologischen Abkl\\u00e4rungen eingeplant werden sollte.\\n\\n- **Historische Funde** \\nGem\\u00e4ss Artikel 21 des kantonalen Natur- und Heimatschutzgesetzes (NHG) bed\\u00fcrfen einerseits Ausgrabungen von historisch und naturwissenschaftlich bedeutsamen Objekten der Bewilligung der zust\\u00e4ndigen Direktion. Andererseits sind, unabh\\u00e4ngig ob dies in einem speziell festgelegten Gebiet (arch\\u00e4ologische Funderwartungsgebiete) oder ausserhalb solcher Gebiete eintrifft, wissenschaftliche Funde der zust\\u00e4ndigen Direktion sofort anzuzeigen.\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"---\\n\\n##Ortsbildschutz / Denkmalpflege / Arch\\u00e4ologie\\n\\n####Ortsbildschutz\\n\\n- **[Bundesinventar der sch\\u00fctzenswerten Ortsbilder der Schweiz, ISOS](https://www.bak.admin.ch/bak/de/home/baukultur/isos-und-ortsbildschutz.html)** Im [ISOS](https://www.bak.admin.ch/bak/de/home/baukultur/isos-und-ortsbildschutz.html) sind zw\\u00f6lf Ortsbilder von nationaler Bedeutung, vier regional bedeutende und neun lokal bedeutende Ortsbilder erfasst. In diesen Gebieten m\\u00fcssen Bauvorhaben bedeutend h\\u00f6here Anforderungen erf\\u00fcllen als in anderen Ortsbildern.  Die Einpassung von Vorhaben in das Ortsbild muss allerdings an allen Orten des Kantons Uri, insbesondere auch ausserhalb der Hauptsiedlungen, in den Weilern und teilweise auch in Alpsiedlungen ber\\u00fccksichtig werden.\\n\\n####Denkmalpflege\\n- Der Anblick eines denkmalgesch\\u00fctzten Geb\\u00e4udes fasziniert und wirkt wie eine Reise in vergangene Epochen. Abgesehen davon dass bei Umbauten von Schutzobjekten auch Kostenbeitr\\u00e4ge der \\u00f6ffentliche Hand m\\u00f6glich sind, ist allein schon dieser Gedanke \\u00e4usserst vorteilhaft.\\n\\n- Gem\\u00e4ss Artikel 13 des kantonalen Natur- und Heimatschutzgesetzes (NHG) sind Massnahmen, die ein Schutzobjekt nachhaltig ver\\u00e4ndern, bewilligungspflichtig. Es empfiehlt sich, beim Umbau und bei der Sanierung von Schutzobjekten, fr\\u00fchzeitig mit der [kantonalen Fachstelle f\\u00fcr Denkmalpflege und Arch\\u00e4ologie](https://www.ur.ch/_rte/amt/1324) Kontakt aufzunehmen um unerw\\u00fcnschte Plan\\u00e4nderungen und Folgekosten zu vermeiden. \\n\\n####Arch\\u00e4ologie \\n- **Bauen an arch\\u00e4ologisch bedeutsamen Stellen** \\nIm Geoinformationsystem des Kantons sind an diversen Stellen, Orten und Gebieten so genannte arch\\u00e4ologische Funderwartungsgebiete ausgeschieden. F\\u00fcr Bauherrschaften, die in einem solchen Gebiet ein Vorhaben realisieren m\\u00f6chte, bedeutet das in erster Linie, dass im Zeitplan eine gewisse Reserve f\\u00fcr die arch\\u00e4ologischen Abkl\\u00e4rungen eingeplant werden sollte.\\n\\n- **Historische Funde** \\nGem\\u00e4ss Artikel 21 des kantonalen Natur- und Heimatschutzgesetzes (NHG) bed\\u00fcrfen einerseits Ausgrabungen von historisch und naturwissenschaftlich bedeutsamen Objekten der Bewilligung der zust\\u00e4ndigen Direktion. Andererseits sind, unabh\\u00e4ngig ob dies in einem speziell festgelegten Gebiet (arch\\u00e4ologische Funderwartungsgebiete) oder ausserhalb solcher Gebiete eintrifft, wissenschaftliche Funde der zust\\u00e4ndigen Direktion sofort anzuzeigen.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -19336,7 +19228,7 @@
     "pk": "erdbebensicherheit",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "modified_at": "2023-09-11T12:51:56.878Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -19349,7 +19241,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"**Erdbebensicherheit** Bei Neubauten sind die Bestimmungen der Tragwerksnormen SIA 260 bis SIA 267 einzuhalten.  Die \\u00dcberpr\\u00fcfung bestehender Geb\\u00e4ude bez\\u00fcglich Erdbeben erfolgt nach SIA-Norm 269/8.\\nBei Umbauten (z.B. Anbau, Aufbau oder Aufstockung, Eingriff in die Tragstruktur) sind ausser bei Bagatellf\\u00e4llen erforderliche Ert\\u00fcchtigungsmassnahmen gem\\u00e4ss SIA-Norm 269/8 umzusetzen.\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"#### Erdbebensicherheit\\n\\nBei Neubauten sind die Bestimmungen der Tragwerksnormen SIA 260 bis SIA 267 einzuhalten.  Die \\u00dcberpr\\u00fcfung bestehender Geb\\u00e4ude bez\\u00fcglich Erdbeben erfolgt nach SIA-Norm 269/8.\\nBei Umbauten (z.B. Anbau, Aufbau oder Aufstockung, Eingriff in die Tragstruktur) sind ausser bei Bagatellf\\u00e4llen erforderliche Ert\\u00fcchtigungsmassnahmen gem\\u00e4ss SIA-Norm 269/8 umzusetzen.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -20819,7 +20711,7 @@
     "pk": "gastgewerbe-titel",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "modified_at": "2023-09-11T11:28:42.136Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -20832,7 +20724,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"##Gastgewerbe\\n\\nBeim Bau oder bei der Einrichtung eines Gastgewerbebetriebes, auch wenn dies nur im kleinen Umfang geplant ist (z.B. der Betrieb einer Besenbeiz in einer \\u00d6konomiebaute) sind nebst den baurechtlichen Vorschriften insbesondere auch die Bestimmungen betreffend den Umgang mit Lebensmitteln und das Gastwirtschaftsgesetz zu beachten.\\n\\n**Definition Gastgewerbe**\\nWer gegen Entgelt G\\u00e4ste beherbergt, Getr\\u00e4nke ausschenkt oder Speisen zum Genuss vor Ort anbietet, wer gegen Entgelt R\\u00e4ume zur Verf\\u00fcgung stellt, in welchen mitgebrachte Lebensmittel konsumiert werden und, wer ein Dancing, einen Nachtclub oder eine vergleichbare Einrichtung betreibt, erbringt gastgewerbliche Dienstleistungen.\\n\\nF\\u00fcr den Betrieb eines Gastgewerbes ben\\u00f6tigen Sie also, nebst einer Baubewilligung, auch eine Gastgewerbe-Bewilligung oder ein sogenanntes Gastgewerbepatent. Dieses k\\u00f6nnen Sie hier, parallel zu den baurechtlichen Angaben beantragen.\\n\\n[Gesuch um Erteilung eines Gastgewerbepatentes](https://www.ur.ch/online-schalter/2315/download)\\n\\n\\n**Hinweis Lebensmittelgesetz** \\nPatente und Bewilligungen nach dem Gastwirtschaftsgesetz m\\u00fcssen dem Laboratorium der Urkantone gemeldet werden. Die Meldung \\u00fcbernimmt die Beh\\u00f6rde, welche die Patente bzw. Bewilligungen ausstellt.\\n\\n**Hinweis Brandschutz** Nach Artikel 3 FSG sind die Einwohnergemeinden f\\u00fcr den Feuerschutz zust\\u00e4ndig. Die Gemeinde pr\\u00fcft die eingereichten Unterlagen auf Vollst\\u00e4ndigkeit und Bewilligungsf\\u00e4higkeit. Sie kann bei Bedarf zus\\u00e4tzliche Angaben, zum Beispiel einen Brandschutznachweis, nachfordern.\\n\\n##Umgang mit Lebensmitteln\\n\\nIm Zusammenhang mit dem Gastgewerbe ist der Umgang mit Lebensmitteln ein wichtiges Thema. Die gesetzlichen Bestimmungen zum Lebensmittelrecht sind aber auch grunds\\u00e4tzlich, ausserhalb des eigentlichen Gastgewerbes zu beachten, z.B. wenn Lebensmittel produziert, verarbeitet, behandelt, gelagert, transportiert oder ausgegeben werden. Auf Bundesebene ist das schweizerische Lebensmittelgesetz massgebend und im Kanton Uri gest\\u00fctzt darauf die kantonale Lebensmittelverordnung. \\n\\nDer Vollzug der Lebensmittelgesetzgebung wird f\\u00fcr alle zentralschweizer Kantone durch das [Laboratorium der Urkantone](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiPlv71kontAhUBd98KHXyEA6EQFjAAegQIBBAE&url=https%3A%2F%2Fwww.laburk.ch%2F&usg=AOvVaw2BN-LwkfILI2fCa_FFv5Pq) wahrgenommen. Dementsprechend sind Bewilligungen f\\u00fcr Neu- und Umbauten von Betrieben, deren T\\u00e4tigkeit dem Lebensmittelrecht unterstehen, dem Laboratorium zu melden. Dies geschieht im Rahmen eines Bauprojekts automatisch.\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"##Gastgewerbe\\n\\nBeim Bau oder bei der Einrichtung eines Gastgewerbebetriebes, auch wenn dies nur im kleinen Umfang geplant ist (z.B. der Betrieb einer Besenbeiz in einer \\u00d6konomiebaute) sind nebst den baurechtlichen Vorschriften insbesondere auch die Bestimmungen betreffend den Umgang mit Lebensmitteln und das Gastwirtschaftsgesetz zu beachten.\\n\\n**Definition Gastgewerbe**\\nWer gegen Entgelt G\\u00e4ste beherbergt, Getr\\u00e4nke ausschenkt oder Speisen zum Genuss vor Ort anbietet, wer gegen Entgelt R\\u00e4ume zur Verf\\u00fcgung stellt, in welchen mitgebrachte Lebensmittel konsumiert werden und, wer ein Dancing, einen Nachtclub oder eine vergleichbare Einrichtung betreibt, erbringt gastgewerbliche Dienstleistungen.\\n\\nF\\u00fcr den Betrieb eines Gastgewerbes ben\\u00f6tigen Sie also, nebst einer Baubewilligung, auch eine Gastgewerbe-Bewilligung oder ein sogenanntes Gastgewerbepatent. Dieses k\\u00f6nnen Sie hier, parallel zu den baurechtlichen Angaben beantragen.\\n\\n[Gesuch um Erteilung eines Gastgewerbepatentes](https://www.ur.ch/online-schalter/2315/download)\\n\\n\\n**Hinweis Lebensmittelgesetz** \\nPatente und Bewilligungen nach dem Gastwirtschaftsgesetz m\\u00fcssen dem Laboratorium der Urkantone gemeldet werden. Die Meldung \\u00fcbernimmt die Beh\\u00f6rde, welche die Patente bzw. Bewilligungen ausstellt.\\n\\n**Hinweis Brandschutz** Nach Artikel 3 FSG sind die Einwohnergemeinden f\\u00fcr den Feuerschutz zust\\u00e4ndig. Die Gemeinde pr\\u00fcft die eingereichten Unterlagen auf Vollst\\u00e4ndigkeit und Bewilligungsf\\u00e4higkeit. Sie kann bei Bedarf zus\\u00e4tzliche Angaben, zum Beispiel einen Brandschutznachweis, nachfordern.\\n\\n##Umgang mit Lebensmitteln\\n\\nIm Zusammenhang mit dem Gastgewerbe ist der Umgang mit Lebensmitteln ein wichtiges Thema. Die gesetzlichen Bestimmungen zum Lebensmittelrecht sind aber auch grunds\\u00e4tzlich, ausserhalb des eigentlichen Gastgewerbes zu beachten, z.B. wenn Lebensmittel produziert, verarbeitet, behandelt, gelagert, transportiert oder ausgegeben werden. Auf Bundesebene ist das schweizerische Lebensmittelgesetz massgebend und im Kanton Uri gest\\u00fctzt darauf die kantonale Lebensmittelverordnung. \\n\\nDer Vollzug der Lebensmittelgesetzgebung wird f\\u00fcr alle zentralschweizer Kantone durch das [Laboratorium der Urkantone](https://laburk.ch/) wahrgenommen. Dementsprechend sind Bewilligungen f\\u00fcr Neu- und Umbauten von Betrieben, deren T\\u00e4tigkeit dem Lebensmittelrecht unterstehen, dem Laboratorium zu melden. Dies geschieht im Rahmen eines Bauprojekts automatisch.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -21779,19 +21671,19 @@
     "pk": "hauptheizungsanlage",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "modified_at": "2023-09-11T12:55:22.237Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Energie-/ W\\u00e4rmequelle\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Energie- / W\\u00e4rmequelle\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "true",
       "is_hidden": "!(\n \"anlagetyp\"|answer in [\"anlagetyp-hauptheizung\", \"anlagetyp-warmwasser\"]\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -21810,7 +21702,7 @@
     "pk": "haus-und-gebaeudetechnik-einleitung",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "modified_at": "2023-09-11T12:53:48.405Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -21823,7 +21715,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"**Geb\\u00e4udetechnik**\\n\\nDie Angaben zur W\\u00e4rmequelle und zum W\\u00e4rmeerzeuger f\\u00fcr Heizung und Warmwasser sind je nach Art des Vorhabens zwingender Bestantteil einer Baueingabe. **Bitte erfassen Sie f\\u00fcr alle geb\\u00e4udetechnischen Anlagen jeweils einen separaten Datensatz** (z.B. f\\u00fcr die W\\u00e4rmequelle der Hauptheizung, f\\u00fcr die W\\u00e4rmequelle der Zusatzheizung und, falls vorgesehen auch f\\u00fcr die Solaranlage usw.).\\n\\nF\\u00fcr die nachtr\\u00e4gliche Erfassung bzw. Meldung von geb\\u00e4udetechnischen Angaben verwenden Sie bitte das Formular \\\"GEBAUEDETECHNIK\\\".\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"**Geb\\u00e4udetechnik**\\n\\nDie Angaben zur W\\u00e4rmequelle und zum W\\u00e4rmeerzeuger f\\u00fcr Heizung und Warmwasser sind je nach Art des Vorhabens zwingender Bestantteil einer Baueingabe. **Bitte erfassen Sie f\\u00fcr alle geb\\u00e4udetechnischen Anlagen jeweils einen separaten Datensatz** (z.B. f\\u00fcr die W\\u00e4rmequelle der Hauptheizung, f\\u00fcr die W\\u00e4rmequelle der Zusatzheizung und, falls vorgesehen auch f\\u00fcr die Solaranlage usw.).\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -22557,7 +22449,7 @@
     "pk": "impressum",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "modified_at": "2023-09-11T11:29:44.466Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -22568,7 +22460,7 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"---\\n\\n**Urheberschaft**\\n\\nDiese Webplattform wurde im Auftrag der Justizdirektion Uri, Rathausplatz 5, 6460 Altdorf erstellt.  F\\u00fcr die Projektleitung (CAMAC - URec) zeichnet die Koordinationsstellle f\\u00fcr Baueingaben beim Amt f\\u00fcr Raumentwicklung, Rathausplatz 5, 6460 Altdorf verantwortlich.  \\n\\n**Haftungsausschluss**\\n\\nWenn Links (Verweise) von dieser Plattform zu Webseiten Dritter f\\u00fchren, so haben wir auf den Inhalt und das Design dieser Webseiten Dritter keinerlei Einfluss. Jede Haftung f\\u00fcr den Inhalt der Webseiten Dritter, auf die wir mittels Link verweisen, wird demnach ausdr\\u00fccklich abgelehnt. \\n\\n**Vollst\\u00e4ndigkeit**\\n\\nWir unternehmen alle zumutbaren Schritte, um die Vollst\\u00e4ndigkeit der Inhalte und die Zuverl\\u00e4ssigkeit der Funktionen auf dieser Plattform sicherzustellen. Mit Blick auf die stetig \\u00e4ndernden technologischen Voraussetzungen und um den Betrieb der Plattform jederzeit sicherzustellen, behalten wir uns vor, ohne vorg\\u00e4ngige Ank\\u00fcndigung,  \\u00c4nderungen vorzunehmen.\\n\\n**Anwendbares Recht und Gerichtsstand**\\n\\nVorbeh\\u00e4ltlich anderer gesetzlicher Bestimmungen untersteht diese Dienstleistung und deren Benutzung sowie Services, welche mit dem Angebot in Zusammenhang stehen, ausschliesslich schweizerischem Recht. Ausschliesslicher Gerichtsstand f\\u00fcr alle im Zusammenhang mit der Benutzung dieses Webangebots stehenden Streitigkeiten ist der Gerichtsstand Altdorf.\\n\\n**Technische Realisation**\\n\\nDieses Webangebot wurde mit der Firma [Adfinis AG, Bern](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwju8MrUmv_sAhVH6aQKHUY5AsEQFjAAegQIBBAD&url=https%3A%2F%2Fadfinis.com%2F&usg=AOvVaw0XE6bXrLUKHGuK-KWH_X8m) erstellt. Als Open Source Profi bietet Adfinis eine breite Palette von Dienstleistungen und L\\u00f6sungen aus einer Hand. Adfinis ist unter anderem eine der f\\u00fchrenden Anbieterinnen auf dem Gebiet der elektronischen Bewilligungsverfahren. Mit dem Open Source Projekt [CALUMA]( https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwivz-G6gYDtAhWHCOwKHXiFCzMQFjAAegQIBBAC&url=https%3A%2F%2Fcaluma.io%2F&usg=AOvVaw35ncIBvOL7p88XxNoEVnem) verbindet Adfinis modernste Technologien und Innovation.\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"---\\n\\n**Urheberschaft**\\n\\nDiese Webplattform wurde im Auftrag der Justizdirektion Uri, Rathausplatz 5, 6460 Altdorf erstellt.  F\\u00fcr die Projektleitung (CAMAC - URec) zeichnet die Koordinationsstellle f\\u00fcr Baueingaben beim Amt f\\u00fcr Raumentwicklung, Rathausplatz 5, 6460 Altdorf verantwortlich.  \\n\\n**Haftungsausschluss**\\n\\nWenn Links (Verweise) von dieser Plattform zu Webseiten Dritter f\\u00fchren, so haben wir auf den Inhalt und das Design dieser Webseiten Dritter keinerlei Einfluss. Jede Haftung f\\u00fcr den Inhalt der Webseiten Dritter, auf die wir mittels Link verweisen, wird demnach ausdr\\u00fccklich abgelehnt. \\n\\n**Vollst\\u00e4ndigkeit**\\n\\nWir unternehmen alle zumutbaren Schritte, um die Vollst\\u00e4ndigkeit der Inhalte und die Zuverl\\u00e4ssigkeit der Funktionen auf dieser Plattform sicherzustellen. Mit Blick auf die stetig \\u00e4ndernden technologischen Voraussetzungen und um den Betrieb der Plattform jederzeit sicherzustellen, behalten wir uns vor, ohne vorg\\u00e4ngige Ank\\u00fcndigung,  \\u00c4nderungen vorzunehmen.\\n\\n**Anwendbares Recht und Gerichtsstand**\\n\\nVorbeh\\u00e4ltlich anderer gesetzlicher Bestimmungen untersteht diese Dienstleistung und deren Benutzung sowie Services, welche mit dem Angebot in Zusammenhang stehen, ausschliesslich schweizerischem Recht. Ausschliesslicher Gerichtsstand f\\u00fcr alle im Zusammenhang mit der Benutzung dieses Webangebots stehenden Streitigkeiten ist der Gerichtsstand Altdorf.\\n\\n**Technische Realisation**\\n\\nDieses Webangebot wurde mit der Firma [Adfinis AG, Bern](https://adfinis.com/) erstellt. Als Open Source Profi bietet Adfinis eine breite Palette von Dienstleistungen und L\\u00f6sungen aus einer Hand. Adfinis ist unter anderem eine der f\\u00fchrenden Anbieterinnen auf dem Gebiet der elektronischen Bewilligungsverfahren. Mit dem Open Source Projekt [CALUMA](https://caluma.io/) verbindet Adfinis modernste Technologien und Innovation.\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"---\\n\\n**Impressum:** Diese Dienstleistung wird von der Justizdirektion des Kantons Uri zur Verf\\u00fcgung gestellt.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -24598,7 +24490,7 @@
     "pk": "mindest-und-grenzabstaende",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "modified_at": "2023-09-11T12:47:00.294Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -24629,7 +24521,7 @@
     "pk": "minergie-label",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "modified_at": "2023-09-11T11:30:35.739Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -24642,7 +24534,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"**Wichtiger Hinweis**\\nWenn das [MINERGIE Label]( https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwil59OgwYftAhXOGuwKHQiTBBkQFjAAegQIARAD&url=https%3A%2F%2Fwww.minergie.ch%2F&usg=AOvVaw2ELXOs2znRg-poYLap9-Iq) nachgewiesen wird, entfallen die Formulare EN-1a bis 1c (H\\u00f6chstanteil nichterneuerbarer Energien) und die Formulare EN-2a und EN-2b (Geb\\u00e4udeh\\u00fclle).\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"**Wichtiger Hinweis**\\nWenn das [MINERGIE Label](https://www.minergie.ch/) nachgewiesen wird, entfallen die Formulare EN-1a bis 1c (H\\u00f6chstanteil nichterneuerbarer Energien) und die Formulare EN-2a und EN-2b (Geb\\u00e4udeh\\u00fclle).\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -24770,6 +24662,68 @@
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"##Natur und Landschaft\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "naturgefahren",
+    "fields": {
+      "created_at": "2023-09-11T12:48:34.283Z",
+      "modified_at": "2023-09-11T12:48:34.283Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Naturgefahren\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "naturgefahren",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "naturgefahren-titel",
+    "fields": {
+      "created_at": "2023-09-11T12:50:37.481Z",
+      "modified_at": "2023-09-11T12:51:21.862Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Naturgefahren Titel\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"## Naturgefahren\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -26178,7 +26132,7 @@
     "pk": "radon",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "modified_at": "2023-09-11T12:52:01.174Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -26191,7 +26145,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"**Radon** Gema\\u0308ss Strahlenschutzverordnung (StSV, SR 814.501) ist die Geba\\u0308udeeigentu\\u0308merschaft oder bei Neubauten die Bauherrschaft dafu\\u0308r besorgt, dass dem Stand der Technik entsprechende pra\\u0308ventive Massnahmen getroffen werden, um eine Radonkonzentration zu erreichen, die unter dem Radonreferenzwert von 300 Bq/m\\u00b3 in Ra\\u0308umen mit Personenaufenthalt liegt.\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"#### Radon\\n\\nGema\\u0308ss Strahlenschutzverordnung (StSV, SR 814.501) ist die Geba\\u0308udeeigentu\\u0308merschaft oder bei Neubauten die Bauherrschaft dafu\\u0308r besorgt, dass dem Stand der Technik entsprechende pra\\u0308ventive Massnahmen getroffen werden, um eine Radonkonzentration zu erreichen, die unter dem Radonreferenzwert von 300 Bq/m\\u00b3 in Ra\\u0308umen mit Personenaufenthalt liegt.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -30642,51 +30596,6 @@
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "art-der-tiefbauarbeiten.art-der-tiefbauarbeiten-abbruch",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "art-der-tiefbauarbeiten",
-      "option": "art-der-tiefbauarbeiten-abbruch",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "art-der-tiefbauarbeiten.art-der-tiefbauarbeiten-neubau",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "art-der-tiefbauarbeiten",
-      "option": "art-der-tiefbauarbeiten-neubau",
-      "sort": 3
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "art-der-tiefbauarbeiten.art-der-tiefbauarbeiten-umbau",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "art-der-tiefbauarbeiten",
-      "option": "art-der-tiefbauarbeiten-umbau",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
     "pk": "artenschutz-beratung.wuenschen-sie-zum-thema-artenschutz-bei-neubauten-eine-beratung-ja",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -32309,23 +32218,23 @@
     "model": "caluma_form.questionoption",
     "pk": "hauptheizungsanlage.hauptheizungsanlage-abwaerme",
     "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "created_at": "2023-09-11T12:55:22.256Z",
+      "modified_at": "2023-09-11T12:55:22.256Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "hauptheizungsanlage",
       "option": "hauptheizungsanlage-abwaerme",
-      "sort": 4
+      "sort": 3
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "hauptheizungsanlage.hauptheizungsanlage-andere",
     "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "created_at": "2023-09-11T12:55:22.246Z",
+      "modified_at": "2023-09-11T12:55:22.246Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -32339,135 +32248,135 @@
     "model": "caluma_form.questionoption",
     "pk": "hauptheizungsanlage.hauptheizungsanlage-elektrizitaet",
     "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "created_at": "2023-09-11T12:55:22.289Z",
+      "modified_at": "2023-09-11T12:55:22.289Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "hauptheizungsanlage",
       "option": "hauptheizungsanlage-elektrizitaet",
-      "sort": 14
+      "sort": 10
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "hauptheizungsanlage.hauptheizungsanlage-erdwaerme",
     "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "created_at": "2023-09-11T12:55:22.269Z",
+      "modified_at": "2023-09-11T12:55:22.269Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "hauptheizungsanlage",
       "option": "hauptheizungsanlage-erdwaerme",
-      "sort": 8
+      "sort": 6
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "hauptheizungsanlage.hauptheizungsanlage-fernwaerme",
     "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "created_at": "2023-09-11T12:55:22.274Z",
+      "modified_at": "2023-09-11T12:55:22.274Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "hauptheizungsanlage",
       "option": "hauptheizungsanlage-fernwaerme",
-      "sort": 9
+      "sort": 7
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "hauptheizungsanlage.hauptheizungsanlage-gas",
     "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "created_at": "2023-09-11T12:55:22.251Z",
+      "modified_at": "2023-09-11T12:55:22.251Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "hauptheizungsanlage",
       "option": "hauptheizungsanlage-gas",
-      "sort": 3
+      "sort": 2
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "hauptheizungsanlage.hauptheizungsanlage-grundwasserwaermepumpe",
     "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "created_at": "2023-09-11T12:55:22.282Z",
+      "modified_at": "2023-09-11T12:55:22.283Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "hauptheizungsanlage",
       "option": "hauptheizungsanlage-grundwasserwaermepumpe",
-      "sort": 13
+      "sort": 9
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "hauptheizungsanlage.hauptheizungsanlage-heizoel",
     "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "created_at": "2023-09-11T12:55:22.294Z",
+      "modified_at": "2023-09-11T12:55:22.294Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "hauptheizungsanlage",
       "option": "hauptheizungsanlage-heizoel",
-      "sort": 17
+      "sort": 11
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "hauptheizungsanlage.hauptheizungsanlage-holz",
     "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "created_at": "2023-09-11T12:55:22.265Z",
+      "modified_at": "2023-09-11T12:55:22.265Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "hauptheizungsanlage",
       "option": "hauptheizungsanlage-holz",
-      "sort": 7
+      "sort": 5
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "hauptheizungsanlage.hauptheizungsanlage-luftwaermepumpe",
     "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "created_at": "2023-09-11T12:55:22.278Z",
+      "modified_at": "2023-09-11T12:55:22.278Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "hauptheizungsanlage",
       "option": "hauptheizungsanlage-luftwaermepumpe",
-      "sort": 11
+      "sort": 8
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "hauptheizungsanlage.hauptheizungsanlage-sonne-thermisch",
     "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "created_at": "2023-09-11T12:55:22.260Z",
+      "modified_at": "2023-09-11T12:55:22.260Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "hauptheizungsanlage",
       "option": "hauptheizungsanlage-sonne-thermisch",
-      "sort": 6
+      "sort": 4
     }
   },
   {
@@ -33237,16 +33146,16 @@
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "mindest-und-grenzabstaende.mindest-und-grenzabstaende-fliessgewaesser",
+    "pk": "mindest-und-grenzabstaende.mindest-und-grenzabstaende-gewaesser",
     "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "created_at": "2023-09-11T12:47:00.321Z",
+      "modified_at": "2023-09-11T12:47:00.321Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "mindest-und-grenzabstaende",
-      "option": "mindest-und-grenzabstaende-fliessgewaesser",
+      "option": "mindest-und-grenzabstaende-gewaesser",
       "sort": 6
     }
   },
@@ -33254,8 +33163,8 @@
     "model": "caluma_form.questionoption",
     "pk": "mindest-und-grenzabstaende.mindest-und-grenzabstaende-grenzabstand",
     "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "created_at": "2023-09-11T12:47:00.307Z",
+      "modified_at": "2023-09-11T12:47:00.307Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -33269,8 +33178,8 @@
     "model": "caluma_form.questionoption",
     "pk": "mindest-und-grenzabstaende.mindest-und-grenzabstaende-keine",
     "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "created_at": "2023-09-11T12:47:00.303Z",
+      "modified_at": "2023-09-11T12:47:00.303Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -33282,25 +33191,10 @@
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "mindest-und-grenzabstaende.mindest-und-grenzabstaende-seeufer",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "mindest-und-grenzabstaende",
-      "option": "mindest-und-grenzabstaende-seeufer",
-      "sort": 3
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
     "pk": "mindest-und-grenzabstaende.mindest-und-grenzabstaende-verkehrsflaechen",
     "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "created_at": "2023-09-11T12:47:00.318Z",
+      "modified_at": "2023-09-11T12:47:00.318Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -33314,8 +33208,8 @@
     "model": "caluma_form.questionoption",
     "pk": "mindest-und-grenzabstaende.mindest-und-grenzabstaende-waldabstand",
     "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "created_at": "2023-09-11T12:47:00.314Z",
+      "modified_at": "2023-09-11T12:47:00.314Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
