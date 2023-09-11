@@ -3,6 +3,7 @@ import re
 from importlib import import_module
 
 import requests
+from alexandria.core import models as alexandria_models
 from caluma.caluma_form.models import Document, Question
 from caluma.caluma_form.validators import CustomValidationError, DocumentValidator
 from django.conf import settings
@@ -20,7 +21,6 @@ from camac.instance.placeholders.utils import (
     clean_join,
     enrich_personal_data,
     get_person_name,
-    prepare_documents,
 )
 from camac.instance.utils import build_document_prefetch_statements
 from camac.utils import build_url
@@ -222,13 +222,44 @@ class DMSHandler:
                     ],
                     separator=", ",
                 ),
-                "documents": prepare_documents(instance),
             }
 
             data.update(get_header_labels())
             data.update(header_data)
 
         return data
+
+    def prepare_documents(self, instance):
+        if settings.APPLICATION["DOCUMENT_BACKEND"] == "camac-ng":  # pragma: no cover
+            # not implemented
+            return []
+
+        categories = settings.APPLICATION.get("DOCUMENT_MERGE_SERVICE", {}).get(
+            "ALEXANDRIA_DOCUMENT_CATEGORIES", []
+        )
+
+        documents = (
+            alexandria_models.Document.objects.filter(
+                category_id__in=categories,
+                instance_document__instance=instance,
+            )
+            .exclude(metainfo__has_key="system-generated")
+            .order_by("-created_at")
+            .values("title", "created_at")
+        )
+
+        timezone = get_current_timezone()
+
+        return [
+            {
+                "filename": str(document["title"]),
+                "date": document["created_at"]
+                .astimezone(timezone)
+                .strftime("%d.%m.%Y"),
+                "time": document["created_at"].astimezone(timezone).strftime("%H:%M"),
+            }
+            for document in documents
+        ]
 
     def get_instance_and_document(self, instance_id, form_slug=None, document_id=None):
         use_root_document = not document_id and not form_slug
@@ -275,6 +306,15 @@ class DMSHandler:
 
         return (instance, document)
 
+    def get_data(self, instance, document, user, service):
+        visitor = DMSVisitor(document, instance, user)
+        return {
+            **self.get_meta_data(instance, document, service),
+            "draft": "" if visitor.is_valid() else _("Draft"),
+            "sections": visitor.visit(document),
+            "documents": self.prepare_documents(instance),
+        }
+
     def generate_pdf(
         self, instance_id, request, form_slug=None, document_id=None, template=None
     ):
@@ -294,17 +334,13 @@ class DMSHandler:
         # merge pdf and store as attachment
         auth = get_authorization_header(request)
         dms_client = DMSClient(auth)
-        visitor = DMSVisitor(document, instance, request.caluma_info.context.user)
         pdf = dms_client.merge(
-            {
-                **self.get_meta_data(
-                    instance,
-                    document,
-                    request.group.service,
-                ),
-                "draft": "" if visitor.is_valid() else _("Draft"),
-                "sections": visitor.visit(document),
-            },
+            self.get_data(
+                instance,
+                document,
+                request.caluma_info.context.user,
+                request.group.service,
+            ),
             template,
         )
 

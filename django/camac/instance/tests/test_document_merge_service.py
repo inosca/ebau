@@ -414,8 +414,8 @@ def test_eingabebestaetigung_gr(
     freezer.move_to("2022-09-07 12:01")
 
     snapshot.assert_match(
-        DMSHandler().get_meta_data(
-            gr_instance, gr_instance.case.document, group.service
+        DMSHandler().get_data(
+            gr_instance, gr_instance.case.document, BaseUser(), group.service
         )
     )
 
