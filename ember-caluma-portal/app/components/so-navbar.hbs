@@ -1,0 +1,95 @@
+<header class="so-navbar">
+  <div class="so-navbar__header">
+    <div class="so-navbar__header__logo">
+      <a href={{macroGetOwnConfig "eGovPortalURL"}} target="_blank" rel="noopener noreferrer">
+        <img src="/assets/images/logo-my.so.ch-header.png" alt={{t "so-footer.e-gov-title"}}>
+      </a>
+    </div>
+  </div>
+
+  <nav class="so-navbar__nav">
+    <div>
+      <ul>
+        <li><LinkTo @route="index">{{t "global.title"}}</LinkTo></li>
+        <li><LinkTo @route="instances">{{t "nav.instances"}}</LinkTo></li>
+        {{#if (macroCondition (macroGetOwnConfig "enableCommunications"))}}
+          {{#unless this.session.isInternal}}
+            <li>
+              <LinkTo @route="communications-global">
+                {{t "nav.communications"}}
+                <Communication::UnreadMessageBadge />
+              </LinkTo>
+            </li>
+          {{/unless}}
+        {{/if}}
+        <li><LinkTo @route="public-instances">{{t "nav.public-instance"}}</LinkTo></li>
+        {{#if this.showFormBuilder}}
+          <li><LinkTo @route="form-builder">{{t "nav.form-builder"}}</LinkTo></li>
+        {{/if}}
+      </ul>
+    </div>
+    <div>
+      <ul>
+        <li><a href={{macroGetOwnConfig "eGovPortalURL"}}>{{t "so-footer.leave"}}</a></li>
+        <li><LinkTo @route="faq" title={{t "nav.faq"}}><FaIcon @icon="question-circle" /></LinkTo></li>
+        {{#if this.session.user}}
+          <li>
+            <a href="#">
+              <img
+                src="/assets/images/my.so.ch-profile.png"
+                class="so-navbar__nav__profile"
+                alt={{this.session.user.fullName}}
+              >
+              <div class="so-navbar__nav__user">
+                <div>{{this.session.user.fullName}}</div>
+                {{#if this.session.group}}
+                  <div>
+                    <span class="so-navbar__nav__user__caret"></span>
+                    {{this.session.group.name}}
+                  </div>
+                {{/if}}
+              </div>
+            </a>
+            <div
+              class="so-navbar__dropdown"
+              uk-dropdown
+              mode="click"
+              pos="bottom-right"
+              offset="0"
+            >
+              <ul>
+                {{#if this.session.groups.length}}
+                  <li>
+                    <a
+                      data-test-no-group
+                      href="#"
+                      class={{unless this.session.group "active"}}
+                      {{on "click" (fn this.setGroup null)}}
+                    >
+                      {{t "nav.applicant"}}
+                    </a>
+                  </li>
+                  {{#each this.session.groups as |g|}}
+                    <li>
+                      <a
+                        data-test-group={{g.id}}
+                        href="#"
+                        class={{if (eq g.id this.session.group.id) "active"}}
+                        {{on "click" (fn this.setGroup g.id)}}
+                      >
+                        {{g.name}}
+                      </a>
+                    </li>
+                  {{/each}}
+                {{/if}}
+                <li><a href="" {{on "click" this.logout}}><FaIcon @icon="power-off" />{{t "nav.logout"}}</a></li>
+              </ul>
+            </div>
+          </li>
+        {{/if}}
+        <li><a href="" title={{t "nav.logout"}} {{on "click" this.logout}}><FaIcon @icon="power-off" /></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>

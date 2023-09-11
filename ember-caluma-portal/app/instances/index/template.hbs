@@ -1,12 +1,12 @@
-<h1 class="uk-flex uk-flex-between">
-  {{t "instances.title"}}
+<div class="uk-flex uk-flex-between">
+  <h1>{{t "instances.title"}}</h1>
 
   {{#if (can "create instance")}}
-    <span>
+    <div>
       <LinkTo @route="instances.new" class="uk-button uk-button-secondary">{{t "instances.new.title"}}</LinkTo>
-    </span>
+    </div>
   {{/if}}
-</h1>
+</div>
 
 {{#if this.rootForms.isRunning}}
   <div class="uk-text-center uk-padding">
