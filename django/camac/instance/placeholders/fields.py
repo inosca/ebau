@@ -126,7 +126,7 @@ class ResponsibleUserField(AliasedMixin, serializers.ReadOnlyField):
             return ""
 
         if self.source == "full_name":
-            return clean_join(user.surname, user.name)
+            return clean_join(user.name, user.surname)
 
         return getattr(user, self.source)
 

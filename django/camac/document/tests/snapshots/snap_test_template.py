@@ -5554,7 +5554,7 @@ snapshots['test_template_merge[Canton-200-docx-11-18-011-instance__group0-instan
         <w:szCs w:val="24"/>
         <w:lang w:val="de-CH" w:eastAsia="zh-CN" w:bidi="hi-IN"/>
       </w:rPr>
-      <w:t xml:space="preserve">Verantwortliche Person: User Admin</w:t>
+      <w:t xml:space="preserve">Verantwortliche Person: Admin User</w:t>
     </w:r>
   </w:p>
   <w:p>

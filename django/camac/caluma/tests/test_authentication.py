@@ -10,8 +10,8 @@ def test_authenticate_caluma(rf, settings, admin_user, group, mocker):
     token_value = {
         "sub": admin_user.username,
         "email": admin_user.email,
-        "family_name": admin_user.name,
-        "given_name": admin_user.surname,
+        "family_name": admin_user.surname,
+        "given_name": admin_user.name,
         settings.OIDC_USERNAME_CLAIM: admin_user.username,
     }
     settings.OIDC_USERINFO_ENDPOINT = "http://fake-endpoint.local"

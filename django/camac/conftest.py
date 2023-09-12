@@ -202,8 +202,8 @@ def rf(db):
 @pytest.fixture
 def admin_user(admin_user, group, group_location, user_group_factory):
     admin_user.username = "462afaba-aeb7-494a-8596-3497b81ed701"
-    admin_user.surname = "Admin"
-    admin_user.name = "User"
+    admin_user.surname = "User"
+    admin_user.name = "Admin"
     admin_user.save()
     user_group_factory(group=group, user=admin_user, default_group=1)
     return admin_user

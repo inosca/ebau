@@ -20,8 +20,8 @@ def test_authenticate_disabled_user(rf, admin_user, mocker, clear_cache):
     token_dict = {
         "sub": admin_user.username,
         "email": admin_user.email,
-        "family_name": admin_user.name,
-        "given_name": admin_user.surname,
+        "family_name": admin_user.surname,
+        "given_name": admin_user.name,
         settings.OIDC_USERNAME_CLAIM: admin_user.username,
     }
     decode_token = mocker.patch("keycloak.KeycloakOpenID.decode_token")
@@ -149,8 +149,8 @@ def test_authenticate_ok(rf, admin_user, mocker, clear_cache):
     token_value = {
         "sub": admin_user.username,
         "email": admin_user.email,
-        "family_name": admin_user.name,
-        "given_name": admin_user.surname,
+        "family_name": admin_user.surname,
+        "given_name": admin_user.name,
         settings.OIDC_USERNAME_CLAIM: admin_user.username,
     }
     decode_token = mocker.patch("keycloak.KeycloakOpenID.decode_token")
@@ -256,8 +256,8 @@ def test_authenticate_applicants(
     token_value = {
         "sub": admin_user.username,
         "email": new_email,
-        "family_name": admin_user.name,
-        "given_name": admin_user.surname,
+        "family_name": admin_user.surname,
+        "given_name": admin_user.name,
         settings.OIDC_USERNAME_CLAIM: admin_user.username,
     }
     decode_token = mocker.patch("keycloak.KeycloakOpenID.decode_token")
