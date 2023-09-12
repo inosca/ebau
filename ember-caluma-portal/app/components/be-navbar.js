@@ -94,7 +94,9 @@ export default class BeNavbarComponent extends Component {
   }
 
   @action
-  logout() {
+  logout(event) {
+    event.preventDefault();
+
     this.session.singleLogout();
   }
 }
