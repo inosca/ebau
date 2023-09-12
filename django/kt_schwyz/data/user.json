@@ -59,8 +59,8 @@
     "fields": {
       "username": "service-account-camac-admin",
       "password": null,
-      "name": "System",
-      "surname": "eBau",
+      "name": "eBau",
+      "surname": "System",
       "email": "service-account-camac-admin@placeholder.org",
       "phone": null,
       "disabled": 0,
