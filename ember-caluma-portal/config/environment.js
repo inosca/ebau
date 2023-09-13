@@ -387,6 +387,7 @@ module.exports = function (environment) {
       defaultInstanceStateCategory: "pending",
       instanceStateCategories: {
         pending: [instanceStatesSo.new, instanceStatesSo.subm],
+        done: [null], // Placeholder until a finished state is added
       },
       completePreliminaryClarificationSlugs: [],
       selectableGroups: {
