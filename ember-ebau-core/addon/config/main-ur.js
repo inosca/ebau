@@ -3,6 +3,7 @@ export default {
   languages: ["de"],
   fallbackLanguage: "de",
   prodUrl: "urec.ur.ch",
+  showInstanceIdAfterSubmission: true,
   gwr: {
     cantonAbbreviation: "UR",
     importModels: ["project", "building", "dwelling"],
