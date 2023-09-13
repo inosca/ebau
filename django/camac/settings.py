@@ -3399,7 +3399,7 @@ APPLICATIONS = {
                     "forms": [
                         "baugesuch",
                     ],
-                    "template": "eingabequittung",
+                    "template": "form",
                     "personalien": "personalien",
                     "exclude_slugs": [
                         "is-paper",
@@ -3411,7 +3411,7 @@ APPLICATIONS = {
                     "forms": [
                         "bauanzeige",
                     ],
-                    "template": "eingabequittung",
+                    "template": "form",
                     "personalien": "personalien",
                     "exclude_slugs": [
                         "is-paper",
@@ -3424,7 +3424,7 @@ APPLICATIONS = {
                     "forms": [
                         "vorlaeufige-beurteilung",
                     ],
-                    "template": "eingabequittung",
+                    "template": "form",
                     "personalien": "personalien",
                     "exclude_slugs": [
                         "is-paper",
@@ -3437,7 +3437,7 @@ APPLICATIONS = {
                     "forms": [
                         "solaranlage",
                     ],
-                    "template": "eingabequittung",
+                    "template": "form",
                     "personalien": "personalien",
                     "exclude_slugs": [
                         "is-paper",
@@ -3648,7 +3648,10 @@ APPLICATIONS = {
                     )
                 },
             ),
-            "description_modification": ("answer", "projektaenderung"),
+            "description_modification": (
+                "answer",
+                "beschreibung-projektaenderung",
+            ),
         },
     },
     "kt_so": {

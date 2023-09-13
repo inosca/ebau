@@ -2598,7 +2598,7 @@ snapshots['test_eingabebestaetigung_gr 1'] = {
             'zip': ' '
         }
     ],
-    'modificationHeader': None,
+    'modificationHeader': 'Projekt Änderung',
     'modificationHeaderLabel': 'Projektänderung',
     'modifiedAt': 'Zuletzt bearbeitet am 06.09.2022 um 15:37',
     'municipality': 'Testhausen',
