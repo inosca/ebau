@@ -1107,12 +1107,22 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             instance={"type": "instances", "id": self.instance.pk},
         )
 
-    def _set_submit_date(self, validated_data, instance=None):
-        instance = instance if instance else self.instance
+    def _set_submit_date(self, case, instance):
+        if "submit-date" in case.meta:  # pragma: no cover
+            # instance was already submitted, this is probably a re-submit
+            # after correction.
+            return
+
         submit_date = timezone.now().strftime(SUBMIT_DATE_FORMAT)
 
-        changed = CalumaApi().set_submit_date(instance.pk, submit_date)
-        if settings.APPLICATION.get("SET_SUBMIT_DATE_CAMAC_ANSWER") and changed:
+        case.meta = {
+            **case.meta,
+            # Caluma date is formatted yyyy-mm-dd so it can be sorted
+            "submit-date": submit_date,
+        }
+        case.save()
+
+        if settings.APPLICATION.get("SET_SUBMIT_DATE_CAMAC_ANSWER"):
             # Set submit date in Camac first...
             # TODO drop this after this is not used anymore in Camac
             Answer.objects.get_or_create(
@@ -1344,7 +1354,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             self._update_instance_location(koor_afj_instance)
             koor_afj_instance.save()
             self._generate_and_store_pdf(koor_afj_instance)
-            self._set_submit_date(None, koor_afj_instance)
+            self._set_submit_date(koor_afj_instance.case, koor_afj_instance)
             self._set_authority(koor_afj_instance)
             self._send_notifications(koor_afj_instance.case)
 
@@ -1506,7 +1516,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         self._generate_identifier(case, instance)
         self._set_authority(instance)
         self._generate_and_store_pdf(instance)
-        self._set_submit_date(validated_data)
+        self._set_submit_date(case, instance)
         self._create_history_entry(gettext_noop("Dossier submitted"))
         self._update_rejected_instance(instance)
         self._complete_submit_work_item(instance)
