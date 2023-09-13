@@ -571,6 +571,16 @@ DISTRIBUTION = {
             "STATEMENT": "inquiry-answer-assessment",
             "ANCILLARY_CLAUSES": "inquiry-answer-ancillary-clauses",
         },
+        "NOTIFICATIONS": {
+            "INQUIRY_SENT": {
+                "template_slug": "verfahrensablauf-fachstelle",
+                "recipient_types": ["inquiry_addressed"],
+            },
+            "INQUIRY_ANSWERED": {
+                "template_slug": "bericht-erstellt",
+                "recipient_types": ["inquiry_controlling"],
+            },
+        },
         "INQUIRY_TASK": "inquiry",
     },
     "kt_so": {

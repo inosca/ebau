@@ -20,3 +20,7 @@ PUBLIC_INSTANCE_STATE_RECEIVING = "submitted"
 PUBLIC_INSTANCE_STATE_IN_PROGRESS = "inProcedure"
 PUBLIC_INSTANCE_STATE_FINISHED = "finished"
 PUBLIC_INSTANCE_STATE_REJECTED = "rejected"
+
+# Decisions
+DECISIONS_BEWILLIGT = "decision-decision-approved"
+DECISIONS_ABGELEHNT = "decision-decision-rejected"

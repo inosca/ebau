@@ -141,7 +141,11 @@ def test_decision_completion_computes_cycle_time(
     caluma_admin_user,
     case_cycle_time,
     decision_factory,
+    settings,
+    application_settings,
 ):
+    settings.APPLICATION_NAME = "kt_bern"
+    application_settings["SHORT_NAME"] = "be"
     work_item = decision_factory(
         decision=DECISIONS_BEWILLIGT,
         decision_type=DECISION_TYPE_BAUBEWILLIGUNGSFREI,

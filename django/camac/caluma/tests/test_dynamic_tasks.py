@@ -107,7 +107,11 @@ def test_dynamic_task_after_decision(
     instance,
     service_factory,
     workflow_id,
+    settings,
+    application_settings,
 ):
+    settings.APPLICATION_NAME = "kt_be"
+    application_settings["SHORT_NAME"] = "be"
     case = instance_with_case(instance=instance, workflow=workflow_id).case
 
     instance_state_factory(name="coordination")

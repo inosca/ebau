@@ -1,9 +1,11 @@
 import pytest
 from caluma.caluma_core.events import send_event
+from caluma.caluma_form.models import Question
 from caluma.caluma_workflow.events import post_complete_work_item
 from caluma.caluma_workflow.models import Workflow, WorkItem
 from django.core.management import call_command
 
+from camac.constants import kt_gr as gr_constants
 from camac.constants.kt_bern import (
     DECISION_TYPE_BUILDING_PERMIT,
     DECISION_TYPE_CONSTRUCTION_TEE_WITH_RESTORATION,
@@ -98,9 +100,12 @@ def test_complete_decision(
     use_instance_service,
     decision_factory,
     construction_control,
+    settings,
 ):
+    settings.APPLICATION_NAME = "kt_be"
     instance_state_factory(name=expected_instance_state)
 
+    application_settings["SHORT_NAME"] = "be"
     application_settings["CALUMA"]["DECISION_TASK"] = "decision"
     application_settings["NOTIFICATIONS"] = {
         "DECISION": [
@@ -152,6 +157,97 @@ def test_complete_decision(
         assert ebau_number_work_item.status == WorkItem.STATUS_SKIPPED
 
 
+@pytest.mark.parametrize(
+    "decision,expected_instance_state,expected_text",
+    [
+        (
+            gr_constants.DECISIONS_BEWILLIGT,
+            "finished",
+            "Bauentscheid verfügt",
+        ),
+        (
+            gr_constants.DECISIONS_ABGELEHNT,
+            "finished",
+            "Bauentscheid verfügt",
+        ),
+    ],
+)
+def test_complete_decision_gr(
+    db,
+    gr_instance,
+    caluma_admin_user,
+    application_settings,
+    mailoutbox,
+    notification_template,
+    work_item_factory,
+    document_factory,
+    question_factory,
+    instance_state_factory,
+    decision,
+    expected_instance_state,
+    expected_text,
+    settings,
+):
+    settings.APPLICATION_NAME = "kt_gr"
+    instance_state_factory(name=expected_instance_state)
+
+    application_settings["SHORT_NAME"] = "gr"
+    application_settings["CALUMA"][
+        "CONSTRUCTION_MONITORING_TASK"
+    ] = "construction-monitoring"
+    application_settings["CALUMA"]["DECISION_TASK"] = "decision"
+    application_settings["NOTIFICATIONS"] = {
+        "DECISION": [
+            {
+                "template_slug": notification_template.slug,
+                "recipient_types": ["applicant"],
+            }
+        ],
+        "DECISION_PRELIMINARY_CLARIFICATION": [
+            {
+                "template_slug": notification_template.slug,
+                "recipient_types": ["applicant"],
+            }
+        ],
+    }
+
+    gr_instance.case.workflow = Workflow.objects.get(pk="building-permit")
+    gr_instance.case.save()
+
+    work_item = work_item_factory(
+        case=gr_instance.case,
+        task_id="decision",
+        status=WorkItem.STATUS_COMPLETED,
+        document=document_factory(form_id="decision"),
+    )
+    decision_question = question_factory(
+        slug="decision-decision", label="Entscheid", type=Question.TYPE_TEXT
+    )
+
+    work_item.document.answers.create(question=decision_question, value=decision)
+
+    send_event(
+        post_complete_work_item,
+        sender="post_complete_work_item",
+        work_item=work_item,
+        user=caluma_admin_user,
+        context={},
+    )
+
+    gr_instance.refresh_from_db()
+
+    if decision == gr_constants.DECISIONS_BEWILLIGT:
+        assert WorkItem.objects.filter(task_id="construction-monitoring").exists()
+    else:
+        assert not WorkItem.objects.filter(task_id="construction-monitoring").exists()
+
+    assert gr_instance.instance_state.name == expected_instance_state
+    assert len(mailoutbox) == 1
+    assert HistoryEntryT.objects.filter(
+        history_entry__instance=gr_instance, title=expected_text, language="de"
+    ).exists()
+
+
 @pytest.mark.parametrize("role__name", ["Municipality"])
 @pytest.mark.parametrize(
     "previous_instance_state,expected_instance_state,decision,expect_copy",
@@ -180,11 +276,14 @@ def test_complete_decision_appeal(
     notification_template,
     previous_instance_state,
     settings,
+    application_settings,
 ):
+    settings.APPLICATION_NAME = "kt_be"
     call_command(
         "loaddata", settings.ROOT_DIR("kt_bern/config/caluma_ebau_number_form.json")
     )
 
+    application_settings["SHORT_NAME"] = "be"
     be_appeal_settings["NOTIFICATIONS"]["APPEAL_DECISION"] = [
         {
             "template_slug": notification_template.slug,

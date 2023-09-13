@@ -351,7 +351,10 @@ def test_work_item_additional_demand_visibility(
     case_factory,
     role,
     mocker,
+    settings,
 ):
+    settings.APPLICATION_NAME = "kt_gr"
+    application_settings["SHORT_NAME"] = "gr"
     mocker.patch("caluma.caluma_core.types.Node.visibility_classes", [CustomVisibility])
 
     applicant_factory(invitee=admin_user, instance=gr_instance)

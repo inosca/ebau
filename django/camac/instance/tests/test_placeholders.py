@@ -96,6 +96,7 @@ def test_dms_placeholders_gr(
     gr_dms_config,
     group,
 ):
+    settings.DISTRIBUTION["QUESTIONS"]["STATEMENT"] = "inquiry-answer-statement"
     application_settings["MUNICIPALITY_DATA_SHEET"] = settings.ROOT_DIR(
         "kt_gr",
         pathlib.Path(settings.APPLICATIONS["kt_bern"]["MUNICIPALITY_DATA_SHEET"]).name,
@@ -171,8 +172,8 @@ def test_dms_placeholders_gr(
     nebenbestimmungen_question = Question.objects.get(
         pk=gr_distribution_settings["QUESTIONS"]["ANCILLARY_CLAUSES"]
     )
-    stellungnahme_question = question_factory(
-        slug=gr_distribution_settings["QUESTIONS"]["STATEMENT"], type=Question.TYPE_TEXT
+    stellungnahme_question = Question.objects.get(
+        pk=gr_distribution_settings["QUESTIONS"]["STATEMENT"]
     )
     district_inquiries = [
         active_inquiry_factory(gr_instance, svc)
