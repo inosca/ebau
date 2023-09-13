@@ -1,22 +1,14 @@
 from collections import namedtuple
 
 from caluma.caluma_form.api import save_answer
-from caluma.caluma_form.models import Answer, AnswerDocument, Option, Question
+from caluma.caluma_form.models import AnswerDocument, Option, Question
 from caluma.caluma_user.models import OIDCUser
 from caluma.caluma_workflow.api import complete_work_item, skip_work_item
-from caluma.caluma_workflow.models import WorkItem
-from django.conf import settings
 from django.db.models import Prefetch
 from django.utils.timezone import now
 from django.utils.translation import gettext as _
 
 from camac.caluma.api import CalumaApi
-from camac.constants.kt_bern import (
-    DECISION_TYPE_BAUBEWILLIGUNGSFREI,
-    DECISION_TYPE_CONSTRUCTION_TEE_WITH_RESTORATION,
-    DECISION_TYPE_PARTIAL_PERMIT_WITH_PARTIAL_CONSTRUCTION_TEE_AND_PARTIAL_RESTORATION,
-    DECISIONS_BEWILLIGT,
-)
 from camac.instance.models import Instance
 from camac.user.models import Group, Service, User
 
@@ -79,35 +71,6 @@ def set_construction_control(instance: Instance) -> Service:
     instance.instance_services.create(service=construction_control, active=1)
 
     return construction_control
-
-
-def should_continue_after_decision(instance: Instance, work_item: WorkItem) -> bool:
-    answers = work_item.document.answers
-    decision = answers.get(question_id="decision-decision-assessment").value
-
-    if settings.APPEAL and work_item.case.meta.get("is-appeal"):
-        previous_instance = work_item.case.document.source.case.instance
-        previous_state = previous_instance.previous_instance_state.name
-
-        if decision == settings.APPEAL["ANSWERS"]["DECISION"]["CONFIRMED"]:
-            return previous_state == "sb1"
-        elif decision == settings.APPEAL["ANSWERS"]["DECISION"]["CHANGED"]:
-            return previous_state != "sb1"
-        elif decision == settings.APPEAL["ANSWERS"]["DECISION"]["REJECTED"]:
-            return False
-
-    try:
-        decision_type = answers.get(question_id="decision-approval-type").value
-    except Answer.DoesNotExist:
-        decision_type = None
-
-    return (
-        decision == DECISIONS_BEWILLIGT
-        and decision_type != DECISION_TYPE_BAUBEWILLIGUNGSFREI
-    ) or decision_type in [
-        DECISION_TYPE_CONSTRUCTION_TEE_WITH_RESTORATION,
-        DECISION_TYPE_PARTIAL_PERMIT_WITH_PARTIAL_CONSTRUCTION_TEE_AND_PARTIAL_RESTORATION,
-    ]
 
 
 def build_document_prefetch_statements(prefix="", prefetch_options=False):

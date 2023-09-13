@@ -15,6 +15,13 @@ from rest_framework.exceptions import ValidationError
 from camac.caluma.api import CalumaApi
 from camac.caluma.extensions.data_sources import Municipalities
 from camac.constants import kt_uri as ur_constants
+from camac.constants.kt_bern import (
+    DECISION_TYPE_BAUBEWILLIGUNGSFREI,
+    DECISION_TYPE_CONSTRUCTION_TEE_WITH_RESTORATION,
+    DECISION_TYPE_PARTIAL_PERMIT_WITH_PARTIAL_CONSTRUCTION_TEE_AND_PARTIAL_RESTORATION,
+    DECISIONS_BEWILLIGT,
+)
+from camac.constants.kt_gr import DECISIONS_BEWILLIGT as DECISIONS_BEWILLIGT_GR
 from camac.core.models import InstanceLocation, InstanceService
 from camac.core.utils import canton_aware, generate_dossier_nr
 from camac.instance.models import Instance, InstanceGroup
@@ -610,3 +617,60 @@ class CreateInstanceLogic:
         )
 
         return instance
+
+
+class CreateDecisionLogic:
+    @classmethod
+    @canton_aware
+    def should_continue_after_decision(
+        cls, instance: Instance, work_item: workflow_models.WorkItem
+    ) -> bool:
+        raise RuntimeError("Not implemented")  # pragma: no cover
+
+    @classmethod
+    def should_continue_after_decision_be(
+        cls, instance: Instance, work_item: workflow_models.WorkItem
+    ) -> bool:
+        answers = work_item.document.answers
+        decision = answers.filter(question_id="decision-decision-assessment")
+
+        if not decision:  # pragma: no cover
+            return False
+
+        if settings.APPEAL and work_item.case.meta.get("is-appeal"):
+            previous_instance = work_item.case.document.source.case.instance
+            previous_state = previous_instance.previous_instance_state.name
+
+            if decision[0].value == settings.APPEAL["ANSWERS"]["DECISION"]["CONFIRMED"]:
+                return previous_state == "sb1"
+            elif decision[0].value == settings.APPEAL["ANSWERS"]["DECISION"]["CHANGED"]:
+                return previous_state != "sb1"
+            elif (
+                decision[0].value == settings.APPEAL["ANSWERS"]["DECISION"]["REJECTED"]
+            ):
+                return False
+
+        try:
+            decision_type = answers.get(question_id="decision-approval-type").value
+        except form_models.Answer.DoesNotExist:
+            decision_type = None
+
+        return (
+            decision[0].value == DECISIONS_BEWILLIGT
+            and decision_type != DECISION_TYPE_BAUBEWILLIGUNGSFREI
+        ) or decision_type in [
+            DECISION_TYPE_CONSTRUCTION_TEE_WITH_RESTORATION,
+            DECISION_TYPE_PARTIAL_PERMIT_WITH_PARTIAL_CONSTRUCTION_TEE_AND_PARTIAL_RESTORATION,
+        ]
+
+    @classmethod
+    def should_continue_after_decision_gr(
+        cls, instance: Instance, work_item: workflow_models.WorkItem
+    ) -> bool:
+        answers = work_item.document.answers
+        decision = answers.filter(question_id="decision-decision")
+
+        if not decision:  # pragma: no cover
+            return False
+
+        return decision[0].value == DECISIONS_BEWILLIGT_GR

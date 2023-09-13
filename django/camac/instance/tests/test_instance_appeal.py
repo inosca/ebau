@@ -135,7 +135,11 @@ def test_instance_appeal(
     notification_template,
     previous_instance_state_name,
     role,
+    settings,
+    application_settings,
 ):
+    settings.APPLICATION_NAME = "kt_be"
+    application_settings["SHORT_NAME"] = "be"
     be_appeal_settings["NOTIFICATIONS"]["APPEAL_SUBMITTED"] = [
         {
             "template_slug": notification_template.slug,

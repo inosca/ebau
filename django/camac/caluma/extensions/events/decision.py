@@ -1,21 +1,24 @@
+from datetime import timedelta
+
 from caluma.caluma_core.events import on
 from caluma.caluma_form.api import save_answer
 from caluma.caluma_form.models import Question
 from caluma.caluma_workflow.api import skip_work_item
 from caluma.caluma_workflow.events import post_complete_work_item, post_create_work_item
-from caluma.caluma_workflow.models import WorkItem
+from caluma.caluma_workflow.models import Task, WorkItem
 from django.conf import settings
 from django.db import transaction
+from django.utils import timezone
 from django.utils.translation import gettext_noop
 
 from camac.core.utils import create_history_entry
 from camac.ech0211.signals import ruling
+from camac.instance import domain_logic
 from camac.instance.utils import (
     copy_instance,
     fill_ebau_number,
     get_lead_authority,
     set_construction_control,
-    should_continue_after_decision,
 )
 from camac.notification.utils import send_mail_without_request
 from camac.stats.cycle_time import compute_cycle_time
@@ -95,12 +98,15 @@ def copy_responsible_person_lead_authority(instance, construction_control):
 @transaction.atomic
 def set_workflow_answer(sender, work_item, user, context, **kwargs):
     if work_item.task_id == get_caluma_setting("DECISION_TASK"):
-        save_answer(
-            document=work_item.document,
-            question=Question.objects.get(pk="decision-workflow"),
-            value=work_item.case.workflow_id,
-            user=user,
-        )
+        decision_workflow_question = Question.objects.filter(pk="decision-workflow")
+
+        if decision_workflow_question:
+            save_answer(
+                document=work_item.document,
+                question=decision_workflow_question[0],
+                value=work_item.case.workflow_id,
+                user=user,
+            )
 
 
 @on(post_complete_work_item, raise_exception=True)
@@ -114,7 +120,7 @@ def set_cycle_time_post_decision_complete(sender, work_item, user, context, **kw
 
 @on(post_complete_work_item, raise_exception=True)
 @transaction.atomic
-def post_complete_decision(sender, work_item, user, context, **kwargs):
+def post_complete_decision(sender, work_item, user, context, **kwargs):  # noqa: C901
     if work_item.task_id == get_caluma_setting("DECISION_TASK"):
         instance = get_instance(work_item)
         camac_user = User.objects.get(username=user.username)
@@ -126,14 +132,39 @@ def post_complete_decision(sender, work_item, user, context, **kwargs):
         if workflow == "building-permit":
             history_text = gettext_noop("Decision decreed")
 
-            if should_continue_after_decision(instance, work_item):
-                # set the construction control as responsible service
-                construction_control = set_construction_control(instance)
-                instance_state_name = "sb1"
+            if domain_logic.CreateDecisionLogic.should_continue_after_decision(
+                instance, work_item
+            ):
+                if settings.APPLICATION_NAME == "kt_be":
+                    # set the construction control as responsible service
+                    construction_control = set_construction_control(instance)
+                    instance_state_name = "sb1"
 
-                # copy municipality tags for sb1
-                copy_municipality_tags(instance, construction_control)
-                copy_responsible_person_lead_authority(instance, construction_control)
+                    # copy municipality tags for sb1
+                    copy_municipality_tags(instance, construction_control)
+                    copy_responsible_person_lead_authority(
+                        instance, construction_control
+                    )
+                else:
+                    construction_monitoring_task = Task.objects.get(
+                        pk=settings.APPLICATION["CALUMA"][
+                            "CONSTRUCTION_MONITORING_TASK"
+                        ]
+                    )
+                    WorkItem.objects.create(
+                        task=construction_monitoring_task,
+                        name=construction_monitoring_task.name,
+                        addressed_groups=work_item.addressed_groups,
+                        controlling_groups=work_item.controlling_groups,
+                        case=instance.case,
+                        status=WorkItem.STATUS_READY,
+                        created_by_user=user.username,
+                        created_by_group=user.group,
+                        deadline=(
+                            timezone.now()
+                            + timedelta(seconds=construction_monitoring_task.lead_time)
+                        ),
+                    )
 
             handle_appeal_decision(instance, work_item, user, camac_user)
 

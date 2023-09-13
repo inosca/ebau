@@ -3251,6 +3251,8 @@ APPLICATIONS = {
             "SUBMIT_TASKS": ["submit"],
             "FORM_PERMISSIONS": ["main", "inquiry", "inquiry-answer"],
             "HAS_PROJECT_CHANGE": True,
+            "DECISION_TASK": "decision",
+            "CONSTRUCTION_MONITORING_TASK": "construction-monitoring",
             "CREATE_IN_PROCESS": False,
             "GENERATE_IDENTIFIER": True,
             "USE_LOCATION": False,
@@ -3307,11 +3309,11 @@ APPLICATIONS = {
         "NOTIFICATIONS": {
             "SUBMIT": [
                 {
-                    "template_slug": "00-empfang-anfragebaugesuch-gesuchsteller",
+                    "template_slug": "empfang-anfragebaugesuch-gesuchsteller",
                     "recipient_types": ["applicant"],
                 },
                 {
-                    "template_slug": "00-empfang-anfragebaugesuch-behorden",
+                    "template_slug": "empfang-anfragebaugesuch-behorden",
                     "recipient_types": ["leitbehoerde"],
                 },
             ],
@@ -3319,6 +3321,16 @@ APPLICATIONS = {
                 "NEW": "gesuchsbearbeitungs-einladung-neu",
                 "EXISTING": "gesuchsbearbeitungs-einladung-bestehend",
             },
+            "DECISION": [
+                {
+                    "template_slug": "entscheid-gesuchsteller",
+                    "recipient_types": ["applicant"],
+                },
+                {
+                    "template_slug": "entscheid-behoerden",
+                    "recipient_types": ["leitbehoerde"],
+                },
+            ],
         },
         "SUBSERVICE_ROLES": ["subservice"],
         "DUMP_CONFIG_GROUPS": {
@@ -3665,9 +3677,14 @@ APPLICATIONS = {
                     )
                 },
             ),
-            "description_modification": (
+            "description_modification": ("answer", "beschreibung-projektaenderung"),
+            "decision_date": (
                 "answer",
-                "beschreibung-projektaenderung",
+                "decision-date",
+                {
+                    "document_from_work_item": "decision",
+                    "value_key": "date",
+                },
             ),
         },
     },

@@ -1392,7 +1392,10 @@ def test_instance_report(
     caluma_workflow_config_be,
     caluma_admin_user,
     decision_factory,
+    settings,
 ):
+    settings.APPLICATION_NAME = "kt_be"
+    application_settings["SHORT_NAME"] = "be"
     instance_state_factory(name="coordination")
     instance_state_factory(name="sb2")
 
@@ -1472,8 +1475,10 @@ def test_instance_finalize(
     create_awa_workitem,
     form_question_factory,
     decision_factory,
+    settings,
 ):
-
+    settings.APPLICATION_NAME = "kt_be"
+    application_settings["SHORT_NAME"] = "be"
     instance_state_factory(name="coordination")
     instance_state_factory(name="sb1")
     instance_state_factory(name="conclusion")

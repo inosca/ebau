@@ -137,7 +137,9 @@ def test_notice_ruling_send_handler(
     be_distribution_settings,
     ech_snapshot,
     decision_factory,
+    settings,
 ):
+    settings.APPLICATION_NAME = "kt_be"
     if is_vorabklaerung:
         notification_template_factory(slug="08-beurteilung-zu-voranfrage-gesuchsteller")
         notification_template_factory(slug="08-beurteilung-zu-voranfrage-behoerden")
