@@ -90,6 +90,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz.beschreibung-projektaenderung",
+    "fields": {
+      "created_at": "2023-09-11T06:12:47.221Z",
+      "modified_at": "2023-09-11T06:12:47.221Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz",
+      "question": "beschreibung-projektaenderung",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "allgemeine-angaben-kurz.gemeinde",
     "fields": {
       "created_at": "2020-10-07T13:32:02.145Z",
@@ -100,7 +115,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben-kurz",
       "question": "gemeinde",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -115,7 +130,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben-kurz",
       "question": "is-paper",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -130,7 +145,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben-kurz",
       "question": "nr",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -145,7 +160,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben-kurz",
       "question": "ort-grundstueck",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -160,7 +175,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben-kurz",
       "question": "parzelle",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -175,7 +190,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben-kurz",
       "question": "projektaenderung",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -190,7 +205,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben-kurz",
       "question": "sachverhalt",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -205,7 +220,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben-kurz",
       "question": "strasse-flurname",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -689,6 +704,40 @@
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "beschreibung-projektaenderung",
+    "fields": {
+      "created_at": "2023-09-11T06:12:47.054Z",
+      "modified_at": "2023-09-11T06:15:28.844Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschreibung Projekt\\u00e4nderung\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "\"projektaenderung-ja\" != \"projektaenderung\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
       },
       "meta": {},
       "data_source": null,
