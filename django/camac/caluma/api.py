@@ -132,25 +132,6 @@ class CalumaApi:
             defaults={"value": value},
         )
 
-    def set_submit_date(self, instance_id, submit_date):
-        case = caluma_workflow_models.Case.objects.get(instance__pk=instance_id)
-
-        if "submit-date" in case.meta:  # pragma: no cover
-            # instance was already submitted, this is probably a re-submit
-            # after correction.
-            return False
-
-        new_meta = {
-            **case.meta,
-            # Caluma date is formatted yyyy-mm-dd so it can be sorted
-            "submit-date": submit_date,
-        }
-
-        case.meta = new_meta
-        case.save()
-
-        return True
-
     def is_paper(self, instance):
         return instance.case.document.answers.filter(
             question_id="is-paper",
