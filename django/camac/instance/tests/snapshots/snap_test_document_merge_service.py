@@ -14,15 +14,18 @@ snapshots['test_document_merge_service_cover_sheet_with_header_values 1'] = {
     'applicantHeaderLabel': 'Gesuchsteller/in',
     'applicants': [
         {
+            'address_1': '',
+            'address_2': '',
             'first_name': 'Foo',
+            'full_address': '',
             'full_name': 'Test AG, Foo Bar',
             'is_juristic_person': True,
             'juristic_name': 'Test AG',
             'last_name': 'Bar',
-            'street': ' ',
-            'street_number': ' ',
-            'town': ' ',
-            'zip': ' '
+            'street': '',
+            'street_number': '',
+            'town': '',
+            'zip': ''
         }
     ],
     'authorityHeader': 'Rebecca Gonzalez',
@@ -1686,10 +1689,13 @@ snapshots['test_document_merge_service_snapshot baugesuch_header'] = {
     'applicantHeaderLabel': 'Gesuchsteller/in',
     'applicants': [
         {
+            'address_1': 'Strasse 33',
+            'address_2': '3000 Bern',
             'first_name': 'Hans',
+            'full_address': 'Strasse 33, 3000 Bern',
             'full_name': 'Hans Meier',
             'is_juristic_person': False,
-            'juristic_name': ' ',
+            'juristic_name': '',
             'last_name': 'Meier',
             'street': 'Strasse',
             'street_number': '33',
@@ -1821,10 +1827,13 @@ snapshots['test_document_merge_service_snapshot mp-form_header'] = {
     'applicantHeaderLabel': 'Gesuchsteller/in',
     'applicants': [
         {
+            'address_1': 'Wiesenweg 33',
+            'address_2': '3007 Bern',
             'first_name': 'Max',
+            'full_address': 'Wiesenweg 33, 3007 Bern',
             'full_name': 'Max Muster',
             'is_juristic_person': False,
-            'juristic_name': ' ',
+            'juristic_name': '',
             'last_name': 'Muster',
             'street': 'Wiesenweg',
             'street_number': '33',
@@ -2126,10 +2135,13 @@ snapshots['test_document_merge_service_snapshot sb1_header'] = {
     'applicantHeaderLabel': 'Gesuchsteller/in',
     'applicants': [
         {
+            'address_1': 'Wiesenweg 33',
+            'address_2': '3007 Bern',
             'first_name': 'Max',
+            'full_address': 'Wiesenweg 33, 3007 Bern',
             'full_name': 'Max Muster',
             'is_juristic_person': False,
-            'juristic_name': ' ',
+            'juristic_name': '',
             'last_name': 'Muster',
             'street': 'Wiesenweg',
             'street_number': '33',
@@ -2490,10 +2502,13 @@ snapshots['test_document_merge_service_snapshot sb2_header'] = {
     'applicantHeaderLabel': 'Gesuchsteller/in',
     'applicants': [
         {
+            'address_1': 'Wiesenweg 33',
+            'address_2': '3007 Bern',
             'first_name': 'Max',
+            'full_address': 'Wiesenweg 33, 3007 Bern',
             'full_name': 'Max Muster',
             'is_juristic_person': False,
-            'juristic_name': ' ',
+            'juristic_name': '',
             'last_name': 'Muster',
             'street': 'Wiesenweg',
             'street_number': '33',
@@ -2547,17 +2562,20 @@ snapshots['test_eingabebestaetigung_gr 1'] = {
     'applicantHeaderLabel': 'Gesuchsteller/in',
     'applicants': [
         {
-            'email': ' ',
+            'address_1': '',
+            'address_2': '',
+            'email': '',
             'first_name': 'Foo',
+            'full_address': '',
             'full_name': 'Test AG, Foo Bar',
             'is_juristic_person': True,
             'juristic_name': 'Test AG',
             'last_name': 'Bar',
-            'street': ' ',
-            'street_number': ' ',
-            'tel': ' ',
-            'town': ' ',
-            'zip': ' '
+            'street': '',
+            'street_number': '',
+            'tel': '',
+            'town': '',
+            'zip': ''
         }
     ],
     'authorityHeader': 'Rebecca Gonzalez',
@@ -2585,17 +2603,20 @@ snapshots['test_eingabebestaetigung_gr 1'] = {
     'landownerHeaderLabel': 'Grundeigentümer/in',
     'landowners': [
         {
-            'email': ' ',
+            'address_1': '',
+            'address_2': '',
+            'email': '',
             'first_name': 'Grund',
+            'full_address': '',
             'full_name': 'Eigentümer AG, Grund Eigentümerin',
             'is_juristic_person': True,
             'juristic_name': 'Eigentümer AG',
             'last_name': 'Eigentümerin',
-            'street': ' ',
-            'street_number': ' ',
-            'tel': ' ',
-            'town': ' ',
-            'zip': ' '
+            'street': '',
+            'street_number': '',
+            'tel': '',
+            'town': '',
+            'zip': ''
         }
     ],
     'modificationHeader': 'Projekt Änderung',
@@ -2610,17 +2631,20 @@ snapshots['test_eingabebestaetigung_gr 1'] = {
     'projectAuthorHeaderLabel': 'Projektverfasser/in',
     'projectAuthors': [
         {
-            'email': ' ',
+            'address_1': '',
+            'address_2': '',
+            'email': '',
             'first_name': 'Projekt',
+            'full_address': '',
             'full_name': 'Projektverfasserin AG, Projekt Verfasserin',
             'is_juristic_person': True,
             'juristic_name': 'Projektverfasserin AG',
             'last_name': 'Verfasserin',
-            'street': ' ',
-            'street_number': ' ',
-            'tel': ' ',
-            'town': ' ',
-            'zip': ' '
+            'street': '',
+            'street_number': '',
+            'tel': '',
+            'town': '',
+            'zip': ''
         }
     ],
     'responsibleHeader': None,

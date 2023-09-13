@@ -73,7 +73,7 @@ def get_person_name(
     parts = []
 
     if include_juristic_name and person.get("is_juristic_person"):
-        parts.append(clean_join(person.get("juristic_name")))
+        parts.append(person.get("juristic_name"))
 
     if include_name:
         parts.append(clean_join(person.get("first_name"), person.get("last_name")))
@@ -86,9 +86,14 @@ def enrich_personal_data(personal_data):
 
 
 def clean_and_add_full_name(entry):
-    data = {k: v if v is not None else " " for k, v in entry.items()}
-    data["full_name"] = get_person_name(entry)
-    return data
+    entry["full_name"] = get_person_name(entry)
+    entry["address_1"] = get_person_address_1(entry)
+    entry["address_2"] = get_person_address_2(entry)
+    entry["full_address"] = clean_join(
+        entry["address_1"], entry["address_2"], separator=", "
+    )
+
+    return {k: v if v is not None else "" for k, v in entry.items()}
 
 
 def human_readable_date(value: Union[datetime, date, None]) -> str:
