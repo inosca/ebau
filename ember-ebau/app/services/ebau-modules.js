@@ -25,6 +25,10 @@ export default class CustomEbauModulesService extends EbauModulesService {
     return parseInt(this.session.service?.id);
   }
 
+  get serviceModel() {
+    return "service";
+  }
+
   get isReadOnlyRole() {
     return this.session.isReadOnlyRole;
   }

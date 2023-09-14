@@ -81,3 +81,68 @@ def test_dynamic_group_distribution_create_inquiry(
             str(be_instance.responsible_service(filter_type="municipality").pk)
             in resolved_groups
         )
+
+
+def test_dynamic_create_additional_demand(
+    db,
+    work_item_factory,
+    service_factory,
+    distribution_settings,
+    additional_demand_settings,
+    caluma_admin_user,
+    be_instance,
+):
+    target_service = service_factory()
+    target_subservice = service_factory(service_parent=service_factory())
+    target_existing = service_factory()
+
+    inquiry_work_item = work_item_factory(
+        task_id=distribution_settings["INQUIRY_CREATE_TASK"],
+        case=be_instance.case,
+        addressed_groups=[str(target_existing.pk)],
+        status=WorkItem.STATUS_READY,
+    )
+
+    additional_demand_work_item = work_item_factory(
+        task_id=additional_demand_settings["ADDITIONAL_DEMAND_CREATE_TASK"],
+        case=be_instance.case,
+        addressed_groups=[str(target_existing.pk)],
+        status=WorkItem.STATUS_READY,
+    )
+
+    context = {
+        "addressed_groups": [
+            str(target_service.pk),
+            str(target_subservice.pk),
+        ]
+    }
+
+    assert set(
+        CustomDynamicGroups().resolve("create_init_additional_demand")(
+            task=None,
+            case=be_instance.case,
+            user=caluma_admin_user,
+            prev_work_item=None,
+            context=context,
+        )
+    ) == {str(caluma_admin_user.group)}
+
+    assert set(
+        CustomDynamicGroups().resolve("create_init_additional_demand")(
+            task=None,
+            case=be_instance.case,
+            user=caluma_admin_user,
+            prev_work_item=inquiry_work_item,
+            context=context,
+        )
+    ) == {str(target_service.pk)}
+
+    assert set(
+        CustomDynamicGroups().resolve("create_init_additional_demand")(
+            task=None,
+            case=be_instance.case,
+            user=caluma_admin_user,
+            prev_work_item=additional_demand_work_item,
+            context=context,
+        )
+    ) == {str(target_existing.pk)}

@@ -190,7 +190,6 @@ COMMON_FORM_SLUGS_BE = [
 ]
 
 DISTRIBUTION_REGEX = r"(inquir(y|ies)|distribution)"
-
 DISTRIBUTION_DUMP_CONFIG = {
     "caluma_distribution": {
         "caluma_form.Form": Q(pk__iregex=DISTRIBUTION_REGEX),
@@ -260,6 +259,15 @@ def generate_form_dump_config(regex=None, version=None):
         }
 
     return {}  # pragma: no cover
+
+
+def generate_workflow_dump_config(regex):
+    return {
+        "caluma_workflow.Workflow": Q(pk__iregex=regex),
+        "caluma_workflow.Task": Q(pk__iregex=regex),
+        "caluma_workflow.TaskFlow": Q(workflow__pk__iregex=regex),
+        "caluma_workflow.Flow": Q(task_flows__workflow__pk__iregex=regex),
+    }
 
 
 # Application specific settings
@@ -3354,8 +3362,14 @@ APPLICATIONS = {
                 "user.Group": Q(pk__lte=3),
                 "user.GroupT": Q(pk__lte=3),
             },
-            # Distribution
-            **DISTRIBUTION_DUMP_CONFIG,
+            "caluma_distribution": {
+                **generate_form_dump_config(r"(inquir(y|ies)|distribution)"),
+                **generate_workflow_dump_config(r"(inquir(y|ies)|distribution)"),
+            },
+            "caluma_additional_demand": {
+                **generate_form_dump_config(r"additional-demand"),
+                **generate_workflow_dump_config(r"additional-demand"),
+            },
             "publication": {
                 **generate_form_dump_config(regex=r"^publikation?$"),
             },
@@ -4402,6 +4416,7 @@ APPEAL = load_module_settings("appeal")
 DISTRIBUTION = load_module_settings("distribution")
 PARASHIFT = load_module_settings("parashift")
 PUBLICATION = load_module_settings("publication")
+ADDITIONAL_DEMAND = load_module_settings("additional_demand")
 
 # Alexandria
 ALEXANDRIA_CREATED_BY_USER_PROPERTY = "alexandria_user"

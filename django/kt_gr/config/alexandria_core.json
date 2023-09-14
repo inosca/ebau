@@ -196,6 +196,31 @@
   },
   {
     "model": "alexandria_core.category",
+    "pk": "nachforderung",
+    "fields": {
+      "created_at": "2020-08-04T13:24:00.690Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2020-08-04T13:24:00.690Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "access": {
+          "are": "Read",
+          "public": "AdminAdditionalDemand",
+          "support": "Admin",
+          "service-lead": "Read",
+          "municipality-lead": "Read"
+        }
+      },
+      "name": "{\"de\": \"Nachforderung\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "color": "#66CFC9",
+      "parent": null
+    }
+  },
+  {
+    "model": "alexandria_core.category",
     "pk": "stellungnahmen-are",
     "fields": {
       "created_at": "2020-08-04T13:24:00.690Z",

@@ -4,7 +4,7 @@ from caluma.caluma_form import (
     schema as form_schema,
 )
 from caluma.caluma_user.visibilities import Authenticated
-from caluma.caluma_workflow import schema as workflow_schema
+from caluma.caluma_workflow import models as workflow_models, schema as workflow_schema
 from django.conf import settings
 from django.db.models import F, Q
 
@@ -102,7 +102,10 @@ class CustomVisibility(Authenticated, InstanceQuerysetMixin):
                 & visible_inquiries_expression(self.request.group)
             )
 
-        return queryset.filter(filters)
+        if settings.ADDITIONAL_DEMAND:
+            filters &= self.visible_additional_demands_expression(self.request.group)
+
+        return queryset.filter(filters).distinct()
 
     def _all_visible_instances(self, info):
         """Fetch visible camac instances and cache the result.
@@ -126,6 +129,39 @@ class CustomVisibility(Authenticated, InstanceQuerysetMixin):
 
         setattr(info.context, "_visibility_instances_cache", instance_ids)
         return instance_ids
+
+    def visible_additional_demands_expression(self, group):
+        if settings.APPLICATION.get("PORTAL_GROUP") == self.request.group.pk:
+            return (
+                ~Q(task_id=settings.ADDITIONAL_DEMAND["ADDITIONAL_DEMAND_TASK"])
+                | Q(
+                    task_id=settings.ADDITIONAL_DEMAND["ADDITIONAL_DEMAND_TASK"],
+                    child_case__work_items__task_id=settings.ADDITIONAL_DEMAND[
+                        "ADDITIONAL_DEMAND_FILL_TASK"
+                    ],
+                )
+            ) & (
+                ~Q(
+                    task_id__in=[
+                        settings.ADDITIONAL_DEMAND["ADDITIONAL_DEMAND_CHECK_TASK"],
+                        settings.ADDITIONAL_DEMAND["ADDITIONAL_DEMAND_SEND_TASK"],
+                    ]
+                )
+                | Q(
+                    task_id__in=[
+                        settings.ADDITIONAL_DEMAND["ADDITIONAL_DEMAND_CHECK_TASK"],
+                        settings.ADDITIONAL_DEMAND["ADDITIONAL_DEMAND_SEND_TASK"],
+                    ],
+                    status=workflow_models.WorkItem.STATUS_COMPLETED,
+                )
+            )
+        else:
+            return ~Q(
+                task_id=settings.ADDITIONAL_DEMAND["ADDITIONAL_DEMAND_FILL_TASK"]
+            ) | Q(
+                task_id=settings.ADDITIONAL_DEMAND["ADDITIONAL_DEMAND_FILL_TASK"],
+                status=workflow_models.WorkItem.STATUS_COMPLETED,
+            )
 
 
 class CustomVisibilitySZ(CustomVisibility):

@@ -13,4 +13,11 @@ export default class InstancesEditRoute extends Route {
     this.config.instanceId = instanceId;
     this.ebauModules.instanceId = instanceId;
   }
+
+  setupController(controller, ...args) {
+    super.setupController(controller, ...args);
+
+    this.ebauModules.onAdditionalDemandComplete =
+      controller.additionalDemandsCount.reload;
+  }
 }

@@ -336,6 +336,89 @@ def test_work_item_visibility(
     )
 
 
+@pytest.mark.parametrize("role__name", ["Applicant", "Municipality"])
+def test_work_item_additional_demand_visibility(
+    db,
+    additional_demand_settings,
+    application_settings,
+    admin_user,
+    caluma_admin_user,
+    caluma_admin_schema_executor,
+    caluma_workflow_config_gr,
+    gr_instance,
+    applicant_factory,
+    work_item_factory,
+    case_factory,
+    role,
+    mocker,
+):
+    mocker.patch("caluma.caluma_core.types.Node.visibility_classes", [CustomVisibility])
+
+    applicant_factory(invitee=admin_user, instance=gr_instance)
+    if role.name == "Applicant":
+        group = admin_user.groups.first()
+        application_settings["PORTAL_GROUP"] = group.pk
+
+    # create additional demands
+    child_case_hidden = case_factory(
+        family=gr_instance.case, workflow_id="additional-demand"
+    )
+    caluma_workflow_factories.WorkItemFactory(
+        task_id="additional-demand", case=gr_instance.case, child_case=child_case_hidden
+    )
+    caluma_workflow_factories.WorkItemFactory(
+        task_id="send-additional-demand",
+        case=child_case_hidden,
+        status=caluma_workflow_models.WorkItem.STATUS_READY,
+    )
+    child_case = case_factory(family=gr_instance.case, workflow_id="additional-demand")
+    caluma_workflow_factories.WorkItemFactory(
+        task_id="additional-demand", case=gr_instance.case, child_case=child_case
+    )
+    caluma_workflow_factories.WorkItemFactory(
+        task_id="send-additional-demand",
+        case=child_case,
+        status=caluma_workflow_models.WorkItem.STATUS_COMPLETED,
+    )
+    caluma_workflow_factories.WorkItemFactory(
+        task_id="fill-additional-demand",
+        case=child_case,
+        status=caluma_workflow_models.WorkItem.STATUS_COMPLETED,
+    )
+    caluma_workflow_factories.WorkItemFactory(
+        task_id="check-additional-demand",
+        case=child_case,
+        status=caluma_workflow_models.WorkItem.STATUS_READY,
+    )
+
+    result = caluma_admin_schema_executor(
+        """
+        query {
+            allWorkItems {
+                edges {
+                    node {
+                        id
+                        task {
+                            slug
+                        }
+                    }
+                }
+            }
+        }
+    """
+    )
+
+    assert not result.errors
+
+    visible_workitems = set(
+        [
+            extract_global_id(edge["node"]["id"])
+            for edge in result.data["allWorkItems"]["edges"]
+        ]
+    )
+    assert len(visible_workitems) == 1
+
+
 @pytest.mark.parametrize(
     "role__name,instance__user,service",
     [

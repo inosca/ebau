@@ -1,8 +1,13 @@
+import { hasMany } from "@ember-data/model";
 import DocumentModel from "ember-alexandria/models/document";
 import { dropTask } from "ember-concurrency";
 import { saveAs } from "file-saver";
 
 export default class CustomDocumentModel extends DocumentModel {
+  // conflict with existing tag model in the ebau api,
+  // because we dont need it we can set it to null
+  @hasMany("tag", { inverse: null, async: true }) tags;
+
   @dropTask
   *download(event) {
     event?.preventDefault();

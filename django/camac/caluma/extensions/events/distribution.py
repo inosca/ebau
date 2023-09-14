@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta
 from itertools import chain
 
-from caluma.caluma_core.events import filter_events, on, send_event
+from caluma.caluma_core.events import on, send_event
 from caluma.caluma_form.api import save_answer
 from caluma.caluma_form.models import Form, Question
 from caluma.caluma_workflow.api import (
@@ -26,7 +26,11 @@ from django.conf import settings
 from django.db import transaction
 from django.utils.timezone import now
 
-from camac.caluma.utils import sync_inquiry_deadline
+from camac.caluma.utils import (
+    filter_by_task_base,
+    filter_by_workflow_base,
+    sync_inquiry_deadline,
+)
 from camac.core.utils import create_history_entry
 from camac.ech0211.signals import (
     accompanying_report_send,
@@ -71,15 +75,11 @@ def get_distribution_settings(settings_keys):
 
 
 def filter_by_workflow(settings_keys):
-    return filter_events(
-        lambda case: case.workflow_id in get_distribution_settings(settings_keys)
-    )
+    return filter_by_workflow_base(settings_keys, get_distribution_settings)
 
 
 def filter_by_task(settings_keys):
-    return filter_events(
-        lambda work_item: work_item.task_id in get_distribution_settings(settings_keys)
-    )
+    return filter_by_task_base(settings_keys, get_distribution_settings)
 
 
 @on(post_complete_case, raise_exception=True)
@@ -110,7 +110,6 @@ def post_create_distribution(sender, work_item, user, context=None, **kwargs):
 @filter_by_task("DISTRIBUTION_TASK")
 @transaction.atomic
 def post_redo_distribution(sender, work_item, user, context=None, **kwargs):
-
     check_distribution_work_item = (
         work_item.child_case.work_items.filter(
             task_id=settings.DISTRIBUTION["DISTRIBUTION_CHECK_TASK"],
@@ -487,4 +486,22 @@ def post_cancel_inquiry(sender, work_item, user, context=None, **kwargs):
                     f'"{settings.DISTRIBUTION["INQUIRY_CREATE_TASK"]}" work '
                     f"items on instance {work_item.case.family.instance.pk}"
                 )
+            )
+
+
+@on(post_complete_work_item, raise_exception=True)
+@filter_by_task("INQUIRY_CHECK_TASK")
+@transaction.atomic
+def post_complete_inquiry_check(
+    sender, work_item, user, context=None, **kwargs
+):  # pragma: no cover
+    if settings.ADDITIONAL_DEMAND:
+        init_additional_demand = work_item.case.work_items.filter(
+            task_id=settings.ADDITIONAL_DEMAND["ADDITIONAL_DEMAND_CREATE_TASK"],
+            status=WorkItem.STATUS_READY,
+            addressed_groups=work_item.previous_work_item.addressed_groups,
+        ).first()
+        if init_additional_demand:
+            cancel_work_item(
+                work_item=init_additional_demand, user=user, context=context
             )
