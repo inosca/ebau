@@ -17,6 +17,9 @@ if (macroCondition(getOwnConfig().application === "be")) {
 
 const sharedConfig = {
   maxDossierImportSize: 1500000000, // 1.5GB
+  attachments: {
+    allowedMimetypes: ["image/png", "image/jpeg", "application/pdf"],
+  },
 };
 
 export default { ...sharedConfig, ...config.default };

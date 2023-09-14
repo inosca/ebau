@@ -25,8 +25,8 @@ def get_permission_name(category, user):
 
 
 class CustomPermission(BasePermission):
-    def get_permission(self, name):
-        return getattr(permissions, f"{name}Permission")()
+    def get_permission(self, name, request):
+        return getattr(permissions, f"{name}Permission")(request)
 
     @permission_for(BaseModel)
     def has_permission_default(self, request):  # pragma: no cover
@@ -50,7 +50,9 @@ class CustomPermission(BasePermission):
         instance = Instance.objects.get(
             pk=request.data["metainfo"]["camac-instance-id"]
         )
-        return self.get_permission(permission).can_create(get_group(request), instance)
+        return self.get_permission(permission, request).can_create(
+            get_group(request), instance
+        )
 
     @object_permission_for(Document)
     def has_object_permission_for_document(self, request, document):
@@ -60,11 +62,13 @@ class CustomPermission(BasePermission):
             return False
 
         if request.method == "DELETE":
-            return self.get_permission(permission).can_destroy(
+            return self.get_permission(permission, request).can_destroy(
                 get_group(request), document
             )
 
-        return self.get_permission(permission).can_update(get_group(request), document)
+        return self.get_permission(permission, request).can_update(
+            get_group(request), document
+        )
 
     @permission_for(File)
     def has_permission_for_file(self, request):
@@ -74,7 +78,7 @@ class CustomPermission(BasePermission):
         if not permission:
             return False
 
-        return self.get_permission(permission).can_create(
+        return self.get_permission(permission, request).can_create(
             get_group(request), document.instance_document.instance
         )
 

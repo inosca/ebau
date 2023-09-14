@@ -184,7 +184,6 @@ def test_copy_municipality_tags_for_sb1(
     instance_service_factory,
     instance_state_factory,
 ):
-
     municipality_burgdorf = service_factory(
         service_group__name="municipality",
         trans__language="de",
@@ -389,7 +388,6 @@ def test_notify_completed_work_item(
     notify_completed,
     notification_template,
 ):
-
     application_settings["NOTIFICATIONS"]["COMPLETE_MANUAL_WORK_ITEM"] = [
         {
             "template_slug": notification_template.slug,
@@ -435,7 +433,6 @@ def test_notify_created_work_item(
     notification_template,
     task_factory,
 ):
-
     application_settings["NOTIFICATIONS"]["CREATE_MANUAL_WORK_ITEM"] = [
         {
             "template_slug": notification_template.slug,

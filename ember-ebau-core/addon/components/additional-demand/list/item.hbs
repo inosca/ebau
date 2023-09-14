@@ -1,0 +1,24 @@
+<li class={{if this.isActive "uk-active"}}>
+  <LinkTo
+    @route={{module-route "additional-demand" "detail"}}
+    @models={{array
+      this.ebauModules.instanceId
+      (decode-id @demand.raw.childCase.id)
+    }}
+  >
+    {{#let
+      (concat
+        @demand.createdByGroup.name
+        " "
+        (format-date @demand.raw.createdAt format="date")
+      )
+      as |labelText|
+    }}
+      <span class="uk-width-expand uk-text-truncate" title={{labelText}}>
+        {{labelText}}
+      </span>
+    {{/let}}
+
+    <UkIcon @icon={{this.status.icon}} title={{this.status.title}} />
+  </LinkTo>
+</li>

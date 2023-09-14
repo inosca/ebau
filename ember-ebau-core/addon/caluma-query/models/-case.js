@@ -1,6 +1,8 @@
+import { getOwner, setOwner } from "@ember/application";
 import { inject as service } from "@ember/service";
 import CaseModel from "@projectcaluma/ember-core/caluma-query/models/case";
 
+import CustomWorkItemModel from "ember-ebau-core/caluma-query/models/work-item";
 import mainConfig from "ember-ebau-core/config/main";
 import {
   getAnswer,
@@ -34,6 +36,7 @@ const tableQuestions = [
 export default class CustomCaseBaseModel extends CaseModel {
   @service store;
   @service intl;
+  @service ebauModules;
 
   get instanceId() {
     return this.raw.meta["camac-instance-id"];
@@ -41,6 +44,17 @@ export default class CustomCaseBaseModel extends CaseModel {
 
   get instance() {
     return this.store.peekRecord("instance", this.instanceId);
+  }
+
+  get isRunning() {
+    return this.raw.status === "RUNNING";
+  }
+
+  get isAddressedToCurrentService() {
+    return (
+      parseInt(this.raw.parentWorkItem?.addressedGroups?.id) ===
+      this.ebauModules.serviceId
+    );
   }
 
   get submitDate() {
@@ -127,8 +141,17 @@ export default class CustomCaseBaseModel extends CaseModel {
   getAnswerDisplayValue(slug) {
     return getAnswerDisplayValue(this.raw.document, slug);
   }
+
   getAnswer(slug) {
     return getAnswer(this.raw.document, slug);
+  }
+
+  get workItems() {
+    return this.raw.workItems.edges.map((edge) => {
+      const workItem = new CustomWorkItemModel(edge.node);
+      setOwner(workItem, getOwner(this));
+      return workItem;
+    });
   }
 
   static fragment = `{

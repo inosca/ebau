@@ -10,6 +10,9 @@ export default class CasesDetailRoute extends Route {
   }
 
   afterModel(model) {
+    if (typeof model === "object") {
+      model = parseInt(model.id);
+    }
     this.alexandriaConfig.instanceId = model;
     this.ebauModules.instanceId = model;
   }

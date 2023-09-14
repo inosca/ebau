@@ -1,0 +1,34 @@
+<ul class="uk-tab uk-tab-left uk-margin-remove-bottom uk-width-auto">
+  {{#if this.additionalDemand.isRunning}}
+    <li class="uk-text-center"><UkSpinner @ratio={{2}} /></li>
+  {{else}}
+    {{#if
+      (and (can "create additional-demand") this.additionalDemand.initWorkItem)
+    }}
+      <li class="uk-margin-small uk-text-center">
+        <WorkItemButton
+          @mutation="complete"
+          @workItemId={{this.additionalDemand.initWorkItem.id}}
+          @onSuccess={{this.newAdditionalDemand}}
+          @color="link"
+          {{uk-tooltip (t "additional-demand.new")}}
+          class="uk-icon-button"
+        >
+          <UkIcon @icon="plus" />
+        </WorkItemButton>
+      </li>
+    {{/if}}
+
+    {{#each this.additionalDemand.demands as |demand|}}
+      <AdditionalDemand::List::Item @demand={{demand}} />
+    {{else}}
+      <li class="uk-text-center">
+        {{#if (can "create additional-demand")}}
+          {{t "additional-demand.empty-create"}}
+        {{else}}
+          {{t "additional-demand.empty"}}
+        {{/if}}
+      </li>
+    {{/each}}
+  {{/if}}
+</ul>

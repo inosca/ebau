@@ -5,9 +5,11 @@ import { useCalumaQuery } from "@projectcaluma/ember-core/caluma-query";
 import { allCases } from "@projectcaluma/ember-core/caluma-query/queries";
 import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
+import apolloQuery from "ember-ebau-core/resources/apollo";
 import { trackedTask } from "ember-resources/util/ember-concurrency";
 
 import config from "caluma-portal/config/environment";
+import additionalDemandsCountQuery from "caluma-portal/gql/queries/get-additional-demands-count.graphql";
 
 export default class InstancesEditController extends Controller {
   @service store;
@@ -18,6 +20,20 @@ export default class InstancesEditController extends Controller {
   feedback = trackedTask(this, this.fetchFeedbackAttachments, () => [
     this.model,
   ]);
+  additionalDemandsCount = apolloQuery(
+    this,
+    () => ({
+      query: additionalDemandsCountQuery,
+      fetchPolicy: "network-only",
+      variables: {
+        instanceId: this.model,
+      },
+    }),
+    null,
+    (data) => {
+      return { any: data.any.totalCount, ready: data.ready.totalCount };
+    },
+  );
   cases = useCalumaQuery(this, allCases, () => ({
     filter: [
       {

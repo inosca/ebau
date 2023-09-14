@@ -1,0 +1,48 @@
+{{#if this.additionalDemand.isRunning}}
+  <li class="uk-text-center"><UkSpinner @ratio={{2}} /></li>
+{{else}}
+  {{#each this.demand.childCase.workItems as |demand|}}
+    {{#if (can "display additional-demand" demand)}}
+      <div class="uk-card uk-card-default uk-padding uk-margin-bottom">
+        <h3 class="uk-flex uk-flex-middle uk-text-large uk-margin-remove">
+          {{#if (eq demand.task.slug "fill-additional-demand")}}
+            <UkIcon @icon="reply" class="uk-margin-small-right" />
+            {{t "additional-demand.answer"}}
+          {{else}}
+            <UkIcon @icon="forward" class="uk-margin-small-right" />
+            {{#if (eq demand.task.slug "check-additional-demand")}}
+              {{t "additional-demand.check"}}
+            {{else}}
+              {{t "additional-demand.request"}}
+            {{/if}}
+          {{/if}}
+        </h3>
+        {{#if demand.isCompleted}}
+          <span class="uk-text-muted uk-text-small uk-margin-bottom">
+            {{t
+              "additional-demand.sent-message"
+              date=(format-date demand.closedAt format="datetime")
+            }}
+          </span>
+        {{/if}}
+        <CfContent
+          @documentId={{demand.document.id}}
+          @disabled={{cannot "fill additional-demand" demand}}
+          @context={{hash
+            actionButtonOnSuccess=this.onSuccessComplete
+            instanceId=this.instanceId
+          }}
+        />
+      </div>
+    {{/if}}
+  {{/each}}
+  {{#if (can "cancel additional-demand" this.demand)}}
+    <WorkItemButton
+      @mutation="cancel"
+      @workItemId={{this.demand.id}}
+      @onSuccess={{this.additionalDemand.refetch}}
+    >
+      {{t "additional-demand.cancel"}}
+    </WorkItemButton>
+  {{/if}}
+{{/if}}

@@ -449,7 +449,7 @@ class CustomPermission(BasePermission):
 
     @permission_aware
     def has_caluma_form_edit_permission(self, document, info):
-        return False
+        return is_addressed_to_applicant(document.family.work_item)
 
     def has_caluma_form_edit_permission_for_municipality(self, document, info):
         work_item = document.family.work_item
@@ -458,6 +458,9 @@ class CustomPermission(BasePermission):
             is_addressed_to_service(work_item, get_current_service_id(info))
             and work_item.status == WorkItem.STATUS_READY
         )
+
+    def has_caluma_form_edit_permission_for_service(self, document, info):
+        return self.has_caluma_form_edit_permission_for_municipality(document, info)
 
     def has_caluma_form_edit_permission_for_support(self, document, info):
         return True

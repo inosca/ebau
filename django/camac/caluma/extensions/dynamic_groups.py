@@ -75,3 +75,28 @@ class CustomDynamicGroups(BaseDynamicGroups):
         return self.resolve_municipality(
             task, case, user, prev_work_item, context, **kwargs
         )
+
+    @register_dynamic_group("create_init_additional_demand")
+    def resolve_create_init_additional_demand(
+        self, task, case, user, prev_work_item, context, **kwargs
+    ):
+        if not prev_work_item:
+            return self.resolve_municipality(
+                task, case, user, prev_work_item, context, **kwargs
+            )
+        elif (
+            prev_work_item.task_id
+            == settings.ADDITIONAL_DEMAND["ADDITIONAL_DEMAND_CREATE_TASK"]
+        ):
+            return prev_work_item.addressed_groups
+        elif prev_work_item.task_id == settings.DISTRIBUTION["INQUIRY_CREATE_TASK"]:
+            target_ids = set(context.get("addressed_groups", []))
+
+            services = Service.objects.filter(
+                pk__in=target_ids,
+                service_parent__isnull=True,  # Subservices can't create any inquiries
+            )
+
+            return [str(pk) for pk in services.values_list("pk", flat=True)]
+
+        return None  # pragma: no cover
