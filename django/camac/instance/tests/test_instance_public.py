@@ -42,12 +42,12 @@ def create_caluma_publication(db, caluma_publication, settings, application_sett
         publication_document = DocumentFactory()
         AnswerFactory(
             document=publication_document,
-            question_id=settings.PUBLICATION["START_QUESTION"],
+            question_id=settings.PUBLICATION["START_QUESTIONS"][0],
             date=start,
         )
         AnswerFactory(
             document=publication_document,
-            question_id=settings.PUBLICATION["END_QUESTION"],
+            question_id=settings.PUBLICATION["END_QUESTIONS"][0],
             date=end,
         )
         WorkItemFactory(
@@ -528,7 +528,9 @@ def test_public_caluma_instance_municipality_filter(
     enable_public_urls,
     caluma_workflow_config_be,
     create_caluma_publication,
+    settings,
 ):
+    settings.APPLICATION_NAME = "kt_bern"
     application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_bern"][
         "MASTER_DATA"
     ]
@@ -673,9 +675,65 @@ def test_information_of_neighbors_instance_be(
     assert len(response.json()["data"])
 
 
+@pytest.mark.freeze_time("2023-09-13")
 @pytest.mark.parametrize(
-    "publish_answer_slug,expected_instances",
-    [(["oeffentliche-auflage-ja"], 1), (["oeffentliche-auflage-nein"], 0)],
+    "publish_answer_slug,start_date_municipality,start_date_canton,end_date_municipality,end_date_canton,expected_instances",
+    [
+        (
+            # start date municipality until end date municipality
+            ["oeffentliche-auflage-ja"],
+            date(2023, 9, 11),
+            timezone.now().date(),
+            date(2023, 9, 15),
+            timezone.now().date(),
+            1,
+        ),
+        (
+            # start date canton until end date canton
+            ["oeffentliche-auflage-ja"],
+            timezone.now().date(),
+            date(2023, 9, 11),
+            timezone.now().date(),
+            date(2023, 9, 15),
+            1,
+        ),
+        (
+            # start date municipality until end date canton
+            ["oeffentliche-auflage-ja"],
+            date(2023, 9, 11),
+            timezone.now().date(),
+            timezone.now().date(),
+            date(2023, 9, 15),
+            1,
+        ),
+        (
+            # start date canton until end date municipality
+            ["oeffentliche-auflage-ja"],
+            timezone.now().date(),
+            date(2023, 9, 11),
+            date(2023, 9, 15),
+            timezone.now().date(),
+            1,
+        ),
+        (
+            # no public instances
+            ["oeffentliche-auflage-nein"],
+            date(2023, 9, 11),
+            timezone.now().date(),
+            timezone.now().date(),
+            date(2023, 9, 15),
+            0,
+        ),
+        (
+            # timeframe doesn't match
+            ["oeffentliche-auflage-ja"],
+            date(2023, 9, 9),
+            date(2023, 9, 9),
+            date(2023, 9, 11),
+            date(2023, 9, 11),
+            0,
+        ),
+    ],
 )
 def test_public_caluma_instance_gr(
     db,
@@ -686,6 +744,10 @@ def test_public_caluma_instance_gr(
     enable_public_urls,
     publish_answer_slug,
     expected_instances,
+    start_date_municipality,
+    start_date_canton,
+    end_date_municipality,
+    end_date_canton,
 ):
     settings.PUBLICATION = PUBLICATION_SETTINGS["kt_gr"]
     application_settings["PUBLICATION_BACKEND"] = "caluma"
@@ -700,12 +762,22 @@ def test_public_caluma_instance_gr(
     AnswerFactory(
         document=document,
         question__slug="beginn-publikationsorgan-gemeinde",
-        date=timezone.now().date() - timedelta(days=2),
+        date=start_date_municipality,
+    )
+    AnswerFactory(
+        document=document,
+        question__slug="beginn-publikation-kantonsamtsblatt",
+        date=start_date_canton,
     )
     AnswerFactory(
         document=document,
         question__slug="ende-publikationsorgan-gemeinde",
-        date=timezone.now().date() + timedelta(days=2),
+        date=end_date_municipality,
+    )
+    AnswerFactory(
+        document=document,
+        question__slug="ende-publikation-kantonsamtsblatt",
+        date=end_date_canton,
     )
     WorkItemFactory(
         task_id="fill-publication",
@@ -733,7 +805,9 @@ def test_disabled_publication(
     caluma_workflow_config_be,
     create_caluma_publication,
     application_settings,
+    settings,
 ):
+    settings.APPLICATION_NAME = "kt_bern"
     # active date range but disabled
     create_caluma_publication(
         instance=be_instance,

@@ -1,7 +1,7 @@
 PUBLICATION = {
     "default": {
-        "START_QUESTION": "publikation-startdatum",
-        "END_QUESTION": "publikation-ablaufdatum",
+        "START_QUESTIONS": ["publikation-startdatum"],
+        "END_QUESTIONS": ["publikation-ablaufdatum"],
     },
     "test": {
         "ENABLED": True,
@@ -37,8 +37,14 @@ PUBLICATION = {
     "kt_gr": {
         "ENABLED": True,
         "USE_CALCULATED_DATES": True,
-        "START_QUESTION": "beginn-publikationsorgan-gemeinde",
-        "END_QUESTION": "ende-publikationsorgan-gemeinde",
+        "START_QUESTIONS": [
+            "beginn-publikationsorgan-gemeinde",
+            "beginn-publikation-kantonsamtsblatt",
+        ],
+        "END_QUESTIONS": [
+            "ende-publikationsorgan-gemeinde",
+            "ende-publikation-kantonsamtsblatt",
+        ],
         "PUBLISH_QUESTION": "oeffentliche-auflage",
     },
 }
