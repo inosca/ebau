@@ -8,6 +8,7 @@ import SoGisComponent from "ember-ebau-core/components/so-gis";
 export default class ApplicationRoute extends Route {
   @service session;
   @service calumaOptions;
+  @service router;
 
   async beforeModel(transition) {
     super.beforeModel(transition);
