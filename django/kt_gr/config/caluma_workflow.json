@@ -222,6 +222,13 @@
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "simple",
       "meta": {
+        "directLink": {
+          "route": "cases.detail.publication",
+          "models": [
+            "INSTANCE_ID",
+            "public"
+          ]
+        },
         "is-manually-completable": true
       },
       "address_groups": "['municipality']|groups",

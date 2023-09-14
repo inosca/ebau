@@ -195,7 +195,7 @@ export default class CustomWorkItemModel extends WorkItemModel {
       };
     }
 
-    return models.map((placeholder) => map[placeholder]);
+    return models.map((placeholder) => map[placeholder] || placeholder);
   }
 
   get directLink() {
