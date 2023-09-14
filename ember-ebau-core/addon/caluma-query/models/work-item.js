@@ -1,13 +1,13 @@
-import { getOwner } from "@ember/application";
+import { getOwner, setOwner } from "@ember/application";
 import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 import WorkItemModel from "@projectcaluma/ember-core/caluma-query/models/work-item";
 import { decodeId } from "@projectcaluma/ember-core/helpers/decode-id";
 import { queryManager } from "ember-apollo-client";
 
+import CustomCaseModel from "ember-ebau-core/caluma-query/models/case";
 import mainConfig from "ember-ebau-core/config/main";
 import saveWorkItemMutation from "ember-ebau-core/gql/mutations/save-workitem.graphql";
-
 export default class CustomWorkItemModel extends WorkItemModel {
   @queryManager apollo;
 
@@ -65,9 +65,14 @@ export default class CustomWorkItemModel extends WorkItemModel {
   }
 
   get createdByGroup() {
+    const applicationName = getOwner(this).application.modulePrefix;
+
     return (
       this.raw.createdByGroup &&
-      this.store.peekRecord("service", this.raw.createdByGroup)
+      this.store.peekRecord(
+        applicationName === "caluma-portal" ? "public-service" : "service",
+        this.raw.createdByGroup,
+      )
     );
   }
 
@@ -93,6 +98,10 @@ export default class CustomWorkItemModel extends WorkItemModel {
 
   get isCompleted() {
     return this.raw.status === "COMPLETED";
+  }
+
+  get isCanceled() {
+    return this.raw.status === "CANCELED";
   }
 
   get isCalumaBackend() {
@@ -163,6 +172,13 @@ export default class CustomWorkItemModel extends WorkItemModel {
     return this.case?.document.answers.edges
       .map((edge) => edge.node.value)
       .join("\n");
+  }
+
+  get childCase() {
+    const childCase = new CustomCaseModel(this.raw.childCase);
+    setOwner(childCase, getOwner(this));
+
+    return childCase;
   }
 
   replacePlaceholders(models) {

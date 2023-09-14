@@ -58,6 +58,7 @@ from camac.notification import factories as notification_factories
 from camac.objection import factories as objection_factories
 from camac.responsible import factories as responsible_factories
 from camac.settings import load_module_settings
+from camac.settings_additional_demand import ADDITIONAL_DEMAND
 from camac.settings_distribution import DISTRIBUTION
 from camac.tags import factories as tags_factories
 from camac.urls import urlpatterns as app_patterns
@@ -1148,6 +1149,13 @@ def gr_distribution_settings(settings, distribution_settings):
     )
     settings.DISTRIBUTION = distribution_dict
     return distribution_dict
+
+
+@pytest.fixture
+def additional_demand_settings(settings):
+    additional_demand_dict = copy.deepcopy(ADDITIONAL_DEMAND["default"])
+    settings.ADDITIONAL_DEMAND = additional_demand_dict
+    return additional_demand_dict
 
 
 @pytest.fixture

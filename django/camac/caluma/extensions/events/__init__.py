@@ -3,6 +3,7 @@
 # module
 
 from . import (  # noqa: F401
+    additional_demand,
     audit,
     decision,
     distribution,

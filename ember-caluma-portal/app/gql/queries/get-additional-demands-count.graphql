@@ -1,0 +1,19 @@
+query GetReadyCountAdditionalDemands($instanceId: GenericScalar!) {
+  ready: allWorkItems(
+    filter: [
+      { task: "fill-additional-demand" }
+      { rootCaseMetaValue: { key: "camac-instance-id", value: $instanceId } }
+      { status: READY }
+    ]
+  ) {
+    totalCount
+  }
+  any: allWorkItems(
+    filter: [
+      { task: "additional-demand" }
+      { rootCaseMetaValue: { key: "camac-instance-id", value: $instanceId } }
+    ]
+  ) {
+    totalCount
+  }
+}

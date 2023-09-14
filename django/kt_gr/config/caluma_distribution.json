@@ -636,7 +636,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "['inquiry', 'create-inquiry']|tasks"
+      "next": "['after-create-inquiry']|tasks"
     }
   },
   {
@@ -650,6 +650,19 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "next": "['after-inquiries-completed', 'redo-inquiry']|tasks"
+    }
+  },
+  {
+    "model": "caluma_workflow.flow",
+    "pk": "f245c472-b23a-412b-b699-706b62d97345",
+    "fields": {
+      "created_at": "2023-08-23T15:24:29.714Z",
+      "modified_at": "2023-08-23T15:24:29.714Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "next": "['init-additional-demand', 'additional-demand']|tasks"
     }
   },
   {
@@ -932,6 +945,22 @@
   },
   {
     "model": "caluma_workflow.taskflow",
+    "pk": "6c8589f5-cc3f-4d53-915f-09a69887ffa8",
+    "fields": {
+      "created_at": "2023-08-23T15:24:29.719Z",
+      "modified_at": "2023-08-23T15:24:29.719Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "workflow": "distribution",
+      "task": "init-additional-demand",
+      "flow": "f245c472-b23a-412b-b699-706b62d97345",
+      "redoable": null
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
     "pk": "b8101734-c773-4d19-b2ef-b769b213d19a",
     "fields": {
       "created_at": "2023-05-30T11:06:15.790Z",
@@ -965,6 +994,7 @@
       "start_tasks": [
         "complete-distribution",
         "create-inquiry",
+        "init-additional-demand",
         "init-distribution"
       ],
       "allow_forms": ["distribution"]

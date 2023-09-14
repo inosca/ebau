@@ -1,18 +1,22 @@
+from alexandria.core.models import Document
+from caluma.caluma_workflow.models import WorkItem
+
+
 class Permission:
     write = False
     destroy = False
 
-    @classmethod
-    def can_create(cls, group, instance) -> bool:
-        return cls.write
+    def __init__(self, request):
+        self.request = request
 
-    @classmethod
-    def can_update(cls, group, document) -> bool:
-        return cls.write
+    def can_create(self, group, instance) -> bool:
+        return self.write
 
-    @classmethod
-    def can_destroy(cls, group, document) -> bool:
-        return cls.destroy
+    def can_update(self, group, document) -> bool:
+        return self.write
+
+    def can_destroy(self, group, document) -> bool:
+        return self.destroy
 
 
 class ReadPermission(Permission):
@@ -36,13 +40,11 @@ class AdminPermission(WritePermission):
 class AdminServicePermission(AdminPermission):
     """Read and write permissions for all attachments, but delete only on attachments owned by the current service."""
 
-    @classmethod
-    def is_owned_by_service(cls, group, document) -> bool:
+    def is_owned_by_service(self, group, document) -> bool:
         return not document or int(document.created_by_group) == group.service.pk
 
-    @classmethod
-    def can_destroy(cls, group, document) -> bool:
-        return cls.is_owned_by_service(group, document) and super().can_destroy(
+    def can_destroy(self, group, document) -> bool:
+        return self.is_owned_by_service(group, document) and super().can_destroy(
             group, document
         )
 
@@ -56,13 +58,11 @@ class InternalReadPermission(ReadPermission):
 class InternalAdminPermission(AdminServicePermission):
     """Read, write and delete permission on attachments owned by the current service."""
 
-    @classmethod
-    def can_create(cls, group, instance) -> bool:
+    def can_create(self, group, instance) -> bool:
         return super().can_create(group, instance)
 
-    @classmethod
-    def can_update(cls, group, document) -> bool:
-        return cls.is_owned_by_service(group, document) and super().can_update(
+    def can_update(self, group, document) -> bool:
+        return self.is_owned_by_service(group, document) and super().can_update(
             group, document
         )
 
@@ -72,13 +72,11 @@ class AdminDeletableStatePermission(AdminPermission):
 
     deletable_states = []
 
-    @classmethod
-    def in_deleteable_state(cls, instance) -> bool:
-        return instance.instance_state.name in cls.deletable_states
+    def in_deleteable_state(self, instance) -> bool:
+        return instance.instance_state.name in self.deletable_states
 
-    @classmethod
-    def can_destroy(cls, group, document) -> bool:
-        return cls.in_deleteable_state(
+    def can_destroy(self, group, document) -> bool:
+        return self.in_deleteable_state(
             document.instance_document.instance
         ) and super().can_destroy(
             group,
@@ -91,22 +89,47 @@ class AdminStatePermission(AdminDeletableStatePermission):
 
     writable_states = []
 
-    @classmethod
-    def in_writable_state(cls, instance) -> bool:
-        return instance.instance_state.name in cls.writable_states
+    def in_writable_state(self, instance) -> bool:
+        return instance.instance_state.name in self.writable_states
 
-    @classmethod
-    def can_create(cls, group, instance) -> bool:
-        return cls.in_writable_state(instance) and super().can_create(
+    def can_create(self, group, instance) -> bool:
+        return self.in_writable_state(instance) and super().can_create(
             group,
             instance,
         )
 
-    @classmethod
-    def can_update(cls, group, document) -> bool:
-        return cls.in_writable_state(
+    def can_update(self, group, document) -> bool:
+        return self.in_writable_state(
             document.instance_document.instance
         ) and super().can_update(
             group,
             document,
         )
+
+
+class AdminReadyWorkItemPermission(AdminPermission):
+    """Read, write and delete only on work items in ready state."""
+
+    def get_work_item(self, document_id):  # pragma: no cover
+        raise NotImplementedError
+
+    def in_ready_state(self, document=None) -> bool:
+        if self.request.data["type"] == "files":
+            document = Document.objects.get(pk=self.request.data["document"]["id"])
+
+        if not document:
+            document_id = self.request.data["metainfo"]["caluma-document-id"]
+        else:
+            document_id = document.metainfo["caluma-document-id"]
+
+        work_item = self.get_work_item(document_id)
+        return work_item and work_item.status == WorkItem.STATUS_READY
+
+    def can_create(self, group, instance) -> bool:
+        return self.in_ready_state() and super().can_create(group, instance)
+
+    def can_update(self, group, document) -> bool:
+        return self.in_ready_state(document) and super().can_update(group, document)
+
+    def can_destroy(self, group, document) -> bool:
+        return self.in_ready_state(document) and super().can_destroy(group, document)

@@ -328,17 +328,54 @@ def test_category_permission(
             HTTP_204_NO_CONTENT,
             {"access": {"service": "InternalAdminCirculation"}},
         ),
+        # AdminAdditionalDemand
+        (
+            "init-distribution",
+            "applicant",
+            None,
+            "post",
+            HTTP_201_CREATED,
+            {"access": {"applicant": "AdminAdditionalDemand"}},
+        ),
+        (
+            "init-distribution",
+            "applicant",
+            None,
+            "patch",
+            HTTP_200_OK,
+            {"access": {"applicant": "AdminAdditionalDemand"}},
+        ),
+        (
+            "init-distribution",
+            "applicant",
+            None,
+            "delete",
+            HTTP_403_FORBIDDEN,
+            {"access": {"applicant": "AdminAdditionalDemand"}},
+        ),
+        (
+            "init-distribution",
+            "applicant",
+            None,
+            "delete",
+            HTTP_204_NO_CONTENT,
+            {"access": {"applicant": "AdminAdditionalDemand"}},
+        ),
     ],
 )
 def test_kt_gr_permissions(
     db,
     role,
+    minio_mock,
     set_application_gr,
     settings,
+    additional_demand_settings,
     mocker,
     admin_client,
     caluma_admin_user,
-    instance,
+    task_factory,
+    work_item_factory,
+    gr_instance,
     metainfo,
     method,
     status_code,
@@ -348,15 +385,28 @@ def test_kt_gr_permissions(
         "camac.alexandria.extensions.permissions.permissions", permissions_kt_gr
     )
 
+    if status_code != HTTP_403_FORBIDDEN:
+        work_item = work_item_factory(
+            task=task_factory(
+                slug=additional_demand_settings["ADDITIONAL_DEMAND_FILL_TASK"]
+            ),
+            document=gr_instance.case.document,
+        )
+        gr_instance.case.work_items.add(work_item)
+
     alexandria_category = CategoryFactory(metainfo=metainfo)
     url = reverse("document-list")
 
+    metainfo = {
+        "camac-instance-id": gr_instance.pk,
+        "caluma-document-id": str(gr_instance.case.document.pk),
+    }
     data = {
         "data": {
             "type": "documents",
             "attributes": {
                 "title": {"de": "Important"},
-                "metainfo": {"camac-instance-id": instance.pk},
+                "metainfo": metainfo,
             },
             "relationships": {
                 "category": {
@@ -373,7 +423,7 @@ def test_kt_gr_permissions(
         doc = DocumentFactory(
             title="Foo",
             category=alexandria_category,
-            metainfo={"camac-instance-id": instance.pk},
+            metainfo=metainfo,
             created_by_group=caluma_admin_user.group,
         )
         url = reverse("document-detail", args=[doc.pk])
@@ -386,6 +436,39 @@ def test_kt_gr_permissions(
     if method == "post" and status_code == HTTP_201_CREATED:
         result = response.json()
         assert result["data"]["attributes"]["title"]["de"] == "Important"
+
+    # file permissions should be the same as document
+    if method in ["patch", "delete"]:
+        return
+
+    doc = DocumentFactory(
+        title="Foo",
+        category=alexandria_category,
+        metainfo=metainfo,
+    )
+    url = reverse("file-list")
+
+    data = {
+        "data": {
+            "type": "files",
+            "attributes": {
+                "name": "Old",
+                "variant": "original",
+            },
+            "relationships": {
+                "document": {
+                    "data": {
+                        "id": doc.pk,
+                        "type": "documents",
+                    },
+                },
+            },
+        },
+    }
+
+    response = getattr(admin_client, method)(url, data)
+
+    assert response.status_code == status_code
 
 
 @pytest.mark.parametrize("role__name", ["applicant"])

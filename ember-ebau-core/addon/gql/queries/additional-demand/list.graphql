@@ -1,0 +1,58 @@
+query GetAdditionalDemands($instanceId: GenericScalar!, $group: String!) {
+  demands: allWorkItems(
+    filter: [
+      { task: "additional-demand" }
+      { rootCaseMetaValue: { key: "camac-instance-id", value: $instanceId } }
+    ]
+    order: [{ attribute: CREATED_AT, direction: ASC }]
+  ) {
+    edges {
+      node {
+        id
+        status
+        createdAt
+        createdByGroup
+        addressedGroups
+        childCase {
+          id
+          status
+          workItems {
+            edges {
+              node {
+                id
+                status
+                name
+                addressedGroups
+                closedAt
+                task {
+                  slug
+                }
+                document {
+                  id
+                  form {
+                    id
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  init: allWorkItems(
+    filter: [
+      { task: "init-additional-demand" }
+      { rootCaseMetaValue: { key: "camac-instance-id", value: $instanceId } }
+      { status: READY }
+      { addressedGroups: [$group] }
+    ]
+    first: 1
+  ) {
+    edges {
+      node {
+        id
+      }
+    }
+  }
+}
