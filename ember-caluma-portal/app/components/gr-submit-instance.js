@@ -9,6 +9,7 @@ export default class BeSubmitInstanceComponent extends DocumentValidityButtonCom
   @service notification;
   @service router;
   @service fetch;
+  @service store;
 
   validateOnEnter = true;
   showLoadingHint = true;
@@ -38,8 +39,11 @@ export default class BeSubmitInstanceComponent extends DocumentValidityButtonCom
           errors: [new Error(this.intl.t("be-submit-instance.failed-camac"))],
         };
       }
+      const instance = yield this.store.peekRecord("instance", instanceId);
 
-      yield this.export.perform();
+      if (!instance.isPaper) {
+        yield this.export.perform();
+      }
 
       this.notification.success(this.intl.t("be-submit-instance.success"));
 
