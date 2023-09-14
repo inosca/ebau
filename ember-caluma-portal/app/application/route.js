@@ -1,6 +1,7 @@
 import { getOwner } from "@ember/application";
 import Route from "@ember/routing/route";
 import { inject as service } from "@ember/service";
+import AlexandriaDocumentsFormComponent from "ember-ebau-core/components/alexandria-documents-form";
 import CalculatedPublicationDateComponent from "ember-ebau-core/components/calculated-publication-date";
 import DecisionAppealButtonComponent from "ember-ebau-core/components/decision/appeal-button";
 import DecisionInfoAppealComponent from "ember-ebau-core/components/decision/info-appeal";
@@ -12,7 +13,6 @@ import PublicationDateKantonsamtsblattComponent from "ember-ebau-core/components
 import SoGisComponent from "ember-ebau-core/components/so-gis";
 import UrGisComponent from "ember-ebau-core/components/ur-gis";
 
-import AlexandriaDocumentsFormComponent from "caluma-portal/components/alexandria-documents-form";
 import BeClaimsFormComponent from "caluma-portal/components/be-claims-form";
 import BeDisabledInputComponent from "caluma-portal/components/be-disabled-input";
 import BeDocumentsFormComponent from "caluma-portal/components/be-documents-form";

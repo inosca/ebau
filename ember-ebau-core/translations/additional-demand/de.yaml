@@ -1,0 +1,23 @@
+additional-demand:
+  new: "Neue Nachforderung"
+  cancel: "Nachforderung abbrechen"
+  request: "Anfrage"
+  answer: "Antwort"
+  check: "Prüfung"
+  sent-message: "Gesendet am {date}"
+  empty: "Keine Nachforderungen vorhanden."
+  empty-create: 'Klicken Sie "+" um eine Nachforderung zu starten.'
+  paper: "Bei Papierdossiers sind Nachforderungen auf dem Postweg / per E-Mail durchzuführen. Erhaltene Antworten können im Menü “Dokumente” sowie “Journal” protokolliert werden."
+
+  status:
+    internal:
+      draft: "Entwurf"
+      sent: "Versendet"
+      needs-interaction: "Aktion erforderlich"
+      completed: "Abgeschlossen"
+      canceled: "Vorzeitig beendet"
+    portal:
+      sent: "Aktion erforderlich"
+      needs-interaction: "In Bearbeitung"
+      completed: "Abgeschlossen"
+      canceled: "Vorzeitig beendet"

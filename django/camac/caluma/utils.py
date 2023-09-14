@@ -3,6 +3,7 @@ from datetime import date, datetime, timedelta
 from typing import Optional
 
 import pytz
+from caluma.caluma_core.events import filter_events
 from caluma.caluma_form.models import Answer, Document, Question
 from caluma.caluma_user.models import AnonymousUser, OIDCUser
 from caluma.caluma_workflow.models import WorkItem
@@ -262,3 +263,13 @@ class CalumaInfo:
             oidc_user = OIDCUser(token=token, claims=request.auth)
 
             self.user = extend_user(oidc_user, request)
+
+
+def filter_by_workflow_base(settings_keys, get_settings):
+    return filter_events(lambda case: case.workflow_id in get_settings(settings_keys))
+
+
+def filter_by_task_base(settings_keys, get_settings):
+    return filter_events(
+        lambda work_item: work_item.task_id in get_settings(settings_keys)
+    )

@@ -1,10 +1,11 @@
 import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
+import { decodeId } from "@projectcaluma/ember-core/helpers/decode-id";
 import { task, dropTask } from "ember-concurrency";
 import { trackedFunction } from "ember-resources/util/function";
 
-import config from "caluma-portal/config/environment";
+import mainConfig from "ember-ebau-core/config/main";
 
 const DEFAULT_CATEGORY = "weitere-unterlagen";
 
@@ -13,6 +14,7 @@ export default class AlexandriaDocumentsFormComponent extends Component {
   @service fetch;
   @service notification;
   @service store;
+  @service config;
   @service alexandriaDocuments;
 
   @tracked uploadedAttachmentIds = [];
@@ -28,7 +30,23 @@ export default class AlexandriaDocumentsFormComponent extends Component {
   });
 
   get categorySlugs() {
-    return this.args.fieldset.field.question.raw.meta["alexandria-categories"];
+    return this.field.question.raw.meta["alexandria-categories"];
+  }
+
+  get fieldset() {
+    return this.args.fieldset ?? { fields: [] };
+  }
+
+  get field() {
+    return this.args.fieldset?.field ?? this.args.field;
+  }
+
+  get document() {
+    return this.args.document ?? this.args.field.fieldset.document;
+  }
+
+  get documentId() {
+    return decodeId(this.document.raw.id);
   }
 
   get deletable() {
@@ -39,13 +57,12 @@ export default class AlexandriaDocumentsFormComponent extends Component {
     const state = parseInt(instance?.belongsTo("instanceState").id());
 
     return (
-      !this.args.disabled &&
-      state !== config.APPLICATION.instanceStates.inCorrection
+      !this.args.disabled && state !== mainConfig.instanceStates.correction
     );
   }
 
   get allRequiredTags() {
-    return this.args.fieldset.fields.filter(
+    return this.fieldset.fields.filter(
       (field) =>
         !field.hidden &&
         !field.optional &&
@@ -54,10 +71,10 @@ export default class AlexandriaDocumentsFormComponent extends Component {
   }
 
   get allOtherFields() {
-    return this.args.fieldset.fields.filter(
+    return this.fieldset.fields.filter(
       (field) =>
         field.questionType !== "MultipleChoiceQuestion" &&
-        !config.APPLICATION.documents.excludeFromDocuments.includes(
+        !mainConfig.documents?.excludeFromDocuments.includes(
           field.question.slug,
         ),
     );
@@ -83,6 +100,10 @@ export default class AlexandriaDocumentsFormComponent extends Component {
       parseInt(attachment.metainfo["camac-instance-id"]) ===
       parseInt(this.args.context.instanceId);
 
+    // filter by document
+    const byDocument = (attachment) =>
+      attachment.metainfo["caluma-document-id"] === this.documentId;
+
     const bySection = (attachment) =>
       this.categorySlugs.includes(attachment.category.get("id"));
 
@@ -94,7 +115,8 @@ export default class AlexandriaDocumentsFormComponent extends Component {
       .peekAll("document")
       .filter(byInstance)
       .filter(bySection)
-      .filter(isUploadedOrInQuery);
+      .filter(isUploadedOrInQuery)
+      .filter(byDocument);
   }
 
   attachments = trackedFunction(this, async () => {
@@ -111,12 +133,21 @@ export default class AlexandriaDocumentsFormComponent extends Component {
   fetchAttachments = trackedFunction(this, async () => {
     await Promise.resolve();
 
+    const metainfoFilter = [
+      { key: "camac-instance-id", value: this.args.context.instanceId },
+    ];
+
+    if (this.field.question.raw.meta.alexandriaEnableDocumentFilter) {
+      metainfoFilter.push({
+        key: "caluma-document-id",
+        value: this.documentId,
+      });
+    }
+
     return await this.store.query("document", {
       filter: {
         category: this.category,
-        metainfo: JSON.stringify([
-          { key: "camac-instance-id", value: this.args.context.instanceId },
-        ]),
+        metainfo: JSON.stringify(metainfoFilter),
       },
       include: "category,files",
       sort: "title",
@@ -126,6 +157,8 @@ export default class AlexandriaDocumentsFormComponent extends Component {
   @task
   *upload({ file, bucket }) {
     try {
+      this.config.documentId = this.documentId;
+
       const documentModel = yield this.alexandriaDocuments.upload(
         bucket,
         [file],
