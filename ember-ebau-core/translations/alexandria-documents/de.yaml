@@ -25,3 +25,6 @@ documents:
   deleteInfo: 'Wollen Sie die Datei "{filename}" wirklich löschen?'
   deleteSuccess: "Die Datei wurde erfolgreich gelöscht"
   deleteError: "Beim Löschen der Datei ist etwas schief gelaufen"
+
+  mark:
+    decision: "Entscheid"
