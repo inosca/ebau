@@ -361,6 +361,47 @@ def test_category_permission(
             HTTP_204_NO_CONTENT,
             {"access": {"applicant": "AdminAdditionalDemand"}},
         ),
+        # AdminAdditionalDemand
+        (
+            "new",
+            "municipality",
+            None,
+            "post",
+            HTTP_201_CREATED,
+            {"access": {"municipality": "AdminNewPaper"}},
+        ),
+        (
+            "new",
+            "municipality",
+            None,
+            "post",
+            HTTP_403_FORBIDDEN,
+            {"access": {"municipality": "AdminNewPaper"}},
+        ),
+        (
+            "new",
+            "municipality",
+            None,
+            "patch",
+            HTTP_200_OK,
+            {"access": {"municipality": "AdminNewPaper"}},
+        ),
+        (
+            "subm",
+            "municipality",
+            None,
+            "delete",
+            HTTP_403_FORBIDDEN,
+            {"access": {"municipality": "AdminNewPaper"}},
+        ),
+        (
+            "new",
+            "municipality",
+            None,
+            "delete",
+            HTTP_204_NO_CONTENT,
+            {"access": {"municipality": "AdminNewPaper"}},
+        ),
     ],
 )
 def test_kt_gr_permissions(
@@ -393,6 +434,9 @@ def test_kt_gr_permissions(
             document=gr_instance.case.document,
         )
         gr_instance.case.work_items.add(work_item)
+        gr_instance.case.document.answers.create(
+            question_id="is-paper", value="is-paper-yes"
+        )
 
     alexandria_category = CategoryFactory(metainfo=metainfo)
     url = reverse("document-list")
