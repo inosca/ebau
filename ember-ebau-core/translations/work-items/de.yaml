@@ -54,6 +54,7 @@ workItems:
     unread: "Ungelesene"
     open: "Offen"
     closed: "Abgeschlossen"
+    suspended: "Sistiert"
     active: "Aktiv"
     control: "Controlling"
     urgent: "Dringend"
