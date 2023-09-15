@@ -10,7 +10,7 @@ export default class WorkItemsIndexController extends Controller {
   @tracked responsible = "all";
   @tracked type = "all";
   @tracked role = "active";
-  @tracked status = "open";
+  @tracked status = "READY";
 
   @action
   setFilter(filter, value) {
