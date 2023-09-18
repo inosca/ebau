@@ -76,7 +76,7 @@ Ce message a été généré automatiquement, veuillez ne pas y répondre.
 snapshots['test_send_work_item_reminders[False-True-True-False-True-False-3-False] 1'] = [
     (
         'Erinnerung an Aufgaben',
-        '''Guten Tag  Rebecca Gonzalez
+        '''Guten Tag Rebecca Gonzalez
 
 Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
 
@@ -138,7 +138,7 @@ Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
 snapshots['test_send_work_item_reminders[False-True-True-False-True-False-3-True] 1'] = [
     (
         'Erinnerung an Aufgaben / Rappel des tâches',
-        '''Guten Tag  Rebecca Gonzalez
+        '''Guten Tag Rebecca Gonzalez
 
 Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
 
@@ -151,7 +151,7 @@ Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
 
 *** version française ***
 
-Bonjour  Rebecca Gonzalez,
+Bonjour Rebecca Gonzalez,
 
 Vous avez les tâches suivantes dans eBau qui requièrent votre attention :
 
@@ -241,7 +241,7 @@ Ce message a été généré automatiquement, veuillez ne pas y répondre.
 snapshots['test_send_work_item_reminders[True-False-True-False-False-False-2-False] 1'] = [
     (
         'Erinnerung an Aufgaben',
-        '''Guten Tag  Rebecca Gonzalez
+        '''Guten Tag Rebecca Gonzalez
 
 Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
 
@@ -283,7 +283,7 @@ Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
 snapshots['test_send_work_item_reminders[True-False-True-False-False-False-2-True] 1'] = [
     (
         'Erinnerung an Aufgaben / Rappel des tâches',
-        '''Guten Tag  Rebecca Gonzalez
+        '''Guten Tag Rebecca Gonzalez
 
 Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
 
@@ -296,7 +296,7 @@ Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
 
 *** version française ***
 
-Bonjour  Rebecca Gonzalez,
+Bonjour Rebecca Gonzalez,
 
 Vous avez les tâches suivantes dans eBau qui requièrent votre attention :
 
@@ -352,7 +352,7 @@ Ce message a été généré automatiquement, veuillez ne pas y répondre.
 snapshots['test_send_work_item_reminders[True-False-True-False-False-True-1-False] 1'] = [
     (
         'Erinnerung an Aufgaben',
-        '''Guten Tag  Rebecca Gonzalez
+        '''Guten Tag Rebecca Gonzalez
 
 Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
 
@@ -374,7 +374,7 @@ Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
 snapshots['test_send_work_item_reminders[True-False-True-False-False-True-1-True] 1'] = [
     (
         'Erinnerung an Aufgaben / Rappel des tâches',
-        '''Guten Tag  Rebecca Gonzalez
+        '''Guten Tag Rebecca Gonzalez
 
 Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
 
@@ -387,7 +387,7 @@ Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
 
 *** version française ***
 
-Bonjour  Rebecca Gonzalez,
+Bonjour Rebecca Gonzalez,
 
 Vous avez les tâches suivantes dans eBau qui requièrent votre attention :
 
@@ -409,7 +409,7 @@ Ce message a été généré automatiquement, veuillez ne pas y répondre.
 snapshots['test_send_work_item_reminders[True-True-True-False-True-False-3-False] 1'] = [
     (
         'Erinnerung an Aufgaben',
-        '''Guten Tag  Rebecca Gonzalez
+        '''Guten Tag Rebecca Gonzalez
 
 Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
 
@@ -471,7 +471,7 @@ Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
 snapshots['test_send_work_item_reminders[True-True-True-False-True-False-3-True] 1'] = [
     (
         'Erinnerung an Aufgaben / Rappel des tâches',
-        '''Guten Tag  Rebecca Gonzalez
+        '''Guten Tag Rebecca Gonzalez
 
 Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
 
@@ -484,7 +484,7 @@ Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
 
 *** version française ***
 
-Bonjour  Rebecca Gonzalez,
+Bonjour Rebecca Gonzalez,
 
 Vous avez les tâches suivantes dans eBau qui requièrent votre attention :
 
@@ -574,7 +574,7 @@ Ce message a été généré automatiquement, veuillez ne pas y répondre.
 snapshots['test_send_work_item_reminders[True-True-True-True-False-False-3-False] 1'] = [
     (
         'Erinnerung an Aufgaben',
-        '''Guten Tag  Rebecca Gonzalez
+        '''Guten Tag Rebecca Gonzalez
 
 Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
 
@@ -636,7 +636,7 @@ Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
 snapshots['test_send_work_item_reminders[True-True-True-True-False-False-3-True] 1'] = [
     (
         'Erinnerung an Aufgaben / Rappel des tâches',
-        '''Guten Tag  Rebecca Gonzalez
+        '''Guten Tag Rebecca Gonzalez
 
 Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
 
@@ -649,7 +649,7 @@ Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
 
 *** version française ***
 
-Bonjour  Rebecca Gonzalez,
+Bonjour Rebecca Gonzalez,
 
 Vous avez les tâches suivantes dans eBau qui requièrent votre attention :
 
@@ -739,7 +739,7 @@ Ce message a été généré automatiquement, veuillez ne pas y répondre.
 snapshots['test_send_work_item_reminders[True-True-True-True-False-True-2-False] 1'] = [
     (
         'Erinnerung an Aufgaben',
-        '''Guten Tag  Rebecca Gonzalez
+        '''Guten Tag Rebecca Gonzalez
 
 Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
 
@@ -781,7 +781,7 @@ Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
 snapshots['test_send_work_item_reminders[True-True-True-True-False-True-2-True] 1'] = [
     (
         'Erinnerung an Aufgaben / Rappel des tâches',
-        '''Guten Tag  Rebecca Gonzalez
+        '''Guten Tag Rebecca Gonzalez
 
 Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
 
@@ -794,7 +794,7 @@ Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
 
 *** version française ***
 
-Bonjour  Rebecca Gonzalez,
+Bonjour Rebecca Gonzalez,
 
 Vous avez les tâches suivantes dans eBau qui requièrent votre attention :
 

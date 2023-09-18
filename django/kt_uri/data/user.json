@@ -5,8 +5,8 @@
     "fields": {
       "username": "admin",
       "password": "0f10da7320c3fad6c1bd4e597992fb83",
-      "name": "min",
-      "surname": "Ad",
+      "name": "Ad",
+      "surname": "min",
       "email": "admin@example.com",
       "phone": "",
       "disabled": 0,
@@ -77,8 +77,8 @@
     "fields": {
       "username": "portal",
       "password": null,
-      "name": "User",
-      "surname": "Portal",
+      "name": "Portal",
+      "surname": "User",
       "email": "portal@example.com",
       "phone": "041564465546, 07712361321",
       "disabled": 0,
@@ -95,8 +95,8 @@
     "fields": {
       "username": "import@urec.ch",
       "password": null,
-      "name": "Import",
-      "surname": "KOOR BG",
+      "name": "KOOR BG",
+      "surname": "Import",
       "email": "import@urec.ch",
       "phone": null,
       "disabled": 0,
@@ -131,8 +131,8 @@
     "fields": {
       "username": "import.gem@urec.ch",
       "password": null,
-      "name": "Import",
-      "surname": "Gemeinde",
+      "name": "Gemeinde",
+      "surname": "Import",
       "email": "import.gem@urec.ch",
       "phone": null,
       "disabled": 0,
