@@ -83,7 +83,9 @@ def get_header_labels():
     return {
         "addressHeaderLabel": _("Address"),
         "plotsHeaderLabel": _("Plots"),
-        "applicantHeaderLabel": _("Applicant"),
+        "applicantHeaderLabel": _("Project Owner")
+        if settings.APPLICATION_NAME == "kt_so"
+        else _("Applicant"),
         "landownerHeaderLabel": _("Landowner"),
         "projectAuthorHeaderLabel": _("Project Author"),
         "tagHeaderLabel": _("Keywords"),
