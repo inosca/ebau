@@ -612,8 +612,8 @@
     "otpPolicyPeriod": 30,
     "otpPolicyCodeReusable": false,
     "otpSupportedApplications": [
-      "totpAppFreeOTPName",
       "totpAppGoogleName",
+      "totpAppFreeOTPName",
       "totpAppMicrosoftAuthenticatorName"
     ],
     "webAuthnPolicyRpEntityName": "keycloak",
@@ -2062,14 +2062,14 @@
           "subComponents": {},
           "config": {
             "allowed-protocol-mapper-types": [
-              "oidc-full-name-mapper",
               "oidc-usermodel-attribute-mapper",
-              "oidc-address-mapper",
-              "saml-role-list-mapper",
               "oidc-usermodel-property-mapper",
+              "saml-role-list-mapper",
+              "oidc-full-name-mapper",
               "saml-user-attribute-mapper",
-              "oidc-sha256-pairwise-sub-mapper",
-              "saml-user-property-mapper"
+              "saml-user-property-mapper",
+              "oidc-address-mapper",
+              "oidc-sha256-pairwise-sub-mapper"
             ],
             "consent-required-for-all-mappers": ["true"]
           }
@@ -2093,14 +2093,14 @@
           "subComponents": {},
           "config": {
             "allowed-protocol-mapper-types": [
-              "saml-user-attribute-mapper",
               "oidc-address-mapper",
-              "oidc-usermodel-property-mapper",
+              "oidc-full-name-mapper",
+              "saml-user-property-mapper",
               "oidc-usermodel-attribute-mapper",
               "oidc-sha256-pairwise-sub-mapper",
-              "saml-user-property-mapper",
+              "oidc-usermodel-property-mapper",
               "saml-role-list-mapper",
-              "oidc-full-name-mapper"
+              "saml-user-attribute-mapper"
             ],
             "consent-required-for-all-mappers": ["true"]
           }
@@ -3224,8 +3224,8 @@
     "otpPolicyPeriod": 30,
     "otpPolicyCodeReusable": false,
     "otpSupportedApplications": [
-      "totpAppFreeOTPName",
       "totpAppGoogleName",
+      "totpAppFreeOTPName",
       "totpAppMicrosoftAuthenticatorName"
     ],
     "webAuthnPolicyRpEntityName": "keycloak",
@@ -3259,6 +3259,9 @@
         "firstName": "Static",
         "lastName": "Administrator",
         "email": "admin@example.com",
+        "attributes": {
+          "mobile_number": ["0041792597916"]
+        },
         "credentials": [
           {
             "id": "65776ac0-cbbe-40d5-ad9e-fa5b7e163b68",
@@ -3269,7 +3272,7 @@
           }
         ],
         "disableableCredentialTypes": [],
-        "requiredActions": [],
+        "requiredActions": ["mobile-number-ra"],
         "realmRoles": ["uma_authorization", "offline_access"],
         "clientRoles": {
           "account": ["view-profile", "manage-account"]
@@ -3323,6 +3326,34 @@
         "groups": []
       },
       {
+        "id": "18ac841b-0417-440c-8603-6a056cb72d99",
+        "createdTimestamp": 1697527703560,
+        "username": "test@example.com",
+        "enabled": true,
+        "totp": false,
+        "emailVerified": true,
+        "firstName": "test",
+        "lastName": "test",
+        "email": "test@example.com",
+        "attributes": {
+          "mobile_number": ["079 259 79 16"]
+        },
+        "credentials": [
+          {
+            "id": "cf438f13-b153-44a5-ae01-916969feda9f",
+            "type": "password",
+            "createdDate": 1697527703606,
+            "secretData": "{\"value\":\"2Q0160GyQaL0Y6yxziqe72A7VV2+Y0psJC3iYkzek9U=\",\"salt\":\"9F8LrKkGAb6ytmXhZg2FbQ==\",\"additionalParameters\":{}}",
+            "credentialData": "{\"hashIterations\":27500,\"algorithm\":\"pbkdf2-sha256\",\"additionalParameters\":{}}"
+          }
+        ],
+        "disableableCredentialTypes": [],
+        "requiredActions": [],
+        "realmRoles": ["default-roles-ebau"],
+        "notBefore": 0,
+        "groups": []
+      },
+      {
         "id": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
         "createdTimestamp": 1520947513334,
         "username": "user@example.com",
@@ -3332,6 +3363,9 @@
         "firstName": "Us",
         "lastName": "Er",
         "email": "user@example.com",
+        "attributes": {
+          "mobile_number": ["0792597916"]
+        },
         "credentials": [
           {
             "id": "cd2832a4-997f-4714-8bc8-7f8a6f501828",
@@ -5634,14 +5668,14 @@
           "subComponents": {},
           "config": {
             "allowed-protocol-mapper-types": [
-              "oidc-full-name-mapper",
-              "oidc-usermodel-property-mapper",
-              "oidc-address-mapper",
-              "saml-user-property-mapper",
-              "oidc-usermodel-attribute-mapper",
               "saml-user-attribute-mapper",
+              "oidc-full-name-mapper",
               "oidc-sha256-pairwise-sub-mapper",
-              "saml-role-list-mapper"
+              "oidc-usermodel-attribute-mapper",
+              "saml-user-property-mapper",
+              "saml-role-list-mapper",
+              "oidc-address-mapper",
+              "oidc-usermodel-property-mapper"
             ],
             "consent-required-for-all-mappers": ["true"]
           }
@@ -5682,14 +5716,14 @@
           "subComponents": {},
           "config": {
             "allowed-protocol-mapper-types": [
-              "oidc-usermodel-attribute-mapper",
-              "saml-user-attribute-mapper",
-              "oidc-address-mapper",
-              "saml-user-property-mapper",
               "oidc-usermodel-property-mapper",
-              "oidc-full-name-mapper",
+              "saml-user-attribute-mapper",
               "oidc-sha256-pairwise-sub-mapper",
-              "saml-role-list-mapper"
+              "saml-user-property-mapper",
+              "oidc-full-name-mapper",
+              "saml-role-list-mapper",
+              "oidc-usermodel-attribute-mapper",
+              "oidc-address-mapper"
             ],
             "consent-required-for-all-mappers": ["true"]
           }
@@ -5756,7 +5790,7 @@
       ]
     },
     "internationalizationEnabled": true,
-    "supportedLocales": ["de"],
+    "supportedLocales": ["de", "it"],
     "defaultLocale": "de",
     "authenticationFlows": [
       {
@@ -5901,6 +5935,101 @@
             "priority": 30,
             "autheticatorFlow": true,
             "flowAlias": "forms",
+            "userSetupAllowed": false
+          }
+        ]
+      },
+      {
+        "id": "f8747951-48fa-409a-9b90-10e58f2e30bb",
+        "alias": "browser with SMS",
+        "description": "browser based authentication with 2FA via SMS",
+        "providerId": "basic-flow",
+        "topLevel": true,
+        "builtIn": false,
+        "authenticationExecutions": [
+          {
+            "authenticator": "auth-cookie",
+            "authenticatorFlow": false,
+            "requirement": "ALTERNATIVE",
+            "priority": 10,
+            "autheticatorFlow": false,
+            "userSetupAllowed": false
+          },
+          {
+            "authenticator": "auth-spnego",
+            "authenticatorFlow": false,
+            "requirement": "DISABLED",
+            "priority": 20,
+            "autheticatorFlow": false,
+            "userSetupAllowed": false
+          },
+          {
+            "authenticator": "identity-provider-redirector",
+            "authenticatorFlow": false,
+            "requirement": "ALTERNATIVE",
+            "priority": 25,
+            "autheticatorFlow": false,
+            "userSetupAllowed": false
+          },
+          {
+            "authenticatorFlow": true,
+            "requirement": "ALTERNATIVE",
+            "priority": 30,
+            "autheticatorFlow": true,
+            "flowAlias": "browser with SMS forms",
+            "userSetupAllowed": false
+          }
+        ]
+      },
+      {
+        "id": "1c2050e8-3154-4c0f-8aff-4bfc59dcac68",
+        "alias": "browser with SMS forms",
+        "description": "Username, password, otp and other auth forms.",
+        "providerId": "basic-flow",
+        "topLevel": false,
+        "builtIn": false,
+        "authenticationExecutions": [
+          {
+            "authenticator": "auth-username-password-form",
+            "authenticatorFlow": false,
+            "requirement": "REQUIRED",
+            "priority": 10,
+            "autheticatorFlow": false,
+            "userSetupAllowed": false
+          },
+          {
+            "authenticatorFlow": true,
+            "requirement": "CONDITIONAL",
+            "priority": 20,
+            "autheticatorFlow": true,
+            "flowAlias": "browser with SMS forms - auth-sms-form - Conditional",
+            "userSetupAllowed": false
+          }
+        ]
+      },
+      {
+        "id": "920a076a-1cc2-44b8-9016-a1af026787e8",
+        "alias": "browser with SMS forms - auth-sms-form - Conditional",
+        "description": "Flow to determine if the auth-sms-form authenticator should be used or not.",
+        "providerId": "basic-flow",
+        "topLevel": false,
+        "builtIn": false,
+        "authenticationExecutions": [
+          {
+            "authenticator": "conditional-user-configured",
+            "authenticatorFlow": false,
+            "requirement": "REQUIRED",
+            "priority": 10,
+            "autheticatorFlow": false,
+            "userSetupAllowed": false
+          },
+          {
+            "authenticatorConfig": "SMS auth",
+            "authenticator": "sms-authenticator",
+            "authenticatorFlow": false,
+            "requirement": "REQUIRED",
+            "priority": 11,
+            "autheticatorFlow": false,
             "userSetupAllowed": false
           }
         ]
@@ -6265,6 +6394,19 @@
     ],
     "authenticatorConfig": [
       {
+        "id": "0b825931-386f-4a2d-b275-78637cea61c5",
+        "alias": "SMS auth",
+        "config": {
+          "password": "j-KwNP4LC6S.Bb",
+          "senderId": "004199999999",
+          "simulation": "false",
+          "length": "6",
+          "senderNr": "004199999999",
+          "ttl": "300",
+          "username": "ktgr-ebbv"
+        }
+      },
+      {
         "id": "3a8fcc45-8de1-452a-84ef-79340bc01194",
         "alias": "create unique user config",
         "config": {
@@ -6342,9 +6484,18 @@
         "defaultAction": false,
         "priority": 1000,
         "config": {}
+      },
+      {
+        "alias": "mobile-number-ra",
+        "name": "Update mobile number",
+        "providerId": "mobile-number-ra",
+        "enabled": true,
+        "defaultAction": true,
+        "priority": 1001,
+        "config": {}
       }
     ],
-    "browserFlow": "browser",
+    "browserFlow": "browser with SMS",
     "registrationFlow": "registration",
     "directGrantFlow": "direct grant",
     "resetCredentialsFlow": "reset credentials",

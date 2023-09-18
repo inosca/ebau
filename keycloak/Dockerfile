@@ -34,6 +34,8 @@ ENV KCISPN_HOSTS=localhost[7800]
 
 COPY themes /tmp/themes
 COPY --from=theme-builder /app/target/keycloak-themes-inosca-ebau.jar /opt/keycloak/providers/keycloak-themes-inosca-ebau.jar
+COPY dasniko.keycloak-2fa-sms-authenticator.jar /opt/keycloak/providers/dasniko.keycloak-2fa-sms-authenticator.jar
+COPY dasniko.keycloak-requiredaction.jar /opt/keycloak/providers/dasniko.keycloak-requiredaction.jar
 
 COPY cache-ispn-tcpstatic.xml /opt/keycloak/conf/cache-ispn-tcpstatic.xml
 
