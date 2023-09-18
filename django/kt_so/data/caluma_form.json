@@ -258,6 +258,29 @@
   },
   {
     "model": "caluma_form.historicalanswer",
+    "pk": "5a1bb249-574a-4240-9805-73a431d3579f",
+    "fields": {
+      "created_at": "2023-09-18T15:07:35.631Z",
+      "modified_at": "2023-09-18T15:07:35.631Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "history_question_type": "choice",
+      "id": "afc3187e-a195-42e5-98f6-e781da409266",
+      "value": "rechnungsempfaengerin-abweichend-nein",
+      "meta": {},
+      "date": null,
+      "history_user_id": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "question": "rechnungsempfaengerin-abweichend",
+      "document": "88099d1f-7c40-48fc-8e66-a86c7c3a42f2",
+      "history_date": "2023-09-18T15:07:35.633Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
     "pk": "60d7a682-7790-47d0-8bcb-6a002bf08014",
     "fields": {
       "created_at": "2023-09-08T17:02:00.567Z",
@@ -344,29 +367,6 @@
       "question": "auswahl-vorhaben-bs",
       "document": "88099d1f-7c40-48fc-8e66-a86c7c3a42f2",
       "history_date": "2023-09-08T17:02:28.398Z",
-      "history_change_reason": null,
-      "history_type": "+"
-    }
-  },
-  {
-    "model": "caluma_form.historicalanswer",
-    "pk": "8ee59ef6-878c-42f0-a1b9-a470f5f00fcc",
-    "fields": {
-      "created_at": "2023-09-08T17:02:02.820Z",
-      "modified_at": "2023-09-08T17:02:02.820Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "history_question_type": "choice",
-      "id": "3dc28871-8e9e-4d39-95ed-ca324d996445",
-      "value": "beratung-nein",
-      "meta": {},
-      "date": null,
-      "history_user_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "question": "beratung",
-      "document": "88099d1f-7c40-48fc-8e66-a86c7c3a42f2",
-      "history_date": "2023-09-08T17:02:02.826Z",
       "history_change_reason": null,
       "history_type": "+"
     }
@@ -828,23 +828,6 @@
       "modified_by_group": null,
       "question": "art-der-bauwerke",
       "value": ["art-der-bauwerke-hochbaute"],
-      "meta": {},
-      "document": "88099d1f-7c40-48fc-8e66-a86c7c3a42f2",
-      "date": null
-    }
-  },
-  {
-    "model": "caluma_form.answer",
-    "pk": "3dc28871-8e9e-4d39-95ed-ca324d996445",
-    "fields": {
-      "created_at": "2023-09-08T17:02:02.820Z",
-      "modified_at": "2023-09-08T17:02:02.820Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "beratung",
-      "value": "beratung-nein",
       "meta": {},
       "document": "88099d1f-7c40-48fc-8e66-a86c7c3a42f2",
       "date": null
@@ -1474,6 +1457,23 @@
       "modified_by_group": null,
       "question": "schutzraum-baulich-betroffen",
       "value": "schutzraum-betroffen-nein",
+      "meta": {},
+      "document": "88099d1f-7c40-48fc-8e66-a86c7c3a42f2",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "afc3187e-a195-42e5-98f6-e781da409266",
+    "fields": {
+      "created_at": "2023-09-18T15:07:35.631Z",
+      "modified_at": "2023-09-18T15:07:35.631Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rechnungsempfaengerin-abweichend",
+      "value": "rechnungsempfaengerin-abweichend-nein",
       "meta": {},
       "document": "88099d1f-7c40-48fc-8e66-a86c7c3a42f2",
       "date": null
