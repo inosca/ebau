@@ -6679,7 +6679,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "ausbildungsnachweis",
-      "sort": 17
+      "sort": 19
     }
   },
   {
@@ -6694,7 +6694,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "bericht-zur-umweltvertraeglichkeitspruefung-uvp",
-      "sort": 1
+      "sort": 4
     }
   },
   {
@@ -6709,7 +6709,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "bodenkundliches-fachgutachten",
-      "sort": 12
+      "sort": 15
     }
   },
   {
@@ -6724,7 +6724,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "brandschutzkonzept",
-      "sort": 6
+      "sort": 9
     }
   },
   {
@@ -6739,7 +6739,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "brandschutzplaene",
-      "sort": 5
+      "sort": 8
     }
   },
   {
@@ -6754,7 +6754,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "dispositionsplan-heizungsraum",
-      "sort": 3
+      "sort": 6
     }
   },
   {
@@ -6769,7 +6769,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "einfache-brandschutzplaene",
-      "sort": 4
+      "sort": 7
     }
   },
   {
@@ -6784,7 +6784,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "feststellungsverfuegung",
-      "sort": 9
+      "sort": 12
     }
   },
   {
@@ -6799,7 +6799,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "gesuch-feuerpolizeiliche-bewilligung",
-      "sort": 19
+      "sort": 21
     }
   },
   {
@@ -6814,7 +6814,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "hinweistext-dokumente",
-      "sort": 20
+      "sort": 22
     }
   },
   {
@@ -6829,7 +6829,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "messbericht",
-      "sort": 18
+      "sort": 20
     }
   },
   {
@@ -6844,7 +6844,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "resultate-der-geforderten-bodenuntersuchung",
-      "sort": 16
+      "sort": 18
     }
   },
   {
@@ -6859,7 +6859,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "rodungsgesuchsformular",
-      "sort": 11
+      "sort": 14
     }
   },
   {
@@ -6874,7 +6874,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "sicherheitsdatenblatt",
-      "sort": 7
+      "sort": 10
     }
   },
   {
@@ -6889,7 +6889,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "tragbarkeitsberechnung",
-      "sort": 8
+      "sort": 11
     }
   },
   {
@@ -6904,7 +6904,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "vereinbarkeit-zweitwohnungsgesetz",
-      "sort": 10
+      "sort": 13
     }
   },
   {
@@ -6919,7 +6919,52 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "vkf-anerkennungenleistungserklaerung-dop",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente.vorablaerungsbericht-tiefbauamt-leitungen",
+    "fields": {
+      "created_at": "2023-09-18T11:09:33.720Z",
+      "modified_at": "2023-09-18T11:09:33.720Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente",
+      "question": "vorablaerungsbericht-tiefbauamt-leitungen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente.vorablaerungsbericht-tiefbauamt-naeherbauten",
+    "fields": {
+      "created_at": "2023-09-18T11:08:09.684Z",
+      "modified_at": "2023-09-18T11:08:09.684Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente",
+      "question": "vorablaerungsbericht-tiefbauamt-naeherbauten",
       "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente.vorablaerungsbericht-tiefbauamt-strassenreklamen",
+    "fields": {
+      "created_at": "2023-09-18T11:02:14.223Z",
+      "modified_at": "2023-09-18T11:02:14.223Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente",
+      "question": "vorablaerungsbericht-tiefbauamt-strassenreklamen",
+      "sort": 3
     }
   },
   {
@@ -6934,7 +6979,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "zusatzbewilligung-kantonsstrassen",
-      "sort": 15
+      "sort": 17
     }
   },
   {
@@ -6949,7 +6994,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "zusatzbewilligung-naturgefahren",
-      "sort": 13
+      "sort": 16
     }
   },
   {
@@ -11269,7 +11314,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "ausserhalb-bauzone",
-      "sort": 30
+      "sort": 31
     }
   },
   {
@@ -11284,7 +11329,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "baute-oder-anlage",
-      "sort": 31
+      "sort": 32
     }
   },
   {
@@ -11299,7 +11344,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "bauvorhaben-mit-gewerbenutzung",
-      "sort": 20
+      "sort": 21
     }
   },
   {
@@ -11329,7 +11374,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "beschreibung-der-nutzung",
-      "sort": 19
+      "sort": 20
     }
   },
   {
@@ -11344,7 +11389,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "beschreibung-der-wohnnutzung",
-      "sort": 21
+      "sort": 22
     }
   },
   {
@@ -11389,7 +11434,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "fallen-emissionen-an",
-      "sort": 18
+      "sort": 19
     }
   },
   {
@@ -11404,7 +11449,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "forstliche-baute",
-      "sort": 25
+      "sort": 26
     }
   },
   {
@@ -11449,7 +11494,22 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "hinweis-hindernisfreies-bauen",
-      "sort": 22
+      "sort": 23
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "nutzung-bauvorhaben.hinweis-vorabklaerungspflicht",
+    "fields": {
+      "created_at": "2023-09-18T10:54:56.007Z",
+      "modified_at": "2023-09-18T10:54:56.007Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "nutzung-bauvorhaben",
+      "question": "hinweis-vorabklaerungspflicht",
+      "sort": 14
     }
   },
   {
@@ -11479,7 +11539,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "hinweis-waldabstandsbereich",
-      "sort": 28
+      "sort": 29
     }
   },
   {
@@ -11494,7 +11554,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "industrie-und-gewerbeabwasser",
-      "sort": 16
+      "sort": 17
     }
   },
   {
@@ -11524,7 +11584,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "kantonsstrassen",
-      "sort": 14
+      "sort": 15
     }
   },
   {
@@ -11539,7 +11599,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "mehr-als-50-arbeitsplaetze",
-      "sort": 15
+      "sort": 16
     }
   },
   {
@@ -11554,7 +11614,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "mehr-als-vier-wohneinheiten",
-      "sort": 23
+      "sort": 24
     }
   },
   {
@@ -11584,7 +11644,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "nichtforstliche-kleinbaute",
-      "sort": 26
+      "sort": 27
     }
   },
   {
@@ -11614,7 +11674,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "rodung",
-      "sort": 27
+      "sort": 28
     }
   },
   {
@@ -11659,7 +11719,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "waldareal",
-      "sort": 29
+      "sort": 30
     }
   },
   {
@@ -11674,7 +11734,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "was-verursacht-die-emissionen",
-      "sort": 17
+      "sort": 18
     }
   },
   {
@@ -11719,7 +11779,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "wohnnutzung",
-      "sort": 24
+      "sort": 25
     }
   },
   {
@@ -32469,6 +32529,54 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "vorablaerungsbericht-tiefbauamt-leitungen-ja",
+    "fields": {
+      "created_at": "2023-09-18T11:09:33.326Z",
+      "modified_at": "2023-09-18T11:09:33.326Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Vorabl\\u00e4rungsbericht Tiefbauamt f\\u00fcr Leitungen in und \\u00fcber Kantonsstrasse (Art. 52 Abs. 2 KRVO)\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "vorablaerungsbericht-tiefbauamt-naeherbauten-ja",
+    "fields": {
+      "created_at": "2023-09-18T11:08:09.311Z",
+      "modified_at": "2023-09-18T11:08:09.311Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Vorabl\\u00e4rungsbericht Tiefbauamt f\\u00fcr N\\u00e4herbauten, Zufahrten, Zug\\u00e4nge, Parkpl\\u00e4tze usw. (Art. 52 Abs. 2 KRVO)\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "vorablaerungsbericht-tiefbauamt-strassenreklamen-ja",
+    "fields": {
+      "created_at": "2023-09-18T11:02:13.848Z",
+      "modified_at": "2023-09-18T11:02:13.848Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Vorabl\\u00e4rungsbericht Tiefbauamt f\\u00fcr Strassenreklamen (Art. 52 Abs. 2 KRVO)\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "vorgesehene-abwasserableitung-gemeindekanalisation",
     "fields": {
       "created_at": "2023-04-19T10:15:09.516Z",
@@ -47551,9 +47659,9 @@
       "configuration": {},
       "meta": {
         "action": "submit",
+        "template": "eingabequittung",
         "hideLabel": true,
-        "widgetOverride": "gr-submit-instance",
-        "template": "eingabequittung"
+        "widgetOverride": "gr-submit-instance"
       },
       "data_source": null,
       "row_form": null,
@@ -54115,6 +54223,37 @@
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"F\\u00fcr \\u00d6konomiebauten ist dem Gesuch beizulegen:\\n\\n- Raumprogramm und Betriebskonzept\\n- Berechnung der Mindestabst\\u00e4nde gem\\u00e4ss [FAT-Bericht Nr. 476/95](https://www.blw.admin.ch/dam/blw/de/dokumente/Nachhaltige%20Produktion/Umwelt/Luft/Mindestabst%C3%A4nde%20von%20Tierhaltungsanlagen.pdf.download.pdf/Mindestabst%C3%A4nde%20von%20Tierhaltungsanlagen.pdf)\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "hinweis-vorabklaerungspflicht",
+    "fields": {
+      "created_at": "2023-09-18T10:54:55.851Z",
+      "modified_at": "2023-09-18T10:59:10.663Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis Vorabkl\\u00e4rungspflicht\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "\"kantonsstrassen-ja\" != \"kantonsstrassen\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"Bauvorhaben an Kantons- oder Nationalstrassen sind Vorabkl\\u00e4rungspflichtig (Art. 52 Abs. 2 KRVO). Die Vorabkl\\u00e4rung hat vor der Baueingabe zu erfolgen. Bitte informieren Sie sich auf der Homepage des Tiefbauamtes:\\n\\n* [Strassenreklamen - Bauen in Strassenn\\u00e4he (gr.ch)](https://www.gr.ch/DE/institutionen/verwaltung/diem/tba/Strassennetz/Bauen-in-Strassennaehe/Seiten/Strassenreklamen.aspx)\\n* [N\\u00e4herbauten und Zufahrten (gr.ch)](https://www.gr.ch/DE/institutionen/verwaltung/diem/tba/Strassennetz/Bauen-in-Strassennaehe/Seiten/N%C3%A4herbauten-und-Zufahrten.aspx)\\n* [Leitungen - Leitungen (gr.ch)](https://www.gr.ch/DE/institutionen/verwaltung/diem/tba/Strassennetz/Bauen-in-Strassennaehe/Leitungen/Seiten/Leitungen.aspx)\\n\\nBitte beachten Sie, dass der Vorabkl\\u00e4rungsbericht des Tiefbauamtes bei der Einreichung des Baugesuches vorliegen muss.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -67022,6 +67161,138 @@
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "vorablaerungsbericht-tiefbauamt-fuer-strassenreklamen-art-52-abs-2-krvo",
+    "fields": {
+      "created_at": "2023-09-18T11:02:14.051Z",
+      "modified_at": "2023-09-18T11:02:14.051Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Vorabl\\u00e4rungsbericht Tiefbauamt f\\u00fcr Strassenreklamen (Art. 52 Abs. 2 KRVO)\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "!(\"beschreibung-kantonsstrassen-strassenreklamen\" in \"beschreibung-kantonsstrassen\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "vorablaerungsbericht-tiefbauamt-leitungen",
+    "fields": {
+      "created_at": "2023-09-18T11:09:33.542Z",
+      "modified_at": "2023-09-18T11:15:37.786Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Vorabl\\u00e4rungsbericht Tiefbauamt f\\u00fcr Leitungen in und \\u00fcber Kantonsstrasse (Art. 52 Abs. 2 KRVO)\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "!(\"beschreibung-kantonsstrassen-leitungen\" in \"beschreibung-kantonsstrassen\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Bauvorhaben an Kantons- oder Nationalstrassen sind Vorabkl\\u00e4rungspflichtig (Art. 52 Abs. 2 KRVO). Die Vorabkl\\u00e4rung hat vor der Baueingabe zu erfolgen. Bitte informieren Sie sich auf der Homepage des Tiefbauamtes: [Leitungen - Leitungen (gr.ch)](https://www.gr.ch/DE/institutionen/verwaltung/diem/tba/Strassennetz/Bauen-in-Strassennaehe/Leitungen/Seiten/Leitungen.aspx)\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "vorablaerungsbericht-tiefbauamt-naeherbauten",
+    "fields": {
+      "created_at": "2023-09-18T11:08:09.529Z",
+      "modified_at": "2023-09-18T11:15:05.295Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Vorabl\\u00e4rungsbericht Tiefbauamt f\\u00fcr N\\u00e4herbauten, Zufahrten, Zug\\u00e4nge, Parkpl\\u00e4tze usw. (Art. 52 Abs. 2 KRVO)\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "!(\"beschreibung-kantonsstrassen-naeherbauten\" in \"beschreibung-kantonsstrassen\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Bauvorhaben an Kantons- oder Nationalstrassen sind Vorabkl\\u00e4rungspflichtig (Art. 52 Abs. 2 KRVO). Die Vorabkl\\u00e4rung hat vor der Baueingabe zu erfolgen. Bitte informieren Sie sich auf der Homepage des Tiefbauamtes: [N\\u00e4herbauten und Zufahrten (gr.ch)](https://www.gr.ch/DE/institutionen/verwaltung/diem/tba/Strassennetz/Bauen-in-Strassennaehe/Seiten/N%C3%A4herbauten-und-Zufahrten.aspx)\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "vorablaerungsbericht-tiefbauamt-strassenreklamen",
+    "fields": {
+      "created_at": "2023-09-18T11:02:14.051Z",
+      "modified_at": "2023-09-18T11:14:26.851Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Vorabl\\u00e4rungsbericht Tiefbauamt f\\u00fcr Strassenreklamen (Art. 52 Abs. 2 KRVO)\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "!(\"beschreibung-kantonsstrassen-strassenreklamen\" in \"beschreibung-kantonsstrassen\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Bauvorhaben an Kantons- oder Nationalstrassen sind Vorabkl\\u00e4rungspflichtig (Art. 52 Abs. 2 KRVO). Die Vorabkl\\u00e4rung hat vor der Baueingabe zu erfolgen. Bitte informieren Sie sich auf der Homepage des Tiefbauamtes: [Strassenreklamen - Bauen in Strassenn\\u00e4he (gr.ch)](https://www.gr.ch/DE/institutionen/verwaltung/diem/tba/Strassennetz/Bauen-in-Strassennaehe/Seiten/Strassenreklamen.aspx)\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -84868,6 +85139,51 @@
       "modified_by_group": null,
       "question": "vorabklaerungspflicht",
       "option": "vorabklaerungspflicht-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "vorablaerungsbericht-tiefbauamt-leitungen.vorablaerungsbericht-tiefbauamt-leitungen-ja",
+    "fields": {
+      "created_at": "2023-09-18T11:15:37.797Z",
+      "modified_at": "2023-09-18T11:15:37.797Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "vorablaerungsbericht-tiefbauamt-leitungen",
+      "option": "vorablaerungsbericht-tiefbauamt-leitungen-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "vorablaerungsbericht-tiefbauamt-naeherbauten.vorablaerungsbericht-tiefbauamt-naeherbauten-ja",
+    "fields": {
+      "created_at": "2023-09-18T11:15:05.305Z",
+      "modified_at": "2023-09-18T11:15:05.305Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "vorablaerungsbericht-tiefbauamt-naeherbauten",
+      "option": "vorablaerungsbericht-tiefbauamt-naeherbauten-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "vorablaerungsbericht-tiefbauamt-strassenreklamen.vorablaerungsbericht-tiefbauamt-strassenreklamen-ja",
+    "fields": {
+      "created_at": "2023-09-18T11:14:26.861Z",
+      "modified_at": "2023-09-18T11:14:26.861Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "vorablaerungsbericht-tiefbauamt-strassenreklamen",
+      "option": "vorablaerungsbericht-tiefbauamt-strassenreklamen-ja",
       "sort": 1
     }
   },
