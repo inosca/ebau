@@ -5,6 +5,9 @@
         <img src="/assets/images/logo-my.so.ch-header.png" alt={{t "so-footer.e-gov-title"}}>
       </a>
     </div>
+    {{#if this.watermark}}
+      <div class="so-navbar__header__watermark">{{this.watermark}}</div>
+    {{/if}}
   </div>
 
   <nav class="so-navbar__nav">
