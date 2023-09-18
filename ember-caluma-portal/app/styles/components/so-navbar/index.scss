@@ -4,6 +4,18 @@ $navbar-border-color: $navbar-hover-color;
 .so-navbar {
   &__header {
     padding: 17px 20px 20px 20px;
+    position: relative;
+
+    &__watermark {
+      font-weight: 700;
+      font-size: 32px;
+      opacity: 25%;
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      text-transform: uppercase;
+    }
   }
 
   &__nav {
