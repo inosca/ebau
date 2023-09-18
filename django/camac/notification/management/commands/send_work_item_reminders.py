@@ -70,7 +70,7 @@ Ce message a été généré automatiquement, veuillez ne pas y répondre.
 
 
 def render_user_template(addressed_overdue, addressed_not_viewed, user):
-    name = f"{user.surname} {user.name}"
+    name = user.get_full_name()
 
     text = f"""Guten Tag {name}
 

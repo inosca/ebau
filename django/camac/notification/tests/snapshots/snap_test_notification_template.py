@@ -31,7 +31,7 @@ Es dient nur zu Testzwecken und kann ignoriert werden
         CURRENT_SERVICE: Leitbehörde Bern
         CURRENT_SERVICE_DE: Leitbehörde Bern
         CURRENT_SERVICE_FR: Municipalité Berne
-        CURRENT_USER_NAME: User Admin
+        CURRENT_USER_NAME: Admin User
         WORK_ITEM_NAME_DE: Gesuch einreichen
         WORK_ITEM_NAME_FR: Envoyer la demande
         DECISION_DE: Bewilligt
@@ -62,7 +62,7 @@ Es dient nur zu Testzwecken und kann ignoriert werden
         CURRENT_SERVICE: Leitbehörde Bern
         CURRENT_SERVICE_DE: Leitbehörde Bern
         CURRENT_SERVICE_FR: Municipalité Berne
-        CURRENT_USER_NAME: User Admin
+        CURRENT_USER_NAME: Admin User
         WORK_ITEM_NAME_DE: Gesuch einreichen
         WORK_ITEM_NAME_FR: Envoyer la demande
         DECISION_DE: Bewilligt
@@ -93,7 +93,7 @@ Es dient nur zu Testzwecken und kann ignoriert werden
         CURRENT_SERVICE: Leitbehörde Bern
         CURRENT_SERVICE_DE: Leitbehörde Bern
         CURRENT_SERVICE_FR: Municipalité Berne
-        CURRENT_USER_NAME: User Admin
+        CURRENT_USER_NAME: Admin User
         WORK_ITEM_NAME_DE: Gesuch einreichen
         WORK_ITEM_NAME_FR: Envoyer la demande
         DECISION_DE: Bewilligt
@@ -124,7 +124,7 @@ Es dient nur zu Testzwecken und kann ignoriert werden
         CURRENT_SERVICE: Leitbehörde Bern
         CURRENT_SERVICE_DE: Leitbehörde Bern
         CURRENT_SERVICE_FR: Municipalité Berne
-        CURRENT_USER_NAME: User Admin
+        CURRENT_USER_NAME: Admin User
         WORK_ITEM_NAME_DE: Gesuch einreichen
         WORK_ITEM_NAME_FR: Envoyer la demande
         DECISION_DE: Bewilligt

@@ -3256,8 +3256,8 @@
         "enabled": true,
         "totp": false,
         "emailVerified": true,
-        "firstName": "Administrator",
-        "lastName": "Static",
+        "firstName": "Static",
+        "lastName": "Administrator",
         "email": "admin@example.com",
         "credentials": [
           {

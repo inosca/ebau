@@ -118,8 +118,8 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
             "language": language[:2],
             "email": data.get("email"),
             "username": username,
-            "name": data.get("family_name", username),
-            "surname": data.get("given_name", username),
+            "name": data.get("given_name", username),
+            "surname": data.get("family_name", username),
             "city": data.get("city", ""),
             "zip": data.get("zip", ""),
             "address": " ".join(

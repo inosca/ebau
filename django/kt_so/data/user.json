@@ -5,8 +5,8 @@
     "fields": {
       "username": "462afaba-aeb7-494a-8596-3497b81ed701",
       "password": null,
-      "name": "Administrator",
-      "surname": "Static",
+      "name": "Static",
+      "surname": "Administrator",
       "email": "admin@example.com",
       "phone": null,
       "disabled": 0,
