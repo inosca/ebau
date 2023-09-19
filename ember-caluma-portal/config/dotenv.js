@@ -11,6 +11,8 @@ module.exports = function () {
       "SO_GIS_URL",
       "INTERNAL_URL",
       "EGOV_PORTAL_URL",
+      "EGOV_PRESTATION_PATH",
+      "ENABLE_TOKEN_EXCHANGE",
     ],
     path: path.join(path.dirname(__dirname), "../.env"),
   };
