@@ -196,7 +196,6 @@ def test_instance_search_sanctions(
     "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
 )
 def test_instance_filter_fields(admin_client, instance, form_field_factory):
-
     filters = {}
 
     for i in range(4):
@@ -232,7 +231,6 @@ def test_instance_form_name_filter(
     exclude,
     expected_count,
 ):
-
     url = reverse("instance-list")
 
     if form_filter:
@@ -272,7 +270,6 @@ def test_instance_submit_date_filter(
     workflow_item_factory,
     workflow_entry_factory,
 ):
-
     workflow_entry_factory(
         workflow_item=workflow_item_factory(pk=10),
         workflow_date=make_aware(datetime.datetime(2021, 3, 3)),
@@ -309,7 +306,6 @@ def test_instance_address_filter(
     expected_count,
     form_field_factory,
 ):
-
     application_settings["ADDRESS_FORM_FIELDS"] = ["address1", "address2"]
     form_field_factory(
         name="address1",
@@ -397,7 +393,6 @@ def test_instance_plot_filter(
     form_field_factory,
     instance_factory,
 ):
-
     instance_1 = instance
     instance_2 = instance_factory(user=instance.user)
 
@@ -740,7 +735,6 @@ def test_instance_form_field_list_value_filter(
     form_field_factory,
     instance_factory,
 ):
-
     instance_1 = instance
     instance_2 = instance_factory(user=instance.user)
 
@@ -795,7 +789,6 @@ def test_instance_form_name_versioned_filter(
     form_factory,
     instance_factory,
 ):
-
     form_0 = form_factory(name="form")
     form_0.family = form_0
     form_0.save()
@@ -831,7 +824,6 @@ def test_instance_identifier_filter(
     identifier,
     expected_count,
 ):
-
     url = reverse("instance-list")
 
     response = admin_client.get(url, {"identifier": identifier})
@@ -1055,7 +1047,6 @@ def test_instance_group_unlink(
     application_settings,
     instance_state_factory,
 ):
-
     application_settings["FORM_BACKEND"] = "caluma"
 
     main_instance = ur_instance
@@ -1362,7 +1353,6 @@ def test_instance_submit(
     caluma_admin_user,
     application_settings,
 ):
-
     application_settings["NOTIFICATIONS"]["SUBMIT"] = notification_template.slug
     application_settings["WORKFLOW_ITEMS"]["SUBMIT"] = workflow_item.pk
     application_settings["INSTANCE_IDENTIFIER_FORM_ABBR"] = {"vbs": "PV"}
@@ -1631,6 +1621,92 @@ def test_instance_generate_identifier(
     assert new_identifier == expected
 
 
+@pytest.mark.freeze_time("2023-9-20")
+@pytest.mark.parametrize("separator", ["-"])
+@pytest.mark.parametrize(
+    "short_dossier_number,use_caluma,prefix,padding,form_abbreviation,caluma_instance_forms,internal_instance_forms,expected",
+    (
+        [True, False, None, None, None, False, False, "11-23-011"],
+        [False, False, None, None, None, False, False, "1311-23-011"],
+        [False, True, None, None, None, False, False, "1311-23-011"],
+        [True, True, None, None, None, False, False, "11-23-011"],
+        [True, False, None, None, "abbr", False, False, "AB-23-001"],
+        [True, False, "IM", 4, "abbr", False, False, "AB-23-0001"],
+        [True, False, "IM", 4, None, False, False, "IM-11-23-0011"],
+        [True, False, None, None, "abbr", True, False, "AB-23-011"],
+        [True, True, None, None, "abbr", True, True, "AB-4010-23-0001"],
+    ),
+)
+@pytest.mark.parametrize("location__communal_federal_number", ["1311"])
+def test_instance_generate_identifier_sz(
+    db,
+    instance,
+    instance_factory,
+    case_factory,
+    application_settings,
+    short_dossier_number,
+    form_field_factory,
+    use_caluma,
+    prefix,
+    padding,
+    separator,
+    form_abbreviation,
+    caluma_instance_forms,
+    internal_instance_forms,
+    expected,
+):
+    application_settings["SHORT_NAME"] = "sz"
+    application_settings["CALUMA"]["SAVE_DOSSIER_NUMBER_IN_CALUMA"] = use_caluma
+    application_settings["SHORT_DOSSIER_NUMBER"] = short_dossier_number
+
+    elements = []
+
+    if form_abbreviation:
+        form_abbreviation_value = form_abbreviation[:2].upper()
+        application_settings["INSTANCE_IDENTIFIER_FORM_ABBR"] = {
+            form_abbreviation: form_abbreviation_value
+        } or {}
+        form_field_factory(
+            name="meta",
+            value=json.dumps({"formType": form_abbreviation}),
+            instance=instance,
+        )
+        if caluma_instance_forms:
+            application_settings["CALUMA_INSTANCE_FORMS"] = [form_abbreviation]
+            elements.append(form_abbreviation_value)
+        if internal_instance_forms:
+            application_settings["INTERNAL_INSTANCE_FORMS"] = [form_abbreviation]
+
+    if prefix:
+        elements.append(prefix)
+
+    id_number = separator.join(["23", "010"])
+    if not caluma_instance_forms:
+        communal_id = short_dossier_number and "11" or "1311"
+        id_number = separator.join([communal_id, id_number])
+
+    elements.append(id_number)
+    identifier = separator.join(elements)
+
+    if use_caluma or caluma_instance_forms:
+        instance.case = case_factory(meta={"dossier-number": identifier})
+        instance.save()
+    else:
+        instance_factory(identifier=identifier)
+
+    if internal_instance_forms:
+        instance.group.service_id = "4010"
+        instance.save()
+    new_identifier = (
+        padding
+        and domain_logic.CreateInstanceLogic.generate_identifier(
+            instance, prefix=prefix, seq_zero_padding=padding
+        )
+    ) or domain_logic.CreateInstanceLogic.generate_identifier(instance, prefix=prefix)
+
+    assert new_identifier == expected
+
+
 @pytest.mark.parametrize(
     "existing_dossier_numbers,expected_dossier_number",
     [
@@ -1786,7 +1862,6 @@ def test_circulation_state_filter(
     activation,
     circulation_state,
 ):
-
     url = reverse("instance-list")
 
     state_search = circulation_state.pk
@@ -1804,7 +1879,6 @@ def test_circulation_state_filter(
 
 @pytest.mark.parametrize("role__name,", [("Applicant")])
 def test_tags_filter(admin_client, admin_user, instance_factory):
-
     inst_a, inst_b, inst_c = instance_factory.create_batch(3, user=admin_user)
     tag_args = dict(service=admin_user.groups.first().service)
 
