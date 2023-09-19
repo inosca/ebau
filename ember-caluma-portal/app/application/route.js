@@ -36,6 +36,7 @@ export default class ApplicationRoute extends Route {
   queryParams = {
     language: { refreshModel: true },
     group: { refreshModel: true },
+    referrer: { refreshModel: true },
   };
 
   async beforeModel(transition) {
@@ -43,17 +44,25 @@ export default class ApplicationRoute extends Route {
 
     await this.session.setup();
 
-    const { language, group: groupId } = transition.to?.queryParams ?? {};
+    const {
+      language,
+      group: groupId,
+      referrer,
+    } = transition.to?.queryParams ?? {};
 
     this.session.language = language ?? this.session.language;
     this.session.groupId = groupId ?? this.session.groupId;
 
-    if (language || groupId) {
+    if (referrer) {
+      this.session.set("data.referrer", referrer);
+    }
+
+    if (language || groupId || referrer) {
       // after the transition remove the query params so we don't persist the
       // language and group info twice (in the URL and in the session)
       transition.then(() => {
         this.router.replaceWith({
-          queryParams: { language: null, group: null },
+          queryParams: { language: null, group: null, referrer: null },
         });
       });
     }

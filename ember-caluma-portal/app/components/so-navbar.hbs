@@ -1,7 +1,7 @@
 <header class="so-navbar">
   <div class="so-navbar__header">
     <div class="so-navbar__header__logo">
-      <a href={{macroGetOwnConfig "eGovPortalURL"}} target="_blank" rel="noopener noreferrer">
+      <a href={{macroGetConfig "ember-ebau-core" "eGovPortalURL"}} target="_blank" rel="noopener noreferrer">
         <img src="/assets/images/logo-my.so.ch-header.png" alt={{t "so-footer.e-gov-title"}}>
         <Watermark />
       </a>
@@ -33,7 +33,7 @@
     </div>
     <div>
       <ul>
-        <li><a href={{macroGetOwnConfig "eGovPortalURL"}}>{{t "so-footer.leave"}}</a></li>
+        <li><a href={{macroGetConfig "ember-ebau-core" "eGovPortalURL"}}>{{t "so-footer.leave"}}</a></li>
         <li><a href="https://so.ch/ebau" title={{t "nav.faq"}}><FaIcon @icon="question-circle" /></a></li>
         {{#if (and this.session.isAuthenticated this.session.user)}}
           <li>
@@ -65,17 +65,19 @@
             >
               <ul>
                 <li class="uk-hidden@l"><a href="#">{{this.session.user.fullName}}</a></li>
-                {{#if this.session.groups.length}}
-                  <li>
-                    <a
-                      data-test-no-group
-                      href="#"
-                      class={{unless this.session.group "active"}}
-                      {{on "click" (fn this.setGroup null)}}
-                    >
-                      {{t "nav.applicant"}}
-                    </a>
-                  </li>
+                {{#if (and this.session.groups.length (not this.session.isTokenExchange))}}
+                  {{#if (not (has-feature "login.tokenExchange"))}}
+                    <li>
+                      <a
+                        data-test-no-group
+                        href="#"
+                        class={{unless this.session.group "active"}}
+                        {{on "click" (fn this.setGroup null)}}
+                      >
+                        {{t "nav.applicant"}}
+                      </a>
+                    </li>
+                  {{/if}}
                   {{#each this.session.groups as |g|}}
                     <li>
                       <a

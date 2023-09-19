@@ -2,6 +2,8 @@ import Route from "@ember/routing/route";
 import { inject as service } from "@ember/service";
 import { hasFeature } from "ember-ebau-core/helpers/has-feature";
 
+import config from "caluma-portal/config/environment";
+
 export default class PublicInstancesRoute extends Route {
   @service session;
   @service calumaStore;
@@ -18,7 +20,10 @@ export default class PublicInstancesRoute extends Route {
 
   beforeModel(transition) {
     if (!hasFeature("publication.disableAuthentication")) {
-      this.session.requireAuthentication(transition, "login");
+      this.session.requireAuthentication(
+        transition,
+        config["ember-simple-auth-oidc"].afterLogoutUri,
+      );
     }
   }
 }

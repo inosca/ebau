@@ -8,7 +8,7 @@ Electronic building permit application for Swiss cantons.
 
 - [Overview](#overview)
   - [Folder structure](#folder-structure)
-  - [Modules](#modules)
+  - [Available modules](#available-modules)
 - [Requirements](#requirements)
 - [Development](#development)
   - [Basic setup](#basic-setup)
@@ -26,6 +26,12 @@ Electronic building permit application for Swiss cantons.
   - [GWR API](#gwr-api)
   - [Customize API](#customize-api)
   - [Sending email](#sending-email)
+- [Module and canton specifics](#module-and-canton-specifics)
+  - [Modules](#modules)
+    - [Construction monitoring](#construction-monitoring)
+      - [General](#general)
+      - [Technical aspects](#technical-aspects)
+  - [Custom authorization (Kt. SO)](#custom-authorization-kt-so)
 - [License](#license)
 
 <!-- vim-markdown-toc -->
@@ -59,7 +65,7 @@ The following image shows a high-level overview of the architecture:
 └── tools                  # miscellaneous utilities
 ```
 
-### Modules
+### Available modules
 
 Due to ongoing modernization work, some Frontend modules are not yet integrated in `ember-ebau`, but instead are still part of `ember-camac-ng`. Few Frontend modules are not part of this repository yet at all. The following table lists the most important modules in the "internal" part of the application and their respective completeness / integration state (in the `demo` configuration).
 
@@ -281,6 +287,93 @@ sent out from the development environment.
 
 You can access the Mailhog via <http://ebau.local/mailhog/> . Any email sent out
 will be instantly visible there.
+
+## Module and canton specifics
+
+Section to collect information on modules and cantons.
+This section is intended to facilitate know-how transfer, vacation handovers and debugging support cases.
+
+### Modules
+
+#### Construction monitoring
+
+##### General
+
+Module used in Kt. SZ and Kt. UR (soon-ish), which accompanies the construction process after the decision.
+The municipality (up to now only cases are covered where the lead authority is the municipality) and the applicant interact through a series of work-items with documents.
+
+There are construction stages ("Bauetappen"), which consist of dynamically selectable construction steps.
+Construction steps are a series of work-items, which usually follow the pattern of starting with a work-item addressed to the applicant, followed by one or more work-items addressed to the municipality. The applicant confirms, that they have adhered to the defined regulations, and the muncipality verifies it. The final work-item allows the muncipality to decide whether to continue the process or re-iterate to the beginning of the construction step.
+
+##### Technical aspects
+
+The module is heavily defined by the configured workflow. Which construction steps and therefore which work-items are performed is handled through dynamic tasks. Construction step configuration (such as which task belongs to which construction step) is configured in the meta of tasks belonging to a construction step.
+Construction steps are essentially a grouping of tasks, there is no model representing them.
+
+Construction stages are a multiple instance work-item with a child-case. The child-case contains the construction step work-items.
+The first construction stage is created when initializing the construction monitoring process.
+After that, a new construction stage can be initialized by a create work-item mutation on the existing work-item (in the status ready).
+BEWARE: To ensure that a new construction stage can always be created as long as the construction monitoring process isn't completed, the construction stage work items remain ready, while the construction stage child case has already been completed.
+
+The core logic is contained mainly in the construction monitoring workflow and form configuration of the canton, the caluma events for the construction monitoring, module settings, some custom visibility and permission logic.
+
+### Custom authorization (Kt. SO)
+
+In the canton of Solothurn we use a custom authorization mechanism for the eBau
+Portal. The eBau portal can only be used with a login from my.so.ch, their eGov
+portal software. Since they do not offer OIDC authorization, we had to implement
+a custom solution using Keycloak's token exchange and direct naked impersonation
+features.
+
+The authorization is designed to retreive an encrypted and signed JWT token
+which is then converted to a regular OIDC JWT token by Keycloak:
+
+```mermaid
+sequenceDiagram
+    autonumber
+    participant F as eBau Portal
+    participant M as eGov Portal
+    participant B as eBau API
+    participant K as Keycloak
+    F->>+M: Redirect to prestation
+    Note right of M: Encrypted and signed JWT token with user data
+    M->>-F: Redirect to login with eGov token
+    F->>+B: Send token (POST to /api/v1/auth/token-exchange)
+    B-->>B: Decrypt and verify eGov token, extract user data from token
+    B-->>+K: Create or update user
+    K-->>B: Return user
+    B-->>K: Token exchange with direct naked impersonation
+    K-->>-B: Return token for user
+    B->>-F: Return token
+```
+
+To enable the feature, the following configuration must be done:
+
+By default Keycloak is already properly configured to support this authorization
+mechanism. In order to configure another environment, please refer to [the
+documentation](django/camac/token_exchange/docs/keycloak.md)
+
+```ini
+# .env
+ENABLE_TOKEN_EXCHANGE=true
+```
+
+This will enable the feature with a dummy eGov portal hosted on our NGINX proxy.
+In order to test with the eGov portal test environment we need to set some more
+environment variables (the censored values can be found in Vault):
+
+```ini
+# .env
+EGOV_PORTAL_URL=****
+EGOV_PRESTATION_PATH=****
+```
+
+```ini
+# django/.env
+TOKEN_EXCHANGE_JWT_ISSUER=****
+TOKEN_EXCHANGE_JWT_SECRET=****
+TOKEN_EXCHANGE_JWE_SECRET=****
+```
 
 ## License
 

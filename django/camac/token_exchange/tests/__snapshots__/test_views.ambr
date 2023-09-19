@@ -1,0 +1,36 @@
+# serializer version: 1
+# name: test_token_exchange[None-False-403]
+  dict({
+    'detail': 'JWT token must be passed',
+  })
+# ---
+# name: test_token_exchange[failed_decryption_jwt_token-False-403]
+  dict({
+    'detail': 'Invalid padding bytes.',
+  })
+# ---
+# name: test_token_exchange[invalid_exp_jwt_token-False-403]
+  dict({
+    'detail': 'Signature has expired.',
+  })
+# ---
+# name: test_token_exchange[invalid_iss_jwt_token-False-403]
+  dict({
+    'detail': 'Invalid issuer',
+  })
+# ---
+# name: test_token_exchange[invalid_signature_jwt_token-False-403]
+  dict({
+    'detail': 'Signature verification failed.',
+  })
+# ---
+# name: test_token_exchange[jwt_token-False-200]
+  dict({
+    'access_token': 'my new access token',
+  })
+# ---
+# name: test_token_exchange[jwt_token-True-403]
+  dict({
+    'detail': 'some keycloak error',
+  })
+# ---

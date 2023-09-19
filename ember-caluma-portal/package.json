@@ -101,6 +101,7 @@
     "filesize": "10.1.0",
     "flatpickr": "4.6.13",
     "get-user-locale": "2.3.1",
+    "jwt-decode": "4.0.0",
     "leaflet": "1.9.4",
     "loader.js": "4.7.0",
     "luxon": "3.4.4",
