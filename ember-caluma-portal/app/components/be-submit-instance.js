@@ -58,7 +58,9 @@ export default class BeSubmitInstanceComponent extends DocumentValidityButtonCom
 
   get buttonHintText() {
     if (this.session.isSupport) {
-      return this.intl.t("be-submit-instance.button-hint-text", { htmlSafe: true });
+      return this.intl.t("be-submit-instance.button-hint-text", {
+        htmlSafe: true,
+      });
     }
 
     return null;
