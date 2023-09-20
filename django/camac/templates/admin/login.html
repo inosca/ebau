@@ -9,7 +9,7 @@
 
 {% block content %}
   {% if user.is_authenticated %}
-    <h2>{% translate 'Page not found' %}</h2>
-    <p>{% translate 'We’re sorry, but the requested page could not be found.' %}</p>
+    <h2>{% translate 'Access denied' %}</h2>
+    <p>{% translate 'Sorry, but it seems that you don’t have access to this page.' %}</p>
   {% endif %}
 {% endblock %}

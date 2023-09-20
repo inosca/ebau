@@ -3,6 +3,7 @@ import re
 from importlib import import_module
 
 import requests
+from alexandria.core import models as alexandria_models
 from caluma.caluma_form.models import Document, Question
 from caluma.caluma_form.validators import CustomValidationError, DocumentValidator
 from django.conf import settings
@@ -16,7 +17,11 @@ from rest_framework.authentication import get_authorization_header
 
 from camac.instance.master_data import MasterData
 from camac.instance.models import Instance
-from camac.instance.placeholders.utils import clean_join, get_person_name
+from camac.instance.placeholders.utils import (
+    clean_join,
+    enrich_personal_data,
+    get_person_name,
+)
 from camac.instance.utils import build_document_prefetch_statements
 from camac.utils import build_url
 
@@ -78,7 +83,11 @@ def get_header_labels():
     return {
         "addressHeaderLabel": _("Address"),
         "plotsHeaderLabel": _("Plots"),
-        "applicantHeaderLabel": _("Applicant"),
+        "applicantHeaderLabel": _("Project Owner")
+        if settings.APPLICATION_NAME == "kt_so"
+        else _("Applicant"),
+        "landownerHeaderLabel": _("Landowner"),
+        "projectAuthorHeaderLabel": _("Project Author"),
         "tagHeaderLabel": _("Keywords"),
         "municipalityHeaderLabel": _("Municipality"),
         "authorityHeaderLabel": _("Authority"),
@@ -87,6 +96,18 @@ def get_header_labels():
         "descriptionHeaderLabel": _("Description"),
         "modificationHeaderLabel": _("Modification"),
     }
+
+
+def graceful_get(master_data, prop, key=None, default=None):
+    if prop not in settings.APPLICATION["MASTER_DATA"]:  # pragma: no cover
+        return default
+
+    value = getattr(master_data, prop, default)
+
+    if value and key:
+        return value.get(key)
+
+    return value
 
 
 class DMSHandler:
@@ -108,10 +129,8 @@ class DMSHandler:
             "formType": str(document.form.name)
             if instance.case.document.pk != document.pk
             else None,
-            "dossierNr": master_data.dossier_number,
-            "municipality": master_data.municipality.get("label")
-            if master_data.municipality
-            else None,
+            "dossierNr": graceful_get(master_data, "dossier_number"),
+            "municipality": graceful_get(master_data, "municipality", key="label"),
             "signatureSectionTitle": _("Signatures"),
             "signatureTitle": _("Signature"),
             "signatureMetadata": _("Place and date"),
@@ -130,6 +149,11 @@ class DMSHandler:
                 "date": created_at.strftime("%d.%m.%Y"),
                 "time": created_at.strftime("%H:%M"),
             },
+            "uploadedAt": _("Uploaded %(date)s at %(time)s")
+            % {
+                "date": generated_at.strftime("%d.%m.%Y"),
+                "time": generated_at.strftime("%H:%M"),
+            },
         }
 
         if settings.APPLICATION.get("DOCUMENT_MERGE_SERVICE", {}).get(
@@ -138,46 +162,106 @@ class DMSHandler:
             header_data = {
                 "addressHeader": clean_join(
                     clean_join(
-                        master_data.street,
-                        master_data.street_number,
+                        graceful_get(master_data, "street"),
+                        graceful_get(master_data, "street_number"),
                     ),
                     clean_join(
-                        master_data.zip,
-                        master_data.city,
+                        graceful_get(master_data, "city"),
+                        graceful_get(master_data, "zip"),
                     ),
                     separator=", ",
                 ),
                 "plotsHeader": clean_join(
-                    *[obj["plot_number"] for obj in master_data.plot_data],
+                    *[
+                        obj["plot_number"]
+                        for obj in graceful_get(master_data, "plot_data", default=[])
+                    ],
                     separator=", ",
-                )
-                if master_data.plot_data
-                else None,
+                ),
+                # all applicant names as comma-separated string
                 "applicantHeader": clean_join(
                     *[
                         get_person_name(applicant)
-                        for applicant in master_data.applicants
+                        for applicant in graceful_get(
+                            master_data, "applicants", default=[]
+                        )
                     ],
                     separator=", ",
-                )
-                if master_data.applicants
-                else None,
-                "municipalityHeader": master_data.municipality.get("label")
-                if master_data.municipality
-                else None,
+                ),
+                # all applicants as structured data
+                "applicants": enrich_personal_data(
+                    graceful_get(master_data, "applicants")
+                ),
+                "landowners": enrich_personal_data(
+                    graceful_get(master_data, "landowners")
+                ),
+                "projectAuthors": enrich_personal_data(
+                    graceful_get(master_data, "project_authors")
+                ),
+                "municipalityHeader": graceful_get(
+                    master_data, "municipality", key="label"
+                ),
                 "tagHeader": get_header_tags(instance, service),
                 "authorityHeader": get_header_authority(instance),
                 "responsibleHeader": get_header_responsible(instance, service),
-                "inputDateHeader": master_data.submit_date,
-                "paperInputDateHeader": master_data.paper_submit_date,
-                "descriptionHeader": master_data.proposal,
-                "modificationHeader": master_data.description_modification,
+                "inputDateHeader": graceful_get(master_data, "submit_date"),
+                "paperInputDateHeader": graceful_get(master_data, "paper_submit_date"),
+                "descriptionHeader": graceful_get(master_data, "proposal"),
+                "modificationHeader": graceful_get(
+                    master_data, "description_modification"
+                ),
+                "coordEast": clean_join(
+                    *[
+                        obj["coord_east"]
+                        for obj in graceful_get(master_data, "plot_data", default=[])
+                    ],
+                    separator=", ",
+                ),
+                "coordNorth": clean_join(
+                    *[
+                        obj["coord_north"]
+                        for obj in graceful_get(master_data, "plot_data", default=[])
+                    ],
+                    separator=", ",
+                ),
             }
 
             data.update(get_header_labels())
             data.update(header_data)
 
         return data
+
+    def prepare_documents(self, instance):
+        if settings.APPLICATION["DOCUMENT_BACKEND"] == "camac-ng":  # pragma: no cover
+            # not implemented
+            return []
+
+        categories = settings.APPLICATION.get("DOCUMENT_MERGE_SERVICE", {}).get(
+            "ALEXANDRIA_DOCUMENT_CATEGORIES", []
+        )
+
+        documents = (
+            alexandria_models.Document.objects.filter(
+                category_id__in=categories,
+                instance_document__instance=instance,
+            )
+            .exclude(metainfo__has_key="system-generated")
+            .order_by("-created_at")
+            .values("title", "created_at")
+        )
+
+        timezone = get_current_timezone()
+
+        return [
+            {
+                "filename": str(document["title"]),
+                "date": document["created_at"]
+                .astimezone(timezone)
+                .strftime("%d.%m.%Y"),
+                "time": document["created_at"].astimezone(timezone).strftime("%H:%M"),
+            }
+            for document in documents
+        ]
 
     def get_instance_and_document(self, instance_id, form_slug=None, document_id=None):
         use_root_document = not document_id and not form_slug
@@ -224,12 +308,24 @@ class DMSHandler:
 
         return (instance, document)
 
-    def generate_pdf(self, instance_id, request, form_slug=None, document_id=None):
+    def get_data(self, instance, document, user, service):
+        visitor = DMSVisitor(document, instance, user)
+        return {
+            **self.get_meta_data(instance, document, service),
+            "draft": "" if visitor.is_valid() else _("Draft"),
+            "sections": visitor.visit(document),
+            "documents": self.prepare_documents(instance),
+        }
+
+    def generate_pdf(
+        self, instance_id, request, form_slug=None, document_id=None, template=None
+    ):
         instance, document = self.get_instance_and_document(
             instance_id, form_slug, document_id
         )
 
-        template = get_form_type_config(document.form.slug).get("template")
+        if template is None:
+            template = get_form_type_config(document.form.slug).get("template")
 
         if template is None:  # pragma: no cover
             raise exceptions.ValidationError(
@@ -240,17 +336,13 @@ class DMSHandler:
         # merge pdf and store as attachment
         auth = get_authorization_header(request)
         dms_client = DMSClient(auth)
-        visitor = DMSVisitor(document, request.caluma_info.context.user)
         pdf = dms_client.merge(
-            {
-                **self.get_meta_data(
-                    instance,
-                    document,
-                    request.group.service,
-                ),
-                "draft": "" if visitor.is_valid() else _("Draft"),
-                "sections": visitor.visit(document),
-            },
+            self.get_data(
+                instance,
+                document,
+                request.caluma_info.context.user,
+                request.group.service,
+            ),
             template,
         )
 
@@ -261,23 +353,30 @@ class DMSHandler:
 
         return _file
 
+    def convert_docx_to_pdf(self, request, file):
+        auth = get_authorization_header(request)
+        dms_client = DMSClient(auth)
+        pdf_binary = dms_client.convert_docx_to_pdf(file)
+
+        filename = file.name.split("/")[-1].split(".")[0]
+
+        _file = ContentFile(pdf_binary, f"{filename}.pdf")
+        _file.content_type = "application/pdf"
+
+        return _file
+
 
 class DMSClient:
     def __init__(self, auth_token, url=settings.DOCUMENT_MERGE_SERVICE_URL):
         self.auth_token = auth_token
         self.url = url
 
-    def merge(self, data, template, convert="pdf", add_headers={}):
-        headers = {"authorization": self.auth_token, "content-type": "application/json"}
-        headers.update(add_headers)
-        url = build_url(self.url, f"/template/{template}/merge", trailing=True)
-
+    def _make_dms_request(self, url, **kwargs):
         response = requests.post(
             url,
-            # use the django json encoder to correctly encode dates and
-            # datetimes without manual parsing
-            data=json.dumps({"convert": convert, "data": data}, cls=DjangoJSONEncoder),
-            headers=headers,
+            data=kwargs.get("data", None),
+            headers=kwargs.get("headers", None),
+            files=kwargs.get("files", None),
         )
 
         if response.status_code == status.HTTP_401_UNAUTHORIZED:
@@ -287,14 +386,37 @@ class DMSClient:
 
         return response.content
 
+    def merge(self, data, template, convert="pdf", add_headers={}):
+        headers = {"authorization": self.auth_token, "content-type": "application/json"}
+        headers.update(add_headers)
+        url = build_url(self.url, f"/template/{template}/merge", trailing=True)
+
+        return self._make_dms_request(
+            url,
+            data=json.dumps({"convert": convert, "data": data}, cls=DjangoJSONEncoder),
+            headers=headers,
+        )
+
+    def convert_docx_to_pdf(self, file):
+        headers = {"authorization": self.auth_token}
+        url = build_url(self.url, "/convert", trailing=False)
+
+        return self._make_dms_request(
+            url,
+            files={"file": file},
+            data={"target_format": "pdf"},
+            headers=headers,
+        )
+
 
 class DMSVisitor:
-    def __init__(self, document, user):
+    def __init__(self, document, instance, user):
         self.root_document = document
         self.user = user
 
         self.validator = DocumentValidator()
         self.validation_context = self.validator._validation_context(document)
+        self.data_source_context = {"instanceId": instance.pk}
 
         self.template_type = get_form_type_key(document.form.slug)
         self.exclude_slugs = get_form_type_config(self.template_type).get(
@@ -304,7 +426,10 @@ class DMSVisitor:
     def is_valid(self):
         try:
             self.validator.validate(
-                self.root_document, self.user, self.validation_context
+                self.root_document,
+                self.user,
+                self.validation_context,
+                self.data_source_context,
             )
             return True
         except CustomValidationError:
@@ -466,7 +591,7 @@ class DMSVisitor:
 
         for ans in answer:
             value = data_source.validate_answer_value(
-                ans, document, question, None, None
+                ans, document, question, None, self.data_source_context
             )
 
             if isinstance(value, dict):

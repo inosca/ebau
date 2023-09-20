@@ -1,40 +1,12 @@
 "use strict";
 
-const locales = require("./locales");
-
 module.exports = function (environment) {
   // eslint-disable-next-line no-console
   console.log(
-    `build env: APPLICATION: ${process.env.APPLICATION}, KEYCLOAK_HOST: ${process.env.KEYCLOAK_HOST}`
+    `build env: APPLICATION: ${process.env.APPLICATION}, KEYCLOAK_HOST: ${process.env.KEYCLOAK_HOST}`,
   );
-  const app = process.env.APPLICATION || "kt_bern";
-  const appConfig = {
-    demo: {
-      name: "demo",
-      realm: "ebau",
-    },
-    kt_bern: {
-      name: "be",
-      realm: "ebau",
-      allowApplicantManualWorkItem: false,
-    },
-    kt_uri: {
-      name: "ur",
-      realm: "urec",
-      allowApplicantManualWorkItem: false,
-    },
-    kt_schwyz: {
-      name: "sz",
-      realm: "ebau",
-      allowApplicantManualWorkItem: true,
-    },
-    kt_gr: {
-      name: "gr",
-      realm: "ebau",
-      allowApplicantManualWorkItem: false,
-    },
-  }[app];
   const oidcHost = process.env.KEYCLOAK_HOST || "http://ebau-keycloak.local";
+  const oidcRealm = process.env.APPLICATION === "kt_uri" ? "urec" : "ebau";
 
   const ENV = {
     modulePrefix: "ebau",
@@ -42,7 +14,7 @@ module.exports = function (environment) {
     rootURL: "/",
     locationType: "history",
     "ember-simple-auth-oidc": {
-      host: `${oidcHost}/auth/realms/${appConfig.realm}/protocol/openid-connect`,
+      host: `${oidcHost}/auth/realms/${oidcRealm}/protocol/openid-connect`,
       clientId: "camac",
       authEndpoint: "/auth",
       tokenEndpoint: "/token",
@@ -66,11 +38,6 @@ module.exports = function (environment) {
       // Here you can pass flags/options to your application instance
       // when it is created
     },
-
-    languages: locales,
-    fallbackLanguage: "de",
-
-    APPLICATION: appConfig,
   };
 
   if (environment === "development") {

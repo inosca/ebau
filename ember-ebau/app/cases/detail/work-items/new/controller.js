@@ -1,7 +1,6 @@
 import Controller from "@ember/controller";
-
-import ENV from "ebau/config/environment";
+import mainConfig from "ember-ebau-core/config/main";
 
 export default class CasesDetailWorkItemsNewController extends Controller {
-  allowApplicantManualWorkItem = ENV.APPLICATION.allowApplicantManualWorkItem;
+  allowApplicantManualWorkItem = mainConfig.allowApplicantManualWorkItem;
 }

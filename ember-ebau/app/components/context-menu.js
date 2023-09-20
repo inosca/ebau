@@ -14,7 +14,7 @@ export default class ContextMenuComponent extends Component {
       function () {
         this.menuOpen = false;
       },
-      1000
+      1000,
     );
   }
 

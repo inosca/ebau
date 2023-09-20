@@ -29,7 +29,7 @@ export default class BeSubmitInstanceComponent extends DocumentValidityButtonCom
       // submit instance in CAMAC
       const camacResponse = yield this.fetch.fetch(
         `/api/v1/instances/${instanceId}/${action}`,
-        { method: "POST" }
+        { method: "POST" },
       );
 
       if (!camacResponse.ok) {
@@ -46,7 +46,7 @@ export default class BeSubmitInstanceComponent extends DocumentValidityButtonCom
       console.error(e);
       const reasons = (e.errors || []).map((e) => e.message).join("<br>\n");
       this.notification.danger(
-        this.intl.t("be-submit-instance.failed-message", { reasons })
+        this.intl.t("be-submit-instance.failed-message", { reasons }),
       );
       // un-mark as submitted
       this.args.field.answer.value = null;

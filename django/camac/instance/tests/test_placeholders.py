@@ -4,10 +4,9 @@ from datetime import date
 import faker
 import pytest
 from caluma.caluma_form.factories import AnswerFactory, DocumentFactory
-from caluma.caluma_form.models import Question
+from caluma.caluma_form.models import Option, Question
 from caluma.caluma_workflow.factories import WorkItemFactory
 from caluma.caluma_workflow.models import WorkItem
-from django.conf import settings
 from django.urls import reverse
 from django.utils.timezone import make_aware
 from django.utils.translation import override
@@ -17,17 +16,42 @@ from camac.constants.kt_bern import (
     DECISION_TYPE_OVERALL_BUILDING_PERMIT,
     VORABKLAERUNG_DECISIONS_BEWILLIGT,
 )
-from camac.instance.placeholders.utils import human_readable_date
+from camac.instance.placeholders.utils import get_tel_and_email, human_readable_date
 
-from .test_master_data import add_answer, add_table_answer, be_master_data_case  # noqa
+from .test_master_data import (  # noqa
+    add_answer,
+    add_table_answer,
+    be_master_data_case,
+    gr_master_data_case,
+)
 
 
 @pytest.fixture
-def be_languages(settings):
+def be_dms_config(settings):
     original_languages = settings.LANGUAGES
     settings.LANGUAGES = [
         (code, name) for code, name in settings.LANGUAGES if code in ["de", "fr"]
     ]
+    settings.APPLICATION_NAME = "kt_bern"
+    settings.INTERNAL_BASE_URL = "http://ebau.local"
+    settings.INTERNAL_INSTANCE_URL_TEMPLATE = "http://ebau.local/index/redirect-to-instance-resource/instance-id/{instance_id}"
+    yield
+    settings.LANGUAGES = original_languages
+
+
+@pytest.fixture
+def gr_dms_config(settings):
+    original_languages = settings.LANGUAGES
+    settings.LANGUAGES = [
+        (code, name)
+        for code, name in settings.LANGUAGES
+        if code in ["de"]  # TODO: add IT
+    ]
+    settings.APPLICATION_NAME = "kt_gr"
+    settings.INTERNAL_BASE_URL = "http://ember-ebau.local"
+    settings.INTERNAL_INSTANCE_URL_TEMPLATE = (
+        "http://ember-ebau.local/cases/{instance_id}"
+    )
     yield
     settings.LANGUAGES = original_languages
 
@@ -54,11 +78,151 @@ def nebenbestimmungen_question(be_distribution_settings):
 @pytest.mark.django_db(
     transaction=True, reset_sequences=True
 )  # always reset instance id
+def test_dms_placeholders_gr(
+    db,
+    admin_client,
+    application_settings,
+    gr_master_data_case,  # noqa
+    settings,
+    gr_instance,
+    snapshot,
+    gr_distribution_settings,
+    service_factory,
+    work_item_factory,
+    document_factory,
+    question_factory,
+    form_question_factory,
+    active_inquiry_factory,
+    gr_dms_config,
+    group,
+):
+    application_settings["MUNICIPALITY_DATA_SHEET"] = settings.ROOT_DIR(
+        "kt_gr",
+        pathlib.Path(settings.APPLICATIONS["kt_bern"]["MUNICIPALITY_DATA_SHEET"]).name,
+    )
+    application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_gr"]["MASTER_DATA"]
+
+    responsible_service = gr_instance.responsible_service()
+    responsible_service.address = "Teststrasse 1, 1234 Testdorf"
+    responsible_service.city = "Testdorf"
+    responsible_service.phone = "032163546546"
+    responsible_service.zip = "1234"
+    responsible_service.website = "www.example.com"
+    responsible_service.save()
+
+    # publication
+    document = DocumentFactory()
+
+    add_answer(document, "publikation-anzeiger-von", "Bärnerblatt")
+    add_answer(document, "publikation-text", "Text")
+    add_answer(document, "beginn-publikationsorgan-gemeinde", date(2021, 8, 20))
+    add_answer(document, "ende-publikationsorgan-gemeinde", date(2021, 8, 21))
+    add_answer(document, "beginn-publikation-kantonsamtsblatt", date(2021, 8, 22))
+    add_answer(document, "ende-publikation-kantonsamtsblatt", date(2021, 8, 23))
+
+    WorkItemFactory(
+        case=gr_instance.case,
+        task_id="fill-publication",
+        status=WorkItem.STATUS_COMPLETED,
+        addressed_groups=[str(group.service_id)],
+        document=document,
+        meta={"is-published": True},
+    )
+
+    # Prepare project modification
+    add_answer(
+        gr_instance.case.document, "beschreibung-projektaenderung", "Projektänderung"
+    )
+
+    # decision
+    decision_work_item = work_item_factory(
+        case=gr_instance.case,
+        task_id="decision",
+        status=WorkItem.STATUS_COMPLETED,
+        document=document_factory(form_id="decision"),
+    )
+    decision_question = question_factory(
+        slug="decision-decision", type=Question.TYPE_CHOICE
+    )
+    decision_date_question = question_factory(
+        slug="decision-date", type=Question.TYPE_DATE
+    )
+    Option.objects.create(slug="decision-decision-approved", label="Bewilligt")
+    form_question_factory(form_id="decision", question=decision_question)
+    form_question_factory(form_id="decision", question=decision_date_question)
+    decision_work_item.document.answers.create(
+        question_id="decision-decision",
+        value="decision-decision-approved",
+    )
+    decision_work_item.document.answers.create(
+        question_id="decision-date", date=date.today()
+    )
+
+    # municipality
+    municipality = service_factory(
+        trans__name="Chur",
+    )
+    gr_master_data_case.document.answers.filter(question_id="gemeinde").update(
+        value=str(municipality.pk)
+    )
+    gr_master_data_case.document.dynamicoption_set.update(slug=str(municipality.pk))
+
+    # inquiry
+    nebenbestimmungen_question = Question.objects.get(
+        pk=gr_distribution_settings["QUESTIONS"]["ANCILLARY_CLAUSES"]
+    )
+    stellungnahme_question = question_factory(
+        slug=gr_distribution_settings["QUESTIONS"]["STATEMENT"], type=Question.TYPE_TEXT
+    )
+    district_inquiries = [
+        active_inquiry_factory(gr_instance, svc)
+        for svc in service_factory.create_batch(2, service_group__name="district")
+    ]
+    municipalities_inquiries = [
+        active_inquiry_factory(gr_instance, svc)
+        for svc in service_factory.create_batch(2, service_group__name="municipality")
+    ]
+    service_inquiries = [
+        active_inquiry_factory(
+            gr_instance,
+            svc,
+            status=WorkItem.STATUS_COMPLETED,
+            closed_at=make_aware(faker.Faker().date_time()),
+        )
+        for svc in service_factory.create_batch(2, service_group__name="service")
+    ]
+    inquiries = [*district_inquiries, *municipalities_inquiries, *service_inquiries]
+    for i, inquiry in enumerate(inquiries):
+        # add stellungnahme and nebenbestimmungen
+        AnswerFactory(
+            document=inquiry.child_case.document,
+            question=stellungnahme_question,
+            value=f"Stellungnahme {i+1}",
+        )
+        AnswerFactory(
+            document=inquiry.child_case.document,
+            question=nebenbestimmungen_question,
+            value=f"Nebenbestimmungen {i+1}",
+        )
+
+    url = reverse("instance-dms-placeholders", args=[gr_instance.pk])
+
+    response = admin_client.get(url)
+    assert response.status_code == status.HTTP_200_OK
+    snapshot.assert_match(response.json())
+
+
+@pytest.mark.freeze_time("2021-08-30", tick=True)
+@pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.django_db(
+    transaction=True, reset_sequences=True
+)  # always reset instance id
 def test_dms_placeholders(
     db,
     active_inquiry_factory,
     admin_client,
     application_settings,
+    settings,
     be_instance,
     be_master_data_case,  # noqa
     billing_v2_entry_factory,
@@ -77,9 +241,8 @@ def test_dms_placeholders(
     status_question,
     stellungnahme_question,
     nebenbestimmungen_question,
-    be_languages,
+    be_dms_config,
 ):
-
     application_settings["MUNICIPALITY_DATA_SHEET"] = settings.ROOT_DIR(
         "kt_bern",
         pathlib.Path(settings.APPLICATIONS["kt_bern"]["MUNICIPALITY_DATA_SHEET"]).name,
@@ -386,9 +549,10 @@ def test_dms_placeholders_empty(
     db,
     admin_client,
     application_settings,
+    settings,
     be_instance,
     snapshot,
-    be_languages,
+    be_dms_config,
 ):
     application_settings["MUNICIPALITY_DATA_SHEET"] = settings.ROOT_DIR(
         "kt_bern",
@@ -415,17 +579,24 @@ def test_human_readable_date(language, expected):
         assert human_readable_date(date.today()) == expected
 
 
-def test_dms_placeholders_docs(admin_client, snapshot, be_languages):
+def test_dms_placeholders_docs(admin_client, snapshot, be_dms_config):
     response = admin_client.get(reverse("dms-placeholders-docs"))
     assert response.status_code == status.HTTP_200_OK
     snapshot.assert_match(response.json())
 
 
 def test_dms_placeholders_docs_available_placeholders(
-    admin_client, snapshot, be_languages
+    admin_client, snapshot, be_dms_config
 ):
     response = admin_client.get(
         reverse("dms-placeholders-docs"), data={"available_placeholders": True}
     )
     assert response.status_code == status.HTTP_200_OK
     snapshot.assert_match(response.json())
+
+
+def test_get_tel_and_email():
+    assert (
+        get_tel_and_email({"tel": "0311234567", "email": "foo@bar.com"})
+        == "0311234567, foo@bar.com"
+    )

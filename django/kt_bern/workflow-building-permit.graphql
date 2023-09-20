@@ -36,7 +36,7 @@ mutation CreateFlow2 {
     input: {
       workflow: "building-permit"
       tasks: ["ebau-number"]
-      next: "['distribution', 'audit', 'publication', 'fill-publication', 'information-of-neighbors', 'legal-submission']|tasks"
+      next: "['after-ebau-number']|tasks"
     }
   ) {
     clientMutationId

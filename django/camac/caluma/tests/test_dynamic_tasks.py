@@ -4,6 +4,7 @@ from caluma.caluma_form.models import DynamicOption, Question
 from caluma.caluma_workflow.api import complete_work_item, skip_work_item
 from caluma.caluma_workflow.models import Case, WorkItem
 
+from camac.caluma.extensions.dynamic_tasks import CustomDynamicTasks
 from camac.caluma.tests.test_distribution_workflow import (  # noqa: F401
     distribution_case_be,
     distribution_child_case_be,
@@ -227,3 +228,117 @@ def test_dynamic_task_after_inquiries_completed(
     # check-inquiries work-item as there is already an existing one.
     assert check_inquiries_work_items.count() == 1
     assert check_distribution_work_items.count() == (1 if is_lead_authority else 0)
+
+
+@pytest.mark.parametrize(
+    "is_appeal,expected_tasks",
+    [
+        (
+            False,
+            {
+                "distribution",
+                "audit",
+                "publication",
+                "fill-publication",
+                "information-of-neighbors",
+                "legal-submission",
+            },
+        ),
+        (
+            True,
+            {
+                "distribution",
+                "audit",
+                "publication",
+                "fill-publication",
+                "information-of-neighbors",
+                "legal-submission",
+                "appeal",
+            },
+        ),
+    ],
+)
+def test_dynamic_task_after_ebau_number(
+    db,
+    caluma_admin_user,
+    expected_tasks,
+    is_appeal,
+    case_factory,
+):
+    case = case_factory(meta={"is-appeal": True} if is_appeal else {})
+
+    tasks = set(
+        CustomDynamicTasks().resolve_after_ebau_number(
+            case, caluma_admin_user, None, None
+        )
+    )
+
+    assert tasks == expected_tasks
+
+
+@pytest.mark.parametrize(
+    "answer_value,expected_tasks",
+    [
+        ("additional-demand-decision-accept", set()),
+        ("additional-demand-decision-reject", {"fill-additional-demand"}),
+    ],
+)
+def test_dynamic_task_after_check_additional_demand(
+    db,
+    additional_demand_settings,
+    work_item_factory,
+    question_factory,
+    document_factory,
+    answer_factory,
+    answer_value,
+    expected_tasks,
+):
+    question = question_factory(slug="additional-demand-decision")
+    document = document_factory()
+    answer = answer_factory(document=document, question=question, value=answer_value)
+
+    document.answers.add(answer)
+    document.save()
+    work_item = work_item_factory(document=document)
+    print(additional_demand_settings)
+
+    tasks = set(
+        CustomDynamicTasks().resolve_after_check_additional_demand(
+            None, None, work_item, None
+        )
+    )
+
+    assert tasks == expected_tasks
+
+
+@pytest.mark.parametrize(
+    "existing_init,expected_tasks",
+    [
+        (True, {"inquiry", "create-inquiry"}),
+        (False, {"init-additional-demand", "inquiry", "create-inquiry"}),
+    ],
+)
+def test_dynamic_task_after_create_inquiry(
+    db,
+    additional_demand_settings,
+    work_item_factory,
+    gr_instance,
+    caluma_admin_user,
+    existing_init,
+    expected_tasks,
+):
+    context = {"addressed_groups": [caluma_admin_user.group]}
+    if existing_init:
+        work_item_factory(
+            case=gr_instance.case,
+            addressed_groups=context["addressed_groups"],
+            task_id=additional_demand_settings["ADDITIONAL_DEMAND_CREATE_TASK"],
+        )
+
+    tasks = set(
+        CustomDynamicTasks().resolve_after_create_inquiry(
+            gr_instance.case, None, None, context
+        )
+    )
+
+    assert tasks == expected_tasks

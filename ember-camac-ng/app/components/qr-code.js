@@ -51,11 +51,11 @@ export default class QrCodeComponent extends Component {
 
       yield saveAs(
         blob,
-        `${this.args.context.instanceId}-${slugify(form)}-qr-code.png`
+        `${this.args.context.instanceId}-${slugify(form)}-qr-code.png`,
       );
     } catch (error) {
       this.notification.danger(
-        this.intl.t("publication.qr-code.downloadError")
+        this.intl.t("publication.qr-code.downloadError"),
       );
     }
   }

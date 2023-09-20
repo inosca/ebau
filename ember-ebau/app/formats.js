@@ -1,27 +1,24 @@
 export default {
-  time: {
-    hhmmss: {
-      hour: "numeric",
-      minute: "numeric",
-      second: "numeric",
-    },
-  },
   date: {
-    hhmmss: {
-      hour: "numeric",
-      minute: "numeric",
-      second: "numeric",
+    date: {
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+    },
+    datetime: {
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false,
     },
   },
-  number: {
-    compact: { notation: "compact" },
-    EUR: {
-      style: "currency",
-      currency: "EUR",
-    },
-    USD: {
-      style: "currency",
-      currency: "USD",
+  time: {
+    hhmm: {
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false,
     },
   },
 };

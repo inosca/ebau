@@ -1,7 +1,26 @@
 # Remember to update volume mounts for certificates in kt_uri-prod.yml when updating version
 FROM python:3.8-slim
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
+# Needs to be set for users with manually set UID
+ENV HOME=/home/ebau
+
+ENV APP_HOME=/app
+ENV DJANGO_SETTINGS_MODULE camac.settings
+ENV UWSGI_INI $APP_HOME/uwsgi.ini
+ENV DATABASE_PORT 5432
+ENV STATIC_DIR=$APP_HOME/staticfiles
+
+RUN mkdir -p $APP_HOME $STATIC_DIR \
+    && useradd -u 901 -r ebau --create-home \
+    # All project specific folders need to be accessible by newly created user
+    # but also for unknown users (when UID is set manually). Such users are in
+    # group root.
+    && chown -R ebau:root $HOME $STATIC_DIR \
+    && chmod -R 770 $HOME $STATIC_DIR
+
+RUN \
+  --mount=type=cache,target=/var/cache/apt \
+  apt-get update && apt-get install -y --no-install-recommends \
   git \
   build-essential \
   curl \
@@ -12,37 +31,36 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   gettext \
   locales \
   libreoffice \
-&& rm -rf /var/lib/apt/lists/* \
-&& mkdir /app \
-&& sed -i -e 's/# de_CH.UTF-8 UTF-8/de_CH.UTF-8 UTF-8/' /etc/locale.gen \
-&& dpkg-reconfigure --frontend=noninteractive locales \
-&& update-locale LANG=de_CH.UTF-8
+  # manabi dependencies
+  libsodium23=1.0.18-1 \
+  # alexandria dependencies
+  ffmpeg \
+  inkscape \
+  libfile-mimeinfo-perl \
+  libimage-exiftool-perl \
+  libjpeg-dev \
+  libmagic1 \
+  libsecret-1-0 \
+  poppler-utils \
+  webp \
+  zlib1g-dev \
+&& rm -rf /var/lib/apt/lists/*
 
-# fix ImageMagick policy for creating thumbnails
-RUN sed -i 's/<policy domain="coder" rights="none" pattern="PDF" \/>/<policy domain="coder" rights="read | write" pattern="PDF" \/>/' /etc/ImageMagick-6/policy.xml
+RUN \
+  # Locale configuration
+  sed -i -e 's/# de_CH.UTF-8 UTF-8/de_CH.UTF-8 UTF-8/' /etc/locale.gen \
+  && dpkg-reconfigure --frontend=noninteractive locales \
+  && update-locale LANG=de_CH.UTF-8 \
+  # Fix ImageMagick policy for creating thumbnails
+  && sed -i 's/<policy domain="coder" rights="none" pattern="PDF" \/>/<policy domain="coder" rights="read | write" pattern="PDF" \/>/' /etc/ImageMagick-6/policy.xml
 
-# install libsodium from source to make sure it's the same version as in production
-RUN curl -LO https://download.libsodium.org/libsodium/releases/libsodium-1.0.18-stable.tar.gz \
-&& tar xfv libsodium-1.0.18-stable.tar.gz \
-&& cd libsodium-stable \
-&& ./configure \
-&& make \
-&& make check \
-&& make install \
-&& ldconfig
-
-WORKDIR /app
-
-ENV DJANGO_SETTINGS_MODULE camac.settings
-ENV UWSGI_INI /app/uwsgi.ini
-ENV DATABASE_PORT 5432
+WORKDIR $APP_HOME
 
 ARG REQUIREMENTS=requirements.txt
-COPY requirements.txt requirements-dev.txt /app/
+COPY requirements.txt requirements-dev.txt $APP_HOME/
+RUN pip install --no-cache-dir --upgrade -r $REQUIREMENTS --disable-pip-version-check
 
-RUN pip install --no-cache-dir --upgrade -r $REQUIREMENTS  --disable-pip-version-check
-
-COPY . /app
+COPY . $APP_HOME
 
 EXPOSE 80
 

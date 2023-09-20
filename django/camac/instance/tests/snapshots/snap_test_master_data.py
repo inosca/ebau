@@ -34,7 +34,6 @@ snapshots['test_master_data[kt_bern-de-be_master_data_case-select_related0-prefe
             'zip': 3002
         }
     ],
-    'canton': 'BE',
     'city': 'Musterhausen',
     'completion_date': None,
     'construction_costs': 199000,
@@ -177,7 +176,6 @@ snapshots['test_master_data[kt_bern-fr-be_master_data_case-select_related1-prefe
             'zip': 3002
         }
     ],
-    'canton': 'BE',
     'city': 'Musterhausen',
     'completion_date': None,
     'construction_costs': 199000,
@@ -349,7 +347,6 @@ snapshots['test_master_data[kt_schwyz-de-sz_master_data_case_gwr-select_related3
             'warmwater_heat_generator': None
         }
     ],
-    'canton': 'SZ',
     'city': None,
     'completion_date': [
     ],
@@ -452,7 +449,6 @@ snapshots['test_master_data[kt_schwyz-de-sz_master_data_case_gwr_v2-select_relat
             'warmwater_heat_generator': 7650
         }
     ],
-    'canton': 'SZ',
     'city': None,
     'completion_date': [
     ],
@@ -519,7 +515,6 @@ snapshots['test_master_data[kt_uri-de-ur_master_data_case-select_related2-prefet
             ]
         }
     ],
-    'canton': 'UR',
     'category': [
         6011,
         6010

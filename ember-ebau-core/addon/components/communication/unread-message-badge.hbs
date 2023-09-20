@@ -1,0 +1,8 @@
+{{#if this.count}}
+  <UkBadge
+    @label={{this.count}}
+    {{uk-tooltip (t "communications.unread" count=this.count)}}
+    data-test-badge
+    ...attributes
+  />
+{{/if}}

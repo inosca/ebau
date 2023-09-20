@@ -4,8 +4,7 @@ import { tracked } from "@glimmer/tracking";
 import calumaQuery from "@projectcaluma/ember-core/caluma-query";
 import { allForms } from "@projectcaluma/ember-core/caluma-query/queries";
 import { restartableTask, dropTask, lastValue } from "ember-concurrency";
-
-import ENV from "camac-ng/config/environment";
+import mainConfig from "ember-ebau-core/config/main";
 
 export default class CasesNewController extends Controller {
   @service fetch;
@@ -47,15 +46,15 @@ export default class CasesNewController extends Controller {
       },
     };
 
-    if (ENV.APPLICATION?.newCase.calumaWorkflow) {
+    if (mainConfig.newCase?.calumaWorkflow) {
       body.data.attributes["caluma-workflow"] =
-        ENV.APPLICATION.newCase.calumaWorkflow;
+        mainConfig.newCase?.calumaWorkflow;
     }
-    if (ENV.APPLICATION?.newCase.camacForm) {
+    if (mainConfig.newCase?.camacForm) {
       body.data.relationships = {
         form: {
           data: {
-            id: ENV.APPLICATION.newCase.camacForm,
+            id: mainConfig.newCase.camacForm,
             type: "forms",
           },
         },
@@ -72,7 +71,7 @@ export default class CasesNewController extends Controller {
     } = yield response.json();
 
     location.assign(
-      `/index/redirect-to-instance-resource/instance-id/${instanceId}/`
+      `/index/redirect-to-instance-resource/instance-id/${instanceId}/`,
     );
   }
 }

@@ -14,7 +14,7 @@ export default class AuditEditController extends Controller {
     return [
       ...(this.auditController.audits || []),
       ...(this.auditController.auditsWithSameEbauNumber || []).flatMap(
-        (group) => group.audits
+        (group) => group.audits,
       ),
     ].find((audit) => audit.id === this.model);
   }

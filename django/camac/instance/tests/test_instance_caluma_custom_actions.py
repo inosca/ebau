@@ -478,6 +478,108 @@ def test_change_responsible_service(
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.parametrize(
+    "service_type,expected_status",
+    [
+        ("municipality", status.HTTP_204_NO_CONTENT),
+    ],
+)
+def test_reassign_distribution_and_complete_distribution_workitems(
+    db,
+    admin_client,
+    be_instance,
+    group,
+    service_factory,
+    notification_template,
+    application_settings,
+    service_type,
+    expected_status,
+    caluma_admin_user,
+    instance_state_factory,
+):
+    notification_template.slug = "03-verfahren-vorzeitig-beendet"
+    notification_template.save()
+    application_settings["NOTIFICATIONS"]["CHANGE_RESPONSIBLE_SERVICE"] = {
+        "template_slug": notification_template.slug,
+        "recipient_types": ["leitbehoerde"],
+    }
+
+    old_service = be_instance.responsible_service(filter_type=service_type)
+    new_service = service_factory()
+
+    group.service = old_service
+    group.save()
+
+    instance_state_factory(name="coordination")
+
+    for task_id in ["submit", "ebau-number"]:
+        workflow_api.complete_work_item(
+            work_item=be_instance.case.work_items.get(task_id=task_id),
+            user=caluma_admin_user,
+        )
+
+    work_item = be_instance.case.work_items.get(task_id="distribution")
+
+    workflow_api.complete_work_item(
+        work_item=work_item.child_case.work_items.get(task_id="complete-distribution"),
+        user=caluma_admin_user,
+    )
+
+    distribution_old = be_instance.case.work_items.get(
+        addressed_groups__contains=[str(old_service.pk)], task_id="distribution"
+    )
+
+    assert distribution_old
+    assert distribution_old.status == caluma_workflow_models.WorkItem.STATUS_COMPLETED
+
+    complete_distribution_old = distribution_old.child_case.work_items.get(
+        task_id="complete-distribution",
+        addressed_groups__contains=[str(old_service.pk)],
+    )
+
+    assert complete_distribution_old
+    assert (
+        complete_distribution_old.status
+        == caluma_workflow_models.WorkItem.STATUS_COMPLETED
+    )
+
+    response = admin_client.post(
+        reverse("instance-change-responsible-service", args=[be_instance.pk]),
+        {
+            "data": {
+                "type": "instance-change-responsible-services",
+                "attributes": {"service-type": service_type},
+                "relationships": {
+                    "to": {"data": {"id": new_service.pk, "type": "services"}}
+                },
+            }
+        },
+    )
+
+    assert response.status_code == expected_status
+
+    be_instance.refresh_from_db()
+
+    distribution_new = be_instance.case.work_items.get(
+        addressed_groups__contains=[str(new_service.pk)], task_id="distribution"
+    )
+
+    assert distribution_new
+    assert distribution_new.status == caluma_workflow_models.WorkItem.STATUS_COMPLETED
+
+    complete_distribution_new = distribution_new.child_case.work_items.get(
+        task_id="complete-distribution",
+        addressed_groups__contains=[str(new_service.pk)],
+    )
+
+    assert complete_distribution_new
+    assert (
+        complete_distribution_new.status
+        == caluma_workflow_models.WorkItem.STATUS_COMPLETED
+    )
+
+
+@pytest.mark.parametrize("role__name", ["Municipality"])
 def test_change_responsible_service_audit_validation(
     db,
     admin_client,
@@ -645,3 +747,55 @@ def test_instance_convert_modification(
             == "projektaenderung-nein"
         )
         assert be_instance.case.document.source is None
+
+
+@pytest.mark.parametrize("instance__user", [LazyFixture("admin_user")])
+@pytest.mark.parametrize(
+    "role__name,has_inquiry,expected_status",
+    [
+        ("Support", False, status.HTTP_200_OK),
+        ("municipality-lead", False, status.HTTP_200_OK),
+        ("municipality-lead", True, status.HTTP_400_BAD_REQUEST),
+        ("Applicant", False, status.HTTP_403_FORBIDDEN),
+        ("Municipality", False, status.HTTP_403_FORBIDDEN),
+    ],
+)
+def test_correction(
+    db,
+    admin_client,
+    be_instance,
+    role,
+    active_inquiry_factory,
+    instance_state_factory,
+    application_settings,
+    has_inquiry,
+    expected_status,
+):
+    application_settings["INSTANCE_STATE_CORRECTION_ALLOWED"] = ["subm"]
+    instance_state_factory(name="correction")
+    instance_state = instance_state_factory(name="subm")
+    be_instance.instance_state = instance_state
+    be_instance.save()
+
+    be_instance.case.meta["camac-instance-id"] = be_instance.pk
+    be_instance.case.save()
+
+    if has_inquiry:
+        active_inquiry_factory(be_instance)
+
+    response = admin_client.post(reverse("instance-correction", args=[be_instance.pk]))
+
+    assert response.status_code == expected_status
+
+    if expected_status == status.HTTP_200_OK:
+        be_instance.refresh_from_db()
+
+        assert be_instance.instance_state.name == "correction"
+
+        response = admin_client.post(
+            reverse("instance-correction", args=[be_instance.pk])
+        )
+        be_instance.refresh_from_db()
+
+        assert response.status_code == expected_status
+        assert be_instance.instance_state.name == "subm"

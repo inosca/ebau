@@ -48,7 +48,7 @@
     "pk": 17000000,
     "fields": {
       "modification_date": "2021-04-06T12:19:10Z",
-      "user_id": 8,
+      "user_id": 2,
       "action": "i",
       "data": "{\"INSTANCE_ID\":3,\"QUESTION_ID\":20034,\"CHAPTER_ID\":20000,\"ITEM\":1,\"ANSWER\":\"no\"}",
       "id1": 3,

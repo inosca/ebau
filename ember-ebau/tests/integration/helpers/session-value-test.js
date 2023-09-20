@@ -13,7 +13,7 @@ module("Integration | Helper | session-value", function (hooks) {
       "service:session",
       class SessionStub extends Service {
         foo = { bar: 1 };
-      }
+      },
     );
 
     await render(hbs`{{session-value "foo.bar"}}`);

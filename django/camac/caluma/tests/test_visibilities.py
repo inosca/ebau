@@ -1,5 +1,3 @@
-from datetime import timedelta
-
 import pytest
 from caluma.caluma_core.relay import extract_global_id
 from caluma.caluma_form import factories as caluma_form_factories
@@ -12,13 +10,15 @@ from caluma.caluma_workflow import (
 from caluma.caluma_workflow.api import skip_work_item
 from caluma.schema import schema
 from django.db.models import Q
-from django.utils import timezone
 from pytest_factoryboy import LazyFixture
 
 from camac.caluma.extensions.visibilities import (
     CustomVisibility,
     CustomVisibilityBE,
     CustomVisibilitySZ,
+)
+from camac.instance.tests.test_instance_public import (  # noqa: F401
+    create_caluma_publication,
 )
 from camac.user.models import User
 
@@ -162,8 +162,9 @@ def test_work_item_visibility_sz(
     instance_factory,
     role,
     mocker,
+    settings,
 ):
-
+    settings.APPLICATION_NAME = "kt_schwyz"
     mocker.patch(
         "caluma.caluma_core.types.Node.visibility_classes", [CustomVisibilitySZ]
     )
@@ -335,6 +336,89 @@ def test_work_item_visibility(
     )
 
 
+@pytest.mark.parametrize("role__name", ["Applicant", "Municipality"])
+def test_work_item_additional_demand_visibility(
+    db,
+    additional_demand_settings,
+    application_settings,
+    admin_user,
+    caluma_admin_user,
+    caluma_admin_schema_executor,
+    caluma_workflow_config_gr,
+    gr_instance,
+    applicant_factory,
+    work_item_factory,
+    case_factory,
+    role,
+    mocker,
+):
+    mocker.patch("caluma.caluma_core.types.Node.visibility_classes", [CustomVisibility])
+
+    applicant_factory(invitee=admin_user, instance=gr_instance)
+    if role.name == "Applicant":
+        group = admin_user.groups.first()
+        application_settings["PORTAL_GROUP"] = group.pk
+
+    # create additional demands
+    child_case_hidden = case_factory(
+        family=gr_instance.case, workflow_id="additional-demand"
+    )
+    caluma_workflow_factories.WorkItemFactory(
+        task_id="additional-demand", case=gr_instance.case, child_case=child_case_hidden
+    )
+    caluma_workflow_factories.WorkItemFactory(
+        task_id="send-additional-demand",
+        case=child_case_hidden,
+        status=caluma_workflow_models.WorkItem.STATUS_READY,
+    )
+    child_case = case_factory(family=gr_instance.case, workflow_id="additional-demand")
+    caluma_workflow_factories.WorkItemFactory(
+        task_id="additional-demand", case=gr_instance.case, child_case=child_case
+    )
+    caluma_workflow_factories.WorkItemFactory(
+        task_id="send-additional-demand",
+        case=child_case,
+        status=caluma_workflow_models.WorkItem.STATUS_COMPLETED,
+    )
+    caluma_workflow_factories.WorkItemFactory(
+        task_id="fill-additional-demand",
+        case=child_case,
+        status=caluma_workflow_models.WorkItem.STATUS_COMPLETED,
+    )
+    caluma_workflow_factories.WorkItemFactory(
+        task_id="check-additional-demand",
+        case=child_case,
+        status=caluma_workflow_models.WorkItem.STATUS_READY,
+    )
+
+    result = caluma_admin_schema_executor(
+        """
+        query {
+            allWorkItems {
+                edges {
+                    node {
+                        id
+                        task {
+                            slug
+                        }
+                    }
+                }
+            }
+        }
+    """
+    )
+
+    assert not result.errors
+
+    visible_workitems = set(
+        [
+            extract_global_id(edge["node"]["id"])
+            for edge in result.data["allWorkItems"]["edges"]
+        ]
+    )
+    assert len(visible_workitems) == 1
+
+
 @pytest.mark.parametrize(
     "role__name,instance__user,service",
     [
@@ -346,7 +430,9 @@ def test_work_item_visibility_for_applicants_sz(
     caluma_admin_schema_executor,
     sz_instance,
     mocker,
+    settings,
 ):
+    settings.APPLICATION_NAME = "kt_schwyz"
     mocker.patch(
         "caluma.caluma_core.types.Node.visibility_classes", [CustomVisibilitySZ]
     )
@@ -441,61 +527,6 @@ def test_public_visibility(
     assert len(cases_result.data["allCases"]["edges"]) == 0
 
 
-def test_public_document_visibility(
-    db,
-    rf,
-    be_instance,
-    application_settings,
-    settings,
-):
-    application_settings["PUBLICATION_BACKEND"] = "caluma"
-
-    publication_document = caluma_form_factories.DocumentFactory()
-    caluma_form_factories.AnswerFactory(
-        document=publication_document,
-        question__slug="publikation-startdatum",
-        date=timezone.now() - timedelta(days=1),
-    )
-    caluma_form_factories.AnswerFactory(
-        document=publication_document,
-        question__slug="publikation-ablaufdatum",
-        date=timezone.now() + timedelta(days=12),
-    )
-    caluma_workflow_factories.WorkItemFactory(
-        task_id="fill-publication",
-        status="completed",
-        document=publication_document,
-        case=be_instance.case,
-        closed_by_user="admin",
-        meta={"is-published": True},
-    )
-
-    query = """
-        query {
-            allDocuments {
-                edges {
-                    node {
-                        id
-                        answers {
-                            edges {
-                                node {
-                                    id
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    """
-    request = rf.get("/graphql")
-    request.user = AnonymousUser()
-    result = schema.execute(query, context_value=request, middleware=[])
-
-    assert len(result.data["allDocuments"]["edges"]) == 2
-    assert len(result.data["allDocuments"]["edges"][1]["node"]["answers"]["edges"]) == 2
-
-
 @pytest.mark.parametrize(
     "role__name,service__name,expected_form_count_public,expected_form_count_sz",
     [
@@ -587,7 +618,7 @@ def test_form_visibility_sz(
 
     oidc_user = OIDCUser(
         token=token,
-        userinfo={
+        claims={
             settings.OIDC_USERNAME_CLAIM: user.username,
             settings.OIDC_GROUPS_CLAIM: [group.service_id],
             "sub": user.username,
@@ -725,7 +756,9 @@ def test_inquiry_visibility_be(
     service,
     be_instance,
     service_factory,
+    settings,
 ):
+    settings.APPLICATION_NAME = "kt_bern"
     mocker.patch(
         "caluma.caluma_core.types.Node.visibility_classes", [CustomVisibilityBE]
     )
@@ -777,3 +810,116 @@ def test_inquiry_visibility_be(
     assert len(ids) == 3
     assert visible_ids == ids
     assert str(invisible_inquiry.pk) not in ids
+
+
+@pytest.mark.parametrize(
+    "role__name,expected_count",
+    [("service", 0), ("subservice", 3)],
+)
+def test_inquiry_visibility_gr(
+    db,
+    caluma_admin_schema_executor,
+    gr_distribution_settings,
+    active_inquiry_factory,
+    role,
+    mocker,
+    service,
+    gr_instance,
+    service_factory,
+    settings,
+    expected_count,
+):
+    settings.APPLICATION_NAME = "kt_gr"
+    mocker.patch("caluma.caluma_core.types.Node.visibility_classes", [CustomVisibility])
+
+    other_service = service_factory()
+    other_subservice = service_factory(service_parent=other_service)
+
+    [
+        active_inquiry_factory(controlling_service=c, addressed_service=a)
+        for c, a in [
+            (other_service, service),
+            (service, other_service),
+            (other_service, other_subservice),
+            (service_factory(), other_service),
+        ]
+    ]
+
+    result = caluma_admin_schema_executor(
+        """
+        query($task: ID!) {
+            allWorkItems(filter: [{ task: $task }]) {
+                edges {
+                    node {
+                        id
+                    }
+                }
+            }
+        }
+    """,
+        variables={"task": gr_distribution_settings["INQUIRY_TASK"]},
+    )
+
+    assert not result.errors
+
+    ids = set(
+        [
+            extract_global_id(edge["node"]["id"])
+            for edge in result.data["allWorkItems"]["edges"]
+        ]
+    )
+
+    assert len(ids) == expected_count
+
+
+@pytest.mark.parametrize("role__name", ["Applicant"])
+@pytest.mark.parametrize("is_public_user,expected_answers", [(False, 5), (True, 2)])
+def test_public_document_visibility(
+    db,
+    admin_user,
+    answer_factory,
+    applicant_factory,
+    application_settings,
+    settings,
+    be_instance,
+    caluma_admin_public_schema_executor,
+    caluma_admin_schema_executor,
+    create_caluma_publication,  # noqa: F811
+    expected_answers,
+    gql,
+    is_public_user,
+):
+    settings.APPLICATION_NAME = "kt_bern"
+    create_caluma_publication(be_instance)
+    applicant_factory(instance=be_instance, invitee=admin_user)
+
+    document = be_instance.case.document
+    answer_factory.create_batch(2, document=document)
+    scrubbed_answers = answer_factory.create_batch(3, document=document)
+    scrubbed_questions = [answer.question_id for answer in scrubbed_answers]
+
+    settings.PUBLICATION["SCRUBBED_ANSWERS"] = scrubbed_questions
+
+    executor = (
+        caluma_admin_public_schema_executor
+        if is_public_user
+        else caluma_admin_schema_executor
+    )
+
+    result = executor(gql("get-document"), variables={"id": str(document.pk)})
+
+    assert not result.errors
+
+    returned_questions = [
+        answer["node"]["question"]["slug"]
+        for answer in result.data["allDocuments"]["edges"][0]["node"]["answers"][
+            "edges"
+        ]
+    ]
+
+    assert len(returned_questions) == expected_answers
+
+    if is_public_user:
+        assert not any(slug in returned_questions for slug in scrubbed_questions)
+    else:
+        assert all(slug in returned_questions for slug in scrubbed_questions)

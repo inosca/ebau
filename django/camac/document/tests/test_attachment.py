@@ -4,6 +4,7 @@ from datetime import timedelta
 
 import pytest
 from caluma.caluma_workflow.models import WorkItem
+from django.conf import settings
 from django.urls import reverse
 from django.utils import timezone
 from PIL import Image
@@ -11,6 +12,7 @@ from pytest_factoryboy import LazyFixture
 from rest_framework import status
 
 from camac.document import models, permissions, serializers
+from camac.utils import build_url
 
 from .data import django_file
 
@@ -1657,3 +1659,53 @@ def test_attachment_update_custom_permissions(
 
     response = admin_client.patch(url, data=data)
     assert response.status_code == status_code
+
+
+@pytest.mark.parametrize(
+    "role__name,instance__user,instance_state__name,acl_mode",
+    [("Applicant", LazyFixture("admin_user"), "new", permissions.AdminPermission)],
+)
+def test_convert_docx_to_word(
+    admin_client,
+    service,
+    instance,
+    attachment_factory,
+    attachment_section,
+    acl_mode,
+    mocker,
+    requests_mock,
+):
+    # fix permissions
+    mocker.patch(
+        "camac.document.permissions.PERMISSIONS",
+        {"test": {"applicant": {acl_mode: [attachment_section.pk]}}},
+    )
+
+    attachments = []
+
+    for filename in ["important.docx", "important.pdf"]:
+        attachment = attachment_factory(
+            instance=instance, service=service, path=django_file(filename)
+        )
+
+        test_path = "/".join(str(attachment.path).split("/")[3:])
+
+        attachment.path = test_path
+        attachment.path.name = test_path
+        attachment.name = filename
+        attachment.save()
+        attachments.append(attachment)
+
+    attachment_section.attachments.set(attachments)
+
+    url = reverse("attachment-convert", args=[attachments[0].pk])
+
+    requests_mock.register_uri(
+        "POST",
+        build_url(settings.DOCUMENT_MERGE_SERVICE_URL, "/convert"),
+        content=b"A pdf",
+    )
+
+    response = admin_client.post(url)
+
+    assert response.status_code == status.HTTP_201_CREATED

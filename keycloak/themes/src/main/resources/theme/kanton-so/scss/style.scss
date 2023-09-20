@@ -1,0 +1,44 @@
+@import "_font";
+@import "_variables";
+
+@import "uikit/src/scss/variables-theme.scss";
+@import "uikit/src/scss/mixins-theme.scss";
+
+@import "uikit/src/scss/uikit-theme.scss";
+
+a {
+  font-weight: 700;
+}
+
+#kc-header {
+  height: 143px;
+  background-color: white;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+}
+
+#kc-header-wrapper {
+  background-image: url("../img/logo-kanton-so.svg");
+  background-repeat: no-repeat;
+  background-size: 340px auto;
+  background-position: right 40px top 26px;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  font-size: 0;
+
+  a {
+    font-size: $global-font-size;
+  }
+}
+
+.kc-login {
+  background-image: url("../img/solothurn.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+.uk-card-default {
+  background-color: rgba(255, 255, 255, 0.9);
+}

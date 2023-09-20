@@ -5,7 +5,7 @@ const locales = require("./locales");
 module.exports = function (environment) {
   // eslint-disable-next-line no-console
   console.log(
-    `build env: APPLICATION: ${process.env.APPLICATION}, KEYCLOAK_HOST: ${process.env.KEYCLOAK_HOST}`
+    `build env: APPLICATION: ${process.env.APPLICATION}, KEYCLOAK_HOST: ${process.env.KEYCLOAK_HOST}`,
   );
   const app = process.env.APPLICATION || "kt_bern";
   const instanceStatesBe = {
@@ -43,8 +43,13 @@ module.exports = function (environment) {
   const instanceStatesGr = {
     new: 1,
     subm: 120004,
+    circulationInit: 120009,
     circ: 120005,
     finished: 120006,
+  };
+  const instanceStatesSo = {
+    new: 1,
+    subm: 2,
   };
   const appConfig = {
     demo: {
@@ -77,21 +82,6 @@ module.exports = function (environment) {
         allowForms: ["baugesuch"],
         disallowStates: [instanceStatesDemo.new, instanceStatesDemo.finished],
       },
-      answerSlugs: {},
-      personalSuggestions: {
-        tableQuestions: [
-          "personalien-gesuchstellerin",
-          "personalien-vertreterin-mit-vollmacht",
-          "personalien-grundeigentumerin",
-          "personalien-projektverfasserin",
-          "personalien-gebaudeeigentumerin",
-          "personalien-sb",
-        ],
-        firstNameRegexp: "^vorname-.*$",
-        lastNameRegexp: "^name-.*$",
-        juristicNameRegexp: "^name-juristische-person.*$",
-        emailRegexp: "^e-mail-.*$",
-      },
       // Who can create which forms. Roles can be given by ID, or magic key ("internal" or "public")
       formCreationPermissions: [
         {
@@ -103,6 +93,7 @@ module.exports = function (environment) {
     kt_bern: {
       name: "be",
       realm: "ebau",
+      internalBackend: "camac",
       supportGroups: [10000],
       useConfidential: false,
       defaultInstanceStateCategory: "pending",
@@ -123,7 +114,6 @@ module.exports = function (environment) {
         done: [
           instanceStatesBe.finished,
           instanceStatesBe.finishedInternal,
-          instanceStatesBe.archived,
           instanceStatesBe.evaluated,
           instanceStatesBe.conclusion,
         ],
@@ -162,48 +152,6 @@ module.exports = function (environment) {
           instanceStatesBe.finished,
         ],
       },
-      answerSlugs: {
-        objectStreet: "strasse-flurname",
-        objectNumber: "nr",
-        objectZIP: "plz-grundstueck-v3",
-        objectLocation: "ort-grundstueck",
-        description: "beschreibung-bauvorhaben",
-        municipality: "gemeinde",
-        specialId: "ebau-number",
-        parcelNumber: "parzellennummer",
-        firstNameApplicant: "vorname-gesuchstellerin",
-        lastNameApplicant: "name-gesuchstellerin",
-        juristicNameApplicant: "name-juristische-person-gesuchstellerin",
-        isJuristicApplicant: "juristische-person-gesuchstellerin",
-        isJuristicApplicantYes: "juristische-person-gesuchstellerin-ja",
-        personalDataApplicant: "personalien-gesuchstellerin",
-      },
-      personalSuggestions: {
-        tableQuestions: [
-          "personalien-gesuchstellerin",
-          "personalien-vertreterin-mit-vollmacht",
-          "personalien-grundeigentumerin",
-          "personalien-projektverfasserin",
-          "personalien-gebaudeeigentumerin",
-          "personalien-sb",
-        ],
-        firstNameRegexp: "^vorname-.*$",
-        lastNameRegexp: "^name-.*$",
-        juristicNameRegexp: "^name-juristische-person.*$",
-        emailRegexp: "^e-mail-.*$",
-      },
-      paperInstances: {
-        allowedGroups: {
-          roles: [
-            3, // Leitung Leitbehörde
-            20004, // Sachbearbeiter Leitbehörde
-          ],
-          serviceGroups: [
-            2, // Gemeinde
-            20000, // Regierungsstatthalteramt
-          ],
-        },
-      },
       // Who can create which forms. Roles can be given by ID, or magic key ("internal" or "public")
       formCreationPermissions: [
         {
@@ -234,6 +182,7 @@ module.exports = function (environment) {
     kt_uri: {
       name: "ur",
       realm: "urec",
+      internalBackend: "camac",
       supportGroups: [1070],
       useConfidential: true,
       completePreliminaryClarificationSlugs: [],
@@ -289,55 +238,6 @@ module.exports = function (environment) {
           instanceStatesUr.finished,
           instanceStatesUr.old,
         ],
-      },
-      answerSlugs: {
-        objectStreet: "parcel-street",
-        objectNumber: "street-number",
-        objectLocation: "parcel-city",
-        applicantZip: "zip",
-        description: "proposal-description",
-        municipality: "municipality",
-        specialId: "dossier-number",
-        parcelNumber: "parcel-number",
-        oerebProcedure: "typ-des-verfahrens",
-        oerebTopics: "oereb-thema",
-        oerebPartialState: "teilstatus",
-        procedureCanton: "mbv-type",
-        procedureConfederation: "mbv-bund-type",
-      },
-      personalSuggestions: {
-        tableQuestions: [
-          "applicant",
-          "landowner",
-          "project-author",
-          "invoice-recipient",
-        ],
-        firstNameRegexp: "^first-name$",
-        lastNameRegexp: "^last-name$",
-        juristicNameRegexp: "^juristic-person-name$",
-        emailRegexp: "^e-mail$",
-      },
-      paperInstances: {
-        allowedGroups: {
-          roles: [
-            6, // Sekretariat der Gemeindebaubehörde
-            3, // KOOR BG
-            1061, // KOOR NP
-            1101, // KOOR BD
-            1106, // KOOR AfU
-            1107, // KOOR ALA
-            1127, // KOOR AfE
-            1128, // KOOR AFJ
-            1129, // KOOR SD
-            1130, // Bundesstelle
-            1131, // Support
-          ],
-          serviceGroups: [
-            1, // Koordinationsstellen
-            68, // Sekretariate Gemeindebaubehörden
-            70, // Bundesstellen
-          ],
-        },
       },
       // Who can create which forms. Roles can be given by ID, or magic key ("internal" or "public")
       formCreationPermissions: [
@@ -435,6 +335,7 @@ module.exports = function (environment) {
     kt_gr: {
       name: "gr",
       realm: "ebau",
+      internalBackend: "ebau",
       supportGroups: [10000],
       useConfidential: false,
       defaultInstanceStateCategory: "pending",
@@ -442,6 +343,7 @@ module.exports = function (environment) {
         pending: [
           instanceStatesGr.new,
           instanceStatesGr.subm,
+          instanceStatesGr.circulationInit,
           instanceStatesGr.circ,
         ],
         done: [instanceStatesGr.finished],
@@ -456,49 +358,12 @@ module.exports = function (environment) {
       documents: {
         backend: "alexandria",
         excludeFromDocuments: [],
+        feedbackSections: ["alle-beteiligten"], // Alle Beteiligten
       },
       instanceStates: instanceStatesGr,
       modification: {
         allowForms: ["baugesuch"],
         disallowStates: [instanceStatesGr.new, instanceStatesGr.finished],
-      },
-      answerSlugs: {
-        objectStreet: "strasse-flurname",
-        objectNumber: "nr",
-        objectLocation: "ort-grundstueck",
-        description: "beschreibung-bauvorhaben",
-        municipality: "gemeinde",
-        parcelNumber: "parzellennummer",
-        firstNameApplicant: "vorname-gesuchstellerin",
-        lastNameApplicant: "name-gesuchstellerin",
-        juristicNameApplicant: "name-juristische-person-gesuchstellerin",
-        isJuristicApplicant: "juristische-person-gesuchstellerin",
-        isJuristicApplicantYes: "juristische-person-gesuchstellerin-ja",
-        personalDataApplicant: "personalien-gesuchstellerin",
-      },
-      personalSuggestions: {
-        tableQuestions: [
-          "personalien-gesuchstellerin",
-          "personalien-vertreterin-mit-vollmacht",
-          "personalien-grundeigentumerin",
-          "personalien-projektverfasserin",
-          "personalien-gebaudeeigentumerin",
-          "personalien-sb",
-        ],
-        firstNameRegexp: "^vorname-.*$",
-        lastNameRegexp: "^name-.*$",
-        juristicNameRegexp: "^name-juristische-person.*$",
-        emailRegexp: "^e-mail-.*$",
-      },
-      paperInstances: {
-        allowedGroups: {
-          roles: [
-            3, // municipality
-          ],
-          serviceGroups: [
-            1, // municipality
-          ],
-        },
       },
       // Who can create which forms. Roles can be given by ID, or magic key ("internal" or "public")
       formCreationPermissions: [
@@ -513,10 +378,48 @@ module.exports = function (environment) {
         },
       ],
     },
+    kt_so: {
+      name: "so",
+      realm: "ebau",
+      internalBackend: "ebau",
+      supportGroups: [3],
+      useConfidential: false,
+      defaultInstanceStateCategory: "pending",
+      instanceStateCategories: {
+        pending: [instanceStatesSo.new, instanceStatesSo.subm],
+        done: [null], // Placeholder until a finished state is added
+      },
+      completePreliminaryClarificationSlugs: [],
+      selectableGroups: {
+        roles: [
+          3, // Support
+        ],
+      },
+      documents: {
+        backend: "alexandria",
+        excludeFromDocuments: [],
+      },
+      instanceStates: instanceStatesSo,
+      modification: {
+        allowForms: [],
+        disallowStates: [instanceStatesSo.new],
+      },
+      // Who can create which forms. Roles can be given by ID, or magic key ("internal" or "public")
+      formCreationPermissions: [
+        {
+          roles: ["public", "internal"],
+          forms: ["baugesuch"],
+        },
+      ],
+    },
   }[app];
 
   const oidcHost = process.env.KEYCLOAK_HOST || "http://ebau-keycloak.local";
-  const internalURL = process.env.INTERNAL_URL || "http://ebau.local";
+  const internalURL =
+    process.env.INTERNAL_URL ||
+    (appConfig.internalBackend === "camac"
+      ? "http://ebau.local"
+      : "http://ember-ebau.local");
   const beGisUrl = process.env.BE_GIS_URL || "https://www.map.apps.be.ch";
   const urGisUrl = process.env.UR_GIS_URL || "https://geo.ur.ch/wms";
 
@@ -525,6 +428,7 @@ module.exports = function (environment) {
     environment,
     rootURL: "/",
     locationType: "history",
+    profileURL: `${oidcHost}/auth/realms/${appConfig.realm}/account?referrer=portal#/personal-info`,
     historySupportMiddleware: true,
     "ember-simple-auth-oidc": {
       host: `${oidcHost}/auth/realms/${appConfig.realm}/protocol/openid-connect`,

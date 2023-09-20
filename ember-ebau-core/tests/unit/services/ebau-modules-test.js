@@ -12,12 +12,12 @@ module("Unit | Service | ebau-modules", function (hooks) {
 
     assert.strictEqual(
       service.resolveModuleRoute("my-module", "foo.bar"),
-      "test.testy.my-module.foo.bar"
+      "test.testy.my-module.foo.bar",
     );
 
     assert.strictEqual(
       service.resolveModuleRoute("my-module", "my-module.foo.bar"),
-      "test.testy.my-module.foo.bar"
+      "test.testy.my-module.foo.bar",
     );
   });
 });

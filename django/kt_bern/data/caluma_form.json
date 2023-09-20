@@ -13941,7 +13941,7 @@
       "modified_by_group": null,
       "id": "c535690c-52ec-47fa-a7dc-6bae513947e6",
       "slug": "2",
-      "label": "{\"de\": \"Burgdorf\", \"fr\": \"Burgdorf\", \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Burgdorf\", \"fr\": \"Burgdorf\", \"it\": null}",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
       "question": "gemeinde",
       "history_date": "2021-03-31T12:37:08.580Z",
@@ -13962,7 +13962,7 @@
       "modified_by_group": null,
       "id": "f6cc3960-2089-4e91-b301-7197faa0aaa5",
       "slug": "2",
-      "label": "{\"de\": \"Burgdorf\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Burgdorf\", \"fr\": null, \"it\": null}",
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
       "question": "gemeinde",
       "history_date": "2020-03-06T11:12:25.234Z",
@@ -13983,7 +13983,7 @@
       "modified_by_group": null,
       "id": "303939a6-3483-499c-b9ae-981a9db607eb",
       "slug": "2",
-      "label": "{\"de\": \"Burgdorf\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Burgdorf\", \"fr\": null, \"it\": null}",
       "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
       "question": "gemeinde",
       "history_date": "2020-03-06T11:13:54.771Z",
@@ -14002,7 +14002,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "slug": "2",
-      "label": "{\"de\": \"Burgdorf\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Burgdorf\", \"fr\": null, \"it\": null}",
       "document": "bdb1b463-8e08-4042-80c1-e4c189a281b4",
       "question": "gemeinde"
     }
@@ -14018,7 +14018,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "slug": "2",
-      "label": "{\"de\": \"Burgdorf\", \"fr\": \"Burgdorf\", \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Burgdorf\", \"fr\": \"Burgdorf\", \"it\": null}",
       "document": "75980e39-1378-47d5-8253-4b19567569ff",
       "question": "gemeinde"
     }
@@ -14034,7 +14034,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "slug": "2",
-      "label": "{\"de\": \"Burgdorf\", \"fr\": null, \"it\": null, \"rm\": null}",
+      "label": "{\"de\": \"Burgdorf\", \"fr\": null, \"it\": null}",
       "document": "961f2def-a94a-435f-b8b4-93390c7b40e5",
       "question": "gemeinde"
     }

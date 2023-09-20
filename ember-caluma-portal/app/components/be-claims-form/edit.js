@@ -27,7 +27,7 @@ export default class BeClaimsFormEditComponent extends Component {
   get section() {
     return this.args.document.jexl.evalSync(
       this.args.form.raw.meta["attachment-section"],
-      this.args.document.jexlContext
+      this.args.document.jexlContext,
     );
   }
 
@@ -58,7 +58,7 @@ export default class BeClaimsFormEditComponent extends Component {
       return {
         ...obj,
         [bucket]: this.allAttachments.filter(
-          (attachment) => attachment.question === bucket
+          (attachment) => attachment.question === bucket,
         ),
       };
     }, {});
@@ -105,7 +105,7 @@ export default class BeClaimsFormEditComponent extends Component {
 
         // not relevant for the model
         blob: file,
-      })
+      }),
     );
   }
 
@@ -137,7 +137,7 @@ export default class BeClaimsFormEditComponent extends Component {
         formData.append("instance", attachment.belongsTo("instance").id());
         formData.append(
           "attachment_sections",
-          attachment.hasMany("attachmentSections").ids()
+          attachment.hasMany("attachmentSections").ids(),
         );
         formData.append("question", attachment.question);
         formData.append("path", attachment.blob, attachment.name);
@@ -155,7 +155,7 @@ export default class BeClaimsFormEditComponent extends Component {
         await attachment.destroyRecord();
         // push newly created attachment to client store
         this.store.pushPayload(await response.json());
-      })
+      }),
     );
 
     this.queue = [];
@@ -174,7 +174,7 @@ export default class BeClaimsFormEditComponent extends Component {
       ].map(async (field) => {
         await field.validate.perform();
         await field.save.perform();
-      })
+      }),
     );
   }
 }

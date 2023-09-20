@@ -33,14 +33,14 @@ export default class BeDocumentsFormComponent extends Component {
   get section() {
     return this.args.document.jexl.evalSync(
       this.args.fieldset.field.question.raw.meta["attachment-section"],
-      this.args.document.jexlContext
+      this.args.document.jexlContext,
     );
   }
 
   get deletable() {
     const instance = this.store.peekRecord(
       "instance",
-      this.args.context.instanceId
+      this.args.context.instanceId,
     );
     const state = parseInt(instance?.belongsTo("instanceState").id());
 
@@ -55,7 +55,7 @@ export default class BeDocumentsFormComponent extends Component {
       (field) =>
         !field.hidden &&
         !field.optional &&
-        field.questionType === "MultipleChoiceQuestion"
+        field.questionType === "MultipleChoiceQuestion",
     );
   }
 
@@ -64,8 +64,8 @@ export default class BeDocumentsFormComponent extends Component {
       (field) =>
         field.questionType !== "MultipleChoiceQuestion" &&
         !config.APPLICATION.documents.excludeFromDocuments.includes(
-          field.question.slug
-        )
+          field.question.slug,
+        ),
     );
   }
 
@@ -83,7 +83,7 @@ export default class BeDocumentsFormComponent extends Component {
   get allAttachments() {
     const fetchedAttachmentIds =
       this.fetchAttachments.lastSuccessful?.value.map((attachment) =>
-        attachment.get("id")
+        attachment.get("id"),
       );
 
     const byInstance = (attachment) =>
@@ -113,7 +113,7 @@ export default class BeDocumentsFormComponent extends Component {
       return {
         ...obj,
         [bucket]: this.allAttachments.filter(
-          (attachment) => attachment.question === bucket
+          (attachment) => attachment.question === bucket,
         ),
       };
     }, {});

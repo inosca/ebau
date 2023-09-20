@@ -1,0 +1,83 @@
+<div class="uk-flex uk-flex-between">
+  <div class="uk-button-group">
+    {{#each (array "all" "unread" "read") as |type|}}
+      <UkButton
+        @color={{if (eq this.topicsFilter type) "primary" "default"}}
+        @label={{t (concat "communications.list." type)}}
+        @onClick={{fn this.updateFilter type}}
+        data-test-type={{type}}
+      />
+    {{/each}}
+  </div>
+  {{#if (and @instanceId (can "create topic"))}}
+    <LinkTo
+      @route={{module-route "communications" "new"}}
+      class="uk-button uk-button-primary"
+      data-test-new-topic
+    >
+      {{t "communications.list.newMessage"}}
+    </LinkTo>
+  {{/if}}
+</div>
+
+<table class="uk-table uk-table-striped uk-table-hover">
+  <thead>
+    <tr>
+      <th></th>
+      {{#unless @instanceId}}
+        <th data-test-instance-header>{{t "communications.dossier"}}</th>
+      {{/unless}}
+      <th>{{t "communications.topic"}}</th>
+      <th>{{t "communications.participants"}}</th>
+      <th>{{t "communications.date"}}</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each this.topics.records as |topic|}}
+      <tr
+        class={{if topic.hasUnread "uk-text-bold"}}
+        data-test-topic
+        role="link"
+        {{on "click" (fn this.transitionToTopic topic)}}
+      >
+        <td class="communications-status-cell uk-padding-remove-right">
+          <FaIcon
+            @fixedWidth={{true}}
+            @icon={{if topic.hasUnread "envelope" "envelope-open"}}
+            {{uk-tooltip (t (concat "communications.list." (if topic.hasUnread "has" "no") "-unread"))}}
+          />
+        </td>
+        {{#unless @instanceId}}
+          <td class="uk-text-nowrap" data-test-dossier-number>
+            {{topic.dossierNumber}}
+            ({{topic.instance.id}})
+          </td>
+        {{/unless}}
+        <td data-test-subject>{{topic.subject}}</td>
+        <td data-test-involved-entities>
+          {{#each topic.involvedEntities as |entity|}}
+            {{entity.name}}<br />
+          {{/each}}
+        </td>
+        <td class="uk-text-nowrap">{{format-date topic.created format="datetime"}}</td>
+      </tr>
+    {{else}}
+      {{#unless this.topics.isLoading}}
+        <tr>
+          <td colspan={{this.colspan}} class="uk-text-center">
+            {{t "communications.empty"}}
+          </td>
+        </tr>
+      {{/unless}}
+    {{/each}}
+    {{#if this.topics.isLoading}}
+      <tr>
+        <td colspan={{this.colspan}} class="uk-text-center">
+          <UkSpinner />
+        </td>
+      </tr>
+    {{else if this.topics.hasMore}}
+      <tr {{in-viewport onEnter=this.updatePage}}></tr>
+    {{/if}}
+  </tbody>
+</table>

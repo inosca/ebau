@@ -260,6 +260,9 @@ class Attachments(BaseDataSource):
 
     @data_source_cache(timeout=5)
     def get_data(self, user, question, context):
+        if not context:  # pragma: no cover
+            return []
+
         attachment_section_id = question.meta.get("attachmentSection")
         instance_id = context.get("instanceId")
 
@@ -276,6 +279,9 @@ class Landowners(BaseDataSource):
     info = "Selection of the landowners from the current instance"
 
     def get_data(self, user, question, context):
+        if not context:  # pragma: no cover
+            return []
+
         instance_id = context.get("instanceId")
 
         document = Document.objects.get(case__instance__pk=instance_id)

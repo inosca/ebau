@@ -74,8 +74,8 @@ def test_authenticate_bootstrap_by_mail(
     if should_update:
         assert returned_user.username == token["sub"]
         assert user.username == token["sub"]
-        assert user.name == token["family_name"]
-        assert user.surname == token["given_name"]
+        assert user.name == token["given_name"]
+        assert user.surname == token["family_name"]
         assert user.groups.count() == 0
         assert decode_token.return_value == token
     else:
@@ -143,8 +143,8 @@ def test_migrate_portal_user(
 
     # Ensure the user object attrubtes were updated
     assert user.username == "other-guy@example.com"
-    assert user.name == token["family_name"]
-    assert user.surname == token["given_name"]
+    assert user.name == token["given_name"]
+    assert user.surname == token["family_name"]
 
     # Ensure that the user was added to the applicant group
     groups = user.groups.all()

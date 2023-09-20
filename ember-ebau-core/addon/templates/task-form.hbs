@@ -1,0 +1,19 @@
+{{#if this.workItem.value.document.id}}
+  <CfContent
+    @documentId={{decode-id this.workItem.value.document.id}}
+    @disabled={{cannot "edit task-form" this.workItem.value task=@model}}
+    @context={{hash
+      instanceId=this.ebauModules.instanceId
+      task=@model
+      actionButtonOnSuccess=this.redirectToWorkItems
+    }}
+  />
+{{else if this.workItem.isLoading}}
+  <div class="uk-text-center">
+    <UkSpinner @ratio={{2}} />
+  </div>
+{{else}}
+  <div class="uk-text-center uk-text-italic">
+    {{t "task-form.empty"}}
+  </div>
+{{/if}}

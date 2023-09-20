@@ -2,6 +2,8 @@ import pytest
 from django.urls import reverse
 from rest_framework import status
 
+from camac.user.models import Service
+
 
 @pytest.mark.parametrize(
     "role__name,size",
@@ -101,10 +103,13 @@ def test_service_update(
     if status_code == status.HTTP_200_OK:
         service.refresh_from_db()
         assert service.get_name() == "new service name"
-        assert (
-            service.groups.first().get_name()
-            == f"{role_t.group_prefix if role_t.group_prefix else role_t.name} new service name"
-        )
+        if role_t.group_prefix:
+            assert (
+                service.groups.first().get_name()
+                == f"{role_t.group_prefix} new service name"
+            )
+        else:
+            assert service.groups.first().get_name() == "new service name"
         if multilang:
             service_t.refresh_from_db()
             assert service_t.description == service_t.name == "new service name"
@@ -214,3 +219,67 @@ def test_service_list_multilingual(admin_client, service_t, size, multilang):
     assert len(json["data"]) == size
     if size > 0:
         assert json["data"][0]["attributes"]["name"] == service_t.name
+
+
+@pytest.mark.parametrize("multilang", [True, False])
+@pytest.mark.parametrize(
+    "name,expected_status",
+    [
+        ("Subservice 1", status.HTTP_201_CREATED),
+        ("Existing", status.HTTP_400_BAD_REQUEST),
+    ],
+)
+def test_service_create(
+    admin_client,
+    application_settings,
+    expected_status,
+    multilang,
+    name,
+    role_t,
+    role,
+    service_factory,
+    service,
+):
+    if multilang:
+        application_settings["IS_MULTILINGUAL"] = True
+        role_t.group_prefix = ""
+        role_t.save()
+        service_factory(trans__name="Existing", trans__language="de")
+    else:
+        role.group_prefix = ""
+        role.save()
+        service_factory(name="Existing")
+
+    application_settings["SUBSERVICE_ROLES"] = [role.name]
+
+    data = {
+        "data": {
+            "id": None,
+            "type": "services",
+            "attributes": {
+                "name": name,
+                "email": "test@example.com",
+                "description": name,
+                "city": "Musterhausen",
+                "notification": True,
+            },
+        }
+    }
+
+    response = admin_client.post(reverse("service-list"), data=data)
+
+    assert response.status_code == expected_status
+
+    if response.status_code == status.HTTP_201_CREATED:
+        new_service = Service.objects.get(pk=response.json()["data"]["id"])
+        new_group = new_service.groups.first()
+
+        if multilang:
+            assert new_service.name is None
+            assert new_group.name is None
+
+        assert new_service.get_name() == name
+        assert new_group.get_name() == name
+
+        assert new_service.service_parent == service
+        assert new_service.service_group == service.service_group

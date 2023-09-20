@@ -26,8 +26,6 @@ module("Unit | Service | fetch", function (hooks) {
   });
 
   test("it can fetch", async function (assert) {
-    assert.expect(4);
-
     const service = this.owner.lookup("service:fetch");
 
     this.server.get("/foo", function (_, { requestHeaders }) {

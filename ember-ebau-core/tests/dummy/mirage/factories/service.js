@@ -7,14 +7,14 @@ export default Factory.extend({
   phone: () =>
     [
       "+41",
-      faker.datatype.number({ min: 10, max: 99 }),
-      faker.datatype.number({ min: 100, max: 999 }),
-      faker.datatype.number({ min: 10, max: 99 }),
-      faker.datatype.number({ min: 10, max: 99 }),
+      faker.number.int({ min: 10, max: 99 }),
+      faker.number.int({ min: 100, max: 999 }),
+      faker.number.int({ min: 10, max: 99 }),
+      faker.number.int({ min: 10, max: 99 }),
     ].join(" "),
-  zip: () => faker.datatype.number({ min: 1000, max: 9999 }),
-  city: () => faker.address.city(),
-  address: () => faker.address.streetAddress(),
+  zip: () => faker.number.int({ min: 1000, max: 9999 }),
+  city: () => faker.location.city(),
+  address: () => faker.location.streetAddress(),
   email: () => faker.internet.email(),
   website: () => faker.internet.url(),
 });

@@ -1,0 +1,12 @@
+<UkTab as |Tab|>
+  <Tab.item @href={{module-route "statistics" "statistics" asURL=true}} @linkToIndex={{true}}>{{t "statistics.general"}}</Tab.item>
+  {{#if (can "view statistic" "process-time")}}
+    <Tab.item @href={{module-route "statistics" "process-time" asURL=true}}>{{t "statistics.process-time"}}</Tab.item>
+  {{/if}}
+  {{#if (can "view statistic" "cycle-time")}}
+    <Tab.item @href={{module-route "statistics" "cycle-time" asURL=true}}>{{t "statistics.cycle-time"}}</Tab.item>
+    <Tab.item @href={{module-route "statistics" "avg-cycle-time" asURL=true}}>{{t "statistics.avg-cycle-time"}}</Tab.item>
+  {{/if}}
+</UkTab>
+
+{{outlet}}

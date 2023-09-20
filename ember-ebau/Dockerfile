@@ -4,7 +4,9 @@ COPY package.json yarn.lock /myapp/
 COPY ember-ebau-core/package.json /myapp/ember-ebau-core/
 COPY ember-ebau/package.json /myapp/ember-ebau/
 
-RUN yarn workspace ebau install
+RUN --mount=type=cache,target=.yarn \
+  YARN_CACHE_FOLDER=.yarn \
+  yarn workspace ebau install
 
 COPY ember-ebau-core /myapp/ember-ebau-core
 COPY ember-ebau /myapp/ember-ebau
@@ -13,11 +15,27 @@ WORKDIR /myapp/ember-ebau
 
 ARG APPLICATION
 ARG KEYCLOAK_HOST
-ARG INTERNAL_URL
+ARG PORTAL_URL
+ARG SO_GIS_URL
 
 RUN yarn deploy production
 
-FROM nginx:1.23-alpine
+# Currently only used by SO
+FROM nginxinc/nginx-unprivileged:1.25-alpine as env-prod
+
+USER root
+RUN chown -R nginx:nginx /usr/share/nginx/html
+USER nginx
+
+COPY --from=build --chown=nginx:nginx /myapp/ember-ebau/build /usr/share/nginx/html
+COPY nginx/ember.conf /etc/nginx/conf.d/default.conf
+COPY nginx/replace-env-vars.sh /usr/local/bin/replace-env-vars
+
+RUN find /usr/share/nginx/html -iname "*.gz" -o -iname "*.br" | xargs rm -rf
+
+CMD /bin/sh -c "replace-env-vars '\${KEYCLOAK_HOST},\${PORTAL_URL},\${SO_GIS_URL}' /usr/share/nginx/html && nginx -g 'daemon off;'"
+
+FROM nginxinc/nginx-unprivileged:1.25-alpine
 
 COPY --from=build /myapp/ember-ebau/build /usr/share/nginx/html
 COPY ./ember-ebau/nginx.conf /etc/nginx/conf.d/default.conf

@@ -18,7 +18,7 @@ export default class DmsEditComponent extends Component {
   template = trackedFunction(this, async () => {
     if (!this.args.slug) {
       return this.store.createRecord("template", {
-        group: String(this.ebauModules.serviceId),
+        meta: { service: String(this.ebauModules.serviceId) },
       });
     }
 
@@ -49,7 +49,7 @@ export default class DmsEditComponent extends Component {
     this.template.value.rollbackAttributes();
 
     this.router.transitionTo(
-      this.ebauModules.resolveModuleRoute("dms-admin", "index")
+      this.ebauModules.resolveModuleRoute("dms-admin", "index"),
     );
   }
 
@@ -61,7 +61,7 @@ export default class DmsEditComponent extends Component {
       yield this.template.value.destroyRecord();
 
       this.router.transitionTo(
-        this.ebauModules.resolveModuleRoute("dms-admin", "index")
+        this.ebauModules.resolveModuleRoute("dms-admin", "index"),
       );
     } catch (error) {
       this.notification.danger(this.intl.t("dms.delete-error"));
@@ -77,7 +77,7 @@ export default class DmsEditComponent extends Component {
         "/api/v1/dms-placeholders-docs?available_placeholders=true",
         {
           headers: { accept: "application/json" },
-        }
+        },
       );
 
       this.template.value.availablePlaceholders =
@@ -86,7 +86,7 @@ export default class DmsEditComponent extends Component {
       yield this.template.value.save();
 
       this.router.transitionTo(
-        this.ebauModules.resolveModuleRoute("dms-admin", "index")
+        this.ebauModules.resolveModuleRoute("dms-admin", "index"),
       );
     } catch (error) {
       if (
@@ -96,7 +96,7 @@ export default class DmsEditComponent extends Component {
       ) {
         const errors = error.errors[0]?.detail.non_field_errors;
         const placeholderError = errors.find((err) =>
-          err.includes("unavailable placeholders")
+          err.includes("unavailable placeholders"),
         );
         const syntaxError = errors.find((err) => err.includes("Syntax error"));
 
@@ -110,7 +110,7 @@ export default class DmsEditComponent extends Component {
             this.intl.t("dms.save-error-placeholder", {
               count: placeholders.length,
               placeholders: placeholders.join(", "),
-            })
+            }),
           );
         }
 

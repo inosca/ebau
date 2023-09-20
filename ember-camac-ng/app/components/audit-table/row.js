@@ -22,7 +22,7 @@ export default class AuditTableRowComponent extends Component {
   *pdf() {
     try {
       const response = yield this.fetch.fetch(
-        `/api/v1/instances/${this.args.audit.instanceId}/generate-pdf?document-id=${this.args.audit.id}`
+        `/api/v1/instances/${this.args.audit.instanceId}/generate-pdf?document-id=${this.args.audit.id}`,
       );
       if (!response.ok) {
         throw new Error(`${response.status}: ${response.statusText}`);
@@ -80,7 +80,7 @@ export default class AuditTableRowComponent extends Component {
           mutation: copyDocument,
           variables: { source: this.args.audit.id },
         },
-        "copyDocument.document"
+        "copyDocument.document",
       );
 
       const documentId = decodeId(document.id);

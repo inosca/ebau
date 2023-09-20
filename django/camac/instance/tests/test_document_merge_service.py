@@ -2,6 +2,8 @@ from datetime import datetime
 from pathlib import Path
 
 import pytest
+from alexandria.core.factories import CategoryFactory
+from alexandria.core.models import Document as AlexandriaDocument
 from caluma.caluma_form.models import DynamicOption
 from caluma.caluma_user.models import BaseUser
 from django.conf import settings
@@ -39,6 +41,7 @@ def caluma_form_fixture(db):
         "config/caluma_distribution.json",
         "config/caluma_workflow.json",
         "config/caluma_legal_submission_form.json",
+        "config/caluma_appeal_form.json",
         "data/caluma_form.json",
         "data/caluma_workflow.json",
         "data/user.json",
@@ -105,20 +108,20 @@ def test_document_merge_service_snapshot(
                 f"{snapshot_name}_header",
             )
 
-            visitor = DMSVisitor(root_document, BaseUser())
+            visitor = DMSVisitor(root_document, instance, BaseUser())
             snapshot.assert_match(visitor.visit(root_document), snapshot_name)
 
 
 def test_document_merge_service_is_valid(db, caluma_form_fixture, dms_settings):
     cache.clear()
 
-    _, root_document = DMSHandler().get_instance_and_document(instance_id=1)
+    instance, root_document = DMSHandler().get_instance_and_document(instance_id=1)
 
-    assert DMSVisitor(root_document, BaseUser()).is_valid()
+    assert DMSVisitor(root_document, instance, BaseUser()).is_valid()
 
     root_document.answers.all().delete()
 
-    assert not DMSVisitor(root_document, BaseUser()).is_valid()
+    assert not DMSVisitor(root_document, instance, BaseUser()).is_valid()
 
 
 def test_document_merge_service_client(db, requests_mock):
@@ -276,6 +279,149 @@ def test_document_merge_service_cover_sheet_without_header_values(
     snapshot.assert_match(
         DMSHandler().get_meta_data(
             be_instance, be_instance.case.document, group.service
+        )
+    )
+
+
+@pytest.mark.freeze_time("2022-09-06 13:37")
+@pytest.mark.django_db(transaction=True, reset_sequences=True)
+def test_eingabebestaetigung_gr(
+    db,
+    dms_settings,
+    settings,
+    gr_instance,
+    service_factory,
+    group,
+    snapshot,
+    freezer,
+    application_settings,
+    master_data_is_visible_mock,
+):
+    settings.APPLICATION_NAME = "kt_gr"
+    application_settings["DOCUMENT_BACKEND"] = "alexandria"
+    application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_gr"]["MASTER_DATA"]
+
+    gr_instance.case.meta = {
+        "camac-instance-id": gr_instance.pk,
+        "submit-date": "2021-01-01",
+        "paper-submit-date": "2021-01-02",
+    }
+    gr_instance.case.save()
+
+    municipality = service_factory(
+        service_group__name="municipality",
+        trans__language="de",
+        trans__name="Leitbehörde Chur",
+    )
+    group.service = municipality
+    group.save()
+
+    alexandria_category = CategoryFactory()
+
+    application_settings["DOCUMENT_MERGE_SERVICE"]["ALEXANDRIA_DOCUMENT_CATEGORIES"] = [
+        alexandria_category.pk
+    ]
+
+    AlexandriaDocument.objects.create(
+        title="Lageplan.pdf",
+        category=alexandria_category,
+        metainfo={"camac-instance-id": gr_instance.pk},
+    )
+
+    # Prepare plot answer
+    add_table_answer(
+        gr_instance.case.document,
+        "parzelle",
+        [
+            {
+                "parzellennummer": "123",
+            },
+            {
+                # This should be excluded since no parcel number is given
+                "egrid": "CH908035124647",
+            },
+        ],
+    )
+
+    # Prepare applicant answer
+    add_table_answer(
+        gr_instance.case.document,
+        "personalien-gesuchstellerin",
+        [
+            {
+                "vorname-gesuchstellerin": "Foo",
+                "name-gesuchstellerin": "Bar",
+                "juristische-person-gesuchstellerin": "juristische-person-gesuchstellerin-ja",
+                "name-juristische-person-gesuchstellerin": "Test AG",
+            }
+        ],
+    )
+
+    # Prepare landowner answer
+    add_table_answer(
+        gr_instance.case.document,
+        "personalien-grundeigentumerin",
+        [
+            {
+                "vorname-gesuchstellerin": "Grund",
+                "name-gesuchstellerin": "Eigentümerin",
+                "juristische-person-gesuchstellerin": "juristische-person-gesuchstellerin-ja",
+                "name-juristische-person-gesuchstellerin": "Eigentümer AG",
+            }
+        ],
+    )
+
+    # Prepare project author answer
+    add_table_answer(
+        gr_instance.case.document,
+        "personalien-projektverfasserin",
+        [
+            {
+                "vorname-gesuchstellerin": "Projekt",
+                "name-gesuchstellerin": "Verfasserin",
+                "juristische-person-gesuchstellerin": "juristische-person-gesuchstellerin-ja",
+                "name-juristische-person-gesuchstellerin": "Projektverfasserin AG",
+            }
+        ],
+    )
+
+    # Prepare project modification
+    add_answer(gr_instance.case.document, "projektaenderung", "projektaenderung-ja")
+    add_answer(
+        gr_instance.case.document, "beschreibung-projektaenderung", "Projekt Änderung"
+    )
+
+    # Prepare plot address
+    add_answer(gr_instance.case.document, "strasse-flurname", "Bahnhofstrasse")
+    add_answer(gr_instance.case.document, "nr", "2")
+    add_answer(gr_instance.case.document, "ort-grundstueck", "Testhausen")
+
+    # Prepare authority
+    gr_instance.instance_services.all().delete()
+    gr_instance.instance_services.create(service=municipality, active=1)
+
+    # Prepare proposal
+    add_answer(
+        gr_instance.case.document, "beschreibung-bauvorhaben", "Bau Einfamilienhaus"
+    )
+
+    # Municipality
+    add_answer(gr_instance.case.document, "gemeinde", "1")
+    DynamicOption.objects.create(
+        document=gr_instance.case.document,
+        question_id="gemeinde",
+        slug="1",
+        label="Testhausen",
+    )
+
+    gr_instance.case.document.created_at = make_aware(datetime(2022, 8, 3, 9, 19))
+    gr_instance.case.document.save()
+
+    freezer.move_to("2022-09-07 12:01")
+
+    snapshot.assert_match(
+        DMSHandler().get_data(
+            gr_instance, gr_instance.case.document, BaseUser(), group.service
         )
     )
 

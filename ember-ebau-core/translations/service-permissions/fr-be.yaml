@@ -1,0 +1,28 @@
+service-permissions:
+  sub-services-add-warning: |-
+    <b>ATTENTION :</b> Veuillez-vous assurer que seules les unités d'un service
+    spécialisé sont saisies, qui ne sont pas déjà disponibles dans le système.
+    Existent déjà :
+    <ul class="uk-list uk-list-collapse uk-list-disc">
+      <li>Préfectures</li>
+      <li>Communes</li>
+      <li>Offices cantonaux et offices spécialisés</li>
+      <li>
+        Les offices régionales spécialisées sont énumérées ci-dessous :
+        <ul class="uk-list uk-list-collapse uk-list-circle">
+          <li>BKW</li>
+          <li>BLS Netz</li>
+          <li>CFF SA Droits fonciers Région Centre</li>
+          <li>CFF SA Droits fonciers Région Ouest</li>
+          <li>EMN Kontrollstelle Thun</li>
+          <li>Energieberatungsstelle Bern-Mittelland</li>
+          <li>GVB</li>
+          <li>Hindernisfreies Bauen</li>
+          <li>Minergie office de certification Berne Soleure</li>
+          <li>Patrimoine bernois</li>
+          <li>Procap - Région Bienne / Jura bernois</li>
+          <li>Sunrise GmbH</li>
+          <li>Swisscom</li>
+        </ul>
+      </li>
+    </ul>

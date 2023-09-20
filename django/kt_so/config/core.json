@@ -1,0 +1,704 @@
+[
+  {
+    "model": "core.airaction",
+    "pk": 1,
+    "fields": {
+      "available_instance_resource": "page",
+      "action_name": "index",
+      "hidden": 0
+    }
+  },
+  {
+    "model": "core.airaction",
+    "pk": 2,
+    "fields": {
+      "available_instance_resource": "workitemlistinstance",
+      "action_name": "index",
+      "hidden": 0
+    }
+  },
+  {
+    "model": "core.airaction",
+    "pk": 3,
+    "fields": {
+      "available_instance_resource": "history",
+      "action_name": "index",
+      "hidden": 0
+    }
+  },
+  {
+    "model": "core.airaction",
+    "pk": 4,
+    "fields": {
+      "available_instance_resource": "taskform",
+      "action_name": "index",
+      "hidden": 0
+    }
+  },
+  {
+    "model": "core.araction",
+    "pk": 1,
+    "fields": {
+      "available_resource": "page",
+      "action_name": "template",
+      "hidden": 0
+    }
+  },
+  {
+    "model": "core.araction",
+    "pk": 2,
+    "fields": {
+      "available_resource": "workitemlistall",
+      "action_name": "index",
+      "hidden": 0
+    }
+  },
+  {
+    "model": "core.araction",
+    "pk": 3,
+    "fields": {
+      "available_resource": "emberlist",
+      "action_name": "index",
+      "hidden": 0
+    }
+  },
+  {
+    "model": "core.availableinstanceresource",
+    "pk": "history",
+    "fields": {
+      "module_name": "history",
+      "controller_name": "history",
+      "description": "(Ember / PHP) History"
+    }
+  },
+  {
+    "model": "core.availableinstanceresource",
+    "pk": "page",
+    "fields": {
+      "module_name": "default",
+      "controller_name": "page",
+      "description": "(PHP) Page from template"
+    }
+  },
+  {
+    "model": "core.availableinstanceresource",
+    "pk": "taskform",
+    "fields": {
+      "module_name": "taskform",
+      "controller_name": "taskform",
+      "description": "(Ember) Caluma form of a given task"
+    }
+  },
+  {
+    "model": "core.availableinstanceresource",
+    "pk": "workitemlistinstance",
+    "fields": {
+      "module_name": "workitem",
+      "controller_name": "workitemlistinstance",
+      "description": "(Ember) Work items of the instance"
+    }
+  },
+  {
+    "model": "core.availableresource",
+    "pk": "emberlist",
+    "fields": {
+      "module_name": "emberlist",
+      "controller_name": "emberlist",
+      "description": "(Ember) List of instances"
+    }
+  },
+  {
+    "model": "core.availableresource",
+    "pk": "page",
+    "fields": {
+      "module_name": "default",
+      "controller_name": "index",
+      "description": "(PHP) Page from template"
+    }
+  },
+  {
+    "model": "core.availableresource",
+    "pk": "workitemlistall",
+    "fields": {
+      "module_name": "workitem",
+      "controller_name": "workitemlistall",
+      "description": "(Ember) Work items"
+    }
+  },
+  {
+    "model": "core.formgroup",
+    "pk": 1,
+    "fields": {
+      "name": null,
+      "description": null
+    }
+  },
+  {
+    "model": "core.formgroupform",
+    "pk": 1,
+    "fields": {
+      "form_group": 1,
+      "form": 1
+    }
+  },
+  {
+    "model": "core.formgroupt",
+    "pk": 1,
+    "fields": {
+      "form_group": 1,
+      "language": "de",
+      "name": "Alle Formulare",
+      "description": null
+    }
+  },
+  {
+    "model": "core.grouppermission",
+    "pk": 1,
+    "fields": {
+      "group": 1,
+      "permission_id": "menu_account"
+    }
+  },
+  {
+    "model": "core.grouppermission",
+    "pk": 2,
+    "fields": {
+      "group": 1,
+      "permission_id": "account_user"
+    }
+  },
+  {
+    "model": "core.grouppermission",
+    "pk": 3,
+    "fields": {
+      "group": 1,
+      "permission_id": "account_group"
+    }
+  },
+  {
+    "model": "core.grouppermission",
+    "pk": 4,
+    "fields": {
+      "group": 1,
+      "permission_id": "account_role"
+    }
+  },
+  {
+    "model": "core.grouppermission",
+    "pk": 5,
+    "fields": {
+      "group": 1,
+      "permission_id": "account_service-group"
+    }
+  },
+  {
+    "model": "core.grouppermission",
+    "pk": 6,
+    "fields": {
+      "group": 1,
+      "permission_id": "account_service"
+    }
+  },
+  {
+    "model": "core.grouppermission",
+    "pk": 7,
+    "fields": {
+      "group": 1,
+      "permission_id": "menu_form"
+    }
+  },
+  {
+    "model": "core.grouppermission",
+    "pk": 8,
+    "fields": {
+      "group": 1,
+      "permission_id": "form_form"
+    }
+  },
+  {
+    "model": "core.grouppermission",
+    "pk": 9,
+    "fields": {
+      "group": 1,
+      "permission_id": "form_page"
+    }
+  },
+  {
+    "model": "core.grouppermission",
+    "pk": 10,
+    "fields": {
+      "group": 1,
+      "permission_id": "form_chapter"
+    }
+  },
+  {
+    "model": "core.grouppermission",
+    "pk": 11,
+    "fields": {
+      "group": 1,
+      "permission_id": "form_question"
+    }
+  },
+  {
+    "model": "core.grouppermission",
+    "pk": 12,
+    "fields": {
+      "group": 1,
+      "permission_id": "form_form-group"
+    }
+  },
+  {
+    "model": "core.grouppermission",
+    "pk": 13,
+    "fields": {
+      "group": 1,
+      "permission_id": "form_answer-query"
+    }
+  },
+  {
+    "model": "core.grouppermission",
+    "pk": 14,
+    "fields": {
+      "group": 1,
+      "permission_id": "form_answer-list"
+    }
+  },
+  {
+    "model": "core.grouppermission",
+    "pk": 17,
+    "fields": {
+      "group": 1,
+      "permission_id": "form_mapping"
+    }
+  },
+  {
+    "model": "core.grouppermission",
+    "pk": 18,
+    "fields": {
+      "group": 1,
+      "permission_id": "form_page-form-group"
+    }
+  },
+  {
+    "model": "core.grouppermission",
+    "pk": 19,
+    "fields": {
+      "group": 1,
+      "permission_id": "menu_resource"
+    }
+  },
+  {
+    "model": "core.grouppermission",
+    "pk": 20,
+    "fields": {
+      "group": 1,
+      "permission_id": "resource_tree"
+    }
+  },
+  {
+    "model": "core.grouppermission",
+    "pk": 21,
+    "fields": {
+      "group": 1,
+      "permission_id": "resource_resource"
+    }
+  },
+  {
+    "model": "core.grouppermission",
+    "pk": 22,
+    "fields": {
+      "group": 1,
+      "permission_id": "resource_instance-resource"
+    }
+  },
+  {
+    "model": "core.grouppermission",
+    "pk": 23,
+    "fields": {
+      "group": 1,
+      "permission_id": "resource_button"
+    }
+  },
+  {
+    "model": "core.grouppermission",
+    "pk": 24,
+    "fields": {
+      "group": 1,
+      "permission_id": "resource_action"
+    }
+  },
+  {
+    "model": "core.grouppermission",
+    "pk": 25,
+    "fields": {
+      "group": 1,
+      "permission_id": "resource_instance-state"
+    }
+  },
+  {
+    "model": "core.grouppermission",
+    "pk": 26,
+    "fields": {
+      "group": 1,
+      "permission_id": "resource_search-filter"
+    }
+  },
+  {
+    "model": "core.grouppermission",
+    "pk": 27,
+    "fields": {
+      "group": 1,
+      "permission_id": "resource_resource-loader"
+    }
+  },
+  {
+    "model": "core.grouppermission",
+    "pk": 28,
+    "fields": {
+      "group": 1,
+      "permission_id": "resource_instance-resource-loader"
+    }
+  },
+  {
+    "model": "core.grouppermission",
+    "pk": 29,
+    "fields": {
+      "group": 1,
+      "permission_id": "resource_action-loader"
+    }
+  },
+  {
+    "model": "core.grouppermission",
+    "pk": 37,
+    "fields": {
+      "group": 1,
+      "permission_id": "menu_module"
+    }
+  },
+  {
+    "model": "core.grouppermission",
+    "pk": 38,
+    "fields": {
+      "group": 1,
+      "permission_id": "module_module"
+    }
+  },
+  {
+    "model": "core.grouppermission",
+    "pk": 39,
+    "fields": {
+      "group": 1,
+      "permission_id": "module_data-loader"
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 1,
+    "fields": {
+      "available_instance_resource": "workitemlistinstance",
+      "resource": 3,
+      "name": null,
+      "description": null,
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 1,
+      "form_group": 1
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 2,
+    "fields": {
+      "available_instance_resource": "page",
+      "resource": 3,
+      "name": null,
+      "description": null,
+      "template": "/ember-camac-ng/alexandria.phtml",
+      "class_field": null,
+      "hidden": 0,
+      "sort": 2,
+      "form_group": 1
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 3,
+    "fields": {
+      "available_instance_resource": "page",
+      "resource": 3,
+      "name": null,
+      "description": null,
+      "template": "/ember/instance.phtml",
+      "class_field": null,
+      "hidden": 0,
+      "sort": 3,
+      "form_group": 1
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 1,
+    "fields": {
+      "instance_resource": 1,
+      "language": "de",
+      "name": "Aufgaben",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 2,
+    "fields": {
+      "instance_resource": 2,
+      "language": "de",
+      "name": "Dokumente",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 3,
+    "fields": {
+      "instance_resource": 3,
+      "language": "de",
+      "name": "Formular",
+      "description": null
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 1,
+    "fields": {
+      "instance_resource": 1,
+      "role": 5,
+      "instance_state": 2
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2,
+    "fields": {
+      "instance_resource": 2,
+      "role": 5,
+      "instance_state": 2
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 3,
+    "fields": {
+      "instance_resource": 3,
+      "role": 5,
+      "instance_state": 2
+    }
+  },
+  {
+    "model": "core.remberlist",
+    "pk": 2,
+    "fields": {
+      "instance_states": "1"
+    }
+  },
+  {
+    "model": "core.remberlist",
+    "pk": 3,
+    "fields": {
+      "instance_states": "2"
+    }
+  },
+  {
+    "model": "core.remberlist",
+    "pk": 4,
+    "fields": {
+      "instance_states": "2"
+    }
+  },
+  {
+    "model": "core.remberlist",
+    "pk": 5,
+    "fields": {
+      "instance_states": "2"
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 1,
+    "fields": {
+      "resource": 1,
+      "role": 5
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 2,
+    "fields": {
+      "resource": 1,
+      "role": 6
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 3,
+    "fields": {
+      "resource": 1,
+      "role": 7
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 4,
+    "fields": {
+      "resource": 1,
+      "role": 10
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 5,
+    "fields": {
+      "resource": 1,
+      "role": 11
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 6,
+    "fields": {
+      "resource": 2,
+      "role": 3
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 7,
+    "fields": {
+      "resource": 3,
+      "role": 5
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 8,
+    "fields": {
+      "resource": 3,
+      "role": 6
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 9,
+    "fields": {
+      "resource": 3,
+      "role": 8
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 10,
+    "fields": {
+      "resource": 4,
+      "role": 4
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 11,
+    "fields": {
+      "resource": 4,
+      "role": 9
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 1,
+    "fields": {
+      "available_resource": "workitemlistall",
+      "name": null,
+      "description": null,
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 0
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 2,
+    "fields": {
+      "available_resource": "emberlist",
+      "name": null,
+      "description": null,
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 1
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 3,
+    "fields": {
+      "available_resource": "emberlist",
+      "name": null,
+      "description": null,
+      "template": null,
+      "class_field": "displaySearch",
+      "hidden": 0,
+      "sort": 2
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 4,
+    "fields": {
+      "available_resource": "page",
+      "name": null,
+      "description": null,
+      "template": "/ember-camac-ng/service-permissions.phtml",
+      "class_field": null,
+      "hidden": 0,
+      "sort": 3
+    }
+  },
+  {
+    "model": "core.resourcet",
+    "pk": 1,
+    "fields": {
+      "resource": 1,
+      "language": "de",
+      "name": "Aufgaben",
+      "description": "Aufgabenliste für alle Rollen"
+    }
+  },
+  {
+    "model": "core.resourcet",
+    "pk": 2,
+    "fields": {
+      "resource": 2,
+      "language": "de",
+      "name": "Alle Dossiers",
+      "description": "Dossierliste für Support"
+    }
+  },
+  {
+    "model": "core.resourcet",
+    "pk": 3,
+    "fields": {
+      "resource": 3,
+      "language": "de",
+      "name": "Meine Dossiers",
+      "description": "Dossierliste für Gemeinden"
+    }
+  },
+  {
+    "model": "core.resourcet",
+    "pk": 4,
+    "fields": {
+      "resource": 4,
+      "language": "de",
+      "name": "Meine Organisation",
+      "description": "Verwaltung von Berechtigungen, Stammdaten und Unterfachstellen"
+    }
+  }
+]

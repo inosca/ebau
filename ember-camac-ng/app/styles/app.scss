@@ -2,7 +2,8 @@
   --uk-position-margin-offset: 0px;
 }
 
-#ember-camac-ng {
+#ember-camac-ng,
+#ember-testing {
   @import "variables";
   @import "ember-uikit";
   @import "@projectcaluma/ember-distribution";
@@ -14,7 +15,6 @@
 
   @import "modules/dossier-import";
 
-  @import "components/icon-button";
   @import "components/work-item-list";
   @import "components/case-table";
   @import "components/ur-gis";
@@ -22,6 +22,5 @@
   @import "misc";
   @import "power-select";
   @import "x-toggle";
-  @import "visibility";
   @import "a11y";
 }

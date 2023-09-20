@@ -81,7 +81,12 @@ class User(AbstractBaseUser):
     zip = models.CharField(
         db_column="ZIP", max_length=10, blank=True, null=True, verbose_name=_("Zip")
     )
-    groups = models.ManyToManyField("Group", through="UserGroup", related_name="users")
+    groups = models.ManyToManyField(
+        "Group",
+        through="UserGroup",
+        related_name="users",
+        through_fields=("user", "group"),
+    )
 
     @property
     def is_superuser(self):
@@ -141,6 +146,19 @@ class User(AbstractBaseUser):
         if user_group:
             return user_group.group
 
+    @property
+    def alexandria_user(self):
+        return self.id
+
+    @property
+    def alexandria_group(self):  # pragma: no cover
+        group = self.get_default_group()
+        if not group:
+            return "-"
+        if not group.service:
+            return "-"
+        return group.service.pk
+
     def __str__(self):
         return self.get_full_name()
 
@@ -164,6 +182,14 @@ class UserT(models.Model):
 
 
 class Group(core_models.MultilingualModel, models.Model):
+    """A group is tightly coupled to one role (with child roles) and one service/organisation (with child entities).
+
+    It builds a link between user and service/organisation. A group has location information attached.
+    Examples:
+    - Admin with role Admin
+    - Administration Location X with role Administration
+    """
+
     group_id = models.AutoField(
         db_column="GROUP_ID", primary_key=True, verbose_name=_("ID")
     )
@@ -333,6 +359,8 @@ class GroupLocation(models.Model):
 
 
 class UserGroup(models.Model):
+    """Builds the n-to-n relationship between the users and the groups."""
+
     id = models.AutoField(db_column="ID", primary_key=True)
     user = models.ForeignKey(
         User,
@@ -351,6 +379,14 @@ class UserGroup(models.Model):
     default_group = models.PositiveSmallIntegerField(
         db_column="DEFAULT_GROUP", verbose_name=_("Default group?")
     )
+    created_at = models.DateTimeField(blank=True, null=True, auto_now_add=True)
+    created_by = models.ForeignKey(
+        User,
+        models.CASCADE,
+        related_name="+",
+        blank=True,
+        null=True,
+    )
 
     class Meta:
         managed = True
@@ -366,6 +402,7 @@ class UserGroupLog(models.Model):
     user_id = models.IntegerField(db_column="USER_ID")
     action = models.CharField(db_column="ACTION", max_length=500)
     data = models.TextField(db_column="DATA", blank=True, null=True)
+
     id1 = models.IntegerField(db_column="ID1")
     field1 = models.CharField(db_column="FIELD1", max_length=30)
     id2 = models.IntegerField(db_column="ID2")
@@ -377,6 +414,15 @@ class UserGroupLog(models.Model):
 
 
 class Role(core_models.MultilingualModel, models.Model):
+    """Represents an organisational role which is tied to a user.
+
+    A role can have many groups.
+    Examples:
+    - business specific role a person takes within an organisation entity
+    - guest role or admin role (-> user.is_superuser)
+    - portal visitor / customer role
+    """
+
     role_id = models.AutoField(
         db_column="ROLE_ID", primary_key=True, verbose_name=_("ID")
     )
@@ -431,6 +477,11 @@ class RoleT(models.Model):
 
 
 class ServiceGroup(core_models.MultilingualModel, models.Model):
+    """The type or group membership of an organisational entity.
+
+    Such an organisational entity belongs to exactly one service group.
+    """
+
     service_group_id = models.AutoField(
         db_column="SERVICE_GROUP_ID", primary_key=True, verbose_name=_("ID")
     )
@@ -468,6 +519,17 @@ def next_service_sort():
 
 
 class Service(core_models.MultilingualModel, models.Model):
+    """Represents an organisational entity which can be hierarchically structured.
+
+    A service has one service group. A service is bound to roles via the group table:
+    Remember that a group has also location information like a service, and links to roles:
+
+    - `service.group.roles`
+
+    Examples:
+    - Leitbehörde Woppeln
+    """
+
     service_id = models.AutoField(
         db_column="SERVICE_ID", primary_key=True, verbose_name=_("ID")
     )
@@ -482,7 +544,7 @@ class Service(core_models.MultilingualModel, models.Model):
         "self",
         models.SET_NULL,
         db_column="SERVICE_PARENT_ID",
-        related_name="+",
+        related_name="service_children",
         blank=True,
         null=True,
         verbose_name=_("Service parent"),

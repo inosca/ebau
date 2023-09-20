@@ -13,6 +13,7 @@ r.register(r"services", views.ServiceView)
 r.register(r"public-services", views.PublicServiceView, basename="publicservice")
 r.register(r"users", views.UserView)
 r.register(r"public-users", views.PublicUserView, basename="publicuser")
+r.register(r"user-groups", views.UserGroupView, basename="usergroup")
 
 urlpatterns = [re_path(r"^me", views.MeView.as_view({"get": "retrieve"}), name="me")]
 

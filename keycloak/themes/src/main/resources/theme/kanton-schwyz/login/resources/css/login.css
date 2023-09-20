@@ -1,0 +1,347 @@
+/*
+There are many bootstrap classes that are no longer needed.
+The CSS file should possibly be rewritten.
+*/
+a,
+a:link,
+a:visited {
+  color: #e10a16;
+}
+
+.login-pf body {
+  background: white;
+  background-size: cover;
+}
+
+div.checkbox {
+  display: block;
+}
+
+.btn-large {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+@media (max-width: 767px) {
+  .text-right {
+    text-align: left !important;
+  }
+}
+
+@media (min-width: 576px) {
+  div.checkbox {
+    display: inline-block;
+  }
+}
+
+@media (min-width: 900px) {
+  .kc-login {
+    width: 70%;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+}
+
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+#kc-header {
+  min-height: 0;
+  background: #f6f4f3 url("../img/logo-kanton-schwyz.svg") no-repeat center top
+    10px;
+  background-size: 300px 140px;
+
+  margin-top: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0;
+  padding-top: 160px;
+  padding-left: 0;
+  padding-right: 0;
+
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+#kc-header-wrapper {
+  height: 250px;
+  background-color: #f6f4f3;
+  font-size: 0;
+
+  padding: 0;
+  padding-bottom: 30px;
+  background: #f6f4f3 url("../img/home-pano-05.jpg") top center no-repeat;
+  background-size: cover;
+}
+
+.kc-logo-text {
+  position: relative;
+  top: 350px;
+}
+
+.sz-header {
+  padding-right: 30px;
+  background: #f6f4f3;
+}
+
+#kc-locale-wrapper {
+  padding-bottom: 15px;
+  text-align: right;
+}
+
+#kc-page-title {
+  margin: 0;
+  padding-bottom: 20px;
+  padding-left: 5px;
+  font-size: 2rem;
+}
+
+@media (min-width: 768px) {
+  #kc-page-title {
+    margin-left: 41.6%;
+  }
+}
+
+#kc-content {
+  padding-bottom: 30px;
+  background-color: #f6f4f3;
+
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+#kc-content-wrapper {
+  padding-right: 30px;
+}
+
+.kc-options {
+  margin-left: auto;
+}
+
+#kc-form-wrapper {
+  padding: 0 15px;
+}
+
+@media (min-width: 576px) {
+  #kc-form-options {
+    margin-left: 0;
+    padding-left: 2px;
+  }
+}
+
+@media (min-width: 768px) {
+  #kc-form-options {
+    margin-left: 41.6%;
+    padding-left: 2px;
+  }
+}
+
+@media (min-width: 576px) {
+  #kc-form-buttons {
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  #kc-form-buttons {
+    max-width: 58.3%;
+    margin-left: 41.6%;
+  }
+}
+
+#kc-info-wrapper {
+  padding: 0;
+}
+
+#kc-reset-password-form .direct-on-tag {
+  max-width: none;
+}
+
+@media (min-width: 768px) {
+  div.alert {
+    margin-left: 5px;
+  }
+}
+
+@media (min-width: 1030px) {
+  div.alert {
+    margin-left: 45px;
+  }
+}
+
+.alert-error {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+
+#kc-social-providers ul {
+  list-style-type: none;
+  margin-top: 1rem;
+  margin-bottom: 0;
+  padding-left: 0;
+  margin-left: -7px;
+}
+
+#kc-social-providers li {
+  display: block;
+  margin-top: 0.5rem;
+}
+
+.zocial {
+  width: 150px;
+}
+
+.zocial,
+a.zocial {
+  line-height: 1.5;
+
+  /* primary */
+  /*color: #fff;*/
+  /*background-color: #007bff;*/
+  /*border-color: #007bff;*/
+
+  /* secondary */
+  color: #fff;
+  background-color: #6c757d;
+  border-color: #6c757d;
+
+  padding-top: 0.375rem;
+  padding-bottom: 0.375rem;
+
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+
+  -moz-border-radius: 0.25rem;
+  -webkit-border-radius: 0.25rem;
+  border-radius: 0.25rem;
+}
+
+.zocial,
+a.zocial:hover {
+  /*primary*/
+  /*color: #fff;*/
+  /*background-color: #0069d9;*/
+  /*border-color: #0062cc;*/
+
+  /* secondary */
+  color: #fff;
+  background-color: #5a6268;
+  border-color: #545b62;
+}
+
+#kc-form-wrapper {
+}
+
+#kc-current-locale-link {
+}
+
+.kc-dropdown {
+  position: relative;
+}
+.kc-dropdown > a {
+  padding-right: 15px;
+  text-decoration: none;
+}
+
+.kc-dropdown > a::after {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 0.255em;
+  vertical-align: 0.255em;
+  content: "";
+  border-top: 0.3em solid;
+  border-right: 0.3em solid transparent;
+  border-bottom: 0;
+  border-left: 0.3em solid transparent;
+}
+
+.kc-dropdown ul {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 1000;
+  display: none;
+
+  float: right;
+
+  min-width: 10rem;
+  padding: 0.5rem 0;
+  margin: 0.125rem 0 0;
+  font-size: 1rem;
+  color: #212529;
+  text-align: left;
+  list-style: none;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 0.25rem;
+}
+
+.kc-dropdown ul li a {
+  display: block;
+  width: 100%;
+  padding: 0.25rem 1.5rem;
+  clear: both;
+  font-weight: 400;
+  color: #212529;
+  text-align: inherit;
+  white-space: nowrap;
+  background-color: transparent;
+  border: 0;
+}
+
+.kc-dropdown ul li a:hover {
+  color: #16181b;
+  text-decoration: none;
+  background-color: #f8f9fa;
+}
+
+.kc-dropdown:hover ul {
+  display: block;
+}
+
+#kc-totp-secret-key {
+  border: 1px solid #eee;
+  background-color: #fff;
+  border-radius: 0.25rem;
+  font-size: 16px;
+  padding: 10px;
+  margin: 50px 0;
+}
+
+.form-group.has-error > div > input {
+  border-color: #dc3545;
+}
+
+.form-group.has-error > div > input:focus {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+
+#kc-username {
+  display: block;
+  margin: 0;
+  padding: 5px 0;
+  text-align: center;
+}
+
+#kc-username label {
+  display: none;
+}
+
+.alert-info {
+  background-color: #f6f4f3;
+  padding-right: 15px;
+  text-align: right;
+}

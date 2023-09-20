@@ -447,6 +447,7 @@ def test_distribution_permission_for_answer(
         ("Municipality", WorkItem.STATUS_READY, False, False),
         ("Municipality", WorkItem.STATUS_COMPLETED, True, False),
         ("Municipality", WorkItem.STATUS_READY, True, True),
+        ("Service", WorkItem.STATUS_READY, True, True),
         ("Support", WorkItem.STATUS_COMPLETED, False, True),
     ],
 )

@@ -56,7 +56,7 @@ export default class WorkItemDetailComponent extends Component {
           instanceId: parseInt(this.args.instanceId),
         },
       },
-      "allWorkItems.totalCount"
+      "allWorkItems.totalCount",
     );
   });
 }

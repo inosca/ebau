@@ -103,6 +103,7 @@ class InstanceExportSerializerBE(InstanceExportSerializer):
         label=_("Decision"),
     )
     tags = serializers.CharField(source="tag_names", label=_("Tags"))
+    building_project = serializers.CharField(label=_("Building project"))
 
     def load_municipality_sheet(self):
         reader = csv.DictReader(
@@ -139,6 +140,7 @@ class InstanceExportSerializerBE(InstanceExportSerializer):
             "dossier_number",
             "form_name",
             "address",
+            "building_project",
             "submit_date",
             "instance_state_name",
             "responsible_user",

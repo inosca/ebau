@@ -26,7 +26,7 @@ class InstanceQuerysetMixin(object):
     """
     Mixin to filter queryset by instances which may be read by given role.
 
-    Define `instance_field` where instance is located on model (dot annotation).
+    Define `instance_field` where instance is located on model.
 
     This mixin was written for usage in views. Meanwhile we also use it in different
     places. To make it work outside of a view, make sure you set the `user` and `group`
@@ -40,7 +40,9 @@ class InstanceQuerysetMixin(object):
         result = field
 
         if self.instance_field:
-            instance_field = self.instance_field.replace(".", LOOKUP_SEP)
+            # We switched away from dot-notation
+            assert "." not in self.instance_field
+            instance_field = self.instance_field
             result = instance_field + LOOKUP_SEP + result
 
         if (
@@ -254,8 +256,9 @@ class InstanceQuerysetMixin(object):
                 "meta__is-published": True,
                 "status": WorkItem.STATUS_COMPLETED,
             }
-            start_question = "publikation-startdatum"
-            end_question = "publikation-ablaufdatum"
+            start_questions = settings.PUBLICATION.get("START_QUESTIONS")
+            end_questions = settings.PUBLICATION.get("END_QUESTIONS")
+            publish_question = settings.PUBLICATION.get("PUBLISH_QUESTION")
 
             if public_access_key:
                 filters.update(
@@ -264,22 +267,28 @@ class InstanceQuerysetMixin(object):
                         "document__pk__startswith": public_access_key,
                     }
                 )
-                start_question = "information-of-neighbors-start-date"
-                end_question = "information-of-neighbors-end-date"
+                start_questions = ["information-of-neighbors-start-date"]
+                end_questions = ["information-of-neighbors-end-date"]
 
-            public_cases = list(
+            public_cases = (
                 WorkItem.objects.filter(**filters)
                 .filter(
-                    document__answers__question_id=start_question,
+                    document__answers__question_id__in=start_questions,
                     document__answers__date__lte=timezone.now(),
                 )
                 .filter(
-                    document__answers__question_id=end_question,
+                    document__answers__question_id__in=end_questions,
                     document__answers__date__gte=timezone.now(),
                 )
-                .values_list("case__family", flat=True)
             )
 
+            if publish_question:
+                public_cases = public_cases.filter(
+                    document__answers__question_id=publish_question,
+                    document__answers__value=["oeffentliche-auflage-ja"],
+                )
+
+            public_cases = list(public_cases.values_list("case__family", flat=True))
             return queryset.filter(
                 **{self._get_instance_filter_expr("case__pk__in"): public_cases}
             )

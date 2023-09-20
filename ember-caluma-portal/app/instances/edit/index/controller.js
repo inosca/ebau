@@ -1,9 +1,8 @@
 import Controller, { inject as controller } from "@ember/controller";
 import { inject as service } from "@ember/service";
 import { macroCondition, getOwnConfig } from "@embroider/macros";
-import { useCalumaQuery } from "@projectcaluma/ember-core/caluma-query";
-import { allCases } from "@projectcaluma/ember-core/caluma-query/queries";
 import { dropTask } from "ember-concurrency";
+import mainConfig from "ember-ebau-core/config/main";
 import { confirm } from "ember-uikit";
 
 import config from "caluma-portal/config/environment";
@@ -14,22 +13,14 @@ export default class InstancesEditIndexController extends Controller {
   @service intl;
   @service router;
 
-  cases = useCalumaQuery(this, allCases, () => ({
-    filter: [
-      {
-        metaValue: [{ key: "camac-instance-id", value: this.model }],
-      },
-    ],
-  }));
-
   @controller("instances.edit") editController;
-
-  get hasFeedbackSection() {
-    return Boolean(config.APPLICATION.documents.feedbackSections);
-  }
 
   get feedback() {
     return this.editController.feedback;
+  }
+
+  get case() {
+    return this.editController.case;
   }
 
   get decision() {
@@ -56,8 +47,8 @@ export default class InstancesEditIndexController extends Controller {
     );
   }
 
-  get case() {
-    return this.cases.value?.[0];
+  get hasSpecialId() {
+    return Boolean(mainConfig.answerSlugs.specialId);
   }
 
   @dropTask
@@ -96,7 +87,7 @@ export default class InstancesEditIndexController extends Controller {
     yield this.router.transitionTo(
       "instances.edit.form",
       data.id,
-      this.instance.value.calumaForm
+      this.instance.value.calumaForm,
     );
   }
 
@@ -137,7 +128,7 @@ export default class InstancesEditIndexController extends Controller {
     yield this.router.transitionTo(
       "instances.edit.form",
       instanceId,
-      "verlaengerung-geltungsdauer"
+      "verlaengerung-geltungsdauer",
     );
   }
 
@@ -162,7 +153,7 @@ export default class InstancesEditIndexController extends Controller {
     yield this.router.transitionTo(
       "instances.edit.form",
       instanceId,
-      "technische-bewilligung"
+      "technische-bewilligung",
     );
   }
 }

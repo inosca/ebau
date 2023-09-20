@@ -1,11 +1,11 @@
 import { inject as service } from "@ember/service";
 import CaseModel from "@projectcaluma/ember-core/caluma-query/models/case";
+import mainConfig from "ember-ebau-core/config/main";
 import { getAnswerDisplayValue } from "ember-ebau-core/utils/get-answer";
 
-import config from "caluma-portal/config/environment";
 import getFormTitle from "caluma-portal/utils/form-title";
 
-const { answerSlugs } = config.APPLICATION;
+const { answerSlugs } = mainConfig;
 
 const DECISION_COLOR_MAPPING = {
   "decision-decision-assessment-positive": "uk-alert-success",
@@ -16,6 +16,7 @@ const DECISION_COLOR_MAPPING = {
   "decision-decision-assessment-retreat": "uk-alert-warning",
 };
 
+// TODO: Could potentially be merged with caluma query model in ember-ebau-core
 export default class CustomCaseModel extends CaseModel {
   @service store;
 
@@ -37,7 +38,7 @@ export default class CustomCaseModel extends CaseModel {
 
   get type() {
     return (
-      getFormTitle(this.raw.document, config.APPLICATION.answerSlugs) ||
+      getFormTitle(this, this.raw.document, answerSlugs) ||
       this.raw.document.form.name
     );
   }
@@ -92,7 +93,7 @@ export default class CustomCaseModel extends CaseModel {
       .map((row) => {
         const isJuristicPerson = getAnswerDisplayValue(
           row,
-          answerSlugs.isJuristicApplicant
+          answerSlugs.isJuristicApplicant,
         );
         if (isJuristicPerson === answerSlugs.isJuristicApplicantYes) {
           return getAnswerDisplayValue(row, answerSlugs.juristicNameApplicant);
@@ -117,7 +118,7 @@ export default class CustomCaseModel extends CaseModel {
     const remarks = getAnswerDisplayValue(document, "decision-remarks");
     const decision = getAnswerDisplayValue(
       document,
-      "decision-decision-assessment"
+      "decision-decision-assessment",
     );
 
     return { remarks, color, decision };
@@ -161,7 +162,7 @@ export default class CustomCaseModel extends CaseModel {
         name
       }
       answers(
-	filter: [{
+        filter: [{
           questions: [
             "${answerSlugs.municipality}"
             "${answerSlugs.description}"
@@ -171,11 +172,15 @@ export default class CustomCaseModel extends CaseModel {
             "${answerSlugs.objectZIP}"
             "${answerSlugs.personalDataApplicant}"
             "${answerSlugs.oerebProcedure}"
-            "${answerSlugs.oerebTopics}"
+            "${answerSlugs.oerebPartialState}"
+            "${answerSlugs.oerebTopicsCanton}"
+            "${answerSlugs.oerebTopicsMunicipality}"
             "${answerSlugs.procedureCanton}"
             "${answerSlugs.procedureConfederation}"
+            "${answerSlugs.staticForestBoundaryCanton}"
+            "${answerSlugs.staticForestBoundaryMunicipality}"
           ]
-	}]
+        }]
       ) {
         edges {
           node {

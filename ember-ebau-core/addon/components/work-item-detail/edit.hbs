@@ -33,7 +33,7 @@
       </div>
       <div>
         <p class="uk-text-bold uk-margin-remove">{{t "workItems.closedAt"}}</p>
-        {{format-date this.workItem.closedAt format="datetime"}}
+        {{format-date this.workItem.raw.closedAt format="datetime"}}
       </div>
       <div>
         <p class="uk-text-bold uk-margin-remove">{{t "workItems.comment"}}</p>
@@ -42,7 +42,12 @@
     {{/if}}
   </div>
 
-  {{#unless this.isWorkItemCompleted}}
+  {{#if this.workItem.isCompleted}}
+    <LinkTo @route={{concat @baseRoute ".index"}} class="uk-button uk-button-default uk-margin-top">
+      {{t "global.back"}}
+    </LinkTo>
+
+  {{else}}
     <h2>{{t "workItems.actions.edit"}}</h2>
 
     <form
@@ -131,7 +136,7 @@
         </button>
       </div>
     </form>
-  {{/unless}}
+  {{/if}}
 
   {{#if (can "complete work-item" this.workItem)}}
     <h2>{{t "workItems.actions.finish"}}</h2>

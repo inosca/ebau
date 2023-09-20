@@ -31,7 +31,7 @@ export default class AuditTableComponent extends Component {
           mutation: createDocument,
           variables: { form },
         },
-        "saveDocument.document"
+        "saveDocument.document",
       );
       const documentId = decodeId(document.id);
 
@@ -45,7 +45,7 @@ export default class AuditTableComponent extends Component {
               question: "nutzungsart",
             },
           },
-          "allCases.edges"
+          "allCases.edges",
         );
         const nutzungsartAnswer =
           cases[0].node.document.answers.edges[0]?.node.value;

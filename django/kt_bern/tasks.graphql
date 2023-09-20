@@ -224,3 +224,16 @@ mutation CreateLegalSubmissionTask {
     clientMutationId
   }
 }
+
+mutation CreateAppealTask {
+  saveCompleteTaskFormTask(
+    input: {
+      slug: "appeal"
+      name: "Beschwerdeverfahren"
+      form: "appeal"
+      addressGroups: "['municipality']|groups"
+    }
+  ) {
+    clientMutationId
+  }
+}

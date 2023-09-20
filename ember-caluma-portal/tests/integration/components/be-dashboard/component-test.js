@@ -43,13 +43,11 @@ module("Integration | Component | be-dashboard", function (hooks) {
         *refreshAuthentication() {
           yield true;
         }
-      }
+      },
     );
   });
 
   test("it renders readonly", async function (assert) {
-    assert.expect(2);
-
     await render(hbs`<BeDashboard class="content" @page="test-content" />`);
 
     assert.dom(".content h1").hasText("TITLE");
@@ -57,8 +55,6 @@ module("Integration | Component | be-dashboard", function (hooks) {
   });
 
   test("it can be edited by support users", async function (assert) {
-    assert.expect(5);
-
     this.owner.lookup("service:session").set("isSupport", true);
 
     await render(hbs`<BeDashboard class="content" @page="test-content" />`);

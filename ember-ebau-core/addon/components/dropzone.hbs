@@ -24,6 +24,7 @@
           required
           {{queue.selectFile filter=this.validate}}
         >
+        {{yield to="content"}}
       </div>
       {{yield to="footer"}}
     </div>

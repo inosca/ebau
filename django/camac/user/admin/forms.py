@@ -35,7 +35,7 @@ class UserGroupForm(ModelForm):
 
     class Meta:
         model = UserGroup
-        exclude = []
+        exclude = ["created_by"]
 
 
 class ServiceForm(ModelForm):

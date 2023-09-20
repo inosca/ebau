@@ -41,7 +41,7 @@ export default class InstancesEditFormController extends Controller {
         fetchPolicy: "network-only",
         variables: { instanceId: this.instanceId },
       },
-      "allCases.edges.firstObject.node"
+      "allCases.edges.firstObject.node",
     );
 
     if (this.instance.value.mainForm.slug === this.model) {
@@ -49,7 +49,7 @@ export default class InstancesEditFormController extends Controller {
     }
 
     const workItemEdge = raw.workItems.edges.find(
-      ({ node }) => node.document && node.document.form.slug === this.model
+      ({ node }) => node.document && node.document.form.slug === this.model,
     );
 
     return workItemEdge?.node.document;

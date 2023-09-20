@@ -1,6 +1,7 @@
 import io
 from pathlib import Path
 
+import pytest
 from django.conf import settings
 from django.core.management import call_command
 from PyPDF2 import PdfReader
@@ -23,8 +24,10 @@ def test_import(
         "parzelle-nr": 11,
         "baurecht-nr": None,
         "gemeinde": "Gurtnellen 1209",
-        "ort": "Platti, Amsteg",
         "vorhaben": "Erschliessungsstrasse",
+        "vorhaben-backup": "Erschliessungsstrasse",
+        "ort": "Platti, Amsteg",
+        "ort-backup": "Platti, Amsteg",
         "external-id": "138866",
         "barcodes": [
             {"type": "Gurtnellen 1209", "page": 0},
@@ -36,7 +39,7 @@ def test_import(
         "document": io.BytesIO((DATA_DIR / "dossier.pdf").open("br").read()).getvalue(),
     }
 
-    client = ParashiftImporter()
+    client = ParashiftImporter("KOOR_BG")
     record = client.fetch_data("138866")
     record["document"] = record["document"].getvalue()
 
@@ -64,30 +67,38 @@ def test_import_validation_error(requests_mock, capsys):
     requests_mock.register_uri(
         "GET",
         build_url(
-            settings.PARASHIFT_BASE_URI,
+            settings.PARASHIFT["BASE_URI"],
             "/documents/138866/?include="
             "document_fields&extra_fields[document_fields]=extraction_candidates",
         ),
         json=broken_data,
     )
 
-    client = ParashiftImporter()
+    client = ParashiftImporter("KOOR_BG")
     record = client.fetch_data("138866")
     assert record is None
     assert capsys.readouterr().out == "138866: parzelle-nr: Must be an integer!\n"
 
 
+@pytest.mark.parametrize(
+    "bfs_nr",
+    (
+        "1214",
+        "KOOR_BG",
+    ),
+)
 def test_command(
     parashift_data,
     parashift_mock,
     application_settings,
     master_data_is_visible_mock,
     workflow_item_factory,
+    bfs_nr,
 ):
     application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_uri"]["MASTER_DATA"]
     workflow_item_factory(pk=uri_constants.WORKFLOW_ITEM_DOSSIER_ERFASST)
 
-    client = ParashiftImporter()
+    client = ParashiftImporter(bfs_nr=bfs_nr)
     instances = client.run("138866", "138867")
     instance = instances[0]
     master_data = MasterData(instance.case)
@@ -151,7 +162,7 @@ def test_command_validation_error(requests_mock, capsys):
     requests_mock.register_uri(
         "GET",
         build_url(
-            settings.PARASHIFT_BASE_URI,
+            settings.PARASHIFT["BASE_URI"],
             "/documents?filter[id_lte]=138867&filter[id_gte]=138866",
         ),
         json=broken_data,
@@ -159,14 +170,14 @@ def test_command_validation_error(requests_mock, capsys):
     requests_mock.register_uri(
         "GET",
         build_url(
-            settings.PARASHIFT_BASE_URI,
+            settings.PARASHIFT["BASE_URI"],
             "/documents/138866/?include="
             "document_fields&extra_fields[document_fields]=extraction_candidates",
         ),
         json=data,
     )
 
-    call_command("parashift_import", "138866", "138867")
+    call_command("parashift_import", "138866", "138867", "KOOR_BG")
     out = capsys.readouterr().out
     assert out.rsplit("\n")[0] == "138866: parzelle-nr: Must be an integer!"
 
@@ -183,25 +194,26 @@ def test_command_data_error(parashift_mock, requests_mock):
         "meta": {"stats": {"total": {"count": 1}}},
     }
 
+    tenant_id = settings.PARASHIFT["KOOR_BG"]["TENANT_ID"]
     requests_mock.register_uri(
         "GET",
         build_url(
-            settings.PARASHIFT_SOURCE_FILES_URI,
-            f"/{settings.PARASHIFT_TENANT_ID}/documents/138866?include=source_files",
+            settings.PARASHIFT["SOURCE_FILES_URI"],
+            f"/{tenant_id}/documents/138866?include=source_files",
         ),
         json=broken_data,
     )
     requests_mock.register_uri(
         "GET",
         build_url(
-            settings.PARASHIFT_BASE_URI,
+            settings.PARASHIFT["BASE_URI"],
             "/documents?filter[id_lte]=138867&filter[id_gte]=138866",
         ),
         json=broken_data,
     )
 
     out = io.StringIO()
-    call_command("parashift_import", "138866", "138867", stderr=out)
+    call_command("parashift_import", "138866", "138867", "KOOR_BG", stderr=out)
     assert out.getvalue() == "Couldn't import dossiers: Couldn't fetch original PDF.\n"
 
 
@@ -224,7 +236,7 @@ def test_pdf_cropping():
         ],
         "document": io.BytesIO((DATA_DIR / "dossier.pdf").open("br").read()),
     }
-    documents = ParashiftImporter().crop_pdf(record)
+    documents = ParashiftImporter("KOOR_BG").crop_pdf(record)
     assert len(documents) == 4
     for counter, doc in enumerate(documents, 1):
         assert doc["name"] == f"{counter}.pdf"

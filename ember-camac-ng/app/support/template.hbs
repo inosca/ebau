@@ -11,13 +11,19 @@
         @color="primary"
         @label={{t "support.archive.button"}}
         @onClick={{perform this.archive}}
-        @disabled={{or this.archive.isRunning (cannot "archive instance" this.instance)}}
+        @disabled={{or
+          this.archive.isRunning
+          (cannot "archive instance" this.instance)
+        }}
       />
     </div>
     <div>
       <p class="uk-text-large">{{t "support.ebau-number.title"}}</p>
       <p>{{t "support.ebau-number.description"}}</p>
-      <form aria-label={{t "support.ebau-number.form-label"}} {{on "submit" (perform this.changeEbauNumber)}}>
+      <form
+        aria-label={{t "support.ebau-number.form-label"}}
+        {{on "submit" (perform this.changeEbauNumber)}}
+      >
         <div class="uk-grid-small" uk-grid>
           <div class="uk-width-expand">
             <Input
@@ -34,7 +40,10 @@
               @color="primary"
               @type="submit"
               @label={{t "global.save"}}
-              @disabled={{or this.changeEbauNumber.isRunning (cannot "set ebau number of instance" this.instance)}}
+              @disabled={{or
+                this.changeEbauNumber.isRunning
+                (cannot "set ebau number of instance" this.instance)
+              }}
             />
           </div>
         </div>
@@ -43,7 +52,10 @@
     <div>
       <p class="uk-text-large">{{t "support.change-form.title"}}</p>
       <p>{{t "support.change-form.description" htmlSafe=true}}</p>
-      <form aria-label={{t "support.change-form.form-label"}} {{on "submit" (perform this.changeForm)}}>
+      <form
+        aria-label={{t "support.change-form.form-label"}}
+        {{on "submit" (perform this.changeForm)}}
+      >
         <div class="uk-grid-small" uk-grid>
           <div class="uk-width-expand">
             <select
@@ -55,7 +67,10 @@
             >
               <option></option>
               {{#each this.forms as |form|}}
-                <option value={{form.value}} selected={{eq this.form.value form.value}}>{{form.label}}</option>
+                <option
+                  value={{form.value}}
+                  selected={{eq this.form.value form.value}}
+                >{{form.label}}</option>
               {{/each}}
             </select>
           </div>
@@ -64,7 +79,10 @@
               @color="primary"
               @type="submit"
               @label={{t "global.save"}}
-              @disabled={{or this.changeForm.isRunning (cannot "change form of instance" this.instance)}}
+              @disabled={{or
+                this.changeForm.isRunning
+                (cannot "change form of instance" this.instance)
+              }}
             />
           </div>
         </div>
@@ -72,7 +90,9 @@
     </div>
     {{#if this.instance.isModification}}
       <div>
-        <p class="uk-text-large">{{t "support.modification-to-new-dossier.title"}}</p>
+        <p class="uk-text-large">{{t
+            "support.modification-to-new-dossier.title"
+          }}</p>
         <p>{{t "support.modification-to-new-dossier.description"}}</p>
         <UkButton
           @color="primary"
@@ -82,7 +102,10 @@
       </div>
     {{/if}}
 
-    {{on-key "ctrl+shift+Space" (fn (mut this.showAdvanced) (not this.showAdvanced))}}
+    {{on-key
+      "ctrl+shift+Space"
+      (fn (mut this.showAdvanced) (not this.showAdvanced))
+    }}
     {{#if (and this.showAdvanced this.shoebox.isSupportRole)}}
       <div>
         <p class="uk-text-large">{{t "support.fix-work-items.title"}}</p>
@@ -108,7 +131,7 @@
                   class="uk-checkbox"
                   checked={{this.syncCirculation}}
                   {{on "change" this.updateSyncCirculation}}
-                >
+                />
                 {{t "support.fix-work-items.sync-circulation"}}
               </label>
             </div>
@@ -139,10 +162,7 @@
   </Modal.body>
   <Modal.footer>
     <div class="uk-align-right uk-margin-top">
-      <UkButton
-        @label={{t "global.cancel"}}
-        @onClick={{this.toggleModal}}
-      />
+      <UkButton @label={{t "global.cancel"}} @onClick={{this.toggleModal}} />
       <UkButton
         @color="primary"
         @label={{t "support.modification-to-new-dossier.convert"}}

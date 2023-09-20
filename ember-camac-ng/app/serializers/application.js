@@ -9,4 +9,14 @@ export default class ApplicationSerializer extends JSONAPISerializer {
 
     return super.normalizeSingleResponse(...args);
   }
+
+  normalizeArrayResponse(...args) {
+    const [, , payload] = args;
+
+    payload.data.forEach((record) => {
+      record.attributes.meta = record.meta || {};
+    });
+
+    return super.normalizeArrayResponse(...args);
+  }
 }

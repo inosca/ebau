@@ -11,8 +11,6 @@ module(
     setupRenderingTest(hooks);
 
     test("it renders", async function (assert) {
-      assert.expect(6);
-
       this.attachment = new (class {
         id = 1;
         thumbnail = { value: "base64-thumbnail" };
@@ -44,5 +42,5 @@ module(
       await click("button[data-test-toggle]");
       assert.verifySteps(["toggle"]);
     });
-  }
+  },
 );

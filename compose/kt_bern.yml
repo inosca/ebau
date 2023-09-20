@@ -1,123 +1,38 @@
-version: "3.4"
 services:
-  cache:
-    image: memcached:1.6-alpine
-
-  proxy:
-    image: nginx:1.23-alpine
-    depends_on:
-      - ember-caluma-portal
-      - ember-camac-ng
-      - django
-      - keycloak
-      - mailhog
-      - document-merge-service
-    volumes:
-      - djangomedia:/var/lib/camac/media:ro
-      - djangotmpmedia:/tmp/camac/tmpfiles:ro
-
-  db:
-    build:
-      context: ../db
-      cache_from:
-        - acr.run/camac-ng/camac-ng/db:master
-    environment:
-      - POSTGRES_USER=camac
-      - POSTGRES_DATABASE=${APPLICATION}
-    volumes:
-      - pgdata:/var/lib/postgresql/data
-
-  django: &django
+  django:
+    image: acr.run/camac-ng/camac-ng/django:master
     build:
       context: ../django
       cache_from:
         - acr.run/camac-ng/camac-ng/django:master
-    depends_on:
-      - db
-      - cache
-      - keycloak
-      - mailhog
-    environment:
-      - DATABASE_HOST=db
-      - DATABASE_NAME=${APPLICATION}
-      - DJANGO_CACHE_LOCATION=cache:11211
-      - DJANGO_MEDIA_ROOT=/var/lib/camac/media
-      - DJANGO_CLAMD_ENABLED=false
-      - APPLICATION=${APPLICATION}
-      - CACHE_BACKEND=django.core.cache.backends.memcached.MemcachedCache
-      - CACHE_LOCATION=cache:11211
-      - EVENT_RECEIVER_MODULES=camac.caluma.extensions.events
-      - VISIBILITY_CLASSES=camac.caluma.extensions.visibilities.CustomVisibilityBE
-      - PERMISSION_CLASSES=camac.caluma.extensions.permissions.CustomPermission
-      - VALIDATION_CLASSES=camac.caluma.extensions.validations.CustomValidation
-      - DATA_SOURCE_CLASSES=camac.caluma.extensions.data_sources.Landowners,camac.caluma.extensions.data_sources.Municipalities,camac.caluma.extensions.data_sources.Services,camac.caluma.extensions.data_sources.Attachments
-      - DYNAMIC_GROUPS_CLASSES=camac.caluma.extensions.dynamic_groups.CustomDynamicGroups
-      - DYNAMIC_TASKS_CLASSES=camac.caluma.extensions.dynamic_tasks.CustomDynamicTasks
-      - LANGUAGE_CODE=de
-      - LANGUAGES=de,fr
-      - META_FIELDS=camac-instance-id,ebau-number,submit-date
-      - ENABLE_HISTORICAL_API=true
-    volumes:
-      - djangomedia:/var/lib/camac/media
-      - djangotmpmedia:/tmp/camac/tmpfiles
-
-  django-q:
-    <<: *django
-    command: /bin/sh -c "./wait-for-it.sh db:5431 -- ./manage.py qcluster --pythonpath /app/$APPLICATION"
 
   ember-camac-ng:
+    image: acr.run/camac-ng/camac-ng/ember-camac-ng:master
     build:
       context: ../
       dockerfile: ./ember-camac-ng/Dockerfile
       cache_from:
         - acr.run/camac-ng/camac-ng/ember-camac-ng:master
       args:
-        - APPLICATION=${APPLICATION}
+        APPLICATION: ${APPLICATION}
+        APP_ENV: ${APP_ENV:-production}
 
   ember-caluma-portal:
+    image: acr.run/camac-ng/camac-ng/ember-caluma-portal:master
     build:
       context: ../
       dockerfile: ./ember-caluma-portal/Dockerfile
       cache_from:
         - acr.run/camac-ng/camac-ng/ember-caluma-portal:master
       args:
-        - APPLICATION=${APPLICATION}
+        APPLICATION: ${APPLICATION}
 
-
-  mailhog:
-    image: mailhog/mailhog
-
-  keycloak:
-    depends_on:
-      - db
-    build:
-      context: ../keycloak
-      cache_from:
-        - acr.run/camac-ng/camac-ng/keycloak-${APPLICATION}:master
 
   document-merge-service:
-    image: ghcr.io/adfinis/document-merge-service:5.2.1
-    depends_on:
-      - db
-    volumes:
-      - ../document-merge-service/uwsgi.ini:/app/uwsgi.ini:ro
-      - ../document-merge-service/kt_bern/templatefiles:/var/lib/document-merge-service/media
-      - ../document-merge-service/kt_bern/dump.json:/tmp/document-merge-service/dump.json
-    environment:
-      - DATABASE_ENGINE=django.db.backends.postgresql
-      - DATABASE_HOST=db
-      - DATABASE_NAME=kt_bern
-      - DATABASE_USER=camac
-      - DATABASE_PASSWORD=camac
-      - REQUIRE_AUTHENTICATION=True
-      - GROUP_ACCESS_ONLY=True
-      - OIDC_GROUPS_API_JSONPATH=$$.included[?(@.type=='services')].id
-      - OIDC_GROUPS_API_HEADERS=AUTHORIZATION,X-CAMAC-GROUP
-      - PAGINATION_ENABLED=False
-
-volumes:
-  pgdata:
-  djangomedia:
-  djangotmpmedia:
-  phpsessions:
-  templatefiles:
+    image: acr.run/camac-ng/camac-ng/document-merge-service:master
+    build:
+      context: ../document-merge-service
+      cache_from:
+        - acr.run/camac-ng/camac-ng/document-merge-service:master
+      args:
+        APPLICATION: ${APPLICATION}

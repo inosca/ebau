@@ -68,7 +68,7 @@ Due to ongoing modernization work, some Frontend modules are not yet integrated 
 | Dossier list                 | Show a list of dossiers                  | :heavy_check_mark: | :heavy_check_mark:       | :heavy_check_mark:       |
 | Task list                    | Show a list of tasks                     | :heavy_check_mark: | :heavy_check_mark:       | :heavy_check_mark:       |
 | Templates                    | Manage document templates (docx)         | :heavy_check_mark: | :heavy_check_mark:       | :heavy_check_mark:       |
-| Organization                 | Manage details of own organization       | :heavy_check_mark: | :heavy_check_mark:       | :hourglass_flowing_sand: |
+| Organization / Permissions   | Manage own organization and permissions  | :heavy_check_mark: | :heavy_check_mark:       | :heavy_check_mark:       |
 | Static content               | Static content, markdown editor          | :heavy_check_mark: | :hourglass_flowing_sand: | :hourglass_flowing_sand: |
 | Text components              | Manage snippets for usage in text fields | :heavy_check_mark: | :hourglass_flowing_sand: | :hourglass_flowing_sand: |
 | _Subnav (instance resource)_ |                                          |                    |                          |                          |
@@ -79,9 +79,9 @@ Due to ongoing modernization work, some Frontend modules are not yet integrated 
 | Template                     | Generate document from template          | :heavy_check_mark: | :heavy_check_mark:       | :heavy_check_mark:       |
 | Journal                      | Collaborative notebook                   | :heavy_check_mark: | :heavy_check_mark:       | :heavy_check_mark:       |
 | History                      | Shows milestones and historical data     | :heavy_check_mark: | :heavy_check_mark:       | :heavy_check_mark:       |
+| Publication                  | Manage publication in newspaper          | :heavy_check_mark: | :heavy_check_mark:       | :heavy_check_mark:       |
 | Responsible                  | Assign responsible users                 | :heavy_check_mark: | :heavy_check_mark:       | :hourglass_flowing_sand: |
 | Audit                        | Perform structured audit                 | :heavy_check_mark: | :heavy_check_mark:       | :hourglass_flowing_sand: |
-| Publication                  | Manage publication in newspaper          | :heavy_check_mark: | :heavy_check_mark:       | :hourglass_flowing_sand: |
 | Audit-Log                    | Shows form changes                       | :heavy_check_mark: | :hourglass_flowing_sand: | :hourglass_flowing_sand: |
 | Claims                       | Ask applicant for additional info        | :heavy_check_mark: | :hourglass_flowing_sand: | :hourglass_flowing_sand: |
 
@@ -134,20 +134,23 @@ After, you should be able to use to the following services:
 - [ebau-portal.local](http://ebau-portal.local) - public-facing portal (Caluma-based, default choice for new projects, used in Kt. BE, UR)
 - [ebau.local/django/admin/](http://ebau.local/django/admin/) - Django admin interface
 - [ebau-keycloak.local/auth](http://ebau-keycloak.local/auth/) - IAM solution
+- [ember-ebau.local/mailhog/](http://ember-ebau.local/mailhog/) - Mailhog UI
+- [ember-ebau.local/minio/ui/](http://ember-ebau.local/minio/ui/) - MinIO Admin UI
 
 ### Predefined credentials
 
 The following administrator accounts are present in Keycloak or the DB,
 respectively:
 
-| _Application_ | _Role_      | _Username_ | _Password_ | _Notes_ |
-| ------------- | ----------- | ---------- | ---------- | ------- |
-| demo          | Admin       | user       | user       |         |
-| kt_schwyz     | Admin       | admin      | admin      |         |
-|               | Publikation | adsy       | adsy       |         |
-| kt_uri        | Admin       | admin      | admin      |         |
-|               | PortalUser  | portal     | portal     |         |
-| kt_bern       | Admin       | user       | user       |         |
+| _Application_ | _Role_      | _Username_        | _Password_ | _Notes_ |
+| ------------- | ----------- | ----------------- | ---------- | ------- |
+| demo          | Admin       | user              | user       |         |
+| kt_schwyz     | Admin       | admin             | admin      |         |
+|               | Publikation | adsy              | adsy       |         |
+| kt_uri        | Admin       | admin             | admin      |         |
+|               | PortalUser  | portal            | portal     |         |
+| kt_bern       | Admin       | user              | user       |         |
+| kt_gr         | Admin       | admin@example.com | admin      |         |
 
 ### Debugging
 
@@ -185,7 +188,7 @@ http://ebau.local/api/silk/.
 
 ### Switching tenant
 
-To switch from the `demo` config to `kt_bern`, one has to make sure that the frontend apps take up the right 
+To switch from the `demo` config to `kt_bern`, one has to make sure that the frontend apps take up the right
 environment variables.
 
 #### Working locally with ember

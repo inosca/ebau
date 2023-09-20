@@ -39,7 +39,7 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
 
   redirectToInstanceResource() {
     location.assign(
-      `/index/redirect-to-instance-resource/instance-id/${this.currentInstanceId}`
+      `/index/redirect-to-instance-resource/instance-id/${this.currentInstanceId}`,
     );
   }
 
@@ -79,7 +79,7 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
       .map((model) => model.id);
 
     const uncachedIdentifiers = identifiers.filter(
-      (identifier) => !cachedIdentifiers.includes(String(identifier))
+      (identifier) => !cachedIdentifiers.includes(String(identifier)),
     );
 
     if (uncachedIdentifiers.length) {
@@ -269,8 +269,8 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
                   .filter(
                     (workItem) =>
                       ["fill-inquiry", "alter-inquiry"].includes(
-                        workItem.task.slug
-                      ) && workItem.status === "COMPLETED"
+                        workItem.task.slug,
+                      ) && workItem.status === "COMPLETED",
                   )
                   .sort((a, b) => a.closedAt - b.closedAt)
                   .reverse()[0];

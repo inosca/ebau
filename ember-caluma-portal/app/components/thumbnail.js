@@ -11,7 +11,7 @@ export default class ThumbnailComponent extends Component {
   *loadThumbnail() {
     try {
       const response = yield this.fetch.fetch(
-        `/api/v1/attachments/${this.args.attachmentId}/thumbnail`
+        `/api/v1/attachments/${this.args.attachmentId}/thumbnail`,
       );
 
       return yield new Promise((resolve) => {

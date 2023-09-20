@@ -11,7 +11,7 @@ module("Integration | Component | aria-heading", function (hooks) {
     this.enabled = true;
 
     await render(
-      hbs`<AriaHeading @enabled={{this.enabled}} @level={{this.level}}>Test</AriaHeading>`
+      hbs`<AriaHeading @enabled={{this.enabled}} @level={{this.level}}>Test</AriaHeading>`,
     );
 
     assert.dom("span").hasText("Test");

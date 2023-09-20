@@ -24,6 +24,9 @@ export default class InstanceModel extends Model {
   @belongsTo("form", { inverse: null, async: true }) form;
   @belongsTo("instance-state", { inverse: null, async: true }) instanceState;
   @belongsTo("location", { inverse: null, async: true }) location;
+  @belongsTo("instance-state", { inverse: null, async: true })
+  previousInstanceState;
+  @belongsTo("public-service", { inverse: null, async: true }) activeService;
 
   @hasMany("service", { inverse: null, async: true })
   circulationInitializerServices;

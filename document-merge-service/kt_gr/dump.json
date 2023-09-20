@@ -1,0 +1,32 @@
+[
+  {
+    "model": "api.template",
+    "pk": "eingabequittung",
+    "fields": {
+      "description": "",
+      "template": "eingabequittung.docx",
+      "engine": "docx-template",
+      "meta": {}
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "anleitung-platzhalter",
+    "fields": {
+      "description": "Anleitung Platzhalter",
+      "template": "anleitung-platzhalter.docx",
+      "engine": "docx-template",
+      "meta": {}
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "form",
+    "fields": {
+      "description": "Formular",
+      "template": "form.docx",
+      "engine": "docx-template",
+      "meta": {}
+    }
+  }
+]

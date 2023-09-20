@@ -1,7 +1,13 @@
 import EmberRouter from "@ember/routing/router";
 import { inject as service } from "@ember/service";
+import registerAdditionalDemand from "ember-ebau-core/modules/additional-demand";
+import registerCommunications from "ember-ebau-core/modules/communications";
+import registerCommunicationsGlobal from "ember-ebau-core/modules/communications-global";
 import registerDMSAdmin from "ember-ebau-core/modules/dms-admin";
 import registerLegalSubmission from "ember-ebau-core/modules/legal-submission";
+import registerPublication from "ember-ebau-core/modules/publication";
+import registerServicePermissions from "ember-ebau-core/modules/service-permissions";
+import registerTaskForm from "ember-ebau-core/modules/task-form";
 
 import config from "ebau/config/environment";
 
@@ -33,7 +39,7 @@ Router.map(function () {
     this.route("dashboard", { path: "/dashboard/:type", resetNamespace });
     this.route("work-items", { resetNamespace });
     this.route("cases", { resetNamespace }, function () {
-      this.route("detail", { path: "/:case_id" }, function () {
+      this.route("detail", { path: "/:instance_id" }, function () {
         this.mount("ember-alexandria", {
           as: "alexandria",
           path: "/documents",
@@ -46,14 +52,23 @@ Router.map(function () {
         this.route("journal");
         this.route("history");
         this.route("dms-generate");
-        this.mount("@projectcaluma/ember-distribution", {
-          as: "distribution",
-          path: "/distribution/:case",
+        this.route("corrections");
+        this.route("distribution", function () {
+          this.mount("@projectcaluma/ember-distribution", {
+            as: "distribution-engine",
+            path: "/:case",
+          });
         });
         registerLegalSubmission(this);
+        registerTaskForm(this);
+        registerCommunications(this);
+        registerPublication(this);
+        registerAdditionalDemand(this);
       });
       this.route("new");
     });
     registerDMSAdmin(this, { resetNamespace });
+    registerServicePermissions(this, { resetNamespace });
+    registerCommunicationsGlobal(this, { resetNamespace });
   });
 });

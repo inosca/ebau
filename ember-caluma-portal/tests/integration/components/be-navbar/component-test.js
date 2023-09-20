@@ -1,4 +1,5 @@
 import { render, settled, click } from "@ember/test-helpers";
+import { getOwnConfig } from "@embroider/macros";
 import { setupMirage } from "ember-cli-mirage/test-support";
 import { setupIntl } from "ember-intl/test-support";
 import { authenticateSession } from "ember-simple-auth/test-support";
@@ -50,21 +51,24 @@ module("Integration | Component | be-navbar", function (hooks) {
   });
 
   test("it renders the static navigation", async function (assert) {
-    assert.expect(3);
+    const navItems = [
+      "t:nav.index:()",
+      "t:nav.instances:()",
+      ...(getOwnConfig().enableCommunications
+        ? ["t:nav.communications:()"]
+        : []),
+      "t:nav.support:()",
+    ];
 
     await authenticateSession();
 
     await render(hbs`<BeNavbar />`);
 
-    assert
-      .dom(".uk-navbar-left ul > li:nth-of-type(1) > a")
-      .hasText("t:nav.index:()");
-    assert
-      .dom(".uk-navbar-left ul > li:nth-of-type(2) > a")
-      .hasText("t:nav.instances:()");
-    assert
-      .dom(".uk-navbar-left ul > li:nth-of-type(3) > a")
-      .hasText("t:nav.support:()");
+    navItems.forEach((label, i) => {
+      assert
+        .dom(`.uk-navbar-left ul > li:nth-of-type(${i + 1}) > a`)
+        .containsText(label);
+    });
   });
 
   testIf("be")("it renders a language switcher", async function (assert) {

@@ -9,8 +9,13 @@ $global-link-color: darken($global-primary-background, 10%);
 $global-link-hover-color: darken($global-link-color, 10%);
 
 // Font
-$global-font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont,
-  "Helvetica Neue", Arial, sans-serif;
+$global-font-family:
+  "Source Sans Pro",
+  -apple-system,
+  BlinkMacSystemFont,
+  "Helvetica Neue",
+  Arial,
+  sans-serif;
 $global-font-size: 12px;
 $global-large-font-size: 1.2rem;
 $base-h3-font-size: 1.17em;

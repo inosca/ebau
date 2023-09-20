@@ -1,14 +1,12 @@
 export function getAnswer(document, slugOrSlugs) {
   const slugs = Array.isArray(slugOrSlugs) ? slugOrSlugs : [slugOrSlugs];
   return document.answers.edges.find((edge) =>
-    slugs.includes(edge.node.question.slug)
+    slugs.includes(edge.node.question.slug),
   );
 }
 
-export function getAnswerDisplayValue(document, slug, useLabel = true) {
-  const answer = document.answers?.edges
-    .map(({ node }) => node)
-    .find((answer) => answer.question.slug === slug);
+export function getAnswerDisplayValue(document, slugOrSlugs, useLabel = true) {
+  const answer = getAnswer(document, slugOrSlugs)?.node;
 
   if (!answer) {
     return null;

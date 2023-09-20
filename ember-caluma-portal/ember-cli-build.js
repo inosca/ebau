@@ -8,6 +8,7 @@ const ENV_MAP = {
   kt_bern: "be",
   kt_schwyz: "sz",
   kt_uri: "ur",
+  kt_so: "so",
   demo: "demo",
 };
 
@@ -17,21 +18,32 @@ const UNUSED_ENVS = ENVS.filter((e) => e !== ENV).join("|");
 
 module.exports = function (defaults) {
   const app = new EmberApp(defaults, {
+    storeConfigInMeta: ENV !== "so",
     "@embroider/macros": {
       setOwnConfig: {
+        application: ENV,
         enableFaq: ENV === "be",
+        enableSupport: ["be", "ur", "gr"].includes(ENV),
         enableInstanceSupport: ENV === "be",
-        enablePublicationForm: ENV === "be",
+        enablePublicationForm: ["be", "gr"].includes(ENV),
         enablePublicationEndDate: ENV === "ur",
         enableModificationConfirm: ENV === "be",
+        enableCommunications: ["be", "so"].includes(ENV),
+        enableAdditionalDemand: ENV === "gr",
         instancePaperFilterDefault: ENV === "ur",
-        documentBackend: ENV === "gr" ? "alexandria" : "camac",
+        showProfileLink: ENV === "gr",
+        documentBackendCamac: !["gr", "so"].includes(ENV),
+        useEbauNumber: ENV === "be",
+        eGovPortalURL: process.env.EGOV_PORTAL_URL ?? "https://my-t.so.ch",
       },
       setConfig: {
         "@ember-data/store": {
           polyfillUUID: true,
         },
       },
+    },
+    "localized-model": {
+      sanitizeLocale: true,
     },
     "ember-simple-auth": {
       useSessionSetupMethod: true,
@@ -43,17 +55,17 @@ module.exports = function (defaults) {
 
   app.trees.styles = stew.rm(
     stew.rename(app.trees.styles, `-${ENV}.scss`, ".scss"),
-    `*/*-{${UNUSED_ENVS}}.scss`
+    `*/*-{${UNUSED_ENVS}}.scss`,
   );
 
   app.trees.app = stew.rm(
     stew.rename(app.trees.app, `-${ENV}.hbs`, ".hbs"),
-    `*/*-{${UNUSED_ENVS}}.hbs`
+    `*/*-{${UNUSED_ENVS}}.hbs`,
   );
 
   app.trees.public = stew.rm(
     stew.rename(app.trees.public, `-${ENV}.ico`, ".ico"),
-    `*/*-{${UNUSED_ENVS}}.ico`
+    `*/*-{${UNUSED_ENVS}}.ico`,
   );
 
   return app.toTree();

@@ -1,0 +1,126 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: https://geo-i.so.ch/api/data/v1/ch.so.agi.av.unknown_layer/?bbox=2607160.642708333,1228434.884375,2607160.642708333,1228434.884375
+  response:
+    body:
+      string: "<html>\n\t<head>\n\t\t<title>404 - Seite nicht gefunden | Kanton Solothurn</title>\n\t\t<style
+        type =\"text/css\">\n\n\t/*===============================================\n\t
+        \ Basic HTML Definitions\n  ===============================================*/\n\n\tbody
+        {\n\t\tmargin: 0;\n\t\tpadding: 0;\n\t\tfont-family: Verdana;\n\t\tfont-size:
+        10pt;\n\t\tbackground-color: #fff;\n\t}\n\t\n\tA:hover {\n\t\tcolor: #A80000;\n\t}\n\t\n\tA
+        {\n\t\tcolor: #000000;\n    text-decoration: none;\n\t}\n\t\n\th1 {\n\t\tfont-size:
+        16pt;\n\t}\n\t\n\th2 {\n\t\tfont-size: 14pt;\n\t}\n\t\n\th3 {\n\t\tfont-size:
+        10pt;\n\t}\n\n\n\t/*===============================================\n\t  Content
+        / Layout\n  ===============================================*/\n\n\t/* The
+        outer DIV tag containing everything */\n\t.outerbox {\n\t\tborder: none;\n\t\tmargin-top:
+        30px;\n    margin-bottom: 30px;\n\t\tpadding: 0px;\n\t}\n\t\n\t/* The outer
+        layout table */\n\t.outertable {\n\t\ttext-align: center;\n\t}\n\n  /* Layout
+        table header */\n  .uppercell {\n    background: #fff;\n    border-left:1px
+        solid #ddd;\n    border-right:1px solid #ddd;\n    border-top:1px solid #ddd;\n
+        \ }\n  \n  /* Layout table content */\n  .centercell {\n    background: #fff;\n
+        \   border-left:1px solid #ddd;\n    border-right:1px solid #ddd;\n    border-bottom:1px
+        solid #ddd;\n  }\n  \n\t/*===============================================\n\t
+        \ Form\n  ===============================================*/\n\n\t/* Outer
+        form DIV box */\n\t.form-box {\n\t\tmargin-top: 40px;\n\t\tmargin-bottom:
+        50px;\n\t\tpadding-left: 15px;\n        padding-right: 15px;\n\t}\n\t\n\t/*
+        Table which contains form */\n\t.form-table {\n\t\twidth: 600px;\n\t}\n\t\n\t/*
+        Cell with form heading area */\n\t.form-heading-cell {\n\t\ttext-align: left;\n\t}\n\t\n\t/*
+        Form heading label */\n\t.form-heading {\n\t\tfont-size: 16pt;\n\t\tmargin-top:
+        20px;\n\t\tmargin-bottom: 20px;\n\t}\n\n\t/* Box which shows browser blacklist
+        info */\n\t.sls-blacklist-box {\n\t\tborder: 1px solid grey;\n\t\tmargin-bottom:
+        10px;\n\t\tmargin-top: 10px;\n\t\tpadding: 6px;\n\t\tbackground-color: rgb(220,
+        220, 220);\n\t\twidth: 574px;\n\t}\n\t\n\t/* Blacklist info message text */\n\t.sls-blacklist-msg
+        {\n\t\tfont-size: 10pt;\n\t}\n\n\t/* Each cell in the form table */\t\n\t.form-table
+        tr td {\n\t\tpadding: 4px;\n\t}\n\n\t/* Detail text about the form */\n\t.form-details
+        {\n\t\tfont-size: 10pt;\n\t}\n\t\n\t/* Cell which contains an inputfield label
+        */\n\t.form-label-cell {\n\t\ttext-align: right;\n\t}\n\t\n\t/* A form inputfield
+        label */\n\t.form-label {\n\t\tfont-size: 10pt;\n\t}\n\t\n\t/* A form inputfield
+        */\n\t.form-inputfield {\n\t\tmargin: 0px;\n\t\tpadding: 3px;\n\t\tfont-size:
+        10pt;\n\t}\n\n  /* A form button */\n  .form-button {\n    padding: 2px 7px;\n
+        \ }\n  \n\t/*===============================================\n\t  Error Message
+        Box\n  ===============================================*/\n\t\n\t/* Outer box
+        around error message */\n\t.sls-global-errors-box {\n\t\tborder: 1px solid
+        red;\n\t\tmargin-bottom: 20px;\n\t\tmargin-top: 20px;\n\t\tpadding: 6px;\n\t\tbackground-color:
+        rgb(240, 190, 190);\n\t\twidth: 574px;\n    text-align: left;\n\t}\n\t\n\t/*
+        error message */\n\t.sls-global-errors-msg {\n\t\tfont-size: 10pt;\n\t}\n\t\n\n\t/*===============================================\n\t
+        \ Page Footer Area\n   ===============================================*/\n\n\t\t\n\t/*===============================================\n\t
+        \ Critical production warnings (in footer)\n\t  Only visible if \"debug.info\"
+        is set to \"false\"\n\t  in the \"sls.properties\" configuration file.\n      ===============================================*/\n
+        \     \n\t/* Outer DIV box around critical warnings */\n\t.sls-critical-warnings
+        {\n\t\tborder: 3px solid red;\n\t\tpadding: 4px;\n\t\tbackground-color: rgb(240,
+        190, 190);\n\t}\n\t\n\t/* Critical warnings heading */\n\t.sls-critical-warnings
+        h3 {\n\t\tfont-size: larger;\n\t\tpadding: 6px;\n\t\tcolor: white;\n\t\tmargin-top:
+        0px;\n\t\tmargin-bottom: 12px;\n\t\tborder: none;\n\t\tbackground-color: red;\n\t}\n\t\n\t/*
+        Upper, larger critical warnings label */\n\t.sls-critical-warnings-txt {\n\t\tfont-size:
+        10pt;\n\t\tfont-weight: bold;\n\t}\n\t\n\t/* Critical warnings table (inner
+        box with details) */\n\t.sls-critical-warnings-table {\n\t\tmargin-top: 10px;\n\t\tpadding:
+        6px;\n\t\tborder-right: solid 1px white;\n\t\tborder-bottom: solid 1px white;\n\t\tborder-left:
+        solid 1px grey;\n\t\tborder-top: solid 1px black;\n\t\tbackground-color: rgb(255,
+        220, 220);\n\t}\n\t\n\t/* Critical warnings details in inner box */\n\t.sls-critical-warning
+        {\n\t\tfont-size: 10pt;\n\t\tcolor: #000000;\n\t}\n\n\t\t\n\t/*===============================================\n\t
+        \ Debug Information List (in footer)\n\t  Only visible if \"debug.info\" is
+        set to \"true\"\n\t  in the \"sls.properties\" configuration file.\n  ===============================================*/\n\n\t/*
+        Sub-heading over each table */      \n\t.debuginfo-h3 {\n\t\tfont-size: 10pt;\n\t}\n\n\t/*
+        Details table */\t\n\t.debuginfo-table {\n\t\tborder-collapse: collapse;\n\t\tmargin-left:
+        20px;\n\t\tpadding: 0px;\n\t\tbackground-color: rgb(238, 238, 238);\n\t\tborder:
+        1px solid rgb(120, 120, 120);\n\t\tfont-size: 8pt;\n\t}\n\t\n\t/* Details
+        table heading row */\t\n\t.debuginfo-heading {\n\t\tbackground-color: rgb(180,
+        180, 180);\n\t\tfont-weight: bold;\n\t\ttext-align: left;\n\t\tfont-size:
+        8pt;\n\t}\n\t\n\t/* Cell in table heading row */\t\n\t.debuginfo-heading th
+        {\n\t\tpadding-left: 4px;\n\t\tpadding-right: 4px;\n\t\tpadding-bottom: 4px;\n\t\tpadding-top:
+        2px;\n\t}\n\n\t/* Alternative table row */\t\n\t.debuginfo-alt {\n\t\tbackground-color:
+        white;\n\t}\n\t\n\t/* Cell in alternative table row */\t\n\t.debuginfo-alt
+        td {\n\t\tpadding-left: 4px;\n\t\tpadding-right: 4px;\n\t}\n\t\n\t/* Cell
+        in default table row */\t\n\t.debuginfo-default td {\n\t\tpadding-left: 4px;\n\t\tpadding-right:
+        4px;\n\t}\n\t\n\t\n\t/*===============================================\n\t
+        \ Copyright / company label\n  ===============================================*/\n
+        \     \n\t/* Copyright / company label */\n\t.copyright-label {\n    margin-top:
+        10px;\n    text-align: center;\n\t\tfont: 9px verdana;\n\t\tcolor: #848f96;\n\t}\n\n</style>\n\t</head>\n\t<body>\n\t\t<div
+        class=\"outerbox\" align=\"center\">\n\t\t\t<table border=\"0\" cellpadding=\"0\"
+        cellspacing=\"0\" class=\"outertable\">\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t<tr class=\"upperrow\">\n\t\t\t\t\t<td
+        class=\"uppercell\">\n\t\t\t\t\t\t<table style=\"border: 0px; height: 30px;
+        padding: 15px; margin: 0px;\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\">\n<tr>\n\t<td
+        colspan=\"2\">\n\t\t<table width=\"100%\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\">\n\t\t<tr
+        valign=\"bottom\">\n\t\t\t<td>\n\t\t\t\t<img src=\"/login/sls/staticfiles/images/logo_so.gif\"
+        alt=\"Logo\">\n\t\t\t</td>\n\t\t</tr>\n\t\t</table>\n\t</td>\n</tr>\n</table>\n\t</td>\n\t\t</tr>\n\t\t\t\t\t\t\t\t\n\t\t\t\t<tr
+        class=\"centerrow\">\n\t\t\t\t\t<td class=\"centercell\">\n\t\t\t\t\t\t\n\t\t\t\t\t\t<div
+        class=\"form-box\">\n\t\t\t\t\t\t\t\t<table class=\"form-table\">\n\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t\t\t<td
+        class=\"form-heading-cell\" colspan=\"2\">\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t<span
+        class=\"form-heading\" >Seite nicht gefunden</span>\n\t\t\t\t\t\t\t\t\t\t\t<hr
+        noshade=\"noshade\" size=\"1\"/>\n\t\t\t\t\t\t\t\t\t\t\t<p><span class=\"form-details\"
+        >Leider wurde die gew&uuml;nschte Seite oder Datei auf dem Server nicht gefunden.
+        <br>Bitte senden Sie eine E-Mail mit der fehlerhaften URL an webmaster@aio.so.ch.</span></p>\t\t\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</td>\n\t\t\t\t</tr>\n\t\t\t\t\n\t\t\t</table>\n\t\t</div>\n\t\t\t\t\t\t<tr
+        class=\"lowerrow\">\n\t\t\t\t\t<td class=\"lowercell\">\n\t\t\t\t\t\t\n\t\t\t\t\t</td>\n\t\t\t\t</tr>\n\t</body>\n</html>"
+    headers:
+      Accept-Ranges:
+      - bytes
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '6883'
+      Content-Type:
+      - text/html
+      Date:
+      - Tue, 29 Aug 2023 12:42:02 GMT
+      Keep-Alive:
+      - timeout=10, max=300
+      Server:
+      - Kanton Solothurn
+      Set-Cookie:
+      - SCDID_S=rtpkdeYw-8iUSyxaPPmD3ICWzsooNabfblZQMiLkvxsv02DhBZ1Qkg$$; path=/;
+        Secure; HttpOnly
+    status:
+      code: 404
+      message: Not Found
+version: 1

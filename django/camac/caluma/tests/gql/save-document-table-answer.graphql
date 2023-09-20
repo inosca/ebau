@@ -1,0 +1,5 @@
+mutation ($input: SaveDocumentTableAnswerInput!) {
+  saveDocumentTableAnswer(input: $input) {
+    clientMutationId
+  }
+}

@@ -1,0 +1,16 @@
+<div class="communications-message-list" ...attributes>
+  {{#each @messages as |message i|}}
+    <Communication::Message
+      @message={{message}}
+      @refresh={{@refresh}}
+      @collapsed={{not-eq i (sub @messages.length 1)}}
+      data-test-message={{message.id}}
+    />
+    <hr />
+  {{else}}
+    <span data-test-empty>
+      {{t "communications.detail.empty"}}
+    </span>
+  {{/each}}
+  <div class="overflow-anchor"></div>
+</div>

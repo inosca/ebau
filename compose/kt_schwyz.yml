@@ -3,7 +3,7 @@ services:
     image: memcached:1.6-alpine
 
   proxy:
-    image: nginx:1.23-alpine
+    image: nginx:1.25-alpine
     depends_on:
       - ember
       - ember-camac-ng
@@ -11,7 +11,9 @@ services:
       - keycloak
     volumes:
       - djangomedia:/var/lib/camac/media:ro
-      - djangotmpmedia:/tmp/camac/tmpfiles:ro
+      # Mounting a subdirectory of a named volume currently isn't possible:
+      # https://github.com/moby/moby/issues/32582
+      - djangotmpmedia:/tmp/external-tmp:ro
 
   django: &django
     build:
@@ -37,13 +39,11 @@ services:
       - DATA_SOURCE_CLASSES=camac.caluma.extensions.data_sources.Municipalities,camac.caluma.extensions.data_sources.Services
       - DYNAMIC_GROUPS_CLASSES=camac.caluma.extensions.dynamic_groups.CustomDynamicGroups
       - DYNAMIC_TASKS_CLASSES=camac.caluma.extensions.dynamic_tasks.CustomDynamicTasks
-      - LANGUAGE_CODE=de
-      - LANGUAGES=de,fr
       - META_FIELDS=camac-instance-id,ebau-number,submit-date
       - ENABLE_HISTORICAL_API=true
     volumes:
       - djangomedia:/var/lib/camac/media
-      - djangotmpmedia:/tmp/camac/tmpfiles
+      - djangotmpmedia:/tmp
 
   django-q:
     <<: *django
@@ -78,9 +78,10 @@ services:
       - STREAM_MAX_LENGTH=60M
 
   keycloak:
-    image: acr.run/camac-ng/keycloak:16.1.0_theme-v1.0.1
-    environment:
-      - PROXY_ADDRESS_FORWARDING=true
+    build:
+      context: ../keycloak
+      cache_from:
+        - acr.run/camac-ng/camac-ng/keycloak:master
 
   metabase:
     image: metabase/metabase:v0.45.3

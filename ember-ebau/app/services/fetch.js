@@ -36,15 +36,18 @@ export default class FetchService extends Service {
       const contentType = response.headers.map["content-type"];
       let body = "";
 
-      if (/^application\/(vnd\.api+)?json$/.test(contentType)) {
-        body = await response.json();
+      if (
+        ["application/json", "application/vnd.api+json"].includes(contentType)
+      ) {
+        body = (await response.json())?.errors;
       } else if (contentType === "text/plain") {
         body = await response.text();
       }
 
       // throw an error containing a human readable message
       throw new Error(
-        `Fetch request to URL ${response.url} returned ${response.status} ${response.statusText}:\n\n${body}`
+        `Fetch request to URL ${response.url} returned ${response.status} ${response.statusText}:\n\n${body}`,
+        { cause: body },
       );
     }
 

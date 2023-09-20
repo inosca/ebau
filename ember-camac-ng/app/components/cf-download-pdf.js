@@ -17,7 +17,7 @@ export default class CfDownloadComponent extends Component {
 
       // generate document in CAMAC
       const response = yield this.fetch.fetch(
-        `/api/v1/instances/${this.args.context.instanceId}/generate-pdf${query}`
+        `/api/v1/instances/${this.args.context.instanceId}/generate-pdf${query}`,
       );
 
       const filename = response.headers

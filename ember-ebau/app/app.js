@@ -28,7 +28,6 @@ export default class App extends Application {
           "session",
           "intl",
           "notification",
-          "router",
           { config: "alexandria-config" },
         ],
       },

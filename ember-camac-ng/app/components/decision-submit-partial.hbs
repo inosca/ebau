@@ -1,7 +1,0 @@
-<UkButton
-  @color="primary"
-  @label={{@field.question.raw.label}}
-  @loading={{this.sendNotifications.isRunning}}
-  @disabled={{or @disabled this.sendNotifications.isRunning}}
-  @onClick={{perform this.sendNotifications}}
-/>

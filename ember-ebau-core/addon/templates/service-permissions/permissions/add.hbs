@@ -1,0 +1,50 @@
+<form class="uk-form-stacked" {{on "submit" (perform this.save)}}>
+  <div class="uk-margin">
+    <label class="uk-form-label uk-text-bold" for="email">
+      {{t "service-permissions.email"}}
+      <span class="uk-text-danger">
+        *
+      </span>
+    </label>
+    <div class="uk-form-controls">
+      <Input
+        id="email"
+        class="uk-input"
+        required
+        @type="email"
+        @value={{this.email}}
+      />
+    </div>
+  </div>
+  <div class="uk-margin">
+    <label class="uk-form-label uk-text-bold" for="group">
+      {{t "service-permissions.group"}}
+      <span class="uk-text-danger">
+        *
+      </span>
+    </label>
+    <PowerSelect
+      @options={{sort-by "name" this.groups.records}}
+      @onChange={{fn (mut this.group)}}
+      @selected={{this.group}}
+      @searchField="name"
+      @noMatchesMessage={{t "global.noMatch"}} as |group|
+    >
+      {{group.name}}
+    </PowerSelect>
+  </div>
+  <div class="uk-margin">
+    <UkButton
+      @type="submit"
+      @color="primary"
+      @label={{t "global.save"}}
+      @loading={{this.save.isRunning}}
+    />
+    <LinkTo
+      @route={{module-route "service-permissions" "index"}}
+      class="uk-button uk-button-default"
+    >
+      {{t "global.back"}}
+    </LinkTo>
+  </div>
+</form>

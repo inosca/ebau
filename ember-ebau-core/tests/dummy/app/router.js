@@ -8,4 +8,9 @@ export default class Router extends EmberRouter {
 }
 
 /* eslint-disable-next-line array-callback-return */
-Router.map(function () {});
+Router.map(function () {
+  this.route("communications", function () {
+    this.route("edit", { path: "/:id" });
+    this.route("new");
+  });
+});

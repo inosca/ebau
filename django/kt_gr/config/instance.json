@@ -55,7 +55,7 @@
     "model": "instance.instancestate",
     "pk": 120005,
     "fields": {
-      "name": null,
+      "name": "circulation",
       "sort": 2,
       "description": null
     }
@@ -64,9 +64,36 @@
     "model": "instance.instancestate",
     "pk": 120006,
     "fields": {
-      "name": null,
+      "name": "finished",
       "sort": 3,
       "description": null
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 120007,
+    "fields": {
+      "name": "decision",
+      "sort": 0,
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 120008,
+    "fields": {
+      "name": "correction",
+      "sort": 4,
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 120009,
+    "fields": {
+      "name": "init-distribution",
+      "sort": 5,
+      "description": ""
     }
   },
   {
@@ -76,16 +103,6 @@
       "instance_state": 1,
       "language": "de",
       "name": "Neu",
-      "description": null
-    }
-  },
-  {
-    "model": "instance.instancestatet",
-    "pk": 120001,
-    "fields": {
-      "instance_state": 1,
-      "language": "fr",
-      "name": "Nouveau",
       "description": null
     }
   },
@@ -117,6 +134,36 @@
       "language": "de",
       "name": "Abgeschlossen",
       "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 120037,
+    "fields": {
+      "instance_state": 120007,
+      "language": "de",
+      "name": "Entscheid ausstehend",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 120038,
+    "fields": {
+      "instance_state": 120008,
+      "language": "de",
+      "name": "In Korrektur",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 120039,
+    "fields": {
+      "instance_state": 120009,
+      "language": "de",
+      "name": "Zirkulation initialisieren",
+      "description": ""
     }
   }
 ]

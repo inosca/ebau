@@ -14,7 +14,7 @@ module("Integration | Helper | shoebox-value", function (hooks) {
       class ShoeboxStub extends Service {
         content = { foo: { bar: 1 } };
         bar = { baz: 2 };
-      }
+      },
     );
 
     await render(hbs`{{shoebox-value "foo.bar"}}`);

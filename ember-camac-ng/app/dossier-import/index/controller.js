@@ -23,7 +23,7 @@ export default class DossierImportIndexController extends Controller {
       });
     } catch (e) {
       this.notification.danger(
-        this.intl.t("dossierImport.imports.fetchImportsError")
+        this.intl.t("dossierImport.imports.fetchImportsError"),
       );
     }
   }

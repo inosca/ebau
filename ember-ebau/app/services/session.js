@@ -4,16 +4,16 @@ import { getOwner } from "@ember/application";
 import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 import { dropTask } from "ember-concurrency";
+import mainConfig from "ember-ebau-core/config/main";
 import { trackedTask } from "ember-resources/util/ember-concurrency";
 import { handleUnauthorized } from "ember-simple-auth-oidc";
 import { getConfig } from "ember-simple-auth-oidc/config";
 import Session from "ember-simple-auth-oidc/services/session";
 import { getUserLocales } from "get-user-locale";
 import { localCopy, cached } from "tracked-toolbox";
+import UIkit from "uikit";
 
-import config from "ebau/config/environment";
-
-const { languages, fallbackLanguage } = config;
+const { languages, fallbackLanguage } = mainConfig;
 
 const validateLanguage = (language) =>
   languages.find((lang) => lang === language);
@@ -53,23 +53,25 @@ export default class CustomSession extends Session {
       response.included
         .filter(({ type }) => type === "groups")
         .forEach((entry) =>
-          this.store.push(this.store.normalize("group", entry))
+          this.store.push(this.store.normalize("group", entry)),
         );
       response.included
         .filter(({ type }) => type === "roles")
         .forEach((entry) =>
-          this.store.push(this.store.normalize("role", entry))
+          this.store.push(this.store.normalize("role", entry)),
         );
       response.included
         .filter(({ type }) => type === "services")
         .forEach((entry) =>
-          this.store.push(this.store.normalize("service", entry))
+          this.store.push(this.store.normalize("service", entry)),
         );
     }
 
     // we have to know which is the current group
     const groupId =
-      this.group ?? response.data.relationships["default-group"].data.id;
+      this.group ??
+      response.data.relationships["default-group"]?.data?.id ??
+      response.data.relationships.groups.data?.[0]?.id;
     const group = this.store.peekRecord("group", groupId);
 
     return {
@@ -92,6 +94,7 @@ export default class CustomSession extends Session {
     return this._data.value?.role;
   }
 
+  // this is the same as "baseRole" in ember-camac-ng shoebox
   get rolePermission() {
     return this.role?.permission;
   }
@@ -125,7 +128,12 @@ export default class CustomSession extends Session {
   }
 
   get isSupport() {
-    return config.ebau.supportGroups.includes(parseInt(this.group));
+    return this.rolePermission === "support";
+  }
+
+  get isMunicipalityLeadRole() {
+    // TODO we used to do this.role === "municipality-lead", but now we only have translated names
+    return false;
   }
 
   @cached
@@ -146,16 +154,23 @@ export default class CustomSession extends Session {
     this.set("data.language", language);
     this._language = language;
 
-    const locale = `${language}-ch`;
+    this.intl.setLocale([
+      `${language}-ch`,
+      `${language}-${mainConfig.name}`,
+      language,
+    ]);
 
-    this.intl.setLocale([locale, language]);
+    UIkit.modal.i18n = {
+      ok: this.intl.t("global.ok"),
+      cancel: this.intl.t("global.cancel"),
+    };
   }
 
   get authHeaders() {
     if (!this.isAuthenticated) return {};
 
     const { authHeaderName, authPrefix, tokenPropertyName } = getConfig(
-      getOwner(this)
+      getOwner(this),
     );
 
     const token = this.data.authenticated[tokenPropertyName];

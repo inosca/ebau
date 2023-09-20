@@ -101,8 +101,10 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
         if path.suffix not in list(itertools.chain(*file_handlers.values())):
             return None
 
+        payload = (self.context["request"].user.pk, instance.attachment_id)
+
         key = Key(from_string(settings.MANABI_SHARED_KEY))
-        token = Token(key, path)
+        token = Token(key, path, payload=payload)
         handler = next(
             handler for handler, types in file_handlers.items() if path.suffix in types
         )
@@ -374,3 +376,34 @@ class AttachmentDownloadHistorySerializer(serializers.ModelSerializer):
         model = models.AttachmentDownloadHistory
         fields = ("date_time", "user", "attachment", "group")
         read_only_fields = ("date_time", "user", "attachment", "group")
+
+
+class AttachmentVersionSerializer(serializers.ModelSerializer):
+    group = GroupFormDataResourceRelatedField(default=CurrentGroupDefault())
+    attachment = FormDataResourceRelatedField(queryset=models.Attachment.objects)
+    included_serializers = {
+        "created_by_user": "camac.user.serializers.UserSerializer",
+    }
+
+    class Meta:
+        model = models.AttachmentVersion
+        fields = (
+            "name",
+            "version",
+            "size",
+            "created_at",
+            "created_by_user",
+            "path",
+            "attachment",
+            "group",
+        )
+        read_only_fields = (
+            "name",
+            "version",
+            "size",
+            "created_at",
+            "created_by_user",
+            "path",
+            "attachment",
+            "group",
+        )

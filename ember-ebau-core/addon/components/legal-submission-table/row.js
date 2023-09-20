@@ -19,35 +19,35 @@ export default class LegalSubmissionTableRowComponent extends Component {
   get receiptDate() {
     return getAnswerDisplayValue(
       this.args.legalSubmission,
-      "legal-submission-receipt-date"
+      "legal-submission-receipt-date",
     );
   }
 
   get type() {
     return getAnswerDisplayValue(
       this.args.legalSubmission,
-      "legal-submission-type"
+      "legal-submission-type",
     )?.join(", ");
   }
 
   get title() {
     return getAnswerDisplayValue(
       this.args.legalSubmission,
-      "legal-submission-title"
+      "legal-submission-title",
     );
   }
 
   get status() {
     return getAnswerDisplayValue(
       this.args.legalSubmission,
-      "legal-submission-status"
+      "legal-submission-status",
     );
   }
 
   get legalClaimants() {
     const rows = getAnswer(
       this.args.legalSubmission,
-      "legal-submission-legal-claimants-table-question"
+      "legal-submission-legal-claimants-table-question",
     )?.node.tableValue;
 
     if (!rows) return "";
@@ -61,7 +61,7 @@ export default class LegalSubmissionTableRowComponent extends Component {
         return isJuristic
           ? getAnswerDisplayValue(
               row,
-              "name-juristische-person-gesuchstellerin"
+              "name-juristische-person-gesuchstellerin",
             )
           : [
               getAnswerDisplayValue(row, "name-gesuchstellerin"),

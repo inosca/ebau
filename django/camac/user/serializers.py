@@ -2,10 +2,15 @@ from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import AnonymousUser
 from django.core.validators import validate_email
+from django.utils.translation import get_language, gettext as _
+from rest_framework.exceptions import PermissionDenied, ValidationError
+from rest_framework.fields import BooleanField
 from rest_framework_json_api import relations, serializers
 
 from camac.core.serializers import MultilingualField, MultilingualSerializer
+from camac.fields import CamacBooleanField
 from camac.instance.utils import get_lead_authority
+from camac.user.relations import CurrentUserResourceRelatedField
 
 from . import models
 
@@ -115,14 +120,18 @@ class PublicUserSerializer(serializers.ModelSerializer):
 
 class RoleSerializer(MultilingualSerializer, serializers.ModelSerializer):
     permission = serializers.SerializerMethodField()
+    slug = serializers.SerializerMethodField()
 
     def get_permission(self, role):
         perms = settings.APPLICATION.get("ROLE_PERMISSIONS", {})
         return perms.get(role.name)
 
+    def get_slug(self, role):
+        return role.name
+
     class Meta:
         model = models.Role
-        fields = ("name", "permission")
+        fields = ("name", "permission", "slug")
 
 
 class LocationSerializer(serializers.ModelSerializer):
@@ -140,6 +149,9 @@ class ServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):
     municipality = relations.SerializerMethodResourceRelatedField(
         source="get_municipality", model=models.Service, read_only=True
     )
+    notification = CamacBooleanField(default=True)
+    disabled = CamacBooleanField(default=False)
+    responsibility_construction_control = BooleanField(default=False)
 
     def get_users(self, obj):
         return models.User.objects.filter(
@@ -160,11 +172,80 @@ class ServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):
         "municipality": "camac.user.serializers.ServiceSerializer",
     }
 
+    def validate_name(self, value):
+        old_name = self.instance.get_name() if self.instance else None
+
+        multilang = settings.APPLICATION.get("IS_MULTILINGUAL")
+
+        if old_name != value and (
+            (
+                multilang
+                and models.ServiceT.objects.filter(
+                    name=value, language=get_language()
+                ).exists()
+            )
+            or (not multilang and models.Service.objects.filter(name=value).exists())
+        ):
+            raise ValidationError(_("There is already a service with this name"))
+
+        return value
+
     def validate_email(self, value):
         emails = [email.lower().strip() for email in value.split(",")]
         for email in emails:
             validate_email(email)
         return ",".join(emails)
+
+    def get_group_name(self, service_name, role):
+        prefix = role.get_trans_attr("group_prefix")
+
+        return f"{prefix} {service_name}" if prefix else service_name
+
+    def create(self, validated_data):
+        parent = self.context["request"].group.service
+
+        name = validated_data["name"]
+        city = validated_data["city"]
+        description = validated_data["description"]
+
+        validated_data["service_parent"] = parent
+        validated_data["service_group"] = parent.service_group
+
+        if settings.APPLICATION.get("IS_MULTILINGUAL"):
+            validated_data.pop("name")
+            validated_data.pop("city")
+            validated_data.pop("description")
+
+        service = super().create(validated_data)
+
+        if settings.APPLICATION.get("IS_MULTILINGUAL"):
+            models.ServiceT.objects.create(
+                service=service,
+                language=get_language(),
+                name=name,
+                city=city,
+                description=description,
+            )
+
+        # Create a group for each role that is defined as subservice role
+        for role_name in settings.APPLICATION.get("SUBSERVICE_ROLES", []):
+            role = models.Role.objects.get(name=role_name)
+            name = self.get_group_name(name, role)
+
+            group = models.Group.objects.create(
+                service=service,
+                role=role,
+                name=(None if settings.APPLICATION.get("IS_MULTILINGUAL") else name),
+            )
+
+            if settings.APPLICATION.get("IS_MULTILINGUAL"):
+                models.GroupT.objects.create(
+                    group=group,
+                    name=name,
+                    language=get_language(),
+                )
+
+        return service
 
     def update(self, instance, validated_data):
         old_name = instance.get_name()
@@ -176,7 +257,7 @@ class ServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):
         old_city = instance.get_trans_attr("city")
         new_city = validated_data.get("city", old_city)
 
-        if settings.APPLICATION.get("IS_MULTILINGUAL", False):
+        if settings.APPLICATION.get("IS_MULTILINGUAL"):
             validated_data.pop("name", None)
             validated_data.pop("description", None)
             validated_data.pop("city", None)
@@ -192,7 +273,7 @@ class ServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):
         ):  # pragma: no cover
             return instance
 
-        if settings.APPLICATION.get("IS_MULTILINGUAL", False):
+        if settings.APPLICATION.get("IS_MULTILINGUAL"):
             service_t = instance.get_trans_obj()
             if service_t:
                 service_t.name = new_name
@@ -204,15 +285,12 @@ class ServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):
             "GROUP_RENAME_ON_SERVICE_RENAME", False
         ):
             for group in instance.groups.iterator():
-                group_prefix = group.role.get_trans_attr("group_prefix")
-                if not group_prefix:
-                    group_prefix = group.role.get_name()
-                new_group_name = f"{group_prefix} {new_name}"
-                if settings.APPLICATION.get("IS_MULTILINGUAL", False):
+                name = self.get_group_name(new_name, group.role)
+                if settings.APPLICATION.get("IS_MULTILINGUAL"):
                     group = group.get_trans_obj()
                     if not group:  # pragma: no cover
                         continue
-                group.name = new_group_name
+                group.name = name
                 group.save()
 
         return instance
@@ -235,6 +313,7 @@ class ServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):
             "website",
             "municipality",
             "responsibility_construction_control",
+            "disabled",
         )
         read_only_fields = (
             "users",
@@ -302,3 +381,63 @@ class PublicGroupSerializer(MultilingualSerializer, serializers.ModelSerializer)
         model = models.Group
         fields = ("name", "service", "role")
         resource_name = "public-groups"
+
+
+class UserGroupSerializer(serializers.ModelSerializer):
+    email = serializers.EmailField(write_only=True)
+    created_by = CurrentUserResourceRelatedField()
+
+    included_serializers = {
+        "user": UserSerializer,
+        "group": GroupSerializer,
+        "created_by": UserSerializer,
+    }
+
+    def validate(self, validated_data):
+        group = validated_data["group"]
+        service = (
+            self.context["request"].group.service
+            if self.context["request"].group
+            else None
+        )
+
+        try:
+            user = models.User.objects.get(
+                email=validated_data.pop("email"), disabled=0
+            )
+        except models.User.DoesNotExist:
+            raise ValidationError(
+                _(
+                    "No user with this email address found. Please make sure"
+                    "the person already has an account with this email address"
+                    "or check the spelling of the email address."
+                )
+            )
+        except models.User.MultipleObjectsReturned:
+            raise ValidationError(_("Multiple users with that email exist"))
+
+        if models.UserGroup.objects.filter(group=group, user=user).exists():
+            raise ValidationError(_("User is already in group"))
+
+        # User does not have permission to add a user to this group
+        if group.service != service and group.service.service_parent != service:
+            raise PermissionDenied()
+
+        validated_data.update({"user": user, "default_group": 0})
+
+        return validated_data
+
+    class Meta:
+        model = models.UserGroup
+        fields = (
+            "email",
+            "group",
+            "user",
+            "created_at",
+            "created_by",
+        )
+        read_only_fields = (
+            "user",
+            "created_at",
+            "created_by",
+        )

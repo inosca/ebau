@@ -37,8 +37,6 @@ module("Acceptance | dossier-import", function (hooks) {
   });
 
   test("it can list imports", async function (assert) {
-    assert.expect(4);
-
     const dossierImport = this.server.createList("dossier-import", 5)[0];
 
     await visit(`/dossier-import`);
@@ -58,8 +56,6 @@ module("Acceptance | dossier-import", function (hooks) {
   });
 
   test("it can upload new zip files", async function (assert) {
-    assert.expect(6);
-
     await visit(`/dossier-import`);
     await click("[data-test-new-import]");
 
@@ -88,12 +84,11 @@ module("Acceptance | dossier-import", function (hooks) {
     await click("[data-test-detail-link]");
     assert.strictEqual(
       currentURL(),
-      `/dossier-import/${this.server.schema.dossierImports.first().id}`
+      `/dossier-import/${this.server.schema.dossierImports.first().id}`,
     );
   });
 
   test("it can delete imports", async function (assert) {
-    assert.expect(4);
     const dossierImport = this.server.createList("dossier-import", 5)[0];
 
     await visit(`/dossier-import`);

@@ -9,8 +9,6 @@ from camac.constants import kt_uri as uri_constants
 from camac.core.import_dossiers import import_dossiers
 from camac.utils import build_url
 
-GROUP_KOOR_ARE_BG_ID = 142
-
 
 class PdfWriterWithStreamAttribute(PdfWriter):
     def __init__(self):
@@ -31,22 +29,30 @@ class ParashiftDataError(Exception):
 class ParashiftImporter:
     """Import dossier from parashift."""
 
+    def __init__(self, bfs_nr):
+        super().__init__()
+        self.bfs_nr = bfs_nr
+
     DATA_URI_FORMAT = build_url(
-        settings.PARASHIFT_BASE_URI,
+        settings.PARASHIFT["BASE_URI"],
         "/documents/{document_id}/?include="
         "document_fields&extra_fields[document_fields]=extraction_candidates",
     )
 
-    LINK_URI_FORMAT = build_url(
-        settings.PARASHIFT_SOURCE_FILES_URI,
-        f"{settings.PARASHIFT_TENANT_ID}/documents/{{document_id}}?include=source_files",
-    )
+    @property
+    def LINK_URI_FORMAT(self):
+        tenant_id = settings.PARASHIFT[self.bfs_nr]["TENANT_ID"]
+        return build_url(
+            settings.PARASHIFT["SOURCE_FILES_URI"],
+            f"{tenant_id}/documents/{{document_id}}?include=source_files",
+        )
+
     LIST_URI_FORMAT = build_url(
-        settings.PARASHIFT_BASE_URI,
+        settings.PARASHIFT["BASE_URI"],
         "/documents?page[size]=100&page[number]={page_number}&sort=id&filter[id_lte]={to_id}&filter[id_gte]={from_id}",
     )
     TOTAL_RECORDS_URI = build_url(
-        settings.PARASHIFT_BASE_URI,
+        settings.PARASHIFT["BASE_URI"],
         "/documents?stats[total]=count&filter[id_lte]={to_id}&filter[id_gte]={from_id}",
     )
 
@@ -83,7 +89,9 @@ class ParashiftImporter:
     def _request(self, method, *args, auth=True, **kwargs):
         headers = {}
         if auth:
-            headers = {"Authorization": f"Bearer {settings.PARASHIFT_API_KEY}"}
+            headers = {
+                "Authorization": f"Bearer {settings.PARASHIFT[self.bfs_nr]['API_KEY']}"
+            }
 
         response = method(*args, **kwargs, headers=headers)
         response.raise_for_status()
@@ -108,8 +116,9 @@ class ParashiftImporter:
                     f"{record['external-id']}: unexpected barcode type {code['type']}, skipping"
                 )
                 continue
-
-            start = code["page"]
+            # Move the pages from the second page until the next barcode into the "Gesuchsteller" attachment section.
+            # We do this because in Seedorf they forgot to add a barcode to the every second document in most dossiers.
+            start = 1 if code["type"] == "BK Seedorf 1214" else code["page"]
             stop = None
             for c in record["barcodes"]:
                 if c["page"] > start:
@@ -160,7 +169,7 @@ class ParashiftImporter:
             for record in records:
                 record["documents"] = self.crop_pdf(record)
 
-            dossiers += import_dossiers(records)
+            dossiers += import_dossiers(records, self.bfs_nr)
 
         return dossiers
 
@@ -205,7 +214,24 @@ class ParashiftImporter:
         "336901": {"erfassungsjahr": 2005},
         "336905": {"erfassungsjahr": 2007},
         "4530658": {"gemeinde": "Gurtnellen 1209"},
+        "5076182": {"parzelle-nr": 793},
+        "6286188": {"erfassungsjahr": 1980},
+        "6286189": {"erfassungsjahr": 1980},
     }
+
+    def _set_location(self, value, identifier, record):
+        if identifier == "nähere ortsbezeichnung":
+            record["ort"] = value
+
+        if identifier == "ort-backup":
+            record["ort-backup"] = value
+
+    def _set_intent(self, value, identifier, record):
+        if identifier == "vorhaben":
+            record["vorhaben"] = value
+
+        if identifier == "vorhaben-backup":
+            record["vorhaben-backup"] = value
 
     def fetch_data(self, para_id):
         json_doc = self._get(self.DATA_URI_FORMAT.format(document_id=para_id)).json()
@@ -240,6 +266,9 @@ class ParashiftImporter:
                 )
 
                 continue
+
+            self._set_location(value, identifier, record)
+            self._set_intent(value, identifier, record)
 
             if identifier not in record or value is None:
                 continue

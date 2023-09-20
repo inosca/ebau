@@ -1,0 +1,54 @@
+{{yield this.selectedAttachments}}
+
+{{#unless @disabled}}
+  <UkModal
+    @visible={{@visible}}
+    @onHide={{@onHide}}
+    @dialogClass="uk-width-2xlarge"
+    as |Modal|
+  >
+    <Modal.header>
+      {{t "link-attachments.title" section=@section.name}}
+    </Modal.header>
+    <Modal.body>
+      {{#if @visible}}
+        {{#if this.isLoading}}
+          <div class="uk-text-center uk-padding">
+            <UkSpinner @ratio="2" />
+          </div>
+        {{else}}
+          {{#if this.attachments.records.length}}
+            <div class="uk-grid-small" uk-grid>
+              {{#each this.attachments.records as |attachment|}}
+                <div>
+                  <LinkAttachments::Attachment
+                    @attachment={{attachment}}
+                    @selected={{includes attachment.id this.selected}}
+                    @onToggle={{this.toggleAttachment}}
+                  />
+                </div>
+              {{/each}}
+            </div>
+          {{else}}
+            <p class="uk-text-center uk-text-italic uk-text-muted">
+              {{t "link-attachments.empty"}}
+            </p>
+          {{/if}}
+          {{#if @hasUpload}}
+            <hr />
+            <Dropzone @multiple={{true}} @onFileAdded={{perform this.upload}} />
+          {{/if}}
+        {{/if}}
+      {{/if}}
+    </Modal.body>
+    <Modal.footer class="uk-text-right">
+      <UkButton @onClick={{this.cancel}}>{{t "global.cancel"}}</UkButton>
+      <UkButton
+        @color="primary"
+        @loading={{this.save.isRunning}}
+        @disabled={{this.save.isRunning}}
+        @onClick={{perform this.save}}
+      >{{t "global.save"}}</UkButton>
+    </Modal.footer>
+  </UkModal>
+{{/unless}}

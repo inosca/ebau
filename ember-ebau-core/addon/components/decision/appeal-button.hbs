@@ -1,0 +1,8 @@
+{{#if this.isVisible}}
+  <UkButton
+    @label={{@field.question.raw.label}}
+    @loading={{this.appeal.isRunning}}
+    @disabled={{this.appeal.isRunning}}
+    @onClick={{perform this.appeal}}
+  />
+{{/if}}

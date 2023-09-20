@@ -143,6 +143,7 @@ DUMP_CONFIG_MODELS = [
     "caluma_form.FormQuestion",
     "caluma_workflow.TaskFlow",
     "caluma_workflow.Flow",
+    "gis.GISDataSource",
 ]
 
 # List of models that have foreign keys referencing non-config tables
@@ -193,6 +194,7 @@ DUMP_CONFIG_MODELS_REFERENCING_DATA = [
     "caluma_form.Form",
     "caluma_workflow.Workflow",
     "caluma_workflow.Task",
+    "alexandria_core.Category",
 ]
 
 # Exclude models which are managed by the customer alone from sync - instead it
@@ -227,6 +229,8 @@ DUMP_DATA_APPS = [
     "applicants",
     "caluma_form",
     "caluma_workflow",
+    "alexandria_core",
+    "gis",
 ]
 
 DUMP_DATA_EXCLUDED_MODELS = [
@@ -239,4 +243,5 @@ DUMP_DATA_EXCLUDED_MODELS = [
     "caluma_workflow.HistoricalTask",
     "caluma_workflow.HistoricalTaskFlow",
     "caluma_workflow.HistoricalFlow",
+    "instance.InstanceAlexandriaDocument",
 ]

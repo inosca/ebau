@@ -57,7 +57,7 @@ export default class WorkItemListWrapperComponent extends Component {
   get gqlFilter() {
     return [
       { hasDeadline: true },
-      { status: this.args.status === "closed" ? "COMPLETED" : "READY" },
+      { status: this.args.status },
       {
         addressedGroups: [String(this.args.serviceId)],
         invert: this.args.role === "control",

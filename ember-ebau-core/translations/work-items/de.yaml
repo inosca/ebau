@@ -39,6 +39,7 @@ workItems:
     markAsUnread: "Als ungelesen markieren"
     assignToMe: "Mir zuweisen"
     edit: "Aufgabe bearbeiten"
+    read: "Aufgabe ansehen"
     finish: "Aufgabe abschliessen"
 
   filters:
@@ -53,6 +54,7 @@ workItems:
     unread: "Ungelesene"
     open: "Offen"
     closed: "Abgeschlossen"
+    suspended: "Sistiert"
     active: "Aktiv"
     control: "Controlling"
     urgent: "Dringend"

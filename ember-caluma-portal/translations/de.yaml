@@ -34,6 +34,12 @@ nav:
   overview: "Übersicht"
   faq: "FAQ"
   form-builder: "Form Builder"
+  profile: "Profil"
+  communications: "Kommunikation"
+  additional-demand: "Nachforderungen"
+  watermark:
+    dev: "Entwickungssystem"
+    test: "Testsystem"
 
 feedback:
   info: "Sie haben momentan keine Rückmeldungen. Sobald das Dossier eingereicht wurde, werden Ihnen hier mögliche Rückmeldungen der Leitbehörde oder Fachstellen angezeigt."
@@ -52,7 +58,7 @@ documents:
 
     descriptions:
       prefix: "## Zusätzliche Informationen\n Die Unterlagen sind als
-      pdf-Dokumente hochzuladen. Der Dateiname soll kurz und aussagekräftig
+      pdf, png oder jpeg-Dokumente hochzuladen. Der Dateiname soll kurz und aussagekräftig
       sein. Lassen Sie Projektnummern resp. -bezeichnungen, welche Sie für
       Ihre interne Dokumentablage benötigen, bitte weg.\n\n\n"
       dokument-grundstucksangaben: "Unter die Begriffe *Grundstücksangaben
@@ -121,6 +127,7 @@ documents:
     selbstdeklaration-2: "Selbstdeklaration 2"
     nachweise: "Nachweise"
     weitere-unterlagen: "Weitere Unterlagen"
+    brandschutzdokumente: "Brandschutzdokumente"
 
 freigabequittung:
   downloadError: "Beim Export ist ein Problem aufgetreten. Bitte versuchen Sie es erneut."
@@ -340,6 +347,11 @@ instances:
     ext_gem: "Dossiers bleibt bei Gemeindebaubehörde"
     old: "Archivdossier"
     control: "Bau- und Einspracheentscheid zugestellt"
+
+    # GR
+    circulation: "In Zirkulation"
+    inProcedure: "Im Verfahren"
+    submitted: "Eingereicht"
 
     # Shared
     done: "Abgeschlossen"

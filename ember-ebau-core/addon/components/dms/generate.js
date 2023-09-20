@@ -32,7 +32,7 @@ export default class DmsGenerateComponent extends Component {
       `/api/v1/instances/${this.args.instanceId}/dms-placeholders`,
       {
         headers: { accept: "application/json" },
-      }
+      },
     );
 
     return await response.json();
@@ -46,17 +46,18 @@ export default class DmsGenerateComponent extends Component {
       .sort(sortByDescription);
 
     const ownTemplates = templates.filter(
-      (t) => parseInt(t.group) === parseInt(this.ebauModules.serviceId)
+      (t) => parseInt(t.meta.service) === parseInt(this.ebauModules.serviceId),
     );
     const inheritedTemplates = templates.filter(
       (t) =>
-        t.group && parseInt(t.group) !== parseInt(this.ebauModules.serviceId)
+        t.meta.service &&
+        parseInt(t.meta.service) !== parseInt(this.ebauModules.serviceId),
     );
-    const systemTemplates = templates.filter((t) => !t.group);
+    const systemTemplates = templates.filter((t) => !t.meta.service);
 
     const ownUncategorized = ownTemplates.filter((t) => !t.meta.category);
     const inheritedUncategorized = inheritedTemplates.filter(
-      (t) => !t.meta.category
+      (t) => !t.meta.category,
     );
 
     const categories = extractCategories(ownTemplates);
@@ -66,7 +67,7 @@ export default class DmsGenerateComponent extends Component {
       ...categories.map((category) => ({
         groupName: category,
         options: ownTemplates.filter(
-          (t) => t.meta.category?.trim() === category
+          (t) => t.meta.category?.trim() === category,
         ),
       })),
       ...(ownUncategorized.length
@@ -80,7 +81,7 @@ export default class DmsGenerateComponent extends Component {
       ...inheritedCategories.map((category) => ({
         groupName: `${category} (${this.intl.t("dms.inherited")})`,
         options: inheritedTemplates.filter(
-          (t) => t.meta.category?.trim() === category
+          (t) => t.meta.category?.trim() === category,
         ),
       })),
       ...(inheritedUncategorized.length
@@ -113,7 +114,7 @@ export default class DmsGenerateComponent extends Component {
           const blob = await res.blob();
 
           body.append("files", blob, key);
-        })
+        }),
     );
 
     try {
@@ -123,7 +124,7 @@ export default class DmsGenerateComponent extends Component {
           method: "POST",
           headers: { "content-type": undefined, accept: "*/*" },
           body,
-        }
+        },
       );
 
       const blob = yield response.blob();

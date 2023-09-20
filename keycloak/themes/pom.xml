@@ -1,0 +1,52 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>1.5.10.RELEASE</version>
+    <relativePath/> <!-- lookup parent from repository -->
+  </parent>
+
+  <groupId>ch.adfinis.ebau.keycloak.theme</groupId>
+  <artifactId>keycloak-theme</artifactId>
+  <packaging>jar</packaging>
+
+  <!-- Overwrite elements inherited from Spring Boot -->
+  <url>https://github.com/inosca/ebau</url>
+  <organization>
+    <name>inosca</name>
+    <url>https://inosca.ch</url>
+  </organization>
+  <scm>
+    <url>https://github.com/inosca/ebau</url>
+  </scm>
+
+  <version>0.3.12</version>
+
+  <name>keycloak-themes-inosca-ebau</name>
+  <description>Keycloak Themes for inosca eBau</description>
+
+  <properties>
+    <keycloak.version>21.0.2</keycloak.version>
+  </properties>
+
+  <build>
+    <finalName>keycloak-themes-inosca-ebau</finalName>
+
+    <!-- don't deploy the JAR to a maven registry -->
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-deploy-plugin</artifactId>
+        <configuration>
+          <skip>true</skip>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>
+

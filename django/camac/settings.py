@@ -4,14 +4,13 @@ import os
 import re
 from datetime import timedelta
 from importlib import import_module
-from typing import Dict
 
 import environ
 from deepmerge import always_merger
 from django.db.models.expressions import Q
 from django.utils.translation import gettext_lazy as _
 
-from camac.constants import kt_bern as be_constants
+from camac.constants import kt_bern as be_constants, kt_gr as gr_constants
 from camac.constants.kt_bern import (
     INSTANCE_STATE_DONE,
     INSTANCE_STATE_EVALUATED,
@@ -38,6 +37,7 @@ if env.str("APPLICATION_ENV", default="production") != "ci" and os.path.exists(
 # file (which doesn't exist)
 
 from caluma.settings.caluma import *  # noqa isort:skip
+from alexandria.settings.alexandria import *  # noqa isort:skip
 
 ENV = env.str("APPLICATION_ENV", default="production")
 APPLICATION_NAME = env.str("APPLICATION")
@@ -48,6 +48,10 @@ FORM_CONFIG = json.loads(APPLICATION_DIR.file("form.json").read())
 def default(default_dev=env.NOTSET, default_prod=env.NOTSET):
     """Environment aware default."""
     return default_prod if ENV == "production" else default_dev
+
+
+def require_if(condition, default_value=None):
+    return env.NOTSET if condition else default_value
 
 
 SECRET_KEY = env.str("DJANGO_SECRET_KEY", default=default("uuuuuuuuuu"))
@@ -113,16 +117,21 @@ INSTALLED_APPS = [
     "camac.parashift.apps.ParashiftConfig",
     "camac.dossier_import.apps.DossierImportConfig",
     "camac.gisbern.apps.GisbernConfig",
+    "camac.communications.apps.CommunicationsConfig",
+    "camac.gis.apps.GisConfig",
     "sorl.thumbnail",
     "django_clamd",
     "django_q",
     "reversion",
     "rest_framework_xml",
+    # alexandria
+    "alexandria.core.apps.DefaultConfig",
     # TODO: remove this when all production environments ran the migration to
     # delete the tables of this app
     "camac.file.apps.DefaultConfig",
     "manabi_migrations",
     "adminsortable2",
+    "django_json_widget",
 ]
 
 if DEBUG:
@@ -134,12 +143,13 @@ MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "mozilla_django_oidc.middleware.SessionRefresh",
+    "django.middleware.locale.LocaleMiddleware",
+    "camac.middleware.SystemLocaleMiddleware",
     "django.middleware.common.CommonMiddleware",
     "camac.user.middleware.GroupMiddleware",
     "camac.caluma.middleware.CalumaInfoMiddleware",
     "camac.middleware.LoggingMiddleware",
     "reversion.middleware.RevisionMiddleware",
-    "django.middleware.locale.LocaleMiddleware",
     "simple_history.middleware.HistoryRequestMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
@@ -180,7 +190,6 @@ COMMON_FORM_SLUGS_BE = [
 ]
 
 DISTRIBUTION_REGEX = r"(inquir(y|ies)|distribution)"
-
 DISTRIBUTION_DUMP_CONFIG = {
     "caluma_distribution": {
         "caluma_form.Form": Q(pk__iregex=DISTRIBUTION_REGEX),
@@ -193,6 +202,32 @@ DISTRIBUTION_DUMP_CONFIG = {
         "caluma_workflow.TaskFlow": Q(workflow__pk__iregex=DISTRIBUTION_REGEX),
         "caluma_workflow.Flow": Q(task_flows__workflow__pk__iregex=DISTRIBUTION_REGEX),
     },
+}
+
+SO_PERSONAL_DATA_MAPPING = {
+    "last_name": "nachname",
+    "first_name": "vorname",
+    "street": "strasse",
+    "street_number": "strasse-nummer",
+    "zip": "plz",
+    "town": "ort",
+    "email": "e-mail",
+    "tel": "telefon",
+    "is_juristic_person": (
+        "juristische-person",
+        {
+            "value_parser": (
+                "value_mapping",
+                {
+                    "mapping": {
+                        "juristische-person-ja": True,
+                        "juristische-person-nein": False,
+                    }
+                },
+            )
+        },
+    ),
+    "juristic_name": "juristische-person-name",
 }
 
 
@@ -226,13 +261,24 @@ def generate_form_dump_config(regex=None, version=None):
     return {}  # pragma: no cover
 
 
+def generate_workflow_dump_config(regex):
+    return {
+        "caluma_workflow.Workflow": Q(pk__iregex=regex),
+        "caluma_workflow.Task": Q(pk__iregex=regex),
+        "caluma_workflow.TaskFlow": Q(workflow__pk__iregex=regex),
+        "caluma_workflow.Flow": Q(task_flows__workflow__pk__iregex=regex),
+    }
+
+
 # Application specific settings
 # an application is defined by the customer e.g. uri, schwyz, etc.
 APPLICATIONS = {
     "test": {
+        "SHORT_NAME": "test",
         "ECH0211": {
             "API_ACTIVE": env.bool("ECH0211_API_ACTIVE", default=False),
         },
+        "USE_CAMAC_ADMIN": True,
         "LOG_NOTIFICATIONS": True,
         # Mapping between camac role and instance permission.
         "ROLE_PERMISSIONS": {
@@ -255,6 +301,12 @@ APPLICATIONS = {
             "service-lead": "service",
             "service-clerk": "service",
             "subservice": "service",
+        },
+        "COMMUNICATIONS": {
+            "template_slug": "communications-new-message",
+            "dossier_number_lookup": lambda instance: instance.case.meta.get(
+                "ebau-number"
+            ),
         },
         "ADMIN_GROUP": 1,
         "ROLE_INHERITANCE": {"trusted_service": "service"},
@@ -321,7 +373,10 @@ APPLICATIONS = {
                 "gesuchsteller",
                 "documents",
             ],
-            "USER": "import@koor-bg.ur.ch",
+            "USER": {
+                "KOOR_BG": "import@urec.ch",
+                "MUNICIPALITY": "import.gem@urec.ch",
+            },
         },
         "CUSTOM_NOTIFICATION_TYPES": [
             # BE
@@ -339,12 +394,18 @@ APPLICATIONS = {
             "responsible_koor",
         ],
         "ATTACHMENT_SECTION_INTERNAL": 4,
+        "DOCUMENT_BACKEND": "camac-ng",
         "DOCUMENT_MERGE_SERVICE": {},
+        "ALEXANDRIA": {
+            "PUBLIC_ROLE": "applicant",
+        },
     },
     "kt_schwyz": {
+        "SHORT_NAME": "sz",
         "INCLUDE_STATIC_FILES": [("xml", "kt_schwyz/static/ech0211/xml/")],
+        "USE_CAMAC_ADMIN": True,
         "LOG_NOTIFICATIONS": True,
-        "SHOW_DJANGO_ADMIN_RESOURCE_MANAGEMENT": False,
+        "DJANGO_ADMIN": {"ENABLE_RESOURCES": False, "ENABLE_GIS": False},
         "ROLE_PERMISSIONS": {
             "Gemeinde": "municipality",
             "Gemeinde Sachbearbeiter": "municipality",
@@ -702,7 +763,6 @@ APPLICATIONS = {
         },
         "THUMBNAIL_SIZE": "x300",
         "MASTER_DATA": {
-            "canton": ("static", "SZ"),
             "organization_category": (
                 "static",
                 "ebausz",
@@ -1236,17 +1296,19 @@ APPLICATIONS = {
         },
     },
     "kt_bern": {
+        "SHORT_NAME": "be",
         "ECH0211": {
             "API_ACTIVE": env.bool("ECH0211_API_ACTIVE", default=True),
             "API_LEVEL": "full",
             "SWAGGER_PATH": "camac.swagger.views.kt_bern",
             "URLS_CLASS": "camac.ech0211.urls.BEUrlsConf",
         },
+        "USE_CAMAC_ADMIN": True,
         "INCLUDE_STATIC_FILES": [("xml", "kt_bern/static/ech0211/xml")],
         "LOG_NOTIFICATIONS": True,
         "SYSTEM_USER": "service-account-camac-admin",
         "ATTACHMENT_SECTION_INTERNAL": 4,
-        "SHOW_DJANGO_ADMIN_RESOURCE_MANAGEMENT": False,
+        "DJANGO_ADMIN": {"ENABLE_RESOURCES": False, "ENABLE_GIS": False},
         "ROLE_PERMISSIONS": {
             "service-lead": "service",
             "service-clerk": "service",
@@ -1270,6 +1332,12 @@ APPLICATIONS = {
         "CIRCULATION_STATE_END": "DONE",
         "CIRCULATION_ANSWER_UNINVOLVED": "not_concerned",
         "THUMBNAIL_SIZE": "x300",
+        "COMMUNICATIONS": {
+            "template_slug": "communications-new-message",
+            "dossier_number_lookup": lambda instance: instance.case.meta.get(
+                "ebau-number"
+            ),
+        },
         "NOTIFICATIONS": {
             "SUBMIT": [
                 {
@@ -1472,6 +1540,7 @@ APPLICATIONS = {
                         "publication",
                         "fill-publication",
                         "legal-submission",
+                        "appeal",
                     ],
                     "cancel": [
                         "create-manual-workitems",
@@ -1599,6 +1668,7 @@ APPLICATIONS = {
             },
             "ALLOWED_SERVICE_GROUPS": {"SB1": [3], "SB2": [3], "DEFAULT": [2, 20000]},
         },
+        "DOCUMENT_BACKEND": "camac-ng",
         "DOCUMENT_MERGE_SERVICE": {
             "FORM": {
                 "_base": {
@@ -1710,6 +1780,7 @@ APPLICATIONS = {
             "ADD_HEADER_DATA": True,
         },
         "GROUP_RENAME_ON_SERVICE_RENAME": True,
+        "SUBSERVICE_ROLES": ["subservice"],
         "SERVICE_UPDATE_ALLOWED_ROLES": [
             "municipality-admin",
             "service-admin",
@@ -1773,6 +1844,7 @@ APPLICATIONS = {
             "caluma_legal_submission_form": generate_form_dump_config(
                 r"^legal-submission"
             ),
+            "caluma_appeal_form": generate_form_dump_config(r"^appeal"),
             # Distribution
             **DISTRIBUTION_DUMP_CONFIG,
         },
@@ -1823,7 +1895,6 @@ APPLICATIONS = {
             "RESOURCE_ID_PATH": "/index/template/resource-id/2000000#/dossier-import/",  # That's required for `reversing` the URL to the dossier-import resource tab in the UI
         },
         "MASTER_DATA": {
-            "canton": ("static", "BE"),
             "organisation_category": ("static", "ebaube"),
             "remark": ("answer", "bemerkungen"),
             "nature_risk_type": (
@@ -2088,9 +2159,11 @@ APPLICATIONS = {
         "ATTACHMENT_MAX_SIZE": 100 * 1024 * 1024,
     },
     "kt_uri": {
+        "SHORT_NAME": "ur",
         "ECH0211": {
             "API_ACTIVE": env.bool("ECH0211_API_ACTIVE", default=False),
         },
+        "USE_CAMAC_ADMIN": True,
         "ENABLE_PUBLIC_CALUMA": True,
         "LOG_NOTIFICATIONS": False,
         "FORM_BACKEND": "caluma",
@@ -2103,7 +2176,7 @@ APPLICATIONS = {
         "SEQUENCE_NAMESPACE_APPS": ["core", "document", "responsible"],
         "THUMBNAIL_SIZE": "x600",
         "ATTACHMENT_SECTION_INTERNAL": None,
-        "SHOW_DJANGO_ADMIN_RESOURCE_MANAGEMENT": False,
+        "DJANGO_ADMIN": {"ENABLE_RESOURCES": False, "ENABLE_GIS": False},
         "CUSTOM_NOTIFICATION_TYPES": [
             "submitter_list",
             "municipality_users",
@@ -2146,6 +2219,7 @@ APPLICATIONS = {
                 "MAIN": {"DEFAULT": 12000000, "PAPER": 12000000},
             },
         },
+        "DOCUMENT_BACKEND": "camac-ng",
         "DOCUMENT_MERGE_SERVICE": {
             "FORM": {
                 "building-permit": {
@@ -2354,7 +2428,6 @@ APPLICATIONS = {
             "ITEM": 1,
         },
         "MASTER_DATA": {
-            "canton": ("static", "UR"),
             "applicants": (
                 "table",
                 "applicant",
@@ -2405,7 +2478,7 @@ APPLICATIONS = {
             ),
             "oereb_topic": (
                 "answer",
-                "oereb-thema",
+                ["oereb-thema", "oereb-thema-gemeinde"],
             ),
             "legal_state": (
                 "answer",
@@ -2754,13 +2827,18 @@ APPLICATIONS = {
                 "gesuchsteller",
                 "documents",
             ],
-            "USER": "import@koor-bg.ur.ch",
+            "USER": {
+                "KOOR_BG": "import@urec.ch",
+                "MUNICIPALITY": "import.gem@urec.ch",
+            },
         },
     },
     "demo": {
+        "SHORT_NAME": "demo",
         "ECH0211": {
             "API_ACTIVE": env.bool("ECH0211_API_ACTIVE", default=False),
         },
+        "USE_CAMAC_ADMIN": True,
         "LOG_NOTIFICATIONS": True,
         # Mapping between camac role and instance permission.
         "ROLE_PERMISSIONS": {
@@ -2773,13 +2851,19 @@ APPLICATIONS = {
         "PUBLICATION_BACKEND": "camac-ng",
         "FORM_BACKEND": "caluma",
         "THUMBNAIL_SIZE": "x300",
-        "SHOW_DJANGO_ADMIN_RESOURCE_MANAGEMENT": True,
+        "DJANGO_ADMIN": {"ENABLE_RESOURCES": True, "ENABLE_GIS": False},
         "WORKFLOW_ITEMS": {
             "SUBMIT": None,
             "INSTANCE_COMPLETE": None,
             "PUBLICATION": None,
             "START_CIRC": None,
             "DECISION": None,
+        },
+        "COMMUNICATIONS": {
+            "template_slug": "communications-new-message",
+            "dossier_number_lookup": lambda instance: instance.case.meta.get(
+                "ebau-number"
+            ),
         },
         "PAPER": {
             "ALLOWED_ROLES": {"DEFAULT": []},
@@ -2866,6 +2950,7 @@ APPLICATIONS = {
             **DISTRIBUTION_DUMP_CONFIG,
         },
         "ATTACHMENT_SECTION_INTERNAL": 4,
+        "DOCUMENT_BACKEND": "camac-ng",
         "DOCUMENT_MERGE_SERVICE": {
             "FORM": {
                 "_base": {
@@ -2910,7 +2995,6 @@ APPLICATIONS = {
             "ADD_HEADER_DATA": False,
         },
         "MASTER_DATA": {
-            "canton": ("static", "demo"),
             "applicants": (
                 "table",
                 "personalien-gesuchstellerin",
@@ -3100,22 +3184,37 @@ APPLICATIONS = {
         },
     },
     "kt_gr": {
+        "SHORT_NAME": "gr",
         "ECH0211": {
             "API_ACTIVE": env.bool("ECH0211_API_ACTIVE", default=False),
         },
+        "USE_CAMAC_ADMIN": False,
         "LOG_NOTIFICATIONS": True,
+        "STORE_PDF": {
+            "SECTION": {
+                "MAIN": {
+                    "DEFAULT": "beilagen-zum-gesuch-weitere-gesuchsunterlagen",
+                    "PAPER": "beilagen-zum-gesuch-weitere-gesuchsunterlagen",
+                }
+            },
+        },
         # Mapping between camac role and instance permission.
         "ROLE_PERMISSIONS": {
-            "service": "service",
-            "municipality": "municipality",
+            "municipality-lead": "municipality",
+            "municipality-admin": "municipality",
+            "service-lead": "service",
+            "service-admin": "service",
+            "subservice": "service",
             "support": "support",
+            "uso": "uso",
         },
         "ADMIN_GROUP": 1,
         "IS_MULTILINGUAL": True,
-        "PUBLICATION_BACKEND": "camac-ng",
+        "PUBLICATION_BACKEND": "caluma",
+        "ENABLE_PUBLIC_ENDPOINTS": True,
         "FORM_BACKEND": "caluma",
         "THUMBNAIL_SIZE": "x300",
-        "SHOW_DJANGO_ADMIN_RESOURCE_MANAGEMENT": True,
+        "DJANGO_ADMIN": {"ENABLE_RESOURCES": True, "ENABLE_GIS": False},
         "WORKFLOW_ITEMS": {
             "SUBMIT": None,
             "INSTANCE_COMPLETE": None,
@@ -3124,12 +3223,21 @@ APPLICATIONS = {
             "DECISION": None,
         },
         "PAPER": {
-            "ALLOWED_ROLES": {"DEFAULT": []},
-            "ALLOWED_SERVICE_GROUPS": {"DEFAULT": []},
+            "ALLOWED_ROLES": {
+                "DEFAULT": [
+                    3,  # municipality-lead
+                ]
+            },
+            "ALLOWED_SERVICE_GROUPS": {
+                "DEFAULT": [
+                    2,  # municipality
+                ]
+            },
         },
         "GROUP_RENAME_ON_SERVICE_RENAME": True,
         "SERVICE_UPDATE_ALLOWED_ROLES": [
-            "Administration Leitbehörde"
+            "municipality-admin",
+            "service-admin",
         ],  # if unset, all are allowed
         # please also update django/Makefile command when changing apps here
         "SEQUENCE_NAMESPACE_APPS": ["core", "responsible", "document"],
@@ -3141,21 +3249,49 @@ APPLICATIONS = {
             "name",
             "surname",
         ],
-        "PORTAL_GROUP": 20097,
+        "PORTAL_GROUP": 3,
         "CALUMA": {
             "MANUAL_WORK_ITEM_TASK": "create-manual-workitems",
+            "FILL_PUBLICATION_TASK": "fill-publication",
             "SUBMIT_TASKS": ["submit"],
             "FORM_PERMISSIONS": ["main", "inquiry", "inquiry-answer"],
             "HAS_PROJECT_CHANGE": True,
             "CREATE_IN_PROCESS": False,
-            "GENERATE_IDENTIFIER": False,
+            "GENERATE_IDENTIFIER": True,
             "USE_LOCATION": False,
             "SAVE_DOSSIER_NUMBER_IN_CALUMA": True,
             "MODIFICATION_ALLOW_FORMS": [
                 "baugesuch",
             ],
+            "SIMPLE_WORKFLOW": {
+                "formal-exam": {
+                    "next_instance_state": "init-distribution",
+                    "history_text": _("Formal exam performed"),
+                },
+                "init-distribution": {
+                    "next_instance_state": "circulation",
+                    "history_text": _("Circulation started"),
+                },
+                "complete-distribution": {
+                    "next_instance_state": "decision",
+                },
+            },
+            "PUBLIC_STATUS": {
+                "MAP": {
+                    gr_constants.INSTANCE_STATE_NEW: gr_constants.PUBLIC_INSTANCE_STATE_CREATING,
+                    gr_constants.INSTANCE_STATE_SUBM: gr_constants.PUBLIC_INSTANCE_STATE_RECEIVING,
+                    gr_constants.INSTANCE_STATE_INIT_DISTRIBUTION: gr_constants.PUBLIC_INSTANCE_STATE_IN_PROGRESS,
+                    gr_constants.INSTANCE_STATE_CORRECTION: gr_constants.PUBLIC_INSTANCE_STATE_IN_PROGRESS,
+                    gr_constants.INSTANCE_STATE_CIRCULATION: gr_constants.PUBLIC_INSTANCE_STATE_IN_PROGRESS,
+                    gr_constants.INSTANCE_STATE_DECISION: gr_constants.PUBLIC_INSTANCE_STATE_IN_PROGRESS,
+                    gr_constants.INSTANCE_STATE_FINISHED: gr_constants.PUBLIC_INSTANCE_STATE_FINISHED,
+                },
+                "DEFAULT": gr_constants.PUBLIC_INSTANCE_STATE_CREATING,
+            },
         },
         "INSTANCE_STATE_REJECTION_COMPLETE": "finished",
+        "INSTANCE_STATE_CORRECTION_ALLOWED": ["subm", "circulation"],
+        "INSTANCE_PERMISSIONS": {"MUNICIPALITY_WRITE": ["correction"]},
         "REJECTION_FEEDBACK_QUESTION": {},
         "USE_INSTANCE_SERVICE": True,
         "ACTIVE_SERVICES": {
@@ -3189,6 +3325,7 @@ APPLICATIONS = {
                 "EXISTING": "gesuchsbearbeitungs-einladung-bestehend",
             },
         },
+        "SUBSERVICE_ROLES": ["subservice"],
         "DUMP_CONFIG_GROUPS": {
             "email_notifications": {
                 "notification.NotificationTemplate": Q(type="email"),
@@ -3206,12 +3343,44 @@ APPLICATIONS = {
                 | Q(question_id__in=COMMON_QUESTION_SLUGS_BE),
                 "caluma_form.Option": Q(questions__forms__pk__in=COMMON_FORM_SLUGS_BE)
                 | Q(questions__pk__in=COMMON_QUESTION_SLUGS_BE),
+                "caluma_form.Answer": Q(
+                    document__isnull=True,
+                ),
             },
             "caluma_decision_form": generate_form_dump_config(regex=r"^decision$"),
-            # Distribution
-            **DISTRIBUTION_DUMP_CONFIG,
+            "caluma_formal_exam_form": generate_form_dump_config(
+                regex=r"^formal-exam$"
+            ),
+            "caluma_material_exam_form": generate_form_dump_config(
+                regex=r"^material-exam$"
+            ),
+            "dashboard_document": {
+                "caluma_form.Document": Q(form="dashboard"),
+            },
+            # Sync the "core" groups (admin, support, portal) between servers, the rest is treated as data
+            "user_core_groups": {
+                "user.Group": Q(pk__lte=3),
+                "user.GroupT": Q(pk__lte=3),
+            },
+            "caluma_distribution": {
+                **generate_form_dump_config(r"(inquir(y|ies)|distribution)"),
+                **generate_workflow_dump_config(r"(inquir(y|ies)|distribution)"),
+            },
+            "caluma_additional_demand": {
+                **generate_form_dump_config(r"additional-demand"),
+                **generate_workflow_dump_config(r"additional-demand"),
+            },
+            "publication": {
+                **generate_form_dump_config(regex=r"^publikation?$"),
+            },
         },
-        "ATTACHMENT_SECTION_INTERNAL": 4,
+        "DUMP_CONFIG_EXCLUDED_MODELS": [
+            "user.Group",
+            "user.GroupT",
+            "user.Service",
+            "user.ServiceT",
+        ],
+        "DOCUMENT_BACKEND": "alexandria",
         "DOCUMENT_MERGE_SERVICE": {
             "FORM": {
                 "_base": {
@@ -3249,14 +3418,58 @@ APPLICATIONS = {
                     "exclude_slugs": [
                         "is-paper",
                         "einreichen-button",
+                        "dokumente",
+                    ],
+                },
+                "bauanzeige": {
+                    "forms": [
+                        "bauanzeige",
+                    ],
+                    "template": "form",
+                    "personalien": "personalien",
+                    "exclude_slugs": [
+                        "is-paper",
+                        "einreichen-button",
+                        "dokumente-ohne-pflichtdokumente",
+                        "dokumente-platzhalter",
+                    ],
+                },
+                "vorlaeufige-beurteilung": {
+                    "forms": [
+                        "vorlaeufige-beurteilung",
+                    ],
+                    "template": "form",
+                    "personalien": "personalien",
+                    "exclude_slugs": [
+                        "is-paper",
+                        "einreichen-button",
+                        "dokumente-ohne-pflichtdokumente",
+                        "dokumente-platzhalter",
+                    ],
+                },
+                "solaranlage": {
+                    "forms": [
+                        "solaranlage",
+                    ],
+                    "template": "form",
+                    "personalien": "personalien",
+                    "exclude_slugs": [
+                        "is-paper",
+                        "einreichen-button",
+                        "dokumente-ohne-pflichtdokumente",
                         "dokumente-platzhalter",
                     ],
                 },
             },
-            "ADD_HEADER_DATA": False,
+            "ADD_HEADER_DATA": True,
+            "ALEXANDRIA_DOCUMENT_CATEGORIES": [
+                "beilagen-zum-gesuch-grundstuecksangaben",
+                "beilagen-zum-gesuch-gutachten-nachweise-begruendungen",
+                "beilagen-zum-gesuch-projektplaene-projektbeschrieb",
+                "beilagen-zum-gesuch-weitere-gesuchsunterlagen",
+            ],
         },
         "MASTER_DATA": {
-            "canton": ("static", "demo"),
             "applicants": (
                 "table",
                 "personalien-gesuchstellerin",
@@ -3268,6 +3481,8 @@ APPLICATIONS = {
                         "street_number": "nummer-gesuchstellerin",
                         "zip": "plz-gesuchstellerin",
                         "town": "ort-gesuchstellerin",
+                        "email": "e-mail-gesuchstellerin",
+                        "tel": "telefon-oder-mobile-gesuchstellerin",
                         "is_juristic_person": (
                             "juristische-person-gesuchstellerin",
                             {
@@ -3291,27 +3506,29 @@ APPLICATIONS = {
                 "personalien-gebaudeeigentumerin",
                 {
                     "column_mapping": {
-                        "last_name": "name-gebaeudeeigentuemerin",
-                        "first_name": "vorname-gebaeudeeigentuemerin",
-                        "street": "strasse-gebaeudeeigentuemerin",
-                        "street_number": "nummer-gebaeudeeigentuemerin",
-                        "zip": "plz-gebaeudeeigentuemerin",
-                        "town": "ort-gebaeudeeigentuemerin",
+                        "last_name": "name-gesuchstellerin",
+                        "first_name": "vorname-gesuchstellerin",
+                        "street": "strasse-gesuchstellerin",
+                        "street_number": "nummer-gesuchstellerin",
+                        "zip": "plz-gesuchstellerin",
+                        "town": "ort-gesuchstellerin",
+                        "email": "e-mail-gesuchstellerin",
+                        "tel": "telefon-oder-mobile-gesuchstellerin",
                         "is_juristic_person": (
-                            "juristische-person-gebaeudeeigentuemerin",
+                            "juristische-person-gesuchstellerin",
                             {
                                 "value_parser": (
                                     "value_mapping",
                                     {
                                         "mapping": {
-                                            "juristische-person-gebaeudeeigentuemer-ja": True,
-                                            "juristische-person-gebaeudeeigentuemer-nein": False,
+                                            "juristische-person-gesuchstellerin-ja": True,
+                                            "juristische-person-gesuchstellerin-nein": False,
                                         }
                                     },
                                 )
                             },
                         ),
-                        "juristic_name": "name-juristische-person-gebaeudeeigentuemerin",
+                        "juristic_name": "name-juristische-person-gesuchstellerin",
                     }
                 },
             ),
@@ -3320,27 +3537,29 @@ APPLICATIONS = {
                 "personalien-grundeigentumerin",
                 {
                     "column_mapping": {
-                        "last_name": "name-grundeigentuemerin",
-                        "first_name": "vorname-grundeigentuemerin",
-                        "street": "strasse-grundeigentuemerin",
-                        "street_number": "nummer-grundeigentuemerin",
-                        "zip": "plz-grundeigentuemerin",
-                        "town": "ort-grundeigentuemerin",
+                        "last_name": "name-gesuchstellerin",
+                        "first_name": "vorname-gesuchstellerin",
+                        "street": "strasse-gesuchstellerin",
+                        "street_number": "nummer-gesuchstellerin",
+                        "zip": "plz-gesuchstellerin",
+                        "town": "ort-gesuchstellerin",
+                        "email": "e-mail-gesuchstellerin",
+                        "tel": "telefon-oder-mobile-gesuchstellerin",
                         "is_juristic_person": (
-                            "juristische-person-grundeigentuemerin",
+                            "juristische-person-gesuchstellerin",
                             {
                                 "value_parser": (
                                     "value_mapping",
                                     {
                                         "mapping": {
-                                            "juristische-person-grundeigentuemerin-ja": True,
-                                            "juristische-person-grundeigentuemerin-nein": False,
+                                            "juristische-person-gesuchstellerin-ja": True,
+                                            "juristische-person-gesuchstellerin-nein": False,
                                         }
                                     },
                                 )
                             },
                         ),
-                        "juristic_name": "name-juristische-person-grundeigentuemerin",
+                        "juristic_name": "name-juristische-person-gesuchstellerin",
                     }
                 },
             ),
@@ -3349,27 +3568,29 @@ APPLICATIONS = {
                 "personalien-projektverfasserin",
                 {
                     "column_mapping": {
-                        "last_name": "name-projektverfasserin",
-                        "first_name": "vorname-projektverfasserin",
-                        "street": "strasse-projektverfasserin",
-                        "street_number": "nummer-projektverfasserin",
-                        "zip": "plz-projektverfasserin",
-                        "town": "ort-projektverfasserin",
+                        "last_name": "name-gesuchstellerin",
+                        "first_name": "vorname-gesuchstellerin",
+                        "street": "strasse-gesuchstellerin",
+                        "street_number": "nummer-gesuchstellerin",
+                        "zip": "plz-gesuchstellerin",
+                        "town": "ort-gesuchstellerin",
+                        "email": "e-mail-gesuchstellerin",
+                        "tel": "telefon-oder-mobile-gesuchstellerin",
                         "is_juristic_person": (
-                            "juristische-person-projektverfasserin",
+                            "juristische-person-gesuchstellerin",
                             {
                                 "value_parser": (
                                     "value_mapping",
                                     {
                                         "mapping": {
-                                            "juristische-person-projektverfasserin-ja": True,
-                                            "juristische-person-projektverfasserin-nein": False,
+                                            "juristische-person-gesuchstellerin-ja": True,
+                                            "juristische-person-gesuchstellerin-nein": False,
                                         }
                                     },
                                 )
                             },
                         ),
-                        "juristic_name": "name-juristische-person-projektverfasserin",
+                        "juristic_name": "name-juristische-person-gesuchstellerin",
                     }
                 },
             ),
@@ -3378,35 +3599,38 @@ APPLICATIONS = {
                 "personalien-vertreterin-mit-vollmacht",
                 {
                     "column_mapping": {
-                        "last_name": "name-vertreterin",
-                        "first_name": "vorname-vertreterin",
-                        "street": "strasse-vertreterin",
-                        "street_number": "nummer-vertreterin",
-                        "zip": "plz-vertreterin",
-                        "town": "ort-vertreterin",
+                        "last_name": "name-gesuchstellerin",
+                        "first_name": "vorname-gesuchstellerin",
+                        "street": "strasse-gesuchstellerin",
+                        "street_number": "nummer-gesuchstellerin",
+                        "zip": "plz-gesuchstellerin",
+                        "town": "ort-gesuchstellerin",
+                        "email": "e-mail-gesuchstellerin",
+                        "tel": "telefon-oder-mobile-gesuchstellerin",
                         "is_juristic_person": (
-                            "juristische-person-vertreterin",
+                            "juristische-person-gesuchstellerin",
                             {
                                 "value_parser": (
                                     "value_mapping",
                                     {
                                         "mapping": {
-                                            "juristische-person-vertreterin-ja": True,
-                                            "juristische-person-vertreterin-nein": False,
+                                            "juristische-person-gesuchstellerin-ja": True,
+                                            "juristische-person-gesuchstellerin-nein": False,
                                         }
                                     },
                                 )
                             },
                         ),
-                        "juristic_name": "name-juristische-person-vertreterin",
+                        "juristic_name": "name-juristische-person-gesuchstellerin",
                     }
                 },
             ),
-            "dossier_number": ("case_meta", "ebau-number"),
+            "dossier_number": ("case_meta", "dossier-number"),
             "project": ("answer", "baubeschrieb", {"value_parser": "option"}),
             "proposal": ("answer", "beschreibung-bauvorhaben"),
             "street": ("answer", "strasse-flurname"),
             "street_number": ("answer", "nr"),
+            "zip": ("answer", "plz"),
             "city": ("answer", "ort-grundstueck"),
             "construction_costs": ("answer", "baukosten-in-chf"),
             "municipality": ("answer", "gemeinde", {"value_parser": "dynamic_option"}),
@@ -3438,11 +3662,203 @@ APPLICATIONS = {
                     )
                 },
             ),
+            "description_modification": (
+                "answer",
+                "beschreibung-projektaenderung",
+            ),
         },
-        "GENERALIZED_ROLE_MAPPING": {
-            "municipality": "municipality-lead",
-            "service": "service-lead",
+    },
+    "kt_so": {
+        "SHORT_NAME": "so",
+        "ECH0211": {
+            "API_ACTIVE": env.bool("ECH0211_API_ACTIVE", default=False),
+        },
+        "USE_CAMAC_ADMIN": False,
+        "LOG_NOTIFICATIONS": True,
+        # Mapping between camac role and instance permission.
+        "ROLE_PERMISSIONS": {
+            "municipality-admin": "municipality",
+            "municipality-lead": "municipality",
+            "municipality-clerk": "municipality",
+            "municipality-construction-supervision": "municipality",
+            "municipality-read": "municipality",
+            "service-admin": "service",
+            "service-lead": "service",
+            "service-clerk": "service",
             "support": "support",
+        },
+        "ADMIN_GROUP": 1,
+        "IS_MULTILINGUAL": True,
+        "FORM_BACKEND": "caluma",
+        "THUMBNAIL_SIZE": "x300",
+        "DJANGO_ADMIN": {"ENABLE_RESOURCES": True, "ENABLE_GIS": True},
+        "GROUP_RENAME_ON_SERVICE_RENAME": True,
+        "SERVICE_UPDATE_ALLOWED_ROLES": [],  # if unset, all are allowed
+        "SEQUENCE_NAMESPACE_APPS": [],
+        "NOTIFICATIONS_EXCLUDED_TASKS": [],
+        "OIDC_SYNC_USER_ATTRIBUTES": [
+            "language",
+            "email",
+            "username",
+            "name",
+            "surname",
+        ],
+        "PORTAL_GROUP": 2,
+        "CALUMA": {
+            "MANUAL_WORK_ITEM_TASK": "create-manual-workitems",
+            "SUBMIT_TASKS": ["submit"],
+            "FORM_PERMISSIONS": ["main"],
+            "HAS_PROJECT_CHANGE": True,
+            "CREATE_IN_PROCESS": False,
+            "GENERATE_IDENTIFIER": True,
+            "USE_LOCATION": False,
+            "SAVE_DOSSIER_NUMBER_IN_CALUMA": True,
+            "MODIFICATION_ALLOW_FORMS": [],
+            "SIMPLE_WORKFLOW": {},
+        },
+        "USE_INSTANCE_SERVICE": True,
+        "DOSSIER_IMPORT": {},
+        "CUSTOM_NOTIFICATION_TYPES": [],
+        "NOTIFICATIONS": {
+            "SUBMIT": [
+                {
+                    "template_slug": "eingang-dossier-gesuchsteller",
+                    "recipient_types": ["applicant"],
+                },
+                {
+                    "template_slug": "eingang-dossier-leitbehoerde",
+                    "recipient_types": ["leitbehoerde"],
+                },
+            ],
+            "APPLICANT": {
+                "NEW": "gesuchsbearbeitungs-einladung-neu",
+                "EXISTING": "gesuchsbearbeitungs-einladung-bestehend",
+            },
+        },
+        "SUBSERVICE_ROLES": [],
+        "DUMP_CONFIG_GROUPS": {
+            "email_notifications": {
+                "notification.NotificationTemplate": Q(type="email"),
+                "notification.NotificationTemplateT": Q(template__type="email"),
+            },
+            # Sync the "core" groups (admin, support, portal) between servers, the rest is treated as data
+            # TODO: uncomment as soon as the customer manages the services
+            # "user_core_groups": {
+            #     "user.Group": Q(pk__lte=3),
+            #     "user.GroupT": Q(pk__lte=3),
+            # },
+            # Dashboard
+            "dashboard": {
+                **generate_form_dump_config(regex=r"^dashboard?$"),
+                "caluma_form.Document": Q(form="dashboard"),
+                # Static content
+                "caluma_form.Answer": Q(
+                    question_id__in=["portal-faq-inhalt-de", "portal-terms-inhalt-de"]
+                ),
+            },
+        },
+        "DUMP_CONFIG_EXCLUDED_MODELS": [
+            # TODO: uncomment as soon as the customer manages the services
+            # "user.Group",
+            # "user.GroupT",
+            # "user.Service",
+            # "user.ServiceT",
+        ],
+        "MASTER_DATA": {
+            "applicants": (
+                "table",
+                "bauherrin",
+                {"column_mapping": SO_PERSONAL_DATA_MAPPING},
+            ),
+            "landowners": (
+                "table",
+                "grundeigentuemerin",
+                {"column_mapping": SO_PERSONAL_DATA_MAPPING},
+            ),
+            "project_authors": (
+                "table",
+                "projektverfasserin",
+                {"column_mapping": SO_PERSONAL_DATA_MAPPING},
+            ),
+            "proposal": ("answer", "umschreibung-bauprojekt"),
+            "street": ("answer", "strasse-flurname"),
+            "street_number": ("answer", "strasse-nummer"),
+            "zip": ("answer", "plz"),
+            "city": ("answer", "ort"),
+            "construction_costs": ("answer", "gesamtkosten"),
+            "municipality": ("answer", "gemeinde", {"value_parser": "dynamic_option"}),
+            "plot_data": (
+                "table",
+                "parzellen",
+                {
+                    "column_mapping": {
+                        "plot_number": "parzellennummer",
+                        "egrid_number": "e-grid",
+                        "coord_east": "lagekoordinaten-ost",
+                        "coord_north": "lagekoordinaten-nord",
+                    }
+                },
+            ),
+            "submit_date": ("case_meta", "submit-date", {"value_parser": "datetime"}),
+            "is_paper": (
+                "answer",
+                "is-paper",
+                {
+                    "value_parser": (
+                        "value_mapping",
+                        {"mapping": {"is-paper-yes": True, "is-paper-no": False}},
+                    )
+                },
+            ),
+        },
+        "ACTIVE_SERVICES": {
+            "MUNICIPALITY": {
+                "FILTERS": {
+                    "service__service_group__name__in": [
+                        "municipality",
+                    ]
+                },
+                "DEFAULT": True,
+            },
+        },
+        "REJECTION_FEEDBACK_QUESTION": {},
+        "DOCUMENT_BACKEND": "alexandria",
+        "DOCUMENT_MERGE_SERVICE": {
+            "FORM": {
+                "_base": {
+                    "people_sources": [
+                        "bauherrin",
+                        "grundeigentuemerin",
+                        "projektverfasserin",
+                    ],
+                    "people_names": {
+                        "nachname": "familyName",
+                        "vorname": "givenName",
+                        "juristische-person-name": "juristicName",
+                    },
+                },
+                "baugesuch": {
+                    "forms": ["baugesuch"],
+                    "template": "form",
+                    "personalien": "personalien",
+                    "exclude_slugs": [
+                        # Forms
+                        "allgemeine-informationen",
+                        "dokumente",
+                        "einreichen",
+                        # Questions
+                        "is-paper",
+                        "projektaenderung",
+                    ],
+                },
+            },
+            "ADD_HEADER_DATA": True,
+            "ALEXANDRIA_DOCUMENT_CATEGORIES": [
+                "beilagen-zum-gesuch-grundstuecksangaben",
+                "beilagen-zum-gesuch-gutachten-nachweise-begruendungen",
+                "beilagen-zum-gesuch-projektplaene-projektbeschrieb",
+                "beilagen-zum-gesuch-weitere-gesuchsunterlagen",
+            ],
         },
     },
 }
@@ -3636,31 +4052,14 @@ DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
-RM_LOCALE_INFO = {
-    "rm": {
-        "bidi": False,
-        "code": "rm",
-        "name": "Romansh",
-        "name_local": "Rumantsch",
-    }
-}
 
-
-def add_django_foreign_locale(locale_info: Dict[str, dict]):
-    import django.conf.locale
-
-    django.conf.locale.LANG_INFO.update(locale_info)
-
-
-LOCALE_NAME = "de_CH"
+DEFAULT_LOCALE_CODE = "de_CH"
 LANGUAGE_CODE = "de"
 LANGUAGES = [
     ("de", _("German")),
     ("fr", _("French")),
     ("it", _("Italian")),
-    ("rm", _("Romansh")),
 ]
-add_django_foreign_locale(RM_LOCALE_INFO)
 TIME_ZONE = "Europe/Zurich"
 USE_I18N = True
 USE_L10N = True
@@ -3697,9 +4096,9 @@ REST_FRAMEWORK = {
     ),
     "DEFAULT_METADATA_CLASS": "rest_framework_json_api.metadata.JSONAPIMetadata",
     "DEFAULT_FILTER_BACKENDS": (
-        "django_filters.rest_framework.DjangoFilterBackend",
         "camac.filters.MultilingualSearchFilter",
         "rest_framework.filters.OrderingFilter",
+        "rest_framework_json_api.django_filters.DjangoFilterBackend",
     ),
     "ORDERING_PARAM": "sort",
     "TEST_REQUEST_RENDERER_CLASSES": (
@@ -3840,6 +4239,13 @@ GIS_SKIP_BOOLEAN_LAYERS = env.list("GIS_SKIP_BOOLEAN_LAYERS", default=[])
 
 GIS_SKIP_SPECIAL_LAYERS = env.list("GIS_SKIP_SPECIAL_LAYERS", default=[])
 
+SO_GIS_BASE_URL = env.str(
+    "SO_GIS_BASE_URL", default=default("https://geo-i.so.ch", "https://geo.so.ch")
+)
+SO_GIS_VERIFY_SSL = env.bool("SO_GIS_VERIFY_SSL", default=True)
+ADMIN_GIS_BASE_URL = env.str("ADMIN_GIS_BASE_URL", default="https://api3.geo.admin.ch")
+ADMIN_GIS_VERIFY_SSL = env.bool("ADMIN_GIS_VERIFY_SSL", default=True)
+
 DOCUMENT_MERGE_SERVICE_URL = build_url(
     env.str("DOCUMENT_MERGE_SERVICE_URL", "http://document-merge-service:8000/api/v1/")
 )
@@ -3918,7 +4324,11 @@ MANABI_ENABLE = env.bool("MANABI_ENABLE", default=default(True, False))
 
 # These are security relevant: provide a default that cannot be abused
 MANABI_SHARED_KEY = env.str(
-    "MANABI_SHARED_KEY", default=default("bNEZsIjvxDAiLhDA1chvF9zL9OJYPNlCqNPlm7KbhmU")
+    "MANABI_SHARED_KEY",
+    default=default(
+        "bNEZsIjvxDAiLhDA1chvF9zL9OJYPNlCqNPlm7KbhmU",
+        require_if(MANABI_ENABLE),
+    ),
 )
 
 MANABI_TOKEN_ACTIVATE_TIMEOUT = env.int("MANABI_TOKEN_ACTIVATE_TIMEOUT", default=600)
@@ -3935,18 +4345,6 @@ GWR_HOUSING_STAT_BASE_URI = env.str(
     default="https://www.housing-stat.ch/regbl/api/ech0216/2",
 )
 
-# Parashift
-PARASHIFT_BASE_URI = env.str(
-    "PARASHIFT_BASE_URI", default="https://api.parashift.io/v2"
-)
-
-PARASHIFT_SOURCE_FILES_URI = env.str(
-    "PARASHIFT_SOURCE_FILES_URI",
-    default="https://individual-extraction.api.parashift.io/v1",
-)
-
-PARASHIFT_TENANT_ID = env.int("PARASHIFT_TENANT_ID", default=1665)
-PARASHIFT_API_KEY = env.str("PARASHIFT_API_KEY", default="ey...")
 
 # Until running tasks can be manually canceled we want a timeout
 DJANGO_Q_TASK_TIMEOUT_HOURS = env.int("DJANGO_Q_TASK_TIMEOUT_HOURS", default=6)
@@ -4001,11 +4399,11 @@ OIDC_VERIFY_SSL = env.bool("OIDC_VERIFY_SSL", default=True)
 STATICFILES_DIRS += APPLICATIONS[APPLICATION_NAME].get("INCLUDE_STATIC_FILES", [])
 
 
-def load_module_settings(module_name):
+def load_module_settings(module_name, application_name=APPLICATION_NAME):
     module = getattr(
         import_module(f"camac.settings_{module_name.lower()}"), module_name.upper()
     )
-    app_config = module.get(APPLICATION_NAME, {})
+    app_config = module.get(application_name, {})
 
     return (
         always_merger.merge(module["default"], app_config)
@@ -4014,4 +4412,19 @@ def load_module_settings(module_name):
     )
 
 
+APPEAL = load_module_settings("appeal")
 DISTRIBUTION = load_module_settings("distribution")
+PARASHIFT = load_module_settings("parashift")
+PUBLICATION = load_module_settings("publication")
+ADDITIONAL_DEMAND = load_module_settings("additional_demand")
+
+# Alexandria
+ALEXANDRIA_CREATED_BY_USER_PROPERTY = "alexandria_user"
+ALEXANDRIA_CREATED_BY_GROUP_PROPERTY = "alexandria_group"
+ALEXANDRIA_VISIBILITY_CLASSES = [
+    "camac.alexandria.extensions.visibilities.CustomVisibility"
+]
+ALEXANDRIA_PERMISSION_CLASSES = [
+    "camac.alexandria.extensions.permissions.CustomPermission"
+]
+ALEXANDRIA_VALIDATION_CLASSES = ["camac.alexandria.extensions.validations.Validator"]

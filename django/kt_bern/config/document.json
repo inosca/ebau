@@ -321,7 +321,7 @@
     "fields": {
       "attachment_section": 13,
       "language": "de",
-      "name": "Beilagen zum Gesuch (Papier)",
+      "name": "Beilagen zum Gesuch (Papier und Nachrichten)",
       "description": "Hier können Dokumente hochgeladen werden, welche durch die Gesuchstellenden in Papierform (oder ausserhalb des Systems, z.B. per Mail) eingereicht worden sind. Die Dokumente sind für alle am Verfahren beteiligten Behörden einsehbar."
     }
   },
@@ -331,7 +331,7 @@
     "fields": {
       "attachment_section": 13,
       "language": "fr",
-      "name": "Pièces jointes à la demande (papier)",
+      "name": "Pièces jointes à la demande (papier et messages)",
       "description": "vous pouvez télécharger ici les documents qui ont été soumis par la personne requérante sous forme papier (ou en dehors du système eBau, par exemple par courrier électronique). Les documents peuvent être consultés par toutes les autorités impliquées dans la procédure."
     }
   },
@@ -341,7 +341,7 @@
     "fields": {
       "attachment_section": 10,
       "language": "de",
-      "name": "Beilagen SB1 (Papier)",
+      "name": "Beilagen SB1 (Papier und Nachrichten)",
       "description": "Hier können Dokumente hochgeladen werden, welche durch die Gesuchstellenden in Papierform (oder ausserhalb des Systems, z.B. per Mail) im Rahmen der Selbstdeklaration (SB1) eingereicht worden sind. Die Dokumente sind für alle am Verfahren beteiligten Behörden einsehbar."
     }
   },
@@ -351,7 +351,7 @@
     "fields": {
       "attachment_section": 10,
       "language": "fr",
-      "name": "Suppléments DC1 (papier)",
+      "name": "Suppléments DC1 (papier et messages)",
       "description": "Il est possible de télécharger ici des documents qui ont été soumis par la personne requérante sur papier (ou en dehors du système eBau, par exemple par courrier électronique) dans le cadre de la déclaration spontanée en matière de contrôle des constructions 1 (DC1). Les documents peuvent être consultés par toutes les autorités impliquées dans la procédure."
     }
   },
@@ -361,7 +361,7 @@
     "fields": {
       "attachment_section": 11,
       "language": "de",
-      "name": "Beilagen SB2 (Papier)",
+      "name": "Beilagen SB2 (Papier und Nachrichten)",
       "description": "Hier können Dokumente hochgeladen werden, welche durch die Gesuchstellenden in Papierform (oder ausserhalb des Systems, z.B. per Mail) im Rahmen der Selbstdeklaration (SB2) eingereicht worden sind. Die Dokumente sind für alle am Verfahren beteiligten Behörden einsehbar."
     }
   },
@@ -371,7 +371,7 @@
     "fields": {
       "attachment_section": 11,
       "language": "fr",
-      "name": "Suppléments DC2 (papier)",
+      "name": "Suppléments DC2 (papier et messages)",
       "description": "Il est possible de télécharger ici des documents qui ont été soumis par la personne requérante sur papier (ou en dehors du système eBau, par exemple par courrier électronique) dans le cadre de la déclaration spontanée en matière de contrôle des constructions 2 (DC2). Les documents peuvent être consultés par toutes les autorités impliquées dans la procédure."
     }
   },
@@ -381,7 +381,7 @@
     "fields": {
       "attachment_section": 12,
       "language": "de",
-      "name": "Nachforderungen (Papier)",
+      "name": "Nachforderungen (Papier und Nachrichten)",
       "description": "Hier können Dokumente hochgeladen werden, welche durch die Gesuchstellenden in Papierform (oder ausserhalb des Systems, z.B. per Mail) im Rahmen einer Nachforderung eingereicht worden sind. Die Dokumente sind für alle beteiligten am Verfahren Behörden einsehbar."
     }
   },
@@ -391,7 +391,7 @@
     "fields": {
       "attachment_section": 12,
       "language": "fr",
-      "name": "Demandes de complément d’information (papier)",
+      "name": "Demandes de complément d’information (papier et messages)",
       "description": "Il est possible de télécharger ici des documents qui ont été soumis par la personne requérante sur papier (ou en dehors du système eBau, par exemple par courrier électronique) dans le cadre d'une demande de complément d’information. Les documents peuvent être consultés par toutes les autorités impliquées dans la procédure."
     }
   },

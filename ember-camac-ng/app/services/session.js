@@ -10,7 +10,7 @@ export default class CustomSessionService extends SessionService {
       this.data.authenticated.refreshAt <= new Date()
     ) {
       const authenticator = this.session._lookupAuthenticator(
-        "authenticator:camac"
+        "authenticator:camac",
       );
 
       await authenticator.refresh();

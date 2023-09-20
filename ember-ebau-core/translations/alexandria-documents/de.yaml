@@ -1,0 +1,27 @@
+documents:
+  confidential: "(vertraulich)"
+  setConfidential: "Als vertraulich markieren"
+  setNonConfidential: "Vertraulich Markierung entfernen"
+  confirm: "Hiermit bestätige ich, dass ich {count, plural, =1 {den folgenden Pflichtinhalt} other {die folgenden # Pflichtinhalte}} hochgeladen habe. Bitte beachten Sie, dass die Liste der angegebenen Pflichtdokumente nicht abschliessend ist. Bitte konsultieren Sie das kommunale Baugesetz."
+  confirm-reduced: "Hiermit bestätige ich, dass ich die benötigten Pflichtinhalte hochgeladen habe:"
+  buckets:
+    nachforderung: "Nachforderung"
+
+    descriptions:
+      prefix: "## Zusätzliche Informationen\n Die Unterlagen sind als
+      pdf-Dokumente hochzuladen. Der Dateiname soll kurz und aussagekräftig
+      sein. Lassen Sie Projektnummern resp. -bezeichnungen, welche Sie für
+      Ihre interne Dokumentablage benötigen, bitte weg.\n\n\n"
+
+  download: "Datei herunterladen"
+
+  date: "Hochgeladen am {date} um {time}"
+
+  wrongMimeType: "Dieser Dateityp ist nicht erlaubt. Erlaubte Dateitypen sind PDF, PNG und JPEG."
+
+  uploadSuccess: "Die Datei wurde erfolgreich hochgeladen"
+  uploadError: "Beim Hochladen der Datei ist etwas schief gelaufen"
+
+  deleteInfo: 'Wollen Sie die Datei "{filename}" wirklich löschen?'
+  deleteSuccess: "Die Datei wurde erfolgreich gelöscht"
+  deleteError: "Beim Löschen der Datei ist etwas schief gelaufen"

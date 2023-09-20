@@ -1,0 +1,13 @@
+<div class="uk-width-1-3 uk-flex uk-flex-column uk-margin-small-bottom">
+  <label for={{@filterName}} class="uk-form-label uk-text-bold">
+    {{t (concat "cases.filters." @filterName)}}
+  </label>
+  <div class="uk-form-controls uk-flex-1" ...attributes>
+    {{yield}}
+  </div>
+  {{#if this.hint}}
+    <small class="uk-text-muted">
+      {{this.hint}}
+    </small>
+  {{/if}}
+</div>

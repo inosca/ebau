@@ -5,11 +5,10 @@ import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { queryManager } from "ember-apollo-client";
 import { dropTask, lastValue } from "ember-concurrency";
+import CustomCaseModel from "ember-ebau-core/caluma-query/models/case";
+import mainConfig from "ember-ebau-core/config/main";
 import { gql } from "graphql-tag";
 
-import CustomCaseModel from "camac-ng/caluma-query/models/case";
-import config from "camac-ng/config/environment";
-import redirectConfig from "camac-ng/config/redirect";
 import getCaseFromParcelsQuery from "camac-ng/gql/queries/get-case-from-parcels.graphql";
 
 const WORKFLOW_ITEM_IDS = [
@@ -50,12 +49,12 @@ export default class CaseDashboardComponent extends Component {
 
   get linkedAndOnSamePlot() {
     return this.currentInstance.linkedInstances.filter((value) =>
-      this.instancesOnSamePlot.includes(value)
+      this.instancesOnSamePlot.includes(value),
     );
   }
 
   get journalInstanceResourceId() {
-    return redirectConfig.instanceResourceRedirects.journal[
+    return mainConfig.instanceResourceRedirects.journal[
       this.shoebox.content.roleId
     ];
   }
@@ -121,7 +120,7 @@ export default class CaseDashboardComponent extends Component {
             hasAnswerFilter: this.samePlotFilters,
           },
         },
-        "allCases.edges"
+        "allCases.edges",
       );
 
       const instanceIds = caseEdges
@@ -134,7 +133,7 @@ export default class CaseDashboardComponent extends Component {
 
       const instances = yield this.store.query("instance", {
         instance_id: instanceIds.join(","),
-        instance_state: config.APPLICATION.submittedStates.join(","),
+        instance_state: mainConfig.submittedStates.join(","),
       });
 
       return instances;
@@ -170,16 +169,16 @@ export default class CaseDashboardComponent extends Component {
             ],
           },
         },
-        "allCases.edges"
+        "allCases.edges",
       );
       const modelInstance = new CustomCaseModel(caseRecord?.[0]?.node);
       return yield this.linkDossier.perform(
-        modelInstance.meta["camac-instance-id"]
+        modelInstance.meta["camac-instance-id"],
       );
     } catch (e) {
       console.error(e);
       this.notification.danger(
-        this.intl.t("cases.miscellaneous.linkInstanceError")
+        this.intl.t("cases.miscellaneous.linkInstanceError"),
       );
     }
   }
@@ -202,12 +201,12 @@ export default class CaseDashboardComponent extends Component {
       yield this.fetchCurrentInstance.perform(true);
       this.dossierNumber = null;
       this.notification.success(
-        this.intl.t("cases.miscellaneous.linkInstanceSuccess")
+        this.intl.t("cases.miscellaneous.linkInstanceSuccess"),
       );
     } catch (e) {
       console.error(e);
       this.notification.danger(
-        this.intl.t("cases.miscellaneous.linkInstanceError")
+        this.intl.t("cases.miscellaneous.linkInstanceError"),
       );
     }
   }
@@ -218,12 +217,12 @@ export default class CaseDashboardComponent extends Component {
       yield instance.unlink();
       yield this.fetchCurrentInstance.perform();
       this.notification.success(
-        this.intl.t("cases.miscellaneous.unLinkInstanceSuccess")
+        this.intl.t("cases.miscellaneous.unLinkInstanceSuccess"),
       );
     } catch (e) {
       console.error(e);
       this.notification.danger(
-        this.intl.t("cases.miscellaneous.unLinkInstanceError")
+        this.intl.t("cases.miscellaneous.unLinkInstanceError"),
       );
     }
   }
@@ -253,13 +252,13 @@ export default class CaseDashboardComponent extends Component {
     const acceptDate =
       workflowEntries.find(
         (we) =>
-          we.belongsTo("workflowItem").id() === WORKFLOW_ITEM_IDS[1].toString()
+          we.belongsTo("workflowItem").id() === WORKFLOW_ITEM_IDS[1].toString(),
       )?.workflowDate || workflowEntries.firstObject?.workflowDate;
 
     const ownActivation = activations.find(
       (activation) =>
         parseInt(activation.get("service.id")) ===
-          this.shoebox.content.serviceId && activation.state === "RUN"
+          this.shoebox.content.serviceId && activation.state === "RUN",
     );
 
     const attachment = yield this.store.query("attachment", {
@@ -281,7 +280,7 @@ export default class CaseDashboardComponent extends Component {
           `${attachment.get("firstObject").path}`,
           {
             headers: { accept: undefined },
-          }
+          },
         );
         const blob = yield response.blob();
         parcelPicture = yield convertToBase64(blob);
@@ -314,7 +313,7 @@ export default class CaseDashboardComponent extends Component {
           ],
         },
       },
-      "allCases.edges"
+      "allCases.edges",
     );
     const caseModel = new CustomCaseModel(caseRecord?.[0]?.node);
     setOwner(caseModel, getOwner(this));

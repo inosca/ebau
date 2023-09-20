@@ -24,7 +24,7 @@ export default class LegalSubmissionTableComponent extends Component {
   get status() {
     return (
       this.filterOptions.value?.status.edges.map((edge) =>
-        edge.node.options.edges.map((edge) => edge.node)
+        edge.node.options.edges.map((edge) => edge.node),
       )[0] ?? []
     );
   }
@@ -32,20 +32,20 @@ export default class LegalSubmissionTableComponent extends Component {
   get types() {
     return (
       this.filterOptions.value?.type.edges.map((edge) =>
-        edge.node.options.edges.map((edge) => edge.node)
+        edge.node.options.edges.map((edge) => edge.node),
       )[0] ?? []
     );
   }
 
   get selectedTypes() {
     return this.types.filter((type) =>
-      this.args.types.split(",").includes(type.slug)
+      this.args.types.split(",").includes(type.slug),
     );
   }
 
   get selectedStatus() {
     return this.status.find((status) =>
-      this.args.status.split(",").includes(status.slug)
+      this.args.status.split(",").includes(status.slug),
     );
   }
 
@@ -134,7 +134,7 @@ export default class LegalSubmissionTableComponent extends Component {
           mutation: createDocumentMutation,
           variables: { form: "legal-submission-form" },
         },
-        "saveDocument.document.id"
+        "saveDocument.document.id",
       );
 
       const documentId = decodeId(rawDocumentId);
@@ -153,7 +153,7 @@ export default class LegalSubmissionTableComponent extends Component {
 
       this.router.transitionTo(
         this.ebauModules.resolveModuleRoute("legal-submission", "edit"),
-        documentId
+        documentId,
       );
     } catch (error) {
       this.notification.danger(this.intl.t("legal-submission.create-error"));

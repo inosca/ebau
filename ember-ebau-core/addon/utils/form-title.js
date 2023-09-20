@@ -1,25 +1,40 @@
 import { getAnswerDisplayValue } from "ember-ebau-core/utils/get-answer";
 
-export default function getFormTitle(document, answerSlugs) {
+export default function getFormTitle(caseModel, document, answerSlugs) {
+  const isKoorAfjCopy = caseModel?.meta.oereb_copy;
+
   const oerebProcedure = getAnswerDisplayValue(
     document,
-    answerSlugs.oerebProcedure
+    answerSlugs.oerebProcedure,
   );
+  const staticForestBoundaryMunicipality =
+    getAnswerDisplayValue(
+      document,
+      "waldfeststellung-mit-statischen-waldgrenzen-gemeinde",
+    ) === "Ja";
+  const staticForestBoundaryCanton =
+    getAnswerDisplayValue(
+      document,
+      "waldfeststellung-mit-statischen-waldgrenzen-kanton",
+    ) === "Ja";
   const oerebTopics =
-    getAnswerDisplayValue(document, answerSlugs.oerebTopicsCanton) ||
-    getAnswerDisplayValue(document, answerSlugs.oerebTopicsMunicipality);
+    isKoorAfjCopy &&
+    (staticForestBoundaryCanton || staticForestBoundaryMunicipality)
+      ? "Statische Waldgrenze"
+      : getAnswerDisplayValue(document, answerSlugs.oerebTopicsCanton) ||
+        getAnswerDisplayValue(document, answerSlugs.oerebTopicsMunicipality);
 
   const oerebPartialState = getAnswerDisplayValue(
     document,
-    answerSlugs.oerebPartialState
+    answerSlugs.oerebPartialState,
   );
   const procedureCanton = getAnswerDisplayValue(
     document,
-    answerSlugs.procedureCanton
+    answerSlugs.procedureCanton,
   );
   const procedureConfederation = getAnswerDisplayValue(
     document,
-    answerSlugs.procedureConfederation
+    answerSlugs.procedureConfederation,
   );
 
   if (oerebProcedure && oerebTopics) {

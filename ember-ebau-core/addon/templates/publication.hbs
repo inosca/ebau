@@ -1,0 +1,50 @@
+{{#if this.publications.isRunning}}
+  <div class="uk-text-center"><UkSpinner @ratio={{2}} /></div>
+{{else if this.publications.value.length}}
+  <UkTab @right={{true}} as |Tab|>
+    {{#each this.publications.value as |publication index|}}
+      <Tab.item
+        @href={{
+          module-route "publication" "edit"
+          models=(array @model.type (decode-id publication.node.id))
+          asURL=true
+        }}
+      >
+        {{t
+          "publication.title"
+          name=publication.node.document.form.name
+          index=(add index 1)
+        }}
+        {{#if
+          (and
+            publication.node.document.start.edges.length
+            publication.node.document.end.edges.length
+          )
+        }}
+          {{format-date (get publication "node.document.start.edges.0.node.value") format="date"}}
+          -
+          {{format-date (get publication "node.document.end.edges.0.node.value") format="date"}}
+        {{/if}}
+        {{#if
+          (and
+            (eq publication.node.status "COMPLETED")
+            publication.node.closedByUser
+            (not publication.node.meta.is-published)
+          )
+        }}
+          ({{t "publication.canceled"}})
+        {{else if (eq publication.node.status "COMPLETED")}}
+          ({{t "publication.published"}})
+        {{else}}
+          ({{t "publication.draft"}})
+        {{/if}}
+      </Tab.item>
+    {{/each}}
+  </UkTab>
+
+  {{outlet}}
+{{else}}
+  <p class="uk-text-italic uk-text-center">
+    {{t (concat "publication.empty." @model.type)}}
+  </p>
+{{/if}}

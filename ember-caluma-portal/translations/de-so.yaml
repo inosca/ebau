@@ -1,0 +1,15 @@
+global:
+  title: "eBau"
+  page-title: "my.so.ch - eBau"
+
+index:
+  welcome: "eBau Online-Schalter für Baubewilligungsverfahren der Gemeinden des Kantons Solothurn"
+
+instances:
+  parcel: "Parzellennummer"
+  instance-id: "ID"
+  special-id: "Dossier-Nr."
+
+nav:
+  logout: "Abmelden"
+  faq: "Online-Hilfe"

@@ -26,7 +26,7 @@ async function _fetchIfNotCached(
   identifiers,
   identifierPropertyName,
   identifierFilterName,
-  filters = {}
+  filters = {},
 ) {
   if (!identifiers.length) return;
 
@@ -35,7 +35,7 @@ async function _fetchIfNotCached(
     .map((model) => String(model[identifierPropertyName]));
 
   const uncachedIdentifiers = identifiers.filter(
-    (identifier) => !cachedIdentifiers.includes(String(identifier))
+    (identifier) => !cachedIdentifiers.includes(String(identifier)),
   );
 
   if (!uncachedIdentifiers.length) return;
@@ -54,7 +54,7 @@ export async function processNewWorkItems(store, workItems) {
     "public-user",
     usernames,
     "username",
-    "username"
+    "username",
   );
   await _fetchIfNotCached(store, "instance", instanceIds, "id", "instance_id", {
     include: "form",

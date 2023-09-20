@@ -1,0 +1,147 @@
+$navbar-hover-color: #990000;
+$navbar-border-color: $navbar-hover-color;
+
+.so-navbar {
+  &__header {
+    padding: 17px 20px 20px 20px;
+    position: relative;
+
+    &__watermark {
+      font-weight: 700;
+      font-size: 32px;
+      opacity: 25%;
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      text-transform: uppercase;
+    }
+  }
+
+  &__nav {
+    background-color: $global-primary-background;
+    min-height: 48px;
+    display: flex;
+    justify-content: space-between;
+
+    > div:first-child > ul > li {
+      border-left: 0;
+    }
+
+    > div:last-child > ul > li {
+      border-right: 0;
+    }
+
+    > div {
+      display: flex;
+
+      > ul {
+        list-style: none;
+        display: flex;
+        margin: 0;
+        padding: 0;
+
+        > li {
+          display: flex;
+          border: 1px solid $navbar-border-color;
+          border-top: 0;
+          border-bottom: 0;
+
+          > a {
+            display: flex;
+            color: #ffffff;
+            padding: 0 15px;
+            min-width: 28px;
+            align-items: center;
+            justify-content: center;
+            transition: background-color ease 200ms;
+
+            &:hover,
+            &.active {
+              background-color: $navbar-hover-color;
+              text-decoration: none;
+            }
+          }
+        }
+      }
+    }
+
+    &__profile {
+      height: 42px;
+      width: 42px;
+      margin-right: 15px;
+      border-radius: 50%;
+    }
+
+    &__user {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      justify-content: center;
+
+      > div:first-child {
+        line-height: $global-font-size;
+        font-weight: 700;
+      }
+
+      > div:last-child {
+        margin-top: 4px;
+        font-size: $global-font-size - 2px;
+        line-height: $global-font-size - 2px;
+      }
+
+      &__caret {
+        display: inline-block;
+        width: 0;
+        height: 0;
+        margin-left: 2px;
+        vertical-align: middle;
+        border-top: 4px solid #ffffff;
+        border-right: 4px solid transparent;
+        border-left: 4px solid transparent;
+      }
+    }
+  }
+
+  &__dropdown {
+    padding: 0;
+    background-color: $global-primary-background;
+
+    > ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+
+      > li {
+        display: flex;
+        border-top: 1px solid $navbar-border-color;
+
+        > a {
+          display: flex;
+          padding: 16px 14px;
+          color: #ffffff;
+          width: 100%;
+          line-height: 1.4;
+
+          > svg {
+            margin-right: 5px;
+            margin-top: 1px;
+          }
+
+          &:hover,
+          &.active {
+            background-color: $navbar-hover-color;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+
+  .uk-badge {
+    background-color: $global-secondary-background;
+    margin-bottom: 20px;
+  }
+}

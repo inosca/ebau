@@ -7,6 +7,7 @@ import { getConfig } from "ember-simple-auth-oidc/config";
 import Session from "ember-simple-auth-oidc/services/session";
 import { getUserLocales } from "get-user-locale";
 import { localCopy, cached } from "tracked-toolbox";
+import UIkit from "uikit";
 
 import config from "caluma-portal/config/environment";
 import { isEmbedded } from "caluma-portal/helpers/is-embedded";
@@ -80,6 +81,10 @@ export default class CustomSession extends Session {
     return this.groups?.find((g) => parseInt(g.id) === parseInt(this.groupId));
   }
 
+  get serviceId() {
+    return this.group?.belongsTo("service").id();
+  }
+
   get isInternal() {
     return Boolean(this.groupId);
   }
@@ -125,13 +130,18 @@ export default class CustomSession extends Session {
       `${language}-${application}`,
       language,
     ]);
+
+    UIkit.modal.i18n = {
+      ok: this.intl.t("global.ok"),
+      cancel: this.intl.t("global.cancel"),
+    };
   }
 
   get authHeaders() {
     if (!this.isAuthenticated) return {};
 
     const { authHeaderName, authPrefix, tokenPropertyName } = getConfig(
-      getOwner(this)
+      getOwner(this),
     );
 
     const token = this.data.authenticated[tokenPropertyName];

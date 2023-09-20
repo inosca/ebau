@@ -1,5 +1,4 @@
 import pytest
-from django.conf import settings
 from django.urls import reverse
 from rest_framework import status
 
@@ -20,10 +19,12 @@ def test_gwr_data_ur(
     caluma_forms_ur,
     caluma_admin_user,
     application_settings,
+    settings,
     workflow_entry_factory,
     snapshot,
     ur_master_data_case,  # noqa
 ):
+    settings.APPLICATION_NAME = "kt_uri"
     application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_uri"]["MASTER_DATA"]
 
     ur_instance.case.meta = {"dossier-number": "1201-21-003"}
@@ -79,9 +80,11 @@ def test_instance_gwr_data_sz_gwr(
     user,
     sz_instance,
     application_settings,
+    settings,
     snapshot,
     sz_master_data_case_gwr,  # noqa
 ):
+    settings.APPLICATION_NAME = "kt_schwyz"
     application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_schwyz"][
         "MASTER_DATA"
     ]
@@ -99,9 +102,11 @@ def test_instance_gwr_data_sz_gwr_v2(
     user,
     sz_instance,
     application_settings,
+    settings,
     snapshot,
     sz_master_data_case_gwr_v2,  # noqa
 ):
+    settings.APPLICATION_NAME = "kt_schwyz"
     application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_schwyz"][
         "MASTER_DATA"
     ]

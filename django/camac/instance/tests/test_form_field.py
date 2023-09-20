@@ -14,6 +14,7 @@ from camac.instance import models
         ("Support", LazyFixture("user"), 1),
         ("Service", LazyFixture("user"), 1),
         ("Public", LazyFixture("user"), 0),
+        ("Municipality", LazyFixture("user"), 1),
     ],
 )
 @pytest.mark.parametrize("form_field__name", ["kategorie-des-vorhabens"])
@@ -31,6 +32,60 @@ def test_form_field_list(admin_client, form_field, size):
     assert len(json["data"]) == size
     if size > 0:
         assert json["data"][0]["id"] == str(form_field.pk)
+
+
+@pytest.mark.parametrize(
+    "role__name,instance__user,size",
+    [
+        (
+            "Applicant",
+            LazyFixture("admin_user"),
+            {"einsprecher": 0, "kategorie-des-vorhabens": 1},
+        ),
+        (
+            "Unknown",
+            LazyFixture("user"),
+            {"einsprecher": 0, "kategorie-des-vorhabens": 1},
+        ),
+        (
+            "Support",
+            LazyFixture("user"),
+            {"einsprecher": 0, "kategorie-des-vorhabens": 1},
+        ),
+        (
+            "Service",
+            LazyFixture("user"),
+            {"einsprecher": 0, "kategorie-des-vorhabens": 1},
+        ),
+        (
+            "Public",
+            LazyFixture("user"),
+            {"einsprecher": 0, "kategorie-des-vorhabens": 1},
+        ),
+        (
+            "Municipality",
+            LazyFixture("user"),
+            {"einsprecher": 1, "kategorie-des-vorhabens": 1},
+        ),
+    ],
+)
+@pytest.mark.parametrize(
+    "form_field__name", [("einsprecher"), ("kategorie-des-vorhabens")]
+)
+def test_form_field_visible_for(
+    admin_client, request, form_field, group, size, settings
+):
+    request.group = group
+
+    form_fields = (
+        models.FormField.objects.get_queryset()
+        .visible_for(request)
+        .values_list("pk", flat=True)
+    )
+
+    assert len(form_fields) == size[form_field.name]
+    if size[form_field.name] > 0:
+        assert form_fields[0] == form_field.pk
 
 
 @pytest.mark.parametrize(

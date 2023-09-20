@@ -9,12 +9,14 @@ from django.db.models import CharField, Q
 from django.db.models.fields.json import KeyTextTransform
 from django.db.models.functions import Cast
 from django.utils import timezone
+from django.utils.text import slugify
 from rest_framework.exceptions import ValidationError
 
 from camac.caluma.api import CalumaApi
 from camac.caluma.extensions.data_sources import Municipalities
 from camac.constants import kt_uri as ur_constants
 from camac.core.models import InstanceLocation, InstanceService
+from camac.core.utils import canton_aware, generate_dossier_nr
 from camac.instance.models import Instance, InstanceGroup
 from camac.user.permissions import permission_aware
 
@@ -90,7 +92,10 @@ class CreateInstanceLogic:
                 instance=instance, location_id=instance.location_id
             )
 
+    @classmethod
+    @canton_aware
     def generate_identifier(
+        cls,
         instance: Instance,
         year: int = None,
         prefix: str = None,
@@ -188,6 +193,14 @@ class CreateInstanceLogic:
             )
 
         return identifier
+
+    @classmethod
+    def generate_identifier_gr(cls, instance: Instance) -> str:
+        return generate_dossier_nr(timezone.now().year)
+
+    @classmethod
+    def generate_identifier_so(cls, instance: Instance) -> str:  # pragma: no cover
+        return generate_dossier_nr(timezone.now().year)
 
     @staticmethod
     def initialize_caluma(
@@ -297,8 +310,16 @@ class CreateInstanceLogic:
             )
 
     @staticmethod
-    def copy_attachments(source, target):
-        for attachment in source.attachments.all():
+    def copy_attachments(source, target, skip_exported_form_attachment=False):
+        attachments = source.attachments.all()
+
+        if skip_exported_form_attachment:
+            form_attachment_name = (
+                slugify(f"{source.pk}-{source.case.document.form.name}") + ".pdf"
+            )
+            attachments = source.attachments.filter(~Q(name=form_attachment_name))
+
+        for attachment in attachments:
             try:
                 new_file = ContentFile(attachment.path.read())
             except FileNotFoundError:  # pragma: no cover
@@ -365,8 +386,8 @@ class CreateInstanceLogic:
         extend_validity_for,
         case,
         user,
+        skip_exported_form_attachment,
     ):
-
         if is_paper:
             # remove the previously created applicants
             instance.involved_applicants.all().delete()
@@ -382,7 +403,9 @@ class CreateInstanceLogic:
         if source_instance:
             if settings.APPLICATION.get("LINK_INSTANCES_ON_COPY"):
                 link_instances(instance, source_instance)  # pragma: no cover
-            CreateInstanceLogic.copy_attachments(source_instance, instance)
+            CreateInstanceLogic.copy_attachments(
+                source_instance, instance, skip_exported_form_attachment
+            )
             if not is_modification:
                 CreateInstanceLogic.copy_applicants(source_instance, instance)
                 instance.form = source_instance.form
@@ -411,6 +434,7 @@ class CreateInstanceLogic:
         source_instance=None,
         start_caluma=True,
         workflow_slug=None,
+        skip_exported_form_attachment=False,
     ):
         """Create an instance.
 
@@ -498,6 +522,7 @@ class CreateInstanceLogic:
             extend_validity_for,
             case,
             caluma_user,
+            skip_exported_form_attachment,
         )
 
         return instance

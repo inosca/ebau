@@ -1,12 +1,13 @@
-<div class="uk-position-relative uk-width-1-1" {{did-insert this.registerInputElement}}>
+<div class="uk-width-1-1 uk-flex-inline" {{did-insert this.registerInputElement}}>
+  {{yield}}
   {{#unless @disabled}}
     <button
       title={{t "snippets.title"}}
       uk-icon="icon: list"
-      class="uk-position-center-right uk-margin-right"
+      class="uk-margin-small-left"
       type="button"
     ></button>
-    <div uk-dropdown="mode: hover; pos: bottom-right" class="uk-padding-small">
+    <div uk-dropdown="mode: hover; pos: bottom-right" class="uk-padding-small uk-height-max-large uk-width-medium" uk-overflow-auto>
       {{#if this.snippets.isRunning}}
         <UkSpinner class="uk-animation-fade" />
       {{else}}
@@ -33,5 +34,4 @@
       {{/if}}
     </div>
   {{/unless}}
-  {{yield}}
 </div>

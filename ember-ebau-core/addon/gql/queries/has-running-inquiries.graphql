@@ -1,12 +1,9 @@
-query HasRunningInquiries(
-  $currentGroupId: String!
-  $instanceId: GenericScalar!
-) {
+query HasRunningInquiries($serviceId: String!, $instanceId: GenericScalar!) {
   allWorkItems(
     filter: [
       { status: READY }
       { task: "inquiry" }
-      { addressedGroups: [$currentGroupId] }
+      { addressedGroups: [$serviceId] }
       { rootCaseMetaValue: { key: "camac-instance-id", value: $instanceId } }
     ]
   ) {

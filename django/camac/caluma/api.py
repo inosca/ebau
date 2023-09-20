@@ -225,34 +225,48 @@ class CalumaApi:
             sb_row = self.copy_document(row.id, family=target_document.family)
             new_table_answer.documents.add(sb_row)
 
+    def get_work_items_to_reassign(self, from_group_id, instance):
+        # We reassign the completed distribution work-items because they are redoable from the decision work-item
+        return caluma_workflow_models.WorkItem.objects.filter(
+            Q(addressed_groups__contains=[from_group_id])
+            | Q(controlling_groups__contains=[from_group_id]),
+            case__family__instance=instance,
+        ).filter(
+            (
+                Q(
+                    task_id__in=[
+                        settings.DISTRIBUTION["DISTRIBUTION_TASK"],
+                        settings.DISTRIBUTION["DISTRIBUTION_COMPLETE_TASK"],
+                    ]
+                )
+                & Q(status=caluma_workflow_models.WorkItem.STATUS_COMPLETED)
+            )
+            | (
+                Q(
+                    status__in=[
+                        caluma_workflow_models.WorkItem.STATUS_READY,
+                        caluma_workflow_models.WorkItem.STATUS_SUSPENDED,
+                        caluma_workflow_models.WorkItem.STATUS_REDO,
+                    ],
+                )
+                & ~Q(
+                    task_id__in=[
+                        settings.APPLICATION["CALUMA"]["MANUAL_WORK_ITEM_TASK"],
+                        settings.DISTRIBUTION["INQUIRY_TASK"],
+                        settings.DISTRIBUTION["INQUIRY_ANSWER_FILL_TASK"],
+                        settings.DISTRIBUTION["INQUIRY_CREATE_TASK"],
+                        settings.DISTRIBUTION["INQUIRY_CHECK_TASK"],
+                        settings.DISTRIBUTION["INQUIRY_REDO_TASK"],
+                    ]
+                )
+            )
+        )
+
     def reassign_work_items(self, instance, from_group_id, to_group_id, user):
         from_group_id = str(from_group_id)
         to_group_id = str(to_group_id)
 
-        for work_item in (
-            caluma_workflow_models.WorkItem.objects.filter(
-                Q(addressed_groups__contains=[from_group_id])
-                | Q(controlling_groups__contains=[from_group_id])
-            )
-            .filter(
-                status__in=[
-                    caluma_workflow_models.WorkItem.STATUS_READY,
-                    caluma_workflow_models.WorkItem.STATUS_SUSPENDED,
-                    caluma_workflow_models.WorkItem.STATUS_REDO,
-                ],
-                case__family__instance=instance,
-            )
-            .exclude(
-                task_id__in=[
-                    settings.APPLICATION["CALUMA"]["MANUAL_WORK_ITEM_TASK"],
-                    settings.DISTRIBUTION["INQUIRY_TASK"],
-                    settings.DISTRIBUTION["INQUIRY_ANSWER_FILL_TASK"],
-                    settings.DISTRIBUTION["INQUIRY_CREATE_TASK"],
-                    settings.DISTRIBUTION["INQUIRY_CHECK_TASK"],
-                    settings.DISTRIBUTION["INQUIRY_REDO_TASK"],
-                ]
-            )
-        ):
+        for work_item in self.get_work_items_to_reassign(from_group_id, instance):
             for groups_type in ["addressed_groups", "controlling_groups"]:
                 groups = set(getattr(work_item, groups_type))
 

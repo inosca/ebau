@@ -34,6 +34,8 @@ nav:
   overview: "Aperçu"
   faq: "FAQ"
   form-builder: "Form Builder"
+  profile: "Profil"
+  communications: "Communication"
 
 feedback:
   info: "Vous n'avez pas de commentaires pour le moment. Dès que le dossier aura été soumis, les réactions éventuelles de l'autorité chef de file ou des agences spécialisées seront affichées ici."
@@ -231,7 +233,7 @@ instances:
     créé pour la correction."
   rejectionInfoText: "Veuillez ouvrir à nouveau le formulaire au moyen de «Soumettre à nouveau le dossier» et compléter les informations manquantes."
   decisionRemarks: "Décision / Evaluation"
-  onlyPaperDossiers: "Seulment les dossiers papier"
+  onlyPaperDossiers: "Seulement les dossiers papier"
 
   extensionPeriodOfValidityTitle: "Prolongation de la durée de validité du permis de construire"
   extensionPeriodOfValidityText: "Vous pouvez demander une prolongation de la durée de validité du permis de construire."

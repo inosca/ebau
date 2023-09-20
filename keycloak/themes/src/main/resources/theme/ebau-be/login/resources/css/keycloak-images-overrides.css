@@ -1,0 +1,35 @@
+
+#div_header {
+    background: url("../img/bg-wrapper.gif") no-repeat;
+}
+
+@media screen and (max-width: 1039px) {
+
+}
+@media screen and (min-width: 1040px) {
+    div#wrapper {
+        background: url("../img/bg-body.jpg") repeat-y;
+    }
+}
+
+#footer {
+    background: url("../img/bg-footer.gif");
+    padding-left: 21px;
+}
+
+#header-search .ext-search {
+    background: url("../img/bg-ktbe-searchheader.gif");
+}
+
+#content-col-main .hinweisbox .text {
+    background-image: url("../img/icon_hinweis_22.png");
+}
+#content-col-main .warnbox .text {
+    background-image: url("../img/icon_warnung_22.png");
+}
+#content-col-main .confirmbox .text {
+    background-image: url("../img/icon_bestaetigung_22.png");
+}
+#content-col-main .errorbox .text {
+    background-image: url("../img/icon_fehler_22.png");
+}

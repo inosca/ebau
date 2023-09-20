@@ -24,7 +24,7 @@ module("Integration | Component | notification", function (hooks) {
 
         assert.dom(`.uk-alert.uk-alert-${type}`).exists();
         assert.dom(`.uk-alert.uk-alert-${type}`).containsText(`Test: ${type}`);
-      })
+      }),
     );
   });
 

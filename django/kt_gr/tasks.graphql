@@ -1,0 +1,92 @@
+mutation CreateSubmitTask {
+  saveCompleteWorkflowFormTask(
+    input: { slug: "submit", name: "Gesuch einreichen", addressGroups: "[]" }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateManualWorkItemTask {
+  saveSimpleTask(
+    input: {
+      slug: "create-manual-workitems"
+      name: "Manuelle Aufgaben erfassen"
+      addressGroups: "[]"
+      isMultipleInstance: true
+      meta: "{\"is-manually-completable\":true}"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreatePublicationTask {
+  saveSimpleTask(
+    input: {
+      slug: "publication"
+      name: "Dossier publizieren"
+      addressGroups: "['municipality']|groups"
+      controlGroups: "['municipality']|groups"
+      leadTime: 864000 # 10 days
+      meta: "{\"is-manually-completable\":true}"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateFillPublicationTask {
+  saveCompleteTaskFormTask(
+    input: {
+      slug: "fill-publication"
+      name: "Publikation"
+      form: "publikation"
+      addressGroups: "['municipality']|groups"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateNewPublicationTask {
+  saveSimpleTask(
+    input: {
+      slug: "create-publication"
+      name: "Neue Publikation erfassen"
+      addressGroups: "['municipality']|groups"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation DecisionTask {
+  saveCompleteTaskFormTask(
+    input: {
+      slug: "decision"
+      name: "Entscheid verfügen"
+      form: "decision"
+      addressGroups: "['municipality']|groups"
+      controlGroups: "['municipality']|groups"
+      leadTime: 864000 # 10 days
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateFormalExamTask {
+  saveCompleteTaskFormTask(
+    input: {
+      slug: "formal-exam"
+      form: "formal-exam"
+      name: "Vorläufige Prüfung"
+      addressGroups: "['municipality']|groups"
+      controlGroups: "['municipality']|groups"
+      leadTime: 864000 # 10 days
+      meta: "{\"is-manually-completable\":true,\"directLink\":{\"route\":\"cases.detail.task-form\",\"models\":[\"INSTANCE_ID\",\"TASK_SLUG\"]}}"
+    }
+  ) {
+    clientMutationId
+  }
+}
