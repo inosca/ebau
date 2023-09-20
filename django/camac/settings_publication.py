@@ -1,0 +1,50 @@
+PUBLICATION = {
+    "default": {
+        "START_QUESTIONS": ["publikation-startdatum"],
+        "END_QUESTIONS": ["publikation-ablaufdatum"],
+    },
+    "test": {
+        "ENABLED": True,
+    },
+    "kt_bern": {
+        "ENABLED": True,
+        "SCRUBBED_ANSWERS": [
+            "e-mail-energie",
+            "e-mail-gastgewerbe",
+            "e-mail-gebaeudeeigentuemerin",
+            "e-mail-gesuchstellerin",
+            "e-mail-gewaesserschutzfragen",
+            "e-mail-grundeigentuemerin",
+            "e-mail-kontaktperson",
+            "e-mail-projektverfasserin",
+            "e-mail-sendeanlage",
+            "e-mail-vertreterin",
+            "e-mail-waermepumpen",
+            "telefon-oder-mobile-energie",
+            "telefon-oder-mobile-gastgewerbe",
+            "telefon-oder-mobile-gebaeudeeigentuemerin",
+            "telefon-oder-mobile-gesuchstellerin",
+            "telefon-oder-mobile-gewaesserschutzfragen",
+            "telefon-oder-mobile-grundeigentuemerin",
+            "telefon-oder-mobile-kontaktperson",
+            "telefon-oder-mobile-projektverfasserin",
+            "telefon-oder-mobile-sendeanlage",
+            "telefon-oder-mobile-vertreterin",
+            "telefon-oder-mobile-vorabklaerungen",
+            "telefon-oder-mobile-waermepumpen",
+        ],
+    },
+    "kt_gr": {
+        "ENABLED": True,
+        "USE_CALCULATED_DATES": True,
+        "START_QUESTIONS": [
+            "beginn-publikationsorgan-gemeinde",
+            "beginn-publikation-kantonsamtsblatt",
+        ],
+        "END_QUESTIONS": [
+            "ende-publikationsorgan-gemeinde",
+            "ende-publikation-kantonsamtsblatt",
+        ],
+        "PUBLISH_QUESTION": "oeffentliche-auflage",
+    },
+}

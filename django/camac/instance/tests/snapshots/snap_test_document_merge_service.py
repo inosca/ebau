@@ -12,10 +12,28 @@ snapshots['test_document_merge_service_cover_sheet_with_header_values 1'] = {
     'addressHeaderLabel': 'Adresse',
     'applicantHeader': 'Test AG, Foo Bar',
     'applicantHeaderLabel': 'Gesuchsteller/in',
+    'applicants': [
+        {
+            'address_1': '',
+            'address_2': '',
+            'first_name': 'Foo',
+            'full_address': '',
+            'full_name': 'Test AG, Foo Bar',
+            'is_juristic_person': True,
+            'juristic_name': 'Test AG',
+            'last_name': 'Bar',
+            'street': '',
+            'street_number': '',
+            'town': '',
+            'zip': ''
+        }
+    ],
     'authorityHeader': 'Rebecca Gonzalez',
     'authorityHeaderLabel': 'Leitbehörde',
     'caseId': 1,
     'caseType': 'Baugesuch',
+    'coordEast': '',
+    'coordNorth': '',
     'createdAt': 'Erstellt am 03.08.2022 um 09:19',
     'descriptionHeader': 'Bau Einfamilienhaus',
     'descriptionHeaderLabel': 'Beschreibung',
@@ -24,6 +42,9 @@ snapshots['test_document_merge_service_cover_sheet_with_header_values 1'] = {
     'generatedAt': 'Generiert am 07.09.2022 um 14:01',
     'inputDateHeader': GenericRepr('FakeDatetime(2021, 1, 1, 0, 0)'),
     'inputDateHeaderLabel': 'Eingangsdatum',
+    'landownerHeaderLabel': 'Grundeigentümer/in',
+    'landowners': [
+    ],
     'modificationHeader': 'Anbau Haus',
     'modificationHeaderLabel': 'Projektänderung',
     'modifiedAt': 'Zuletzt bearbeitet am 06.09.2022 um 15:37',
@@ -33,24 +54,32 @@ snapshots['test_document_merge_service_cover_sheet_with_header_values 1'] = {
     'paperInputDateHeader': GenericRepr('FakeDatetime(2021, 1, 2, 0, 0)'),
     'plotsHeader': '123',
     'plotsHeaderLabel': 'Parzelle(n)',
+    'projectAuthorHeaderLabel': 'Projektverfasser/in',
+    'projectAuthors': [
+    ],
     'responsibleHeader': 'testuser',
     'responsibleHeaderLabel': 'Zuständig',
     'signatureMetadata': 'Ort und Datum',
     'signatureSectionTitle': 'Unterschriften',
     'signatureTitle': 'Unterschrift',
     'tagHeader': 'some tag',
-    'tagHeaderLabel': 'Stichworte'
+    'tagHeaderLabel': 'Stichworte',
+    'uploadedAt': 'Hochgeladen am 07.09.2022 um 14:01'
 }
 
 snapshots['test_document_merge_service_cover_sheet_without_header_values 1'] = {
     'addressHeader': '',
     'addressHeaderLabel': 'Adresse',
-    'applicantHeader': None,
+    'applicantHeader': '',
     'applicantHeaderLabel': 'Gesuchsteller/in',
+    'applicants': [
+    ],
     'authorityHeader': None,
     'authorityHeaderLabel': 'Leitbehörde',
     'caseId': 1,
     'caseType': 'Baugesuch',
+    'coordEast': '',
+    'coordNorth': '',
     'createdAt': 'Erstellt am 06.09.2022 um 15:37',
     'descriptionHeader': None,
     'descriptionHeaderLabel': 'Beschreibung',
@@ -59,6 +88,9 @@ snapshots['test_document_merge_service_cover_sheet_without_header_values 1'] = {
     'generatedAt': 'Generiert am 06.09.2022 um 15:37',
     'inputDateHeader': GenericRepr('FakeDatetime(2021, 1, 1, 0, 0)'),
     'inputDateHeaderLabel': 'Eingangsdatum',
+    'landownerHeaderLabel': 'Grundeigentümer/in',
+    'landowners': [
+    ],
     'modificationHeader': None,
     'modificationHeaderLabel': 'Projektänderung',
     'modifiedAt': 'Zuletzt bearbeitet am 06.09.2022 um 15:37',
@@ -66,15 +98,19 @@ snapshots['test_document_merge_service_cover_sheet_without_header_values 1'] = {
     'municipalityHeader': None,
     'municipalityHeaderLabel': 'Gemeinde',
     'paperInputDateHeader': None,
-    'plotsHeader': None,
+    'plotsHeader': '',
     'plotsHeaderLabel': 'Parzelle(n)',
+    'projectAuthorHeaderLabel': 'Projektverfasser/in',
+    'projectAuthors': [
+    ],
     'responsibleHeader': None,
     'responsibleHeaderLabel': 'Zuständig',
     'signatureMetadata': 'Ort und Datum',
     'signatureSectionTitle': 'Unterschriften',
     'signatureTitle': 'Unterschrift',
     'tagHeader': None,
-    'tagHeaderLabel': 'Stichworte'
+    'tagHeaderLabel': 'Stichworte',
+    'uploadedAt': 'Hochgeladen am 06.09.2022 um 15:37'
 }
 
 snapshots['test_document_merge_service_snapshot baugesuch'] = [
@@ -208,11 +244,11 @@ snapshots['test_document_merge_service_snapshot baugesuch'] = [
                             },
                             {
                                 'checked': False,
-                                'label': 'Grundeigentümer/in'
+                                'label': 'Grundeigentümer/in (falls nicht mit Gesuchsteller/in identisch)'
                             },
                             {
                                 'checked': False,
-                                'label': 'Gebäudeeigentümer/in'
+                                'label': 'Gebäudeeigentümer/in (falls nicht mit Gesuchsteller/in identisch)'
                             }
                         ],
                         'label': 'Sind neben den Gesuchstellenden weitere Personen beteiligt?',
@@ -1651,10 +1687,28 @@ snapshots['test_document_merge_service_snapshot baugesuch_header'] = {
     'addressHeaderLabel': 'Adresse',
     'applicantHeader': 'Hans Meier',
     'applicantHeaderLabel': 'Gesuchsteller/in',
+    'applicants': [
+        {
+            'address_1': 'Strasse 33',
+            'address_2': '3000 Bern',
+            'first_name': 'Hans',
+            'full_address': 'Strasse 33, 3000 Bern',
+            'full_name': 'Hans Meier',
+            'is_juristic_person': False,
+            'juristic_name': '',
+            'last_name': 'Meier',
+            'street': 'Strasse',
+            'street_number': '33',
+            'town': 'Bern',
+            'zip': 3000
+        }
+    ],
     'authorityHeader': None,
     'authorityHeaderLabel': 'Leitbehörde',
     'caseId': 1,
     'caseType': 'Baugesuch',
+    'coordEast': '2614314.0',
+    'coordNorth': '1211926.0',
     'createdAt': 'Erstellt am 06.03.2020 um 12:10',
     'descriptionHeader': 'Testanfrage',
     'descriptionHeaderLabel': 'Beschreibung',
@@ -1663,6 +1717,9 @@ snapshots['test_document_merge_service_snapshot baugesuch_header'] = {
     'generatedAt': 'Generiert am 06.01.2023 um 17:10',
     'inputDateHeader': None,
     'inputDateHeaderLabel': 'Eingangsdatum',
+    'landownerHeaderLabel': 'Grundeigentümer/in',
+    'landowners': [
+    ],
     'modificationHeader': None,
     'modificationHeaderLabel': 'Projektänderung',
     'modifiedAt': 'Zuletzt bearbeitet am 05.08.2021 um 11:05',
@@ -1672,13 +1729,17 @@ snapshots['test_document_merge_service_snapshot baugesuch_header'] = {
     'paperInputDateHeader': None,
     'plotsHeader': '1',
     'plotsHeaderLabel': 'Parzelle(n)',
+    'projectAuthorHeaderLabel': 'Projektverfasser/in',
+    'projectAuthors': [
+    ],
     'responsibleHeader': None,
     'responsibleHeaderLabel': 'Zuständig',
     'signatureMetadata': 'Ort und Datum',
     'signatureSectionTitle': 'Unterschriften',
     'signatureTitle': 'Unterschrift',
     'tagHeader': None,
-    'tagHeaderLabel': 'Stichworte'
+    'tagHeaderLabel': 'Stichworte',
+    'uploadedAt': 'Hochgeladen am 06.01.2023 um 17:10'
 }
 
 snapshots['test_document_merge_service_snapshot mp-form'] = [
@@ -1764,10 +1825,28 @@ snapshots['test_document_merge_service_snapshot mp-form_header'] = {
     'addressHeaderLabel': 'Adresse',
     'applicantHeader': 'Max Muster',
     'applicantHeaderLabel': 'Gesuchsteller/in',
+    'applicants': [
+        {
+            'address_1': 'Wiesenweg 33',
+            'address_2': '3007 Bern',
+            'first_name': 'Max',
+            'full_address': 'Wiesenweg 33, 3007 Bern',
+            'full_name': 'Max Muster',
+            'is_juristic_person': False,
+            'juristic_name': '',
+            'last_name': 'Muster',
+            'street': 'Wiesenweg',
+            'street_number': '33',
+            'town': 'Bern',
+            'zip': 3007
+        }
+    ],
     'authorityHeader': None,
     'authorityHeaderLabel': 'Leitbehörde',
     'caseId': 3,
     'caseType': 'Baugesuch',
+    'coordEast': '2614296.0',
+    'coordNorth': '1211900.0',
     'createdAt': 'Erstellt am 05.07.2022 um 18:29',
     'descriptionHeader': 'Neubad',
     'descriptionHeaderLabel': 'Beschreibung',
@@ -1776,6 +1855,9 @@ snapshots['test_document_merge_service_snapshot mp-form_header'] = {
     'generatedAt': 'Generiert am 06.01.2023 um 17:10',
     'inputDateHeader': GenericRepr('FakeDatetime(2021, 3, 31, 13, 17, 8, tzinfo=tzutc())'),
     'inputDateHeaderLabel': 'Eingangsdatum',
+    'landownerHeaderLabel': 'Grundeigentümer/in',
+    'landowners': [
+    ],
     'modificationHeader': None,
     'modificationHeaderLabel': 'Projektänderung',
     'modifiedAt': 'Zuletzt bearbeitet am 05.07.2022 um 18:34',
@@ -1785,13 +1867,17 @@ snapshots['test_document_merge_service_snapshot mp-form_header'] = {
     'paperInputDateHeader': None,
     'plotsHeader': '3',
     'plotsHeaderLabel': 'Parzelle(n)',
+    'projectAuthorHeaderLabel': 'Projektverfasser/in',
+    'projectAuthors': [
+    ],
     'responsibleHeader': None,
     'responsibleHeaderLabel': 'Zuständig',
     'signatureMetadata': 'Ort und Datum',
     'signatureSectionTitle': 'Unterschriften',
     'signatureTitle': 'Unterschrift',
     'tagHeader': None,
-    'tagHeaderLabel': 'Stichworte'
+    'tagHeaderLabel': 'Stichworte',
+    'uploadedAt': 'Hochgeladen am 06.01.2023 um 17:10'
 }
 
 snapshots['test_document_merge_service_snapshot sb1'] = [
@@ -2047,10 +2133,28 @@ snapshots['test_document_merge_service_snapshot sb1_header'] = {
     'addressHeaderLabel': 'Adresse',
     'applicantHeader': 'Max Muster',
     'applicantHeaderLabel': 'Gesuchsteller/in',
+    'applicants': [
+        {
+            'address_1': 'Wiesenweg 33',
+            'address_2': '3007 Bern',
+            'first_name': 'Max',
+            'full_address': 'Wiesenweg 33, 3007 Bern',
+            'full_name': 'Max Muster',
+            'is_juristic_person': False,
+            'juristic_name': '',
+            'last_name': 'Muster',
+            'street': 'Wiesenweg',
+            'street_number': '33',
+            'town': 'Bern',
+            'zip': 3007
+        }
+    ],
     'authorityHeader': None,
     'authorityHeaderLabel': 'Leitbehörde',
     'caseId': 3,
     'caseType': 'Baugesuch',
+    'coordEast': '2614296.0',
+    'coordNorth': '1211900.0',
     'createdAt': 'Erstellt am 06.04.2021 um 14:19',
     'descriptionHeader': 'Neubad',
     'descriptionHeaderLabel': 'Beschreibung',
@@ -2059,6 +2163,9 @@ snapshots['test_document_merge_service_snapshot sb1_header'] = {
     'generatedAt': 'Generiert am 06.01.2023 um 17:10',
     'inputDateHeader': GenericRepr('FakeDatetime(2021, 3, 31, 13, 17, 8, tzinfo=tzutc())'),
     'inputDateHeaderLabel': 'Eingangsdatum',
+    'landownerHeaderLabel': 'Grundeigentümer/in',
+    'landowners': [
+    ],
     'modificationHeader': None,
     'modificationHeaderLabel': 'Projektänderung',
     'modifiedAt': 'Zuletzt bearbeitet am 06.04.2021 um 14:22',
@@ -2068,13 +2175,17 @@ snapshots['test_document_merge_service_snapshot sb1_header'] = {
     'paperInputDateHeader': None,
     'plotsHeader': '3',
     'plotsHeaderLabel': 'Parzelle(n)',
+    'projectAuthorHeaderLabel': 'Projektverfasser/in',
+    'projectAuthors': [
+    ],
     'responsibleHeader': None,
     'responsibleHeaderLabel': 'Zuständig',
     'signatureMetadata': 'Ort und Datum',
     'signatureSectionTitle': 'Unterschriften',
     'signatureTitle': 'Unterschrift',
     'tagHeader': None,
-    'tagHeaderLabel': 'Stichworte'
+    'tagHeaderLabel': 'Stichworte',
+    'uploadedAt': 'Hochgeladen am 06.01.2023 um 17:10'
 }
 
 snapshots['test_document_merge_service_snapshot sb2'] = [
@@ -2389,10 +2500,28 @@ snapshots['test_document_merge_service_snapshot sb2_header'] = {
     'addressHeaderLabel': 'Adresse',
     'applicantHeader': 'Max Muster',
     'applicantHeaderLabel': 'Gesuchsteller/in',
+    'applicants': [
+        {
+            'address_1': 'Wiesenweg 33',
+            'address_2': '3007 Bern',
+            'first_name': 'Max',
+            'full_address': 'Wiesenweg 33, 3007 Bern',
+            'full_name': 'Max Muster',
+            'is_juristic_person': False,
+            'juristic_name': '',
+            'last_name': 'Muster',
+            'street': 'Wiesenweg',
+            'street_number': '33',
+            'town': 'Bern',
+            'zip': 3007
+        }
+    ],
     'authorityHeader': None,
     'authorityHeaderLabel': 'Leitbehörde',
     'caseId': 3,
     'caseType': 'Baugesuch',
+    'coordEast': '2614296.0',
+    'coordNorth': '1211900.0',
     'createdAt': 'Erstellt am 06.04.2021 um 14:23',
     'descriptionHeader': 'Neubad',
     'descriptionHeaderLabel': 'Beschreibung',
@@ -2401,6 +2530,9 @@ snapshots['test_document_merge_service_snapshot sb2_header'] = {
     'generatedAt': 'Generiert am 06.01.2023 um 17:10',
     'inputDateHeader': GenericRepr('FakeDatetime(2021, 3, 31, 13, 17, 8, tzinfo=tzutc())'),
     'inputDateHeaderLabel': 'Eingangsdatum',
+    'landownerHeaderLabel': 'Grundeigentümer/in',
+    'landowners': [
+    ],
     'modificationHeader': None,
     'modificationHeaderLabel': 'Projektänderung',
     'modifiedAt': 'Zuletzt bearbeitet am 06.04.2021 um 14:23',
@@ -2410,11 +2542,126 @@ snapshots['test_document_merge_service_snapshot sb2_header'] = {
     'paperInputDateHeader': None,
     'plotsHeader': '3',
     'plotsHeaderLabel': 'Parzelle(n)',
+    'projectAuthorHeaderLabel': 'Projektverfasser/in',
+    'projectAuthors': [
+    ],
     'responsibleHeader': None,
     'responsibleHeaderLabel': 'Zuständig',
     'signatureMetadata': 'Ort und Datum',
     'signatureSectionTitle': 'Unterschriften',
     'signatureTitle': 'Unterschrift',
     'tagHeader': None,
-    'tagHeaderLabel': 'Stichworte'
+    'tagHeaderLabel': 'Stichworte',
+    'uploadedAt': 'Hochgeladen am 06.01.2023 um 17:10'
+}
+
+snapshots['test_eingabebestaetigung_gr 1'] = {
+    'addressHeader': 'Bahnhofstrasse 2, Testhausen',
+    'addressHeaderLabel': 'Adresse',
+    'applicantHeader': 'Test AG, Foo Bar',
+    'applicantHeaderLabel': 'Gesuchsteller/in',
+    'applicants': [
+        {
+            'address_1': '',
+            'address_2': '',
+            'email': '',
+            'first_name': 'Foo',
+            'full_address': '',
+            'full_name': 'Test AG, Foo Bar',
+            'is_juristic_person': True,
+            'juristic_name': 'Test AG',
+            'last_name': 'Bar',
+            'street': '',
+            'street_number': '',
+            'tel': '',
+            'town': '',
+            'zip': ''
+        }
+    ],
+    'authorityHeader': 'Rebecca Gonzalez',
+    'authorityHeaderLabel': 'Leitbehörde',
+    'caseId': 1,
+    'caseType': 'Baugesuch',
+    'coordEast': '',
+    'coordNorth': '',
+    'createdAt': 'Erstellt am 03.08.2022 um 09:19',
+    'descriptionHeader': 'Bau Einfamilienhaus',
+    'descriptionHeaderLabel': 'Beschreibung',
+    'documents': [
+        {
+            'date': '06.09.2022',
+            'filename': 'Lageplan.pdf',
+            'time': '15:37'
+        }
+    ],
+    'dossierNr': None,
+    'draft': '',
+    'formType': None,
+    'generatedAt': 'Generiert am 07.09.2022 um 14:01',
+    'inputDateHeader': GenericRepr('FakeDatetime(2021, 1, 1, 0, 0)'),
+    'inputDateHeaderLabel': 'Eingangsdatum',
+    'landownerHeaderLabel': 'Grundeigentümer/in',
+    'landowners': [
+        {
+            'address_1': '',
+            'address_2': '',
+            'email': '',
+            'first_name': 'Grund',
+            'full_address': '',
+            'full_name': 'Eigentümer AG, Grund Eigentümerin',
+            'is_juristic_person': True,
+            'juristic_name': 'Eigentümer AG',
+            'last_name': 'Eigentümerin',
+            'street': '',
+            'street_number': '',
+            'tel': '',
+            'town': '',
+            'zip': ''
+        }
+    ],
+    'modificationHeader': 'Projekt Änderung',
+    'modificationHeaderLabel': 'Projektänderung',
+    'modifiedAt': 'Zuletzt bearbeitet am 06.09.2022 um 15:37',
+    'municipality': 'Testhausen',
+    'municipalityHeader': 'Testhausen',
+    'municipalityHeaderLabel': 'Gemeinde',
+    'paperInputDateHeader': GenericRepr('FakeDatetime(2021, 1, 2, 0, 0)'),
+    'plotsHeader': '123',
+    'plotsHeaderLabel': 'Parzelle(n)',
+    'projectAuthorHeaderLabel': 'Projektverfasser/in',
+    'projectAuthors': [
+        {
+            'address_1': '',
+            'address_2': '',
+            'email': '',
+            'first_name': 'Projekt',
+            'full_address': '',
+            'full_name': 'Projektverfasserin AG, Projekt Verfasserin',
+            'is_juristic_person': True,
+            'juristic_name': 'Projektverfasserin AG',
+            'last_name': 'Verfasserin',
+            'street': '',
+            'street_number': '',
+            'tel': '',
+            'town': '',
+            'zip': ''
+        }
+    ],
+    'responsibleHeader': None,
+    'responsibleHeaderLabel': 'Zuständig',
+    'sections': [
+        {
+            'children': [
+            ],
+            'label': 'Unterschriften',
+            'slug': '8-unterschriften',
+            'type': 'FormQuestion'
+        }
+    ],
+    'signatureMetadata': 'Ort und Datum',
+    'signatureSectionTitle': 'Unterschriften',
+    'signatureTitle': 'Unterschrift',
+    'tagHeader': None,
+    'tagHeaderLabel': 'Stichworte',
+    'uploadedAt': 'Hochgeladen am 07.09.2022 um 14:01'
 }

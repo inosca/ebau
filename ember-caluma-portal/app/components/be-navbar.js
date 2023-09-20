@@ -8,6 +8,8 @@ import config from "caluma-portal/config/environment";
 const {
   languages,
   environment,
+  profileURL,
+  APPLICATION: { internalBackend },
   ebau: { internalURL },
 } = config;
 
@@ -32,6 +34,7 @@ export default class BeNavbarComponent extends Component {
 
   languages = languages;
   environment = environment;
+  profileURL = profileURL;
 
   get showFormBuilder() {
     return macroCondition(isDevelopingApp())
@@ -47,7 +50,12 @@ export default class BeNavbarComponent extends Component {
 
       if (!instanceId) return internalURL;
 
-      return `${internalURL}/index/redirect-to-instance-resource/instance-id/${instanceId}`;
+      const path =
+        internalBackend === "camac"
+          ? "/index/redirect-to-instance-resource/instance-id/"
+          : "/cases/";
+
+      return internalURL + path + instanceId;
     }
 
     return internalURL;
@@ -86,7 +94,9 @@ export default class BeNavbarComponent extends Component {
   }
 
   @action
-  logout() {
+  logout(event) {
+    event.preventDefault();
+
     this.session.singleLogout();
   }
 }

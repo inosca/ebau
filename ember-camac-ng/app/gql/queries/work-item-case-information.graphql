@@ -5,6 +5,7 @@ query WorkItemCaseInformation($id: ID!) {
         id
         case {
           id
+          meta
           workflow {
             id
             slug

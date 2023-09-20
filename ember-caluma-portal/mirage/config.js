@@ -19,7 +19,7 @@ export default function makeServer(config) {
 
       this.get(
         "/api/v1/attachments/:id/thumbnail",
-        () => new File(["Filename"], { type: "image/jpeg" })
+        () => new File(["Filename"], { type: "image/jpeg" }),
       );
 
       this.get("/api/v1/instances");
@@ -57,6 +57,11 @@ export default function makeServer(config) {
           inviteeId: parseInt(users.create({ email }).id),
         });
       });
+
+      this.get("/api/v1/communications-messages", () => ({
+        data: [],
+        meta: { pagination: { count: 3 } },
+      }));
 
       this.post("/graphql/", graphqlHandler(this), 200);
     },

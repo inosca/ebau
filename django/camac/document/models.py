@@ -1,3 +1,4 @@
+import mimetypes
 from uuid import uuid4
 
 import reversion
@@ -6,6 +7,7 @@ from django.contrib.postgres.fields import ArrayField
 from django.core.validators import MaxValueValidator
 from django.db import models
 from django.utils import timezone
+from django.utils.timezone import now
 
 from camac.core import models as core_models
 
@@ -14,6 +16,10 @@ from . import permissions
 
 def attachment_path_directory_path(attachment, filename):
     return "attachments/files/{0}/{1}".format(attachment.instance.pk, filename)
+
+
+def version_path_directory_path(attachment, filename):
+    return "attachment-versions/files/{0}/{1}".format(attachment.instance.pk, filename)
 
 
 @reversion.register()
@@ -102,9 +108,52 @@ class Attachment(models.Model):
             display_name = ".".join(self.name.split(".")[:-1])
         return display_name
 
+    def make_copy_with_new_file(self, new_file, group, user):
+        copy = Attachment.objects.create(
+            path=new_file,
+            instance=self.instance,
+            name=new_file.name,
+            size=new_file.size,
+            user=user,
+            mime_type=mimetypes.guess_type(new_file.name)[0],
+            date=now(),
+            group=group,
+            service=group.service,
+            context=self.context,
+        )
+        copy.attachment_sections.set(self.attachment_sections.all())
+        copy.save()
+
+        return copy
+
     class Meta:
         managed = True
         db_table = "ATTACHMENT"
+
+
+class AttachmentVersion(models.Model):
+    version = models.IntegerField()
+    name = models.CharField(max_length=255)
+    attachment = models.ForeignKey(
+        "Attachment",
+        models.CASCADE,
+        related_name="version_history",
+    )
+    path = models.FileField(max_length=1024, upload_to=version_path_directory_path)
+    size = models.IntegerField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    created_by_user = models.ForeignKey(
+        "user.User",
+        models.PROTECT,
+        related_name="version",
+    )
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=["attachment", "version"], name="unique_attachment_version"
+            )
+        ]
 
 
 class AttachmentSectionQuerySet(models.QuerySet):

@@ -1,10 +1,26 @@
 import EmberRouter from "@ember/routing/router";
+import { inject as service } from "@ember/service";
+import registerAdditionalDemand from "ember-ebau-core/modules/additional-demand";
+import registerCommunications from "ember-ebau-core/modules/communications";
+import registerCommunicationsGlobal from "ember-ebau-core/modules/communications-global";
 
 import config from "caluma-portal/config/environment";
 
 export default class Router extends EmberRouter {
+  @service ebauModules;
+
   location = config.locationType;
   rootURL = config.rootURL;
+
+  setupRouter(...args) {
+    const didSetup = super.setupRouter(...args);
+
+    if (didSetup) {
+      this.ebauModules.setupModules();
+    }
+
+    return didSetup;
+  }
 }
 
 const resetNamespace = true;
@@ -22,6 +38,8 @@ Router.map(function () {
         this.route("form", { path: "/:form" });
         this.route("feedback");
         this.route("applicants");
+        registerCommunications(this);
+        registerAdditionalDemand(this);
       });
     });
 
@@ -34,6 +52,8 @@ Router.map(function () {
 
     this.route("support", { resetNamespace });
     this.route("faq", { resetNamespace });
+    this.route("terms", { resetNamespace });
+    registerCommunicationsGlobal(this, { resetNamespace });
   });
 
   this.route("notfound", { path: "/*path" });

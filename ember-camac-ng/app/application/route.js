@@ -1,17 +1,20 @@
-import { getOwner } from "@ember/application";
 import Route from "@ember/routing/route";
 import { inject as service } from "@ember/service";
+import DecisionAppealButtonComponent from "ember-ebau-core/components/decision/appeal-button";
+import DecisionInfoAppealComponent from "ember-ebau-core/components/decision/info-appeal";
+import DecisionSubmitButtonComponent from "ember-ebau-core/components/decision/submit-button";
 import DocumentValidityButtonComponent from "ember-ebau-core/components/document-validity-button";
+import InquiryAnswerStatus from "ember-ebau-core/components/inquiry-answer-status";
 import LinkAttachmentsComponent from "ember-ebau-core/components/link-attachments";
 import UrGisComponent from "ember-ebau-core/components/ur-gis";
+import mainConfig from "ember-ebau-core/config/main";
+import UIkit from "uikit";
 
 import AssignEbauNumberButtonComponent from "camac-ng/components/assign-ebau-number-button";
 import CfCollapsibleTextareaComponent from "camac-ng/components/cf-collapsible-textarea";
 import CfDownloadPdfComponent from "camac-ng/components/cf-download-pdf";
 import CfSnippetsTextComponent from "camac-ng/components/cf-snippets-text";
 import CfSnippetsTextareaComponent from "camac-ng/components/cf-snippets-textarea";
-import DecisionSubmitPartialComponent from "camac-ng/components/decision-submit-partial";
-import InquiryAnswerStatus from "camac-ng/components/inquiry-answer-status";
 import QrCodeComponent from "camac-ng/components/qr-code";
 import SuggestEbauNumberComponent from "camac-ng/components/suggest-ebau-number";
 
@@ -31,15 +34,18 @@ export default class ApplicationRoute extends Route {
     const language = this.shoebox.content.language;
 
     if (language) {
-      const application =
-        getOwner(this).resolveRegistration("config:environment").APPLICATION
-          .name;
+      const application = mainConfig.name;
 
       this.intl.setLocale([
         `${language}-ch`,
         `${language}-${application}`,
         language,
       ]);
+
+      UIkit.modal.i18n = {
+        ok: this.intl.t("global.ok"),
+        cancel: this.intl.t("global.cancel"),
+      };
     }
 
     this.calumaOptions.registerComponentOverride({
@@ -98,13 +104,6 @@ export default class ApplicationRoute extends Route {
     });
 
     this.calumaOptions.registerComponentOverride({
-      label: "Entscheid verfügen (Teilbaubewilligung)",
-      component: "decision-submit-partial",
-      componentClass: DecisionSubmitPartialComponent,
-      type: "StaticQuestion",
-    });
-
-    this.calumaOptions.registerComponentOverride({
       label: "Validierungs Button",
       component: "document-validity-button",
       componentClass: DocumentValidityButtonComponent,
@@ -121,6 +120,24 @@ export default class ApplicationRoute extends Route {
       label: "Dokumente verlinken",
       component: "link-attachments",
       componentClass: LinkAttachmentsComponent,
+    });
+
+    this.calumaOptions.registerComponentOverride({
+      label: "Hilfetext Beschwerdeverfahren",
+      component: "decision/info-appeal",
+      componentClass: DecisionInfoAppealComponent,
+    });
+
+    this.calumaOptions.registerComponentOverride({
+      label: "Entscheid verfügen",
+      component: "decision/submit-button",
+      componentClass: DecisionSubmitButtonComponent,
+    });
+
+    this.calumaOptions.registerComponentOverride({
+      label: "Beschwerde eingegangen",
+      component: "decision/appeal-button",
+      componentClass: DecisionAppealButtonComponent,
     });
   }
 }

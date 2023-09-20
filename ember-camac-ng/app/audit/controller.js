@@ -19,7 +19,7 @@ export default class AuditController extends Controller {
 
   get auditWorkItem() {
     return this.auditWorkItems?.find(
-      (workItem) => workItem.caseData.instanceId === this.model
+      (workItem) => workItem.caseData.instanceId === this.model,
     );
   }
 
@@ -27,9 +27,9 @@ export default class AuditController extends Controller {
     return A(
       this.auditWorkItem?.document.answers.edges.flatMap((edge) =>
         edge.node.value.map((raw) =>
-          this.createAudit(raw, this.auditWorkItem.caseData)
-        )
-      )
+          this.createAudit(raw, this.auditWorkItem.caseData),
+        ),
+      ),
     )
       .sortBy("type", "createdAt")
       .reverse();
@@ -37,7 +37,7 @@ export default class AuditController extends Controller {
 
   get auditsWithSameEbauNumber() {
     const workItems = this.auditWorkItems?.filter(
-      (workItem) => workItem.caseData.instanceId !== this.model
+      (workItem) => workItem.caseData.instanceId !== this.model,
     );
 
     return workItems
@@ -47,8 +47,8 @@ export default class AuditController extends Controller {
           form: workItem.caseData.form,
           audits: workItem.document.answers.edges.flatMap((edge) =>
             edge.node.value.map((raw) =>
-              this.createAudit(raw, workItem.caseData)
-            )
+              this.createAudit(raw, workItem.caseData),
+            ),
           ),
         };
       })
@@ -65,7 +65,7 @@ export default class AuditController extends Controller {
           return {
             ...obj,
             [node.question.rowForm.slug]: node.value.map((doc) =>
-              decodeId(doc.id)
+              decodeId(doc.id),
             ),
           };
         }, {}),
@@ -91,7 +91,7 @@ export default class AuditController extends Controller {
           fetchPolicy: "network-only",
           variables: { instanceId: this.model },
         },
-        "allCases.edges.firstObject.node.meta.ebau-number"
+        "allCases.edges.firstObject.node.meta.ebau-number",
       );
 
       const response = yield this.apollo.query({
@@ -144,11 +144,11 @@ export default class AuditController extends Controller {
               edge.node.value.map((doc) => [
                 doc.createdByGroup,
                 doc.modifiedContentByGroup,
-              ])
+              ]),
             )
             .map((id) => parseInt(id, 10))
-            .filter((id) => id && !cachedServiceIds.includes(id))
-        )
+            .filter((id) => id && !cachedServiceIds.includes(id)),
+        ),
       ),
     ];
 
@@ -157,12 +157,12 @@ export default class AuditController extends Controller {
         workItems.flatMap((workItem) =>
           workItem.document.answers.edges
             .flatMap((edge) =>
-              edge.node.value.map((doc) => doc.modifiedContentByUser)
+              edge.node.value.map((doc) => doc.modifiedContentByUser),
             )
             .filter(
-              (username) => username && !cachedUsernames.includes(username)
-            )
-        )
+              (username) => username && !cachedUsernames.includes(username),
+            ),
+        ),
       ),
     ];
 

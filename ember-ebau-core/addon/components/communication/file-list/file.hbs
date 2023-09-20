@@ -1,0 +1,42 @@
+<span>
+  {{#if @file.download.isRunning}}
+    <UkSpinner @ratio="0.5" />
+  {{else}}
+    <UkIcon @icon="file-text" />
+  {{/if}}
+  <a
+    href="#"
+    class="uk-link uk-link-text"
+    {{on "click" (perform @file.download)}}
+  >
+    {{@file.filename}}
+  </a>
+</span>
+
+{{#if (can "link attachments on message")}}
+  <span>
+    {{#if @file.documentAttachment}}
+      <span class="uk-text-meta">
+        {{t "communications.detail.uploadedToDMS"}}
+      </span>
+    {{else}}
+      <button
+        type="button"
+        class="uk-icon-button"
+        data-test-upload-to-dms
+        {{uk-tooltip (t "communications.detail.uploadToDMS")}}
+      >
+        {{#if @file.uploadToDMS.isRunning}}
+          <UkSpinner />
+        {{else}}
+          <UkIcon @icon="cloud-upload" />
+        {{/if}}
+      </button>
+    {{/if}}
+    <Communication::AttachmentSectionDropdown
+      @instanceId={{this.ebauModules.instanceId}}
+      @selectSection={{perform @file.uploadToDMS this.ebauModules.instanceId}}
+      @onlyWithUploadPermission={{true}}
+    />
+  </span>
+{{/if}}

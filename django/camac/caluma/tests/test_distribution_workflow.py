@@ -810,12 +810,15 @@ def test_cancel_inquiry(
 
 
 @pytest.mark.parametrize("role__name", ["municipality-lead"])
+@pytest.mark.parametrize("deadline,success", [("2022-10-24", True), (None, False)])
 def test_sync_inquiry_deadline(
     db,
     be_distribution_settings,
     caluma_admin_schema_executor,
+    deadline,
     inquiry_factory_be,
     mocker,
+    success,
 ):
     mocker.patch(
         "camac.caluma.extensions.permissions.CustomPermission.has_camac_edit_permission",
@@ -829,6 +832,17 @@ def test_sync_inquiry_deadline(
 
     inquiry = inquiry_factory_be(sent=True)
 
+    variables = {
+        "input": {
+            "document": str(inquiry.document.pk),
+            "question": be_distribution_settings["QUESTIONS"]["DEADLINE"],
+            "value": deadline,
+        }
+    }
+
+    if not deadline:
+        del variables["input"]["value"]
+
     result = caluma_admin_schema_executor(
         """
         mutation($input: SaveDocumentDateAnswerInput!) {
@@ -837,32 +851,30 @@ def test_sync_inquiry_deadline(
             }
         }
         """,
-        variables={
-            "input": {
-                "document": str(inquiry.document.pk),
-                "question": be_distribution_settings["QUESTIONS"]["DEADLINE"],
-                "value": "2022-10-24",
-            }
-        },
+        variables=variables,
     )
 
-    assert not result.errors
+    if not success:
+        assert result.errors
+        assert "Deadline is required" in result.errors[0].message
+    else:
+        assert not result.errors
 
-    inquiry.refresh_from_db()
+        inquiry.refresh_from_db()
 
-    assert inquiry.deadline.isoformat() == "2022-10-24T00:00:00+00:00"
-    assert (
-        inquiry.document.answers.get(
-            question_id=be_distribution_settings["QUESTIONS"]["DEADLINE"]
-        ).date.isoformat()
-        == "2022-10-24"
-    )
-
-    assert (
-        inquiry.child_case.work_items.filter(
-            task_id=be_distribution_settings["INQUIRY_ANSWER_FILL_TASK"]
+        assert inquiry.deadline.isoformat() == "2022-10-24T00:00:00+00:00"
+        assert (
+            inquiry.document.answers.get(
+                question_id=be_distribution_settings["QUESTIONS"]["DEADLINE"]
+            ).date.isoformat()
+            == "2022-10-24"
         )
-        .first()
-        .deadline.isoformat()
-        == "2022-10-19T00:00:00+00:00"
-    )
+
+        assert (
+            inquiry.child_case.work_items.filter(
+                task_id=be_distribution_settings["INQUIRY_ANSWER_FILL_TASK"]
+            )
+            .first()
+            .deadline.isoformat()
+            == "2022-10-19T00:00:00+00:00"
+        )

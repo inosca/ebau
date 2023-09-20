@@ -65,3 +65,50 @@ class CustomDynamicTasks(BaseDynamicTasks):
             tasks.append(settings.DISTRIBUTION["DISTRIBUTION_CHECK_TASK"])
 
         return tasks
+
+    @register_dynamic_task("after-ebau-number")
+    def resolve_after_ebau_number(self, case, user, prev_work_item, context):
+        tasks = [
+            "distribution",
+            "audit",
+            "publication",
+            "fill-publication",
+            "information-of-neighbors",
+            "legal-submission",
+        ]
+
+        if case.meta.get("is-appeal"):
+            tasks.append("appeal")
+
+        return tasks
+
+    @register_dynamic_task("after-check-additional-demand")
+    def resolve_after_check_additional_demand(
+        self, case, user, prev_work_item, context
+    ):
+        decision = prev_work_item.document.answers.get(
+            question_id=settings.ADDITIONAL_DEMAND[
+                "ADDITIONAL_DEMAND_DECISION_QUESTION"
+            ]
+        )
+
+        if (
+            settings.ADDITIONAL_DEMAND["ADDITIONAL_DEMAND_DECISION_REJECT"]
+            == decision.value
+        ):
+            return [settings.ADDITIONAL_DEMAND["ADDITIONAL_DEMAND_FILL_TASK"]]
+
+        return []
+
+    @register_dynamic_task("after-create-inquiry")
+    def resolve_after_create_inquiry(self, case, user, prev_work_item, context):
+        tasks = ["inquiry", "create-inquiry"]
+
+        if not case.work_items.filter(
+            addressed_groups=context["addressed_groups"],
+            task_id=settings.ADDITIONAL_DEMAND["ADDITIONAL_DEMAND_CREATE_TASK"],
+            status=WorkItem.STATUS_READY,
+        ).exists():
+            tasks.append(settings.ADDITIONAL_DEMAND["ADDITIONAL_DEMAND_CREATE_TASK"])
+
+        return tasks

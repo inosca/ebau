@@ -157,7 +157,7 @@ def get_documents(attachments):
                 ]
             ),
         )
-        for attachment in attachments.order_by("-date")
+        for attachment in attachments.order_by("-date", "pk")
     ]
     if not documents:
         documents = [
@@ -489,7 +489,7 @@ def application_md(instance: Instance):
             municipality=ech_0007_6_0.swissMunicipalityType(
                 # municipalityid minoccurs 0
                 municipalityName=assure_string_length(md.municipality, max_length=40),
-                cantonAbbreviation=md.canton,
+                cantonAbbreviation=settings.APPLICATION["SHORT_NAME"].upper(),
             ),
             owner=make_dummy_address_ech0044(),
         )
@@ -510,7 +510,7 @@ def application_md(instance: Instance):
                     municipalityName=assure_string_length(
                         md.municipality, max_length=40
                     ),
-                    cantonAbbreviation=md.canton,
+                    cantonAbbreviation=settings.APPLICATION["SHORT_NAME"].upper(),
                 ),
                 owner=make_dummy_address_ech0044(),
             )
@@ -807,7 +807,7 @@ class BaseDeliveryFormatter:
                         entryOffice=office(
                             responsible_service,
                             organization_category=md.organization_category,
-                            canton=md.canton,
+                            canton=settings.APPLICATION["SHORT_NAME"].upper(),
                         ),
                     )
                 )

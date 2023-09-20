@@ -1,0 +1,12 @@
+{{#if @model.isPaper}}
+  <p>{{t "additional-demand.paper"}}</p>
+{{else}}
+  <div uk-grid>
+    <div class="uk-width-1-3">
+      <AdditionalDemand::List @instanceId={{@model}} />
+    </div>
+    <div class="uk-width-expand">
+      {{outlet}}
+    </div>
+  </div>
+{{/if}}

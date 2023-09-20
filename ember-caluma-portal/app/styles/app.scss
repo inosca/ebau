@@ -3,6 +3,7 @@
 @import "ember-uikit";
 @import "@projectcaluma/ember-form";
 @import "@projectcaluma/ember-form-builder";
+@import "ember-ebau-core";
 @import "ember-power-select";
 
 @import "a11y";
@@ -11,9 +12,10 @@
 @import "be-navbar";
 @import "embedded";
 @import "instances";
-@import "visibility";
 
 @import "components/ur-gis";
+@import "components/so-footer";
+@import "components/so-navbar";
 
 $badge-in-tab-ratio: 0.85;
 

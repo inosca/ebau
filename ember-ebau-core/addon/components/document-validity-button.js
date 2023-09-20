@@ -8,7 +8,7 @@ export default class DocumentValidityButtonComponent extends Component {
 
   get invalidFields() {
     return this.args.field.document.fields.filter(
-      (field) => !field.hidden && field.isInvalid
+      (field) => !field.hidden && field.isInvalid,
     );
   }
 

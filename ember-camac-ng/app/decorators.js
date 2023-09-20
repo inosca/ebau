@@ -16,7 +16,7 @@ export function objectFromQueryParams(...fields) {
           configurable: true,
           writable: true,
           initializer: null,
-        })
+        }),
       );
     });
 
@@ -29,7 +29,7 @@ export function objectFromQueryParams(...fields) {
       return Object.assign(
         ...fields.map((field) => ({
           [field]: this[field],
-        }))
+        })),
       );
     };
     desc.set = function (object) {

@@ -1,0 +1,24 @@
+decision:
+  submit:
+    preliminary-clarification: "Clôturer l'évaluation"
+    appeal: "Confirmer la décision"
+
+  appeal:
+    confirmed: |-
+      Ce dossier passe au statut de la décision précédente <b>({status})</b>
+      après la saisie de la décision.
+    changed: |-
+      Ce dossier passe au statut opposé à la décision précédente
+      <b>({status})</b> après la confirmation de la décision.
+    rejected: |-
+      Ce dossier est copié après la saisie de la décision et passe au statut
+      <b>« {status} »</b>. Le dossier en cours est clôturé.
+
+  appeal-confirm: |-
+    Voulez-vous vraiment lancer la procédure de recours ? Ce dossier passe
+    irrévocablement au statut <b>« Terminé »</b>. Un dossier de recours est
+    créé, permettant de documenter la procédure de recours.
+
+  send-notification-success: "Notifications envoyées avec succès"
+  send-notification-error: "Erreur lors de l'envoi des notifications"
+  appeal-error: "Erreur lors du lancement de la procédure de recours"

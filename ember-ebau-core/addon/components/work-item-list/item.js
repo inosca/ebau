@@ -1,3 +1,4 @@
+import { getOwner } from "@ember/application";
 import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
 import { dropTask } from "ember-concurrency";
@@ -14,6 +15,7 @@ export default class WorkItemListItemComponent extends Component {
       this.editAction,
       this.toggleReadAction,
       this.assignToMeAction,
+      this.readAction,
     ].filter(Boolean);
   }
 
@@ -25,6 +27,20 @@ export default class WorkItemListItemComponent extends Component {
     return {
       action: performHelper([this.edit], {}),
       title: this.intl.t("workItems.actions.edit"),
+    };
+  }
+
+  get readAction() {
+    if (
+      this.can.cannot("read work-item", this.args.workItem) ||
+      this.can.can("edit work-item", this.args.workItem)
+    ) {
+      return null;
+    }
+
+    return {
+      action: performHelper([this.edit], {}),
+      title: this.intl.t("workItems.actions.read"),
     };
   }
 
@@ -89,12 +105,22 @@ export default class WorkItemListItemComponent extends Component {
     if (this.router.currentRouteName === `${this.args.baseRoute}.index`) {
       return yield this.router.transitionTo(
         `${this.args.baseRoute}.edit`,
-        this.args.workItem.id
+        this.args.workItem.id,
       );
     }
 
-    if (this.args.workItem.editLink) {
-      location.replace(this.args.workItem.editLink);
+    const applicationName =
+      getOwner(this).resolveRegistration("config:environment")?.modulePrefix;
+
+    if (applicationName === "camac-ng") {
+      if (this.args.workItem.editLink) {
+        location.replace(this.args.workItem.editLink);
+      }
     }
+    yield this.router.transitionTo(
+      `cases.detail.work-items.edit`,
+      this.args.workItem.editLink.models[0],
+      this.args.workItem.editLink.models[1],
+    );
   }
 }

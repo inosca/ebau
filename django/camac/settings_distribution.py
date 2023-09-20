@@ -66,7 +66,6 @@ DISTRIBUTION = {
         "ENABLED": True,
         "ECH_EVENTS": True,
         "INSTANCE_STATE_DISTRIBUTION": "circulation",
-        "DISTRIBUTION_": _("Circulation reopened"),
         "HISTORY": {
             "COMPLETE_DISTRIBUTION": _("Circulation completed"),
             "SKIP_DISTRIBUTION": _("Circulation skipped"),
@@ -510,6 +509,13 @@ DISTRIBUTION = {
         "REDO_DISTRIBUTION": {
             "CREATE_TASKS": ["additional-demand"],
         },
+        "QUESTIONS": {
+            "REQUEST": "inquiry-answer-request",
+            "ANCILLARY_CLAUSES": "inquiry-answer-ancillary-clauses",
+            "REASON": "inquiry-answer-reason",
+            "RECOMMENDATION": "inquiry-answer-recommendation",
+            "HINT": "inquiry-answer-hint",
+        },
         "DEFAULT_SUGGESTIONS": [7],  # Baugesuchszentrale
         "SUGGESTIONS": {
             "SUBMODULES": [
@@ -549,6 +555,23 @@ DISTRIBUTION = {
                 "TIME_DELTA": timedelta(days=-3)  # check-inquiry lead-time
             }
         },
+    },
+    "kt_gr": {
+        "ENABLED": True,
+        "INSTANCE_STATE_DISTRIBUTION": "circulation",
+        "HISTORY": {
+            "COMPLETE_DISTRIBUTION": _("Circulation completed"),
+            "SKIP_DISTRIBUTION": _("Circulation skipped"),
+            "REDO_DISTRIBUTION": _("Circulation reopened"),
+        },
+        "REDO_INQUIRY": {
+            "REOPEN_TASKS": ["fill-inquiry"],
+        },
+        "QUESTIONS": {
+            "STATEMENT": "inquiry-answer-assessment",
+            "ANCILLARY_CLAUSES": "inquiry-answer-ancillary-clauses",
+        },
+        "INQUIRY_TASK": "inquiry",
     },
     "demo": {"ENABLED": True},
 }

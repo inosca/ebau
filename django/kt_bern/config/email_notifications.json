@@ -87,7 +87,7 @@
     "model": "notification.notificationtemplate",
     "pk": 8,
     "fields": {
-      "slug": "02-erklarung-zustandigkeit-gemeinde",
+      "slug": "communications-new-message",
       "purpose": null,
       "subject": null,
       "body": null,
@@ -267,7 +267,7 @@
     "model": "notification.notificationtemplate",
     "pk": 24,
     "fields": {
-      "slug": "10-zugriffsmeldung",
+      "slug": "09-beschwerde-eingegangen",
       "purpose": null,
       "subject": null,
       "body": null,
@@ -279,7 +279,7 @@
     "model": "notification.notificationtemplate",
     "pk": 25,
     "fields": {
-      "slug": "10-entscheid-gesuchsteller-gemeinde-baubewilligungsbehorde-amts-und-fachstellen-einsprecher",
+      "slug": "09-entscheid-nach-dem-beschwerdeverfahren",
       "purpose": null,
       "subject": null,
       "body": null,
@@ -535,8 +535,8 @@
       "template_slug": "02-rueckweisung-gemeinde",
       "language": "de",
       "purpose": "02 Rückweisung (Gemeinde)",
-      "subject": "Dossier aufgrund von Mängeln abgewiesen oder nicht darauf eingetreten (eBau Nr. {{EBAU_NUMBER}}) / Dossier rejeté en raison de défauts ou non satisfaite (n° eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nDie Baubewilligungsbehörde {{LEITBEHOERDE_NAME_DE}} hat das Dossier mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}, {{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) zurückgewiesen.\r\n\r\nMitteilung der Baubewilligungsbehörde:\r\n\r\n{{REJECTION_FEEDBACK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur, \r\n\r\nL'autorité du permis de construire {{LEITBEHOERDE_NAME_FR}} a rejeté le dossier avec eBau N° {{EBAU_NUMBER}}. ({{INSTANCE_ID}}, {{FORM_NAME_FR}}, {{MUNICIPALITY_FR}}).\r\n\r\nCommunication de l'autorité d'octroi du permis de construire:\r\n\r\n{{REJECTION_FEEDBACK}}\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre."
+      "subject": "Dossier aufgrund von Mängeln abgewiesen oder nicht darauf eingetreten (eBau Nr. {{EBAU_NUMBER}}) / Dossier renvoyé ou non entré en matière en raison de vices (n° eBau {{EBAU_NUMBER}})",
+      "body": "Guten Tag\r\n\r\nDie Baubewilligungsbehörde ({{LEITBEHOERDE_NAME_DE}}) hat das Dossier mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}, {{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) zurückgewiesen. Das Dossier kann nun angepasst und erneut eingereicht werden.\r\n\r\nMitteilung der Baubewilligungsbehörde:\r\n\r\n{{REJECTION_FEEDBACK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur, \r\n\r\nL'autorité du permis de construire ({{LEITBEHOERDE_NAME_FR}}) a renvoyé le dossier eBau n° {{EBAU_NUMBER}} ({{INSTANCE_ID}}, {{FORM_NAME_FR}}, {{MUNICIPALITY_FR}}). Le dossier peut maintenant être modifié et soumis à nouveau.\r\n\r\nCommunication de l'autorité d'octroi du permis de construire:\r\n\r\n{{REJECTION_FEEDBACK}}\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre."
     }
   },
   {
@@ -556,11 +556,11 @@
     "pk": 15,
     "fields": {
       "template": 8,
-      "template_slug": "02-erklarung-zustandigkeit-gemeinde",
+      "template_slug": "communications-new-message",
       "language": "de",
-      "purpose": "02 Erklärung Zuständigkeit  (Gemeinde)",
-      "subject": "Erklärung Zuständigkeit (eBau Nr. {{EBAU_NUMBER}}) / Déclaration relative à la compétence (n° eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nDas Baubewilligungsverfahren für das Dossier mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}, {{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde zuständigkeitshalber übernommen. \r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version française ***\r\nMadame, Monsieur,\r\n\r\nNotre autorité se charge du dossier portant le numéro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}, {{FORM_NAME_FR}}, {{MUNICIPALITY_FR}}), qui relève de sa compétence. \r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\n{{LEITBEHOERDE_NAME_FR}}"
+      "purpose": "00 Neue Nachricht (Gesuchsteller)",
+      "subject": "Neue Nachricht (eBau Nr. {{EBAU_NUMBER}}) / Nouveau message (n° eBau {{EBAU_NUMBER}})",
+      "body": "Guten Tag\r\n\r\nSie haben eine neue Nachricht auf dem Dossier mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}, {{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) erhalten.\r\n\r\n{{PUBLIC_DOSSIER_LINK}}/communications\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur, \r\n\r\nVous avez reçu un nouveau message sur le dossier avec le eBau N° {{EBAU_NUMBER}}. ({{INSTANCE_ID}}, {{FORM_NAME_FR}}, {{MUNICIPALITY_FR}}).\r\n\r\n{{PUBLIC_DOSSIER_LINK}}/communications\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre."
     }
   },
   {
@@ -571,8 +571,8 @@
       "template_slug": "02-baugesuch-aufgrund-mangel-abweisen-oder-nicht-eintreten-art-18-bewd",
       "language": "de",
       "purpose": "02 Rückweisung (Gesuchsteller)",
-      "subject": "Dossier aufgrund von Mängeln abgewiesen oder nicht darauf eingetreten (eBau Nr. {{EBAU_NUMBER}}) / Dossier rejeté en raison de défauts ou non satisfaite (n° eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nDie Baubewilligungsbehörde {{LEITBEHOERDE_NAME_DE}} hat das Dossier mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}, {{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) zurückgewiesen. Das Dossier kann nun angepasst und erneut eingereicht werden.\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nMitteilung der Baubewilligungsbehörde:\r\n\r\n{{REJECTION_FEEDBACK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur, \r\n\r\nL'autorité du permis de construire {{LEITBEHOERDE_NAME_FR}} a rejeté le dossier avec eBau N° {{EBAU_NUMBER}}. ({{INSTANCE_ID}}, {{FORM_NAME_FR}}, {{MUNICIPALITY_FR}}). Le dossier peut maintenant être adaptée et soumise à nouveau. \r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nCommunication de l'autorité d'octroi du permis de construire:\r\n\r\n{{REJECTION_FEEDBACK}}\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre."
+      "subject": "Dossier aufgrund von Mängeln abgewiesen oder nicht darauf eingetreten (eBau Nr. {{EBAU_NUMBER}}) / Dossier renvoyé ou non entré en matière en raison de vices (n° eBau {{EBAU_NUMBER}})",
+      "body": "Guten Tag\r\n\r\nDie Baubewilligungsbehörde ({{LEITBEHOERDE_NAME_DE}}) hat das Dossier mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}, {{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) zurückgewiesen. Das Dossier kann nun angepasst und erneut eingereicht werden.\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nMitteilung der Baubewilligungsbehörde:\r\n\r\n{{REJECTION_FEEDBACK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur, \r\n\r\nL'autorité du permis de construire ({{LEITBEHOERDE_NAME_FR}}) a renvoyé le dossier eBau n° {{EBAU_NUMBER}} ({{INSTANCE_ID}}, {{FORM_NAME_FR}}, {{MUNICIPALITY_FR}}). Le dossier peut maintenant être modifié et soumis à nouveau.\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nCommunication de l'autorité d'octroi du permis de construire:\r\n\r\n{{REJECTION_FEEDBACK}}\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre."
     }
   },
   {
@@ -736,11 +736,11 @@
     "pk": 47,
     "fields": {
       "template": 24,
-      "template_slug": "10-zugriffsmeldung",
+      "template_slug": "09-beschwerde-eingegangen",
       "language": "de",
-      "purpose": "10 Zugriffsmeldung",
-      "subject": "Zugriffsmeldung (eBau Nr. {{EBAU_NUMBER}}) / Avis concernant l'accès (n° eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nIhre Anfrage für den Zugriff auf das Dossier mit der eBau Nr. {{EBAU_NUMBER}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde bearbeitet. Der Zugriff auf das Dossier ist freigeschaltet.\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur,\r\n\r\nVotre demande concernant l'accès au dossier portant le numéro eBau {{EBAU_NUMBER}} ({{FORM_NAME_FR}}, {{MUNICIPALITY_FR}}) a été traitée et le dossier vous est désormais accessible.\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\nVeuillez agréer, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME_FR}}"
+      "purpose": "09 Beschwerde eingegangen",
+      "subject": "Beschwerde eingegangen (eBau Nr. {{EBAU_NUMBER}}) / recours reçu (n° eBau {{EBAU_NUMBER}})",
+      "body": "Guten Tag\r\n\r\nBeim Dossier mit der eBau Nr. {{EBAU_NUMBER}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde ein Beschwerdenverfahren initialisiert und der Entscheid wurde aufgehoben.\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version française ***\r\n\r\nBonjour \r\n\r\nUne procédure de recours a été initialisée pour le dossier portant le numéro eBau {{EBAU_NUMBER}} ({{FORM_NAME_FR}}, {{MUNICIPALITY_FR}}) et la décision a été annulée.\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\nVeuillez agréer, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME_FR}}"
     }
   },
   {
@@ -748,11 +748,11 @@
     "pk": 49,
     "fields": {
       "template": 25,
-      "template_slug": "10-entscheid-gesuchsteller-gemeinde-baubewilligungsbehorde-amts-und-fachstellen-einsprecher",
+      "template_slug": "09-entscheid-nach-dem-beschwerdeverfahren",
       "language": "de",
-      "purpose": "10 Entscheid (Gesuchsteller, Gemeinde, Baubewilligungsbehörde, Amts- und Fachstellen, Einsprecher)",
-      "subject": "Information über Entscheid (eBau Nr. {{EBAU_NUMBER}}) / Information sur le prononcé de la décision (n° eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nDer Entscheid im Rechtsgeschäft mit der eBau Nr. {{EBAU_NUMBER}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde gefällt. Bitte entnehmen Sie dem Anhang den Entscheid.\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur,\r\n\r\nLa décision relative à l'affaire portant le numéro eBau {{EBAU_NUMBER}} ({{FORM_NAME_FR}}, {{MUNICIPALITY_FR}}) a été rendue et vous la trouverez en annexe.\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\nVeuillez agréer, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME_FR}}"
+      "purpose": "08 Entscheid nach dem Beschwerdeverfahren",
+      "subject": "Information über Entscheid nach dem Beschwerdeverfahren (eBau Nr. {{EBAU_NUMBER}}) / Information sur la décision suite à la procédure de recours (n° eBau {{EBAU_NUMBER}})",
+      "body": "Guten Tag\r\n\r\nIm Rahmen des Beschwerdeverfahrens zum Dossier mit der eBau Nr. {{EBAU_NUMBER}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde ein neuer Entscheid eröffnet.\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version française ***\r\n\r\nBonjour\r\n\r\nUne nouvelle décision a été ouverte dans le cadre de la procédure de recours relative au dossier portant le numéro eBau {{EBAU_NUMBER}} ({{FORM_NAME_FR}}, {{MUNICIPALITY_FR}}).\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\nVeuillez agréer, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME_FR}}"
     }
   },
   {

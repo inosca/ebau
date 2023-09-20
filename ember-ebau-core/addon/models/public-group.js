@@ -1,15 +1,12 @@
-import { getOwner } from "@ember/application";
 import { get } from "@ember/object";
 import Model, { attr, belongsTo } from "@ember-data/model";
+
+import mainConfig from "ember-ebau-core/config/main";
 
 export default class PublicGroup extends Model {
   @attr("string") name;
   @belongsTo("public-role", { inverse: null, async: true }) role;
   @belongsTo("public-service", { inverse: null, async: true }) service;
-
-  get config() {
-    return getOwner(this).resolveRegistration("config:environment");
-  }
 
   get canCreatePaper() {
     // eslint-disable-next-line ember/no-get
@@ -18,11 +15,9 @@ export default class PublicGroup extends Model {
     const serviceGroupId = parseInt(get(this, "service.serviceGroup.id"));
 
     return (
-      this.config.APPLICATION?.paperInstances?.allowedGroups.roles.includes(
-        roleId
-      ) &&
-      this.config.APPLICATION?.paperInstances?.allowedGroups.serviceGroups.includes(
-        serviceGroupId
+      mainConfig.paperInstances?.allowedGroups.roles.includes(roleId) &&
+      mainConfig.paperInstances?.allowedGroups.serviceGroups.includes(
+        serviceGroupId,
       )
     );
   }

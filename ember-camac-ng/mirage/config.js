@@ -7,44 +7,33 @@ export default function makeServer(config) {
     ...config,
     models: { ...discoverEmberDataModels(), ...config.models },
     routes() {
+      this.namespace = "/api/v1";
       this.timing = 400;
+      this.logging = true;
 
-      this.get("/api/v1/instances/:id");
+      this.resource("instances", { only: ["show"] });
+      this.resource("users", { only: ["index"] });
+      this.resource("services", { except: ["create"] });
+      this.resource("history-entries", { only: ["index"] });
+      this.resource("journal-entries");
+      this.resource("responsible-services", { except: ["delete"] });
+      this.resource("notification-templates", { only: ["index"] });
+      this.resource("groups", { only: ["show"] });
+      this.resource("dossier-imports", { except: ["create", "update"] });
 
-      this.get("/api/v1/users/");
-
-      this.get("/api/v1/services");
-      this.get("/api/v1/services/:id");
-      this.patch("/api/v1/services/:id");
-
-      this.get("/api/v1/history-entries");
-
-      this.get("/api/v1/journal-entries");
-      this.post("/api/v1/journal-entries");
-      this.get("/api/v1/journal-entries/:id");
-      this.patch("/api/v1/journal-entries/:id");
-
-      this.get("/api/v1/responsible-services");
-      this.post("/api/v1/responsible-services");
-      this.patch("/api/v1/responsible-services/:id");
-
-      this.get("/api/v1/notification-templates");
-
-      this.get("/api/v1/groups/:id");
-
-      this.get("/api/v1/dossier-imports");
-      this.get("/api/v1/dossier-imports/:id");
-      this.delete("/api/v1/dossier-imports/:id");
       // Ignore uploaded zip file
-      this.post(
-        "/api/v1/dossier-imports",
-        function ({ dossierImports, users }) {
-          return dossierImports.create({ user: users.first() });
-        }
-      );
+      this.post("dossier-imports", function ({ dossierImports, users }) {
+        return dossierImports.create({ user: users.first() });
+      });
+
+      this.namespace = ""; // reset namespace
+
+      this.resource("user-groups", {
+        path: "/api/v1/user-groups",
+        exclude: ["update"],
+      });
 
       this.post("/graphql/", graphqlHandler(this), 200);
-
       this.passthrough("/index/token");
     },
   });

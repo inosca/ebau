@@ -3,19 +3,29 @@ import { inject as service } from "@ember/service";
 import { isTesting, macroCondition } from "@embroider/macros";
 import Component from "@glimmer/component";
 import { dropTask } from "ember-concurrency";
+import mainConfig from "ember-ebau-core/config/main";
 import { trackedTask } from "ember-resources/util/ember-concurrency";
 import UIkit from "uikit";
 
-import config from "ebau/config/environment";
+const { languages, name } = mainConfig;
 
-const { languages } = config;
+const adminGroup = "1";
 
 export default class MainNavigationComponent extends Component {
   @service session;
   @service store;
   @service router;
+  @service fetch;
 
   languages = languages;
+
+  get logoPath() {
+    if (name === "gr") {
+      return "/ebau-gr-logo.svg";
+    }
+
+    return "/ebau-inosca-logo.svg";
+  }
 
   groups = trackedTask(this, this.fetchGroups, () => [this.session.group]);
 
@@ -42,9 +52,7 @@ export default class MainNavigationComponent extends Component {
     }
   }
 
-  resources = trackedTask(this, this.fetchResources, () => [
-    this.session.group,
-  ]);
+  resources = trackedTask(this, this.fetchResources);
 
   @dropTask
   *fetchResources() {
@@ -53,7 +61,12 @@ export default class MainNavigationComponent extends Component {
     if (!this.session.isAuthenticated) {
       return;
     }
-    return yield this.store.query("resource", {});
+    const resources = yield this.store.findAll("resource");
+
+    if (resources.length && this.router.currentURL === "/") {
+      this.router.transitionTo(resources.firstObject.link);
+    }
+    return resources;
   }
 
   @action
@@ -77,11 +90,20 @@ export default class MainNavigationComponent extends Component {
 
     this.session.group = group;
 
+    if (this.session.group === adminGroup) {
+      window.location.href = "/django/admin";
+    }
+
     UIkit.dropdown("#group-dropdown").hide();
-    if (macroCondition(isTesting())) {
-      // Don't reload in testing
-    } else {
-      this.router.transitionTo("index");
+
+    await this.fetch.fetch(`/api/v1/groups/${group}/set-default`, {
+      method: "POST",
+    });
+
+    this.store.unloadAll();
+    await this.fetchResources.perform();
+    if (this.resources.value.length) {
+      this.router.transitionTo(this.resources.value.firstObject.link);
     }
   }
 

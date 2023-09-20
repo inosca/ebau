@@ -43,7 +43,7 @@ class MessageView(RetrieveModelMixin, GenericViewSet):
         return next_message
 
     @swagger_auto_schema(
-        tags=["ECH"],
+        tags=["eCH-0211"],
         manual_parameters=[group_param, last_param],
         operation_summary="Get message",
         operation_description=get_operation_description(),

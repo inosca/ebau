@@ -1,0 +1,19 @@
+[
+  {
+    "model": "instance.instance",
+    "pk": 1,
+    "fields": {
+      "instance_state": 1,
+      "form": 1,
+      "user": 1,
+      "group": 2,
+      "creation_date": "2023-07-07T07:31:31.516Z",
+      "modification_date": "2023-07-07T07:31:31.517Z",
+      "previous_instance_state": 1,
+      "identifier": null,
+      "location": null,
+      "case": "087e3c47-df7c-4c6d-a80c-19ef8c0f116d",
+      "instance_group": null
+    }
+  }
+]

@@ -5,12 +5,15 @@ export default class CasesDetailRoute extends Route {
   @service alexandriaConfig;
   @service ebauModules;
 
-  model({ case_id }) {
-    return case_id;
+  model({ instance_id }) {
+    return parseInt(instance_id);
   }
 
-  afterModel(caseId) {
-    this.alexandriaConfig.caseId = caseId;
-    this.ebauModules.instanceId = caseId;
+  afterModel(model) {
+    if (typeof model === "object") {
+      model = parseInt(model.id);
+    }
+    this.alexandriaConfig.instanceId = model;
+    this.ebauModules.instanceId = model;
   }
 }

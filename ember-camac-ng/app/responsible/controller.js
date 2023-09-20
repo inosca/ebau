@@ -17,7 +17,7 @@ export default class ResponsibleController extends Controller {
     return this.responsibilities.find(
       (responsibleService) =>
         parseInt(responsibleService.belongsTo("service").id()) ===
-        this.shoebox.content.serviceId
+        this.shoebox.content.serviceId,
     );
   }
 

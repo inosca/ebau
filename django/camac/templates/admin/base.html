@@ -1,5 +1,6 @@
 {% extends 'admin/base.html' %}
 {% load i18n %}
+{% load settings_value %}
 
 {% block welcome-msg %}{% endblock %}
 
@@ -7,6 +8,8 @@
   {% get_current_language as LANGUAGE_CODE %}
   {% get_available_languages as LANGUAGES %}
   {% get_language_info_list for LANGUAGES as languages %}
+  {% settings_value "USE_CAMAC_ADMIN" as USE_CAMAC_ADMIN %}
+  {% settings_value "INTERNAL_BASE_URL" as INTERNAL_BASE_URL %}
 
   {% for language in languages %}
     <form action="{% url 'set_language' %}" method="post">
@@ -16,6 +19,11 @@
       <a href="#" class="submit-link {% if language.code == LANGUAGE_CODE %} bold{% endif %}">{{ language.code }}</a>
     </form>
   {% endfor %}
+
+  {% if USE_CAMAC_ADMIN %}
+  {% else %}
+    <a href="{{ INTERNAL_BASE_URL }}">{% translate 'Back to eBau' %}</a>
+  {% endif %}
 
 {% endblock %}
 

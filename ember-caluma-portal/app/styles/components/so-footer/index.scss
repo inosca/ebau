@@ -1,0 +1,32 @@
+$footer-color: #1f2f37;
+
+.so-footer {
+  background-color: $footer-color;
+  border-top: solid 5px $global-primary-background;
+  padding: 15px;
+
+  &__logo {
+    width: 60px;
+    margin-right: 60px;
+  }
+
+  &__nav {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    > li {
+      margin-right: 15px;
+
+      > a {
+        color: #ffffff;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+main.fill {
+  min-height: calc(100vh - 93.75px);
+}

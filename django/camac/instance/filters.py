@@ -1,15 +1,27 @@
 import re
 from functools import reduce
 
-from caluma.caluma_form.models import Answer
+from caluma.caluma_form.models import Answer, Option
 from caluma.caluma_workflow.models import Case, WorkItem
 from django.conf import settings
 from django.contrib.postgres.fields import ArrayField
 from django.core.validators import EMPTY_VALUES
-from django.db.models import Exists, F, OuterRef, Q, Subquery
+from django.db.models import (
+    Case as DjangoCase,
+    Exists,
+    F,
+    Func,
+    OuterRef,
+    Q,
+    Subquery,
+    Value,
+    When,
+)
 from django.db.models.constants import LOOKUP_SEP
 from django.db.models.expressions import RawSQL
-from django.db.models.fields import TextField
+from django.db.models.fields import CharField, TextField
+from django.db.models.functions import Cast, Coalesce, Replace
+from django.utils.translation import get_language
 from django_filters.rest_framework import (
     BaseInFilter,
     BooleanFilter,
@@ -21,12 +33,14 @@ from django_filters.rest_framework import (
 )
 from rest_framework.filters import BaseFilterBackend, OrderingFilter
 
+from camac.caluma.utils import visible_inquiries_expression
 from camac.constants import kt_uri as uri_constants
 from camac.filters import (
     CharMultiValueFilter,
     JSONFieldMultiValueFilter,
     NumberMultiValueFilter,
 )
+from camac.instance.export.filters import StringAggSubquery
 
 from ..core import models as core_models
 from ..responsible import models as responsible_models
@@ -212,6 +226,189 @@ class FormFieldListValueFilter(Filter):
         )
 
 
+class InstanceKeywordSearchFilter(CharFilter):
+    def get_processed_form_fields(self):
+        # The form fields are converted to a text field,
+        # concatenated and then stripped of certain content
+        # to make the keyword search more accurate.
+
+        # Remove uuid key / value pairs, which occur in table fields
+        regex_uuid = Value(r'(, )?"uuid": "(\w|-)+"')
+        # Remove keys which occur in table fields
+        regex_keys = Value(r'"(\w|-)+": ')
+        # Remove null values in table fields that are casted
+        # to the string "null"
+        regex_null = Value(r"null")
+        # Remove escaping of quotes that are casted to \\"
+        regex_escaped_quotes = Value(r'\\"')
+        regex_flags = Value("gm")
+
+        regex_replacement_mapping = [
+            (regex_uuid, Value(r"")),
+            (regex_keys, Value(r"")),
+            (regex_null, Value(r'""')),
+            (regex_escaped_quotes, Value(r'"')),
+        ]
+
+        def regexp_replace(value, regex, replacement):
+            return Func(
+                value,
+                regex,
+                replacement,
+                regex_flags,
+                function="REGEXP_REPLACE",
+                output_field=TextField(),
+            )
+
+        processed_form_fields = Coalesce(
+            StringAggSubquery(
+                models.FormField.objects.get_queryset()
+                .filter(
+                    instance=OuterRef("pk"),
+                    value__isnull=False,
+                )
+                .visible_for(self.parent.request)
+                .annotate(value_as_text=Cast(F("value"), TextField()))
+                .values("value_as_text"),
+                column_name="value_as_text",
+                delimiter="|",
+            ),
+            Value(""),
+            output_field=TextField(),
+        )
+
+        # Apply all regex replacements to form field query
+        for regex, replacement in regex_replacement_mapping:
+            processed_form_fields = regexp_replace(
+                processed_form_fields, regex, replacement
+            )
+
+        return processed_form_fields
+
+    def get_processed_journal_entries(self):
+        return Coalesce(
+            StringAggSubquery(
+                models.JournalEntry.objects.filter(
+                    instance=OuterRef("pk"),
+                    text__isnull=False,
+                )
+                .visible_for(self.parent.request)
+                .values("text"),
+                column_name="text",
+                delimiter="|",
+            ),
+            Value(""),
+            output_field=TextField(),
+        )
+
+    def get_processed_inquiry_answers(self):
+        return Coalesce(
+            StringAggSubquery(
+                WorkItem.objects.filter(
+                    visible_inquiries_expression(self.parent.request.group),
+                    case__family__instance=OuterRef("pk"),
+                    status=WorkItem.STATUS_COMPLETED,
+                )
+                .annotate(
+                    answers=StringAggSubquery(
+                        Answer.objects.filter(
+                            question_id__in=[
+                                settings.DISTRIBUTION["QUESTIONS"]["STATUS"],
+                                settings.DISTRIBUTION["QUESTIONS"]["REQUEST"],
+                                settings.DISTRIBUTION["QUESTIONS"]["ANCILLARY_CLAUSES"],
+                                settings.DISTRIBUTION["QUESTIONS"]["REASON"],
+                                settings.DISTRIBUTION["QUESTIONS"]["RECOMMENDATION"],
+                                settings.DISTRIBUTION["QUESTIONS"]["HINT"],
+                            ],
+                            document=OuterRef("child_case__document"),
+                        )
+                        .annotate(
+                            value_as_text=DjangoCase(
+                                When(
+                                    question_id=settings.DISTRIBUTION["QUESTIONS"][
+                                        "STATUS"
+                                    ],
+                                    then=Option.objects.filter(
+                                        # `value` is a JSONBField that when casted to a
+                                        # CharField will add double quotes around the value. In
+                                        # order to properly match it with an option we need to
+                                        # remove those double quotes.
+                                        pk=Replace(
+                                            Cast(
+                                                OuterRef("value"),
+                                                output_field=CharField(),
+                                            ),
+                                            Value('"'),
+                                            Value(""),
+                                        )
+                                    ).values(f"label__{get_language()}")[:1],
+                                ),
+                                default=Cast(F("value"), TextField()),
+                            )
+                        )
+                        .values("value_as_text"),
+                        column_name="value_as_text",
+                        delimiter="|",
+                    ),
+                )
+                .values("answers"),
+                column_name="answers",
+                delimiter="|",
+            ),
+            Value(""),
+            output_field=TextField(),
+        )
+
+    def get_processed_issues(self):
+        return Coalesce(
+            StringAggSubquery(
+                models.Issue.objects.filter(
+                    instance=OuterRef("pk"),
+                    text__isnull=False,
+                )
+                .visible_for(self.parent.request)
+                .values("text"),
+                column_name="text",
+                delimiter="|",
+            ),
+            Value(""),
+            output_field=TextField(),
+        )
+
+    def filter(self, queryset, value, *args, **kwargs):
+        if value in EMPTY_VALUES:
+            return queryset
+
+        # Input values are split by whitespace.
+        # Word groups surrounded by double quotes are
+        # treated as a single entity.
+        processed_values = [v.strip('"') for v in re.findall(r"(?:\".*?\"|\S)+", value)]
+
+        # Disregard searches that contain a search term
+        # which has less than 3 characters
+        for val in processed_values:
+            if len(val) < 3:
+                return queryset.none()
+
+        # All search terms must be contained in either
+        # the form, journal entries or inquiry answers
+        filters = Q()
+        for val in processed_values:
+            filters &= (
+                Q(processed_form_fields__icontains=val)
+                | Q(processed_journal_entries__icontains=val)
+                | Q(processed_inquiry_answers__icontains=val)
+                | Q(processed_issues__icontains=val)
+            )
+
+        return queryset.annotate(
+            processed_form_fields=self.get_processed_form_fields(),
+            processed_journal_entries=self.get_processed_journal_entries(),
+            processed_inquiry_answers=self.get_processed_inquiry_answers(),
+            processed_issues=self.get_processed_issues(),
+        ).filter(filters)
+
+
 class InstanceSubmitDateFilter(DateFilter):
     def filter(self, qs, value, *args, **kwargs):
         if not value:
@@ -364,6 +561,28 @@ class InquiryAnswerFilter(BaseInFilter):
         )
 
 
+class CalumaYesNoFilter(BooleanFilter):
+    def __init__(self, question, yes="yes", no="no", *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        self.question = question
+        self.yes = yes
+        self.no = no
+
+    def filter(self, queryset, value):
+        if value in EMPTY_VALUES:
+            return queryset
+
+        yes_no_value = "-".join([self.question, self.yes if value else self.no])
+
+        return queryset.filter(
+            **{
+                "case__document__answers__question_id": self.question,
+                "case__document__answers__value": yes_no_value,
+            }
+        )
+
+
 class InstanceFilterSet(FilterSet):
     instance_id = NumberMultiValueFilter()
     identifier = CharFilter(field_name="identifier", lookup_expr="icontains")
@@ -394,6 +613,7 @@ class InstanceFilterSet(FilterSet):
     construction_zone_location_sz = CharFilter(
         method="filter_construction_zone_location_sz"
     )
+    keyword_search = InstanceKeywordSearchFilter()
     intent_sz = CharFilter(method="filter_intent_sz")
     plot_sz = FormFieldListValueFilter(
         form_field_names=["parzellen"], keys=["number", "egrid"]
@@ -567,28 +787,21 @@ class InstanceFilterSet(FilterSet):
             "has_pending_sanction",
             "pending_sanctions_control_instance",
             "with_cantonal_participation",
+            "keyword_search",
         )
 
 
 class CalumaInstanceFilterSet(InstanceFilterSet):
-    is_paper = BooleanFilter(method="filter_is_paper")
+    is_paper = CalumaYesNoFilter(question="is-paper")
+    is_modification = CalumaYesNoFilter(
+        question="projektaenderung", yes="ja", no="nein"
+    )
 
     sanction_creator = NumberFilter(field_name="sanctions__service")
     sanction_control_instance = NumberFilter(field_name="sanctions__control_instance")
 
-    def filter_is_paper(self, queryset, name, value):
-        _filter = {
-            "case__document__answers__question_id": "is-paper",
-            "case__document__answers__value": "is-paper-yes",
-        }
-
-        if value:
-            return queryset.filter(**_filter)
-
-        return queryset.exclude(**_filter)
-
     class Meta(InstanceFilterSet.Meta):
-        fields = InstanceFilterSet.Meta.fields + ("is_paper",)
+        fields = InstanceFilterSet.Meta.fields + ("is_paper", "is_modification")
 
 
 class InstanceResponsibilityFilterSet(FilterSet):

@@ -13,8 +13,7 @@ from camac.user.admin.views import MultilingualAdmin
 
 
 class ResourceAdmin(SortableAdminMixin, MultilingualAdmin, ModelAdmin):
-    exclude = ["class_field"]
-    exclude_ml = ["class_field", "sort", "name", "description"]
+    exclude_ml = ["sort", "name", "description"]
     form = ResourceForm
     inlines = [ResourceTInline, RRoleAclInline]
     list_display = [

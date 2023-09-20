@@ -10,7 +10,7 @@
   {{/if}}
 
   {{#let (can "create paper instance") as |isPaper|}}
-    {{#if (and isPaper (is-application "be"))}}
+    {{#if (and isPaper (not (is-application "ur")))}}
       <div class="uk-flex uk-flex-center uk-margin-large-top">
         <div class="uk-alert uk-alert-warning uk-width-large">
           <strong>{{t "paper.noteTitle"}}</strong> {{t "paper.noteBody"}}

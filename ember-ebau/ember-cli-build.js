@@ -8,6 +8,7 @@ const ENV_MAP = {
   kt_bern: "be",
   kt_schwyz: "sz",
   kt_uri: "ur",
+  kt_so: "so",
 };
 
 const ENVS = Object.values(ENV_MAP);
@@ -16,6 +17,10 @@ const UNUSED_ENVS = ENVS.filter((e) => e !== ENV).join("|");
 
 module.exports = function (defaults) {
   const app = new EmberApp(defaults, {
+    storeConfigInMeta: ENV !== "so",
+    "localized-model": {
+      sanitizeLocale: true,
+    },
     "ember-simple-auth": {
       useSessionSetupMethod: true,
     },
@@ -24,23 +29,25 @@ module.exports = function (defaults) {
         "@ember-data/store": {
           polyfillUUID: true,
         },
+      setOwnConfig: {
+        application: ENV,
       },
     },
   });
 
   app.trees.app = stew.rm(
     stew.rename(app.trees.app, `-${ENV}.js`, ".js"),
-    `*/*-{${UNUSED_ENVS}}.js`
+    `*/*-{${UNUSED_ENVS}}.js`,
   );
 
   app.trees.app = stew.rm(
     stew.rename(app.trees.app, `-${ENV}.hbs`, ".hbs"),
-    `*/*-{${UNUSED_ENVS}}.hbs`
+    `*/*-{${UNUSED_ENVS}}.hbs`,
   );
 
   app.trees.styles = stew.rm(
     stew.rename(app.trees.styles, `-${ENV}.scss`, ".scss"),
-    `*/*-{${UNUSED_ENVS}}.scss`
+    `*/*-{${UNUSED_ENVS}}.scss`,
   );
 
   return app.toTree();

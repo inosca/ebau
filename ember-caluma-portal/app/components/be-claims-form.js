@@ -80,13 +80,13 @@ export default class BeClaimsFormComponent extends Component {
   get claims() {
     return {
       pending: this.allClaims.filter((claim) =>
-        ["nfd-tabelle-status-in-bearbeitung"].includes(claim.statusSlug)
+        ["nfd-tabelle-status-in-bearbeitung"].includes(claim.statusSlug),
       ),
       answered: this.allClaims.filter((claim) =>
         [
           "nfd-tabelle-status-beantwortet",
           "nfd-tabelle-status-erledigt",
-        ].includes(claim.statusSlug)
+        ].includes(claim.statusSlug),
       ),
     };
   }

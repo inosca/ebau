@@ -1,10 +1,18 @@
 import { Ability } from "ember-can";
 
-export default class InstanceAbility extends Ability {
+export default class WorkItemAbility extends Ability {
   get canEdit() {
     return (
       (this.model.isReady && this.model.isAddressedToCurrentService) ||
       this.canEditAsCreatorOrController
+    );
+  }
+
+  get canRead() {
+    return (
+      this.model.isAddressedToCurrentService ||
+      this.model.isCreatedByCurrentService ||
+      this.model.isControlledByCurrentService
     );
   }
 

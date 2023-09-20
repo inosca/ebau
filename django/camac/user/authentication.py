@@ -118,8 +118,8 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
             "language": language[:2],
             "email": data.get("email"),
             "username": username,
-            "name": data.get("family_name", username),
-            "surname": data.get("given_name", username),
+            "name": data.get("given_name", username),
+            "surname": data.get("family_name", username),
             "city": data.get("city", ""),
             "zip": data.get("zip", ""),
             "address": " ".join(
@@ -197,7 +197,9 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
         return 'JWT realm="{0}"'.format(settings.KEYCLOAK_REALM)
 
 
-class DjangoAdminOIDCAuthenticationBackend(OIDCAuthenticationBackend):
+class DjangoAdminOIDCAuthenticationBackend(
+    OIDCAuthenticationBackend
+):  # pragma: no cover
     def get_userinfo_or_introspection(self, access_token):
         return self.cached_request(self.get_userinfo, access_token, "auth.userinfo")
 

@@ -3,16 +3,30 @@ from datetime import date, datetime, timedelta
 from typing import Optional
 
 import pytz
+from caluma.caluma_core.events import filter_events
 from caluma.caluma_form.models import Answer, Document, Question
 from caluma.caluma_user.models import AnonymousUser, OIDCUser
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 from django.contrib.auth.models import AnonymousUser as AnonymousCamacUser
+from django.contrib.postgres.fields import ArrayField
+from django.db.models import (
+    Case,
+    Exists,
+    Expression,
+    Func,
+    IntegerField,
+    OuterRef,
+    Q,
+    Value,
+    When,
+)
+from django.db.models.functions import Cast
 from django.utils.translation import get_language
 from jwt import decode as jwt_decode
 from rest_framework.authentication import get_authorization_header
 
-from camac.user.models import User
+from camac.user.models import Group, Service, User
 from camac.user.utils import get_group
 
 
@@ -129,6 +143,75 @@ def sync_inquiry_deadline(
     return inquiry
 
 
+def work_item_by_addressed_service_condition(service_condition):
+    return Exists(
+        Service.objects.filter(
+            Q(
+                # Use element = ANY(array) operator to check if
+                # element is present in ArrayField, which requires
+                # lhs and rhs of expression to be of same type
+                pk=Func(
+                    Cast(
+                        OuterRef("addressed_groups"),
+                        output_field=ArrayField(IntegerField()),
+                    ),
+                    function="ANY",
+                )
+            )
+            & Q(service_condition)
+        )
+    )
+
+
+def visible_inquiries_expression(group: Group) -> Expression:
+    """
+    Filter to query inquiries visible to a certain group.
+
+    Inquiry work-items are visible if the group's service is
+    either involved (addressed or controlling) or is given
+    access based on canton-specific conditions.
+    """
+
+    service = group.service
+    if not service:
+        return Value(True)  # pragma: no cover
+
+    additional_inquiries_filter = Value(True)
+    if settings.APPLICATION_NAME == "kt_schwyz":
+        # Inquiries in which the current service is not involved (addressed or controlling)
+        # are only visible if the current service is permitted to see the work-item
+        # according to its service_group.
+        visibility_config = settings.APPLICATION.get("INTER_SERVICE_GROUP_VISIBILITIES")
+        additional_inquiries_filter = work_item_by_addressed_service_condition(
+            Q(service_group__pk__in=visibility_config.get(service.service_group_id, []))
+        )
+    elif settings.APPLICATION_NAME == "kt_bern":
+        # Inquiries in which the current service is not involved (addressed or controlling)
+        # are only visible if they are not addressed to subservices or if the current
+        # service is the parent service of the addressed subservice.
+        additional_inquiries_filter = work_item_by_addressed_service_condition(
+            Q(service_parent__isnull=True) | Q(service_parent_id=service.pk)
+        )
+    elif settings.APPLICATION_NAME == "kt_gr":
+        if group.role.name == "subservice":
+            # Subservices can see "adjecent" subservices inquiries
+            additional_inquiries_filter = work_item_by_addressed_service_condition(
+                Q(service_parent_id=service.service_parent_id)
+            )
+        else:
+            # Services only see their own inquiries
+            additional_inquiries_filter = Value(False)
+
+    return Case(
+        When(
+            ~Q(addressed_groups__contains=[service.pk])
+            & ~Q(controlling_groups__contains=[service.pk]),
+            then=additional_inquiries_filter,
+        ),
+        default=True,
+    ) & Q(task_id=settings.DISTRIBUTION["INQUIRY_TASK"])
+
+
 class CamacRequest:
     """
     A camac request object built from the given caluma info object.
@@ -177,6 +260,16 @@ class CalumaInfo:
     class _Context:
         def __init__(self, request):
             _, token = get_authorization_header(request).split()
-            oidc_user = OIDCUser(token=token, userinfo=request.auth)
+            oidc_user = OIDCUser(token=token, claims=request.auth)
 
             self.user = extend_user(oidc_user, request)
+
+
+def filter_by_workflow_base(settings_keys, get_settings):
+    return filter_events(lambda case: case.workflow_id in get_settings(settings_keys))
+
+
+def filter_by_task_base(settings_keys, get_settings):
+    return filter_events(
+        lambda work_item: work_item.task_id in get_settings(settings_keys)
+    )

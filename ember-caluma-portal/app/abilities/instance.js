@@ -16,6 +16,10 @@ export default class InstanceAbility extends Ability {
     return this.model?.meta?.permissions[this.formName] ?? [];
   }
 
+  get instanceStateId() {
+    return parseInt(this.model?.get("instanceState.id"));
+  }
+
   get canWriteForm() {
     return this.formPermissions.includes("write");
   }
@@ -37,7 +41,10 @@ export default class InstanceAbility extends Ability {
   }
 
   get canReadFeedback() {
-    return !this.session.isInternal;
+    return (
+      !this.session.isInternal &&
+      this.instanceStateId !== config.APPLICATION.instanceStates.new
+    );
   }
 
   get canManageApplicants() {
@@ -52,8 +59,8 @@ export default class InstanceAbility extends Ability {
         (!this.session.isInternal &&
           Boolean(
             applicants?.find(
-              (applicant) => parseInt(applicant.get("invitee.id")) === userId
-            )
+              (applicant) => parseInt(applicant.get("invitee.id")) === userId,
+            ),
           )))
     );
   }
@@ -79,41 +86,43 @@ export default class InstanceAbility extends Ability {
   }
 
   get canCreateModification() {
-    const state = parseInt(this.model?.get("instanceState.id"));
     const form = this.model?.calumaForm;
 
     return (
-      state &&
+      this.instanceStateId &&
       form &&
       (config.APPLICATION?.modification?.allowForms || []).includes(form) &&
-      !(config.APPLICATION?.modification?.disallowStates || []).includes(state)
+      !(config.APPLICATION?.modification?.disallowStates || []).includes(
+        this.instanceStateId,
+      )
     );
   }
 
   get canCreateCopy() {
-    return (
-      parseInt(this.model?.get("instanceState.id")) ===
-      config.APPLICATION.instanceStates.rejected
-    );
+    return this.instanceStateId === config.APPLICATION.instanceStates.rejected;
   }
 
   get canConvertToBuildingPermit() {
     return config.APPLICATION.completePreliminaryClarificationSlugs.includes(
-      this.model?.calumaForm
+      this.model?.calumaForm,
     );
   }
 
   get canDelete() {
-    return (
-      config.APPLICATION.instanceStates.new ===
-      parseInt(this.model?.get("instanceState.id"))
-    );
+    return this.instanceStateId === config.APPLICATION.instanceStates.new;
   }
 
   get canExtendValidity() {
     return [
       config.APPLICATION.instanceStates.sb1,
       config.APPLICATION.instanceStates.sb2,
-    ].includes(parseInt(this.model?.get("instanceState.id")));
+    ].includes(this.instanceStateId);
+  }
+
+  get canReadCommunication() {
+    return (
+      !this.session.isInternal &&
+      this.instanceStateId !== config.APPLICATION.instanceStates.new
+    );
   }
 }

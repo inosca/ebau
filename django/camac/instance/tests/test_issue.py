@@ -1,6 +1,9 @@
 import pytest
 from django.urls import reverse
+from pytest_factoryboy import LazyFixture
 from rest_framework import status
+
+from camac.instance.models import Issue
 
 
 @pytest.mark.parametrize(
@@ -81,3 +84,31 @@ def test_issue_destroy(admin_client, issue, activation, status_code):
 
     response = admin_client.delete(url)
     assert response.status_code == status_code
+
+
+@pytest.mark.parametrize("issue__user", [LazyFixture("admin_user")])
+@pytest.mark.parametrize(
+    "role__name,size",
+    [
+        ("Applicant", 0),
+        ("Municipality", 1),
+        ("Service", 1),
+    ],
+)
+def test_issue_visible_for(
+    admin_client, request, issue, group, size, application_settings
+):
+    request.group = group
+
+    application_settings["ROLE_PERMISSIONS"] = {
+        "Municipality": "municipality",
+        "Service": "service",
+    }
+
+    issues = (
+        Issue.objects.get_queryset().visible_for(request).values_list("pk", flat=True)
+    )
+
+    assert len(issues) == size
+    if size > 0:
+        assert issues[0] == issue.pk

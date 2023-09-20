@@ -9,12 +9,534 @@
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "name": "{\"de\": \"Entscheid\", \"fr\": \"D\\u00e9cision\", \"it\": null, \"rm\": null}",
-      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": null, \"rm\": null}",
+      "name": "{\"de\": \"Entscheid\", \"fr\": \"D\\u00e9cision\", \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
       "meta": {},
       "is_published": false,
       "is_archived": false,
       "source": null
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "decision.decision-date",
+    "fields": {
+      "created_at": "2023-06-21T10:33:43.673Z",
+      "modified_at": "2023-06-21T10:33:43.673Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "decision",
+      "question": "decision-date",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "decision.decision-decision",
+    "fields": {
+      "created_at": "2023-05-30T12:22:30.628Z",
+      "modified_at": "2023-05-30T12:22:30.628Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "decision",
+      "question": "decision-decision",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "decision.decision-description",
+    "fields": {
+      "created_at": "2023-06-21T11:29:00.800Z",
+      "modified_at": "2023-06-21T11:29:00.800Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "decision",
+      "question": "decision-description",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "decision.decision-remarks",
+    "fields": {
+      "created_at": "2023-06-21T11:32:29.082Z",
+      "modified_at": "2023-06-21T11:32:29.082Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "decision",
+      "question": "decision-remarks",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "decision.decision-submit",
+    "fields": {
+      "created_at": "2023-06-21T10:36:15.012Z",
+      "modified_at": "2023-06-21T10:36:15.012Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "decision",
+      "question": "decision-submit",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "decision-decision-approved",
+    "fields": {
+      "created_at": "2023-05-30T12:23:06.507Z",
+      "modified_at": "2023-06-21T09:35:47.105Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bewilligt\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "decision-decision-negative",
+    "fields": {
+      "created_at": "2023-06-21T11:17:40.962Z",
+      "modified_at": "2023-06-21T11:17:40.963Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Negativ\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "decision-decision-other",
+    "fields": {
+      "created_at": "2023-06-21T09:35:47.189Z",
+      "modified_at": "2023-06-21T09:35:47.189Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anderweitiger Gesch\\u00e4ftsabschluss\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "decision-decision-other-preliminary",
+    "fields": {
+      "created_at": "2023-06-21T12:03:04.870Z",
+      "modified_at": "2023-06-21T12:03:04.870Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anderweitiger Gesch\\u00e4ftsabschluss\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "decision-decision-positive",
+    "fields": {
+      "created_at": "2023-06-21T11:17:40.932Z",
+      "modified_at": "2023-06-21T11:17:40.932Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Positiv\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "decision-decision-positive-with-reservation",
+    "fields": {
+      "created_at": "2023-06-21T11:17:40.988Z",
+      "modified_at": "2023-06-21T11:17:40.988Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Mit Vorbehalt positiv (Projekt muss angepasst werden)\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "decision-decision-rejected",
+    "fields": {
+      "created_at": "2023-05-30T12:23:06.486Z",
+      "modified_at": "2023-06-21T09:35:47.191Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abgelehnt\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "decision-decision-retreat",
+    "fields": {
+      "created_at": "2023-06-21T11:17:40.952Z",
+      "modified_at": "2023-06-21T11:17:40.952Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"R\\u00fcckzug\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "decision-decision-written-off",
+    "fields": {
+      "created_at": "2023-05-30T12:23:06.477Z",
+      "modified_at": "2023-06-21T09:35:47.203Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abgeschrieben\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "decision-date",
+    "fields": {
+      "created_at": "2023-06-21T10:33:43.495Z",
+      "modified_at": "2023-06-21T10:33:43.495Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Datum\", \"fr\": null, \"it\": null}",
+      "type": "date",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "decision-decision",
+    "fields": {
+      "created_at": "2023-05-30T12:22:30.470Z",
+      "modified_at": "2023-06-21T12:03:05.082Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Entscheid / Beurteilung\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "decision-description",
+    "fields": {
+      "created_at": "2023-06-21T11:29:00.624Z",
+      "modified_at": "2023-06-21T12:04:49.262Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschreibung\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "!(\"decision-decision-other\" == \"decision-decision\"|answer || \"decision-decision-other-preliminary\" == \"decision-decision\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "decision-remarks",
+    "fields": {
+      "created_at": "2023-06-21T11:32:28.903Z",
+      "modified_at": "2023-06-21T12:03:33.786Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkungen\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "!(\"decision-decision-positive\" == \"decision-decision\"|answer || \"decision-decision-negative\" == \"decision-decision\"|answer || \"decision-decision-positive-with-reservation\" == \"decision-decision\"|answer || \"decision-decision-retreat\" == \"decision-decision\"|answer || \"decision-decision-other-preliminary\" == \"decision-decision\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "decision-submit",
+    "fields": {
+      "created_at": "2023-06-21T10:36:14.796Z",
+      "modified_at": "2023-06-21T10:36:14.796Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Entscheid verf\\u00fcgen\", \"fr\": null, \"it\": null}",
+      "type": "action_button",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Haben Sie den Entscheid im Men\\u00fc \\\"Dokumente\\\" hochgeladen und m\\u00f6chten Sie den Entscheid jetzt verf\\u00fcgen? Dieser Schritt kann nicht r\\u00fcckg\\u00e4ngig gemacht werden.\\n<br><br>\\nAnsonsten k\\u00f6nnen Sie unter \\\"Vorlagen\\\" den Entscheid generieren. Nachdem der Entscheid unter \\\"Dokumente\\\" abgelegt wurde, kann dieser verf\\u00fcgt werden.\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "color": "primary",
+        "action": "complete",
+        "show_validation": false,
+        "validate_on_enter": false
+      },
+      "meta": {
+        "widgetOverride": "decision/submit-button"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "decision-decision.decision-decision-approved",
+    "fields": {
+      "created_at": "2023-06-21T12:03:05.120Z",
+      "modified_at": "2023-06-21T12:03:05.120Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "decision-decision",
+      "option": "decision-decision-approved",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "decision-decision.decision-decision-negative",
+    "fields": {
+      "created_at": "2023-06-21T12:03:05.106Z",
+      "modified_at": "2023-06-21T12:03:05.106Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "decision-decision",
+      "option": "decision-decision-negative",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "decision-decision.decision-decision-other",
+    "fields": {
+      "created_at": "2023-06-21T12:03:05.094Z",
+      "modified_at": "2023-06-21T12:03:05.094Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "decision-decision",
+      "option": "decision-decision-other",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "decision-decision.decision-decision-other-preliminary",
+    "fields": {
+      "created_at": "2023-06-21T12:03:05.090Z",
+      "modified_at": "2023-06-21T12:03:05.090Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "decision-decision",
+      "option": "decision-decision-other-preliminary",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "decision-decision.decision-decision-positive",
+    "fields": {
+      "created_at": "2023-06-21T12:03:05.109Z",
+      "modified_at": "2023-06-21T12:03:05.109Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "decision-decision",
+      "option": "decision-decision-positive",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "decision-decision.decision-decision-positive-with-reservation",
+    "fields": {
+      "created_at": "2023-06-21T12:03:05.102Z",
+      "modified_at": "2023-06-21T12:03:05.102Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "decision-decision",
+      "option": "decision-decision-positive-with-reservation",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "decision-decision.decision-decision-rejected",
+    "fields": {
+      "created_at": "2023-06-21T12:03:05.117Z",
+      "modified_at": "2023-06-21T12:03:05.117Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "decision-decision",
+      "option": "decision-decision-rejected",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "decision-decision.decision-decision-retreat",
+    "fields": {
+      "created_at": "2023-06-21T12:03:05.098Z",
+      "modified_at": "2023-06-21T12:03:05.098Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "decision-decision",
+      "option": "decision-decision-retreat",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "decision-decision.decision-decision-written-off",
+    "fields": {
+      "created_at": "2023-06-21T12:03:05.113Z",
+      "modified_at": "2023-06-21T12:03:05.113Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "decision-decision",
+      "option": "decision-decision-written-off",
+      "sort": 7
     }
   }
 ]

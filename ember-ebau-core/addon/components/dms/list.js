@@ -19,7 +19,7 @@ export default class DmsListComponent extends Component {
 
   get systemTemplates() {
     return this.templates.records
-      ?.filter((template) => !template.group && template.description)
+      ?.filter((template) => !template.meta.service && template.description)
       .sort(sortByDescription);
   }
 
@@ -27,7 +27,8 @@ export default class DmsListComponent extends Component {
     return this.templates.records
       ?.filter(
         (template) =>
-          parseInt(template.group) === parseInt(this.ebauModules.serviceId)
+          parseInt(template.meta.service) ===
+          parseInt(this.ebauModules.serviceId),
       )
       .sort(sortByDescription);
   }
@@ -36,8 +37,9 @@ export default class DmsListComponent extends Component {
     return this.templates.records
       ?.filter(
         (template) =>
-          template.group &&
-          parseInt(template.group) !== parseInt(this.ebauModules.serviceId)
+          template.meta.service &&
+          parseInt(template.meta.service) !==
+            parseInt(this.ebauModules.serviceId),
       )
       .sort(sortByDescription);
   }
@@ -49,14 +51,14 @@ export default class DmsListComponent extends Component {
     try {
       const response = yield this.fetch.fetch(
         `/document-merge-service/api/v1/template-download/${template.id}`,
-        { headers: { accept: "*/*" } }
+        { headers: { accept: "*/*" } },
       );
 
       const blob = yield response.blob();
 
       saveAs(
         blob,
-        `${template.description}${MIME_TYPE_TO_EXTENSION[blob.type]}`
+        `${template.description}${MIME_TYPE_TO_EXTENSION[blob.type]}`,
       );
     } catch (error) {
       this.notification.danger(this.intl.t("dms.download-error"));

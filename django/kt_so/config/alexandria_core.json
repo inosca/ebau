@@ -1,0 +1,92 @@
+[
+  {
+    "model": "alexandria_core.category",
+    "pk": "beilagen-zum-gesuch",
+    "fields": {
+      "created_at": "2023-07-25T15:49:00.677Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2023-07-25T15:49:00.677Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "access": {
+          "public": "Admin",
+          "support": "Admin"
+        }
+      },
+      "name": "{\"de\": \"Beilagen zum Gesuch\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "color": "#CC0000",
+      "parent": null
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "beilagen-zum-gesuch-grundstuecksangaben",
+    "fields": {
+      "created_at": "2023-08-23T13:17:14.214Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2023-08-23T14:14:56.223Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {},
+      "name": "{\"de\": \"Grundst\\u00fccksangaben\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"Unter die Begriffe *Grundst\\u00fccksangaben und Projektbeschrieb* fallen Gesuchsunterlagen wie z. B. Katasterplan (z. B. \\u00d6REB-Kataster), Grundbuchauszug, Dienstbarkeiten, Projektbeschrieb.\", \"fr\": \"\", \"it\": \"\"}",
+      "color": "#CC0000",
+      "parent": "beilagen-zum-gesuch"
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "beilagen-zum-gesuch-gutachten-nachweise-begruendungen",
+    "fields": {
+      "created_at": "2023-08-23T13:17:37.288Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2023-08-23T14:14:59.452Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {},
+      "name": "{\"de\": \"Gutachten, Nachweise, Begr\\u00fcndungen\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"Unter die Begriffe *Gutachten, Nachweise, Begr\\u00fcndungen, Ausnahmebegehren* fallen Gesuchsunterlagen wie z. B. Vollmachten, Einverst\\u00e4ndnis Nachbarn, Nutzungsberechnungen, Energietechnische Massnahmennachweis (EMN), L\\u00e4rmschutznachweise, Brandschutznachweise.\", \"fr\": \"\", \"it\": \"\"}",
+      "color": "#CC0000",
+      "parent": "beilagen-zum-gesuch"
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "beilagen-zum-gesuch-projektplaene-projektbeschrieb",
+    "fields": {
+      "created_at": "2023-08-23T13:17:57.988Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2023-08-23T14:15:01.518Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {},
+      "name": "{\"de\": \"Projektpl\\u00e4ne, Projektbeschrieb\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"Unter den Begriff*Projektpl\\u00e4ne* fallen Gesuchsunterlagen wie z. B. Situationsplan (Art. 12 und 13 BewD), Projektpl\\u00e4ne (Art. 14 BewD) wie Grundrisse, Schnitt- und Fassadenpl\\u00e4ne, Umgebungsgestaltungspl\\u00e4ne, Kanalisationspl\\u00e4ne, Siedlungsentw\\u00e4sserungspl\\u00e4ne.\", \"fr\": \"\", \"it\": \"\"}",
+      "color": "#CC0000",
+      "parent": "beilagen-zum-gesuch"
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "beilagen-zum-gesuch-weitere-gesuchsunterlagen",
+    "fields": {
+      "created_at": "2023-08-23T13:18:15.877Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2023-08-23T14:15:03.551Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {},
+      "name": "{\"de\": \"Weitere Gesuchsunterlagen\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"Unter den Begriff *Weitere Gesuchsunterlagen* fallen Dokumentunterlagen wie z. B. Formulare - Anschluss Elektrizit\\u00e4t, Anschluss Gemeinschaftsantenne, Anschluss Gas, Anschluss Wasser, Wasser- / Abwasserinstallationen und andere Gesuchsunterlagen\", \"fr\": \"\", \"it\": \"\"}",
+      "color": "#CC0000",
+      "parent": "beilagen-zum-gesuch"
+    }
+  }
+]

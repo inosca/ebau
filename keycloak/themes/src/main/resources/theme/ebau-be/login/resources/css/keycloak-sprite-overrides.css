@@ -1,0 +1,688 @@
+a.anchor,
+body.classic a.anchor {
+    background-image: url("../img/ktbe_sprite_30px.svg");
+}
+body.ie9orOlder a.anchor, body.ie9orOlder,
+body.classic a.anchor {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+body.msie a.anchor, body.msie,
+body.classic a.anchor {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+a.audio,
+body.classic a.audio {
+    background-image: url("../img/ktbe_sprite_30px.svg");
+}
+body.ie9orOlder a.audio, body.ie9orOlder,
+body.classic a.audio {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+body.msie a.audio, body.msie,
+body.classic a.audio {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+a.back,
+body.classic a.back {
+    background-image: url("../img/ktbe_sprite_30px.svg");
+}
+body.ie9orOlder a.back, body.ie9orOlder,
+body.classic a.back {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+body.msie a.back, body.msie,
+body.classic a.back {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+a.default,
+body.classic a.default {
+    background-image: url("../img/ktbe_sprite_30px.svg");
+}
+body.ie9orOlder a.default, body.ie9orOlder,
+body.classic a.default {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+body.msie a.default, body.msie,
+body.classic a.default {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+a.erlaeuterungen,
+body.classic a.erlaeuterungen {
+    background-image: url("../img/ktbe_sprite_30px.svg");
+}
+body.ie9orOlder a.erlaeuterungen, body.ie9orOlder,
+body.classic a.erlaeuterungen {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+body.msie a.erlaeuterungen, body.msie,
+body.classic a.erlaeuterungen {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+a.excel,
+body.classic a.excel {
+    background-image: url("../img/ktbe_sprite_30px.svg");
+}
+body.ie9orOlder a.excel, body.ie9orOlder,
+body.classic a.excel {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+body.msie a.excel, body.msie,
+body.classic a.excel {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+a.extern,
+body.classic a.extern {
+    background-image: url("../img/ktbe_sprite_30px.svg");
+}
+body.ie9orOlder a.extern, body.ie9orOlder,
+body.classic a.extern {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+body.msie a.extern, body.msie,
+body.classic a.extern {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+a.gallery-start,
+body.classic a.gallery-start {
+    background-image: url("../img/ktbe_sprite_30px.svg");
+}
+body.ie9orOlder a.gallery-start, body.ie9orOlder,
+body.classic a.gallery-start {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+body.msie a.gallery-start, body.msie,
+body.classic a.gallery-start {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+a.gallery-end,
+body.classic a.gallery-end {
+    background-image: url("../img/ktbe_sprite_30px.svg");
+}
+body.ie9orOlder a.gallery-end, body.ie9orOlder,
+body.classic a.gallery-end {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+body.msie a.gallery-end, body.msie,
+body.classic a.gallery-end {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+a.hide,
+body.classic a.hide {
+    background-image: url("../img/ktbe_sprite_30px.svg");
+}
+body.ie9orOlder a.hide, body.ie9orOlder,
+body.classic a.hide {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+body.msie a.hide, body.msie,
+body.classic a.hide {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+a.image,
+body.classic a.image {
+    background-image: url("../img/ktbe_sprite_30px.svg");
+}
+body.ie9orOlder a.image, body.ie9orOlder,
+body.classic a.image {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+body.msie a.image, body.msie,
+body.classic a.image {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+a.intern:not(.buttonstyle),
+body.msie a.intern:not(.buttonstyle),
+body.ie9Orolder a.intern:not(.buttonstyle),
+body.classic a.intern:not(.buttonstyle) {
+    background-image: url("../img/ktbe_sprite_30px.svg");
+}
+body.ie9orOlder a.intern:not(.buttonstyle), body.ie9orOlder,
+body.msie a.intern:not(.buttonstyle), body.ie9orOlder,
+body.ie9Orolder a.intern:not(.buttonstyle), body.ie9orOlder,
+body.classic a.intern:not(.buttonstyle) {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;}
+body.msie a.intern:not(.buttonstyle), body.msie,
+body.msie a.intern:not(.buttonstyle), body.msie,
+body.ie9Orolder a.intern:not(.buttonstyle), body.msie,
+body.classic a.intern:not(.buttonstyle) {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+body.ie9orOlder a.intern {
+    background-image: url("../img/ktbe_sprite_30px.png");
+}
+body.ie9orOlder body.ie9orOlder a.intern {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+body.msie body.ie9orOlder a.intern {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+a.movie,
+body.classic a.movie {
+    background-image: url("../img/ktbe_sprite_30px.svg");
+}
+body.ie9orOlder a.movie, body.ie9orOlder,
+body.classic a.movie {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+body.msie a.movie, body.msie,
+body.classic a.movie {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+a.next,
+body.classic a.next {
+    background-image: url("../img/ktbe_sprite_30px.svg");
+}
+body.ie9orOlder a.next, body.ie9orOlder,
+body.classic a.next {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+body.msie a.next, body.msie,
+body.classic a.next {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+a.order,
+body.classic a.order {
+    background-image: url("../img/ktbe_sprite_30px.svg");
+}
+#content-col-main .paging a.next, a.next, body.classic a.next {
+    background-image: url("../img/ktbe_sprite_30px.svg");
+}
+body.ie9orOlder a.order, body.ie9orOlder,
+body.classic a.order {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+body.msie a.order, body.msie,
+body.classic a.order {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+a.pdf,
+body.classic a.pdf {
+    background-image: url("../img/ktbe_sprite_30px.svg");
+}
+body.ie9orOlder a.pdf, body.ie9orOlder,
+body.classic a.pdf {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+body.msie a.pdf, body.msie,
+body.classic a.pdf {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+a.powerpoint,
+body.classic a.powerpoint {
+    background-image: url("../img/ktbe_sprite_30px.svg");
+}
+body.ie9orOlder a.powerpoint, body.ie9orOlder,
+body.classic a.powerpoint {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+body.msie a.powerpoint, body.msie,
+body.classic a.powerpoint {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+a.print,
+body.classic a.print {
+    background-image: url("../img/ktbe_sprite_30px.svg");
+}
+body.ie9orOlder a.print, body.ie9orOlder,
+body.classic a.print {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+body.msie a.print, body.msie,
+body.classic a.print {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+a.related,
+body.classic a.related {
+    background-image: url("../img/ktbe_sprite_30px.svg");
+}
+body.ie9orOlder a.related, body.ie9orOlder,
+body.classic a.related {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+body.msie a.related, body.msie,
+body.classic a.related {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+a.rss,
+body.classic a.rss,
+a.intern.rss,
+body.classic a.intern.rss {
+    background-image: url("../img/ktbe_sprite_30px.svg");
+}
+body.ie9orOlder a.rss, body.ie9orOlder,
+body.classic a.rss, body.ie9orOlder,
+a.intern.rss, body.ie9orOlder,
+body.classic a.intern.rss {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+body.msie a.rss, body.msie,
+body.classic a.rss, body.msie,
+a.intern.rss, body.msie,
+body.classic a.intern.rss {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+a.show,
+body.classic a.show {
+    background-image: url("../img/ktbe_sprite_30px.svg");
+}
+body.ie9orOlder a.show, body.ie9orOlder,
+body.classic a.show {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+body.msie a.show, body.msie,
+body.classic a.show {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+a.user-infos,
+body.classic a.user-infos {
+    background-image: url("../img/ktbe_sprite_30px.svg");
+}
+body.ie9orOlder a.user-infos, body.ie9orOlder,
+body.classic a.user-infos {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+body.msie a.user-infos, body.msie,
+body.classic a.user-infos {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+a.edit-profile,
+body.classic a.edit-profile {
+    background-image: url("../img/ktbe_sprite_30px.svg");
+}
+body.ie9orOlder a.edit-profile, body.ie9orOlder,
+body.classic a.edit-profile {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+body.msie a.edit-profile, body.msie,
+body.classic a.edit-profile {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+a.logout,
+body.classic a.logout {
+    background-image: url("../img/ktbe_sprite_30px.svg");
+}
+body.ie9orOlder a.logout, body.ie9orOlder,
+body.classic a.logout {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+body.msie a.logout, body.msie,
+body.classic a.logout {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+a.word,
+body.classic a.word {
+    background-image: url("../img/ktbe_sprite_30px.svg");
+}
+body.ie9orOlder a.word, body.ie9orOlder,
+body.classic a.word {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+body.msie a.word, body.msie,
+body.classic a.word {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+a.zip,
+body.classic a.zip {
+    background-image: url("../img/ktbe_sprite_30px.svg");
+}
+body.ie9orOlder a.zip, body.ie9orOlder,
+body.classic a.zip {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+body.msie a.zip, body.msie,
+body.classic a.zip {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+a.zoom,
+body.classic a.zoom {
+    background-image: url("../img/ktbe_sprite_30px.svg");
+}
+body.ie9orOlder a.zoom, body.ie9orOlder,
+body.classic a.zoom {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+body.msie a.zoom, body.msie,
+body.classic a.zoom {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+a.top,
+body.classic a.top {
+    background-image: url("../img/ktbe_sprite_30px.svg");
+}
+body.ie9orOlder a.top, body.ie9orOlder,
+body.classic a.top {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+body.msie a.top, body.msie,
+body.classic a.top {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+#content-print a {
+    background-image: url("../img/ktbe_sprite_30px.svg");
+}
+body.ie9orOlder #content-print a {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+body.msie #content-print a {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+#content-col-main .content-nav-anchor li {
+    background-image: url("../img/ktbe_sprite_30px.svg");
+}
+body.ie9orOlder #content-col-main .content-nav-anchor li {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+body.msie #content-col-main .content-nav-anchor li {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+#basket-top a.order {
+    background-image: url("../img/ktbe_sprite_30px.svg");
+}
+body.ie9orOlder #basket-top a.order {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+body.msie #basket-top a.order {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+.js-on body a.hide {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+    background-image: url("../img/ktbe_sprite_30px.svg") !important;
+}
+.js-on body a.hide:focus {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+    background-image: url("../img/ktbe_sprite_30px.svg") !important;
+ }
+.js-on body a.hide.js-selected {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+    background-image: url("../img/ktbe_sprite_30px.svg") !important;
+}
+.js-on body a.hide.js-selected:focus {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+    background-image: url("../img/ktbe_sprite_30px.svg") !important;
+}
+.js-on body.ie9orOlder a.hide {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+.js-on body.ie9orOlder a.hide:focus {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+.js-on body.ie9orOlder a.hide.js-selected {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+.js-on body.ie9orOlder a.hide.js-selected:focus {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+body#home #content-col-context .aktuellBoxNeuStartseite .ticker p:last-child a.intern {
+    background-image: url("../img/ktbe_sprite_30px.svg");
+}
+body.ie9orOlder body#home #content-col-context .aktuellBoxNeuStartseite .ticker p:last-child a.intern {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+body.msie body#home #content-col-context .aktuellBoxNeuStartseite .ticker p:last-child a.intern {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+
+/*
+ Overrides for responsive.css
+ */
+
+.icon-search {
+    background-image: url("../img/ktbe_sprite_30px.svg");
+}
+.icon-a-z {
+    background-image: url("../img/ktbe_sprite_30px.svg");
+}
+body.ie9orOlder .icon-a-z {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+body.msie .icon-a-z {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+.js-on a.hide {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+    background-image: url("../img/ktbe_sprite_30px.svg") !important;
+}
+
+.js-on a.hide:focus {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+    background-image: url("../img/ktbe_sprite_30px.svg") !important;
+}
+
+.js-on a.hide.js-selected {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+    background-image: url("../img/ktbe_sprite_30px.svg") !important;
+}
+
+.js-on a.hide.js-selected:focus {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+    background-image: url("../img/ktbe_sprite_30px.svg") !important;
+}
+#footer-social-media-area ul .twitter,
+#footer-social-media-area ul .facebook,
+#footer-social-media-area ul .googleplus,
+#footer-social-media-area ul .youtube,
+#footer-social-media-area ul .slideshare {
+    background-image: url("../img/ktbe_sprite_30px.svg");
+}
+body.ie9orOlder #footer-social-media-area ul .twitter, body.ie9orOlder,
+#footer-social-media-area ul .facebook, body.ie9orOlder,
+#footer-social-media-area ul .googleplus, body.ie9orOlder,
+#footer-social-media-area ul .youtube, body.ie9orOlder,
+#footer-social-media-area ul .slideshare {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+body.msie #footer-social-media-area ul .twitter, body.msie,
+#footer-social-media-area ul .facebook, body.msie,
+#footer-social-media-area ul .googleplus, body.msie,
+#footer-social-media-area ul .youtube, body.msie,
+#footer-social-media-area ul .slideshare {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+#footer-services-area ul .newsletter,
+#footer-services-area ul .rss {
+    background-image: url("../img/ktbe_sprite_30px.svg");
+}
+body.ie9orOlder #footer-services-area ul .newsletter, body.ie9orOlder,
+#footer-services-area ul .rss {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+body.msie #footer-services-area ul .newsletter, body.msie,
+#footer-services-area ul .rss {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+#footer-resize-text {
+    background-image: url("../img/ktbe_sprite_30px.svg");
+}
+body.ie9orOlder #footer-resize-text {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+body.msie #footer-resize-text {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+body#home #content-col-nav li,
+body#home #content-col-main li,
+body#home #content-col-context li {
+    background-image: url("../img/ktbe_sprite_30px.svg");
+}
+body.ie9orOlder body#home #content-col-nav li, body.ie9orOlder,
+body#home #content-col-main li, body.ie9orOlder,
+body#home #content-col-context li {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+body.msie body#home #content-col-nav li, body.msie,
+body#home #content-col-main li, body.msie,
+body#home #content-col-context li {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+body#home #content-col-main h1.collapsible,
+body#home #content-col-nav h1.collapsible,
+body#home #content-col-context h1.collapsible {
+    background-image: url("../img/ktbe_sprite_30px.svg");
+}
+body.ie9orOlder body#home #content-col-main h1.collapsible, body.ie9orOlder,
+body#home #content-col-nav h1.collapsible, body.ie9orOlder,
+body#home #content-col-context h1.collapsible {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+body.msie body#home #content-col-main h1.collapsible, body.msie,
+body#home #content-col-nav h1.collapsible, body.msie,
+body#home #content-col-context h1.collapsible {
+     background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+body#home #content-col-nav h1.collapsible,
+body#home #content-col-main h1.collapsible,
+body#home #content-col-context h1.collapsible {
+    background-image: url("../img/ktbe_sprite_30px.svg");
+}
+body.ie9orOlder body#home #content-col-nav h1.collapsible, body.ie9orOlder,
+body#home #content-col-main h1.collapsible, body.ie9orOlder,
+body#home #content-col-context h1.collapsible {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+body.msie body#home #content-col-nav h1.collapsible, body.msie,
+body#home #content-col-main h1.collapsible, body.msie,
+body#home #content-col-context h1.collapsible {
+     background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+body#home.msie #content-col-nav h1.collapsible,
+body#home.msie #content-col-main h1.collapsible,
+body#home.msie #content-col-context h1.collapsible {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+.paging.after-table p.select a.next {
+    background-image: url("../img/ktbe_sprite_30px.svg");
+}
+body.ie9orOlder .paging.after-table p.select a.next {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+body.msie .paging.after-table p.select a.next {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+#content-print-mobile a {
+    background-image: url("../img/ktbe_sprite_30px.svg");
+}
+body.ie9orOlder #content-print-mobile a {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+body.msie #content-print-mobile a {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+.themelist .main-abc ul li#az-icon-inpage a #toggle-az-inpage {
+    background-image: url("../img/ktbe_sprite_30px.svg");
+}
+body.ie9orOlder .themelist .main-abc ul li#az-icon-inpage a #toggle-az-inpage {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+body.msie .themelist .main-abc ul li#az-icon-inpage a #toggle-az-inpage {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+.az-icon-inpage a #toggle-az-inpage, .az-icon-inpage a .toggle-az-inpage {
+    background-image: url("../img/ktbe_sprite_30px.svg");
+}
+body.ie9orOlder .az-icon-inpage a #toggle-az-inpage, body.ie9orOlder .az-icon-inpage a .toggle-az-inpage {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+body.msie .az-icon-inpage a #toggle-az-inpage, body.msie .az-icon-inpage a .toggle-az-inpage {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+body.msie #content-col-context div:not(.kampagneTeaser) > .box .title, body.ie9OrOlder #content-col-context div:not(.kampagneTeaser) > .box .title {
+    background-image: url("../img/ktbe_sprite_30px.svg");
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+body.ie9orOlder body.msie #content-col-context div:not(.kampagneTeaser) > .box .title, body.ie9orOlder body.ie9OrOlder #content-col-context div:not(.kampagneTeaser) > .box .title {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+body.msie body.msie #content-col-context div:not(.kampagneTeaser) > .box .title, body.msie body.ie9OrOlder #content-col-context div:not(.kampagneTeaser) > .box .title {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+#content-col-context .box.contact .title {
+    background-image: url("../img/ktbe_sprite_30px.svg");
+}
+#content-col-context .box.contact .title.collapsed {
+    background-image: url("../img/ktbe_sprite_30px.svg");
+}
+body.ie9orOlder #content-col-context .box.contact .title.collapsed {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+body.msie #content-col-context .box.contact .title.collapsed {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+.box a.phone-number {
+    background-image: url("../img/ktbe_sprite_30px.svg");
+}
+body.ie9orOlder .box a.phone-number {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+body.msie .box a.phone-number {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+#content-col-nav-mobile .nav-item-mobile {
+    background-image: url("../img/ktbe_sprite_30px.svg");
+}
+body.ie9orOlder #content-col-nav-mobile .nav-item-mobile {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+body.msie #content-col-nav-mobile .nav-item-mobile {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+#content-col-nav-mobile .nav-mobile-backlink {
+    background-image: url("../img/ktbe_sprite_30px.svg");
+}
+body.ie9orOlder #content-col-nav-mobile .nav-mobile-backlink {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+body.msie #content-col-nav-mobile .nav-mobile-backlink {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+#show-content-area .show-content {
+    background-image: url("../img/ktbe_sprite_30px.svg");
+}
+body.ie9orOlder #show-content-area .show-content {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+body.msie #show-content-area .show-content {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+.menu-hidden #show-content-area .show-content {
+    background-image: url("../img/ktbe_sprite_30px.svg");
+}
+body.ie9orOlder .menu-hidden #show-content-area .show-content {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+body.msie .menu-hidden #show-content-area .show-content {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+#content-col-main .app_search .accordion-tab {
+    background-image: url("../img/ktbe_sprite.png");
+    background-image: url("../img/ktbe_sprite.svg");
+}
+#content-col-main div.paging a.next, #content-col-main div.paging p.select a.next {
+     background-image: url("../img/ktbe_sprite_30px.svg");
+}
+body.ie9orOlder #content-col-main div.paging a.next, body.ie9orOlder #content-col-main div.paging p.select a.next {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+body.msie #content-col-main div.paging a.next, body.msie #content-col-main div.paging p.select a.next {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+#content-col-main div.paging p.select a.previous {
+    background-image: url("../img/ktbe_sprite_30px.svg");
+}
+body.ie9orOlder #content-col-main div.paging p.select a.previous {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+body.msie #content-col-main div.paging p.select a.previous {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+#content-col-main div.paging a.previous {
+    background-image: url("../img/ktbe_sprite_30px.svg");
+}
+body.ie9orOlder #content-col-main div.paging a.previous {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+body.msie #content-col-main div.paging a.previous {
+    background-image: url("../img/ktbe_sprite_30px.png") !important;
+}
+#content #content-col-main a.phone-number {
+    background-image: url("../img/ktbe_sprite_30px.svg");
+}

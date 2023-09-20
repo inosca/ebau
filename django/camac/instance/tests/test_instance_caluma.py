@@ -3,6 +3,7 @@ from datetime import date, datetime
 from pathlib import Path
 
 import pytest
+from alexandria.core.factories import CategoryFactory
 from caluma.caluma_form import (
     factories as caluma_form_factories,
     models as caluma_form_models,
@@ -17,7 +18,11 @@ from rest_framework import status
 
 from camac.caluma.api import CalumaApi
 from camac.conftest import CALUMA_FORM_TYPES_SLUGS
-from camac.constants import kt_bern as be_constants, kt_uri as ur_constants
+from camac.constants import (
+    kt_bern as be_constants,
+    kt_uri as ur_constants,
+    kt_uri as uri_constants,
+)
 from camac.core.models import Chapter, Question, QuestionType
 from camac.ech0211 import event_handlers
 from camac.ech0211.data_preparation import DocumentParser
@@ -614,6 +619,14 @@ def test_instance_submit_be(
     """,
     ],
 )
+@pytest.mark.parametrize(
+    "form_slug,communal_federal_number",
+    [
+        ("main-form", "1224"),
+        ("oereb", "1221"),
+        ("oereb-verfahren-gemeinde", "1222"),
+    ],
+)
 def test_instance_submit_ur(
     mocker,
     admin_client,
@@ -643,6 +656,8 @@ def test_instance_submit_ur(
     authority_location_factory,
     authority,
     is_paper,
+    form_slug,
+    communal_federal_number,
 ):
     application_settings["NOTIFICATIONS"]["SUBMIT"] = [
         {"template_slug": notification_template.slug, "recipient_types": ["applicant"]}
@@ -657,6 +672,11 @@ def test_instance_submit_ur(
         ur_instance.group.role.pk
     ]
 
+    if form_slug != "main-form":
+        form = caluma_form_factories.FormFactory(slug=form_slug)
+        ur_instance.case.document.form = form
+        ur_instance.case.document.save()
+
     instance_state_factory(name="ext")
     instance_state_factory(name="comm")
 
@@ -668,7 +688,7 @@ def test_instance_submit_ur(
 
     workflow_item_factory(workflow_item_id=ur_constants.WORKFLOW_ITEM_DOSSIER_ERFASST)
 
-    location = location_factory()
+    location = location_factory(communal_federal_number=communal_federal_number)
 
     ur_instance.case.document.answers.create(
         value=str(location.communal_federal_number), question_id="municipality"
@@ -706,14 +726,24 @@ def test_instance_submit_ur(
 
     assert mail.outbox[0].subject.startswith("[eBau Test]: ")
 
-    assert (
+    leitbehoerde = (
         ur_instance.case.document.answers.filter(question_id="leitbehoerde")
         .first()
         .value
-        == str(authority.pk)
-        if is_paper
-        else str(authority_location.authority.pk)
     )
+
+    if communal_federal_number in ["1221", "1222"]:
+        # this is a special "diverse gemeinden" or "alle gemeinden" dossier
+        # this is therefore an ÖREB dossier and in this case the leitbehörde
+        # is the KOOR NP
+        assert (
+            int(leitbehoerde) == uri_constants.KOOR_NP_AUTHORITY_ID
+        ), "incorrect leitbehoerde"
+    else:
+        if is_paper:
+            assert leitbehoerde == str(authority.pk)
+        else:
+            assert leitbehoerde == str(authority_location.authority.pk)
 
     if ur_instance.group.role.name == "Coordination":
         assert ur_instance.instance_state.name == "ext"
@@ -1012,10 +1042,7 @@ def test_instance_submit_pgv_gemeindestrasse_ur(
     assert ur_instance.group == koor_group
 
 
-@pytest.mark.parametrize(
-    "form_slug,expected_copy_state",
-    [("oereb", "ext"), ("oereb-verfahren-gemeinde", "subm")],
-)
+@pytest.mark.parametrize("form_slug", ["oereb", "oereb-verfahren-gemeinde"])
 @pytest.mark.parametrize("service_group__name", [("municipality", "coordination")])
 @pytest.mark.parametrize("instance_state__name", ["new"])
 @pytest.mark.parametrize(
@@ -1039,12 +1066,19 @@ def test_oereb_instance_copy_for_koor_afj(
     service_factory,
     authority_location_factory,
     form_slug,
-    expected_copy_state,
+    attachment_factory,
 ):
     settings.APPLICATION_NAME = "kt_uri"
     application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_uri"]["MASTER_DATA"]
 
     ur_instance.form = form_factory(name="camac-form")
+    ur_instance.attachments.add(
+        attachment_factory(
+            name=ur_instance.case.document.form.name,
+            instance=ur_instance,
+            service=ur_instance.group.service,
+        )
+    )
     ur_instance.save()
 
     oereb_form = caluma_form_factories.FormFactory(slug=form_slug)
@@ -1131,7 +1165,7 @@ def test_oereb_instance_copy_for_koor_afj(
 
     assert copied_instance.group == koor_afj_group
     assert copied_instance.location_id == location.pk
-    assert copied_instance.instance_state.name == expected_copy_state
+    assert copied_instance.instance_state.name == "ext"
 
     ur_instance.refresh_from_db()
 
@@ -1553,6 +1587,7 @@ def test_generate_and_store_pdf(
     caluma_workflow_config_be,
     caluma_admin_user,
 ):
+    application_settings["DOCUMENT_BACKEND"] = "camac-ng"
     mocker.patch("camac.caluma.api.CalumaApi.is_paper", lambda s, i: paper)
 
     attachment_section_default = attachment_section_factory()
@@ -1607,6 +1642,42 @@ def test_generate_and_store_pdf(
     assert attachment_section_default.attachments.count() == 0 if paper else 1
 
 
+def test_generate_and_store_pdf_in_alexandria(
+    db,
+    gr_instance,
+    application_settings,
+    caluma_admin_user,
+    minio_mock,
+    mocker,
+):
+    alexandria_category = CategoryFactory()
+    application_settings["STORE_PDF"] = {
+        "SECTION": {
+            "MAIN": {"DEFAULT": alexandria_category.pk, "PAPER": alexandria_category.pk}
+        },
+    }
+    application_settings["DOCUMENT_BACKEND"] = "alexandria"
+
+    client = mocker.patch(
+        "camac.instance.document_merge_service.DMSClient"
+    ).return_value
+    client.merge.return_value = b"some binary data"
+    mocker.patch("camac.instance.document_merge_service.DMSVisitor.visit")
+    mocker.patch("camac.instance.serializers.CalumaInstanceSubmitSerializer.context")
+
+    serializer = CalumaInstanceSubmitSerializer()
+
+    application_settings["DOCUMENT_MERGE_SERVICE"] = {
+        "FORM": {
+            "main-form": {"template": "some-template"},
+        },
+    }
+
+    serializer._generate_and_store_pdf(gr_instance)
+
+    assert alexandria_category.documents.count() == 1
+
+
 @pytest.mark.parametrize(
     "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
 )
@@ -1623,14 +1694,14 @@ def test_caluma_instance_list_filter(
     mock_public_status,
     mock_nfd_permissions,
 ):
-    # not paper instances
-    instance_with_case(instance_factory(user=admin_user))
-    instance_with_case(instance_factory(user=admin_user))
-
-    # paper instance
-    be_instance.case.document.answers.create(
-        question_id="is-paper", value="is-paper-yes"
-    )
+    for instance, paper in [
+        (instance_with_case(instance_factory(user=admin_user)), False),
+        (instance_with_case(instance_factory(user=admin_user)), False),
+        (be_instance, True),
+    ]:
+        instance.case.document.answers.create(
+            question_id="is-paper", value=f"is-paper-{'yes' if paper else 'no'}"
+        )
 
     url = reverse("instance-list")
     response = admin_client.get(url, data={"is_paper": is_paper})
@@ -2075,6 +2146,7 @@ def test_rejection(
 @pytest.mark.parametrize("is_modification", [True, False])
 @pytest.mark.parametrize("is_migrated", [True, False])
 @pytest.mark.parametrize("is_kog", [True, False])
+@pytest.mark.parametrize("is_appeal", [True, False])
 def test_instance_name(
     admin_client,
     caluma_workflow_config_be,
@@ -2088,6 +2160,7 @@ def test_instance_name(
     is_modification,
     is_migrated,
     is_kog,
+    is_appeal,
 ):
     def yes_no_german(boolean):
         return "ja" if boolean else "nein"
@@ -2101,6 +2174,11 @@ def test_instance_name(
         "migriertes-dossier" if is_migrated else "main-form",
         {"instance": instance.pk},
     )
+
+    if is_appeal:
+        instance.case.meta.update({"is-appeal": True})
+        instance.case.save()
+
     service_group = instance_service_factory(instance=instance).service.service_group
 
     if is_migrated:
@@ -2133,12 +2211,11 @@ def test_instance_name(
         assert name == "Baupolizeiliches Verfahren (Migriert)"
     else:
         assert "Baugesuch" in name
-        if is_paper:
-            assert "(Papier)" in name
-        if is_modification:
-            assert "(Projektänderung)" in name
-        if is_kog:
-            assert "(KoG)" in name
+
+        assert ("(Papier)" in name) == is_paper
+        assert ("(Projektänderung)" in name) == is_modification
+        assert ("(KoG)" in name) == is_kog
+        assert ("(Beschwerdeverfahren)" in name) == is_appeal
 
 
 @pytest.mark.parametrize("service_group__name", ["municipality"])

@@ -7,14 +7,16 @@
     "ember-ebau"
   ],
   "devDependencies": {
-    "prettier": "2.8.8"
+    "prettier": "3.0.0"
   },
-  "//": {
-    "ember-data": "ember-localized-model already uses ember-data v4",
-    "ember-intl": "ember-alexandria already uses ember-intl v6 (beta)"
-  },
+  "//": [
+    "ember-concurrency: pending update in ember-simple-auth-oidc, ember-alexandria and ember-power-select",
+    "ember-power-select: v7.1.0-v7.1.2 have issues in tests",
+    "ember-data: ember-alexandria already uses v4.12"
+  ],
   "resolutions": {
-    "ember-data": "4.8.8",
-    "ember-intl": "5.7.2"
+    "ember-concurrency": "3.0.0",
+    "ember-power-select": "7.0.0",
+    "ember-data": "4.8.8"
   }
 }

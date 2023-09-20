@@ -1,9 +1,8 @@
 import Component from "@glimmer/component";
 import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
+import getSourceCaseMeta from "ember-ebau-core/gql/queries/get-source-case-meta.graphql";
 import { trackedTask } from "ember-resources/util/ember-concurrency";
-
-import getSourceCaseMeta from "camac-ng/gql/queries/get-source-case-meta.graphql";
 
 export default class SuggestEbauNumberComponent extends Component {
   @queryManager apollo;
@@ -19,7 +18,7 @@ export default class SuggestEbauNumberComponent extends Component {
         query: getSourceCaseMeta,
         variables: { instanceId: this.args.context.instanceId },
       },
-      "allCases.edges"
+      "allCases.edges",
     );
 
     return response[0]?.node.document.source?.case.meta ?? null;
@@ -28,13 +27,13 @@ export default class SuggestEbauNumberComponent extends Component {
   @dropTask
   *applyEbauNumber() {
     const existingEbauNrField = this.args.field.document.findField(
-      "ebau-number-has-existing"
+      "ebau-number-has-existing",
     );
     existingEbauNrField.answer.value = "ebau-number-has-existing-yes";
     yield existingEbauNrField.save.perform();
 
     const ebauNumberField = this.args.field.document.findField(
-      "ebau-number-existing"
+      "ebau-number-existing",
     );
     ebauNumberField.answer.value = this.sourceMeta.value["ebau-number"];
     yield ebauNumberField.save.perform();

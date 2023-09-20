@@ -7,7 +7,6 @@ import { trackedTask } from "ember-resources/util/ember-concurrency";
 
 export default class HistoryComponent extends Component {
   @service store;
-  @service shoebox;
 
   @tracked page = 1;
   @tracked _entries = [];

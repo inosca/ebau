@@ -7,7 +7,10 @@ from camac.request import get_request
 
 
 def get_group(obj):
-    request = get_request(obj)
+    return get_group_from_request(get_request(obj))
+
+
+def get_group_from_request(request):
     return (
         None
         if hasattr(request, "META") and request.META.get("HTTP_X_CAMAC_PUBLIC_ACCESS")
@@ -57,7 +60,7 @@ def permission_aware(func):
                 return self.queryset.none()
             except AttributeError:
                 raise RuntimeError(
-                    f"Bad configuration: Anonymous User accessing unguared method `{func.__name__}`, "
+                    f"Bad configuration: Anonymous User accessing unguarded method `{func.__name__}`, "
                     f"should be handled by a `{func.__name__}_for_public` method."
                 )
 

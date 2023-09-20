@@ -2,13 +2,16 @@ import copy
 import glob
 import inspect
 import logging
+import os
 import sys
 from copy import deepcopy
 from dataclasses import dataclass, field
-from datetime import date
+from datetime import date, datetime, timezone
+from pathlib import Path
 
 import faker
 import pytest
+import urllib3
 from caluma.caluma_core.faker import MultilangProvider
 from caluma.caluma_form import (
     factories as caluma_form_factories,
@@ -31,6 +34,8 @@ from django.views.generic import RedirectView
 from factory import Faker
 from factory.base import FactoryMetaClass
 from jwt import encode as jwt_encode
+from minio import Minio
+from minio.datatypes import Object as MinioStatObject
 from pytest_factoryboy import register
 from pytest_factoryboy.fixture import Box, get_model_name
 from rest_framework import status
@@ -38,6 +43,7 @@ from rest_framework.test import APIClient, APIRequestFactory
 
 from camac.applicants import factories as applicant_factories
 from camac.caluma.utils import CalumaInfo
+from camac.communications import factories as communications_factories
 from camac.core import factories as core_factories
 from camac.document import factories as document_factories
 from camac.document.tests.data import django_file
@@ -45,11 +51,14 @@ from camac.dossier_import import factories as dossier_import_factories
 from camac.ech0211 import factories as ech_factories
 from camac.ech0211.urls import BEUrlsConf, SZUrlsConf
 from camac.faker import FreezegunAwareDatetimeProvider
+from camac.gis import factories as gis_factories
 from camac.instance import factories as instance_factories
 from camac.instance.serializers import SUBMIT_DATE_FORMAT
 from camac.notification import factories as notification_factories
 from camac.objection import factories as objection_factories
 from camac.responsible import factories as responsible_factories
+from camac.settings import load_module_settings
+from camac.settings_additional_demand import ADDITIONAL_DEMAND
 from camac.settings_distribution import DISTRIBUTION
 from camac.tags import factories as tags_factories
 from camac.urls import urlpatterns as app_patterns
@@ -95,10 +104,14 @@ register_module(responsible_factories)
 register_module(ech_factories)
 register_module(objection_factories)
 register_module(tags_factories)
+register_module(communications_factories)
+register_module(gis_factories)
 
 # caluma factories
 register_module(caluma_form_factories, prefix="caluma")
 register_module(caluma_workflow_factories, prefix="caluma")
+
+# do not register alexandria factories, as there are too many conflicts
 
 # TODO: Somehow the ordering of those two calls is relevant.
 # Need to figure out why exactly (FreezegunAwareDatetimeProvider's
@@ -128,6 +141,7 @@ FORM_QUESTION_MAP_UR = [
     ("main-form", "leitbehoerde-internal-form"),
 ]
 
+# FIXME: This should be canton-specific (currently only BE, doesn't make sense for UR/GR
 CALUMA_FORM_TYPES_SLUGS = [
     "baugesuch",
     "baugesuch-v2",
@@ -188,8 +202,8 @@ def rf(db):
 @pytest.fixture
 def admin_user(admin_user, group, group_location, user_group_factory):
     admin_user.username = "462afaba-aeb7-494a-8596-3497b81ed701"
-    admin_user.surname = "Admin"
-    admin_user.name = "User"
+    admin_user.surname = "User"
+    admin_user.name = "Admin"
     admin_user.save()
     user_group_factory(group=group, user=admin_user, default_group=1)
     return admin_user
@@ -206,7 +220,7 @@ def token(admin_user):
 def caluma_admin_user(admin_user, group, token):
     user = OIDCUser(
         token=token,
-        userinfo={
+        claims={
             settings.OIDC_USERNAME_CLAIM: admin_user.username,
             settings.OIDC_GROUPS_CLAIM: [group.service_id],
             "sub": admin_user.username,
@@ -215,6 +229,7 @@ def caluma_admin_user(admin_user, group, token):
 
     user.camac_role = group.role.name
     user.camac_group = group.pk
+    user.group = group.service_id
 
     return user
 
@@ -250,6 +265,7 @@ def override_urls_sz():
 def set_application_be(settings, override_urls_be):
     application_dict = copy.deepcopy(settings.APPLICATIONS["kt_bern"])
     settings.APPLICATION = application_dict
+    settings.INTERNAL_BASE_URL = "http://ebau.local"
 
     return application_dict
 
@@ -258,6 +274,7 @@ def set_application_be(settings, override_urls_be):
 def set_application_sz(settings):
     application_dict = copy.deepcopy(settings.APPLICATIONS["kt_schwyz"])
     settings.APPLICATION = application_dict
+    settings.INTERNAL_BASE_URL = "http://ebau.local"
     return application_dict
 
 
@@ -265,6 +282,15 @@ def set_application_sz(settings):
 def set_application_ur(settings):
     application_dict = copy.deepcopy(settings.APPLICATIONS["kt_uri"])
     settings.APPLICATION = application_dict
+    settings.INTERNAL_BASE_URL = "http://ebau.local"
+    return application_dict
+
+
+@pytest.fixture
+def set_application_gr(settings):
+    application_dict = copy.deepcopy(settings.APPLICATIONS["kt_gr"])
+    settings.APPLICATION = application_dict
+    settings.INTERNAL_BASE_URL = "http://ember-ebau.local"
     return application_dict
 
 
@@ -453,11 +479,19 @@ def caluma_config_sz(settings):
 
 
 @pytest.fixture
+def caluma_config_gr(settings, application_settings, use_caluma_form):
+    application_settings["CALUMA"] = deepcopy(settings.APPLICATIONS["kt_gr"]["CALUMA"])
+    application_settings["MASTER_DATA"] = deepcopy(
+        settings.APPLICATIONS["kt_gr"]["MASTER_DATA"]
+    )
+
+
+@pytest.fixture
 def use_instance_service(application_settings):
     application_settings["USE_INSTANCE_SERVICE"] = True
-    application_settings["ACTIVE_SERVICES"] = settings.APPLICATIONS["kt_bern"][
-        "ACTIVE_SERVICES"
-    ]
+    application_settings["ACTIVE_SERVICES"] = deepcopy(
+        settings.APPLICATIONS["kt_bern"]["ACTIVE_SERVICES"]
+    )
     application_settings["ACTIVE_SERVICES"]["MUNICIPALITY"]["FILTERS"] = {}
     application_settings["ACTIVE_SERVICES"]["CONSTRUCTION_CONTROL"]["FILTERS"] = {}
 
@@ -470,7 +504,6 @@ def use_instance_service(application_settings):
 def caluma_workflow_config_be(
     settings, caluma_forms_be, caluma_config_be, use_instance_service
 ):
-
     for slug in CALUMA_FORM_TYPES_SLUGS:
         caluma_form_models.Form.objects.create(slug=slug)
 
@@ -478,6 +511,7 @@ def caluma_workflow_config_be(
         "loaddata",
         settings.ROOT_DIR("kt_bern/config/caluma_distribution.json"),
         settings.ROOT_DIR("kt_bern/config/caluma_legal_submission_form.json"),
+        settings.ROOT_DIR("kt_bern/config/caluma_appeal_form.json"),
         settings.ROOT_DIR("kt_bern/config/caluma_workflow.json"),
     )
 
@@ -531,6 +565,36 @@ def caluma_workflow_config_ur(
         caluma_form_models.Form.objects.create(slug=slug)
 
     call_command("loaddata", settings.ROOT_DIR("kt_uri/config/caluma_workflow.json"))
+
+    workflow = caluma_workflow_models.Workflow.objects.first()
+    main_form = caluma_form_models.Form.objects.get(pk="main-form")
+
+    workflow.allow_forms.clear()
+    workflow.allow_forms.add(main_form)
+    workflow.save()
+
+    caluma_form_models.Form.objects.filter(pk__in=CALUMA_FORM_TYPES_SLUGS).delete()
+
+    yield workflow
+
+    caluma_workflow_models.Case.objects.all().delete()
+    caluma_workflow_models.Workflow.objects.all().delete()
+
+
+@pytest.fixture
+def caluma_workflow_config_gr(
+    settings,
+    caluma_forms_gr,
+    caluma_config_gr,
+):
+    for slug in CALUMA_FORM_TYPES_SLUGS:
+        caluma_form_models.Form.objects.create(slug=slug)
+
+    call_command(
+        "loaddata",
+        settings.ROOT_DIR("kt_gr/config/caluma_workflow.json"),
+        settings.ROOT_DIR("kt_bern/config/caluma_distribution.json"),
+    )
 
     workflow = caluma_workflow_models.Workflow.objects.first()
     main_form = caluma_form_models.Form.objects.get(pk="main-form")
@@ -782,6 +846,62 @@ def caluma_forms_ur(settings):
 
 
 @pytest.fixture
+def caluma_forms_gr(settings):
+    # forms
+    caluma_form_models.Form.objects.create(
+        slug="main-form", meta={"is-main-form": True}, name="Baugesuch"
+    )
+    caluma_form_models.Form.objects.create(slug="dossierpruefung")
+    caluma_form_models.Form.objects.create(slug="decision")
+    caluma_form_models.Form.objects.create(slug="formal-exam")
+    caluma_form_models.Form.objects.create(slug="material-exam")
+    caluma_form_models.Form.objects.create(slug="publikation")
+
+    # dynamic choice options get cached, so we clear them
+    # to ensure the new "gemeinde" options will be valid
+    cache.clear()
+
+    # questions
+    caluma_form_models.Question.objects.create(
+        slug="gemeinde",
+        type=caluma_form_models.Question.TYPE_DYNAMIC_CHOICE,
+        data_source="Municipalities",
+    )
+    settings.DATA_SOURCE_CLASSES = [
+        "camac.caluma.extensions.data_sources.Municipalities"
+    ]
+
+    for slug, lang in [("is-paper", "en"), ("projektaenderung", "de")]:
+        question = caluma_form_models.Question.objects.create(
+            slug=slug, type=caluma_form_models.Question.TYPE_CHOICE
+        )
+        options = [
+            caluma_form_models.Option.objects.create(
+                slug=f"{slug}-{yes(lang)}", label="Ja"
+            ),
+            caluma_form_models.Option.objects.create(
+                slug=f"{slug}-{no(lang)}", label="Nein"
+            ),
+        ]
+        for option in options:
+            caluma_form_models.QuestionOption.objects.create(
+                question=question, option=option
+            )
+
+    caluma_form_models.Question.objects.create(
+        slug="beschreibung-bauvorhaben", type=caluma_form_models.Question.TYPE_TEXT
+    )
+
+    # main form
+    question = caluma_form_models.Question.objects.create(
+        slug="vorname-gesuchstellerin", type=caluma_form_models.Question.TYPE_TEXT
+    )
+    question = caluma_form_models.Question.objects.create(
+        slug="name-gesuchstellerin", type=caluma_form_models.Question.TYPE_TEXT
+    )
+
+
+@pytest.fixture
 def portal_group(application_settings, group_factory):
     group = group_factory()
     application_settings["PORTAL_GROUP"] = group.pk
@@ -838,6 +958,11 @@ def sz_instance(instance, caluma_workflow_config_sz, instance_with_case):
 
 @pytest.fixture
 def ur_instance(instance, caluma_workflow_config_ur, instance_with_case):
+    return instance_with_case(instance)
+
+
+@pytest.fixture
+def gr_instance(instance, caluma_workflow_config_gr, instance_with_case):
     return instance_with_case(instance)
 
 
@@ -1018,6 +1143,22 @@ def sz_distribution_settings(settings, distribution_settings):
 
 
 @pytest.fixture
+def gr_distribution_settings(settings, distribution_settings):
+    distribution_dict = copy.deepcopy(
+        always_merger.merge(distribution_settings, DISTRIBUTION["kt_gr"])
+    )
+    settings.DISTRIBUTION = distribution_dict
+    return distribution_dict
+
+
+@pytest.fixture
+def additional_demand_settings(settings):
+    additional_demand_dict = copy.deepcopy(ADDITIONAL_DEMAND["default"])
+    settings.ADDITIONAL_DEMAND = additional_demand_dict
+    return additional_demand_dict
+
+
+@pytest.fixture
 def active_inquiry_factory(
     instance, service, distribution_settings, work_item_factory, answer_factory
 ):
@@ -1080,3 +1221,87 @@ def master_data_is_visible_mock(mocker):
     mocker.patch(
         "camac.instance.master_data.MasterData._answer_is_visible", return_value=True
     )
+
+
+@pytest.fixture
+def gql():
+    """Fixture to load GraphQL files as string into tests.
+
+    By default the function will look for the file in a sibling directory "gql"
+    of the test file. For example:
+
+    `gql("foo")` called in `/a/b/tests/test.py` will resolve to
+    `/a/b/tests/gql/foo.graphql`.
+
+    If this behaviour is not preferred, you can also pass a path directly to the
+    function as a second parameter.
+    """
+
+    def wrapper(name, path=None):
+        if not path:
+            base = os.path.dirname(
+                inspect.getouterframes(inspect.currentframe())[1].filename
+            )
+            path = os.path.join(base, "gql")
+
+        file = os.path.join(path, f"{name}.graphql")
+
+        return Path(file).read_text()
+
+    return wrapper
+
+
+@pytest.fixture
+def be_appeal_settings(settings):
+    _original = settings.APPEAL
+    settings.APPEAL = load_module_settings("appeal", "kt_bern")
+    yield settings.APPEAL
+    settings.APPEAL = _original
+
+
+@pytest.fixture
+def minio_mock(mocker):
+    def side_effect(bucket, object_name, expires):
+        return f"http://minio/download-url/{object_name}"
+
+    stat_response = MinioStatObject(
+        # taken from a real-world minio stat() call
+        bucket_name="alexandria-media",
+        object_name="a3d0429d-5400-47ac-9d02-124592302631_attack.wav",
+        etag="5d41402abc4b2a76b9719d911017c592",
+        size=8200,
+        last_modified=datetime(2021, 3, 5, 15, 24, 33, tzinfo=timezone.utc),
+        content_type="application/pdf",
+        metadata=urllib3._collections.HTTPHeaderDict(
+            {
+                "Accept-Ranges": "bytes",
+                "Content-Length": "5",
+                "Content-Security-Policy": "block-all-mixed-content",
+                "Content-Type": "binary/octet-stream",
+                "ETag": '"5d41402abc4b2a76b9719d911017c592"',
+                "Last-Modified": "Fri, 05 Mar 2021 15:24:33 GMT",
+                "Server": "MinIO",
+                "Vary": "Origin",
+                "X-Amz-Request-Id": "16697BAAD69D2214",
+                "X-Xss-Protection": "1; mode=block",
+                "Date": "Fri, 05 Mar 2021 15:25:15 GMT",
+            }
+        ),
+        owner_id=None,
+        owner_name=None,
+        storage_class=None,
+        version_id=None,
+    )
+    mocker.patch.object(Minio, "presigned_get_object")
+    mocker.patch.object(Minio, "presigned_put_object")
+    mocker.patch.object(Minio, "stat_object")
+    mocker.patch.object(Minio, "bucket_exists")
+    mocker.patch.object(Minio, "make_bucket")
+    mocker.patch.object(Minio, "remove_object")
+    mocker.patch.object(Minio, "copy_object")
+    mocker.patch.object(Minio, "put_object")
+    Minio.presigned_get_object.side_effect = side_effect
+    Minio.presigned_put_object.return_value = "http://minio/upload-url"
+    Minio.stat_object.return_value = stat_response
+    Minio.bucket_exists.return_value = True
+    return Minio

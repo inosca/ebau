@@ -1,0 +1,422 @@
+@charset "CP850";
+/*
+PRINT CSS / KTBE Mobile 
+Release 4.3 */
+/* Version 4.3.0 - v4.03.01
+
+	-----------------------------------------------------------
+	4.3.0 - v4.03.01
+ 	***********************************************************
+	> 03.07.2015
+	  - KTBE-5974 Korrektur 
+	  
+	-----------------------------------------------------------
+	3.8.0 - v3.10.06
+ 	***********************************************************
+	> 19.07.2013
+	  - Korrektur Margin BOX h3
+	> 26.06.2013 MOS
+	  - Bildzoom fÃ¼r Druck ausblenden
+
+	-----------------------------------------------------------
+	v3.10.05
+ 	***********************************************************
+	> 03.06.2013 MOS
+	  - Medienmitteilungen, unnÃ¶tige Elemente ausgeblendet
+	  - DIR Titel angepasst
+
+	-----------------------------------------------------------
+	v3.10.04
+ 	***********************************************************
+	> 08.05.2013 MOS
+	  - Druckansicht fÃ¼r Bildergalerie angepasst. Links ausgeblendet, Zoom entfernt.
+	  - Paging wieder aktiviert (v1.24)
+
+	-----------------------------------------------------------
+	v2.00
+	***********************************************************
+	> 19.01.2012 MOS
+	Diverse Ã„nderungen fÃ¼r Headerelemente
+
+
+	-----------------------------------------------------------
+	v1.25
+	***********************************************************
+	> 01.06.2011 MOS
+	schriftgrÃ¶sse im IE neu zu klein - hack ergÃ¤nzt
+
+
+	-----------------------------------------------------------
+	v1.24
+	***********************************************************
+	> 23.12.2010 MOS
+	listen - statt hintergrundbilder DISC fÃ¼r Listen
+	listen - sicherstellen, das in allen Browser die OL richtig
+			 kommen
+
+	> 29.10.2010 MOS
+	gallery - printdarstellung deaktviert - da nicht konsistent
+	gallery - paging ausgeblendet
+	-----------------------------------------------------------
+
+	-----------------------------------------------------------
+	v1.22
+	***********************************************************
+	> 01.06.2010 MOS
+	jobs tabelle - ergÃ¤nzung der Clear Definition
+	-----------------------------------------------------------
+	> 25.05.2010 MOS
+	body wide / full - inhaltsbereich auf 100% statt fixe Pixel
+
+
+	Ã„LTER...
+	-----------------------------------------------------------
+	> 21.07.2009 MOS (Ã„nderungen ICON)
+	  Anpassungen ICON Klassen - ergÃ¤nzen der einzelnen Icons (CSS Definitionen).
+	-----------------------------------------------------------
+*/
+@media print {
+  body {
+    background-image: none;
+    font-size: 67.5%; }
+
+  /* hack fÃ¼r IE - da irdend eine DAY element im IE die SchriftgrÃ¶sse Ã¤ndert*/
+  * + html body, * html body {
+    font-size: 67.5%; }
+
+  * + html #content p, * html #content p {
+    line-height: 1.4em; }
+
+  /* Neue Stile fÃ¼r vorhandene Container */
+  #wrapper {
+    background-image: none;
+    width: 90%; }
+
+  #content, #div_header {
+    background-image: none;
+    width: 100%; }
+
+  #content {
+    margin-top: -50px; }
+
+  #content-col-main {
+    float: none;
+    padding: 0;
+    margin: 0;
+    width: 100%; }
+
+  body.wide #content-col-main,
+  body.full #content-col-main {
+    width: 100% !important; }
+
+  /* jobs tabelle  */
+  .jobs .jobs-detail {
+    clear: both; }
+
+  #content-col-context {
+    padding: 0;
+    width: 100%;
+    float: none; }
+
+  /* Icon-Ankers */
+  .box h2.basket, .box h2.user {
+    background-image: none; }
+
+  /* ergÃ¤nzung nach wegfall ICON styles*/
+  a.anchor, a.audio, a.back, a.default, a.excel, span.exhausted, a.extern,
+  a.hide, a.image, a.intern, a.more, a.movie, a.order, a.pdf,
+  a.powerpoint, a.rss, a.show, a.word, a.zip, a.zoom, .box h2.basket {
+    padding-left: 0 !important;
+    background-image: none !important; }
+
+  body.msie a.anchor, body.msie a.audio, body.msie a.back, body.msie a.default, body.msie a.excel, body.msie span.exhausted, body.msie a.extern,
+  body.msie a.hide, body.msie a.image, body.msie a.intern, body.msie a.more, body.msie a.movie, body.msie a.order, body.msie a.pdf,
+  body.msie a.powerpoint, body.msie a.rss, body.msie a.show, body.msie a.word, body.msie a.zip, body.msie a.zoom, body.msie .box h2.basket {
+    padding-left: 0 !important;
+    background-image: none !important; }
+
+  body.ie9OrOlder a.anchor, body.ie9OrOlder a.audio, body.ie9OrOlder a.back, body.ie9OrOlder a.default, body.ie9OrOlder a.excel, body.ie9OrOlder span.exhausted, body.ie9OrOlder a.extern,
+  body.ie9OrOlder a.hide, body.ie9OrOlder a.image, body.ie9OrOlder a.intern, body.ie9OrOlder a.more, body.ie9OrOlder a.movie, body.ie9OrOlder a.order, body.ie9OrOlder a.pdf,
+  body.ie9OrOlder a.powerpoint, body.ie9OrOlder a.rss, body.ie9OrOlder a.show, body.ie9OrOlder a.word, body.ie9OrOlder a.zip, body.ie9OrOlder a.zoom, body.ie9OrOlder .box h2.basket {
+    padding-left: 0 !important;
+    background-image: none !important; }
+
+  /* einblenden fÃ¼r ie7 */
+  * + html .textBild p a.audio span.ieicon, * + html .textBild p a.default span.ieicon, * + html .textBild p a.erlaeuterungen span.ieicon, * + html .textBild p a.excel span.ieicon, * + html .textBild p a.extern span.ieicon,
+  * + html .textBild p a.image span.ieicon, * + html .textBild p a.intern span.ieicon, * + html .textBild p a.more span.ieicon, * + html .textBild p a.movie span.ieicon, * + html .textBild p a.order span.ieicon,
+  * + html .textBild p a.pdf span.ieicon, * + html .textBild p a.powerpoint span.ieicon, * + html .textBild p a.rss span.ieicon, * + html .textBild p a.word span.ieicon, * + html .textBild p a.zip span.ieicon {
+    display: none !important; }
+
+
+  /* KTBE-5974 Korrektur */
+  #content-col-main ol li a.intern, #content-col-main ul li a.intern, #content-col-main .blind li a.intern, #content-col-main p a.intern { background-image: none !important; }
+
+  /* 28.06.2013 bild zoom ausblenden */
+  #content-col-main div.image p a.zoom {
+    display: none; }
+
+  a.top {
+    display: none; }
+
+  blockquote {
+    background-image: none;
+    font-style: italic; }
+
+  /* Kopfzeile */
+  #identity {
+    padding: 5px 0;
+    border-bottom: 1px solid #E3001A;
+    margin-bottom: 15px;
+    height: 15px; }
+
+  #identity h1 {
+    font-size: 1em;
+    font-weight: normal;
+    left: 14px;
+    margin: 0; }
+
+  #identity h1 a {
+    color: #000000;
+    line-height: 25px;
+    width: 250px; }
+
+  #identity span.small, a.small {
+    display: none; }
+
+  #identity p.printfunctions {
+    display: none; }
+
+  #identity p a {
+    padding-left: 20px;
+    color: #900000;
+    text-decoration: none; }
+
+  #identity p a:hover {
+    text-decoration: underline;
+    color: #E3001A; }
+
+  #identity img {
+    left: 15px;
+    top: 38px; }
+
+  #identity h2 {
+    padding-top: 25px;
+    font-size: 17px;
+    margin: 0 0 20px 0; }
+
+  #identity h2.long {
+    padding-top: 20px;
+    margin: 0 0 20px 0; }
+
+  #header-search, #header-nav-meta, #loginfo, #header-nav-lang {
+    display: none; }
+
+  /* Globalnavigation */
+  #global-nav {
+    display: none; }
+
+  /* Hauptnavigations-Block */
+  body#home #wrapper-nav-main {
+    background: none;
+    float: none;
+    width: 100%; }
+
+  body#home #content-col-nav {
+    display: block;
+    float: none;
+    margin-top: 80px;
+    width: 100%;
+    padding: 0; }
+
+  body#home #content-col-nav .box {
+    width: 100% !important;
+    border-top: 1px solid #C8D9E9;
+    border-bottom: 1px solid #C8D9E9;
+    margin-bottom: 20px;
+    padding-top: 15px; }
+
+  #content-col-nav {
+    display: none; }
+
+  /* Contentnavigation */
+  #content-nav {
+    display: none; }
+
+  /* Banner */
+  #banner {
+    clear: both;
+    margin-top: 80px;
+    margin-bottom: -50px; }
+
+  /* Breadcrumb-Trail / ZurÃ¼cklinks MOS 03.06.2013 */
+  #content-col-main #breadcrumb {
+    height: 40px; }
+
+  #content-col-main #breadcrumb a {
+    display: none; }
+
+  #content-col-main #breadcrumb {
+    color: #ffffff;
+    font-size: 0.01px;
+    border-bottom: 25px solid #ffffff; }
+
+  #content-col-main p.detail-back {
+    display: none; }
+
+  /* Content Spalte */
+  body#home #content-col-main {
+    width: 100%;
+    border-top: 1px solid #C8D9E9;
+    border-bottom: 1px solid #C8D9E9;
+    padding: 15px 0; }
+
+  body#home #content-col-main h1.follow {
+    border-top: 1px solid #C8D9E9;
+    padding-top: 15px; }
+
+  /* listen */
+  #content-col-main ul li {
+    background-image: none !important;
+    list-style-position: outside;
+    list-style-type: disc;
+    margin-left: 35px;
+    padding-left: 0; }
+
+  #content-col-main ul li ol li {
+    list-style-type: decimal !important; }
+
+  #content div.wide {
+    width: 100% !important; }
+
+  #content-col-main div.image {
+    clear: both; }
+
+  #content div.gallery div.image {
+    clear: none;
+    margin: 0 11px 20px 0 !important; }
+
+  #content div.gallery div.first {
+    margin: 0 11px 20px 0 !important; }
+
+  #content div.gallery div.row {
+    width: 100%;
+    clear: none;
+    display: inline; }
+
+  /*08.05.2013 MOS - Printdarstellung Gallery optimiert */
+  #content .bildergalerie a.zoom, .paging .select {
+    display: none !important; }
+
+  #content div.gallery div.row {
+    display: inline-block; }
+
+  #content .gallery div.row .image-wrapper .inner a {
+    cursor: default; }
+
+  #content-col-main div.row h2 {
+    clear: both; }
+
+  #content-col-main div.img-full {
+    float: none; }
+
+  #content-col-main .box.news-small, #content-col-main .box.news-full {
+    width: 100% !important;
+    border-bottom: 1px solid #C8D9E9;
+    margin-bottom: 20px; }
+
+  #content-col-main .box.news-small .title, #content-col-main .box.news-small .body,
+  #content-col-main .box.news-full .title, #content-col-main .box.news-full .body,
+  #content-col-main.wide .box.news-full .title, #content-col-main.wide .box.news-full .body {
+    background-image: none !important; }
+
+  /* Content Print Link */
+  #content-print {
+    display: none; }
+
+  /* Nach oben Link */
+  p.toplink {
+    display: none; }
+
+  /* Kontext Spalte */
+  body#home #content-col-context {
+    width: 100%;
+    padding-top: 0; }
+
+  #content-col-context {
+    margin-top: 40px !important;
+    clear: both;
+    margin-left: 0 !important;
+    background-position: -1000px bottom; }
+
+  /* Boxen */
+  body#home #content-col-context .alternative {
+    padding: 15px 0 !important;
+    border-bottom: 1px solid #C8D9E9; }
+
+  .box {
+    border-top: 1px solid #C8D9E9; }
+
+  .box .title, .box .body {
+    background-image: none !important;
+    padding: 0; }
+
+  .box img.lined {
+    border: none; }
+
+  .box.alternative .body, .box.alternative .title, .box.alternative {
+    padding: 0 !important;
+    background-image: none !important; }
+
+  .box h2 {
+    padding: 0 !important;
+    margin-bottom: 10px !important;
+    font-size: 1.4em;
+    display: block; }
+
+  .box h3 {
+    margin: 0;
+    /* 19.07.2013 korrigiert MOS*/ }
+
+  /* cug box */
+  .box h2.user {
+    padding-left: 0 !important; }
+
+  /* Footer */
+  #footer {
+    background-image: none;
+    border-top: 1px solid #E3001A;
+    margin: 15px auto;
+    padding: 0;
+    width: 90%;
+    font-size: 1.1em;
+    height: auto;
+    clear: both; }
+
+  #footer p {
+    width: auto; }
+
+  #footer p.links {
+    display: none; }
+
+  #footer p.printfuntions {
+    display: none; }
+
+  #footer p.printfuntions a {
+    padding-left: 20px;
+    color: #900000;
+    text-decoration: none; }
+
+  #footer p.printfuntions a:hover {
+    text-decoration: underline;
+    color: #E3001A; }
+
+  /* Url */
+  p#url {
+    font-size: 1.1em;
+    clear: both;
+    width: 90%;
+    margin: 14px auto;
+    padding-bottom: 25px;
+    display: block; }
+}
+/*# sourceMappingURL=print.css.map */

@@ -17,6 +17,9 @@ def test_group_list(admin_client, group, group_factory, service_factory):
     group_parent_service = group_factory(
         service=service_parent
     )  # new group of parent service, which should appear in list
+    group_sub_service = group_factory(
+        service=service_factory(service_parent=group.service)
+    )  # new group of sub service, which should appear in list
     group_factory(
         service__service_parent=service_parent
     )  # new group of sibling service, which should not appear in list
@@ -26,9 +29,9 @@ def test_group_list(admin_client, group, group_factory, service_factory):
     assert response.status_code == status.HTTP_200_OK
 
     json = response.json()
-    assert len(json["data"]) == 3
+    assert len(json["data"]) == 4
     assert {int(entry["id"]) for entry in json["data"]} == set(
-        [group.pk, group_same_service.pk, group_parent_service.pk]
+        [group.pk, group_same_service.pk, group_parent_service.pk, group_sub_service.pk]
     )
 
 
@@ -121,3 +124,30 @@ def test_public_group_detail(admin_client, group, multilang, application_setting
     assert response.status_code == status.HTTP_200_OK
     json = response.json()
     assert json["data"]["attributes"]["name"] == group.get_name()
+
+
+def test_group_filter_service_or_subservice(
+    admin_client, service, group, group_factory
+):
+    group_factory(service__service_parent=service)  # group of subservice
+    group_factory()  # group of other service
+
+    response = admin_client.get(
+        reverse("group-list"), data={"service_or_subservice": service.pk}
+    )
+
+    assert response.status_code == status.HTTP_200_OK
+
+    assert len(response.json()["data"]) == 2
+
+
+def test_group_set_default(admin_client, admin_user, group_factory, user_group_factory):
+    new_group = group_factory()
+    new_default = user_group_factory(user=admin_user, group=new_group, default_group=0)
+
+    response = admin_client.post(reverse("group-set-default", args=[new_group.pk]))
+
+    assert response.status_code == status.HTTP_204_NO_CONTENT
+
+    new_default.refresh_from_db()
+    assert new_default.default_group

@@ -1,17 +1,25 @@
 import { getOwner } from "@ember/application";
 import Route from "@ember/routing/route";
 import { inject as service } from "@ember/service";
+import AlexandriaDocumentsFormComponent from "ember-ebau-core/components/alexandria-documents-form";
+import CalculatedPublicationDateComponent from "ember-ebau-core/components/calculated-publication-date";
+import DecisionAppealButtonComponent from "ember-ebau-core/components/decision/appeal-button";
+import DecisionInfoAppealComponent from "ember-ebau-core/components/decision/info-appeal";
+import DecisionSubmitButtonComponent from "ember-ebau-core/components/decision/submit-button";
 import DocumentValidityButtonComponent from "ember-ebau-core/components/document-validity-button";
+import InquiryAnswerStatus from "ember-ebau-core/components/inquiry-answer-status";
 import LinkAttachmentsComponent from "ember-ebau-core/components/link-attachments";
+import PublicationDateKantonsamtsblattComponent from "ember-ebau-core/components/publication-date-kantonsamtsblatt";
+import SoGisComponent from "ember-ebau-core/components/so-gis";
 import UrGisComponent from "ember-ebau-core/components/ur-gis";
 
-import AlexandriaDocumentsFormComponent from "caluma-portal/components/alexandria-documents-form";
 import BeClaimsFormComponent from "caluma-portal/components/be-claims-form";
 import BeDisabledInputComponent from "caluma-portal/components/be-disabled-input";
 import BeDocumentsFormComponent from "caluma-portal/components/be-documents-form";
 import BeDownloadPdfComponent from "caluma-portal/components/be-download-pdf";
 import BeGisComponent from "caluma-portal/components/be-gis";
 import BeSubmitInstanceComponent from "caluma-portal/components/be-submit-instance";
+import GRSubmitInstanceComponent from "caluma-portal/components/gr-submit-instance";
 import { isEmbedded } from "caluma-portal/helpers/is-embedded";
 
 export default class ApplicationRoute extends Route {
@@ -62,9 +70,15 @@ export default class ApplicationRoute extends Route {
       componentClass: UrGisComponent,
     });
     this.calumaOptions.registerComponentOverride({
-      label: "Einreichen Button",
+      label: "Einreichen Button BE",
       component: "be-submit-instance",
       componentClass: BeSubmitInstanceComponent,
+      type: "CheckboxQuestion",
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "Einreichen Button GR",
+      component: "gr-submit-instance",
+      componentClass: GRSubmitInstanceComponent,
       type: "CheckboxQuestion",
     });
     this.calumaOptions.registerComponentOverride({
@@ -101,11 +115,6 @@ export default class ApplicationRoute extends Route {
       type: "StaticQuestion",
     });
     this.calumaOptions.registerComponentOverride({
-      label: "Entscheid verfügen (Teilbaubewilligung)",
-      component: "decision-submit-partial",
-      type: "StaticQuestion",
-    });
-    this.calumaOptions.registerComponentOverride({
       label: "Validierungs Button",
       component: "document-validity-button",
       componentClass: DocumentValidityButtonComponent,
@@ -119,6 +128,42 @@ export default class ApplicationRoute extends Route {
       label: "Alexandria Dokument Formular",
       component: "alexandria-documents-form",
       componentClass: AlexandriaDocumentsFormComponent,
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "Stellungnahme Status",
+      component: "inquiry-answer-status",
+      componentClass: InquiryAnswerStatus,
+      type: "ChoiceQuestion",
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "Hilfetext Beschwerdeverfahren",
+      component: "decision/info-appeal",
+      componentClass: DecisionInfoAppealComponent,
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "Entscheid verfügen",
+      component: "decision/submit-button",
+      componentClass: DecisionSubmitButtonComponent,
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "Beschwerde eingegangen",
+      component: "decision/appeal-button",
+      componentClass: DecisionAppealButtonComponent,
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "Berechnetes Publikations-Enddatum",
+      component: "calculated-publication-date",
+      componentClass: CalculatedPublicationDateComponent,
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "Publikationsbeginn Kanton (jeweils Donnerstag)",
+      component: "publication-date-kantonsamtsblatt",
+      componentClass: PublicationDateKantonsamtsblattComponent,
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "GIS-Karte (Kt. SO)",
+      component: "so-gis",
+      componentClass: SoGisComponent,
     });
   }
 }

@@ -611,7 +611,11 @@
     "otpPolicyLookAheadWindow": 1,
     "otpPolicyPeriod": 30,
     "otpPolicyCodeReusable": false,
-    "otpSupportedApplications": ["totpAppFreeOTPName", "totpAppGoogleName"],
+    "otpSupportedApplications": [
+      "totpAppGoogleName",
+      "totpAppFreeOTPName",
+      "totpAppMicrosoftAuthenticatorName"
+    ],
     "webAuthnPolicyRpEntityName": "keycloak",
     "webAuthnPolicySignatureAlgorithms": ["ES256"],
     "webAuthnPolicyRpId": "",
@@ -890,7 +894,9 @@
         "publicClient": true,
         "frontchannelLogout": false,
         "protocol": "openid-connect",
-        "attributes": {},
+        "attributes": {
+          "post.logout.redirect.uris": "+"
+        },
         "authenticationFlowBindingOverrides": {},
         "fullScopeAllowed": false,
         "nodeReRegistrationTimeout": 0,
@@ -1009,7 +1015,9 @@
         "publicClient": false,
         "frontchannelLogout": false,
         "protocol": "openid-connect",
-        "attributes": {},
+        "attributes": {
+          "post.logout.redirect.uris": "+"
+        },
         "authenticationFlowBindingOverrides": {},
         "fullScopeAllowed": false,
         "nodeReRegistrationTimeout": 0,
@@ -1128,7 +1136,9 @@
         "publicClient": false,
         "frontchannelLogout": false,
         "protocol": "openid-connect",
-        "attributes": {},
+        "attributes": {
+          "post.logout.redirect.uris": "+"
+        },
         "authenticationFlowBindingOverrides": {},
         "fullScopeAllowed": true,
         "nodeReRegistrationTimeout": 0,
@@ -1247,7 +1257,9 @@
         "publicClient": false,
         "frontchannelLogout": false,
         "protocol": "openid-connect",
-        "attributes": {},
+        "attributes": {
+          "post.logout.redirect.uris": "+"
+        },
         "authenticationFlowBindingOverrides": {},
         "fullScopeAllowed": true,
         "nodeReRegistrationTimeout": 0,
@@ -2012,6 +2024,7 @@
     "browserSecurityHeaders": {
       "contentSecurityPolicyReportOnly": "",
       "xContentTypeOptions": "nosniff",
+      "referrerPolicy": "no-referrer",
       "xRobotsTag": "none",
       "xFrameOptions": "SAMEORIGIN",
       "contentSecurityPolicy": "frame-src 'self'; frame-ancestors 'self'; object-src 'none';",
@@ -2046,14 +2059,14 @@
           "subComponents": {},
           "config": {
             "allowed-protocol-mapper-types": [
-              "saml-role-list-mapper",
-              "oidc-usermodel-property-mapper",
+              "oidc-full-name-mapper",
               "saml-user-property-mapper",
               "saml-user-attribute-mapper",
-              "oidc-usermodel-attribute-mapper",
-              "oidc-sha256-pairwise-sub-mapper",
+              "saml-role-list-mapper",
               "oidc-address-mapper",
-              "oidc-full-name-mapper"
+              "oidc-usermodel-attribute-mapper",
+              "oidc-usermodel-property-mapper",
+              "oidc-sha256-pairwise-sub-mapper"
             ],
             "consent-required-for-all-mappers": ["true"]
           }
@@ -2084,14 +2097,14 @@
           "subComponents": {},
           "config": {
             "allowed-protocol-mapper-types": [
-              "saml-user-property-mapper",
-              "oidc-address-mapper",
+              "oidc-sha256-pairwise-sub-mapper",
               "saml-role-list-mapper",
-              "saml-user-attribute-mapper",
-              "oidc-full-name-mapper",
-              "oidc-usermodel-attribute-mapper",
+              "oidc-address-mapper",
               "oidc-usermodel-property-mapper",
-              "oidc-sha256-pairwise-sub-mapper"
+              "saml-user-attribute-mapper",
+              "saml-user-property-mapper",
+              "oidc-full-name-mapper",
+              "oidc-usermodel-attribute-mapper"
             ],
             "consent-required-for-all-mappers": ["true"]
           }
@@ -2711,9 +2724,9 @@
         "config": {}
       },
       {
-        "alias": "terms_and_conditions",
+        "alias": "TERMS_AND_CONDITIONS",
         "name": "Terms and Conditions",
-        "providerId": "terms_and_conditions",
+        "providerId": "TERMS_AND_CONDITIONS",
         "enabled": false,
         "defaultAction": false,
         "priority": 30,
@@ -2773,9 +2786,10 @@
       "parRequestUriLifespan": "60",
       "clientSessionMaxLifespan": "0",
       "clientOfflineSessionIdleTimeout": "0",
-      "cibaInterval": "5"
+      "cibaInterval": "5",
+      "realmReusableOtpCode": "false"
     },
-    "keycloakVersion": "20.0.5",
+    "keycloakVersion": "22.0.1",
     "userManagedAccessAllowed": false,
     "clientProfiles": {
       "profiles": []
@@ -3196,7 +3210,11 @@
     "otpPolicyLookAheadWindow": 1,
     "otpPolicyPeriod": 30,
     "otpPolicyCodeReusable": false,
-    "otpSupportedApplications": ["totpAppFreeOTPName", "totpAppGoogleName"],
+    "otpSupportedApplications": [
+      "totpAppGoogleName",
+      "totpAppFreeOTPName",
+      "totpAppMicrosoftAuthenticatorName"
+    ],
     "webAuthnPolicyRpEntityName": "keycloak",
     "webAuthnPolicySignatureAlgorithms": ["ES256"],
     "webAuthnPolicyRpId": "",
@@ -3225,8 +3243,8 @@
         "enabled": true,
         "totp": false,
         "emailVerified": true,
-        "firstName": "Administrator",
-        "lastName": "Static",
+        "firstName": "Static",
+        "lastName": "Administrator",
         "email": "admin-camac@example.net",
         "credentials": [
           {
@@ -3526,7 +3544,9 @@
         "publicClient": true,
         "frontchannelLogout": false,
         "protocol": "openid-connect",
-        "attributes": {},
+        "attributes": {
+          "post.logout.redirect.uris": "+"
+        },
         "authenticationFlowBindingOverrides": {},
         "fullScopeAllowed": false,
         "nodeReRegistrationTimeout": 0,
@@ -3645,7 +3665,9 @@
         "publicClient": false,
         "frontchannelLogout": false,
         "protocol": "openid-connect",
-        "attributes": {},
+        "attributes": {
+          "post.logout.redirect.uris": "+"
+        },
         "authenticationFlowBindingOverrides": {},
         "fullScopeAllowed": false,
         "nodeReRegistrationTimeout": 0,
@@ -3927,6 +3949,7 @@
           "saml_force_name_id_format": "false",
           "saml.client.signature": "false",
           "saml.authnstatement": "false",
+          "post.logout.redirect.uris": "+",
           "saml.server.signature": "false",
           "saml.server.signature.keyinfo.ext": "false",
           "saml.onetimeuse.condition": "false"
@@ -4100,6 +4123,7 @@
           "saml.multivalued.roles": "false",
           "saml.force.post.binding": "false",
           "saml.encrypt": "false",
+          "post.logout.redirect.uris": "+",
           "oauth2.device.authorization.grant.enabled": "false",
           "saml.server.signature": "false",
           "backchannel.logout.revoke.offline.tokens": "false",
@@ -4427,7 +4451,9 @@
         "publicClient": false,
         "frontchannelLogout": false,
         "protocol": "openid-connect",
-        "attributes": {},
+        "attributes": {
+          "post.logout.redirect.uris": "+"
+        },
         "authenticationFlowBindingOverrides": {},
         "fullScopeAllowed": false,
         "nodeReRegistrationTimeout": 0,
@@ -4692,6 +4718,7 @@
           "saml_force_name_id_format": "false",
           "saml.client.signature": "false",
           "saml.authnstatement": "false",
+          "post.logout.redirect.uris": "+",
           "saml.server.signature": "false",
           "saml.server.signature.keyinfo.ext": "false",
           "saml.onetimeuse.condition": "false"
@@ -5491,6 +5518,7 @@
     "browserSecurityHeaders": {
       "contentSecurityPolicyReportOnly": "",
       "xContentTypeOptions": "nosniff",
+      "referrerPolicy": "no-referrer",
       "xRobotsTag": "none",
       "xFrameOptions": "SAMEORIGIN",
       "contentSecurityPolicy": "frame-src 'self'; frame-ancestors 'self'; object-src 'none';",
@@ -5536,14 +5564,14 @@
           "subComponents": {},
           "config": {
             "allowed-protocol-mapper-types": [
-              "saml-user-property-mapper",
-              "oidc-usermodel-property-mapper",
-              "oidc-sha256-pairwise-sub-mapper",
               "saml-user-attribute-mapper",
-              "saml-role-list-mapper",
-              "oidc-address-mapper",
+              "oidc-usermodel-property-mapper",
               "oidc-usermodel-attribute-mapper",
-              "oidc-full-name-mapper"
+              "oidc-full-name-mapper",
+              "saml-user-property-mapper",
+              "oidc-address-mapper",
+              "saml-role-list-mapper",
+              "oidc-sha256-pairwise-sub-mapper"
             ],
             "consent-required-for-all-mappers": ["true"]
           }
@@ -5574,14 +5602,14 @@
           "subComponents": {},
           "config": {
             "allowed-protocol-mapper-types": [
+              "oidc-sha256-pairwise-sub-mapper",
+              "oidc-address-mapper",
               "oidc-usermodel-attribute-mapper",
               "saml-user-attribute-mapper",
               "oidc-usermodel-property-mapper",
               "oidc-full-name-mapper",
-              "oidc-sha256-pairwise-sub-mapper",
-              "oidc-address-mapper",
-              "saml-role-list-mapper",
-              "saml-user-property-mapper"
+              "saml-user-property-mapper",
+              "saml-role-list-mapper"
             ],
             "consent-required-for-all-mappers": ["true"]
           }
@@ -6190,9 +6218,9 @@
         "config": {}
       },
       {
-        "alias": "terms_and_conditions",
+        "alias": "TERMS_AND_CONDITIONS",
         "name": "Terms and Conditions",
-        "providerId": "terms_and_conditions",
+        "providerId": "TERMS_AND_CONDITIONS",
         "enabled": false,
         "defaultAction": false,
         "priority": 30,
@@ -6252,9 +6280,10 @@
       "parRequestUriLifespan": "60",
       "clientSessionMaxLifespan": "0",
       "clientOfflineSessionIdleTimeout": "0",
-      "cibaInterval": "5"
+      "cibaInterval": "5",
+      "realmReusableOtpCode": "false"
     },
-    "keycloakVersion": "20.0.5",
+    "keycloakVersion": "22.0.1",
     "userManagedAccessAllowed": false,
     "clientProfiles": {
       "profiles": []

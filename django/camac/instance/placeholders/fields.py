@@ -9,10 +9,7 @@ from django.db.models import Exists, OuterRef, Q, Sum
 from django.utils.translation import get_language, gettext, gettext_noop as _
 from rest_framework import serializers
 
-from camac.caluma.extensions.visibilities import (
-    work_item_by_addressed_service_condition,
-)
-from camac.caluma.utils import find_answer
+from camac.caluma.utils import find_answer, work_item_by_addressed_service_condition
 from camac.core.models import BillingV2Entry
 from camac.user.models import Service
 from camac.utils import build_url
@@ -129,7 +126,7 @@ class ResponsibleUserField(AliasedMixin, serializers.ReadOnlyField):
             return ""
 
         if self.source == "full_name":
-            return clean_join(user.surname, user.name)
+            return clean_join(user.name, user.surname)
 
         return getattr(user, self.source)
 
@@ -227,6 +224,9 @@ class MasterDataField(AliasedMixin, serializers.ReadOnlyField):
         return self.parser(super().to_representation(value))
 
     def get_attribute(self, instance):
+        if not settings.APPLICATION["MASTER_DATA"].get(self.source):  # pragma: no cover
+            return None
+
         return getattr(instance._master_data, self.source)
 
 

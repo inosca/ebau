@@ -18,7 +18,7 @@ from drf_yasg import openapi
 from drf_yasg.utils import swagger_auto_schema
 from rest_framework import response, status
 from rest_framework.decorators import action
-from rest_framework.exceptions import ValidationError
+from rest_framework.exceptions import NotFound, ValidationError
 from rest_framework.generics import ListAPIView, RetrieveAPIView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.renderers import JSONRenderer
@@ -48,7 +48,11 @@ from . import (
     validators,
 )
 from .domain_logic import link_instances
-from .placeholders.serializers import DMSPlaceholdersSerializer
+from .placeholders.serializers import (
+    BeDMSPlaceholdersSerializer,
+    DMSPlaceholdersSerializer,
+    GrDMSPlaceholdersSerializer,
+)
 
 
 class InstanceStateView(ReadOnlyModelViewSet):
@@ -163,8 +167,14 @@ class InstanceView(
                 "change_form": serializers.CalumaInstanceChangeFormSerializer,
                 "fix_work_items": serializers.CalumaInstanceFixWorkItemsSerializer,
                 "convert_modification": serializers.CalumaInstanceConvertModificationSerializer,
-                "dms_placeholders": DMSPlaceholdersSerializer,
+                "dms_placeholders": {
+                    "kt_bern": BeDMSPlaceholdersSerializer,
+                    "kt_gr": GrDMSPlaceholdersSerializer,
+                    "default": DMSPlaceholdersSerializer,
+                },
+                "appeal": serializers.CalumaInstanceAppealSerializer,
                 "default": serializers.CalumaInstanceSerializer,
+                "correction": serializers.CalumaInstanceCorrectionSerializer,
             },
             "camac-ng": {
                 "submit": serializers.InstanceSubmitSerializer,
@@ -173,9 +183,13 @@ class InstanceView(
             },
         }
 
-        return SERIALIZER_CLASS[backend].get(
+        serializer_config = SERIALIZER_CLASS[backend].get(
             self.action, SERIALIZER_CLASS[backend]["default"]
         )
+        if type(serializer_config) == dict:
+            return serializer_config.get(settings.APPLICATION_NAME, "default")
+
+        return serializer_config
 
     @permission_aware
     def has_base_permission(self, instance):
@@ -310,6 +324,36 @@ class InstanceView(
         )
 
     def has_object_convert_modification_permission_for_support(self, instance):
+        return True
+
+    @permission_aware
+    def has_object_appeal_permission(self, instance):
+        return False
+
+    def has_object_appeal_permission_for_municipality(self, instance):
+        return (
+            (
+                instance.responsible_service(filter_type="municipality")
+                == self.request.group.service
+            )
+            and instance.previous_instance_state.name == "coordination"
+            and instance.instance_state.name in ["finished", "sb1"]
+        )
+
+    @permission_aware
+    def has_object_correction_permission(self, instance):
+        return False
+
+    def has_object_correction_permission_for_municipality(self, instance):
+        if self.request.group.role.name != "municipality-lead":
+            return False
+
+        return instance.instance_state.name in [
+            *settings.APPLICATION.get("INSTANCE_STATE_CORRECTION_ALLOWED", []),
+            "correction",
+        ]
+
+    def has_object_correction_permission_for_support(self, instance):
         return True
 
     @swagger_auto_schema(auto_schema=None)
@@ -635,11 +679,12 @@ class InstanceView(
     def generate_pdf(self, request, pk=None):
         form_slug = self.request.query_params.get("form-slug")
         document_id = self.request.query_params.get("document-id")
+        template = self.request.query_params.get("template")
 
         instance = self.get_object()
 
         pdf = document_merge_service.DMSHandler().generate_pdf(
-            instance.pk, request, form_slug, document_id
+            instance.pk, request, form_slug, document_id, template
         )
 
         response = SendfileHttpResponse(
@@ -673,9 +718,23 @@ class InstanceView(
         serializer = self.get_serializer(instance=self.get_object())
         return response.Response(serializer.data)
 
+    @swagger_auto_schema(auto_schema=None)
+    @action(methods=["post"], detail=True)
+    def appeal(self, request, pk):
+        if not settings.APPEAL:
+            raise NotFound()
+
+        return self._custom_serializer_action(
+            request, pk, status_code=status.HTTP_201_CREATED
+        )
+
+    @swagger_auto_schema(auto_schema=None)
+    @action(methods=["post"], detail=True)
+    def correction(self, request, pk=None):
+        return self._custom_serializer_action(request, pk)
+
 
 class InstanceResponsibilityView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
-
     swagger_schema = None
     serializer_class = serializers.InstanceResponsibilitySerializer
     filterset_class = filters.InstanceResponsibilityFilterSet
@@ -751,52 +810,8 @@ class FormFieldView(
     def has_destroy_permission(self):
         return False
 
-    def get_fields(self, queryset, permission):
-        questions = [
-            question
-            for question, value in settings.FORM_CONFIG["questions"].items()
-            # all permissions may read per default once they have access to instance
-            if permission
-            in value.get(
-                "restrict",
-                [
-                    "applicant",
-                    "public_reader",
-                    "reader",
-                    "canton",
-                    "municipality",
-                    "service",
-                    "support",
-                    "public",
-                ],
-            )
-        ]
-        return queryset.filter(name__in=questions)
-
-    @permission_aware
     def get_queryset(self):
-        queryset = super().get_queryset()
-        return self.get_fields(queryset, "applicant")
-
-    def get_queryset_for_public(self):
-        queryset = super().get_queryset_for_public()
-        return self.get_fields(queryset, "public")
-
-    def get_queryset_for_municipality(self):
-        queryset = super().get_queryset_for_municipality()
-        return self.get_fields(queryset, "municipality")
-
-    def get_queryset_for_service(self):
-        queryset = super().get_queryset_for_service()
-        return self.get_fields(queryset, "service")
-
-    def get_queryset_for_reader(self):
-        queryset = super().get_queryset_for_reader()
-        return self.get_fields(queryset, "reader")
-
-    def get_queryset_for_support(self):
-        queryset = super().get_queryset_for_support()
-        return self.get_fields(queryset, "support")
+        return super().get_queryset().visible_for(self.request)
 
 
 class JournalEntryView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
@@ -809,27 +824,8 @@ class JournalEntryView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
     ordering_fields = "creation_date"
     ordering = "-creation_date"
 
-    def get_base_queryset(self):
-        queryset = super().get_base_queryset()
-        query_filter = Q(visibility="all")
-
-        if self.request.group != settings.APPLICATION["PORTAL_GROUP"]:
-            service = self.request.group.service
-            query_filter |= Q(visibility="own_organization", service=service)
-            query_filter |= Q(visibility="authorities")
-
-        return queryset.filter(query_filter)
-
-    @permission_aware
     def get_queryset(self):
-        """Return no result when user has no specific permission.
-
-        Specific permissions are defined in InstanceQuerysetMixin.
-        """
-
-        # TODO applicants currently don't have access to journal entries at all. Giving them access might
-        # require a dedicated "applicant" role in our permission layer?
-        return models.JournalEntry.objects.none()
+        return super().get_queryset().visible_for(self.request)
 
     @permission_aware
     def has_create_permission(self):
@@ -942,15 +938,8 @@ class IssueView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
     filterset_class = filters.InstanceIssueFilterSet
     queryset = models.Issue.objects.all()
 
-    def get_base_queryset(self):
-        queryset = super().get_base_queryset()
-        return queryset.filter(service=self.request.group.service_id)
-
-    @permission_aware
     def get_queryset(self):
-        """Return no result when user has no specific permission."""
-        queryset = super().get_base_queryset()
-        return queryset.none()
+        return super().get_queryset().visible_for(self.request)
 
     @permission_aware
     def has_create_permission(self):
@@ -1200,8 +1189,19 @@ class PublicCalumaInstanceView(mixins.InstanceQuerysetMixin, ListAPIView):
         )
 
         if settings.APPLICATION.get("PUBLICATION_BACKEND") == "caluma":
+            special_id = (
+                "ebau-number"
+                if settings.APPLICATION_NAME == "kt_bern"
+                else "dossier-number"
+            )
             return queryset.annotate(
-                dossier_nr=Cast(KeyTextTransform("ebau-number", "meta"), CharField()),
+                dossier_nr=Cast(
+                    KeyTextTransform(
+                        special_id,
+                        "meta",
+                    ),
+                    CharField(),
+                ),
                 year=Cast(
                     Func(
                         F("dossier_nr"),
@@ -1239,6 +1239,7 @@ class PublicCalumaInstanceView(mixins.InstanceQuerysetMixin, ListAPIView):
                 *build_document_prefetch_statements(prefix="document"),
             )
             .annotate(instance_id=F("instance__pk"))
+            .filter(Q(meta__oereb_copy__isnull=True) | Q(meta__oereb_copy=False))
         )
         return queryset.annotate(
             dossier_nr=Cast(KeyTextTransform("dossier-number", "meta"), CharField()),

@@ -5,6 +5,7 @@ import zipfile
 
 from django.conf import settings
 from django.db.models import Q
+from django.db.models.constants import LOOKUP_SEP
 from django.http import HttpResponse
 from django.utils.module_loading import import_string
 from django.utils.translation import gettext as _
@@ -12,7 +13,7 @@ from drf_yasg import openapi
 from drf_yasg.errors import SwaggerGenerationError
 from drf_yasg.inspectors import SwaggerAutoSchema
 from drf_yasg.utils import param_list_to_odict, swagger_auto_schema
-from rest_framework import exceptions, generics
+from rest_framework import exceptions, generics, status
 from rest_framework.decorators import action
 from rest_framework.exceptions import NotFound, ValidationError
 from rest_framework.permissions import IsAuthenticated
@@ -22,6 +23,7 @@ from sorl.thumbnail import get_thumbnail
 from sorl.thumbnail.engines.convert_engine import EngineError
 
 from camac.core.views import SendfileHttpResponse
+from camac.instance.document_merge_service import DMSHandler
 from camac.instance.mixins import InstanceEditableMixin, InstanceQuerysetMixin
 from camac.instance.models import Instance
 from camac.notification.serializers import InstanceMergeSerializer
@@ -74,6 +76,15 @@ class FileUploadSwaggerAutoSchema(SwaggerAutoSchema):
 
 
 class AttachmentQuerysetMixin:
+    attachment_field = ""
+
+    def _get_attachment_field(self):
+        if self.attachment_field:
+            af = self.attachment_field
+            return f"{af}{LOOKUP_SEP}"
+        else:
+            return ""
+
     @permission_aware
     def get_base_queryset(self):
         queryset = super().get_base_queryset()
@@ -111,46 +122,50 @@ class AttachmentQuerysetMixin:
             if permission == "applicant"
         }
 
+        af = self._get_attachment_field()
+
+        return queryset.filter(
+            # first: directly readable sections
+            Q(**{f"{af}attachment_sections__in": readable_sections})
+            # second: sections where only documents from my own service are readable
+            | Q(
+                **{
+                    f"{af}attachment_sections__in": internal_sections,
+                    f"{af}service": self.request.group.service,
+                }
+            )
+            # third: documents where i'm invitee
+            | Q(
+                Q(**{f"{af}attachment_sections__in": applicant_sections}),
+                Q(**{f"{af}instance__involved_applicants__invitee": self.request.user})
+                | Q(**{f"{af}instance__user": self.request.user}),
+            )
+            | self.get_loosen_filter()
+        ).distinct()
+
+    def get_loosen_filter(self):
         # loosen_filter can be used to allow more
         # results than we'd allow by default. Since this is used
         # in an OR fashion with the rest of the query, we need
         # this to not add any results
-        loosen_filter = permissions.LOOSEN_FILTERS.get(
+        return permissions.LOOSEN_FILTERS.get(
             settings.APPLICATION_NAME, lambda _: Q(pk=0)
-        )
-
-        return queryset.filter(
-            # first: directly readable sections
-            Q(attachment_sections__in=readable_sections)
-            # second: sections where only documents from my own service are readable
-            | Q(
-                attachment_sections__in=internal_sections,
-                service=self.request.group.service,
-            )
-            # third: documents where i'm invitee
-            | Q(
-                Q(attachment_sections__in=applicant_sections),
-                Q(instance__involved_applicants__invitee=self.request.user)
-                | Q(instance__user=self.request.user),
-            )
-            | loosen_filter(self.request)
-        ).distinct()
+        )(self.request)
 
     def get_base_queryset_for_public(self):
+        af = self._get_attachment_field()
         return (
             super()
             .get_base_queryset()
             .filter(
-                Q(
-                    context__isPublished=True,
-                )
+                Q(**{f"{af}context__isPublished": True})
+                | Q(**{f"{af}context__isPublishedWithoutObligation": True})
                 | Q(
-                    context__isPublishedWithoutObligation=True,
-                )
-                | Q(
-                    attachment_sections__pk__in=settings.APPLICATION.get(
-                        "PUBLICATION_ATTACHMENT_SECTION", []
-                    )
+                    **{
+                        f"{af}attachment_sections__pk__in": settings.APPLICATION.get(
+                            "PUBLICATION_ATTACHMENT_SECTION", []
+                        )
+                    }
                 )
             )
         ).distinct()
@@ -243,6 +258,29 @@ class AttachmentView(
         except (AttributeError, ValueError, FileNotFoundError, EngineError):
             raise exceptions.NotFound()
 
+    @action(methods=["post"], detail=True)
+    @swagger_auto_schema(auto_schema=None)
+    def convert(self, request, **kwargs):
+        attachment = self.get_object()
+        temporary_pdf_file = DMSHandler().convert_docx_to_pdf(
+            request, attachment.path.file
+        )
+
+        filename_as_pdf = attachment.name.replace(".docx", ".pdf")
+
+        existing_pdf_copy = models.Attachment.objects.filter(
+            name=filename_as_pdf, instance=attachment.instance
+        ).first()
+
+        if existing_pdf_copy:
+            existing_pdf_copy.delete()
+
+        attachment.make_copy_with_new_file(
+            temporary_pdf_file, request.group, request.user
+        )
+
+        return HttpResponse(status=status.HTTP_201_CREATED)
+
 
 attachments_param = openapi.Parameter(
     "attachments",
@@ -277,6 +315,9 @@ class AttachmentDownloadView(
             fields["user"] = request.user
         return models.AttachmentDownloadHistory.objects.create(**fields)
 
+    def _get_mime_type(self, attachment):
+        return attachment.mime_type
+
     @swagger_auto_schema(auto_schema=None)
     def retrieve(self, request, **kwargs):
         attachment = self.get_object()
@@ -291,7 +332,7 @@ class AttachmentDownloadView(
             import_string(side_effect)(attachment, request)
 
         response = SendfileHttpResponse(
-            content_type=attachment.mime_type,
+            content_type=self._get_mime_type(attachment),
             filename=attachment.name,
             base_path=settings.MEDIA_ROOT,
             file_path=f"/{download_path}",
@@ -326,7 +367,7 @@ class AttachmentDownloadView(
         download_path = str(attachment.path)
 
         response = SendfileHttpResponse(
-            content_type=attachment.mime_type,
+            content_type=self._get_mime_type(attachment),
             filename=attachment.name,
             base_path=settings.MEDIA_ROOT,
             file_path=f"/{download_path}",
@@ -349,6 +390,30 @@ class AttachmentDownloadView(
             )
 
         return response
+
+
+class AttachmentVersionDownloadView(AttachmentDownloadView):
+    queryset = models.AttachmentVersion.objects
+    instance_field = "attachment__instance"
+    attachment_field = "attachment"
+
+    def _get_mime_type(self, attachment):
+        return attachment.attachment.mime_type
+
+    # In webdav context list makes no-sense, it's always a single file
+    def list(self, request, **kwargs):  # pragma: no cover
+        raise NotImplementedError()
+
+    # No public access to webdav versions
+    def get_base_queryset_for_public(self):  # pragma: no cover
+        return self.queryset.none()
+
+    def get_loosen_filter(self):
+        return Q(pk=0)
+
+    # No download history, since the documents are internal
+    def _create_history_entry(self, request, attachment):
+        pass
 
 
 class AttachmentSectionView(ReadOnlyModelViewSet):
@@ -475,3 +540,12 @@ class AttachmentDownloadHistoryView(ReadOnlyModelViewSet):
     ordering_fields = ("date_time", "name")
     filterset_class = filters.AttachmentDownloadHistoryFilterSet
     serializer_class = serializers.AttachmentDownloadHistorySerializer
+
+
+class AttachmentVersionView(ReadOnlyModelViewSet):
+    swagger_schema = None
+    queryset = models.AttachmentVersion.objects.all()
+    ordering_fields = ("created_at", "name")
+    ordering = "-pk"
+    serializer_class = serializers.AttachmentVersionSerializer
+    filterset_class = filters.AttachmentVersionFilterSet

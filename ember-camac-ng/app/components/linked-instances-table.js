@@ -5,8 +5,6 @@ import calumaQuery from "@projectcaluma/ember-core/caluma-query";
 import { allCases } from "@projectcaluma/ember-core/caluma-query/queries";
 import { queryManager } from "ember-apollo-client";
 
-import config from "camac-ng/config/environment";
-
 export default class LinkedInstancesTableComponent extends Component {
   @queryManager apollo;
 
@@ -55,7 +53,6 @@ export default class LinkedInstancesTableComponent extends Component {
   setup() {
     this.casesQuery.fetch({
       filter: [{ hasAnswer: this.args.filters }],
-      order: config.APPLICATION.casesQueryOrder,
     });
   }
 
@@ -67,7 +64,7 @@ export default class LinkedInstancesTableComponent extends Component {
   @action
   redirectToCase(caseRecord) {
     location.assign(
-      `/index/redirect-to-instance-resource/instance-id/${caseRecord.instanceId}/`
+      `/index/redirect-to-instance-resource/instance-id/${caseRecord.instanceId}/`,
     );
   }
 }

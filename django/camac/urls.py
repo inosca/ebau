@@ -45,13 +45,16 @@ urlpatterns = [
     re_path(r"^api/v1/", include("camac.objection.urls")),
     re_path(r"^api/v1/", include("camac.gisbern.urls")),
     re_path(r"^api/v1/", include("camac.responsible.urls")),
+    re_path(r"^api/v1/", include("camac.communications.urls")),
     re_path(r"^api/v1/", include("camac.tags.urls")),
     re_path(r"^api/v1/stats/", include("camac.stats.urls")),
+    re_path(r"^api/v1/gis/", include("camac.gis.urls")),
     re_path(
         r"^graphql",
         CamacAuthenticatedGraphQLView.as_view(graphiql=settings.DEBUG),
         name="graphql",
     ),
+    re_path(r"^alexandria/api/v1/", include("alexandria.core.urls")),
     re_path(
         r"^api/swagger(?P<format>\.json|\.yaml)$",
         schema_view.without_ui(cache_timeout=0),

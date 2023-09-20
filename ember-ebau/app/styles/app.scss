@@ -9,14 +9,13 @@
 
 @import "components/work-item-list";
 
+@import "@projectcaluma/ember-form";
+@import "@projectcaluma/ember-distribution";
+
 $main-nav-height: 80px;
 $sidebar-width: 180px;
 $sidebar-padding: 48px;
 $border-color: darken($global-muted-background, 10%);
-
-tr[role="link"] {
-  cursor: pointer;
-}
 
 .main-navigation {
   position: fixed;
@@ -51,8 +50,8 @@ tr[role="link"] {
   padding-top: 1rem;
 }
 
-div.uk-container.with-sidebar {
-  padding-left: $sidebar-width + $sidebar-padding;
+.nav-sidebar + .main-content {
+  padding-left: calc($sidebar-width + 3rem);
 }
 
 .ca-label {
@@ -61,10 +60,11 @@ div.uk-container.with-sidebar {
 }
 
 .full-screen-content {
-  padding-left: $sidebar-width;
+  // Plus twice the padding 12px from .nav-sidebar
+  padding-left: calc($sidebar-width + 26px);
   margin-top: $main-nav-height;
 
   & > div {
-    min-height: calc(100vh - $main-nav-height);
+    height: calc(100vh - $main-nav-height);
   }
 }

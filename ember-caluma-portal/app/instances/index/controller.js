@@ -8,6 +8,7 @@ import { useCalumaQuery } from "@projectcaluma/ember-core/caluma-query";
 import { allCases } from "@projectcaluma/ember-core/caluma-query/queries";
 import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
+import mainConfig from "ember-ebau-core/config/main";
 import { trackedTask } from "ember-resources/util/ember-concurrency";
 import { DateTime } from "luxon";
 import { cached } from "tracked-toolbox";
@@ -16,7 +17,7 @@ import config from "caluma-portal/config/environment";
 import trackedFilter from "caluma-portal/decorators/tracked-filter";
 import getRootFormsQuery from "caluma-portal/gql/queries/get-root-forms.graphql";
 
-const { answerSlugs } = config.APPLICATION;
+const { answerSlugs } = mainConfig;
 
 const getRecursiveSources = (form, forms) => {
   if (!form.source?.slug) {
@@ -68,7 +69,7 @@ export default class InstancesIndexController extends Controller {
     },
     deserialize(value) {
       return this.forms.filter((form) =>
-        form.value.some((v) => value.split(",").includes(v))
+        form.value.some((v) => value.split(",").includes(v)),
       );
     },
     defaultValue: "",
@@ -101,6 +102,10 @@ export default class InstancesIndexController extends Controller {
 
   rootForms = trackedTask(this, this.fetchRootForms, () => {});
 
+  get hasSpecialId() {
+    return Boolean(answerSlugs.specialId);
+  }
+
   get categories() {
     return Object.keys(config.APPLICATION.instanceStateCategories);
   }
@@ -117,16 +122,20 @@ export default class InstancesIndexController extends Controller {
         label: "instances.instance-id",
         direction: "instances.asc",
       },
-      {
-        value: `${answerSlugs.specialId}:desc`,
-        label: "instances.special-id",
-        direction: "instances.desc",
-      },
-      {
-        value: `${answerSlugs.specialId}:asc`,
-        label: "instances.special-id",
-        direction: "instances.asc",
-      },
+      ...(this.hasSpecialId
+        ? [
+            {
+              value: `${answerSlugs.specialId}:desc`,
+              label: "instances.special-id",
+              direction: "instances.desc",
+            },
+            {
+              value: `${answerSlugs.specialId}:asc`,
+              label: "instances.special-id",
+              direction: "instances.asc",
+            },
+          ]
+        : []),
       {
         value: "submit-date:desc",
         label: "instances.submitDate",
@@ -173,12 +182,12 @@ export default class InstancesIndexController extends Controller {
       (perm) =>
         perm.roles.includes(parseInt(this.session.group?.role.get("id"))) ||
         (perm.roles.includes("internal") && this.session.isInternal) ||
-        (perm.roles.includes("public") && !this.session.isInternal)
+        (perm.roles.includes("public") && !this.session.isInternal),
     );
     const raw = (this.rootForms.value ?? []).filter((edge) =>
       permissions.find((perm) =>
-        perm.forms.includes(edge.node.slug.replace(/-v\d/, ""))
-      )
+        perm.forms.includes(edge.node.slug.replace(/-v\d/, "")),
+      ),
     );
 
     return raw
@@ -284,7 +293,7 @@ export default class InstancesIndexController extends Controller {
   *fetchRootForms() {
     return yield this.apollo.watchQuery(
       { query: getRootFormsQuery },
-      "allForms.edges"
+      "allForms.edges",
     );
   }
 

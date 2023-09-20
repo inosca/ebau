@@ -8,6 +8,7 @@ include .env
 
 GIT_USER=$(shell git config user.email)
 DB_CONTAINER=$(shell docker-compose ps -q db)
+APPLICATION_ENV=$(shell docker-compose exec django bash -c 'echo $$APPLICATION_ENV')
 
 define set_app
 	sed 's/^\(APPLICATION=\).*$//\1$(1)/' -i .env django/.env
@@ -50,15 +51,17 @@ css-watch: ## Watch the sass files and create the css when they change
 .PHONY: dumpconfig
 dumpconfig: ## Dump the current camac and caluma configuration
 	docker-compose exec django python manage.py camac_dump_config
-	@yarn prettier --loglevel silent --write "django/${APPLICATION}/config/*.json"
+	@yarn prettier --log-level silent --write "django/${APPLICATION}/config/*.json"
 
 .PHONY: dumpdata
 dumpdata: ## Dump the current camac and caluma data
 	docker-compose exec django /app/manage.py camac_dump_data
-	@yarn prettier --loglevel silent --write "django/${APPLICATION}/data/*.json"
+	@yarn prettier --log-level silent --write "django/${APPLICATION}/data/*.json"
 
 .PHONY: loadconfig-camac
 loadconfig-camac: ## Load the camac configuration
+	@echo "\e[31m⚠️  Loading CAMAC config. This can take a moment, especially if migrations are running.\e[0m"
+	@echo "\e[31m   While this is in progress, do not use the web-interface yet!\e[0m"
 	@docker-compose exec django ./wait-for-it.sh -t 300 127.0.0.1:80 -- python manage.py camac_load --user $(GIT_USER)
 
 .PHONY: loadconfig-dms
@@ -71,47 +74,54 @@ loadconfig-dms: ## Load the DMS configuration
 dumpconfig-dms: ## Dump the DMS configuration
 	@if docker-compose config|grep -q document-merge-service; then \
 		docker-compose exec -u root document-merge-service bash -c "poetry run python manage.py dumpdata api.Template > /tmp/document-merge-service/dump.json" ; \
-		yarn prettier --loglevel silent --write "document-merge-service/${APPLICATION}/dump.json"; \
+		yarn prettier --log-level silent --write "document-merge-service/${APPLICATION}/dump.json"; \
 	fi
 
-
-.PHONY: loadconfig-alexandria
-loadconfig-alexandria: ## Load the Alexandria configuration
-	@if docker-compose config|grep -q alexandria; then \
-		docker-compose exec alexandria poetry run python manage.py loaddata /tmp/alexandria/dump.json; \
-	fi
-
-.PHONY: dumpconfig-alexandria
-dumpconfig-alexandria: ## Load the Alexandria configuration
-	@if docker-compose config|grep -q alexandria; then \
-		docker-compose exec -u root alexandria bash -c "poetry run python manage.py dumpdata alexandria_core.Category > /tmp/alexandria/dump.json" ; \
-		yarn prettier --loglevel silent --write "alexandria/${APPLICATION}/dump.json"; \
-	fi
 
 .PHONY: loadconfig-keycloak
 loadconfig-keycloak: ## Load the keycloak configuration
-	@if ! [ "${APPLICATION}" = "kt_schwyz" ]; then \
+	@if [ ${APPLICATION_ENV} = "development" ]; then \
+		echo -n "loading keycloak config... "; \
 		docker-compose exec keycloak /opt/keycloak/bin/kc.sh import --override true --file /opt/keycloak/data/import/test-config.json >/dev/null 2>&1 || true; \
+		echo "done."; \
 	fi
 
 .PHONY: dumpconfig-keycloak
 dumpconfig-keycloak: ## Dump the keycloak configuration
-	@if ! [ "${APPLICATION}" = "kt_schwyz" ]; then \
-		docker-compose exec keycloak /opt/keycloak/bin/kc.sh export --file /opt/keycloak/data/import/test-config.json;  \
-		yarn prettier --loglevel silent --write "keycloak/config/${APPLICATION}-test-config.json"; \
-	fi
+	docker-compose exec keycloak /opt/keycloak/bin/kc.sh export --file /opt/keycloak/data/import/test-config.json;  \
+	yarn prettier --log-level silent --write "keycloak/config/${APPLICATION}-test-config.json"; \
 
 .PHONY: loadconfig
-loadconfig: loadconfig-camac loadconfig-dms loadconfig-keycloak loadconfig-alexandria ## Load all configuration
+loadconfig: loadconfig-camac loadconfig-dms loadconfig-keycloak ## Load all configuration
+	@echo "\e[32mConfiguration has been loaded successfully. Go ahead and login.🚀\e[0m"
 
 .PHONY: dbshell
 dbshell: ## Start a psql shell
 	@docker-compose exec db psql -Ucamac ${APPLICATION}
 
 .PHONY: ember-dev
-ember-dev: ## Set ember.development to true in application.ini
-	@sed -re 's/ember\.development.*/ember.development = true/' -i php/${APPLICATION}/configs/application.ini
+ember-dev: ## Set up .env and application.ini for local ember development
+	@if docker-compose config|grep -q php; then \
+		sed -re 's/ember\.development.*/ember\.development = true/' -i php/${APPLICATION}/configs/application.ini; \
+		sed -re 's/portal\.uri.*/portal\.uri = http:\/\/localhost:4200/' -i php/${APPLICATION}/configs/application.ini; \
+		sed -re 's/baseURLPortal.*/baseURLPortal = http:\/\/localhost:4200/' -i php/${APPLICATION}/configs/application.ini; \
+		echo "Set ember.development = true in application.ini"; \
+	fi
+	@grep -q PORTAL_URL .env || echo PORTAL_URL=http://localhost:4200 >> .env
+	@grep -q INTERNAL_URL .env || echo INTERNAL_URL=http://localhost:4400 >> .env
+	@echo "Added local PORTAL_URL and INTERNAL_URL to .env."
 
+.PHONY: ember-dev-reset
+ember-dev-reset: ## Set up .env and application.ini for non-local runtime (docker)
+	@if docker-compose config|grep -q php; then \
+		sed -re 's/ember\.development.*/ember.development = false/' -i php/${APPLICATION}/configs/application.ini; \
+		sed -re 's/portal\.uri.*/portal.uri = http:\/\/ebau-portal.local/' -i php/${APPLICATION}/configs/application.ini; \
+		sed -re 's/baseURLPortal.*/baseURLPortal = http:\/\/ebau-portal.local/' -i php/${APPLICATION}/configs/application.ini; \
+		echo "Set ember.development = false in application.ini"; \
+	fi
+	@sed -i '/PORTAL_URL/d' .env
+	@sed -i '/INTERNAL_URL/d' .env
+	@echo "Removed PORTAL_URL and INTERNAL_URL from .env."
 
 ######### Changes from eBau Bern #########
 
@@ -176,6 +186,10 @@ kt_uri: ## Set APPLICATION to kt_uri
 kt_schwyz: ## Set APPLICATION to kt_schwyz
 	$(call set_app,kt_schwyz)
 
+.PHONY: kt_so
+kt_so: ## Set APPLICATION to kt_so
+	$(call set_app,kt_so)
+
 .PHONY: kt_bern
 kt_bern: ## Set APPLICATION to kt_bern
 	$(call set_app,kt_bern)
@@ -196,6 +210,10 @@ profile-full: ## Set docker compose profile to "full"
 profile-slim: ## Unset docker compose profile
 	$(call set_profile,"",false)
 
+.PHONY: build-keycloak-themes
+build-keycloak-themes: ## Build the .jar file for the keycloak themes
+	@cd keycloak/themes/; ./mvnw install
+
 .PHONY: clean
 clean: ## Remove temporary files / build artefacts etc
 	@find . -name node_modules -type d | xargs rm -rf
@@ -205,13 +223,13 @@ clean: ## Remove temporary files / build artefacts etc
 	@rm -rf ./ember/tmp ./ember-caluma-portal/tmp ./ember-camac-ng/tmp
 	@rm -rf ./ember/build ./ember-caluma-portal/build ./ember-camac-ng/build
 
+.PHONY: next-version
+next-version: ## Determine next version number
+	@node tools/bin/next-version.js
+
 .PHONY: release
 release: ## Draft a new release
-	@if [ -z $(version) ]; then echo "Please pass a version: make release version=x.x.x"; exit 1; fi
-	@echo $(version) > VERSION.txt
-	@sed -i -e 's/"version": ".*",/"version": "$(version)",/g' ember-camac-ng/package.json
-	@sed -i -e 's/"version": ".*",/"version": "$(version)",/g' ember-caluma-portal/package.json
-	@sed -i -e 's/__version__ = ".*"/__version__ = "$(version)"/g' django/camac/camac_metadata.py
+	@tools/bump-version.sh $(version)
 
 .PHONY: release-folder
 release-folder: ## Add a template for a release folder
@@ -231,7 +249,7 @@ user-admin: ## Add most recent user to admin group
 .PHONY: debug-django
 debug-django: ## start a api container with service ports for debugging
 	@docker-compose stop django
-	@echo "Run `./manage.py runserver 0:80` to start the debugging server"
+	@echo "Run './manage.py runserver 0:80' to start the debugging server"
 	@docker-compose run --user root --use-aliases --service-ports django bash
 
 .PHONY: load-be-dump
@@ -286,3 +304,16 @@ unlink-ember-caluma:
 	@projectcaluma/ember-workflow \
 	@projectcaluma/ember-distribution
 	@yarn --force
+
+.PHONY: watch-templatefiles
+watch-templatefiles: # Upload DMS templates to minio on change
+	@if command -v inotifywait >/dev/null; then \
+		while inotifywait -e close_write document-merge-service/${APPLICATION}/templatefiles; do make update-templatefiles; done; \
+	else \
+		echo "Please install inotify-tools to use this target"; \
+		exit 1; \
+	fi
+
+.PHONY: update-templatefiles
+update-templatefiles: # Upload DMS templates to minio
+	@docker compose run --rm --no-deps mc -u

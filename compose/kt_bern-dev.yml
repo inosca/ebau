@@ -1,42 +1,58 @@
 version: "3.4"
 services:
   cache:
-    ports:
-      - "11211:11211"
+    image: memcached:1.6-alpine
     networks:
       - ebau.local
 
   proxy:
+    image: nginx:1.25-alpine
+    depends_on:
+      - ember-caluma-portal
+      - ember-camac-ng
+      - django
+      - keycloak
+      - mailhog
+      - document-merge-service
     volumes:
       - ../proxy/kt_bern.conf:/etc/nginx/conf.d/default.conf:ro
+      - djangomedia:/var/lib/camac/media:ro
+      - djangotmpmedia:/tmp/camac/tmpfiles:ro
     ports:
       - "80:80"
     networks:
       ebau.local:
         aliases:
           - ebau.local
-          - ember-ebau.local
           - ebau-portal.local
           - ebau-rest-portal.local
           - ebau-keycloak.local
 
   db:
-    # Workaround, same name of image as cache_from
-    # better be named differently once following is fixed:
-    # https://github.com/docker/compose/issues/5458
-    # see also other services below
     image: acr.run/camac-ng/camac-ng/db:master
+    build:
+      context: ../db
+      cache_from:
+        - acr.run/camac-ng/camac-ng/db:master
     ports:
       - "5432:5432"
     environment:
-      - POSTGRES_PASSWORD=camac
+      POSTGRES_USER: camac
+      POSTGRES_PASSWORD: camac
+      POSTGRES_DATABASE: ${APPLICATION}
     volumes:
+      - pgdata:/var/lib/postgresql/data
       - ../db/init-user-db.sh:/docker-entrypoint-initdb.d/init-user-db.sh:ro
     networks:
       - ebau.local
 
   django: &django
     image: acr.run/camac-ng/camac-ng/django:master
+    depends_on:
+      - cache
+      - db
+      - document-merge-service
+      - mailhog
     build:
       args:
         REQUIREMENTS: requirements-dev.txt
@@ -45,95 +61,149 @@ services:
       - "5678:5678"
     volumes:
       - ../django:/app
+      - djangomedia:/var/lib/camac/media
+      - djangotmpmedia:/tmp/camac/tmpfiles
     environment:
-      - ENV=development
-      - APPLICATION_ENV=development
-      - KEYCLOAK_URL=http://ebau-keycloak.local/auth/
-      - DATABASE_PASSWORD=camac
-      - DATABASE_USER=camac
-      - DJANGO_EMAIL_HOST=mailhog
-      - DJANGO_EMAIL_PORT=1025
-      - OAUTHLIB_INSECURE_TRANSPORT=1
-      - OIDC_USERINFO_ENDPOINT=http://ebau-keycloak.local/auth/realms/ebau/protocol/openid-connect/userinfo
-      - PYTHONDONTWRITEBYTECODE=1
-      - GWR_FERNET_KEY=GUdwT6yKxqfszrnHC7wyKDmtVZdhjSVQEPnpeJYNLf8=
-      - GWR_HOUSING_STAT_BASE_URI=https://www-r.housing-stat.ch/regbl/api/ech0216/2
+      APPLICATION_ENV: development
+      APPLICATION: ${APPLICATION}
+      DATABASE_HOST: db
+      DATABASE_NAME: ${APPLICATION}
+      DATABASE_PASSWORD: camac
+      DATABASE_USER: camac
+      DJANGO_CACHE_LOCATION: cache:11211
+      DJANGO_CLAMD_ENABLED: false
+      DJANGO_EMAIL_HOST: mailhog
+      DJANGO_EMAIL_PORT: 1025
+      DJANGO_MEDIA_ROOT: /var/lib/camac/media
+      DJANGO_TEMPFILE_DOWNLOAD_URL: /tmp
+      DOCUMENT_MERGE_SERVICE_URL: http://document-merge-service:8000/document-merge-service/api/v1/
+      ENABLE_HISTORICAL_API: true
+      ENV: development
+      KEYCLOAK_URL: http://ebau-keycloak.local/auth/
+      LANGUAGE_CODE: de
+      LANGUAGES: de,fr
+      OAUTHLIB_INSECURE_TRANSPORT: 1
+      OIDC_USERINFO_ENDPOINT: http://ebau-keycloak.local/auth/realms/ebau/protocol/openid-connect/userinfo
+      PYTHONDONTWRITEBYTECODE: 1
+      # GWR
+      GWR_FERNET_KEY: GUdwT6yKxqfszrnHC7wyKDmtVZdhjSVQEPnpeJYNLf8=
+      GWR_HOUSING_STAT_BASE_URI: https://www-r.housing-stat.ch/regbl/api/ech0216/2
+      # Caluma
+      DATA_SOURCE_CLASSES: camac.caluma.extensions.data_sources.Landowners,camac.caluma.extensions.data_sources.Municipalities,camac.caluma.extensions.data_sources.Services,camac.caluma.extensions.data_sources.Attachments
+      DYNAMIC_GROUPS_CLASSES: camac.caluma.extensions.dynamic_groups.CustomDynamicGroups
+      DYNAMIC_TASKS_CLASSES: camac.caluma.extensions.dynamic_tasks.CustomDynamicTasks
+      EVENT_RECEIVER_MODULES: camac.caluma.extensions.events
+      PERMISSION_CLASSES: camac.caluma.extensions.permissions.CustomPermission
+      VALIDATION_CLASSES: camac.caluma.extensions.validations.CustomValidation
+      VISIBILITY_CLASSES: camac.caluma.extensions.visibilities.CustomVisibilityBE
     networks:
       - ebau.local
     command: /bin/sh -c "./wait-for-it.sh db:5432 -- ./manage.py migrate && ./manage.py collectstatic --noinput && ./manage.py runserver 0:80 --pythonpath /app/$APPLICATION"
 
   django-q:
     <<: *django
+    build:
+      context: ../django
+      cache_from:
+        - acr.run/camac-ng/camac-ng/django:master
     command: /bin/sh -c "./wait-for-it.sh db:5432 -- python manage.py qcluster --pythonpath /app/$APPLICATION"
     # to enable live reloading on file changes: comment above line, uncomment command below and run next line's command in the container
     # find -wholename "**/*.py" | entr python manage.py qcluster --pythonpath /app/$APPLICATION
-    #command: /bin/sh -c "while true; do sleep 10; done"
+    #command: /bin/sh -c "sleep inf"
     ports: []
 
   ember-camac-ng:
     image: acr.run/camac-ng/camac-ng/ember-camac-ng:master
+    build:
+      args:
+        APP_ENV: development
     networks:
       - ebau.local
 
   ember-caluma-portal:
     image: acr.run/camac-ng/camac-ng/ember-caluma-portal:master
-    environment:
-      - BE_GIS_URL=https://map2-test.apps.be.ch
-    networks:
-      - ebau.local
-
-  ember-ebau:
-    image: acr.run/camac-ng/camac-ng/ember-ebau:master
     build:
-      context: ../
-      dockerfile: ./ember-ebau/Dockerfile
-      cache_from:
-        - acr.run/camac-ng/camac-ng/ember-ebau:master
       args:
-        - APPLICATION=${APPLICATION}
+        BE_GIS_URL: https://map2-test.apps.be.ch
     networks:
       - ebau.local
 
 
   keycloak:
-    image: acr.run/camac-ng/camac-ng/keycloak-${APPLICATION}:master
+    image: acr.run/camac-ng/camac-ng/keycloak:master
+    depends_on:
+      - db
+    build:
+      context: ../keycloak
+      cache_from:
+        - acr.run/camac-ng/camac-ng/keycloak:master
     volumes:
       - ../keycloak/config/${APPLICATION}-test-config.json:/opt/keycloak/data/import/test-config.json
+      - ../keycloak/themes/src/main/resources/theme/ebau-be:/opt/keycloak/themes/ebau-be-dev
     environment:
-      - KC_DB_PASSWORD=camac
-      - KC_DB_URL=jdbc:postgresql://db:5432/${APPLICATION}?currentSchema=keycloak
-      - KC_DB_USERNAME=camac
-      - KC_HOSTNAME=ebau-keycloak.local
-      - KEYCLOAK_ADMIN_PASSWORD=camac
+      KC_DB_PASSWORD: camac
+      KC_DB_URL: jdbc:postgresql://db:5432/${APPLICATION}?currentSchema=keycloak
+      KC_DB_USERNAME: camac
+      KC_HOSTNAME: ebau-keycloak.local
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: camac
     networks:
       - ebau.local
+    command:
+      [
+        "start",
+        "--spi-theme-static-max-age=-1",
+        "--spi-theme-cache-themes=false",
+        "--spi-theme-cache-templates=false",
+      ]
 
   mailhog:
+    image: mailhog/mailhog
     networks:
       - ebau.local
     environment:
-      - MH_UI_WEB_PATH=mailhog
+      MH_UI_WEB_PATH: mailhog
 
   document-merge-service:
+    image: acr.run/camac-ng/camac-ng/document-merge-service:master
+    depends_on:
+      - db
+      - cache
     networks:
       - ebau.local
+    cap_add:
+      - CAP_SYS_ADMIN
+    security_opt:
+      - apparmor:unconfined
     environment:
-      - ENV=dev
-      - OIDC_USERINFO_ENDPOINT=http://ebau-keycloak.local/auth/realms/ebau/protocol/openid-connect/userinfo
-      - OIDC_GROUPS_API=http://ebau.local/api/v1/me?include=service,service.service_parent,service.municipality
-    # There appears to be bug where libreoffice can only be started as the root
-    # user. The workaround of fixing owner and permissions of ~/.config did not
-    # work in our case.
-    #
-    # https://github.com/unoconv/unoconv/issues/241#issuecomment-549434601
-    # https://superuser.com/questions/564534/only-root-user-is-able-to-open-libreoffice
-    # user: "${UID:?Set UID env variable to your user id}"
+      ENV: dev
+      ISOLATE_UNOCONV: true
+      OIDC_USERINFO_ENDPOINT: http://ebau-keycloak.local/auth/realms/ebau/protocol/openid-connect/userinfo
+      CACHE_LOCATION: cache:11211
+      DATABASE_HOST: db
+      DATABASE_NAME: ${APPLICATION}
+      DATABASE_USER: camac
+      DATABASE_PASSWORD: camac
+      URL_PREFIX: document-merge-service/
+      EXTENSIONS_ARGUMENTS: DJANGO_API=http://django
+    user: "${UID:?Set UID env variable to your user id}"
+    volumes:
+      - ../document-merge-service/extensions:/app/document_merge_service/extensions
+      - ../document-merge-service/${APPLICATION}/templatefiles:/var/lib/document-merge-service/media
+      - ../document-merge-service/${APPLICATION}/dump.json:/tmp/document-merge-service/dump.json
     command:
       [
         "/bin/sh",
         "-c",
-        "wait-for-it.sh db:5432 -- poetry run python manage.py migrate && poetry run uwsgi",
+        "wait-for-it db:5432 -- poetry run python manage.py migrate && poetry run python manage.py runserver 0.0.0.0:8000",
       ]
 
 networks:
   ebau.local:
+
+volumes:
+  pgdata:
+  djangomedia:
+  djangotmpmedia:
+  phpsessions:
+  templatefiles:

@@ -4,7 +4,7 @@ services:
     image: memcached:1.6-alpine
 
   proxy:
-    image: nginx:1.23-alpine
+    image: nginx:1.25-alpine
     depends_on:
       - ember-caluma-portal
       - django
@@ -71,6 +71,7 @@ services:
     volumes:
       - djangomedia:/var/lib/camac/media
       - djangotmpmedia:/tmp/camac/tmpfiles
+    command: /bin/sh -c "./wait-for-it.sh db:5432 -- ./manage.py migrate && ./manage.py collectstatic --noinput && uwsgi"
 
   ember-caluma-portal:
     build:
@@ -83,7 +84,7 @@ services:
 
 
   clamav:
-    image: tiredofit/clamav:2.3.0
+    image: tiredofit/clamav:2.6.8
     environment:
       - CONCURRENT_DATABASE_RELOAD=false
       - DEFINITIONS_UPDATE_FREQUENCY=1440
@@ -92,37 +93,27 @@ services:
   keycloak:
     depends_on:
       - db
-    image: acr.run/camac-ng/keycloak-uri/keycloak:21.0.1_theme-v0.3.11
+    build:
+      context: ../keycloak
+      cache_from:
+        - acr.run/camac-ng/camac-ng/keycloak:master
     environment:
-      - KC_DB=postgres
       - KC_DB_URL=jdbc:postgresql://db:5432/${APPLICATION}?currentSchema=keycloak
-      - KC_HOSTNAME_STRICT_HTTPS=false
-      - KC_HTTP_ENABLED=true
-      - KC_HTTP_RELATIVE_PATH=/auth
-      - KC_LOG_LEVEL=WARN
-      - KC_PROXY=edge
-      - KEYCLOAK_ADMIN=admin
 
   document-merge-service:
-    image: ghcr.io/adfinis/document-merge-service:5.2.1
     depends_on:
-      - db
+      - cache
+    build:
+      context: ../document-merge-service
+      cache_from:
+        - acr.run/camac-ng/camac-ng/document-merge-service:master
+      args:
+        APPLICATION: ${APPLICATION}
+        CACHE_LOCATION: cache:11211
+        EXTENSIONS_ARGUMENTS: DJANGO_API=http://django
     volumes:
-      - ../document-merge-service/uwsgi.ini:/app/uwsgi.ini:ro
       - ../document-merge-service/kt_uri/templatefiles:/var/lib/document-merge-service/media
       - ../document-merge-service/kt_uri/dump.json:/tmp/document-merge-service/dump.json
-    environment:
-      - DATABASE_ENGINE=django.db.backends.postgresql
-      - DATABASE_HOST=db
-      - DATABASE_NAME=${APPLICATION}
-      - DATABASE_USER=camac
-      - REQUIRE_AUTHENTICATION=True
-      - GROUP_ACCESS_ONLY=True
-      - OIDC_BEARER_TOKEN_REVALIDATION_TIME=5
-      - OIDC_GROUPS_API_JSONPATH=$$.included[?(@.type=='services')].id
-      - OIDC_GROUPS_API_HEADERS=AUTHORIZATION,X-CAMAC-GROUP
-      - DOCXTEMPLATE_JINJA_EXTENSIONS=
-      - PAGINATION_ENABLED=False
 
 volumes:
   pgdata:

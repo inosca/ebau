@@ -1,0 +1,15 @@
+<span>
+  {{#if this.documentAttachmentResource.isRunning}}
+    <UkSpinner />
+  {{else}}
+    <UkIcon @icon="file-text" />
+    {{this.documentAttachmentResource.value.name}}
+  {{/if}}
+</span>
+<button
+  type="button"
+  class="uk-icon-button"
+  uk-icon="trash"
+  data-test-remove-attachment
+  {{on "click" (fn @removeAttachment @attachment)}}
+></button>

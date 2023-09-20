@@ -1,4 +1,3 @@
-import locale
 import sys
 from functools import partial
 
@@ -13,8 +12,6 @@ from camac.document.models import Attachment
 from camac.jexl import ExtractTransformSubjectAnalyzer
 
 from . import models
-
-locale.setlocale(locale.LC_ALL, f"{settings.LOCALE_NAME}.UTF-8")
 
 INSTANCE_STATE_NFD = "nfd"
 

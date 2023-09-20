@@ -15,6 +15,10 @@
     "kt_bern": {
       "compose": "compose/kt_bern.yml:compose/kt_bern-dev.yml",
       "loadconfig": "make loadconfig"
+    },
+    "kt_gr": {
+      "compose": "compose/kt_gr.yml:compose/kt_gr-dev.yml",
+      "loadconfig": "make loadconfig"
     }
   },
   "profiles": {

@@ -9,10 +9,10 @@ def test_check_password(admin_user):
 
 
 def test_get_full_name(admin_user):
-    admin_user.name = "Muster"
-    admin_user.surname = "Hans"
+    admin_user.name = "Hans"
+    admin_user.surname = "Muster"
 
-    assert admin_user.get_full_name() == "Muster Hans"
+    assert admin_user.get_full_name() == "Hans Muster"
 
 
 def test_me(admin_client, admin_user, user_group_factory, group_factory):

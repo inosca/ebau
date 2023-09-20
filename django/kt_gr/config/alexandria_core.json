@@ -1,0 +1,270 @@
+[
+  {
+    "model": "alexandria_core.category",
+    "pk": "alle-beteiligten",
+    "fields": {
+      "created_at": "2020-08-04T13:24:00.704Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2020-08-04T13:24:00.704Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "access": {
+          "are": "AdminService",
+          "public": "Read",
+          "support": "Admin",
+          "subservice": "AdminService",
+          "service-lead": "AdminService",
+          "municipality-lead": "AdminService"
+        }
+      },
+      "name": "{\"de\": \"Alle Beteiligten\", \"fr\": \"\", \"it\": \"Tutti coinvolti\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "color": "#CB68C1",
+      "parent": null
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "alle-kanton",
+    "fields": {
+      "created_at": "2020-08-04T13:24:00.690Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2020-08-04T13:24:00.690Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "access": {
+          "are": "AdminService",
+          "support": "Admin",
+          "service-lead": "AdminService"
+        }
+      },
+      "name": "{\"de\": \"Alle Kanton\", \"fr\": \"\", \"it\": \"Tutti i canton\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "color": "#66CFC9",
+      "parent": null
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "beilagen-zum-gesuch",
+    "fields": {
+      "created_at": "2020-08-04T13:24:00.677Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2020-08-04T13:24:00.677Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "access": {
+          "are": "Read",
+          "uso": "Read",
+          "public": "AdminNew",
+          "support": "Admin",
+          "subservice": "Read",
+          "service-lead": "Read",
+          "municipality-lead": "Read"
+        }
+      },
+      "name": "{\"de\": \"Beilagen zum Gesuch\", \"fr\": \"\", \"it\": \"Allegati alla domanda\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "color": "#9CDD69",
+      "parent": null
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "beilagen-zum-gesuch-grundstuecksangaben",
+    "fields": {
+      "created_at": "2023-08-23T13:17:14.214Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2023-08-23T14:14:56.223Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {},
+      "name": "{\"de\": \"Grundst\\u00fccksangaben\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"Unter die Begriffe *Grundst\\u00fccksangaben und Projektbeschrieb* fallen Gesuchsunterlagen wie z. B. Katasterplan (z. B. \\u00d6REB-Kataster), Grundbuchauszug, Dienstbarkeiten, Projektbeschrieb.\", \"fr\": \"\", \"it\": \"\"}",
+      "color": "#9CDD69",
+      "parent": "beilagen-zum-gesuch"
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "beilagen-zum-gesuch-gutachten-nachweise-begruendungen",
+    "fields": {
+      "created_at": "2023-08-23T13:17:37.288Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2023-08-23T14:14:59.452Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {},
+      "name": "{\"de\": \"Gutachten, Nachweise, Begr\\u00fcndungen\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"Unter die Begriffe *Gutachten, Nachweise, Begr\\u00fcndungen, Ausnahmebegehren* fallen Gesuchsunterlagen wie z. B. Vollmachten, Einverst\\u00e4ndnis Nachbarn, Nutzungsberechnungen, Energietechnische Massnahmennachweis (EMN), L\\u00e4rmschutznachweise, Brandschutznachweise.\", \"fr\": \"\", \"it\": \"\"}",
+      "color": "#9CDD69",
+      "parent": "beilagen-zum-gesuch"
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "beilagen-zum-gesuch-projektplaene-projektbeschrieb",
+    "fields": {
+      "created_at": "2023-08-23T13:17:57.988Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2023-08-23T14:15:01.518Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {},
+      "name": "{\"de\": \"Projektpl\\u00e4ne, Projektbeschrieb\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"Unter den Begriff*Projektpl\\u00e4ne* fallen Gesuchsunterlagen wie z. B. Situationsplan (Art. 12 und 13 BewD), Projektpl\\u00e4ne (Art. 14 BewD) wie Grundrisse, Schnitt- und Fassadenpl\\u00e4ne, Umgebungsgestaltungspl\\u00e4ne, Kanalisationspl\\u00e4ne, Siedlungsentw\\u00e4sserungspl\\u00e4ne.\", \"fr\": \"\", \"it\": \"\"}",
+      "color": "#9CDD69",
+      "parent": "beilagen-zum-gesuch"
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "beilagen-zum-gesuch-weitere-gesuchsunterlagen",
+    "fields": {
+      "created_at": "2023-08-23T13:18:15.877Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2023-08-23T14:15:03.551Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {},
+      "name": "{\"de\": \"Weitere Gesuchsunterlagen\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"Unter den Begriff *Weitere Gesuchsunterlagen* fallen Dokumentunterlagen wie z. B. Formulare - Anschluss Elektrizit\\u00e4t, Anschluss Gemeinschaftsantenne, Anschluss Gas, Anschluss Wasser, Wasser- / Abwasserinstallationen und andere Gesuchsunterlagen\", \"fr\": \"\", \"it\": \"\"}",
+      "color": "#9CDD69",
+      "parent": "beilagen-zum-gesuch"
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "beteiligte-behörden",
+    "fields": {
+      "created_at": "2020-08-04T13:24:00.699Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2020-08-04T13:24:00.699Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "access": {
+          "are": "AdminService",
+          "support": "Admin",
+          "subservice": "AdminService",
+          "service-lead": "AdminService",
+          "municipality-lead": "AdminService"
+        }
+      },
+      "name": "{\"de\": \"Beteiligte Beh\\u00f6rden\", \"fr\": \"\", \"it\": \"Autorit\\u00e0 coinvolte\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "color": "#8791EC",
+      "parent": null
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "intern",
+    "fields": {
+      "created_at": "2020-08-04T13:24:00.708Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2020-08-04T13:24:00.708Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "access": {
+          "are": "InternalAdmin",
+          "uso": "InternalAdmin",
+          "support": "Admin",
+          "subservice": "InternalAdmin",
+          "service-lead": "InternalAdmin",
+          "municipality-lead": "InternalAdmin"
+        }
+      },
+      "name": "{\"de\": \"Intern\", \"fr\": \"\", \"it\": \"Interno\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "color": "#DB8B72",
+      "parent": null
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "nachforderung",
+    "fields": {
+      "created_at": "2020-08-04T13:24:00.690Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2020-08-04T13:24:00.690Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "access": {
+          "are": "Read",
+          "public": "AdminAdditionalDemand",
+          "support": "Admin",
+          "service-lead": "Read",
+          "municipality-lead": "Read"
+        }
+      },
+      "name": "{\"de\": \"Nachforderung\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "color": "#66CFC9",
+      "parent": null
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "stellungnahmen-are",
+    "fields": {
+      "created_at": "2020-08-04T13:24:00.690Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2020-08-04T13:24:00.690Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "access": {
+          "are": "Read",
+          "uso": "InternalAdminCirculation",
+          "support": "Admin",
+          "service-lead": "InternalAdminCirculation"
+        }
+      },
+      "name": "{\"de\": \"Stellungnahmen ans ARE\", \"fr\": \"\", \"it\": \"Dichiarazioni all'ARE\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "color": "#66CFC9",
+      "parent": null
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "umweltschutzorganisationen",
+    "fields": {
+      "created_at": "2020-08-04T13:24:00.690Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2020-08-04T13:24:00.690Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "access": {
+          "are": "AdminService",
+          "uso": "Read",
+          "support": "Admin",
+          "municipality-lead": "AdminService"
+        }
+      },
+      "name": "{\"de\": \"Umweltschutzorganisationen\", \"fr\": \"\", \"it\": \"Organizzazioni di protezione ambientale\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "color": "#66CFC9",
+      "parent": null
+    }
+  }
+]

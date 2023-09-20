@@ -1,0 +1,56 @@
+# This configuration is much slimmer than in other cantons as it is only being
+# used for building and pushing the application images into the registry and not
+# for running an environment via `-prod` or `-stage` compose configuration.
+
+services:
+  django:
+    image: acr.run/camac-ng/camac-ng/django:${CI_COMMIT_TAG:-master}
+    build:
+      context: ../django
+      cache_from:
+        - acr.run/camac-ng/camac-ng/django:${CI_COMMIT_TAG:-master}
+
+  ember-caluma-portal:
+    image: acr.run/camac-ng/camac-ng/ember-caluma-portal:${CI_COMMIT_TAG:-master}
+    build:
+      context: ../
+      dockerfile: ./ember-caluma-portal/Dockerfile
+      cache_from:
+        - acr.run/camac-ng/camac-ng/ember-caluma-portal:${CI_COMMIT_TAG:-master}
+      target: env-prod
+      args:
+        APPLICATION: ${APPLICATION}
+        KEYCLOAK_HOST: $$KEYCLOAK_HOST
+        SO_GIS_URL: $$SO_GIS_URL
+        INTERNAL_URL: $$INTERNAL_URL
+        EGOV_PORTAL_URL: $$EGOV_PORTAL_URL
+
+  ember-ebau:
+    image: acr.run/camac-ng/camac-ng/ember-ebau:${CI_COMMIT_TAG:-master}
+    build:
+      context: ../
+      dockerfile: ./ember-ebau/Dockerfile
+      cache_from:
+        - acr.run/camac-ng/camac-ng/ember-ebau:${CI_COMMIT_TAG:-master}
+      target: env-prod
+      args:
+        APPLICATION: ${APPLICATION}
+        KEYCLOAK_HOST: $$KEYCLOAK_HOST
+        PORTAL_URL: $$PORTAL_URL
+        SO_GIS_URL: $$SO_GIS_URL
+
+  keycloak:
+    image: acr.run/camac-ng/camac-ng/keycloak:${CI_COMMIT_TAG:-master}
+    build:
+      context: ../keycloak
+      cache_from:
+        - acr.run/camac-ng/camac-ng/keycloak:${CI_COMMIT_TAG:-master}
+
+  document-merge-service:
+    image: acr.run/camac-ng/camac-ng/document-merge-service:${CI_COMMIT_TAG:-master}
+    build:
+      context: ../document-merge-service
+      cache_from:
+        - acr.run/camac-ng/camac-ng/document-merge-service:${CI_COMMIT_TAG:-master}
+      args:
+        APPLICATION: ${APPLICATION}

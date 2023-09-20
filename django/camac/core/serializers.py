@@ -1,3 +1,5 @@
+from urllib.parse import urlencode
+
 from caluma.caluma_workflow import api as workflow_api, models as workflow_models
 from django.conf import settings
 from django.db import transaction
@@ -137,14 +139,18 @@ class ResourceSerializer(serializers.ModelSerializer, MultilingualSerializer):
                 "/dashboard/help.phtml": "dashboard/help",
                 "/dashboard/news.phtml": "dashboard/news",
                 "/ember-camac-ng/dms-admin.phtml": "dms-admin",
+                "/ember-camac-ng/service-permissions.phtml": "service-permissions",
             }
             return type_mapping.get(obj.template)
 
         if resource_type == "emberlist":
-            instance_states = models.REmberList.objects.get(
-                pk=obj.pk
-            ).instance_states.split(",")
-            return f"/cases?instance_states={instance_states}"
+            params = {}
+            instance_states = models.REmberList.objects.get(pk=obj.pk).instance_states
+            params["instanceStates"] = instance_states
+            for option in ["hasPendingBillingEntry", "displaySearch"]:
+                if obj.class_field and option in obj.class_field:
+                    params[option] = "true"
+            return f"/cases?{urlencode(params)}"
 
         if resource_type == "workitemlistall":
             return "/work-items"
@@ -175,6 +181,14 @@ class InstanceResourceSerializer(serializers.ModelSerializer, MultilingualSerial
         if ir_type == "history":
             return "history"
 
+        if ir_type == "taskform":
+            task = obj.ir_taskform.task_id
+
+            return f"task-form/{task}"
+
+        if ir_type == "publication":
+            return "publication/public"
+
         if ir_type == "page":
             type_mapping = {
                 "/ember/instance.phtml": "form",
@@ -183,6 +197,8 @@ class InstanceResourceSerializer(serializers.ModelSerializer, MultilingualSerial
                 "/ember-camac-ng/distribution.phtml": "distribution",
                 "/ember-camac-ng/alexandria.phtml": "documents",
                 "/ember-camac-ng/legal-submission.phtml": "legal-submission",
+                "/ember-camac-ng/corrections.phtml": "corrections",
+                "/ember-camac-ng/additional-demand.phtml": "additional-demand",
             }
             return type_mapping.get(obj.template)
 

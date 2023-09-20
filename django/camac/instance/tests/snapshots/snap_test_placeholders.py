@@ -58,7 +58,6 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'BASE_URL': 'http://ebau.local',
     'BAUEINGABE_DATUM': '31. März 2021',
     'BAUENTSCHEID': 'Positiv',
-    'BAUENTSCHEID_ABSCHREIBUNGSVERFUEGUNG': False,
     'BAUENTSCHEID_BAUABSCHLAG': False,
     'BAUENTSCHEID_BAUABSCHLAG_MIT_WHST': False,
     'BAUENTSCHEID_BAUABSCHLAG_OHNE_WHST': False,
@@ -1264,17 +1263,6 @@ snapshots['test_dms_placeholders_docs 1'] = {
             'de': 'Bauentscheid',
             'fr': 'Décision relative à la demande de permis de construire'
         },
-        'nested_aliases': {
-        }
-    },
-    'BAUENTSCHEID_ABSCHREIBUNGSVERFUEGUNG': {
-        'aliases': [
-            {
-                'de': 'BAUENTSCHEID_ABSCHREIBUNGSVERFUEGUNG',
-                'fr': 'BAUENTSCHEID_ABSCHREIBUNGSVERFUEGUNG'
-            }
-        ],
-        'description': None,
         'nested_aliases': {
         }
     },
@@ -3279,7 +3267,6 @@ snapshots['test_dms_placeholders_docs_available_placeholders 1'] = [
     'BASE_URL',
     'BAUEINGABE_DATUM',
     'BAUENTSCHEID',
-    'BAUENTSCHEID_ABSCHREIBUNGSVERFUEGUNG',
     'BAUENTSCHEID_BAUABSCHLAG',
     'BAUENTSCHEID_BAUABSCHLAG_MIT_WHST',
     'BAUENTSCHEID_BAUABSCHLAG_OHNE_WHST',
@@ -3880,7 +3867,6 @@ snapshots['test_dms_placeholders_empty[Municipality] 1'] = {
     'BASE_URL': 'http://ebau.local',
     'BAUEINGABE_DATUM': '30. August 2021',
     'BAUENTSCHEID': '',
-    'BAUENTSCHEID_ABSCHREIBUNGSVERFUEGUNG': '',
     'BAUENTSCHEID_BAUABSCHLAG': '',
     'BAUENTSCHEID_BAUABSCHLAG_MIT_WHST': '',
     'BAUENTSCHEID_BAUABSCHLAG_OHNE_WHST': '',
@@ -4198,4 +4184,226 @@ snapshots['test_dms_placeholders_empty[Municipality] 1'] = {
     'ZUSTAENDIG_NAME': '',
     'ZUSTAENDIG_PHONE': '',
     'ZUSTAENDIG_TELEFON': ''
+}
+
+snapshots['test_dms_placeholders_gr[Municipality] 1'] = {
+    'ADDRESS': 'Teststrasse 12, Testhausen',
+    'ADRESSE': 'Teststrasse 12, Testhausen',
+    'ALLE_GESUCHSTELLER': 'Test AG, Esther Tester',
+    'ALLE_GESUCHSTELLER_NAME_ADDRESS': 'Test AG, Esther Tester, Testweg 321, 4321 Testingen',
+    'ALLE_GESUCHSTELLER_NAME_ADRESSE': 'Test AG, Esther Tester, Testweg 321, 4321 Testingen',
+    'ALLE_GRUNDEIGENTUEMER': 'Sandra Beispiel',
+    'ALLE_GRUNDEIGENTUEMER_NAME_ADDRESS': 'Sandra Beispiel, Beispielstrasse 16, 2222 Beispieldorf',
+    'ALLE_GRUNDEIGENTUEMER_NAME_ADRESSE': 'Sandra Beispiel, Beispielstrasse 16, 2222 Beispieldorf',
+    'ALLE_PROJEKTVERFASSER': 'Hans Muster',
+    'ALLE_PROJEKTVERFASSER_NAME_ADDRESS': 'Hans Muster, Bahnhofstrasse 3, 3600 Thun',
+    'ALLE_PROJEKTVERFASSER_NAME_ADRESSE': 'Hans Muster, Bahnhofstrasse 3, 3600 Thun',
+    'BASE_URL': 'http://ember-ebau.local',
+    'BAUEINGABE_DATUM': '31. März 2021',
+    'BAUENTSCHEID': 'Bewilligt',
+    'BAUENTSCHEID_DATUM': '30. August 2021',
+    'BAUVORHABEN': 'Einfamilienhaus',
+    'BEGINN_PUBLIKATIONSORGAN_GEMEINDE': '20. August 2021',
+    'BEGINN_PUBLIKATION_KANTONSAMTSBLATT': '22. August 2021',
+    'BESCHREIBUNG_BAUVORHABEN': 'Einfamilienhaus',
+    'BESCHREIBUNG_PROJEKTAENDERUNG': 'Projektänderung',
+    'DECISION_DATE': '30. August 2021',
+    'DESCRIPTION_MODIFICATION': 'Projektänderung',
+    'DOSSIER_NUMBER': 1,
+    'DOSSIER_NUMMER': 1,
+    'DOSSIER_TYP': 'Baugesuch',
+    'EBAU_URL': 'http://ember-ebau.local',
+    'EIGENE_NEBENBESTIMMUNGEN': '',
+    'EIGENE_STELLUNGNAHMEN': '',
+    'ENDE_PUBLIKATIONSORGAN_GEMEINDE': '21. August 2021',
+    'ENDE_PUBLIKATION_GEMEINDE': '21. August 2021',
+    'ENDE_PUBLIKATION_KANTON': '23. August 2021',
+    'ENDE_PUBLIKATION_KANTONSAMTSBLATT': '23. August 2021',
+    'FACHSTELLEN_KANTONAL': [
+        {
+            'BEANTWORTET': '',
+            'ERSTELLT': '30.08.2021',
+            'FRIST': '14.10.2011',
+            'NAME': 'Diane Adams'
+        },
+        {
+            'BEANTWORTET': '',
+            'ERSTELLT': '30.08.2021',
+            'FRIST': '22.01.2004',
+            'NAME': 'Colleen Villanueva'
+        },
+        {
+            'BEANTWORTET': '',
+            'ERSTELLT': '30.08.2021',
+            'FRIST': '02.05.1973',
+            'NAME': 'Melissa Crawford'
+        },
+        {
+            'BEANTWORTET': '',
+            'ERSTELLT': '30.08.2021',
+            'FRIST': '28.01.1976',
+            'NAME': 'Amber Hunt'
+        },
+        {
+            'BEANTWORTET': '28.08.2019',
+            'ERSTELLT': '30.08.2021',
+            'FRIST': '13.02.1997',
+            'NAME': 'Charles Skinner'
+        },
+        {
+            'BEANTWORTET': '03.09.1994',
+            'ERSTELLT': '30.08.2021',
+            'FRIST': '25.08.1998',
+            'NAME': 'Mark Keller'
+        }
+    ],
+    'FORM_NAME': 'Baugesuch',
+    'GEMEINDE': 'Gabriella Webb',
+    'GEMEINDE_ADRESSE': '',
+    'GEMEINDE_EMAIL': 'stephaniemoss@example.org',
+    'GEMEINDE_NAME_ADRESSE': 'Gemeinde Gabriella Webb',
+    'GEMEINDE_ORT': '',
+    'GEMEINDE_TELEFON': '',
+    'GESUCHSTELLER': 'Test AG, Esther Tester',
+    'GESUCHSTELLER_ADDRESS_1': 'Testweg 321',
+    'GESUCHSTELLER_ADDRESS_2': '4321 Testingen',
+    'GESUCHSTELLER_ADRESSE_1': 'Testweg 321',
+    'GESUCHSTELLER_ADRESSE_2': '4321 Testingen',
+    'GESUCHSTELLER_NAME_ADDRESS': 'Test AG, Esther Tester, Testweg 321, 4321 Testingen',
+    'GESUCHSTELLER_NAME_ADRESSE': 'Test AG, Esther Tester, Testweg 321, 4321 Testingen',
+    'GRUNDEIGENTUEMER': 'Sandra Beispiel',
+    'GRUNDEIGENTUEMER_ADDRESS_1': 'Beispielstrasse 16',
+    'GRUNDEIGENTUEMER_ADDRESS_2': '2222 Beispieldorf',
+    'GRUNDEIGENTUEMER_ADRESSE_1': 'Beispielstrasse 16',
+    'GRUNDEIGENTUEMER_ADRESSE_2': '2222 Beispieldorf',
+    'GRUNDEIGENTUEMER_NAME_ADDRESS': 'Sandra Beispiel, Beispielstrasse 16, 2222 Beispieldorf',
+    'GRUNDEIGENTUEMER_NAME_ADRESSE': 'Sandra Beispiel, Beispielstrasse 16, 2222 Beispieldorf',
+    'HEUTE': '30. August 2021',
+    'ID': 1,
+    'INSTANCE_ID': 1,
+    'JURISTIC_NAME': 'Test AG',
+    'JURISTISCHER_NAME': 'Test AG',
+    'KOORDINATEN': '2’569’941 / 1’298’923; 2’609’995 / 1’271’340',
+    'LANGUAGE': 'de',
+    'LEITBEHOERDE_ADDRESS_1': 'Teststrasse 1, 1234 Testdorf',
+    'LEITBEHOERDE_ADDRESS_2': '1234 Testdorf',
+    'LEITBEHOERDE_ADRESSE_1': 'Teststrasse 1, 1234 Testdorf',
+    'LEITBEHOERDE_ADRESSE_2': '1234 Testdorf',
+    'LEITBEHOERDE_CITY': 'Testdorf',
+    'LEITBEHOERDE_EMAIL': 'michelleboone@example.org',
+    'LEITBEHOERDE_NAME': 'Alex Smith',
+    'LEITBEHOERDE_NAME_KURZ': 'Alex Smith',
+    'LEITBEHOERDE_PHONE': '032163546546',
+    'LEITBEHOERDE_STADT': 'Testdorf',
+    'LEITBEHOERDE_TELEFON': '032163546546',
+    'MEINE_ORGANISATION_ADRESSE_1': 'Teststrasse 1, 1234 Testdorf',
+    'MEINE_ORGANISATION_ADRESSE_2': '1234 Testdorf',
+    'MEINE_ORGANISATION_EMAIL': 'michelleboone@example.org',
+    'MEINE_ORGANISATION_NAME': 'Alex Smith',
+    'MEINE_ORGANISATION_NAME_ADRESSE': 'Alex Smith, Teststrasse 1, 1234 Testdorf, 1234 Testdorf',
+    'MEINE_ORGANISATION_NAME_KURZ': 'Alex Smith',
+    'MEINE_ORGANISATION_ORT': 'Testdorf',
+    'MEINE_ORGANISATION_TELEFON': '032163546546',
+    'MUNICIPALITY': 'Gabriella Webb',
+    'MUNICIPALITY_ADDRESS': '',
+    'NAME': '',
+    'NEBENBESTIMMUNGEN': '',
+    'NEBENBESTIMMUNGEN_MAPPED': [
+    ],
+    'PARZELLE': '123465, 789876',
+    'PROJEKTVERFASSER': 'Hans Muster',
+    'PROJEKTVERFASSER_ADDRESS_1': 'Bahnhofstrasse 3',
+    'PROJEKTVERFASSER_ADDRESS_2': '3600 Thun',
+    'PROJEKTVERFASSER_ADRESSE_1': 'Bahnhofstrasse 3',
+    'PROJEKTVERFASSER_ADRESSE_2': '3600 Thun',
+    'PROJEKTVERFASSER_NAME_ADDRESS': 'Hans Muster, Bahnhofstrasse 3, 3600 Thun',
+    'PROJEKTVERFASSER_NAME_ADRESSE': 'Hans Muster, Bahnhofstrasse 3, 3600 Thun',
+    'PUBLIKATION_LINK': 'http://ebau-portal.local/public-instances/1',
+    'PUBLIKATION_TEXT': 'Text',
+    'SPRACHE': 'de',
+    'START_PUBLIKATION_GEMEINDE': '20. August 2021',
+    'START_PUBLIKATION_KANTON': '22. August 2021',
+    'STATUS': 'David Rangel',
+    'STELLUNGNAHME': '',
+    'TODAY': '30. August 2021',
+    'ZIRKULATION_ALLE': [
+        {
+            'BEANTWORTET': '',
+            'ERSTELLT': '30.08.2021',
+            'FRIST': '14.10.2011',
+            'NAME': 'Diane Adams'
+        },
+        {
+            'BEANTWORTET': '',
+            'ERSTELLT': '30.08.2021',
+            'FRIST': '22.01.2004',
+            'NAME': 'Colleen Villanueva'
+        },
+        {
+            'BEANTWORTET': '',
+            'ERSTELLT': '30.08.2021',
+            'FRIST': '02.05.1973',
+            'NAME': 'Melissa Crawford'
+        },
+        {
+            'BEANTWORTET': '',
+            'ERSTELLT': '30.08.2021',
+            'FRIST': '28.01.1976',
+            'NAME': 'Amber Hunt'
+        },
+        {
+            'BEANTWORTET': '28.08.2019',
+            'ERSTELLT': '30.08.2021',
+            'FRIST': '13.02.1997',
+            'NAME': 'Charles Skinner'
+        },
+        {
+            'BEANTWORTET': '03.09.1994',
+            'ERSTELLT': '30.08.2021',
+            'FRIST': '25.08.1998',
+            'NAME': 'Mark Keller'
+        }
+    ],
+    'ZIRKULATION_FACHSTELLEN': [
+        {
+            'BEANTWORTET': '28.08.2019',
+            'ERSTELLT': '30.08.2021',
+            'FRIST': '13.02.1997',
+            'NAME': 'Charles Skinner'
+        },
+        {
+            'BEANTWORTET': '03.09.1994',
+            'ERSTELLT': '30.08.2021',
+            'FRIST': '25.08.1998',
+            'NAME': 'Mark Keller'
+        }
+    ],
+    'ZIRKULATION_GEMEINDEN': [
+        {
+            'BEANTWORTET': '',
+            'ERSTELLT': '30.08.2021',
+            'FRIST': '02.05.1973',
+            'NAME': 'Melissa Crawford'
+        },
+        {
+            'BEANTWORTET': '',
+            'ERSTELLT': '30.08.2021',
+            'FRIST': '28.01.1976',
+            'NAME': 'Amber Hunt'
+        }
+    ],
+    'ZIRKULATION_RUECKMELDUNGEN': [
+        {
+            'ANTWORT': '',
+            'NEBENBESTIMMUNGEN': 'Nebenbestimmungen 5',
+            'STELLUNGNAHME': 'Stellungnahme 5',
+            'VON': 'Charles Skinner'
+        },
+        {
+            'ANTWORT': '',
+            'NEBENBESTIMMUNGEN': 'Nebenbestimmungen 6',
+            'STELLUNGNAHME': 'Stellungnahme 6',
+            'VON': 'Mark Keller'
+        }
+    ]
 }

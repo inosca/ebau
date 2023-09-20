@@ -1,0 +1,19 @@
+query Decisions($decisionSlug: String!) {
+  allQuestions(filter: [{ slugs: [$decisionSlug] }]) {
+    edges {
+      node {
+        slug
+        ... on ChoiceQuestion {
+          options {
+            edges {
+              node {
+                slug
+                label
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

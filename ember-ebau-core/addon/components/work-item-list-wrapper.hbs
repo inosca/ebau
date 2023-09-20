@@ -9,6 +9,7 @@
       (hash value="own" label=(t "workItems.filters.own"))
     }}
     @onChange={{@setFilter}}
+    @size="small"
   />
   <Filter.RadioButtons
     @name="type"
@@ -20,15 +21,18 @@
       (hash value="unread" label=(t "workItems.filters.unread"))
     }}
     @onChange={{@setFilter}}
+    @size="small"
   />
   <Filter.RadioButtons
     @name="status"
     @label={{t "workItems.filters.status"}}
+    @size="small"
     @selected={{@status}}
     @options={{
       array
-      (hash value="open" label=(t "workItems.filters.open"))
-      (hash value="closed" label=(t "workItems.filters.closed"))
+      (hash value="READY" label=(t "workItems.filters.open"))
+      (hash value="COMPLETED" label=(t "workItems.filters.closed"))
+      (hash value="SUSPENDED" label=(t "workItems.filters.suspended"))
     }}
     @onChange={{@setFilter}}
   />
@@ -42,6 +46,7 @@
       (hash value="control" label=(t "workItems.filters.control"))
     }}
     @onChange={{@setFilter}}
+    @size="small"
   />
   <Filter.RadioButtons
     @name="order"
@@ -53,6 +58,7 @@
       (hash value="new" label=(t "workItems.filters.new"))
     }}
     @onChange={{@setFilter}}
+    @size="small"
   />
 </Filters>
 
