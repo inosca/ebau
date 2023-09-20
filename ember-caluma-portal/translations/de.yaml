@@ -381,6 +381,7 @@ be-submit-instance:
   success: "Das Gesuch wurde erfolgreich eingereicht."
   failed-camac: "Fehler beim Schreiben auf Schnittstelle."
   failed-message: "Hoppla, etwas ist schief gelaufen. Bitte überprüfen Sie Ihre Eingabedaten nochmals. {reasons}"
+  button-hint-text: "<strong>Hinweis:</strong> Als Systembetrieb können keine Gesuche eingereicht werden."
 
 claims:
   deadline: "Fällig"
