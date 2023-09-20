@@ -63,7 +63,7 @@
           {{~this.instance.value.rejectionFeedback~}}
         </p>
       </div>
-      <p class="uk-text-meta">{{t "instances.rejectionInfoText"}}</p>
+      <p class="uk-alert uk-text-bolder">{{t "instances.rejectionInfoText"}}</p>
     </div>
   </div>
 
@@ -100,7 +100,7 @@
   </div>
   <div class="uk-width-3-4 uk-width-2-3@m">
     {{#if (can "create copy of instance" this.instance.value)}}
-      <h3 class="instance-overview__action-title">
+      <h3 class="instance-overview__action-title uk-text-bolder">
         {{t "instances.rejectionTitle"}}
         {{t "instances.rejectionTitleSuffix"}}
       </h3>
