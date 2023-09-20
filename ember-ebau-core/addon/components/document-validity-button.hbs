@@ -35,4 +35,10 @@
       <span class="uk-text-muted uk-margin-small-left uk-animation-fade">{{t "document-validity-button.loading"}}</span>
     {{/if}}
   {{/if}}
+  
+  {{#if (and this.showButtonHint this.buttonHintText)}}
+    <div class="uk-alert">
+      {{this.buttonHintText}}
+    </div>
+  {{/if}}
 </DocumentValidity>

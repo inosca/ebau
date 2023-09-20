@@ -8,9 +8,11 @@ export default class BeSubmitInstanceComponent extends DocumentValidityButtonCom
   @service notification;
   @service router;
   @service fetch;
+  @service session;
 
   validateOnEnter = true;
   showLoadingHint = true;
+  showButtonHint = true;
   type = "submit";
 
   @dropTask
@@ -52,5 +54,13 @@ export default class BeSubmitInstanceComponent extends DocumentValidityButtonCom
       this.args.field.answer.value = null;
       yield this.args.field.save.perform();
     }
+  }
+
+  get buttonHintText() {
+    if (this.session.isSupport) {
+      return this.intl.t("be-submit-instance.button-hint-text", { htmlSafe: true });
+    }
+
+    return null;
   }
 }
