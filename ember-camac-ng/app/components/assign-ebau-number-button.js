@@ -1,6 +1,5 @@
 import { service } from "@ember/service";
 import Component from "@glimmer/component";
-import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
 
 export default class TaskFormButtonComponent extends Component {
@@ -8,7 +7,9 @@ export default class TaskFormButtonComponent extends Component {
   @service intl;
   @service fetch;
 
-  @queryManager apollo;
+  get showCompleteAssignEbauNumberButton() {
+    return this.args.field.caseInformation.value?.workItemStatus === "READY";
+  }
 
   @dropTask
   *completeAssignEbauNumber(validateFn) {
