@@ -51,11 +51,34 @@ export default class EditServiceComponent extends Component {
     return service;
   });
 
+  get isValidWebsite() {
+    if (!this.service.value.website) {
+      return true;
+    }
+
+    try {
+      const url = new URL(this.service.value.website);
+      if (["http:", "https:"].includes(url.protocol)) {
+        return true;
+      }
+      return false;
+    } catch {
+      return false;
+    }
+  }
+
   @dropTask
   *save(event) {
     event.preventDefault();
 
     try {
+      if (!this.isValidWebsite) {
+        this.notification.danger(
+          this.intl.t("service-permissions.website-validation-error"),
+        );
+        return;
+      }
+
       const name = this.postfix
         ? `${this.name.trim()} (${this.postfix})`
         : this.name;
