@@ -1,4 +1,8 @@
 service-permissions:
+
+  website-placeholder: "https://be.ch"
+  website-hint: "Le site web doit être enregistré au format suivant : https://be.ch"
+
   sub-services-add-warning: |-
     <b>ATTENTION :</b> Veuillez-vous assurer que seules les unités d'un service
     spécialisé sont saisies, qui ne sont pas déjà disponibles dans le système.

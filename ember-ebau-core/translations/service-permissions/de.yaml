@@ -8,6 +8,9 @@ service-permissions:
   name: "Name"
   phone: "Telefon"
   website: "Webseite"
+  website-placeholder: "https://gr.ch"
+  website-hint: "Die Webseite muss im folgenden Format eingetragen werden: https://gr.ch"
+  website-validation-error: Das Format der Eingabe im Feld "Webseite" ist ungültig.
   zip: "PLZ"
   notification: "Notifikationen empfangen"
   responsibility-construction-control: "Zuständigkeit in Baukontrolle übernehmen"
