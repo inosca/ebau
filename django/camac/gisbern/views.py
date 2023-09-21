@@ -36,7 +36,7 @@ def get_polygon(egrid):
     response = _session.get(
         build_url(
             settings.GIS_BASE_URL,
-            f"/geoservice2/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer?service=WFS&version=2.0.0&Request=GetFeature&typename=a42geo_a42geo_ebau_kt_wfs_d_fk:DIPANU_DIPANUF&count=10&Filter=%3Cogc:Filter%3E%3Cogc:PropertyIsEqualTo%20matchCase=%22true%22%3E%3Cogc:PropertyName%3EEGRID%3C/ogc:PropertyName%3E%3Cogc:Literal%3E{egrid}%3C/ogc:Literal%3E%3C/ogc:PropertyIsEqualTo%3E%3C/ogc:Filter%3E",
+            f"/geoservice3/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer?service=WFS&version=2.0.0&Request=GetFeature&typename=a42geo_a42geo_ebau_kt_wfs_d_fk:DIPANU_DIPANUF&count=10&Filter=%3Cogc:Filter%3E%3Cogc:PropertyIsEqualTo%20matchCase=%22true%22%3E%3Cogc:PropertyName%3EEGRID%3C/ogc:PropertyName%3E%3Cogc:Literal%3E{egrid}%3C/ogc:Literal%3E%3C/ogc:PropertyIsEqualTo%3E%3C/ogc:Filter%3E",
         )
     )
 
@@ -106,7 +106,7 @@ def get_gis_data(polygon):
     ).read()
 
     response_kanton = _session.post(
-        "{0}/geoservice2/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer".format(
+        "{0}/geoservice3/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer".format(
             settings.GIS_BASE_URL
         ),
         data=get_feature_xml.format(baseURL=settings.GIS_BASE_URL, query=query),
