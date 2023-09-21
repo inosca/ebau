@@ -391,7 +391,7 @@ be-submit-instance:
   success: "Le dossier a été soumise avec succès."
   failed-camac: "Erreur d'écriture sur le serveur."
   failed-message: "Oups, quelque chose s'est mal passé. Veuillez vérifier vos données d'entrée à nouveau. {reasons}"
-  button-hint-text: ""
+  button-hint-text: "<strong>Remarque :</strong> aucune demande ne peut être soumise en tant que \"Systembetrieb\"."
 
 claims:
   deadline: "Dû"
