@@ -27,7 +27,7 @@ export default class HistoryComponent extends Component {
     });
 
     this._entries = [...this._entries, ...entries];
-    this.hasNextPage = Boolean(entries.links.next);
+    this.hasNextPage = Boolean(entries.links?.next);
 
     return this._entries;
   }
