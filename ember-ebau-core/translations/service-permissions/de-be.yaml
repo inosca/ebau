@@ -1,4 +1,8 @@
 service-permissions:
+
+  website-placeholder: "https://be.ch"
+  website-hint: "Die Webseite muss im folgenden Format eingetragen werden: https://be.ch"
+
   sub-services-add-warning: |-
     <b>ACHTUNG:</b> Bitte stellen Sie sicher, dass nur Unterfachstellen
     erfasst werden, welche nicht bereits im System vorhanden sind. Bereits
