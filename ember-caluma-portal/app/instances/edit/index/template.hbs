@@ -63,7 +63,11 @@
           {{~this.instance.value.rejectionFeedback~}}
         </p>
       </div>
-      <p class="uk-alert uk-text-bolder">{{t "instances.rejectionInfoText"}}</p>
+      <div uk-alert
+        class="uk-margin-remove-top instance-overview__action--highlight uk-width-1-1 uk-padding-small"
+      >
+        {{t "instances.rejectionInfoText" htmlSafe=true}}
+      </div>
     </div>
   </div>
 
@@ -100,20 +104,23 @@
   </div>
   <div class="uk-width-3-4 uk-width-2-3@m">
     {{#if (can "create copy of instance" this.instance.value)}}
-      <h3 class="instance-overview__action-title uk-text-bolder">
-        {{t "instances.rejectionTitle"}}
-        {{t "instances.rejectionTitleSuffix"}}
-      </h3>
-      <p>
-        {{t "instances.rejectionText"}}
-      </p>
-      <UkButton
-        @onClick={{perform this.createCopy}}
-        @disabled={{this.createCopy.isRunning}}
-        @loading={{this.createCopy.isRunning}}
-      >
-        {{t "instances.rejectionTitle"}}
-      </UkButton>
+      <div class="instance-overview__action--highlight uk-padding-small uk-padding-remove-right uk-padding-remove-vertical">
+        <h3 class="instance-overview__action-title">
+          {{t "instances.rejectionTitle"}}
+          {{t "instances.rejectionTitleSuffix"}}
+        </h3>
+        <p>
+          {{t "instances.rejectionText"}}
+        </p>
+        <UkButton
+          @onClick={{perform this.createCopy}}
+          @disabled={{this.createCopy.isRunning}}
+          @loading={{this.createCopy.isRunning}}
+          @color="primary"
+        >
+          {{t "instances.rejectionTitle"}}
+        </UkButton>
+      </div>
     {{/if}}
 
     {{#if (can "create modification of instance" this.instance.value)}}
