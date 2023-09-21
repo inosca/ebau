@@ -117,12 +117,14 @@
       </label>
       <div class="uk-form-controls">
         <Input
-          @type="url"
+          @type="text"
           @value={{this.service.value.website}}
           class="uk-input"
           name="website"
           id="website"
+          placeholder={{t "service-permissions.website-placeholder"}}
         />
+        <span class="uk-text-small uk-text-muted">{{t "service-permissions.website-hint"}}</span>
       </div>
     </div>
     {{#if @showNotification}}
