@@ -370,10 +370,16 @@ def post_complete_inquiry(sender, work_item, user, context=None, **kwargs):
     )
 
     # If there are no more pending inquiries addressed to the service that just
-    # completed an inquiry, we need to cancel all create and redo inquiry work
-    # items in order to prohibit new or reopened inquiries controlled by this
-    # service.
-    if not pending_addressed_inquiries.exists():
+    # completed an inquiry and the addressed group is not the responsible service,
+    # we need to cancel all create and redo inquiry work items in order to
+    # prohibit new or reopened inquiries controlled by this service.
+    responsible_service_id = work_item.case.family.instance.responsible_service(
+        filter_type="municipality"
+    ).pk
+    if (
+        not pending_addressed_inquiries.exists()
+        and str(responsible_service_id) not in work_item.addressed_groups
+    ):
         for work_item_to_cancel in work_item.case.work_items.filter(
             task_id__in=[
                 settings.DISTRIBUTION["INQUIRY_CREATE_TASK"],
