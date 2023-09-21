@@ -11,3 +11,9 @@
 .instance-overview__info-table {
   margin-top: -1 * $global-small-gutter;
 }
+
+.instance-overview__action {
+  &--highlight {
+    border-left: 4px solid red;
+  }
+}

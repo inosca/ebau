@@ -231,7 +231,7 @@ instances:
     initialement soumis conformément au retour d'information de l'autorité
     directrice (voir texte «Motif du rejet»). Un nouveau numéro de dossier sera
     créé pour la correction."
-  rejectionInfoText: "Veuillez ouvrir à nouveau le formulaire au moyen de «Soumettre à nouveau le dossier» et compléter les informations manquantes."
+  rejectionInfoText: "Veuillez ouvrir à nouveau le formulaire au moyen de <strong>«Soumettre à nouveau le dossier»</strong> et compléter les informations manquantes."
   decisionRemarks: "Décision / Evaluation"
   onlyPaperDossiers: "Seulement les dossiers papier"
 
