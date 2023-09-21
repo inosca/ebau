@@ -9,6 +9,6 @@ export default class CommunicationTopicModel extends Model {
   @attr initiatedByEntity;
   @attr involvedEntities;
 
-  @belongsTo instance;
-  @belongsTo("user") initiatedBy;
+  @belongsTo("instance", { inverse: null, async: true }) instance;
+  @belongsTo("user", { inverse: null, async: true }) initiatedBy;
 }

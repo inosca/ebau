@@ -71,9 +71,7 @@ export class PaginatedQuery extends Resource {
       const data = await this.store.query(model, query);
 
       return {
-        records: isResetting
-          ? data.toArray()
-          : [...this.data.records, ...data.toArray()],
+        records: isResetting ? data : [...this.data.records, ...data],
         hasMore: query.page.number < data.meta?.pagination?.pages,
       };
     } catch (error) {

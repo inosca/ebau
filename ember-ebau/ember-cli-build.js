@@ -29,6 +29,7 @@ module.exports = function (defaults) {
         "@ember-data/store": {
           polyfillUUID: true,
         },
+      },
       setOwnConfig: {
         application: ENV,
       },
