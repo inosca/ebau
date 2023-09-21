@@ -30,6 +30,7 @@ export default class EditServiceComponent extends Component {
 
       return this.store.createRecord("service", {
         city: "",
+        notification: true,
         serviceParent,
       });
     }
