@@ -42,7 +42,7 @@ def get_polygon(egrid):
 
     try:
         root = get_root(response)
-    except etree.XMLSyntaxError:
+    except etree.XMLSyntaxError:  # pragma: no cover
         raise ValueError("Can't parse document")
 
     try:
@@ -114,7 +114,7 @@ def get_gis_data(polygon):
 
     try:
         et = get_root(response_kanton)
-    except etree.XMLSyntaxError:
+    except etree.XMLSyntaxError:  # pragma: no cover
         raise ValueError("Can't parse document")
 
     tag_list = []
@@ -134,22 +134,16 @@ def get_gis_data(polygon):
 
         # Nutzungszone ([String])
         if "GEODB.UZP_BAU_VW" in child.tag:
-            for item in child.findall(
-                "a42geo_a42geo_ebau_kt_wfs_d_fk:ZONE_LO", et.nsmap
-            ):
+            for item in child.findall("a42geo_ebau_kt_wfs_d_fk:ZONE_LO", et.nsmap):
                 usage_zones.add(item.text.strip())
 
         # Überbauungsordnung (String)
         if "GEODB.UZP_UEO_VW" in child.tag:
-            for item in child.findall(
-                "a42geo_a42geo_ebau_kt_wfs_d_fk:ZONE_LO", et.nsmap
-            ):
+            for item in child.findall("a42geo_ebau_kt_wfs_d_fk:ZONE_LO", et.nsmap):
                 building_regulations.add(item.text.strip())
 
         # Gewässerschutz (String)
-        for item in child.findall(
-            "a42geo_a42geo_ebau_kt_wfs_d_fk:GSKT_BEZEICH_DE", et.nsmap
-        ):
+        for item in child.findall("a42geo_ebau_kt_wfs_d_fk:GSKT_BEZEICH_DE", et.nsmap):
             water_protection_zones.add(item.text.strip())
 
     return {
