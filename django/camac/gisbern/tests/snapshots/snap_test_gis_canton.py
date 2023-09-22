@@ -23,14 +23,13 @@ snapshots['test_gis_canton[CH643546955207] 1'] = {
         ],
         'UZP_LSG_VW': False,
         'UZP_UEO_VW': [
-            'Teilzonenplan Moorlandschaft 336 Amsoldingen'
         ]
     }
 }
 
 snapshots['test_gis_canton[CH673533354667] 1'] = {
     'data': {
-        'ARCHINV_FUNDST': False,
+        'ARCHINV_FUNDST': True,
         'BALISKBS_KBS': True,
         'BAUINV_BAUINV_VW': False,
         'GK5_SY': True,
@@ -43,14 +42,14 @@ snapshots['test_gis_canton[CH673533354667] 1'] = {
             'Gewerbezone_G2',
             'Grünzone_GrZ',
             'Zone_für_öffentliche_Nutzung',
-            'Zone_für_öffentliche_Nutzung_B B',
-            'Zone_für_öffentliche_Nutzung_C C',
-            'Zone_für_öffentliche_Nutzung_D D'
+            'Zone_für_öffentliche_Nutzung_B',
+            'Zone_für_öffentliche_Nutzung_C',
+            'Zone_für_öffentliche_Nutzung_D'
         ],
         'UZP_LSG_VW': False,
         'UZP_UEO_VW': [
-            'ZPP_2_"Aarolina" ZPP_2\\P_Aarolina',
-            'ZPP_5_"Chräjeninsel" B',
+            'ZPP_2_"Aarolina"',
+            'ZPP_5_"Chräjeninsel"',
             'ÜO_"Arolina"',
             'ÜO_"Chräjeninsel"'
         ]
@@ -72,7 +71,7 @@ snapshots['test_gis_canton[CH851446093521] 1'] = {
         'UZP_BAU_VW': [
             'Wohnzone 1 E1',
             'Wohnzone 2 E2',
-            'Zone für öffentliche Nutzung ZöN 7 7'
+            'Zone für öffentliche Nutzung ZöN 7'
         ],
         'UZP_LSG_VW': False,
         'UZP_UEO_VW': [
@@ -85,9 +84,9 @@ snapshots['test_gis_canton[doesntexist] 1'] = {
 }
 
 snapshots['test_gis_canton[emptygis] 1'] = {
-    'errors': "Can't parse document"
+    'errors': 'No polygon found'
 }
 
 snapshots['test_gis_canton[emptypolygon] 1'] = {
-    'errors': "Can't parse document"
+    'errors': 'No polygon found'
 }
