@@ -31,7 +31,7 @@
     "@ember/optional-features": "2.0.0",
     "@ember/test-helpers": "3.2.0",
     "@embroider/macros": "1.13.1",
-    "@fortawesome/ember-fontawesome": "1.0.1",
+    "@fortawesome/ember-fontawesome": "1.0.3",
     "@fortawesome/free-solid-svg-icons": "6.4.2",
     "@glimmer/component": "1.1.2",
     "@glimmer/tracking": "1.1.2",
