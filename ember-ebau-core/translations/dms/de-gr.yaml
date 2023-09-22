@@ -1,0 +1,7 @@
+dms:
+  docs:
+    general-info-text: "Platzhalter können mit doppelt geschweiften Klammern in
+    eine Vorlage eingefügt werden (z.B. <code>'{{ GESUCHSTELLER '}}</code>).
+    Falls Sie ein mehrzeiliges Textfeld mit Zeilenumbrüchen ausgeben möchten,
+    können Sie dieses mit <code>multiline</code> markieren (z.B. <code>'{{
+    BAUVORHABEN | multiline '}}</code>)."

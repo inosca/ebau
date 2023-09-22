@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-09-13 16:32+0200\n"
-"PO-Revision-Date: 2023-09-04 14:03+0200\n"
+"PO-Revision-Date: 2023-09-22 14:46+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
@@ -272,16 +272,16 @@ msgid "APPLICANT_ADDRESS_1"
 msgstr "GESUCHSTELLER_ADRESSE_1"
 
 #: camac/instance/placeholders/serializers.py:216
-msgid "Address line 1 of the applicant"
-msgstr "Adresslinie 1 des/r Gesuchsteller/in"
+msgid "Address line 1 of the first applicant"
+msgstr "Adresslinie 1 des/r ersten Gesuchsteller/in"
 
 #: camac/instance/placeholders/serializers.py:222
 msgid "APPLICANT_ADDRESS_2"
 msgstr "GESUCHSTELLER_ADRESSE_2"
 
 #: camac/instance/placeholders/serializers.py:223
-msgid "Address line 2 of the applicant"
-msgstr "Adresslinie 2 des/r Gesuchsteller/in"
+msgid "Address line 2 of the first applicant"
+msgstr "Adresslinie 2 des/r ersten Gesuchsteller/in"
 
 #: camac/instance/placeholders/serializers.py:229
 msgid "APPLICANT_ADDRESS_NAME_ADDRESS"
@@ -304,16 +304,16 @@ msgid "LANDOWNER_ADDRESS_1"
 msgstr "GRUNDEIGENTUEMER_ADRESSE_1"
 
 #: camac/instance/placeholders/serializers.py:243
-msgid "Address line 1 of the landowner"
-msgstr "Adresslinie 1 des/r Grundeigentümer/in"
+msgid "Address line 1 of the first landowner"
+msgstr "Adresslinie 1 des/r ersten Grundeigentümer/in"
 
 #: camac/instance/placeholders/serializers.py:249
 msgid "LANDOWNER_ADDRESS_2"
 msgstr "GRUNDEIGENTUEMER_ADRESSE_2"
 
 #: camac/instance/placeholders/serializers.py:250
-msgid "Address line 2 of the landowner"
-msgstr "Adresslinie 2 des/r Grundeigentümer/in"
+msgid "Address line 2 of the first landowner"
+msgstr "Adresslinie 2 des/r ersten Grundeigentümer/in"
 
 #: camac/instance/placeholders/serializers.py:256
 msgid "LANDOWNER_NAME_ADDRESS"
@@ -516,16 +516,16 @@ msgid "PROJECT_AUTHOR_ADDRESS_1"
 msgstr "PROJEKTVERFASSER_ADRESSE_1"
 
 #: camac/instance/placeholders/serializers.py:424
-msgid "Address line 1 of the project author"
-msgstr "Adresslinie 1 des/r Projektverfasser/in"
+msgid "Address line 1 of the first project author"
+msgstr "Adresslinie 1 des/r ersten Projektverfasser/in"
 
 #: camac/instance/placeholders/serializers.py:430
 msgid "PROJECT_AUTHOR_ADDRESS_2"
 msgstr "PROJEKTVERFASSER_ADRESSE_2"
 
 #: camac/instance/placeholders/serializers.py:431
-msgid "Address line 2 of the project author"
-msgstr "Adresslinie 2 des/r Projektverfasser/in"
+msgid "Address line 2 of the first project author"
+msgstr "Adresslinie 2 des/r ersten Projektverfasser/in"
 
 #: camac/instance/placeholders/serializers.py:437
 msgid "PROJECT_AUTHOR_NAME_ADDRESS"
@@ -643,8 +643,7 @@ msgid "START_PUBLICATION_MUNICIPALITY"
 msgstr "START_PUBLIKATION_GEMEINDE"
 
 #: camac/instance/placeholders/serializers.py:555
-msgid ""
-"Start date of the publication in the publication organ of the municipality"
+msgid "Start date of the publication in the publication organ of the municipality"
 msgstr "Startdatum der Publikation im Publikationsorgan der Gemeinde"
 
 #: camac/instance/placeholders/serializers.py:562
@@ -652,8 +651,7 @@ msgid "END_PUBLICATION_MUNICIPALITY"
 msgstr "ENDE_PUBLIKATION_GEMEINDE"
 
 #: camac/instance/placeholders/serializers.py:564
-msgid ""
-"End date of the publication in the publication organ of the municipality"
+msgid "End date of the publication in the publication organ of the municipality"
 msgstr "Enddatum der Publikation im Publikationsorgan der Gemeinde"
 
 #: camac/instance/placeholders/serializers.py:571
