@@ -1466,10 +1466,10 @@
   dependencies:
     tslib "^2.1.0"
 
-"@fortawesome/ember-fontawesome@1.0.1", "@fortawesome/ember-fontawesome@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@fortawesome/ember-fontawesome/-/ember-fontawesome-1.0.1.tgz#4a6729fdfe39f94dbc53fc8a6edf8b91c49a476b"
-  integrity sha512-t/mkz2K6H2xriD9RPzQJNOpDeqOng3vdCW1V8PmA2/f9VnqqBHGuVT2C5Rs5UIo0nHa9WOvdbkI8T0LE7IzlIA==
+"@fortawesome/ember-fontawesome@1.0.3", "@fortawesome/ember-fontawesome@^1.0.1", "@fortawesome/ember-fontawesome@^1.0.2":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@fortawesome/ember-fontawesome/-/ember-fontawesome-1.0.3.tgz#d315712cb5fc9dd03e3ba40faa98d0d8c2ba203a"
+  integrity sha512-KGw4a4moLo9wcGwFU05Y7yV2/va2R/lN7rO3cw6ZBrnMigyAReYH9XcK4zkiAXGaLAbzc/mOyP19ofr2rc7HBg==
   dependencies:
     "@fortawesome/fontawesome-svg-core" "^6.2.0"
     "@rollup/plugin-node-resolve" "^15.1.0"
@@ -1511,26 +1511,12 @@
   dependencies:
     "@fortawesome/fontawesome-common-types" "6.4.2"
 
-"@fortawesome/free-regular-svg-icons@^6.4.0":
-  version "6.4.0"
-  resolved "https://registry.yarnpkg.com/@fortawesome/free-regular-svg-icons/-/free-regular-svg-icons-6.4.0.tgz#cacc53bd8d832d46feead412d9ea9ce80a55e13a"
-  integrity sha512-ZfycI7D0KWPZtf7wtMFnQxs8qjBXArRzczABuMQqecA/nXohquJ5J/RCR77PmY5qGWkxAZDxpnUFVXKwtY/jPw==
-  dependencies:
-    "@fortawesome/fontawesome-common-types" "6.4.0"
-
 "@fortawesome/free-solid-svg-icons@6.4.2", "@fortawesome/free-solid-svg-icons@^6.4.2":
   version "6.4.2"
   resolved "https://registry.yarnpkg.com/@fortawesome/free-solid-svg-icons/-/free-solid-svg-icons-6.4.2.tgz#33a02c4cb6aa28abea7bc082a9626b7922099df4"
   integrity sha512-sYwXurXUEQS32fZz9hVCUUv/xu49PEJEyUOsA51l6PU/qVgfbTb2glsTEaJngVVT8VqBATRIdh7XVgV1JF1LkA==
   dependencies:
     "@fortawesome/fontawesome-common-types" "6.4.2"
-
-"@fortawesome/free-solid-svg-icons@^6.4.0":
-  version "6.4.0"
-  resolved "https://registry.yarnpkg.com/@fortawesome/free-solid-svg-icons/-/free-solid-svg-icons-6.4.0.tgz#48c0e790847fa56299e2f26b82b39663b8ad7119"
-  integrity sha512-kutPeRGWm8V5dltFP1zGjQOEAzaLZj4StdQhWVZnfGFCvAPVvHh8qk5bRrU4KXnRRRNni5tKQI9PBAdI6MP8nQ==
-  dependencies:
-    "@fortawesome/fontawesome-common-types" "6.4.0"
 
 "@gar/promisify@^1.1.3":
   version "1.1.3"
@@ -7025,16 +7011,16 @@ ember-destroyable-polyfill@^2.0.2, ember-destroyable-polyfill@^2.0.3:
     ember-cli-version-checker "^5.1.1"
     ember-compatibility-helpers "^1.2.1"
 
-ember-ebau-gwr@7.4.2:
-  version "7.4.2"
-  resolved "https://registry.yarnpkg.com/ember-ebau-gwr/-/ember-ebau-gwr-7.4.2.tgz#95ca47a5a8be1e250d812c06cd5b05426fa94d4e"
-  integrity sha512-vE37GtB9n5TyAXS9p72rSyw+s8Vvscqhj+g2m+XXLBXMYkuL0EwbbM4uWcMCUVyMwcIruYSg2EEE9DiyNnLVDg==
+ember-ebau-gwr@7.4.3:
+  version "7.4.3"
+  resolved "https://registry.yarnpkg.com/ember-ebau-gwr/-/ember-ebau-gwr-7.4.3.tgz#36e6ed015b525151050632079bc4d6e4547e649f"
+  integrity sha512-BEyzCiH6e4F37FEl0jLbKSbm8EoMIwUaWO9VaIrurQXdph3GYPmezTHneN8I03oWwdRaY+2gF8FRl4rQQ20IHA==
   dependencies:
     "@ember/legacy-built-in-components" "^0.4.2"
     "@ember/render-modifiers" "^2.1.0"
-    "@fortawesome/ember-fontawesome" "^1.0.1"
-    "@fortawesome/free-regular-svg-icons" "^6.4.0"
-    "@fortawesome/free-solid-svg-icons" "^6.4.0"
+    "@fortawesome/ember-fontawesome" "^1.0.2"
+    "@fortawesome/free-regular-svg-icons" "^6.4.2"
+    "@fortawesome/free-solid-svg-icons" "^6.4.2"
     "@glimmer/component" "^1.1.2"
     "@glimmer/tracking" "^1.1.2"
     ember-auto-import "^2.6.3"
@@ -7054,7 +7040,7 @@ ember-ebau-gwr@7.4.2:
     ember-uikit "^8.0.0"
     ember-validated-form "^6.2.0"
     handlebars "^4.7.8"
-    luxon "^3.3.0"
+    luxon "^3.4.2"
 
 ember-element-helper@^0.6.0, ember-element-helper@^0.6.1:
   version "0.6.1"
@@ -11241,10 +11227,10 @@ lru-cache@^7.4.4, lru-cache@^7.5.1, lru-cache@^7.7.1:
   resolved "https://registry.yarnpkg.com/lru-cache/-/lru-cache-10.0.0.tgz#b9e2a6a72a129d81ab317202d93c7691df727e61"
   integrity sha512-svTf/fzsKHffP42sujkO/Rjs37BCIsQVRCeNYIm9WN8rgT7ffoUnRtZCqU+6BqcSBdv8gwJeTz8knJpgACeQMw==
 
-luxon@3.3.0, luxon@^3.3.0:
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/luxon/-/luxon-3.3.0.tgz#d73ab5b5d2b49a461c47cedbc7e73309b4805b48"
-  integrity sha512-An0UCfG/rSiqtAIiBPO0Y9/zAnHUZxAMiCpTd5h2smgsj7GGmcenvrvww2cqNA8/4A5ZrD1gJpHN2mIHZQF+Mg==
+luxon@3.4.2, luxon@^3.3.0, luxon@^3.4.2:
+  version "3.4.2"
+  resolved "https://registry.yarnpkg.com/luxon/-/luxon-3.4.2.tgz#f5bcab779f3d6a943ee7c8621c2b416bc10abd24"
+  integrity sha512-uBoAVCVcajsrqy3pv7eo5jEUz1oeLmCcnMv8n4AJpT5hbpN9lUssAXibNElpbLce3Mhm9dyBzwYLs9zctM/0tA==
 
 magic-string@^0.24.0:
   version "0.24.1"
