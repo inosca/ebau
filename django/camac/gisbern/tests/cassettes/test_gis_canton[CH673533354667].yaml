@@ -11,19 +11,19 @@ interactions:
         User-Agent:
           - python-requests/2.26.0
       method: GET
-      uri: https://www.geoservice2-test.apps.be.ch/geoservice2/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer?service=WFS&version=2.0.0&Request=GetFeature&typename=a42geo_a42geo_ebau_kt_wfs_d_fk:DIPANU_DIPANUF&count=10&Filter=%3Cogc:Filter%3E%3Cogc:PropertyIsEqualTo%20matchCase=%22true%22%3E%3Cogc:PropertyName%3EEGRID%3C/ogc:PropertyName%3E%3Cogc:Literal%3ECH673533354667%3C/ogc:Literal%3E%3C/ogc:PropertyIsEqualTo%3E%3C/ogc:Filter%3E
+      uri: https://www.geoservice2-test.apps.be.ch/geoservice3/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer?service=WFS&version=2.0.0&Request=GetFeature&typename=a42geo_a42geo_ebau_kt_wfs_d_fk:DIPANU_DIPANUF&count=10&Filter=%3Cogc:Filter%3E%3Cogc:PropertyIsEqualTo%20matchCase=%22true%22%3E%3Cogc:PropertyName%3EEGRID%3C/ogc:PropertyName%3E%3Cogc:Literal%3ECH673533354667%3C/ogc:Literal%3E%3C/ogc:PropertyIsEqualTo%3E%3C/ogc:Filter%3E
     response:
       body:
         string:
           <?xml version="1.0" encoding="utf-8" ?><wfs:FeatureCollection xmlns:xs="http://www.w3.org/2001/XMLSchema"
           xmlns:wfs="http://www.opengis.net/wfs/2.0" xmlns:gml="http://www.opengis.net/gml/3.2"
-          xmlns:a42geo_a42geo_ebau_kt_wfs_d_fk="https://www.geoservice2-test.apps.be.ch/geoservice2/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer"
+          xmlns:a42geo_a42geo_ebau_kt_wfs_d_fk="https://www.geoservice2-test.apps.be.ch/geoservice3/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer"
           xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           timeStamp="2021-12-09T10:29:19Z" numberMatched="unknown" numberReturned="1"
           xsi:schemaLocation="http://www.opengis.net/wfs/2.0 http://schemas.opengis.net/wfs/2.0/wfs.xsd
           http://www.opengis.net/gml/3.2 http://schemas.opengis.net/gml/3.2.1/gml.xsd
-          https://www.geoservice2-test.apps.be.ch/geoservice2/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer
-          https://www.geoservice2-test.apps.be.ch/geoservice2/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer?service=wfs%26version=2.0.0%26request=DescribeFeatureType"><wfs:member><a42geo_a42geo_ebau_kt_wfs_d_fk:DIPANU_DIPANUF
+          https://www.geoservice2-test.apps.be.ch/geoservice3/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer
+          https://www.geoservice2-test.apps.be.ch/geoservice3/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer?service=wfs%26version=2.0.0%26request=DescribeFeatureType"><wfs:member><a42geo_a42geo_ebau_kt_wfs_d_fk:DIPANU_DIPANUF
           gml:id="DIPANU_DIPANUF.1220"><a42geo_a42geo_ebau_kt_wfs_d_fk:OBJECTID>1220</a42geo_a42geo_ebau_kt_wfs_d_fk:OBJECTID><a42geo_a42geo_ebau_kt_wfs_d_fk:BFSNR>301</a42geo_a42geo_ebau_kt_wfs_d_fk:BFSNR><a42geo_a42geo_ebau_kt_wfs_d_fk:GBKR>0</a42geo_a42geo_ebau_kt_wfs_d_fk:GBKR><a42geo_a42geo_ebau_kt_wfs_d_fk:EGRID>CH673533354667</a42geo_a42geo_ebau_kt_wfs_d_fk:EGRID><a42geo_a42geo_ebau_kt_wfs_d_fk:GSTART>0</a42geo_a42geo_ebau_kt_wfs_d_fk:GSTART><a42geo_a42geo_ebau_kt_wfs_d_fk:GSTBEZ>77</a42geo_a42geo_ebau_kt_wfs_d_fk:GSTBEZ><a42geo_a42geo_ebau_kt_wfs_d_fk:GBFLAE>86172</a42geo_a42geo_ebau_kt_wfs_d_fk:GBFLAE><a42geo_a42geo_ebau_kt_wfs_d_fk:GZSTAT>0</a42geo_a42geo_ebau_kt_wfs_d_fk:GZSTAT><a42geo_a42geo_ebau_kt_wfs_d_fk:PROJSTAT>0</a42geo_a42geo_ebau_kt_wfs_d_fk:PROJSTAT><a42geo_a42geo_ebau_kt_wfs_d_fk:LETZTEAEND>02.04.2015</a42geo_a42geo_ebau_kt_wfs_d_fk:LETZTEAEND><a42geo_a42geo_ebau_kt_wfs_d_fk:GENGBKRI>3010</a42geo_a42geo_ebau_kt_wfs_d_fk:GENGBKRI><a42geo_a42geo_ebau_kt_wfs_d_fk:GENGBKRN>Aarberg</a42geo_a42geo_ebau_kt_wfs_d_fk:GENGBKRN><a42geo_a42geo_ebau_kt_wfs_d_fk:SHAPE><gml:MultiSurface
           gml:id="DIPANU_DIPANUF.1220.pl" srsName="urn:ogc:def:crs:EPSG::2056"><gml:surfaceMember><gml:Polygon
           gml:id="DIPANU_DIPANUF.1220.pl.0"><gml:exterior><gml:LinearRing><gml:posList>1211216.79200000
@@ -92,11 +92,11 @@ interactions:
         message: OK
   - request:
       body:
-        "<?xml version=\"1.0\"?>\n<GetFeature\n\txmlns=\"http://www.opengis.net/wfs\"\n\txmlns:a42geo_a42geo_ebau_kt_wfs_d_fk=\"https://www.geoservice2-test.apps.be.ch/geoservice2/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer\"\n\txmlns:ogc=\"http://www.opengis.net/ogc\"\n\txmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n\txmlns:gml=\"http://www.opengis.net/gml\"\n\tservice=\"WFS\"\n\tversion=\"2.0.0\"\n\toutputFormat=\"GML2\"\n\tcount=\"100\"\n>\n
+        "<?xml version=\"1.0\"?>\n<GetFeature\n\txmlns=\"http://www.opengis.net/wfs\"\n\txmlns:a42geo_a42geo_ebau_kt_wfs_d_fk=\"https://www.geoservice2-test.apps.be.ch/geoservice3/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer\"\n\txmlns:ogc=\"http://www.opengis.net/ogc\"\n\txmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n\txmlns:gml=\"http://www.opengis.net/gml\"\n\tservice=\"WFS\"\n\tversion=\"2.0.0\"\n\toutputFormat=\"GML2\"\n\tcount=\"100\"\n>\n
         \   <Query typeName=\"a42geo_ebau_kt_wfs_d_fk:GEODB.GSK25_GSK_VW\" srsName=\"EPSG:2056\">\n
         \       <ogc:Filter>\n          <ogc:Intersects>\n            <gml:Polygon xmlns:gml=\"http://www.opengis.net/gml/3.2\"
         xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:wfs=\"http://www.opengis.net/wfs/2.0\"
-        xmlns:a42geo_a42geo_ebau_kt_wfs_d_fk=\"https://www.geoservice2-test.apps.be.ch/geoservice2/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer\"
+        xmlns:a42geo_a42geo_ebau_kt_wfs_d_fk=\"https://www.geoservice2-test.apps.be.ch/geoservice3/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer\"
         xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
         gml:id=\"DIPANU_DIPANUF.1220.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>1211216.79200000
         2587843.66300000 1211076.48900000 2587977.52500000 1211083.76900000 2587986.01700000
@@ -119,7 +119,7 @@ interactions:
         \         </ogc:Intersects>\n        </ogc:Filter>\n      </Query><Query typeName=\"a42geo_ebau_kt_wfs_d_fk:BALISKBS_KBS\"
         srsName=\"EPSG:2056\">\n        <ogc:Filter>\n          <ogc:Intersects>\n            <gml:Polygon
         xmlns:gml=\"http://www.opengis.net/gml/3.2\" xmlns:xs=\"http://www.w3.org/2001/XMLSchema\"
-        xmlns:wfs=\"http://www.opengis.net/wfs/2.0\" xmlns:a42geo_a42geo_ebau_kt_wfs_d_fk=\"https://www.geoservice2-test.apps.be.ch/geoservice2/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer\"
+        xmlns:wfs=\"http://www.opengis.net/wfs/2.0\" xmlns:a42geo_a42geo_ebau_kt_wfs_d_fk=\"https://www.geoservice2-test.apps.be.ch/geoservice3/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer\"
         xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
         gml:id=\"DIPANU_DIPANUF.1220.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>1211216.79200000
         2587843.66300000 1211076.48900000 2587977.52500000 1211083.76900000 2587986.01700000
@@ -142,7 +142,7 @@ interactions:
         \         </ogc:Intersects>\n        </ogc:Filter>\n      </Query><Query typeName=\"a42geo_ebau_kt_wfs_d_fk:GK5_SY\"
         srsName=\"EPSG:2056\">\n        <ogc:Filter>\n          <ogc:Intersects>\n            <gml:Polygon
         xmlns:gml=\"http://www.opengis.net/gml/3.2\" xmlns:xs=\"http://www.w3.org/2001/XMLSchema\"
-        xmlns:wfs=\"http://www.opengis.net/wfs/2.0\" xmlns:a42geo_a42geo_ebau_kt_wfs_d_fk=\"https://www.geoservice2-test.apps.be.ch/geoservice2/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer\"
+        xmlns:wfs=\"http://www.opengis.net/wfs/2.0\" xmlns:a42geo_a42geo_ebau_kt_wfs_d_fk=\"https://www.geoservice2-test.apps.be.ch/geoservice3/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer\"
         xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
         gml:id=\"DIPANU_DIPANUF.1220.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>1211216.79200000
         2587843.66300000 1211076.48900000 2587977.52500000 1211083.76900000 2587986.01700000
@@ -165,7 +165,7 @@ interactions:
         \         </ogc:Intersects>\n        </ogc:Filter>\n      </Query><Query typeName=\"a42geo_ebau_kt_wfs_d_fk:GEODB.BAUINV_BAUINV_VW\"
         srsName=\"EPSG:2056\">\n        <ogc:Filter>\n          <ogc:Intersects>\n            <gml:Polygon
         xmlns:gml=\"http://www.opengis.net/gml/3.2\" xmlns:xs=\"http://www.w3.org/2001/XMLSchema\"
-        xmlns:wfs=\"http://www.opengis.net/wfs/2.0\" xmlns:a42geo_a42geo_ebau_kt_wfs_d_fk=\"https://www.geoservice2-test.apps.be.ch/geoservice2/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer\"
+        xmlns:wfs=\"http://www.opengis.net/wfs/2.0\" xmlns:a42geo_a42geo_ebau_kt_wfs_d_fk=\"https://www.geoservice2-test.apps.be.ch/geoservice3/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer\"
         xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
         gml:id=\"DIPANU_DIPANUF.1220.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>1211216.79200000
         2587843.66300000 1211076.48900000 2587977.52500000 1211083.76900000 2587986.01700000
@@ -188,7 +188,7 @@ interactions:
         \         </ogc:Intersects>\n        </ogc:Filter>\n      </Query><Query typeName=\"a42geo_ebau_kt_wfs_d_fk:GEODB.UZP_LSG_VW\"
         srsName=\"EPSG:2056\">\n        <ogc:Filter>\n          <ogc:Intersects>\n            <gml:Polygon
         xmlns:gml=\"http://www.opengis.net/gml/3.2\" xmlns:xs=\"http://www.w3.org/2001/XMLSchema\"
-        xmlns:wfs=\"http://www.opengis.net/wfs/2.0\" xmlns:a42geo_a42geo_ebau_kt_wfs_d_fk=\"https://www.geoservice2-test.apps.be.ch/geoservice2/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer\"
+        xmlns:wfs=\"http://www.opengis.net/wfs/2.0\" xmlns:a42geo_a42geo_ebau_kt_wfs_d_fk=\"https://www.geoservice2-test.apps.be.ch/geoservice3/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer\"
         xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
         gml:id=\"DIPANU_DIPANUF.1220.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>1211216.79200000
         2587843.66300000 1211076.48900000 2587977.52500000 1211083.76900000 2587986.01700000
@@ -211,7 +211,7 @@ interactions:
         \         </ogc:Intersects>\n        </ogc:Filter>\n      </Query><Query typeName=\"a42geo_ebau_kt_wfs_d_fk:ARCHINV_FUNDST\"
         srsName=\"EPSG:2056\">\n        <ogc:Filter>\n          <ogc:Intersects>\n            <gml:Polygon
         xmlns:gml=\"http://www.opengis.net/gml/3.2\" xmlns:xs=\"http://www.w3.org/2001/XMLSchema\"
-        xmlns:wfs=\"http://www.opengis.net/wfs/2.0\" xmlns:a42geo_a42geo_ebau_kt_wfs_d_fk=\"https://www.geoservice2-test.apps.be.ch/geoservice2/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer\"
+        xmlns:wfs=\"http://www.opengis.net/wfs/2.0\" xmlns:a42geo_a42geo_ebau_kt_wfs_d_fk=\"https://www.geoservice2-test.apps.be.ch/geoservice3/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer\"
         xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
         gml:id=\"DIPANU_DIPANUF.1220.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>1211216.79200000
         2587843.66300000 1211076.48900000 2587977.52500000 1211083.76900000 2587986.01700000
@@ -234,7 +234,7 @@ interactions:
         \         </ogc:Intersects>\n        </ogc:Filter>\n      </Query><Query typeName=\"a42geo_ebau_kt_wfs_d_fk:NSG_NSGP\"
         srsName=\"EPSG:2056\">\n        <ogc:Filter>\n          <ogc:Intersects>\n            <gml:Polygon
         xmlns:gml=\"http://www.opengis.net/gml/3.2\" xmlns:xs=\"http://www.w3.org/2001/XMLSchema\"
-        xmlns:wfs=\"http://www.opengis.net/wfs/2.0\" xmlns:a42geo_a42geo_ebau_kt_wfs_d_fk=\"https://www.geoservice2-test.apps.be.ch/geoservice2/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer\"
+        xmlns:wfs=\"http://www.opengis.net/wfs/2.0\" xmlns:a42geo_a42geo_ebau_kt_wfs_d_fk=\"https://www.geoservice2-test.apps.be.ch/geoservice3/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer\"
         xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
         gml:id=\"DIPANU_DIPANUF.1220.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>1211216.79200000
         2587843.66300000 1211076.48900000 2587977.52500000 1211083.76900000 2587986.01700000
@@ -257,7 +257,7 @@ interactions:
         \         </ogc:Intersects>\n        </ogc:Filter>\n      </Query><Query typeName=\"a42geo_ebau_kt_wfs_d_fk:GEODB.UZP_BAU_VW\"
         srsName=\"EPSG:2056\">\n        <ogc:Filter>\n          <ogc:Intersects>\n            <gml:Polygon
         xmlns:gml=\"http://www.opengis.net/gml/3.2\" xmlns:xs=\"http://www.w3.org/2001/XMLSchema\"
-        xmlns:wfs=\"http://www.opengis.net/wfs/2.0\" xmlns:a42geo_a42geo_ebau_kt_wfs_d_fk=\"https://www.geoservice2-test.apps.be.ch/geoservice2/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer\"
+        xmlns:wfs=\"http://www.opengis.net/wfs/2.0\" xmlns:a42geo_a42geo_ebau_kt_wfs_d_fk=\"https://www.geoservice2-test.apps.be.ch/geoservice3/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer\"
         xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
         gml:id=\"DIPANU_DIPANUF.1220.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>1211216.79200000
         2587843.66300000 1211076.48900000 2587977.52500000 1211083.76900000 2587986.01700000
@@ -280,7 +280,7 @@ interactions:
         \         </ogc:Intersects>\n        </ogc:Filter>\n      </Query><Query typeName=\"a42geo_ebau_kt_wfs_d_fk:GEODB.UZP_UEO_VW\"
         srsName=\"EPSG:2056\">\n        <ogc:Filter>\n          <ogc:Intersects>\n            <gml:Polygon
         xmlns:gml=\"http://www.opengis.net/gml/3.2\" xmlns:xs=\"http://www.w3.org/2001/XMLSchema\"
-        xmlns:wfs=\"http://www.opengis.net/wfs/2.0\" xmlns:a42geo_a42geo_ebau_kt_wfs_d_fk=\"https://www.geoservice2-test.apps.be.ch/geoservice2/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer\"
+        xmlns:wfs=\"http://www.opengis.net/wfs/2.0\" xmlns:a42geo_a42geo_ebau_kt_wfs_d_fk=\"https://www.geoservice2-test.apps.be.ch/geoservice3/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer\"
         xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
         gml:id=\"DIPANU_DIPANUF.1220.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>1211216.79200000
         2587843.66300000 1211076.48900000 2587977.52500000 1211083.76900000 2587986.01700000
@@ -313,18 +313,18 @@ interactions:
         User-Agent:
           - python-requests/2.26.0
       method: POST
-      uri: https://www.geoservice2-test.apps.be.ch/geoservice2/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer
+      uri: https://www.geoservice2-test.apps.be.ch/geoservice3/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer
     response:
       body:
         string:
           "<?xml version=\"1.0\" encoding=\"utf-8\" ?><wfs:FeatureCollection xmlns:xs=\"http://www.w3.org/2001/XMLSchema\"
           xmlns:wfs=\"http://www.opengis.net/wfs\" xmlns:gml=\"http://www.opengis.net/gml\"
-          xmlns:a42geo_a42geo_ebau_kt_wfs_d_fk=\"https://www.geoservice2-test.apps.be.ch/geoservice2/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer\"
+          xmlns:a42geo_a42geo_ebau_kt_wfs_d_fk=\"https://www.geoservice2-test.apps.be.ch/geoservice3/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer\"
           xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
           xsi:schemaLocation=\"http://www.opengis.net/wfs http://schemas.opengis.net/wfs/1.0.0/WFS-basic.xsd
           http://www.opengis.net/gml http://schemas.opengis.net/gml/2.1.2/feature.xsd
-          https://www.geoservice2-test.apps.be.ch/geoservice2/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer
-          https://www.geoservice2-test.apps.be.ch/geoservice2/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer?service=wfs%26version=1.0.0%26request=DescribeFeatureType\"><gml:boundedBy><gml:Box
+          https://www.geoservice2-test.apps.be.ch/geoservice3/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer
+          https://www.geoservice2-test.apps.be.ch/geoservice3/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer?service=wfs%26version=1.0.0%26request=DescribeFeatureType\"><gml:boundedBy><gml:Box
           srsName=\"EPSG:2056\"><gml:coordinates>0.00000000,0.00000000 0.00000000,0.00000000</gml:coordinates>
           \ </gml:Box></gml:boundedBy><gml:featureMember><a42geo_a42geo_ebau_kt_wfs_d_fk:GEODB.GSK25_GSK_VW
           fid=\"GEODB.GSK25_GSK_VW.3687\"><a42geo_a42geo_ebau_kt_wfs_d_fk:OBJECTID>3687</a42geo_a42geo_ebau_kt_wfs_d_fk:OBJECTID><a42geo_a42geo_ebau_kt_wfs_d_fk:GSZ_NR>0</a42geo_a42geo_ebau_kt_wfs_d_fk:GSZ_NR><a42geo_a42geo_ebau_kt_wfs_d_fk:TYP>Au</a42geo_a42geo_ebau_kt_wfs_d_fk:TYP><a42geo_a42geo_ebau_kt_wfs_d_fk:GSKT_BEZEICH_DE>Gew\xE4sserschutzbereich
