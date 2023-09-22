@@ -8,6 +8,7 @@ import paginatedQuery from "ember-ebau-core/resources/paginated";
 
 export default class ServicePermissionsPermissionsIndexController extends Controller {
   @service store;
+  @service session;
 
   @tracked search = "";
   @tracked page = 1;
@@ -26,8 +27,18 @@ export default class ServicePermissionsPermissionsIndexController extends Contro
   delete = dropTask(async (userGroup, event) => {
     event.preventDefault();
 
+    const affectedUser = userGroup.user.email;
+
     await userGroup.destroyRecord();
-    await this.userGroups.retry();
+
+    const retries = [this.userGroups.retry()];
+    if (
+      affectedUser === this.session.user.email &&
+      this.session.groups?.retry
+    ) {
+      retries.push(this.session.groups.retry());
+    }
+    await Promise.all(retries);
   });
 
   updateSearch = restartableTask(async (event) => {
