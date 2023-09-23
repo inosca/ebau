@@ -1,1 +1,40 @@
-[]
+[
+  {
+    "model": "alexandria_core.document",
+    "pk": "c77c8cfc-334e-4eae-99dd-03bcbd44dad6",
+    "fields": {
+      "created_at": "2023-09-21T09:29:47.235Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2023-09-21T09:29:47.235Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "system-generated": true,
+        "camac-instance-id": 3
+      },
+      "title": "{\"de\": \"3-baugesuch.pdf\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "category": "beilagen-zum-gesuch-weitere-gesuchsunterlagen",
+      "tags": []
+    }
+  },
+  {
+    "model": "alexandria_core.file",
+    "pk": "ded2fa46-13bd-4089-bcc2-c94a252009f1",
+    "fields": {
+      "created_at": "2023-09-21T09:29:47.239Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2023-09-21T09:29:47.258Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {},
+      "variant": "original",
+      "original": null,
+      "name": "3-baugesuch.pdf",
+      "document": "c77c8cfc-334e-4eae-99dd-03bcbd44dad6",
+      "upload_status": "completed"
+    }
+  }
+]
