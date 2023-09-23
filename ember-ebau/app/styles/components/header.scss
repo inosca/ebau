@@ -1,0 +1,31 @@
+.master-data-divider {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-bottom: 1px solid $border-color;
+  }
+
+  &--hidden {
+    &::before {
+      border-color: transparent;
+    }
+  }
+
+  &__toggle {
+    text-transform: initial;
+    color: $global-primary-background;
+    border-bottom: 1px solid $global-primary-background;
+    z-index: 1;
+
+    &:hover {
+      color: $global-primary-background;
+    }
+  }
+}

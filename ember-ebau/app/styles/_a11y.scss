@@ -1,6 +1,11 @@
-// WARNING: This file is mirrored with
-// `ember-camac-ng/app/styles/_a11y-be.scss`. If you change something here it
-// **must** be changed in that file as well!
+/*
+WARNING: This file is used in multiple packages of our workspace. If something
+changes, it must be adjusted in all of the following files:
+
+- ember-caluma-portal/app/styles/_a11y.scss
+- ember-camac-ng/app/styles/_a11y-be.scss
+- ember-ebau/app/styles/_a11y.scss
+*/
 
 // indicate active state by making the active item bold since we can't do much
 // with the color contrast

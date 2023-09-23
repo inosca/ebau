@@ -1,0 +1,32 @@
+.main-navigation.uk-navbar-container {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+  border-bottom: 1px solid $border-color;
+  background-color: $main-navigation-background;
+
+  .uk-navbar-nav {
+    > li > a {
+      color: white;
+    }
+
+    > li.uk-active > a {
+      text-decoration: underline;
+      text-underline-offset: 5px;
+    }
+  }
+
+  .uk-navbar-right li > a {
+    text-transform: initial;
+  }
+
+  #locale-dropdown {
+    min-width: 100px;
+  }
+}
+
+.uk-logo img {
+  width: 90px;
+}

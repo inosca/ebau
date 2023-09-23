@@ -48,7 +48,7 @@ class ResourceAdmin(SortableAdminMixin, MultilingualAdmin, ModelAdmin):
 
 class InstanceResourceAdmin(SortableAdminMixin, MultilingualAdmin, ModelAdmin):
     admin_order_field = "get_resource_description"
-    exclude_ml = ["class_field", "name", "description", "form_group", "sort"]
+    exclude_ml = ["name", "description", "form_group", "sort"]
     form = InstanceResourceForm
     inlines = [InstanceResourceTInline, IrRoleAclInline]
     list_display = [
