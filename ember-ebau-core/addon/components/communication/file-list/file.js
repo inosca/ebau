@@ -9,9 +9,9 @@ export default class CommunicationFileListFileComponent extends Component {
 
   get fileName() {
     const isReplaced =
-      this.args.file.documentAttachment.content.context?.isReplaced;
+      this.args.file.documentAttachment.content?.context?.isReplaced;
     const displayName =
-      this.args.file.documentAttachment.content.context?.displayName ||
+      this.args.file.documentAttachment.content?.context?.displayName ||
       this.args.file.filename;
 
     if (isReplaced) {
