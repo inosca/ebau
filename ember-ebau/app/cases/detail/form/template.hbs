@@ -2,14 +2,10 @@
 {{page-title "Form"}}
 {{! template-lint-enable no-bare-strings}}
 
-{{#if this.instance.isLoading}}
-  <div class="uk-text-center"><UkSpinner @ratio={{2}} /></div>
-{{else if this.instance.record}}
-  <CfContent
-    @documentId={{decode-id this.document.value.id}}
-    @useAsHeading={{true}}
-    @headingBaseLevel={{2}}
-    @loading={{this.instance.isLoading}}
-    @disabled={{cannot "finish correct instance" this.instance.record}}
-  />
-{{/if}}
+<CfContent
+  @documentId={{decode-id this.document.value.id}}
+  @useAsHeading={{true}}
+  @headingBaseLevel={{2}}
+  @loading={{this.document.isLoading}}
+  @disabled={{cannot "finish correct instance" this.model}}
+/>

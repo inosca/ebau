@@ -5,47 +5,24 @@
 @import "power-select";
 @import "ember-alexandria";
 
+$border-color: darken($global-muted-background, 10%);
+$main-nav-height: 80px;
+$sidebar-width: 240px;
+$sidebar-padding: 48px;
+$main-navigation-background: $global-primary-background !default;
+
+@import "a11y";
+
 @import "modules/work-items";
 
+@import "components/main-navigation";
+@import "components/sub-navigation";
+@import "components/subnav-header";
+@import "components/header";
 @import "components/work-item-list";
 
 @import "@projectcaluma/ember-form";
 @import "@projectcaluma/ember-distribution";
-
-@import "a11y";
-
-$main-nav-height: 80px;
-$sidebar-width: 180px;
-$sidebar-padding: 48px;
-$border-color: darken($global-muted-background, 10%);
-
-.main-navigation {
-  position: fixed;
-  left: 0;
-  top: 0;
-  right: 0;
-  z-index: 1000;
-  border-bottom: 1px solid $border-color;
-}
-
-.uk-logo img {
-  width: 90px;
-}
-
-.nav-sidebar {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  top: $main-nav-height;
-  width: $sidebar-width;
-  padding: 12px;
-  border-right: 1px solid $border-color;
-  text-transform: uppercase;
-
-  li a {
-    padding: 10px 0;
-  }
-}
 
 .main-content {
   margin-top: $main-nav-height;
@@ -53,7 +30,7 @@ $border-color: darken($global-muted-background, 10%);
 }
 
 .nav-sidebar + .main-content {
-  padding-left: calc($sidebar-width + 3rem);
+  padding-left: $sidebar-width + $container-padding-horizontal;
 }
 
 .ca-label {
@@ -62,11 +39,22 @@ $border-color: darken($global-muted-background, 10%);
 }
 
 .full-screen-content {
-  // Plus twice the padding 12px from .nav-sidebar
-  padding-left: calc($sidebar-width + 26px);
+  margin-left: $sidebar-width;
   margin-top: $main-nav-height;
 
   & > div {
     height: calc(100vh - $main-nav-height);
+  }
+}
+
+@media (min-width: $breakpoint-small) {
+  .nav-sidebar + .main-content {
+    padding-left: $sidebar-width + $container-padding-horizontal-s;
+  }
+}
+
+@media (min-width: $breakpoint-medium) {
+  .nav-sidebar + .main-content {
+    padding-left: $sidebar-width + $container-padding-horizontal-m;
   }
 }

@@ -3,7 +3,6 @@ import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
-import { findRecord } from "ember-data-resources";
 import { trackedTask } from "ember-resources/util/ember-concurrency";
 
 import getInstanceCaseQuery from "ebau/gql/queries/get-instance-case.graphql";
@@ -17,8 +16,7 @@ export default class CasesDetailFormController extends Controller {
 
   @tracked displayedForm = "";
 
-  instance = findRecord(this, "instance", () => this.model);
-  document = trackedTask(this, this.fetchDocument, () => [this.model]);
+  document = trackedTask(this, this.fetchDocument, () => [this.model.id]);
 
   @dropTask()
   *fetchDocument() {
@@ -26,7 +24,7 @@ export default class CasesDetailFormController extends Controller {
       {
         query: getInstanceCaseQuery,
         fetchPolicy: "network-only",
-        variables: { instanceId: this.model },
+        variables: { instanceId: this.model.id },
       },
       "allCases.edges.firstObject.node",
     );
