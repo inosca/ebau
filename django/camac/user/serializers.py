@@ -2,6 +2,7 @@ from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import AnonymousUser
 from django.core.validators import validate_email
+from django.db import transaction
 from django.utils.translation import get_language, gettext as _
 from rest_framework.exceptions import PermissionDenied, ValidationError
 from rest_framework.fields import BooleanField
@@ -201,6 +202,7 @@ class ServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):
 
         return f"{prefix} {service_name}" if prefix else service_name
 
+    @transaction.atomic
     def create(self, validated_data):
         parent = self.context["request"].group.service
 
@@ -247,6 +249,7 @@ class ServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):
 
         return service
 
+    @transaction.atomic
     def update(self, instance, validated_data):
         old_name = instance.get_name()
         new_name = validated_data.get("name", old_name)
