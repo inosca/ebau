@@ -61,6 +61,26 @@ async function run() {
       authorization: token,
     };
 
+    const serviceResponse = await fetch(`${url}/api/v1/groups/${group}`, {
+      headers,
+    });
+
+    if (!serviceResponse.ok) {
+      console.log(
+        chalk.red(
+          `${chalk.bold(
+            "GET",
+          )} "${url}/api/v1/groups/${group}" failed with HTTP status ${
+            serviceResponse.status
+          }`,
+        ),
+      );
+      return;
+    }
+
+    const service = (await serviceResponse.json()).data.relationships.service
+      .data.id;
+
     const existingResponse = await fetch(
       `${url}/document-merge-service/api/v1/template/`,
       { headers },
@@ -91,10 +111,9 @@ async function run() {
 
       filename = filename.replace(".docx", "");
       category = filename.endsWith("_f2") ? null : category;
-
       const existing = existingTemplates.find(
         (template) =>
-          template.group !== null &&
+          template.meta.service !== undefined &&
           [template.description, template.meta.rstaIdentifier].includes(
             filename,
           ),
@@ -107,7 +126,7 @@ async function run() {
       body.append("description", filename);
       body.append(
         "meta",
-        JSON.stringify({ category, rstaIdentifier: filename }),
+        JSON.stringify({ service, category, rstaIdentifier: filename }),
       );
       body.append("slug", slug);
       body.append("engine", "docx-template");
