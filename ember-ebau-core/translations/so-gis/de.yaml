@@ -6,3 +6,9 @@ so-gis:
   select: Auswählen
   search-error: Die Suche ist fehlgeschlagen
   row-count: "(Zeile {count})"
+
+  search:
+    placeholder: "Nach Adresse oder Parzelle suchen..."
+    input-placeholder: "Suchen..."
+    loading: "Adressen und Parzellen werden geladen..."
+    empty: "Keine Adressen oder Parzellen gefunden"
