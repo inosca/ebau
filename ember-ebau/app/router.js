@@ -7,6 +7,7 @@ import registerDMSAdmin from "ember-ebau-core/modules/dms-admin";
 import registerLegalSubmission from "ember-ebau-core/modules/legal-submission";
 import registerPublication from "ember-ebau-core/modules/publication";
 import registerServicePermissions from "ember-ebau-core/modules/service-permissions";
+import registerStaticContent from "ember-ebau-core/modules/static-content";
 import registerTaskForm from "ember-ebau-core/modules/task-form";
 
 import config from "ebau/config/environment";
@@ -70,5 +71,6 @@ Router.map(function () {
     registerDMSAdmin(this, { resetNamespace });
     registerServicePermissions(this, { resetNamespace });
     registerCommunicationsGlobal(this, { resetNamespace });
+    registerStaticContent(this, { resetNamespace });
   });
 });

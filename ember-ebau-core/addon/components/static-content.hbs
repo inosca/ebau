@@ -1,0 +1,24 @@
+{{#if (and (not this.data.isRunning) (or this.content (can "edit static-content")))}}
+  <div class="uk-position-relative">
+    {{#if this.edit}}
+      <Textarea @value={{this.content}} rows="10" class="uk-textarea" aria-label={{t "static-content.content"}} />
+      <div class="uk-text-right uk-margin">
+        <UkButton @onClick={{this.cancelEdit}}>{{t "global.cancel"}}</UkButton>
+        <UkButton @color="primary" @loading={{this.save.isRunning}} @onClick={{perform this.save}}>{{t "global.save"}}</UkButton>
+      </div>
+      <hr>
+    {{else if (can "edit static-content")}}
+      <UkButton
+        class="uk-position-top-right uk-margin-right uk-margin-top"
+        @color="link"
+        @onClick={{this.startEdit}}
+      >
+        {{t "static-content.edit"}}
+      </UkButton>
+    {{/if}}
+
+    {{#if this.content}}
+      <MarkdownToHtml class="markdown-content" @markdown={{this.content}} />
+    {{/if}}
+  </div>
+{{/if}}
