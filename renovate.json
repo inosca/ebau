@@ -2,8 +2,5 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "local>ad-sy/renovate-config:fullstack-app"
-  ],
-  "ignoreDeps": [
-    "ember-exercise-editor"
   ]
 }
