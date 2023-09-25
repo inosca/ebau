@@ -37,3 +37,9 @@ class InstanceResourceFilterSet(FilterSet):
             "instance",
             "resource",
         )
+
+
+class StaticContentFilterSet(FilterSet):
+    class Meta:
+        model = models.StaticContent
+        fields = ("slug",)

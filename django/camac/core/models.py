@@ -4,6 +4,7 @@ from django.conf import settings
 from django.contrib.postgres.fields import ArrayField
 from django.db import models
 from django.utils import translation
+from localized_fields.fields import LocalizedTextField
 
 
 class MultilingualModel:
@@ -4329,3 +4330,8 @@ class IrTaskform(models.Model):
     class Meta:
         managed = True
         db_table = "IR_TASKFORM"
+
+
+class StaticContent(models.Model):
+    slug = models.SlugField(primary_key=True)
+    content = LocalizedTextField()
