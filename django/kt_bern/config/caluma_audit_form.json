@@ -2934,36 +2934,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "fp-form.fp-form-und-inhalt-des-situationsplanes",
-    "fields": {
-      "created_at": "2020-10-13T13:53:47.865Z",
-      "modified_at": "2020-10-13T13:53:47.865Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "fp-form",
-      "question": "fp-form-und-inhalt-des-situationsplanes",
-      "sort": 11
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "fp-form.fp-form-und-inhalt-des-situationsplanes-bemerkungen",
-    "fields": {
-      "created_at": "2020-10-13T14:05:25.371Z",
-      "modified_at": "2020-10-13T14:05:25.371Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "fp-form",
-      "question": "fp-form-und-inhalt-des-situationsplanes-bemerkungen",
-      "sort": 10
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "fp-form.fp-formulare-vollstaendig",
     "fields": {
       "created_at": "2020-10-13T13:51:58.497Z",
@@ -2990,6 +2960,36 @@
       "form": "fp-form",
       "question": "fp-formulare-vollstaendig-bemerkungen",
       "sort": 16
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "fp-form.fp-form-und-inhalt-des-situationsplanes",
+    "fields": {
+      "created_at": "2020-10-13T13:53:47.865Z",
+      "modified_at": "2020-10-13T13:53:47.865Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "fp-form",
+      "question": "fp-form-und-inhalt-des-situationsplanes",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "fp-form.fp-form-und-inhalt-des-situationsplanes-bemerkungen",
+    "fields": {
+      "created_at": "2020-10-13T14:05:25.371Z",
+      "modified_at": "2020-10-13T14:05:25.371Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "fp-form",
+      "question": "fp-form-und-inhalt-des-situationsplanes-bemerkungen",
+      "sort": 10
     }
   },
   {
@@ -8904,38 +8904,6 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "fp-form-und-inhalt-des-situationsplanes-ja",
-    "fields": {
-      "created_at": "2020-10-13T13:53:47.599Z",
-      "modified_at": "2020-10-13T14:09:06.067Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "fp-form-und-inhalt-des-situationsplanes-nein",
-    "fields": {
-      "created_at": "2020-10-13T13:53:47.617Z",
-      "modified_at": "2020-10-13T14:09:06.082Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
     "pk": "fp-formulare-vollstaendig-ja",
     "fields": {
       "created_at": "2020-10-13T13:51:58.207Z",
@@ -8956,6 +8924,38 @@
     "fields": {
       "created_at": "2020-10-13T13:51:58.239Z",
       "modified_at": "2020-10-13T14:08:12.112Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "fp-form-und-inhalt-des-situationsplanes-ja",
+    "fields": {
+      "created_at": "2020-10-13T13:53:47.599Z",
+      "modified_at": "2020-10-13T14:09:06.067Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "fp-form-und-inhalt-des-situationsplanes-nein",
+    "fields": {
+      "created_at": "2020-10-13T13:53:47.617Z",
+      "modified_at": "2020-10-13T14:09:06.082Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": null,
@@ -14424,86 +14424,6 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "mp-grosse-spielflaeche-ergebnis-eingehalten",
-    "fields": {
-      "created_at": "2020-10-14T13:05:13.284Z",
-      "modified_at": "2020-10-14T13:05:13.284Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "mp-grosse-spielflaeche-ergebnis-mangel",
-    "fields": {
-      "created_at": "2020-10-14T13:05:13.287Z",
-      "modified_at": "2020-10-14T13:05:13.287Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "mp-grosse-spielflaeche-ergebnis-mangel-behoben",
-    "fields": {
-      "created_at": "2020-10-14T13:05:13.289Z",
-      "modified_at": "2020-10-14T13:05:13.289Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "mp-grosse-spielflaeche-ja",
-    "fields": {
-      "created_at": "2020-10-14T13:05:13.270Z",
-      "modified_at": "2020-10-14T13:05:13.270Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "mp-grosse-spielflaeche-nein",
-    "fields": {
-      "created_at": "2020-10-14T13:05:13.273Z",
-      "modified_at": "2020-10-14T13:05:13.273Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
     "pk": "mp-grosser-grenzabstand-ergebnis-eingehalten",
     "fields": {
       "created_at": "2020-10-14T13:05:12.038Z",
@@ -14572,6 +14492,86 @@
     "fields": {
       "created_at": "2020-10-14T13:05:12.028Z",
       "modified_at": "2020-10-14T13:05:12.028Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Kein Pr\\u00fcfungsgegenstand\", \"fr\": \"Aucun objet de l'examen\", \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-grosse-spielflaeche-ergebnis-eingehalten",
+    "fields": {
+      "created_at": "2020-10-14T13:05:13.284Z",
+      "modified_at": "2020-10-14T13:05:13.284Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Eingehalten\", \"fr\": \"En ordre\", \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-grosse-spielflaeche-ergebnis-mangel",
+    "fields": {
+      "created_at": "2020-10-14T13:05:13.287Z",
+      "modified_at": "2020-10-14T13:05:13.287Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Mangel\", \"fr\": \"D\\u00e9faut\", \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-grosse-spielflaeche-ergebnis-mangel-behoben",
+    "fields": {
+      "created_at": "2020-10-14T13:05:13.289Z",
+      "modified_at": "2020-10-14T13:05:13.289Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Mangel behoben\", \"fr\": \"D\\u00e9faut corrig\\u00e9\", \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-grosse-spielflaeche-ja",
+    "fields": {
+      "created_at": "2020-10-14T13:05:13.270Z",
+      "modified_at": "2020-10-14T13:05:13.270Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Pr\\u00fcfungsgegenstand\", \"fr\": \"Objet de l'examen\", \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "mp-grosse-spielflaeche-nein",
+    "fields": {
+      "created_at": "2020-10-14T13:05:13.273Z",
+      "modified_at": "2020-10-14T13:05:13.273Z",
       "created_by_user": null,
       "created_by_group": null,
       "modified_by_user": null,
@@ -19689,71 +19689,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "fp-form-und-inhalt-des-situationsplanes",
-    "fields": {
-      "created_at": "2020-10-13T13:53:47.737Z",
-      "modified_at": "2020-10-13T14:09:06.242Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Entsprechen Form und Inhalt des Situationsplanes den Vorgaben (Art. 12 und 13 BewD)?\", \"fr\": \"La forme et le contenu du plan de situation sont-ils conformes aux articles 12 et 13 DPC?\", \"it\": null}",
-      "type": "choice",
-      "is_required": "true",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "fp-form-und-inhalt-des-situationsplanes-bemerkungen",
-    "fields": {
-      "created_at": "2020-10-13T14:05:25.258Z",
-      "modified_at": "2020-10-13T14:07:52.273Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Bemerkungen\", \"fr\": \"Remarques\", \"it\": null}",
-      "type": "textarea",
-      "is_required": "false",
-      "is_hidden": "'fp-form-und-inhalt-des-situationsplanes'|answer != 'fp-form-und-inhalt-des-situationsplanes-nein'",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": \"\", \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "max_length": null,
-        "min_length": null
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "fp-formulare-vollstaendig",
     "fields": {
       "created_at": "2020-10-13T13:51:58.380Z",
@@ -19800,6 +19735,71 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "fp-form-und-inhalt-des-situationsplanes",
+    "fields": {
+      "created_at": "2020-10-13T13:53:47.737Z",
+      "modified_at": "2020-10-13T14:09:06.242Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Entsprechen Form und Inhalt des Situationsplanes den Vorgaben (Art. 12 und 13 BewD)?\", \"fr\": \"La forme et le contenu du plan de situation sont-ils conformes aux articles 12 et 13 DPC?\", \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "fp-form-und-inhalt-des-situationsplanes-bemerkungen",
+    "fields": {
+      "created_at": "2020-10-13T14:05:25.258Z",
+      "modified_at": "2020-10-13T14:07:52.273Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkungen\", \"fr\": \"Remarques\", \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "'fp-form-und-inhalt-des-situationsplanes'|answer != 'fp-form-und-inhalt-des-situationsplanes-nein'",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
@@ -26539,102 +26539,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "mp-grosse-spielflaeche",
-    "fields": {
-      "created_at": "2020-10-14T13:05:13.266Z",
-      "modified_at": "2020-11-20T13:21:32.274Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"grosse Spielfl\\u00e4che BauV Art. 46\", \"fr\": \"Grande surface de jeu OC Art. 46\", \"it\": null}",
-      "type": "choice",
-      "is_required": "true",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": "9d1f016a-a113-427e-abf1-c3d98f58c7bf",
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "mp-grosse-spielflaeche-bemerkungen",
-    "fields": {
-      "created_at": "2020-10-14T13:05:13.298Z",
-      "modified_at": "2020-10-14T13:05:13.298Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Bemerkungen\", \"fr\": \"Remarques\", \"it\": null}",
-      "type": "textarea",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {
-        "hideLabel": true,
-        "widgetOverride": "cf-collapsible-textarea"
-      },
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "mp-grosse-spielflaeche-ergebnis",
-    "fields": {
-      "created_at": "2020-10-14T13:05:13.281Z",
-      "modified_at": "2020-10-14T13:05:13.281Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Pr\\u00fcfergebnis\", \"fr\": \"R\\u00e9sultat de l'examen\", \"it\": null}",
-      "type": "choice",
-      "is_required": "true",
-      "is_hidden": "'mp-grosse-spielflaeche'|answer != 'mp-grosse-spielflaeche-ja'",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "mp-grosser-grenzabstand",
     "fields": {
       "created_at": "2020-10-14T13:05:12.023Z",
@@ -26712,6 +26616,102 @@
       "type": "choice",
       "is_required": "true",
       "is_hidden": "'mp-grosser-grenzabstand'|answer != 'mp-grosser-grenzabstand-ja'",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "mp-grosse-spielflaeche",
+    "fields": {
+      "created_at": "2020-10-14T13:05:13.266Z",
+      "modified_at": "2020-11-20T13:21:32.274Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"grosse Spielfl\\u00e4che BauV Art. 46\", \"fr\": \"Grande surface de jeu OC Art. 46\", \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": "9d1f016a-a113-427e-abf1-c3d98f58c7bf",
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "mp-grosse-spielflaeche-bemerkungen",
+    "fields": {
+      "created_at": "2020-10-14T13:05:13.298Z",
+      "modified_at": "2020-10-14T13:05:13.298Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkungen\", \"fr\": \"Remarques\", \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": "cf-collapsible-textarea"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "mp-grosse-spielflaeche-ergebnis",
+    "fields": {
+      "created_at": "2020-10-14T13:05:13.281Z",
+      "modified_at": "2020-10-14T13:05:13.281Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Pr\\u00fcfergebnis\", \"fr\": \"R\\u00e9sultat de l'examen\", \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "'mp-grosse-spielflaeche'|answer != 'mp-grosse-spielflaeche-ja'",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
@@ -31953,36 +31953,6 @@
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "fp-form-und-inhalt-des-situationsplanes.fp-form-und-inhalt-des-situationsplanes-ja",
-    "fields": {
-      "created_at": "2020-10-13T14:09:06.255Z",
-      "modified_at": "2020-10-13T14:09:06.255Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "question": "fp-form-und-inhalt-des-situationsplanes",
-      "option": "fp-form-und-inhalt-des-situationsplanes-ja",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "fp-form-und-inhalt-des-situationsplanes.fp-form-und-inhalt-des-situationsplanes-nein",
-    "fields": {
-      "created_at": "2020-10-13T14:09:06.250Z",
-      "modified_at": "2020-10-13T14:09:06.250Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "question": "fp-form-und-inhalt-des-situationsplanes",
-      "option": "fp-form-und-inhalt-des-situationsplanes-nein",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
     "pk": "fp-formulare-vollstaendig.fp-formulare-vollstaendig-ja",
     "fields": {
       "created_at": "2020-10-13T14:08:12.355Z",
@@ -32008,6 +31978,36 @@
       "modified_by_group": null,
       "question": "fp-formulare-vollstaendig",
       "option": "fp-formulare-vollstaendig-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "fp-form-und-inhalt-des-situationsplanes.fp-form-und-inhalt-des-situationsplanes-ja",
+    "fields": {
+      "created_at": "2020-10-13T14:09:06.255Z",
+      "modified_at": "2020-10-13T14:09:06.255Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "fp-form-und-inhalt-des-situationsplanes",
+      "option": "fp-form-und-inhalt-des-situationsplanes-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "fp-form-und-inhalt-des-situationsplanes.fp-form-und-inhalt-des-situationsplanes-nein",
+    "fields": {
+      "created_at": "2020-10-13T14:09:06.250Z",
+      "modified_at": "2020-10-13T14:09:06.250Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "fp-form-und-inhalt-des-situationsplanes",
+      "option": "fp-form-und-inhalt-des-situationsplanes-nein",
       "sort": 1
     }
   },
@@ -37128,81 +37128,6 @@
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "mp-grosse-spielflaeche-ergebnis.mp-grosse-spielflaeche-ergebnis-eingehalten",
-    "fields": {
-      "created_at": "2020-10-14T13:05:13.291Z",
-      "modified_at": "2020-10-14T13:05:13.291Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "question": "mp-grosse-spielflaeche-ergebnis",
-      "option": "mp-grosse-spielflaeche-ergebnis-eingehalten",
-      "sort": 3
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "mp-grosse-spielflaeche-ergebnis.mp-grosse-spielflaeche-ergebnis-mangel",
-    "fields": {
-      "created_at": "2020-10-14T13:05:13.293Z",
-      "modified_at": "2020-10-14T13:05:13.293Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "question": "mp-grosse-spielflaeche-ergebnis",
-      "option": "mp-grosse-spielflaeche-ergebnis-mangel",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "mp-grosse-spielflaeche-ergebnis.mp-grosse-spielflaeche-ergebnis-mangel-behoben",
-    "fields": {
-      "created_at": "2020-10-14T13:05:13.295Z",
-      "modified_at": "2020-10-14T13:05:13.295Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "question": "mp-grosse-spielflaeche-ergebnis",
-      "option": "mp-grosse-spielflaeche-ergebnis-mangel-behoben",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "mp-grosse-spielflaeche.mp-grosse-spielflaeche-ja",
-    "fields": {
-      "created_at": "2020-10-14T13:05:13.276Z",
-      "modified_at": "2020-10-14T13:05:13.276Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "question": "mp-grosse-spielflaeche",
-      "option": "mp-grosse-spielflaeche-ja",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "mp-grosse-spielflaeche.mp-grosse-spielflaeche-nein",
-    "fields": {
-      "created_at": "2020-10-14T13:05:13.279Z",
-      "modified_at": "2020-10-14T13:05:13.279Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "question": "mp-grosse-spielflaeche",
-      "option": "mp-grosse-spielflaeche-nein",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
     "pk": "mp-grosser-grenzabstand-ergebnis.mp-grosser-grenzabstand-ergebnis-eingehalten",
     "fields": {
       "created_at": "2020-10-14T13:05:12.046Z",
@@ -37273,6 +37198,81 @@
       "modified_by_group": null,
       "question": "mp-grosser-grenzabstand",
       "option": "mp-grosser-grenzabstand-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-grosse-spielflaeche-ergebnis.mp-grosse-spielflaeche-ergebnis-eingehalten",
+    "fields": {
+      "created_at": "2020-10-14T13:05:13.291Z",
+      "modified_at": "2020-10-14T13:05:13.291Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "mp-grosse-spielflaeche-ergebnis",
+      "option": "mp-grosse-spielflaeche-ergebnis-eingehalten",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-grosse-spielflaeche-ergebnis.mp-grosse-spielflaeche-ergebnis-mangel",
+    "fields": {
+      "created_at": "2020-10-14T13:05:13.293Z",
+      "modified_at": "2020-10-14T13:05:13.293Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "mp-grosse-spielflaeche-ergebnis",
+      "option": "mp-grosse-spielflaeche-ergebnis-mangel",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-grosse-spielflaeche-ergebnis.mp-grosse-spielflaeche-ergebnis-mangel-behoben",
+    "fields": {
+      "created_at": "2020-10-14T13:05:13.295Z",
+      "modified_at": "2020-10-14T13:05:13.295Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "mp-grosse-spielflaeche-ergebnis",
+      "option": "mp-grosse-spielflaeche-ergebnis-mangel-behoben",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-grosse-spielflaeche.mp-grosse-spielflaeche-ja",
+    "fields": {
+      "created_at": "2020-10-14T13:05:13.276Z",
+      "modified_at": "2020-10-14T13:05:13.276Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "mp-grosse-spielflaeche",
+      "option": "mp-grosse-spielflaeche-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "mp-grosse-spielflaeche.mp-grosse-spielflaeche-nein",
+    "fields": {
+      "created_at": "2020-10-14T13:05:13.279Z",
+      "modified_at": "2020-10-14T13:05:13.279Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "mp-grosse-spielflaeche",
+      "option": "mp-grosse-spielflaeche-nein",
       "sort": 1
     }
   },
