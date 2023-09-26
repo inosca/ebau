@@ -37,6 +37,51 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "appeal.appeal-complainants-table",
+    "fields": {
+      "created_at": "2023-03-14T09:09:30.474Z",
+      "modified_at": "2023-03-14T09:09:30.474Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "appeal",
+      "question": "appeal-complainants-table",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "appeal.appeal-opponents-table",
+    "fields": {
+      "created_at": "2023-03-14T09:10:16.231Z",
+      "modified_at": "2023-03-14T09:10:16.231Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "appeal",
+      "question": "appeal-opponents-table",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "appeal.appeal-table",
+    "fields": {
+      "created_at": "2023-03-14T09:08:49.892Z",
+      "modified_at": "2023-03-14T09:08:49.892Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "appeal",
+      "question": "appeal-table",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "appeal-form.appeal-authority",
     "fields": {
       "created_at": "2023-03-14T09:04:53.150Z",
@@ -107,51 +152,6 @@
       "modified_by_group": null,
       "form": "appeal-form",
       "question": "appeal-type-description",
-      "sort": 3
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "appeal.appeal-complainants-table",
-    "fields": {
-      "created_at": "2023-03-14T09:09:30.474Z",
-      "modified_at": "2023-03-14T09:09:30.474Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "appeal",
-      "question": "appeal-complainants-table",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "appeal.appeal-opponents-table",
-    "fields": {
-      "created_at": "2023-03-14T09:10:16.231Z",
-      "modified_at": "2023-03-14T09:10:16.231Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "appeal",
-      "question": "appeal-opponents-table",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "appeal.appeal-table",
-    "fields": {
-      "created_at": "2023-03-14T09:08:49.892Z",
-      "modified_at": "2023-03-14T09:08:49.892Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "appeal",
-      "question": "appeal-table",
       "sort": 3
     }
   },
