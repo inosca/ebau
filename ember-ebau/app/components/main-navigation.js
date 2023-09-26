@@ -20,8 +20,8 @@ export default class MainNavigationComponent extends Component {
   languages = languages;
 
   get logoPath() {
-    if (name === "gr") {
-      return "/ebau-gr-logo.svg";
+    if (["gr", "so"].includes(name)) {
+      return `/ebau-${name}-logo.svg`;
     }
 
     return "/ebau-inosca-logo.svg";
