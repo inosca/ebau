@@ -145,9 +145,11 @@
       <h3 class="instance-overview__action-title">
         {{t "instances.furtherProcessingOfForm"}}
       </h3>
-      <p>
-        {{t "instances.furtherProcessingOfFormText"}}
-      </p>
+      {{#if (macroCondition (macroGetOwnConfig "enableInstanceActionDescription"))}}
+        <p>
+          {{t "instances.furtherProcessingOfFormText"}}
+        </p>
+      {{/if}}
       <LinkTo
         @route="instances.edit.form"
         @model={{this.instance.value.mainForm.slug}}
@@ -209,9 +211,11 @@
     <h3 class="instance-overview__action-title">
       {{t "instances.activateFurtherPersons"}}
     </h3>
-    <p>
-      {{t "instances.activateFurtherPersonsText"}}
-    </p>
+    {{#if (macroCondition (macroGetOwnConfig "enableInstanceActionDescription"))}}
+      <p>
+        {{t "instances.activateFurtherPersonsText"}}
+      </p>
+    {{/if}}
     <LinkTo
       @route="instances.edit.applicants"
       class="uk-button uk-button-default"
@@ -223,9 +227,11 @@
       <h3 class="instance-overview__action-title">
         {{t "instances.deleteInstance"}}
       </h3>
-      <p>
-        {{t "instances.deleteInstanceText"}}
-      </p>
+      {{#if (macroCondition (macroGetOwnConfig "enableInstanceActionDescription"))}}
+        <p>
+          {{t "instances.deleteInstanceText"}}
+        </p>
+      {{/if}}
       <UkButton
         @onClick={{perform this.deleteInstance}}
         @disabled={{this.deleteInstance.isRunning}}
