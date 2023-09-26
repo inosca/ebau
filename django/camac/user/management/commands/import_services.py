@@ -5,35 +5,81 @@ from django.db import transaction
 
 from camac.user.models import Group, GroupT, Role, Service, ServiceGroup, ServiceT
 
-TYPE_MAP = {
-    "SERVICE_GROUP": {
-        1: ServiceGroup.objects.get(pk=2),  # Sachbearbeitung Gemeinde
-        2: ServiceGroup.objects.get(pk=1),  # Fachstelle
-        3: ServiceGroup.objects.get(pk=3),  # ARE
+_TYPE_MAP = {
+    "kt_gr": {
+        "SERVICE_GROUP": {
+            1: ServiceGroup.objects.get(pk=2),  # Sachbearbeitung Gemeinde
+            2: ServiceGroup.objects.get(pk=1),  # Fachstelle
+            3: ServiceGroup.objects.get(pk=3),  # ARE
+        },
+        "ROLE": {
+            1: {
+                "lead": Role.objects.get(pk=3),  # Sachbearbeitung Leitbehörde
+                "admin": Role.objects.get(pk=5),  # Administration Leitbehörde
+            },
+            2: {
+                "lead": Role.objects.get(pk=4),  # Sachbearbeitung Fachstelle
+                "admin": Role.objects.get(pk=6),  # Administration Fachstelle
+            },
+            # ARE also gets "Fachstelle" role
+            3: {
+                "lead": Role.objects.get(pk=4),  # Sachbearbeitung Fachstelle
+                "admin": Role.objects.get(pk=6),  # Administration Fachstelle
+            },
+        },
+        "PREFIX": {
+            1: "Leitbehörde",
+            2: None,
+            3: None,
+        },
     },
-    "ROLE": {
-        1: {
-            "lead": Role.objects.get(pk=3),  # Sachbearbeitung Leitbehörde
-            "admin": Role.objects.get(pk=5),  # Administration Leitbehörde
+    "kt_so": {
+        "SERVICE_GROUP": {
+            1: ServiceGroup.objects.get(pk=1),  # Gemeinde
+            2: ServiceGroup.objects.get(pk=2),  # Kantonale Fachstelle
+            3: ServiceGroup.objects.get(pk=3),  # Ausserkantonale Fachstelle
         },
-        2: {
-            "lead": Role.objects.get(pk=4),  # Sachbearbeitung Fachstelle
-            "admin": Role.objects.get(pk=6),  # Administration Fachstelle
+        "ROLE": {
+            1: {
+                "admin": Role.objects.get(pk=4),  # Administration Leitbehörde
+                "lead": Role.objects.get(pk=5),  # Leitung Leitbehörde
+                "clerk": Role.objects.get(pk=6),  # Sachbearbeitung Leitbehörde
+                "construction-monitoring": Role.objects.get(
+                    pk=7
+                ),  # Baubegleitung Leitbehörde
+                "read": Role.objects.get(pk=8),  # Einsichtsberechtigte Leitbehörde
+            },
+            2: {
+                "admin": Role.objects.get(pk=9),  # Administration Fachstelle
+                "lead": Role.objects.get(pk=10),  # Leitung Fachstelle
+                "clerk": Role.objects.get(pk=11),  # Sachbearbeitung Fachstelle
+            },
+            3: {
+                "admin": Role.objects.get(pk=9),  # Administration Fachstelle
+                "lead": Role.objects.get(pk=10),  # Leitung Fachstelle
+                "clerk": Role.objects.get(pk=11),  # Sachbearbeitung Fachstelle
+            },
         },
-        # ARE also gets "Fachstelle" role
-        3: {
-            "lead": Role.objects.get(pk=4),  # Sachbearbeitung Fachstelle
-            "admin": Role.objects.get(pk=6),  # Administration Fachstelle
+        "PREFIX": {
+            1: "Leitbehörde",
+            2: None,
+            3: None,
         },
-    },
-    "PREFIX": {
-        1: "Leitbehörde",
-        2: None,
-        3: None,
     },
 }
+TYPE_MAP = _TYPE_MAP[settings.APPLICATION_NAME]
 
-GROUP_TYPES = {"lead": "Sachbearbeitung", "admin": "Administration"}
+_GROUP_TYPES = {
+    "kt_gr": {"lead": "Sachbearbeitung", "admin": "Administration"},
+    "kt_so": {
+        "lead": "Leitung",
+        "admin": "Administration",
+        "clerk": "Sachbearbeitung",
+        "read": "Einsichtsberechtigte",
+        "construction-monitoring": "Baubegleitung",
+    },
+}
+GROUP_TYPES = _GROUP_TYPES[settings.APPLICATION_NAME]
 
 
 def scrub(value, default=None):
@@ -44,7 +90,7 @@ def scrub(value, default=None):
 
 
 class Command(BaseCommand):
-    help = "Import services from excel file for GR"
+    help = "Import services from excel file for GR and SO"
 
     def add_arguments(self, parser):
         parser.add_argument(
