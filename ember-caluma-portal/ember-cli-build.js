@@ -30,6 +30,7 @@ module.exports = function (defaults) {
         enableModificationConfirm: ENV === "be",
         enableCommunications: ["be", "so"].includes(ENV),
         enableAdditionalDemand: ENV === "gr",
+        enableInstanceActionDescription: ENV !== "so",
         instancePaperFilterDefault: ENV === "ur",
         showProfileLink: ENV === "gr",
         documentBackendCamac: !["gr", "so"].includes(ENV),
