@@ -3680,11 +3680,12 @@ APPLICATIONS = {
             "municipality-admin": "municipality",
             "municipality-lead": "municipality",
             "municipality-clerk": "municipality",
-            "municipality-construction-supervision": "municipality",
+            "municipality-construction-monitoring": "municipality",
             "municipality-read": "municipality",
             "service-admin": "service",
             "service-lead": "service",
             "service-clerk": "service",
+            "subservice": "service",
             "support": "support",
         },
         "ADMIN_GROUP": 1,
@@ -3735,18 +3736,19 @@ APPLICATIONS = {
                 "EXISTING": "gesuchsbearbeitungs-einladung-bestehend",
             },
         },
-        "SUBSERVICE_ROLES": [],
+        "SUBSERVICE_ROLES": ["subservice"],
         "DUMP_CONFIG_GROUPS": {
             "email_notifications": {
                 "notification.NotificationTemplate": Q(type="email"),
                 "notification.NotificationTemplateT": Q(template__type="email"),
             },
             # Sync the "core" groups (admin, support, portal) between servers, the rest is treated as data
-            # TODO: uncomment as soon as the customer manages the services
-            # "user_core_groups": {
-            #     "user.Group": Q(pk__lte=3),
-            #     "user.GroupT": Q(pk__lte=3),
-            # },
+            "user_core_groups": {
+                "user.Group": Q(role__name__in=["admin", "applicant", "support"]),
+                "user.GroupT": Q(
+                    group__role__name__in=["admin", "applicant", "support"]
+                ),
+            },
             # Dashboard
             "dashboard": {
                 **generate_form_dump_config(regex=r"^dashboard?$"),
@@ -3758,11 +3760,10 @@ APPLICATIONS = {
             },
         },
         "DUMP_CONFIG_EXCLUDED_MODELS": [
-            # TODO: uncomment as soon as the customer manages the services
-            # "user.Group",
-            # "user.GroupT",
-            # "user.Service",
-            # "user.ServiceT",
+            "user.Group",
+            "user.GroupT",
+            "user.Service",
+            "user.ServiceT",
         ],
         "MASTER_DATA": {
             "applicants": (
