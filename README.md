@@ -31,7 +31,7 @@ Electronic building permit application for Swiss cantons.
 
 ## Overview
 
-This repository contains the source code for the web applications used to handle electronic building permits and comparable processes in the Swiss cantons of Berne, Schwyz and Uri.
+This repository contains the source code for the web applications used to handle electronic building permits and comparable processes in the Swiss cantons of Berne, Grisons, Schwyz, Solothurn and Uri.
 
 The following image shows a high-level overview of the architecture:
 
