@@ -15,7 +15,7 @@ from rest_framework.status import (
     HTTP_405_METHOD_NOT_ALLOWED,
 )
 
-from camac.alexandria.extensions.permissions import classes as permissions
+from camac.alexandria.extensions.permissions import classes as permissions, kt_gr
 
 
 @pytest.mark.parametrize(
@@ -361,47 +361,6 @@ def test_category_permission(
             HTTP_204_NO_CONTENT,
             {"access": {"applicant": "AdminAdditionalDemand"}},
         ),
-        # AdminAdditionalDemand
-        (
-            "new",
-            "municipality",
-            None,
-            "post",
-            HTTP_201_CREATED,
-            {"access": {"municipality": "AdminNewPaper"}},
-        ),
-        (
-            "new",
-            "municipality",
-            None,
-            "post",
-            HTTP_403_FORBIDDEN,
-            {"access": {"municipality": "AdminNewPaper"}},
-        ),
-        (
-            "new",
-            "municipality",
-            None,
-            "patch",
-            HTTP_200_OK,
-            {"access": {"municipality": "AdminNewPaper"}},
-        ),
-        (
-            "subm",
-            "municipality",
-            None,
-            "delete",
-            HTTP_403_FORBIDDEN,
-            {"access": {"municipality": "AdminNewPaper"}},
-        ),
-        (
-            "new",
-            "municipality",
-            None,
-            "delete",
-            HTTP_204_NO_CONTENT,
-            {"access": {"municipality": "AdminNewPaper"}},
-        ),
     ],
 )
 def test_kt_gr_permissions(
@@ -430,14 +389,11 @@ def test_kt_gr_permissions(
             document=gr_instance.case.document,
         )
         gr_instance.case.work_items.add(work_item)
-        gr_instance.case.document.answers.create(
-            question_id="is-paper", value="is-paper-yes"
-        )
 
     alexandria_category = CategoryFactory(metainfo=metainfo)
     url = reverse("document-list")
 
-    metainfo = {
+    doc_metainfo = {
         "camac-instance-id": gr_instance.pk,
         "caluma-document-id": str(gr_instance.case.document.pk),
     }
@@ -445,8 +401,9 @@ def test_kt_gr_permissions(
         "data": {
             "type": "documents",
             "attributes": {
-                "title": {"de": "Important"},
-                "metainfo": metainfo,
+                "title": {"de": "Foo"},
+                "description": {"de": "Important"},
+                "metainfo": doc_metainfo,
             },
             "relationships": {
                 "category": {
@@ -462,8 +419,9 @@ def test_kt_gr_permissions(
     if method in ["patch", "delete"]:
         doc = DocumentFactory(
             title="Foo",
+            description="Foo",
             category=alexandria_category,
-            metainfo=metainfo,
+            metainfo=doc_metainfo,
             created_by_group=caluma_admin_user.group,
         )
         url = reverse("document-detail", args=[doc.pk])
@@ -475,7 +433,7 @@ def test_kt_gr_permissions(
 
     if method == "post" and status_code == HTTP_201_CREATED:
         result = response.json()
-        assert result["data"]["attributes"]["title"]["de"] == "Important"
+        assert result["data"]["attributes"]["description"]["de"] == "Important"
 
     # file permissions should be the same as document
     if method in ["patch", "delete"]:
@@ -484,7 +442,7 @@ def test_kt_gr_permissions(
     doc = DocumentFactory(
         title="Foo",
         category=alexandria_category,
-        metainfo=metainfo,
+        metainfo=doc_metainfo,
     )
     url = reverse("file-list")
 
@@ -550,3 +508,160 @@ def test_nested_permission(db, role, admin_client, instance):
 
     patch_result = patch_response.json()
     assert patch_result["data"]["attributes"]["title"]["de"] == "More important"
+
+
+@pytest.mark.parametrize("role__name", ["municipality"])
+@pytest.mark.parametrize(
+    "instance_state__name,method,status_code,is_paper,has_additional_data",
+    [
+        (
+            "new",
+            "post",
+            HTTP_201_CREATED,
+            True,
+            True,
+        ),
+        (
+            "new",
+            "post",
+            HTTP_403_FORBIDDEN,
+            False,
+            True,
+        ),
+        (
+            "new",
+            "patch",
+            HTTP_200_OK,
+            True,
+            True,
+        ),
+        (
+            "new",
+            "patch",
+            HTTP_403_FORBIDDEN,
+            False,
+            True,
+        ),
+        (
+            "new",
+            "patch",
+            HTTP_403_FORBIDDEN,
+            False,
+            False,
+        ),
+        (
+            "new",
+            "delete",
+            HTTP_204_NO_CONTENT,
+            True,
+            True,
+        ),
+        (
+            "subm",
+            "post",
+            HTTP_403_FORBIDDEN,
+            True,
+            True,
+        ),
+        (
+            "subm",
+            "patch",
+            HTTP_200_OK,
+            True,
+            True,
+        ),
+        (
+            "subm",
+            "patch",
+            HTTP_403_FORBIDDEN,
+            True,
+            False,
+        ),
+        (
+            "subm",
+            "patch",
+            HTTP_403_FORBIDDEN,
+            False,
+            False,
+        ),
+        (
+            "subm",
+            "delete",
+            HTTP_403_FORBIDDEN,
+            True,
+            True,
+        ),
+    ],
+)
+def test_admin_beilagen_municipality(
+    db,
+    role,
+    minio_mock,
+    set_application_gr,
+    settings,
+    mocker,
+    admin_client,
+    caluma_admin_user,
+    gr_instance,
+    method,
+    status_code,
+    is_paper,
+    has_additional_data,
+):
+    metainfo = {"access": {"municipality": "AdminBeilagenMunicipality"}}
+    settings.APPLICATION_NAME = "kt_gr"
+    mocker.patch("camac.alexandria.extensions.permissions.extension.permissions", kt_gr)
+
+    if is_paper:
+        gr_instance.case.document.answers.create(
+            question_id="is-paper", value="is-paper-yes"
+        )
+
+    alexandria_category = CategoryFactory(metainfo=metainfo)
+    url = reverse("document-list")
+
+    doc_metainfo = {
+        "camac-instance-id": gr_instance.pk,
+        "caluma-document-id": str(gr_instance.case.document.pk),
+    }
+    data = {
+        "data": {
+            "type": "documents",
+            "attributes": {
+                "title": {"de": "Foo"},
+                "description": {"de": "Important"},
+                "metainfo": doc_metainfo,
+            },
+            "relationships": {
+                "category": {
+                    "data": {
+                        "id": alexandria_category.pk,
+                        "type": "categories",
+                    },
+                },
+            },
+        },
+    }
+
+    if method in ["patch", "delete"]:
+        doc = DocumentFactory(
+            title="Foo",
+            description="Foo",
+            category=alexandria_category,
+            metainfo=doc_metainfo,
+            created_by_group=caluma_admin_user.group,
+        )
+        url = reverse("document-detail", args=[doc.pk])
+        data["data"]["id"] = str(doc.pk)
+        if has_additional_data:
+            data["data"]["attributes"]["created_at"] = doc.created_at
+            data["data"]["attributes"]["created_by_group"] = str(doc.created_by_group)
+            data["data"]["attributes"]["modified_by_group"] = str(doc.modified_by_group)
+
+    response = getattr(admin_client, method)(url, data)
+
+    assert response.status_code == status_code
+
+    if method == "post" and status_code == HTTP_201_CREATED:
+        result = response.json()
+        assert result["data"]["attributes"]["description"]["de"] == "Important"
