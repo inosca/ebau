@@ -12,6 +12,7 @@ export default class ServicePermissionsPermissionsAddController extends Controll
   @service router;
   @service ebauModules;
   @service notification;
+  @service session;
 
   @tracked email;
   @tracked group;
@@ -41,6 +42,13 @@ export default class ServicePermissionsPermissionsAddController extends Controll
           "permissions.index",
         ),
       );
+
+      if (
+        this.session.user.email === this.email &&
+        this.session.groups?.retry
+      ) {
+        await this.session.groups.retry();
+      }
     } catch (error) {
       userGroup.rollbackAttributes();
 
