@@ -8,9 +8,9 @@ export default class SoNavbarComponent extends BeNavbarComponent {
 
   get watermark() {
     if (isDevelopingApp() || location.host === "ebau-portal.local") {
-      return this.intl.t("nav.watermark.dev");
+      return "dev";
     } else if (location.host === "portal-ebau-t.so.ch") {
-      return this.intl.t("nav.watermark.test");
+      return "test";
     }
 
     return null;
