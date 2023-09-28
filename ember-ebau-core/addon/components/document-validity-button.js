@@ -4,6 +4,7 @@ import { dropTask } from "ember-concurrency";
 export default class DocumentValidityButtonComponent extends Component {
   validateOnEnter = false;
   showLoadingHint = false;
+  showButtonHint = false;
   type = "button";
 
   get invalidFields() {

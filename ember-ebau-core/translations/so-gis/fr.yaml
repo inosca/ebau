@@ -1,8 +1,14 @@
 so-gis:
-  apply:
-  apply-error:
-  apply-answer-error:
-  point-error:
-  select:
-  search-error:
-  row-count:
+  apply: ""
+  apply-error: ""
+  apply-answer-error: ""
+  point-error: ""
+  select: ""
+  search-error: ""
+  row-count: ""
+
+  search:
+    placeholder: ""
+    input-placeholder: ""
+    loading: ""
+    empty: ""

@@ -1,0 +1,28 @@
+@import "fonts/frutiger";
+
+$global-font-family: "Frutiger-Regular", sans-serif;
+$base-heading-font-family: "Frutiger-Bold", sans-serif;
+
+// Base colors
+$global-primary-background: rgb(204, 0, 0);
+$global-secondary-background: rgb(0, 0, 0);
+$global-danger-background: $global-primary-background;
+$global-muted-background: rgb(245, 245, 245);
+
+// Font colors
+$global-color: $global-secondary-background;
+$global-emphasis-color: $global-secondary-background;
+$global-muted-color: rgb(138, 138, 138);
+$global-link-color: $global-primary-background;
+$global-link-hover-color: $global-primary-background;
+$alert-danger-color: $global-secondary-background;
+
+// Form
+$form-focus-border: $global-secondary-background;
+
+// Misc
+$modal-z-index: 1;
+$button-disabled-background: $global-muted-background;
+
+// Ember-power-select
+$ember-power-select-trigger-icon-color: #757575;

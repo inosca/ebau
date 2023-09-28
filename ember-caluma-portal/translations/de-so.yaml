@@ -9,6 +9,10 @@ instances:
   parcel: "Parzellennummer"
   instance-id: "ID"
   special-id: "Dossier-Nr."
+  emptyText: "Erstellen Sie jetzt Ihr erstes Gesuch. Sie können es jederzeit schliessen und problemlos ein anderes Mal weiter ausfüllen bevor Sie es einreichen."
+  furtherProcessingOfForm: "Dossier bearbeiten"
+  processingOfForm: "Dossier bearbeiten"
+  activateFurtherPersons: "Weitere Personen für dieses Dossier freischalten"
 
 nav:
   logout: "Abmelden"

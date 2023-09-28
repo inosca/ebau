@@ -32,6 +32,17 @@ export default class InstanceSupportComponent extends Component {
     );
   }
 
+  get serviceWebsite() {
+    const url = this.service.value.website;
+    if (url.startsWith("https://") || url.startsWith("http://")) {
+      return url;
+    }
+
+    // Prefix service website urls without scheme
+    // to avoid treating them as relative links
+    return `https://${url}`;
+  }
+
   service = trackedFunction(this, async () => {
     return this.serviceId
       ? this.store.peekRecord("public-service", this.serviceId) ||

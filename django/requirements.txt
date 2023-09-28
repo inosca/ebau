@@ -41,6 +41,8 @@ requests-toolbelt==0.9.1
 sorl-thumbnail==12.9.0
 tabulate==0.8.10
 tqdm==4.64.1
+urllib3==1.26.16
 uWSGI==2.0.20
+WsgiDAV==4.2.0
 whitenoise==6.2.0
 xmlschema==2.0.4

@@ -7,11 +7,15 @@ from caluma.caluma_workflow.api import (
     cancel_work_item,
     complete_work_item,
     redo_work_item,
+    resume_case,
     resume_work_item,
     skip_work_item,
+    suspend_case,
 )
 from caluma.caluma_workflow.models import Case, WorkItem
 from django.utils.timezone import now
+
+from camac.constants import kt_bern as bern_constants
 
 
 def _inquiry_factory(
@@ -64,6 +68,10 @@ def distribution_case_be(
     notification_template_factory(slug="03-verfahren-vorzeitig-beendet")
     instance_state_factory(name="circulation")
     instance_state_factory(name="coordination")
+    instance_state_factory(
+        instance_state_id=bern_constants.INSTANCE_STATE_CORRECTION_IN_PROGRESS,
+        name="correction",
+    )
 
     case = be_instance.case
 
@@ -335,8 +343,87 @@ def test_send_inquiry(
 
 
 @pytest.mark.freeze_time("2022-03-23")
+@pytest.mark.parametrize("user__email", ["applicant@example.com"])
+def test_do_not_send_inquiry_in_correction(
+    db,
+    caluma_admin_user,
+    be_instance,
+    distribution_child_case_be,
+    be_distribution_settings,
+    inquiry_factory_be,
+    mailoutbox,
+    mocker,
+    service_factory,
+    instance_state_factory,
+    service,
+    settings,
+):
+    settings.APPLICATION_NAME = "kt_bern"
+    instance_state_correction = instance_state_factory(name="correction")
+    mocker.patch(
+        "camac.constants.kt_bern.INSTANCE_STATE_CORRECTION_IN_PROGRESS",
+        instance_state_correction.pk,
+    )
+
+    addressed_service1 = service_factory()
+    addressed_service2 = service_factory()
+
+    inquiry1 = inquiry_factory_be(
+        to_service=addressed_service1, from_service=service, sent=True
+    )
+    inquiry2 = inquiry_factory_be(
+        to_service=addressed_service2, from_service=addressed_service1, sent=True
+    )
+    inquiry3 = inquiry_factory_be(
+        to_service=addressed_service2, from_service=addressed_service1, sent=False
+    )
+
+    assert inquiry1.status == WorkItem.STATUS_READY
+    assert inquiry2.status == WorkItem.STATUS_READY
+    assert inquiry3.status == WorkItem.STATUS_SUSPENDED
+    assert len(mailoutbox) == 3
+    mailoutbox.clear()
+
+    # dossier correction
+    suspend_case(be_instance.case, caluma_admin_user)
+
+    be_instance.instance_state = instance_state_correction
+    be_instance.save()
+
+    be_instance.refresh_from_db()
+    inquiry1.refresh_from_db()
+    inquiry2.refresh_from_db()
+    inquiry3.refresh_from_db()
+
+    assert inquiry1.status == WorkItem.STATUS_SUSPENDED
+    assert inquiry2.status == WorkItem.STATUS_SUSPENDED
+    assert inquiry3.status == WorkItem.STATUS_SUSPENDED
+    assert len(mailoutbox) == 0
+
+    # finish dossier correction
+    resume_case(be_instance.case, caluma_admin_user)
+
+    be_instance.refresh_from_db()
+    inquiry1.refresh_from_db()
+    inquiry2.refresh_from_db()
+    inquiry3.refresh_from_db()
+
+    assert inquiry1.status == WorkItem.STATUS_READY
+    assert inquiry2.status == WorkItem.STATUS_READY
+    assert inquiry3.status == WorkItem.STATUS_SUSPENDED
+    assert len(mailoutbox) == 0
+
+
+@pytest.mark.freeze_time("2022-03-23")
 @pytest.mark.parametrize("service__email", ["service@example.com"])
-@pytest.mark.parametrize("has_multiple_inquiries", [True, False])
+@pytest.mark.parametrize(
+    "has_multiple_inquiries",
+    [True, False],
+)
+@pytest.mark.parametrize(
+    "is_lead_authority",
+    [True, False],
+)
 def test_complete_inquiry(
     db,
     caluma_admin_user,
@@ -347,9 +434,25 @@ def test_complete_inquiry(
     service,
     has_multiple_inquiries,
     work_item_factory,
+    service_factory,
+    is_lead_authority,
 ):
-    inquiry1 = inquiry_factory_be(sent=True)
-    inquiry2 = inquiry_factory_be(sent=True) if has_multiple_inquiries else None
+    service1 = service_factory()
+    to_service = service if is_lead_authority else service1
+    from_service = service1 if is_lead_authority else service
+
+    if is_lead_authority:
+        inquiry_factory_be(sent=True, to_service=service1)
+
+    inquiry1 = inquiry_factory_be(
+        sent=True, from_service=from_service, to_service=to_service
+    )
+
+    inquiry2 = (
+        inquiry_factory_be(sent=True, from_service=from_service, to_service=to_service)
+        if has_multiple_inquiries
+        else None
+    )
 
     addressed_check_work_item = work_item_factory(
         task_id=be_distribution_settings["INQUIRY_CHECK_TASK"],
@@ -398,7 +501,10 @@ def test_complete_inquiry(
 
     assert addressed_check_work_item.status == WorkItem.STATUS_COMPLETED
 
-    if not has_multiple_inquiries:
+    if has_multiple_inquiries or is_lead_authority:
+        assert addressed_redo_work_item.status == WorkItem.STATUS_READY
+        assert addressed_create_work_item.status == WorkItem.STATUS_READY
+    else:
         assert addressed_redo_work_item.status == WorkItem.STATUS_CANCELED
         assert addressed_create_work_item.status == WorkItem.STATUS_CANCELED
 
@@ -416,14 +522,17 @@ def test_complete_inquiry(
         addressed_groups=[str(service.pk)],
     )
 
-    assert check_inquiries_work_items.exists() != has_multiple_inquiries
-    assert check_distribution_work_items.exists() != has_multiple_inquiries
+    if not is_lead_authority:
+        assert check_inquiries_work_items.exists() != has_multiple_inquiries
+        assert check_distribution_work_items.exists() != has_multiple_inquiries
 
     assert inquiry1.child_case.status == Case.STATUS_COMPLETED
     assert inquiry1.status == WorkItem.STATUS_COMPLETED
 
     assert len(mailoutbox) == 1
-    assert mailoutbox[0].to[0] == "service@example.com"
+    assert mailoutbox[0].to[0] == (
+        service1.email if is_lead_authority else service.email
+    )
 
     if has_multiple_inquiries:
         save_answer(
@@ -437,13 +546,19 @@ def test_complete_inquiry(
             work_item=inquiry2.child_case.work_items.first(), user=caluma_admin_user
         )
 
-        assert check_inquiries_work_items.exists()
-        assert check_distribution_work_items.exists()
+        if not is_lead_authority:
+            assert check_inquiries_work_items.exists()
+            assert check_distribution_work_items.exists()
 
         addressed_redo_work_item.refresh_from_db()
         addressed_create_work_item.refresh_from_db()
-        assert addressed_redo_work_item.status == WorkItem.STATUS_CANCELED
-        assert addressed_create_work_item.status == WorkItem.STATUS_CANCELED
+
+        if not is_lead_authority:
+            assert addressed_redo_work_item.status == WorkItem.STATUS_CANCELED
+            assert addressed_create_work_item.status == WorkItem.STATUS_CANCELED
+        else:
+            assert addressed_redo_work_item.status == WorkItem.STATUS_READY
+            assert addressed_create_work_item.status == WorkItem.STATUS_READY
 
 
 def test_complete_distribution(
