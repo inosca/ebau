@@ -1,0 +1,20 @@
+<ul ...attributes>
+  {{#if @isAuthenticated}}
+    <li><LinkTo @route="index">{{t "global.title"}}</LinkTo></li>
+    <li><LinkTo @route="instances">{{t "nav.instances"}}</LinkTo></li>
+    {{#if (macroCondition (macroGetOwnConfig "enableCommunications"))}}
+      {{#unless @isInternal}}
+        <li>
+          <LinkTo @route="communications-global">
+            {{t "nav.communications"}}
+            <Communication::UnreadMessageBadge />
+          </LinkTo>
+        </li>
+      {{/unless}}
+    {{/if}}
+  {{/if}}
+  <li><LinkTo @route="public-instances">{{t "nav.public-instance"}}</LinkTo></li>
+  {{#if @showFormBuilder}}
+    <li><LinkTo @route="form-builder">{{t "nav.form-builder"}}</LinkTo></li>
+  {{/if}}
+</ul>
