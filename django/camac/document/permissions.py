@@ -444,13 +444,16 @@ def section_permissions(group, instance=None):
         )
 
     # use service permissions for municipalities that are involved via
-    # activation and not via instance service
+    # activation and not via instance service. Involved instance services
+    # (not active) should be treated as services involved via activation.
     if (
         settings.APPLICATION.get("USE_INSTANCE_SERVICE")
         and instance
         and role.startswith("municipality-")
     ):
-        if not instance.instance_services.filter(service=group.service).exists():
+        if not instance.instance_services.filter(
+            service=group.service, active=1
+        ).exists():
             role = role.replace("municipality-", "service-")
 
     all_app_permissions = rebuild_app_permissions(
