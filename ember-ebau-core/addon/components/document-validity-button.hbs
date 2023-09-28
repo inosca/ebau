@@ -24,7 +24,7 @@
 
   <UkButton
     @color="primary"
-    @disabled={{or @disabled (not isValid) this.validate.isRunning}}
+    @disabled={{or @disabled (not isValid) this.validate.isRunning this.session.isSupport}}
     @label={{@field.question.raw.label}}
     @loading={{this.validate.isRunning}}
     @onClick={{perform this.validate validateFn}}
