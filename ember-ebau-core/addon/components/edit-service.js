@@ -105,7 +105,9 @@ export default class EditServiceComponent extends Component {
   }
 
   willDestroy(...args) {
-    //this.service.value.rollbackAttributes();
+    if (this.service.value.isLoaded) {
+      this.service.value.rollbackAttributes();
+    }
 
     super.willDestroy(...args);
   }
