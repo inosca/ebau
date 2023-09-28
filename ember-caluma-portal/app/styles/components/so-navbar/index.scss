@@ -7,14 +7,19 @@ $navbar-border-color: $navbar-hover-color;
     position: relative;
 
     &__watermark {
-      font-weight: 700;
-      font-size: 32px;
-      opacity: 25%;
+      width: 150px;
       position: absolute;
-      right: 20px;
-      top: 50%;
-      transform: translateY(-50%);
+      top: 15px;
+      left: -40px;
+      font-size: 1.2em;
+      text-align: center;
+      line-height: 30px;
+      letter-spacing: 1px;
+      color: #fff;
+      transform: rotate(-45deg);
+      background-color: #a9a9a9;
       text-transform: uppercase;
+      box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
     }
   }
 
