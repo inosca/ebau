@@ -33,7 +33,7 @@
       {{#if this.session.isAuthenticated}}
         <li>
           <a href="#">{{or this.session.groupModel.name "-"}}</a>
-          {{#if this.groups.value.length}}
+          {{#if this.session.groups.records.length}}
             <div
               uk-dropdown
               animation="uk-animation-slide-top-small"
@@ -43,7 +43,7 @@
               id="group-dropdown"
             >
               <ul class="uk-nav uk-dropdown-nav">
-                {{#each (sort-by "name" this.groups.value) as |g|}}
+                {{#each (sort-by "name" this.session.groups.records) as |g|}}
                   <li class={{if (eq g.id this.group.id) "uk-active"}}>
                     <a
                       data-test-group={{g.id}}

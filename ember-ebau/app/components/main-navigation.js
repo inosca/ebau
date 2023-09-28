@@ -27,31 +27,6 @@ export default class MainNavigationComponent extends Component {
     return "/ebau-inosca-logo.svg";
   }
 
-  groups = trackedTask(this, this.fetchGroups, () => [this.session.group]);
-
-  @dropTask
-  *fetchGroups() {
-    yield Promise.resolve();
-
-    if (!this.session.isAuthenticated) {
-      return;
-    }
-    try {
-      const groups = yield this.store.query("public-group", {
-        include: ["service", "service.service_group", "role"].join(","),
-      });
-
-      this.session.groups = groups;
-
-      return groups;
-    } catch (e) {
-      console.error(e);
-      if (this.session.group) {
-        this.setGroup(null);
-      }
-    }
-  }
-
   resources = trackedTask(this, this.fetchResources);
 
   @dropTask
