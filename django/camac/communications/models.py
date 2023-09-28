@@ -98,3 +98,15 @@ class CommunicationsAttachment(models.Model):
         if self.file_attachment:
             return os.path.basename(self.file_attachment.name)
         return os.path.basename(self.document_attachment.name)
+
+    @property
+    def display_name(self):
+        if self.file_attachment:
+            return self.filename
+        return self.document_attachment.context.get("displayName", self.filename)
+
+    @property
+    def is_replaced(self):
+        if self.file_attachment:
+            return False
+        return self.document_attachment.context.get("isReplaced", False)

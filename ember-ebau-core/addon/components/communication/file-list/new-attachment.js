@@ -1,5 +1,4 @@
 import { inject as service } from "@ember/service";
-import { htmlSafe } from "@ember/template";
 import Component from "@glimmer/component";
 import { trackedFunction } from "ember-resources/util/function";
 
@@ -14,18 +13,7 @@ export default class CommunicationFileListNewAttachmentComponent extends Compone
       : null;
   });
 
-  get fileName() {
-    const isReplaced =
-      this.documentAttachmentResource.value?.context.isReplaced;
-    const displayName =
-      this.documentAttachmentResource.value?.displayName ||
-      this.documentAttachmentResource.value?.name;
-
-    if (isReplaced) {
-      return htmlSafe(
-        `<del>${displayName}</del> ${this.intl.t("link-attachments.replaced")}`,
-      );
-    }
-    return displayName;
+  get displayName() {
+    return this.documentAttachmentResource.value?.displayNameOrReplaced ?? "";
   }
 }
