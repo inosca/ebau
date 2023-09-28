@@ -14,6 +14,6 @@
 
 .instance-overview__action {
   &--highlight {
-    border-left: 4px solid red;
+    border-left: 4px solid $global-danger-background;
   }
 }
