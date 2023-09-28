@@ -23,10 +23,8 @@ def parashift_mock(request, requests_mock):
         "ort": "Platti, Amsteg",
         "ort-backup": "Platti, Amsteg",
         "baurecht-nr": None,
-        "gesuchsteller": "Kanton Uri, v.d. Baudirektion Uri" if request.param else None,
-        "gesuchsteller-backup": "Kanton Uri, v.d. Baudirektion Uri"
-        if not request.param
-        else None,
+        "gesuchsteller": "Kanton Uri, v.d. Baudirektion Uri",
+        "gesuchsteller-backup": "Kanton Uri, v.d. Baudirektion Uri",
     }
 
     parashift_dossier_data = {
