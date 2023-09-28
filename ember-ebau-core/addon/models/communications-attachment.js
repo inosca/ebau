@@ -1,4 +1,5 @@
 import { inject as service } from "@ember/service";
+import { htmlSafe } from "@ember/template";
 import { attr, belongsTo } from "@ember-data/model";
 import { task } from "ember-concurrency";
 
@@ -13,6 +14,8 @@ export default class CommunicationAttachmentModel extends DownloadableModel {
   @attr contentType;
   @attr fileAttachment;
   @attr filename;
+  @attr displayName;
+  @attr isReplaced;
 
   @belongsTo("communications-message") message;
   @belongsTo("attachment") documentAttachment;
@@ -22,7 +25,20 @@ export default class CommunicationAttachmentModel extends DownloadableModel {
     return this.downloadUrl;
   }
   get downloadName() {
-    return this.filename;
+    return this.displayName;
+  }
+
+  // Use is-replaced and display-name information from communications-attachment
+  // model since applicants or other involved organisations might not have access
+  // to the same attachments in the documents module as the uploading service
+  get displayNameOrReplaced() {
+    const displayName = this.displayName || this.filename;
+    if (this.isReplaced) {
+      return htmlSafe(
+        `<del>${displayName}</del> ${this.intl.t("link-attachments.replaced")}`,
+      );
+    }
+    return displayName;
   }
 
   uploadToDMS = task(async (instanceId, attachmentSection) => {

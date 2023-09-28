@@ -399,8 +399,16 @@ class CommunicationsAttachmentSerializer(serializers.ModelSerializer):
             "download_url",
             "content_type",
             "filename",
+            "display_name",
+            "is_replaced",
         ]
-        read_only_fields = ["download_url", "content_type", "filename"]
+        read_only_fields = [
+            "download_url",
+            "content_type",
+            "filename",
+            "display_name",
+            "is_replaced",
+        ]
 
 
 class ConvertToDocumentSerializer(serializers.ModelSerializer):
