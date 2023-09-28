@@ -13,17 +13,19 @@
   <nav class="so-navbar__nav">
     <div>
       <ul>
-        <li><LinkTo @route="index">{{t "global.title"}}</LinkTo></li>
-        <li><LinkTo @route="instances">{{t "nav.instances"}}</LinkTo></li>
-        {{#if (macroCondition (macroGetOwnConfig "enableCommunications"))}}
-          {{#unless this.session.isInternal}}
-            <li>
-              <LinkTo @route="communications-global">
-                {{t "nav.communications"}}
-                <Communication::UnreadMessageBadge />
-              </LinkTo>
-            </li>
-          {{/unless}}
+        {{#if this.session.isAuthenticated}}
+          <li><LinkTo @route="index">{{t "global.title"}}</LinkTo></li>
+          <li><LinkTo @route="instances">{{t "nav.instances"}}</LinkTo></li>
+          {{#if (macroCondition (macroGetOwnConfig "enableCommunications"))}}
+            {{#unless this.session.isInternal}}
+              <li>
+                <LinkTo @route="communications-global">
+                  {{t "nav.communications"}}
+                  <Communication::UnreadMessageBadge />
+                </LinkTo>
+              </li>
+            {{/unless}}
+          {{/if}}
         {{/if}}
         <li><LinkTo @route="public-instances">{{t "nav.public-instance"}}</LinkTo></li>
         {{#if this.showFormBuilder}}
@@ -35,7 +37,7 @@
       <ul>
         <li><a href={{macroGetOwnConfig "eGovPortalURL"}}>{{t "so-footer.leave"}}</a></li>
         <li><LinkTo @route="faq" title={{t "nav.faq"}}><FaIcon @icon="question-circle" /></LinkTo></li>
-        {{#if this.session.user}}
+        {{#if (and this.session.isAuthenticated this.session.user)}}
           <li>
             <a href="#">
               <img
@@ -90,8 +92,9 @@
             </div>
           </li>
         {{/if}}
-        <li><a href="" title={{t "nav.logout"}} {{on "click" this.logout}}><FaIcon @icon="power-off" /></a>
-        </li>
+        {{#if this.session.isAuthenticated}}
+          <li><a href="" title={{t "nav.logout"}} {{on "click" this.logout}}><FaIcon @icon="power-off" /></a></li>
+        {{/if}}
       </ul>
     </div>
   </nav>

@@ -3675,6 +3675,8 @@ APPLICATIONS = {
         },
         "USE_CAMAC_ADMIN": False,
         "LOG_NOTIFICATIONS": True,
+        "ENABLE_PUBLIC_CALUMA": True,
+        "ENABLE_PUBLIC_ENDPOINTS": True,
         # Mapping between camac role and instance permission.
         "ROLE_PERMISSIONS": {
             "municipality-admin": "municipality",
