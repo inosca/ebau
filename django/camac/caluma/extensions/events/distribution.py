@@ -31,6 +31,7 @@ from camac.caluma.utils import (
     filter_by_workflow_base,
     sync_inquiry_deadline,
 )
+from camac.constants import kt_bern as bern_constants
 from camac.core.utils import create_history_entry
 from camac.ech0211.signals import (
     accompanying_report_send,
@@ -291,6 +292,29 @@ def post_create_inquiry(sender, work_item, user, context=None, **kwargs):
 @filter_by_task("INQUIRY_TASK")
 @transaction.atomic
 def post_resume_inquiry(sender, work_item, user, context=None, **kwargs):
+    # When correcting an instance in Kt. BE, the entire case is suspended and
+    # resumed again when the correction is completed. Running inquiries are also
+    # suspended and resumed again, which results in draft inquiries and already
+    # sent inquiries from being (re-)sent. To mitigate this issue we only allow
+    # corrections of the instance if there are no running inquiries. However,
+    # checking for running inquiries fails, when only inquiries are running, which aren't
+    # visible to the lead authority. This happens for example, when the lead authority
+    # invites a service, which in turn invites subservices, but the invited service
+    # already answers its own inquiry without waiting for the response of the
+    # subservices.
+    # In those cases, we ignore the resuming of the inquiry and for draft inquiries
+    # restore the original status.
+    if (
+        settings.APPLICATION_NAME == "kt_bern"
+        and work_item.case.family.instance.instance_state.pk
+        == bern_constants.INSTANCE_STATE_CORRECTION_IN_PROGRESS
+    ):
+        if not work_item.child_case:
+            work_item.status = WorkItem.STATUS_SUSPENDED
+            work_item.save()
+
+        return
+
     # start inquiry child case
     start_case(
         workflow=Workflow.objects.get(pk=settings.DISTRIBUTION["INQUIRY_WORKFLOW"]),
@@ -370,10 +394,16 @@ def post_complete_inquiry(sender, work_item, user, context=None, **kwargs):
     )
 
     # If there are no more pending inquiries addressed to the service that just
-    # completed an inquiry, we need to cancel all create and redo inquiry work
-    # items in order to prohibit new or reopened inquiries controlled by this
-    # service.
-    if not pending_addressed_inquiries.exists():
+    # completed an inquiry and the addressed group is not the responsible service,
+    # we need to cancel all create and redo inquiry work items in order to
+    # prohibit new or reopened inquiries controlled by this service.
+    responsible_service_id = work_item.case.family.instance.responsible_service(
+        filter_type="municipality"
+    ).pk
+    if (
+        not pending_addressed_inquiries.exists()
+        and str(responsible_service_id) not in work_item.addressed_groups
+    ):
         for work_item_to_cancel in work_item.case.work_items.filter(
             task_id__in=[
                 settings.DISTRIBUTION["INQUIRY_CREATE_TASK"],

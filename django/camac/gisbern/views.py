@@ -36,13 +36,13 @@ def get_polygon(egrid):
     response = _session.get(
         build_url(
             settings.GIS_BASE_URL,
-            f"/geoservice2/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer?service=WFS&version=2.0.0&Request=GetFeature&typename=a42geo_a42geo_ebau_kt_wfs_d_fk:DIPANU_DIPANUF&count=10&Filter=%3Cogc:Filter%3E%3Cogc:PropertyIsEqualTo%20matchCase=%22true%22%3E%3Cogc:PropertyName%3EEGRID%3C/ogc:PropertyName%3E%3Cogc:Literal%3E{egrid}%3C/ogc:Literal%3E%3C/ogc:PropertyIsEqualTo%3E%3C/ogc:Filter%3E",
+            f"/geoservice3/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer?service=WFS&version=2.0.0&Request=GetFeature&typename=a42geo_a42geo_ebau_kt_wfs_d_fk:DIPANU_DIPANUF&count=10&Filter=%3Cogc:Filter%3E%3Cogc:PropertyIsEqualTo%20matchCase=%22true%22%3E%3Cogc:PropertyName%3EEGRID%3C/ogc:PropertyName%3E%3Cogc:Literal%3E{egrid}%3C/ogc:Literal%3E%3C/ogc:PropertyIsEqualTo%3E%3C/ogc:Filter%3E",
         )
     )
 
     try:
         root = get_root(response)
-    except etree.XMLSyntaxError:
+    except etree.XMLSyntaxError:  # pragma: no cover
         raise ValueError("Can't parse document")
 
     try:
@@ -106,7 +106,7 @@ def get_gis_data(polygon):
     ).read()
 
     response_kanton = _session.post(
-        "{0}/geoservice2/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer".format(
+        "{0}/geoservice3/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer".format(
             settings.GIS_BASE_URL
         ),
         data=get_feature_xml.format(baseURL=settings.GIS_BASE_URL, query=query),
@@ -114,7 +114,7 @@ def get_gis_data(polygon):
 
     try:
         et = get_root(response_kanton)
-    except etree.XMLSyntaxError:
+    except etree.XMLSyntaxError:  # pragma: no cover
         raise ValueError("Can't parse document")
 
     tag_list = []
@@ -134,22 +134,16 @@ def get_gis_data(polygon):
 
         # Nutzungszone ([String])
         if "GEODB.UZP_BAU_VW" in child.tag:
-            for item in child.findall(
-                "a42geo_a42geo_ebau_kt_wfs_d_fk:ZONE_LO", et.nsmap
-            ):
+            for item in child.findall("a42geo_ebau_kt_wfs_d_fk:ZONE_LO", et.nsmap):
                 usage_zones.add(item.text.strip())
 
         # Überbauungsordnung (String)
         if "GEODB.UZP_UEO_VW" in child.tag:
-            for item in child.findall(
-                "a42geo_a42geo_ebau_kt_wfs_d_fk:ZONE_LO", et.nsmap
-            ):
+            for item in child.findall("a42geo_ebau_kt_wfs_d_fk:ZONE_LO", et.nsmap):
                 building_regulations.add(item.text.strip())
 
         # Gewässerschutz (String)
-        for item in child.findall(
-            "a42geo_a42geo_ebau_kt_wfs_d_fk:GSKT_BEZEICH_DE", et.nsmap
-        ):
+        for item in child.findall("a42geo_ebau_kt_wfs_d_fk:GSKT_BEZEICH_DE", et.nsmap):
             water_protection_zones.add(item.text.strip())
 
     return {

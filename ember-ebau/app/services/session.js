@@ -4,6 +4,7 @@ import { getOwner } from "@ember/application";
 import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 import { dropTask } from "ember-concurrency";
+import { query } from "ember-data-resources";
 import mainConfig from "ember-ebau-core/config/main";
 import { trackedTask } from "ember-resources/util/ember-concurrency";
 import { handleUnauthorized } from "ember-simple-auth-oidc";
@@ -24,7 +25,6 @@ export default class CustomSession extends Session {
   @service intl;
   @service router;
 
-  @tracked groups = [];
   @tracked enforcePublicAccess = false;
   @tracked currentInstanceId;
 
@@ -81,6 +81,10 @@ export default class CustomSession extends Session {
       service: yield group?.service,
     };
   }
+
+  groups = query(this, "public-group", () => ({
+    include: ["service", "service.service_group", "role"].join(","),
+  }));
 
   get user() {
     return this._data.value?.user;

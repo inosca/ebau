@@ -4,12 +4,12 @@
       <PowerSelect
         @selected={{this.selectedSearchResult}}
         @searchField="label"
-        @placeholder={{t "caluma.form.power-select.placeholder-single"}}
-        @loadingMessage={{t "caluma.form.power-select.options-loading"}}
+        @placeholder={{t "so-gis.search.placeholder"}}
+        @loadingMessage={{t "so-gis.search.loading"}}
         @searchEnabled={{true}}
         @searchMessage=""
-        @searchPlaceholder={{t "caluma.form.power-select.search-placeholder"}}
-        @noMatchesMessage={{t "caluma.form.power-select.search-empty"}}
+        @searchPlaceholder={{t "so-gis.search.input-placeholder"}}
+        @noMatchesMessage={{t "so-gis.search.empty"}}
         @onChange={{fn (mut this.selectedSearchResult)}}
         @search={{perform this.search}}
         as |result|

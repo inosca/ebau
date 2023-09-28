@@ -1,0 +1,18 @@
+# persons in charge of regular software maintenance
+^[software maintenance camac-ng frontends]
+ember-caluma-portal/* @Alanalu @jonasm
+ember-camac-ng/* @Alanalu @jonasm
+ember-ebau/* @Alanalu @jonasm
+ember-ebau-core/* @Alanalu @jonasm
+
+^[software maintenance camac-ng backends]
+django/* @jonasl @ChristianZ
+document-merge-service/* @jonasl @ChristianZ
+
+^[software maintenance camac-ng misc]
+compose/*.yml @jonasl @ChristianZ @Alanalu @jonasm
+keycloak/* @jonasl @ChristianZ @Alanalu @jonasm
+
+^[software maintenance camac-ng legacy portal]
+ember/* @adrian @Alanalu
+

@@ -141,10 +141,7 @@
       "meta": {
         "directLink": {
           "route": "cases.detail.task-form",
-          "models": [
-            "INSTANCE_ID",
-            "TASK_SLUG"
-          ]
+          "models": ["INSTANCE_ID", "TASK_SLUG"]
         }
       },
       "address_groups": "['municipality']|groups",
@@ -224,10 +221,7 @@
       "meta": {
         "directLink": {
           "route": "cases.detail.publication",
-          "models": [
-            "INSTANCE_ID",
-            "public"
-          ]
+          "models": ["INSTANCE_ID", "public"]
         },
         "is-manually-completable": true
       },
