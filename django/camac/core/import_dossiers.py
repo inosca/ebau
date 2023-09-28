@@ -52,9 +52,26 @@ def _import_dossier(data, bfs_nr):
 
     if imported_instance:  # pragma: no cover
         print(
-            f"The instance with external ID {data['external-id']} has already been imported (Instance ID: {imported_instance.pk})"
+            f"The instance with external ID {data['external-id']} has already been imported (Instance ID: {imported_instance.pk}) and will be updated"
         )
-        return
+        _update_answers(imported_instance, data)
+
+        if "erfassungsjahr" in data:
+            domain_logic.CreateInstanceLogic.generate_identifier(
+                imported_instance, data["erfassungsjahr"]
+            )
+
+        submit_date = now().strftime(SUBMIT_DATE_FORMAT)
+        WorkflowEntry.objects.filter(
+            instance=imported_instance,
+            workflow_item_id=uri_constants.WORKFLOW_ITEM_DOSSIER_ERFASST,
+            group=1,
+        ).update(workflow_date=submit_date)
+
+        imported_instance.case.meta["submit-date"] = submit_date
+        imported_instance.case.save()
+
+        return imported_instance
 
     creation_data = {
         "instance_state": instance_state,
@@ -101,6 +118,43 @@ def _import_dossier(data, bfs_nr):
     return instance
 
 
+def _get_value_or_backup(data, key):
+    backup_key = key + "-backup"
+    return data[backup_key] or data[key]
+
+
+def _update_answers(instance, data):
+    plot_row = Document.objects.get(
+        form_id="parcel-table", family=instance.case.document
+    )
+    plot_row.answers.filter(question_id="parcel-number").update(
+        value=str(data["parzelle-nr"])
+    )
+    plot_row.answers.filter(question_id="building-law-number").update(
+        value=data["baurecht-nr"]
+    )
+
+    applicant_row = Document.objects.get(
+        form_id="personal-data-table", family=instance.case.document
+    )
+    applicant_row.answers.filter(question_id="last-name").update(
+        value=_get_value_or_backup(data, "gesuchsteller")
+    )
+
+    Answer.objects.filter(
+        question__slug="parcel-street", document=instance.case.document
+    ).update(value=_get_value_or_backup(data, "ort"))
+    Answer.objects.filter(
+        question__slug="proposal-description", document=instance.case.document
+    ).update(value=_get_value_or_backup(data, "vorhaben"))
+    Answer.objects.filter(
+        question__slug="parzellen-oder-baurechtsnummer", document=instance.case.document
+    ).update(value=data["parzelle-nr"])
+    print(
+        f"The Instance with external ID {data['external-id']} has been updated (Instance ID: {instance.pk})"
+    )
+
+
 def _write_answers(instance, data):
     # write the parcel-number and building-law-numer in the parcels table
     plot_table = instance.case.document.answers.create(question_id="parcels")
@@ -118,17 +172,19 @@ def _write_answers(instance, data):
     applicant_row = Document.objects.create(
         form_id="personal-data-table", family=instance.case.document
     )
-    applicant_row.answers.create(question_id="last-name", value=data["gesuchsteller"])
+    applicant_row.answers.create(
+        question_id="last-name", value=_get_value_or_backup(data, "gesuchsteller")
+    )
     applicant_table.documents.add(applicant_row)
 
     # write simple answers
     Answer.objects.create(
-        value=data["vorhaben"] if data["vorhaben"] else data["vorhaben-backup"],
+        value=_get_value_or_backup(data, "vorhaben"),
         document=instance.case.document,
         question=Question.objects.get(slug="proposal-description"),
     )
     Answer.objects.create(
-        value=data["ort"] if data["ort"] else data["ort-backup"],
+        value=_get_value_or_backup(data, "ort"),
         document=instance.case.document,
         question=Question.objects.get(slug="parcel-street"),
     )
