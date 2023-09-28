@@ -181,7 +181,7 @@ class AttachmentView(InvolvedInTopicQuerysetMixin, InstanceQuerysetMixin, ModelV
 
             return SendfileHttpResponse(
                 content_type=attachment.mime_type,
-                filename=obj.filename,
+                filename=obj.display_name,
                 base_path=settings.MEDIA_ROOT,
                 file_path=f"/{attachment.path}",
             )
