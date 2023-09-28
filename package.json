@@ -17,6 +17,6 @@
   "resolutions": {
     "ember-concurrency": "3.0.0",
     "ember-power-select": "7.0.0",
-    "ember-data": "4.8.8"
+    "ember-data": "4.12.3"
   }
 }
