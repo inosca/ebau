@@ -1822,8 +1822,8 @@ snapshots['test_dms_placeholders_docs 1'] = {
             }
         ],
         'description': {
-            'de': 'Adresslinie 1 des/r Gesuchsteller/in',
-            'fr': "Ligne d'adresse 1 requérant/e"
+            'de': 'Adresslinie 1 des/r ersten Gesuchsteller/in',
+            'fr': "Ligne d'adresse 1 du premier requérant/e"
         },
         'nested_aliases': {
         }
@@ -1836,8 +1836,8 @@ snapshots['test_dms_placeholders_docs 1'] = {
             }
         ],
         'description': {
-            'de': 'Adresslinie 2 des/r Gesuchsteller/in',
-            'fr': "Ligne d'adresse 2 requérant/e"
+            'de': 'Adresslinie 2 des/r ersten Gesuchsteller/in',
+            'fr': "Ligne d'adresse 2 du premier requérant/e"
         },
         'nested_aliases': {
         }
@@ -1892,8 +1892,8 @@ snapshots['test_dms_placeholders_docs 1'] = {
             }
         ],
         'description': {
-            'de': 'Adresslinie 1 des/r Grundeigentümer/in',
-            'fr': "Ligne d'adresse 1 propriétaire foncier/foncière"
+            'de': 'Adresslinie 1 des/r ersten Grundeigentümer/in',
+            'fr': "Ligne d'adresse 1 propriétaire du premier foncier/foncière"
         },
         'nested_aliases': {
         }
@@ -1906,8 +1906,8 @@ snapshots['test_dms_placeholders_docs 1'] = {
             }
         ],
         'description': {
-            'de': 'Adresslinie 2 des/r Grundeigentümer/in',
-            'fr': "Ligne d'adresse 2 propriétaire foncier/foncière"
+            'de': 'Adresslinie 2 des/r ersten Grundeigentümer/in',
+            'fr': "Ligne d'adresse 2 propriétaire du premier foncier/foncière"
         },
         'nested_aliases': {
         }
@@ -2649,8 +2649,8 @@ snapshots['test_dms_placeholders_docs 1'] = {
             }
         ],
         'description': {
-            'de': 'Adresslinie 1 des/r Projektverfasser/in',
-            'fr': "Ligne d'adresse 1 de l'auteur(e) du projet"
+            'de': 'Adresslinie 1 des/r ersten Projektverfasser/in',
+            'fr': "Ligne d'adresse 1 du premier l'auteur(e) du projet"
         },
         'nested_aliases': {
         }
@@ -2663,8 +2663,8 @@ snapshots['test_dms_placeholders_docs 1'] = {
             }
         ],
         'description': {
-            'de': 'Adresslinie 2 des/r Projektverfasser/in',
-            'fr': "Ligne d'adresse 2 de l'auteur(e) du projet"
+            'de': 'Adresslinie 2 des/r ersten Projektverfasser/in',
+            'fr': "Ligne d'adresse 2 du premier l'auteur(e) du projet"
         },
         'nested_aliases': {
         }
@@ -4202,15 +4202,14 @@ snapshots['test_dms_placeholders_gr[Municipality] 1'] = {
     'BAUEINGABE_DATUM': '31. März 2021',
     'BAUENTSCHEID': 'Bewilligt',
     'BAUENTSCHEID_DATUM': '30. August 2021',
-    'BAUVORHABEN': 'Einfamilienhaus',
     'BEGINN_PUBLIKATIONSORGAN_GEMEINDE': '20. August 2021',
     'BEGINN_PUBLIKATION_KANTONSAMTSBLATT': '22. August 2021',
     'BESCHREIBUNG_BAUVORHABEN': 'Einfamilienhaus',
     'BESCHREIBUNG_PROJEKTAENDERUNG': 'Projektänderung',
     'DECISION_DATE': '30. August 2021',
     'DESCRIPTION_MODIFICATION': 'Projektänderung',
-    'DOSSIER_NUMBER': 1,
-    'DOSSIER_NUMMER': 1,
+    'DOSSIER_NUMBER': '2023-1',
+    'DOSSIER_NUMMER': '2023-1',
     'DOSSIER_TYP': 'Baugesuch',
     'EBAU_URL': 'http://ember-ebau.local',
     'EIGENE_NEBENBESTIMMUNGEN': '',
