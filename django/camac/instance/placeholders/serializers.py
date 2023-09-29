@@ -139,17 +139,6 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
         aliases=[_("SUBMIT_DATE")],
         description=_("Date on which the instance was submitted"),
     )
-    bauvorhaben = fields.JointField(
-        fields=[
-            fields.MasterDataField(
-                source="project", parser=get_option_label, join_by=", "
-            ),
-            fields.MasterDataField(source="proposal"),
-        ],
-        separator=", ",
-        aliases=[_("PROJECT")],
-        description=_("Project of the instance"),
-    )
     beschreibung_bauvorhaben = fields.MasterDataField(
         source="proposal",
         aliases=[_("PROPOSAL")],
@@ -213,14 +202,14 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
         only_first=True,
         fields=["address_1"],
         aliases=[_("APPLICANT_ADDRESS_1")],
-        description=_("Address line 1 of the applicant"),
+        description=_("Address line 1 of the first applicant"),
     )
     gesuchsteller_address_2 = fields.MasterDataPersonField(
         source="applicants",
         only_first=True,
         fields=["address_2"],
         aliases=[_("APPLICANT_ADDRESS_2")],
-        description=_("Address line 2 of the applicant"),
+        description=_("Address line 2 of the first applicant"),
     )
     gesuchsteller_name_address = fields.MasterDataPersonField(
         source="applicants",
@@ -240,14 +229,14 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
         only_first=True,
         fields=["address_1"],
         aliases=[_("LANDOWNER_ADDRESS_1")],
-        description=_("Address line 1 of the landowner"),
+        description=_("Address line 1 of the first landowner"),
     )
     grundeigentuemer_address_2 = fields.MasterDataPersonField(
         source="landowners",
         only_first=True,
         fields=["address_2"],
         aliases=[_("LANDOWNER_ADDRESS_2")],
-        description=_("Address line 2 of the landowner"),
+        description=_("Address line 2 of the first landowner"),
     )
     grundeigentuemer_name_address = fields.MasterDataPersonField(
         source="landowners",
@@ -421,14 +410,14 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
         only_first=True,
         fields=["address_1"],
         aliases=[_("PROJECT_AUTHOR_ADDRESS_1")],
-        description=_("Address line 1 of the project author"),
+        description=_("Address line 1 of the first project author"),
     )
     projektverfasser_address_2 = fields.MasterDataPersonField(
         source="project_authors",
         only_first=True,
         fields=["address_2"],
         aliases=[_("PROJECT_AUTHOR_ADDRESS_2")],
-        description=_("Address line 2 of the project author"),
+        description=_("Address line 2 of the first project author"),
     )
     projektverfasser_name_address = fields.MasterDataPersonField(
         source="project_authors",
@@ -536,8 +525,7 @@ class GrDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         aliases=[_("ID")],
         description=_("ID of the instance"),
     )
-    dossier_number = fields.AliasedIntegerField(
-        source="pk",
+    dossier_number = fields.MasterDataField(
         aliases=[_("DOSSIER_NUMBER")],
         description=_("Dossier number of the instance"),
     )
@@ -581,6 +569,17 @@ class GrDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
 
 
 class BeDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
+    bauvorhaben = fields.JointField(
+        fields=[
+            fields.MasterDataField(
+                source="project", parser=get_option_label, join_by=", "
+            ),
+            fields.MasterDataField(source="proposal"),
+        ],
+        separator=", ",
+        aliases=[_("PROJECT")],
+        description=_("Project of the instance"),
+    )
     ebau_number = fields.MasterDataField(
         source="dossier_number",
         aliases=[_("EBAU_NUMBER")],
