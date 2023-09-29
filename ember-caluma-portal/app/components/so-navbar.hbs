@@ -36,7 +36,7 @@
     <div>
       <ul>
         <li><a href={{macroGetOwnConfig "eGovPortalURL"}}>{{t "so-footer.leave"}}</a></li>
-        <li><LinkTo @route="faq" title={{t "nav.faq"}}><FaIcon @icon="question-circle" /></LinkTo></li>
+        <li><a href="https://so.ch/ebau" title={{t "nav.faq"}}><FaIcon @icon="question-circle" /></a></li>
         {{#if (and this.session.isAuthenticated this.session.user)}}
           <li>
             <a href="#">
