@@ -76,6 +76,9 @@ RECIPIENT_TYPE_NAMES = {
     "work_item_controlling": translation.gettext_noop(
         "Controlling service of work item"
     ),
+    "additional_demand_inviter": translation.gettext_noop(
+        "Inviter of additional demand creator"
+    ),
 }
 
 
@@ -1017,13 +1020,13 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             # Work items
             "work_item_addressed",
             "work_item_controlling",
+            "additional_demand_inviter",
             *settings.APPLICATION.get("CUSTOM_NOTIFICATION_TYPES", []),
         )
     )
     email_list = serializers.CharField(required=False)
 
     def _get_recipients_submitter_list(self, instance):
-
         if instance.form.pk not in uri_constants.PORTAL_FORMS:
             return []
 
@@ -1318,6 +1321,34 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             [
                 self._get_responsible(instance, service, work_item)
                 for service in Service.objects.filter(pk__in=work_item.addressed_groups)
+            ]
+        )
+
+    def _get_recipients_additional_demand_inviter(self, instance):
+        if not settings.ADDITIONAL_DEMAND:  # pragma: no cover
+            return []
+
+        current_group = self.validated_data.get(
+            "work_item"
+        ).case.parent_work_item.addressed_groups
+        inquiries = caluma_workflow_models.WorkItem.objects.filter(
+            task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
+            case__family__instance=instance,
+            addressed_groups=current_group,
+        ).exclude(
+            status__in=[
+                caluma_workflow_models.WorkItem.STATUS_SUSPENDED,
+                caluma_workflow_models.WorkItem.STATUS_CANCELED,
+            ],
+        )
+
+        groups = inquiries.values_list("controlling_groups", flat=True)
+        groups = [group for group in chain(*groups) if group not in current_group]
+
+        return flatten(
+            [
+                self._get_responsible(instance, service)
+                for service in Service.objects.filter(pk__in=groups)
             ]
         )
 

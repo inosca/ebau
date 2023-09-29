@@ -8,6 +8,16 @@ ADDITIONAL_DEMAND = {
         "SEND_TASK": "send-additional-demand",
         "DECISION_QUESTION": "additional-demand-decision",
         "DECISION_REJECT": "additional-demand-decision-reject",
+        "CHECK_NOTIFICATON": {
+            "additional-demand-decision-reject": {
+                "notification_recipients": ["applicant"],
+                "history_text": "Additional demand rejected",
+            },
+            "additional-demand-decision-accept": {
+                "notification_recipients": ["additional_demand_inviter"],
+                "history_text": "Additional demand accepted",
+            },
+        },
     },
     "kt_gr": {
         "ENABLED": True,
