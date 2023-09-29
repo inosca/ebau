@@ -40,7 +40,7 @@ export default class EbauModulesService extends Service {
       });
 
       if (servicesToFetch.size) {
-        await this.store.query("public-service", {
+        await this.store.query(this.ebauModules.storeServiceName, {
           service_id: [...servicesToFetch].join(","),
         });
       }
