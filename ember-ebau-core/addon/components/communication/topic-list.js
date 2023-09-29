@@ -1,4 +1,3 @@
-import { getOwner } from "@ember/application";
 import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
@@ -44,15 +43,13 @@ export default class CommunicationTopicListComponent extends Component {
 
   @action
   transitionToTopic(topic) {
-    const applicationName = getOwner(this).application.modulePrefix;
-
     const instanceId = topic.get("instance.id");
     const routeName = this.ebauModules.resolveModuleRoute(
       "communications",
       "detail",
     );
 
-    if (applicationName === "camac-ng") {
+    if (this.ebauModules.applicationName === "camac-ng") {
       if (
         this.router.currentRouteName ===
         this.ebauModules.resolveModuleRoute(

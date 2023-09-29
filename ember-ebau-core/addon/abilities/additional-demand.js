@@ -6,7 +6,11 @@ export default class AdditionalDemandAbility extends Ability {
   @service session;
 
   get canCreate() {
-    return this.session.isInternal;
+    if (this.ebauModules.applicationName === "caluma-portal") {
+      return this.session.isInternal;
+    }
+
+    return true;
   }
 
   get canDisplay() {
