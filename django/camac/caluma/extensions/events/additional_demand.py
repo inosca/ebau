@@ -1,11 +1,21 @@
 from caluma.caluma_core.events import on
 from caluma.caluma_workflow.api import complete_work_item, start_case
-from caluma.caluma_workflow.events import post_complete_case, post_create_work_item
+from caluma.caluma_workflow.events import (
+    post_complete_case,
+    post_complete_work_item,
+    post_create_work_item,
+)
 from caluma.caluma_workflow.models import Workflow
 from django.conf import settings
 from django.db import transaction
+from django.utils.translation import gettext_noop
 
 from camac.caluma.utils import filter_by_task_base, filter_by_workflow_base
+from camac.core.utils import create_history_entry
+from camac.notification.utils import send_mail_without_request
+from camac.user.models import User
+
+from .general import get_instance
 
 
 def get_additional_demand_settings(settings_keys):
@@ -54,3 +64,32 @@ def post_complete_additional_demand_workflow(
     sender, case, user, context=None, **kwargs
 ):
     complete_work_item(work_item=case.parent_work_item, user=user, context=context)
+
+
+@on(post_complete_work_item, raise_exception=True)
+@filter_by_task("CHECK_TASK")
+@transaction.atomic
+def post_complete_check_additional_demand(
+    sender, work_item, user, context=None, **kwargs
+):
+    decision = work_item.document.answers.get(
+        question_id=settings.ADDITIONAL_DEMAND["DECISION_QUESTION"]
+    )
+    instance = get_instance(work_item)
+
+    if decision.value in settings.ADDITIONAL_DEMAND["CHECK_NOTIFICATON"]:
+        config = settings.ADDITIONAL_DEMAND["CHECK_NOTIFICATON"][decision.value]
+
+        send_mail_without_request(
+            decision.value,
+            user.username,
+            user.camac_group,
+            recipient_types=config["notification_recipients"],
+            instance={"id": instance.pk, "type": "instances"},
+            work_item={"id": work_item.pk, "type": "work-items"},
+        )
+        create_history_entry(
+            instance,
+            User.objects.get(username=user.username),
+            gettext_noop(config["history_text"]),
+        )

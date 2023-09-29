@@ -992,6 +992,13 @@ msgid "Material exam performed"
 msgstr "Materielle Prüfung durchgeführt"
 
 #: camac/settings.py:4211
+msgid "Additional demand sent"
+msgstr "Nachforderung begonnen"
+
+msgid "Additional demand was answered"
+msgstr "Nachforderung wurde beantwortet"
+
+#: camac/settings.py:4068
 msgid "German"
 msgstr "Deutsch"
 

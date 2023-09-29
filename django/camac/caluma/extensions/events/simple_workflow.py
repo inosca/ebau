@@ -58,5 +58,6 @@ def post_complete_simple_workflow(sender, work_item, user, context, **kwargs):
                 user.camac_group,
                 instance={"id": instance.pk, "type": "instances"},
                 recipient_types=notification["recipient_types"],
+                work_item={"id": work_item.pk, "type": "work-items"},
                 **additional_data,
             )
