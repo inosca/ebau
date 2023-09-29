@@ -1,5 +1,6 @@
 dms:
   category: "Catégorie"
+  categoryHint: "Pour plus de clarté, les modèles liés thématiquement peuvent être dotés d'une catégorie commune (titre)."
   download: "Télécharger le modèle"
   edit: "Modifier le modèle"
   empty: "Aucun modèle trouvé"
