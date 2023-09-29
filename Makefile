@@ -51,12 +51,12 @@ css-watch: ## Watch the sass files and create the css when they change
 .PHONY: dumpconfig
 dumpconfig: ## Dump the current camac and caluma configuration
 	docker-compose exec django python manage.py camac_dump_config
-	@yarn prettier --log-level silent --write "django/${APPLICATION}/config/*.json"
+	@npx --yes prettier@3.0.3 --log-level silent --write "django/${APPLICATION}/config/*.json"
 
 .PHONY: dumpdata
 dumpdata: ## Dump the current camac and caluma data
 	docker-compose exec django /app/manage.py camac_dump_data
-	@yarn prettier --log-level silent --write "django/${APPLICATION}/data/*.json"
+	@npx --yes prettier@3.0.3 --log-level silent --write "django/${APPLICATION}/data/*.json"
 
 .PHONY: loadconfig-camac
 loadconfig-camac: ## Load the camac configuration
@@ -74,7 +74,7 @@ loadconfig-dms: ## Load the DMS configuration
 dumpconfig-dms: ## Dump the DMS configuration
 	@if docker-compose config|grep -q document-merge-service; then \
 		docker-compose exec -u root document-merge-service bash -c "poetry run python manage.py dumpdata api.Template > /tmp/document-merge-service/dump.json" ; \
-		yarn prettier --log-level silent --write "document-merge-service/${APPLICATION}/dump.json"; \
+		@npx --yes prettier@3.0.3 --log-level silent --write "document-merge-service/${APPLICATION}/dump.json"; \
 	fi
 
 
@@ -89,7 +89,7 @@ loadconfig-keycloak: ## Load the keycloak configuration
 .PHONY: dumpconfig-keycloak
 dumpconfig-keycloak: ## Dump the keycloak configuration
 	docker-compose exec keycloak /opt/keycloak/bin/kc.sh export --file /opt/keycloak/data/import/test-config.json;  \
-	yarn prettier --log-level silent --write "keycloak/config/${APPLICATION}-test-config.json"; \
+	@npx --yes prettier@3.0.3 --log-level silent --write "keycloak/config/${APPLICATION}-test-config.json"; \
 
 .PHONY: loadconfig
 loadconfig: loadconfig-camac loadconfig-dms loadconfig-keycloak ## Load all configuration
@@ -144,8 +144,8 @@ format:
 	@yarn --cwd=ember install
 	@yarn --cwd=ember lint:js --fix
 	@black --config django/pyproject.toml django
-	@yarn prettier --write *.yml
-	@yarn prettier --write compose/*.yml
+	@npx --yes prettier@3.0.3 --write *.yml
+	@npx --yes prettier@3.0.3 --write compose/*.yml
 
 .PHONY: makemigrations
 makemigrations: ## Create schema migrations
@@ -317,3 +317,7 @@ watch-templatefiles: # Upload DMS templates to minio on change
 .PHONY: update-templatefiles
 update-templatefiles: # Upload DMS templates to minio
 	@docker compose run --rm --no-deps mc -u
+
+.PHONY: prettier-check
+prettier-check: # Check formatting of yml and config files with prettier
+	@npx --yes prettier@3.0.3 -c **/*.yml "django/**/*.json"

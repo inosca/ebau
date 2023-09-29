@@ -6,9 +6,6 @@
     "ember-ebau-core",
     "ember-ebau"
   ],
-  "devDependencies": {
-    "prettier": "3.0.0"
-  },
   "//": [
     "ember-concurrency: pending update in ember-simple-auth-oidc, ember-alexandria and ember-power-select",
     "ember-power-select: v7.1.0-v7.1.2 have issues in tests",

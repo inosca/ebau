@@ -475,11 +475,7 @@
       "type": "checkbox",
       "required": false,
       "config": {
-        "options": [
-          "Landwirtschaft",
-          "Öffentliche Nutzung",
-          "Forstwirtschaft"
-        ]
+        "options": ["Landwirtschaft", "Öffentliche Nutzung", "Forstwirtschaft"]
       }
     },
     "wald-forstlich": {
