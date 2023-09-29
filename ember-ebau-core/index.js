@@ -32,6 +32,7 @@ module.exports = {
         isBE: ENV === "be",
         isSZ: ENV === "sz",
         isUR: ENV === "ur",
+        isGR: ENV === "gr",
         isSO: ENV === "so",
         // environment-specific settings
         portalUrl: process.env.PORTAL_URL || "http://ebau-portal.local",

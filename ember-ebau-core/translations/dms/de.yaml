@@ -1,5 +1,6 @@
 dms:
   category: "Kategorie"
+  categoryHint: "Zur besseren Übersichtlichkeit können fachlich verwandte Vorlagen mit einer gemeinsamen Kategorie (Überschrift) versehen werden."
   download: "Vorlage herunterladen"
   edit: "Vorlage bearbeiten"
   empty: "Keine Vorlagen gefunden"
