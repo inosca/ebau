@@ -15,6 +15,5 @@ module("Integration | Component | so-footer", function (hooks) {
     assert.dom("footer").exists();
     assert.dom("footer ul li:nth-of-type(1)").hasText("t:nav.faq:()");
     assert.dom("footer ul li:nth-of-type(2)").hasText("t:so-footer.contact:()");
-    assert.dom("footer ul li:nth-of-type(3)").hasText("t:so-footer.terms:()");
   });
 });
