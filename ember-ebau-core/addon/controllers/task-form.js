@@ -25,7 +25,7 @@ export default class TaskFormController extends Controller {
 
   @action
   redirectToWorkItems() {
-    if (["decision", "formal-exam"].includes(this.model)) {
+    if (["decision", "formal-exam", "material-exam"].includes(this.model)) {
       this.ebauModules.redirectToWorkItems();
     }
   }

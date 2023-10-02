@@ -11,3 +11,39 @@ mutation CreateBuildingPermitWorkflow {
     clientMutationId
   }
 }
+
+mutation CreateFlowAfterSubmit {
+  addWorkflowFlow(
+    input: {
+      workflow: "building-permit"
+      tasks: ["submit"]
+      next: "[\"create-manual-workitems\", \"formal-exam\"]|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateFlowAfterFormalExam {
+  addWorkflowFlow(
+    input: {
+      workflow: "building-permit"
+      tasks: ["formal-exam"]
+      next: "[\"material-exam\"]|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateFlowAfterMaterialExam {
+  addWorkflowFlow(
+    input: {
+      workflow: "building-permit"
+      tasks: ["material-exam"]
+      next: "[\"publication\", \"fill-publication\"]|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}

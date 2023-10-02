@@ -3266,7 +3266,7 @@ APPLICATIONS = {
             "SIMPLE_WORKFLOW": {
                 "formal-exam": {
                     "next_instance_state": "init-distribution",
-                    "history_text": _("Formal exam performed"),
+                    "history_text": _("Preliminary exam performed"),
                 },
                 "init-distribution": {
                     "next_instance_state": "circulation",
@@ -3717,7 +3717,31 @@ APPLICATIONS = {
             "USE_LOCATION": False,
             "SAVE_DOSSIER_NUMBER_IN_CALUMA": True,
             "MODIFICATION_ALLOW_FORMS": [],
-            "SIMPLE_WORKFLOW": {},
+            "SIMPLE_WORKFLOW": {
+                "formal-exam": {
+                    "next_instance_state": "material-exam",
+                    "history_text": _("Formal exam performed"),
+                },
+                "material-exam": {
+                    "next_instance_state": "init-distribution",
+                    "history_text": _("Material exam performed"),
+                },
+                "init-distribution": {
+                    "next_instance_state": "distribution",
+                    "history_text": _("Circulation started"),
+                },
+            },
+            "PUBLIC_STATUS": {
+                "USE_SLUGS": True,
+                "MAP": {
+                    "new": "creation",
+                    "subm": "submitted",
+                    "material-exam": "submitted",
+                    "init-distribution": "inProcedure",
+                    "distribution": "inProcedure",
+                },
+                "DEFAULT": "inProcedure",
+            },
         },
         "USE_INSTANCE_SERVICE": True,
         "DOSSIER_IMPORT": {},

@@ -598,9 +598,13 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
         if not config:
             return instance.instance_state.name
 
-        return config.get("MAP", {}).get(
-            instance.instance_state_id, config.get("DEFAULT", "")
+        identifier = (
+            instance.instance_state.name
+            if config.get("USE_SLUGS", False)
+            else instance.instance_state_id
         )
+
+        return config.get("MAP", {}).get(identifier, config.get("DEFAULT", ""))
 
     def get_is_after_decision(self, instance):
         return instance.instance_state.name in settings.APPLICATION.get(
