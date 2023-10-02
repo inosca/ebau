@@ -344,3 +344,11 @@ class IrRoleAclFactory(DjangoModelFactory):
 
     class Meta:
         model = models.IrRoleAcl
+
+
+class StaticContentFactory(DjangoModelFactory):
+    slug = Faker("slug")
+    content = Faker("text")
+
+    class Meta:
+        model = models.StaticContent

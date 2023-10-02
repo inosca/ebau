@@ -1,0 +1,3 @@
+static-content:
+  saveError: "Inhalt konnte nicht gespeichert werden"
+  loadError: "Inhalt konnte nicht geladen werden"
