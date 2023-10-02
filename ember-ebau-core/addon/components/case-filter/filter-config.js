@@ -20,6 +20,8 @@ export default {
   inquiryCreatedBefore: { type: "date", minDate: "inquiryCreatedAfter" },
   submitDateAfter: { type: "date", maxDate: "submitDateBefore" },
   submitDateBefore: { type: "date", minDate: "submitDateAfter" },
+  caseCreatedDateAfter: { type: "date", maxDate: "caseCreatedDateBefore" },
+  caseCreatedDateBefore: { type: "date", minDate: "caseCreatedDateAfter" },
   withCantonalParticipation: { type: "toggle-switch" },
   objectionReceived: { type: "toggle-switch" },
   constructionZoneLocation: {
