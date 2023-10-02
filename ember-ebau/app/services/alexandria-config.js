@@ -1,7 +1,8 @@
-import Service, { inject as service } from "@ember/service";
+import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
+import ConfigService from "ember-alexandria/services/config";
 
-export default class AlexandriaConfigService extends Service {
+export default class AlexandriaConfigService extends ConfigService {
   @service store;
   @service session;
   @service intl;
@@ -65,8 +66,12 @@ export default class AlexandriaConfigService extends Service {
     const users = this.extractCreatedBy(documents, "createdByUser");
     const groups = this.extractCreatedBy(documents, "createdByGroup");
 
-    this.store.query("user", { filter: { id: users.join(",") } });
-    this.store.query("service", { filter: { service_id: groups.join(",") } });
+    if (users.length) {
+      this.store.query("user", { filter: { id: users.join(",") } });
+    }
+    if (groups.length) {
+      this.store.query("service", { filter: { service_id: groups.join(",") } });
+    }
 
     return documents;
   }
