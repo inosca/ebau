@@ -3419,6 +3419,8 @@ APPLICATIONS = {
                         "is-paper",
                         "einreichen-button",
                         "dokumente",
+                        "einreichen",
+                        "bestaetigung",
                     ],
                 },
                 "bauanzeige": {
@@ -3432,6 +3434,8 @@ APPLICATIONS = {
                         "einreichen-button",
                         "dokumente-ohne-pflichtdokumente",
                         "dokumente-platzhalter",
+                        "einreichen",
+                        "bestaetigung",
                     ],
                 },
                 "vorlaeufige-beurteilung": {
@@ -3445,6 +3449,8 @@ APPLICATIONS = {
                         "einreichen-button",
                         "dokumente-ohne-pflichtdokumente",
                         "dokumente-platzhalter",
+                        "einreichen",
+                        "bestaetigung",
                     ],
                 },
                 "solaranlage": {
@@ -3458,6 +3464,8 @@ APPLICATIONS = {
                         "einreichen-button",
                         "dokumente-ohne-pflichtdokumente",
                         "dokumente-platzhalter",
+                        "einreichen",
+                        "bestaetigung",
                     ],
                 },
             },
