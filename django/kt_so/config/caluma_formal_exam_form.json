@@ -1,0 +1,150 @@
+[
+  {
+    "model": "caluma_form.form",
+    "pk": "formelle-pruefung",
+    "fields": {
+      "created_at": "2023-10-02T06:33:36.426Z",
+      "modified_at": "2023-10-02T06:33:36.426Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Formelle Pr\\u00fcfung\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "formelle-pruefung.formelle-pruefung-abschliessen",
+    "fields": {
+      "created_at": "2023-10-02T06:40:18.572Z",
+      "modified_at": "2023-10-02T06:40:18.572Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "formelle-pruefung",
+      "question": "formelle-pruefung-abschliessen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "formelle-pruefung.formelle-pruefung-durchgefuehrt",
+    "fields": {
+      "created_at": "2023-10-02T06:37:42.519Z",
+      "modified_at": "2023-10-02T06:37:42.519Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "formelle-pruefung",
+      "question": "formelle-pruefung-durchgefuehrt",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "formelle-pruefung-durchgefuehrt-ja",
+    "fields": {
+      "created_at": "2023-10-02T06:37:42.014Z",
+      "modified_at": "2023-10-02T06:37:42.014Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Die formelle Pr\\u00fcfung wurde durchgef\\u00fchrt\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "formelle-pruefung-abschliessen",
+    "fields": {
+      "created_at": "2023-10-02T06:40:18.382Z",
+      "modified_at": "2023-10-02T08:10:38.460Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Formelle Pr\\u00fcfung abschliessen\", \"fr\": null, \"it\": null}",
+      "type": "action_button",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Wollen Sie die formelle Pr\\u00fcfung wirklich abschliessen? Dieser Schritt kann nicht mehr r\\u00fcckg\\u00e4ngig gemacht werden.\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "color": "primary",
+        "action": "complete",
+        "show_validation": true,
+        "validate_on_enter": false
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "formelle-pruefung-durchgefuehrt",
+    "fields": {
+      "created_at": "2023-10-02T06:37:42.196Z",
+      "modified_at": "2023-10-02T08:24:24.697Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Die formelle Pr\\u00fcfung wurde durchgef\\u00fchrt\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "formelle-pruefung-durchgefuehrt.formelle-pruefung-durchgefuehrt-ja",
+    "fields": {
+      "created_at": "2023-10-02T08:24:24.710Z",
+      "modified_at": "2023-10-02T08:24:24.710Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "formelle-pruefung-durchgefuehrt",
+      "option": "formelle-pruefung-durchgefuehrt-ja",
+      "sort": 1
+    }
+  }
+]
