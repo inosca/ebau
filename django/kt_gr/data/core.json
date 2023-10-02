@@ -8,5 +8,26 @@
       "active": 1,
       "activation_date": null
     }
+  },
+  {
+    "model": "core.staticcontent",
+    "pk": "faq",
+    "fields": {
+      "content": "{\"de\": \"#FAQ\", \"fr\": \"\", \"it\": \"\"}"
+    }
+  },
+  {
+    "model": "core.staticcontent",
+    "pk": "help",
+    "fields": {
+      "content": "{\"de\": \"#Hilfe\", \"fr\": \"\", \"it\": \"\"}"
+    }
+  },
+  {
+    "model": "core.staticcontent",
+    "pk": "news",
+    "fields": {
+      "content": "{\"de\": \"#News\", \"fr\": \"\", \"it\": \"\"}"
+    }
   }
 ]

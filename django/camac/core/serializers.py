@@ -135,9 +135,9 @@ class ResourceSerializer(serializers.ModelSerializer, MultilingualSerializer):
 
         if resource_type == "page":
             type_mapping = {
-                "/dashboard/faq.phtml": "dashboard/faq",
-                "/dashboard/help.phtml": "dashboard/help",
-                "/dashboard/news.phtml": "dashboard/news",
+                "/dashboard/faq.phtml": "static-content/faq",
+                "/dashboard/help.phtml": "static-content/help",
+                "/dashboard/news.phtml": "static-content/news",
                 "/ember-camac-ng/dms-admin.phtml": "dms-admin",
                 "/ember-camac-ng/service-permissions.phtml": "service-permissions",
             }
@@ -215,3 +215,11 @@ class InstanceResourceSerializer(serializers.ModelSerializer, MultilingualSerial
             "form_group",
             "link",
         )
+
+
+class StaticContentSerializer(serializers.ModelSerializer):
+    content = serializers.CharField()
+
+    class Meta:
+        model = models.StaticContent
+        fields = ("content", "slug")

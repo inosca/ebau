@@ -470,3 +470,31 @@ class InstanceResourceView(ReadOnlyModelViewSet):
             .distinct()
             .order_by("sort")
         )
+
+
+class StaticContentView(ModelViewSet):
+    swagger_schema = None
+    filterset_class = filters.StaticContentFilterSet
+    queryset = models.StaticContent.objects.all()
+    serializer_class = serializers.StaticContentSerializer
+
+    @permission_aware
+    def has_create_permission(self):
+        return False
+
+    def has_create_permission_for_support(self):
+        return True
+
+    @permission_aware
+    def has_update_permission(self):
+        return False
+
+    def has_update_permission_for_support(self):
+        return True
+
+    @permission_aware
+    def has_destroy_permission(self):
+        return False
+
+    def has_destroy_permission_for_support(self):
+        return True
