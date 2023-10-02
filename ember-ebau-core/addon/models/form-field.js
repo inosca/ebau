@@ -4,5 +4,5 @@ export default class FormFieldModel extends Model {
   @attr("string") name;
   @attr value;
 
-  @belongsTo instance;
+  @belongsTo("instance", { inverse: null, async: true }) instance;
 }

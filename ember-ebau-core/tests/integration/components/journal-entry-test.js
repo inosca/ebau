@@ -16,7 +16,7 @@ module("Integration | Component | journal-entry", function (hooks) {
     const model = await this.owner
       .lookup("service:store")
       .query("journal-entry", { include: "user" });
-    this.set("model", model.toArray()[0]);
+    this.set("model", model[0]);
 
     await render(hbs`<JournalEntry @journalEntry={{this.model}}/>`);
 

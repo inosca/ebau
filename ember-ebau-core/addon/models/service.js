@@ -9,11 +9,14 @@ export default class ServiceModel extends Model {
   @attr("string") address;
   @attr("string") email;
   @attr("string") website;
+
   @attr("boolean") notification;
   @attr("boolean") responsibilityConstructionControl;
   @attr("boolean") disabled;
-  @hasMany("user") users;
-  @hasMany activations;
-  @belongsTo("public-service-group") serviceGroup;
-  @belongsTo("service", { inverse: null }) serviceParent;
+
+  @hasMany("user", { inverse: "service", async: true }) users;
+  @hasMany("activation", { inverse: "service", async: true }) activations;
+  @belongsTo("public-service-group", { inverse: null, async: true })
+  serviceGroup;
+  @belongsTo("service", { inverse: null, async: true }) serviceParent;
 }

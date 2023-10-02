@@ -1,4 +1,4 @@
-FROM danlynn/ember-cli:4.8.0 as build
+FROM danlynn/ember-cli:4.12.1 as build
 
 COPY package.json yarn.lock /myapp/
 COPY ember-ebau-core/package.json /myapp/ember-ebau-core/

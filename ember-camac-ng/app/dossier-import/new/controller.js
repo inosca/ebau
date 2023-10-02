@@ -64,15 +64,12 @@ export default class DossierImportIndexController extends Controller {
     event.stopPropagation();
 
     const formData = new FormData();
-    formData.append(
-      "group",
-      this.selectedGroup?.id || this.groups.firstObject?.id,
-    );
+    formData.append("group", this.selectedGroup?.id || this.groups[0]?.id);
 
     if (mainConfig.useLocation) {
       formData.append(
         "location_id",
-        this.selectedLocation?.id || this.locations.firstObject?.id,
+        this.selectedLocation?.id || this.locations[0]?.id,
       );
     }
 

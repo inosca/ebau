@@ -156,7 +156,7 @@ export default class CaseFilterComponent extends Component {
     });
 
     return [
-      ...users.toArray(),
+      ...users,
       {
         id: "nobody",
         fullName: this.intl.t("cases.filters.responsibleServiceUser-nobody"),
@@ -179,7 +179,7 @@ export default class CaseFilterComponent extends Component {
       has_parent: false,
     });
 
-    return services.toArray().sort((a, b) => a.name.localeCompare(b.name));
+    return [...services].sort((a, b) => a.name.localeCompare(b.name));
   });
 
   forms = trackedFunction(this, async () => {

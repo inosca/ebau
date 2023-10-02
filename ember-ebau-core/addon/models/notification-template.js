@@ -6,5 +6,5 @@ export default class NotificationTemplateModel extends Model {
   @attr("string") body;
   @attr("string") notificationType;
 
-  @belongsTo service;
+  @belongsTo("service", { inverse: null, async: true }) service;
 }

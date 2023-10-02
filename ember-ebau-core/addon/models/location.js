@@ -4,5 +4,5 @@ export default class LocationModel extends Model {
   @attr name;
   @attr communalFederalNumber;
 
-  @hasMany("group") groups;
+  @hasMany("group", { inverse: null, async: true }) groups;
 }

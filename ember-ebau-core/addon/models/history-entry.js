@@ -6,9 +6,9 @@ export default class HistoryEntryModel extends Model {
   @attr("date") createdAt;
   @attr("string") historyType;
 
-  @belongsTo instance;
-  @belongsTo user;
-  @belongsTo service;
+  @belongsTo("instance", { inverse: null, async: true }) instance;
+  @belongsTo("user", { inverse: null, async: true }) user;
+  @belongsTo("service", { inverse: null, async: true }) service;
 
   get icon() {
     switch (this.historyType) {

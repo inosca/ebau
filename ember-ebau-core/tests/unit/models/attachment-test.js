@@ -24,7 +24,7 @@ module("Unit | Model | attachment", function (hooks) {
 
     model.context.isReplaced = true;
     assert.strictEqual(
-      model.displayNameOrReplaced.string,
+      model.displayNameOrReplaced.toString(),
       "<del>test.pdf</del> t:link-attachments.replaced:()",
     );
   });

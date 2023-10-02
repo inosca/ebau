@@ -4,7 +4,7 @@ export default class UserGroupModel extends Model {
   @attr email; // write only
   @attr createdAt;
 
-  @belongsTo("user", { invers: null, async: false }) user;
-  @belongsTo("group", { invers: null, async: false }) group;
-  @belongsTo("user", { invers: null, async: false }) createdBy;
+  @belongsTo("user", { inverse: null, async: false }) user;
+  @belongsTo("group", { inverse: null, async: false }) group;
+  @belongsTo("user", { inverse: null, async: false }) createdBy;
 }

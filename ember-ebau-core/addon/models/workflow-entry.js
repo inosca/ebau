@@ -5,6 +5,6 @@ export default class WorkflowEntryModel extends Model {
   @attr workflowDate;
   @attr group;
 
-  @belongsTo instance;
-  @belongsTo workflowItem;
+  @belongsTo("instance", { inverse: null, async: true }) instance;
+  @belongsTo("workflow-item", { inverse: null, async: true }) workflowItem;
 }

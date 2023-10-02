@@ -39,7 +39,7 @@ export default class MainNavigationComponent extends Component {
     const resources = yield this.store.findAll("resource");
 
     if (resources.length && this.router.currentURL === "/") {
-      this.router.transitionTo(resources.firstObject.link);
+      this.router.transitionTo(resources[0].link);
     }
     return resources;
   }
@@ -78,7 +78,7 @@ export default class MainNavigationComponent extends Component {
     this.store.unloadAll();
     await this.fetchResources.perform();
     if (this.resources.value.length) {
-      this.router.transitionTo(this.resources.value.firstObject.link);
+      this.router.transitionTo(this.resources.value[0].link);
     }
   }
 
