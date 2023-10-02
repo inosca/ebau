@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-13 16:32+0200\n"
+"POT-Creation-Date: 2023-10-02 10:13+0200\n"
 "PO-Revision-Date: 2023-03-21 08:21+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -306,7 +306,7 @@ msgid ""
 "The import took more than %(timeout)i seconds to complete and timed out."
 msgstr ""
 
-#: camac/dossier_import/serializers.py:57 camac/instance/serializers.py:1924
+#: camac/dossier_import/serializers.py:57 camac/instance/serializers.py:1934
 msgid "No location assigned."
 msgstr ""
 
@@ -380,11 +380,11 @@ msgstr ""
 msgid "Inquiry sent"
 msgstr ""
 
-#: camac/ech0211/event_handlers.py:285 camac/instance/serializers.py:1551
+#: camac/ech0211/event_handlers.py:285 camac/instance/serializers.py:1561
 msgid "SB1 submitted"
 msgstr ""
 
-#: camac/ech0211/event_handlers.py:290 camac/instance/serializers.py:1870
+#: camac/ech0211/event_handlers.py:290 camac/instance/serializers.py:1880
 msgid "SB2 submitted"
 msgstr ""
 
@@ -613,7 +613,7 @@ msgstr ""
 msgid "Decision Date Cantonal"
 msgstr ""
 
-#: camac/instance/mixins.py:463 camac/instance/mixins.py:500
+#: camac/instance/mixins.py:464 camac/instance/mixins.py:501
 #, python-format
 msgid "Not allowed to add data to instance %(instance)s"
 msgstr ""
@@ -626,12 +626,12 @@ msgstr ""
 msgid "Form may not be changed."
 msgstr ""
 
-#: camac/instance/serializers.py:407 camac/instance/serializers.py:1623
+#: camac/instance/serializers.py:407 camac/instance/serializers.py:1633
 #, python-format
 msgid "'%(form)s' is not a valid form type"
 msgstr ""
 
-#: camac/instance/serializers.py:417 camac/instance/serializers.py:1617
+#: camac/instance/serializers.py:417 camac/instance/serializers.py:1627
 #, python-format
 msgid "The current form '%(form)s' can't be changed"
 msgstr ""
@@ -674,84 +674,84 @@ msgstr ""
 msgid "Project modification is not allowed"
 msgstr ""
 
-#: camac/instance/serializers.py:1203
+#: camac/instance/serializers.py:1213
 msgid "Dossier completed by resubmission"
 msgstr ""
 
-#: camac/instance/serializers.py:1510
+#: camac/instance/serializers.py:1520
 msgid "Dossier submitted"
 msgstr ""
 
-#: camac/instance/serializers.py:1590
+#: camac/instance/serializers.py:1600
 msgid "Archived"
 msgstr "Archiviato"
 
-#: camac/instance/serializers.py:1639
+#: camac/instance/serializers.py:1649
 msgid "Changed form type"
 msgstr ""
 
-#: camac/instance/serializers.py:1669
+#: camac/instance/serializers.py:1679
 msgid "Invalid format"
 msgstr ""
 
-#: camac/instance/serializers.py:1676
+#: camac/instance/serializers.py:1686
 msgid "This eBau number doesn't exist"
 msgstr ""
 
-#: camac/instance/serializers.py:1680
+#: camac/instance/serializers.py:1690
 msgid "This eBau number is already in use by a different municipality"
 msgstr ""
 
-#: camac/instance/serializers.py:1729
+#: camac/instance/serializers.py:1739
 #, python-format
 msgid "%(value)s is not a valid service type - valid types are: %(expected)s"
 msgstr ""
 
-#: camac/instance/serializers.py:1743
+#: camac/instance/serializers.py:1753
 msgid "Invalid audit"
 msgstr ""
 
-#: camac/instance/serializers.py:1783
+#: camac/instance/serializers.py:1793
 #, python-format
 msgid "Changed responsible service to: %(service)s"
 msgstr ""
 
-#: camac/instance/serializers.py:1805
+#: camac/instance/serializers.py:1815
 #, python-format
 msgid "Responsible service did not change for instance %(instance_id)s"
 msgstr ""
 
-#: camac/instance/serializers.py:1898
+#: camac/instance/serializers.py:1908
 #, python-format
 msgid "User %(user)s does not belong to service %(service)s."
 msgstr ""
 
-#: camac/instance/serializers.py:1943
+#: camac/instance/serializers.py:1953
 #, python-format
 msgid "No group found for location %(name)s."
 msgstr ""
 
-#: camac/instance/serializers.py:1983
+#: camac/instance/serializers.py:1993
 #, python-format
 msgid "invalid question %(question)s."
 msgstr ""
 
-#: camac/instance/serializers.py:1990
+#: camac/instance/serializers.py:2000
 #, python-format
 msgid "%(permission)s is not allowed to edit question %(question)s."
 msgstr ""
 
-#: camac/instance/serializers.py:2367
+#: camac/instance/serializers.py:2377
 #, fuzzy
 #| msgid "Archived"
 msgid "Appeal received"
 msgstr "Archiviato"
 
-#: camac/instance/serializers.py:2398
+#: camac/instance/serializers.py:2408
 msgid "The Dossier can't be correct because there are running inquiries."
 msgstr ""
 
-#: camac/instance/serializers.py:2426
+#: camac/instance/serializers.py:2436
 msgid "Dossier corrected"
 msgstr ""
 
@@ -896,27 +896,35 @@ msgstr ""
 msgid "Objection %(objection) already has a representative"
 msgstr ""
 
-#: camac/settings.py:1462 camac/settings.py:3265
+#: camac/settings.py:1470 camac/settings.py:3273 camac/settings.py:3731
 msgid "Circulation started"
 msgstr ""
 
-#: camac/settings.py:1479
+#: camac/settings.py:1487
 msgid "Procedure completed"
 msgstr ""
 
-#: camac/settings.py:3261
+#: camac/settings.py:3269
+msgid "Preliminary exam performed"
+msgstr ""
+
+#: camac/settings.py:3723
 msgid "Formal exam performed"
 msgstr ""
 
-#: camac/settings.py:4068
+#: camac/settings.py:3727
+msgid "Material exam performed"
+msgstr ""
+
+#: camac/settings.py:4101
 msgid "German"
 msgstr ""
 
-#: camac/settings.py:4069
+#: camac/settings.py:4102
 msgid "French"
 msgstr ""
 
-#: camac/settings.py:4070
+#: camac/settings.py:4103
 msgid "Italian"
 msgstr ""
 
@@ -1133,21 +1141,21 @@ msgstr ""
 msgid "Services"
 msgstr "Organizzazioni"
 
-#: camac/user/serializers.py:189
+#: camac/user/serializers.py:190
 msgid "There is already a service with this name"
 msgstr ""
 
-#: camac/user/serializers.py:411
+#: camac/user/serializers.py:414
 msgid ""
 "No user with this email address found. Please make surethe person already "
 "has an account with this email addressor check the spelling of the email "
 "address."
 msgstr ""
 
-#: camac/user/serializers.py:417
+#: camac/user/serializers.py:420
 msgid "Multiple users with that email exist"
 msgstr ""
 
-#: camac/user/serializers.py:420
+#: camac/user/serializers.py:423
 msgid "User is already in group"
 msgstr ""
