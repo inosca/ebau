@@ -20,18 +20,20 @@ export default class InstanceModel extends Model {
   @attr involvedAt;
   @attr isAfterDecision;
 
-  @belongsTo user;
-  @belongsTo form;
-  @belongsTo instanceState;
-  @belongsTo("instance-state") previousInstanceState;
-  @belongsTo location;
-  @belongsTo("public-service") activeService;
+  @belongsTo("user", { inverse: null, async: true }) user;
+  @belongsTo("form", { inverse: null, async: true }) form;
+  @belongsTo("instance-state", { inverse: null, async: true }) instanceState;
+  @belongsTo("location", { inverse: null, async: true }) location;
+  @belongsTo("instance-state", { inverse: null, async: true })
+  previousInstanceState;
+  @belongsTo("public-service", { inverse: null, async: true }) activeService;
 
-  @hasMany("service") circulationInitializerServices;
-  @hasMany circulations;
-  @hasMany services;
-  @hasMany("service") involvedServices;
-  @hasMany("instance", { inverse: null }) linkedInstances;
+  @hasMany("service", { inverse: null, async: true })
+  circulationInitializerServices;
+  @hasMany("circulation", { inverse: "instance", async: true }) circulations;
+  @hasMany("service", { inverse: null, async: true }) services;
+  @hasMany("service", { inverse: null, async: false }) involvedServices;
+  @hasMany("instance", { inverse: null, async: true }) linkedInstances;
 
   unlink() {
     const adapter = this.store.adapterFor("instance");

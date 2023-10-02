@@ -6,6 +6,7 @@ export default class ActivationModel extends Model {
   @attr endDate;
   @attr state;
 
-  @belongsTo circulation;
-  @belongsTo service;
+  @belongsTo("circulation", { inverse: "activations", async: true })
+  circulation;
+  @belongsTo("service", { inverse: "activations", async: true }) service;
 }

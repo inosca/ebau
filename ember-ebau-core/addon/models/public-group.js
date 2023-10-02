@@ -5,8 +5,8 @@ import mainConfig from "ember-ebau-core/config/main";
 
 export default class PublicGroup extends Model {
   @attr("string") name;
-  @belongsTo("public-role") role;
-  @belongsTo("public-service") service;
+  @belongsTo("public-role", { inverse: null, async: true }) role;
+  @belongsTo("public-service", { inverse: null, async: true }) service;
 
   get canCreatePaper() {
     // eslint-disable-next-line ember/no-get

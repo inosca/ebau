@@ -29,6 +29,11 @@ module.exports = function (defaults) {
         isUR: ENV === "ur",
         excelExportEnabled: ["be", "sz"].includes(ENV),
       },
+      setConfig: {
+        "@ember-data/store": {
+          polyfillUUID: true,
+        },
+      },
     },
   });
 

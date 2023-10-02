@@ -7,7 +7,7 @@ export default class JournalEntryModel extends Model {
   @attr("boolean") edit;
   @attr("string") duration;
 
-  @belongsTo instance;
-  @belongsTo user;
-  @belongsTo service;
+  @belongsTo("instance", { inverse: null, async: true }) instance;
+  @belongsTo("user", { inverse: null, async: true }) user;
+  @belongsTo("service", { inverse: null, async: true }) service;
 }

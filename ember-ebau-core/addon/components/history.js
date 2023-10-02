@@ -26,8 +26,8 @@ export default class HistoryComponent extends Component {
       "page[size]": 20,
     });
 
-    this._entries = [...this._entries, ...entries.toArray()];
-    this.hasNextPage = Boolean(entries.links.next);
+    this._entries = [...this._entries, ...entries];
+    this.hasNextPage = Boolean(entries.links?.next);
 
     return this._entries;
   }

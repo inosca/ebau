@@ -17,9 +17,9 @@ export default class CommunicationAttachmentModel extends DownloadableModel {
   @attr displayName;
   @attr isReplaced;
 
-  @belongsTo("communications-message") message;
-  @belongsTo("attachment") documentAttachment;
-  @belongsTo("attachmentSection") section;
+  @belongsTo("communications-message", { inverse: null, async: true }) message;
+  @belongsTo("attachment", { inverse: null, async: true }) documentAttachment;
+  @belongsTo("attachmentSection", { inverse: null, async: true }) section;
 
   get downloadPath() {
     return this.downloadUrl;

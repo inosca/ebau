@@ -12,10 +12,10 @@ export default class DossierImportModel extends Model {
   @attr mimeType;
   @attr dossierLoaderType;
 
-  @belongsTo user;
-  @belongsTo group;
-  @belongsTo location;
-  @belongsTo service;
+  @belongsTo("user", { inverse: null, async: true }) user;
+  @belongsTo("group", { inverse: null, async: true }) group;
+  @belongsTo("location", { inverse: null, async: true }) location;
+  @belongsTo("service", { inverse: null, async: true }) service;
 
   start() {
     const adapter = this.store.adapterFor("dossier-import");

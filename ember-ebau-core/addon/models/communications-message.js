@@ -13,9 +13,10 @@ export default class CommunicationMessageModel extends Model {
   @attr readAt;
   @attr readByEntity;
 
-  @belongsTo("communications-topic") topic;
-  @belongsTo("user") createdByUser;
-  @hasMany("communications-attachment") attachments;
+  @belongsTo("communications-topic", { inverse: null, async: true }) topic;
+  @belongsTo("user", { inverse: null, async: true }) createdByUser;
+  @hasMany("communications-attachment", { inverse: null, async: true })
+  attachments;
 
   // For temporary handling of files in the creation process
   @tracked filesToSave = [];

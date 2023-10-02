@@ -25,6 +25,11 @@ module.exports = function (defaults) {
       useSessionSetupMethod: true,
     },
     "@embroider/macros": {
+      setConfig: {
+        "@ember-data/store": {
+          polyfillUUID: true,
+        },
+      },
       setOwnConfig: {
         application: ENV,
       },

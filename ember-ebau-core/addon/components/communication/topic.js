@@ -22,7 +22,7 @@ export default class CommunicationTopicComponent extends Component {
   }
 
   get messages() {
-    return this.messagesResource.records.reverse();
+    return [...this.messagesResource.records].reverse();
   }
 
   get topic() {

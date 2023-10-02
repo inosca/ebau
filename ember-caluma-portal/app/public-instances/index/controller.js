@@ -58,7 +58,7 @@ export default class PublicInstancesIndexController extends Controller {
 
       this.pagination = instances.meta.pagination;
 
-      this._instances = [...this._instances, ...instances.toArray()];
+      this._instances = [...this._instances, ...instances];
 
       return this._instances;
     } catch (e) {

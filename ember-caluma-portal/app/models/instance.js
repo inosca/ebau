@@ -22,9 +22,10 @@ export default class Instance extends Model {
   @attr("string") calumaForm;
   @attr("boolean") isPaper;
   @attr("boolean") isModification;
-  @belongsTo("instance-state", { async: true }) instanceState;
-  @belongsTo("public-service", { async: true }) activeService;
-  @hasMany("applicant", { inverse: "instance" }) involvedApplicants;
+  @belongsTo("instance-state", { inverse: null, async: true }) instanceState;
+  @belongsTo("public-service", { inverse: null, async: true }) activeService;
+  @hasMany("applicant", { inverse: "instance", async: false })
+  involvedApplicants;
   @attr("string") rejectionFeedback;
 
   get status() {
