@@ -1,5 +1,202 @@
 [
   {
+    "model": "caluma_workflow.flow",
+    "pk": "3fe4832b-94cf-46a7-842f-aa9862ade1b3",
+    "fields": {
+      "created_at": "2023-10-02T07:36:31.003Z",
+      "modified_at": "2023-10-02T07:36:31.003Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "next": "[\"material-exam\"]|tasks"
+    }
+  },
+  {
+    "model": "caluma_workflow.flow",
+    "pk": "6e7d11eb-d9c4-40ea-8e09-eb7f6c978e26",
+    "fields": {
+      "created_at": "2023-10-02T07:36:29.465Z",
+      "modified_at": "2023-10-02T07:36:29.465Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "next": "[\"create-manual-workitems\", \"formal-exam\"]|tasks"
+    }
+  },
+  {
+    "model": "caluma_workflow.flow",
+    "pk": "fb764ae8-2011-4c8c-b3b7-be205d0d73cb",
+    "fields": {
+      "created_at": "2023-10-02T07:36:32.395Z",
+      "modified_at": "2023-10-02T07:36:32.395Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "next": "[\"publication\", \"fill-publication\"]|tasks"
+    }
+  },
+  {
+    "model": "caluma_workflow.task",
+    "pk": "create-manual-workitems",
+    "fields": {
+      "created_at": "2023-10-02T07:36:10.589Z",
+      "modified_at": "2023-10-02T07:36:10.589Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Manuelle Aufgaben erfassen\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "type": "simple",
+      "meta": {
+        "is-manually-completable": true
+      },
+      "address_groups": "[]",
+      "control_groups": null,
+      "is_archived": false,
+      "form": null,
+      "lead_time": null,
+      "is_multiple_instance": true,
+      "continue_async": false
+    }
+  },
+  {
+    "model": "caluma_workflow.task",
+    "pk": "create-publication",
+    "fields": {
+      "created_at": "2023-10-02T07:36:18.834Z",
+      "modified_at": "2023-10-02T07:36:18.835Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Neue Publikation erstellen\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "type": "simple",
+      "meta": {},
+      "address_groups": "[\"municipality\"]|groups",
+      "control_groups": null,
+      "is_archived": false,
+      "form": null,
+      "lead_time": null,
+      "is_multiple_instance": false,
+      "continue_async": false
+    }
+  },
+  {
+    "model": "caluma_workflow.task",
+    "pk": "fill-publication",
+    "fields": {
+      "created_at": "2023-10-02T07:36:17.028Z",
+      "modified_at": "2023-10-02T07:36:17.028Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Publikation ausf\\u00fcllen\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "type": "complete_task_form",
+      "meta": {},
+      "address_groups": "[\"municipality\"]|groups",
+      "control_groups": null,
+      "is_archived": false,
+      "form": "publikation",
+      "lead_time": null,
+      "is_multiple_instance": false,
+      "continue_async": false
+    }
+  },
+  {
+    "model": "caluma_workflow.task",
+    "pk": "formal-exam",
+    "fields": {
+      "created_at": "2023-10-02T07:36:12.509Z",
+      "modified_at": "2023-10-02T07:36:12.509Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Formelle Pr\\u00fcfung\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "type": "complete_task_form",
+      "meta": {
+        "directLink": {
+          "route": "cases.detail.task-form",
+          "models": ["INSTANCE_ID", "TASK_SLUG"]
+        },
+        "is-manually-completable": true
+      },
+      "address_groups": "[\"municipality\"]|groups",
+      "control_groups": "[\"municipality\"]|groups",
+      "is_archived": false,
+      "form": "formelle-pruefung",
+      "lead_time": 432000,
+      "is_multiple_instance": false,
+      "continue_async": false
+    }
+  },
+  {
+    "model": "caluma_workflow.task",
+    "pk": "material-exam",
+    "fields": {
+      "created_at": "2023-10-02T07:36:13.859Z",
+      "modified_at": "2023-10-02T07:36:13.859Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Materielle Pr\\u00fcfung\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "type": "complete_task_form",
+      "meta": {
+        "directLink": {
+          "route": "cases.detail.task-form",
+          "models": ["INSTANCE_ID", "TASK_SLUG"]
+        },
+        "is-manually-completable": true
+      },
+      "address_groups": "[\"municipality\"]|groups",
+      "control_groups": "[\"municipality\"]|groups",
+      "is_archived": false,
+      "form": "materielle-pruefung",
+      "lead_time": 432000,
+      "is_multiple_instance": false,
+      "continue_async": false
+    }
+  },
+  {
+    "model": "caluma_workflow.task",
+    "pk": "publication",
+    "fields": {
+      "created_at": "2023-10-02T07:36:15.666Z",
+      "modified_at": "2023-10-02T07:36:15.666Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Dossier publizieren\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "type": "simple",
+      "meta": {
+        "directLink": {
+          "route": "cases.detail.publication",
+          "models": ["INSTANCE_ID", "public"]
+        },
+        "is-manually-completable": true
+      },
+      "address_groups": "[\"municipality\"]|groups",
+      "control_groups": "[\"municipality\"]|groups",
+      "is_archived": false,
+      "form": null,
+      "lead_time": 864000,
+      "is_multiple_instance": false,
+      "continue_async": false
+    }
+  },
+  {
     "model": "caluma_workflow.task",
     "pk": "submit",
     "fields": {
@@ -20,6 +217,54 @@
       "lead_time": null,
       "is_multiple_instance": false,
       "continue_async": false
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
+    "pk": "7dc372b1-2107-413c-8724-c69932b3aa28",
+    "fields": {
+      "created_at": "2023-10-02T07:36:32.400Z",
+      "modified_at": "2023-10-02T07:36:32.400Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "workflow": "building-permit",
+      "task": "material-exam",
+      "flow": "fb764ae8-2011-4c8c-b3b7-be205d0d73cb",
+      "redoable": null
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
+    "pk": "d45fdced-dabf-4a41-b7c8-505a75cc5d2f",
+    "fields": {
+      "created_at": "2023-10-02T07:36:31.008Z",
+      "modified_at": "2023-10-02T07:36:31.008Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "workflow": "building-permit",
+      "task": "formal-exam",
+      "flow": "3fe4832b-94cf-46a7-842f-aa9862ade1b3",
+      "redoable": null
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
+    "pk": "f9b26953-3204-4d1d-ac14-33f63e37ec5c",
+    "fields": {
+      "created_at": "2023-10-02T07:36:29.492Z",
+      "modified_at": "2023-10-02T07:36:29.492Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "workflow": "building-permit",
+      "task": "submit",
+      "flow": "6e7d11eb-d9c4-40ea-8e09-eb7f6c978e26",
+      "redoable": null
     }
   },
   {

@@ -5,3 +5,89 @@ mutation CreateSubmitTask {
     clientMutationId
   }
 }
+
+mutation CreateManualWorkItemTask {
+  saveSimpleTask(
+    input: {
+      slug: "create-manual-workitems"
+      name: "Manuelle Aufgaben erfassen"
+      addressGroups: "[]"
+      isMultipleInstance: true
+      meta: "{\"is-manually-completable\":true}"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateFormalExamTask {
+  saveCompleteTaskFormTask(
+    input: {
+      slug: "formal-exam"
+      form: "formelle-pruefung"
+      name: "Formelle Prüfung"
+      addressGroups: "[\"municipality\"]|groups"
+      controlGroups: "[\"municipality\"]|groups"
+      leadTime: 432000 # 5 days
+      meta: "{\"is-manually-completable\":true,\"directLink\":{\"route\":\"cases.detail.task-form\",\"models\":[\"INSTANCE_ID\",\"TASK_SLUG\"]}}"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateMaterialExamTask {
+  saveCompleteTaskFormTask(
+    input: {
+      slug: "material-exam"
+      form: "materielle-pruefung"
+      name: "Materielle Prüfung"
+      addressGroups: "[\"municipality\"]|groups"
+      controlGroups: "[\"municipality\"]|groups"
+      leadTime: 432000 # 5 days
+      meta: "{\"is-manually-completable\":true,\"directLink\":{\"route\":\"cases.detail.task-form\",\"models\":[\"INSTANCE_ID\",\"TASK_SLUG\"]}}"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreatePublicationTask {
+  saveSimpleTask(
+    input: {
+      slug: "publication"
+      name: "Dossier publizieren"
+      addressGroups: "[\"municipality\"]|groups"
+      controlGroups: "[\"municipality\"]|groups"
+      leadTime: 864000 # 10 days
+      meta: "{\"is-manually-completable\":true,\"directLink\":{\"route\":\"cases.detail.publication\",\"models\":[\"INSTANCE_ID\",\"public\"]}}"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateFillPublicationTask {
+  saveCompleteTaskFormTask(
+    input: {
+      slug: "fill-publication"
+      name: "Publikation ausfüllen"
+      form: "publikation"
+      addressGroups: "[\"municipality\"]|groups"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateNewPublicationTask {
+  saveSimpleTask(
+    input: {
+      slug: "create-publication"
+      name: "Neue Publikation erstellen"
+      addressGroups: "[\"municipality\"]|groups"
+    }
+  ) {
+    clientMutationId
+  }
+}

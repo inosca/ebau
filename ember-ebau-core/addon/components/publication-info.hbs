@@ -19,7 +19,7 @@
   {{/if}}
 {{else}}
   <div class="uk-background-muted uk-padding-small uk-margin">
-    <p>
+    <p class={{if (macroCondition (macroGetOwnConfig "isBE")) "" "uk-margin-remove-bottom"}}>
       <span class="uk-text-bold">{{t "publication.info.attention"}}</span>
       {{t (concat "publication.info.unpublished." @type)}}
     </p>

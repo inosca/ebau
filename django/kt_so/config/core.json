@@ -82,6 +82,15 @@
   },
   {
     "model": "core.availableinstanceresource",
+    "pk": "publication",
+    "fields": {
+      "module_name": "publication",
+      "controller_name": "publication",
+      "description": "(Ember) Publication module"
+    }
+  },
+  {
+    "model": "core.availableinstanceresource",
     "pk": "taskform",
     "fields": {
       "module_name": "taskform",
@@ -437,6 +446,81 @@
     }
   },
   {
+    "model": "core.instanceresource",
+    "pk": 4,
+    "fields": {
+      "available_instance_resource": "taskform",
+      "resource": 3,
+      "name": null,
+      "description": null,
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 4,
+      "form_group": 1
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 5,
+    "fields": {
+      "available_instance_resource": "taskform",
+      "resource": 3,
+      "name": null,
+      "description": null,
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 5,
+      "form_group": 1
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 6,
+    "fields": {
+      "available_instance_resource": "publication",
+      "resource": 3,
+      "name": null,
+      "description": null,
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 6,
+      "form_group": 1
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 7,
+    "fields": {
+      "available_instance_resource": "history",
+      "resource": 3,
+      "name": null,
+      "description": null,
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 7,
+      "form_group": 1
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 8,
+    "fields": {
+      "available_instance_resource": "page",
+      "resource": 3,
+      "name": null,
+      "description": null,
+      "template": "/ember-camac-ng/journal.phtml",
+      "class_field": null,
+      "hidden": 0,
+      "sort": 8,
+      "form_group": 1
+    }
+  },
+  {
     "model": "core.instanceresourcet",
     "pk": 1,
     "fields": {
@@ -467,6 +551,56 @@
     }
   },
   {
+    "model": "core.instanceresourcet",
+    "pk": 4,
+    "fields": {
+      "instance_resource": 4,
+      "language": "de",
+      "name": "Formelle Prüfung",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 5,
+    "fields": {
+      "instance_resource": 5,
+      "language": "de",
+      "name": "Materielle Prüfung",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 6,
+    "fields": {
+      "instance_resource": 6,
+      "language": "de",
+      "name": "Publikation",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 7,
+    "fields": {
+      "instance_resource": 7,
+      "language": "de",
+      "name": "History",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 8,
+    "fields": {
+      "instance_resource": 8,
+      "language": "de",
+      "name": "Journal",
+      "description": null
+    }
+  },
+  {
     "model": "core.irroleacl",
     "pk": 1,
     "fields": {
@@ -491,6 +625,515 @@
       "instance_resource": 3,
       "role": 5,
       "instance_state": 2
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 4,
+    "fields": {
+      "instance_resource": 4,
+      "role": 5,
+      "instance_state": 2
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 5,
+    "fields": {
+      "instance_resource": 4,
+      "role": 6,
+      "instance_state": 2
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 6,
+    "fields": {
+      "instance_resource": 4,
+      "role": 5,
+      "instance_state": 3
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 7,
+    "fields": {
+      "instance_resource": 4,
+      "role": 6,
+      "instance_state": 3
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 8,
+    "fields": {
+      "instance_resource": 4,
+      "role": 5,
+      "instance_state": 4
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 9,
+    "fields": {
+      "instance_resource": 4,
+      "role": 6,
+      "instance_state": 4
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 10,
+    "fields": {
+      "instance_resource": 4,
+      "role": 5,
+      "instance_state": 5
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 11,
+    "fields": {
+      "instance_resource": 4,
+      "role": 6,
+      "instance_state": 5
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12,
+    "fields": {
+      "instance_resource": 5,
+      "role": 5,
+      "instance_state": 3
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 13,
+    "fields": {
+      "instance_resource": 5,
+      "role": 6,
+      "instance_state": 3
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 14,
+    "fields": {
+      "instance_resource": 5,
+      "role": 5,
+      "instance_state": 4
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 15,
+    "fields": {
+      "instance_resource": 5,
+      "role": 6,
+      "instance_state": 4
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 16,
+    "fields": {
+      "instance_resource": 5,
+      "role": 5,
+      "instance_state": 5
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 17,
+    "fields": {
+      "instance_resource": 5,
+      "role": 6,
+      "instance_state": 5
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 18,
+    "fields": {
+      "instance_resource": 6,
+      "role": 5,
+      "instance_state": 4
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 19,
+    "fields": {
+      "instance_resource": 6,
+      "role": 6,
+      "instance_state": 4
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 20,
+    "fields": {
+      "instance_resource": 6,
+      "role": 5,
+      "instance_state": 5
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 21,
+    "fields": {
+      "instance_resource": 6,
+      "role": 6,
+      "instance_state": 5
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 22,
+    "fields": {
+      "instance_resource": 7,
+      "role": 5,
+      "instance_state": 2
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 23,
+    "fields": {
+      "instance_resource": 7,
+      "role": 6,
+      "instance_state": 2
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 24,
+    "fields": {
+      "instance_resource": 7,
+      "role": 5,
+      "instance_state": 3
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 25,
+    "fields": {
+      "instance_resource": 7,
+      "role": 6,
+      "instance_state": 3
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 26,
+    "fields": {
+      "instance_resource": 7,
+      "role": 5,
+      "instance_state": 4
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 27,
+    "fields": {
+      "instance_resource": 7,
+      "role": 6,
+      "instance_state": 4
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 28,
+    "fields": {
+      "instance_resource": 7,
+      "role": 5,
+      "instance_state": 5
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 29,
+    "fields": {
+      "instance_resource": 7,
+      "role": 6,
+      "instance_state": 5
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 30,
+    "fields": {
+      "instance_resource": 8,
+      "role": 5,
+      "instance_state": 2
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 31,
+    "fields": {
+      "instance_resource": 8,
+      "role": 6,
+      "instance_state": 2
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 32,
+    "fields": {
+      "instance_resource": 8,
+      "role": 5,
+      "instance_state": 3
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 33,
+    "fields": {
+      "instance_resource": 8,
+      "role": 6,
+      "instance_state": 3
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 34,
+    "fields": {
+      "instance_resource": 8,
+      "role": 5,
+      "instance_state": 4
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 35,
+    "fields": {
+      "instance_resource": 8,
+      "role": 6,
+      "instance_state": 4
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 36,
+    "fields": {
+      "instance_resource": 8,
+      "role": 5,
+      "instance_state": 5
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 37,
+    "fields": {
+      "instance_resource": 8,
+      "role": 6,
+      "instance_state": 5
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 38,
+    "fields": {
+      "instance_resource": 1,
+      "role": 6,
+      "instance_state": 2
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 39,
+    "fields": {
+      "instance_resource": 1,
+      "role": 5,
+      "instance_state": 3
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 40,
+    "fields": {
+      "instance_resource": 1,
+      "role": 6,
+      "instance_state": 3
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 41,
+    "fields": {
+      "instance_resource": 1,
+      "role": 5,
+      "instance_state": 4
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 42,
+    "fields": {
+      "instance_resource": 1,
+      "role": 6,
+      "instance_state": 4
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 43,
+    "fields": {
+      "instance_resource": 1,
+      "role": 5,
+      "instance_state": 5
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 44,
+    "fields": {
+      "instance_resource": 1,
+      "role": 6,
+      "instance_state": 5
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 45,
+    "fields": {
+      "instance_resource": 2,
+      "role": 6,
+      "instance_state": 2
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 46,
+    "fields": {
+      "instance_resource": 2,
+      "role": 5,
+      "instance_state": 3
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 47,
+    "fields": {
+      "instance_resource": 2,
+      "role": 6,
+      "instance_state": 3
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 48,
+    "fields": {
+      "instance_resource": 2,
+      "role": 5,
+      "instance_state": 4
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 49,
+    "fields": {
+      "instance_resource": 2,
+      "role": 6,
+      "instance_state": 4
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 50,
+    "fields": {
+      "instance_resource": 2,
+      "role": 5,
+      "instance_state": 5
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 51,
+    "fields": {
+      "instance_resource": 2,
+      "role": 6,
+      "instance_state": 5
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 52,
+    "fields": {
+      "instance_resource": 3,
+      "role": 6,
+      "instance_state": 2
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 53,
+    "fields": {
+      "instance_resource": 3,
+      "role": 5,
+      "instance_state": 3
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 54,
+    "fields": {
+      "instance_resource": 3,
+      "role": 6,
+      "instance_state": 3
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 55,
+    "fields": {
+      "instance_resource": 3,
+      "role": 5,
+      "instance_state": 4
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 56,
+    "fields": {
+      "instance_resource": 3,
+      "role": 6,
+      "instance_state": 4
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 57,
+    "fields": {
+      "instance_resource": 3,
+      "role": 5,
+      "instance_state": 5
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 58,
+    "fields": {
+      "instance_resource": 3,
+      "role": 6,
+      "instance_state": 5
+    }
+  },
+  {
+    "model": "core.irtaskform",
+    "pk": 4,
+    "fields": {
+      "task": "formal-exam"
+    }
+  },
+  {
+    "model": "core.irtaskform",
+    "pk": 5,
+    "fields": {
+      "task": "material-exam"
     }
   },
   {

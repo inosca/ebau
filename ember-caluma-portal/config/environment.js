@@ -49,7 +49,10 @@ module.exports = function (environment) {
   };
   const instanceStatesSo = {
     new: 1,
-    subm: 2,
+    formalExam: 2,
+    materialExam: 3,
+    distributionInit: 4,
+    distribution: 5,
   };
   const appConfig = {
     demo: {
@@ -386,7 +389,13 @@ module.exports = function (environment) {
       useConfidential: false,
       defaultInstanceStateCategory: "pending",
       instanceStateCategories: {
-        pending: [instanceStatesSo.new, instanceStatesSo.subm],
+        pending: [
+          instanceStatesSo.new,
+          instanceStatesSo.formalExam,
+          instanceStatesSo.materialExam,
+          instanceStatesSo.distributionInit,
+          instanceStatesSo.distribution,
+        ],
         done: [null], // Placeholder until a finished state is added
       },
       completePreliminaryClarificationSlugs: [],
