@@ -6,7 +6,7 @@
           <img alt={{t "nav.logo"}} src={{this.logoPath}} />
         </LinkTo>
         <ul class="uk-navbar-nav">
-          {{#each this.resources.value as |resource|}}
+          {{#each this.resources.records as |resource|}}
             <UkSubnav::Item
               @href={{resource.link}}
               @currentWhen={{this.removeQueryParams resource.link}}
@@ -17,7 +17,13 @@
       <div class="uk-navbar-right">
         <ul class="uk-navbar-nav">
           <li>
-            <a href="#">{{or this.session.groupModel.name "-"}}<span uk-drop-parent-icon></span></a>
+            <a href="#">
+              <div>
+                <span class="uk-text-bold">{{this.session.user.fullName}}</span>
+                <div class="uk-navbar-subtitle">{{this.session.groupModel.name}}</div>
+              </div>
+              <span uk-drop-parent-icon></span>
+            </a>
             {{#if this.session.groups.records.length}}
               <div
                 uk-dropdown
