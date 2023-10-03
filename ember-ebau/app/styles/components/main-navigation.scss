@@ -3,9 +3,9 @@
   left: 0;
   top: 0;
   right: 0;
-  z-index: 1000;
-  border-bottom: 1px solid $border-color;
+  z-index: 1;
   background-color: $main-navigation-background;
+  box-shadow: $global-small-box-shadow;
 
   .uk-navbar-nav {
     > li > a {
@@ -25,8 +25,10 @@
   #locale-dropdown {
     min-width: 100px;
   }
-}
 
-.uk-logo img {
-  width: 90px;
+  .uk-logo > img {
+    width: 100%;
+    max-width: $sidebar-width - ($padding-small-padding * 2);
+    max-height: 50px;
+  }
 }

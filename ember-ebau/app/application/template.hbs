@@ -1,13 +1,3 @@
-{{! template-lint-disable no-bare-strings}}
-{{page-title "Ebau"}}
-{{! template-lint-enable }}
+{{page-title (t "global.title")}}
 
-<MainNavigation />
-
-{{#if this.hasSidebar}}
-  {{outlet}}
-{{else}}
-  <div class="uk-container main-content">
-    {{outlet}}
-  </div>
-{{/if}}
+{{outlet}}

@@ -409,7 +409,7 @@
       "name": null,
       "description": null,
       "template": null,
-      "class_field": null,
+      "class_field": "menu-category-meta",
       "hidden": 0,
       "sort": 1,
       "form_group": 1
@@ -424,9 +424,9 @@
       "name": null,
       "description": null,
       "template": "/ember-camac-ng/alexandria.phtml",
-      "class_field": null,
+      "class_field": "menu-category-primary",
       "hidden": 0,
-      "sort": 2,
+      "sort": 3,
       "form_group": 1
     }
   },
@@ -439,9 +439,9 @@
       "name": null,
       "description": null,
       "template": "/ember/instance.phtml",
-      "class_field": null,
+      "class_field": "menu-category-primary",
       "hidden": 0,
-      "sort": 3,
+      "sort": 2,
       "form_group": 1
     }
   },
@@ -454,7 +454,7 @@
       "name": null,
       "description": null,
       "template": null,
-      "class_field": null,
+      "class_field": "menu-category-process",
       "hidden": 0,
       "sort": 4,
       "form_group": 1
@@ -469,7 +469,7 @@
       "name": null,
       "description": null,
       "template": null,
-      "class_field": null,
+      "class_field": "menu-category-process",
       "hidden": 0,
       "sort": 5,
       "form_group": 1
@@ -484,7 +484,7 @@
       "name": null,
       "description": null,
       "template": null,
-      "class_field": null,
+      "class_field": "menu-category-process",
       "hidden": 0,
       "sort": 6,
       "form_group": 1
@@ -499,7 +499,7 @@
       "name": null,
       "description": null,
       "template": null,
-      "class_field": null,
+      "class_field": "menu-category-analysis",
       "hidden": 0,
       "sort": 7,
       "form_group": 1
@@ -514,7 +514,7 @@
       "name": null,
       "description": null,
       "template": "/ember-camac-ng/journal.phtml",
-      "class_field": null,
+      "class_field": "menu-category-analysis",
       "hidden": 0,
       "sort": 8,
       "form_group": 1
