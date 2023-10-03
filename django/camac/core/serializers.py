@@ -135,11 +135,11 @@ class ResourceSerializer(serializers.ModelSerializer, MultilingualSerializer):
 
         if resource_type == "page":
             type_mapping = {
-                "/dashboard/faq.phtml": "static-content/faq",
-                "/dashboard/help.phtml": "static-content/help",
-                "/dashboard/news.phtml": "static-content/news",
-                "/ember-camac-ng/dms-admin.phtml": "dms-admin",
-                "/ember-camac-ng/service-permissions.phtml": "service-permissions",
+                "/dashboard/faq.phtml": "/static-content/faq",
+                "/dashboard/help.phtml": "/static-content/help",
+                "/dashboard/news.phtml": "/static-content/news",
+                "/ember-camac-ng/dms-admin.phtml": "/dms-admin",
+                "/ember-camac-ng/service-permissions.phtml": "/service-permissions",
             }
             return type_mapping.get(obj.template)
 
