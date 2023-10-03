@@ -38,7 +38,7 @@ services:
       POSTGRES_DATABASE: ${APPLICATION}
     volumes:
       - ../db/init-user-db.sh:/docker-entrypoint-initdb.d/init-user-db.sh:ro
-      - pgdata:/var/lib/postgresql/data
+      - pg15data:/var/lib/postgresql/data
     networks:
       - ebau.local
 
@@ -225,7 +225,7 @@ services:
     image: alpine
     restart: on-failure
     volumes:
-      - pgdata:/data/pgdata
+      - pg15data:/data/pg15data
       - djangomedia:/data/djangomedia
       - djangotmpmedia:/data/djangotmpmedia
       - minio_data:/data/minio_data
@@ -235,7 +235,7 @@ networks:
   ebau.local:
 
 volumes:
-  pgdata:
+  pg15data:
   djangomedia:
   djangotmpmedia:
   minio_data:
