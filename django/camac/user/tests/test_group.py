@@ -145,7 +145,9 @@ def test_group_set_default(admin_client, admin_user, group_factory, user_group_f
     new_group = group_factory()
     new_default = user_group_factory(user=admin_user, group=new_group, default_group=0)
 
-    response = admin_client.post(reverse("group-set-default", args=[new_group.pk]))
+    response = admin_client.post(
+        reverse("publicgroup-set-default", args=[new_group.pk])
+    )
 
     assert response.status_code == status.HTTP_204_NO_CONTENT
 
