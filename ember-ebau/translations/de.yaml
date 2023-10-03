@@ -10,6 +10,7 @@ nav:
     show: "Stammdaten anzeigen"
 
 global:
+  title: "eBau"
   save: "Speichern"
   loading: "Laden"
   wait: "Bitte warten"

@@ -12,6 +12,6 @@ module("Integration | Component | main-navigation", function (hooks) {
   test("it renders", async function (assert) {
     await render(hbs`<MainNavigation />`);
 
-    assert.dom(this.element).hasText("t:nav.login:()");
+    assert.dom(this.element).containsText("t:nav.logout:()");
   });
 });

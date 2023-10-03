@@ -1,101 +1,86 @@
-<nav class="main-navigation uk-navbar-container uk-navbar">
-  <div class="uk-navbar-left uk-margin-small-left">
-    <ul class="uk-navbar-nav main-navbar">
-      <li>
-        <div class="uk-navbar-item">
-          <img
-            class="uk-width-small"
-            alt={{t "nav.logo"}}
-            src={{this.logoPath}}
-          />
-        </div>
-      </li>
-      {{#if this.session.isAuthenticated}}
-        {{#each this.resources.value as |resource|}}
-          <UkSubnav::Item
-            @href={{resource.link}}
-            @currentWhen={{this.removeQueryParams resource.link}}
-          >{{resource.name}}</UkSubnav::Item>
-        {{/each}}
-      {{else}}
-        <li>
-          <LinkTo @route="login" title={{t "nav.login"}}>
-            <UkIcon @icon="sign-in" />
-            <span class="uk-hidden">
-              {{t "nav.login"}}
-            </span>
-          </LinkTo>
-        </li>
-      {{/if}}
-    </ul>
-  </div>
-  <div class="uk-navbar-right uk-margin-small-right">
-    <ul class="uk-navbar-nav">
-      {{#if this.session.isAuthenticated}}
-        <li>
-          <a href="#">{{or this.session.groupModel.name "-"}}<span uk-drop-parent-icon></span></a>
-          {{#if this.session.groups.records.length}}
-            <div
-              uk-dropdown
-              animation="uk-animation-slide-top-small"
-              duration="300"
-              mode="click"
-              pos="bottom-right"
-              offset="-10"
-              id="group-dropdown"
-            >
-              <ul class="uk-nav uk-dropdown-nav">
-                {{#each (sort-by "name" this.session.groups.records) as |g|}}
-                  <li class={{if (eq g.id this.group.id) "uk-active"}}>
-                    <a
-                      data-test-group={{g.id}}
-                      href="#"
-                      {{on "click" (fn this.setGroup g.id)}}
-                    >
-                      {{g.name}}
-                    </a>
-                  </li>
-                {{/each}}
-              </ul>
-            </div>
-          {{/if}}
-        </li>
-        {{#if (gt this.languages.length 1)}}
-          <li class="uk-margin-small-right">
-            <a href="#">{{get this.languageNames this.session.language}}<span uk-drop-parent-icon></span></a>
-            <div
-              uk-dropdown
-              animation="uk-animation-slide-top-small"
-              duration="300"
-              mode="click"
-              pos="bottom-right"
-              offset="-10"
-              id="locale-dropdown"
-            >
-              <ul class="uk-nav uk-dropdown-nav">
-                {{#each this.languages as |lang|}}
-                  <li>
-                    <a
-                      href="#"
-                      {{on "click" (fn this.setLanguage lang)}}
-                    >
-                      {{get this.languageNames lang}}
-                    </a>
-                  </li>
-                {{/each}}
-              </ul>
-            </div>
+<nav class="main-navigation uk-navbar-container">
+  <div class="uk-padding-small uk-padding-remove-vertical">
+    <div class="uk-navbar">
+      <div class="uk-navbar-left">
+        <LinkTo @route="index" class="uk-navbar-item uk-logo">
+          <img alt={{t "nav.logo"}} src={{this.logoPath}} />
+        </LinkTo>
+        <ul class="uk-navbar-nav">
+          {{#each this.resources.value as |resource|}}
+            <UkSubnav::Item
+              @href={{resource.link}}
+              @currentWhen={{this.removeQueryParams resource.link}}
+            >{{resource.name}}</UkSubnav::Item>
+          {{/each}}
+        </ul>
+      </div>
+      <div class="uk-navbar-right">
+        <ul class="uk-navbar-nav">
+          <li>
+            <a href="#">{{or this.session.groupModel.name "-"}}<span uk-drop-parent-icon></span></a>
+            {{#if this.session.groups.records.length}}
+              <div
+                uk-dropdown
+                animation="uk-animation-slide-top-small"
+                duration="300"
+                mode="click"
+                pos="bottom-right"
+                offset="-10"
+                id="group-dropdown"
+              >
+                <ul class="uk-nav uk-dropdown-nav">
+                  {{#each (sort-by "name" this.session.groups.records) as |g|}}
+                    <li class={{if (eq g.id this.group.id) "uk-active"}}>
+                      <a
+                        data-test-group={{g.id}}
+                        href="#"
+                        {{on "click" (fn this.setGroup g.id)}}
+                      >
+                        {{g.name}}
+                      </a>
+                    </li>
+                  {{/each}}
+                </ul>
+              </div>
+            {{/if}}
           </li>
-        {{/if}}
-        <li class="uk-margin-small-right">
-          <a href="#" title={{t "nav.logout"}} {{on "click" this.logout}}>
-            <UkIcon @icon="sign-out" />
-            <span class="uk-hidden">
-              {{t "nav.logout"}}
-            </span>
-          </a>
-        </li>
-      {{/if}}
-    </ul>
+          {{#if (gt this.languages.length 1)}}
+            <li>
+              <a href="#">{{get this.languageNames this.session.language}}<span uk-drop-parent-icon></span></a>
+              <div
+                uk-dropdown
+                animation="uk-animation-slide-top-small"
+                duration="300"
+                mode="click"
+                pos="bottom-right"
+                offset="-10"
+                id="locale-dropdown"
+              >
+                <ul class="uk-nav uk-dropdown-nav">
+                  {{#each this.languages as |lang|}}
+                    <li>
+                      <a
+                        href="#"
+                        {{on "click" (fn this.setLanguage lang)}}
+                      >
+                        {{get this.languageNames lang}}
+                      </a>
+                    </li>
+                  {{/each}}
+                </ul>
+              </div>
+            </li>
+          {{/if}}
+          <li>
+            <a href="#" title={{t "nav.logout"}} {{on "click" this.logout}}>
+              <UkIcon @icon="sign-out" />
+              <span class="uk-hidden">
+                {{t "nav.logout"}}
+              </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </nav>
