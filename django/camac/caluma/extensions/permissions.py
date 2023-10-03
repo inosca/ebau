@@ -41,25 +41,29 @@ from camac.utils import build_url, headers
 log = getLogger()
 
 
-def is_addressed_to_service(work_item, service_id):
+def is_addressed_to_service(work_item: WorkItem, service_id: int) -> bool:
     return str(service_id) in work_item.addressed_groups
 
 
-def is_controlled_by_service(work_item, service_id):
+def is_controlled_by_service(work_item: WorkItem, service_id: int) -> bool:
     return str(service_id) in work_item.controlling_groups
 
 
-def is_created_by_service(work_item, service_id):
+def is_coordination_service(service_id: int) -> bool:
+    return service_id in settings.APPLICATION.get("COORDINATION_SERVICE_IDS", [])
+
+
+def is_created_by_service(work_item: WorkItem, service_id: int) -> bool:
     return work_item.created_by_group == str(service_id)
 
 
-def is_addressed_to_applicant(work_item):  # pragma: todo cover
+def is_addressed_to_applicant(work_item: WorkItem) -> bool:  # pragma: todo cover
     if settings.APPLICATION_NAME == "kt_schwyz":
         return "applicant" in work_item.addressed_groups
     return len(work_item.addressed_groups) == 0
 
 
-def get_current_service_id(info):
+def get_current_service_id(info) -> int:
     return info.context.user.group
 
 
@@ -206,7 +210,7 @@ class CustomPermission(BasePermission):
             # Same as has_permission_for_create_work_item
             return True
 
-        service = get_current_service_id(info)
+        service: int = get_current_service_id(info)
 
         # The creator of a manual work item can change all properties
         if work_item.task_id == settings.APPLICATION["CALUMA"].get(
@@ -227,11 +231,12 @@ class CustomPermission(BasePermission):
 
         is_addressed = is_addressed_to_service(work_item, service)
         is_controller = is_controlled_by_service(work_item, service)
+        is_coordination = is_coordination_service(service)
 
         permissions_for_key = {
             "description": is_controller,
             "assigned_users": is_addressed,
-            "deadline": is_controller,
+            "deadline": is_controller or is_coordination,
             "meta": is_addressed or is_controller,
         }
 

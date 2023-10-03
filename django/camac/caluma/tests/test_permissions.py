@@ -558,3 +558,40 @@ def test_specific_form_permissions(
 
     requests.get.assert_called()
     assert bool(result.errors) != success
+
+
+@pytest.mark.parametrize("role__name", ["Municipality"])
+def test_coordination_services(
+    caluma_admin_schema_executor,
+    work_item_factory,
+    service,
+    be_instance,
+    application_settings,
+):
+    application_settings["COORDINATION_SERVICE_IDS"] = [service.pk]
+    work_item = work_item_factory(
+        case=be_instance.case,
+        addressed_groups=[str(service.pk)],
+        deadline=None,
+    )
+    application_settings["APPLICATION_NAME"] = "kt_uri"
+
+    mutation = """
+        mutation($input: SaveWorkItemInput!) {
+            saveWorkItem(input: $input) {
+                clientMutationId
+            }
+        }
+    """
+
+    result = caluma_admin_schema_executor(
+        mutation,
+        variables={
+            "input": {"deadline": "2022-11-16T00:00:00Z", "workItem": str(work_item.pk)}
+        },
+    )
+
+    work_item.refresh_from_db()
+
+    assert work_item.deadline is not None
+    assert result.errors is None

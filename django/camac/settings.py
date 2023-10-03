@@ -17,6 +17,7 @@ from camac.constants.kt_bern import (
     INSTANCE_STATE_NEW,
     INSTANCE_STATE_SB1,
 )
+from camac.constants.kt_uri import KOOR_SERVICE_IDS as URI_KOOR_SERVICE_IDS
 from camac.utils import build_url
 
 env = environ.Env()
@@ -2400,6 +2401,7 @@ APPLICATIONS = {
             "address",
             "phone",
         ],
+        "COORDINATION_SERVICE_IDS": URI_KOOR_SERVICE_IDS,
         "PORTAL_GROUP": 685,
         "ADMIN_GROUP": 1,
         "OEREB_FORMS": [296, 305],
