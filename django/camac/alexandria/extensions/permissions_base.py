@@ -1,6 +1,8 @@
 from alexandria.core.models import Document
 from caluma.caluma_workflow.models import WorkItem
 
+from camac.caluma.api import CalumaApi
+
 
 class Permission:
     write = False
@@ -133,3 +135,18 @@ class AdminReadyWorkItemPermission(AdminPermission):
 
     def can_destroy(self, group, document) -> bool:
         return self.in_ready_state(document) and super().can_destroy(group, document)
+
+
+class AdminPaperPermission(AdminPermission):
+    def can_create(self, group, instance) -> bool:
+        return CalumaApi().is_paper(instance) and super().can_create(group, instance)
+
+    def can_update(self, group, document) -> bool:
+        return CalumaApi().is_paper(
+            document.instance_document.instance
+        ) and super().can_update(group, document)
+
+    def can_destroy(self, group, document) -> bool:
+        return CalumaApi().is_paper(
+            document.instance_document.instance
+        ) and super().can_destroy(group, document)

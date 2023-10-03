@@ -1651,7 +1651,7 @@
   dependencies:
     tslib "^2.1.0"
 
-"@fortawesome/ember-fontawesome@1.0.3", "@fortawesome/ember-fontawesome@^1.0.1", "@fortawesome/ember-fontawesome@^1.0.2":
+"@fortawesome/ember-fontawesome@1.0.3", "@fortawesome/ember-fontawesome@^1.0.2", "@fortawesome/ember-fontawesome@^1.0.3":
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/@fortawesome/ember-fontawesome/-/ember-fontawesome-1.0.3.tgz#d315712cb5fc9dd03e3ba40faa98d0d8c2ba203a"
   integrity sha512-KGw4a4moLo9wcGwFU05Y7yV2/va2R/lN7rO3cw6ZBrnMigyAReYH9XcK4zkiAXGaLAbzc/mOyP19ofr2rc7HBg==
@@ -6319,16 +6319,16 @@ elliptic@^6.5.3:
     minimalistic-assert "^1.0.1"
     minimalistic-crypto-utils "^1.0.1"
 
-ember-alexandria@4.1.0, ember-alexandria@^4.1.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/ember-alexandria/-/ember-alexandria-4.1.0.tgz#fffa205f68fecbed03231c2f45470781cdd3dea6"
-  integrity sha512-Ex61413cOq0NiNMusuj3B/hRrYZfNRgFq4uS9j6ykHJKZtOwaF20xOSHztKq65k2jF1Y8vQ0O2q4La9g7ruPoA==
+ember-alexandria@4.3.0, ember-alexandria@^4.3.0:
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/ember-alexandria/-/ember-alexandria-4.3.0.tgz#bd0bc70ee3da3d73f17716e113443adbb11457ff"
+  integrity sha512-TW5oG7OU35VdkiQFsBcRVXwHeAH9wNAjfwJbG1y0BrAuoxS45E3FO7aCImQquQ84fXeVIqSB1tOX7ByAc1mAAQ==
   dependencies:
     "@ember/legacy-built-in-components" "^0.4.2"
     "@ember/optional-features" "^2.0.0"
     "@ember/render-modifiers" "^2.1.0"
     "@embroider/macros" "^1.13.1"
-    "@fortawesome/ember-fontawesome" "^1.0.1"
+    "@fortawesome/ember-fontawesome" "^1.0.3"
     "@fortawesome/free-regular-svg-icons" "^6.4.2"
     "@fortawesome/free-solid-svg-icons" "^6.4.2"
     "@glimmer/component" "^1.1.2"
@@ -6338,7 +6338,7 @@ ember-alexandria@4.1.0, ember-alexandria@^4.1.0:
     ember-cli-babel "^7.26.11"
     ember-cli-htmlbars "^6.3.0"
     ember-composable-helpers "^5.0.0"
-    ember-concurrency "^3.1.0"
+    ember-concurrency "^3.1.1"
     ember-data "^3.28.13 || ^4.12.3"
     ember-data-resources "^5.0.0"
     ember-engines-router-service "^0.3.0"
@@ -7159,7 +7159,7 @@ ember-composable-helpers@5.0.0, ember-composable-helpers@^5.0.0:
     ember-cli-babel "^7.26.3"
     resolve "^1.10.0"
 
-ember-concurrency@3.0.0, ember-concurrency@^2.0.0, ember-concurrency@^2.3.7, ember-concurrency@^3.0.0, ember-concurrency@^3.1.0:
+ember-concurrency@3.0.0, ember-concurrency@^2.0.0, ember-concurrency@^2.3.7, ember-concurrency@^3.0.0, ember-concurrency@^3.1.1:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/ember-concurrency/-/ember-concurrency-3.0.0.tgz#dc691998b08f8bb7166480229db437f92971f599"
   integrity sha512-MUsOgl4qLkINxrY+9FuohSOsn7Ytd3xCxu9mThSrMPatxomscZz/0lT4M95S7xy2aNO4o/zGfAEULECQ09YkWA==

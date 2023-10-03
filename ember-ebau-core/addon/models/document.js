@@ -1,9 +1,12 @@
+import { inject as service } from "@ember/service";
 import { hasMany } from "@ember-data/model";
 import DocumentModel from "ember-alexandria/models/document";
 import { dropTask } from "ember-concurrency";
 import { saveAs } from "file-saver";
 
 export default class CustomDocumentModel extends DocumentModel {
+  @service notification;
+
   // conflict with existing tag model in the ebau api,
   // because we dont need it we can set it to null
   @hasMany("tag", { inverse: null, async: true }) tags;
@@ -13,7 +16,9 @@ export default class CustomDocumentModel extends DocumentModel {
     event?.preventDefault();
 
     try {
-      const file = this.files.find((file) => file.variant === "original");
+      const file = (yield this.files).find(
+        (file) => file.variant === "original",
+      );
       const extension = file.name.includes(".")
         ? `.${file.name.split(".").slice(-1)[0]}`
         : "";
