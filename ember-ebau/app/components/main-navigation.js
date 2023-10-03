@@ -43,12 +43,8 @@ export default class MainNavigationComponent extends Component {
     if (!this.session.isAuthenticated) {
       return;
     }
-    const resources = yield this.store.findAll("resource");
 
-    if (resources.length && this.router.currentURL === "/") {
-      this.router.transitionTo(resources[0].link);
-    }
-    return resources;
+    return yield this.store.findAll("resource");
   }
 
   @action

@@ -41,7 +41,11 @@
       <div>
         <div class="uk-text-bold">{{t "cases.header.printPreview"}}</div>
         <a href="#" {{on "click" (perform this.downloadPdf)}}>
-          <UkIcon @icon="file-pdf" />
+          {{#if this.downloadPdf.isRunning}}
+            <UkSpinner @ratio="0.6" />
+          {{else}}
+            <UkIcon @icon="file-pdf" />
+          {{/if}}
           {{t "cases.header.form"}}
         </a>
       </div>
