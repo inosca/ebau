@@ -1,0 +1,11 @@
+<CfField::Input::Date @field={{@field}} @onSave={{@onSave}} @disabled={{this.disabled}} @context={{@context}} />
+
+{{#if this.disabled}}
+  <div class="uk-alert uk-alert-warning">
+    <p>
+      <strong>
+        {{t "distribution.inquiry-deadline-input.disabled-hint"}}
+      </strong>
+    </p>
+  </div>
+{{/if}}
