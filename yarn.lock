@@ -16205,7 +16205,7 @@ uglify-js@^3.1.4:
   resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.17.4.tgz#61678cf5fa3f5b7eb789bb345df29afb8257c22c"
   integrity sha512-T9q82TJI9e/C1TAxYvfb16xO120tMVFZrGA3f9/P4424DNu6ypK103y0GPFVa17yotwSyZW5iYXgjYHkGrJW/g==
 
-uikit@3.17.0, uikit@^3.16.15, uikit@^3.16.26, uikit@^3.17.0:
+uikit@^3.16.15, uikit@^3.16.26, uikit@^3.17.0:
   version "3.17.0"
   resolved "https://registry.yarnpkg.com/uikit/-/uikit-3.17.0.tgz#f991bd0f10bbcdf7c1b0ddc8e9fa21e893e71e03"
   integrity sha512-/xgmse0IWIVSLihQh61LAfzHMTkM13Y2n7Esgg2B0iojrGMFXXVuGgxuzN+zJTvUK0rTcrk/WiWO1VY0Xc1KGg==
