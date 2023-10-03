@@ -70014,7 +70014,7 @@
     "pk": "zweitwohnungsgesetz",
     "fields": {
       "created_at": "2023-10-02T16:26:55.644Z",
-      "modified_at": "2023-10-02T16:37:13.864Z",
+      "modified_at": "2023-10-03T09:09:28.405Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -70022,7 +70022,7 @@
       "label": "{\"de\": \"Kommt das Zweitwohnungsgesetz in der Standortgemeinde zur Anwendung?\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "false",
-      "is_hidden": "false",
+      "is_hidden": "!(\"werden-neue-wohnungen-erstellt-ja\" == \"werden-neue-wohnungen-erstellt\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"Hier finden Sie eine [Karte](https://map.geo.admin.ch/?topic=ech&lang=de&bgLayer=ch.swisstopo.pixelkarte-farbe&layers=ch.swisstopo.zeitreihen,ch.bfs.gebaeude_wohnungs_register,ch.bav.haltestellen-oev,ch.swisstopo.swisstlm3d-wanderwege,ch.are.wohnungsinventar-zweitwohnungsanteil&layers_visibility=false,false,false,false,true&layers_timestamp=18641231,,,,&layers_opacity=1,1,1,1,0.75&E=2785394.25&N=1180381.63&zoom=2), in welchen Gemeinden das Zweitwohnungsgesetzes zur Anwendung kommt.\", \"fr\": null, \"it\": null}",
