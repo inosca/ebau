@@ -6,6 +6,6 @@ export default class ProtectedRoute extends Route {
 
   async beforeModel(transition) {
     this.session.requireAuthentication(transition, "login");
-    await this.session._data;
+    await this.session._data.promise;
   }
 }
