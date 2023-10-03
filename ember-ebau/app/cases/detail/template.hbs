@@ -11,15 +11,15 @@
   <div class="uk-container main-content with-sidebar">
     <div class="uk-child-width-1-4@s uk-margin-bottom uk-grid-small" uk-grid id="master-data" hidden={{this.initialHideHeader}}>
       <div>
-        <div class="uk-text-bold">{{t "cases.header.address"}}</div>
+        <div class="uk-text-bold">{{t "cases.tableHeaders.address"}}</div>
         {{or this.case.address "-"}}
       </div>
       <div>
-        <div class="uk-text-bold">{{t "cases.header.plot"}}</div>
-        {{or this.case.plot "-"}}
+        <div class="uk-text-bold">{{t "cases.tableHeaders.parcel"}}</div>
+        {{or this.case.plots "-"}}
       </div>
       <div>
-        <div class="uk-text-bold">{{t "cases.header.applicant"}}</div>
+        <div class="uk-text-bold">{{t "cases.tableHeaders.applicants"}}</div>
         {{or this.case.applicants "-"}}
       </div>
       {{!-- <div>
@@ -27,15 +27,15 @@
         <input aria-label={{t "cases.header.tags"}}>
       </div> --}}
       <div>
-        <div class="uk-text-bold">{{t "cases.header.municipality"}}</div>
+        <div class="uk-text-bold">{{t "cases.tableHeaders.municipality"}}</div>
         {{or this.case.municipality "-"}}
       </div>
       <div>
-        <div class="uk-text-bold">{{t "cases.header.responsible"}}</div>
+        <div class="uk-text-bold">{{t "cases.tableHeaders.responsibility"}}</div>
         {{or this.case.responsible "-"}}
       </div>
       <div>
-        <div class="uk-text-bold">{{t "cases.header.submitDate"}}</div>
+        <div class="uk-text-bold">{{t "cases.tableHeaders.submitDate"}}</div>
         {{or this.case.submitDate "-"}}
       </div>
       <div>
@@ -50,8 +50,8 @@
         </a>
       </div>
       <div>
-        <div class="uk-text-bold">{{t "cases.header.description"}}</div>
-        {{or this.case.description "-"}}
+        <div class="uk-text-bold">{{t "cases.tableHeaders.intent"}}</div>
+        {{or this.case.intent "-"}}
       </div>
     </div>
 

@@ -14,6 +14,7 @@ const config = {
     description: "umschreibung-bauprojekt",
     municipality: "gemeinde",
     specialId: "dossier-number",
+    parcel: "parzellen",
     parcelNumber: "parzellennummer",
     firstNameApplicant: "vorname",
     lastNameApplicant: "nachname",

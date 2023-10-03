@@ -1,31 +1,42 @@
-// Backgrounds
-$ember-power-select-selected-background: lighten(
-  $global-secondary-background,
-  25%
-) !default;
-$ember-power-select-highlighted-background: lighten(
-  $ember-power-select-selected-background,
-  25%
-) !default;
-$ember-power-select-multiple-selection-background-color: $ember-power-select-selected-background !default;
-
-// Texts
-$ember-power-select-highlighted-color: #ffffff !default;
-$ember-power-select-multiple-selection-color: #ffffff !default;
-
-.ember-power-select-option[aria-selected="true"] {
-  color: $ember-power-select-highlighted-color;
+.ember-power-select-multiple-option {
+  margin: 3px 1px 3px 4px;
 }
 
-// Borders
-$ember-power-select-focus-outline: 0 !default;
-$ember-power-select-border-color: $global-border !default;
-$ember-power-select-default-border-radius: 0 !default;
-$ember-power-select-multiple-option-border-color: $ember-power-select-border-color !default;
+.ember-power-select-multiple-remove-btn {
+  opacity: 1 !important;
+}
 
-// Other
-$ember-power-select-line-height: 38px !default;
-$ember-power-select-multiple-option-padding: 0 8px !default;
-$ember-power-select-multiple-option-line-height: 32px !default;
+.ember-power-select-trigger-multiple-input {
+  padding-left: 8px !important;
+  font-weight: inherit;
+  text-indent: 0;
+}
+
+.uk-select {
+  &.ember-power-select-multiple-trigger {
+    height: auto !important;
+    min-height: 40px;
+  }
+
+  .ember-power-select-status-icon {
+    display: none;
+  }
+}
+
+$ember-power-select-border-color: $global-border;
+$ember-power-select-default-border-radius: 0;
+$ember-power-select-focus-border-color: $form-focus-border;
+$ember-power-select-focus-outline: 0;
+$ember-power-select-highlighted-background: $global-secondary-background;
+$ember-power-select-line-height: 38px;
+$ember-power-select-multiple-option-border-color: $ember-power-select-border-color;
+$ember-power-select-multiple-option-border: none;
+$ember-power-select-multiple-option-line-height: 32px;
+$ember-power-select-multiple-option-line-height: 32px;
+$ember-power-select-multiple-option-padding: 0 8px;
+$ember-power-select-multiple-selection-background-color: $global-primary-background;
+$ember-power-select-multiple-selection-color: #fff;
+$ember-power-select-placeholder-color: $form-placeholder-color;
+$ember-power-select-selected-background: $global-primary-background;
 
 @import "ember-power-select";

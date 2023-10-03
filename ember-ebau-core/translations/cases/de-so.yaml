@@ -1,0 +1,8 @@
+cases:
+  tableHeaders:
+    applicants: Bauherr/in
+
+  filters:
+    submitDateAfter: "Eingereicht (von)"
+    submitDateBefore: "Eingereicht (bis)"
+    dossierNumber-placeholder: "2023-123"

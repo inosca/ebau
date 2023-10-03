@@ -2,7 +2,6 @@
 
 @import "ember-uikit";
 @import "ember-ebau-core";
-@import "power-select";
 @import "ember-alexandria";
 
 $border-color: darken($global-muted-background, 10%);
@@ -12,6 +11,7 @@ $sidebar-padding: 48px;
 $main-navigation-background: $global-primary-background !default;
 
 @import "a11y";
+@import "power-select";
 
 @import "modules/work-items";
 

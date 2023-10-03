@@ -18,6 +18,8 @@ const rootQuestions = [
   answerSlugs.objectLocation,
   answerSlugs.objectMigrated,
   answerSlugs.personalDataApplicant,
+  answerSlugs.municipality,
+  answerSlugs.parcel,
   ...mainConfig.intentSlugs,
 ]
   .filter(Boolean)
@@ -28,6 +30,7 @@ const tableQuestions = [
   answerSlugs.firstNameApplicant,
   answerSlugs.lastNameApplicant,
   answerSlugs.juristicNameApplicant,
+  answerSlugs.parcelNumber,
 ]
   .filter(Boolean)
   .map((slug) => JSON.stringify(slug))
@@ -136,6 +139,18 @@ export default class CustomCaseBaseModel extends CaseModel {
     });
 
     return applicantNames.filter(Boolean).join("\n");
+  }
+
+  get municipality() {
+    return this.getAnswerDisplayValue(answerSlugs.municipality);
+  }
+
+  get plots() {
+    const plots = this.getAnswer(answerSlugs.parcel)?.node.value ?? [];
+
+    return plots
+      .map((row) => getAnswerDisplayValue(row, answerSlugs.parcelNumber))
+      .join(", ");
   }
 
   getAnswerDisplayValue(slug) {

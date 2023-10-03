@@ -1140,28 +1140,14 @@
     "model": "core.remberlist",
     "pk": 2,
     "fields": {
-      "instance_states": "1"
+      "instance_states": "1,2,3,4,5"
     }
   },
   {
     "model": "core.remberlist",
     "pk": 3,
     "fields": {
-      "instance_states": "2"
-    }
-  },
-  {
-    "model": "core.remberlist",
-    "pk": 4,
-    "fields": {
-      "instance_states": "2"
-    }
-  },
-  {
-    "model": "core.remberlist",
-    "pk": 5,
-    "fields": {
-      "instance_states": "2"
+      "instance_states": "2,3,4,5"
     }
   },
   {
@@ -1273,7 +1259,7 @@
       "name": null,
       "description": null,
       "template": null,
-      "class_field": null,
+      "class_field": "displaySearch",
       "hidden": 0,
       "sort": 1
     }
