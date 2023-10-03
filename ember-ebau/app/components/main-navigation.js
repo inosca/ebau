@@ -19,6 +19,13 @@ export default class MainNavigationComponent extends Component {
 
   languages = languages;
 
+  // not part of translations (should not be translated)
+  languageNames = {
+    de: "Deutsch",
+    it: "Italiano",
+    fr: "Français",
+  };
+
   get logoPath() {
     if (["gr", "so"].includes(name)) {
       return `/ebau-${name}-logo.svg`;
@@ -86,4 +93,8 @@ export default class MainNavigationComponent extends Component {
   logout() {
     this.session.singleLogout();
   }
+
+  removeQueryParams = (link) => {
+    return link?.replace(/\?.*$/, "");
+  };
 }

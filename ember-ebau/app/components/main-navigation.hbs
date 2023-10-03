@@ -14,6 +14,7 @@
         {{#each this.resources.value as |resource|}}
           <UkSubnav::Item
             @href={{resource.link}}
+            @currentWhen={{this.removeQueryParams resource.link}}
           >{{resource.name}}</UkSubnav::Item>
         {{/each}}
       {{else}}
@@ -32,7 +33,7 @@
     <ul class="uk-navbar-nav">
       {{#if this.session.isAuthenticated}}
         <li>
-          <a href="#">{{or this.session.groupModel.name "-"}}</a>
+          <a href="#">{{or this.session.groupModel.name "-"}}<span uk-drop-parent-icon></span></a>
           {{#if this.session.groups.records.length}}
             <div
               uk-dropdown
@@ -40,6 +41,7 @@
               duration="300"
               mode="click"
               pos="bottom-right"
+              offset="-10"
               id="group-dropdown"
             >
               <ul class="uk-nav uk-dropdown-nav">
@@ -58,31 +60,33 @@
             </div>
           {{/if}}
         </li>
-        <li class="uk-margin-small-right">
-          <a href="#">{{this.session.language}}</a>
-          <div
-            uk-dropdown
-            animation="uk-animation-slide-top-small"
-            duration="300"
-            mode="click"
-            pos="bottom-right"
-            id="locale-dropdown"
-          >
-            <ul class="uk-nav uk-dropdown-nav">
-              {{#each this.languages as |lang|}}
-                <li>
-                  <a
-                    href="#"
-                    class="uk-text-uppercase"
-                    {{on "click" (fn this.setLanguage lang)}}
-                  >
-                    {{lang}}
-                  </a>
-                </li>
-              {{/each}}
-            </ul>
-          </div>
-        </li>
+        {{#if (gt this.languages.length 1)}}
+          <li class="uk-margin-small-right">
+            <a href="#">{{get this.languageNames this.session.language}}<span uk-drop-parent-icon></span></a>
+            <div
+              uk-dropdown
+              animation="uk-animation-slide-top-small"
+              duration="300"
+              mode="click"
+              pos="bottom-right"
+              offset="-10"
+              id="locale-dropdown"
+            >
+              <ul class="uk-nav uk-dropdown-nav">
+                {{#each this.languages as |lang|}}
+                  <li>
+                    <a
+                      href="#"
+                      {{on "click" (fn this.setLanguage lang)}}
+                    >
+                      {{get this.languageNames lang}}
+                    </a>
+                  </li>
+                {{/each}}
+              </ul>
+            </div>
+          </li>
+        {{/if}}
         <li class="uk-margin-small-right">
           <a href="#" title={{t "nav.logout"}} {{on "click" this.logout}}>
             <UkIcon @icon="sign-out" />

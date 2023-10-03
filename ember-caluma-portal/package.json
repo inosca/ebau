@@ -86,7 +86,7 @@
     "ember-source": "4.12.3",
     "ember-template-lint": "5.11.1",
     "ember-truth-helpers": "3.1.1",
-    "ember-uikit": "8.0.0",
+    "ember-uikit": "9.0.0",
     "eslint": "8.45.0",
     "eslint-config-prettier": "8.8.0",
     "eslint-plugin-ember": "11.10.0",
