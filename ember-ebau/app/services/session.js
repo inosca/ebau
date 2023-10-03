@@ -3,10 +3,9 @@
 import { getOwner } from "@ember/application";
 import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
-import { dropTask } from "ember-concurrency";
 import { query } from "ember-data-resources";
 import mainConfig from "ember-ebau-core/config/main";
-import { trackedTask } from "ember-resources/util/ember-concurrency";
+import { trackedFunction } from "ember-resources/util/function";
 import { handleUnauthorized } from "ember-simple-auth-oidc";
 import { getConfig } from "ember-simple-auth-oidc/config";
 import Session from "ember-simple-auth-oidc/services/session";
@@ -31,56 +30,34 @@ export default class CustomSession extends Session {
   @localCopy("data.language") _language;
   @localCopy("data.group") _group;
 
-  _data = trackedTask(this, this.fetchUser, () => [
-    this.isAuthenticated,
-    this.group,
-  ]);
+  _data = trackedFunction(this, async () => {
+    await Promise.resolve();
 
-  @dropTask
-  *fetchUser() {
-    yield Promise.resolve();
-
-    if (!this.isAuthenticated) return null;
-
-    const response = yield this.fetch
+    const response = await this.fetch
       .fetch("/api/v1/me?include=groups,groups.role,groups.service")
       .then((res) => res.json());
 
-    this.store.push(this.store.normalize("user", response.data));
-
-    if (response.included) {
-      // NEW: get groups, roles and services to replace shoebox service
-      response.included
-        .filter(({ type }) => type === "groups")
-        .forEach((entry) =>
-          this.store.push(this.store.normalize("group", entry)),
-        );
-      response.included
-        .filter(({ type }) => type === "roles")
-        .forEach((entry) =>
-          this.store.push(this.store.normalize("role", entry)),
-        );
-      response.included
-        .filter(({ type }) => type === "services")
-        .forEach((entry) =>
-          this.store.push(this.store.normalize("service", entry)),
-        );
-    }
+    this.store.pushPayload(response);
 
     // we have to know which is the current group
-    const groupId =
-      this.group ??
-      response.data.relationships["default-group"]?.data?.id ??
-      response.data.relationships.groups.data?.[0]?.id;
+    let groupId = this.group;
+    if (!groupId) {
+      groupId =
+        response.data.relationships["default-group"]?.data?.id ??
+        response.data.relationships.groups.data?.[0]?.id;
+
+      this.group = groupId;
+    }
+
     const group = this.store.peekRecord("group", groupId);
 
     return {
       user: this.store.peekRecord("user", response.data.id),
       group,
-      role: yield group?.role,
-      service: yield group?.service,
+      role: await group?.role,
+      service: await group?.service,
     };
-  }
+  });
 
   groups = query(this, "public-group", () => ({
     include: ["service", "service.service_group", "role"].join(","),

@@ -2,9 +2,8 @@ import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
 import { isTesting, macroCondition } from "@embroider/macros";
 import Component from "@glimmer/component";
-import { dropTask } from "ember-concurrency";
+import { findAll } from "ember-data-resources";
 import mainConfig from "ember-ebau-core/config/main";
-import { trackedTask } from "ember-resources/util/ember-concurrency";
 import UIkit from "uikit";
 
 const { languages, name } = mainConfig;
@@ -34,18 +33,7 @@ export default class MainNavigationComponent extends Component {
     return "/ebau-inosca-logo.svg";
   }
 
-  resources = trackedTask(this, this.fetchResources);
-
-  @dropTask
-  *fetchResources() {
-    yield Promise.resolve();
-
-    if (!this.session.isAuthenticated) {
-      return;
-    }
-
-    return yield this.store.findAll("resource");
-  }
+  resources = findAll(this, "resource");
 
   @action
   async setLanguage(language, event) {
@@ -74,14 +62,22 @@ export default class MainNavigationComponent extends Component {
 
     UIkit.dropdown("#group-dropdown").hide();
 
-    await this.fetch.fetch(`/api/v1/groups/${group}/set-default`, {
+    await this.fetch.fetch(`/api/v1/public-groups/${group}/set-default`, {
       method: "POST",
     });
 
     this.store.unloadAll();
-    await this.fetchResources.perform();
-    if (this.resources.value.length) {
-      this.router.transitionTo(this.resources.value[0].link);
+
+    await Promise.all([
+      this.resources.retry(),
+      this.session._data.retry(),
+      this.session.groups.retry(),
+    ]);
+
+    if (this.router.currentRouteName === "index") {
+      await this.router.refresh("index");
+    } else {
+      await this.router.transitionTo("index");
     }
   }
 

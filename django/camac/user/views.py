@@ -218,16 +218,6 @@ class GroupView(MultilangMixin, ReadOnlyModelViewSet):
     def list(self, request, *args, **kwargs):
         return super().list(request, *args, **kwargs)
 
-    @action(methods=["post"], detail=True, url_path="set-default")
-    @transaction.atomic
-    def set_default(self, request, pk=None):
-        user_groups = models.UserGroup.objects.filter(user=request.user)
-
-        user_groups.filter(default_group=1).update(default_group=0)
-        user_groups.filter(group=self.get_object()).update(default_group=1)
-
-        return response.Response(status=status.HTTP_204_NO_CONTENT)
-
 
 class PublicGroupView(MultilangMixin, ReadOnlyModelViewSet):
     swagger_schema = None
@@ -238,6 +228,16 @@ class PublicGroupView(MultilangMixin, ReadOnlyModelViewSet):
 
     def get_queryset(self):
         return super().get_queryset().filter(users=self.request.user)
+
+    @action(methods=["post"], detail=True, url_path="set-default")
+    @transaction.atomic
+    def set_default(self, request, pk=None):
+        user_groups = models.UserGroup.objects.filter(user=request.user)
+
+        user_groups.filter(default_group=1).update(default_group=0)
+        user_groups.filter(group=self.get_object()).update(default_group=1)
+
+        return response.Response(status=status.HTTP_204_NO_CONTENT)
 
 
 class UserGroupView(ModelViewSet):
