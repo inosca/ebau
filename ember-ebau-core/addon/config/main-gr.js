@@ -20,6 +20,7 @@ export default {
     description: "beschreibung-bauvorhaben",
     municipality: "gemeinde",
     specialId: "dossier-number",
+    parcel: "parzelle",
     parcelNumber: "parzellennummer",
     firstNameApplicant: "vorname-gesuchstellerin",
     lastNameApplicant: "name-gesuchstellerin",

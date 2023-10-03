@@ -18,24 +18,15 @@ export default {
   },
   activeFilters: {
     caluma: {
-      municipality: [
+      default: [
         "form",
         "dossierNumber",
-        "municipality",
         "address",
         "parcel",
         "personalDetails",
         "intent",
         "submitDateAfter",
         "submitDateBefore",
-        "instanceState",
-      ],
-      default: [
-        "form",
-        "dossierNumber",
-        "municipality",
-        "address",
-        "personalDetails",
         "instanceState",
       ],
     },
