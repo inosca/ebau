@@ -34,3 +34,7 @@ class AdminAdditionalDemandPermission(
             .order_by("-created_at")
             .first()
         )
+
+
+class AdminNewPaperPermission(AdminNewPermission, AdminPaperPermission):  # noqa F405
+    pass

@@ -1,9 +1,11 @@
-import Service, { inject as service } from "@ember/service";
+import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
+import ConfigService from "ember-alexandria/services/config";
 
-export default class AlexandriaConfigService extends Service {
+export default class AlexandriaConfigService extends ConfigService {
   @service store;
   @service session;
+  @service intl;
 
   @tracked instanceId;
 
@@ -34,6 +36,16 @@ export default class AlexandriaConfigService extends Service {
     return this.session.data.authenticated.access_token;
   }
 
+  get marks() {
+    return [
+      {
+        type: "decision",
+        tooltip: this.intl.t("documents.mark.decision"),
+        icon: "stamp",
+      },
+    ];
+  }
+
   resolveUser(id) {
     if (!id) return "-";
 
@@ -44,6 +56,24 @@ export default class AlexandriaConfigService extends Service {
     if (!id) return "-";
 
     return this.store.peekRecord("service", id)?.name ?? "-";
+  }
+
+  extractCreatedBy(documents, key) {
+    return [...new Set(documents.map((d) => d[key]).filter((id) => id))];
+  }
+
+  documentsPostProcess(documents) {
+    const users = this.extractCreatedBy(documents, "createdByUser");
+    const groups = this.extractCreatedBy(documents, "createdByGroup");
+
+    if (users.length) {
+      this.store.query("user", { filter: { id: users.join(",") } });
+    }
+    if (groups.length) {
+      this.store.query("service", { filter: { service_id: groups.join(",") } });
+    }
+
+    return documents;
   }
 
   namespace = "/alexandria/api/v1";
