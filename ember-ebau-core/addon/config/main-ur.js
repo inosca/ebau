@@ -124,4 +124,5 @@ export default {
     "veranstaltung-beschrieb",
     "beschreibung-reklame",
   ],
+  coordinationServices: [1, 87, 302, 590, 546, 545], // kantonale KOORs
 };
