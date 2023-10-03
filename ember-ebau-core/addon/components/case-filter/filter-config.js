@@ -28,21 +28,12 @@ export default {
     valueField: "value",
     labelField: "name",
   },
-  municipality: macroCondition(getOwnConfig().application === "be")
+  municipality: macroCondition(getOwnConfig().application === "ur")
     ? {
-        type: "select",
-        options: "municipalitiesFromCaluma",
-        valueField: "slug",
-        labelField: "label",
-        showWithoutOptions: true,
-      }
-    : macroCondition(getOwnConfig().application === "gr")
-    ? {
-        type: "select",
-        options: "municipalitiesFromCaluma",
-        valueField: "slug",
-        labelField: "label",
-        showWithoutOptions: true,
+        type: "select-multiple",
+        options: "municipalities",
+        valueField: "id",
+        labelField: "name",
       }
     : macroCondition(getOwnConfig().application === "sz")
     ? {
@@ -52,23 +43,24 @@ export default {
         labelField: "name",
       }
     : {
-        type: "select-multiple",
-        options: "municipalities",
-        valueField: "id",
-        labelField: "name",
+        type: "select",
+        options: "municipalitiesFromCaluma",
+        valueField: "slug",
+        labelField: "label",
+        showWithoutOptions: true,
       },
   instanceState: {
     type: "select-multiple",
     options: "instanceStates",
     valueField: "id",
-    labelField: macroCondition(getOwnConfig().application === "be")
-      ? "name"
+    labelField: macroCondition(getOwnConfig().application === "ur")
+      ? "uppercaseName"
       : macroCondition(getOwnConfig().application === "sz")
       ? "description"
-      : "uppercaseName",
-    showWithoutOptions: macroCondition(getOwnConfig().application === "be")
-      ? true
-      : false,
+      : "name",
+    showWithoutOptions: macroCondition(getOwnConfig().application === "sz")
+      ? false
+      : true,
   },
   service: {
     type: "select",
@@ -99,9 +91,9 @@ export default {
     options: "responsibleServiceUsers",
     valueField: "id",
     labelField: "fullName",
-    showWithoutOptions: macroCondition(getOwnConfig().application === "be")
-      ? true
-      : false,
+    showWithoutOptions: macroCondition(getOwnConfig().application === "sz")
+      ? false
+      : true,
   },
   type: {
     type: "select",
@@ -109,18 +101,18 @@ export default {
     valueField: "id",
     labelField: "description",
   },
-  form: macroCondition(getOwnConfig().application === "be")
+  form: macroCondition(getOwnConfig().application === "sz")
     ? {
+        type: "select",
+        options: "formOptions",
+        labelField: "name",
+      }
+    : {
         type: "select",
         options: "forms",
         valueField: "value",
         labelField: "name",
         showWithoutOptions: true,
-      }
-    : {
-        type: "select",
-        options: "formOptions",
-        labelField: "name",
       },
   responsibleMunicipality: {
     type: "select",
@@ -151,17 +143,13 @@ export default {
     labelField: "label",
     showWithoutOptions: true,
   },
-  ...(macroCondition(getOwnConfig().application === "ur")
-    ? {
-        legalStateOereb: {
-          type: "select-multiple",
-          options: "legalStateOerebOptions",
-          valueField: "slug",
-          labelField: "label",
-          showWithoutOptions: true,
-        },
-      }
-    : {}),
+  legalStateOereb: {
+    type: "select-multiple",
+    options: "legalStateOerebOptions",
+    valueField: "slug",
+    labelField: "label",
+    showWithoutOptions: true,
+  },
   inquiryState: {
     type: "select",
     options: "inquiryStateOptions",

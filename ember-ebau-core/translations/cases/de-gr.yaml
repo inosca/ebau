@@ -1,0 +1,5 @@
+cases:
+  filters:
+    submitDateAfter: "Eingereicht (von)"
+    submitDateBefore: "Eingereicht (bis)"
+    dossierNumber-placeholder: "2023-123"
