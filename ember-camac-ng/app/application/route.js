@@ -5,6 +5,7 @@ import DecisionInfoAppealComponent from "ember-ebau-core/components/decision/inf
 import DecisionSubmitButtonComponent from "ember-ebau-core/components/decision/submit-button";
 import DocumentValidityButtonComponent from "ember-ebau-core/components/document-validity-button";
 import InquiryAnswerStatus from "ember-ebau-core/components/inquiry-answer-status";
+import InquiryDeadlineInputComponent from "ember-ebau-core/components/inquiry-deadline-input";
 import LinkAttachmentsComponent from "ember-ebau-core/components/link-attachments";
 import UrGisComponent from "ember-ebau-core/components/ur-gis";
 import mainConfig from "ember-ebau-core/config/main";
@@ -138,6 +139,12 @@ export default class ApplicationRoute extends Route {
       label: "Beschwerde eingegangen",
       component: "decision/appeal-button",
       componentClass: DecisionAppealButtonComponent,
+    });
+
+    this.calumaOptions.registerComponentOverride({
+      label: "Stellungnahme deadline",
+      component: "inquiry-deadline-input",
+      componentClass: InquiryDeadlineInputComponent,
     });
   }
 }
