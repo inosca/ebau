@@ -11,7 +11,7 @@
       "form": "vorabklaerung-einfach",
       "source": null,
       "meta": {
-        "submit-date": "2020-01-23T12:19:22",
+        "submit-date": "2020-01-23T12:19:22"
       }
     }
   },
@@ -26,8 +26,7 @@
       "family": "178accef-81ab-4de1-aca6-5ad3c3927662",
       "form": "sb2",
       "source": null,
-      "meta": {
-      }
+      "meta": {}
     }
   },
   {
@@ -127,7 +126,7 @@
       "source": null,
       "meta": {
         "ebau-number": "2020-1",
-        "submit-date": "2020-01-23T12:14:17",
+        "submit-date": "2020-01-23T12:14:17"
       }
     }
   },
@@ -142,8 +141,7 @@
       "family": "c3e9df8c-b9b4-493c-b492-a94c82fad9f2",
       "form": "sb1",
       "source": null,
-      "meta": {
-      }
+      "meta": {}
     }
   },
   {
