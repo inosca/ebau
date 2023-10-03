@@ -1,0 +1,40 @@
+.nav-sidebar {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  top: $main-nav-height;
+  width: $sidebar-width;
+  border-right: 1px solid $border-color;
+
+  li {
+    padding: 0 10px 0 35px;
+
+    > a {
+      padding: 10px 0;
+    }
+  }
+
+  li.uk-active {
+    background-color: #fff;
+
+    > a {
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 19px;
+        left: -17px;
+        width: 12px;
+        border-top: 1px solid #1e87f0;
+      }
+    }
+  }
+
+  li:nth-last-child(1 of .menu-category-meta),
+  li:nth-last-child(1 of .menu-category-primary),
+  li:nth-last-child(1 of .menu-category-process),
+  li:nth-last-child(1 of .menu-category-analysis) {
+    border-bottom: 1px solid $border-color;
+  }
+}

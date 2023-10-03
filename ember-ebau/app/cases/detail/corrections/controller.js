@@ -10,7 +10,7 @@ export default class CorrectionsController extends Controller {
   @service intl;
   @service notification;
 
-  instance = findRecord(this, "instance", () => this.model);
+  instance = findRecord(this, "instance", () => this.model.id);
 
   @action
   toggleModal() {
@@ -26,7 +26,7 @@ export default class CorrectionsController extends Controller {
   @dropTask
   *documentCorrection() {
     try {
-      yield this.fetch.fetch(`/api/v1/instances/${this.model}/correction`, {
+      yield this.fetch.fetch(`/api/v1/instances/${this.model.id}/correction`, {
         method: "POST",
       });
 

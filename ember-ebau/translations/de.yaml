@@ -3,6 +3,11 @@ nav:
   logout: "Ausloggen"
   form: "Formular"
   documents: "Dokumente"
+  paper: "Papier"
+  masterData:
+    label: "Stammdaten"
+    hide: "Stammdaten verstecken"
+    show: "Stammdaten anzeigen"
 
 global:
   save: "Speichern"

@@ -1,0 +1,25 @@
+@use "sass:color";
+
+.subnav-header {
+  padding: 10px 10px 10px 35px;
+  border-bottom: 1px solid $border-color;
+
+  &__label {
+    text-transform: initial;
+    padding: 5px 10px;
+    background-color: #cce1f0;
+    color: black;
+    border: 1px solid black;
+    background: #fff;
+    border-radius: 0px;
+    margin-top: 5px;
+    font-size: $global-small-font-size;
+    line-height: $global-small-font-size;
+
+    &--primary {
+      background: color.scale($global-primary-background, $alpha: -80%);
+      color: $global-primary-background;
+      border: 1px solid $global-primary-background;
+    }
+  }
+}

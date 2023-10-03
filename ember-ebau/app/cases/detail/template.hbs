@@ -1,4 +1,7 @@
-<SubNavigation @instanceId={{@model}} />
+<aside class="nav-sidebar uk-navbar-container">
+  <SubnavHeader @case={{this.case}} />
+  <SubNavigation @instanceId={{@model.id}} />
+</aside>
 
 {{#if this.useFullScreen}}
   <div class="full-screen-content">
@@ -6,10 +9,7 @@
   </div>
 {{else}}
   <div class="uk-container main-content with-sidebar">
-    {{! template-lint-disable no-bare-strings}}
-    <h2>{{this.case.form}} {{or this.case.dossierNumber "-"}}</h2>
-    {{! template-lint-enable no-bare-strings}}
-    <div class="uk-child-width-1-4@s uk-text-left uk-margin-bottom" uk-grid>
+    <div class="uk-child-width-1-4@s uk-margin-bottom uk-grid-small" uk-grid id="master-data" hidden={{this.initialHideHeader}}>
       <div>
         <div class="uk-text-bold">{{t "cases.header.address"}}</div>
         {{or this.case.address "-"}}
@@ -40,15 +40,29 @@
       </div>
       <div>
         <div class="uk-text-bold">{{t "cases.header.printPreview"}}</div>
-        <span uk-icon="icon: file-pdf"></span><a href="#" {{on "click" (perform this.downloadPdf)}}>{{t "cases.header.form"}}</a>
+        <a href="#" {{on "click" (perform this.downloadPdf)}}>
+          <UkIcon @icon="file-pdf" />
+          {{t "cases.header.form"}}
+        </a>
       </div>
       <div>
         <div class="uk-text-bold">{{t "cases.header.description"}}</div>
         {{or this.case.description "-"}}
       </div>
-
     </div>
-    <hr>
+
+    <div class="uk-margin-bottom master-data-divider {{if this.hideHeader "master-data-divider--hidden"}}">
+      <button
+        type="button"
+        class="master-data-divider__toggle uk-button uk-button-link"
+        uk-toggle="target: #master-data; animation: uk-animation-slide-top"
+        {{on "click" this.toggleHeader}}
+        {{uk-tooltip (t (concat "nav.masterData." (if this.hideHeader "show" "hide"))) pos="right" animation="uk-animation-fade"}}
+      >
+        {{t "nav.masterData.label"}}
+        <UkIcon @icon={{if this.hideHeader "eye" "eye-slash"}} />
+      </button>
+    </div>
 
     {{outlet}}
   </div>

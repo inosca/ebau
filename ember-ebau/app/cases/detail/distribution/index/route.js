@@ -10,12 +10,12 @@ export default class CasesDetailDistibutionIndexRoute extends Route {
   @queryManager apollo;
 
   model() {
-    const instanceId = this.modelFor("cases.detail");
+    const instance = this.modelFor("cases.detail");
     return this.apollo.query(
       {
         query: getDistributionCaseQuery,
         fetchPolicy: "network-only",
-        variables: { instanceId },
+        variables: { instanceId: instance.id },
       },
       "allCases.edges.firstObject.node.workItems.edges.firstObject.node.childCase.id",
     );
