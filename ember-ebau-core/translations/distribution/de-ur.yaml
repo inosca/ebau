@@ -1,0 +1,7 @@
+distribution:
+  services: "Fachstellen"
+  inquiry-deadline-input:
+    disabled-hint: "Wenn eine kantonale Koordinationsstelle zur Teilnahme an der Zirkulation eingeladen wird, kann keine manuelle Frist festgelegt werden; stattdessen werden die im System hinterlegten Fristen verwendet."
+
+# Override default text of @projectcaluma/ember-distribution
+"caluma.distribution.inquiry.closed-at": "Geprüft am"
