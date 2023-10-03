@@ -1,0 +1,20 @@
+.so-navbar__toggle {
+  background: transparent;
+  border: 2px solid #fff;
+  border-radius: 4px;
+  margin: 7px 14px;
+  padding: 6px;
+  cursor: pointer;
+
+  > span {
+    display: block;
+    height: 3px;
+    width: 26px;
+    background-color: #fff;
+    border-radius: 1px;
+  }
+
+  > span:not(:first-of-type) {
+    margin-top: 4px;
+  }
+}

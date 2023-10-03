@@ -12,26 +12,26 @@
 
   <nav class="so-navbar__nav">
     <div>
-      <ul>
-        {{#if this.session.isAuthenticated}}
-          <li><LinkTo @route="index">{{t "global.title"}}</LinkTo></li>
-          <li><LinkTo @route="instances">{{t "nav.instances"}}</LinkTo></li>
-          {{#if (macroCondition (macroGetOwnConfig "enableCommunications"))}}
-            {{#unless this.session.isInternal}}
-              <li>
-                <LinkTo @route="communications-global">
-                  {{t "nav.communications"}}
-                  <Communication::UnreadMessageBadge />
-                </LinkTo>
-              </li>
-            {{/unless}}
-          {{/if}}
-        {{/if}}
-        <li><LinkTo @route="public-instances">{{t "nav.public-instance"}}</LinkTo></li>
-        {{#if this.showFormBuilder}}
-          <li><LinkTo @route="form-builder">{{t "nav.form-builder"}}</LinkTo></li>
-        {{/if}}
-      </ul>
+      <SoNavbar::Toggle class="uk-hidden@m" />
+      <div
+        class="so-navbar__dropdown uk-hidden@m"
+        uk-dropdown
+        mode="click"
+        pos="bottom-right"
+        offset="6"
+      >
+        <SoNavbar::Nav
+          @isAuthenticated={{this.session.isAuthenticated}}
+          @isInternal={{this.session.isInternal}}
+          @showFormBuilder={{this.showFormBuilder}}
+        />
+      </div>
+      <SoNavbar::Nav
+        @isAuthenticated={{this.session.isAuthenticated}}
+        @isInternal={{this.session.isInternal}}
+        @showFormBuilder={{this.showFormBuilder}}
+        class="uk-visible@m"
+      />
     </div>
     <div>
       <ul>
@@ -45,7 +45,10 @@
                 class="so-navbar__nav__profile"
                 alt={{this.session.user.fullName}}
               >
-              <div class="so-navbar__nav__user">
+              <div class="so-navbar__nav__user uk-hidden@l">
+                <FaIcon @icon="caret-down" />
+              </div>
+              <div class="so-navbar__nav__user uk-visible@l">
                 <div>{{this.session.user.fullName}}</div>
                 {{#if this.session.group}}
                   <div>
@@ -63,6 +66,7 @@
               offset="0"
             >
               <ul>
+                <li class="uk-hidden@l"><a href="#">{{this.session.user.fullName}}</a></li>
                 {{#if this.session.groups.length}}
                   <li>
                     <a
