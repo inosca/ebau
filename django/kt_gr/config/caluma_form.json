@@ -11314,7 +11314,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "ausserhalb-bauzone",
-      "sort": 31
+      "sort": 33
     }
   },
   {
@@ -11329,7 +11329,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "baute-oder-anlage",
-      "sort": 32
+      "sort": 34
     }
   },
   {
@@ -11389,7 +11389,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "beschreibung-der-wohnnutzung",
-      "sort": 22
+      "sort": 24
     }
   },
   {
@@ -11449,7 +11449,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "forstliche-baute",
-      "sort": 26
+      "sort": 28
     }
   },
   {
@@ -11494,7 +11494,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "hinweis-hindernisfreies-bauen",
-      "sort": 23
+      "sort": 25
     }
   },
   {
@@ -11539,7 +11539,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "hinweis-waldabstandsbereich",
-      "sort": 29
+      "sort": 31
     }
   },
   {
@@ -11614,7 +11614,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "mehr-als-vier-wohneinheiten",
-      "sort": 24
+      "sort": 26
     }
   },
   {
@@ -11644,7 +11644,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "nichtforstliche-kleinbaute",
-      "sort": 27
+      "sort": 29
     }
   },
   {
@@ -11674,7 +11674,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "rodung",
-      "sort": 28
+      "sort": 30
     }
   },
   {
@@ -11719,7 +11719,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "waldareal",
-      "sort": 30
+      "sort": 32
     }
   },
   {
@@ -11735,6 +11735,21 @@
       "form": "nutzung-bauvorhaben",
       "question": "was-verursacht-die-emissionen",
       "sort": 18
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "nutzung-bauvorhaben.werden-neue-wohnungen-erstellt",
+    "fields": {
+      "created_at": "2023-10-02T16:29:27.386Z",
+      "modified_at": "2023-10-02T16:29:27.386Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "nutzung-bauvorhaben",
+      "question": "werden-neue-wohnungen-erstellt",
+      "sort": 23
     }
   },
   {
@@ -11779,7 +11794,22 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "wohnnutzung",
-      "sort": 25
+      "sort": 27
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "nutzung-bauvorhaben.zweitwohnungsgesetz",
+    "fields": {
+      "created_at": "2023-10-02T16:26:55.867Z",
+      "modified_at": "2023-10-02T16:26:55.867Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "nutzung-bauvorhaben",
+      "question": "zweitwohnungsgesetz",
+      "sort": 22
     }
   },
   {
@@ -21236,12 +21266,12 @@
     "pk": "bestaetigung-rechtsgueltigkeit-ja",
     "fields": {
       "created_at": "2023-05-17T14:07:04.927Z",
-      "modified_at": "2023-05-17T14:07:04.927Z",
+      "modified_at": "2023-10-02T16:45:56.977Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Der/die Gesuchsteller/in resp. die bevollm\\u00e4chtigte Vertretung best\\u00e4tigt mit rechtsg\\u00fcltiger Unterschrift, dass die elektronisch \\u00fcbermittelten Daten (inkl. dem unterzeichneten Situationsplan) vollst\\u00e4ndig und wahrheitsgetreu ausgef\\u00fcllt und eingereicht worden sind.\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Der/die Gesuchsteller/in resp. die bevollm\\u00e4chtigte Vertretung best\\u00e4tigt mit rechtsg\\u00fcltiger Unterschrift, dass die elektronisch \\u00fcbermittelten Daten vollst\\u00e4ndig und wahrheitsgetreu ausgef\\u00fcllt worden sind.\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -33921,6 +33951,38 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "werden-neue-wohnungen-erstellt-ja",
+    "fields": {
+      "created_at": "2023-10-02T16:29:27.015Z",
+      "modified_at": "2023-10-02T16:29:27.015Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "werden-neue-wohnungen-erstellt-nein",
+    "fields": {
+      "created_at": "2023-10-02T16:29:27.027Z",
+      "modified_at": "2023-10-02T16:29:27.027Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "werden-schutzplaetze-erstellt-ja",
     "fields": {
       "created_at": "2023-04-18T18:56:31.659Z",
@@ -34858,6 +34920,38 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Wasserkraftnutzung\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "zweitwohnungsgesetz-ja",
+    "fields": {
+      "created_at": "2023-10-02T16:26:55.408Z",
+      "modified_at": "2023-10-02T16:26:55.408Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "zweitwohnungsgesetz-nein",
+    "fields": {
+      "created_at": "2023-10-02T16:26:55.414Z",
+      "modified_at": "2023-10-02T16:26:55.415Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -43913,12 +44007,12 @@
     "pk": "bestaetigung-rechtsgueltigkeit",
     "fields": {
       "created_at": "2023-05-17T14:07:05.118Z",
-      "modified_at": "2023-09-04T12:26:21.655Z",
+      "modified_at": "2023-10-02T16:45:57.163Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Der/die Gesuchsteller/in resp. die bevollm\\u00e4chtigte Vertretung best\\u00e4tigt mit rechtsg\\u00fcltiger Unterschrift, dass die elektronisch \\u00fcbermittelten Daten (inkl. dem unterzeichneten Situationsplan) vollst\\u00e4ndig und wahrheitsgetreu ausgef\\u00fcllt und eingereicht worden sind.\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Der/die Gesuchsteller/in resp. die bevollm\\u00e4chtigte Vertretung best\\u00e4tigt mit rechtsg\\u00fcltiger Unterschrift, dass die elektronisch \\u00fcbermittelten Daten vollst\\u00e4ndig und wahrheitsgetreu ausgef\\u00fcllt worden sind.\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
       "is_required": "true",
       "is_hidden": "false",
@@ -53930,7 +54024,7 @@
     "pk": "hinweis-denkmalpflege",
     "fields": {
       "created_at": "2023-07-05T07:30:21.820Z",
-      "modified_at": "2023-07-05T07:30:41.887Z",
+      "modified_at": "2023-10-02T16:42:44.118Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -53943,7 +54037,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"Es wird empfohlen, [die Bauberaterin / den Bauberater der kantonalen Denkmalpflege](https://www.gr.ch/DE/institutionen/verwaltung/ekud/afk/dpg/bereiche/bauberatung/Seiten/Bauberatung.aspx) zu kontaktieren.\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"Es wird empfohlen, [die Bauberaterin / den Bauberater der kantonalen Denkmalpflege](https://www.gr.ch/DE/institutionen/verwaltung/ekud/afk/dpg/bereiche/bauberatung/Seiten/Bauberatung.aspx) zu kontaktieren. Kantonale oder nationale Schutzeintr\\u00e4ge sind im Grundbuch eingetragen. Bei Umbauten oder Ver\\u00e4nderungen ist eine Zusatzbewilligung der Denkmalpflege erforderlich.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -60518,19 +60612,19 @@
     "pk": "objekt-der-denkmalpflege",
     "fields": {
       "created_at": "2023-07-05T07:29:07.875Z",
-      "modified_at": "2023-07-05T07:29:07.875Z",
+      "modified_at": "2023-10-02T16:42:03.538Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Handelt es sich um ein inventarisiertes Objekt der Denkmalpflege?\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Steht das Objekt unter kantonalem und/oder nationalem Denkmalschutz?\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -66380,7 +66474,7 @@
     "pk": "vereinbarkeit-zweitwohnungsgesetz",
     "fields": {
       "created_at": "2023-05-17T14:27:47.114Z",
-      "modified_at": "2023-05-19T08:43:10.630Z",
+      "modified_at": "2023-10-02T16:39:37.110Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -66388,10 +66482,10 @@
       "label": "{\"de\": \"Vereinbarkeit Zweitwohnungsgesetz\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
       "is_required": "true",
-      "is_hidden": "false",
+      "is_hidden": "!(\"zweitwohnungsgesetz-ja\" == \"zweitwohnungsgesetz\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"Das Zweitwohnungsgesetz (ZWG) gelangt in verschiedenen Gemeinden\\ndes Kantons Graub\\u00fcnden zur Anwendung. In diesen Gemeinden ist der\\nNeubau von Zweitwohnungen nicht zul\\u00e4ssig. Bauwillige haben daher mit\\ndem Baugesuch bekannt zu geben, ob bzw. welche Wohnungen touris-\\ntisch bewirtschaftet werden und welche Wohnungen als Erstwohnung\\noder als einer Erstwohnung gleichgestellte Wohnung genutzt werden\\nsollen.\\u00b9\\n\\nDiese Angaben sind in einem Plan zu verorten oder in einem Wohnungsspiegel zu bezeichnen.\\n\\n\\u00b9 <font size=\\\"1\\\">unter Hinweis auf die <a href=\\\"https://www.gr.ch/DE/institutionen/verwaltung/dvs/ds/Documents/Zweitwohnungen/Vollzugshilfe DVS V2a_de.pdf\\\">kantonale Vollzugshilfe: Bundesgesetz \\u00fcber Zweitwohnungen (ZWG; SR 702), Zweitwohnungsverordnung (ZWV; SR 702.1)</a></font>\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Das Zweitwohnungsgesetz (ZWG) gelangt in verschiedenen Gemeinden des Kantons Graub\\u00fcnden zur Anwendung. In diesen Gemeinden ist der Neubau von Zweitwohnungen nicht zul\\u00e4ssig. Bauwillige haben daher mit dem Baugesuch bekannt zu geben, ob bzw. welche Wohnungen touristisch bewirtschaftet werden und welche Wohnungen als Erstwohnung oder als einer Erstwohnung gleichgestellte Wohnung genutzt werden sollen.\\u00b9\\n\\nDiese Angaben sind in einem Plan zu verorten oder in einem Wohnungsspiegel zu bezeichnen.\\n\\n\\u00b9 <font size=\\\"1\\\">unter Hinweis auf die <a href=\\\"https://www.gr.ch/DE/institutionen/verwaltung/dvs/ds/Documents/Zweitwohnungen/Vollzugshilfe DVS V2a_de.pdf\\\">kantonale Vollzugshilfe: Bundesgesetz \\u00fcber Zweitwohnungen (ZWG; SR 702), Zweitwohnungsverordnung (ZWV; SR 702.1)</a></font>\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -68714,6 +68808,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "werden-neue-wohnungen-erstellt",
+    "fields": {
+      "created_at": "2023-10-02T16:29:27.181Z",
+      "modified_at": "2023-10-02T16:29:27.181Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Werden neue Wohnungen erstellt?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "!(\"wohnnutzung-ja\" == \"wohnnutzung\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "werden-schutzplaetze-erstellt",
     "fields": {
       "created_at": "2023-04-18T18:56:31.814Z",
@@ -69871,6 +69996,37 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "zweitwohnungsgesetz",
+    "fields": {
+      "created_at": "2023-10-02T16:26:55.644Z",
+      "modified_at": "2023-10-02T16:37:13.864Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Kommt das Zweitwohnungsgesetz in der Standortgemeinde zur Anwendung?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Hier finden Sie eine [Karte](https://map.geo.admin.ch/?topic=ech&lang=de&bgLayer=ch.swisstopo.pixelkarte-farbe&layers=ch.swisstopo.zeitreihen,ch.bfs.gebaeude_wohnungs_register,ch.bav.haltestellen-oev,ch.swisstopo.swisstlm3d-wanderwege,ch.are.wohnungsinventar-zweitwohnungsanteil&layers_visibility=false,false,false,false,true&layers_timestamp=18641231,,,,&layers_opacity=1,1,1,1,0.75&E=2785394.25&N=1180381.63&zoom=2), in welchen Gemeinden das Zweitwohnungsgesetzes zur Anwendung kommt.\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -74496,8 +74652,8 @@
     "model": "caluma_form.questionoption",
     "pk": "bestaetigung-rechtsgueltigkeit.bestaetigung-rechtsgueltigkeit-ja",
     "fields": {
-      "created_at": "2023-09-04T12:26:21.666Z",
-      "modified_at": "2023-09-04T12:26:21.666Z",
+      "created_at": "2023-10-02T16:45:57.171Z",
+      "modified_at": "2023-10-02T16:45:57.171Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -81111,8 +81267,8 @@
     "model": "caluma_form.questionoption",
     "pk": "objekt-der-denkmalpflege.objekt-der-denkmalpflege-ja",
     "fields": {
-      "created_at": "2023-07-05T07:29:07.885Z",
-      "modified_at": "2023-07-05T07:29:07.885Z",
+      "created_at": "2023-10-02T16:42:03.552Z",
+      "modified_at": "2023-10-02T16:42:03.552Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -81126,8 +81282,8 @@
     "model": "caluma_form.questionoption",
     "pk": "objekt-der-denkmalpflege.objekt-der-denkmalpflege-nein",
     "fields": {
-      "created_at": "2023-07-05T07:29:07.881Z",
-      "modified_at": "2023-07-05T07:29:07.881Z",
+      "created_at": "2023-10-02T16:42:03.547Z",
+      "modified_at": "2023-10-02T16:42:03.547Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -84771,8 +84927,8 @@
     "model": "caluma_form.questionoption",
     "pk": "vereinbarkeit-zweitwohnungsgesetz.vereinbarkeit-zweitwohnungsgesetz-ja",
     "fields": {
-      "created_at": "2023-05-19T08:43:10.640Z",
-      "modified_at": "2023-05-19T08:43:10.640Z",
+      "created_at": "2023-10-02T16:39:37.121Z",
+      "modified_at": "2023-10-02T16:39:37.121Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -86449,6 +86605,36 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "werden-neue-wohnungen-erstellt.werden-neue-wohnungen-erstellt-ja",
+    "fields": {
+      "created_at": "2023-10-02T16:29:27.194Z",
+      "modified_at": "2023-10-02T16:29:27.194Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "werden-neue-wohnungen-erstellt",
+      "option": "werden-neue-wohnungen-erstellt-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "werden-neue-wohnungen-erstellt.werden-neue-wohnungen-erstellt-nein",
+    "fields": {
+      "created_at": "2023-10-02T16:29:27.189Z",
+      "modified_at": "2023-10-02T16:29:27.189Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "werden-neue-wohnungen-erstellt",
+      "option": "werden-neue-wohnungen-erstellt-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "werden-schutzplaetze-erstellt.werden-schutzplaetze-erstellt-ja",
     "fields": {
       "created_at": "2023-04-18T18:56:31.838Z",
@@ -87300,6 +87486,36 @@
       "question": "zweck-der-wasserentnahme",
       "option": "zweck-der-wasserentnahme-wasserkraftnutzung",
       "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "zweitwohnungsgesetz.zweitwohnungsgesetz-ja",
+    "fields": {
+      "created_at": "2023-10-02T16:37:13.883Z",
+      "modified_at": "2023-10-02T16:37:13.883Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "zweitwohnungsgesetz",
+      "option": "zweitwohnungsgesetz-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "zweitwohnungsgesetz.zweitwohnungsgesetz-nein",
+    "fields": {
+      "created_at": "2023-10-02T16:37:13.875Z",
+      "modified_at": "2023-10-02T16:37:13.875Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "zweitwohnungsgesetz",
+      "option": "zweitwohnungsgesetz-nein",
+      "sort": 1
     }
   },
   {
