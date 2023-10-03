@@ -8,7 +8,7 @@
   {% get_current_language as LANGUAGE_CODE %}
   {% get_available_languages as LANGUAGES %}
   {% get_language_info_list for LANGUAGES as languages %}
-  {% settings_value "USE_CAMAC_ADMIN" as USE_CAMAC_ADMIN %}
+  {% settings_value "USE_CAMAC_ADMIN" from_application_settings=True as USE_CAMAC_ADMIN %}
   {% settings_value "INTERNAL_BASE_URL" as INTERNAL_BASE_URL %}
 
   {% for language in languages %}
