@@ -634,7 +634,21 @@ class DecisionLogic:
         cls, instance, work_item, user, camac_user
     ):
         if cls.should_continue_after_decision(instance, work_item):
-            cls.after_decision(instance, work_item, user, camac_user)
+            if settings.APPLICATION_NAME == "kt_bern":
+                construction_control = set_construction_control(instance)
+                instance.set_instance_state("sb1", camac_user)
+
+                # copy municipality tags for sb1
+                copy_municipality_tags(instance, construction_control)
+                copy_responsible_person_lead_authority(instance, construction_control)
+            else:
+                instance.set_instance_state(
+                    settings.APPLICATION["CALUMA"][
+                        "TASKS_AFTER_BUILDING_PERMIT_DECISION"
+                    ][0],
+                    camac_user,
+                )
+
         else:
             instance.set_instance_state("finished", camac_user)
 
@@ -645,7 +659,7 @@ class DecisionLogic:
     def should_continue_after_decision(
         cls, instance: Instance, work_item: workflow_models.WorkItem
     ) -> bool:
-        raise RuntimeError("Not implemented")  # pragma: no cover
+        raise NotImplementedError("Not implemented")  # pragma: no cover
 
     @classmethod
     def should_continue_after_decision_be(
@@ -694,23 +708,6 @@ class DecisionLogic:
             return False
 
         return decision[0].value == DECISIONS_BEWILLIGT_GR
-
-    @classmethod
-    @canton_aware
-    def after_decision(cls, instance: Instance, work_item: WorkItem, user, camac_user):
-        instance.set_instance_state("finished", camac_user)
-
-    @classmethod
-    def after_decision_be(
-        cls, instance: Instance, work_item: WorkItem, user, camac_user
-    ):
-        # set the construction control as responsible service
-        construction_control = set_construction_control(instance)
-        instance.set_instance_state("sb1", camac_user)
-
-        # copy municipality tags for sb1
-        copy_municipality_tags(instance, construction_control)
-        copy_responsible_person_lead_authority(instance, construction_control)
 
 
 def copy_municipality_tags(instance, construction_control):
