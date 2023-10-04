@@ -5,7 +5,7 @@ import { dropTask } from "ember-concurrency";
 
 export default class ResponsibleController extends Controller {
   @service store;
-  @service shoebox;
+  @service ebauModules;
   @service notification;
   @service intl;
 
@@ -17,7 +17,7 @@ export default class ResponsibleController extends Controller {
     return this.responsibilities.find(
       (responsibleService) =>
         parseInt(responsibleService.belongsTo("service").id()) ===
-        this.shoebox.content.serviceId,
+        this.ebauModules.serviceId,
     );
   }
 
@@ -37,7 +37,7 @@ export default class ResponsibleController extends Controller {
     });
 
     this.users = yield this.store.query("user", {
-      service: this.shoebox.content.serviceId,
+      service: this.ebauModules.serviceId,
     });
   }
 
