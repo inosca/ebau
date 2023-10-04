@@ -1,5 +1,6 @@
 from alexandria.core.models import Document
 from caluma.caluma_workflow.models import WorkItem
+from django.conf import settings
 
 from camac.caluma.api import CalumaApi
 
@@ -150,3 +151,38 @@ class AdminPaperPermission(AdminPermission):
         return CalumaApi().is_paper(
             document.instance_document.instance
         ) and super().can_destroy(group, document)
+
+
+class AdminNewPermission(AdminStatePermission):
+    writable_states = ["new"]
+    deletable_states = ["new"]
+
+
+class InternalAdminCirculationPermission(
+    InternalAdminPermission, AdminDeletableStatePermission
+):
+    deletable_states = ["circulation"]
+
+
+class AdminAdditionalDemandPermission(
+    AdminStatePermission, AdminReadyWorkItemPermission
+):
+    writable_states = ["init-distribution", "circulation"]
+    deletable_states = ["init-distribution", "circulation"]
+
+    # this is a temporary restriction
+    # the end goal would be to add an event after the fill task has been completed and
+    # mark those documents as not editable anymore.
+    def get_work_item(self, document_id):
+        return (
+            WorkItem.objects.filter(
+                task_id=settings.ADDITIONAL_DEMAND["ADDITIONAL_DEMAND_FILL_TASK"],
+                document_id=document_id,
+            )
+            .order_by("-created_at")
+            .first()
+        )
+
+
+class AdminNewPaperPermission(AdminNewPermission, AdminPaperPermission):  # noqa F405
+    pass
