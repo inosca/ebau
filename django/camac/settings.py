@@ -1,3 +1,4 @@
+import copy
 import json
 import logging
 import os
@@ -313,7 +314,6 @@ APPLICATIONS = {
         "ROLE_INHERITANCE": {"trusted_service": "service"},
         "IS_MULTILINGUAL": False,
         "NOTIFICATIONS": {"SUBMIT": None, "APPLICANT": {"NEW": None, "EXISTING": None}},
-        "PUBLICATION_BACKEND": "camac-ng",
         "FORM_BACKEND": "camac-ng",
         "THUMBNAIL_SIZE": "x300",
         "WORKFLOW_ITEMS": {
@@ -488,7 +488,6 @@ APPLICATIONS = {
             ],
         },
         "PUBLICATION_DURATION": timedelta(days=20),
-        "PUBLICATION_BACKEND": "camac-ng",
         "PUBLICATION_ATTACHMENT_SECTION": [4],
         "ATTACHMENT_INTERNAL_STATES": ["internal"],
         "ATTACHMENT_SECTION_INTERNAL": None,
@@ -592,7 +591,6 @@ APPLICATIONS = {
                 },
                 "finish-document": {"cancel": ["create-manual-workitems"]},
             },
-            "FILL_PUBLICATION_TASK": None,
             "SAVE_DOSSIER_NUMBER_IN_CALUMA": False,
             "PUBLICATION_TASK_SLUG": "publication",
             "CREATE_IN_PROCESS": True,
@@ -1560,8 +1558,6 @@ APPLICATIONS = {
                     ],
                 },
             },
-            "FILL_PUBLICATION_TASK": "fill-publication",
-            "INFORMATION_OF_NEIGHBORS_TASK": "information-of-neighbors",
             "HAS_PROJECT_CHANGE": True,
             "CREATE_IN_PROCESS": False,
             "GENERATE_IDENTIFIER": False,
@@ -2156,7 +2152,6 @@ APPLICATIONS = {
             "Verwaltungskreise und -regionen der Gemeinden.csv"
         ),
         "ENABLE_PUBLIC_ENDPOINTS": True,
-        "PUBLICATION_BACKEND": "caluma",
         "ATTACHMENT_MAX_SIZE": 100 * 1024 * 1024,
     },
     "kt_uri": {
@@ -2193,7 +2188,6 @@ APPLICATIONS = {
         "DOCUMENTS_SKIP_CONTEXT_VALIDATION": True,
         "CALUMA": {
             "FORM_PERMISSIONS": ["main"],
-            "FILL_PUBLICATION_TASK": None,
             "HAS_PROJECT_CHANGE": True,
             "CREATE_IN_PROCESS": False,
             "GENERATE_IDENTIFIER": True,
@@ -2421,7 +2415,6 @@ APPLICATIONS = {
             "notification.NotificationTemplateT",
         ],
         "ENABLE_PUBLIC_ENDPOINTS": True,
-        "PUBLICATION_BACKEND": "camac-ng",
         "INSTANCE_STATE_REJECTION_COMPLETE": "arch",
         "SET_SUBMIT_DATE_CAMAC_WORKFLOW": True,
         "REJECTION_FEEDBACK_QUESTION": {
@@ -2850,7 +2843,6 @@ APPLICATIONS = {
         },
         "ADMIN_GROUP": 1,
         "IS_MULTILINGUAL": True,
-        "PUBLICATION_BACKEND": "camac-ng",
         "FORM_BACKEND": "caluma",
         "THUMBNAIL_SIZE": "x300",
         "DJANGO_ADMIN": {"ENABLE_RESOURCES": True, "ENABLE_GIS": False},
@@ -3212,7 +3204,6 @@ APPLICATIONS = {
         },
         "ADMIN_GROUP": 1,
         "IS_MULTILINGUAL": True,
-        "PUBLICATION_BACKEND": "caluma",
         "ENABLE_PUBLIC_ENDPOINTS": True,
         "FORM_BACKEND": "caluma",
         "THUMBNAIL_SIZE": "x300",
@@ -3254,7 +3245,6 @@ APPLICATIONS = {
         "PORTAL_GROUP": 3,
         "CALUMA": {
             "MANUAL_WORK_ITEM_TASK": "create-manual-workitems",
-            "FILL_PUBLICATION_TASK": "fill-publication",
             "SUBMIT_TASKS": ["submit"],
             "FORM_PERMISSIONS": ["main", "inquiry", "inquiry-answer"],
             "HAS_PROJECT_CHANGE": True,
@@ -4459,7 +4449,7 @@ def load_module_settings(module_name, application_name=APPLICATION_NAME):
     app_config = module.get(application_name, {})
 
     return (
-        always_merger.merge(module["default"], app_config)
+        always_merger.merge(copy.deepcopy(module["default"]), app_config)
         if app_config.get("ENABLED")
         else {}
     )
