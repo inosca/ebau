@@ -65,7 +65,7 @@
 <WorkItemList
   @query={{this.workItemsQuery}}
   @columns={{this.columns}}
-  @highlight={{not-eq @status "closed"}}
+  @highlight={{not-eq @status "COMPLETED"}}
   @useLinkTo={{@useLinkTo}}
   @baseRoute={{@baseRoute}}
 />

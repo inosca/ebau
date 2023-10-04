@@ -27,9 +27,9 @@ export default class WorkItemListWrapperComponent extends Component {
       "task",
       "instance",
       "description",
-      ...(this.args.status === "open"
-        ? ["deadline", "responsible"]
-        : ["closedAt", "closedBy"]),
+      ...(this.args.status === "COMPLETED"
+        ? ["closedAt", "closedBy"]
+        : ["deadline", "responsible"]),
     ];
   }
 
