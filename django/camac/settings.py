@@ -1446,6 +1446,11 @@ APPLICATIONS = {
         ],
         "CALUMA": {
             "MANUAL_WORK_ITEM_TASK": "create-manual-workitems",
+            "TASKS_AFTER_BUILDING_PERMIT_DECISION": [
+                "sb1",
+                "create-manual-workitems",
+                "create-publication",
+            ],
             "FORM_PERMISSIONS": [
                 "main",
                 "sb1",
@@ -3248,11 +3253,12 @@ APPLICATIONS = {
         "PORTAL_GROUP": 3,
         "CALUMA": {
             "MANUAL_WORK_ITEM_TASK": "create-manual-workitems",
+            "TASKS_AFTER_BUILDING_PERMIT_DECISION": ["construction-monitoring"],
+            "FILL_PUBLICATION_TASK": "fill-publication",
             "SUBMIT_TASKS": ["submit"],
             "FORM_PERMISSIONS": ["main", "inquiry", "inquiry-answer"],
             "HAS_PROJECT_CHANGE": True,
             "DECISION_TASK": "decision",
-            "CONSTRUCTION_MONITORING_TASK": "construction-monitoring",
             "CREATE_IN_PROCESS": False,
             "GENERATE_IDENTIFIER": True,
             "USE_LOCATION": False,

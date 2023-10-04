@@ -1,8 +1,10 @@
 import json
+from datetime import timedelta
 from uuid import uuid4
 
 from caluma.caluma_form import api as form_api, models as form_models
 from caluma.caluma_workflow import api as workflow_api, models as workflow_models
+from caluma.caluma_workflow.models import Task, WorkItem
 from django.conf import settings
 from django.core.files.base import ContentFile
 from django.db.models import CharField, Q
@@ -25,6 +27,13 @@ from camac.constants.kt_gr import DECISIONS_BEWILLIGT as DECISIONS_BEWILLIGT_GR
 from camac.core.models import InstanceLocation, InstanceService
 from camac.core.utils import canton_aware, generate_dossier_nr
 from camac.instance.models import Instance, InstanceGroup
+from camac.instance.utils import (
+    copy_instance,
+    fill_ebau_number,
+    get_lead_authority,
+    set_construction_control,
+)
+from camac.user.models import Group, Service
 from camac.user.permissions import permission_aware
 
 from . import models
@@ -619,7 +628,18 @@ class CreateInstanceLogic:
         return instance
 
 
-class CreateDecisionLogic:
+class DecisionLogic:
+    @classmethod
+    def post_complete_decision_building_permit(
+        cls, instance, work_item, user, camac_user
+    ):
+        if cls.should_continue_after_decision(instance, work_item):
+            cls.after_decision(instance, work_item, user, camac_user)
+        else:
+            instance.set_instance_state("finished", camac_user)
+
+        handle_appeal_decision(instance, work_item, user, camac_user)
+
     @classmethod
     @canton_aware
     def should_continue_after_decision(
@@ -674,3 +694,76 @@ class CreateDecisionLogic:
             return False
 
         return decision[0].value == DECISIONS_BEWILLIGT_GR
+
+    @classmethod
+    @canton_aware
+    def after_decision(cls, instance: Instance, work_item: WorkItem, user, camac_user):
+        instance.set_instance_state("finished", camac_user)
+
+    @classmethod
+    def after_decision_be(
+        cls, instance: Instance, work_item: WorkItem, user, camac_user
+    ):
+        # set the construction control as responsible service
+        construction_control = set_construction_control(instance)
+        instance.set_instance_state("sb1", camac_user)
+
+        # copy municipality tags for sb1
+        copy_municipality_tags(instance, construction_control)
+        copy_responsible_person_lead_authority(instance, construction_control)
+
+
+def copy_municipality_tags(instance, construction_control):
+    municipality_tags = instance.tags.filter(
+        service=Service.objects.filter(
+            service_group__name="municipality",
+            trans__language="de",
+            trans__name=construction_control.trans.get(language="de").name.replace(
+                "Baukontrolle", "Leitbehörde"
+            ),
+        ).first()
+    )
+
+    for tag in municipality_tags:
+        instance.tags.create(service=construction_control, name=tag.name)
+
+
+def copy_responsible_person_lead_authority(instance, construction_control):
+    lead_authority = get_lead_authority(construction_control)
+
+    responsible_service = instance.responsible_services.filter(
+        service=lead_authority
+    ).first()
+
+    if lead_authority.responsibility_construction_control and responsible_service:
+        instance.responsible_services.create(
+            service=construction_control,
+            responsible_user=responsible_service.responsible_user,
+        )
+
+
+def handle_appeal_decision(instance, work_item, user, camac_user):
+    if not settings.APPEAL or not instance.case.meta.get("is-appeal"):
+        return
+
+    if work_item.document.answers.filter(
+        question_id=settings.APPEAL["QUESTIONS"]["DECISION"],
+        value=settings.APPEAL["ANSWERS"]["DECISION"]["REJECTED"],
+    ).exists():
+        new_instance = copy_instance(
+            instance=instance,
+            group=Group.objects.get(pk=user.camac_group),
+            user=camac_user,
+            caluma_user=user,
+            skip_submit=True,
+            # Mark the new instance as result of a rejected appeal so the
+            # frontend can find it in the copies of the previous instance to
+            # redirect after the decision was submitted.
+            new_meta={"is-rejected-appeal": True},
+        )
+
+        fill_ebau_number(
+            instance=new_instance,
+            ebau_number=instance.case.meta.get("ebau-number"),
+            caluma_user=user,
+        )
