@@ -68,6 +68,9 @@ class GrGisClient(GISBaseClient):
             **result,
             "parzelle": self.get_plot_data(response.content),
             **self.get_plans(response.content),
+            "coordinates": ", ".join(
+                [f"'{latlng['x']},{latlng['y']}'" for latlng in markers]
+            ),
         }
         return result
 
@@ -176,7 +179,12 @@ class GrGisClient(GISBaseClient):
             for layer in layers:
                 for data in self.get_xml(resonse_content, layer):
                     if find(data, "Bezeichnung"):
-                        result[question] += [find(data, "Bezeichnung")]
+                        result[question] += [
+                            f"""
+                            {find(data, "Bezeichnung")}
+                            {'('+ find(data, "Verbindlichkeit")+')' if find(data, "Verbindlichkeit") and find(data, "Verbindlichkeit")!="Nutzungsplanfestlegung" else ''}
+                            """
+                        ]
 
         return {
             question: ", ".join(value) for question, value in result.items() if value
