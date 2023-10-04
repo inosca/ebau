@@ -15,7 +15,7 @@ from rest_framework.status import (
     HTTP_405_METHOD_NOT_ALLOWED,
 )
 
-import camac.alexandria.extensions.permissions_kt_gr as permissions_kt_gr
+from camac.alexandria.extensions.permissions import classes as permissions
 
 
 @pytest.mark.parametrize(
@@ -422,9 +422,7 @@ def test_kt_gr_permissions(
     status_code,
 ):
     settings.APPLICATION_NAME = "kt_gr"
-    mocker.patch(
-        "camac.alexandria.extensions.permissions.permissions", permissions_kt_gr
-    )
+    mocker.patch("camac.alexandria.extensions.permissions.permissions", permissions)
 
     if status_code != HTTP_403_FORBIDDEN:
         work_item = work_item_factory(
