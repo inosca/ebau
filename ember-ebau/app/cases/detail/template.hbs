@@ -9,64 +9,7 @@
   </div>
 {{else}}
   <div class="uk-container main-content with-sidebar">
-    <div class="uk-child-width-1-4@s uk-margin-bottom uk-grid-small" uk-grid id="master-data" hidden={{this.initialHideHeader}}>
-      <div>
-        <div class="uk-text-bold">{{t "cases.tableHeaders.address"}}</div>
-        {{or this.case.address "-"}}
-      </div>
-      <div>
-        <div class="uk-text-bold">{{t "cases.tableHeaders.parcel"}}</div>
-        {{or this.case.plots "-"}}
-      </div>
-      <div>
-        <div class="uk-text-bold">{{t "cases.tableHeaders.applicants"}}</div>
-        {{or this.case.applicants "-"}}
-      </div>
-      {{!-- <div>
-        <div class="uk-text-bold">{{t "cases.header.tags"}}</div>
-        <input aria-label={{t "cases.header.tags"}}>
-      </div> --}}
-      <div>
-        <div class="uk-text-bold">{{t "cases.tableHeaders.municipality"}}</div>
-        {{or this.case.municipality "-"}}
-      </div>
-      <div>
-        <div class="uk-text-bold">{{t "cases.tableHeaders.responsibility"}}</div>
-        {{or this.case.responsible.fullName "-"}}
-      </div>
-      <div>
-        <div class="uk-text-bold">{{t "cases.tableHeaders.submitDate"}}</div>
-        {{or this.case.submitDate "-"}}
-      </div>
-      <div>
-        <div class="uk-text-bold">{{t "cases.header.printPreview"}}</div>
-        <a href="#" {{on "click" (perform this.downloadPdf)}}>
-          {{#if this.downloadPdf.isRunning}}
-            <UkSpinner @ratio="0.6" />
-          {{else}}
-            <UkIcon @icon="file-pdf" />
-          {{/if}}
-          {{t "cases.header.form"}}
-        </a>
-      </div>
-      <div>
-        <div class="uk-text-bold">{{t "cases.tableHeaders.intent"}}</div>
-        {{or this.case.intent "-"}}
-      </div>
-    </div>
-
-    <div class="uk-margin-bottom master-data-divider {{if this.hideHeader "master-data-divider--hidden"}}">
-      <button
-        type="button"
-        class="master-data-divider__toggle uk-button uk-button-link"
-        uk-toggle="target: #master-data; animation: uk-animation-slide-top"
-        {{on "click" this.toggleHeader}}
-        {{uk-tooltip (t (concat "nav.masterData." (if this.hideHeader "show" "hide"))) pos="right" animation="uk-animation-fade"}}
-      >
-        {{t "nav.masterData.label"}}
-        <UkIcon @icon={{if this.hideHeader "eye" "eye-slash"}} />
-      </button>
-    </div>
+    <CaseHeader @case={{this.case}} />
 
     {{outlet}}
   </div>

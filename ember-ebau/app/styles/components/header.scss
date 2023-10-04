@@ -1,3 +1,25 @@
+.master-data-header {
+  overflow: hidden;
+  max-height: 600px;
+  transition: max-height $animation-duration ease-out;
+
+  @media (min-width: $breakpoint-small) {
+    max-height: 400px;
+  }
+
+  @media (min-width: $breakpoint-medium) {
+    max-height: 300px;
+  }
+
+  @media (min-width: $breakpoint-large) {
+    max-height: 200px;
+  }
+
+  &--hidden {
+    max-height: 0;
+  }
+}
+
 .master-data-divider {
   display: flex;
   justify-content: flex-end;
@@ -10,6 +32,7 @@
     left: 0;
     right: 0;
     border-bottom: 1px solid $border-color;
+    transition: border-color $animation-duration ease-out;
   }
 
   &--hidden {
