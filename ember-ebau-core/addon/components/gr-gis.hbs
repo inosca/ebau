@@ -1,0 +1,118 @@
+<PowerSelect
+  data-test-search
+  @search={{perform this.searchAddress}}
+  @searchEnabled={{true}}
+  @selected={{this.selectedSearchResult}}
+  @onChange={{this.selectFeature}}
+  @placeholder={{t "gis.searchPlaceholder"}}
+  @loadingMessage={{t "gis.loading"}}
+  @searchMessage={{null}}
+  @noMatchesMessage={{t "gis.noMatchesMessage"}}
+  as |address|
+>
+  {{address.label}}
+</PowerSelect>
+<div class="map">
+
+  <div class="leaflet-touch">
+    <div class="draw-polygon-line leaflet-touch leaflet-bar">
+      {{#if this.showGeometrySwitch}}
+        <button
+          class="polygon-icon {{if this.isPolygon 'is-active'}}"
+          type="button"
+          {{on "click" (fn this.setGeometry "POLYGON")}}
+        ><FaIcon @icon="draw-polygon" @size="1x" /></button>
+
+        <button
+          type="button"
+          class="line-icon {{unless this.isPolygon 'is-active'}}"
+          {{on "click" (fn this.setGeometry "LINESTRING")}}
+        ><FaIcon @icon="minus" @size="1x" /></button>
+
+      {{/if}}
+    </div>
+  </div>
+
+  <LeafletMap
+    data-test-map
+    @lat={{this.lat}}
+    @lng={{this.lng}}
+    @zoom={{this.zoom}}
+    @maxZoom={{this.maxZoom}}
+    @minZoom={{this.minZoom}}
+    @onLoad={{this.handleLoad}}
+    @onClick={{this.updateMarkers}}
+    class="uk-width-1-1 uk-height-large uk-margin"
+    as |map|
+  >
+    <map.wms-tile
+      @transparent={{true}}
+      @format="image/png"
+      @maxZoom={{this.wmsLayerMaxZoom}}
+      @version="1.3.0"
+      @layers="daten"
+      @url={{"https://geodienste.ch/db/av_situationsplan_oereb_0"}}
+    />
+    <map.wms-tile
+      @transparent={{true}}
+      @format="image/png"
+      @maxZoom={{this.wmsLayerMaxZoom}}
+      @version="1.3.0"
+      @layers="LCSF"
+      @url={{"https://geodienste.ch/db/av_0"}}
+    />
+    <map.wms-tile
+      @transparent={{true}}
+      @format="image/png"
+      @maxZoom={{this.wmsLayerMaxZoom}}
+      @version="1.3.0"
+      @layers="AV_GEB"
+      @url={{"https://wms.geo.gr.ch/gebaeudeadressierung_ebbv"}}
+    />
+    <map.wms-tile
+      @transparent={{true}}
+      @format="image/png"
+      @maxZoom={{this.wmsLayerMaxZoom}}
+      @version="1.3.0"
+      @layers="Hoheitsgrenzen"
+      @url={{"https://geodienste.ch/db/av_0"}}
+    />
+
+    {{#each this.markers as |point index|}}
+      <map.marker
+        @lat={{point.lat}}
+        @lng={{point.lng}}
+        @draggable={{true}}
+        @onDragend={{fn this.updateDragged index}}
+      />
+    {{/each}}
+
+    {{#if this.isPolygon}}
+      <map.polygon @locations={{this.markers}} @color="red" />
+    {{else}}
+      <map.polyline @locations={{this.markers}} @color="red" />
+    {{/if}}
+  </LeafletMap>
+  <div class="reset-button">
+    {{#if this.showResetButton}}
+      <UkButton @onClick={{this.clearMarkers}}><FaIcon
+          @icon="rotate-left"
+          @size="1x"
+        />
+        {{t "gis.reset"}}</UkButton>
+    {{/if}}
+  </div>
+  {{#unless @disabled}}
+    <GisApplyButton
+      @document={{@field.document}}
+      @disabled={{not this.markers}}
+      @params={{hash
+        markers=this.markersAsJSON
+        geometry=this.geometry
+        form=this.rootForm
+      }}
+      @onGetData={{this.saveCoordinates}}
+    />
+  {{/unless}}
+
+</div>

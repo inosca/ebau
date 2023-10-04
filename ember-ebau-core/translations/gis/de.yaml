@@ -7,3 +7,7 @@ gis:
   technicalError: "Ein technischer Fehler ist aufgetreten"
   loadingError: "Beim Laden ist ein Fehler aufgetreten"
   info-text-ur: "Um die Adressdaten automatisch zu übernehmen, klicken Sie bitte auf den roten Punkt des betroffenen Gebäudes."
+  reset: "Zurücksetzen"
+  loading: "Lädt..."
+  noMatchesMessage: "keine Ergebnisse gefunden"
+  searchPlaceholder: "Adresse suchen..."

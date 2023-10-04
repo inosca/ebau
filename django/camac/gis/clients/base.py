@@ -1,5 +1,6 @@
 from typing import Any, List, Tuple
 
+from caluma.caluma_form.models import Question
 from django.db.models import QuerySet
 from django.http import QueryDict
 from django.utils.translation import gettext as _
@@ -45,6 +46,12 @@ class GISBaseClient:
                 data[table_question] = [row_data]
 
             return
+
+        question_obj = Question.objects.filter(slug=question).first()
+        if not question_obj:
+            raise RuntimeError(f"Unknown question {question} in gis config")
+        if type(value) == list and question_obj.type != Question.TYPE_MULTIPLE_CHOICE:
+            value = ", ".join(sorted(set(value)))
 
         if question in data:
             value = concat_values(data[question], value)

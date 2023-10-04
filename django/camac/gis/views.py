@@ -32,7 +32,8 @@ class GISDataView(ListAPIView):
                 .first()
             )
 
-            if isinstance(value, list):
+            # add labels recursively for tables, but not for multiple choice questions
+            if value and isinstance(value, list) and type(value[0]) == dict:
                 value = [self.add_labels(row) for row in value]
 
             labeled_data[question_slug] = {
@@ -42,6 +43,22 @@ class GISDataView(ListAPIView):
 
             if question and question.type == Question.TYPE_TABLE:
                 labeled_data[question_slug]["form"] = question.row_form_id
+
+            if question and question.type == Question.TYPE_CHOICE:
+                option = question.options.filter(
+                    slug=f"{question.slug}-{value}"
+                ).first()
+                labeled_data[question_slug]["value"] = option.slug
+                labeled_data[question_slug]["displayValue"] = option.label.translate()
+
+            if question and question.type == Question.TYPE_MULTIPLE_CHOICE:
+                options = question.options.filter(
+                    slug__in=[f"{question.slug}-{v}" for v in value]
+                )
+                labeled_data[question_slug]["value"] = [
+                    {"value": o.slug, "displayValue": o.label.translate()}
+                    for o in options
+                ]
 
         return labeled_data
 

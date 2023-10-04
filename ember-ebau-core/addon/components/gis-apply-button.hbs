@@ -16,6 +16,7 @@
     <ul class="uk-list uk-list-divider">
       {{#each-in this.data as |question data|}}
         {{#if data.form}}
+          {{!-- table question --}}
           {{#each data.value as |row i|}}
             <li data-test-gis-data-row>
               <p class="uk-text-bold uk-margin-remove" data-test-gis-data-label>
@@ -29,7 +30,7 @@
                   {{#each-in row as |rowQuestion rowData|}}
                     <tr>
                       <td data-test-gis-data-table-label>{{rowData.label}}</td>
-                      <td data-test-gis-data-table-value>{{or rowData.value "-"}}</td>
+                      <td data-test-gis-data-table-value>{{or rowData.displayValue rowData.value "-"}}</td>
                     </tr>
                   {{/each-in}}
                 </tbody>
@@ -39,7 +40,17 @@
         {{else}}
           <li data-test-gis-data-row>
             <p class="uk-text-bold uk-margin-remove" data-test-gis-data-label>{{data.label}}</p>
-            <p class="uk-margin-remove" data-test-gis-data-value>{{or data.value "-"}}</p>
+            {{#if (is-array data.value)}}
+              {{!-- multiple choice question --}}
+              <ul class="uk-list uk-list-hyphen" data-test-gis-data-value>
+                {{#each data.value as |option|}}
+                  <li>{{or option.displayValue option.value "-"}}</li>
+                {{/each}}
+              </ul>
+            {{else}}
+              {{!-- regular question --}}
+              <p class="uk-margin-remove" data-test-gis-data-value>{{or data.displayValue data.value "-"}}</p>
+            {{/if}}
           </li>
         {{/if}}
       {{/each-in}}
