@@ -1,1 +1,119 @@
-[]
+[
+  {
+    "model": "gis.gisdatasource",
+    "pk": "b0adfa1a-0196-4570-9cba-7ce7822236ff",
+    "fields": {
+      "description": "kt gr gis configuration",
+      "client": "camac.gis.clients.gr.GrGisClient",
+      "config": [
+        {
+          "identifier": "liegenschaften",
+          "properties": [
+            {
+              "forms": [
+                "baugesuch",
+                "bauanzeige",
+                "solaranlage",
+                "vorlaeufige-beurteilung"
+              ],
+              "question": "gemeinde",
+              "propertyName": "gdename"
+            }
+          ]
+        },
+        {
+          "identifier": "gebaeudeadressen_av",
+          "properties": [
+            {
+              "forms": [
+                "baugesuch",
+                "bauanzeige",
+                "solaranlage",
+                "vorlaeufige-beurteilung"
+              ],
+              "mapper": "street_and_housenumber",
+              "question": "street-and-housenumber"
+            }
+          ]
+        },
+        {
+          "identifier": "zp_wald_puffer",
+          "properties": [
+            {
+              "forms": ["baugesuch"],
+              "mapper": "near_forest",
+              "question": "waldareal"
+            }
+          ]
+        },
+        {
+          "identifier": "zp_grundnutzung",
+          "properties": [
+            {
+              "forms": ["baugesuch"],
+              "mapper": "ausserhalb_bauzone",
+              "question": "ausserhalb-bauzone",
+              "propertyName": "Kt_Code"
+            },
+            {
+              "forms": ["baugesuch"],
+              "mapper": "in_forest",
+              "question": "waldareal",
+              "propertyName": "Kt_Code"
+            },
+            {
+              "forms": ["baugesuch"],
+              "mapper": "archaeologiezone",
+              "question": "das-bauvorhaben-befindet-sich-in",
+              "propertyName": "Kt_Code"
+            }
+          ]
+        },
+        {
+          "identifier": "kantonales_strassennetz",
+          "properties": [
+            {
+              "forms": ["baugesuch"],
+              "mapper": "yes_or_no",
+              "question": "kantonsstrassen"
+            }
+          ]
+        },
+        {
+          "identifier": "zp_gefahrenzonen",
+          "properties": [
+            {
+              "forms": ["baugesuch"],
+              "mapper": "gefahrenzone",
+              "question": "das-bauvorhaben-befindet-sich-in",
+              "propertyName": "Kt_Code"
+            }
+          ]
+        },
+        {
+          "identifier": "gewaesserschutzbereiche",
+          "properties": [
+            {
+              "forms": ["baugesuch"],
+              "mapper": "gewaesserschutzbereiche",
+              "question": "das-bauvorhaben-befindet-sich-in",
+              "propertyName": "typ"
+            }
+          ]
+        },
+        {
+          "identifier": "zp_ortsbild_und_kulturgueterschutzzonen",
+          "properties": [
+            {
+              "forms": ["baugesuch"],
+              "mapper": "archaeologiezone_2",
+              "question": "das-bauvorhaben-befindet-sich-in",
+              "propertyName": "Kt_Code"
+            }
+          ]
+        }
+      ],
+      "disabled": false
+    }
+  }
+]

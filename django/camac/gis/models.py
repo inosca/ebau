@@ -8,9 +8,11 @@ class GISDataSource(models.Model):
     CLIENT_SOGIS = "camac.gis.clients.sogis.SoGisClient"
     CLIENT_PARAM = "camac.gis.clients.param.ParamGisClient"
     CLIENT_ADMIN = "camac.gis.clients.admin.AdminGisClient"
+    CLIENT_KT_GR = "camac.gis.clients.gr.GrGisClient"
 
     CLIENT_CHOICES = [
         (CLIENT_SOGIS, _("GIS Canton Solothurn")),
+        (CLIENT_KT_GR, _("GIS Canton GR")),
         (CLIENT_PARAM, _("Parameter")),
         (CLIENT_ADMIN, _("Federal GIS Switzerland")),
     ]

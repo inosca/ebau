@@ -831,9 +831,12 @@ snapshots['test_sogis_client_errors[so_unknown_property_data_source-200] 1'] = {
 
 snapshots['test_sogis_client_errors[so_unknown_question_data_source-200] 1'] = {
     'data': {
-        'unknown_question': {
-            'label': None,
-            'value': 'Solothurn'
+    },
+    'errors': [
+        {
+            'client': 'camac.gis.clients.sogis.SoGisClient',
+            'data_source_id': '49992886-4602-4eb3-8499-ebeb58c9f17d',
+            'detail': 'Unknown question unknown_question in gis config'
         }
-    }
+    ]
 }

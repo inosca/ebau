@@ -321,3 +321,7 @@ update-templatefiles: # Upload DMS templates to minio
 .PHONY: prettier-check
 prettier-check: # Check formatting of yml and config files with prettier
 	@npx --yes prettier@3.0.3 -c **/*.yml "django/**/*.json"
+
+.PHONY: prettier-fix
+prettier-fix: # Fix formatting of yml and config files with prettier
+	@npx --yes prettier@3.0.3 --write **/*.yml "django/**/*.json"
