@@ -54414,7 +54414,7 @@
     "pk": "hinweis-nachforderung",
     "fields": {
       "created_at": "2023-10-04T08:44:23.265Z",
-      "modified_at": "2023-10-04T09:03:11.736Z",
+      "modified_at": "2023-10-04T12:27:57.857Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -54422,7 +54422,7 @@
       "label": "{\"de\": \"Hinweis Nachforderung\", \"fr\": null, \"it\": null}",
       "type": "static",
       "is_required": "false",
-      "is_hidden": "!(\"pruefung-weitere-materielle-pruefung-nicht-beurteilbar\" in \"pruefung-weitere-materielle-pruefung\"|answer ||\n\"pruefung-gebaeudehoehen-nicht-beurteilbar\" in \"pruefung-gebaeudehoehen\"|answer ||\n\"pruefung-ausnuetzungsziffer-nicht-beurteilbar\" in \"pruefung-ausnuetzungsziffer\"|answer ||\n\"pruefung-bauabstaende-nicht-beurteilbar\" in \"pruefung-bauabstaende\"|answer ||\n\"pruefung-zonenkonformitaet-nicht-beurteilbar\" in \"pruefung-zonenkonformitaet\"|answer ||\n\"gesuchsunterlagen-vollstaendig-nicht-beurteilbar\" in \"gesuchsunterlagen-vollstaendig\"|answer\n)",
+      "is_hidden": "!(\"pruefung-weitere-materielle-pruefung-nicht-beurteilbar\" == \"pruefung-weitere-materielle-pruefung\"|answer ||\n\"pruefung-gebaeudehoehen-nicht-beurteilbar\" == \"pruefung-gebaeudehoehen\"|answer ||\n\"pruefung-ausnuetzungsziffer-nicht-beurteilbar\" == \"pruefung-ausnuetzungsziffer\"|answer ||\n\"pruefung-bauabstaende-nicht-beurteilbar\" == \"pruefung-bauabstaende\"|answer ||\n\"pruefung-zonenkonformitaet-nicht-beurteilbar\" == \"pruefung-zonenkonformitaet\"|answer ||\n\"gesuchsunterlagen-vollstaendig-nicht-beurteilbar\" == \"gesuchsunterlagen-vollstaendig\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
