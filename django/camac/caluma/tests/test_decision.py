@@ -102,7 +102,7 @@ def test_complete_decision(
     construction_control,
     settings,
 ):
-    settings.APPLICATION_NAME = "kt_be"
+    settings.APPLICATION_NAME = "kt_bern"
     instance_state_factory(name=expected_instance_state)
 
     application_settings["SHORT_NAME"] = "be"
@@ -162,7 +162,7 @@ def test_complete_decision(
     [
         (
             gr_constants.DECISIONS_BEWILLIGT,
-            "finished",
+            "construction-monitoring",
             "Bauentscheid verfügt",
         ),
         (

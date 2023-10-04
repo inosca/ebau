@@ -97,6 +97,15 @@
     }
   },
   {
+    "model": "instance.instancestate",
+    "pk": 120010,
+    "fields": {
+      "name": "construction-monitoring",
+      "sort": 6,
+      "description": ""
+    }
+  },
+  {
     "model": "instance.instancestatet",
     "pk": 1,
     "fields": {
@@ -163,6 +172,16 @@
       "instance_state": 120009,
       "language": "de",
       "name": "Zirkulation initialisieren",
+      "description": ""
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 120040,
+    "fields": {
+      "instance_state": 120010,
+      "language": "de",
+      "name": "Baubegleitung",
       "description": ""
     }
   }
