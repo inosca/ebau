@@ -5,6 +5,7 @@ import registerCommunicationsGlobal from "ember-ebau-core/modules/communications
 import registerDMSAdmin from "ember-ebau-core/modules/dms-admin";
 import registerLegalSubmission from "ember-ebau-core/modules/legal-submission";
 import registerPublication from "ember-ebau-core/modules/publication";
+import registerResponsible from "ember-ebau-core/modules/responsible";
 import registerServicePermissions from "ember-ebau-core/modules/service-permissions";
 import registerStatistics from "ember-ebau-core/modules/statistics";
 import registerTaskForm from "ember-ebau-core/modules/task-form";
@@ -66,7 +67,6 @@ Router.map(function () {
     path: "instances/:instance_id/assign-ebau-number",
   });
   this.route("support", { path: "instances/:instance_id/support" });
-  this.route("responsible", { path: "instances/:instance_id/responsible" });
   this.route("dossier-import", function () {
     this.route("new");
     this.route("detail", { path: "/:import_id" });
@@ -87,4 +87,5 @@ Router.map(function () {
   registerCommunications(this);
   registerStatistics(this);
   registerPublication(this);
+  registerResponsible(this);
 });
