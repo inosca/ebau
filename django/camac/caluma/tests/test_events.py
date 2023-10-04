@@ -470,13 +470,10 @@ def test_notify_created_work_item(
 
 def test_set_is_published(
     caluma_admin_user,
-    application_settings,
     work_item_factory,
     service_factory,
     task_factory,
 ):
-    application_settings["CALUMA"]["FILL_PUBLICATION_TASK"] = "fill-publication"
-
     work_item = work_item_factory(
         task=task_factory(slug="fill-publication"),
         status="ready",

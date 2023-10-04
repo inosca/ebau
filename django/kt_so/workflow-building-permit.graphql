@@ -47,3 +47,27 @@ mutation CreateFlowAfterMaterialExam {
     clientMutationId
   }
 }
+
+mutation CreateFlowAfterFillPublication {
+  addWorkflowFlow(
+    input: {
+      workflow: "building-permit"
+      tasks: ["fill-publication"]
+      next: "[\"create-publication\"]|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateFlowAfterCreatePublication {
+  addWorkflowFlow(
+    input: {
+      workflow: "building-permit"
+      tasks: ["create-publication"]
+      next: "[\"fill-publication\"]|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
