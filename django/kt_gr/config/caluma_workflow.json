@@ -9,7 +9,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "['distribution', 'fill-publication']|tasks"
+      "next": "['distribution', 'fill-publication', 'publication']|tasks"
     }
   },
   {
