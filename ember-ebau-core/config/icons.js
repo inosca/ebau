@@ -6,6 +6,9 @@ module.exports = function () {
       "circle-check",
       "envelope",
       "envelope-open",
+      "draw-polygon",
+      "minus",
+      "rotate-left",
     ],
   };
 };

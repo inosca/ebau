@@ -1,0 +1,51 @@
+.leaflet-container {
+  background-color: inherit;
+}
+
+.map {
+  position: relative;
+}
+
+.draw-polygon-line {
+  position: absolute;
+  background-clip: padding-box;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  top: 10px;
+  right: 10px;
+  z-index: 1;
+}
+.draw-polygon-line button {
+  display: block;
+  width: 30px;
+  height: 30px;
+  background-color: #f4f4f4;
+  border: none;
+}
+.draw-polygon-line button.is-active {
+  color: #3287cc;
+  background-color: #fff;
+}
+
+.draw-polygon-line button:last-child {
+  border-top: 1px solid #bbb;
+}
+
+.leaflet-control-attribution {
+  display: none;
+}
+.reset-button {
+  position: absolute;
+  top: 79%;
+  right: 10px;
+  z-index: 1;
+}
+.reset-button button {
+  background-color: #fff;
+  border-radius: 4px;
+  border-color: #ccc;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+.reset-button button:hover {
+  background-color: #fff;
+}

@@ -26,6 +26,8 @@ export default class GisApplyButtonComponent extends Component {
         .map(([key, value]) => `${key}=${value}`)
         .join("&");
 
+      this.args.onGetData?.();
+
       const response = await this.fetch.fetch(`/api/v1/gis/data?${params}`, {
         headers: { accept: "application/json" },
       });
@@ -40,7 +42,8 @@ export default class GisApplyButtonComponent extends Component {
 
       this.data = data;
       this.showModal = true;
-    } catch {
+    } catch (e) {
+      console.error(e);
       this.notification.danger(this.intl.t("so-gis.apply-error"));
     }
   });
@@ -65,6 +68,8 @@ export default class GisApplyButtonComponent extends Component {
       if (field.questionType === "DynamicChoiceQuestion") {
         const option = field.options.find((o) => o.label === value);
         field.answer.value = option.slug;
+      } else if (field.questionType === "MultipleChoiceQuestion") {
+        field.answer.value = value.map((r) => r.value);
       } else if (field.questionType === "TableQuestion") {
         field.answer.value = await this.applyTableAnswer(value, form);
       } else {
