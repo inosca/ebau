@@ -11,45 +11,8 @@ export default class StaticContentComponent extends Component {
   @service notification;
 
   @tracked edit = false;
-  @tracked content = "";
 
   data = trackedTask(this, this.fetchData, () => [this.args.type]);
-
-  @action
-  startEdit() {
-    this._oldContent = this.content;
-    this.edit = true;
-  }
-
-  @action
-  cancelEdit() {
-    this.content = this._oldContent;
-    this.edit = false;
-  }
-
-  @dropTask
-  *save() {
-    try {
-      const staticContent = yield this.store.query("static-content", {
-        slug: this.args.type,
-      });
-
-      if (staticContent.content.length === 0) {
-        const newStaticContent = this.store.createRecord("static-content", {
-          slug: this.args.type,
-          content: this.content,
-        });
-        yield newStaticContent.save();
-      } else {
-        staticContent.firstObject.content = this.content;
-        yield staticContent.save();
-      }
-
-      this.edit = false;
-    } catch (error) {
-      this.notification.danger(this.intl.t("static-content.saveError"));
-    }
-  }
 
   @dropTask
   *fetchData() {
@@ -59,9 +22,32 @@ export default class StaticContentComponent extends Component {
         slug: this.args.type,
       });
 
-      this.content = response.firstObject.content;
+      return (
+        response.firstObject ||
+        this.store.createRecord("static-content", {
+          slug: this.args.type,
+        })
+      );
     } catch (error) {
+      console.error(error);
       this.notification.danger(this.intl.t("static-content.loadError"));
+    }
+  }
+
+  @action
+  reset() {
+    this.edit = false;
+    this.data.value.rollbackAttributes();
+  }
+
+  @dropTask
+  *save() {
+    try {
+      yield this.data.value.save();
+      this.edit = false;
+    } catch (error) {
+      console.error(error);
+      this.notification.danger(this.intl.t("static-content.saveError"));
     }
   }
 }
