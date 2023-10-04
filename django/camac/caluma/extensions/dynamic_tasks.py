@@ -10,14 +10,12 @@ class CustomDynamicTasks(BaseDynamicTasks):
     def resolve_after_decision(self, case, user, prev_work_item, context):
         if (
             case.workflow_id == "building-permit"
-            and domain_logic.CreateDecisionLogic.should_continue_after_decision(
+            and domain_logic.DecisionLogic.should_continue_after_decision(
                 case.instance, prev_work_item
             )
         ):
-            return [
-                "sb1",
-                settings.APPLICATION["CALUMA"]["MANUAL_WORK_ITEM_TASK"],
-                "create-publication",
+            return settings.APPLICATION["CALUMA"][
+                "TASKS_AFTER_BUILDING_PERMIT_DECISION"
             ]
 
         return []
