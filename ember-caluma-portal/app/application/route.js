@@ -7,6 +7,7 @@ import DecisionAppealButtonComponent from "ember-ebau-core/components/decision/a
 import DecisionInfoAppealComponent from "ember-ebau-core/components/decision/info-appeal";
 import DecisionSubmitButtonComponent from "ember-ebau-core/components/decision/submit-button";
 import DocumentValidityButtonComponent from "ember-ebau-core/components/document-validity-button";
+import GrGisComponent from "ember-ebau-core/components/gr-gis";
 import InquiryAnswerStatus from "ember-ebau-core/components/inquiry-answer-status";
 import LinkAttachmentsComponent from "ember-ebau-core/components/link-attachments";
 import PublicationDateKantonsamtsblattComponent from "ember-ebau-core/components/publication-date-kantonsamtsblatt";
@@ -68,6 +69,11 @@ export default class ApplicationRoute extends Route {
       label: "GIS-Karte (Kt. UR)",
       component: "ur-gis",
       componentClass: UrGisComponent,
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "GIS-Karte (Kt. GR)",
+      component: "gr-gis",
+      componentClass: GrGisComponent,
     });
     this.calumaOptions.registerComponentOverride({
       label: "Einreichen Button BE",

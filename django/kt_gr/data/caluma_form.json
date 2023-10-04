@@ -1304,29 +1304,6 @@
   },
   {
     "model": "caluma_form.historicalanswer",
-    "pk": "0f09664e-6c18-4b9b-b742-496af3dc8078",
-    "fields": {
-      "created_at": "2023-09-21T09:20:03.922Z",
-      "modified_at": "2023-09-21T09:20:03.922Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "history_question_type": "text",
-      "id": "86e7d6e2-a9e6-4028-9021-daa66aa340e5",
-      "value": "Teststrasse",
-      "meta": {},
-      "date": null,
-      "history_user_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "question": "strasse-flurname",
-      "document": "033433c2-3733-43a4-8d7b-3b57e82379c1",
-      "history_date": "2023-09-21T09:20:03.923Z",
-      "history_change_reason": null,
-      "history_type": "+"
-    }
-  },
-  {
-    "model": "caluma_form.historicalanswer",
     "pk": "0f3164b8-d7c2-4643-afb6-7a9131a262c5",
     "fields": {
       "created_at": "2023-06-23T08:39:12.878Z",
@@ -1658,29 +1635,6 @@
       "question": "vorname-gesuchstellerin",
       "document": "10f860da-74dd-4008-88b5-684c898a9dca",
       "history_date": "2023-09-21T09:20:59.609Z",
-      "history_change_reason": null,
-      "history_type": "+"
-    }
-  },
-  {
-    "model": "caluma_form.historicalanswer",
-    "pk": "14626e8e-42d6-4116-b20e-497f2a8c84bb",
-    "fields": {
-      "created_at": "2023-06-23T08:53:56.802Z",
-      "modified_at": "2023-06-23T08:53:56.802Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "history_question_type": "text",
-      "id": "b36d7c85-2011-4b17-9a43-0c1708d8b757",
-      "value": "21",
-      "meta": {},
-      "date": null,
-      "history_user_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "question": "nr",
-      "document": "11b0b3fc-a5a7-4dd5-9166-9d12739da88f",
-      "history_date": "2023-06-23T08:53:56.804Z",
       "history_change_reason": null,
       "history_type": "+"
     }
@@ -2345,29 +2299,6 @@
   },
   {
     "model": "caluma_form.historicalanswer",
-    "pk": "2d2c2997-56a9-469b-b3e3-7cebe17e8b4d",
-    "fields": {
-      "created_at": "2023-09-21T09:20:05.535Z",
-      "modified_at": "2023-09-21T09:20:05.535Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "history_question_type": "text",
-      "id": "1c1b3d73-5f1b-4859-b18c-a14686c5fc57",
-      "value": "1",
-      "meta": {},
-      "date": null,
-      "history_user_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "question": "nr",
-      "document": "033433c2-3733-43a4-8d7b-3b57e82379c1",
-      "history_date": "2023-09-21T09:20:05.536Z",
-      "history_change_reason": null,
-      "history_type": "+"
-    }
-  },
-  {
-    "model": "caluma_form.historicalanswer",
     "pk": "2d2dcdd6-0aeb-45c7-9807-84d8da71a7b4",
     "fields": {
       "created_at": "2023-06-23T08:36:14.769Z",
@@ -2460,29 +2391,6 @@
       "history_date": "2023-09-21T09:25:55.533Z",
       "history_change_reason": null,
       "history_type": "~"
-    }
-  },
-  {
-    "model": "caluma_form.historicalanswer",
-    "pk": "30dd443f-5c24-467a-a289-eabd3ccd303c",
-    "fields": {
-      "created_at": "2023-06-23T08:53:56.506Z",
-      "modified_at": "2023-06-23T08:53:56.506Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "history_question_type": "text",
-      "id": "3dd8d033-ad79-48bd-9de8-8674ee0fb9ac",
-      "value": "Teststrasse",
-      "meta": {},
-      "date": null,
-      "history_user_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "question": "strasse-flurname",
-      "document": "11b0b3fc-a5a7-4dd5-9166-9d12739da88f",
-      "history_date": "2023-06-23T08:53:56.512Z",
-      "history_change_reason": null,
-      "history_type": "+"
     }
   },
   {
@@ -4770,29 +4678,6 @@
       "question": "nichtforstliche-kleinbaute",
       "document": "033433c2-3733-43a4-8d7b-3b57e82379c1",
       "history_date": "2023-09-21T09:26:30.546Z",
-      "history_change_reason": null,
-      "history_type": "+"
-    }
-  },
-  {
-    "model": "caluma_form.historicalanswer",
-    "pk": "786097d2-fcb2-4754-ada0-23e6de65b6d2",
-    "fields": {
-      "created_at": "2023-06-08T14:52:58.619Z",
-      "modified_at": "2023-06-08T14:52:58.619Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "history_question_type": "text",
-      "id": "69e84f0b-0f9a-45bc-b727-538d61eb2c0e",
-      "value": "2b",
-      "meta": {},
-      "date": null,
-      "history_user_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "question": "nr",
-      "document": "9b763904-9b1d-44d1-8459-d2c950c813a8",
-      "history_date": "2023-06-08T14:52:58.620Z",
       "history_change_reason": null,
       "history_type": "+"
     }
@@ -7606,29 +7491,6 @@
   },
   {
     "model": "caluma_form.historicalanswer",
-    "pk": "ddec18a3-b850-484d-ada5-08a0be27979f",
-    "fields": {
-      "created_at": "2023-06-08T14:52:57.910Z",
-      "modified_at": "2023-06-08T14:52:57.910Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "history_question_type": "text",
-      "id": "6621391f-c4a1-4749-81ad-f8fc81b9df14",
-      "value": "Hauptstrasse",
-      "meta": {},
-      "date": null,
-      "history_user_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "question": "strasse-flurname",
-      "document": "9b763904-9b1d-44d1-8459-d2c950c813a8",
-      "history_date": "2023-06-08T14:52:57.911Z",
-      "history_change_reason": null,
-      "history_type": "+"
-    }
-  },
-  {
-    "model": "caluma_form.historicalanswer",
     "pk": "ded94073-8c52-488f-9bf8-43bafe4217a9",
     "fields": {
       "created_at": "2023-09-21T09:26:54.834Z",
@@ -9141,23 +9003,6 @@
   },
   {
     "model": "caluma_form.answer",
-    "pk": "1c1b3d73-5f1b-4859-b18c-a14686c5fc57",
-    "fields": {
-      "created_at": "2023-09-21T09:20:05.535Z",
-      "modified_at": "2023-09-21T09:20:05.535Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "nr",
-      "value": "1",
-      "meta": {},
-      "document": "033433c2-3733-43a4-8d7b-3b57e82379c1",
-      "date": null
-    }
-  },
-  {
-    "model": "caluma_form.answer",
     "pk": "1d40a10a-ab0e-49a6-9e1f-614d18c5930e",
     "fields": {
       "created_at": "2023-09-21T09:21:15.257Z",
@@ -9675,23 +9520,6 @@
       "modified_by_group": null,
       "question": "kantonsstrassen",
       "value": "kantonsstrassen-ja",
-      "meta": {},
-      "document": "11b0b3fc-a5a7-4dd5-9166-9d12739da88f",
-      "date": null
-    }
-  },
-  {
-    "model": "caluma_form.answer",
-    "pk": "3dd8d033-ad79-48bd-9de8-8674ee0fb9ac",
-    "fields": {
-      "created_at": "2023-06-23T08:53:56.506Z",
-      "modified_at": "2023-06-23T08:53:56.506Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "strasse-flurname",
-      "value": "Teststrasse",
       "meta": {},
       "document": "11b0b3fc-a5a7-4dd5-9166-9d12739da88f",
       "date": null
@@ -10352,23 +10180,6 @@
   },
   {
     "model": "caluma_form.answer",
-    "pk": "6621391f-c4a1-4749-81ad-f8fc81b9df14",
-    "fields": {
-      "created_at": "2023-06-08T14:52:57.910Z",
-      "modified_at": "2023-06-08T14:52:57.910Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "strasse-flurname",
-      "value": "Hauptstrasse",
-      "meta": {},
-      "document": "9b763904-9b1d-44d1-8459-d2c950c813a8",
-      "date": null
-    }
-  },
-  {
-    "model": "caluma_form.answer",
     "pk": "665f4a5a-f474-4c0f-9fd1-710135fdfd64",
     "fields": {
       "created_at": "2023-06-23T08:53:57.945Z",
@@ -10432,23 +10243,6 @@
       "value": ["vorablaerungsbericht-tiefbauamt-naeherbauten-ja"],
       "meta": {},
       "document": "11b0b3fc-a5a7-4dd5-9166-9d12739da88f",
-      "date": null
-    }
-  },
-  {
-    "model": "caluma_form.answer",
-    "pk": "69e84f0b-0f9a-45bc-b727-538d61eb2c0e",
-    "fields": {
-      "created_at": "2023-06-08T14:52:58.619Z",
-      "modified_at": "2023-06-08T14:52:58.619Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "nr",
-      "value": "2b",
-      "meta": {},
-      "document": "9b763904-9b1d-44d1-8459-d2c950c813a8",
       "date": null
     }
   },
@@ -10906,23 +10700,6 @@
       ],
       "meta": {},
       "document": "11b0b3fc-a5a7-4dd5-9166-9d12739da88f",
-      "date": null
-    }
-  },
-  {
-    "model": "caluma_form.answer",
-    "pk": "86e7d6e2-a9e6-4028-9021-daa66aa340e5",
-    "fields": {
-      "created_at": "2023-09-21T09:20:03.922Z",
-      "modified_at": "2023-09-21T09:20:03.922Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "strasse-flurname",
-      "value": "Teststrasse",
-      "meta": {},
-      "document": "033433c2-3733-43a4-8d7b-3b57e82379c1",
       "date": null
     }
   },
@@ -11701,23 +11478,6 @@
       "value": "ist-ein-warmwasseranschluss-geplant-nein",
       "meta": {},
       "document": "807fa8e1-96c0-432e-8296-e06848e562f1",
-      "date": null
-    }
-  },
-  {
-    "model": "caluma_form.answer",
-    "pk": "b36d7c85-2011-4b17-9a43-0c1708d8b757",
-    "fields": {
-      "created_at": "2023-06-23T08:53:56.802Z",
-      "modified_at": "2023-06-23T08:53:56.802Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "nr",
-      "value": "21",
-      "meta": {},
-      "document": "11b0b3fc-a5a7-4dd5-9166-9d12739da88f",
       "date": null
     }
   },

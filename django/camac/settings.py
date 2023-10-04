@@ -3216,7 +3216,7 @@ APPLICATIONS = {
         "ENABLE_PUBLIC_ENDPOINTS": True,
         "FORM_BACKEND": "caluma",
         "THUMBNAIL_SIZE": "x300",
-        "DJANGO_ADMIN": {"ENABLE_RESOURCES": True, "ENABLE_GIS": False},
+        "DJANGO_ADMIN": {"ENABLE_RESOURCES": True, "ENABLE_GIS": True},
         "WORKFLOW_ITEMS": {
             "SUBMIT": None,
             "INSTANCE_COMPLETE": None,
@@ -3423,6 +3423,7 @@ APPLICATIONS = {
                         "dokumente",
                         "einreichen",
                         "bestaetigung",
+                        "gis-map",
                     ],
                 },
                 "bauanzeige": {
@@ -3438,6 +3439,7 @@ APPLICATIONS = {
                         "dokumente-platzhalter",
                         "einreichen",
                         "bestaetigung",
+                        "gis-map",
                     ],
                 },
                 "vorlaeufige-beurteilung": {
@@ -3453,6 +3455,7 @@ APPLICATIONS = {
                         "dokumente-platzhalter",
                         "einreichen",
                         "bestaetigung",
+                        "gis-map",
                     ],
                 },
                 "solaranlage": {
@@ -3468,6 +3471,7 @@ APPLICATIONS = {
                         "dokumente-platzhalter",
                         "einreichen",
                         "bestaetigung",
+                        "gis-map",
                     ],
                 },
             },
@@ -4278,6 +4282,9 @@ GIS_BASE_URL = build_url(
         ),
     )
 )
+
+# GIS API (KT. GR)
+GR_GIS_BASE_URL = env.str("GR_GIS_BASE_URL", default="https://wps.geo.gr.ch")
 GIS_API_USER = env.str("GIS_API_USER", "")
 GIS_API_PASSWORD = env.str("GIS_API_PASSWORD", "")
 
