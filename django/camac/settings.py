@@ -126,6 +126,7 @@ INSTALLED_APPS = [
     "django_q",
     "reversion",
     "rest_framework_xml",
+    "camac.django_admin.apps.DjangoAdminConfig",
     # alexandria
     "alexandria.core.apps.DefaultConfig",
     # TODO: remove this when all production environments ran the migration to
@@ -406,7 +407,6 @@ APPLICATIONS = {
         "INCLUDE_STATIC_FILES": [("xml", "kt_schwyz/static/ech0211/xml/")],
         "USE_CAMAC_ADMIN": True,
         "LOG_NOTIFICATIONS": True,
-        "DJANGO_ADMIN": {"ENABLE_RESOURCES": False, "ENABLE_GIS": False},
         "ROLE_PERMISSIONS": {
             "Gemeinde": "municipality",
             "Gemeinde Sachbearbeiter": "municipality",
@@ -1310,7 +1310,6 @@ APPLICATIONS = {
         "LOG_NOTIFICATIONS": True,
         "SYSTEM_USER": "service-account-camac-admin",
         "ATTACHMENT_SECTION_INTERNAL": 4,
-        "DJANGO_ADMIN": {"ENABLE_RESOURCES": False, "ENABLE_GIS": False},
         "ROLE_PERMISSIONS": {
             "service-lead": "service",
             "service-clerk": "service",
@@ -2175,7 +2174,6 @@ APPLICATIONS = {
         "SEQUENCE_NAMESPACE_APPS": ["core", "document", "responsible"],
         "THUMBNAIL_SIZE": "x600",
         "ATTACHMENT_SECTION_INTERNAL": None,
-        "DJANGO_ADMIN": {"ENABLE_RESOURCES": False, "ENABLE_GIS": False},
         "CUSTOM_NOTIFICATION_TYPES": [
             "submitter_list",
             "municipality_users",
@@ -2848,7 +2846,6 @@ APPLICATIONS = {
         "IS_MULTILINGUAL": True,
         "FORM_BACKEND": "caluma",
         "THUMBNAIL_SIZE": "x300",
-        "DJANGO_ADMIN": {"ENABLE_RESOURCES": True, "ENABLE_GIS": False},
         "WORKFLOW_ITEMS": {
             "SUBMIT": None,
             "INSTANCE_COMPLETE": None,
@@ -3210,7 +3207,6 @@ APPLICATIONS = {
         "ENABLE_PUBLIC_ENDPOINTS": True,
         "FORM_BACKEND": "caluma",
         "THUMBNAIL_SIZE": "x300",
-        "DJANGO_ADMIN": {"ENABLE_RESOURCES": True, "ENABLE_GIS": True},
         "WORKFLOW_ITEMS": {
             "SUBMIT": None,
             "INSTANCE_COMPLETE": None,
@@ -3697,7 +3693,6 @@ APPLICATIONS = {
         "IS_MULTILINGUAL": True,
         "FORM_BACKEND": "caluma",
         "THUMBNAIL_SIZE": "x300",
-        "DJANGO_ADMIN": {"ENABLE_RESOURCES": True, "ENABLE_GIS": True},
         "GROUP_RENAME_ON_SERVICE_RENAME": True,
         "SERVICE_UPDATE_ALLOWED_ROLES": [],  # if unset, all are allowed
         "SEQUENCE_NAMESPACE_APPS": [],
@@ -4264,6 +4259,9 @@ def parse_admins(admins):
 
 
 ADMINS = parse_admins(env.list("DJANGO_ADMINS", default=[]))
+DEVELOPER_EMAIL_DOMAINS = env.list(
+    "DJANGO_DEVELOPER_EMAIL_DOMAINS", default=["adfinis.com"]
+)
 
 # GIS API (Kt. BE)
 GIS_BASE_URL = build_url(
@@ -4463,6 +4461,7 @@ DISTRIBUTION = load_module_settings("distribution")
 PARASHIFT = load_module_settings("parashift")
 PUBLICATION = load_module_settings("publication")
 ADDITIONAL_DEMAND = load_module_settings("additional_demand")
+DJANGO_ADMIN = load_module_settings("django_admin")
 
 # Alexandria
 ALEXANDRIA_CREATED_BY_USER_PROPERTY = "alexandria_user"

@@ -1,7 +1,8 @@
 from adminsortable2.admin import SortableAdminMixin
-from django.contrib.admin import ModelAdmin, display
+from django.contrib.admin import ModelAdmin, display, register
 from django.utils.translation import gettext_lazy as _
 
+from camac.admin import EbauAdminMixin, MultilingualAdminMixin
 from camac.core.admin.forms import InstanceResourceForm, ResourceForm
 from camac.core.admin.inlines import (
     InstanceResourceTInline,
@@ -9,10 +10,13 @@ from camac.core.admin.inlines import (
     ResourceTInline,
     RRoleAclInline,
 )
-from camac.user.admin.views import MultilingualAdmin
+from camac.core.models import InstanceResource, Resource
 
 
-class ResourceAdmin(SortableAdminMixin, MultilingualAdmin, ModelAdmin):
+@register(Resource)
+class ResourceAdmin(
+    EbauAdminMixin, SortableAdminMixin, MultilingualAdminMixin, ModelAdmin
+):
     exclude_ml = ["sort", "name", "description"]
     form = ResourceForm
     inlines = [ResourceTInline, RRoleAclInline]
@@ -46,7 +50,10 @@ class ResourceAdmin(SortableAdminMixin, MultilingualAdmin, ModelAdmin):
         return obj.available_resource.module_name
 
 
-class InstanceResourceAdmin(SortableAdminMixin, MultilingualAdmin, ModelAdmin):
+@register(InstanceResource)
+class InstanceResourceAdmin(
+    EbauAdminMixin, SortableAdminMixin, MultilingualAdminMixin, ModelAdmin
+):
     admin_order_field = "get_resource_description"
     exclude_ml = ["name", "description", "form_group", "sort"]
     form = InstanceResourceForm
