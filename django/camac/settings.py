@@ -1451,6 +1451,7 @@ APPLICATIONS = {
                 "create-manual-workitems",
                 "create-publication",
             ],
+            "INSTANCE_STATE_AFTER_DECISION": "sb1",
             "FORM_PERMISSIONS": [
                 "main",
                 "sb1",
@@ -3255,6 +3256,7 @@ APPLICATIONS = {
             "MANUAL_WORK_ITEM_TASK": "create-manual-workitems",
             "TASKS_AFTER_BUILDING_PERMIT_DECISION": ["construction-monitoring"],
             "FILL_PUBLICATION_TASK": "fill-publication",
+            "INSTANCE_STATE_AFTER_DECISION": "construction-monitoring",
             "SUBMIT_TASKS": ["submit"],
             "FORM_PERMISSIONS": ["main", "inquiry", "inquiry-answer"],
             "HAS_PROJECT_CHANGE": True,

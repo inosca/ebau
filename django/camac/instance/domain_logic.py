@@ -641,9 +641,7 @@ class DecisionLogic:
                 copy_responsible_person_lead_authority(instance, construction_control)
             else:
                 instance.set_instance_state(
-                    settings.APPLICATION["CALUMA"][
-                        "TASKS_AFTER_BUILDING_PERMIT_DECISION"
-                    ][0],
+                    settings.APPLICATION["CALUMA"]["INSTANCE_STATE_AFTER_DECISION"],
                     camac_user,
                 )
 

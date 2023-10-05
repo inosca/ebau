@@ -264,6 +264,7 @@ def override_urls_sz():
 def set_application_be(settings, override_urls_be):
     application_dict = copy.deepcopy(settings.APPLICATIONS["kt_bern"])
     settings.APPLICATION = application_dict
+    settings.APPLICATION_NAME = "kt_bern"
     settings.INTERNAL_BASE_URL = "http://ebau.local"
 
     return application_dict
@@ -273,6 +274,7 @@ def set_application_be(settings, override_urls_be):
 def set_application_sz(settings):
     application_dict = copy.deepcopy(settings.APPLICATIONS["kt_schwyz"])
     settings.APPLICATION = application_dict
+    settings.APPLICATION_NAME = "kt_schwyz"
     settings.INTERNAL_BASE_URL = "http://ebau.local"
     return application_dict
 
@@ -281,6 +283,7 @@ def set_application_sz(settings):
 def set_application_ur(settings):
     application_dict = copy.deepcopy(settings.APPLICATIONS["kt_uri"])
     settings.APPLICATION = application_dict
+    settings.APPLICATION_NAME = "kt_uri"
     settings.INTERNAL_BASE_URL = "http://ebau.local"
     return application_dict
 
@@ -289,6 +292,7 @@ def set_application_ur(settings):
 def set_application_gr(settings):
     application_dict = copy.deepcopy(settings.APPLICATIONS["kt_gr"])
     settings.APPLICATION = application_dict
+    settings.APPLICATION_NAME = "kt_gr"
     settings.INTERNAL_BASE_URL = "http://ember-ebau.local"
     return application_dict
 

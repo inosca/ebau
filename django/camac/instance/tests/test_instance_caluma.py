@@ -1394,7 +1394,7 @@ def test_instance_report(
     decision_factory,
     settings,
 ):
-    settings.APPLICATION_NAME = "kt_be"
+    settings.APPLICATION_NAME = "kt_bern"
     application_settings["SHORT_NAME"] = "be"
     instance_state_factory(name="coordination")
     instance_state_factory(name="sb2")
@@ -1477,7 +1477,7 @@ def test_instance_finalize(
     decision_factory,
     settings,
 ):
-    settings.APPLICATION_NAME = "kt_be"
+    settings.APPLICATION_NAME = "kt_bern"
     application_settings["SHORT_NAME"] = "be"
     instance_state_factory(name="coordination")
     instance_state_factory(name="sb1")

@@ -139,7 +139,7 @@ def test_notice_ruling_send_handler(
     decision_factory,
     settings,
 ):
-    settings.APPLICATION_NAME = "kt_be"
+    settings.APPLICATION_NAME = "kt_bern"
     if is_vorabklaerung:
         notification_template_factory(slug="08-beurteilung-zu-voranfrage-gesuchsteller")
         notification_template_factory(slug="08-beurteilung-zu-voranfrage-behoerden")
