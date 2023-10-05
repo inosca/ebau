@@ -424,15 +424,6 @@
   },
   {
     "model": "core.availableinstanceresource",
-    "pk": "publication",
-    "fields": {
-      "module_name": "publication",
-      "controller_name": "publication",
-      "description": "(Ember) Publication module"
-    }
-  },
-  {
-    "model": "core.availableinstanceresource",
     "pk": "revisionhistory",
     "fields": {
       "module_name": "revisionhistory",
@@ -1317,11 +1308,11 @@
     "model": "core.instanceresource",
     "pk": 12000006,
     "fields": {
-      "available_instance_resource": "publication",
+      "available_instance_resource": "page",
       "resource": 20006,
       "name": null,
       "description": null,
-      "template": null,
+      "template": "/ember-camac-ng/publication.phtml",
       "class_field": "menu-category-process",
       "hidden": 0,
       "sort": 6,
