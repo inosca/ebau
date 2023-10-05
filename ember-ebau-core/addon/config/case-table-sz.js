@@ -11,7 +11,14 @@ export default {
     ],
   },
   activeFilters: {
-    caluma: ["dossierNumber", "intent", "caseStatus", "form"],
+    caluma: [
+      "dossierNumber",
+      "intent",
+      "caseStatus",
+      "form",
+      "caseCreatedDateAfter",
+      "caseCreatedDateBefore",
+    ],
     "camac-ng": [
       "instanceIdentifier",
       "municipality",
