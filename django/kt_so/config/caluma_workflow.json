@@ -35,7 +35,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "[\"publication\", \"fill-publication\"]|tasks"
+      "next": "[\"distribution\", \"publication\", \"fill-publication\"]|tasks"
     }
   },
   {

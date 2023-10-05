@@ -3367,10 +3367,8 @@ APPLICATIONS = {
                 "user.Group": Q(pk__lte=3),
                 "user.GroupT": Q(pk__lte=3),
             },
-            "caluma_distribution": {
-                **generate_form_dump_config(r"(inquir(y|ies)|distribution)"),
-                **generate_workflow_dump_config(r"(inquir(y|ies)|distribution)"),
-            },
+            # Distribution
+            **DISTRIBUTION_DUMP_CONFIG,
             "caluma_additional_demand": {
                 **generate_form_dump_config(r"additional-demand"),
                 **generate_workflow_dump_config(r"additional-demand"),
@@ -3727,7 +3725,7 @@ APPLICATIONS = {
         "CALUMA": {
             "MANUAL_WORK_ITEM_TASK": "create-manual-workitems",
             "SUBMIT_TASKS": ["submit"],
-            "FORM_PERMISSIONS": ["main"],
+            "FORM_PERMISSIONS": ["main", "inquiry", "inquiry-answer"],
             "HAS_PROJECT_CHANGE": True,
             "CREATE_IN_PROCESS": False,
             "GENERATE_IDENTIFIER": True,
@@ -3810,6 +3808,8 @@ APPLICATIONS = {
             "caluma_publication_form": generate_form_dump_config(
                 regex=r"^publikation?$"
             ),
+            # Distribution
+            **DISTRIBUTION_DUMP_CONFIG,
         },
         "DUMP_CONFIG_EXCLUDED_MODELS": [
             "user.Group",
