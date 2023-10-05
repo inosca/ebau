@@ -1,6 +1,7 @@
 import { getOwner, setOwner } from "@ember/application";
 import { inject as service } from "@ember/service";
 import CaseModel from "@projectcaluma/ember-core/caluma-query/models/case";
+import { trackedFunction } from "ember-resources/util/function";
 
 import CustomWorkItemModel from "ember-ebau-core/caluma-query/models/work-item";
 import mainConfig from "ember-ebau-core/config/main";
@@ -151,6 +152,14 @@ export default class CustomCaseBaseModel extends CaseModel {
     return plots
       .map((row) => getAnswerDisplayValue(row, answerSlugs.parcelNumber))
       .join(", ");
+  }
+
+  #responsible = trackedFunction(this, async () => {
+    return (await this.instance?.get("responsibleServiceUsers"))?.[0];
+  });
+
+  get responsible() {
+    return this.#responsible.value;
   }
 
   getAnswerDisplayValue(slug) {

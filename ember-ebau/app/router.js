@@ -6,6 +6,7 @@ import registerCommunicationsGlobal from "ember-ebau-core/modules/communications
 import registerDMSAdmin from "ember-ebau-core/modules/dms-admin";
 import registerLegalSubmission from "ember-ebau-core/modules/legal-submission";
 import registerPublication from "ember-ebau-core/modules/publication";
+import registerResponsible from "ember-ebau-core/modules/responsible";
 import registerServicePermissions from "ember-ebau-core/modules/service-permissions";
 import registerStaticContent from "ember-ebau-core/modules/static-content";
 import registerTaskForm from "ember-ebau-core/modules/task-form";
@@ -64,6 +65,7 @@ Router.map(function () {
         registerCommunications(this);
         registerPublication(this);
         registerAdditionalDemand(this);
+        registerResponsible(this);
       });
       this.route("new");
     });

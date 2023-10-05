@@ -10,12 +10,6 @@ import { setupApplicationTest } from "camac-ng/tests/helpers";
 
 const SERVICE_ID = 1;
 
-class FakeShoebox extends Service {
-  get content() {
-    return { serviceId: SERVICE_ID };
-  }
-}
-
 module("Acceptance | responsible", function (hooks) {
   setupApplicationTest(hooks);
   setupMirage(hooks);
@@ -24,10 +18,19 @@ module("Acceptance | responsible", function (hooks) {
   hooks.beforeEach(async function () {
     await authenticateSession({ token: "sometoken" });
 
-    this.owner.register("service:shoebox", FakeShoebox);
-
     this.server.create("service", { id: SERVICE_ID });
     this.instance = this.server.create("instance");
+
+    const instanceId = this.instance.id;
+
+    this.owner.register(
+      "service:shoebox",
+      class extends Service {
+        get content() {
+          return { serviceId: SERVICE_ID, instanceId };
+        }
+      },
+    );
   });
 
   test("it can list responsible entires", async function (assert) {
@@ -35,13 +38,13 @@ module("Acceptance | responsible", function (hooks) {
       instanceId: this.instance.id,
     });
 
-    await visit(`/instances/${this.instance.id}/responsible`);
+    await visit(`/responsible`);
 
     assert.dom("tbody > tr").exists({ count: 3 });
   });
 
   test("it handles empty state", async function (assert) {
-    await visit(`/instances/${this.instance.id}/responsible`);
+    await visit(`/responsible`);
 
     assert.dom("tbody > tr").exists({ count: 1 });
     assert.dom("tbody > tr > td").hasText("t:global.empty:()");
@@ -50,7 +53,7 @@ module("Acceptance | responsible", function (hooks) {
   test("it can save a responsible user", async function (assert) {
     const users = this.server.createList("user", 3, { serviceId: SERVICE_ID });
 
-    await visit(`/instances/${this.instance.id}/responsible`);
+    await visit(`/responsible`);
 
     await selectChoose(
       "[data-test-responsible-user-select]",
