@@ -1,4 +1,5 @@
 import { inject as service } from "@ember/service";
+import { macroCondition, getOwnConfig } from "@embroider/macros";
 import CalumaOptionsService from "@projectcaluma/ember-core/services/caluma-options";
 import { INQUIRY_STATUS } from "@projectcaluma/ember-distribution/config";
 import { cached } from "tracked-toolbox";
@@ -44,8 +45,47 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
 
   @cached
   get distribution() {
+    const statusMapping = macroCondition(getOwnConfig().application === "kt_gr")
+      ? {
+          "inquiry-answer-status-positive": INQUIRY_STATUS.POSITIVE,
+          "inquiry-answer-status-negative": INQUIRY_STATUS.NEGATIVE,
+          "inquiry-answer-status-approved": INQUIRY_STATUS.POSITIVE,
+          "inquiry-answer-status-rejected": INQUIRY_STATUS.NEGATIVE,
+          "inquiry-answer-status-written-off": INQUIRY_STATUS.NEGATIVE,
+        }
+      : {};
+    const types = macroCondition(getOwnConfig().application === "kt_gr")
+      ? {
+          "authority-bab": {
+            label: "distribution.authority-bab",
+          },
+          service: {
+            label: "distribution.services",
+          },
+          municipality: {
+            label: "distribution.municipalities",
+          },
+          subservice: {
+            label: "distribution.subservices",
+          },
+        }
+      : {
+          municipality: {
+            label: "distribution.municipalities",
+          },
+          "service-cantonal": {
+            label: "distribution.services-cantonal",
+          },
+          "service-extra-cantonal": {
+            label: "distribution.services-extra-cantonal",
+          },
+          subservice: {
+            label: "distribution.subservices",
+          },
+        };
+
     return {
-      ui: { stack: false, small: false, readonly: this.session.isReadOnlyRole },
+      ui: { readonly: this.session.isReadOnlyRole },
       inquiry: {
         answer: {
           infoQuestions: [
@@ -59,33 +99,13 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
               color: "primary",
               label: "distribution.send-answer",
               status: "caluma.distribution.answer.buttons.compose.status",
+              willCompleteInquiry: true,
             },
           },
-          statusMapping: {
-            "inquiry-answer-status-positive": INQUIRY_STATUS.POSITIVE,
-            "inquiry-answer-status-negative": INQUIRY_STATUS.NEGATIVE,
-            "inquiry-answer-status-approved": INQUIRY_STATUS.POSITIVE,
-            "inquiry-answer-status-rejected": INQUIRY_STATUS.NEGATIVE,
-            "inquiry-answer-status-written-off": INQUIRY_STATUS.NEGATIVE,
-          },
+          statusMapping,
         },
       },
-      new: {
-        types: {
-          "authority-bab": {
-            label: "distribution.authority-bab",
-          },
-          service: {
-            label: "distribution.services",
-          },
-          municipality: {
-            label: "distribution.municipalities",
-          },
-          subservice: {
-            label: "distribution.subservices",
-          },
-        },
-      },
+      new: { types },
       permissions: {
         completeDistribution: () => this.session.isLeadRole,
         reopenDistribution: () => this.session.isLeadRole,

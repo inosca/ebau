@@ -41,7 +41,7 @@ mutation CreateFlowAfterMaterialExam {
     input: {
       workflow: "building-permit"
       tasks: ["material-exam"]
-      next: "[\"publication\", \"fill-publication\"]|tasks"
+      next: "[\"distribution\", \"publication\", \"fill-publication\"]|tasks"
     }
   ) {
     clientMutationId

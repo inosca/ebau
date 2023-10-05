@@ -486,7 +486,7 @@
       "template": null,
       "class_field": "menu-category-process",
       "hidden": 0,
-      "sort": 7,
+      "sort": 8,
       "form_group": 1
     }
   },
@@ -501,7 +501,7 @@
       "template": null,
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 8,
+      "sort": 9,
       "form_group": 1
     }
   },
@@ -516,7 +516,7 @@
       "template": "/ember-camac-ng/journal.phtml",
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 9,
+      "sort": 10,
       "form_group": 1
     }
   },
@@ -532,6 +532,21 @@
       "class_field": "menu-category-primary",
       "hidden": 0,
       "sort": 4,
+      "form_group": 1
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 10,
+    "fields": {
+      "available_instance_resource": "page",
+      "resource": 3,
+      "name": null,
+      "description": null,
+      "template": "/ember-camac-ng/distribution.phtml",
+      "class_field": "menu-category-process",
+      "hidden": 0,
+      "sort": 7,
       "form_group": 1
     }
   },
@@ -622,6 +637,16 @@
       "instance_resource": 9,
       "language": "de",
       "name": "Zuständigkeit",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 10,
+    "fields": {
+      "instance_resource": 10,
+      "language": "de",
+      "name": "Zirkulation",
       "description": null
     }
   },
@@ -1215,6 +1240,42 @@
     "pk": 66,
     "fields": {
       "instance_resource": 9,
+      "role": 6,
+      "instance_state": 5
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 67,
+    "fields": {
+      "instance_resource": 10,
+      "role": 5,
+      "instance_state": 4
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 68,
+    "fields": {
+      "instance_resource": 10,
+      "role": 6,
+      "instance_state": 4
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 69,
+    "fields": {
+      "instance_resource": 10,
+      "role": 5,
+      "instance_state": 5
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 70,
+    "fields": {
+      "instance_resource": 10,
       "role": 6,
       "instance_state": 5
     }
