@@ -41,12 +41,12 @@ def create_caluma_publication(db, caluma_publication, publication_settings):
         publication_document = DocumentFactory()
         AnswerFactory(
             document=publication_document,
-            question_id=publication_settings["START_QUESTIONS"][0],
+            question_id=publication_settings["RANGE_QUESTIONS"][0][0],
             date=start,
         )
         AnswerFactory(
             document=publication_document,
-            question_id=publication_settings["END_QUESTIONS"][0],
+            question_id=publication_settings["RANGE_QUESTIONS"][0][1],
             date=end,
         )
         WorkItemFactory(
@@ -718,6 +718,15 @@ def test_information_of_neighbors_instance_be(
             date(2023, 9, 15),
             timezone.now().date(),
             1,
+        ),
+        (
+            # current date inbetween both publications
+            ["oeffentliche-auflage-ja"],
+            date(2023, 9, 11),
+            date(2023, 9, 14),
+            date(2023, 9, 12),
+            date(2023, 9, 15),
+            0,
         ),
         (
             # no public instances
