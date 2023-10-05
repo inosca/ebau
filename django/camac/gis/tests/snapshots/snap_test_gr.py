@@ -14,6 +14,10 @@ snapshots['test_gr_client[markers0-POINT-baugesuch] 1'] = {
             'label': 'ausserhalb-bauzone',
             'value': 'ausserhalb-bauzone-nein'
         },
+        'coordinates': {
+            'label': None,
+            'value': "'2730678.226988568,1122327.0823116319'"
+        },
         'das-bauvorhaben-befindet-sich-in': {
             'label': 'das-bauvorhaben-befindet-sich-in',
             'value': [
@@ -66,6 +70,10 @@ snapshots['test_gr_client[markers0-POINT-baugesuch] 1'] = {
 
 snapshots['test_gr_client[markers1-POINT-bauanzeige] 1'] = {
     'data': {
+        'coordinates': {
+            'label': None,
+            'value': "'2730678.226988568,1122327.0823116319'"
+        },
         'gemeinde': {
             'label': 'gemeinde',
             'value': 'Roveredo (GR)'
@@ -99,6 +107,10 @@ snapshots['test_gr_client[markers1-POINT-bauanzeige] 1'] = {
 
 snapshots['test_gr_client[markers10-POINT-baugesuch] 1'] = {
     'data': {
+        'coordinates': {
+            'label': None,
+            'value': "'2757771.4499999997,1192182.0312499998'"
+        },
         'das-bauvorhaben-befindet-sich-in': {
             'label': 'das-bauvorhaben-befindet-sich-in',
             'value': [
@@ -163,6 +175,10 @@ snapshots['test_gr_client[markers2-LINESTRING-baugesuch] 1'] = {
             'displayValue': 'nein',
             'label': 'ausserhalb-bauzone',
             'value': 'ausserhalb-bauzone-nein'
+        },
+        'coordinates': {
+            'label': None,
+            'value': "'2730686.563711087,1122237.578980265', '2730701.779260571,1122223.4682885902'"
         },
         'das-bauvorhaben-befindet-sich-in': {
             'label': 'das-bauvorhaben-befindet-sich-in',
@@ -234,6 +250,10 @@ snapshots['test_gr_client[markers3-POLYGON-baugesuch] 1'] = {
             'displayValue': 'nein',
             'label': 'ausserhalb-bauzone',
             'value': 'ausserhalb-bauzone-nein'
+        },
+        'coordinates': {
+            'label': None,
+            'value': "'2758821.8885866464,1191884.7759206274', '2758835.689140816,1191889.2217609326', '2758844.747878619,1191856.4200200567', '2758832.507804883,1191854.8711072344'"
         },
         'das-bauvorhaben-befindet-sich-in': {
             'label': 'das-bauvorhaben-befindet-sich-in',
@@ -364,6 +384,10 @@ snapshots['test_gr_client[markers4-POINT-baugesuch] 1'] = {
             'label': 'ausserhalb-bauzone',
             'value': 'ausserhalb-bauzone-nein'
         },
+        'coordinates': {
+            'label': None,
+            'value': "'2731195.9499999997,1122174.3312499998'"
+        },
         'das-bauvorhaben-befindet-sich-in': {
             'label': 'das-bauvorhaben-befindet-sich-in',
             'value': [
@@ -431,6 +455,10 @@ snapshots['test_gr_client[markers5-POINT-baugesuch] 1'] = {
             'label': 'ausserhalb-bauzone',
             'value': 'ausserhalb-bauzone-ja'
         },
+        'coordinates': {
+            'label': None,
+            'value': "'2758622.7126099495,1190131.3069476'"
+        },
         'gemeinde': {
             'label': 'gemeinde',
             'value': 'Chur'
@@ -463,7 +491,7 @@ snapshots['test_gr_client[markers5-POINT-baugesuch] 1'] = {
         },
         'zonenplan': {
             'label': 'zonenplan',
-            'value': 'Auf Gefahrenzonen nicht untersuchtes Gebiet, Wald'
+            'value': 'Auf Gefahrenzonen nicht untersuchtes Gebiet(orientierend), Wald(orientierend)'
         }
     }
 }
@@ -474,6 +502,10 @@ snapshots['test_gr_client[markers6-POINT-baugesuch] 1'] = {
             'displayValue': 'ja',
             'label': 'ausserhalb-bauzone',
             'value': 'ausserhalb-bauzone-ja'
+        },
+        'coordinates': {
+            'label': None,
+            'value': "'2760943.8499999996,1192035.0312499998'"
         },
         'gemeinde': {
             'label': 'gemeinde',
@@ -519,6 +551,10 @@ snapshots['test_gr_client[markers7-LINESTRING-baugesuch] 1'] = {
             'label': 'ausserhalb-bauzone',
             'value': 'ausserhalb-bauzone-ja'
         },
+        'coordinates': {
+            'label': None,
+            'value': "'2760930.5289222472,1192035.707010256', '2760963.900865463,1192057.817393839'"
+        },
         'gemeinde': {
             'label': 'gemeinde',
             'value': 'Chur'
@@ -561,7 +597,7 @@ snapshots['test_gr_client[markers7-LINESTRING-baugesuch] 1'] = {
         },
         'zonenplan': {
             'label': 'zonenplan',
-            'value': 'Keine Gefahrenzone, Auf Gefahrenzonen nicht untersuchtes Gebiet, Landwirtschaftszone, Wald'
+            'value': 'Keine Gefahrenzone, Auf Gefahrenzonen nicht untersuchtes Gebiet(orientierend), Landwirtschaftszone, Wald(orientierend)'
         }
     }
 }
@@ -572,6 +608,10 @@ snapshots['test_gr_client[markers8-POINT-baugesuch] 1'] = {
             'displayValue': 'nein',
             'label': 'ausserhalb-bauzone',
             'value': 'ausserhalb-bauzone-nein'
+        },
+        'coordinates': {
+            'label': None,
+            'value': "'2760376.3950000005,1190000.739375'"
         },
         'das-bauvorhaben-befindet-sich-in': {
             'label': 'das-bauvorhaben-befindet-sich-in',
@@ -588,7 +628,7 @@ snapshots['test_gr_client[markers8-POINT-baugesuch] 1'] = {
         },
         'genereller-erschliessungsplan': {
             'label': 'genereller-erschliessungsplan',
-            'value': 'Bahnlinie SBB/RhB, Fuss- / Radweg Hauptverbindung, Kantonale Verbindungsstrasse, Kantonale Verbindungsstrasse, Parkierung Gebiete C'
+            'value': 'Bahnlinie SBB/RhB(hinweisend), Fuss- / Radweg Hauptverbindung, Kantonale Verbindungsstrasse(orientierend), Kantonale Verbindungsstrasse(orientierend), Parkierung Gebiete C'
         },
         'genereller-gestaltungsplan': {
             'label': 'genereller-gestaltungsplan',
@@ -633,6 +673,10 @@ snapshots['test_gr_client[markers8-POINT-baugesuch] 1'] = {
 
 snapshots['test_gr_client[markers9-POINT-baugesuch] 1'] = {
     'data': {
+        'coordinates': {
+            'label': None,
+            'value': "'2757567.75,1192209.3312499998'"
+        },
         'das-bauvorhaben-befindet-sich-in': {
             'label': 'das-bauvorhaben-befindet-sich-in',
             'value': [
