@@ -1,9 +1,29 @@
 {{#let (file-queue name=this.queueName onFileAdded=@onFileAdded) as |queue|}}
-  <FileDropzone @queue={{queue}} @filter={{this.validate}} @multiple={{this.multiple}} as |dropzone|>
-    <div class="uk-placeholder uk-margin-remove uk-text-center uk-padding-medium uk-flex uk-flex-middle uk-flex-center uk-flex-column {{if dropzone.active "uk-box-shadow-medium"}}">
+  <FileDropzone
+    @queue={{queue}}
+    @filter={{this.validate}}
+    @multiple={{this.multiple}}
+    ...attributes
+    as |dropzone|
+  >
+    <div
+      class="
+        uk-placeholder
+        uk-height-1-1
+        uk-margin-remove
+        uk-text-center
+        uk-padding-medium
+        uk-flex
+        uk-flex-middle
+        uk-flex-start
+        uk-flex-column
+        dropzone
+        {{if dropzone.active "dropzone--active uk-box-shadow-medium"}}
+      "
+    >
       {{yield to="header"}}
       <UkIcon @icon="cloud-upload" @ratio={{3}} class="uk-margin-bottom" />
-      <div class="uk-text-muted" ...attributes>
+      <div class="uk-text-meta">
         {{t "dropzone.drag"}}
         <label for="file-{{this.queueName}}">
           <span

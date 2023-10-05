@@ -1,11 +1,11 @@
 from caluma.caluma_core.events import on
-from caluma.caluma_workflow.api import start_case
-from caluma.caluma_workflow.events import post_create_work_item
+from caluma.caluma_workflow.api import complete_work_item, start_case
+from caluma.caluma_workflow.events import post_complete_case, post_create_work_item
 from caluma.caluma_workflow.models import Workflow
 from django.conf import settings
 from django.db import transaction
 
-from camac.caluma.utils import filter_by_task_base
+from camac.caluma.utils import filter_by_task_base, filter_by_workflow_base
 
 
 def get_additional_demand_settings(settings_keys):
@@ -22,19 +22,21 @@ def get_additional_demand_settings(settings_keys):
     )
 
 
+def filter_by_workflow(settings_keys):
+    return filter_by_workflow_base(settings_keys, get_additional_demand_settings)
+
+
 def filter_by_task(settings_keys):
     return filter_by_task_base(settings_keys, get_additional_demand_settings)
 
 
 @on(post_create_work_item, raise_exception=True)
-@filter_by_task("ADDITIONAL_DEMAND_TASK")
+@filter_by_task("TASK")
 @transaction.atomic
 def post_create_additional_demand(sender, work_item, user, context=None, **kwargs):
     # start child case
     start_case(
-        workflow=Workflow.objects.get(
-            pk=settings.ADDITIONAL_DEMAND["ADDITIONAL_DEMAND_WORKFLOW"]
-        ),
+        workflow=Workflow.objects.get(pk=settings.ADDITIONAL_DEMAND["WORKFLOW"]),
         user=user,
         parent_work_item=work_item,
         context=context,
@@ -43,3 +45,12 @@ def post_create_additional_demand(sender, work_item, user, context=None, **kwarg
         modified_by_user=user.group,
         modified_by_group=user.group,
     )
+
+
+@on(post_complete_case, raise_exception=True)
+@filter_by_workflow("WORKFLOW")
+@transaction.atomic
+def post_complete_additional_demand_workflow(
+    sender, case, user, context=None, **kwargs
+):
+    complete_work_item(work_item=case.parent_work_item, user=user, context=context)

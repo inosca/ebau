@@ -176,7 +176,7 @@ class AdminAdditionalDemandPermission(
     def get_work_item(self, document_id):
         return (
             WorkItem.objects.filter(
-                task_id=settings.ADDITIONAL_DEMAND["ADDITIONAL_DEMAND_FILL_TASK"],
+                task_id=settings.ADDITIONAL_DEMAND["FILL_TASK"],
                 document_id=document_id,
             )
             .order_by("-created_at")

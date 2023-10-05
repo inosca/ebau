@@ -527,7 +527,7 @@ def post_complete_inquiry_check(
 ):  # pragma: no cover
     if settings.ADDITIONAL_DEMAND:
         init_additional_demand = work_item.case.work_items.filter(
-            task_id=settings.ADDITIONAL_DEMAND["ADDITIONAL_DEMAND_CREATE_TASK"],
+            task_id=settings.ADDITIONAL_DEMAND["CREATE_TASK"],
             status=WorkItem.STATUS_READY,
             addressed_groups=work_item.previous_work_item.addressed_groups,
         ).first()

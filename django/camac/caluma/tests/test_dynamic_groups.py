@@ -96,53 +96,79 @@ def test_dynamic_create_additional_demand(
     target_subservice = service_factory(service_parent=service_factory())
     target_existing = service_factory()
 
-    inquiry_work_item = work_item_factory(
-        task_id=distribution_settings["INQUIRY_CREATE_TASK"],
+    # create already existing "init-additional-demand" work item
+    work_item_factory(
+        task_id=additional_demand_settings["CREATE_TASK"],
         case=be_instance.case,
         addressed_groups=[str(target_existing.pk)],
         status=WorkItem.STATUS_READY,
     )
 
-    additional_demand_work_item = work_item_factory(
-        task_id=additional_demand_settings["ADDITIONAL_DEMAND_CREATE_TASK"],
-        case=be_instance.case,
-        addressed_groups=[str(target_existing.pk)],
-        status=WorkItem.STATUS_READY,
-    )
-
+    # context for when the "init-additional-demand" work item is created through
+    # completion of a "create-inquiry" work item
     context = {
         "addressed_groups": [
             str(target_service.pk),
             str(target_subservice.pk),
+            str(target_existing.pk),
         ]
     }
 
-    assert set(
+    groups_without_prev = set(
         CustomDynamicGroups().resolve("create_init_additional_demand")(
             task=None,
             case=be_instance.case,
             user=caluma_admin_user,
             prev_work_item=None,
-            context=context,
+            context={},
         )
-    ) == {str(caluma_admin_user.group)}
+    )
 
-    assert set(
+    # if no previous work item is given, fallback to municipality
+    assert (
+        str(be_instance.responsible_service(filter_type="municipality").pk)
+        in groups_without_prev
+    )
+
+    groups_additional_demand = set(
         CustomDynamicGroups().resolve("create_init_additional_demand")(
             task=None,
             case=be_instance.case,
             user=caluma_admin_user,
-            prev_work_item=inquiry_work_item,
-            context=context,
+            prev_work_item=work_item_factory(
+                task_id=additional_demand_settings["CREATE_TASK"],
+                addressed_groups=[
+                    str(target_service.pk),
+                    str(target_subservice.pk),
+                    str(target_existing.pk),
+                ],
+            ),
+            context={},
         )
-    ) == {str(target_service.pk)}
+    )
 
-    assert set(
+    # if previous work item is "init-additional-demand" return addressed_groups
+    # of previous work item exluding services that already have a ready
+    # "init-additional-demand" work items and subservices
+    assert str(target_service.pk) in groups_additional_demand
+    assert str(target_subservice.pk) not in groups_additional_demand
+    assert str(target_subservice.pk) not in groups_additional_demand
+
+    groups_inquiry = set(
         CustomDynamicGroups().resolve("create_init_additional_demand")(
             task=None,
             case=be_instance.case,
             user=caluma_admin_user,
-            prev_work_item=additional_demand_work_item,
+            prev_work_item=work_item_factory(
+                task_id=distribution_settings["INQUIRY_CREATE_TASK"]
+            ),
             context=context,
         )
-    ) == {str(target_existing.pk)}
+    )
+
+    # if previous work item is "create-inquiry" return addressed_groups from
+    # context exluding services that already have a ready
+    # "init-additional-demand" work items and subservices
+    assert str(target_service.pk) in groups_inquiry
+    assert str(target_subservice.pk) not in groups_inquiry
+    assert str(target_subservice.pk) not in groups_inquiry

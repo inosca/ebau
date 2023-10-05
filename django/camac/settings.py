@@ -191,20 +191,6 @@ COMMON_FORM_SLUGS_BE = [
     "vertreterin-mit-vollmacht",
 ]
 
-DISTRIBUTION_REGEX = r"(inquir(y|ies)|distribution)"
-DISTRIBUTION_DUMP_CONFIG = {
-    "caluma_distribution": {
-        "caluma_form.Form": Q(pk__iregex=DISTRIBUTION_REGEX),
-        "caluma_form.FormQuestion": Q(form__pk__iregex=DISTRIBUTION_REGEX),
-        "caluma_form.Question": Q(forms__pk__iregex=DISTRIBUTION_REGEX),
-        "caluma_form.QuestionOption": Q(question__forms__pk__iregex=DISTRIBUTION_REGEX),
-        "caluma_form.Option": Q(questions__forms__pk__iregex=DISTRIBUTION_REGEX),
-        "caluma_workflow.Workflow": Q(pk__iregex=DISTRIBUTION_REGEX),
-        "caluma_workflow.Task": Q(pk__iregex=DISTRIBUTION_REGEX),
-        "caluma_workflow.TaskFlow": Q(workflow__pk__iregex=DISTRIBUTION_REGEX),
-        "caluma_workflow.Flow": Q(task_flows__workflow__pk__iregex=DISTRIBUTION_REGEX),
-    },
-}
 
 SO_PERSONAL_DATA_MAPPING = {
     "last_name": "nachname",
@@ -271,6 +257,20 @@ def generate_workflow_dump_config(regex):
         "caluma_workflow.Flow": Q(task_flows__workflow__pk__iregex=regex),
     }
 
+
+DISTRIBUTION_DUMP_CONFIG = {
+    "caluma_distribution": {
+        **generate_form_dump_config(r"(inquir(y|ies)|distribution)"),
+        **generate_workflow_dump_config(r"(inquir(y|ies)|distribution)"),
+    },
+}
+
+ADDITIONAL_DEMAND_DUMP_CONFIG = {
+    "caluma_additional_demand": {
+        **generate_form_dump_config(r"additional-demand"),
+        **generate_workflow_dump_config(r"additional-demand"),
+    }
+}
 
 # Application specific settings
 # an application is defined by the customer e.g. uri, schwyz, etc.
@@ -3359,10 +3359,8 @@ APPLICATIONS = {
             },
             # Distribution
             **DISTRIBUTION_DUMP_CONFIG,
-            "caluma_additional_demand": {
-                **generate_form_dump_config(r"additional-demand"),
-                **generate_workflow_dump_config(r"additional-demand"),
-            },
+            # Additional demand
+            **ADDITIONAL_DEMAND_DUMP_CONFIG,
             "publication": {
                 **generate_form_dump_config(regex=r"^publikation?$"),
             },
@@ -3800,6 +3798,8 @@ APPLICATIONS = {
             ),
             # Distribution
             **DISTRIBUTION_DUMP_CONFIG,
+            # Additional demand
+            **ADDITIONAL_DEMAND_DUMP_CONFIG,
         },
         "DUMP_CONFIG_EXCLUDED_MODELS": [
             "user.Group",
