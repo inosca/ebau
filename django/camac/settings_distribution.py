@@ -573,5 +573,21 @@ DISTRIBUTION = {
         },
         "INQUIRY_TASK": "inquiry",
     },
+    "kt_so": {
+        "ENABLED": True,
+        "INSTANCE_STATE_DISTRIBUTION": "distribution",
+        "HISTORY": {
+            "COMPLETE_DISTRIBUTION": _("Circulation completed"),
+            "SKIP_DISTRIBUTION": _("Circulation skipped"),
+            "REDO_DISTRIBUTION": _("Circulation reopened"),
+        },
+        "REDO_INQUIRY": {
+            "REOPEN_TASKS": ["fill-inquiry"],
+        },
+        "QUESTIONS": {
+            "STATEMENT": "inquiry-answer-assessment",
+            "ANCILLARY_CLAUSES": "inquiry-answer-ancillary-clauses",
+        },
+    },
     "demo": {"ENABLED": True},
 }
