@@ -1,10 +1,8 @@
 import json
-from datetime import timedelta
 from uuid import uuid4
 
 from caluma.caluma_form import api as form_api, models as form_models
 from caluma.caluma_workflow import api as workflow_api, models as workflow_models
-from caluma.caluma_workflow.models import Task, WorkItem
 from django.conf import settings
 from django.core.files.base import ContentFile
 from django.db.models import CharField, Q
