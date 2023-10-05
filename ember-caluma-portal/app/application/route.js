@@ -7,10 +7,12 @@ import DecisionAppealButtonComponent from "ember-ebau-core/components/decision/a
 import DecisionInfoAppealComponent from "ember-ebau-core/components/decision/info-appeal";
 import DecisionSubmitButtonComponent from "ember-ebau-core/components/decision/submit-button";
 import DocumentValidityButtonComponent from "ember-ebau-core/components/document-validity-button";
+import DynamicMaxDateInputComponent from "ember-ebau-core/components/dynamic-max-date-input";
 import GrGisComponent from "ember-ebau-core/components/gr-gis";
 import InquiryAnswerStatus from "ember-ebau-core/components/inquiry-answer-status";
 import LinkAttachmentsComponent from "ember-ebau-core/components/link-attachments";
 import PublicationDateKantonsamtsblattComponent from "ember-ebau-core/components/publication-date-kantonsamtsblatt";
+import PublicationStartDateComponent from "ember-ebau-core/components/publication-start-date";
 import SoGisComponent from "ember-ebau-core/components/so-gis";
 import UrGisComponent from "ember-ebau-core/components/ur-gis";
 
@@ -170,6 +172,16 @@ export default class ApplicationRoute extends Route {
       label: "GIS-Karte (Kt. SO)",
       component: "so-gis",
       componentClass: SoGisComponent,
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "Datum Anzeiger und Datum Amtsblatt (Kt. SO)",
+      component: "dynamic-max-date-input",
+      componentClass: DynamicMaxDateInputComponent,
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "Start Auflage (Kt. SO)",
+      component: "publication-start-date",
+      componentClass: PublicationStartDateComponent,
     });
   }
 }
