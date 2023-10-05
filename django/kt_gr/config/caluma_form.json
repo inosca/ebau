@@ -54422,7 +54422,7 @@
       "label": "{\"de\": \"Hinweis Nachforderung\", \"fr\": null, \"it\": null}",
       "type": "static",
       "is_required": "false",
-      "is_hidden": "!(\"pruefung-weitere-materielle-pruefung-nicht-beurteilbar\" == \"pruefung-weitere-materielle-pruefung\"|answer ||\n\"pruefung-gebaeudehoehen-nicht-beurteilbar\" == \"pruefung-gebaeudehoehen\"|answer ||\n\"pruefung-ausnuetzungsziffer-nicht-beurteilbar\" == \"pruefung-ausnuetzungsziffer\"|answer ||\n\"pruefung-bauabstaende-nicht-beurteilbar\" == \"pruefung-bauabstaende\"|answer ||\n\"pruefung-zonenkonformitaet-nicht-beurteilbar\" == \"pruefung-zonenkonformitaet\"|answer ||\n\"gesuchsunterlagen-vollstaendig-nicht-beurteilbar\" == \"gesuchsunterlagen-vollstaendig\"|answer)",
+      "is_hidden": "!(\"pruefung-weitere-materielle-pruefung-nicht-beurteilbar\" == \"pruefung-weitere-materielle-pruefung\"|answer ||\n\"pruefung-gebaeudehoehen-nicht-beurteilbar\" == \"pruefung-gebaeudehoehen\"|answer ||\n\"pruefung-ausnuetzungsziffer-nicht-beurteilbar\" == \"pruefung-ausnuetzungsziffer\"|answer ||\n\"pruefung-bauabstaende-nicht-beurteilbar\" == \"pruefung-bauabstaende\"|answer ||\n\"pruefung-zonenkonformitaet-nicht-beurteilbar\" == \"pruefung-zonenkonformitaet\"|answer ||\n\"gesuchsunterlagen-vollstaendig-nicht-beurteilbar\" == \"gesuchsunterlagen-vollstaendig\"|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
