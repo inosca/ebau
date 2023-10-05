@@ -540,6 +540,9 @@ APPLICATIONS = {
         "CALUMA_INSTANCE_FORMS": [
             "geschaeftskontrolle",
         ],
+        "INTERNAL_INSTANCE_FORMS": [
+            "geschaeftskontrolle",
+        ],
         # please also update django/Makefile command when changing apps here
         "SEQUENCE_NAMESPACE_APPS": [],
         "NOTIFICATIONS_EXCLUDED_TASKS": [],
