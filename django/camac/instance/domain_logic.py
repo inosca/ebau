@@ -92,6 +92,65 @@ class CreateInstanceLogic:
                 instance=instance, location_id=instance.location_id
             )
 
+    @staticmethod
+    def _get_year(year: int = None) -> int:
+        full_year = timezone.now().year if year is None else year
+        year = full_year % 100
+        return year
+
+    @staticmethod
+    def _get_name(instance: Instance) -> str:
+        name = instance.form.name
+        meta = models.FormField.objects.filter(instance=instance, name="meta").first()
+        if meta:
+            meta_value = json.loads(meta.value)
+            name = meta_value["formType"]
+        return name
+
+    @staticmethod
+    def _get_identifier_start(instance: Instance, name: str, prefix: str = None) -> str:
+        abbreviations = settings.APPLICATION.get("INSTANCE_IDENTIFIER_FORM_ABBR", {})
+
+        if name in abbreviations.keys():
+            identifier_start = abbreviations[name]
+        elif settings.APPLICATION.get("SHORT_DOSSIER_NUMBER", False):
+            identifier_start = (
+                prefix
+                and f"{prefix}-{str(instance.location.communal_federal_number)[-2:]}"
+            ) or str(instance.location.communal_federal_number)[-2:]
+        else:
+            identifier_start = (
+                prefix and f"{prefix}-{instance.location.communal_federal_number}"
+            ) or str(instance.location.communal_federal_number)
+        return identifier_start
+
+    @staticmethod
+    def _get_last_identifier(name: str, start: str) -> str:
+        if settings.APPLICATION["CALUMA"].get("SAVE_DOSSIER_NUMBER_IN_CALUMA") or (
+            name in settings.APPLICATION.get("CALUMA_INSTANCE_FORMS", [])
+        ):
+            last_identifier = (
+                workflow_models.Case.objects.filter(
+                    **{"meta__dossier-number__startswith": start}
+                )
+                .annotate(
+                    dossier_nr=Cast(
+                        KeyTextTransform("dossier-number", "meta"), CharField()
+                    )
+                )
+                .order_by("-dossier_nr")
+                .values_list("dossier_nr", flat=True)
+                .first()
+            )
+        else:
+            last_identifier = (
+                models.Instance.objects.filter(identifier__startswith=start)
+                .order_by("-identifier")
+                .values_list("identifier", flat=True)
+                .first()
+            )
+        return last_identifier
+
     @classmethod
     @canton_aware
     def generate_identifier(
@@ -129,57 +188,16 @@ class CreateInstanceLogic:
         identifier = instance.identifier
 
         if not identifier:
-            full_year = timezone.now().year if year is None else year
-            year = full_year % 100
+            year = CreateInstanceLogic._get_year(year)
 
-            name = instance.form.name
-            abbreviations = settings.APPLICATION.get(
-                "INSTANCE_IDENTIFIER_FORM_ABBR", {}
+            name = CreateInstanceLogic._get_name(instance)
+            identifier_start = CreateInstanceLogic._get_identifier_start(
+                instance, name, prefix
             )
-            meta = models.FormField.objects.filter(
-                instance=instance, name="meta"
-            ).first()
-            if meta:
-                meta_value = json.loads(meta.value)
-                name = meta_value["formType"]
-
-            if name in abbreviations.keys():
-                identifier_start = abbreviations[name]
-            elif settings.APPLICATION.get("SHORT_DOSSIER_NUMBER", False):
-                identifier_start = (
-                    prefix
-                    and f"{prefix}-{str(instance.location.communal_federal_number)[-2:]}"
-                ) or str(instance.location.communal_federal_number)[-2:]
-            else:
-                identifier_start = (
-                    prefix and f"{prefix}-{instance.location.communal_federal_number}"
-                ) or str(instance.location.communal_federal_number)
 
             start = separator.join([str(identifier_start), str(year).zfill(2)])
+            last_identifier = CreateInstanceLogic._get_last_identifier(name, start)
 
-            if settings.APPLICATION["CALUMA"].get("SAVE_DOSSIER_NUMBER_IN_CALUMA") or (
-                name in settings.APPLICATION.get("CALUMA_INSTANCE_FORMS", [])
-            ):
-                last_identifier = (
-                    workflow_models.Case.objects.filter(
-                        **{"meta__dossier-number__startswith": start}
-                    )
-                    .annotate(
-                        dossier_nr=Cast(
-                            KeyTextTransform("dossier-number", "meta"), CharField()
-                        )
-                    )
-                    .order_by("-dossier_nr")
-                    .values_list("dossier_nr", flat=True)
-                    .first()
-                )
-            else:
-                last_identifier = (
-                    models.Instance.objects.filter(identifier__startswith=start)
-                    .order_by("-identifier")
-                    .values_list("identifier", flat=True)
-                    .first()
-                )
             last_position = (
                 last_identifier and int(last_identifier.split(separator)[-1])
             ) or 0
@@ -191,6 +209,73 @@ class CreateInstanceLogic:
                     str(last_position + 1).zfill(seq_zero_padding),
                 ]
             )
+
+        return identifier
+
+    @classmethod
+    def generate_identifier_sz(
+        cls,
+        instance: Instance,
+        year: int = None,
+        prefix: str = None,
+        seq_zero_padding: int = 3,
+    ) -> str:
+        """
+        Build identifier for Kt. Schwyz instance.
+
+        Same as generic generate_instance with one exception:
+        For internal instances service_id is added to
+        the second position and the seq_zero_padding is set to 4.
+        Example: IG-6-23-014
+
+        """
+        separator = "-"
+
+        identifier = instance.identifier
+        if not identifier:
+            year = CreateInstanceLogic._get_year(year)
+
+            name = CreateInstanceLogic._get_name(instance)
+            identifier_start = CreateInstanceLogic._get_identifier_start(
+                instance, name, prefix
+            )
+
+            if name in settings.APPLICATION.get("INTERNAL_INSTANCE_FORMS", []):
+                service_id = instance.group.service_id
+                start = separator.join(
+                    [str(identifier_start), str(service_id), str(year).zfill(2)]
+                )
+                last_identifier = CreateInstanceLogic._get_last_identifier(name, start)
+
+                last_position = (
+                    last_identifier and int(last_identifier.split(separator)[-1])
+                ) or 0
+
+                seq_zero_padding = 4
+                identifier = separator.join(
+                    [
+                        str(identifier_start),
+                        str(service_id),
+                        str(year).zfill(2),
+                        str(last_position + 1).zfill(seq_zero_padding),
+                    ]
+                )
+
+            else:
+                start = separator.join([str(identifier_start), str(year).zfill(2)])
+                last_identifier = CreateInstanceLogic._get_last_identifier(name, start)
+
+                last_position = (
+                    last_identifier and int(last_identifier.split(separator)[-1])
+                ) or 0
+
+                identifier = separator.join(
+                    [
+                        str(identifier_start),
+                        str(year).zfill(2),
+                        str(last_position + 1).zfill(seq_zero_padding),
+                    ]
+                )
 
         return identifier
 
@@ -213,7 +298,6 @@ class CreateInstanceLogic:
         user,
         lead,
     ):
-
         if source_instance:
             old_document = case.document
             new_document = caluma_api.copy_document(
