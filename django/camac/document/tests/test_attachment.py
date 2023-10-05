@@ -1289,7 +1289,7 @@ def test_attachment_public_access(
     instance_factory,
     attachment_attachment_section_factory,
     publication_entry_factory,
-    application_settings,
+    publication_settings,
     settings,
 ):
     """Test unauthenticated, public access to publicated attachments."""
@@ -1310,12 +1310,12 @@ def test_attachment_public_access(
 
     # nothing is visible without publication backend
     settings.APPLICATION_NAME = "kt_uri"
-    application_settings["PUBLICATION_BACKEND"] = None
+    publication_settings["BACKEND"] = None
     res = client.get(url)
     assert res.status_code == status.HTTP_200_OK
     assert len(res.json()["data"]) == 0
 
-    application_settings["PUBLICATION_BACKEND"] = "camac-ng"
+    publication_settings["BACKEND"] = "camac-ng"
 
     # published attachments are visible
     res = client.get(url)

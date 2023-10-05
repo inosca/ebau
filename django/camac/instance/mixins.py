@@ -246,7 +246,7 @@ class InstanceQuerysetMixin(object):
     def get_queryset_for_public(self, group=None):
         queryset = self.get_base_queryset()
 
-        if settings.APPLICATION.get("PUBLICATION_BACKEND") == "caluma":
+        if settings.PUBLICATION.get("BACKEND") == "caluma":
             public_access_key = self._get_request().META.get(
                 "HTTP_X_CAMAC_PUBLIC_ACCESS_KEY"
             )
@@ -285,14 +285,14 @@ class InstanceQuerysetMixin(object):
             if publish_question:
                 public_cases = public_cases.filter(
                     document__answers__question_id=publish_question,
-                    document__answers__value=["oeffentliche-auflage-ja"],
+                    document__answers__value=settings.PUBLICATION.get("PUBLISH_ANSWER"),
                 )
 
             public_cases = list(public_cases.values_list("case__family", flat=True))
             return queryset.filter(
                 **{self._get_instance_filter_expr("case__pk__in"): public_cases}
             )
-        elif settings.APPLICATION.get("PUBLICATION_BACKEND") == "camac-ng":
+        elif settings.PUBLICATION.get("BACKEND") == "camac-ng":
             return (
                 queryset.filter(
                     **{

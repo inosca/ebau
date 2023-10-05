@@ -1188,7 +1188,7 @@ class PublicCalumaInstanceView(mixins.InstanceQuerysetMixin, ListAPIView):
             .annotate(instance_id=F("instance__pk"))
         )
 
-        if settings.APPLICATION.get("PUBLICATION_BACKEND") == "caluma":
+        if settings.PUBLICATION.get("BACKEND") == "caluma":
             special_id = (
                 "ebau-number"
                 if settings.APPLICATION_NAME == "kt_bern"

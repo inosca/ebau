@@ -1,13 +1,21 @@
 PUBLICATION = {
     "default": {
+        "BACKEND": "caluma",
         "START_QUESTIONS": ["publikation-startdatum"],
         "END_QUESTIONS": ["publikation-ablaufdatum"],
+        "FILL_TASKS": ["fill-publication"],
     },
     "test": {
         "ENABLED": True,
+        "BACKEND": "camac-ng",
+    },
+    "demo": {
+        "ENABLED": True,
+        "BACKEND": "camac-ng",
     },
     "kt_bern": {
         "ENABLED": True,
+        "FILL_TASKS": ["fill-publication", "information-of-neighbors"],
         "SCRUBBED_ANSWERS": [
             "e-mail-energie",
             "e-mail-gastgewerbe",
@@ -46,5 +54,19 @@ PUBLICATION = {
             "ende-publikation-kantonsamtsblatt",
         ],
         "PUBLISH_QUESTION": "oeffentliche-auflage",
+        "PUBLISH_ANSWER": ["oeffentliche-auflage-ja"],
+    },
+    "kt_so": {
+        "ENABLED": True,
+        "START_QUESTIONS": ["publikation-start"],
+        "END_QUESTIONS": ["publikation-ende"],
+    },
+    "kt_schwyz": {
+        "ENABLED": True,
+        "BACKEND": "camac-ng",
+    },
+    "kt_uri": {
+        "ENABLED": True,
+        "BACKEND": "camac-ng",
     },
 }

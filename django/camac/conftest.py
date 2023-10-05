@@ -23,7 +23,6 @@ from caluma.caluma_workflow import (
     factories as caluma_workflow_factories,
     models as caluma_workflow_models,
 )
-from deepmerge import always_merger
 from django.conf import settings
 from django.core.cache import cache
 from django.core.management import call_command
@@ -58,13 +57,13 @@ from camac.notification import factories as notification_factories
 from camac.objection import factories as objection_factories
 from camac.responsible import factories as responsible_factories
 from camac.settings import load_module_settings
-from camac.settings_additional_demand import ADDITIONAL_DEMAND
-from camac.settings_distribution import DISTRIBUTION
 from camac.tags import factories as tags_factories
 from camac.urls import urlpatterns as app_patterns
 from camac.user import factories as user_factories
 from camac.user.models import Group, User
 from camac.utils import build_url
+
+from .conftest_settings import *  # noqa F403, F401
 
 
 def register_module(module, prefix=""):
@@ -1115,47 +1114,6 @@ def decision_factory(be_instance, document_factory, work_item_factory):
         return work_item
 
     return factory
-
-
-@pytest.fixture
-def distribution_settings(settings):
-    distribution_dict = copy.deepcopy(DISTRIBUTION["default"])
-    settings.DISTRIBUTION = distribution_dict
-    return distribution_dict
-
-
-@pytest.fixture
-def be_distribution_settings(settings, distribution_settings):
-    distribution_dict = copy.deepcopy(
-        always_merger.merge(distribution_settings, DISTRIBUTION["kt_bern"])
-    )
-    settings.DISTRIBUTION = distribution_dict
-    return distribution_dict
-
-
-@pytest.fixture
-def sz_distribution_settings(settings, distribution_settings):
-    distribution_dict = copy.deepcopy(
-        always_merger.merge(distribution_settings, DISTRIBUTION["kt_schwyz"])
-    )
-    settings.DISTRIBUTION = distribution_dict
-    return distribution_dict
-
-
-@pytest.fixture
-def gr_distribution_settings(settings, distribution_settings):
-    distribution_dict = copy.deepcopy(
-        always_merger.merge(distribution_settings, DISTRIBUTION["kt_gr"])
-    )
-    settings.DISTRIBUTION = distribution_dict
-    return distribution_dict
-
-
-@pytest.fixture
-def additional_demand_settings(settings):
-    additional_demand_dict = copy.deepcopy(ADDITIONAL_DEMAND["default"])
-    settings.ADDITIONAL_DEMAND = additional_demand_dict
-    return additional_demand_dict
 
 
 @pytest.fixture

@@ -1833,15 +1833,14 @@ def test_instance_detail_publication_timezone(
     publication_entry,
     freezer,
     status_code,
-    application_settings,
+    publication_settings,
     date,
 ):
-    application_settings["PUBLICATION_BACKEND"] = "camac-ng"
+    publication_settings["BACKEND"] = "camac-ng"
     url = reverse("instance-detail", args=[instance.pk])
 
     freezer.move_to(date)
 
-    print("instance:", instance.group.role.name)
     response = admin_client.get(
         url,
         **{"HTTP_X_CAMAC_PUBLIC_ACCESS": True}
