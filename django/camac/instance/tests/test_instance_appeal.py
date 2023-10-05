@@ -138,7 +138,7 @@ def test_instance_appeal(
     settings,
     application_settings,
 ):
-    settings.APPLICATION_NAME = "kt_be"
+    settings.APPLICATION_NAME = "kt_bern"
     application_settings["SHORT_NAME"] = "be"
     be_appeal_settings["NOTIFICATIONS"]["APPEAL_SUBMITTED"] = [
         {

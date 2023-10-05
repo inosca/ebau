@@ -65,7 +65,7 @@ def test_copy_sb_personalien(
     decision_factory,
     application_settings,
 ):
-    settings.APPLICATION_NAME = "kt_be"
+    settings.APPLICATION_NAME = "kt_bern"
     application_settings["SHORT_NAME"] = "be"
     case = be_instance.case
 
@@ -134,7 +134,7 @@ def test_post_complete_sb1(
     settings,
     application_settings,
 ):
-    settings.APPLICATION_NAME = "kt_be"
+    settings.APPLICATION_NAME = "kt_bern"
     application_settings["SHORT_NAME"] = "be"
     case = be_instance.case
 
@@ -195,7 +195,7 @@ def test_copy_municipality_tags_for_sb1(
     settings,
     application_settings,
 ):
-    settings.APPLICATION_NAME = "kt_be"
+    settings.APPLICATION_NAME = "kt_bern"
     application_settings["SHORT_NAME"] = "be"
     municipality_burgdorf = service_factory(
         service_group__name="municipality",
@@ -266,7 +266,7 @@ def test_copy_responsible_person_lead_authority(
     settings,
     application_settings,
 ):
-    settings.APPLICATION_NAME = "kt_be"
+    settings.APPLICATION_NAME = "kt_bern"
     application_settings["SHORT_NAME"] = "be"
     instance_state_factory(name="sb1")
 
