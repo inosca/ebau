@@ -29,7 +29,7 @@ module.exports = function (defaults) {
         enablePublicationEndDate: ENV === "ur",
         enableModificationConfirm: ENV === "be",
         enableCommunications: ["be", "so"].includes(ENV),
-        enableAdditionalDemand: ENV === "gr",
+        enableAdditionalDemand: ["gr", "so"].includes(ENV),
         enableInstanceActionDescription: ENV !== "so",
         instancePaperFilterDefault: ENV === "ur",
         showProfileLink: ENV === "gr",

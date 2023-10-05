@@ -133,33 +133,31 @@ class CustomVisibility(Authenticated, InstanceQuerysetMixin):
     def visible_additional_demands_expression(self, group):
         if settings.APPLICATION.get("PORTAL_GROUP") == self.request.group.pk:
             return (
-                ~Q(task_id=settings.ADDITIONAL_DEMAND["ADDITIONAL_DEMAND_TASK"])
+                ~Q(task_id=settings.ADDITIONAL_DEMAND["TASK"])
                 | Q(
-                    task_id=settings.ADDITIONAL_DEMAND["ADDITIONAL_DEMAND_TASK"],
+                    task_id=settings.ADDITIONAL_DEMAND["TASK"],
                     child_case__work_items__task_id=settings.ADDITIONAL_DEMAND[
-                        "ADDITIONAL_DEMAND_FILL_TASK"
+                        "FILL_TASK"
                     ],
                 )
             ) & (
                 ~Q(
                     task_id__in=[
-                        settings.ADDITIONAL_DEMAND["ADDITIONAL_DEMAND_CHECK_TASK"],
-                        settings.ADDITIONAL_DEMAND["ADDITIONAL_DEMAND_SEND_TASK"],
+                        settings.ADDITIONAL_DEMAND["CHECK_TASK"],
+                        settings.ADDITIONAL_DEMAND["SEND_TASK"],
                     ]
                 )
                 | Q(
                     task_id__in=[
-                        settings.ADDITIONAL_DEMAND["ADDITIONAL_DEMAND_CHECK_TASK"],
-                        settings.ADDITIONAL_DEMAND["ADDITIONAL_DEMAND_SEND_TASK"],
+                        settings.ADDITIONAL_DEMAND["CHECK_TASK"],
+                        settings.ADDITIONAL_DEMAND["SEND_TASK"],
                     ],
                     status=workflow_models.WorkItem.STATUS_COMPLETED,
                 )
             )
         else:
-            return ~Q(
-                task_id=settings.ADDITIONAL_DEMAND["ADDITIONAL_DEMAND_FILL_TASK"]
-            ) | Q(
-                task_id=settings.ADDITIONAL_DEMAND["ADDITIONAL_DEMAND_FILL_TASK"],
+            return ~Q(task_id=settings.ADDITIONAL_DEMAND["FILL_TASK"]) | Q(
+                task_id=settings.ADDITIONAL_DEMAND["FILL_TASK"],
                 status=workflow_models.WorkItem.STATUS_COMPLETED,
             )
 

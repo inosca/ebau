@@ -3,7 +3,7 @@
 {{else}}
   {{#each this.demand.childCase.workItems as |demand|}}
     {{#if (can "display additional-demand" demand)}}
-      <div class="uk-card uk-card-default uk-padding uk-margin-bottom">
+      <div class="uk-card uk-card-default uk-padding uk-margin-bottom additional-demand-form">
         <h3 class="uk-flex uk-flex-middle uk-text-large uk-margin-remove">
           {{#if (eq demand.task.slug "fill-additional-demand")}}
             <UkIcon @icon="reply" class="uk-margin-small-right" />

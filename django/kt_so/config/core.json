@@ -501,7 +501,7 @@
       "template": null,
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 9,
+      "sort": 10,
       "form_group": 1
     }
   },
@@ -516,7 +516,7 @@
       "template": "/ember-camac-ng/journal.phtml",
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 10,
+      "sort": 11,
       "form_group": 1
     }
   },
@@ -547,6 +547,21 @@
       "class_field": "menu-category-process",
       "hidden": 0,
       "sort": 7,
+      "form_group": 1
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 11,
+    "fields": {
+      "available_instance_resource": "page",
+      "resource": 3,
+      "name": null,
+      "description": null,
+      "template": "/ember-camac-ng/additional-demand.phtml",
+      "class_field": "menu-category-process",
+      "hidden": 0,
+      "sort": 9,
       "form_group": 1
     }
   },
@@ -647,6 +662,16 @@
       "instance_resource": 10,
       "language": "de",
       "name": "Zirkulation",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 11,
+    "fields": {
+      "instance_resource": 11,
+      "language": "de",
+      "name": "Nachforderungen",
       "description": null
     }
   },
@@ -1276,6 +1301,42 @@
     "pk": 70,
     "fields": {
       "instance_resource": 10,
+      "role": 6,
+      "instance_state": 5
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 71,
+    "fields": {
+      "instance_resource": 11,
+      "role": 5,
+      "instance_state": 4
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 72,
+    "fields": {
+      "instance_resource": 11,
+      "role": 6,
+      "instance_state": 4
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 73,
+    "fields": {
+      "instance_resource": 11,
+      "role": 5,
+      "instance_state": 5
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 74,
+    "fields": {
+      "instance_resource": 11,
       "role": 6,
       "instance_state": 5
     }
