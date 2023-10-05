@@ -1,6 +1,33 @@
 [
   {
     "model": "caluma_form.form",
+    "pk": "are-geschaeft",
+    "fields": {
+      "created_at": "2023-10-05T11:37:32.283Z",
+      "modified_at": "2023-10-05T11:37:32.283Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"ARE-Gesch\\u00e4ft\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {
+        "visibility": {
+          "type": "specific",
+          "visibleFor": {
+            "roles": [12],
+            "services": [7]
+          }
+        },
+        "is_creatable": true
+      },
+      "is_published": true,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "baugesuch",
     "fields": {
       "created_at": "2020-08-03T12:21:13.219Z",
@@ -246,6 +273,231 @@
       "is_published": true,
       "is_archived": false,
       "source": null
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "are-geschaeft.are-geschaeft-assekuranznummer",
+    "fields": {
+      "created_at": "2023-10-05T12:19:35.850Z",
+      "modified_at": "2023-10-05T12:19:35.850Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "are-geschaeft",
+      "question": "are-geschaeft-assekuranznummer",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "are-geschaeft.are-geschaeft-bemerkung",
+    "fields": {
+      "created_at": "2023-10-05T12:08:50.180Z",
+      "modified_at": "2023-10-05T12:08:50.180Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "are-geschaeft",
+      "question": "are-geschaeft-bemerkung",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "are-geschaeft.are-geschaeft-betroffene-nutzungszonen",
+    "fields": {
+      "created_at": "2023-10-05T12:20:27.984Z",
+      "modified_at": "2023-10-05T12:20:27.984Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "are-geschaeft",
+      "question": "are-geschaeft-betroffene-nutzungszonen",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "are-geschaeft.are-geschaeft-einordnung",
+    "fields": {
+      "created_at": "2023-10-05T12:06:23.373Z",
+      "modified_at": "2023-10-05T12:06:23.373Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "are-geschaeft",
+      "question": "are-geschaeft-einordnung",
+      "sort": 14
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "are-geschaeft.are-geschaeft-grundstuecknummer",
+    "fields": {
+      "created_at": "2023-10-05T12:19:10.210Z",
+      "modified_at": "2023-10-05T12:19:10.210Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "are-geschaeft",
+      "question": "are-geschaeft-grundstuecknummer",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "are-geschaeft.are-geschaeft-koordinaten",
+    "fields": {
+      "created_at": "2023-10-05T12:19:52.280Z",
+      "modified_at": "2023-10-05T12:19:52.280Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "are-geschaeft",
+      "question": "are-geschaeft-koordinaten",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "are-geschaeft.are-geschaeft-lokalisierung",
+    "fields": {
+      "created_at": "2023-10-05T12:17:22.915Z",
+      "modified_at": "2023-10-05T12:17:22.915Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "are-geschaeft",
+      "question": "are-geschaeft-lokalisierung",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "are-geschaeft.are-geschaeft-natuerlichejuristische-personen",
+    "fields": {
+      "created_at": "2023-10-05T12:15:19.329Z",
+      "modified_at": "2023-10-05T12:15:19.329Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "are-geschaeft",
+      "question": "are-geschaeft-natuerlichejuristische-personen",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "are-geschaeft.are-geschaeft-ort",
+    "fields": {
+      "created_at": "2023-10-05T12:18:47.963Z",
+      "modified_at": "2023-10-05T12:18:47.963Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "are-geschaeft",
+      "question": "are-geschaeft-ort",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "are-geschaeft.are-geschaeft-personalien",
+    "fields": {
+      "created_at": "2023-10-05T12:16:38.832Z",
+      "modified_at": "2023-10-05T12:16:38.832Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "are-geschaeft",
+      "question": "are-geschaeft-personalien",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "are-geschaeft.are-geschaeft-plz",
+    "fields": {
+      "created_at": "2023-10-05T12:18:29.908Z",
+      "modified_at": "2023-10-05T12:18:29.908Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "are-geschaeft",
+      "question": "are-geschaeft-plz",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "are-geschaeft.are-geschaeft-strasse-nr",
+    "fields": {
+      "created_at": "2023-10-05T12:18:11.061Z",
+      "modified_at": "2023-10-05T12:18:11.061Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "are-geschaeft",
+      "question": "are-geschaeft-strasse-nr",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "are-geschaeft.are-geschaeft-titel",
+    "fields": {
+      "created_at": "2023-10-05T11:58:53.646Z",
+      "modified_at": "2023-10-05T11:58:53.646Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "are-geschaeft",
+      "question": "are-geschaeft-titel",
+      "sort": 15
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "are-geschaeft.are-geschaeft-vorhaben",
+    "fields": {
+      "created_at": "2023-10-05T12:07:54.420Z",
+      "modified_at": "2023-10-05T12:07:54.420Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "are-geschaeft",
+      "question": "are-geschaeft-vorhaben",
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "are-geschaeft.voranfrage-button-abschliessen",
+    "fields": {
+      "created_at": "2023-10-05T12:56:55.460Z",
+      "modified_at": "2023-10-05T12:56:55.460Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "are-geschaeft",
+      "question": "voranfrage-button-abschliessen",
+      "sort": 1
     }
   },
   {
@@ -1510,6 +1762,54 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "are-geschaeft-einordnung-baugesuche",
+    "fields": {
+      "created_at": "2023-10-05T12:06:23.274Z",
+      "modified_at": "2023-10-05T12:06:23.274Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Baugesuche\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "are-geschaeft-einordnung-kantonale-richtplanung",
+    "fields": {
+      "created_at": "2023-10-05T12:06:23.278Z",
+      "modified_at": "2023-10-05T12:06:23.278Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Kantonale Richtplanung\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "are-geschaeft-einordnung-raumbeobachtung",
+    "fields": {
+      "created_at": "2023-10-05T12:06:23.277Z",
+      "modified_at": "2023-10-05T12:06:23.277Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Raumbeobachtung\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "beschwerdeverfahren-entscheid-art-abweisung",
     "fields": {
       "created_at": "2021-10-29T08:47:23.438Z",
@@ -1778,6 +2078,488 @@
       "is_archived": false,
       "meta": {},
       "source": null
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "are-geschaeft-assekuranznummer",
+    "fields": {
+      "created_at": "2023-10-05T12:19:35.813Z",
+      "modified_at": "2023-10-05T12:19:35.813Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Assekuranznummer\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "are-geschaeft-bemerkung",
+    "fields": {
+      "created_at": "2023-10-05T12:08:50.138Z",
+      "modified_at": "2023-10-05T12:08:50.138Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkung\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "are-geschaeft-betroffene-nutzungszonen",
+    "fields": {
+      "created_at": "2023-10-05T12:20:27.944Z",
+      "modified_at": "2023-10-05T12:20:27.944Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Betroffene Nutzungszone(n)\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "are-geschaeft-einordnung",
+    "fields": {
+      "created_at": "2023-10-05T12:06:23.327Z",
+      "modified_at": "2023-10-05T12:51:43.668Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Einordnung\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/powerselect"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "are-geschaeft-grundstuecknummer",
+    "fields": {
+      "created_at": "2023-10-05T12:19:10.168Z",
+      "modified_at": "2023-10-05T12:19:10.168Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Grundst\\u00fccknummer\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "are-geschaeft-koordinaten",
+    "fields": {
+      "created_at": "2023-10-05T12:19:52.242Z",
+      "modified_at": "2023-10-05T12:19:52.242Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Koordinaten\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "are-geschaeft-lokalisierung",
+    "fields": {
+      "created_at": "2023-10-05T12:17:22.877Z",
+      "modified_at": "2023-10-05T12:52:03.732Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Lokalisierung\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"### Lokalisierung\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "are-geschaeft-natuerlichejuristische-personen",
+    "fields": {
+      "created_at": "2023-10-05T12:15:19.293Z",
+      "modified_at": "2023-10-05T12:16:02.717Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"nat\\u00fcrliche/juristische Personen\", \"fr\": null, \"it\": null}",
+      "type": "table",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "columnsToDisplay": [
+          "voranfrage-rolle",
+          "voranfrage-personalien-anrede",
+          "voranfrage-personalien-firma-koerperschaft",
+          "voranfrage-personalien-name",
+          "voranfrage-personalien-vorname",
+          "voranfrage-personalien-strasse-nr",
+          "voranfrage-personalien-plz",
+          "voranfrage-personalien-ort",
+          "voranfrage-personalien-e-mail",
+          "voranfrage-personalien-tel-nr"
+        ]
+      },
+      "data_source": null,
+      "row_form": "voranfrage-personalien",
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "are-geschaeft-ort",
+    "fields": {
+      "created_at": "2023-10-05T12:18:47.922Z",
+      "modified_at": "2023-10-05T12:18:47.922Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ort\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "are-geschaeft-personalien",
+    "fields": {
+      "created_at": "2023-10-05T12:16:38.793Z",
+      "modified_at": "2023-10-05T12:51:57.936Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Personalien\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"### Personalien\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "are-geschaeft-plz",
+    "fields": {
+      "created_at": "2023-10-05T12:18:29.864Z",
+      "modified_at": "2023-10-05T12:18:29.864Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"PLZ\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "are-geschaeft-strasse-nr",
+    "fields": {
+      "created_at": "2023-10-05T12:18:11.013Z",
+      "modified_at": "2023-10-05T12:18:11.013Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Strasse, Nr.\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "are-geschaeft-titel",
+    "fields": {
+      "created_at": "2023-10-05T11:58:53.597Z",
+      "modified_at": "2023-10-05T12:51:03.453Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"ARE Gesch\\u00e4ft\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"# ARE-Gesch\\u00e4ft\\n\\n### Allgemeine Informationen\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "are-geschaeft-vorhaben",
+    "fields": {
+      "created_at": "2023-10-05T12:07:54.381Z",
+      "modified_at": "2023-10-05T12:08:12.883Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Vorhaben / Betreff\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
     }
   },
   {
@@ -4350,6 +5132,51 @@
       "default_answer": null,
       "calc_expression": null,
       "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "are-geschaeft-einordnung.are-geschaeft-einordnung-baugesuche",
+    "fields": {
+      "created_at": "2023-10-05T12:51:43.672Z",
+      "modified_at": "2023-10-05T12:51:43.672Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "are-geschaeft-einordnung",
+      "option": "are-geschaeft-einordnung-baugesuche",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "are-geschaeft-einordnung.are-geschaeft-einordnung-kantonale-richtplanung",
+    "fields": {
+      "created_at": "2023-10-05T12:51:43.671Z",
+      "modified_at": "2023-10-05T12:51:43.671Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "are-geschaeft-einordnung",
+      "option": "are-geschaeft-einordnung-kantonale-richtplanung",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "are-geschaeft-einordnung.are-geschaeft-einordnung-raumbeobachtung",
+    "fields": {
+      "created_at": "2023-10-05T12:51:43.671Z",
+      "modified_at": "2023-10-05T12:51:43.671Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "are-geschaeft-einordnung",
+      "option": "are-geschaeft-einordnung-raumbeobachtung",
+      "sort": 1
     }
   },
   {
