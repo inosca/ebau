@@ -79,7 +79,7 @@ export default class CustomCaseModel extends CustomCaseBaseModel {
         id
         name
       }
-      answers(filter: [{ questions: ["voranfrage-vorhaben"] }]) {
+      answers(filter: [{ questions: ["voranfrage-vorhaben","are-geschaeft-vorhaben"] }]) {
         edges {
           node {
             id

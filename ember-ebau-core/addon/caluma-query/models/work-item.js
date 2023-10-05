@@ -373,7 +373,7 @@ export default class CustomWorkItemModel extends WorkItemModel {
           form {
             name
           }
-          answers(filter: [{ questions: ["beschreibung-bauvorhaben", "voranfrage-vorhaben"] }]) {
+          answers(filter: [{ questions: ["beschreibung-bauvorhaben", "voranfrage-vorhaben", "are-geschaeft-vorhaben"] }]) {
             edges {
               node {
                 ... on StringAnswer {

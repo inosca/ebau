@@ -16,6 +16,6 @@ export default {
   },
   externalServiceGroupIds: [],
   useLocation: true,
-  intentSlugs: ["voranfrage-vorhaben"],
+  intentSlugs: ["voranfrage-vorhaben", "are-geschaeft-vorhaben"],
   answerSlugs: {},
 };
