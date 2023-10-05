@@ -34,6 +34,7 @@ export default class InstanceModel extends Model {
   @hasMany("service", { inverse: null, async: true }) services;
   @hasMany("service", { inverse: null, async: false }) involvedServices;
   @hasMany("instance", { inverse: null, async: true }) linkedInstances;
+  @hasMany("user", { inverse: null, async: true }) responsibleServiceUsers;
 
   unlink() {
     const adapter = this.store.adapterFor("instance");
