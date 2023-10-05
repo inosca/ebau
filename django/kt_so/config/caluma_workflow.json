@@ -1,6 +1,19 @@
 [
   {
     "model": "caluma_workflow.flow",
+    "pk": "36538014-b2b2-4c33-9118-12acc9fc99d5",
+    "fields": {
+      "created_at": "2023-10-04T09:46:19.901Z",
+      "modified_at": "2023-10-04T09:46:19.901Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "next": "[\"create-publication\"]|tasks"
+    }
+  },
+  {
+    "model": "caluma_workflow.flow",
     "pk": "3fe4832b-94cf-46a7-842f-aa9862ade1b3",
     "fields": {
       "created_at": "2023-10-02T07:36:31.003Z",
@@ -10,6 +23,19 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "next": "[\"material-exam\"]|tasks"
+    }
+  },
+  {
+    "model": "caluma_workflow.flow",
+    "pk": "4252dbf6-4a03-4982-9688-14125c771a61",
+    "fields": {
+      "created_at": "2023-10-04T09:46:20.825Z",
+      "modified_at": "2023-10-04T09:46:20.825Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "next": "[\"fill-publication\"]|tasks"
     }
   },
   {
@@ -217,6 +243,38 @@
       "lead_time": null,
       "is_multiple_instance": false,
       "continue_async": false
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
+    "pk": "5516d0f0-a4a5-41dd-95dc-25986af6ecde",
+    "fields": {
+      "created_at": "2023-10-04T09:46:19.950Z",
+      "modified_at": "2023-10-04T09:46:19.956Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "workflow": "building-permit",
+      "task": "fill-publication",
+      "flow": "36538014-b2b2-4c33-9118-12acc9fc99d5",
+      "redoable": null
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
+    "pk": "60609463-f3f6-4685-aeec-51115c5562fc",
+    "fields": {
+      "created_at": "2023-10-04T09:46:20.874Z",
+      "modified_at": "2023-10-04T09:46:20.874Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "workflow": "building-permit",
+      "task": "create-publication",
+      "flow": "4252dbf6-4a03-4982-9688-14125c771a61",
+      "redoable": null
     }
   },
   {

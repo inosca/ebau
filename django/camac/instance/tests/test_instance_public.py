@@ -16,7 +16,6 @@ from rest_framework import status
 
 from camac.document import permissions
 from camac.instance import urls
-from camac.settings_publication import PUBLICATION as PUBLICATION_SETTINGS
 
 
 @pytest.fixture
@@ -30,8 +29,8 @@ def enable_public_urls(application_settings):
 
 
 @pytest.fixture
-def create_caluma_publication(db, caluma_publication, settings, application_settings):
-    application_settings["PUBLICATION_BACKEND"] = "caluma"
+def create_caluma_publication(db, caluma_publication, publication_settings):
+    publication_settings["BACKEND"] = "caluma"
 
     def wrapper(
         instance,
@@ -42,12 +41,12 @@ def create_caluma_publication(db, caluma_publication, settings, application_sett
         publication_document = DocumentFactory()
         AnswerFactory(
             document=publication_document,
-            question_id=settings.PUBLICATION["START_QUESTIONS"][0],
+            question_id=publication_settings["START_QUESTIONS"][0],
             date=start,
         )
         AnswerFactory(
             document=publication_document,
-            question_id=settings.PUBLICATION["END_QUESTIONS"][0],
+            question_id=publication_settings["END_QUESTIONS"][0],
             date=end,
         )
         WorkItemFactory(
@@ -121,6 +120,7 @@ def test_public_caluma_instance_enabled_empty_qs(
 def test_public_caluma_instance_ur(
     db,
     application_settings,
+    publication_settings,
     admin_client,
     ur_instance,
     enable_public_urls,
@@ -136,7 +136,7 @@ def test_public_caluma_instance_ur(
 ):
     settings.APPLICATION_NAME = "kt_uri"
     application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_uri"]["MASTER_DATA"]
-    application_settings["PUBLICATION_BACKEND"] = "camac-ng"
+    publication_settings["BACKEND"] = "camac-ng"
 
     publication_entry_factory(
         publication_date=timezone.now() - timedelta(days=1),
@@ -295,7 +295,7 @@ def test_public_caluma_instance_oereb_ur(
 )
 def test_public_caluma_documents_ur(
     db,
-    application_settings,
+    publication_settings,
     admin_client,
     admin_user,
     ur_instance,
@@ -313,7 +313,7 @@ def test_public_caluma_documents_ur(
     if is_applicant:
         applicant_factory(invitee=admin_user, instance=ur_instance)
 
-    application_settings["PUBLICATION_BACKEND"] = "camac-ng"
+    publication_settings["BACKEND"] = "camac-ng"
 
     publication_entry_factory(
         publication_date=timezone.now() - timedelta(days=1),
@@ -353,6 +353,7 @@ def test_public_caluma_documents_ur(
 def test_public_instance_sz(
     db,
     application_settings,
+    publication_settings,
     admin_client,
     instance,
     publication_entry_factory,
@@ -364,7 +365,7 @@ def test_public_instance_sz(
     application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_schwyz"][
         "MASTER_DATA"
     ]
-    application_settings["PUBLICATION_BACKEND"] = "camac-ng"
+    publication_settings["BACKEND"] = "camac-ng"
 
     publication_entry_factory(
         publication_date=timezone.now() - timedelta(days=1),
@@ -403,6 +404,7 @@ def test_public_instance_sz(
 def test_public_documents_sz(
     db,
     application_settings,
+    publication_settings,
     admin_client,
     admin_user,
     instance,
@@ -419,7 +421,7 @@ def test_public_documents_sz(
     if is_applicant:
         applicant_factory(invitee=admin_user, instance=instance)
 
-    application_settings["PUBLICATION_BACKEND"] = "camac-ng"
+    publication_settings["BACKEND"] = "camac-ng"
 
     publication_entry_factory(
         publication_date=timezone.now() - timedelta(days=1),
@@ -567,6 +569,7 @@ def test_public_caluma_instance_municipality_filter(
 def test_public_caluma_instance_form_type_filter(
     db,
     application_settings,
+    publication_settings,
     admin_client,
     instance_factory,
     instance_with_case,
@@ -575,7 +578,7 @@ def test_public_caluma_instance_form_type_filter(
     publication_entry_factory,
 ):
     application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_uri"]["MASTER_DATA"]
-    application_settings["PUBLICATION_BACKEND"] = "camac-ng"
+    publication_settings["BACKEND"] = "camac-ng"
 
     instances = [
         instance_with_case(instance) for instance in instance_factory.create_batch(5)
@@ -619,11 +622,12 @@ def test_public_caluma_instance_form_type_filter(
 def test_information_of_neighbors_instance_be(
     db,
     application_settings,
+    publication_settings,
     client,
     be_instance,
     enable_public_urls,
 ):
-    application_settings["PUBLICATION_BACKEND"] = "caluma"
+    publication_settings["BACKEND"] = "caluma"
     application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_bern"][
         "MASTER_DATA"
     ]
@@ -738,6 +742,7 @@ def test_information_of_neighbors_instance_be(
 def test_public_caluma_instance_gr(
     db,
     application_settings,
+    gr_publication_settings,
     settings,
     client,
     gr_instance,
@@ -749,8 +754,6 @@ def test_public_caluma_instance_gr(
     end_date_municipality,
     end_date_canton,
 ):
-    settings.PUBLICATION = PUBLICATION_SETTINGS["kt_gr"]
-    application_settings["PUBLICATION_BACKEND"] = "caluma"
     application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_gr"]["MASTER_DATA"]
 
     document = DocumentFactory()
