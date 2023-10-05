@@ -6,15 +6,10 @@ from alexandria.core.permissions import (
 )
 from django.conf import settings
 
+from camac.alexandria.extensions.common import get_role
+from camac.alexandria.extensions.permissions import classes as permissions
 from camac.instance.models import Instance
 from camac.user.utils import get_group
-
-from .common import get_role
-
-if settings.APPLICATION_NAME == "kt_gr":  # pragma: no cover
-    import camac.alexandria.extensions.permissions_kt_gr as permissions
-else:
-    import camac.alexandria.extensions.permissions_base as permissions
 
 
 def get_permission_name(category, user):
