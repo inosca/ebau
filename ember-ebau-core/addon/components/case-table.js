@@ -140,6 +140,17 @@ export default class CaseTableComponent extends Component {
           },
         ],
       },
+      caseCreatedDateBefore: {
+        createdBefore: DateTime.fromISO(filter.caseCreatedDateBefore)
+          .endOf("day")
+          .toISO(),
+      },
+
+      caseCreatedDateAfter: {
+        createdAfter: DateTime.fromISO(filter.caseCreatedDateAfter)
+          .startOf("day")
+          .toISO(),
+      },
       intent: {
         searchAnswers: [
           {
