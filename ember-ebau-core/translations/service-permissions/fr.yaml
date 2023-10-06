@@ -6,6 +6,9 @@ service-permissions:
   email: "Courriel"
   group: "Groupe"
   name: "Nom"
+  name-hint: |-
+    <strong>Remarque : </strong>pour que le nom et le lieu de l'unité d'un service spécialisé soient
+    également définis dans d'autres langues, changez de langue, adaptez le libellé et appuyez à nouveau sur "Enregistrer".
   phone: "Téléphone"
   website: "Site Internet"
   website-placeholder: "https://gr.ch"
