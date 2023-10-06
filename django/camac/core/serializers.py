@@ -186,9 +186,6 @@ class InstanceResourceSerializer(serializers.ModelSerializer, MultilingualSerial
 
             return f"task-form/{task}"
 
-        if ir_type == "publication":
-            return "publication/public"
-
         if ir_type == "page":
             type_mapping = {
                 "/ember/instance.phtml": "form",
@@ -200,6 +197,8 @@ class InstanceResourceSerializer(serializers.ModelSerializer, MultilingualSerial
                 "/ember-camac-ng/corrections.phtml": "corrections",
                 "/ember-camac-ng/additional-demand.phtml": "additional-demand",
                 "/ember-camac-ng/responsible.phtml": "responsible",
+                "/ember-camac-ng/publication.phtml": "publication/public",
+                "/ember-camac-ng/information-of-neighbors.phtml": "publication/neighbors",
             }
             return type_mapping.get(obj.template)
 
