@@ -221,13 +221,26 @@ class ServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):
         service = super().create(validated_data)
 
         if settings.APPLICATION.get("IS_MULTILINGUAL"):
+            language = get_language()
             models.ServiceT.objects.create(
                 service=service,
-                language=get_language(),
+                language=language,
                 name=name,
                 city=city,
                 description=description,
             )
+            # If no translation is defined for a multilingual model in the current language,
+            # it uses the fallback language. Create a fallback translation, to ensure that
+            # the application doesn't run into issues for the other languages that have no
+            # translation defined.
+            if not language == settings.LANGUAGE_CODE:  # pragma: todo cover
+                models.ServiceT.objects.create(
+                    service=service,
+                    language=settings.LANGUAGE_CODE,
+                    name=name,
+                    city=city,
+                    description=description,
+                )
 
         # Create a group for each role that is defined as subservice role
         for role_name in settings.APPLICATION.get("SUBSERVICE_ROLES", []):
@@ -247,10 +260,19 @@ class ServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):
                     language=get_language(),
                 )
 
+                # Create a fallback translation, to ensure that the application doesn't run
+                # into issues for the other languages that have no translation defined.
+                if not language == settings.LANGUAGE_CODE:  # pragma: todo cover
+                    models.GroupT.objects.create(
+                        group=group,
+                        name=name,
+                        language=settings.LANGUAGE_CODE,
+                    )
+
         return service
 
     @transaction.atomic
-    def update(self, instance, validated_data):
+    def update(self, instance, validated_data):  # noqa: C901
         old_name = instance.get_name()
         new_name = validated_data.get("name", old_name)
 
@@ -267,18 +289,40 @@ class ServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):
 
         instance = super().update(instance, validated_data)
 
-        if all(
-            (
-                old_name == new_name,
-                old_description == new_description,
-                old_city == new_city,
+        language = get_language()
+        # If a new service translation will be created for the language, perform
+        # the update, even though the old and new values may be the same
+        create_new_translation = False
+        if settings.APPLICATION.get("IS_MULTILINGUAL"):
+            service_t = instance.get_trans_obj()
+            create_new_translation = service_t.language != language
+
+        if (
+            all(
+                (
+                    old_name == new_name,
+                    old_description == new_description,
+                    old_city == new_city,
+                )
             )
+            and not create_new_translation
         ):  # pragma: no cover
             return instance
 
         if settings.APPLICATION.get("IS_MULTILINGUAL"):
             service_t = instance.get_trans_obj()
-            if service_t:
+            # If there is no service translation defined for the current language
+            # we create a new service translation to edit, instead of editing the
+            # fallback translation
+            if service_t and not service_t.language == language:  # pragma: todo cover
+                models.ServiceT.objects.create(
+                    service=instance,
+                    language=language,
+                    name=new_name,
+                    city=new_city,
+                    description=new_description,
+                )
+            elif service_t:
                 service_t.name = new_name
                 service_t.description = new_description
                 service_t.city = new_city
@@ -290,11 +334,20 @@ class ServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):
             for group in instance.groups.iterator():
                 name = self.get_group_name(new_name, group.role)
                 if settings.APPLICATION.get("IS_MULTILINGUAL"):
-                    group = group.get_trans_obj()
-                    if not group:  # pragma: no cover
-                        continue
-                group.name = name
-                group.save()
+                    group_t = group.get_trans_obj()
+                    if (
+                        group_t and not group_t.language == language
+                    ):  # pragma: todo cover
+                        models.GroupT.objects.create(
+                            group=group, name=name, language=language
+                        )
+                    elif group_t:
+                        group_t.name = name
+                        group_t.save()
+
+                else:
+                    group.name = name
+                    group.save()
 
         return instance
 
