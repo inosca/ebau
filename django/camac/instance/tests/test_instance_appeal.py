@@ -21,6 +21,7 @@ def instance_for_appeal(
     mocker,
     service,
     settings,
+    be_decision_settings,
 ):
     application_settings["ACTIVE_SERVICES"] = settings.APPLICATIONS["kt_bern"][
         "ACTIVE_SERVICES"

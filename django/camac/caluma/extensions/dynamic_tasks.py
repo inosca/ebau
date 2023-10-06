@@ -14,9 +14,7 @@ class CustomDynamicTasks(BaseDynamicTasks):
                 case.instance, prev_work_item
             )
         ):
-            return settings.APPLICATION["CALUMA"][
-                "TASKS_AFTER_BUILDING_PERMIT_DECISION"
-            ]
+            return settings.DECISION["TASKS_AFTER_BUILDING_PERMIT_DECISION"]
 
         return []
 

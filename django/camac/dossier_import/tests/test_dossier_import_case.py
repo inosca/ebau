@@ -66,6 +66,7 @@ def test_create_instance_dossier_import_case(
     construction_control_for,
     admin_user,
     group,
+    be_decision_settings,
 ):
     # The test import file features faulty lines for cov
     # - 3 lines with good data (1 without documents directory)
@@ -791,6 +792,7 @@ def test_set_workflow_state_be(
     construction_control_for,
     expected_work_items_states,
     expected_case_status,
+    be_decision_settings,
 ):
     # This test skips instance creation where the instance's instance_state is set to the correct
     # state.

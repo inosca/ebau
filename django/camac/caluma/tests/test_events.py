@@ -24,6 +24,7 @@ def test_copy_papierdossier(
     expected_value,
     decision_factory,
     application_settings,
+    be_decision_settings,
 ):
     application_settings["SHORT_NAME"] = "be"
     case = be_instance.case
@@ -64,6 +65,7 @@ def test_copy_sb_personalien(
     use_fallback,
     decision_factory,
     application_settings,
+    be_decision_settings,
 ):
     settings.APPLICATION_NAME = "kt_bern"
     application_settings["SHORT_NAME"] = "be"
@@ -133,6 +135,7 @@ def test_post_complete_sb1(
     instance_service_factory,
     settings,
     application_settings,
+    be_decision_settings,
 ):
     settings.APPLICATION_NAME = "kt_bern"
     application_settings["SHORT_NAME"] = "be"
@@ -194,6 +197,7 @@ def test_copy_municipality_tags_for_sb1(
     instance_state_factory,
     settings,
     application_settings,
+    be_decision_settings,
 ):
     settings.APPLICATION_NAME = "kt_bern"
     application_settings["SHORT_NAME"] = "be"
@@ -265,6 +269,7 @@ def test_copy_responsible_person_lead_authority(
     user_factory,
     settings,
     application_settings,
+    be_decision_settings,
 ):
     settings.APPLICATION_NAME = "kt_bern"
     application_settings["SHORT_NAME"] = "be"
@@ -324,6 +329,7 @@ def test_copy_tank_installation(
     expect_copy,
     decision_factory,
     application_settings,
+    be_decision_settings,
 ):
     application_settings["SHORT_NAME"] = "be"
 

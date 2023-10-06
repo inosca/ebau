@@ -1393,6 +1393,7 @@ def test_instance_report(
     caluma_admin_user,
     decision_factory,
     settings,
+    be_decision_settings,
 ):
     settings.APPLICATION_NAME = "kt_bern"
     application_settings["SHORT_NAME"] = "be"
@@ -1476,6 +1477,7 @@ def test_instance_finalize(
     form_question_factory,
     decision_factory,
     settings,
+    be_decision_settings,
 ):
     settings.APPLICATION_NAME = "kt_bern"
     application_settings["SHORT_NAME"] = "be"
@@ -2406,6 +2408,7 @@ def test_filter_decision_date(
     instance_service_factory,
     instance_with_case,
     service,
+    be_decision_settings,
 ):
     for decision_date in [
         date(2022, 8, 18),
@@ -2440,6 +2443,7 @@ def test_filter_decision(
     instance_service_factory,
     instance_with_case,
     service,
+    be_decision_settings,
 ):
     for decision in [
         "decision-decision-assessment-accepted",
@@ -2543,7 +2547,13 @@ def test_filter_inquiry_answer(
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
 def test_inquiry_and_decision_data(
-    db, snapshot, active_inquiry_factory, admin_client, be_instance, decision_factory
+    db,
+    snapshot,
+    active_inquiry_factory,
+    admin_client,
+    be_instance,
+    decision_factory,
+    be_decision_settings,
 ):
     active_inquiry_factory(created_at=make_aware(datetime(2022, 9, 1)))
     decision_factory(decision_date=date(2022, 11, 16))

@@ -21,7 +21,6 @@ from camac.constants.kt_bern import (
     DECISION_TYPE_PARTIAL_PERMIT_WITH_PARTIAL_CONSTRUCTION_TEE_AND_PARTIAL_RESTORATION,
     DECISIONS_BEWILLIGT,
 )
-from camac.constants.kt_gr import DECISIONS_BEWILLIGT as DECISIONS_BEWILLIGT_GR
 from camac.core.models import InstanceLocation, InstanceService
 from camac.core.utils import canton_aware, generate_dossier_nr
 from camac.instance.models import Instance, InstanceGroup
@@ -641,7 +640,7 @@ class DecisionLogic:
                 copy_responsible_person_lead_authority(instance, construction_control)
             else:
                 instance.set_instance_state(
-                    settings.APPLICATION["CALUMA"]["INSTANCE_STATE_AFTER_DECISION"],
+                    settings.DECISION["INSTANCE_STATE_AFTER_DECISION"],
                     camac_user,
                 )
 
@@ -655,14 +654,20 @@ class DecisionLogic:
     def should_continue_after_decision(
         cls, instance: Instance, work_item: workflow_models.WorkItem
     ) -> bool:
-        raise NotImplementedError("Not implemented")  # pragma: no cover
+        answers = work_item.document.answers
+        decision = answers.filter(question_id=settings.DECISION["QUESTION_SLUG"])
+
+        if not decision:  # pragma: no cover
+            return False
+
+        return decision[0].value == settings.DECISION["APPROVED"]
 
     @classmethod
     def should_continue_after_decision_be(
         cls, instance: Instance, work_item: workflow_models.WorkItem
     ) -> bool:
         answers = work_item.document.answers
-        decision = answers.filter(question_id="decision-decision-assessment")
+        decision = answers.filter(question_id=settings.DECISION["QUESTION_SLUG"])
 
         if not decision:  # pragma: no cover
             return False
@@ -692,18 +697,6 @@ class DecisionLogic:
             DECISION_TYPE_CONSTRUCTION_TEE_WITH_RESTORATION,
             DECISION_TYPE_PARTIAL_PERMIT_WITH_PARTIAL_CONSTRUCTION_TEE_AND_PARTIAL_RESTORATION,
         ]
-
-    @classmethod
-    def should_continue_after_decision_gr(
-        cls, instance: Instance, work_item: workflow_models.WorkItem
-    ) -> bool:
-        answers = work_item.document.answers
-        decision = answers.filter(question_id="decision-decision")
-
-        if not decision:  # pragma: no cover
-            return False
-
-        return decision[0].value == DECISIONS_BEWILLIGT_GR
 
 
 def copy_municipality_tags(instance, construction_control):

@@ -169,7 +169,7 @@ class NoticeRulingSendHandler(DocumentAccessibilityMixin, BaseSendHandler):
             ).document
             save_answer(
                 document=decision_document,
-                question=Question.objects.get(slug="decision-decision-assessment"),
+                question=Question.objects.get(slug=settings.DECISION["QUESTION_SLUG"]),
                 value=decision,
             )
             save_answer(

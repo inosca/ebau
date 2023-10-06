@@ -5,7 +5,6 @@ from caluma.caluma_workflow.events import post_complete_work_item
 from caluma.caluma_workflow.models import Workflow, WorkItem
 from django.core.management import call_command
 
-from camac.constants import kt_gr as gr_constants
 from camac.constants.kt_bern import (
     DECISION_TYPE_BUILDING_PERMIT,
     DECISION_TYPE_CONSTRUCTION_TEE_WITH_RESTORATION,
@@ -39,12 +38,12 @@ def construction_control(instance_service_factory, be_instance, service_factory)
     "decision,expected_instance_state,expected_text",
     [
         (
-            gr_constants.DECISIONS_BEWILLIGT,
+            "APPROVED",
             "construction-monitoring",
             "Bauentscheid verfügt",
         ),
         (
-            gr_constants.DECISIONS_ABGELEHNT,
+            "REJECTED",
             "finished",
             "Bauentscheid verfügt",
         ),
@@ -66,15 +65,10 @@ def test_complete_decision(
     settings,
     application_settings,
 ):
-    settings.APPLICATION_NAME = "kt_gr"
-    application_settings["SHORT_NAME"] = "gr"
     instance_state_factory(name=expected_instance_state)
 
     application_settings["CALUMA"][
         "CONSTRUCTION_MONITORING_TASK"
-    ] = "construction-monitoring"
-    application_settings["CALUMA"][
-        "INSTANCE_STATE_AFTER_DECISION"
     ] = "construction-monitoring"
     application_settings["CALUMA"]["DECISION_TASK"] = "decision"
     settings.APPLICATION["NOTIFICATIONS"] = {}
@@ -92,7 +86,9 @@ def test_complete_decision(
         slug="decision-decision", label="Entscheid", type=Question.TYPE_TEXT
     )
 
-    work_item.document.answers.create(question=decision_question, value=decision)
+    work_item.document.answers.create(
+        question=decision_question, value=settings.DECISION[decision]
+    )
 
     send_event(
         post_complete_work_item,
@@ -176,10 +172,9 @@ def test_complete_decision_be(
     decision_factory,
     construction_control,
     settings,
+    be_decision_settings,
 ):
     settings.APPLICATION_NAME = "kt_bern"
-    instance_state_factory(name=expected_instance_state)
-
     application_settings["SHORT_NAME"] = "be"
     application_settings["CALUMA"]["DECISION_TASK"] = "decision"
     application_settings["NOTIFICATIONS"] = {
@@ -196,6 +191,8 @@ def test_complete_decision_be(
             }
         ],
     }
+
+    instance_state_factory(name=expected_instance_state)
 
     be_instance.case.workflow = Workflow.objects.get(pk=workflow)
     be_instance.case.save()
@@ -261,13 +258,14 @@ def test_complete_decision_appeal(
     previous_instance_state,
     settings,
     application_settings,
+    be_decision_settings,
 ):
     settings.APPLICATION_NAME = "kt_bern"
+    application_settings["SHORT_NAME"] = "be"
     call_command(
         "loaddata", settings.ROOT_DIR("kt_bern/config/caluma_ebau_number_form.json")
     )
 
-    application_settings["SHORT_NAME"] = "be"
     be_appeal_settings["NOTIFICATIONS"]["APPEAL_DECISION"] = [
         {
             "template_slug": notification_template.slug,
