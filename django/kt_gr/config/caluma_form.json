@@ -54634,7 +54634,7 @@
     "pk": "hinweistext-dokumente",
     "fields": {
       "created_at": "2023-05-17T08:14:51.899Z",
-      "modified_at": "2023-05-17T08:17:52.016Z",
+      "modified_at": "2023-10-06T16:03:10.733Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -54647,7 +54647,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"Hiermit best\\u00e4tige ich, dass ich die folgenden Pflichtinhalte hochgeladen habe. Bitte beachten Sie, dass die Liste der angegebenen Pflichtdokumente nicht abschliessend ist. Bitte konsultieren Sie das kommunale Baugesetz.\\n\\nHinweise f\\u00fcr eine gute Plandarstellung finden Sie in der [Zeichenhilfe f\\u00fcr Baugesuche](https://www.gr.ch/DE/institutionen/verwaltung/dvs/are/BAB/Zeichenhilfe%20Baugesuche_web.pdf).\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"Hinweise f\\u00fcr eine gute Plandarstellung finden Sie in der [Zeichenhilfe f\\u00fcr Baugesuche](https://www.gr.ch/DE/institutionen/verwaltung/dvs/are/BAB/Zeichenhilfe%20Baugesuche_web.pdf).\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
