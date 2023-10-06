@@ -1,8 +1,7 @@
 PUBLICATION = {
     "default": {
         "BACKEND": "caluma",
-        "START_QUESTIONS": ["publikation-startdatum"],
-        "END_QUESTIONS": ["publikation-ablaufdatum"],
+        "RANGE_QUESTIONS": [("publikation-startdatum", "publikation-ablaufdatum")],
         "FILL_TASKS": ["fill-publication"],
     },
     "test": {
@@ -45,21 +44,22 @@ PUBLICATION = {
     "kt_gr": {
         "ENABLED": True,
         "USE_CALCULATED_DATES": True,
-        "START_QUESTIONS": [
-            "beginn-publikationsorgan-gemeinde",
-            "beginn-publikation-kantonsamtsblatt",
-        ],
-        "END_QUESTIONS": [
-            "ende-publikationsorgan-gemeinde",
-            "ende-publikation-kantonsamtsblatt",
+        "RANGE_QUESTIONS": [
+            (
+                "beginn-publikationsorgan-gemeinde",
+                "ende-publikationsorgan-gemeinde",
+            ),
+            (
+                "beginn-publikation-kantonsamtsblatt",
+                "ende-publikation-kantonsamtsblatt",
+            ),
         ],
         "PUBLISH_QUESTION": "oeffentliche-auflage",
         "PUBLISH_ANSWER": ["oeffentliche-auflage-ja"],
     },
     "kt_so": {
         "ENABLED": True,
-        "START_QUESTIONS": ["publikation-start"],
-        "END_QUESTIONS": ["publikation-ende"],
+        "RANGE_QUESTIONS": [("publikation-start", "publikation-ende")],
     },
     "kt_schwyz": {
         "ENABLED": True,
