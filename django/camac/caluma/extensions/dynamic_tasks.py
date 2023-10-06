@@ -87,16 +87,11 @@ class CustomDynamicTasks(BaseDynamicTasks):
         self, case, user, prev_work_item, context
     ):
         decision = prev_work_item.document.answers.get(
-            question_id=settings.ADDITIONAL_DEMAND[
-                "ADDITIONAL_DEMAND_DECISION_QUESTION"
-            ]
+            question_id=settings.ADDITIONAL_DEMAND["DECISION_QUESTION"]
         )
 
-        if (
-            settings.ADDITIONAL_DEMAND["ADDITIONAL_DEMAND_DECISION_REJECT"]
-            == decision.value
-        ):
-            return [settings.ADDITIONAL_DEMAND["ADDITIONAL_DEMAND_FILL_TASK"]]
+        if settings.ADDITIONAL_DEMAND["DECISION_REJECT"] == decision.value:
+            return [settings.ADDITIONAL_DEMAND["FILL_TASK"]]
 
         return []
 
@@ -106,9 +101,9 @@ class CustomDynamicTasks(BaseDynamicTasks):
 
         if not case.work_items.filter(
             addressed_groups=context["addressed_groups"],
-            task_id=settings.ADDITIONAL_DEMAND["ADDITIONAL_DEMAND_CREATE_TASK"],
+            task_id=settings.ADDITIONAL_DEMAND["CREATE_TASK"],
             status=WorkItem.STATUS_READY,
         ).exists():
-            tasks.append(settings.ADDITIONAL_DEMAND["ADDITIONAL_DEMAND_CREATE_TASK"])
+            tasks.append(settings.ADDITIONAL_DEMAND["CREATE_TASK"])
 
         return tasks

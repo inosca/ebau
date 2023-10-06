@@ -19,6 +19,6 @@
       </span>
     {{/let}}
 
-    <UkIcon @icon={{this.status.icon}} title={{this.status.title}} />
+    <UkIcon @icon={{this.status.icon}} {{uk-tooltip this.status.title pos="top"}} />
   </LinkTo>
 </li>
