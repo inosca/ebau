@@ -332,7 +332,7 @@ def test_dynamic_task_after_create_inquiry(
         work_item_factory(
             case=gr_instance.case,
             addressed_groups=context["addressed_groups"],
-            task_id=additional_demand_settings["ADDITIONAL_DEMAND_CREATE_TASK"],
+            task_id=additional_demand_settings["CREATE_TASK"],
         )
 
     tasks = set(

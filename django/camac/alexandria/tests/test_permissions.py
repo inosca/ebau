@@ -426,9 +426,7 @@ def test_kt_gr_permissions(
 
     if status_code != HTTP_403_FORBIDDEN:
         work_item = work_item_factory(
-            task=task_factory(
-                slug=additional_demand_settings["ADDITIONAL_DEMAND_FILL_TASK"]
-            ),
+            task=task_factory(slug=additional_demand_settings["FILL_TASK"]),
             document=gr_instance.case.document,
         )
         gr_instance.case.work_items.add(work_item)

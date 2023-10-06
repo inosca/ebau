@@ -132,6 +132,7 @@ mutation DistributionWorkflow {
         "init-distribution"
         "complete-distribution"
         "create-inquiry"
+        "init-additional-demand"
       ]
       allowForms: ["distribution"]
       isPublished: true

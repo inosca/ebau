@@ -1,0 +1,6 @@
+.additional-demand-form {
+  // remove bottom margin of last visible form field
+  form > .uk-margin:nth-last-child(1 of :not(.uk-hidden)) {
+    margin-bottom: 0;
+  }
+}

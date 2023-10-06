@@ -80,23 +80,34 @@ class CustomDynamicGroups(BaseDynamicGroups):
     def resolve_create_init_additional_demand(
         self, task, case, user, prev_work_item, context, **kwargs
     ):
-        if not prev_work_item:
-            return self.resolve_municipality(
-                task, case, user, prev_work_item, context, **kwargs
+        if prev_work_item:
+            target_ids = set()
+
+            if prev_work_item.task_id == settings.ADDITIONAL_DEMAND["CREATE_TASK"]:
+                target_ids = set(prev_work_item.addressed_groups)
+            elif prev_work_item.task_id == settings.DISTRIBUTION["INQUIRY_CREATE_TASK"]:
+                target_ids = set(context.get("addressed_groups", []))
+
+            # We should not create a new "init-additional-demand" work item if
+            # there already is a ready one for that service.
+            existing_ids = set(
+                chain(
+                    *case.work_items.filter(
+                        task_id=settings.ADDITIONAL_DEMAND["CREATE_TASK"],
+                        status=WorkItem.STATUS_READY,
+                    ).values_list("addressed_groups", flat=True)
+                )
             )
-        elif (
-            prev_work_item.task_id
-            == settings.ADDITIONAL_DEMAND["ADDITIONAL_DEMAND_CREATE_TASK"]
-        ):
-            return prev_work_item.addressed_groups
-        elif prev_work_item.task_id == settings.DISTRIBUTION["INQUIRY_CREATE_TASK"]:
-            target_ids = set(context.get("addressed_groups", []))
 
             services = Service.objects.filter(
-                pk__in=target_ids,
-                service_parent__isnull=True,  # Subservices can't create any inquiries
+                pk__in=target_ids - existing_ids,
+                service_parent__isnull=True,  # Subservices can't create any additional demands
             )
 
             return [str(pk) for pk in services.values_list("pk", flat=True)]
 
-        return None  # pragma: no cover
+        # If no context is given it's the first "init-additional-demand" work
+        # item in the case which must be assigned to the municipality
+        return self.resolve_municipality(
+            task, case, user, prev_work_item, context, **kwargs
+        )
