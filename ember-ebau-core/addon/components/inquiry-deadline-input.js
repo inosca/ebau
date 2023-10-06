@@ -9,8 +9,10 @@ export default class InquiryDeadlineInputComponent extends Component {
   constructor(owner, args) {
     super(owner, args);
 
-    this.disabled = mainConfig.coordinationServices?.any((coorId) =>
-      this.args.context.selectedGroups.includes(String(coorId)),
+    this.disabled = mainConfig.coordinationServices?.any(
+      (coorId) =>
+        this.args?.context?.selectedGroups?.includes(String(coorId)) ||
+        this.args?.context?.inquiry?.addressedGroups?.includes(String(coorId)),
     );
 
     if (this.disabled) {
