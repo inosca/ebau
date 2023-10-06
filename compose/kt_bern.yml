@@ -16,6 +16,7 @@ services:
       args:
         APPLICATION: ${APPLICATION}
         APP_ENV: ${APP_ENV:-production}
+        PORTAL_URL: $$PORTAL_URL
 
   ember-caluma-portal:
     image: acr.run/camac-ng/camac-ng/ember-caluma-portal:master
