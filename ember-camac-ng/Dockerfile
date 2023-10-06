@@ -15,6 +15,7 @@ WORKDIR /myapp/ember-camac-ng
 
 ARG APPLICATION
 ARG APP_ENV
+ARG PORTAL_URL
 
 RUN yarn deploy production
 
