@@ -579,7 +579,12 @@
       "name": "{\"de\": \"Nachforderung pr\\u00fcfen\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
-      "meta": {},
+      "meta": {
+        "directLink": {
+          "route": "cases.detail.additional-demand",
+          "models": ["INSTANCE_ID"]
+        }
+      },
       "address_groups": "info.case.created_by_group",
       "control_groups": null,
       "is_archived": false,
