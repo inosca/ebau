@@ -114,7 +114,7 @@ export default class WorkItemListItemComponent extends Component {
 
     if (applicationName === "camac-ng") {
       if (this.args.workItem.editLink) {
-        location.replace(this.args.workItem.editLink);
+        return location.replace(this.args.workItem.editLink);
       }
     }
     yield this.router.transitionTo(
