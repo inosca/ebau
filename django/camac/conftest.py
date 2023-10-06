@@ -56,7 +56,6 @@ from camac.instance.serializers import SUBMIT_DATE_FORMAT
 from camac.notification import factories as notification_factories
 from camac.objection import factories as objection_factories
 from camac.responsible import factories as responsible_factories
-from camac.settings import load_module_settings
 from camac.tags import factories as tags_factories
 from camac.urls import urlpatterns as app_patterns
 from camac.user import factories as user_factories
@@ -1212,14 +1211,6 @@ def gql():
         return Path(file).read_text()
 
     return wrapper
-
-
-@pytest.fixture
-def be_appeal_settings(settings):
-    _original = settings.APPEAL
-    settings.APPEAL = load_module_settings("appeal", "kt_bern")
-    yield settings.APPEAL
-    settings.APPEAL = _original
 
 
 @pytest.fixture

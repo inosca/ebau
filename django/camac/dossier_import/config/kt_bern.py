@@ -452,7 +452,7 @@ class KtBernDossierWriter(DossierWriter):
         }
         form_api.save_answer(
             document=decision_work_item.document,
-            question=Question.objects.get(slug="decision-decision-assessment"),
+            question=Question.objects.get(slug=settings.DECISION["QUESTION_SLUG"]),
             value=decision_mapping[dossier._meta.workflow][dossier._meta.target_state],
             user=self._caluma_user,
         )

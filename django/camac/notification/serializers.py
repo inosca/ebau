@@ -851,11 +851,9 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         if not decision:
             return ""
 
-        if answer := find_answer(
-            decision.document, "decision-decision-assessment", language=language
-        ):
-            return answer
-        return find_answer(decision.document, "decision-decision", language=language)
+        return find_answer(
+            decision.document, settings.DECISION["QUESTION_SLUG"], language=language
+        )
 
     def to_representation(self, instance):
         ret = super().to_representation(instance)

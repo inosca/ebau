@@ -694,6 +694,7 @@ def test_notification_caluma_placeholders(
     total_inquiries,
     with_inquiry,
     decision_factory,
+    be_decision_settings,
 ):
     notification_template.body = """
         BASE_URL: {{BASE_URL}}

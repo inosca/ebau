@@ -138,6 +138,7 @@ def test_notice_ruling_send_handler(
     ech_snapshot,
     decision_factory,
     settings,
+    be_decision_settings,
 ):
     settings.APPLICATION_NAME = "kt_bern"
     if is_vorabklaerung:
@@ -381,6 +382,7 @@ def test_close_dossier_send_handler(
     decision_factory,
     caluma_admin_user,
     ech_snapshot,
+    be_decision_settings,
 ):
     instance_state_factory(name="finished")
 

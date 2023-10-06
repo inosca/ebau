@@ -531,7 +531,7 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
     def get_decision(self, instance):
         answer = (
             form_models.Answer.objects.filter(
-                question_id="decision-decision-assessment",
+                question_id=settings.DECISION["QUESTION_SLUG"],
                 document__work_item__task_id="decision",
                 document__work_item__status__in=[
                     workflow_models.WorkItem.STATUS_COMPLETED,
