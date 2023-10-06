@@ -1,8 +1,9 @@
 import logging
 
+from caluma.caluma_form.models import Answer
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
-from django.db.models import Q
+from django.db.models import Exists, OuterRef, Q
 from django.db.models.constants import LOOKUP_SEP
 from django.utils import timezone
 from django.utils.translation import gettext as _
@@ -256,8 +257,7 @@ class InstanceQuerysetMixin(object):
                 "meta__is-published": True,
                 "status": WorkItem.STATUS_COMPLETED,
             }
-            start_questions = settings.PUBLICATION.get("START_QUESTIONS")
-            end_questions = settings.PUBLICATION.get("END_QUESTIONS")
+            ranges = settings.PUBLICATION.get("RANGE_QUESTIONS")
             publish_question = settings.PUBLICATION.get("PUBLISH_QUESTION")
 
             if public_access_key:
@@ -267,20 +267,33 @@ class InstanceQuerysetMixin(object):
                         "document__pk__startswith": public_access_key,
                     }
                 )
-                start_questions = ["information-of-neighbors-start-date"]
-                end_questions = ["information-of-neighbors-end-date"]
+                ranges = [
+                    (
+                        "information-of-neighbors-start-date",
+                        "information-of-neighbors-end-date",
+                    )
+                ]
 
-            public_cases = (
-                WorkItem.objects.filter(**filters)
-                .filter(
-                    document__answers__question_id__in=start_questions,
-                    document__answers__date__lte=timezone.now(),
+            range_filters = Q()
+            for start_question, end_question in ranges:
+                range_filters |= Q(
+                    Exists(
+                        Answer.objects.filter(
+                            document_id=OuterRef("document_id"),
+                            question_id=start_question,
+                            date__lte=timezone.now(),
+                        )
+                    )
+                    & Exists(
+                        Answer.objects.filter(
+                            document_id=OuterRef("document_id"),
+                            question_id=end_question,
+                            date__gte=timezone.now(),
+                        )
+                    )
                 )
-                .filter(
-                    document__answers__question_id__in=end_questions,
-                    document__answers__date__gte=timezone.now(),
-                )
-            )
+
+            public_cases = WorkItem.objects.filter(**filters).filter(range_filters)
 
             if publish_question:
                 public_cases = public_cases.filter(
