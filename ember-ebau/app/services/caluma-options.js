@@ -45,7 +45,7 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
 
   @cached
   get distribution() {
-    const statusMapping = macroCondition(getOwnConfig().application === "kt_gr")
+    const statusMapping = macroCondition(getOwnConfig().application === "gr")
       ? {
           "inquiry-answer-status-positive": INQUIRY_STATUS.POSITIVE,
           "inquiry-answer-status-negative": INQUIRY_STATUS.NEGATIVE,
@@ -54,7 +54,7 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
           "inquiry-answer-status-written-off": INQUIRY_STATUS.NEGATIVE,
         }
       : {};
-    const types = macroCondition(getOwnConfig().application === "kt_gr")
+    const types = macroCondition(getOwnConfig().application === "gr")
       ? {
           "authority-bab": {
             label: "distribution.authority-bab",
