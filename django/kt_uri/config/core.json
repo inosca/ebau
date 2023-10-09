@@ -17207,6 +17207,15 @@
     }
   },
   {
+    "model": "core.broleacl",
+    "pk": 12000113,
+    "fields": {
+      "button": 149,
+      "role": 6,
+      "instance_state": 32
+    }
+  },
+  {
     "model": "core.billingconfig",
     "pk": 1,
     "fields": {
