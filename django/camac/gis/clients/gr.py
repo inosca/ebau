@@ -178,10 +178,13 @@ class GrGisClient(GISBaseClient):
 
             for layer in layers:
                 for data in self.get_xml(resonse_content, layer):
-                    if find(data, "Bezeichnung"):
-                        result[question] += [
-                            f"{find(data, 'Bezeichnung')}{'('+ find(data, 'Verbindlichkeit')+')' if find(data, 'Verbindlichkeit') and find(data, 'Verbindlichkeit')!='Nutzungsplanfestlegung' else ''}"
-                        ]
+                    if bezeichnung := find(data, "Bezeichnung"):
+                        bracket = ""
+                        if verbindlichkeit := find(data, "Verbindlichkeit"):
+                            if verbindlichkeit != "Nutzungsplanfestlegung":
+                                bracket = " (" + verbindlichkeit + ")"
+
+                        result[question] += [bezeichnung + bracket]
 
         return {
             question: ", ".join(value) for question, value in result.items() if value
