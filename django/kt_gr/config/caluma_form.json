@@ -6664,7 +6664,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "ausbildungsnachweis",
-      "sort": 19
+      "sort": 20
     }
   },
   {
@@ -6679,7 +6679,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "bericht-zur-umweltvertraeglichkeitspruefung-uvp",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -6694,7 +6694,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "bodenkundliches-fachgutachten",
-      "sort": 15
+      "sort": 16
     }
   },
   {
@@ -6709,7 +6709,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "brandschutzkonzept",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -6724,7 +6724,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "brandschutzplaene",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -6739,7 +6739,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "dispositionsplan-heizungsraum",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -6754,7 +6754,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "einfache-brandschutzplaene",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -6769,7 +6769,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "feststellungsverfuegung",
-      "sort": 12
+      "sort": 13
     }
   },
   {
@@ -6784,7 +6784,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "gesuch-feuerpolizeiliche-bewilligung",
-      "sort": 21
+      "sort": 22
     }
   },
   {
@@ -6799,7 +6799,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "hinweistext-dokumente",
-      "sort": 22
+      "sort": 23
     }
   },
   {
@@ -6814,7 +6814,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "messbericht",
-      "sort": 20
+      "sort": 21
     }
   },
   {
@@ -6844,7 +6844,22 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "resultate-der-geforderten-bodenuntersuchung",
-      "sort": 18
+      "sort": 19
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente.rodungsgesuch",
+    "fields": {
+      "created_at": "2023-10-09T09:14:16.675Z",
+      "modified_at": "2023-10-09T09:14:16.675Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente",
+      "question": "rodungsgesuch",
+      "sort": 1
     }
   },
   {
@@ -6859,7 +6874,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "rodungsgesuchsformular",
-      "sort": 14
+      "sort": 15
     }
   },
   {
@@ -6874,7 +6889,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "sicherheitsdatenblatt",
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -6889,7 +6904,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "tragbarkeitsberechnung",
-      "sort": 11
+      "sort": 12
     }
   },
   {
@@ -6904,7 +6919,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "vereinbarkeit-zweitwohnungsgesetz",
-      "sort": 13
+      "sort": 14
     }
   },
   {
@@ -6919,7 +6934,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "vkf-anerkennungenleistungserklaerung-dop",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -6934,7 +6949,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "vorablaerungsbericht-tiefbauamt-leitungen",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -6949,7 +6964,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "vorablaerungsbericht-tiefbauamt-naeherbauten",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -6964,7 +6979,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "vorablaerungsbericht-tiefbauamt-strassenreklamen",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -6979,7 +6994,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "zusatzbewilligung-kantonsstrassen",
-      "sort": 17
+      "sort": 18
     }
   },
   {
@@ -6994,7 +7009,7 @@
       "modified_by_group": null,
       "form": "dokumente",
       "question": "zusatzbewilligung-naturgefahren",
-      "sort": 16
+      "sort": 17
     }
   },
   {
@@ -29334,6 +29349,22 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rodungsgesuch-ja",
+    "fields": {
+      "created_at": "2023-10-09T09:14:16.299Z",
+      "modified_at": "2023-10-09T09:14:16.299Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Rodungsgesuch inkl. den darin aufgef\\u00fchrten Beilagen\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -62598,6 +62629,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "rodungsgesuch",
+    "fields": {
+      "created_at": "2023-10-09T09:14:16.517Z",
+      "modified_at": "2023-10-09T09:17:16.129Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Rodungsgesuch\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "\"rodung-ja\" != \"rodung\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "rodungsgesuchsformular",
     "fields": {
       "created_at": "2023-05-17T07:30:44.973Z",
@@ -82490,6 +82552,21 @@
       "modified_by_group": null,
       "question": "rodung",
       "option": "rodung-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rodungsgesuch.rodungsgesuch-ja",
+    "fields": {
+      "created_at": "2023-10-09T09:17:16.145Z",
+      "modified_at": "2023-10-09T09:17:16.145Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "rodungsgesuch",
+      "option": "rodungsgesuch-ja",
       "sort": 1
     }
   },
