@@ -345,12 +345,15 @@ class InstanceView(
         return False
 
     def has_object_correction_permission_for_municipality(self, instance):
+        if not settings.CORRECTION:  # pragma: no cover
+            return False
+
         if self.request.group.role.name != "municipality-lead":
             return False
 
         return instance.instance_state.name in [
-            *settings.APPLICATION.get("INSTANCE_STATE_CORRECTION_ALLOWED", []),
-            "correction",
+            *settings.CORRECTION["ALLOWED_INSTANCE_STATES"],
+            settings.CORRECTION["INSTANCE_STATE"],
         ]
 
     def has_object_correction_permission_for_support(self, instance):
