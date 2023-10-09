@@ -409,7 +409,6 @@ module.exports = function (environment) {
         excludeFromDocuments: [],
         feedbackSections: ["alle-beteiligten"], // Alle Beteiligten
       },
-      },
       instanceStates: instanceStatesSo,
       modification: {
         allowForms: [],
