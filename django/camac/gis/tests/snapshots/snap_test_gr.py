@@ -7,16 +7,81 @@ from snapshottest import Snapshot
 
 snapshots = Snapshot()
 
-snapshots['test_gr_client[markers0-POINT-baugesuch] 1'] = {
+snapshots['test_gr_client[query0-baugesuch] 1'] = {
     'data': {
         'ausserhalb-bauzone': {
             'displayValue': 'nein',
             'label': 'ausserhalb-bauzone',
             'value': 'ausserhalb-bauzone-nein'
         },
-        'coordinates': {
-            'label': None,
-            'value': "'2730678.226988568,1122327.0823116319'"
+        'das-bauvorhaben-befindet-sich-in': {
+            'label': 'das-bauvorhaben-befindet-sich-in',
+            'value': [
+                {
+                    'displayValue': 'gewaesserschutzbereich',
+                    'value': 'das-bauvorhaben-befindet-sich-in-gewaesserschutzbereich'
+                },
+                {
+                    'displayValue': 'archaeologiezone',
+                    'value': 'das-bauvorhaben-befindet-sich-in-archaeologiezone'
+                }
+            ]
+        },
+        'gemeinde': {
+            'label': 'gemeinde',
+            'value': 'Chur'
+        },
+        'genereller-erschliessungsplan': {
+            'label': 'genereller-erschliessungsplan',
+            'value': 'Fussgängerzone Altstadt, Parkierung Gebiete A'
+        },
+        'genereller-gestaltungsplan': {
+            'label': 'genereller-gestaltungsplan',
+            'value': 'Bauten und Anlagen schützenswert, Schutzbereich Altstadt'
+        },
+        'kantonsstrassen': {
+            'displayValue': 'nein',
+            'label': 'kantonsstrassen',
+            'value': 'kantonsstrassen-nein'
+        },
+        'parzelle': {
+            'form': 'property-rate',
+            'label': 'parzelle',
+            'value': [
+                {
+                    'e-grid-nr': {
+                        'label': 'e-grid-nr',
+                        'value': 'CH676877828654'
+                    },
+                    'liegenschaftsnummer': {
+                        'label': 'liegenschaftsnummer',
+                        'value': '2830'
+                    }
+                }
+            ]
+        },
+        'street-and-housenumber': {
+            'label': 'street-and-housenumber',
+            'value': 'Hof 19'
+        },
+        'waldareal': {
+            'displayValue': 'nein',
+            'label': 'waldareal',
+            'value': 'waldareal-nein'
+        },
+        'zonenplan': {
+            'label': 'zonenplan',
+            'value': 'Keine Gefahrenzone, Archäologiezone, Zentrumszone Altstadt 2'
+        }
+    }
+}
+
+snapshots['test_gr_client[query1-baugesuch] 1'] = {
+    'data': {
+        'ausserhalb-bauzone': {
+            'displayValue': 'nein',
+            'label': 'ausserhalb-bauzone',
+            'value': 'ausserhalb-bauzone-nein'
         },
         'das-bauvorhaben-befindet-sich-in': {
             'label': 'das-bauvorhaben-befindet-sich-in',
@@ -68,19 +133,25 @@ snapshots['test_gr_client[markers0-POINT-baugesuch] 1'] = {
     }
 }
 
-snapshots['test_gr_client[markers1-POINT-bauanzeige] 1'] = {
+snapshots['test_gr_client[query10-baugesuch] 1'] = {
     'data': {
-        'coordinates': {
-            'label': None,
-            'value': "'2730678.226988568,1122327.0823116319'"
+        'das-bauvorhaben-befindet-sich-in': {
+            'label': 'das-bauvorhaben-befindet-sich-in',
+            'value': [
+                {
+                    'displayValue': 'gewaesserschutzbereich',
+                    'value': 'das-bauvorhaben-befindet-sich-in-gewaesserschutzbereich'
+                }
+            ]
         },
         'gemeinde': {
             'label': 'gemeinde',
-            'value': 'Roveredo (GR)'
+            'value': 'Chur'
         },
-        'genereller-gestaltungsplan': {
-            'label': 'genereller-gestaltungsplan',
-            'value': 'Linea di allineamento per la strutturazione edilizia, Linea di allineamento per la strutturazione edilizia'
+        'kantonsstrassen': {
+            'displayValue': 'nein',
+            'label': 'kantonsstrassen',
+            'value': 'kantonsstrassen-nein'
         },
         'parzelle': {
             'form': 'property-rate',
@@ -89,28 +160,29 @@ snapshots['test_gr_client[markers1-POINT-bauanzeige] 1'] = {
                 {
                     'e-grid-nr': {
                         'label': 'e-grid-nr',
-                        'value': 'CH737679917002'
+                        'value': 'CH427965866853'
                     },
                     'liegenschaftsnummer': {
                         'label': 'liegenschaftsnummer',
-                        'value': '3051'
+                        'value': '31778'
                     }
                 }
             ]
         },
+        'waldareal': {
+            'displayValue': 'nein',
+            'label': 'waldareal',
+            'value': 'waldareal-nein'
+        },
         'zonenplan': {
             'label': 'zonenplan',
-            'value': 'Nessuna zona di pericolo, Zona residenziale (i.s. 0.7)'
+            'value': 'Gewässerraumzone, Keine Gefahrenzone, Zone übriges Gemeindegebiet (Gewässer)'
         }
     }
 }
 
-snapshots['test_gr_client[markers10-POINT-baugesuch] 1'] = {
+snapshots['test_gr_client[query11-baugesuch] 1'] = {
     'data': {
-        'coordinates': {
-            'label': None,
-            'value': "'2757771.4499999997,1192182.0312499998'"
-        },
         'das-bauvorhaben-befindet-sich-in': {
             'label': 'das-bauvorhaben-befindet-sich-in',
             'value': [
@@ -169,16 +241,124 @@ snapshots['test_gr_client[markers10-POINT-baugesuch] 1'] = {
     }
 }
 
-snapshots['test_gr_client[markers2-LINESTRING-baugesuch] 1'] = {
+snapshots['test_gr_client[query12-baugesuch] 1'] = {
     'data': {
         'ausserhalb-bauzone': {
             'displayValue': 'nein',
             'label': 'ausserhalb-bauzone',
             'value': 'ausserhalb-bauzone-nein'
         },
-        'coordinates': {
-            'label': None,
-            'value': "'2730686.563711087,1122237.578980265', '2730701.779260571,1122223.4682885902'"
+        'das-bauvorhaben-befindet-sich-in': {
+            'label': 'das-bauvorhaben-befindet-sich-in',
+            'value': [
+                {
+                    'displayValue': 'gewaesserschutzbereich',
+                    'value': 'das-bauvorhaben-befindet-sich-in-gewaesserschutzbereich'
+                },
+                {
+                    'displayValue': 'archaeologiezone',
+                    'value': 'das-bauvorhaben-befindet-sich-in-archaeologiezone'
+                }
+            ]
+        },
+        'folgeplanung': {
+            'label': 'folgeplanung',
+            'value': 'Quartierplan Welschdörfli 4 (hinweisend), GÜP Welschdörfli West (hinweisend)'
+        },
+        'gemeinde': {
+            'label': 'gemeinde',
+            'value': 'Chur'
+        },
+        'genereller-erschliessungsplan': {
+            'label': 'genereller-erschliessungsplan',
+            'value': 'Parkierung Gebiete B'
+        },
+        'genereller-gestaltungsplan': {
+            'label': 'genereller-gestaltungsplan',
+            'value': 'Quartierplan (QP)'
+        },
+        'kantonsstrassen': {
+            'displayValue': 'nein',
+            'label': 'kantonsstrassen',
+            'value': 'kantonsstrassen-nein'
+        },
+        'parzelle': {
+            'form': 'property-rate',
+            'label': 'parzelle',
+            'value': [
+                {
+                    'e-grid-nr': {
+                        'label': 'e-grid-nr',
+                        'value': 'CH776877828620'
+                    },
+                    'liegenschaftsnummer': {
+                        'label': 'liegenschaftsnummer',
+                        'value': '2733'
+                    }
+                },
+                {
+                    'baurecht-nummer': {
+                        'label': 'baurecht-nummer',
+                        'value': '12768'
+                    },
+                    'e-grid-nr': {
+                        'label': 'e-grid-nr',
+                        'value': 'CH907068848655'
+                    }
+                }
+            ]
+        },
+        'waldareal': {
+            'displayValue': 'nein',
+            'label': 'waldareal',
+            'value': 'waldareal-nein'
+        },
+        'zonenplan': {
+            'label': 'zonenplan',
+            'value': 'Keine Gefahrenzone, Archäologiezone, Wohnzone 5'
+        }
+    }
+}
+
+snapshots['test_gr_client[query2-bauanzeige] 1'] = {
+    'data': {
+        'gemeinde': {
+            'label': 'gemeinde',
+            'value': 'Roveredo (GR)'
+        },
+        'genereller-gestaltungsplan': {
+            'label': 'genereller-gestaltungsplan',
+            'value': 'Linea di allineamento per la strutturazione edilizia, Linea di allineamento per la strutturazione edilizia'
+        },
+        'parzelle': {
+            'form': 'property-rate',
+            'label': 'parzelle',
+            'value': [
+                {
+                    'e-grid-nr': {
+                        'label': 'e-grid-nr',
+                        'value': 'CH737679917002'
+                    },
+                    'liegenschaftsnummer': {
+                        'label': 'liegenschaftsnummer',
+                        'value': '3051'
+                    }
+                }
+            ]
+        },
+        'zonenplan': {
+            'label': 'zonenplan',
+            'value': 'Nessuna zona di pericolo, Zona residenziale (i.s. 0.7)'
+        }
+    }
+}
+
+snapshots['test_gr_client[query3-baugesuch] 1'] = {
+    'data': {
+        'ausserhalb-bauzone': {
+            'displayValue': 'nein',
+            'label': 'ausserhalb-bauzone',
+            'value': 'ausserhalb-bauzone-nein'
         },
         'das-bauvorhaben-befindet-sich-in': {
             'label': 'das-bauvorhaben-befindet-sich-in',
@@ -209,21 +389,21 @@ snapshots['test_gr_client[markers2-LINESTRING-baugesuch] 1'] = {
                 {
                     'e-grid-nr': {
                         'label': 'e-grid-nr',
-                        'value': 'CH479178647641'
-                    },
-                    'liegenschaftsnummer': {
-                        'label': 'liegenschaftsnummer',
-                        'value': '921'
-                    }
-                },
-                {
-                    'e-grid-nr': {
-                        'label': 'e-grid-nr',
                         'value': 'CH356476789154'
                     },
                     'liegenschaftsnummer': {
                         'label': 'liegenschaftsnummer',
                         'value': '920'
+                    }
+                },
+                {
+                    'e-grid-nr': {
+                        'label': 'e-grid-nr',
+                        'value': 'CH479178647641'
+                    },
+                    'liegenschaftsnummer': {
+                        'label': 'liegenschaftsnummer',
+                        'value': '921'
                     }
                 }
             ]
@@ -244,16 +424,12 @@ snapshots['test_gr_client[markers2-LINESTRING-baugesuch] 1'] = {
     }
 }
 
-snapshots['test_gr_client[markers3-POLYGON-baugesuch] 1'] = {
+snapshots['test_gr_client[query4-baugesuch] 1'] = {
     'data': {
         'ausserhalb-bauzone': {
             'displayValue': 'nein',
             'label': 'ausserhalb-bauzone',
             'value': 'ausserhalb-bauzone-nein'
-        },
-        'coordinates': {
-            'label': None,
-            'value': "'2758821.8885866464,1191884.7759206274', '2758835.689140816,1191889.2217609326', '2758844.747878619,1191856.4200200567', '2758832.507804883,1191854.8711072344'"
         },
         'das-bauvorhaben-befindet-sich-in': {
             'label': 'das-bauvorhaben-befindet-sich-in',
@@ -292,16 +468,6 @@ snapshots['test_gr_client[markers3-POLYGON-baugesuch] 1'] = {
                 {
                     'e-grid-nr': {
                         'label': 'e-grid-nr',
-                        'value': 'CH816800867795'
-                    },
-                    'liegenschaftsnummer': {
-                        'label': 'liegenschaftsnummer',
-                        'value': '4627'
-                    }
-                },
-                {
-                    'e-grid-nr': {
-                        'label': 'e-grid-nr',
                         'value': 'CH838677680049'
                     },
                     'liegenschaftsnummer': {
@@ -332,11 +498,11 @@ snapshots['test_gr_client[markers3-POLYGON-baugesuch] 1'] = {
                 {
                     'e-grid-nr': {
                         'label': 'e-grid-nr',
-                        'value': 'CH898677006887'
+                        'value': 'CH880086687762'
                     },
                     'liegenschaftsnummer': {
                         'label': 'liegenschaftsnummer',
-                        'value': '4625'
+                        'value': '4624'
                     }
                 },
                 {
@@ -352,11 +518,21 @@ snapshots['test_gr_client[markers3-POLYGON-baugesuch] 1'] = {
                 {
                     'e-grid-nr': {
                         'label': 'e-grid-nr',
-                        'value': 'CH880086687762'
+                        'value': 'CH816800867795'
                     },
                     'liegenschaftsnummer': {
                         'label': 'liegenschaftsnummer',
-                        'value': '4624'
+                        'value': '4627'
+                    }
+                },
+                {
+                    'e-grid-nr': {
+                        'label': 'e-grid-nr',
+                        'value': 'CH898677006887'
+                    },
+                    'liegenschaftsnummer': {
+                        'label': 'liegenschaftsnummer',
+                        'value': '4625'
                     }
                 }
             ]
@@ -377,16 +553,12 @@ snapshots['test_gr_client[markers3-POLYGON-baugesuch] 1'] = {
     }
 }
 
-snapshots['test_gr_client[markers4-POINT-baugesuch] 1'] = {
+snapshots['test_gr_client[query5-baugesuch] 1'] = {
     'data': {
         'ausserhalb-bauzone': {
             'displayValue': 'nein',
             'label': 'ausserhalb-bauzone',
             'value': 'ausserhalb-bauzone-nein'
-        },
-        'coordinates': {
-            'label': None,
-            'value': "'2731195.9499999997,1122174.3312499998'"
         },
         'das-bauvorhaben-befindet-sich-in': {
             'label': 'das-bauvorhaben-befindet-sich-in',
@@ -448,16 +620,12 @@ snapshots['test_gr_client[markers4-POINT-baugesuch] 1'] = {
     }
 }
 
-snapshots['test_gr_client[markers5-POINT-baugesuch] 1'] = {
+snapshots['test_gr_client[query6-baugesuch] 1'] = {
     'data': {
         'ausserhalb-bauzone': {
             'displayValue': 'ja',
             'label': 'ausserhalb-bauzone',
             'value': 'ausserhalb-bauzone-ja'
-        },
-        'coordinates': {
-            'label': None,
-            'value': "'2758622.7126099495,1190131.3069476'"
         },
         'gemeinde': {
             'label': 'gemeinde',
@@ -496,16 +664,12 @@ snapshots['test_gr_client[markers5-POINT-baugesuch] 1'] = {
     }
 }
 
-snapshots['test_gr_client[markers6-POINT-baugesuch] 1'] = {
+snapshots['test_gr_client[query7-baugesuch] 1'] = {
     'data': {
         'ausserhalb-bauzone': {
             'displayValue': 'ja',
             'label': 'ausserhalb-bauzone',
             'value': 'ausserhalb-bauzone-ja'
-        },
-        'coordinates': {
-            'label': None,
-            'value': "'2760943.8499999996,1192035.0312499998'"
         },
         'gemeinde': {
             'label': 'gemeinde',
@@ -544,16 +708,12 @@ snapshots['test_gr_client[markers6-POINT-baugesuch] 1'] = {
     }
 }
 
-snapshots['test_gr_client[markers7-LINESTRING-baugesuch] 1'] = {
+snapshots['test_gr_client[query8-baugesuch] 1'] = {
     'data': {
         'ausserhalb-bauzone': {
             'displayValue': 'ja',
             'label': 'ausserhalb-bauzone',
             'value': 'ausserhalb-bauzone-ja'
-        },
-        'coordinates': {
-            'label': None,
-            'value': "'2760930.5289222472,1192035.707010256', '2760963.900865463,1192057.817393839'"
         },
         'gemeinde': {
             'label': 'gemeinde',
@@ -602,16 +762,12 @@ snapshots['test_gr_client[markers7-LINESTRING-baugesuch] 1'] = {
     }
 }
 
-snapshots['test_gr_client[markers8-POINT-baugesuch] 1'] = {
+snapshots['test_gr_client[query9-baugesuch] 1'] = {
     'data': {
         'ausserhalb-bauzone': {
             'displayValue': 'nein',
             'label': 'ausserhalb-bauzone',
             'value': 'ausserhalb-bauzone-nein'
-        },
-        'coordinates': {
-            'label': None,
-            'value': "'2760376.3950000005,1190000.739375'"
         },
         'das-bauvorhaben-befindet-sich-in': {
             'label': 'das-bauvorhaben-befindet-sich-in',
@@ -667,58 +823,6 @@ snapshots['test_gr_client[markers8-POINT-baugesuch] 1'] = {
         'zonenplan': {
             'label': 'zonenplan',
             'value': 'Keine Gefahrenzone, Wohnzone 3'
-        }
-    }
-}
-
-snapshots['test_gr_client[markers9-POINT-baugesuch] 1'] = {
-    'data': {
-        'coordinates': {
-            'label': None,
-            'value': "'2757567.75,1192209.3312499998'"
-        },
-        'das-bauvorhaben-befindet-sich-in': {
-            'label': 'das-bauvorhaben-befindet-sich-in',
-            'value': [
-                {
-                    'displayValue': 'gewaesserschutzbereich',
-                    'value': 'das-bauvorhaben-befindet-sich-in-gewaesserschutzbereich'
-                }
-            ]
-        },
-        'gemeinde': {
-            'label': 'gemeinde',
-            'value': 'Chur'
-        },
-        'kantonsstrassen': {
-            'displayValue': 'nein',
-            'label': 'kantonsstrassen',
-            'value': 'kantonsstrassen-nein'
-        },
-        'parzelle': {
-            'form': 'property-rate',
-            'label': 'parzelle',
-            'value': [
-                {
-                    'e-grid-nr': {
-                        'label': 'e-grid-nr',
-                        'value': 'CH427965866853'
-                    },
-                    'liegenschaftsnummer': {
-                        'label': 'liegenschaftsnummer',
-                        'value': '31778'
-                    }
-                }
-            ]
-        },
-        'waldareal': {
-            'displayValue': 'nein',
-            'label': 'waldareal',
-            'value': 'waldareal-nein'
-        },
-        'zonenplan': {
-            'label': 'zonenplan',
-            'value': 'Gewässerraumzone, Keine Gefahrenzone, Zone übriges Gemeindegebiet (Gewässer)'
         }
     }
 }
