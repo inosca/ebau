@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-05 16:00+0200\n"
-"PO-Revision-Date: 2023-08-31 15:41+0200\n"
+"POT-Creation-Date: 2023-10-02 10:13+0200\n"
+"PO-Revision-Date: 2023-10-09 11:32+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
@@ -468,6 +468,25 @@ msgstr "Geoportal des Bundes"
 #: camac/gis/utils.py:21
 msgid "Coordinates must be floats"
 msgstr "Koordinaten müssen Gleitkommazahlen sein"
+
+#: camac/instance/placeholders/fields.py:750
+#: camac/instance/placeholders/fields.py:751
+#: camac/instance/placeholders/fields.py:752
+#: camac/instance/placeholders/fields.py:753
+#: camac/instance/placeholders/fields.py:754
+#: camac/instance/placeholders/fields.py:755
+#: camac/instance/placeholders/fields.py:756
+#: camac/instance/placeholders/fields.py:757
+msgid "%(title)s (submitted as %(original_title)s) on %(date)s at %(time)s"
+msgstr "%(title)s (eingereicht als %(original_title)s) am %(date)s um %(time)s"
+
+#: camac/instance/placeholders/serializers.py:571
+msgid "DECISION_DOCUMENTS"
+msgstr "ENTSCHEIDDOKUMENTE"
+
+#: camac/instance/placeholders/serializers.py:572
+msgid "All documents marked as decision documents"
+msgstr "Alle Dokumente, die als Entscheiddokumente markiert wurden"
 
 #: camac/instance/document_merge_service.py:84
 #: camac/instance/export/serializers.py:85

@@ -566,6 +566,11 @@ class GrDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         aliases=[_("END_PUBLICATION_CANTON")],
         description=_("End date of the publication in the cantonal Gazette"),
     )
+    entscheiddokumente = fields.AlexandriaDocumentField(
+        tag_id="decision",
+        aliases=[_("DECISION_DOCUMENTS")],
+        description=_("All documents marked as decision documents"),
+    )
 
 
 class BeDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
