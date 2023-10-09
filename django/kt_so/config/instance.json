@@ -72,6 +72,15 @@
     }
   },
   {
+    "model": "instance.instancestate",
+    "pk": 6,
+    "fields": {
+      "name": "correction",
+      "sort": 0,
+      "description": null
+    }
+  },
+  {
     "model": "instance.instancestatet",
     "pk": 1,
     "fields": {
@@ -118,6 +127,16 @@
       "instance_state": 5,
       "language": "de",
       "name": "In Zirkulation",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 6,
+    "fields": {
+      "instance_state": 6,
+      "language": "de",
+      "name": "In Korrektur",
       "description": null
     }
   }

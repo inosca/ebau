@@ -12,6 +12,7 @@ export default {
     subm: 120004,
     circulation: 120005,
     correction: 120008,
+    "init-distribution": 120009,
   },
   answerSlugs: {
     objectStreet: "strasse-flurname",
@@ -55,4 +56,8 @@ export default {
     },
   },
   intentSlugs: ["beschreibung-bauvorhaben"],
+  correction: {
+    instanceState: "correction",
+    allowedInstanceStates: ["subm", "init-distribution", "circulation"],
+  },
 };

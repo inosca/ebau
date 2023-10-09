@@ -2396,18 +2396,12 @@ class CalumaInstanceAppealSerializer(serializers.Serializer):
 
 
 class CalumaInstanceCorrectionSerializer(serializers.Serializer):
-    INSTANCE_STATE_CORRECTION = "correction"
-
     def validate(self, data):
-        if bool(
-            workflow_models.WorkItem.objects.filter(
-                task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
-                status=workflow_models.WorkItem.STATUS_READY,
-                case__family__meta__contains={
-                    "camac-instance-id": self.instance.pk,
-                },
-            ).count()
-        ):
+        if workflow_models.WorkItem.objects.filter(
+            task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
+            status=workflow_models.WorkItem.STATUS_READY,
+            case__family__instance=self.instance,
+        ).exists():
             raise exceptions.ValidationError(
                 _("The Dossier can't be correct because there are running inquiries.")
             )
@@ -2416,28 +2410,26 @@ class CalumaInstanceCorrectionSerializer(serializers.Serializer):
 
     @transaction.atomic
     def update(self, instance, validated_data):
-        user = self.context["request"].caluma_info.context.user
+        caluma_user = self.context["request"].caluma_info.context.user
+        camac_user = self.context["request"].user
 
-        if instance.instance_state.name in settings.APPLICATION.get(
-            "INSTANCE_STATE_CORRECTION_ALLOWED", []
+        if (
+            instance.instance_state.name
+            in settings.CORRECTION["ALLOWED_INSTANCE_STATES"]
         ):
-            workflow_api.suspend_case(instance.case, user)
-            instance.previous_instance_state = instance.instance_state
-            instance.instance_state = models.InstanceState.objects.get(
-                name=self.INSTANCE_STATE_CORRECTION
+            workflow_api.suspend_case(instance.case, caluma_user)
+            instance.set_instance_state(
+                settings.CORRECTION["INSTANCE_STATE"], camac_user
             )
-            instance.save()
-        elif instance.instance_state.name == self.INSTANCE_STATE_CORRECTION:
-            DocumentValidator().validate(instance.case.document, user)
+        elif instance.instance_state.name == settings.CORRECTION["INSTANCE_STATE"]:
+            DocumentValidator().validate(instance.case.document, caluma_user)
 
-            workflow_api.resume_case(instance.case, user)
-            instance.instance_state, instance.previous_instance_state = (
-                instance.previous_instance_state,
-                instance.instance_state,
+            workflow_api.resume_case(instance.case, caluma_user)
+            instance.set_instance_state(
+                instance.previous_instance_state.name, camac_user
             )
-            instance.save()
             create_history_entry(
-                instance, self.context["request"].user, _("Dossier corrected")
+                instance, camac_user, settings.CORRECTION["HISTORY_ENTRY"]
             )
 
         return instance

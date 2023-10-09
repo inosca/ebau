@@ -238,7 +238,7 @@ class Instance(models.Model):
 
             self.previous_instance_state = self.instance_state
             self.instance_state = InstanceState.objects.get(name=instance_state_name)
-            self.save()
+            self.save(update_fields=["previous_instance_state", "instance_state"])
 
     class Meta:
         managed = True
