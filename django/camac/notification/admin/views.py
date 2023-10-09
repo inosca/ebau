@@ -1,11 +1,14 @@
-from django.contrib.admin import ModelAdmin, display
+from django.contrib.admin import ModelAdmin, display, register
 from django.utils.translation import gettext_lazy as _
 
+from camac.admin import EbauAdminMixin
 from camac.notification.admin.forms import NotificationTemplateForm
 from camac.notification.admin.inlines import NotificationTemplateTInline
+from camac.notification.models import NotificationTemplate
 
 
-class NotificationTemplateAdmin(ModelAdmin):
+@register(NotificationTemplate)
+class NotificationTemplateAdmin(EbauAdminMixin, ModelAdmin):
     exclude = ["service", "type", "slug", "subject", "body", "purpose"]
     form = NotificationTemplateForm
     inlines = [NotificationTemplateTInline]

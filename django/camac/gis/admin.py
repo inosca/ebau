@@ -1,12 +1,13 @@
-from django.conf import settings
-from django.contrib import admin
+from django.contrib.admin import ModelAdmin, register
 from django.db.models import JSONField
 from django_json_widget.widgets import JSONEditorWidget
 
+from camac.admin import EbauAdminMixin
 from camac.gis.models import GISDataSource
 
 
-class GISDataSourceAdmin(admin.ModelAdmin):
+@register(GISDataSource)
+class GISDataSourceAdmin(EbauAdminMixin, ModelAdmin):
     list_display = ["description", "client", "disabled"]
     list_per_page = 50
     ordering = ["client", "description"]
@@ -14,7 +15,3 @@ class GISDataSourceAdmin(admin.ModelAdmin):
     formfield_overrides = {
         JSONField: {"widget": JSONEditorWidget},
     }
-
-
-if settings.APPLICATION.get("DJANGO_ADMIN", {}).get("ENABLE_GIS"):
-    admin.site.register(GISDataSource, GISDataSourceAdmin)
