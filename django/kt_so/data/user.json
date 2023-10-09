@@ -8578,6 +8578,438 @@
     }
   },
   {
+    "model": "user.group",
+    "pk": 539,
+    "fields": {
+      "role": 10,
+      "service": 108,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 540,
+    "fields": {
+      "role": 9,
+      "service": 108,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 541,
+    "fields": {
+      "role": 11,
+      "service": 108,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 542,
+    "fields": {
+      "role": 10,
+      "service": 109,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 543,
+    "fields": {
+      "role": 9,
+      "service": 109,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 544,
+    "fields": {
+      "role": 11,
+      "service": 109,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 545,
+    "fields": {
+      "role": 10,
+      "service": 110,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 546,
+    "fields": {
+      "role": 9,
+      "service": 110,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 547,
+    "fields": {
+      "role": 11,
+      "service": 110,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 548,
+    "fields": {
+      "role": 10,
+      "service": 111,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 549,
+    "fields": {
+      "role": 9,
+      "service": 111,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 550,
+    "fields": {
+      "role": 11,
+      "service": 111,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 551,
+    "fields": {
+      "role": 10,
+      "service": 112,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 552,
+    "fields": {
+      "role": 9,
+      "service": 112,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 553,
+    "fields": {
+      "role": 11,
+      "service": 112,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 554,
+    "fields": {
+      "role": 10,
+      "service": 113,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 555,
+    "fields": {
+      "role": 9,
+      "service": 113,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 556,
+    "fields": {
+      "role": 11,
+      "service": 113,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 557,
+    "fields": {
+      "role": 10,
+      "service": 114,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 558,
+    "fields": {
+      "role": 9,
+      "service": 114,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 559,
+    "fields": {
+      "role": 11,
+      "service": 114,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 560,
+    "fields": {
+      "role": 10,
+      "service": 115,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 561,
+    "fields": {
+      "role": 9,
+      "service": 115,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 562,
+    "fields": {
+      "role": 11,
+      "service": 115,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 563,
+    "fields": {
+      "role": 10,
+      "service": 116,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 564,
+    "fields": {
+      "role": 9,
+      "service": 116,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 565,
+    "fields": {
+      "role": 11,
+      "service": 116,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
     "model": "user.groupt",
     "pk": 4,
     "fields": {
@@ -13928,6 +14360,276 @@
     }
   },
   {
+    "model": "user.groupt",
+    "pk": 539,
+    "fields": {
+      "group": 539,
+      "language": "de",
+      "name": "Leitung Amt für Umwelt (AfU)",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 540,
+    "fields": {
+      "group": 540,
+      "language": "de",
+      "name": "Administration Amt für Umwelt (AfU)",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 541,
+    "fields": {
+      "group": 541,
+      "language": "de",
+      "name": "Sachbearbeitung Amt für Umwelt (AfU)",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 542,
+    "fields": {
+      "group": 542,
+      "language": "de",
+      "name": "Leitung Amt für Raumplanung (ARP)",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 543,
+    "fields": {
+      "group": 543,
+      "language": "de",
+      "name": "Administration Amt für Raumplanung (ARP)",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 544,
+    "fields": {
+      "group": 544,
+      "language": "de",
+      "name": "Sachbearbeitung Amt für Raumplanung (ARP)",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 545,
+    "fields": {
+      "group": 545,
+      "language": "de",
+      "name": "Leitung Amt für Militär und Bevölkerungsschutz",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 546,
+    "fields": {
+      "group": 546,
+      "language": "de",
+      "name": "Administration Amt für Militär und Bevölkerungsschutz",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 547,
+    "fields": {
+      "group": 547,
+      "language": "de",
+      "name": "Sachbearbeitung Amt für Militär und Bevölkerungsschutz",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 548,
+    "fields": {
+      "group": 548,
+      "language": "de",
+      "name": "Leitung Amt für Wirtschaft und Arbeit",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 549,
+    "fields": {
+      "group": 549,
+      "language": "de",
+      "name": "Administration Amt für Wirtschaft und Arbeit",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 550,
+    "fields": {
+      "group": 550,
+      "language": "de",
+      "name": "Sachbearbeitung Amt für Wirtschaft und Arbeit",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 551,
+    "fields": {
+      "group": 551,
+      "language": "de",
+      "name": "Leitung Amt für Wald, Jagd und Fischerei",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 552,
+    "fields": {
+      "group": 552,
+      "language": "de",
+      "name": "Administration Amt für Wald, Jagd und Fischerei",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 553,
+    "fields": {
+      "group": 553,
+      "language": "de",
+      "name": "Sachbearbeitung Amt für Wald, Jagd und Fischerei",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 554,
+    "fields": {
+      "group": 554,
+      "language": "de",
+      "name": "Leitung Amt für Denkmalpflege und Archäologie",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 555,
+    "fields": {
+      "group": 555,
+      "language": "de",
+      "name": "Administration Amt für Denkmalpflege und Archäologie",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 556,
+    "fields": {
+      "group": 556,
+      "language": "de",
+      "name": "Sachbearbeitung Amt für Denkmalpflege und Archäologie",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 557,
+    "fields": {
+      "group": 557,
+      "language": "de",
+      "name": "Leitung Gesundheitsamt",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 558,
+    "fields": {
+      "group": 558,
+      "language": "de",
+      "name": "Administration Gesundheitsamt",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 559,
+    "fields": {
+      "group": 559,
+      "language": "de",
+      "name": "Sachbearbeitung Gesundheitsamt",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 560,
+    "fields": {
+      "group": 560,
+      "language": "de",
+      "name": "Leitung Solothurnische Gebäudeversicherung (SGV)",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 561,
+    "fields": {
+      "group": 561,
+      "language": "de",
+      "name": "Administration Solothurnische Gebäudeversicherung (SGV)",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 562,
+    "fields": {
+      "group": 562,
+      "language": "de",
+      "name": "Sachbearbeitung Solothurnische Gebäudeversicherung (SGV)",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 563,
+    "fields": {
+      "group": 563,
+      "language": "de",
+      "name": "Leitung Procap",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 564,
+    "fields": {
+      "group": 564,
+      "language": "de",
+      "name": "Administration Procap",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 565,
+    "fields": {
+      "group": 565,
+      "language": "de",
+      "name": "Sachbearbeitung Procap",
+      "city": null
+    }
+  },
+  {
     "model": "user.usergroup",
     "pk": 1,
     "fields": {
@@ -13968,6 +14670,28 @@
       "group": 4,
       "default_group": 1,
       "created_at": "2023-09-18T11:01:57.158Z",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "user.usergroup",
+    "pk": 5,
+    "fields": {
+      "user": 1,
+      "group": 540,
+      "default_group": 0,
+      "created_at": "2023-10-09T14:18:19.476Z",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "user.usergroup",
+    "pk": 6,
+    "fields": {
+      "user": 1,
+      "group": 539,
+      "default_group": 0,
+      "created_at": "2023-10-09T14:18:19.477Z",
       "created_by": 1
     }
   },
@@ -16112,6 +16836,186 @@
     }
   },
   {
+    "model": "user.service",
+    "pk": 108,
+    "fields": {
+      "service_group": 2,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 2,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 109,
+    "fields": {
+      "service_group": 2,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 2,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 110,
+    "fields": {
+      "service_group": 2,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 2,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 111,
+    "fields": {
+      "service_group": 2,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 2,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 112,
+    "fields": {
+      "service_group": 2,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 2,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 113,
+    "fields": {
+      "service_group": 2,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 2,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 114,
+    "fields": {
+      "service_group": 2,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 2,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 115,
+    "fields": {
+      "service_group": 3,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 2,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 116,
+    "fields": {
+      "service_group": 3,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 2,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false
+    }
+  },
+  {
     "model": "user.servicet",
     "pk": 1,
     "fields": {
@@ -17285,6 +18189,105 @@
       "language": "de",
       "name": "Leitbehörde Zullwil",
       "description": "Leitbehörde Zullwil",
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 108,
+    "fields": {
+      "service": 108,
+      "language": "de",
+      "name": "Amt für Umwelt (AfU)",
+      "description": "Amt für Umwelt (AfU)",
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 109,
+    "fields": {
+      "service": 109,
+      "language": "de",
+      "name": "Amt für Raumplanung (ARP)",
+      "description": "Amt für Raumplanung (ARP)",
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 110,
+    "fields": {
+      "service": 110,
+      "language": "de",
+      "name": "Amt für Militär und Bevölkerungsschutz",
+      "description": "Amt für Militär und Bevölkerungsschutz",
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 111,
+    "fields": {
+      "service": 111,
+      "language": "de",
+      "name": "Amt für Wirtschaft und Arbeit",
+      "description": "Amt für Wirtschaft und Arbeit",
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 112,
+    "fields": {
+      "service": 112,
+      "language": "de",
+      "name": "Amt für Wald, Jagd und Fischerei",
+      "description": "Amt für Wald, Jagd und Fischerei",
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 113,
+    "fields": {
+      "service": 113,
+      "language": "de",
+      "name": "Amt für Denkmalpflege und Archäologie",
+      "description": "Amt für Denkmalpflege und Archäologie",
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 114,
+    "fields": {
+      "service": 114,
+      "language": "de",
+      "name": "Gesundheitsamt",
+      "description": "Gesundheitsamt",
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 115,
+    "fields": {
+      "service": 115,
+      "language": "de",
+      "name": "Solothurnische Gebäudeversicherung (SGV)",
+      "description": "Solothurnische Gebäudeversicherung (SGV)",
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 116,
+    "fields": {
+      "service": 116,
+      "language": "de",
+      "name": "Procap",
+      "description": "Procap",
       "city": null
     }
   }
