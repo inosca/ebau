@@ -1,17 +1,8 @@
-import operator
-import re
-from functools import reduce
-
-from django.conf import settings
-from django.contrib.admin import ModelAdmin, display
-from django.contrib.admin.utils import lookup_needs_distinct
-from django.core.exceptions import FieldDoesNotExist
+from django.contrib.admin import ModelAdmin, display, register
 from django.db import transaction
-from django.db.models import Q
-from django.db.models.constants import LOOKUP_SEP
-from django.utils.text import smart_split, unescape_string_literal
-from django.utils.translation import get_language, gettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
+from camac.admin import EbauAdminMixin, MultilingualAdminMixin
 from camac.user.admin.filters import DisabledFilter, SubserviceFilter
 from camac.user.admin.forms import GroupForm, ServiceForm, UserForm
 from camac.user.admin.inlines import (
@@ -24,7 +15,7 @@ from camac.user.admin.inlines import (
     ServiceTInline,
     UserGroupInline,
 )
-from camac.user.models import UserGroup
+from camac.user.models import Group, Role, Service, ServiceGroup, User, UserGroup
 
 
 def save_user_group_formset(request, formset):
@@ -41,101 +32,8 @@ def save_user_group_formset(request, formset):
     formset.save_m2m()
 
 
-class MultilingualAdmin:
-    def _get_multilingual(self, property, default=None):
-        ml_key = f"{property}_ml"
-
-        if settings.APPLICATION.get("IS_MULTILINGUAL") and hasattr(self, ml_key):
-            return getattr(self, ml_key)
-
-        return getattr(self, property, default)
-
-    def get_queryset(self, *args, **kwargs):
-        queryset = super().get_queryset(*args, **kwargs)
-
-        select_related = self._get_multilingual("select_related", [])
-        prefetch_related = self._get_multilingual("prefetch_related", [])
-
-        return queryset.select_related(*select_related).prefetch_related(
-            *prefetch_related
-        )
-
-    def get_exclude(self, *args, **kwargs):
-        return self._get_multilingual("exclude")
-
-    def get_inlines(self, *args, **kwargs):
-        return self._get_multilingual("inlines")
-
-    def get_search_fields(self, *args, **kwargs):
-        return self._get_multilingual("search_fields")
-
-    def generate_query(self, orm_lookup, bit):
-        match = re.match(rf".*trans{LOOKUP_SEP}", orm_lookup)
-        query = {orm_lookup: bit}
-
-        if settings.APPLICATION.get("IS_MULTILINGUAL") and match:
-            query[f"{match.group()}language"] = get_language()
-
-        return Q(**query)
-
-    def get_search_results(self, request, queryset, search_term):  # noqa: C901
-        # WARNING: This whole method is copy pasted from
-        # https://github.com/django/django/blob/3.2.15/django/contrib/admin/options.py
-        # except the line that is marked as changed. If the upstream code
-        # changes, we need to update the content of this method as well!
-        # Apply keyword searches.
-        def construct_search(field_name):
-            if field_name.startswith("^"):
-                return "%s__istartswith" % field_name[1:]
-            elif field_name.startswith("="):
-                return "%s__iexact" % field_name[1:]
-            elif field_name.startswith("@"):
-                return "%s__search" % field_name[1:]
-            # Use field_name if it includes a lookup.
-            opts = queryset.model._meta
-            lookup_fields = field_name.split(LOOKUP_SEP)
-            # Go through the fields, following all relations.
-            prev_field = None
-            for path_part in lookup_fields:
-                if path_part == "pk":
-                    path_part = opts.pk.name
-                try:
-                    field = opts.get_field(path_part)
-                except FieldDoesNotExist:
-                    # Use valid query lookups.
-                    if prev_field and prev_field.get_lookup(path_part):
-                        return field_name
-                else:
-                    prev_field = field
-                    if hasattr(field, "get_path_info"):
-                        # Update opts to follow the relation.
-                        opts = field.get_path_info()[-1].to_opts
-            # Otherwise, use the field with icontains.
-            return "%s__icontains" % field_name
-
-        may_have_duplicates = False
-        search_fields = self.get_search_fields(request)
-        if search_fields and search_term:
-            orm_lookups = [
-                construct_search(str(search_field)) for search_field in search_fields
-            ]
-            for bit in smart_split(search_term):
-                if bit.startswith(('"', "'")) and bit[0] == bit[-1]:
-                    bit = unescape_string_literal(bit)
-                or_queries = [
-                    # This is the only line that changed
-                    self.generate_query(orm_lookup, bit)
-                    for orm_lookup in orm_lookups
-                ]
-                queryset = queryset.filter(reduce(operator.or_, or_queries))
-            may_have_duplicates |= any(
-                lookup_needs_distinct(self.opts, search_spec)
-                for search_spec in orm_lookups
-            )
-        return queryset, may_have_duplicates
-
-
-class UserAdmin(MultilingualAdmin, ModelAdmin):
+@register(User)
+class UserAdmin(EbauAdminMixin, MultilingualAdminMixin, ModelAdmin):
     exclude = ["password", "language"]
     form = UserForm
     inlines = [UserGroupInline]
@@ -164,7 +62,8 @@ class UserAdmin(MultilingualAdmin, ModelAdmin):
         return False
 
 
-class GroupAdmin(MultilingualAdmin, ModelAdmin):
+@register(Group)
+class GroupAdmin(EbauAdminMixin, MultilingualAdminMixin, ModelAdmin):
     autocomplete_fields = ["service"]
     exclude_ml = ["name", "city"]
     form = GroupForm
@@ -200,7 +99,8 @@ class GroupAdmin(MultilingualAdmin, ModelAdmin):
         super().save_formset(request, form, formset, change)
 
 
-class ServiceAdmin(MultilingualAdmin, ModelAdmin):
+@register(Service)
+class ServiceAdmin(EbauAdminMixin, MultilingualAdminMixin, ModelAdmin):
     autocomplete_fields = ["service_parent"]
     exclude = ["sort"]
     exclude_ml = ["sort", "name", "description", "city"]
@@ -235,7 +135,8 @@ class ServiceAdmin(MultilingualAdmin, ModelAdmin):
         return obj.disabled == 1
 
 
-class RoleAdmin(MultilingualAdmin, ModelAdmin):
+@register(Role)
+class RoleAdmin(EbauAdminMixin, MultilingualAdminMixin, ModelAdmin):
     exclude_ml = ["name", "group_prefix"]
     inlines_ml = [RoleTInline]
     list_display = ["role_id", "get_name"]
@@ -250,7 +151,8 @@ class RoleAdmin(MultilingualAdmin, ModelAdmin):
         return obj.get_name()
 
 
-class ServiceGroupAdmin(MultilingualAdmin, ModelAdmin):
+@register(ServiceGroup)
+class ServiceGroupAdmin(EbauAdminMixin, MultilingualAdminMixin, ModelAdmin):
     exclude = ["sort"]
     exclude_ml = ["name", "sort"]
     inlines_ml = [ServiceGroupTInline]
