@@ -387,7 +387,8 @@ export default class CaseFilterComponent extends Component {
 
   @action
   validateKeywordSearch() {
-    const keywordSearch = this._filter.keywordSearch;
+    const keywordSearch =
+      this._filter.keywordSearch || this._filter.calumaKeywordSearch;
     if (keywordSearch) {
       // Split on whitespace, treat keyword groups by quotes as entity
       const keywords = keywordSearch

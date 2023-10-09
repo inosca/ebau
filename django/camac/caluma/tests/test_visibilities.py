@@ -1,6 +1,7 @@
 import pytest
 from caluma.caluma_core.relay import extract_global_id
 from caluma.caluma_form import factories as caluma_form_factories
+from caluma.caluma_form.models import Form, Question
 from caluma.caluma_user.models import AnonymousUser, OIDCUser
 from caluma.caluma_workflow import (
     api as workflow_api,
@@ -730,6 +731,87 @@ def test_case_visibility_sz(
     query = """
         query {
             allCases(filter: [{ excludeChildCases: true }]) {
+                edges {
+                    node {
+                        id
+                    }
+                }
+            }
+        }
+    """
+
+    result = schema.execute(query, context_value=request, middleware=[])
+    assert not result.errors
+    assert len(result.data["allCases"]["edges"]) == expected_count
+
+
+@pytest.mark.parametrize(
+    "role__name,search_value,expected_count",
+    [
+        ("Municipality", "hello world", 1),
+        ("Municipality", "world", 1),
+        ("Municipality", "planet", 0),
+        ("Municipality", 157, 1),
+        ("Municipality", 174, 0),
+        ("Municipality", "Tex4", 1),
+        ("Municipality", "te", 0),
+    ],
+)
+def test_case_keyword_filter_sz(
+    rf,
+    search_value,
+    expected_count,
+    caluma_admin_user,
+    sz_instance_internal,
+    caluma_workflow_config_sz,
+    journal_entry_factory,
+    issue_factory,
+    service_factory,
+    form_question_factory,
+    document_factory,
+    mocker,
+):
+    mocker.patch(
+        "caluma.caluma_core.types.Node.visibility_classes", [CustomVisibilitySZ]
+    )
+    state = sz_instance_internal.instance_state.instance_state_id
+
+    # Caluma
+    form = Form.objects.get(pk="voranfrage")
+
+    document = document_factory.create(form=form)
+    question_a = form_question_factory(
+        question__type=Question.TYPE_TEXT, form=form
+    ).question
+
+    question_b = form_question_factory(
+        question__type=Question.TYPE_INTEGER, form=form
+    ).question
+
+    document.answers.create(question=question_a, value="hello world")
+    document.answers.create(question=question_b, value=157)
+
+    case = sz_instance_internal.case
+    case.document = document
+    case.save()
+
+    # Non Caluma
+    journal_entry_factory(
+        instance=sz_instance_internal,
+        visibility="all",
+        service=service_factory(),
+        text="Tex4 test",
+    )
+
+    request = rf.get("/graphql")
+    request.user = caluma_admin_user
+    request.META[
+        "HTTP_X_CAMAC_FILTERS"
+    ] = f"instance_state={state}&caluma_keyword_search={search_value}"
+
+    query = """
+        query {
+            allCases(filter: [{ excludeChildCases: true }, { workflow: "internal-document" }]) {
                 edges {
                     node {
                         id

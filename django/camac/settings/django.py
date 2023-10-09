@@ -508,6 +508,12 @@ APPLICATIONS = {
                 "inquiry",
                 "inquiry-answer",
             ],
+            "INTERNAL_FORMS": [
+                "voranfrage",
+                "voranfrage-personalien",
+                "are-geschaeft",
+                "koordinaten",
+            ],
             "MANUAL_WORK_ITEM_TASK": "create-manual-workitems",
             "ACTIVATION_EXCLUDE_ROLES": ["Lesezugriff"],
             "SUBMIT_TASKS": ["submit", "submit-additional-demand", "formal-addition"],
