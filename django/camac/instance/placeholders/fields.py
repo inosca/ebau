@@ -2,6 +2,7 @@ import base64
 from io import BytesIO
 
 import qrcode
+from alexandria.core import models as alexandria_models
 from caluma.caluma_form.models import Answer, AnswerDocument, Document, Question
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
@@ -724,3 +725,35 @@ class DecisionField(AliasedMixin, serializers.ReadOnlyField):
             return option.label[get_language()]
 
         return answer.value  # pragma: no cover
+
+
+class AlexandriaDocumentField(AliasedMixin, serializers.ReadOnlyField):
+    def __init__(self, tag_id=None, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        self.tag_id = tag_id
+
+    def get_attribute(self, instance):
+        filter = {
+            "document__metainfo__camac-instance-id": str(instance.pk),
+            "variant": "original",
+        }
+
+        if self.tag_id:
+            filter["document__tags__slug"] = self.tag_id
+
+        return alexandria_models.File.objects.filter(**filter)
+
+    def to_representation(self, files):
+        data = []
+        for file in files:
+            text = gettext(
+                "%(title)s (submitted as %(original_title)s) on %(date)s at %(time)s"
+            ) % {
+                "title": file.document.title[get_language()],
+                "original_title": file.name,
+                "date": file.document.created_at.strftime("%d.%m.%Y"),
+                "time": file.document.created_at.strftime("%H:%M"),
+            }
+            data.append(text)
+        return ",\n".join(data)
