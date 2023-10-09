@@ -1,6 +1,7 @@
 import json
 import os
 from glob import glob
+from uuid import uuid4
 
 import pytest
 from django.conf import settings
@@ -15,8 +16,9 @@ def test_dump_and_load(db, settings, application, tmp_path, resource_factory):
     settings.APPLICATION = settings.APPLICATIONS[application]
     settings.APPLICATION_NAME = application
 
-    resource_to_be_deleted = resource_factory()
-    assert Resource.objects.count() == 1
+    uuid = uuid4()
+    resource_factory(name=uuid)
+    assert Resource.objects.filter(name=uuid).exists()
 
     # load config including test data
     call_command(
@@ -26,7 +28,7 @@ def test_dump_and_load(db, settings, application, tmp_path, resource_factory):
     )
 
     # make sure pure config models are flushed
-    assert not Resource.objects.filter(pk=resource_to_be_deleted.pk).exists()
+    assert not Resource.objects.filter(name=uuid).exists()
 
     for dump_type in ["config", "data"]:
         outdir = tmp_path / dump_type
