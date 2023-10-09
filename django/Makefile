@@ -24,7 +24,7 @@ test: ## Test the project
 	@touch .env
 	@black --check .
 	@flake8
-	@pytest -vv --cov --cov-report term --cov-report xml:coverage.xml --vcr-record=none -n 4 --dist loadscope --junitxml=report.xml
+	@pytest -vv --cov --cov-report term --cov-report xml:coverage.xml --vcr-record=none -n 4 --dist worksteal --junitxml=report.xml
 	@mv report.xml ./artifacts/
 	@mv coverage.xml ./artifacts/
 
