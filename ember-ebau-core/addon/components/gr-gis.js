@@ -43,9 +43,13 @@ export default class GrGisComponent extends Component {
     return this.markers.map((point) => ({ lat: point.lat, lng: point.lng }));
   }
 
-  get markersAsJSON() {
-    return JSON.stringify(this.markers.map((m) => LatLngToEPSG2056(m)));
+  get query() {
+    return JSON.stringify({
+      markers: this.markers.map((m) => LatLngToEPSG2056(m)),
+      geometry: this.geometry,
+    });
   }
+
   get rootForm() {
     return this.args.field.fieldset.document.rootForm.slug;
   }
@@ -77,11 +81,11 @@ export default class GrGisComponent extends Component {
     if (!this.args.field.answer.value) {
       return;
     }
-    const { markers, selectedGeometry } = JSON.parse(
-      this.args.field.answer.value,
+    const { markers, geometry } = JSON.parse(this.args.field.answer.value);
+    this.markers = markers.map((marker) =>
+      EPSG2056toLatLng([marker.x, marker.y]),
     );
-    this.markers = markers;
-    this.selectedGeometry = selectedGeometry;
+    this.selectedGeometry = geometry;
     map.target.fitBounds(this.markers, { padding: [20, 20] });
   }
 
@@ -106,16 +110,6 @@ export default class GrGisComponent extends Component {
     this.markers
       .removeAt(point)
       .insertAt(point, { lat: location.lat, lng: location.lng });
-  }
-
-  @action
-  async saveCoordinates() {
-    const field = this.args.field;
-    field.answer.value = JSON.stringify({
-      markers: this.markers,
-      selectedGeometry: this.selectedGeometry,
-    });
-    await field.save.perform();
   }
 
   @action
