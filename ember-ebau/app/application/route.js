@@ -2,6 +2,7 @@ import Route from "@ember/routing/route";
 import { inject as service } from "@ember/service";
 import AlexandriaDocumentsFormComponent from "ember-ebau-core/components/alexandria-documents-form";
 import CalculatedPublicationDateComponent from "ember-ebau-core/components/calculated-publication-date";
+import GrGisComponent from "ember-ebau-core/components/gr-gis";
 import InquiryAnswerStatus from "ember-ebau-core/components/inquiry-answer-status";
 import PublicationDateKantonsamtsblattComponent from "ember-ebau-core/components/publication-date-kantonsamtsblatt";
 import SoGisComponent from "ember-ebau-core/components/so-gis";
@@ -41,6 +42,11 @@ export default class ApplicationRoute extends Route {
       label: "GIS-Karte (Kt. SO)",
       component: "so-gis",
       componentClass: SoGisComponent,
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "GIS-Karte (Kt. GR)",
+      component: "gr-gis",
+      componentClass: GrGisComponent,
     });
     this.calumaOptions.registerComponentOverride({
       label: "Alexandria Dokument Formular",
