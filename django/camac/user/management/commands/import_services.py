@@ -131,7 +131,7 @@ class Command(BaseCommand):
                 name=None,
                 description=None,
                 email=scrub(row[2], "email@example.ch"),
-                zip=scrub(row[3]),
+                zip=scrub(str(row[3])),
                 city=None,
                 address=scrub(row[5]),
                 phone=scrub(row[6]),
@@ -153,6 +153,9 @@ class Command(BaseCommand):
 
             # Create groups
             for group_type, group_type_name in GROUP_TYPES.items():
+                if not roles.get(group_type):
+                    continue
+
                 group = Group(
                     service=service,
                     role=roles[group_type],
