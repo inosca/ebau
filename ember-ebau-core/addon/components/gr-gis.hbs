@@ -107,11 +107,9 @@
       @document={{@field.document}}
       @disabled={{not this.markers}}
       @params={{hash
-        markers=this.markersAsJSON
-        geometry=this.geometry
+        query=this.query
         form=this.rootForm
       }}
-      @onGetData={{this.saveCoordinates}}
     />
   {{/unless}}
 
