@@ -491,7 +491,7 @@ snapshots['test_gr_client[markers5-POINT-baugesuch] 1'] = {
         },
         'zonenplan': {
             'label': 'zonenplan',
-            'value': 'Auf Gefahrenzonen nicht untersuchtes Gebiet(orientierend), Wald(orientierend)'
+            'value': 'Auf Gefahrenzonen nicht untersuchtes Gebiet (orientierend), Wald (orientierend)'
         }
     }
 }
@@ -597,7 +597,7 @@ snapshots['test_gr_client[markers7-LINESTRING-baugesuch] 1'] = {
         },
         'zonenplan': {
             'label': 'zonenplan',
-            'value': 'Keine Gefahrenzone, Auf Gefahrenzonen nicht untersuchtes Gebiet(orientierend), Landwirtschaftszone, Wald(orientierend)'
+            'value': 'Keine Gefahrenzone, Auf Gefahrenzonen nicht untersuchtes Gebiet (orientierend), Landwirtschaftszone, Wald (orientierend)'
         }
     }
 }
@@ -628,7 +628,7 @@ snapshots['test_gr_client[markers8-POINT-baugesuch] 1'] = {
         },
         'genereller-erschliessungsplan': {
             'label': 'genereller-erschliessungsplan',
-            'value': 'Bahnlinie SBB/RhB(hinweisend), Fuss- / Radweg Hauptverbindung, Kantonale Verbindungsstrasse(orientierend), Kantonale Verbindungsstrasse(orientierend), Parkierung Gebiete C'
+            'value': 'Bahnlinie SBB/RhB (hinweisend), Fuss- / Radweg Hauptverbindung, Kantonale Verbindungsstrasse (orientierend), Kantonale Verbindungsstrasse (orientierend), Parkierung Gebiete C'
         },
         'genereller-gestaltungsplan': {
             'label': 'genereller-gestaltungsplan',
