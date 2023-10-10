@@ -372,7 +372,6 @@ def test_set_workflow_state_exceptions(
 )
 def test_record_loading_be(
     db,
-    setup_fixtures_required_by_application_config,
     application_settings,
     settings,
     be_instance,
@@ -552,7 +551,6 @@ def test_record_loading_be(
 )
 def test_record_loading_sz(
     db,
-    setup_fixtures_required_by_application_config,
     make_workflow_items_for_config,
     application_settings,
     settings,
@@ -588,7 +586,6 @@ def test_record_loading_sz(
 )
 def test_record_loading_all_empty(
     db,
-    setup_fixtures_required_by_application_config,
     make_workflow_items_for_config,
     application_settings,
     settings,
@@ -630,7 +627,6 @@ def test_record_loading_all_empty(
 )
 def test_record_loading_exceptions(
     db,
-    setup_fixtures_required_by_application_config,
     make_workflow_items_for_config,
     application_settings,
     settings,

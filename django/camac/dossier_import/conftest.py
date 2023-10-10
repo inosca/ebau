@@ -24,9 +24,7 @@ def archive_file(settings):
 
 
 @pytest.fixture
-def setup_fixtures_required_by_application_config(
-    django_db_setup, django_db_blocker, settings
-):
+def setup_fixtures_required_by_application_config(db):
     """Set up application configuration data.
 
     Use this when testing real life dependent procedures and not because you're to
@@ -35,24 +33,24 @@ def setup_fixtures_required_by_application_config(
     """
 
     def load_data(config):
-        with django_db_blocker.unblock():
-            call_command("loaddata", f"/app/{config}/config/instance.json")
-            call_command("loaddata", f"/app/{config}/config/document.json")
-            if config == "kt_bern":
-                call_command(
-                    "loaddata", f"/app/{config}/config/caluma_form_common.json"
-                )
-                call_command(
-                    "loaddata", f"/app/{config}/config/caluma_ebau_number_form.json"
-                )
-                call_command(
-                    "loaddata", f"/app/{config}/config/caluma_dossier_import_form.json"
-                )
-                call_command(
-                    "loaddata", f"/app/{config}/config/caluma_decision_form.json"
-                )
-            if config == "kt_schwyz":
-                call_command("loaddata", f"/app/{config}/config/buildingauthority.json")
+        files = [
+            f"/app/{config}/config/instance.json",
+            f"/app/{config}/config/document.json",
+        ]
+
+        if config == "kt_bern":
+            files.extend(
+                [
+                    f"/app/{config}/config/caluma_form_common.json",
+                    f"/app/{config}/config/caluma_ebau_number_form.json",
+                    f"/app/{config}/config/caluma_dossier_import_form.json",
+                    f"/app/{config}/config/caluma_decision_form.json",
+                ]
+            )
+        if config == "kt_schwyz":
+            files.append(f"/app/{config}/config/buildingauthority.json")
+
+        call_command("loaddata", *files)
 
     return load_data
 
