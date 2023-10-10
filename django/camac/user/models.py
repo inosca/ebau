@@ -6,6 +6,8 @@ from django.contrib.postgres.fields import CIEmailField
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
+from camac.models import dynamic_default_value
+
 from ..core import models as core_models
 
 
@@ -513,6 +515,7 @@ class ServiceGroupT(models.Model):
         db_table = "SERVICE_GROUP_T"
 
 
+@dynamic_default_value(0)
 def next_service_sort():
     last_service = Service.objects.order_by("-sort").first()
     return last_service.sort + 1 if last_service else 0
