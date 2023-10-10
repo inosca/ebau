@@ -686,7 +686,9 @@ def decision_ruling(instance, caluma_workflow_slug):
 
     answers = work_item.document.answers.all()
 
-    decision = answers.filter(question_id="decision-decision-assessment").first().value
+    decision = (
+        answers.filter(question_id=settings.DECISION["QUESTION_SLUG"]).first().value
+    )
     date = answers.filter(question_id="decision-date").first().date
     ruling = (
         answers.filter(question_id="decision-approval-type").first().value

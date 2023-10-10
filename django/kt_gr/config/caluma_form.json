@@ -353,6 +353,24 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "construction-monitoring",
+    "fields": {
+      "created_at": "2023-09-14T06:32:58.990Z",
+      "modified_at": "2023-09-14T06:32:58.990Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Baubegleitung\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": true,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "dashboard",
     "fields": {
       "created_at": "2023-04-26T10:03:09.406Z",
@@ -6470,6 +6488,21 @@
       "form": "brandschutz-haustechnik",
       "question": "zulaessiger-betriebsueberdruck",
       "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-monitoring.bauabnahme",
+    "fields": {
+      "created_at": "2023-09-14T06:33:22.431Z",
+      "modified_at": "2023-09-14T06:33:22.431Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-monitoring",
+      "question": "bauabnahme",
+      "sort": 1
     }
   },
   {
@@ -40344,6 +40377,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "bauabnahme",
+    "fields": {
+      "created_at": "2023-09-14T06:33:22.265Z",
+      "modified_at": "2023-09-14T06:33:22.265Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bauabnahme\", \"fr\": null, \"it\": null}",
+      "type": "date",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "bauabstaende-mehrlaengen-titel",
     "fields": {
       "created_at": "2023-06-19T09:33:30.899Z",
@@ -54611,7 +54675,7 @@
       "label": "{\"de\": \"Hinweis Nachforderung\", \"fr\": null, \"it\": null}",
       "type": "static",
       "is_required": "false",
-      "is_hidden": "!(\"pruefung-weitere-materielle-pruefung-nicht-beurteilbar\" == \"pruefung-weitere-materielle-pruefung\"|answer ||\n\"pruefung-gebaeudehoehen-nicht-beurteilbar\" == \"pruefung-gebaeudehoehen\"|answer ||\n\"pruefung-ausnuetzungsziffer-nicht-beurteilbar\" == \"pruefung-ausnuetzungsziffer\"|answer ||\n\"pruefung-bauabstaende-nicht-beurteilbar\" == \"pruefung-bauabstaende\"|answer ||\n\"pruefung-zonenkonformitaet-nicht-beurteilbar\" == \"pruefung-zonenkonformitaet\"|answer ||\n\"gesuchsunterlagen-vollstaendig-nicht-beurteilbar\" == \"gesuchsunterlagen-vollstaendig\"|answer)",
+      "is_hidden": "!(\"pruefung-weitere-materielle-pruefung-nicht-beurteilbar\" == \"pruefung-weitere-materielle-pruefung\"|answer ||\n\"pruefung-gebaeudehoehen-nicht-beurteilbar\" == \"pruefung-gebaeudehoehen\"|answer ||\n\"pruefung-ausnuetzungsziffer-nicht-beurteilbar\" == \"pruefung-ausnuetzungsziffer\"|answer ||\n\"pruefung-bauabstaende-nicht-beurteilbar\" == \"pruefung-bauabstaende\"|answer ||\n\"pruefung-zonenkonformitaet-nicht-beurteilbar\" == \"pruefung-zonenkonformitaet\"|answer ||\n\"gesuchsunterlagen-vollstaendig-nicht-beurteilbar\" == \"gesuchsunterlagen-vollstaendig\"|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",

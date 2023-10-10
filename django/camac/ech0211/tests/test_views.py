@@ -59,6 +59,7 @@ def test_application_retrieve_full_be(
     multilang,
     override_urls_be,
     decision_factory,
+    be_decision_settings,
 ):
     # this is required to actually really dynamically load the correcto urls as configured
     # reload(import_string(settings.ROOT_URLCONF))
