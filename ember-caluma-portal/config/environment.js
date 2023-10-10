@@ -53,6 +53,7 @@ module.exports = function (environment) {
     materialExam: 3,
     distributionInit: 4,
     distribution: 5,
+    correction: 6,
   };
   const appConfig = {
     demo: {
@@ -395,6 +396,7 @@ module.exports = function (environment) {
           instanceStatesSo.materialExam,
           instanceStatesSo.distributionInit,
           instanceStatesSo.distribution,
+          instanceStatesSo.correction,
         ],
         done: [null], // Placeholder until a finished state is added
       },

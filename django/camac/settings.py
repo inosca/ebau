@@ -3283,7 +3283,6 @@ APPLICATIONS = {
             },
         },
         "INSTANCE_STATE_REJECTION_COMPLETE": "finished",
-        "INSTANCE_STATE_CORRECTION_ALLOWED": ["subm", "circulation"],
         "INSTANCE_PERMISSIONS": {"MUNICIPALITY_WRITE": ["correction"]},
         "REJECTION_FEEDBACK_QUESTION": {},
         "USE_INSTANCE_SERVICE": True,
@@ -3754,10 +3753,12 @@ APPLICATIONS = {
                     "material-exam": "submitted",
                     "init-distribution": "inProcedure",
                     "distribution": "inProcedure",
+                    "correction": "inProcedure",
                 },
                 "DEFAULT": "inProcedure",
             },
         },
+        "INSTANCE_PERMISSIONS": {"MUNICIPALITY_WRITE": ["correction"]},
         "USE_INSTANCE_SERVICE": True,
         "DOSSIER_IMPORT": {},
         "CUSTOM_NOTIFICATION_TYPES": [],
@@ -4480,6 +4481,7 @@ PUBLICATION = load_module_settings("publication")
 DECISION = load_module_settings("decision")
 ADDITIONAL_DEMAND = load_module_settings("additional_demand")
 DJANGO_ADMIN = load_module_settings("django_admin")
+CORRECTION = load_module_settings("correction")
 
 # Alexandria
 ALEXANDRIA_CREATED_BY_USER_PROPERTY = "alexandria_user"

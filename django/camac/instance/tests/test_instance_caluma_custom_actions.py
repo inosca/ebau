@@ -767,18 +767,13 @@ def test_correction(
     role,
     active_inquiry_factory,
     instance_state_factory,
-    application_settings,
     has_inquiry,
     expected_status,
 ):
-    application_settings["INSTANCE_STATE_CORRECTION_ALLOWED"] = ["subm"]
     instance_state_factory(name="correction")
     instance_state = instance_state_factory(name="subm")
     be_instance.instance_state = instance_state
     be_instance.save()
-
-    be_instance.case.meta["camac-instance-id"] = be_instance.pk
-    be_instance.case.save()
 
     if has_inquiry:
         active_inquiry_factory(be_instance)
