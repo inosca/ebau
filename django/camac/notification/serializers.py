@@ -852,7 +852,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
             return ""
 
         return find_answer(
-            decision.document, "decision-decision-assessment", language=language
+            decision.document, settings.DECISION["QUESTION_SLUG"], language=language
         )
 
     def to_representation(self, instance):

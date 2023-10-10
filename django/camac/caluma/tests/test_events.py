@@ -23,7 +23,10 @@ def test_copy_papierdossier(
     caluma_workflow_config_be,
     expected_value,
     decision_factory,
+    application_settings,
+    be_decision_settings,
 ):
+    application_settings["SHORT_NAME"] = "be"
     case = be_instance.case
 
     case.document.answers.create(question_id="is-paper", value=expected_value)
@@ -61,7 +64,11 @@ def test_copy_sb_personalien(
     caluma_workflow_config_be,
     use_fallback,
     decision_factory,
+    application_settings,
+    be_decision_settings,
 ):
+    settings.APPLICATION_NAME = "kt_bern"
+    application_settings["SHORT_NAME"] = "be"
     case = be_instance.case
 
     case.document.answers.create(question_id="is-paper", value="is-paper-no")
@@ -126,7 +133,12 @@ def test_post_complete_sb1(
     document_factory,
     service_factory,
     instance_service_factory,
+    settings,
+    application_settings,
+    be_decision_settings,
 ):
+    settings.APPLICATION_NAME = "kt_bern"
+    application_settings["SHORT_NAME"] = "be"
     case = be_instance.case
 
     service = service_factory(
@@ -183,7 +195,12 @@ def test_copy_municipality_tags_for_sb1(
     tag_factory,
     instance_service_factory,
     instance_state_factory,
+    settings,
+    application_settings,
+    be_decision_settings,
 ):
+    settings.APPLICATION_NAME = "kt_bern"
+    application_settings["SHORT_NAME"] = "be"
     municipality_burgdorf = service_factory(
         service_group__name="municipality",
         trans__language="de",
@@ -250,7 +267,12 @@ def test_copy_responsible_person_lead_authority(
     responsible_service_factory,
     service_factory,
     user_factory,
+    settings,
+    application_settings,
+    be_decision_settings,
 ):
+    settings.APPLICATION_NAME = "kt_bern"
+    application_settings["SHORT_NAME"] = "be"
     instance_state_factory(name="sb1")
 
     construction_control = service_factory(
@@ -306,7 +328,11 @@ def test_copy_tank_installation(
     bewilligungspflichtig_hidden,
     expect_copy,
     decision_factory,
+    application_settings,
+    be_decision_settings,
 ):
+    application_settings["SHORT_NAME"] = "be"
+
     case = be_instance.case
 
     table_form = caluma_form_models.Form.objects.create(

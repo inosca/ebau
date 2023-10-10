@@ -4223,13 +4223,13 @@ snapshots['test_dms_placeholders_gr[Municipality] 1'] = {
             'BEANTWORTET': '',
             'ERSTELLT': '30.08.2021',
             'FRIST': '14.10.2011',
-            'NAME': 'Diane Adams'
+            'NAME': 'Kenneth Griffin'
         },
         {
             'BEANTWORTET': '',
             'ERSTELLT': '30.08.2021',
             'FRIST': '22.01.2004',
-            'NAME': 'Colleen Villanueva'
+            'NAME': 'James Mckee'
         },
         {
             'BEANTWORTET': '',
@@ -4330,13 +4330,13 @@ snapshots['test_dms_placeholders_gr[Municipality] 1'] = {
             'BEANTWORTET': '',
             'ERSTELLT': '30.08.2021',
             'FRIST': '14.10.2011',
-            'NAME': 'Diane Adams'
+            'NAME': 'Kenneth Griffin'
         },
         {
             'BEANTWORTET': '',
             'ERSTELLT': '30.08.2021',
             'FRIST': '22.01.2004',
-            'NAME': 'Colleen Villanueva'
+            'NAME': 'James Mckee'
         },
         {
             'BEANTWORTET': '',

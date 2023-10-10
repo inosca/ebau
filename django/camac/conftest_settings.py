@@ -24,11 +24,9 @@ def generate_module_test_settings(module_name, cantons=[]):
             )
 
             if canton:
-                new_settings = copy.deepcopy(
-                    always_merger.merge(
-                        request.getfixturevalue(f"{module_name}_settings"),
-                        original_settings[canton],
-                    )
+                new_settings = always_merger.merge(
+                    copy.deepcopy(request.getfixturevalue(f"{module_name}_settings")),
+                    original_settings[canton],
                 )
             else:
                 new_settings = copy.deepcopy(original_settings["default"])
@@ -50,6 +48,8 @@ def generate_module_test_settings(module_name, cantons=[]):
         setattr(sys.modules[__name__], scoped_fixture_name, generate(canton))
 
 
+generate_module_test_settings("appeal", ["kt_bern"])
 generate_module_test_settings("distribution", ["kt_bern", "kt_schwyz", "kt_gr"])
 generate_module_test_settings("publication", ["kt_gr"])
+generate_module_test_settings("decision", ["kt_bern", "kt_gr"])
 generate_module_test_settings("additional_demand")

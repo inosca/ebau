@@ -56,7 +56,6 @@ from camac.instance.serializers import SUBMIT_DATE_FORMAT
 from camac.notification import factories as notification_factories
 from camac.objection import factories as objection_factories
 from camac.responsible import factories as responsible_factories
-from camac.settings import load_module_settings
 from camac.tags import factories as tags_factories
 from camac.urls import urlpatterns as app_patterns
 from camac.user import factories as user_factories
@@ -264,6 +263,7 @@ def override_urls_sz():
 def set_application_be(settings, override_urls_be):
     application_dict = copy.deepcopy(settings.APPLICATIONS["kt_bern"])
     settings.APPLICATION = application_dict
+    settings.APPLICATION_NAME = "kt_bern"
     settings.INTERNAL_BASE_URL = "http://ebau.local"
 
     return application_dict
@@ -273,6 +273,7 @@ def set_application_be(settings, override_urls_be):
 def set_application_sz(settings):
     application_dict = copy.deepcopy(settings.APPLICATIONS["kt_schwyz"])
     settings.APPLICATION = application_dict
+    settings.APPLICATION_NAME = "kt_schwyz"
     settings.INTERNAL_BASE_URL = "http://ebau.local"
     return application_dict
 
@@ -281,6 +282,7 @@ def set_application_sz(settings):
 def set_application_ur(settings):
     application_dict = copy.deepcopy(settings.APPLICATIONS["kt_uri"])
     settings.APPLICATION = application_dict
+    settings.APPLICATION_NAME = "kt_uri"
     settings.INTERNAL_BASE_URL = "http://ebau.local"
     return application_dict
 
@@ -289,6 +291,7 @@ def set_application_ur(settings):
 def set_application_gr(settings):
     application_dict = copy.deepcopy(settings.APPLICATIONS["kt_gr"])
     settings.APPLICATION = application_dict
+    settings.APPLICATION_NAME = "kt_gr"
     settings.INTERNAL_BASE_URL = "http://ember-ebau.local"
     return application_dict
 
@@ -855,6 +858,7 @@ def caluma_forms_gr(settings):
     caluma_form_models.Form.objects.create(slug="formal-exam")
     caluma_form_models.Form.objects.create(slug="material-exam")
     caluma_form_models.Form.objects.create(slug="publikation")
+    caluma_form_models.Form.objects.create(slug="construction-monitoring")
 
     # dynamic choice options get cached, so we clear them
     # to ensure the new "gemeinde" options will be valid
@@ -1207,14 +1211,6 @@ def gql():
         return Path(file).read_text()
 
     return wrapper
-
-
-@pytest.fixture
-def be_appeal_settings(settings):
-    _original = settings.APPEAL
-    settings.APPEAL = load_module_settings("appeal", "kt_bern")
-    yield settings.APPEAL
-    settings.APPEAL = _original
 
 
 @pytest.fixture

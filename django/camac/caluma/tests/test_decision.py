@@ -1,5 +1,6 @@
 import pytest
 from caluma.caluma_core.events import send_event
+from caluma.caluma_form.models import Question
 from caluma.caluma_workflow.events import post_complete_work_item
 from caluma.caluma_workflow.models import Workflow, WorkItem
 from django.core.management import call_command
@@ -31,6 +32,78 @@ def construction_control(instance_service_factory, be_instance, service_factory)
         trans__language="de",
         service_group__name="construction-control",
     )
+
+
+@pytest.mark.parametrize(
+    "decision,expected_instance_state,expected_text",
+    [
+        (
+            "APPROVED",
+            "construction-monitoring",
+            "Bauentscheid verfügt",
+        ),
+        (
+            "REJECTED",
+            "finished",
+            "Bauentscheid verfügt",
+        ),
+    ],
+)
+def test_complete_decision(
+    db,
+    gr_instance,
+    caluma_admin_user,
+    mailoutbox,
+    notification_template,
+    work_item_factory,
+    document_factory,
+    question_factory,
+    instance_state_factory,
+    decision,
+    expected_instance_state,
+    expected_text,
+    settings,
+    application_settings,
+):
+    instance_state_factory(name=expected_instance_state)
+
+    application_settings["CALUMA"][
+        "CONSTRUCTION_MONITORING_TASK"
+    ] = "construction-monitoring"
+    application_settings["CALUMA"]["DECISION_TASK"] = "decision"
+    settings.APPLICATION["NOTIFICATIONS"] = {}
+
+    gr_instance.case.workflow = Workflow.objects.get(pk="building-permit")
+    gr_instance.case.save()
+
+    work_item = work_item_factory(
+        case=gr_instance.case,
+        task_id="decision",
+        status=WorkItem.STATUS_COMPLETED,
+        document=document_factory(form_id="decision"),
+    )
+    decision_question = question_factory(
+        slug="decision-decision", label="Entscheid", type=Question.TYPE_TEXT
+    )
+
+    work_item.document.answers.create(
+        question=decision_question, value=settings.DECISION[decision]
+    )
+
+    send_event(
+        post_complete_work_item,
+        sender="post_complete_work_item",
+        work_item=work_item,
+        user=caluma_admin_user,
+        context={},
+    )
+
+    gr_instance.refresh_from_db()
+
+    assert gr_instance.instance_state.name == expected_instance_state
+    assert HistoryEntryT.objects.filter(
+        history_entry__instance=gr_instance, title=expected_text, language="de"
+    ).exists()
 
 
 @pytest.mark.parametrize(
@@ -80,7 +153,7 @@ def construction_control(instance_service_factory, be_instance, service_factory)
         ),
     ],
 )
-def test_complete_decision(
+def test_complete_decision_be(
     db,
     be_instance,
     caluma_admin_user,
@@ -98,9 +171,11 @@ def test_complete_decision(
     use_instance_service,
     decision_factory,
     construction_control,
+    settings,
+    be_decision_settings,
 ):
-    instance_state_factory(name=expected_instance_state)
-
+    settings.APPLICATION_NAME = "kt_bern"
+    application_settings["SHORT_NAME"] = "be"
     application_settings["CALUMA"]["DECISION_TASK"] = "decision"
     application_settings["NOTIFICATIONS"] = {
         "DECISION": [
@@ -116,6 +191,8 @@ def test_complete_decision(
             }
         ],
     }
+
+    instance_state_factory(name=expected_instance_state)
 
     be_instance.case.workflow = Workflow.objects.get(pk=workflow)
     be_instance.case.save()
@@ -180,7 +257,11 @@ def test_complete_decision_appeal(
     notification_template,
     previous_instance_state,
     settings,
+    application_settings,
+    be_decision_settings,
 ):
+    settings.APPLICATION_NAME = "kt_bern"
+    application_settings["SHORT_NAME"] = "be"
     call_command(
         "loaddata", settings.ROOT_DIR("kt_bern/config/caluma_ebau_number_form.json")
     )

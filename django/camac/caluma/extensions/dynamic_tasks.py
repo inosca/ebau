@@ -2,20 +2,19 @@ from caluma.caluma_workflow.dynamic_tasks import BaseDynamicTasks, register_dyna
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 
-from camac.instance.utils import should_continue_after_decision
+from camac.instance import domain_logic
 
 
 class CustomDynamicTasks(BaseDynamicTasks):
     @register_dynamic_task("after-decision")
     def resolve_after_decision(self, case, user, prev_work_item, context):
-        if case.workflow_id == "building-permit" and should_continue_after_decision(
-            case.instance, prev_work_item
+        if (
+            case.workflow_id == "building-permit"
+            and domain_logic.DecisionLogic.should_continue_after_decision(
+                case.instance, prev_work_item
+            )
         ):
-            return [
-                "sb1",
-                settings.APPLICATION["CALUMA"]["MANUAL_WORK_ITEM_TASK"],
-                "create-publication",
-            ]
+            return settings.DECISION["TASKS_AFTER_BUILDING_PERMIT_DECISION"]
 
         return []
 

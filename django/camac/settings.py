@@ -3244,9 +3244,11 @@ APPLICATIONS = {
         "PORTAL_GROUP": 3,
         "CALUMA": {
             "MANUAL_WORK_ITEM_TASK": "create-manual-workitems",
+            "FILL_PUBLICATION_TASK": "fill-publication",
             "SUBMIT_TASKS": ["submit"],
             "FORM_PERMISSIONS": ["main", "inquiry", "inquiry-answer"],
             "HAS_PROJECT_CHANGE": True,
+            "DECISION_TASK": "decision",
             "CREATE_IN_PROCESS": False,
             "GENERATE_IDENTIFIER": True,
             "USE_LOCATION": False,
@@ -3303,11 +3305,11 @@ APPLICATIONS = {
         "NOTIFICATIONS": {
             "SUBMIT": [
                 {
-                    "template_slug": "00-empfang-anfragebaugesuch-gesuchsteller",
+                    "template_slug": "empfang-anfragebaugesuch-gesuchsteller",
                     "recipient_types": ["applicant"],
                 },
                 {
-                    "template_slug": "00-empfang-anfragebaugesuch-behorden",
+                    "template_slug": "empfang-anfragebaugesuch-behorden",
                     "recipient_types": ["leitbehoerde"],
                 },
             ],
@@ -3315,6 +3317,16 @@ APPLICATIONS = {
                 "NEW": "gesuchsbearbeitungs-einladung-neu",
                 "EXISTING": "gesuchsbearbeitungs-einladung-bestehend",
             },
+            "DECISION": [
+                {
+                    "template_slug": "entscheid-gesuchsteller",
+                    "recipient_types": ["applicant"],
+                },
+                {
+                    "template_slug": "entscheid-behoerden",
+                    "recipient_types": ["leitbehoerde"],
+                },
+            ],
         },
         "SUBSERVICE_ROLES": ["subservice"],
         "DUMP_CONFIG_GROUPS": {
@@ -3661,9 +3673,14 @@ APPLICATIONS = {
                     )
                 },
             ),
-            "description_modification": (
+            "description_modification": ("answer", "beschreibung-projektaenderung"),
+            "decision_date": (
                 "answer",
-                "beschreibung-projektaenderung",
+                "decision-date",
+                {
+                    "document_from_work_item": "decision",
+                    "value_key": "date",
+                },
             ),
         },
     },
@@ -4460,6 +4477,7 @@ APPEAL = load_module_settings("appeal")
 DISTRIBUTION = load_module_settings("distribution")
 PARASHIFT = load_module_settings("parashift")
 PUBLICATION = load_module_settings("publication")
+DECISION = load_module_settings("decision")
 ADDITIONAL_DEMAND = load_module_settings("additional_demand")
 DJANGO_ADMIN = load_module_settings("django_admin")
 
