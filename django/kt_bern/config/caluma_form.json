@@ -127,24 +127,6 @@
   },
   {
     "model": "caluma_form.form",
-    "pk": "8-freigabequittung",
-    "fields": {
-      "created_at": "2019-05-08T12:42:01.656Z",
-      "modified_at": "2019-05-08T12:42:01.656Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "name": "{\"de\": \"8. Einreichen\", \"fr\": \"8. Envoyer\", \"it\": null}",
-      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "meta": {},
-      "is_published": false,
-      "is_archived": false,
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.form",
     "pk": "allgemeine-angaben",
     "fields": {
       "created_at": "2019-03-28T14:14:48.332Z",
@@ -3115,111 +3097,6 @@
       "modified_by_group": null,
       "form": "7-bestaetigung",
       "question": "keine-tangierung-natur-wild-vogelschutz",
-      "sort": 5
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "8-freigabequittung.ausnahmegesuche",
-    "fields": {
-      "created_at": "2021-12-03T15:25:41.801Z",
-      "modified_at": "2021-12-03T15:25:41.801Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "8-freigabequittung",
-      "question": "ausnahmegesuche",
-      "sort": 7
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "8-freigabequittung.einreichen-button",
-    "fields": {
-      "created_at": "2019-09-25T10:19:39.446Z",
-      "modified_at": "2019-09-25T10:19:39.446Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "8-freigabequittung",
-      "question": "einreichen-button",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "8-freigabequittung.formulardownload-pdf",
-    "fields": {
-      "created_at": "2019-09-25T10:19:38.974Z",
-      "modified_at": "2019-09-25T10:19:38.974Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "8-freigabequittung",
-      "question": "formulardownload-pdf",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "8-freigabequittung.freigabequittung-bemerkungen",
-    "fields": {
-      "created_at": "2020-12-07T08:18:51.357Z",
-      "modified_at": "2020-12-07T08:18:51.357Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "8-freigabequittung",
-      "question": "freigabequittung-bemerkungen",
-      "sort": 6
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "8-freigabequittung.freigabequittung-text",
-    "fields": {
-      "created_at": "2019-09-25T10:19:38.506Z",
-      "modified_at": "2019-09-25T10:19:38.506Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "8-freigabequittung",
-      "question": "freigabequittung-text",
-      "sort": 3
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "8-freigabequittung.hinweis-klaerung-baubewilligungspflicht",
-    "fields": {
-      "created_at": "2020-12-17T13:15:29.363Z",
-      "modified_at": "2020-12-17T13:15:29.363Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "8-freigabequittung",
-      "question": "hinweis-klaerung-baubewilligungspflicht",
-      "sort": 4
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "8-freigabequittung.hinweis-zutrittsermaechtigung",
-    "fields": {
-      "created_at": "2020-10-30T15:01:28.056Z",
-      "modified_at": "2020-10-30T15:01:28.056Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "8-freigabequittung",
-      "question": "hinweis-zutrittsermaechtigung",
       "sort": 5
     }
   },
@@ -15162,22 +15039,6 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "einreichen-button-eingereicht",
-    "fields": {
-      "created_at": "2019-06-14T14:30:32.966Z",
-      "modified_at": "2019-06-14T14:30:32.966Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Eingereicht\", \"fr\": \"soumis/transmis\", \"it\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
     "pk": "einreichen-button-sb1-eingereicht",
     "fields": {
       "created_at": "2019-07-23T07:38:50.213Z",
@@ -25661,40 +25522,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "ausnahmegesuche",
-    "fields": {
-      "created_at": "2021-12-03T15:25:41.677Z",
-      "modified_at": "2021-12-03T15:26:00.251Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Ausnahmegesuche\", \"fr\": \"Demande de d\\u00e9rogation\", \"it\": null}",
-      "type": "textarea",
-      "is_required": "false",
-      "is_hidden": "form in ['solaranlagen-meldung', 'heat-generator']",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": \"\", \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "max_length": null,
-        "min_length": null
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "ausnahmegesuch-energie-dokument",
     "fields": {
       "created_at": "2019-05-13T12:28:16.027Z",
@@ -29716,41 +29543,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "einreichen-button",
-    "fields": {
-      "created_at": "2019-05-08T13:38:35.424Z",
-      "modified_at": "2019-06-14T14:30:33.229Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Einreichen\", \"fr\": \"Envoyer\", \"it\": null}",
-      "type": "multiple_choice",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"-\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {
-        "action": "submit",
-        "hideLabel": true,
-        "widgetOverride": "be-submit-instance"
-      },
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "einreichen-button-sb1",
     "fields": {
       "created_at": "2019-07-23T07:38:50.291Z",
@@ -31388,40 +31180,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "freigabequittung-bemerkungen",
-    "fields": {
-      "created_at": "2020-12-07T08:18:51.215Z",
-      "modified_at": "2020-12-07T08:19:20.434Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Bemerkungen\", \"fr\": \"Remarques\", \"it\": null}",
-      "type": "textarea",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": \"\", \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "max_length": null,
-        "min_length": null
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "freigabequittung-druckansicht",
     "fields": {
       "created_at": "2019-06-17T10:46:43.842Z",
@@ -31475,37 +31233,6 @@
       "data_source": null,
       "row_form": null,
       "sub_form": "freigabequittung-sb1",
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "freigabequittung-text",
-    "fields": {
-      "created_at": "2019-05-08T12:42:53.746Z",
-      "modified_at": "2020-12-16T09:29:51.050Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"freigabequittung-text\", \"fr\": \"Declaration de validation\", \"it\": null}",
-      "type": "static",
-      "is_required": "false",
-      "is_hidden": "'is-paper'|answer == 'is-paper-yes' || 'vorabklaerung' in form || form in ['solaranlagen-meldung', 'heat-generator']",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"<hr>\\n<p class=\\\"uk-margin-remove-bottom\\\">S\\u00e4mtliche Pl\\u00e4ne und Dokumente sind unterzeichnet, datiert und in mindestens zweifacher Ausgabe mit dem Gesuchsformular bei der zust\\u00e4ndigen Gemeinde einzusenden.</p>\", \"fr\": \"<hr>\\n<p class=\\\"uk-margin-remove-bottom\\\">Tous les documents doivent \\u00eatre sign\\u00e9s, dat\\u00e9s et soumis en au moins deux exemplaires avec le formulaire de demande \\u00e0 la municipalit\\u00e9 responsable.</p>\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
@@ -33643,37 +33370,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "hinweis-klaerung-baubewilligungspflicht",
-    "fields": {
-      "created_at": "2020-12-17T13:15:29.220Z",
-      "modified_at": "2020-12-17T13:19:43.182Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Hinweis Kl\\u00e4rung Baubewilligungspflicht\", \"fr\": \"Hinweis Kl\\u00e4rung Baubewilligungspflicht\", \"it\": null}",
-      "type": "static",
-      "is_required": "false",
-      "is_hidden": "'klaerung-baubewilligungspflicht' != form",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"<div class=\\\"uk-alert uk-margin-remove-bottom\\\">Damit das Regierungsstatthalteramt die Kl\\u00e4rung Baubewilligungspflicht bearbeiten kann, \\u00fcbergeben Sie das Dossier nach Vergabe der eBau-Nummer durch einen Wechsel der Leitbeh\\u00f6rde.</div>\", \"fr\": \"<div class=\\\"uk-alert uk-margin-remove-bottom\\\">Pour que la pr\\u00e9fecture puisse traiter la clarification de l'octroi d'un permis de construire, vous remettez le dossier \\u00e0 l'autorit\\u00e9 directrise apr\\u00e8s que le num\\u00e9ro eBau ait \\u00e9t\\u00e9 attribu\\u00e9.</div>\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "hinweis-naturgefahren",
     "fields": {
       "created_at": "2020-11-12T15:55:49.119Z",
@@ -33691,37 +33387,6 @@
       "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"Allgemeine Hinweise <a href=\\\"https://www.naturgefahren.sites.be.ch/naturgefahren_sites/de/index/schutzmassnahmen/schutzmassnahmen/raumplanung/bauten_in_gefahrengebieten.html\\\" target=\\\"_blank\\\">Bauen / bestehende Bauten in Gefahrengebieten</a>\", \"fr\": \"Notes g\\u00e9n\\u00e9rales <a href=\\\"https://www.naturgefahren.sites.be.ch/naturgefahren_sites/fr/index/schutzmassnahmen/schutzmassnahmen/raumplanung/bauten_in_gefahrengebieten.html\\\" target=\\\"_blank\\\">Construire / b\\u00e2timents existants dans les zones de danger</a>\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "hinweis-zutrittsermaechtigung",
-    "fields": {
-      "created_at": "2020-10-30T15:01:27.930Z",
-      "modified_at": "2020-12-10T12:42:00.678Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Hinweis Zutrittserm\\u00e4chtigung\", \"fr\": \"Hinweis Zutrittserm\\u00e4chtigung\", \"it\": null}",
-      "type": "static",
-      "is_required": "false",
-      "is_hidden": "'zutrittsermaechtigung' != form",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"<div class=\\\"uk-alert uk-margin-remove-bottom\\\">Damit das Regierungsstatthalteramt die Zutrittserm\\u00e4chtigung bearbeiten kann, \\u00fcbergeben Sie das Dossier nach Vergabe der eBau-Nummer durch einen Wechsel der Leitbeh\\u00f6rde.</div>\", \"fr\": \"<div class=\\\"uk-alert uk-margin-remove-bottom\\\">Pour que la pr\\u00e9fecture puisse traiter l'autorisation d'acc\\u00e8s, vous remettez le dossier \\u00e0 l'autorit\\u00e9 directrise apr\\u00e8s que le num\\u00e9ro eBau ait \\u00e9t\\u00e9 attribu\\u00e9.</div>\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -47795,21 +47460,6 @@
       "modified_by_group": null,
       "question": "einhaltung-radonvorgaben",
       "option": "einhaltung-radonvorgaben-ja",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "einreichen-button.einreichen-button-eingereicht",
-    "fields": {
-      "created_at": "2019-06-14T14:30:33.233Z",
-      "modified_at": "2019-06-14T14:30:33.233Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "question": "einreichen-button",
-      "option": "einreichen-button-eingereicht",
       "sort": 1
     }
   },
