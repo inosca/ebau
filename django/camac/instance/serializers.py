@@ -1424,7 +1424,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             ] = domain_logic.CreateInstanceLogic.generate_identifier(instance)
             case.save()
 
-    def _check_authority_for_forest_dossiers(self, instance):
+    def _get_authority_pk_for_forest_dossiers(self, instance):
         forest_answer = instance.case.document.answers.filter(
             question_id__in=[
                 "waldfeststellung-mit-statischen-waldgrenzen-kanton",
@@ -1444,7 +1444,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
 
         return None
 
-    def _check_authority_for_special_locations(self, instance):
+    def _get_authority_pk_for_special_locations(self, instance):
         municipality = instance.case.document.answers.get(
             question_id="municipality"
         ).value
@@ -1452,12 +1452,22 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         if municipality in [
             str(uri_constants.BFS_NR_DIVERSE_GEMEINDEN),
             str(uri_constants.BFS_NR_ALLE_GEMEINDEN),
-        ] and instance.case.document.form.slug in ["oereb", "oereb-verfahren-gemeinde"]:
-            return str(uri_constants.KOOR_NP_AUTHORITY_ID)
+        ]:
+            if instance.case.document.form.slug in [
+                "oereb",
+                "oereb-verfahren-gemeinde",
+            ]:
+                return str(uri_constants.KOOR_NP_AUTHORITY_ID)
+
+            # if non-oereb dossiers are submitted at alle/diverse gemeinden,
+            # send them to the submitting municipality
+            return AuthorityLocation.objects.get(
+                location=self.context["request"].group.locations.first()
+            ).authority_id
 
         return None
 
-    def _get_authority(self, instance):
+    def _get_authority_pk(self, instance):
         if instance.case.document.form.slug == "pgv-gemeindestrasse":
             return str(uri_constants.BAUDIREKTION_AUTHORITY_ID)
         if instance.case.document.form.slug in [
@@ -1471,9 +1481,9 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             # in internal forms, KOORs can set a custom authority by answering a specific question
             # this takes precedence over the default authority given by the location
             return internal_authority
-        if forest_authority := self._check_authority_for_forest_dossiers(instance):
+        if forest_authority := self._get_authority_pk_for_forest_dossiers(instance):
             return forest_authority
-        if special_location_authority := self._check_authority_for_special_locations(
+        if special_location_authority := self._get_authority_pk_for_special_locations(
             instance
         ):
             return special_location_authority
@@ -1490,7 +1500,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         if not settings.APPLICATION["CALUMA"].get("USE_LOCATION", False):
             return
 
-        if authority := self._get_authority(instance):
+        if authority := self._get_authority_pk(instance):
             caluma_api.update_or_create_answer(
                 instance.case.document,
                 "leitbehoerde",
