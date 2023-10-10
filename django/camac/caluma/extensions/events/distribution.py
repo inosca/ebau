@@ -308,6 +308,10 @@ def post_resume_inquiry(sender, work_item, user, context=None, **kwargs):
         settings.APPLICATION_NAME == "kt_bern"
         and work_item.case.family.instance.instance_state.pk
         == bern_constants.INSTANCE_STATE_CORRECTION_IN_PROGRESS
+    ) or (
+        settings.CORRECTION
+        and work_item.case.family.instance.instance_state.name
+        == settings.CORRECTION["INSTANCE_STATE"]
     ):
         if not work_item.child_case:
             work_item.status = WorkItem.STATUS_SUSPENDED

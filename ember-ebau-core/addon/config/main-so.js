@@ -6,6 +6,10 @@ const config = {
   instanceStates: {
     new: 1,
     subm: 2,
+    "formal-exam": 3,
+    "init-distribution": 4,
+    distribution: 5,
+    correction: 6,
   },
   answerSlugs: {
     objectStreet: "strasse-flurname",
@@ -35,6 +39,15 @@ const config = {
       roles: [],
       serviceGroups: [],
     },
+  },
+  correction: {
+    instanceState: "correction",
+    allowedInstanceStates: [
+      "subm",
+      "formal-exam",
+      "init-distribution",
+      "distribution",
+    ],
   },
 };
 

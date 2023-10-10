@@ -4,12 +4,17 @@ import { Ability } from "ember-can";
 
 import mainConfig from "ember-ebau-core/config/main";
 
-const hasInstanceState = (instance, instanceState) => {
-  return (
-    parseInt(instance.belongsTo("instanceState").id()) ===
-    parseInt(mainConfig.instanceStates[instanceState])
-  );
-};
+function hasInstanceState(instance, instanceState) {
+  const instanceStates = Array.isArray(instanceState)
+    ? instanceState
+    : [instanceState];
+
+  const ids = instanceStates
+    .map((slug) => parseInt(mainConfig.instanceStates[slug]))
+    .filter(Boolean);
+
+  return ids.includes(parseInt(instance.belongsTo("instanceState").id()));
+}
 
 export default class InstanceAbility extends Ability {
   @service ebauModules;
@@ -61,14 +66,13 @@ export default class InstanceAbility extends Ability {
     return (this.model.meta?.permissions?.main || []).includes("write");
   }
 
-  // GR
+  // GR & SO
   get canCorrect() {
     return (
       // disabled until isMunicipalityLeadRole works in ember-ebau
       // (this.ebauModules.isSupportRole ||
       //   this.ebauModules.isMunicipalityLeadRole) &&
-      hasInstanceState(this.model, "subm") ||
-      hasInstanceState(this.model, "circulation")
+      hasInstanceState(this.model, mainConfig.correction?.allowedInstanceStates)
     );
   }
 
@@ -77,7 +81,7 @@ export default class InstanceAbility extends Ability {
       // disabled until isMunicipalityLeadRole works in ember-ebau
       // (this.ebauModules.isSupportRole ||
       //   this.ebauModules.isMunicipalityLeadRole) &&
-      hasInstanceState(this.model, "correction")
+      hasInstanceState(this.model, mainConfig.correction?.instanceState)
     );
   }
 }
