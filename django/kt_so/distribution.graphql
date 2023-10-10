@@ -161,7 +161,7 @@ mutation CreateInquiryFlow {
     input: {
       workflow: "distribution"
       tasks: ["create-inquiry"]
-      next: "[\"inquiry\", \"create-inquiry\"]|tasks"
+      next: "[\"after-create-inquiry\"]|tasks"
     }
   ) {
     clientMutationId
