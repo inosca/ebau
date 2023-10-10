@@ -1,3 +1,5 @@
+from itertools import chain
+
 from caluma.caluma_workflow.dynamic_tasks import BaseDynamicTasks, register_dynamic_task
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
@@ -96,13 +98,25 @@ class CustomDynamicTasks(BaseDynamicTasks):
 
     @register_dynamic_task("after-create-inquiry")
     def resolve_after_create_inquiry(self, case, user, prev_work_item, context):
-        tasks = ["inquiry", "create-inquiry"]
+        tasks = [
+            settings.DISTRIBUTION["INQUIRY_TASK"],
+            settings.DISTRIBUTION["INQUIRY_CREATE_TASK"],
+        ]
 
-        if not case.work_items.filter(
-            addressed_groups=context["addressed_groups"],
-            task_id=settings.ADDITIONAL_DEMAND["CREATE_TASK"],
-            status=WorkItem.STATUS_READY,
-        ).exists():
+        # If there doesn't exist a ready "init-additional-demand" work item for
+        # each of the passed addressed groups, we need to create a new one. To
+        # avoid duplicates, the dynamic group of the "init-additional-demand"
+        # task makes sure to not filter out services that already have such a
+        # work item
+        if set(context["addressed_groups"]) - set(
+            chain(
+                *case.work_items.filter(
+                    addressed_groups__overlap=context["addressed_groups"],
+                    task_id=settings.ADDITIONAL_DEMAND["CREATE_TASK"],
+                    status=WorkItem.STATUS_READY,
+                ).values_list("addressed_groups", flat=True)
+            )
+        ):
             tasks.append(settings.ADDITIONAL_DEMAND["CREATE_TASK"])
 
         return tasks
