@@ -102,6 +102,7 @@ class Locations(BaseDataSource):
             cache_key += "_with_special"
             filters = {}
         else:
+            # UR: Hide "Alle Gemeinden" and "Diverse Gemeinden" for regular applicants
             filters = {"zip__isnull": False}
 
         return cache.get_or_set(cache_key, lambda: self._get_data(filters), 3600)

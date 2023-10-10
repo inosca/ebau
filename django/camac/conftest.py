@@ -137,6 +137,14 @@ FORM_QUESTION_MAP_UR = [
     ("main-form", "municipality"),
     ("main-form", "leitbehoerde"),
     ("main-form", "leitbehoerde-internal-form"),
+    ("oereb", "is-paper"),
+    ("oereb", "municipality"),
+    ("oereb", "leitbehoerde"),
+    ("oereb", "leitbehoerde-internal-form"),
+    ("oereb-verfahren-gemeinde", "is-paper"),
+    ("oereb-verfahren-gemeinde", "municipality"),
+    ("oereb-verfahren-gemeinde", "leitbehoerde"),
+    ("oereb-verfahren-gemeinde", "leitbehoerde-internal-form"),
 ]
 
 # FIXME: This should be canton-specific (currently only BE, doesn't make sense for UR/GR
@@ -789,9 +797,10 @@ def caluma_forms_be(settings):
 @pytest.fixture
 def caluma_forms_ur(settings):
     # forms
-    caluma_form_models.Form.objects.create(
-        slug="main-form", meta={"is-main-form": True}, name="Baugesuch"
-    )
+    for form in ["main-form", "oereb", "oereb-verfahren-gemeinde"]:
+        caluma_form_models.Form.objects.create(
+            slug=form, meta={"is-main-form": True}, name=form
+        )
 
     # dynamic choice options get cached, so we clear them
     # to ensure the new "gemeinde" options will be valid
