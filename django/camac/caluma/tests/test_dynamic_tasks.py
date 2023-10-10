@@ -317,33 +317,45 @@ def test_dynamic_task_after_check_additional_demand(
 
 
 @pytest.mark.parametrize(
-    "existing_init,expected_tasks",
+    "passed_addressed_groups,groups_with_existing,create_additional_demand",
     [
-        (True, {"inquiry", "create-inquiry"}),
-        (False, {"init-additional-demand", "inquiry", "create-inquiry"}),
+        (["1"], ["1"], False),
+        (["1", "2"], ["1", "2"], False),
+        (["1", "2"], ["1", "1"], True),  # this case shouldn't happen but it may
+        (["1", "2"], ["1"], True),
     ],
 )
 def test_dynamic_task_after_create_inquiry(
     db,
     additional_demand_settings,
+    distribution_settings,
     work_item_factory,
     gr_instance,
-    caluma_admin_user,
-    existing_init,
-    expected_tasks,
+    passed_addressed_groups,
+    groups_with_existing,
+    create_additional_demand,
 ):
-    context = {"addressed_groups": [caluma_admin_user.group]}
-    if existing_init:
+    for group in groups_with_existing:
         work_item_factory(
             case=gr_instance.case,
-            addressed_groups=context["addressed_groups"],
+            addressed_groups=[group],
             task_id=additional_demand_settings["CREATE_TASK"],
         )
 
     tasks = set(
         CustomDynamicTasks().resolve_after_create_inquiry(
-            gr_instance.case, None, None, context
+            gr_instance.case, None, None, {"addressed_groups": passed_addressed_groups}
         )
     )
+
+    expected_tasks = set(
+        [
+            distribution_settings["INQUIRY_CREATE_TASK"],
+            distribution_settings["INQUIRY_TASK"],
+        ]
+    )
+
+    if create_additional_demand:
+        expected_tasks.add(additional_demand_settings["CREATE_TASK"])
 
     assert tasks == expected_tasks
