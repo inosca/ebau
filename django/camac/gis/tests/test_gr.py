@@ -168,84 +168,112 @@ def gr__config(gis_data_source_factory, question_factory):
 
 
 @pytest.mark.parametrize(
-    "markers,geometry,form",
+    "query,form",
     [
-        # FIXME: Fails on CI due to unstable ordering
-        # (
-        #     [{"x": 2759870.935699284, "y": 1190699.1389424137}],
-        #     "POINT",
-        #     "baugesuch",
-        # ),  # archaeologiezone_2
         (
-            [{"x": 2730678.226988568, "y": 1122327.0823116319}],
-            "POINT",
+            {
+                "markers": [{"x": 2759870.935699284, "y": 1190699.1389424137}],
+                "geometry": "POINT",
+            },
             "baugesuch",
-        ),
-        ([{"x": 2730678.226988568, "y": 1122327.0823116319}], "POINT", "bauanzeige"),
+        ),  # archaeologiezone_2
         (
-            [
-                {"x": 2730686.563711087, "y": 1122237.578980265},
-                {"x": 2730701.779260571, "y": 1122223.4682885902},
-            ],
-            "LINESTRING",
+            {
+                "markers": [{"x": 2730678.226988568, "y": 1122327.0823116319}],
+                "geometry": "POINT",
+            },
             "baugesuch",
         ),
         (
-            [
-                {"x": 2758821.8885866464, "y": 1191884.7759206274},
-                {"x": 2758835.689140816, "y": 1191889.2217609326},
-                {"x": 2758844.747878619, "y": 1191856.4200200567},
-                {"x": 2758832.507804883, "y": 1191854.8711072344},
-            ],
-            "POLYGON",
+            {
+                "markers": [{"x": 2730678.226988568, "y": 1122327.0823116319}],
+                "geometry": "POINT",
+            },
+            "bauanzeige",
+        ),
+        (
+            {
+                "markers": [
+                    {"x": 2730686.563711087, "y": 1122237.578980265},
+                    {"x": 2730701.779260571, "y": 1122223.4682885902},
+                ],
+                "geometry": "LINESTRING",
+            },
             "baugesuch",
         ),
         (
-            [
-                {"x": 2731195.9499999997, "y": 1122174.3312499998},
-            ],
-            "POINT",
+            {
+                "markers": [
+                    {"x": 2758821.8885866464, "y": 1191884.7759206274},
+                    {"x": 2758835.689140816, "y": 1191889.2217609326},
+                    {"x": 2758844.747878619, "y": 1191856.4200200567},
+                    {"x": 2758832.507804883, "y": 1191854.8711072344},
+                ],
+                "geometry": "POLYGON",
+            },
+            "baugesuch",
+        ),
+        (
+            {
+                "markers": [
+                    {"x": 2731195.9499999997, "y": 1122174.3312499998},
+                ],
+                "geometry": "POINT",
+            },
             "baugesuch",
         ),  # Baurecht
         (
-            [{"x": 2758622.7126099495, "y": 1190131.3069476}],
-            "POINT",
+            {
+                "markers": [{"x": 2758622.7126099495, "y": 1190131.3069476}],
+                "geometry": "POINT",
+            },
             "baugesuch",
         ),  # Ausserhalb Bauzone, Wald
         (
-            [{"x": 2760943.8499999996, "y": 1192035.0312499998}],
-            "POINT",
+            {
+                "markers": [{"x": 2760943.8499999996, "y": 1192035.0312499998}],
+                "geometry": "POINT",
+            },
             "baugesuch",
         ),  # Waldabstandsbereich
         (
-            [
-                {"x": 2760930.5289222472, "y": 1192035.707010256},
-                {"x": 2760963.900865463, "y": 1192057.817393839},
-            ],
-            "LINESTRING",
+            {
+                "markers": [
+                    {"x": 2760930.5289222472, "y": 1192035.707010256},
+                    {"x": 2760963.900865463, "y": 1192057.817393839},
+                ],
+                "geometry": "LINESTRING",
+            },
             "baugesuch",
         ),  # Wald and Waldabstandsbereich
         (
-            [{"x": 2760376.3950000005, "y": 1190000.739375}],
-            "POINT",
+            {
+                "markers": [{"x": 2760376.3950000005, "y": 1190000.739375}],
+                "geometry": "POINT",
+            },
             "baugesuch",
         ),  # Kantonsstrasse
         (
-            [{"x": 2757567.75, "y": 1192209.3312499998}],
-            "POINT",
+            {
+                "markers": [{"x": 2757567.75, "y": 1192209.3312499998}],
+                "geometry": "POINT",
+            },
             "baugesuch",
         ),  # Gewässerschutzbereich
         (
-            [{"x": 2757771.4499999997, "y": 1192182.0312499998}],
-            "POINT",
+            {
+                "markers": [{"x": 2757771.4499999997, "y": 1192182.0312499998}],
+                "geometry": "POINT",
+            },
             "baugesuch",
         ),  # Gefahrenzone
-        # FIXME: Fails on CI due to unstable ordering
-        # (
-        #     [{"x": 2759143.4499999997, "y": 1190625.23125}],
-        #     "POINT",
-        #     "baugesuch",
-        # ),  # Archäologische Schutzzone
+        (
+            {
+                "markers": [{"x": 2759143.4499999997, "y": 1190625.23125}],
+                "geometry": "POINT",
+            },
+            "baugesuch",
+        ),  # Archäologische Schutzzone
     ],
 )
 @pytest.mark.vcr()
@@ -255,16 +283,14 @@ def test_gr_client(
     snapshot,
     vcr_config,
     gr__config,
-    markers,
-    geometry,
+    query,
     form,
     gr_data_sources,
 ):
     response = admin_client.get(
         reverse("gis-data"),
         data={
-            "markers": json.dumps(markers),
-            "geometry": geometry,
+            "query": json.dumps(query),
             "form": form,
         },
     )

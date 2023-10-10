@@ -115,5 +115,20 @@
       ],
       "disabled": false
     }
+  },
+  {
+    "model": "gis.gisdatasource",
+    "pk": "bacbf788-d1fc-42f7-b8ec-c52ce8dd35ff",
+    "fields": {
+      "description": "coordinates",
+      "client": "camac.gis.clients.param.ParamGisClient",
+      "config": [
+        {
+          "question": "gis-map",
+          "parameterName": "query"
+        }
+      ],
+      "disabled": false
+    }
   }
 ]

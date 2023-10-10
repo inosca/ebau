@@ -10,7 +10,7 @@ from camac.utils import build_url
 
 
 class GrGisClient(GISBaseClient):
-    required_params = ["markers"]
+    required_params = ["query"]
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -44,8 +44,9 @@ class GrGisClient(GISBaseClient):
             settings.GR_GIS_BASE_URL,
             "/?service=WPS&version=1.0.0&request=Execute&storeExecuteResponse=false&lineage=false&status=false&identifier=get_info_ebbv&datainputs=geometry=",
         )
-        markers = json.loads(self.params.get("markers"))
-        geometry_type = self.params.get("geometry")
+        query = json.loads(self.params.get("query"))
+        markers = query["markers"]
+        geometry_type = query["geometry"]
         form = self.params.get("form")
         response = self.session.get(
             f"{base_url}{self.get_geometry_query_param(markers,geometry_type)}"
@@ -68,6 +69,9 @@ class GrGisClient(GISBaseClient):
             **result,
             "parzelle": self.get_plot_data(response.content),
             **self.get_plans(response.content),
+            # "coordinates": ", ".join(
+            #     [f"'{latlng['x']},{latlng['y']}'" for latlng in markers]
+            # ),
         }
         return result
 
@@ -175,8 +179,13 @@ class GrGisClient(GISBaseClient):
 
             for layer in layers:
                 for data in self.get_xml(resonse_content, layer):
-                    if find(data, "Bezeichnung"):
-                        result[question] += [find(data, "Bezeichnung")]
+                    if bezeichnung := find(data, "Bezeichnung"):
+                        bracket = ""
+                        if verbindlichkeit := find(data, "Verbindlichkeit"):
+                            if verbindlichkeit != "Nutzungsplanfestlegung":
+                                bracket = " (" + verbindlichkeit + ")"
+
+                        result[question] += [bezeichnung + bracket]
 
         return {
             question: ", ".join(value) for question, value in result.items() if value
