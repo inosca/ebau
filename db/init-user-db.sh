@@ -1,6 +1,12 @@
 #!/bin/bash
 set -e
 
+psql -d template1 --username "$POSTGRES_USER" <<-EOSQL
+    CREATE EXTENSION citext;
+    CREATE EXTENSION hstore;
+    CREATE EXTENSION "uuid-ossp";
+EOSQL
+
 psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" <<-EOSQL
     CREATE DATABASE kt_schwyz;
     GRANT ALL PRIVILEGES ON DATABASE kt_schwyz TO $POSTGRES_USER;

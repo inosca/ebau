@@ -44,7 +44,7 @@ combine_as_imports = true
 line_length = 88
 
 [tool.pytest.ini_options]
-addopts = "--reuse-db --randomly-seed=1521188766 --randomly-dont-reorganize"
+addopts = "--no-migrations --reuse-db --randomly-seed=1521188766 --randomly-dont-reorganize"
 DJANGO_SETTINGS_MODULE = "camac.settings"
 env = [
     "DJANGO_CACHE_BACKEND=django.core.cache.backends.locmem.LocMemCache",
@@ -177,5 +177,7 @@ omit = [
     "camac/core/tests/test_migrate_schwyz_instances.py",
     # Distribution migration
     "camac/circulation/management/commands/distribution_*.py",
+    # Views only used in migrations
+    "camac/core/db_views.py"
 ]
 show_missing = true

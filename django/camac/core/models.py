@@ -6,6 +6,8 @@ from django.db import models
 from django.utils import translation
 from localized_fields.fields import LocalizedTextField
 
+from camac.models import dynamic_default_value
+
 
 class MultilingualModel:
     """Mixin for models that have a multilingual "name" property."""
@@ -2141,10 +2143,12 @@ class InstancePortal(models.Model):
         db_table = "INSTANCE_PORTAL"
 
 
+@dynamic_default_value(None)
 def get_first_form_group():
     return FormGroup.objects.first()
 
 
+@dynamic_default_value(0)
 def next_instance_resource_sort():
     last = InstanceResource.objects.order_by("-sort").first()
     return last.sort + 1 if last else 0
@@ -3769,6 +3773,7 @@ class RUserAcl(models.Model):
         unique_together = (("resource", "user"),)
 
 
+@dynamic_default_value(0)
 def next_resource_sort():
     last = Resource.objects.order_by("-sort").first()
     return last.sort + 1 if last else 0
