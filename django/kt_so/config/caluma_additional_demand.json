@@ -729,7 +729,7 @@
       "meta": {},
       "is_published": false,
       "is_archived": false,
-      "allow_all_forms": true,
+      "allow_all_forms": false,
       "start_tasks": ["send-additional-demand"],
       "allow_forms": []
     }
