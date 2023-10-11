@@ -18,17 +18,14 @@ services:
       - ebau.local
 
   db:
-    image: acr.run/camac-ng/camac-ng/db:${CI_COMMIT_REF_SLUG:-master}
-    build:
-      context: ../db
-      cache_from:
-        - acr.run/camac-ng/camac-ng/db:master
+    image: postgres:15-bullseye
     environment:
-      - POSTGRES_USER=camac
-      - POSTGRES_PASSWORD=camac
-      - POSTGRES_DATABASE=${APPLICATION}
+      POSTGRES_USER: camac
+      POSTGRES_PASSWORD: camac
+      POSTGRES_DATABASE: ${APPLICATION}
     volumes:
-      - pgdata:/var/lib/postgresql/data
+      - ../db/init-user-db.sh:/docker-entrypoint-initdb.d/init-user-db.sh:ro
+      - pg15data:/var/lib/postgresql/data
     networks:
       - ebau.local
     command: -c fsync=off -c full_page_writes=off -c synchronous_commit=off -c wal_level=minimal -c max_wal_senders=0 -c archive_mode=off
@@ -195,7 +192,7 @@ services:
       - EXTENSIONS_ARGUMENTS=DJANGO_API=http://django
 
 volumes:
-  pgdata:
+  pg15data:
   djangomedia:
   djangotmpmedia:
   phpsessions:
