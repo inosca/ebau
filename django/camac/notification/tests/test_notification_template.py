@@ -680,6 +680,7 @@ def test_notification_placeholders(
 @pytest.mark.django_db(transaction=True, reset_sequences=True)
 def test_notification_caluma_placeholders(
     db,
+    settings,
     active_inquiry_factory,
     admin_client,
     be_instance,
@@ -696,6 +697,9 @@ def test_notification_caluma_placeholders(
     decision_factory,
     be_decision_settings,
 ):
+    # make sure that tests also run locally when INTERNAL_BASE_URL might be something else
+    settings.INTERNAL_BASE_URL = "http://ebau.local"
+    settings.INTERNAL_INSTANCE_URL_TEMPLATE = "http://ebau.local/index/redirect-to-instance-resource/instance-id/{instance_id}"
     notification_template.body = """
         BASE_URL: {{BASE_URL}}
         EBAU_NUMBER: {{EBAU_NUMBER}}
@@ -1243,17 +1247,26 @@ def test_ur_placeholders(
             "city",
         ]
     ]
+    is_juristic_person_question = caluma_form_models.Question.objects.create(
+        slug="is-juristic-person",
+        type=caluma_form_models.Question.TYPE_CHOICE,
+    )
+
     [
         caluma_form_models.FormQuestion.objects.create(
             form=personal_data_form, question=question
         )
-        for question in personal_questions
+        for question in personal_questions + [is_juristic_person_question]
     ]
 
-    caluma_form_models.Question.objects.create(
+    applicant_question = caluma_form_models.Question.objects.create(
         slug="applicant",
         type=caluma_form_models.Question.TYPE_TABLE,
         row_form=personal_data_form,
+    )
+    main_form = caluma_form_models.Form.objects.get(pk="main-form")
+    caluma_form_models.FormQuestion.objects.create(
+        form=main_form, question=applicant_question
     )
 
     ur_instance.case.document.answers.create(
@@ -1276,6 +1289,9 @@ def test_ur_placeholders(
         applicant_row_doc.answers.create(value=question.slug, question=question)
         for question in personal_questions[:-1]  # test for missing answers as well
     ]
+    applicant_row_doc.answers.create(
+        value="is-juristic-person-yes", question=is_juristic_person_question
+    )
 
     table_answer = ur_instance.case.document.answers.create(question_id="applicant")
     table_answer.documents.add(applicant_row_doc)
@@ -1300,7 +1316,7 @@ def test_ur_placeholders(
 
     assert (
         mailoutbox[0].body
-        == f"{settings.EMAIL_PREFIX_BODY}parz={expected_parcel}, gs=juristic-person-name, first-name last-name, street street-number, zip , vorhaben=my description"
+        == f"{settings.EMAIL_PREFIX_BODY}parz={expected_parcel}, gs=juristic-person-name, first-name last-name, street street-number, zip, vorhaben=my description"
     )
 
 

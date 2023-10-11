@@ -401,6 +401,7 @@ APPLICATIONS = {
         "ALEXANDRIA": {
             "PUBLIC_ROLE": "applicant",
         },
+        "MASTER_DATA": {},
     },
     "kt_schwyz": {
         "SHORT_NAME": "sz",

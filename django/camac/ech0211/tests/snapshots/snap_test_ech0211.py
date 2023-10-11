@@ -390,12 +390,12 @@ snapshots['test_generate_delivery[kt_schwyz-set_application_sz-ech_instance_sz] 
 \t\t\t\t\t\t\t<ns8:organisationIdCategory>ebausz</ns8:organisationIdCategory>
 \t\t\t\t\t\t\t<ns8:organisationId><!-- ORGANISATION_ID --></ns8:organisationId>
 \t\t\t\t\t\t</ns8:localOrganisationId>
-\t\t\t\t\t\t<ns8:organisationName>Devon Cooke</ns8:organisationName>
+\t\t\t\t\t\t<ns8:organisationName>Christine Powers</ns8:organisationName>
 \t\t\t\t\t\t<ns8:legalForm>0223</ns8:legalForm>
 \t\t\t\t\t</ns3:buildingAuthorityIdentificationType>
 \t\t\t\t\t<ns3:address>
 \t\t\t\t\t\t<ns4:street>None</ns4:street>
-\t\t\t\t\t\t<ns4:town>Brandonmouth</ns4:town>
+\t\t\t\t\t\t<ns4:town>unknown</ns4:town>
 \t\t\t\t\t\t<ns4:country>
 \t\t\t\t\t\t\t<ns4:countryNameShort>CH</ns4:countryNameShort>
 \t\t\t\t\t\t</ns4:country>
@@ -412,11 +412,11 @@ snapshots['test_generate_delivery[kt_schwyz-set_application_sz-ech_instance_sz] 
 \t\t\t\t\t\t<ns8:organisationIdCategory>ebausz</ns8:organisationIdCategory>
 \t\t\t\t\t\t<ns8:organisationId><!-- ORGANISATION_ID --></ns8:organisationId>
 \t\t\t\t\t</ns8:localOrganisationId>
-\t\t\t\t\t<ns8:organisationName>Devon Cooke</ns8:organisationName>
+\t\t\t\t\t<ns8:organisationName>Christine Powers</ns8:organisationName>
 \t\t\t\t\t<ns8:legalForm>0223</ns8:legalForm>
 \t\t\t\t</ns1:entryOfficeIdentification>
 \t\t\t\t<ns1:municipality>
-\t\t\t\t\t<ns5:municipalityName>Brandonmouth</ns5:municipalityName>
+\t\t\t\t\t<ns5:municipalityName>unknown</ns5:municipalityName>
 \t\t\t\t\t<ns5:cantonAbbreviation>SZ</ns5:cantonAbbreviation>
 \t\t\t\t</ns1:municipality>
 \t\t\t</ns1:entryOffice>
