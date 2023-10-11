@@ -504,9 +504,7 @@ def test_instance_list(
 @pytest.mark.parametrize(
     "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
 )
-@pytest.mark.parametrize("new_instance_state_name", ["subm"])
 @pytest.mark.parametrize("has_personalien_sb1", [True, False])
-@pytest.mark.parametrize("has_personalien_gesuchstellerin", [True, False])
 @pytest.mark.parametrize(
     "notification_template__body",
     [
@@ -540,7 +538,6 @@ def test_instance_submit_be(
     instance_state_factory,
     service,
     admin_user,
-    new_instance_state_name,
     notification_template,
     submit_date_question,
     settings,
@@ -552,7 +549,6 @@ def test_instance_submit_be(
     ech_mandatory_answers_einfache_vorabklaerung,
     caluma_workflow_config_be,
     has_personalien_sb1,
-    has_personalien_gesuchstellerin,
     caluma_admin_user,
 ):
     application_settings["NOTIFICATIONS"]["SUBMIT"] = [
@@ -569,7 +565,7 @@ def test_instance_submit_be(
         "parse_answers",
         return_value=ech_mandatory_answers_einfache_vorabklaerung,
     )
-    instance_state_factory(name=new_instance_state_name)
+    instance_state_factory(name="subm")
 
     mocker.patch.object(event_handlers, "get_document", return_value=baugesuch_data)
 
@@ -583,48 +579,24 @@ def test_instance_submit_be(
     assert mail.outbox[0].subject.startswith("[eBau Test]: ")
 
 
-@pytest.mark.parametrize("service_group__name", ["municipality", "coordination"])
 @pytest.mark.parametrize("instance_state__name", ["new"])
+@pytest.mark.parametrize("instance__user", [LazyFixture("admin_user")])
 @pytest.mark.parametrize(
-    "role__name,instance__user",
+    "role__name,service_group__name,form_slug,special_case",
     [
-        ("Applicant", LazyFixture("admin_user")),
-        ("Coordination", LazyFixture("admin_user")),
-        ("Municipality", LazyFixture("admin_user")),
-    ],
-)
-@pytest.mark.parametrize("new_instance_state_name", ["subm"])
-@pytest.mark.parametrize("has_personalien_gesuchstellerin", [True, False])
-@pytest.mark.parametrize("is_paper", [True, False])
-@pytest.mark.parametrize(
-    "notification_template__body",
-    [
-        """
-    Guten Tag
-
-    Im eBau gibt es einen neuen Eingang vom Typ {{FORM_NAME}} mit der Dossier-Nr. {{INSTANCE_ID}}.
-
-    {{DOSSIER_LINK}}
-
-    Freundliche Grüsse
-    {{LEITBEHOERDE_NAME}}
-    """,
-        """
-
-    Guten Tag
-
-    Ihr/e {{FORM_NAME}} mit der Dossier-Nr. {{INSTANCE_ID}} wurde erfolgreich übermittelt. Das Verfahren wird nun ausgelöst. Sie werden über Statusänderungen informiert.
-
-    {{DOSSIER_LINK}}
-    """,
-    ],
-)
-@pytest.mark.parametrize(
-    "form_slug,communal_federal_number",
-    [
-        ("main-form", "1224"),
-        ("oereb", "1221"),
-        ("oereb-verfahren-gemeinde", "1222"),
+        ("Municipality", "municipality", "main-form", {"special_location": True}),
+        ("Applicant", None, "main-form", {}),
+        ("Municipality", "municipality", "main-form", {}),
+        (
+            "Municipality",
+            "municipality",
+            "oereb-verfahren-gemeinde",
+            {"special_location": True},
+        ),
+        ("Coordination", "coordination", "oereb", {}),
+        ("Coordination", "coordination", "oereb", {"custom_leitbehoerde": True}),
+        ("Coordination", "coordination", "oereb", {"special_location": True}),
+        ("Coordination", "coordination", "oereb", {"is_federal": True}),
     ],
 )
 def test_instance_submit_ur(
@@ -638,7 +610,6 @@ def test_instance_submit_ur(
     instance_service_factory,
     service,
     admin_user,
-    new_instance_state_name,
     notification_template,
     submit_date_question,
     settings,
@@ -649,16 +620,15 @@ def test_instance_submit_ur(
     mock_generate_and_store_pdf,
     ech_mandatory_answers_einfache_vorabklaerung,
     caluma_workflow_config_ur,
-    has_personalien_gesuchstellerin,
     caluma_admin_user,
     location_factory,
     workflow_item_factory,
     authority_location_factory,
     authority,
-    is_paper,
     form_slug,
-    communal_federal_number,
+    special_case,
 ):
+    settings.APPLICATION_NAME = "kt_uri"
     application_settings["NOTIFICATIONS"]["SUBMIT"] = [
         {"template_slug": notification_template.slug, "recipient_types": ["applicant"]}
     ]
@@ -672,9 +642,16 @@ def test_instance_submit_ur(
         ur_instance.group.role.pk
     ]
 
+    mocker.patch.object(
+        uri_constants,
+        "BUNDESSTELLE_SERVICE_ID",
+        ur_instance.group.service_id
+        if special_case.get("is_federal")
+        else ur_instance.group.service_id + 1,
+    )
+
     if form_slug != "main-form":
-        form = caluma_form_factories.FormFactory(slug=form_slug)
-        ur_instance.case.document.form = form
+        ur_instance.case.document.form_id = form_slug
         ur_instance.case.document.save()
 
     instance_state_factory(name="ext")
@@ -684,17 +661,25 @@ def test_instance_submit_ur(
         active=1, instance=ur_instance, service=ur_instance.group.service
     )
 
-    settings.APPLICATION_NAME = "kt_uri"
-
     workflow_item_factory(workflow_item_id=ur_constants.WORKFLOW_ITEM_DOSSIER_ERFASST)
 
-    location = location_factory(communal_federal_number=communal_federal_number)
+    location = location_factory(
+        communal_federal_number="1222"
+        if special_case.get("special_location")
+        else "1224"
+    )
 
     ur_instance.case.document.answers.create(
         value=str(location.communal_federal_number), question_id="municipality"
     )
-    authority_location = authority_location_factory(location=location)
-    if is_paper:
+    if special_case.get("special_location"):
+        authority_location = authority_location_factory(
+            location=admin_user.groups.first().locations.first()
+        )
+    else:
+        authority_location = authority_location_factory(location=location)
+
+    if special_case.get("custom_leitbehoerde"):
         ur_instance.case.document.answers.create(
             value=str(authority.pk),
             question_id="leitbehoerde-internal-form",
@@ -711,7 +696,7 @@ def test_instance_submit_ur(
         "parse_answers",
         return_value=ech_mandatory_answers_einfache_vorabklaerung,
     )
-    instance_state_factory(name=new_instance_state_name)
+    instance_state_factory(name="subm")
 
     mocker.patch.object(event_handlers, "get_document", return_value=baugesuch_data)
 
@@ -726,27 +711,26 @@ def test_instance_submit_ur(
 
     assert mail.outbox[0].subject.startswith("[eBau Test]: ")
 
-    leitbehoerde = (
+    found_authority = (
         ur_instance.case.document.answers.filter(question_id="leitbehoerde")
         .first()
         .value
     )
 
-    if communal_federal_number in ["1221", "1222"]:
+    if special_case.get("custom_leitbehoerde"):
+        assert int(found_authority) == int(authority.pk)
+    elif special_case.get("special_location") and "oereb" in form_slug:
         # this is a special "diverse gemeinden" or "alle gemeinden" dossier
         # this is therefore an ÖREB dossier and in this case the leitbehörde
         # is the KOOR NP
-        assert (
-            int(leitbehoerde) == uri_constants.KOOR_NP_AUTHORITY_ID
-        ), "incorrect leitbehoerde"
+        assert int(found_authority) == int(ur_constants.KOOR_NP_AUTHORITY_ID)
     else:
-        if is_paper:
-            assert leitbehoerde == str(authority.pk)
-        else:
-            assert leitbehoerde == str(authority_location.authority.pk)
+        assert int(found_authority) == int(authority_location.authority.pk)
 
     if ur_instance.group.role.name == "Coordination":
-        assert ur_instance.instance_state.name == "ext"
+        assert ur_instance.instance_state.name == (
+            "comm" if special_case.get("is_federal") else "ext"
+        )
     elif ur_instance.group.role.name == "Municipality":
         assert ur_instance.instance_state.name == "comm"
     else:
@@ -1081,8 +1065,7 @@ def test_oereb_instance_copy_for_koor_afj(
     )
     ur_instance.save()
 
-    oereb_form = caluma_form_factories.FormFactory(slug=form_slug)
-    ur_instance.case.document.form = oereb_form
+    ur_instance.case.document.form_id = form_slug
     ur_instance.case.document.save()
 
     mocker.patch(
