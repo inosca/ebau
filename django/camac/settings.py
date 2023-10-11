@@ -190,6 +190,7 @@ COMMON_FORM_SLUGS_BE = [
     "grundeigentumerin",
     "gebaudeeigentumerin",
     "vertreterin-mit-vollmacht",
+    "8-freigabequittung",
 ]
 
 
