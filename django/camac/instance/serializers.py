@@ -529,6 +529,9 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
         return instance.responsible_service(filter_type="municipality")
 
     def get_decision(self, instance):
+        if not settings.DECISION:  # pragma: no cover
+            return None
+
         answer = (
             form_models.Answer.objects.filter(
                 question_id=settings.DECISION["QUESTION_SLUG"],
