@@ -21,6 +21,7 @@ from django.utils import timezone
     ],
 )
 def test_send_work_item_reminders(
+    settings,
     application_settings,
     db,
     mailoutbox,
@@ -41,6 +42,7 @@ def test_send_work_item_reminders(
     multilingual,
 ):
     application_settings["IS_MULTILINGUAL"] = multilingual
+    settings.INTERNAL_BASE_URL = "http://ebau.local"
 
     user = user_factory()
     services = service_factory.create_batch(2)

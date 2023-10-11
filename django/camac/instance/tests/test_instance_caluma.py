@@ -278,7 +278,6 @@ def test_create_instance_caluma_ur(  # noqa: C901
     application_settings["CALUMA"]["MODIFICATION_ALLOW_FORMS"] = ["main-form"]
     application_settings["SET_SUBMIT_DATE_CAMAC_ANSWER"] = False
     application_settings["SET_SUBMIT_DATE_CAMAC_WORKFLOW"] = True
-    application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_uri"]["MASTER_DATA"]
 
     role = admin_client.user.groups.first().role
     if role.name == "Municipality":
@@ -634,7 +633,6 @@ def test_instance_submit_ur(
     ]
     application_settings["SET_SUBMIT_DATE_CAMAC_WORKFLOW"] = True
     application_settings["SET_SUBMIT_DATE_CAMAC_ANSWER"] = False
-    application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_uri"]["MASTER_DATA"]
     application_settings["PAPER"]["ALLOWED_SERVICE_GROUPS"]["DEFAULT"] = [
         ur_instance.group.service.service_group_id
     ]
@@ -1053,7 +1051,6 @@ def test_oereb_instance_copy_for_koor_afj(
     attachment_factory,
 ):
     settings.APPLICATION_NAME = "kt_uri"
-    application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_uri"]["MASTER_DATA"]
 
     ur_instance.form = form_factory(name="camac-form")
     ur_instance.attachments.add(
@@ -1188,7 +1185,6 @@ def test_instance_submit_message_building_services_ur(
     application_settings["CALUMA"]["GENERATE_IDENTIFIER"] = False
     application_settings["USE_INSTANCE_SERVICE"] = False
     application_settings["NOTIFICATIONS"] = {"SUBMIT": []}
-    application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_uri"]["MASTER_DATA"]
 
     message_building_services_form = caluma_form_factories.FormFactory(
         slug="technische-bewilligung"
