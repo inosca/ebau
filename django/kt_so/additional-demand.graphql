@@ -76,7 +76,6 @@ mutation AdditionalDemandWorkflow {
       slug: "additional-demand"
       name: "Nachforderung"
       startTasks: ["send-additional-demand"]
-      allowAllForms: true
     }
   ) {
     clientMutationId
