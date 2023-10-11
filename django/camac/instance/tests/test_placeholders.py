@@ -3,6 +3,12 @@ from datetime import date
 
 import faker
 import pytest
+from alexandria.core.factories import (
+    CategoryFactory,
+    DocumentFactory as AlexandriaDocumentFactory,
+    FileFactory,
+    TagFactory,
+)
 from caluma.caluma_form.factories import AnswerFactory, DocumentFactory
 from caluma.caluma_form.models import Option, Question
 from caluma.caluma_workflow.factories import WorkItemFactory
@@ -110,6 +116,18 @@ def test_dms_placeholders_gr(
     responsible_service.zip = "1234"
     responsible_service.website = "www.example.com"
     responsible_service.save()
+
+    # alexandria document
+    TagFactory(slug="decision")
+    alexandria_category = CategoryFactory()
+    alexandria_document = AlexandriaDocumentFactory(
+        title="Grundriss",
+        category=alexandria_category,
+        metainfo={"camac-instance-id": str(gr_instance.pk)},
+        tags=["decision"],
+        created_by_user=admin_client.user.username,
+    )
+    FileFactory(name="Situationsplan", document=alexandria_document, variant="original")
 
     # publication
     document = DocumentFactory()
