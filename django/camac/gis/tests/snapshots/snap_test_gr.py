@@ -122,7 +122,7 @@ snapshots['test_gr_client[query1-baugesuch] 1'] = {
         'genereller-gestaltungsplan': {
             'hidden': False,
             'label': 'genereller-gestaltungsplan',
-            'value': 'Linea di allineamento per la strutturazione edilizia, Linea di allineamento per la strutturazione edilizia'
+            'value': 'Linea di allineamento per la strutturazione edilizia'
         },
         'gis-map': {
             'hidden': True,
@@ -308,7 +308,7 @@ snapshots['test_gr_client[query11-baugesuch] 1'] = {
         'zonenplan': {
             'hidden': False,
             'label': 'zonenplan',
-            'value': 'Statische Waldgrenze gemäss Art. 10/13 Waldgesetz, Statische Waldgrenze gemäss Art. 10/13 Waldgesetz, Gefahrenzone 1, Gewässer'
+            'value': 'Statische Waldgrenze gemäss Art. 10/13 Waldgesetz, Gefahrenzone 1, Gewässer'
         }
     }
 }
@@ -422,7 +422,7 @@ snapshots['test_gr_client[query2-bauanzeige] 1'] = {
         'genereller-gestaltungsplan': {
             'hidden': False,
             'label': 'genereller-gestaltungsplan',
-            'value': 'Linea di allineamento per la strutturazione edilizia, Linea di allineamento per la strutturazione edilizia'
+            'value': 'Linea di allineamento per la strutturazione edilizia'
         },
         'gis-map': {
             'hidden': True,
@@ -485,7 +485,7 @@ snapshots['test_gr_client[query3-baugesuch] 1'] = {
         'genereller-erschliessungsplan': {
             'hidden': False,
             'label': 'genereller-erschliessungsplan',
-            'value': 'Percorso pedonale, Percorso pedonale'
+            'value': 'Percorso pedonale'
         },
         'gis-map': {
             'hidden': True,
@@ -1000,7 +1000,7 @@ snapshots['test_gr_client[query9-baugesuch] 1'] = {
         'genereller-erschliessungsplan': {
             'hidden': False,
             'label': 'genereller-erschliessungsplan',
-            'value': 'Bahnlinie SBB/RhB (hinweisend), Fuss- / Radweg Hauptverbindung, Kantonale Verbindungsstrasse (orientierend), Kantonale Verbindungsstrasse (orientierend), Parkierung Gebiete C'
+            'value': 'Bahnlinie SBB/RhB (hinweisend), Fuss- / Radweg Hauptverbindung, Kantonale Verbindungsstrasse (orientierend), Parkierung Gebiete C'
         },
         'genereller-gestaltungsplan': {
             'hidden': False,
