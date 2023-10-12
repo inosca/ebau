@@ -34,6 +34,9 @@ module.exports = function (defaults) {
         application: ENV,
       },
     },
+    fingerprint: {
+      extensions: ["js", "css", "map"],
+    },
   });
 
   app.trees.app = stew.rm(
