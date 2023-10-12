@@ -186,3 +186,7 @@ class AdminAdditionalDemandPermission(
 
 class AdminNewPaperPermission(AdminNewPermission, AdminPaperPermission):  # noqa F405
     pass
+
+
+if settings.APPLICATION_NAME == "kt_gr":  # pragma: no cover
+    from .kt_gr import *  # noqa: F403, F401
