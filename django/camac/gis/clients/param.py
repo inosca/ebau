@@ -24,8 +24,8 @@ class ParamGisClient(GISBaseClient):
 
         Example config:
         [
-            { "parameterName": "x", "question": "pathto.coordinate-x" }
-            { "parameterName": "y", "question": "pathto.coordinate-y" }
+            { "parameterName": "x", "question": "pathto.coordinate-x", "hidden":False }
+            { "parameterName": "y", "question": "pathto.coordinate-y", "hidden":False }
         ]
         """
         data = {}
@@ -39,3 +39,7 @@ class ParamGisClient(GISBaseClient):
             self.set_question_value(data, param_config["question"], value)
 
         return data
+
+    @staticmethod
+    def get_hidden_questions(config: dict):
+        return [param["question"] for param in config if param.get("hidden")]

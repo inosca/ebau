@@ -11,6 +11,7 @@ snapshots['test_view_structure 1'] = {
     'data': {
         'table-question': {
             'form': 'table-form',
+            'hidden': False,
             'label': 'Table Question',
             'value': [
                 {
@@ -36,6 +37,7 @@ snapshots['test_view_structure 1'] = {
             ]
         },
         'text-question': {
+            'hidden': False,
             'label': 'Text Question',
             'value': 'foo'
         }

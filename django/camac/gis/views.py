@@ -1,3 +1,4 @@
+import itertools
 from importlib import import_module
 
 from caluma.caluma_form.models import Question
@@ -62,6 +63,25 @@ class GISDataView(ListAPIView):
 
         return labeled_data
 
+    def add_hidden(self, data):
+        """Attach the hidden field to the view response."""
+        hidden_questions = self.extract_hidden(self.get_queryset())
+        for question in data.keys():
+            data[question]["hidden"] = question in hidden_questions
+
+        return data
+
+    def extract_hidden(self, configs):
+        """Extract the hidden field from the configuration."""
+        return list(
+            itertools.chain(
+                *[
+                    config.get_client_cls().get_hidden_questions(config.config)
+                    for config in configs
+                ]
+            )
+        )
+
     def list(self, request):
         queryset = self.get_queryset()
         data = {}
@@ -84,7 +104,7 @@ class GISDataView(ListAPIView):
         except ValueError as e:
             raise ValidationError(e)
 
-        response = {"data": self.add_labels(data)}
+        response = {"data": self.add_hidden(self.add_labels(data))}
 
         if len(errors) > 0:
             response["errors"] = errors
