@@ -8,6 +8,9 @@ import { queryManager } from "ember-apollo-client";
 import CustomCaseModel from "ember-ebau-core/caluma-query/models/case";
 import mainConfig from "ember-ebau-core/config/main";
 import saveWorkItemMutation from "ember-ebau-core/gql/mutations/save-workitem.graphql";
+
+const QUESTIONS = JSON.stringify(mainConfig.intentSlugs);
+
 export default class CustomWorkItemModel extends WorkItemModel {
   @queryManager apollo;
 
@@ -373,7 +376,7 @@ export default class CustomWorkItemModel extends WorkItemModel {
           form {
             name
           }
-          answers(filter: [{ questions: ["beschreibung-bauvorhaben", "voranfrage-vorhaben", "are-geschaeft-vorhaben"] }]) {
+          answers(filter: [{ questions: ${QUESTIONS} }]) {
             edges {
               node {
                 ... on StringAnswer {
