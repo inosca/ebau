@@ -16979,7 +16979,7 @@
     "model": "user.service",
     "pk": 115,
     "fields": {
-      "service_group": 3,
+      "service_group": 2,
       "service_parent": null,
       "name": null,
       "description": null,
