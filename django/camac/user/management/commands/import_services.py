@@ -5,81 +5,91 @@ from django.db import transaction
 
 from camac.user.models import Group, GroupT, Role, Service, ServiceGroup, ServiceT
 
-_TYPE_MAP = {
-    "kt_gr": {
-        "SERVICE_GROUP": {
-            1: ServiceGroup.objects.get(pk=2),  # Sachbearbeitung Gemeinde
-            2: ServiceGroup.objects.get(pk=1),  # Fachstelle
-            3: ServiceGroup.objects.get(pk=3),  # ARE
-        },
-        "ROLE": {
-            1: {
-                "lead": Role.objects.get(pk=3),  # Sachbearbeitung Leitbehörde
-                "admin": Role.objects.get(pk=5),  # Administration Leitbehörde
-            },
-            2: {
-                "lead": Role.objects.get(pk=4),  # Sachbearbeitung Fachstelle
-                "admin": Role.objects.get(pk=6),  # Administration Fachstelle
-            },
-            # ARE also gets "Fachstelle" role
-            3: {
-                "lead": Role.objects.get(pk=4),  # Sachbearbeitung Fachstelle
-                "admin": Role.objects.get(pk=6),  # Administration Fachstelle
-            },
-        },
-        "PREFIX": {
-            1: "Leitbehörde",
-            2: None,
-            3: None,
-        },
-    },
-    "kt_so": {
-        "SERVICE_GROUP": {
-            1: ServiceGroup.objects.get(pk=1),  # Gemeinde
-            2: ServiceGroup.objects.get(pk=2),  # Kantonale Fachstelle
-            3: ServiceGroup.objects.get(pk=3),  # Ausserkantonale Fachstelle
-        },
-        "ROLE": {
-            1: {
-                "admin": Role.objects.get(pk=4),  # Administration Leitbehörde
-                "lead": Role.objects.get(pk=5),  # Leitung Leitbehörde
-                "clerk": Role.objects.get(pk=6),  # Sachbearbeitung Leitbehörde
-                "construction-monitoring": Role.objects.get(
-                    pk=7
-                ),  # Baubegleitung Leitbehörde
-                "read": Role.objects.get(pk=8),  # Einsichtsberechtigte Leitbehörde
-            },
-            2: {
-                "admin": Role.objects.get(pk=9),  # Administration Fachstelle
-                "lead": Role.objects.get(pk=10),  # Leitung Fachstelle
-                "clerk": Role.objects.get(pk=11),  # Sachbearbeitung Fachstelle
-            },
-            3: {
-                "admin": Role.objects.get(pk=9),  # Administration Fachstelle
-                "lead": Role.objects.get(pk=10),  # Leitung Fachstelle
-                "clerk": Role.objects.get(pk=11),  # Sachbearbeitung Fachstelle
-            },
-        },
-        "PREFIX": {
-            1: "Leitbehörde",
-            2: None,
-            3: None,
-        },
-    },
-}
-TYPE_MAP = _TYPE_MAP[settings.APPLICATION_NAME]
 
-_GROUP_TYPES = {
-    "kt_gr": {"lead": "Sachbearbeitung", "admin": "Administration"},
-    "kt_so": {
-        "lead": "Leitung",
-        "admin": "Administration",
-        "clerk": "Sachbearbeitung",
-        "read": "Einsichtsberechtigte",
-        "construction-monitoring": "Baubegleitung",
-    },
-}
-GROUP_TYPES = _GROUP_TYPES[settings.APPLICATION_NAME]
+def get_type_map(canton):
+    if canton == "kt_gr":
+        return {
+            "SERVICE_GROUP": {
+                1: ServiceGroup.objects.get(pk=2),  # Sachbearbeitung Gemeinde
+                2: ServiceGroup.objects.get(pk=1),  # Fachstelle
+                3: ServiceGroup.objects.get(pk=3),  # ARE
+            },
+            "ROLE": {
+                1: {
+                    "lead": Role.objects.get(pk=3),  # Sachbearbeitung Leitbehörde
+                    "admin": Role.objects.get(pk=5),  # Administration Leitbehörde
+                },
+                2: {
+                    "lead": Role.objects.get(pk=4),  # Sachbearbeitung Fachstelle
+                    "admin": Role.objects.get(pk=6),  # Administration Fachstelle
+                },
+                # ARE also gets "Fachstelle" role
+                3: {
+                    "lead": Role.objects.get(pk=4),  # Sachbearbeitung Fachstelle
+                    "admin": Role.objects.get(pk=6),  # Administration Fachstelle
+                },
+            },
+            "PREFIX": {
+                1: "Leitbehörde",
+                2: None,
+                3: None,
+            },
+        }
+    elif canton == "kt_so":
+        return {
+            "SERVICE_GROUP": {
+                1: ServiceGroup.objects.get(pk=1),  # Gemeinde
+                2: ServiceGroup.objects.get(pk=2),  # Kantonale Fachstelle
+                3: ServiceGroup.objects.get(pk=3),  # Ausserkantonale Fachstelle
+            },
+            "ROLE": {
+                1: {
+                    "admin": Role.objects.get(pk=4),  # Administration Leitbehörde
+                    "lead": Role.objects.get(pk=5),  # Leitung Leitbehörde
+                    "clerk": Role.objects.get(pk=6),  # Sachbearbeitung Leitbehörde
+                    "construction-monitoring": Role.objects.get(
+                        pk=7
+                    ),  # Baubegleitung Leitbehörde
+                    "read": Role.objects.get(pk=8),  # Einsichtsberechtigte Leitbehörde
+                },
+                2: {
+                    "admin": Role.objects.get(pk=9),  # Administration Fachstelle
+                    "lead": Role.objects.get(pk=10),  # Leitung Fachstelle
+                    "clerk": Role.objects.get(pk=11),  # Sachbearbeitung Fachstelle
+                },
+                3: {
+                    "admin": Role.objects.get(pk=9),  # Administration Fachstelle
+                    "lead": Role.objects.get(pk=10),  # Leitung Fachstelle
+                    "clerk": Role.objects.get(pk=11),  # Sachbearbeitung Fachstelle
+                },
+            },
+            "PREFIX": {
+                1: "Leitbehörde",
+                2: None,
+                3: None,
+            },
+        }
+
+    return {}
+
+
+def get_group_types(canton):
+    if canton == "kt_gr":
+        return {"lead": "Sachbearbeitung", "admin": "Administration"}
+    elif canton == "kt_so":
+        return {
+            "lead": "Leitung",
+            "admin": "Administration",
+            "clerk": "Sachbearbeitung",
+            "read": "Einsichtsberechtigte",
+            "construction-monitoring": "Baubegleitung",
+        }
+
+    return {}
+
+
+TYPE_MAP = get_type_map(settings.APPLICATION_NAME)
+GROUP_TYPES = get_group_types(settings.APPLICATION_NAME)
 
 
 def scrub(value, default=None):
@@ -138,7 +148,7 @@ class Command(BaseCommand):
                 website=scrub(row[7]),
                 notification=1,
                 responsibility_construction_control=0,
-                disabled=0,
+                disabled=int(row[8]),
             )
             service_t = ServiceT(
                 language="de",
@@ -166,7 +176,7 @@ class Command(BaseCommand):
                     address=None,
                     phone=None,
                     website=None,
-                    disabled=0,
+                    disabled=int(row[8]),
                 )
                 group_t = GroupT(
                     language="de",
