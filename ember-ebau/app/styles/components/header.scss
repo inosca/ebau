@@ -1,7 +1,10 @@
 .master-data-header {
   overflow: hidden;
   max-height: 600px;
-  transition: max-height $animation-duration ease-out;
+  transition-property: max-height, opacity;
+  transition-duration: $animation-duration;
+  transition-timing-function: ease-out;
+  opacity: 1;
 
   @media (min-width: $breakpoint-small) {
     max-height: 400px;
@@ -17,6 +20,7 @@
 
   &--hidden {
     max-height: 0;
+    opacity: 0;
   }
 }
 
