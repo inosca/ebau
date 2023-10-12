@@ -196,7 +196,9 @@ class GrGisClient(GISBaseClient):
                         result[question] += [bezeichnung + bracket]
 
         return {
-            question: ", ".join(value) for question, value in result.items() if value
+            question: ", ".join(list(dict.fromkeys(value)))
+            for question, value in result.items()
+            if value
         }
 
     def map_yes_or_no(self, values, intermediate_result, question):
