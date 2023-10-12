@@ -10,12 +10,6 @@
           "identifier": "liegenschaften",
           "properties": [
             {
-              "forms": [
-                "baugesuch",
-                "bauanzeige",
-                "solaranlage",
-                "vorlaeufige-beurteilung"
-              ],
               "question": "gemeinde",
               "propertyName": "gdename"
             }
@@ -25,12 +19,6 @@
           "identifier": "gebaeudeadressen_av",
           "properties": [
             {
-              "forms": [
-                "baugesuch",
-                "bauanzeige",
-                "solaranlage",
-                "vorlaeufige-beurteilung"
-              ],
               "mapper": "street_and_housenumber",
               "question": "street-and-housenumber"
             }
@@ -111,6 +99,15 @@
               "propertyName": "Kt_Code"
             }
           ]
+        },
+        {
+          "identifier": "ortschaftsname",
+          "properties": [
+            {
+              "question": "ort-grundstueck",
+              "propertyName": "ortschaftsname"
+            }
+          ]
         }
       ],
       "disabled": false
@@ -124,6 +121,7 @@
       "client": "camac.gis.clients.param.ParamGisClient",
       "config": [
         {
+          "hidden": true,
           "question": "gis-map",
           "parameterName": "query"
         }
