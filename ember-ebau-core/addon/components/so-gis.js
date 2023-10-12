@@ -28,6 +28,8 @@ export default class SoGisMapComponent extends Component {
 
   @action
   setMapPoint({ latlng }) {
+    if (this.args.disabled) return;
+
     this.setPoint(latlng.lat, latlng.lng);
   }
 
