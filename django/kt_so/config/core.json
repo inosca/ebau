@@ -1620,15 +1620,6 @@
   },
   {
     "model": "core.irroleacl",
-    "pk": 104,
-    "fields": {
-      "instance_resource": 11,
-      "role": 12,
-      "instance_state": 5
-    }
-  },
-  {
-    "model": "core.irroleacl",
     "pk": 105,
     "fields": {
       "instance_resource": 7,
