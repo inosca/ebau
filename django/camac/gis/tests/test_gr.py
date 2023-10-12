@@ -36,6 +36,8 @@ def gr_data_sources(
             Question.TYPE_MULTIPLE_CHOICE,
             ["gefahrenzone", "gewaesserschutzbereich", "archaeologiezone"],
         ),
+        ("gis-map", Question.TYPE_TEXT),
+        ("ort-grundstueck", Question.TYPE_TEXT),
     ]
 
     for config in gis_questions:
@@ -54,7 +56,11 @@ def gr_data_sources(
 
 @pytest.fixture
 def gr__config(gis_data_source_factory, question_factory):
-    return gis_data_source_factory(
+    gis_data_source_factory(
+        client=GISDataSource.CLIENT_PARAM,
+        config=[{"hidden": True, "question": "gis-map", "parameterName": "query"}],
+    )
+    gis_data_source_factory(
         client=GISDataSource.CLIENT_KT_GR,
         config=[
             {
@@ -160,6 +166,16 @@ def gr__config(gis_data_source_factory, question_factory):
                         "propertyName": "Kt_Code",
                         "mapper": "archaeologiezone_2",
                         "forms": ["baugesuch"],
+                    },
+                ],
+            },
+            {
+                "identifier": "ortschaftsname",
+                "properties": [
+                    {
+                        "question": "ort-grundstueck",
+                        "propertyName": "ortschaftsname",
+                        "forms": ["baugesuch", "bauanzeige"],
                     },
                 ],
             },

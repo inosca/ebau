@@ -15,6 +15,10 @@ class AdminGisClient(GISBaseClient):
 
         self.session: requests.Session = requests.Session()
 
+    @staticmethod
+    def get_hidden_questions(config: dict):
+        return [attr["question"] for attr in config["attributes"] if attr.get("hidden")]
+
     def process_data_source(self, config: dict) -> dict:
         """Process admin GIS data source.
 
