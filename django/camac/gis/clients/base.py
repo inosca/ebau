@@ -30,6 +30,10 @@ class GISBaseClient:
                     % {"parameter": required_param}
                 )
 
+    @staticmethod
+    def get_hidden_questions(config):  # pragma: no cover
+        raise NotImplementedError()
+
     def process_data_source(self, config: dict) -> dict:
         raise NotImplementedError()
 

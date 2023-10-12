@@ -11,6 +11,7 @@ snapshots['test_param_client 1'] = {
     'data': {
         'parzellen': {
             'form': 'owner-car-kitchen',
+            'hidden': False,
             'label': 'Suse Junk',
             'value': [
                 {

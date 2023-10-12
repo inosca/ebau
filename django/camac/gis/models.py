@@ -1,4 +1,5 @@
 import uuid
+from importlib import import_module
 
 from django.db import models
 from django.utils.translation import gettext_lazy as _
@@ -22,3 +23,9 @@ class GISDataSource(models.Model):
     client = models.CharField(max_length=255, choices=CLIENT_CHOICES)
     config = models.JSONField(default=dict)
     disabled = models.BooleanField(default=False)
+
+    def get_client_cls(self):
+        parts = self.client.split(".")
+        class_name = parts.pop()
+
+        return getattr(import_module(".".join(parts)), class_name)
