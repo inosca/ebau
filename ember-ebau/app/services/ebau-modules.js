@@ -50,7 +50,7 @@ export default class CustomEbauModulesService extends EbauModulesService {
   }
 
   get role() {
-    return this.session.role.slug;
+    return this.session.role?.slug;
   }
 
   get isApplicant() {
