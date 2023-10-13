@@ -15,10 +15,6 @@ class SoGisClient(GISBaseClient):
 
         self.session: requests.Session = requests.Session()
 
-    @staticmethod
-    def get_hidden_questions(config: dict):
-        return [prop["question"] for prop in config["properties"] if prop.get("hidden")]
-
     def process_data_source(self, config: dict) -> dict:
         """Process SOGIS data source.
 

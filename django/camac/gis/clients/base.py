@@ -31,8 +31,13 @@ class GISBaseClient:
                 )
 
     @staticmethod
-    def get_hidden_questions(config):  # pragma: no cover
-        raise NotImplementedError()
+    def get_hidden_questions(config):
+        """Return hidden question slugs based on client config.
+
+        By default, this feature is not enabled. Override this method in
+        your client to use it, see e.g. clients/param.py.
+        """
+        return []
 
     def process_data_source(self, config: dict) -> dict:
         raise NotImplementedError()

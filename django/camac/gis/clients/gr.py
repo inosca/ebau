@@ -35,17 +35,6 @@ class GrGisClient(GISBaseClient):
                 )  # As polygon not to be close the first and last points are the same
                 return f"POLYGON(({cordinates}))"
 
-    @staticmethod
-    def get_hidden_questions(configs: list):
-        def _extract_identifier(identifier_config):
-            return [
-                prop["question"]
-                for prop in identifier_config["properties"]
-                if prop.get("hidden")
-            ]
-
-        return [_extract_identifier(identifier_config) for identifier_config in configs]
-
     def process_data_source(self, config) -> dict:
         """Process GR GIS config.
 
