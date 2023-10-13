@@ -3,7 +3,7 @@
   left: 0;
   top: 0;
   right: 0;
-  z-index: 2;
+  z-index: $global-z-index + 5; // modal uses +10
   background-color: $main-navigation-background;
   box-shadow: $global-small-box-shadow;
 
