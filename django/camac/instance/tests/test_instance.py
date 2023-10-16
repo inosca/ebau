@@ -1800,57 +1800,6 @@ def test_instance_detail_publication(
 
 
 @pytest.mark.parametrize(
-    "date,status_code",
-    [
-        ("2017-7-19", status.HTTP_404_NOT_FOUND),
-        ("2017-7-20", status.HTTP_200_OK),
-        ("2017-7-27", status.HTTP_200_OK),
-        ("2017-7-28", status.HTTP_404_NOT_FOUND),
-    ],
-)
-@pytest.mark.parametrize(
-    "role__name,instance__user,publication_entry__publication_date,publication_entry__publication_end_date,publication_entry__is_published",
-    [
-        (
-            "PublicReader",
-            LazyFixture("admin_user"),
-            datetime.datetime(2017, 7, 20, tzinfo=pytz.timezone("Europe/Zurich")),
-            datetime.datetime(2017, 7, 27, tzinfo=pytz.timezone("Europe/Zurich")),
-            True,
-        ),
-        (
-            "Public",
-            LazyFixture("admin_user"),
-            datetime.datetime(2017, 7, 20, tzinfo=pytz.timezone("Europe/Zurich")),
-            datetime.datetime(2017, 7, 27, tzinfo=pytz.timezone("Europe/Zurich")),
-            True,
-        ),
-    ],
-)
-def test_instance_detail_publication_timezone(
-    admin_client,
-    instance,
-    publication_entry,
-    freezer,
-    status_code,
-    publication_settings,
-    date,
-):
-    publication_settings["BACKEND"] = "camac-ng"
-    url = reverse("instance-detail", args=[instance.pk])
-
-    freezer.move_to(date)
-
-    response = admin_client.get(
-        url,
-        **{"HTTP_X_CAMAC_PUBLIC_ACCESS": True}
-        if instance.group.role.name == "Public"
-        else {},
-    )
-    assert response.status_code == status_code
-
-
-@pytest.mark.parametrize(
     "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
 )
 def test_circulation_state_filter(

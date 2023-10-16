@@ -10,6 +10,7 @@ from django.db.models import Q
 from camac.instance.validators import FormDataValidator
 
 from . import models
+from .permissions import is_public_access
 
 request_logger = logging.getLogger("django.request")
 
@@ -34,14 +35,15 @@ def get_group(request):
     Get group based on request.
 
     Group will be determined in following order:
-    1. query param `group`
-    2. request header `X-CAMAC-GROUP`
-    3. default group of client using `aud` claim
-    4. user's default group
+    1. if the user is unauthenticated or the `X-CAMAC-GROUP` header is given, the group is always `None`
+    2. query param `group`
+    3. request header `X-CAMAC-GROUP`
+    4. default group of client using `aud` claim
+    5. user's default group
     """
 
     user = getattr(request, "user", None)
-    if user is None or isinstance(user, AnonymousUser):
+    if user is None or isinstance(user, AnonymousUser) or is_public_access(request):
         return None
 
     group_id = request.GET.get("group", request.META.get("HTTP_X_CAMAC_GROUP"))

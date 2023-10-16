@@ -20,7 +20,6 @@ from rest_framework import response, status
 from rest_framework.decorators import action
 from rest_framework.exceptions import NotFound, ValidationError
 from rest_framework.generics import ListAPIView, RetrieveAPIView
-from rest_framework.permissions import IsAuthenticated
 from rest_framework.renderers import JSONRenderer
 from rest_framework.settings import api_settings
 from rest_framework_json_api import views
@@ -34,7 +33,12 @@ from camac.document.models import Attachment, AttachmentSection
 from camac.instance.utils import build_document_prefetch_statements
 from camac.notification.utils import send_mail
 from camac.swagger.utils import get_operation_description, group_param
-from camac.user.permissions import IsApplication, ReadOnly, permission_aware
+from camac.user.permissions import (
+    DefaultPermission,
+    IsApplication,
+    PublicationPermission,
+    permission_aware,
+)
 from camac.utils import DocxRenderer
 
 from ..utils import get_paper_settings
@@ -56,7 +60,6 @@ from .placeholders.serializers import (
 
 
 class InstanceStateView(ReadOnlyModelViewSet):
-    group_required = False
     swagger_schema = None
     serializer_class = serializers.InstanceStateSerializer
     filterset_class = filters.InstanceStateFilterSet
@@ -82,6 +85,7 @@ class FormView(ReadOnlyModelViewSet):
 class FormConfigDownloadView(RetrieveAPIView):
     swagger_schema = None
     path = settings.APPLICATION_DIR("form.json")
+    permission_classes = [DefaultPermission | PublicationPermission]
 
     def retrieve(self, request, **kwargs):
         with open(self.path) as json_file:
@@ -809,6 +813,7 @@ class FormFieldView(
     filterset_class = filters.FormFieldFilterSet
     queryset = models.FormField.objects.all()
     instance_editable_permission = "form"
+    permission_classes = [DefaultPermission | PublicationPermission]
 
     def has_destroy_permission(self):
         return False
@@ -892,7 +897,6 @@ class HistoryEntryView(
     serializer_class = serializers.HistoryEntrySerializer
     filterset_class = filters.HistoryEntryFilterSet
     queryset = models.HistoryEntry.objects.all()
-    group_required = False
     ordering_fields = ("created_at",)
 
     def get_base_queryset(self):
@@ -1152,12 +1156,13 @@ class IssueTemplateSetView(views.ModelViewSet):
 
 
 class PublicCalumaInstanceView(mixins.InstanceQuerysetMixin, ListAPIView):
-    """Public view for published instances.
+    """Public view for published instances."""
 
-    Visibility is toggled in urls.py via ENABLE_PUBLIC_ENDPOINTS application settings.
-    """
-
-    permission_classes = [(~IsApplication("kt_bern") | IsAuthenticated) & ReadOnly]
+    permission_classes = [
+        # This API is used by ÖREB in Kt. Uri
+        (IsApplication("kt_uri") & DefaultPermission)
+        | PublicationPermission
+    ]
     serializer_class = serializers.PublicCalumaInstanceSerializer
     filterset_class = filters.PublicCalumaInstanceFilterSet
     queryset = workflow_models.Case.objects.all()
