@@ -1311,14 +1311,14 @@ def test_attachment_public_access(
     # nothing is visible without publication backend
     settings.APPLICATION_NAME = "kt_uri"
     publication_settings["BACKEND"] = None
-    res = client.get(url)
+    res = client.get(url, HTTP_X_CAMAC_PUBLIC_ACCESS=True)
     assert res.status_code == status.HTTP_200_OK
     assert len(res.json()["data"]) == 0
 
     publication_settings["BACKEND"] = "camac-ng"
 
     # published attachments are visible
-    res = client.get(url)
+    res = client.get(url, HTTP_X_CAMAC_PUBLIC_ACCESS=True)
     assert res.status_code == status.HTTP_200_OK
     assert len(res.json()["data"]) == 1
     data = res.json()["data"][0]
@@ -1326,24 +1326,24 @@ def test_attachment_public_access(
 
     # Kt. SZ doesn't have public access to documents
     settings.APPLICATION_NAME = "kt_schwyz"
-    res = client.get(url)
+    res = client.get(url, HTTP_X_CAMAC_PUBLIC_ACCESS=True)
     assert res.status_code == status.HTTP_401_UNAUTHORIZED
 
     settings.APPLICATION_NAME = "kt_uri"
 
     url = reverse("attachment-detail", args=[aasa.pk])
-    res = client.get(url)
+    res = client.get(url, HTTP_X_CAMAC_PUBLIC_ACCESS=True)
     assert res.status_code == status.HTTP_200_OK
 
-    res = client.delete(url)
+    res = client.delete(url, HTTP_X_CAMAC_PUBLIC_ACCESS=True)
     assert res.status_code == status.HTTP_401_UNAUTHORIZED
 
     data["attributes"]["name"] = "some other value"
-    res = client.patch(url, data)
+    res = client.patch(url, data, HTTP_X_CAMAC_PUBLIC_ACCESS=True)
     assert res.status_code == status.HTTP_401_UNAUTHORIZED
 
     url = reverse("attachment-download", args=[aasa.path])
-    response = client.get(url)
+    response = client.get(url, HTTP_X_CAMAC_PUBLIC_ACCESS=True)
     assert response.status_code == status.HTTP_200_OK
 
     assert aasa.download_history.count() == 1
@@ -1352,13 +1352,17 @@ def test_attachment_public_access(
     aas2.attachment.context = {"isPublished": True}
     aas2.attachment.save()
     url = reverse("attachment-list")
-    res = client.get(url)
+    res = client.get(url, HTTP_X_CAMAC_PUBLIC_ACCESS=True)
     assert res.status_code == status.HTTP_200_OK
     data = res.json()["data"]
     assert len(data) == 2
     assert set(d["id"] for d in data) == set([str(aasa.pk), str(aas2.attachment_id)])
 
-    res = client.get(url, {"attachment_sections": aas2.attachmentsection.pk})
+    res = client.get(
+        url,
+        {"attachment_sections": aas2.attachmentsection.pk},
+        HTTP_X_CAMAC_PUBLIC_ACCESS=True,
+    )
     assert res.status_code == status.HTTP_200_OK
     data = res.json()["data"]
     assert len(data) == 1
@@ -1366,7 +1370,7 @@ def test_attachment_public_access(
 
     # other endpoints eg. attachment sections are still forbidden
     url = reverse("attachmentsection-list")
-    response = client.get(url)
+    response = client.get(url, HTTP_X_CAMAC_PUBLIC_ACCESS=True)
     assert response.status_code == status.HTTP_401_UNAUTHORIZED
 
 

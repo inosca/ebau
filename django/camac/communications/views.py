@@ -8,7 +8,6 @@ from rest_framework import response, status
 from rest_framework.decorators import action
 from rest_framework.exceptions import ValidationError
 from rest_framework.mixins import CreateModelMixin, ListModelMixin, RetrieveModelMixin
-from rest_framework.permissions import IsAuthenticated
 from rest_framework.viewsets import GenericViewSet
 from rest_framework_json_api.views import (
     AutoPrefetchMixin,
@@ -21,20 +20,6 @@ from camac.core.views import HttpResponse, SendfileHttpResponse
 from camac.instance.mixins import InstanceQuerysetMixin
 
 from . import filters, models, serializers
-
-
-class HasConvertAttachmentPermission(IsAuthenticated):
-    """Check if user has permission to convert a given attachment to a document."""
-
-    def has_object_permission(
-        self, request, view, object: models.CommunicationsAttachment
-    ):
-        my_entity = models.entity_for_current_user(request)
-        if my_entity == "APPLICANT":
-            return False
-
-        involved_entities = object.message.topic.involved_entities
-        return my_entity in involved_entities
 
 
 class InvolvedInTopicQuerysetMixin:
@@ -55,7 +40,6 @@ class TopicView(InvolvedInTopicQuerysetMixin, InstanceQuerysetMixin, ModelViewSe
     swagger_schema = None
     serializer_class = serializers.TopicSerializer
     filterset_class = filters.TopicFilterSet
-    permission_classes = [IsAuthenticated]
     instance_field = "instance"
     search_fields = ["subject"]
     ordering = "-created"
@@ -157,7 +141,6 @@ class AttachmentView(InvolvedInTopicQuerysetMixin, InstanceQuerysetMixin, ModelV
         methods=["patch"],
         detail=True,
         serializer_class=serializers.ConvertToDocumentSerializer,
-        permission_classes=[HasConvertAttachmentPermission, IsAuthenticated],
     )
     @transaction.atomic
     def convert_to_document(self, request, pk):
@@ -167,6 +150,16 @@ class AttachmentView(InvolvedInTopicQuerysetMixin, InstanceQuerysetMixin, ModelV
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return response.Response(serializer.data)
+
+    def has_object_convert_to_document_permission(self, attachment):
+        """Check if user has permission to convert a given attachment to a document."""
+
+        my_entity = models.entity_for_current_user(self.request)
+        if my_entity == "APPLICANT":
+            return False
+
+        involved_entities = attachment.message.topic.involved_entities
+        return my_entity in involved_entities
 
     @action(methods=["get"], detail=True)
     def download(self, request, pk):

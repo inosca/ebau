@@ -16,7 +16,6 @@ from drf_yasg.utils import param_list_to_odict, swagger_auto_schema
 from rest_framework import exceptions, generics, status
 from rest_framework.decorators import action
 from rest_framework.exceptions import NotFound, ValidationError
-from rest_framework.permissions import IsAuthenticated
 from rest_framework.serializers import Serializer
 from rest_framework_json_api.views import ModelViewSet, ReadOnlyModelViewSet
 from sorl.thumbnail import get_thumbnail
@@ -30,8 +29,7 @@ from camac.notification.serializers import InstanceMergeSerializer
 from camac.swagger.utils import get_operation_description, group_param
 from camac.user.permissions import (
     DefaultPermission,
-    IsApplication,
-    ReadOnly,
+    PublicationPermission,
     permission_aware,
 )
 from camac.utils import DocxRenderer
@@ -178,11 +176,7 @@ class AttachmentView(
     ModelViewSet,
 ):
     queryset = models.Attachment.objects.all()
-    permission_classes = [
-        DefaultPermission
-        | (IsApplication("kt_uri") & ReadOnly)
-        | (IsApplication("kt_bern") & IsAuthenticated & ReadOnly)
-    ]
+    permission_classes = [DefaultPermission | PublicationPermission]
     serializer_class = serializers.AttachmentSerializer
     filterset_class = filters.AttachmentFilterSet
     instance_editable_permission = "document"
@@ -302,7 +296,7 @@ class AttachmentDownloadView(
     pagination_class = None
     # use empty serializer to avoid an exception on schema generation
     serializer_class = Serializer
-    permission_classes = [DefaultPermission | (~IsApplication("kt_schwyz") & ReadOnly)]
+    permission_classes = [DefaultPermission | PublicationPermission]
 
     def _create_history_entry(self, request, attachment):
         fields = {
@@ -396,6 +390,7 @@ class AttachmentVersionDownloadView(AttachmentDownloadView):
     queryset = models.AttachmentVersion.objects
     instance_field = "attachment__instance"
     attachment_field = "attachment"
+    permission_classes = [DefaultPermission]  # Reset inherited permissions
 
     def _get_mime_type(self, attachment):
         return attachment.attachment.mime_type
@@ -403,10 +398,6 @@ class AttachmentVersionDownloadView(AttachmentDownloadView):
     # In webdav context list makes no-sense, it's always a single file
     def list(self, request, **kwargs):  # pragma: no cover
         raise NotImplementedError()
-
-    # No public access to webdav versions
-    def get_base_queryset_for_public(self):  # pragma: no cover
-        return self.queryset.none()
 
     def get_loosen_filter(self):
         return Q(pk=0)

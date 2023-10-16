@@ -18,8 +18,13 @@ def attachment_path_directory_path(attachment, filename):
     return "attachments/files/{0}/{1}".format(attachment.instance.pk, filename)
 
 
-def version_path_directory_path(attachment, filename):
-    return "attachment-versions/files/{0}/{1}".format(attachment.instance.pk, filename)
+def version_path_directory_path(attachment_or_version, filename):
+    if isinstance(attachment_or_version, Attachment):
+        instance_id = attachment_or_version.instance_id
+    elif isinstance(attachment_or_version, AttachmentVersion):
+        instance_id = attachment_or_version.attachment.instance_id
+
+    return "attachment-versions/files/{0}/{1}".format(instance_id, filename)
 
 
 @reversion.register()

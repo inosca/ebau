@@ -6,6 +6,7 @@ from drf_yasg.utils import swagger_auto_schema
 from rest_framework import response, status
 from rest_framework.decorators import action
 from rest_framework.mixins import RetrieveModelMixin
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.viewsets import GenericViewSet
 from rest_framework_json_api.views import (
     AutoPrefetchMixin,
@@ -153,7 +154,7 @@ class MeView(
 
     model = get_user_model()
     serializer_class = serializers.CurrentUserSerializer
-    group_required = False  # no group needed to read user details
+    permission_classes = [IsAuthenticated]
 
     def get_object(self, *args, **kwargs):
         return self.request.user
@@ -221,7 +222,6 @@ class GroupView(MultilangMixin, ReadOnlyModelViewSet):
 
 class PublicGroupView(MultilangMixin, ReadOnlyModelViewSet):
     swagger_schema = None
-    group_required = False
     filterset_class = filters.PublicGroupFilterSet
     serializer_class = serializers.PublicGroupSerializer
     queryset = models.Group.objects.filter(disabled=False)

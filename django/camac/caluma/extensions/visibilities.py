@@ -49,6 +49,7 @@ class CustomVisibility(Authenticated, InstanceQuerysetMixin):
         # this is blueprint data which is uncritical and can be exposed publicly
         return queryset
 
+    @permission_aware
     @filter_queryset_for(form_schema.Document)
     @filter_queryset_for(historical_form_schema.HistoricalDocument)
     def filter_queryset_for_document(self, node, queryset, info):
@@ -62,10 +63,16 @@ class CustomVisibility(Authenticated, InstanceQuerysetMixin):
             | Q(form_id=DASHBOARD_FORM_SLUG)
             # OR unlinked table documents created by the requesting user
             | Q(
-                family__case__instance__isnull=True,
+                family__case__isnull=True,
+                family__work_item__isnull=True,
                 family=F("pk"),
                 created_by_user=info.context.user.username,
             )
+        )
+
+    def filter_queryset_for_document_for_public(self, node, queryset, info):
+        return queryset.filter(
+            family__case__family__instance__pk__in=self._all_visible_instances(info)
         )
 
     @permission_aware
@@ -92,6 +99,7 @@ class CustomVisibility(Authenticated, InstanceQuerysetMixin):
 
         return queryset.order_by(*order_by) if order_by else queryset
 
+    @permission_aware
     @filter_queryset_for(workflow_schema.WorkItem)
     def filter_queryset_for_work_items(self, node, queryset, info):
         filters = Q(case__family__instance__pk__in=self._all_visible_instances(info))
@@ -106,6 +114,9 @@ class CustomVisibility(Authenticated, InstanceQuerysetMixin):
             filters &= self.visible_additional_demands_expression(self.request.group)
 
         return queryset.filter(filters).distinct()
+
+    def filter_queryset_for_work_items_for_public(self, node, queryset, info):
+        return queryset.none()
 
     def _all_visible_instances(self, info):
         """Fetch visible camac instances and cache the result.
