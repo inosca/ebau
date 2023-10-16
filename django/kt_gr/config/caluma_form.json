@@ -6972,21 +6972,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "dokumente.rodungsgesuch",
-    "fields": {
-      "created_at": "2023-10-09T09:14:16.675Z",
-      "modified_at": "2023-10-09T09:14:16.675Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "dokumente",
-      "question": "rodungsgesuch",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "dokumente.rodungsgesuchsformular",
     "fields": {
       "created_at": "2023-05-17T07:30:45.105Z",
@@ -29543,31 +29528,15 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "rodungsgesuch-ja",
-    "fields": {
-      "created_at": "2023-10-09T09:14:16.299Z",
-      "modified_at": "2023-10-09T09:14:16.299Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Rodungsgesuch inkl. den darin aufgef\\u00fchrten Beilagen\", \"fr\": null, \"it\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
     "pk": "rodungsgesuchsformular-ja",
     "fields": {
       "created_at": "2023-05-17T07:30:44.853Z",
-      "modified_at": "2023-05-17T07:30:44.853Z",
+      "modified_at": "2023-10-13T13:51:32.413Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Rodungsgesuchsformular BAFU\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Rodungsgesuch inkl. den darin aufgef\\u00fchrten Beilagen\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -63048,49 +63017,18 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "rodungsgesuch",
-    "fields": {
-      "created_at": "2023-10-09T09:14:16.517Z",
-      "modified_at": "2023-10-09T09:17:16.129Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Rodungsgesuch\", \"fr\": null, \"it\": null}",
-      "type": "multiple_choice",
-      "is_required": "true",
-      "is_hidden": "\"rodung-ja\" != \"rodung\"|answer",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "rodungsgesuchsformular",
     "fields": {
       "created_at": "2023-05-17T07:30:44.973Z",
-      "modified_at": "2023-05-19T07:49:45.227Z",
+      "modified_at": "2023-10-13T13:51:32.559Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Rodungsgesuchsformular BAFU\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
-      "is_required": "false",
-      "is_hidden": "!(\"rodung-ja\" == \"rodung\"|answer)",
+      "is_required": "true",
+      "is_hidden": "\"rodung-ja\" != \"rodung\"|answer",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"[Rodungen und Rodungsgesuch](https://www.bafu.admin.ch/bafu/de/home/themen/wald/fachinformationen/strategien-und-massnahmen-des-bundes/rodungen-und-rodungsgesuch.html)\", \"fr\": null, \"it\": null}",
@@ -83031,21 +82969,6 @@
       "modified_by_group": null,
       "question": "rodung",
       "option": "rodung-nein",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "rodungsgesuch.rodungsgesuch-ja",
-    "fields": {
-      "created_at": "2023-10-09T09:17:16.145Z",
-      "modified_at": "2023-10-09T09:17:16.145Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "rodungsgesuch",
-      "option": "rodungsgesuch-ja",
       "sort": 1
     }
   },
