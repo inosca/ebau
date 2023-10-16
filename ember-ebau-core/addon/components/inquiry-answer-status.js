@@ -64,6 +64,7 @@ export default class InquiryAnswerStatusComponent extends Component {
             : [
                 "inquiry-answer-status-positive",
                 "inquiry-answer-status-negative",
+                "inquiry-answer-status-claim",
               ]
         ).includes(option.slug);
       });
