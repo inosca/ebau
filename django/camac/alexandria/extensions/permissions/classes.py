@@ -164,12 +164,7 @@ class InternalAdminCirculationPermission(
     deletable_states = ["circulation"]
 
 
-class AdminAdditionalDemandPermission(
-    AdminStatePermission, AdminReadyWorkItemPermission
-):
-    writable_states = ["init-distribution", "circulation"]
-    deletable_states = ["init-distribution", "circulation"]
-
+class AdminAdditionalDemandPermission(AdminReadyWorkItemPermission):
     # this is a temporary restriction
     # the end goal would be to add an event after the fill task has been completed and
     # mark those documents as not editable anymore.
