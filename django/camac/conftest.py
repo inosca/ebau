@@ -477,15 +477,22 @@ def caluma_config_be(settings, application_settings, use_caluma_form):
 
 
 @pytest.fixture
-def caluma_config_ur(settings, use_caluma_form):
-    settings.APPLICATION["CALUMA"] = settings.APPLICATIONS["kt_uri"]["CALUMA"]
+def caluma_config_ur(settings, application_settings, use_caluma_form):
+    application_settings["CALUMA"] = deepcopy(settings.APPLICATIONS["kt_uri"]["CALUMA"])
+    application_settings["MASTER_DATA"] = deepcopy(
+        settings.APPLICATIONS["kt_uri"]["MASTER_DATA"]
+    )
 
 
 @pytest.fixture
-def caluma_config_sz(settings):
-    settings.APPLICATION["CALUMA"] = deepcopy(
+def caluma_config_sz(settings, application_settings, use_caluma_form):
+    application_settings["CALUMA"] = deepcopy(
         settings.APPLICATIONS["kt_schwyz"]["CALUMA"]
     )
+    application_settings["MASTER_DATA"] = deepcopy(
+        settings.APPLICATIONS["kt_schwyz"]["MASTER_DATA"]
+    )
+    application_settings["FORM_BACKEND"] = "camac-ng"
 
 
 @pytest.fixture
@@ -807,18 +814,14 @@ def caluma_forms_ur(settings):
     cache.clear()
 
     # questions
-    caluma_form_models.Question.objects.create(
-        slug="municipality",
-        type=caluma_form_models.Question.TYPE_TEXT,
-    )
-    caluma_form_models.Question.objects.create(
-        slug="leitbehoerde",
-        type=caluma_form_models.Question.TYPE_TEXT,
-    )
-    caluma_form_models.Question.objects.create(
-        slug="leitbehoerde-internal-form",
-        type=caluma_form_models.Question.TYPE_DYNAMIC_CHOICE,
-    )
+    simple_questions = [
+        ("municipality", caluma_form_models.Question.TYPE_TEXT),
+        ("leitbehoerde", caluma_form_models.Question.TYPE_TEXT),
+        ("leitbehoerde-internal-form", caluma_form_models.Question.TYPE_DYNAMIC_CHOICE),
+    ]
+    for slug, type in simple_questions:
+        caluma_form_models.Question.objects.create(slug=slug, type=type)
+
     form_type_question = caluma_form_models.Question.objects.create(
         slug="form-type",
         type=caluma_form_models.Question.TYPE_CHOICE,

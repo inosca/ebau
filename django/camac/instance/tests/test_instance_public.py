@@ -135,7 +135,6 @@ def test_public_caluma_instance_ur(
     settings,
 ):
     settings.APPLICATION_NAME = "kt_uri"
-    application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_uri"]["MASTER_DATA"]
     publication_settings["BACKEND"] = "camac-ng"
 
     publication_entry_factory(
@@ -220,7 +219,6 @@ def test_public_caluma_instance_oereb_ur(
     is_oereb_form,
     master_data_is_visible_mock,
 ):
-    application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_uri"]["MASTER_DATA"]
     application_settings["INSTANCE_HIDDEN_STATES"] = settings.APPLICATIONS["kt_uri"][
         "INSTANCE_HIDDEN_STATES"
     ]
@@ -482,10 +480,6 @@ def test_public_caluma_instance_be(
     settings.APPLICATION_NAME = "kt_bern"
     be_instance.involved_applicants.first().delete()
 
-    application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_bern"][
-        "MASTER_DATA"
-    ]
-
     create_caluma_publication(be_instance)
 
     be_instance.case.meta["ebau-number"] = "2021-55"
@@ -533,9 +527,6 @@ def test_public_caluma_instance_municipality_filter(
     settings,
 ):
     settings.APPLICATION_NAME = "kt_bern"
-    application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_bern"][
-        "MASTER_DATA"
-    ]
 
     instances = [
         instance_with_case(instance) for instance in instance_factory.create_batch(5)
@@ -577,7 +568,6 @@ def test_public_caluma_instance_form_type_filter(
     caluma_workflow_config_ur,
     publication_entry_factory,
 ):
-    application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_uri"]["MASTER_DATA"]
     publication_settings["BACKEND"] = "camac-ng"
 
     instances = [
@@ -628,9 +618,6 @@ def test_information_of_neighbors_instance_be(
     enable_public_urls,
 ):
     publication_settings["BACKEND"] = "caluma"
-    application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_bern"][
-        "MASTER_DATA"
-    ]
 
     be_instance.case.meta["ebau-number"] = "2021-55"
     be_instance.case.save()
@@ -763,8 +750,6 @@ def test_public_caluma_instance_gr(
     end_date_municipality,
     end_date_canton,
 ):
-    application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_gr"]["MASTER_DATA"]
-
     document = DocumentFactory()
     AnswerFactory(
         document=document,
