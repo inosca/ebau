@@ -42,8 +42,10 @@ from camac.core.models import (
     WorkflowEntry,
 )
 from camac.core.utils import create_history_entry
+from camac.instance.master_data import MasterData
 from camac.instance.mixins import InstanceEditableMixin
 from camac.instance.models import Instance
+from camac.instance.placeholders import fields
 from camac.instance.validators import transform_coordinates
 from camac.user.models import Group, Role, Service, User
 from camac.user.utils import unpack_service_emails
@@ -204,7 +206,11 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     vorhaben = serializers.SerializerMethodField()
     parzelle = serializers.SerializerMethodField()
     street = serializers.SerializerMethodField()
-    gesuchsteller = serializers.SerializerMethodField()
+    gesuchsteller = fields.MasterDataPersonField(
+        source="applicants",
+        only_first=True,
+        fields="__all__",
+    )
 
     # TODO: these is currently bern specific, as it depends on instance state
     # identifiers. This will likely need some client-specific switch logic
@@ -239,6 +245,8 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
 
         super().__init__(instance=instance, *args, **kwargs)
 
+        if instance:
+            instance._master_data = MasterData(instance.case)
         self.service = (
             self.context["request"].group.service if "request" in self.context else None
         )
@@ -305,34 +313,6 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
 
     def get_street(self, instance):
         return CalumaApi().get_answer_value("parcel-street", instance)
-
-    def get_gesuchsteller(self, instance):
-        rows = CalumaApi().get_table_answer("applicant", instance)
-
-        if not rows:
-            return
-
-        row = rows.first()
-
-        first_name = self._get_row_answer_value(row, "first-name", "")
-        last_name = self._get_row_answer_value(row, "last-name", "")
-        organisation = self._get_row_answer_value(row, "juristic-person-name", "")
-        street = self._get_row_answer_value(row, "street", "")
-        number = self._get_row_answer_value(row, "street-number", "")
-        zip = self._get_row_answer_value(row, "zip", "")
-        city = self._get_row_answer_value(row, "city", "")
-
-        return ", ".join(
-            filter(
-                None,
-                [
-                    organisation,
-                    f"{first_name} {last_name}",
-                    f"{street} {number}",
-                    f"{zip} {city}",
-                ],
-            )
-        )
 
     def get_rejection_feedback(self, instance):  # pragma: no cover
         rejection_config = settings.APPLICATION["REJECTION_FEEDBACK_QUESTION"]

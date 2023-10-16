@@ -106,10 +106,12 @@ ember-dev: ## Set up .env and application.ini for local ember development
 		sed -re 's/portal\.uri.*/portal\.uri = http:\/\/localhost:4200/' -i php/${APPLICATION}/configs/application.ini; \
 		sed -re 's/baseURLPortal.*/baseURLPortal = http:\/\/localhost:4200/' -i php/${APPLICATION}/configs/application.ini; \
 		echo "Set ember.development = true in application.ini"; \
+	else \
+		@grep -q INTERNAL_URL .env || echo INTERNAL_URL=http://localhost:4400 >> .env; \
+		@echo "Added local INTERNAL_URL to .env."; \
 	fi
 	@grep -q PORTAL_URL .env || echo PORTAL_URL=http://localhost:4200 >> .env
-	@grep -q INTERNAL_URL .env || echo INTERNAL_URL=http://localhost:4400 >> .env
-	@echo "Added local PORTAL_URL and INTERNAL_URL to .env."
+	@echo "Added local PORTAL_URL to .env."
 
 .PHONY: ember-dev-reset
 ember-dev-reset: ## Set up .env and application.ini for non-local runtime (docker)
