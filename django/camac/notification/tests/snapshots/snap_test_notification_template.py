@@ -8,7 +8,7 @@ from snapshottest import Snapshot
 snapshots = Snapshot()
 
 snapshots['test_notification_caluma_placeholders[False-2-1-user@example.com-Municipality] 1'] = '''Hinweis: Diese Nachricht wurde von einem Testsystem versendet.
-Es dient nur zu Testzwecken und kann ignoriert werden
+Sie dient nur zu Testzwecken und kann ignoriert werden.
 
 
         BASE_URL: http://ebau.local
@@ -39,7 +39,7 @@ Es dient nur zu Testzwecken und kann ignoriert werden
     '''
 
 snapshots['test_notification_caluma_placeholders[False-2-2-user@example.com-Municipality] 1'] = '''Hinweis: Diese Nachricht wurde von einem Testsystem versendet.
-Es dient nur zu Testzwecken und kann ignoriert werden
+Sie dient nur zu Testzwecken und kann ignoriert werden.
 
 
         BASE_URL: http://ebau.local
@@ -70,7 +70,7 @@ Es dient nur zu Testzwecken und kann ignoriert werden
     '''
 
 snapshots['test_notification_caluma_placeholders[True-2-1-user@example.com-Municipality] 1'] = '''Hinweis: Diese Nachricht wurde von einem Testsystem versendet.
-Es dient nur zu Testzwecken und kann ignoriert werden
+Sie dient nur zu Testzwecken und kann ignoriert werden.
 
 
         BASE_URL: http://ebau.local
@@ -101,7 +101,7 @@ Es dient nur zu Testzwecken und kann ignoriert werden
     '''
 
 snapshots['test_notification_caluma_placeholders[True-2-2-user@example.com-Municipality] 1'] = '''Hinweis: Diese Nachricht wurde von einem Testsystem versendet.
-Es dient nur zu Testzwecken und kann ignoriert werden
+Sie dient nur zu Testzwecken und kann ignoriert werden.
 
 
         BASE_URL: http://ebau.local
