@@ -4238,7 +4238,7 @@ EMAIL_PREFIX_BODY = env.str(
     default(
         (
             "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\n"
-            "Es dient nur zu Testzwecken und kann ignoriert werden\n\n"
+            "Sie dient nur zu Testzwecken und kann ignoriert werden.\n\n"
         ),
         "",
     ),
