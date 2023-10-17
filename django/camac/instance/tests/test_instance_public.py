@@ -189,7 +189,7 @@ def test_public_caluma_instance_ur(
     if num_instances > 0:
         assert result[0]["id"] == str(ur_instance.case.pk)
         assert result[0]["attributes"]["instance-id"] == ur_instance.pk
-        assert result[0]["attributes"]["dossier-nr"] == "123"
+        assert result[0]["attributes"]["dossier-nr"] == 123
         assert result[0]["attributes"]["municipality"] == "Altdorf"
         assert result[0]["attributes"]["intent"] == expected
 
@@ -340,6 +340,65 @@ def test_public_caluma_documents_ur(
     result = response.json()["data"]
 
     assert len(result) == num_documents
+
+
+@pytest.mark.parametrize("role__name", ["Applicant"])
+def test_public_caluma_instance_sz(
+    db,
+    application_settings,
+    publication_settings,
+    admin_client,
+    sz_instance,
+    django_assert_num_queries,
+    publication_entry_factory,
+    form_field_factory,
+    master_data_is_visible_mock,
+):
+    settings.APPLICATION_NAME = "kt_schwyz"
+    publication_settings["BACKEND"] = "camac-ng"
+
+    sz_instance.involved_applicants.first().delete()
+
+    publication_entry_factory(
+        publication_date=timezone.now() - timedelta(days=1),
+        publication_end_date=timezone.now() + timedelta(days=30),
+        instance=sz_instance,
+        is_published=True,
+    )
+
+    form_field_factory(
+        instance=sz_instance,
+        name="ortsbezeichnung-des-vorhabens",
+        value="Teststrasse 6",
+    )
+    form_field_factory(
+        instance=sz_instance, name="standort-spezialbezeichnung", value="Box"
+    )
+    form_field_factory(instance=sz_instance, name="standort-ort", value="Schübelbach")
+    form_field_factory(
+        instance=sz_instance, name="bezeichnung", value="This is a SZ test intent"
+    )
+
+    url = reverse("public-caluma-instance")
+
+    with django_assert_num_queries(4):
+        response = admin_client.get(
+            url, {"instance": sz_instance.pk}, HTTP_X_CAMAC_PUBLIC_ACCESS=True
+        )
+
+    assert response.status_code == status.HTTP_200_OK
+
+    result = response.json()["data"]
+
+    assert len(result) == 1
+
+    assert result[0]["id"] == str(sz_instance.case.pk)
+    assert result[0]["attributes"]["instance-id"] == sz_instance.pk
+    assert result[0]["attributes"]["dossier-nr"] == sz_instance.identifier
+    assert result[0]["attributes"]["municipality"] == sz_instance.location.name
+    assert result[0]["attributes"]["form-description"] == sz_instance.form.description
+    assert result[0]["attributes"]["intent"] == "This is a SZ test intent"
+    assert result[0]["attributes"]["street"] == "Teststrasse 6, Box, Schübelbach"
 
 
 @pytest.mark.parametrize("role__name", ["Applicant"])

@@ -380,6 +380,7 @@ snapshots['test_master_data[kt_schwyz-de-sz_master_data_case_gwr-select_related3
     'publication_date': None,
     'remark': None,
     'street': None,
+    'street_addition': None,
     'submit_date': None,
     'usage_type': None,
     'usage_zone': None
@@ -482,6 +483,7 @@ snapshots['test_master_data[kt_schwyz-de-sz_master_data_case_gwr_v2-select_relat
     'publication_date': None,
     'remark': None,
     'street': None,
+    'street_addition': None,
     'submit_date': None,
     'usage_type': None,
     'usage_zone': None
