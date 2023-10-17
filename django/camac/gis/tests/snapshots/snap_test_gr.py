@@ -9,6 +9,12 @@ snapshots = Snapshot()
 
 snapshots['test_gr_client[query0-baugesuch] 1'] = {
     'data': {
+        'art-gewaesserschutzbereich': {
+            'displayValue': 'au',
+            'hidden': False,
+            'label': 'art-gewaesserschutzbereich',
+            'value': 'art-gewaesserschutzbereich-au'
+        },
         'ausserhalb-bauzone': {
             'displayValue': 'nein',
             'hidden': False,
@@ -48,6 +54,12 @@ snapshots['test_gr_client[query0-baugesuch] 1'] = {
             'hidden': True,
             'label': 'gis-map',
             'value': '{"markers": [{"x": 2759870.935699284, "y": 1190699.1389424137}], "geometry": "POINT"}'
+        },
+        'grundwasserschutzzone': {
+            'displayValue': 'nicht-betroffen',
+            'hidden': False,
+            'label': 'grundwasserschutzzone',
+            'value': 'grundwasserschutzzone-nicht-betroffen'
         },
         'kantonsstrassen': {
             'displayValue': 'nein',
@@ -98,6 +110,12 @@ snapshots['test_gr_client[query0-baugesuch] 1'] = {
 
 snapshots['test_gr_client[query1-baugesuch] 1'] = {
     'data': {
+        'art-gewaesserschutzbereich': {
+            'displayValue': 'au',
+            'hidden': False,
+            'label': 'art-gewaesserschutzbereich',
+            'value': 'art-gewaesserschutzbereich-au'
+        },
         'ausserhalb-bauzone': {
             'displayValue': 'nein',
             'hidden': False,
@@ -128,6 +146,12 @@ snapshots['test_gr_client[query1-baugesuch] 1'] = {
             'hidden': True,
             'label': 'gis-map',
             'value': '{"markers": [{"x": 2730678.226988568, "y": 1122327.0823116319}], "geometry": "POINT"}'
+        },
+        'grundwasserschutzzone': {
+            'displayValue': 'nicht-betroffen',
+            'hidden': False,
+            'label': 'grundwasserschutzzone',
+            'value': 'grundwasserschutzzone-nicht-betroffen'
         },
         'kantonsstrassen': {
             'displayValue': 'nein',
@@ -173,6 +197,12 @@ snapshots['test_gr_client[query1-baugesuch] 1'] = {
 
 snapshots['test_gr_client[query10-baugesuch] 1'] = {
     'data': {
+        'art-gewaesserschutzbereich': {
+            'displayValue': 'au',
+            'hidden': False,
+            'label': 'art-gewaesserschutzbereich',
+            'value': 'art-gewaesserschutzbereich-au'
+        },
         'das-bauvorhaben-befindet-sich-in': {
             'hidden': False,
             'label': 'das-bauvorhaben-befindet-sich-in',
@@ -192,6 +222,12 @@ snapshots['test_gr_client[query10-baugesuch] 1'] = {
             'hidden': True,
             'label': 'gis-map',
             'value': '{"markers": [{"x": 2757567.75, "y": 1192209.3312499998}], "geometry": "POINT"}'
+        },
+        'grundwasserschutzzone': {
+            'displayValue': 'nicht-betroffen',
+            'hidden': False,
+            'label': 'grundwasserschutzzone',
+            'value': 'grundwasserschutzzone-nicht-betroffen'
         },
         'kantonsstrassen': {
             'displayValue': 'nein',
@@ -237,6 +273,12 @@ snapshots['test_gr_client[query10-baugesuch] 1'] = {
 
 snapshots['test_gr_client[query11-baugesuch] 1'] = {
     'data': {
+        'art-gewaesserschutzbereich': {
+            'displayValue': 'au',
+            'hidden': False,
+            'label': 'art-gewaesserschutzbereich',
+            'value': 'art-gewaesserschutzbereich-au'
+        },
         'das-bauvorhaben-befindet-sich-in': {
             'hidden': False,
             'label': 'das-bauvorhaben-befindet-sich-in',
@@ -270,6 +312,12 @@ snapshots['test_gr_client[query11-baugesuch] 1'] = {
             'hidden': True,
             'label': 'gis-map',
             'value': '{"markers": [{"x": 2757771.4499999997, "y": 1192182.0312499998}], "geometry": "POINT"}'
+        },
+        'grundwasserschutzzone': {
+            'displayValue': 'nicht-betroffen',
+            'hidden': False,
+            'label': 'grundwasserschutzzone',
+            'value': 'grundwasserschutzzone-nicht-betroffen'
         },
         'kantonsstrassen': {
             'displayValue': 'nein',
@@ -315,6 +363,12 @@ snapshots['test_gr_client[query11-baugesuch] 1'] = {
 
 snapshots['test_gr_client[query12-baugesuch] 1'] = {
     'data': {
+        'art-gewaesserschutzbereich': {
+            'displayValue': 'au',
+            'hidden': False,
+            'label': 'art-gewaesserschutzbereich',
+            'value': 'art-gewaesserschutzbereich-au'
+        },
         'ausserhalb-bauzone': {
             'displayValue': 'nein',
             'hidden': False,
@@ -359,6 +413,12 @@ snapshots['test_gr_client[query12-baugesuch] 1'] = {
             'hidden': True,
             'label': 'gis-map',
             'value': '{"markers": [{"x": 2759143.4499999997, "y": 1190625.23125}], "geometry": "POINT"}'
+        },
+        'grundwasserschutzzone': {
+            'displayValue': 'nicht-betroffen',
+            'hidden': False,
+            'label': 'grundwasserschutzzone',
+            'value': 'grundwasserschutzzone-nicht-betroffen'
         },
         'kantonsstrassen': {
             'displayValue': 'nein',
@@ -412,6 +472,103 @@ snapshots['test_gr_client[query12-baugesuch] 1'] = {
     }
 }
 
+snapshots['test_gr_client[query13-baugesuch] 1'] = {
+    'data': {
+        'art-gewaesserschutzbereich': {
+            'displayValue': 'au',
+            'hidden': False,
+            'label': 'art-gewaesserschutzbereich',
+            'value': 'art-gewaesserschutzbereich-au'
+        },
+        'ausserhalb-bauzone': {
+            'displayValue': 'ja',
+            'hidden': False,
+            'label': 'ausserhalb-bauzone',
+            'value': 'ausserhalb-bauzone-ja'
+        },
+        'das-bauvorhaben-befindet-sich-in': {
+            'hidden': False,
+            'label': 'das-bauvorhaben-befindet-sich-in',
+            'value': [
+                {
+                    'displayValue': 'gewaesserschutzbereich',
+                    'value': 'das-bauvorhaben-befindet-sich-in-gewaesserschutzbereich'
+                }
+            ]
+        },
+        'gemeinde': {
+            'hidden': False,
+            'label': 'gemeinde',
+            'value': 'Chur'
+        },
+        'genereller-erschliessungsplan': {
+            'hidden': False,
+            'label': 'genereller-erschliessungsplan',
+            'value': 'Fuss- / Radweg Nebenverbindung, Forst- und Landwirtschaftsweg'
+        },
+        'gis-map': {
+            'hidden': True,
+            'label': 'gis-map',
+            'value': '{"markers": [{"x": 2757239.7999999993, "y": 1191422.925}, {"x": 2757141.7999999993, "y": 1191215.725}], "geometry": "LINESTRING"}'
+        },
+        'grundwasserschutzzone': {
+            'displayValue': 's2',
+            'hidden': False,
+            'label': 'grundwasserschutzzone',
+            'value': 'grundwasserschutzzone-s2'
+        },
+        'kantonsstrassen': {
+            'displayValue': 'nein',
+            'hidden': False,
+            'label': 'kantonsstrassen',
+            'value': 'kantonsstrassen-nein'
+        },
+        'ort-grundstueck': {
+            'hidden': False,
+            'label': 'ort-grundstueck',
+            'value': 'Chur'
+        },
+        'parzelle': {
+            'form': 'but-near-attack',
+            'hidden': False,
+            'label': 'parzelle',
+            'value': [
+                {
+                    'e-grid-nr': {
+                        'label': 'e-grid-nr',
+                        'value': 'CH916888867745'
+                    },
+                    'liegenschaftsnummer': {
+                        'label': 'liegenschaftsnummer',
+                        'value': '1844'
+                    }
+                },
+                {
+                    'e-grid-nr': {
+                        'label': 'e-grid-nr',
+                        'value': 'CH738677680776'
+                    },
+                    'liegenschaftsnummer': {
+                        'label': 'liegenschaftsnummer',
+                        'value': '4308'
+                    }
+                }
+            ]
+        },
+        'waldareal': {
+            'displayValue': 'ja',
+            'hidden': False,
+            'label': 'waldareal',
+            'value': 'waldareal-ja'
+        },
+        'zonenplan': {
+            'hidden': False,
+            'label': 'zonenplan',
+            'value': 'Grundwasser- und Quellschutzzone, Keine Gefahrenzone, Wald (orientierend), Übriges Gemeindegebiet'
+        }
+    }
+}
+
 snapshots['test_gr_client[query2-bauanzeige] 1'] = {
     'data': {
         'gemeinde': {
@@ -461,6 +618,12 @@ snapshots['test_gr_client[query2-bauanzeige] 1'] = {
 
 snapshots['test_gr_client[query3-baugesuch] 1'] = {
     'data': {
+        'art-gewaesserschutzbereich': {
+            'displayValue': 'au',
+            'hidden': False,
+            'label': 'art-gewaesserschutzbereich',
+            'value': 'art-gewaesserschutzbereich-au'
+        },
         'ausserhalb-bauzone': {
             'displayValue': 'nein',
             'hidden': False,
@@ -492,6 +655,12 @@ snapshots['test_gr_client[query3-baugesuch] 1'] = {
             'label': 'gis-map',
             'value': '{"markers": [{"x": 2730686.563711087, "y": 1122237.578980265}, {"x": 2730701.779260571, "y": 1122223.4682885902}], "geometry": "LINESTRING"}'
         },
+        'grundwasserschutzzone': {
+            'displayValue': 'nicht-betroffen',
+            'hidden': False,
+            'label': 'grundwasserschutzzone',
+            'value': 'grundwasserschutzzone-nicht-betroffen'
+        },
         'kantonsstrassen': {
             'displayValue': 'nein',
             'hidden': False,
@@ -511,21 +680,21 @@ snapshots['test_gr_client[query3-baugesuch] 1'] = {
                 {
                     'e-grid-nr': {
                         'label': 'e-grid-nr',
-                        'value': 'CH356476789154'
-                    },
-                    'liegenschaftsnummer': {
-                        'label': 'liegenschaftsnummer',
-                        'value': '920'
-                    }
-                },
-                {
-                    'e-grid-nr': {
-                        'label': 'e-grid-nr',
                         'value': 'CH479178647641'
                     },
                     'liegenschaftsnummer': {
                         'label': 'liegenschaftsnummer',
                         'value': '921'
+                    }
+                },
+                {
+                    'e-grid-nr': {
+                        'label': 'e-grid-nr',
+                        'value': 'CH356476789154'
+                    },
+                    'liegenschaftsnummer': {
+                        'label': 'liegenschaftsnummer',
+                        'value': '920'
                     }
                 }
             ]
@@ -551,6 +720,12 @@ snapshots['test_gr_client[query3-baugesuch] 1'] = {
 
 snapshots['test_gr_client[query4-baugesuch] 1'] = {
     'data': {
+        'art-gewaesserschutzbereich': {
+            'displayValue': 'au',
+            'hidden': False,
+            'label': 'art-gewaesserschutzbereich',
+            'value': 'art-gewaesserschutzbereich-au'
+        },
         'ausserhalb-bauzone': {
             'displayValue': 'nein',
             'hidden': False,
@@ -592,6 +767,12 @@ snapshots['test_gr_client[query4-baugesuch] 1'] = {
             'label': 'gis-map',
             'value': '{"markers": [{"x": 2758821.8885866464, "y": 1191884.7759206274}, {"x": 2758835.689140816, "y": 1191889.2217609326}, {"x": 2758844.747878619, "y": 1191856.4200200567}, {"x": 2758832.507804883, "y": 1191854.8711072344}], "geometry": "POLYGON"}'
         },
+        'grundwasserschutzzone': {
+            'displayValue': 'nicht-betroffen',
+            'hidden': False,
+            'label': 'grundwasserschutzzone',
+            'value': 'grundwasserschutzzone-nicht-betroffen'
+        },
         'kantonsstrassen': {
             'displayValue': 'nein',
             'hidden': False,
@@ -608,16 +789,6 @@ snapshots['test_gr_client[query4-baugesuch] 1'] = {
             'hidden': False,
             'label': 'parzelle',
             'value': [
-                {
-                    'e-grid-nr': {
-                        'label': 'e-grid-nr',
-                        'value': 'CH838677680049'
-                    },
-                    'liegenschaftsnummer': {
-                        'label': 'liegenschaftsnummer',
-                        'value': '4629'
-                    }
-                },
                 {
                     'e-grid-nr': {
                         'label': 'e-grid-nr',
@@ -641,11 +812,11 @@ snapshots['test_gr_client[query4-baugesuch] 1'] = {
                 {
                     'e-grid-nr': {
                         'label': 'e-grid-nr',
-                        'value': 'CH880086687762'
+                        'value': 'CH898677006887'
                     },
                     'liegenschaftsnummer': {
                         'label': 'liegenschaftsnummer',
-                        'value': '4624'
+                        'value': '4625'
                     }
                 },
                 {
@@ -661,21 +832,31 @@ snapshots['test_gr_client[query4-baugesuch] 1'] = {
                 {
                     'e-grid-nr': {
                         'label': 'e-grid-nr',
-                        'value': 'CH816800867795'
+                        'value': 'CH838677680049'
                     },
                     'liegenschaftsnummer': {
                         'label': 'liegenschaftsnummer',
-                        'value': '4627'
+                        'value': '4629'
                     }
                 },
                 {
                     'e-grid-nr': {
                         'label': 'e-grid-nr',
-                        'value': 'CH898677006887'
+                        'value': 'CH880086687762'
                     },
                     'liegenschaftsnummer': {
                         'label': 'liegenschaftsnummer',
-                        'value': '4625'
+                        'value': '4624'
+                    }
+                },
+                {
+                    'e-grid-nr': {
+                        'label': 'e-grid-nr',
+                        'value': 'CH816800867795'
+                    },
+                    'liegenschaftsnummer': {
+                        'label': 'liegenschaftsnummer',
+                        'value': '4627'
                     }
                 }
             ]
@@ -701,6 +882,12 @@ snapshots['test_gr_client[query4-baugesuch] 1'] = {
 
 snapshots['test_gr_client[query5-baugesuch] 1'] = {
     'data': {
+        'art-gewaesserschutzbereich': {
+            'displayValue': 'au',
+            'hidden': False,
+            'label': 'art-gewaesserschutzbereich',
+            'value': 'art-gewaesserschutzbereich-au'
+        },
         'ausserhalb-bauzone': {
             'displayValue': 'nein',
             'hidden': False,
@@ -726,6 +913,12 @@ snapshots['test_gr_client[query5-baugesuch] 1'] = {
             'hidden': True,
             'label': 'gis-map',
             'value': '{"markers": [{"x": 2731195.9499999997, "y": 1122174.3312499998}], "geometry": "POINT"}'
+        },
+        'grundwasserschutzzone': {
+            'displayValue': 'nicht-betroffen',
+            'hidden': False,
+            'label': 'grundwasserschutzzone',
+            'value': 'grundwasserschutzzone-nicht-betroffen'
         },
         'kantonsstrassen': {
             'displayValue': 'nein',
@@ -802,6 +995,12 @@ snapshots['test_gr_client[query6-baugesuch] 1'] = {
             'label': 'gis-map',
             'value': '{"markers": [{"x": 2758622.7126099495, "y": 1190131.3069476}], "geometry": "POINT"}'
         },
+        'grundwasserschutzzone': {
+            'displayValue': 'nicht-betroffen',
+            'hidden': False,
+            'label': 'grundwasserschutzzone',
+            'value': 'grundwasserschutzzone-nicht-betroffen'
+        },
         'kantonsstrassen': {
             'displayValue': 'nein',
             'hidden': False,
@@ -861,6 +1060,12 @@ snapshots['test_gr_client[query7-baugesuch] 1'] = {
             'hidden': True,
             'label': 'gis-map',
             'value': '{"markers": [{"x": 2760943.8499999996, "y": 1192035.0312499998}], "geometry": "POINT"}'
+        },
+        'grundwasserschutzzone': {
+            'displayValue': 'nicht-betroffen',
+            'hidden': False,
+            'label': 'grundwasserschutzzone',
+            'value': 'grundwasserschutzzone-nicht-betroffen'
         },
         'kantonsstrassen': {
             'displayValue': 'nein',
@@ -922,6 +1127,12 @@ snapshots['test_gr_client[query8-baugesuch] 1'] = {
             'label': 'gis-map',
             'value': '{"markers": [{"x": 2760930.5289222472, "y": 1192035.707010256}, {"x": 2760963.900865463, "y": 1192057.817393839}], "geometry": "LINESTRING"}'
         },
+        'grundwasserschutzzone': {
+            'displayValue': 'nicht-betroffen',
+            'hidden': False,
+            'label': 'grundwasserschutzzone',
+            'value': 'grundwasserschutzzone-nicht-betroffen'
+        },
         'kantonsstrassen': {
             'displayValue': 'nein',
             'hidden': False,
@@ -941,21 +1152,21 @@ snapshots['test_gr_client[query8-baugesuch] 1'] = {
                 {
                     'e-grid-nr': {
                         'label': 'e-grid-nr',
-                        'value': 'CH567786689869'
-                    },
-                    'liegenschaftsnummer': {
-                        'label': 'liegenschaftsnummer',
-                        'value': '3476'
-                    }
-                },
-                {
-                    'e-grid-nr': {
-                        'label': 'e-grid-nr',
                         'value': 'CH416823867724'
                     },
                     'liegenschaftsnummer': {
                         'label': 'liegenschaftsnummer',
                         'value': '6978'
+                    }
+                },
+                {
+                    'e-grid-nr': {
+                        'label': 'e-grid-nr',
+                        'value': 'CH567786689869'
+                    },
+                    'liegenschaftsnummer': {
+                        'label': 'liegenschaftsnummer',
+                        'value': '3476'
                     }
                 }
             ]
@@ -976,6 +1187,12 @@ snapshots['test_gr_client[query8-baugesuch] 1'] = {
 
 snapshots['test_gr_client[query9-baugesuch] 1'] = {
     'data': {
+        'art-gewaesserschutzbereich': {
+            'displayValue': 'au',
+            'hidden': False,
+            'label': 'art-gewaesserschutzbereich',
+            'value': 'art-gewaesserschutzbereich-au'
+        },
         'ausserhalb-bauzone': {
             'displayValue': 'nein',
             'hidden': False,
@@ -1011,6 +1228,12 @@ snapshots['test_gr_client[query9-baugesuch] 1'] = {
             'hidden': True,
             'label': 'gis-map',
             'value': '{"markers": [{"x": 2760376.3950000005, "y": 1190000.739375}], "geometry": "POINT"}'
+        },
+        'grundwasserschutzzone': {
+            'displayValue': 'nicht-betroffen',
+            'hidden': False,
+            'label': 'grundwasserschutzzone',
+            'value': 'grundwasserschutzzone-nicht-betroffen'
         },
         'kantonsstrassen': {
             'displayValue': 'ja',
