@@ -47,6 +47,9 @@ css: ## Create the css files from the sass files
 css-watch: ## Watch the sass files and create the css when they change
 	@cd camac/configuration/public/css/; make watch
 
+.PHONY: clear-cache
+clear-cache: ## Clear memcache
+	docker-compose exec cache sh -c "echo flush_all | nc localhost 11211"
 
 .PHONY: dumpconfig
 dumpconfig: ## Dump the current camac and caluma configuration
