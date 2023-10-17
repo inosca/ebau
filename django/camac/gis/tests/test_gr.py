@@ -38,6 +38,12 @@ def gr_data_sources(
         ),
         ("gis-map", Question.TYPE_TEXT),
         ("ort-grundstueck", Question.TYPE_TEXT),
+        ("art-gewaesserschutzbereich", Question.TYPE_CHOICE, ["au", "nicht-betroffen"]),
+        (
+            "grundwasserschutzzone",
+            Question.TYPE_CHOICE,
+            ["s1", "s2", "s3", "sh", "sm", "nicht-betroffen"],
+        ),
     ]
 
     for config in gis_questions:
@@ -153,7 +159,24 @@ def gr__config(gis_data_source_factory, question_factory):
                     {
                         "question": "das-bauvorhaben-befindet-sich-in",
                         "propertyName": "typ",
-                        "mapper": "gewaesserschutzbereiche",
+                        "mapper": "bauvorhaben_gewaesser",
+                        "forms": ["baugesuch"],
+                    },
+                    {
+                        "question": "art-gewaesserschutzbereich",
+                        "propertyName": "typ",
+                        "mapper": "gewaesserschutzbereich",
+                        "forms": ["baugesuch"],
+                    },
+                ],
+            },
+            {
+                "identifier": "grundwasserschutzzonen",
+                "properties": [
+                    {
+                        "question": "grundwasserschutzzone",
+                        "propertyName": "typ",
+                        "mapper": "grundwasserschutzzone",
                         "forms": ["baugesuch"],
                     },
                 ],
@@ -290,6 +313,16 @@ def gr__config(gis_data_source_factory, question_factory):
             },
             "baugesuch",
         ),  # Archäologische Schutzzone
+        (
+            {
+                "markers": [
+                    {"x": 2757239.7999999993, "y": 1191422.925},
+                    {"x": 2757141.7999999993, "y": 1191215.725},
+                ],
+                "geometry": "LINESTRING",
+            },
+            "baugesuch",
+        ),  # Grundwasserschutzzone S2 and S3
     ],
 )
 @pytest.mark.vcr()
