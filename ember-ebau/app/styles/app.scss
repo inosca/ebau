@@ -26,7 +26,8 @@ $main-navigation-background: $global-primary-background !default;
 
 .main-content {
   margin-top: $main-nav-height;
-  padding-top: 1rem;
+  padding-top: $global-margin;
+  padding-bottom: $global-margin;
 }
 
 .nav-sidebar + .main-content {
