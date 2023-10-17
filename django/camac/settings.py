@@ -3772,7 +3772,7 @@ APPLICATIONS = {
                 },
                 {
                     "template_slug": "eingang-dossier-leitbehoerde",
-                    "recipient_types": ["leitbehoerde"],
+                    "recipient_types": ["municipality"],
                 },
             ],
             "APPLICANT": {
