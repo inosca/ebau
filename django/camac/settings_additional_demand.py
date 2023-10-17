@@ -1,3 +1,5 @@
+from django.utils.translation import gettext_lazy as _
+
 ADDITIONAL_DEMAND = {
     "default": {
         "WORKFLOW": "additional-demand",
@@ -11,11 +13,11 @@ ADDITIONAL_DEMAND = {
         "CHECK_NOTIFICATON": {
             "additional-demand-decision-reject": {
                 "notification_recipients": ["applicant"],
-                "history_text": "Additional demand rejected",
+                "history_text": _("Additional demand rejected"),
             },
             "additional-demand-decision-accept": {
                 "notification_recipients": ["additional_demand_inviter"],
-                "history_text": "Additional demand accepted",
+                "history_text": _("Additional demand accepted"),
             },
         },
     },
