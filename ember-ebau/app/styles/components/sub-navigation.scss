@@ -3,6 +3,7 @@
   left: 0;
   bottom: 0;
   top: $main-nav-height;
+  overflow-y: auto;
   width: $sidebar-width;
   border-right: 1px solid $border-color;
 
