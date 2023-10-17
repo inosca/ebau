@@ -279,6 +279,7 @@ ADDITIONAL_DEMAND_DUMP_CONFIG = {
 APPLICATIONS = {
     "test": {
         "SHORT_NAME": "test",
+        "INTERNAL_FRONTEND": "ebau",
         "ECH0211": {
             "API_ACTIVE": env.bool("ECH0211_API_ACTIVE", default=False),
         },
@@ -406,6 +407,7 @@ APPLICATIONS = {
     },
     "kt_schwyz": {
         "SHORT_NAME": "sz",
+        "INTERNAL_FRONTEND": "camac",
         "INCLUDE_STATIC_FILES": [("xml", "kt_schwyz/static/ech0211/xml/")],
         "USE_CAMAC_ADMIN": True,
         "LOG_NOTIFICATIONS": True,
@@ -1301,6 +1303,7 @@ APPLICATIONS = {
     },
     "kt_bern": {
         "SHORT_NAME": "be",
+        "INTERNAL_FRONTEND": "camac",
         "ECH0211": {
             "API_ACTIVE": env.bool("ECH0211_API_ACTIVE", default=True),
             "API_LEVEL": "full",
@@ -2159,6 +2162,7 @@ APPLICATIONS = {
     },
     "kt_uri": {
         "SHORT_NAME": "ur",
+        "INTERNAL_FRONTEND": "camac",
         "ECH0211": {
             "API_ACTIVE": env.bool("ECH0211_API_ACTIVE", default=False),
         },
@@ -2831,6 +2835,7 @@ APPLICATIONS = {
     },
     "demo": {
         "SHORT_NAME": "demo",
+        "INTERNAL_FRONTEND": "ebau",
         "ECH0211": {
             "API_ACTIVE": env.bool("ECH0211_API_ACTIVE", default=False),
         },
@@ -3179,6 +3184,7 @@ APPLICATIONS = {
     },
     "kt_gr": {
         "SHORT_NAME": "gr",
+        "INTERNAL_FRONTEND": "ebau",
         "ECH0211": {
             "API_ACTIVE": env.bool("ECH0211_API_ACTIVE", default=False),
         },
@@ -3702,6 +3708,7 @@ APPLICATIONS = {
     },
     "kt_so": {
         "SHORT_NAME": "so",
+        "INTERNAL_FRONTEND": "ebau",
         "ECH0211": {
             "API_ACTIVE": env.bool("ECH0211_API_ACTIVE", default=False),
         },

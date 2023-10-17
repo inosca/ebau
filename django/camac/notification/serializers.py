@@ -472,11 +472,26 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         if not self.inquiry:
             return ""
 
+        if settings.APPLICATION["INTERNAL_FRONTEND"] == "camac":
+            return build_url(
+                settings.INTERNAL_BASE_URL,
+                "/index/redirect-to-instance-resource/instance-id/",
+                instance.pk,
+                "?instance-resource-name=distribution&ember-hash=/distribution/",
+                self.inquiry.case.pk,
+                "from",
+                self.inquiry.controlling_groups[0],
+                "to",
+                self.inquiry.addressed_groups[0],
+                self.inquiry.pk,
+                "answer",
+            )
+
         return build_url(
             settings.INTERNAL_BASE_URL,
-            "/index/redirect-to-instance-resource/instance-id/",
+            "/cases/",
             instance.pk,
-            "?instance-resource-name=distribution&ember-hash=/distribution/",
+            "/distribution/",
             self.inquiry.case.pk,
             "from",
             self.inquiry.controlling_groups[0],
