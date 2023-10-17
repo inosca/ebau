@@ -265,12 +265,23 @@ class GrGisClient(GISBaseClient):
 
         return previous_value
 
-    def map_gewaesserschutzbereiche(self, values, intermediate_result, question):
+    def map_bauvorhaben_gewaesser(self, values, intermediate_result, question):
         previous_value = intermediate_result.get(question, [])
         if "Au" in values:
             return add_result(previous_value, "gewaesserschutzbereich")
 
         return previous_value
+
+    def map_gewaesserschutzbereich(self, values, intermediate_result, question):
+        previous_value = intermediate_result.get(question, [])
+        if "Au" in values:
+            return add_result(previous_value, "au")
+
+        return previous_value
+
+    def map_grundwasserschutzzone(self, values, intermediate_result, question):
+        strict_levels = sorted([v.lower() for v in list(set(values))])
+        return strict_levels[0] if strict_levels else "nicht-betroffen"
 
     def map_archaeologiezone(
         self, values, intermediate_result, question

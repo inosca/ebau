@@ -83,8 +83,25 @@
           "properties": [
             {
               "forms": ["baugesuch"],
-              "mapper": "gewaesserschutzbereiche",
+              "mapper": "bauvorhaben_gewaesser",
               "question": "das-bauvorhaben-befindet-sich-in",
+              "propertyName": "typ"
+            },
+            {
+              "forms": ["baugesuch"],
+              "mapper": "gewaesserschutzbereich",
+              "question": "art-gewaesserschutzbereich",
+              "propertyName": "typ"
+            }
+          ]
+        },
+        {
+          "identifier": "grundwasserschutzzonen",
+          "properties": [
+            {
+              "forms": ["baugesuch"],
+              "mapper": "grundwasserschutzzone",
+              "question": "grundwasserschutzzone",
               "propertyName": "typ"
             }
           ]
