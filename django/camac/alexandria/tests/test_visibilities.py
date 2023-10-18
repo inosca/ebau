@@ -9,6 +9,10 @@ from django.urls import reverse
 from pytest_factoryboy import LazyFixture
 from rest_framework.status import HTTP_200_OK
 
+from camac.instance.tests.test_instance_public import (  # noqa: F401
+    create_caluma_publication,
+)
+
 
 @pytest.mark.parametrize("is_nested_category", [True, False])
 @pytest.mark.parametrize(
@@ -17,6 +21,7 @@ from rest_framework.status import HTTP_200_OK
         ("applicant", LazyFixture("user"), 3),
         ("municipality", LazyFixture("user"), 2),
         ("service", LazyFixture("user"), 1),
+        ("public", LazyFixture("user"), 1),
     ],
 )
 def test_document_visibility(
@@ -25,6 +30,11 @@ def test_document_visibility(
     caluma_admin_user,
     admin_client,
     instance,
+    instance_factory,
+    instance_with_case,
+    publication_settings,
+    create_caluma_publication,  # noqa: F811
+    snapshot,
     expected_count,
     is_nested_category,
 ):
@@ -41,10 +51,16 @@ def test_document_visibility(
         service_category = CategoryFactory(parent=service_category)
 
     DocumentFactory.create_batch(
-        2, category=applicant_category, metainfo={"camac-instance-id": instance.pk}
+        2,
+        category=applicant_category,
+        metainfo={"camac-instance-id": instance.pk},
+        title="applicant",
     )
     DocumentFactory.create_batch(
-        2, category=municipality_category, metainfo={"camac-instance-id": instance.pk}
+        2,
+        category=municipality_category,
+        metainfo={"camac-instance-id": instance.pk},
+        title="municipality",
     )
 
     # readable from service
@@ -52,24 +68,46 @@ def test_document_visibility(
         category=service_category,
         created_by_group=caluma_admin_user.group,
         metainfo={"camac-instance-id": instance.pk},
+        title="service",
     )
     DocumentFactory(
         category=service_category,
         created_by_group=caluma_admin_user.group + 1,
         metainfo={"camac-instance-id": instance.pk},
+        title="service 2",
     )
 
     # readable as invitee
     DocumentFactory(
-        category=applicant_category, metainfo={"camac-instance-id": instance.pk}
+        category=applicant_category,
+        metainfo={"camac-instance-id": instance.pk},
+        title="invitee",
     )
 
+    # published instance
+    public_instance = instance_with_case(instance_factory())
+    create_caluma_publication(public_instance)
+    DocumentFactory(metainfo={"camac-instance-id": public_instance.pk}, title="hidden")
+    public = DocumentFactory(
+        metainfo={"camac-instance-id": public_instance.pk}, title="public"
+    )
+    public.tags.add(TagFactory(slug="publication"))
+
     url = reverse("document-list")
-    response = admin_client.get(url)
+    if role.name == "public":
+        response = admin_client.get(url, HTTP_X_CAMAC_PUBLIC_ACCESS=True)
+    else:
+        response = admin_client.get(url)
 
     assert response.status_code == HTTP_200_OK
     json = response.json()
     assert len(json["data"]) == expected_count
+    snapshot.assert_match(
+        sorted(
+            [{"title": obj["attributes"]["title"]["de"]} for obj in json["data"]],
+            key=lambda o: o["title"],
+        )
+    )
 
 
 @pytest.mark.parametrize("is_nested_category", [True, False])
