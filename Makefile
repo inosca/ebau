@@ -77,7 +77,7 @@ loadconfig-dms: ## Load the DMS configuration
 dumpconfig-dms: ## Dump the DMS configuration
 	@if docker-compose config|grep -q document-merge-service; then \
 		docker-compose exec -u root document-merge-service bash -c "poetry run python manage.py dumpdata api.Template > /tmp/document-merge-service/dump.json" ; \
-		@npx --yes prettier@3.0.3 --log-level silent --write "document-merge-service/${APPLICATION}/dump.json"; \
+		npx --yes prettier@3.0.3 --log-level silent --write "document-merge-service/${APPLICATION}/dump.json"; \
 	fi
 
 
@@ -91,8 +91,8 @@ loadconfig-keycloak: ## Load the keycloak configuration
 
 .PHONY: dumpconfig-keycloak
 dumpconfig-keycloak: ## Dump the keycloak configuration
-	docker-compose exec keycloak /opt/keycloak/bin/kc.sh export --file /opt/keycloak/data/import/test-config.json;  \
-	@npx --yes prettier@3.0.3 --log-level silent --write "keycloak/config/${APPLICATION}-test-config.json"; \
+	docker-compose exec keycloak /opt/keycloak/bin/kc.sh export --file /opt/keycloak/data/import/test-config.json
+	@npx --yes prettier@3.0.3 --log-level silent --write "keycloak/config/${APPLICATION}-test-config.json"
 
 .PHONY: loadconfig
 loadconfig: loadconfig-camac loadconfig-dms loadconfig-keycloak ## Load all configuration
