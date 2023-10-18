@@ -7,16 +7,37 @@
   </LinkTo>
 </div>
 
-<div class="uk-search uk-search-default uk-width-1-1">
-  <span uk-search-icon></span>
-  <input
-    class="uk-search-input"
-    type="search"
-    placeholder={{t "global.search"}}
-    aria-label={{t "global.search"}}
-    value={{this.search}}
-    {{on "input" (perform this.updateSearch)}}
-  >
+<div class="uk-grid-small" uk-grid>
+  <div class="uk-width-expand">
+    <div class="uk-search uk-search-default uk-width-1-1">
+      <span uk-search-icon></span>
+      <input
+        class="uk-search-input"
+        type="search"
+        placeholder={{t "global.search"}}
+        aria-label={{t "global.search"}}
+        value={{this.search}}
+        {{on "input" (perform this.updateSearch)}}
+      >
+    </div>
+  </div>
+  <div class="uk-width-1-3">
+    <PowerSelect
+      @searchEnabled={{true}}
+      @searchField="name"
+      @renderInPlace={{true}}
+      @options={{this.groups.records}}
+      @selected={{this.selectedGroup}}
+      @noMatchesMessage={{t "global.noMatch"}}
+      @onChange={{fn (mut this.selectedGroup)}}
+      @allowClear={{true}}
+      @placeholder={{t "service-permissions.select-group"}}
+      class="uk-select"
+      as |group|
+    >
+      {{group.name}}
+    </PowerSelect>
+  </div>
 </div>
 
 <table class="uk-table uk-table-striped uk-table-middle">
