@@ -1,6 +1,6 @@
 services:
   cache:
-    image: memcached:1.6
+    image: memcached:1.6-alpine
     user: memcache:memcache
     networks:
       - ebau.local
