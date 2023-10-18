@@ -368,6 +368,7 @@ module.exports = function (environment) {
         backend: "alexandria",
         excludeFromDocuments: [],
         feedbackSections: ["alle-beteiligten"], // Alle Beteiligten
+        decisionTag: "decision",
       },
       instanceStates: instanceStatesGr,
       modification: {
@@ -415,6 +416,7 @@ module.exports = function (environment) {
         backend: "alexandria",
         excludeFromDocuments: [],
         feedbackSections: ["alle-beteiligten"], // Alle Beteiligten
+        decisionTag: "decision",
       },
       instanceStates: instanceStatesSo,
       modification: {
