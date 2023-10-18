@@ -3270,6 +3270,20 @@ APPLICATIONS = {
                 "complete-distribution": {
                     "next_instance_state": "decision",
                 },
+                "send-additional-demand": {
+                    "history_text": _("Additional demand sent"),
+                    "notification": {
+                        "template_slug": "send-additional-demand",
+                        "recipient_types": ["applicant", "additional_demand_inviter"],
+                    },
+                },
+                "fill-additional-demand": {
+                    "history_text": _("Additional demand was answered"),
+                    "notification": {
+                        "template_slug": "fill-additional-demand",
+                        "recipient_types": ["work_item_controlling"],
+                    },
+                },
             },
             "PUBLIC_STATUS": {
                 "MAP": {
