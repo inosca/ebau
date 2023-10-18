@@ -7,18 +7,13 @@ export default class CasesDetailRoute extends Route {
   @service store;
 
   model({ instance_id }) {
+    this.alexandriaConfig.instanceId = parseInt(instance_id);
+    this.ebauModules.instanceId = parseInt(instance_id);
+
     // fetch instance to allow reloading after state changes
     // from ebau-modules.js (redirectToWorkItems)
     return this.store.findRecord("instance", instance_id, {
       include: "instance_state,responsible_service_users",
     });
-  }
-
-  afterModel(model) {
-    if (typeof model === "object") {
-      model = parseInt(model.id);
-    }
-    this.alexandriaConfig.instanceId = model;
-    this.ebauModules.instanceId = model;
   }
 }

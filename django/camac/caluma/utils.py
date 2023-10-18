@@ -202,6 +202,15 @@ def visible_inquiries_expression(group: Group) -> Expression:
         else:
             # Services only see their own inquiries
             additional_inquiries_filter = Value(False)
+    elif settings.APPLICATION_NAME == "kt_so":
+        additional_inquiries_filter = work_item_by_addressed_service_condition(
+            # Inquiries of services without a parent service
+            Q(service_parent__isnull=True)
+            # Inquiries of child services of the current service
+            | Q(service_parent_id=service.pk)
+            # Inquiries of services which have the same parent service as the current service
+            | Q(service_parent_id=service.service_parent_id)
+        )
 
     return Case(
         When(
