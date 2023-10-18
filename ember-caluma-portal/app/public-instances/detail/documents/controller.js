@@ -26,11 +26,10 @@ export default class PublicInstancesDetailDocumentsController extends Controller
         return yield this.store.query("attachment", {
           instance: this.model,
         });
-      } else {
-        return yield this.store.query("document", {
-          instance: this.model,
-        });
       }
+      return yield this.store.query("document", {
+        instance: this.model,
+      });
     } catch (e) {
       this.notification.danger(this.intl.t("publicInstancesDetail.loadError"));
     }

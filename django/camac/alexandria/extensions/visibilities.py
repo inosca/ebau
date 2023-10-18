@@ -1,7 +1,10 @@
 from alexandria.core.models import BaseModel, Category, Document, File, Tag
 from alexandria.core.visibilities import BaseVisibility, filter_queryset_for
-from django.conf import settings
 from django.db.models import Q
+
+from camac.instance.filters import CalumaInstanceFilterSet
+from camac.instance.mixins import InstanceQuerysetMixin
+from camac.utils import filters
 
 from .common import get_role
 
@@ -17,7 +20,33 @@ def get_category_access_rule(prefix, value, role=None, lookup=None):
     )
 
 
-class CustomVisibility(BaseVisibility):
+class CustomVisibility(BaseVisibility, InstanceQuerysetMixin):
+    instance_field = None
+
+    def _all_visible_instances(self, request):
+        """Fetch visible camac instances and cache the result.
+
+        Take user's group from a custom HTTP header named `X-CAMAC-GROUP` or use
+        default group  to retrieve all Camac instance IDs that are accessible.
+
+        Return a list of instance identifiers.
+        """
+        result = getattr(request, "_visibility_instances_cache", None)
+        if result is not None:  # pragma: no cover
+            return result
+
+        self.request = request
+        filtered = CalumaInstanceFilterSet(
+            data=filters(request),
+            queryset=self.get_queryset(),
+            request=request,
+        )
+
+        instance_ids = list(filtered.qs.values_list("pk", flat=True))
+
+        setattr(request, "_visibility_instances_cache", instance_ids)
+        return instance_ids
+
     @filter_queryset_for(BaseModel)
     def filter_queryset_for_all(self, queryset, request):  # pragma: no cover
         if get_role(request.caluma_info.context.user) != "public":
@@ -25,11 +54,19 @@ class CustomVisibility(BaseVisibility):
 
         return queryset.none()
 
-    def document_and_file_filter(self, user, prefix=""):
+    def document_and_file_filter(self, request, prefix=""):
+        user = request.caluma_info.context.user
         role = get_role(user)
-        normal_permissions = ["Admin", "Read", "Write"]
 
-        aggregated_filter = Q()
+        visible_instances = self._all_visible_instances(request)
+        aggregated_filter = Q(
+            **{f"{prefix}instance_document__instance__in": visible_instances}
+        )
+
+        if role == "public":
+            return aggregated_filter & Q(**{f"{prefix}tags__pk": "publication"})
+
+        normal_permissions = ["Admin", "Read", "Write"]
         for permission in normal_permissions:
             # directly readable categories
             aggregated_filter |= get_category_access_rule(
@@ -56,17 +93,13 @@ class CustomVisibility(BaseVisibility):
 
     @filter_queryset_for(Document)
     def filter_queryset_for_document(self, queryset, request):
-        return queryset.filter(
-            self.document_and_file_filter(request.caluma_info.context.user)
-        ).distinct()
+        return queryset.filter(self.document_and_file_filter(request)).distinct()
 
     @filter_queryset_for(File)
     def filter_queryset_for_file(self, queryset, request):
         # Limitations for `Document` should also be enforced on `File`.
         return queryset.filter(
-            self.document_and_file_filter(
-                request.caluma_info.context.user, "document__"
-            )
+            self.document_and_file_filter(request, "document__")
         ).distinct()
 
     @filter_queryset_for(Category)
@@ -86,9 +119,7 @@ class CustomVisibility(BaseVisibility):
         if get_role(request.caluma_info.context.user) == "support":
             return queryset
 
-        if get_role(request.caluma_info.context.user) == settings.APPLICATION.get(
-            "ALEXANDRIA", {}
-        ).get("PUBLIC_ROLE", "public"):
+        if get_role(request.caluma_info.context.user) in ["public", "applicant"]:
             return queryset.none()
 
         return queryset.filter(created_by_group=request.caluma_info.context.user.group)

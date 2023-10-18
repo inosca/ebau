@@ -166,3 +166,69 @@ snapshots['test_category_visibility[service-2-True] 1'] = [
         }
     }
 ]
+
+snapshots['test_document_visibility[applicant-instance__user0-3-False] 1'] = [
+    {
+        'title': 'applicant'
+    },
+    {
+        'title': 'applicant'
+    },
+    {
+        'title': 'invitee'
+    }
+]
+
+snapshots['test_document_visibility[applicant-instance__user0-3-True] 1'] = [
+    {
+        'title': 'applicant'
+    },
+    {
+        'title': 'applicant'
+    },
+    {
+        'title': 'invitee'
+    }
+]
+
+snapshots['test_document_visibility[municipality-instance__user1-2-False] 1'] = [
+    {
+        'title': 'municipality'
+    },
+    {
+        'title': 'municipality'
+    }
+]
+
+snapshots['test_document_visibility[municipality-instance__user1-2-True] 1'] = [
+    {
+        'title': 'municipality'
+    },
+    {
+        'title': 'municipality'
+    }
+]
+
+snapshots['test_document_visibility[public-instance__user3-1-False] 1'] = [
+    {
+        'title': 'public'
+    }
+]
+
+snapshots['test_document_visibility[public-instance__user3-1-True] 1'] = [
+    {
+        'title': 'public'
+    }
+]
+
+snapshots['test_document_visibility[service-instance__user2-1-False] 1'] = [
+    {
+        'title': 'service'
+    }
+]
+
+snapshots['test_document_visibility[service-instance__user2-1-True] 1'] = [
+    {
+        'title': 'service'
+    }
+]

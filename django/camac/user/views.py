@@ -224,6 +224,7 @@ class PublicGroupView(MultilangMixin, ReadOnlyModelViewSet):
     swagger_schema = None
     filterset_class = filters.PublicGroupFilterSet
     serializer_class = serializers.PublicGroupSerializer
+    permission_classes = [IsAuthenticated]
     queryset = models.Group.objects.filter(disabled=False)
 
     def get_queryset(self):
