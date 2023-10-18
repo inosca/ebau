@@ -100,7 +100,7 @@
     "eslint-plugin-prettier": "5.0.0",
     "eslint-plugin-qunit": "8.0.0",
     "file-saver": "2.0.5",
-    "graphql": "15.7.2",
+    "graphql": "15.8.0",
     "leaflet": "1.9.4",
     "loader.js": "4.7.0",
     "miragejs": "0.1.47",
