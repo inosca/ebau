@@ -4207,6 +4207,7 @@ snapshots['test_dms_placeholders_gr[Municipality] 1'] = {
     'BESCHREIBUNG_BAUVORHABEN': 'Einfamilienhaus',
     'BESCHREIBUNG_PROJEKTAENDERUNG': 'Projektänderung',
     'DECISION_DATE': '30. August 2021',
+    'DECISION_DOCUMENTS': 'Grundriss (submitted as Situationsplan) on 30.08.2021 at 00:00',
     'DESCRIPTION_MODIFICATION': 'Projektänderung',
     'DOSSIER_NUMBER': '2023-1',
     'DOSSIER_NUMMER': '2023-1',
@@ -4218,7 +4219,7 @@ snapshots['test_dms_placeholders_gr[Municipality] 1'] = {
     'ENDE_PUBLIKATION_GEMEINDE': '21. August 2021',
     'ENDE_PUBLIKATION_KANTON': '23. August 2021',
     'ENDE_PUBLIKATION_KANTONSAMTSBLATT': '23. August 2021',
-    'ENTSCHEIDDOKUMENTE': 'Grundriss (eingereicht als Situationsplan) am 30.08.2021 um 00:00',
+    'ENTSCHEIDDOKUMENTE': 'Grundriss (submitted as Situationsplan) on 30.08.2021 at 00:00',
     'FACHSTELLEN_KANTONAL': [
         {
             'BEANTWORTET': '',

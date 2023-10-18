@@ -1101,7 +1101,6 @@ def test_recipient_type_unnotified_service_users(
 def test_recipient_type_koor_users(
     db, instance_factory, mocker, user_group, service_factory, form_factory
 ):
-
     koor_bg = service_factory()
     koor_np = service_factory()
     instance_bg = instance_factory()
@@ -1132,7 +1131,6 @@ def test_recipient_type_koor_users(
 
 @pytest.mark.parametrize("group__name", ["Lisag"])
 def test_recipient_type_lisag(db, instance, group):
-
     serializer = serializers.NotificationTemplateSendmailSerializer()
     res = serializer._get_recipients_lisag(instance)
     assert res == [{"to": group.email}]
@@ -1566,3 +1564,42 @@ def test_merge_serializer_used_placeholders(db, instance):
     )
 
     assert list(serializer.data.keys()) == ["base_url"]
+
+
+def test_notification_additional_demand(
+    db,
+    gr_instance,
+    service,
+    service_factory,
+    case_factory,
+    work_item_factory,
+    notification_template,
+    user_group,
+    active_inquiry_factory,
+    additional_demand_settings,
+):
+    inviter = service_factory()
+    active_inquiry_factory(gr_instance, service, inviter)
+    case = case_factory()
+    work_item_factory(addressed_groups=[str(service.pk)], child_case=case)
+    work_item = work_item_factory(case=case)
+
+    serializer = serializers.NotificationTemplateSendmailSerializer(
+        data={
+            "template_slug": notification_template.slug,
+            "recipient_types": ["work_item_addressed"],
+            "notification_template": {
+                "type": "notification-templates",
+                "id": notification_template.pk,
+            },
+            "instance": {"type": "instances", "id": gr_instance.pk},
+            "work_item": {"type": "work-items", "id": work_item.pk},
+        },
+        context={"request": FakeRequest(group=user_group.group, user=user_group.user)},
+    )
+    serializer.is_valid()
+    assert not serializer.errors
+
+    assert serializer._get_recipients_additional_demand_inviter(gr_instance) == [
+        {"to": inviter.email}
+    ]
