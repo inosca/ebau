@@ -2062,14 +2062,14 @@
           "subComponents": {},
           "config": {
             "allowed-protocol-mapper-types": [
-              "oidc-usermodel-attribute-mapper",
-              "oidc-usermodel-property-mapper",
-              "saml-role-list-mapper",
-              "oidc-full-name-mapper",
               "saml-user-attribute-mapper",
-              "saml-user-property-mapper",
               "oidc-address-mapper",
-              "oidc-sha256-pairwise-sub-mapper"
+              "saml-role-list-mapper",
+              "oidc-usermodel-property-mapper",
+              "saml-user-property-mapper",
+              "oidc-usermodel-attribute-mapper",
+              "oidc-sha256-pairwise-sub-mapper",
+              "oidc-full-name-mapper"
             ],
             "consent-required-for-all-mappers": ["true"]
           }
@@ -2093,13 +2093,13 @@
           "subComponents": {},
           "config": {
             "allowed-protocol-mapper-types": [
-              "oidc-address-mapper",
               "oidc-full-name-mapper",
               "saml-user-property-mapper",
+              "oidc-address-mapper",
               "oidc-usermodel-attribute-mapper",
+              "saml-role-list-mapper",
               "oidc-sha256-pairwise-sub-mapper",
               "oidc-usermodel-property-mapper",
-              "saml-role-list-mapper",
               "saml-user-attribute-mapper"
             ],
             "consent-required-for-all-mappers": ["true"]
@@ -3272,7 +3272,7 @@
           }
         ],
         "disableableCredentialTypes": [],
-        "requiredActions": ["mobile-number-ra"],
+        "requiredActions": [],
         "realmRoles": ["uma_authorization", "offline_access"],
         "clientRoles": {
           "account": ["view-profile", "manage-account"]
@@ -5650,6 +5650,54 @@
     "components": {
       "org.keycloak.services.clientregistration.policy.ClientRegistrationPolicy": [
         {
+          "id": "175bf261-8d92-456b-8c58-76d23723ff90",
+          "name": "Allowed Protocol Mapper Types",
+          "providerId": "allowed-protocol-mappers",
+          "subType": "anonymous",
+          "subComponents": {},
+          "config": {
+            "allowed-protocol-mapper-types": [
+              "saml-user-property-mapper",
+              "oidc-usermodel-property-mapper",
+              "saml-user-attribute-mapper",
+              "oidc-full-name-mapper",
+              "saml-role-list-mapper",
+              "oidc-address-mapper",
+              "oidc-sha256-pairwise-sub-mapper",
+              "oidc-usermodel-attribute-mapper"
+            ],
+            "consent-required-for-all-mappers": ["true"]
+          }
+        },
+        {
+          "id": "de7f5eae-309f-4feb-80b2-d5e44c032c02",
+          "name": "Allowed Client Templates",
+          "providerId": "allowed-client-templates",
+          "subType": "anonymous",
+          "subComponents": {},
+          "config": {
+            "allow-default-scopes": ["true"]
+          }
+        },
+        {
+          "id": "358a4ce6-cb54-4b42-b6d1-596496d61303",
+          "name": "Consent Required",
+          "providerId": "consent-required",
+          "subType": "anonymous",
+          "subComponents": {},
+          "config": {}
+        },
+        {
+          "id": "121afdf3-4c91-4ec4-b1e9-596d3557ca04",
+          "name": "Max Clients Limit",
+          "providerId": "max-clients",
+          "subType": "anonymous",
+          "subComponents": {},
+          "config": {
+            "max-clients": ["200"]
+          }
+        },
+        {
           "id": "c35872af-f134-4dcd-8619-9905c5d3fd2d",
           "name": "Trusted Hosts",
           "providerId": "trusted-hosts",
@@ -5658,26 +5706,6 @@
           "config": {
             "host-sending-registration-request-must-match": ["true"],
             "client-uris-must-match": ["true"]
-          }
-        },
-        {
-          "id": "175bf261-8d92-456b-8c58-76d23723ff90",
-          "name": "Allowed Protocol Mapper Types",
-          "providerId": "allowed-protocol-mappers",
-          "subType": "anonymous",
-          "subComponents": {},
-          "config": {
-            "allowed-protocol-mapper-types": [
-              "saml-user-attribute-mapper",
-              "oidc-full-name-mapper",
-              "oidc-sha256-pairwise-sub-mapper",
-              "oidc-usermodel-attribute-mapper",
-              "saml-user-property-mapper",
-              "saml-role-list-mapper",
-              "oidc-address-mapper",
-              "oidc-usermodel-property-mapper"
-            ],
-            "consent-required-for-all-mappers": ["true"]
           }
         },
         {
@@ -5699,16 +5727,6 @@
           "config": {}
         },
         {
-          "id": "de7f5eae-309f-4feb-80b2-d5e44c032c02",
-          "name": "Allowed Client Templates",
-          "providerId": "allowed-client-templates",
-          "subType": "anonymous",
-          "subComponents": {},
-          "config": {
-            "allow-default-scopes": ["true"]
-          }
-        },
-        {
           "id": "158af153-0232-40d1-8a25-2788200efb98",
           "name": "Allowed Protocol Mapper Types",
           "providerId": "allowed-protocol-mappers",
@@ -5716,35 +5734,25 @@
           "subComponents": {},
           "config": {
             "allowed-protocol-mapper-types": [
+              "oidc-sha256-pairwise-sub-mapper",
+              "oidc-address-mapper",
               "oidc-usermodel-property-mapper",
               "saml-user-attribute-mapper",
-              "oidc-sha256-pairwise-sub-mapper",
               "saml-user-property-mapper",
-              "oidc-full-name-mapper",
               "saml-role-list-mapper",
-              "oidc-usermodel-attribute-mapper",
-              "oidc-address-mapper"
+              "oidc-full-name-mapper",
+              "oidc-usermodel-attribute-mapper"
             ],
             "consent-required-for-all-mappers": ["true"]
           }
-        },
+        }
+      ],
+      "org.keycloak.userprofile.UserProfileProvider": [
         {
-          "id": "358a4ce6-cb54-4b42-b6d1-596496d61303",
-          "name": "Consent Required",
-          "providerId": "consent-required",
-          "subType": "anonymous",
+          "id": "6df96730-c4a4-4ad6-bd8e-08c1e7a619b3",
+          "providerId": "declarative-user-profile",
           "subComponents": {},
           "config": {}
-        },
-        {
-          "id": "121afdf3-4c91-4ec4-b1e9-596d3557ca04",
-          "name": "Max Clients Limit",
-          "providerId": "max-clients",
-          "subType": "anonymous",
-          "subComponents": {},
-          "config": {
-            "max-clients": ["200"]
-          }
         }
       ],
       "org.keycloak.keys.KeyProvider": [
@@ -5760,19 +5768,6 @@
           }
         },
         {
-          "id": "631cc92a-9043-4045-8a66-0b505c7d6b0a",
-          "name": "hmac-generated",
-          "providerId": "hmac-generated",
-          "subComponents": {},
-          "config": {
-            "kid": ["9c1345d2-161e-4f1d-bea6-75fdf6426639"],
-            "secret": [
-              "K3f-CYYW27sdAbyc1v8GriCHBLc-tK_sNWVKOyWjvnaIH9ApjYB3pP3CRDMWBq_BsWbdqmnorDmqTCtnWw0CkQ"
-            ],
-            "priority": ["100"]
-          }
-        },
-        {
           "id": "7f8dce35-e3de-4e87-9a12-5f41356456e1",
           "name": "rsa-generated",
           "providerId": "rsa-generated",
@@ -5783,6 +5778,19 @@
             ],
             "certificate": [
               "MIIClzCCAX8CBgFh5uUtrTANBgkqhkiG9w0BAQsFADAPMQ0wCwYDVQQDDARlYmF1MB4XDTE4MDMwMjEzMjUzNFoXDTI4MDMwMjEzMjcxNFowDzENMAsGA1UEAwwEZWJhdTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAJlusu9zbBNNMfIMKkjg9ZR5UKhSB/cGh6VVJk6ZE2SRvhgEpXtaY65NjZ+TV4eDH2qdoj7xMvjB7a6Diolq+Ynh5LuuYbzVOYiWDW5u3u+3yQQlXJdIJCsTsXucktyYlSJ/npFnuY1UZIDJdlpGU157RD0zwTx3eswGcZBIOdFPQ228HP8bWzFFRY0OAanTd+QEtBizigjh1ydhKp/AoCDrS4H1T8ztjKkq8YmWLaPZ2l5rHHXdcVkBvD8BPVFeEMha8zkjbYwViC3IQiT6CQ97yiur33QsEoFQ5pbrBjuIOA14xduR1Ek+t+GDOZAVoRr1xRnSpRAerFB4OZfhtiUCAwEAATANBgkqhkiG9w0BAQsFAAOCAQEAICkYnoN9RKqyY09zTnU8ui6qthHXf+KcOykv4xD8jp+vC+nrt4eRzI2ctkg2ywTProfIRjvcmyNffvmXoXOe8AGJOZWEmrVXZPkIQP7wIoD9QJbdYHY98Za56RSZlF8sbY2EnonHcVmACNBBF3J+dMlqCG0Cb9zd7PpodvyRqcdCn8T/7OT2Y0oWFxjDeVx7oGDTgr8Opfj2P25V09XQLlyrQ3k1z/5K5G+tTqyPJcDxCBj1o09D81hKopnXSetvnSg3TpLzmriF3yJz0LkZghmAKMg4oP8ilI05VVoeRzn0XvMQfS6QmtMA1aC/aLkv1KBXrE8gug4PSvgzn0sTbw=="
+            ],
+            "priority": ["100"]
+          }
+        },
+        {
+          "id": "631cc92a-9043-4045-8a66-0b505c7d6b0a",
+          "name": "hmac-generated",
+          "providerId": "hmac-generated",
+          "subComponents": {},
+          "config": {
+            "kid": ["9c1345d2-161e-4f1d-bea6-75fdf6426639"],
+            "secret": [
+              "K3f-CYYW27sdAbyc1v8GriCHBLc-tK_sNWVKOyWjvnaIH9ApjYB3pP3CRDMWBq_BsWbdqmnorDmqTCtnWw0CkQ"
             ],
             "priority": ["100"]
           }
@@ -6423,12 +6431,21 @@
     ],
     "requiredActions": [
       {
+        "alias": "mobile-number-ra",
+        "name": "Update mobile number",
+        "providerId": "mobile-number-ra",
+        "enabled": false,
+        "defaultAction": false,
+        "priority": 10,
+        "config": {}
+      },
+      {
         "alias": "CONFIGURE_TOTP",
         "name": "Configure OTP",
         "providerId": "CONFIGURE_TOTP",
         "enabled": true,
         "defaultAction": false,
-        "priority": 10,
+        "priority": 20,
         "config": {}
       },
       {
@@ -6437,7 +6454,7 @@
         "providerId": "delete_account",
         "enabled": false,
         "defaultAction": false,
-        "priority": 20,
+        "priority": 30,
         "config": {}
       },
       {
@@ -6446,7 +6463,7 @@
         "providerId": "TERMS_AND_CONDITIONS",
         "enabled": false,
         "defaultAction": false,
-        "priority": 30,
+        "priority": 40,
         "config": {}
       },
       {
@@ -6455,7 +6472,7 @@
         "providerId": "UPDATE_PASSWORD",
         "enabled": true,
         "defaultAction": false,
-        "priority": 40,
+        "priority": 50,
         "config": {}
       },
       {
@@ -6464,7 +6481,7 @@
         "providerId": "UPDATE_PROFILE",
         "enabled": true,
         "defaultAction": false,
-        "priority": 50,
+        "priority": 60,
         "config": {}
       },
       {
@@ -6473,7 +6490,7 @@
         "providerId": "VERIFY_EMAIL",
         "enabled": true,
         "defaultAction": false,
-        "priority": 60,
+        "priority": 1000,
         "config": {}
       },
       {
@@ -6482,20 +6499,11 @@
         "providerId": "update_user_locale",
         "enabled": true,
         "defaultAction": false,
-        "priority": 1000,
-        "config": {}
-      },
-      {
-        "alias": "mobile-number-ra",
-        "name": "Update mobile number",
-        "providerId": "mobile-number-ra",
-        "enabled": true,
-        "defaultAction": true,
         "priority": 1001,
         "config": {}
       }
     ],
-    "browserFlow": "browser with SMS",
+    "browserFlow": "browser",
     "registrationFlow": "registration",
     "directGrantFlow": "direct grant",
     "resetCredentialsFlow": "reset credentials",
