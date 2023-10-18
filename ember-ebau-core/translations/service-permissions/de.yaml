@@ -15,6 +15,7 @@ service-permissions:
   notification: "Notifikationen empfangen"
   responsibility-construction-control: "Zuständigkeit in Baukontrolle übernehmen"
   disabled: "Deaktiviert"
+  select-group: "Gruppe auswählen"
 
   organisation: "Stammdaten"
   organisation-save-success: "Die Organisation wurde gespeichert."

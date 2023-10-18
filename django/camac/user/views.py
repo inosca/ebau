@@ -244,6 +244,7 @@ class UserGroupView(ModelViewSet):
     swagger_schema = None
     serializer_class = serializers.UserGroupSerializer
     queryset = models.UserGroup.objects.all()
+    filterset_class = filters.UserGroupFilterSet
     http_method_names = ["get", "post", "delete"]
     search_fields = ["user__name", "user__surname", "user__email", "group__trans__name"]
     ordering = "-created_at"
