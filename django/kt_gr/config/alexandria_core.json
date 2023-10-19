@@ -87,7 +87,7 @@
       "modified_by_group": null,
       "metainfo": {},
       "name": "{\"de\": \"Grundst\\u00fccksangaben\", \"fr\": \"\", \"it\": \"\"}",
-      "description": "{\"de\": \"Unter die Begriffe *Grundst\\u00fccksangaben und Projektbeschrieb* fallen Gesuchsunterlagen wie z. B. Katasterplan (z. B. \\u00d6REB-Kataster), Grundbuchauszug, Dienstbarkeiten, Projektbeschrieb.\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"Unter den Begriff *Grundst\\u00fccksangaben* fallen Gesuchsunterlagen wie z.B. Kartenausschnitt 1:25000, Grundbuchauszug und Situationsplan 1:500 oder 1:1000, Situationsplan mit Anschl\\u00fcssen f\\u00fcr Wasser, Kanalisation, elektrischen Strom und Telefon, Dienstbarkeiten etc.\", \"fr\": \"\", \"it\": \"\"}",
       "color": "#9CDD69",
       "parent": "beilagen-zum-gesuch"
     }
@@ -104,7 +104,7 @@
       "modified_by_group": null,
       "metainfo": {},
       "name": "{\"de\": \"Gutachten, Nachweise, Begr\\u00fcndungen\", \"fr\": \"\", \"it\": \"\"}",
-      "description": "{\"de\": \"Unter die Begriffe *Gutachten, Nachweise, Begr\\u00fcndungen, Ausnahmebegehren* fallen Gesuchsunterlagen wie z. B. Vollmachten, Einverst\\u00e4ndnis Nachbarn, Nutzungsberechnungen, Energietechnische Massnahmennachweis (EMN), L\\u00e4rmschutznachweise, Brandschutznachweise.\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"Unter den Begriff *weitere Gesuchsunterlagen* fallen Gesuchsunterlagen wie z.B. detaillierte Berechnungen der anzuwenden Nutzungsziffern, L\\u00e4rmschutznachweise, Brandschutznachweise, Energienachweise, Bericht zur Umweltvert\\u00e4glichkeitspr\\u00fcfung (UVP), Bodenkundliches Fachgutachten, Vopr\\u00fcfungsentscheid der Geb\\u00e4udeversicherung.\", \"fr\": \"\", \"it\": \"\"}",
       "color": "#9CDD69",
       "parent": "beilagen-zum-gesuch"
     }
@@ -121,7 +121,7 @@
       "modified_by_group": null,
       "metainfo": {},
       "name": "{\"de\": \"Projektpl\\u00e4ne, Projektbeschrieb\", \"fr\": \"\", \"it\": \"\"}",
-      "description": "{\"de\": \"Unter den Begriff*Projektpl\\u00e4ne* fallen Gesuchsunterlagen wie z. B. Situationsplan (Art. 12 und 13 BewD), Projektpl\\u00e4ne (Art. 14 BewD) wie Grundrisse, Schnitt- und Fassadenpl\\u00e4ne, Umgebungsgestaltungspl\\u00e4ne, Kanalisationspl\\u00e4ne, Siedlungsentw\\u00e4sserungspl\\u00e4ne.\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"Unter die Begriffe *Projektpl\\u00e4ne, Projektbeschrieb* fallen Gesuchsunterlagen wie z.B. Aufnahmepl\\u00e4ne (Grundrisse, Schnitte, Ansichten, L\\u00e4ngen- und Querprofile, Normalprofile) und fachgerechte Projektpl\\u00e4ne (Grundrisse, Schnitte, Ansichten, L\\u00e4ngen- und Querprofile, Normalprofile), Umgebungspl\\u00e4ne, Baubeschrieb etc.\", \"fr\": \"\", \"it\": \"\"}",
       "color": "#9CDD69",
       "parent": "beilagen-zum-gesuch"
     }
@@ -138,7 +138,7 @@
       "modified_by_group": null,
       "metainfo": {},
       "name": "{\"de\": \"Weitere Gesuchsunterlagen\", \"fr\": \"\", \"it\": \"\"}",
-      "description": "{\"de\": \"Unter den Begriff *Weitere Gesuchsunterlagen* fallen Dokumentunterlagen wie z. B. Formulare - Anschluss Elektrizit\\u00e4t, Anschluss Gemeinschaftsantenne, Anschluss Gas, Anschluss Wasser, Wasser- / Abwasserinstallationen und andere Gesuchsunterlagen\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"Unter die Begriffe *Gutachten, Nachweise, Begr\\u00fcndungen* fallen Gesuchsunterlagen wie z.B. Fotodokumentation der bestehenden Baute/Anlage, Formulare zu Zusatzgesuchen (Rodungsgesuch),  etc..\", \"fr\": \"\", \"it\": \"\"}",
       "color": "#9CDD69",
       "parent": "beilagen-zum-gesuch"
     }
