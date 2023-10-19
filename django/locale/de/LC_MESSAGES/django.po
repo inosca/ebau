@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-10-17 16:38+0200\n"
-"PO-Revision-Date: 2023-10-17 16:43+0200\n"
+"PO-Revision-Date: 2023-10-19 09:18+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
@@ -971,6 +971,10 @@ msgstr "Nachforderung begonnen"
 #: camac/settings.py:3281
 msgid "Additional demand was answered"
 msgstr "Nachforderung wurde beantwortet"
+
+#: camac/settings.py:3289
+msgid "Construction monitoring performed"
+msgstr "Baubegleitung durchgeführt"
 
 #: camac/settings.py:3753
 msgid "Formal exam performed"
