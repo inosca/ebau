@@ -3284,6 +3284,10 @@ APPLICATIONS = {
                         "recipient_types": ["work_item_controlling"],
                     },
                 },
+                "construction-monitoring": {
+                    "next_instance_state": "finished",
+                    "history_text": _("Construction monitoring performed"),
+                },
             },
             "PUBLIC_STATUS": {
                 "MAP": {
