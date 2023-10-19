@@ -6502,7 +6502,7 @@
       "modified_by_group": null,
       "form": "construction-monitoring",
       "question": "abgenommen",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -6517,7 +6517,7 @@
       "modified_by_group": null,
       "form": "construction-monitoring",
       "question": "bauabhnahme-durchgefuehrt",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -6532,7 +6532,7 @@
       "modified_by_group": null,
       "form": "construction-monitoring",
       "question": "bauabnahme",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -6547,6 +6547,21 @@
       "modified_by_group": null,
       "form": "construction-monitoring",
       "question": "bauabnahme-abgeschlossen",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-monitoring.baubegleitung-abschliessen",
+    "fields": {
+      "created_at": "2023-10-19T06:43:38.077Z",
+      "modified_at": "2023-10-19T06:43:38.077Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-monitoring",
+      "question": "baubegleitung-abschliessen",
       "sort": 1
     }
   },
@@ -6562,7 +6577,7 @@
       "modified_by_group": null,
       "form": "construction-monitoring",
       "question": "bemerkungen-baubegleitung",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -6577,7 +6592,7 @@
       "modified_by_group": null,
       "form": "construction-monitoring",
       "question": "frist-zur-maengelbehebung",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -6592,7 +6607,7 @@
       "modified_by_group": null,
       "form": "construction-monitoring",
       "question": "nicht-abgenommen-maengel",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -36559,6 +36574,42 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "abschliessen",
+    "fields": {
+      "created_at": "2023-10-19T06:41:36.012Z",
+      "modified_at": "2023-10-19T06:41:36.012Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abschliessen\", \"fr\": null, \"it\": null}",
+      "type": "action_button",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "color": "primary",
+        "action": "complete",
+        "show_validation": true,
+        "validate_on_enter": false
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "abstaende-zu-nachbargebaeude",
     "fields": {
       "created_at": "2023-05-25T07:02:03.081Z",
@@ -40769,6 +40820,42 @@
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "baubegleitung-abschliessen",
+    "fields": {
+      "created_at": "2023-10-19T06:43:37.901Z",
+      "modified_at": "2023-10-19T06:43:37.901Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abschliessen\", \"fr\": null, \"it\": null}",
+      "type": "action_button",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "color": "primary",
+        "action": "complete",
+        "show_validation": false,
+        "validate_on_enter": false
+      },
       "meta": {},
       "data_source": null,
       "row_form": null,
