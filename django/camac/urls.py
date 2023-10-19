@@ -48,6 +48,7 @@ urlpatterns = [
     re_path(r"^api/v1/", include("camac.communications.urls")),
     re_path(r"^api/v1/", include("camac.tags.urls")),
     re_path(r"^api/v1/", include("camac.billing.urls")),
+    re_path(r"^api/v1/", include("camac.permissions.urls")),
     re_path(r"^api/v1/stats/", include("camac.stats.urls")),
     re_path(r"^api/v1/gis/", include("camac.gis.urls")),
     re_path(
