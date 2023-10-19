@@ -926,3 +926,29 @@ def test_public_document_visibility(
         assert not any(slug in returned_questions for slug in scrubbed_questions)
     else:
         assert all(slug in returned_questions for slug in scrubbed_questions)
+
+
+def test_publication_visibility(
+    db,
+    be_instance,
+    caluma_admin_public_schema_executor,
+    create_caluma_publication,  # noqa: F811
+    work_item_factory,
+    document_factory,
+    gql,
+):
+    create_caluma_publication(be_instance)
+    work_item_factory(case=be_instance.case, document=document_factory())
+
+    result = caluma_admin_public_schema_executor(gql("publication"))
+
+    assert not result.errors
+
+    case_ids, document_ids, work_item_ids = [
+        [extract_global_id(edge["node"]["id"]) for edge in result.data[key]["edges"]]
+        for key in ["cases", "documents", "workItems"]
+    ]
+
+    assert case_ids == [str(be_instance.case_id)]
+    assert document_ids == [str(be_instance.case.document_id)]
+    assert work_item_ids == []

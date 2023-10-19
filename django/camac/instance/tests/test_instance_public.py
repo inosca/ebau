@@ -9,23 +9,11 @@ from caluma.caluma_form.factories import (
 from caluma.caluma_form.models import DynamicOption, Question
 from caluma.caluma_workflow.factories import WorkItemFactory
 from django.conf import settings
-from django.urls import clear_url_caches, reverse
-from django.urls.exceptions import NoReverseMatch
+from django.urls import reverse
 from django.utils import timezone
 from rest_framework import status
 
 from camac.document import permissions
-from camac.instance import urls
-
-
-@pytest.fixture
-def enable_public_urls(application_settings):
-    application_settings["ENABLE_PUBLIC_ENDPOINTS"] = True
-    urls.enable_public_caluma_instances()
-    clear_url_caches()
-    yield
-    urls.urlpatterns.pop()
-    clear_url_caches()
 
 
 @pytest.fixture
@@ -63,30 +51,46 @@ def create_caluma_publication(db, caluma_publication, publication_settings):
     return wrapper
 
 
-def test_public_caluma_instance_disabled():
-    with pytest.raises(NoReverseMatch):
-        reverse("public-caluma-instance")
+def test_public_caluma_instance_disabled(settings, admin_client):
+    # "demo" is not configured in camac.user.permissions.PublicationPermission
+    settings.APPLICATION_NAME = "demo"
+
+    response = admin_client.get(
+        reverse("public-caluma-instance"), HTTP_X_CAMAC_PUBLIC_ACCESS=True
+    )
+
+    assert response.status_code == status.HTTP_403_FORBIDDEN
 
 
-@pytest.mark.parametrize("with_client", ["public", "admin"])
+@pytest.mark.parametrize(
+    "is_authenticated,has_public_header,expected_status",
+    [
+        (False, False, status.HTTP_401_UNAUTHORIZED),
+        (True, False, status.HTTP_403_FORBIDDEN),
+        (False, True, status.HTTP_200_OK),
+        (True, True, status.HTTP_200_OK),
+    ],
+)
 def test_public_caluma_instance_enabled_empty_qs(
     db,
     client,
     admin_client,
     instance_factory,
-    with_client,
-    enable_public_urls,
+    is_authenticated,
+    has_public_header,
+    expected_status,
 ):
     instance_factory.create_batch(5)
-    url = reverse("public-caluma-instance")
 
-    if with_client == "public":
-        resp = client.get(url)
-    else:
-        resp = admin_client.get(url, HTTP_X_CAMAC_PUBLIC_ACCESS=True)
+    used_client = admin_client if is_authenticated else client
+    headers = {"HTTP_X_CAMAC_PUBLIC_ACCESS": True} if has_public_header else {}
 
-    assert resp.status_code == status.HTTP_200_OK
-    assert len(resp.json()["data"]) == 0
+    resp = used_client.get(reverse("public-caluma-instance"), **headers)
+
+    assert resp.status_code == expected_status
+
+    if resp.status_code == status.HTTP_200_OK:
+        assert len(resp.json()["data"]) == 0
 
 
 @pytest.mark.parametrize("role__name", ["Applicant"])
@@ -119,11 +123,9 @@ def test_public_caluma_instance_enabled_empty_qs(
 )
 def test_public_caluma_instance_ur(
     db,
-    application_settings,
     publication_settings,
     admin_client,
     ur_instance,
-    enable_public_urls,
     publication_entry_factory,
     django_assert_num_queries,
     headers,
@@ -207,8 +209,6 @@ def test_public_caluma_instance_oereb_ur(
     application_settings,
     admin_client,
     ur_instance,
-    enable_public_urls,
-    publication_entry_factory,
     django_assert_num_queries,
     num_queries,
     is_visible,
@@ -219,6 +219,7 @@ def test_public_caluma_instance_oereb_ur(
     is_oereb_form,
     master_data_is_visible_mock,
 ):
+    settings.APPLICATION_NAME = "kt_uri"
     application_settings["INSTANCE_HIDDEN_STATES"] = settings.APPLICATIONS["kt_uri"][
         "INSTANCE_HIDDEN_STATES"
     ]
@@ -297,9 +298,7 @@ def test_public_caluma_documents_ur(
     admin_client,
     admin_user,
     ur_instance,
-    enable_public_urls,
     publication_entry_factory,
-    django_assert_num_queries,
     attachment_section_factory,
     attachment_attachment_section_factory,
     applicant_factory,
@@ -345,52 +344,6 @@ def test_public_caluma_documents_ur(
 
 @pytest.mark.parametrize("role__name", ["Applicant"])
 @pytest.mark.parametrize(
-    "headers,num_queries,num_instances",
-    [({}, 2, 0), ({"HTTP_X_CAMAC_PUBLIC_ACCESS": True}, 5, 1)],
-)
-def test_public_instance_sz(
-    db,
-    application_settings,
-    publication_settings,
-    admin_client,
-    instance,
-    publication_entry_factory,
-    django_assert_num_queries,
-    headers,
-    num_queries,
-    num_instances,
-):
-    application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_schwyz"][
-        "MASTER_DATA"
-    ]
-    publication_settings["BACKEND"] = "camac-ng"
-
-    publication_entry_factory(
-        publication_date=timezone.now() - timedelta(days=1),
-        publication_end_date=timezone.now() + timedelta(days=30),
-        instance=instance,
-        is_published=True,
-    )
-
-    url = reverse("instance-list")
-
-    with django_assert_num_queries(num_queries):
-        response = admin_client.get(url, {"instance": instance.pk}, **headers)
-
-    assert response.status_code == status.HTTP_200_OK
-
-    result = response.json()["data"]
-
-    assert len(result) == num_instances
-
-    if num_instances > 0:
-        assert result[0]["id"] == str(instance.pk)
-        assert set(result[0]["meta"]["editable"]) == set()
-        assert result[0]["meta"]["access-type"] == "public"
-
-
-@pytest.mark.parametrize("role__name", ["Applicant"])
-@pytest.mark.parametrize(
     "headers,is_applicant,num_documents",
     [
         ({}, True, 2),
@@ -407,7 +360,6 @@ def test_public_documents_sz(
     admin_user,
     instance,
     publication_entry_factory,
-    django_assert_num_queries,
     attachment_section_factory,
     attachment_attachment_section_factory,
     applicant_factory,
@@ -460,21 +412,12 @@ def test_public_documents_sz(
 
 
 @pytest.mark.parametrize("role__name", ["Applicant"])
-@pytest.mark.parametrize(
-    "headers,num_queries,num_instances",
-    [({}, 1, 0), ({"HTTP_X_CAMAC_PUBLIC_ACCESS": True}, 9, 1)],
-)
 def test_public_caluma_instance_be(
     db,
-    application_settings,
     admin_client,
     be_instance,
-    enable_public_urls,
     django_assert_num_queries,
     create_caluma_publication,
-    headers,
-    num_queries,
-    num_instances,
     master_data_is_visible_mock,
 ):
     settings.APPLICATION_NAME = "kt_bern"
@@ -499,29 +442,28 @@ def test_public_caluma_instance_be(
 
     url = reverse("public-caluma-instance")
 
-    with django_assert_num_queries(num_queries):
-        response = admin_client.get(url, {"instance": be_instance.pk}, **headers)
+    with django_assert_num_queries(9):
+        response = admin_client.get(
+            url, {"instance": be_instance.pk}, HTTP_X_CAMAC_PUBLIC_ACCESS=True
+        )
 
     assert response.status_code == status.HTTP_200_OK
 
     result = response.json()["data"]
 
-    assert len(result) == num_instances
+    assert len(result) == 1
 
-    if num_instances > 0:
-        assert result[0]["id"] == str(be_instance.case.pk)
-        assert result[0]["attributes"]["instance-id"] == be_instance.pk
-        assert result[0]["attributes"]["dossier-nr"] == "2021-55"
-        assert result[0]["attributes"]["municipality"] == "Bern"
+    assert result[0]["id"] == str(be_instance.case.pk)
+    assert result[0]["attributes"]["instance-id"] == be_instance.pk
+    assert result[0]["attributes"]["dossier-nr"] == "2021-55"
+    assert result[0]["attributes"]["municipality"] == "Bern"
 
 
 def test_public_caluma_instance_municipality_filter(
     db,
-    application_settings,
     admin_client,
     instance_factory,
     instance_with_case,
-    enable_public_urls,
     caluma_workflow_config_be,
     create_caluma_publication,
     settings,
@@ -559,12 +501,10 @@ def test_public_caluma_instance_municipality_filter(
 
 def test_public_caluma_instance_form_type_filter(
     db,
-    application_settings,
     publication_settings,
     admin_client,
     instance_factory,
     instance_with_case,
-    enable_public_urls,
     caluma_workflow_config_ur,
     publication_entry_factory,
 ):
@@ -611,11 +551,9 @@ def test_public_caluma_instance_form_type_filter(
 
 def test_information_of_neighbors_instance_be(
     db,
-    application_settings,
     publication_settings,
     client,
     be_instance,
-    enable_public_urls,
 ):
     publication_settings["BACKEND"] = "caluma"
 
@@ -658,6 +596,7 @@ def test_information_of_neighbors_instance_be(
     response = client.get(
         url,
         {"instance": be_instance.pk},
+        HTTP_X_CAMAC_PUBLIC_ACCESS=True,
         HTTP_X_CAMAC_PUBLIC_ACCESS_KEY=str(document.pk)[:7],
     )
 
@@ -737,12 +676,9 @@ def test_information_of_neighbors_instance_be(
 )
 def test_public_caluma_instance_gr(
     db,
-    application_settings,
     gr_publication_settings,
-    settings,
     client,
     gr_instance,
-    enable_public_urls,
     publish_answer_slug,
     expected_instances,
     start_date_municipality,
@@ -786,7 +722,9 @@ def test_public_caluma_instance_gr(
 
     url = reverse("public-caluma-instance")
 
-    response = client.get(url, {"instance": gr_instance.pk})
+    response = client.get(
+        url, {"instance": gr_instance.pk}, HTTP_X_CAMAC_PUBLIC_ACCESS=True
+    )
 
     assert response.status_code == status.HTTP_200_OK
 
@@ -798,10 +736,8 @@ def test_disabled_publication(
     db,
     admin_client,
     be_instance,
-    enable_public_urls,
     caluma_workflow_config_be,
     create_caluma_publication,
-    application_settings,
     settings,
 ):
     settings.APPLICATION_NAME = "kt_bern"

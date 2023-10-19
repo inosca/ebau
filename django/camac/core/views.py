@@ -6,7 +6,6 @@ from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 from django.db.models import Exists, F, OuterRef, Q
 from django.http import HttpResponse
-from django.utils import timezone
 from django.utils.encoding import escape_uri_path, smart_bytes
 from django.utils.module_loading import import_string
 from pyproj import CRS, Transformer
@@ -150,13 +149,6 @@ class PublicationEntryView(ModelViewSet):
 
         return models.PublicationEntry.objects.filter(
             instance__circulations__activations__service=self.request.group.service
-        )
-
-    def get_queryset_for_public(self):
-        return models.PublicationEntry.objects.filter(
-            publication_date__date__lte=timezone.localdate(),
-            publication_end_date__date__gte=timezone.localdate(),
-            is_published=True,
         )
 
     @permission_aware

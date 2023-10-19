@@ -172,9 +172,10 @@ def visible_inquiries_expression(group: Group) -> Expression:
     access based on canton-specific conditions.
     """
 
+    if not group or not group.service:  # pragma: no cover
+        return Value(False)
+
     service = group.service
-    if not service:
-        return Value(True)  # pragma: no cover
 
     additional_inquiries_filter = Value(True)
     if settings.APPLICATION_NAME == "kt_schwyz":

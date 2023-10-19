@@ -103,12 +103,13 @@ def test_public_group_list(
     url = reverse("publicgroup-list")
 
     # Queries:
+    # - 2 for fetching the current group in the middleware for the permission layer
     # - 1 for fetching the groups
     # - 1 for prefetching the group translations
     # - 3 for prefetching the included models
     # - 3 for prefetching the included models' translations
     included = ["service", "service.service_group", "role"]
-    with django_assert_num_queries(8):
+    with django_assert_num_queries(10):
         response = admin_client.get(url, data={"include": ",".join(included)})
         assert response.status_code == status.HTTP_200_OK
 

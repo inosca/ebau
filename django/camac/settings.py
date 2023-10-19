@@ -2155,7 +2155,6 @@ APPLICATIONS = {
         "MUNICIPALITY_DATA_SHEET": APPLICATION_DIR(
             "Verwaltungskreise und -regionen der Gemeinden.csv"
         ),
-        "ENABLE_PUBLIC_ENDPOINTS": True,
         "ATTACHMENT_MAX_SIZE": 100 * 1024 * 1024,
     },
     "kt_uri": {
@@ -2417,7 +2416,6 @@ APPLICATIONS = {
             "notification.NotificationTemplate",
             "notification.NotificationTemplateT",
         ],
-        "ENABLE_PUBLIC_ENDPOINTS": True,
         "INSTANCE_STATE_REJECTION_COMPLETE": "arch",
         "SET_SUBMIT_DATE_CAMAC_WORKFLOW": True,
         "REJECTION_FEEDBACK_QUESTION": {
@@ -3206,7 +3204,6 @@ APPLICATIONS = {
         },
         "ADMIN_GROUP": 1,
         "IS_MULTILINGUAL": True,
-        "ENABLE_PUBLIC_ENDPOINTS": True,
         "FORM_BACKEND": "caluma",
         "THUMBNAIL_SIZE": "x300",
         "WORKFLOW_ITEMS": {
@@ -3711,7 +3708,6 @@ APPLICATIONS = {
         "USE_CAMAC_ADMIN": False,
         "LOG_NOTIFICATIONS": True,
         "ENABLE_PUBLIC_CALUMA": True,
-        "ENABLE_PUBLIC_ENDPOINTS": True,
         # Mapping between camac role and instance permission.
         "ROLE_PERMISSIONS": {
             "municipality-admin": "municipality",

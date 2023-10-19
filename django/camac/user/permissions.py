@@ -7,15 +7,12 @@ from camac.request import get_request
 
 
 def get_group(obj):
-    return get_group_from_request(get_request(obj))
+    return get_request(obj).group
 
 
-def get_group_from_request(request):
-    return (
-        None
-        if hasattr(request, "META") and request.META.get("HTTP_X_CAMAC_PUBLIC_ACCESS")
-        else request.group
-    )
+def is_public_access(request):
+    header = request.META.get("HTTP_X_CAMAC_PUBLIC_ACCESS")
+    return header in ["true", True]
 
 
 def permission_aware(func):
@@ -95,12 +92,12 @@ def get_permission_func(cls, name, group):
 class IsGroupMember(permissions.BasePermission):
     """Verify that user is in a valid group.
 
-    This can be disabled on a view with setting `group_required` to `False`.
+    This will prevent access from users in the publication. "Normal" applicants
+    have an automatically assigned group and won't be affected by this.
     """
 
     def has_permission(self, request, view):
-        group_required = getattr(view, "group_required", True)
-        return not group_required or bool(request.group)
+        return bool(request.group)
 
     def has_object_permission(self, request, view, obj):
         return self.has_permission(request, view)
@@ -155,6 +152,14 @@ class ReadOnly(permissions.BasePermission):
         return request.method in permissions.SAFE_METHODS
 
 
+class IsPublicAccess(permissions.BasePermission):
+    def has_permission(self, request, view):
+        return is_public_access(request)
+
+    def has_object_permission(self, request, view, obj):
+        return is_public_access(request)
+
+
 DefaultPermission = (
     # identical to DEFAULT_PERMISSION_CLASSES
     permissions.IsAuthenticated
@@ -162,15 +167,63 @@ DefaultPermission = (
     & ViewPermissions
 )
 
-DefaultOrPublicReadOnly = DefaultPermission | ReadOnly
 
-
-def IsApplication(application):
+def IsApplication(*applications):
     class DynamicPermission(permissions.BasePermission):
         def has_permission(self, request, view):
-            return settings.APPLICATION_NAME == application
+            return settings.APPLICATION_NAME in applications
 
         def has_object_permission(self, request, view, obj):
-            return settings.APPLICATION_NAME == application
+            return settings.APPLICATION_NAME in applications
 
     return DynamicPermission
+
+
+def IsView(*views):
+    class DynamicPermission(permissions.BasePermission):
+        def has_permission(self, request, view):
+            return view.__class__.__name__ in views
+
+        def has_object_permission(self, request, view, obj):
+            return view.__class__.__name__ in views
+
+    return DynamicPermission
+
+
+PublicationBE = IsApplication("kt_bern") & permissions.IsAuthenticated & ReadOnly
+PublicationSZ = IsApplication("kt_schwyz") & permissions.IsAuthenticated & ReadOnly
+PublicationGR = IsApplication("kt_gr") & permissions.IsAuthenticated & ReadOnly
+PublicationUR = IsApplication("kt_uri") & ReadOnly
+PublicationSO = IsApplication("kt_so") & ReadOnly
+PublicationTest = IsApplication("test") & ReadOnly
+
+# If the application is not explicitly configured here, we don't allow any public access
+PublicationPermission = IsPublicAccess & (
+    (
+        # Public caluma instances
+        IsView("PublicCalumaInstanceView")
+        & (
+            PublicationBE
+            | PublicationSZ
+            | PublicationGR
+            | PublicationUR
+            | PublicationSO
+            | PublicationTest
+        )
+    )
+    | (
+        # Documents
+        IsView("AttachmentView", "AttachmentDownloadView")
+        & (PublicationBE | PublicationSZ | PublicationUR | PublicationTest)
+    )
+    | (
+        # Alexandria
+        IsView("DocumentViewSet", "FileViewSet")
+        & (PublicationGR | PublicationSO | PublicationTest)
+    )
+    | (
+        # Form fields
+        IsView("FormConfigDownloadView", "FormFieldView")
+        & (PublicationSZ | PublicationTest)
+    )
+)

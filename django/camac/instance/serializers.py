@@ -140,9 +140,6 @@ class InstanceSerializer(InstanceEditableMixin, serializers.ModelSerializer):
     def get_access_type_for_public_reader(self, obj):
         return "public"
 
-    def get_access_type_for_public(self, obj):
-        return "public"
-
     def get_access_type_for_municipality(self, obj):
         return "municipality"
 
@@ -374,9 +371,6 @@ class SchwyzInstanceSerializer(InstanceSerializer):
             }
 
         return {"bauverwaltung": {"read"}}
-
-    def get_permissions_for_public(self, instance):
-        return {}
 
     def get_permissions_for_support(self, instance):
         return {"bauverwaltung": {"read", "write"}, "main": {"read", "write"}}
