@@ -56,6 +56,7 @@ from camac.instance import factories as instance_factories
 from camac.instance.serializers import SUBMIT_DATE_FORMAT
 from camac.notification import factories as notification_factories
 from camac.objection import factories as objection_factories
+from camac.permissions import factories as permissions_factories
 from camac.responsible import factories as responsible_factories
 from camac.tags import factories as tags_factories
 from camac.urls import urlpatterns as app_patterns
@@ -100,6 +101,7 @@ register_module(dossier_import_factories)
 register_module(notification_factories)
 register_module(applicant_factories)
 register_module(responsible_factories)
+register_module(permissions_factories)
 register_module(ech_factories)
 register_module(objection_factories)
 register_module(tags_factories)
