@@ -97,7 +97,7 @@ module.exports = function (environment) {
     kt_bern: {
       name: "be",
       realm: "ebau",
-      internalBackend: "camac",
+      internalFrontend: "camac",
       supportGroups: [10000],
       useConfidential: false,
       defaultInstanceStateCategory: "pending",
@@ -186,7 +186,7 @@ module.exports = function (environment) {
     kt_uri: {
       name: "ur",
       realm: "urec",
-      internalBackend: "camac",
+      internalFrontend: "camac",
       supportGroups: [1070],
       useConfidential: true,
       completePreliminaryClarificationSlugs: [],
@@ -339,7 +339,7 @@ module.exports = function (environment) {
     kt_gr: {
       name: "gr",
       realm: "ebau",
-      internalBackend: "ebau",
+      internalFrontend: "ebau",
       supportGroups: [10000],
       useConfidential: false,
       defaultInstanceStateCategory: "pending",
@@ -385,7 +385,7 @@ module.exports = function (environment) {
     kt_so: {
       name: "so",
       realm: "ebau",
-      internalBackend: "ebau",
+      internalFrontend: "ebau",
       supportGroups: [3],
       useConfidential: false,
       defaultInstanceStateCategory: "pending",
@@ -429,7 +429,7 @@ module.exports = function (environment) {
   const oidcHost = process.env.KEYCLOAK_HOST || "http://ebau-keycloak.local";
   const internalURL =
     process.env.INTERNAL_URL ||
-    (appConfig.internalBackend === "camac"
+    (appConfig.internalFrontend === "camac"
       ? "http://ebau.local"
       : "http://ember-ebau.local");
   const beGisUrl = process.env.BE_GIS_URL || "https://www.map.apps.be.ch";
