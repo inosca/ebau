@@ -1,0 +1,23 @@
+query {
+  cases: allCases {
+    edges {
+      node {
+        id
+      }
+    }
+  }
+  documents: allDocuments {
+    edges {
+      node {
+        id
+      }
+    }
+  }
+  workItems: allWorkItems {
+    edges {
+      node {
+        id
+      }
+    }
+  }
+}

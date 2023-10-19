@@ -6,7 +6,7 @@ from django.db import models
 
 from camac.core.models import HistoryActionConfig
 from camac.user.models import User
-from camac.user.permissions import get_group_from_request, get_role_name
+from camac.user.permissions import get_role_name
 
 from ..core import models as core_models
 
@@ -311,7 +311,7 @@ class JournalEntryQuerySet(models.QuerySet):
         associated instance is handled in the instance queryset mixin.
         """
 
-        group = get_group_from_request(request)
+        group = request.group
         role = get_role_name(group)
         # TODO applicants or public users currently don't have access to journal entries at all.
         # Giving them access might require a dedicated "applicant" role in our permission layer?
@@ -393,7 +393,7 @@ class IssueQuerySet(models.QuerySet):
         handled in the instance queryset mixin.
         """
 
-        group = get_group_from_request(request)
+        group = request.group
         role = get_role_name(group)
         if not role or role == "public":
             return self.none()
@@ -455,7 +455,7 @@ class FormFieldQuerySet(models.QuerySet):
         on the form field. General visibility logic regarding the associated
         instance is handled in the instance queryset mixin.
         """
-        role = get_role_name(get_group_from_request(request)) or "applicant"
+        role = get_role_name(request.group) or "applicant"
         questions = [
             question
             for question, value in settings.FORM_CONFIG["questions"].items()

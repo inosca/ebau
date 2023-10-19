@@ -2,7 +2,6 @@ import functools
 from datetime import datetime, timedelta
 
 import pytest
-import pytz
 from django.urls import reverse
 from pytest_factoryboy import LazyFixture
 from rest_framework import status
@@ -25,45 +24,6 @@ def test_publication_list(admin_client, publication_entry, activation, size):
     url = reverse("publication-list")
 
     response = admin_client.get(url)
-    assert response.status_code == status.HTTP_200_OK
-
-    json = response.json()
-    assert len(json["data"]) == size
-    if size > 0:
-        assert json["data"][0]["id"] == str(publication_entry.pk)
-
-
-@pytest.mark.parametrize(
-    "date,size",
-    [
-        ("2017-7-19", 0),
-        ("2017-7-20", 1),
-        ("2017-7-27", 1),
-        ("2017-7-28", 0),
-    ],
-)
-@pytest.mark.parametrize(
-    "publication_entry__publication_date,publication_entry__publication_end_date,publication_entry__is_published",
-    [
-        (
-            datetime(2017, 7, 20, tzinfo=pytz.timezone("Europe/Zurich")),
-            datetime(2017, 7, 27, tzinfo=pytz.timezone("Europe/Zurich")),
-            True,
-        ),
-    ],
-)
-def test_publication_list_timezone(
-    admin_client,
-    publication_entry,
-    freezer,
-    date,
-    size,
-):
-    url = reverse("publication-list")
-
-    freezer.move_to(date)
-
-    response = admin_client.get(url, **{"HTTP_X_CAMAC_PUBLIC_ACCESS": True})
     assert response.status_code == status.HTTP_200_OK
 
     json = response.json()

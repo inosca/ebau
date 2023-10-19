@@ -62,3 +62,15 @@ class AttachmentDownloadHistoryFactory(DjangoModelFactory):
 
     class Meta:
         model = models.AttachmentDownloadHistory
+
+
+class AttachmentVersionFactory(DjangoModelFactory):
+    name = Faker("file_name")
+    version = Faker("pyint")
+    attachment = SubFactory(AttachmentFactory)
+    path = ImageField(width=1024, height=768)
+    size = Faker("pyint")
+    created_by_user = SubFactory(UserFactory)
+
+    class Meta:
+        model = models.AttachmentVersion
