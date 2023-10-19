@@ -175,7 +175,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben-kurz",
       "question": "gis-map",
-      "sort": 15
+      "sort": 13
     }
   },
   {
@@ -191,6 +191,21 @@
       "form": "allgemeine-angaben-kurz",
       "question": "is-paper",
       "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz.lage-des-vorhabens-titel",
+    "fields": {
+      "created_at": "2023-10-19T08:21:48.797Z",
+      "modified_at": "2023-10-19T08:21:48.797Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz",
+      "question": "lage-des-vorhabens-titel",
+      "sort": 14
     }
   },
   {
@@ -265,7 +280,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben-kurz",
       "question": "street-and-housenumber",
-      "sort": 14
+      "sort": 12
     }
   },
   {
@@ -401,6 +416,21 @@
       "form": "personalien",
       "question": "personalien-rechnungsempfaenger",
       "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "personalien.personalien-titel",
+    "fields": {
+      "created_at": "2023-10-19T08:22:34.230Z",
+      "modified_at": "2023-10-19T08:22:34.230Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "personalien",
+      "question": "personalien-titel",
+      "sort": 6
     }
   },
   {
@@ -1177,6 +1207,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "lage-des-vorhabens-titel",
+    "fields": {
+      "created_at": "2023-10-19T08:21:48.617Z",
+      "modified_at": "2023-10-19T08:21:48.617Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Lage des Vorhabens Titel\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"### Lage des Vorhabens\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "liegenschaftsnummer",
     "fields": {
       "created_at": "2019-05-13T07:43:38.657Z",
@@ -1609,6 +1670,37 @@
       },
       "data_source": null,
       "row_form": "personalien-tabelle",
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "personalien-titel",
+    "fields": {
+      "created_at": "2023-10-19T08:22:34.060Z",
+      "modified_at": "2023-10-19T08:22:34.060Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Personalien Titel\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"### Personalien\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
