@@ -1147,7 +1147,7 @@
       "modified_by_group": null,
       "form": "abfallanlage",
       "question": "abfallanlage-titel",
-      "sort": 49
+      "sort": 34
     }
   },
   {
@@ -1177,7 +1177,7 @@
       "modified_by_group": null,
       "form": "abfallanlage",
       "question": "ablaufdatum",
-      "sort": 42
+      "sort": 26
     }
   },
   {
@@ -1192,7 +1192,7 @@
       "modified_by_group": null,
       "form": "abfallanlage",
       "question": "abluft",
-      "sort": 18
+      "sort": 15
     }
   },
   {
@@ -1207,7 +1207,7 @@
       "modified_by_group": null,
       "form": "abfallanlage",
       "question": "abluft-art-der-kontrolle",
-      "sort": 17
+      "sort": 14
     }
   },
   {
@@ -1222,7 +1222,7 @@
       "modified_by_group": null,
       "form": "abfallanlage",
       "question": "abluft-haeufigkeit",
-      "sort": 16
+      "sort": 13
     }
   },
   {
@@ -1237,7 +1237,7 @@
       "modified_by_group": null,
       "form": "abfallanlage",
       "question": "abluft-verfahren-geraet",
-      "sort": 15
+      "sort": 12
     }
   },
   {
@@ -1252,7 +1252,7 @@
       "modified_by_group": null,
       "form": "abfallanlage",
       "question": "abwasser",
-      "sort": 25
+      "sort": 22
     }
   },
   {
@@ -1267,7 +1267,7 @@
       "modified_by_group": null,
       "form": "abfallanlage",
       "question": "abwasser-art-der-kontrolle",
-      "sort": 24
+      "sort": 21
     }
   },
   {
@@ -1282,7 +1282,7 @@
       "modified_by_group": null,
       "form": "abfallanlage",
       "question": "abwasser-haeufigkeit",
-      "sort": 23
+      "sort": 20
     }
   },
   {
@@ -1297,7 +1297,7 @@
       "modified_by_group": null,
       "form": "abfallanlage",
       "question": "abwasser-verfahren-geraet",
-      "sort": 22
+      "sort": 19
     }
   },
   {
@@ -1312,7 +1312,7 @@
       "modified_by_group": null,
       "form": "abfallanlage",
       "question": "administrative-angaben-titel",
-      "sort": 48
+      "sort": 32
     }
   },
   {
@@ -1327,7 +1327,7 @@
       "modified_by_group": null,
       "form": "abfallanlage",
       "question": "anlageart",
-      "sort": 46
+      "sort": 30
     }
   },
   {
@@ -1342,7 +1342,7 @@
       "modified_by_group": null,
       "form": "abfallanlage",
       "question": "art-der-abfallanlage",
-      "sort": 47
+      "sort": 31
     }
   },
   {
@@ -1357,7 +1357,7 @@
       "modified_by_group": null,
       "form": "abfallanlage",
       "question": "begruendung-kein-abwasser",
-      "sort": 21
+      "sort": 18
     }
   },
   {
@@ -1372,7 +1372,7 @@
       "modified_by_group": null,
       "form": "abfallanlage",
       "question": "begruendung-keine-abluft",
-      "sort": 14
+      "sort": 11
     }
   },
   {
@@ -1387,7 +1387,7 @@
       "modified_by_group": null,
       "form": "abfallanlage",
       "question": "begruendung-keine-feststoffabfaelle",
-      "sort": 7
+      "sort": 4
     }
   },
   {
@@ -1402,7 +1402,7 @@
       "modified_by_group": null,
       "form": "abfallanlage",
       "question": "betriebsbewilligung-nr",
-      "sort": 43
+      "sort": 27
     }
   },
   {
@@ -1417,7 +1417,7 @@
       "modified_by_group": null,
       "form": "abfallanlage",
       "question": "bisherige-abfallrechtliche-bewilligungen-titel",
-      "sort": 45
+      "sort": 29
     }
   },
   {
@@ -1432,7 +1432,7 @@
       "modified_by_group": null,
       "form": "abfallanlage",
       "question": "einleitungsbewilligung",
-      "sort": 20
+      "sort": 17
     }
   },
   {
@@ -1447,7 +1447,7 @@
       "modified_by_group": null,
       "form": "abfallanlage",
       "question": "einleitungsbewilligung-bewilligungs-nr",
-      "sort": 19
+      "sort": 16
     }
   },
   {
@@ -1462,7 +1462,7 @@
       "modified_by_group": null,
       "form": "abfallanlage",
       "question": "emissionserklaerung",
-      "sort": 13
+      "sort": 10
     }
   },
   {
@@ -1477,7 +1477,7 @@
       "modified_by_group": null,
       "form": "abfallanlage",
       "question": "emissionserklaerung-bewilligungs-nr",
-      "sort": 12
+      "sort": 9
     }
   },
   {
@@ -1492,7 +1492,7 @@
       "modified_by_group": null,
       "form": "abfallanlage",
       "question": "entgegennahme-berechtigt",
-      "sort": 6
+      "sort": 3
     }
   },
   {
@@ -1507,7 +1507,7 @@
       "modified_by_group": null,
       "form": "abfallanlage",
       "question": "errichtungsbewilligung-nr",
-      "sort": 44
+      "sort": 28
     }
   },
   {
@@ -1522,7 +1522,7 @@
       "modified_by_group": null,
       "form": "abfallanlage",
       "question": "feststoffabfaelle",
-      "sort": 11
+      "sort": 8
     }
   },
   {
@@ -1537,7 +1537,7 @@
       "modified_by_group": null,
       "form": "abfallanlage",
       "question": "feststoffabfaelle-art-der-kontrolle",
-      "sort": 10
+      "sort": 7
     }
   },
   {
@@ -1552,7 +1552,7 @@
       "modified_by_group": null,
       "form": "abfallanlage",
       "question": "feststoffabfaelle-haeufigkeit",
-      "sort": 9
+      "sort": 6
     }
   },
   {
@@ -1567,7 +1567,22 @@
       "modified_by_group": null,
       "form": "abfallanlage",
       "question": "feststoffabfaelle-verfahren-geraet",
-      "sort": 8
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abfallanlage.hinweis-zustaendigkeit-anu",
+    "fields": {
+      "created_at": "2023-10-19T13:09:50.493Z",
+      "modified_at": "2023-10-19T13:09:50.493Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abfallanlage",
+      "question": "hinweis-zustaendigkeit-anu",
+      "sort": 33
     }
   },
   {
@@ -1582,7 +1597,7 @@
       "modified_by_group": null,
       "form": "abfallanlage",
       "question": "kontrolle-der-prozesse-titel",
-      "sort": 39
+      "sort": 23
     }
   },
   {
@@ -1597,7 +1612,7 @@
       "modified_by_group": null,
       "form": "abfallanlage",
       "question": "unterschriftenberechtigung",
-      "sort": 40
+      "sort": 24
     }
   },
   {
@@ -1612,7 +1627,7 @@
       "modified_by_group": null,
       "form": "abfallanlage",
       "question": "veva-nr",
-      "sort": 5
+      "sort": 2
     }
   },
   {
@@ -1627,7 +1642,7 @@
       "modified_by_group": null,
       "form": "abfallanlage",
       "question": "zustaendige-person-abfallanlage",
-      "sort": 41
+      "sort": 25
     }
   },
   {
@@ -2112,6 +2127,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "ableitung-von-industrie-und-gewerbeabwasser.hinweis-zustaendigkeit-anu",
+    "fields": {
+      "created_at": "2023-10-19T13:11:56.753Z",
+      "modified_at": "2023-10-19T13:11:56.753Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "ableitung-von-industrie-und-gewerbeabwasser",
+      "question": "hinweis-zustaendigkeit-anu",
+      "sort": 23
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "ableitung-von-industrie-und-gewerbeabwasser.industrie-und-gewerbeabwasser-titel",
     "fields": {
       "created_at": "2023-04-20T08:17:31.547Z",
@@ -2122,7 +2152,7 @@
       "modified_by_group": null,
       "form": "ableitung-von-industrie-und-gewerbeabwasser",
       "question": "industrie-und-gewerbeabwasser-titel",
-      "sort": 23
+      "sort": 24
     }
   },
   {
@@ -3082,7 +3112,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "bauten-und-anlagen-ausserhalb-bauzone-titel",
-      "sort": 37
+      "sort": 38
     }
   },
   {
@@ -3308,6 +3338,21 @@
       "form": "bab",
       "question": "hinweis-oekonomiebauten",
       "sort": 17
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab.hinweis-zustaendigkeit-bab",
+    "fields": {
+      "created_at": "2023-10-19T12:57:32.235Z",
+      "modified_at": "2023-10-19T12:57:32.235Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab",
+      "question": "hinweis-zustaendigkeit-bab",
+      "sort": 37
     }
   },
   {
@@ -3837,6 +3882,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "bauvorhaben.hinweis-zustaendigkeit",
+    "fields": {
+      "created_at": "2023-10-19T12:54:07.164Z",
+      "modified_at": "2023-10-19T12:54:07.164Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauvorhaben",
+      "question": "hinweis-zustaendigkeit",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "bauvorhaben.kosten-pro-m3",
     "fields": {
       "created_at": "2023-04-12T07:51:33.707Z",
@@ -3877,7 +3937,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "vorhaben-titel",
-      "sort": 11
+      "sort": 12
     }
   },
   {
@@ -4042,7 +4102,7 @@
       "modified_by_group": null,
       "form": "betriebsleiterwohnhaus",
       "question": "besitzverhaeltnis",
-      "sort": 8
+      "sort": 5
     }
   },
   {
@@ -4057,7 +4117,7 @@
       "modified_by_group": null,
       "form": "betriebsleiterwohnhaus",
       "question": "betriebsleiter-anzahl-wohnungen",
-      "sort": 6
+      "sort": 3
     }
   },
   {
@@ -4072,7 +4132,7 @@
       "modified_by_group": null,
       "form": "betriebsleiterwohnhaus",
       "question": "betriebsleiter-baujahr",
-      "sort": 7
+      "sort": 4
     }
   },
   {
@@ -4087,7 +4147,7 @@
       "modified_by_group": null,
       "form": "betriebsleiterwohnhaus",
       "question": "betriebsleiter-bemerkungen",
-      "sort": 2
+      "sort": 1
     }
   },
   {
@@ -4102,7 +4162,7 @@
       "modified_by_group": null,
       "form": "betriebsleiterwohnhaus",
       "question": "betriebsleiterwohnhaus-titel",
-      "sort": 11
+      "sort": 9
     }
   },
   {
@@ -4117,7 +4177,22 @@
       "modified_by_group": null,
       "form": "betriebsleiterwohnhaus",
       "question": "ertragswert-in-chf",
-      "sort": 4
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "betriebsleiterwohnhaus.hinweis-zustaendigkeit-betriebsleiterwohnhaus",
+    "fields": {
+      "created_at": "2023-10-19T13:04:30.812Z",
+      "modified_at": "2023-10-19T13:04:30.812Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "betriebsleiterwohnhaus",
+      "question": "hinweis-zustaendigkeit-betriebsleiterwohnhaus",
+      "sort": 8
     }
   },
   {
@@ -4132,7 +4207,7 @@
       "modified_by_group": null,
       "form": "betriebsleiterwohnhaus",
       "question": "wohnhaus-bestandteil-landwirtschaftliches-gewerbe",
-      "sort": 10
+      "sort": 7
     }
   },
   {
@@ -4147,7 +4222,7 @@
       "modified_by_group": null,
       "form": "betriebsleiterwohnhaus",
       "question": "wohnhaus-bewohnt-durch-2",
-      "sort": 9
+      "sort": 6
     }
   },
   {
@@ -4372,7 +4447,7 @@
       "modified_by_group": null,
       "form": "brandschutz-bauliche-angaben",
       "question": "bauliche-angaben-titel",
-      "sort": 57
+      "sort": 58
     }
   },
   {
@@ -4752,6 +4827,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "brandschutz-bauliche-angaben.hinweis-zustaendigkeit-gvg",
+    "fields": {
+      "created_at": "2023-10-19T13:18:07.569Z",
+      "modified_at": "2023-10-19T13:18:07.569Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-bauliche-angaben",
+      "question": "hinweis-zustaendigkeit-gvg",
+      "sort": 57
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "brandschutz-bauliche-angaben.innenwaende",
     "fields": {
       "created_at": "2023-05-25T07:12:57.567Z",
@@ -5032,7 +5122,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "abgasanlagen",
-      "sort": 41
+      "sort": 40
     }
   },
   {
@@ -5047,7 +5137,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "ableitung-der-abgase-titel",
-      "sort": 44
+      "sort": 43
     }
   },
   {
@@ -5062,7 +5152,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "alter-der-feuerungsanlage",
-      "sort": 78
+      "sort": 77
     }
   },
   {
@@ -5077,7 +5167,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "anzahl-behaelter",
-      "sort": 30
+      "sort": 29
     }
   },
   {
@@ -5092,7 +5182,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "art-der-anlage-behaelter",
-      "sort": 32
+      "sort": 31
     }
   },
   {
@@ -5107,7 +5197,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "art-der-festen-brennstoffe",
-      "sort": 34
+      "sort": 33
     }
   },
   {
@@ -5167,7 +5257,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "art-der-solaranlage",
-      "sort": 65
+      "sort": 64
     }
   },
   {
@@ -5182,7 +5272,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "aufstellung-im-freien",
-      "sort": 68
+      "sort": 67
     }
   },
   {
@@ -5197,7 +5287,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "aufstellungsraum-der-feuerungsanlage-titel",
-      "sort": 63
+      "sort": 62
     }
   },
   {
@@ -5212,7 +5302,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "bauliche-veraenderungen-abgasanlage",
-      "sort": 43
+      "sort": 42
     }
   },
   {
@@ -5227,7 +5317,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "bauliche-veraenderungen-aufstellungsraum",
-      "sort": 62
+      "sort": 61
     }
   },
   {
@@ -5242,7 +5332,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "bauliche-veraenderungen-brennstofflagerung",
-      "sort": 38
+      "sort": 37
     }
   },
   {
@@ -5302,7 +5392,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "beschreibung-brennstoff",
-      "sort": 76
+      "sort": 75
     }
   },
   {
@@ -5317,7 +5407,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "beschreibung-details-alternativenergien",
-      "sort": 64
+      "sort": 63
     }
   },
   {
@@ -5332,7 +5422,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "beschreibung-einzelfeuerung",
-      "sort": 75
+      "sort": 74
     }
   },
   {
@@ -5347,7 +5437,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "beschreibung-gebaeudeart",
-      "sort": 60
+      "sort": 59
     }
   },
   {
@@ -5362,7 +5452,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "brennstoff",
-      "sort": 77
+      "sort": 76
     }
   },
   {
@@ -5377,7 +5467,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "brennstofflager-titel",
-      "sort": 40
+      "sort": 39
     }
   },
   {
@@ -5392,7 +5482,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "details-alternativenergien",
-      "sort": 67
+      "sort": 66
     }
   },
   {
@@ -5407,7 +5497,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "details-zentralheizung",
-      "sort": 74
+      "sort": 73
     }
   },
   {
@@ -5422,7 +5512,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "einbauart",
-      "sort": 33
+      "sort": 32
     }
   },
   {
@@ -5437,7 +5527,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "errichter-haustechnik",
-      "sort": 80
+      "sort": 79
     }
   },
   {
@@ -5452,7 +5542,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "fabrikat-gasmeldeanlage",
-      "sort": 47
+      "sort": 46
     }
   },
   {
@@ -5482,7 +5572,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "fabrikat-waermepumpe",
-      "sort": 71
+      "sort": 70
     }
   },
   {
@@ -5497,7 +5587,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "findet-brennstofflagerung-statt",
-      "sort": 39
+      "sort": 38
     }
   },
   {
@@ -5542,7 +5632,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "gas-absperrarmatur-ausserhalb-aufstellungsraumes",
-      "sort": 45
+      "sort": 44
     }
   },
   {
@@ -5557,7 +5647,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "gasmeldeanlage-erforderlich",
-      "sort": 48
+      "sort": 47
     }
   },
   {
@@ -5572,7 +5662,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "gebaeudeart-aufstellungsraum",
-      "sort": 61
+      "sort": 60
     }
   },
   {
@@ -5602,7 +5692,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "heizraumzugang-direkt-vom-freien",
-      "sort": 46
+      "sort": 45
     }
   },
   {
@@ -5617,7 +5707,22 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "hinweis-kesselauswechslungen",
-      "sort": 53
+      "sort": 52
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz-haustechnik.hinweis-zustaendigkeit-gvg",
+    "fields": {
+      "created_at": "2023-10-19T13:19:18.905Z",
+      "modified_at": "2023-10-19T13:19:18.905Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-haustechnik",
+      "question": "hinweis-zustaendigkeit-gvg",
+      "sort": 80
     }
   },
   {
@@ -5632,7 +5737,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "inhalt-lagermenge",
-      "sort": 31
+      "sort": 30
     }
   },
   {
@@ -5647,7 +5752,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "kaeltemittel-waermepumpe",
-      "sort": 72
+      "sort": 71
     }
   },
   {
@@ -5677,7 +5782,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "lagergut-ableitung-der-abgase",
-      "sort": 35
+      "sort": 34
     }
   },
   {
@@ -5692,7 +5797,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "luftwechselrate",
-      "sort": 49
+      "sort": 48
     }
   },
   {
@@ -5767,7 +5872,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "material-aussenwaende",
-      "sort": 59
+      "sort": 58
     }
   },
   {
@@ -5782,7 +5887,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "material-aussenwaende-ableitung-der-abgase",
-      "sort": 28
+      "sort": 27
     }
   },
   {
@@ -5797,7 +5902,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "material-boden",
-      "sort": 56
+      "sort": 55
     }
   },
   {
@@ -5812,7 +5917,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "material-boden-ableitung-der-abgase",
-      "sort": 25
+      "sort": 24
     }
   },
   {
@@ -5827,7 +5932,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "material-decke",
-      "sort": 57
+      "sort": 56
     }
   },
   {
@@ -5842,7 +5947,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "material-decke-ableitung-der-abgase",
-      "sort": 26
+      "sort": 25
     }
   },
   {
@@ -5857,7 +5962,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "material-innenwaende",
-      "sort": 58
+      "sort": 57
     }
   },
   {
@@ -5872,7 +5977,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "material-innenwaende-ableitung-der-abgase",
-      "sort": 27
+      "sort": 26
     }
   },
   {
@@ -5887,7 +5992,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "model-typ",
-      "sort": 70
+      "sort": 69
     }
   },
   {
@@ -5902,7 +6007,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "nennwaermeleistung-waermepumpe",
-      "sort": 69
+      "sort": 68
     }
   },
   {
@@ -5917,7 +6022,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "neue-oder-bestehende-anlage",
-      "sort": 42
+      "sort": 41
     }
   },
   {
@@ -5932,7 +6037,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "neue-oder-bestehende-lagerung",
-      "sort": 37
+      "sort": 36
     }
   },
   {
@@ -5962,7 +6067,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "quadrat-cm-oben",
-      "sort": 51
+      "sort": 50
     }
   },
   {
@@ -5977,7 +6082,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "quadrat-cm-unten",
-      "sort": 50
+      "sort": 49
     }
   },
   {
@@ -5992,7 +6097,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "raumlueftung",
-      "sort": 52
+      "sort": 51
     }
   },
   {
@@ -6007,7 +6112,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "raumlueftung-ableitung-der-abgase",
-      "sort": 29
+      "sort": 28
     }
   },
   {
@@ -6022,7 +6127,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "schnitzel-und-spaenelager-entleerungsoeffnung",
-      "sort": 22
+      "sort": 21
     }
   },
   {
@@ -6037,7 +6142,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "sind-folgende-anlagen-betroffen",
-      "sort": 79
+      "sort": 78
     }
   },
   {
@@ -6052,7 +6157,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "solaranlage-leistung",
-      "sort": 66
+      "sort": 65
     }
   },
   {
@@ -6067,7 +6172,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "spezifikation",
-      "sort": 36
+      "sort": 35
     }
   },
   {
@@ -6082,7 +6187,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "tuere",
-      "sort": 55
+      "sort": 54
     }
   },
   {
@@ -6097,7 +6202,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "tuere-ableitung-der-abgase",
-      "sort": 24
+      "sort": 23
     }
   },
   {
@@ -6112,7 +6217,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "tuere-vkf-nr",
-      "sort": 54
+      "sort": 53
     }
   },
   {
@@ -6127,7 +6232,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "typ-der-waermepumpe",
-      "sort": 73
+      "sort": 72
     }
   },
   {
@@ -6172,7 +6277,7 @@
       "modified_by_group": null,
       "form": "brandschutz-haustechnik",
       "question": "vkf-nr-tuere-ableitung-der-abgase",
-      "sort": 23
+      "sort": 22
     }
   },
   {
@@ -6503,21 +6608,6 @@
       "form": "dieselgetriebene-motoren",
       "question": "partikelfilter",
       "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "dokumente.ausbildungsnachweis",
-    "fields": {
-      "created_at": "2023-04-26T07:34:30.461Z",
-      "modified_at": "2023-04-26T07:34:30.461Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "dokumente",
-      "question": "ausbildungsnachweis",
-      "sort": 20
     }
   },
   {
@@ -7147,7 +7237,7 @@
       "modified_by_group": null,
       "form": "eingriffe-in-gewaesserschutzbereichen",
       "question": "gewaesserschutzbereich-titel",
-      "sort": 26
+      "sort": 27
     }
   },
   {
@@ -7163,6 +7253,21 @@
       "form": "eingriffe-in-gewaesserschutzbereichen",
       "question": "grundwasserschutzzone",
       "sort": 23
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "eingriffe-in-gewaesserschutzbereichen.hinweis-zustaendigkeit-anu",
+    "fields": {
+      "created_at": "2023-10-19T13:14:17.828Z",
+      "modified_at": "2023-10-19T13:14:17.828Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "eingriffe-in-gewaesserschutzbereichen",
+      "question": "hinweis-zustaendigkeit-anu",
+      "sort": 26
     }
   },
   {
@@ -7582,7 +7687,7 @@
       "modified_by_group": null,
       "form": "emissionserklaerung",
       "question": "emissionserklaerung-titel",
-      "sort": 46
+      "sort": 47
     }
   },
   {
@@ -7688,6 +7793,21 @@
       "form": "emissionserklaerung",
       "question": "haben-sie-in-ihrem-betrieb-eine-tankstelle",
       "sort": 16
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "emissionserklaerung.hinweis-zustaendigkeit-anu",
+    "fields": {
+      "created_at": "2023-10-19T13:23:05.840Z",
+      "modified_at": "2023-10-19T13:23:05.840Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "emissionserklaerung",
+      "question": "hinweis-zustaendigkeit-anu",
+      "sort": 46
     }
   },
   {
@@ -8527,7 +8647,7 @@
       "modified_by_group": null,
       "form": "feuerungsanlagen",
       "question": "feuerungsanlagen-titel",
-      "sort": 41
+      "sort": 42
     }
   },
   {
@@ -8558,6 +8678,21 @@
       "form": "feuerungsanlagen",
       "question": "hinweis-betriebsstunden-rauchgasbehandlung",
       "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "feuerungsanlagen.hinweis-zustaendigkeit-gvg",
+    "fields": {
+      "created_at": "2023-10-19T13:22:24.869Z",
+      "modified_at": "2023-10-19T13:22:24.869Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "feuerungsanlagen",
+      "question": "hinweis-zustaendigkeit-gvg",
+      "sort": 41
     }
   },
   {
@@ -9082,7 +9217,7 @@
       "modified_by_group": null,
       "form": "gewinnung-von-kies-sand-und-anderem-material",
       "question": "ableitung-nach",
-      "sort": 2
+      "sort": 1
     }
   },
   {
@@ -9097,7 +9232,7 @@
       "modified_by_group": null,
       "form": "gewinnung-von-kies-sand-und-anderem-material",
       "question": "aufbereitungsdatum-bis",
-      "sort": 6
+      "sort": 5
     }
   },
   {
@@ -9112,7 +9247,7 @@
       "modified_by_group": null,
       "form": "gewinnung-von-kies-sand-und-anderem-material",
       "question": "aufbereitungsdatum-von",
-      "sort": 7
+      "sort": 6
     }
   },
   {
@@ -9127,7 +9262,7 @@
       "modified_by_group": null,
       "form": "gewinnung-von-kies-sand-und-anderem-material",
       "question": "gesamtvolumen-grube",
-      "sort": 10
+      "sort": 9
     }
   },
   {
@@ -9142,7 +9277,7 @@
       "modified_by_group": null,
       "form": "gewinnung-von-kies-sand-und-anderem-material",
       "question": "gesamtvolumen-oberflaechengewaesser",
-      "sort": 9
+      "sort": 8
     }
   },
   {
@@ -9157,7 +9292,7 @@
       "modified_by_group": null,
       "form": "gewinnung-von-kies-sand-und-anderem-material",
       "question": "gesamtvolumgen-steinbruch",
-      "sort": 11
+      "sort": 10
     }
   },
   {
@@ -9177,6 +9312,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "gewinnung-von-kies-sand-und-anderem-material.hinweis-zustaendigkeit-anu",
+    "fields": {
+      "created_at": "2023-10-19T13:15:13.431Z",
+      "modified_at": "2023-10-19T13:15:13.431Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "gewinnung-von-kies-sand-und-anderem-material",
+      "question": "hinweis-zustaendigkeit-anu",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "gewinnung-von-kies-sand-und-anderem-material.materialaufbereitung",
     "fields": {
       "created_at": "2023-04-21T06:58:49.217Z",
@@ -9187,7 +9337,7 @@
       "modified_by_group": null,
       "form": "gewinnung-von-kies-sand-und-anderem-material",
       "question": "materialaufbereitung",
-      "sort": 5
+      "sort": 4
     }
   },
   {
@@ -9202,7 +9352,7 @@
       "modified_by_group": null,
       "form": "gewinnung-von-kies-sand-und-anderem-material",
       "question": "materialgewinnung",
-      "sort": 12
+      "sort": 11
     }
   },
   {
@@ -9217,7 +9367,7 @@
       "modified_by_group": null,
       "form": "gewinnung-von-kies-sand-und-anderem-material",
       "question": "vorgesehene-entnahme-pro-jahr",
-      "sort": 8
+      "sort": 7
     }
   },
   {
@@ -9232,7 +9382,7 @@
       "modified_by_group": null,
       "form": "gewinnung-von-kies-sand-und-anderem-material",
       "question": "waschwasser-behandlung",
-      "sort": 3
+      "sort": 2
     }
   },
   {
@@ -9247,7 +9397,7 @@
       "modified_by_group": null,
       "form": "gewinnung-von-kies-sand-und-anderem-material",
       "question": "waschwasserbezug",
-      "sort": 4
+      "sort": 3
     }
   },
   {
@@ -9577,7 +9727,22 @@
       "modified_by_group": null,
       "form": "hecken-feldgehoelze-und-ufervegetation",
       "question": "hecken-feldgehoelze-und-ufervegetation-titel",
-      "sort": 15
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "hecken-feldgehoelze-und-ufervegetation.hinweis-zustaendigkeit-anu",
+    "fields": {
+      "created_at": "2023-10-19T13:20:56.185Z",
+      "modified_at": "2023-10-19T13:20:56.186Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "hecken-feldgehoelze-und-ufervegetation",
+      "question": "hinweis-zustaendigkeit-anu",
+      "sort": 2
     }
   },
   {
@@ -10407,6 +10572,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "lageranlagen-wassergefaehrdenden-fluessigkeiten.hinweis-zustaendigkeit-anu",
+    "fields": {
+      "created_at": "2023-10-19T13:12:45.622Z",
+      "modified_at": "2023-10-19T13:12:45.622Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "lageranlagen-wassergefaehrdenden-fluessigkeiten",
+      "question": "hinweis-zustaendigkeit-anu",
+      "sort": 47
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "lageranlagen-wassergefaehrdenden-fluessigkeiten.hoehe",
     "fields": {
       "created_at": "2023-04-19T10:49:01.446Z",
@@ -10462,7 +10642,7 @@
       "modified_by_group": null,
       "form": "lageranlagen-wassergefaehrdenden-fluessigkeiten",
       "question": "lageranlagen-titel",
-      "sort": 47
+      "sort": 48
     }
   },
   {
@@ -11127,6 +11307,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "mineralische-bauabfaelle.hinweis-zustaendigkeit-anu",
+    "fields": {
+      "created_at": "2023-10-19T13:20:04.566Z",
+      "modified_at": "2023-10-19T13:20:04.566Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "mineralische-bauabfaelle",
+      "question": "hinweis-zustaendigkeit-anu",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "mineralische-bauabfaelle.mineralische-bauabfaelle-titel",
     "fields": {
       "created_at": "2023-04-24T13:40:29.762Z",
@@ -11137,7 +11332,7 @@
       "modified_by_group": null,
       "form": "mineralische-bauabfaelle",
       "question": "mineralische-bauabfaelle-titel",
-      "sort": 12
+      "sort": 13
     }
   },
   {
@@ -11997,6 +12192,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "schutzplaetze.hinweis-zustaendigkeit-amz",
+    "fields": {
+      "created_at": "2023-10-19T13:08:43.707Z",
+      "modified_at": "2023-10-19T13:08:43.707Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "schutzplaetze",
+      "question": "hinweis-zustaendigkeit-amz",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "schutzplaetze.schutzplaetze-titel",
     "fields": {
       "created_at": "2023-04-20T08:24:13.269Z",
@@ -12007,7 +12217,7 @@
       "modified_by_group": null,
       "form": "schutzplaetze",
       "question": "schutzplaetze-titel",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -13482,6 +13692,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "stallbau-und-hofduengerlager.hinweis-zustaendigkeit-betriebsleiterwohnhaus",
+    "fields": {
+      "created_at": "2023-10-19T13:06:19.146Z",
+      "modified_at": "2023-10-19T13:06:19.146Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "stallbau-und-hofduengerlager",
+      "question": "hinweis-zustaendigkeit-betriebsleiterwohnhaus",
+      "sort": 47
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "stallbau-und-hofduengerlager.kein-mistwasser-ueber-die-offene-seite-der-mistplatte",
     "fields": {
       "created_at": "2023-04-12T12:33:19.285Z",
@@ -13822,7 +14047,7 @@
       "modified_by_group": null,
       "form": "stallbau-und-hofduengerlager",
       "question": "stallbau-und-hofduengerlager-titel",
-      "sort": 47
+      "sort": 48
     }
   },
   {
@@ -14307,6 +14532,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "stationaere-verbrennungsmotoren.hinweis-zustaendigkeit-anu",
+    "fields": {
+      "created_at": "2023-10-19T13:21:44.888Z",
+      "modified_at": "2023-10-19T13:21:44.888Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "stationaere-verbrennungsmotoren",
+      "question": "hinweis-zustaendigkeit-anu",
+      "sort": 58
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "stationaere-verbrennungsmotoren.inbetriebnahme-geplant",
     "fields": {
       "created_at": "2023-07-12T15:03:38.352Z",
@@ -14647,7 +14887,7 @@
       "modified_by_group": null,
       "form": "stationaere-verbrennungsmotoren",
       "question": "stationaere-verbrennungsmotoren-titel",
-      "sort": 58
+      "sort": 59
     }
   },
   {
@@ -14862,6 +15102,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "terrainveraenderungen.hinweis-zustaendigkeit-anu",
+    "fields": {
+      "created_at": "2023-10-19T13:15:40.662Z",
+      "modified_at": "2023-10-19T13:15:40.662Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "terrainveraenderungen",
+      "question": "hinweis-zustaendigkeit-anu",
+      "sort": 24
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "terrainveraenderungen.invasive-neophyten",
     "fields": {
       "created_at": "2023-04-21T07:59:16.366Z",
@@ -14977,7 +15232,7 @@
       "modified_by_group": null,
       "form": "terrainveraenderungen",
       "question": "terrainveraenderungen-titel",
-      "sort": 24
+      "sort": 25
     }
   },
   {
@@ -15732,6 +15987,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "waermepumpenanlage.hinweis-zustaendigkeit-anu",
+    "fields": {
+      "created_at": "2023-10-19T13:13:26.313Z",
+      "modified_at": "2023-10-19T13:13:26.313Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "waermepumpenanlage",
+      "question": "hinweis-zustaendigkeit-anu",
+      "sort": 40
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "waermepumpenanlage.hydrologische-begleitung",
     "fields": {
       "created_at": "2023-04-20T11:56:52.060Z",
@@ -15937,7 +16207,7 @@
       "modified_by_group": null,
       "form": "waermepumpenanlage",
       "question": "waermepumpenanlage-titel",
-      "sort": 40
+      "sort": 41
     }
   },
   {
@@ -16152,6 +16422,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "wasserentnahme-aus-oberflaechengewaessern.hinweis-zustaendigkeit-anu",
+    "fields": {
+      "created_at": "2023-10-19T13:16:18.563Z",
+      "modified_at": "2023-10-19T13:16:18.563Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "wasserentnahme-aus-oberflaechengewaessern",
+      "question": "hinweis-zustaendigkeit-anu",
+      "sort": 15
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "wasserentnahme-aus-oberflaechengewaessern.name-fliessgewaesser",
     "fields": {
       "created_at": "2023-04-21T08:46:52.212Z",
@@ -16222,7 +16507,7 @@
       "modified_by_group": null,
       "form": "wasserentnahme-aus-oberflaechengewaessern",
       "question": "wasserentnahme-aus-oberflaechengewaessern-titel",
-      "sort": 15
+      "sort": 16
     }
   },
   {
@@ -40001,7 +40286,7 @@
     "pk": "aufstellungsraum-der-feuerungsanlage-titel",
     "fields": {
       "created_at": "2023-04-24T08:36:18.213Z",
-      "modified_at": "2023-07-07T07:39:29.115Z",
+      "modified_at": "2023-10-19T12:45:10.866Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -40012,7 +40297,7 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"[W\\u00e4rmetechnische Anlagen](https://www.bsvonline.ch/de/vorschriften/#c-richtlinien%20VKF-Brandschutzrichtlinie%2024-15)\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"[W\\u00e4rmetechnische Anlagen](https://www.bsvonline.ch/de/vorschriften/#a-ioth)\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"---\\n#### Aufstellungsraum der Feuerungsanlage\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -40226,14 +40511,14 @@
     "pk": "auskleidungs-produkt",
     "fields": {
       "created_at": "2023-04-20T08:04:56.146Z",
-      "modified_at": "2023-04-27T07:13:38.936Z",
+      "modified_at": "2023-10-19T12:39:49.125Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Auskleidungs-Produkt\", \"fr\": null, \"it\": null}",
       "type": "text",
-      "is_required": "!(\"vorlaeufige-beurteilung\" in form)",
+      "is_required": "\"vorlaeufige-beurteilung\" in form || \"tankraum-auskleidung-ohne-auskleidung\" in \"tankraum-auskleidung\"|answer",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -40387,19 +40672,19 @@
     "pk": "bab-baujahr",
     "fields": {
       "created_at": "2023-10-19T09:09:37.604Z",
-      "modified_at": "2023-10-19T09:09:37.604Z",
+      "modified_at": "2023-10-19T12:12:32.439Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Baujahr\", \"fr\": null, \"it\": null}",
       "type": "integer",
       "is_required": "false",
-      "is_hidden": "!(\"landwirtschaftliches-vorhaben-nein\" == \"landwirtschaftliches-vorhaben\"|answer && \"baute-oder-anlage-baute\" == \"baute-oder-anlage\"|answer || \"baute-oder-anlage-beides\" == \"baute-oder-anlage\"|answer)",
+      "is_hidden": "!(\"baute-oder-anlage-baute\" == \"baute-oder-anlage\"|answer || \"baute-oder-anlage-beides\" == \"baute-oder-anlage\"|answer)",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_value": null,
@@ -40421,10 +40706,10 @@
     "pk": "bab-begruendung",
     "fields": {
       "created_at": "2023-04-12T08:42:31.596Z",
-      "modified_at": "2023-04-27T07:06:39.016Z",
+      "modified_at": "2023-10-19T12:02:16.222Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Begr\\u00fcndung\", \"fr\": null, \"it\": null}",
       "type": "textarea",
@@ -40432,7 +40717,7 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Der Bedarf des Vorhaben ist zu begr\\u00fcnden bzw. zu erl\\u00e4utern.\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
@@ -40489,19 +40774,19 @@
     "pk": "bab-weitere-angaben",
     "fields": {
       "created_at": "2023-10-19T09:12:11.418Z",
-      "modified_at": "2023-10-19T09:12:11.418Z",
+      "modified_at": "2023-10-19T12:13:17.137Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Weitere Angaben\", \"fr\": null, \"it\": null}",
       "type": "text",
       "is_required": "false",
-      "is_hidden": "!(\"landwirtschaftliches-vorhaben-nein\" == \"landwirtschaftliches-vorhaben\"|answer && \"baute-oder-anlage-baute\" == \"baute-oder-anlage\"|answer || \"baute-oder-anlage-beides\" == \"baute-oder-anlage\"|answer)",
+      "is_hidden": "!(\"baute-oder-anlage-baute\" == \"baute-oder-anlage\"|answer || \"baute-oder-anlage-beides\" == \"baute-oder-anlage\"|answer)",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -40807,10 +41092,10 @@
     "pk": "baugespann",
     "fields": {
       "created_at": "2023-04-12T07:53:03.844Z",
-      "modified_at": "2023-04-27T07:04:39.076Z",
+      "modified_at": "2023-10-19T11:47:13.979Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Baugespann\", \"fr\": null, \"it\": null}",
       "type": "choice",
@@ -40818,7 +41103,7 @@
       "is_hidden": "\"bauanzeige\" in form || \"solaranlage\" in form",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Bei Bauvorhaben, die nach aussen in Erscheinung treten, ist ein Baugespann aufzustellen. \\n\\nEs ist in jedem Falle w\\u00e4hrend der Dauer der \\u00f6ffentlichen Auflage stehen zu lassen (vgl. Art. 43 der kantonalen Raumplanungsverordnung [KRVO]).\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -40838,7 +41123,7 @@
     "pk": "baugespann-erstellt-am",
     "fields": {
       "created_at": "2023-04-12T07:53:46.553Z",
-      "modified_at": "2023-06-15T12:13:56.529Z",
+      "modified_at": "2023-10-19T11:47:59.940Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -40850,7 +41135,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"Hinweis: Das Baugespann muss zum Zeitpunkt der Baueingabe erstellt sein (Art. 43 KRVO).\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"Hinweis: Das Baugespann muss zum Zeitpunkt der Baueingabe erstellt sein (vgl. Art. 43 der kantonalen Raumplanungsverordnung [KRVO]).\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -41358,7 +41643,7 @@
     "pk": "bauten-titel",
     "fields": {
       "created_at": "2023-04-12T10:48:09.050Z",
-      "modified_at": "2023-10-19T08:55:02.344Z",
+      "modified_at": "2023-10-19T12:10:56.653Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -41420,10 +41705,10 @@
     "pk": "baute-oder-anlage",
     "fields": {
       "created_at": "2023-06-26T09:48:37.043Z",
-      "modified_at": "2023-06-26T09:48:37.043Z",
+      "modified_at": "2023-10-19T11:49:16.044Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Handelt es sich um eine Baute oder um eine Anlage?\", \"fr\": null, \"it\": null}",
       "type": "choice",
@@ -41431,8 +41716,8 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Als Baute gelten im Allgemeinen ober- und unterirdische Geb\\u00e4ude oder geb\\u00e4ude\\u00e4hnliche Objekte, welche in der Regel dreidimensional errichtet werden (z.B. Wohnhaus, Gewerbebaute, Holzschopf etc.). \\n\\nAls Anlage werden eher Einrichtungen bezeichnet, welche das Gel\\u00e4nde oder den umliegenden Raum ver\\u00e4ndern. Meistens handelt es um dem Tiefbau zuzordnenden zweidimensionalen Eingriff (z.B. Terrainver\\u00e4nderungen, Strassen, Leitungen, Kiesabbau, Beschneinungsanlagen etc.).\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -43054,10 +43339,10 @@
     "pk": "beschreibung-bauvorhaben",
     "fields": {
       "created_at": "2019-04-12T08:18:11.316Z",
-      "modified_at": "2023-04-12T07:45:43.438Z",
+      "modified_at": "2023-10-19T11:46:04.020Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": "[]",
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Beschreibung\", \"fr\": \"Description\", \"it\": null}",
       "type": "textarea",
@@ -43065,7 +43350,7 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"M\\u00f6glichst genaue Umschreibung des Bauvorhabens. Die wesentlichen Gegenst\\u00e4nde des Bauvorhabens sind aufzuf\\u00fchren.\", \"fr\": \"Description aussi pr\\u00e9cise que possible du projet de construction. Les \\u00e9l\\u00e9ments essentiels du projet doivent \\u00eatre pr\\u00e9sent\\u00e9s.\", \"it\": null}",
+      "info_text": "{\"de\": \"Das Vorhaben ist m\\u00f6glichst genau zu umschreiben. Die wesentlichen baulichen Ver\\u00e4nderungen sind aufzuf\\u00fchren und detailliert zu beschreiben (Materialisierung, Farbgebung etc.).\", \"fr\": \"Description aussi pr\\u00e9cise que possible du projet de construction. Les \\u00e9l\\u00e9ments essentiels du projet doivent \\u00eatre pr\\u00e9sent\\u00e9s.\", \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
@@ -43323,7 +43608,7 @@
     "pk": "beschreibung-der-landwirtschaftlichen-bauten",
     "fields": {
       "created_at": "2023-04-14T08:44:57.095Z",
-      "modified_at": "2023-10-19T08:59:20.664Z",
+      "modified_at": "2023-10-19T12:06:56.850Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -46237,19 +46522,19 @@
     "pk": "branche-gemaess-noga",
     "fields": {
       "created_at": "2023-06-02T12:46:21.984Z",
-      "modified_at": "2023-06-02T12:46:21.984Z",
+      "modified_at": "2023-10-19T12:47:27.702Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Branche gem\\u00e4ss NOGA\", \"fr\": null, \"it\": null}",
       "type": "text",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"https://www.kubb-tool.bfs.admin.ch/de\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -46426,7 +46711,7 @@
     "pk": "brandschutz-haustechnik-titel",
     "fields": {
       "created_at": "2023-04-24T06:20:37.261Z",
-      "modified_at": "2023-07-03T08:21:52.636Z",
+      "modified_at": "2023-10-19T12:43:51.326Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -46437,7 +46722,7 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"[W\\u00e4rmetechnische Anlagen](https://www.bsvonline.ch/de/vorschriften/#c-richtlinien%20VKF-Brandschutzrichtlinie%2024-15)\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"[VKF Brandschutzvorschriften](https://www.bsvonline.ch/de/vorschriften/#c-richtlinien)\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"### Brandschutz - Haustechnik\\n\\n#### Angaben zur Feuerungsanlage\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -47047,7 +47332,7 @@
     "pk": "das-bauvorhaben-befindet-sich-in",
     "fields": {
       "created_at": "2023-07-05T07:20:33.087Z",
-      "modified_at": "2023-07-05T07:31:40.369Z",
+      "modified_at": "2023-10-19T12:00:56.503Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -47059,7 +47344,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"Bitte beachten: Werden in l\\u00e4rmbelasteten Gebieten l\\u00e4rmempfindliche R\\u00e4ume erstellt oder ver\\u00e4ndert, ist ein L\\u00e4rmschutznachweis nach eidg. L\\u00e4rmschutz-Verordnung (LSV) einzureichen.\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -49942,19 +50227,19 @@
     "pk": "ertragswert-in-chf",
     "fields": {
       "created_at": "2023-04-12T11:32:20.636Z",
-      "modified_at": "2023-04-12T11:32:20.636Z",
+      "modified_at": "2023-10-19T12:22:53.688Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Ertragswert in CHF\", \"fr\": null, \"it\": null}",
       "type": "integer",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Der Ertragswert ist der amtlichen Bewertung (Sch\\u00e4tzungser\\u00f6ffnung) zu entnehmen.\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_value": null,
@@ -54061,7 +54346,7 @@
     "pk": "haustechnische-anlagen-brandschutz",
     "fields": {
       "created_at": "2023-04-12T08:12:57.951Z",
-      "modified_at": "2023-07-03T07:03:25.454Z",
+      "modified_at": "2023-10-19T12:00:14.087Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -54072,7 +54357,7 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"### Feuerpolizeiliche Bewilligung\\n\\nGem\\u00e4ss Brandschutzgesetz, Art. 7 Abs. 1 Feuerpolizeiliche Bewilligungspflicht: Bewilligungspflichtig sind: \\n\\n\\n1. Neu-, An-, Um- und Ausbauten sowie die Umnutzung von Geb\\u00e4uden oder Geb\\u00e4udeteilen;<br>\\n1. Neu-, Aus- und Umbauten von haustechnischen Anlagen und technischen Brandschutzeinrichtungen;<br>\\n1. Betriebe, Anlagen und Einrichtungen, die der Herstellung, Verarbeitung oder Lagerung feuer- oder explosionsgef\\u00e4hrlicher Stoffe und Waren dienen;<br>\\n1. Veranstaltungen mit besonderer Gef\\u00e4hrdung von Personen, Tieren oder Sachen;<br>\\n1. das Abbrennen von pyrotechnischen Gegenst\\u00e4nden zu Vergn\\u00fcgungszwecken (Feuerwerksk\\u00f6rper) und zu gewerblichen Zwecken.<br>\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"### Feuerpolizeiliche Bewilligung\\n\\nNach Art. 7 Abs. 1 des kantonalen Brandschutzgesetzes sind folgende Vorhaben bewilligungspflichtig:\\n\\n\\n1. Neu-, An-, Um- und Ausbauten sowie die Umnutzung von Geb\\u00e4uden oder Geb\\u00e4udeteilen;<br>\\n1. Neu-, Aus- und Umbauten von haustechnischen Anlagen und technischen Brandschutzeinrichtungen;<br>\\n1. Betriebe, Anlagen und Einrichtungen, die der Herstellung, Verarbeitung oder Lagerung feuer- oder explosionsgef\\u00e4hrlicher Stoffe und Waren dienen;<br>\\n1. Veranstaltungen mit besonderer Gef\\u00e4hrdung von Personen, Tieren oder Sachen;<br>\\n1. das Abbrennen von pyrotechnischen Gegenst\\u00e4nden zu Vergn\\u00fcgungszwecken (Feuerwerksk\\u00f6rper) und zu gewerblichen Zwecken.<br>\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -55043,7 +55328,7 @@
     "pk": "hinweis-oekonomiebauten",
     "fields": {
       "created_at": "2023-07-05T08:16:24.471Z",
-      "modified_at": "2023-10-19T08:59:42.311Z",
+      "modified_at": "2023-10-19T12:11:49.184Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -55181,6 +55466,192 @@
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"Es ist fr\\u00fchzeitig Kontakt mit der zust\\u00e4ndigen Waldregion des Amtes\\nf\\u00fcr Wald und Naturgefahren aufzunehmen. Siehe [Auskunftspersonen Amt f\\u00fcr Wald und Naturgefahren](https://www.gr.ch/DE/institutionen/verwaltung/diem/awn/ueberuns/ansprechpartner/Seiten/1_1_Auskunftspersonen.aspx).\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "hinweis-zustaendigkeit",
+    "fields": {
+      "created_at": "2023-10-19T12:54:06.967Z",
+      "modified_at": "2023-10-19T12:54:06.967Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis Zust\\u00e4ndigkeit\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"Bei fachlichen Fragen zum Baugesuch wenden Sie sich bitte an die zust\\u00e4ndige kommunale Baubeh\\u00f6rde.\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "hinweis-zustaendigkeit-amz",
+    "fields": {
+      "created_at": "2023-10-19T13:08:43.525Z",
+      "modified_at": "2023-10-19T13:08:43.525Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis Zust\\u00e4ndigkeit AMZ\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"F\\u00fcr dieses Fachthema ist das Amt f\\u00fcr Milit\\u00e4r und Zivilschutz (AMZ) zust\\u00e4ndig.<br>\\nEmail: info@amz.gr.ch Telefon: 081 257 35 35\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "hinweis-zustaendigkeit-anu",
+    "fields": {
+      "created_at": "2023-10-19T13:09:50.314Z",
+      "modified_at": "2023-10-19T13:09:50.314Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis Zust\\u00e4ndigkeit ANU\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"F\\u00fcr dieses Fachthema ist das Amt f\\u00fcr Natur und Umwelt (ANU) zust\\u00e4ndig.<br>\\nEmail: info@anu.gr.ch Telefon: 081 257 29 46\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "hinweis-zustaendigkeit-bab",
+    "fields": {
+      "created_at": "2023-10-19T12:57:32.055Z",
+      "modified_at": "2023-10-19T13:03:06.255Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis Zust\\u00e4ndigkeit\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"F\\u00fcr dieses Fachthema ist das Amt f\\u00fcr Raumentwicklung Graub\\u00fcnden (ARE) zust\\u00e4ndig.<br>\\nEmail: info@are.gr.ch Telefon: 081 257 23 23\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "hinweis-zustaendigkeit-betriebsleiterwohnhaus",
+    "fields": {
+      "created_at": "2023-10-19T13:04:30.630Z",
+      "modified_at": "2023-10-19T13:04:30.630Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis Zust\\u00e4ndigkeit betriebsleiterwohnhaus\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"F\\u00fcr dieses Fachthema ist das Amt f\\u00fcr Landwirtschaft und Geoinformation (ALG) zust\\u00e4ndig.<br>\\nEmail: info@alg.gr.ch Telefon: 081 257 24 32\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "hinweis-zustaendigkeit-gvg",
+    "fields": {
+      "created_at": "2023-10-19T13:18:07.393Z",
+      "modified_at": "2023-10-19T13:18:07.393Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis Zust\\u00e4ndigkeit GVG\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"F\\u00fcr dieses Fachthema ist die Geb\\u00e4udeversicherung Graub\\u00fcnden (GVG) zust\\u00e4ndig.<br>\\nEmail: brandschutz@gvg.gr.ch Telefon: 081 258 90 50\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -55582,10 +56053,10 @@
     "pk": "industrie-und-gewerbeabwasser-titel",
     "fields": {
       "created_at": "2023-04-20T08:17:31.374Z",
-      "modified_at": "2023-04-20T08:17:31.374Z",
+      "modified_at": "2023-10-19T12:31:06.639Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Industrie- und Gewerbeabwasser Titel\", \"fr\": null, \"it\": null}",
       "type": "static",
@@ -55593,9 +56064,9 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"### Ableitung von Industrie- und Gewerbeabwasser\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"### Ableitung von Industrie- und Gewerbeabwasser\\n<small>Die Ableitung von Industrie- und Gewerbeabwasser ist bewilligungspflichtig.</small>\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -56588,7 +57059,7 @@
     "pk": "kantonsstrassen",
     "fields": {
       "created_at": "2023-04-12T08:10:14.647Z",
-      "modified_at": "2023-06-15T13:08:49.774Z",
+      "modified_at": "2023-10-19T11:58:47.245Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -56600,7 +57071,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"Bauvorhaben an Kantons- oder Nationalstrassen sind vorabkl\\u00e4rungspflichtig (vgl. Art. 52 Abs. 2 der kantonalen Raumplanungsverordnung [KRVO]).\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -56981,10 +57452,10 @@
     "pk": "komplexe-erdwaermesonden-anlage",
     "fields": {
       "created_at": "2023-04-20T11:57:42.918Z",
-      "modified_at": "2023-04-20T11:57:42.918Z",
+      "modified_at": "2023-10-19T12:41:49.856Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Handelt es sich um eine komplexe Erdw\\u00e4rmesonden-Anlage nach SIA 384/6?\", \"fr\": null, \"it\": null}",
       "type": "choice",
@@ -56992,8 +57463,8 @@
       "is_hidden": "!(\"art-der-waermepumpe-erdsonde\" == \"art-der-waermepumpe\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Komplexe Anlagen sind Anlagen mit mehr als 4 Erdw\\u00e4rmesonden, mit spezifischen Anforderungen an die K\\u00fchlung, bei Einbringen von Abw\\u00e4rme in die Erdw\\u00e4rmesonden oder mit einem speziellen Bedarfsprofil.\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -59404,10 +59875,10 @@
     "pk": "mehr-als-50-arbeitsplaetze",
     "fields": {
       "created_at": "2023-04-05T10:55:44.175Z",
-      "modified_at": "2023-04-05T10:56:25.296Z",
+      "modified_at": "2023-10-19T11:57:05.244Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Mehr als 50 Arbeitspl\\u00e4tze?\", \"fr\": null, \"it\": null}",
       "type": "choice",
@@ -59415,7 +59886,7 @@
       "is_hidden": "!(\"beschreibung-der-nutzung-arbeitsplaetze\" in \"beschreibung-der-nutzung\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Nach Art. 80 Abs. 1 des kantonalen Raumplanungsgesetzes (KRG) sind neue Bauten und Anlagen mit mehr als 50 Arbeitspl\\u00e4tzen nach den anerkannten Fachnormen so zu gestalten, dass sie auch f\\u00fcr Menschen mit Behinderung zug\\u00e4nglich sind.\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -59435,7 +59906,7 @@
     "pk": "mehr-als-vier-wohneinheiten",
     "fields": {
       "created_at": "2023-04-12T14:46:53.571Z",
-      "modified_at": "2023-05-24T14:56:42.072Z",
+      "modified_at": "2023-10-19T11:53:04.322Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -59446,7 +59917,7 @@
       "is_hidden": "!(\"wohnnutzung-ja\" == \"wohnnutzung\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Art. 80 des kantonalen Raumplanungsgesetzes (KRG)\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -61219,7 +61690,7 @@
     "pk": "nutzungszweck-landwirtschaft",
     "fields": {
       "created_at": "2023-04-12T11:04:00.261Z",
-      "modified_at": "2023-10-19T09:01:06.495Z",
+      "modified_at": "2023-10-19T12:14:33.089Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -61608,10 +62079,10 @@
     "pk": "paechter",
     "fields": {
       "created_at": "2023-04-12T08:44:14.851Z",
-      "modified_at": "2023-04-14T08:04:33.985Z",
+      "modified_at": "2023-10-19T12:02:56.407Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"P\\u00e4chter\", \"fr\": null, \"it\": null}",
       "type": "table",
@@ -61620,7 +62091,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"Sofern verpachtet\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
@@ -63044,7 +63515,7 @@
     "pk": "rodung",
     "fields": {
       "created_at": "2023-05-17T07:24:39.706Z",
-      "modified_at": "2023-05-17T07:28:07.113Z",
+      "modified_at": "2023-10-19T11:50:01.566Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -63055,7 +63526,7 @@
       "is_hidden": "!(\"waldareal-ja\" == \"waldareal\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"Eine Rodung ist eine dauernde oder vor\\u00fcbergehende Zweckentfremdung von Waldareal f\\u00fcr nichtforstliche Zwecke. Die gerodete Fl\\u00e4che ist nicht mehr Wald im Sinne des Waldgesetzes. Im Gegensatz zum Kahlschlag wird das Aufkommen der Waldb\\u00e4ume dauernd (definitiv) bzw. w\\u00e4hrend einer gewissen Zeit (tempor\\u00e4r) verhindert. Rodungen sind verboten, k\\u00f6nnen aber, wenn wichtige Gr\\u00fcnde vorliegen, ausnahmsweise bewilligt werden (Artikel 5 Waldgesetz WaG).\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Eine Rodung ist eine dauernde oder vor\\u00fcbergehende Zweckentfremdung von Waldareal f\\u00fcr nichtforstliche Zwecke. Die gerodete Fl\\u00e4che ist nicht mehr Wald im Sinne des Waldgesetzes. Im Gegensatz zum Kahlschlag wird das Aufkommen der Waldb\\u00e4ume dauernd (definitiv) bzw. w\\u00e4hrend einer gewissen Zeit (tempor\\u00e4r) verhindert. Rodungen sind verboten, k\\u00f6nnen aber, wenn wichtige Gr\\u00fcnde vorliegen, ausnahmsweise bewilligt werden (vgl. Art. 5 des kantonalen Waldgesetzes (KWaG]).\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -67183,7 +67654,7 @@
     "pk": "urspruenglicher-zweck-der-baute",
     "fields": {
       "created_at": "2023-04-12T10:50:01.213Z",
-      "modified_at": "2023-10-19T09:00:08.812Z",
+      "modified_at": "2023-10-19T12:21:25.815Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -67191,10 +67662,10 @@
       "label": "{\"de\": \"Urspr\\u00fcnglicher Zweck der Baute\", \"fr\": null, \"it\": null}",
       "type": "text",
       "is_required": "false",
-      "is_hidden": "!(\"landwirtschaftliches-vorhaben-nein\" == \"landwirtschaftliches-vorhaben\"|answer && \"baute-oder-anlage-baute\" == \"baute-oder-anlage\"|answer || \"baute-oder-anlage-beides\" == \"baute-oder-anlage\"|answer)",
+      "is_hidden": "!(\"baute-oder-anlage-baute\" == \"baute-oder-anlage\"|answer || \"baute-oder-anlage-beides\" == \"baute-oder-anlage\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Angabe f\\u00fcr welchen Zweck die Baute damals erstellt wurde (z.B. Stall, landwirtschaftliche Tempor\\u00e4rwohnbaute).\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
@@ -70248,10 +70719,10 @@
     "pk": "wohnhaus-anzahl-zimmer",
     "fields": {
       "created_at": "2023-04-18T19:01:55.491Z",
-      "modified_at": "2023-04-27T15:31:40.754Z",
+      "modified_at": "2023-10-19T12:24:03.251Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Anzahl Zimmer\", \"fr\": null, \"it\": null}",
       "type": "float",
@@ -70259,7 +70730,7 @@
       "is_hidden": "!(\"gebaeudeart-wohn-oder-ferienhaus\" in \"gebaeudeart\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Bei der Berechnung werden halbe Zimmer nicht mitgez\\u00e4hlt. K\\u00fcche und Wohnzimmer z\\u00e4hlen zusammen als 1 Zimmer.\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
@@ -70282,10 +70753,10 @@
     "pk": "wohnhaus-bestandteil-landwirtschaftliches-gewerbe",
     "fields": {
       "created_at": "2023-04-12T11:28:03.869Z",
-      "modified_at": "2023-04-27T07:08:06.146Z",
+      "modified_at": "2023-10-19T12:22:36.579Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Ist das Wohnhaus Bestandteil eines landwirtschaftlichen Gewerbes im Sinne des b\\u00e4uerlichen Bodenrechts?\", \"fr\": null, \"it\": null}",
       "type": "choice",
@@ -70293,7 +70764,7 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Sofern das Wohnhaus Bestandteil eines b\\u00e4uerlichen Bodenrechts ist, ist dem Baugesuch eine Feststellungsverf\\u00fcgung vom Grundbuchinspektorat und Handelsregister (GIHA) beizulegen (vgl. Art. 7 des Bundesgesetzes \\u00fcber das b\\u00e4uerliche Bodenrecht [BGBB]).\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -70884,19 +71355,19 @@
     "pk": "zweckaenderung-der-baute",
     "fields": {
       "created_at": "2023-10-19T09:11:40.367Z",
-      "modified_at": "2023-10-19T09:11:40.367Z",
+      "modified_at": "2023-10-19T12:21:52.067Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Zweck\\u00e4nderung der Baute in\", \"fr\": null, \"it\": null}",
       "type": "text",
       "is_required": "false",
-      "is_hidden": "!(\"landwirtschaftliches-vorhaben-nein\" == \"landwirtschaftliches-vorhaben\"|answer && \"baute-oder-anlage-baute\" == \"baute-oder-anlage\"|answer || \"baute-oder-anlage-beides\" == \"baute-oder-anlage\"|answer)",
+      "is_hidden": "!(\"baute-oder-anlage-baute\" == \"baute-oder-anlage\"|answer || \"baute-oder-anlage-beides\" == \"baute-oder-anlage\"|answer)",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Angabe f\\u00fcr welchen Zweck die Baute in Zukunft oder aktuell genutzt wird (z.B. Lagerraum, Ferien-/Wochenendhaus).\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -71042,7 +71513,7 @@
     "pk": "zweitwohnungsgesetz",
     "fields": {
       "created_at": "2023-10-02T16:26:55.644Z",
-      "modified_at": "2023-10-03T09:09:28.405Z",
+      "modified_at": "2023-10-19T11:55:56.702Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -71053,7 +71524,7 @@
       "is_hidden": "!(\"werden-neue-wohnungen-erstellt-ja\" == \"werden-neue-wohnungen-erstellt\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"Hier finden Sie eine [Karte](https://map.geo.admin.ch/?topic=ech&lang=de&bgLayer=ch.swisstopo.pixelkarte-farbe&layers=ch.swisstopo.zeitreihen,ch.bfs.gebaeude_wohnungs_register,ch.bav.haltestellen-oev,ch.swisstopo.swisstlm3d-wanderwege,ch.are.wohnungsinventar-zweitwohnungsanteil&layers_visibility=false,false,false,false,true&layers_timestamp=18641231,,,,&layers_opacity=1,1,1,1,0.75&E=2785394.25&N=1180381.63&zoom=2), in welchen Gemeinden das Zweitwohnungsgesetzes zur Anwendung kommt.\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Das eidg. Zweitwohnungsgesetz (ZWG) gelangt in verschiedenen Gemeinden zur Anwendung (vgl. [Karte](https://map.geo.admin.ch/?topic=ech&lang=de&bgLayer=ch.swisstopo.pixelkarte-farbe&layers=ch.swisstopo.zeitreihen,ch.bfs.gebaeude_wohnungs_register,ch.bav.haltestellen-oev,ch.swisstopo.swisstlm3d-wanderwege,ch.are.wohnungsinventar-zweitwohnungsanteil&layers_visibility=false,false,false,false,true&layers_timestamp=18641231,,,,&layers_opacity=1,1,1,1,0.75&E=2785394.25&N=1180381.63&zoom=2)). In diesen Gemeinden ist der Neubau von Zweitwohnungen nicht zul\\u00e4ssig. Bauwillige haben daher mit dem Baugesuch bekannt zu geben, ob bzw. welche Wohnungen touristisch bewirtschaftet werden und welche Wohnungen als Erstwohnung oder als einer Erstwohnung gleichgestellten Wohnung genutzt werden sollen. \\n\\nDiese Angaben sind in einem Plan zu verorten oder in einem Wohnungsspiegel zu bezeichnen.\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -74645,11 +75116,11 @@
     "model": "caluma_form.questionoption",
     "pk": "baugespann.baugespann-ja",
     "fields": {
-      "created_at": "2023-04-27T07:04:39.092Z",
-      "modified_at": "2023-04-27T07:04:39.092Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_at": "2023-10-19T11:47:13.995Z",
+      "modified_at": "2023-10-19T11:47:13.995Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "baugespann",
       "option": "baugespann-ja",
@@ -74660,11 +75131,11 @@
     "model": "caluma_form.questionoption",
     "pk": "baugespann.baugespann-nein",
     "fields": {
-      "created_at": "2023-04-27T07:04:39.087Z",
-      "modified_at": "2023-04-27T07:04:39.087Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_at": "2023-10-19T11:47:13.990Z",
+      "modified_at": "2023-10-19T11:47:13.990Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "baugespann",
       "option": "baugespann-nein",
@@ -74765,8 +75236,8 @@
     "model": "caluma_form.questionoption",
     "pk": "baute-oder-anlage.baute-oder-anlage-anlage",
     "fields": {
-      "created_at": "2023-06-26T09:48:37.059Z",
-      "modified_at": "2023-06-26T09:48:37.059Z",
+      "created_at": "2023-10-19T11:49:16.075Z",
+      "modified_at": "2023-10-19T11:49:16.076Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -74780,8 +75251,8 @@
     "model": "caluma_form.questionoption",
     "pk": "baute-oder-anlage.baute-oder-anlage-baute",
     "fields": {
-      "created_at": "2023-06-26T09:48:37.063Z",
-      "modified_at": "2023-06-26T09:48:37.063Z",
+      "created_at": "2023-10-19T11:49:16.083Z",
+      "modified_at": "2023-10-19T11:49:16.083Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -74795,8 +75266,8 @@
     "model": "caluma_form.questionoption",
     "pk": "baute-oder-anlage.baute-oder-anlage-beides",
     "fields": {
-      "created_at": "2023-06-26T09:48:37.053Z",
-      "modified_at": "2023-06-26T09:48:37.053Z",
+      "created_at": "2023-10-19T11:49:16.060Z",
+      "modified_at": "2023-10-19T11:49:16.060Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -75110,8 +75581,8 @@
     "model": "caluma_form.questionoption",
     "pk": "beschreibung-der-landwirtschaftlichen-bauten.beschreibung-der-landwirtschaftlichen-bauten-gewerbebauten",
     "fields": {
-      "created_at": "2023-10-19T08:59:20.672Z",
-      "modified_at": "2023-10-19T08:59:20.672Z",
+      "created_at": "2023-10-19T12:06:56.859Z",
+      "modified_at": "2023-10-19T12:06:56.859Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -75125,8 +75596,8 @@
     "model": "caluma_form.questionoption",
     "pk": "beschreibung-der-landwirtschaftlichen-bauten.beschreibung-der-landwirtschaftlichen-bauten-oekonomiebaute",
     "fields": {
-      "created_at": "2023-10-19T08:59:20.677Z",
-      "modified_at": "2023-10-19T08:59:20.677Z",
+      "created_at": "2023-10-19T12:06:56.865Z",
+      "modified_at": "2023-10-19T12:06:56.865Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -75140,8 +75611,8 @@
     "model": "caluma_form.questionoption",
     "pk": "beschreibung-der-landwirtschaftlichen-bauten.beschreibung-der-landwirtschaftlichen-bauten-wohnhaus",
     "fields": {
-      "created_at": "2023-10-19T08:59:20.681Z",
-      "modified_at": "2023-10-19T08:59:20.681Z",
+      "created_at": "2023-10-19T12:06:56.869Z",
+      "modified_at": "2023-10-19T12:06:56.869Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -76925,8 +77396,8 @@
     "model": "caluma_form.questionoption",
     "pk": "das-bauvorhaben-befindet-sich-in.das-bauvorhaben-befindet-sich-in-archaeologiezone",
     "fields": {
-      "created_at": "2023-07-05T07:31:40.376Z",
-      "modified_at": "2023-07-05T07:31:40.376Z",
+      "created_at": "2023-10-19T12:00:56.517Z",
+      "modified_at": "2023-10-19T12:00:56.517Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -76940,8 +77411,8 @@
     "model": "caluma_form.questionoption",
     "pk": "das-bauvorhaben-befindet-sich-in.das-bauvorhaben-befindet-sich-in-gefahrenzone",
     "fields": {
-      "created_at": "2023-07-05T07:31:40.389Z",
-      "modified_at": "2023-07-05T07:31:40.389Z",
+      "created_at": "2023-10-19T12:00:56.541Z",
+      "modified_at": "2023-10-19T12:00:56.541Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -76955,8 +77426,8 @@
     "model": "caluma_form.questionoption",
     "pk": "das-bauvorhaben-befindet-sich-in.das-bauvorhaben-befindet-sich-in-gewaesserschutzbereich",
     "fields": {
-      "created_at": "2023-07-05T07:31:40.383Z",
-      "modified_at": "2023-07-05T07:31:40.383Z",
+      "created_at": "2023-10-19T12:00:56.530Z",
+      "modified_at": "2023-10-19T12:00:56.530Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -76970,8 +77441,8 @@
     "model": "caluma_form.questionoption",
     "pk": "das-bauvorhaben-befindet-sich-in.das-bauvorhaben-befindet-sich-in-kataster-belasteter-standorte",
     "fields": {
-      "created_at": "2023-07-05T07:31:40.386Z",
-      "modified_at": "2023-07-05T07:31:40.386Z",
+      "created_at": "2023-10-19T12:00:56.536Z",
+      "modified_at": "2023-10-19T12:00:56.536Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -76985,8 +77456,8 @@
     "model": "caluma_form.questionoption",
     "pk": "das-bauvorhaben-befindet-sich-in.das-bauvorhaben-befindet-sich-in-laermvorbelastetes-gebiet",
     "fields": {
-      "created_at": "2023-07-05T07:31:40.379Z",
-      "modified_at": "2023-07-05T07:31:40.380Z",
+      "created_at": "2023-10-19T12:00:56.524Z",
+      "modified_at": "2023-10-19T12:00:56.524Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -79760,8 +80231,8 @@
     "model": "caluma_form.questionoption",
     "pk": "haustechnische-anlagen-brandschutz.haustechnische-anlagen-brandschutz-ja",
     "fields": {
-      "created_at": "2023-07-03T07:03:25.471Z",
-      "modified_at": "2023-07-03T07:03:25.471Z",
+      "created_at": "2023-10-19T12:00:14.107Z",
+      "modified_at": "2023-10-19T12:00:14.107Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -79775,8 +80246,8 @@
     "model": "caluma_form.questionoption",
     "pk": "haustechnische-anlagen-brandschutz.haustechnische-anlagen-brandschutz-nein",
     "fields": {
-      "created_at": "2023-07-03T07:03:25.465Z",
-      "modified_at": "2023-07-03T07:03:25.466Z",
+      "created_at": "2023-10-19T12:00:14.101Z",
+      "modified_at": "2023-10-19T12:00:14.101Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -80270,11 +80741,11 @@
     "model": "caluma_form.questionoption",
     "pk": "kantonsstrassen.kantonsstrassen-ja",
     "fields": {
-      "created_at": "2023-04-12T08:10:14.656Z",
-      "modified_at": "2023-04-12T08:10:14.656Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_at": "2023-10-19T11:58:47.264Z",
+      "modified_at": "2023-10-19T11:58:47.264Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "kantonsstrassen",
       "option": "kantonsstrassen-ja",
@@ -80285,11 +80756,11 @@
     "model": "caluma_form.questionoption",
     "pk": "kantonsstrassen.kantonsstrassen-nein",
     "fields": {
-      "created_at": "2023-04-12T08:10:14.653Z",
-      "modified_at": "2023-04-12T08:10:14.653Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_at": "2023-10-19T11:58:47.256Z",
+      "modified_at": "2023-10-19T11:58:47.256Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "kantonsstrassen",
       "option": "kantonsstrassen-nein",
@@ -80450,11 +80921,11 @@
     "model": "caluma_form.questionoption",
     "pk": "komplexe-erdwaermesonden-anlage.komplexe-erdwaermesonden-anlage-ja",
     "fields": {
-      "created_at": "2023-04-20T11:57:42.931Z",
-      "modified_at": "2023-04-20T11:57:42.931Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_at": "2023-10-19T12:41:49.869Z",
+      "modified_at": "2023-10-19T12:41:49.869Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "komplexe-erdwaermesonden-anlage",
       "option": "komplexe-erdwaermesonden-anlage-ja",
@@ -80465,11 +80936,11 @@
     "model": "caluma_form.questionoption",
     "pk": "komplexe-erdwaermesonden-anlage.komplexe-erdwaermesonden-anlage-nein",
     "fields": {
-      "created_at": "2023-04-20T11:57:42.926Z",
-      "modified_at": "2023-04-20T11:57:42.926Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_at": "2023-10-19T12:41:49.865Z",
+      "modified_at": "2023-10-19T12:41:49.865Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "komplexe-erdwaermesonden-anlage",
       "option": "komplexe-erdwaermesonden-anlage-nein",
@@ -81245,11 +81716,11 @@
     "model": "caluma_form.questionoption",
     "pk": "mehr-als-50-arbeitsplaetze.mehr-als-50-arbeitsplaetze-ja",
     "fields": {
-      "created_at": "2023-04-05T10:56:25.305Z",
-      "modified_at": "2023-04-05T10:56:25.305Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_at": "2023-10-19T11:57:05.258Z",
+      "modified_at": "2023-10-19T11:57:05.258Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "mehr-als-50-arbeitsplaetze",
       "option": "mehr-als-50-arbeitsplaetze-ja",
@@ -81260,11 +81731,11 @@
     "model": "caluma_form.questionoption",
     "pk": "mehr-als-50-arbeitsplaetze.mehr-als-50-arbeitsplaetze-nein",
     "fields": {
-      "created_at": "2023-04-05T10:56:25.302Z",
-      "modified_at": "2023-04-05T10:56:25.302Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_at": "2023-10-19T11:57:05.254Z",
+      "modified_at": "2023-10-19T11:57:05.254Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "mehr-als-50-arbeitsplaetze",
       "option": "mehr-als-50-arbeitsplaetze-nein",
@@ -81275,8 +81746,8 @@
     "model": "caluma_form.questionoption",
     "pk": "mehr-als-vier-wohneinheiten.mehr-als-vier-wohneinheiten-ja",
     "fields": {
-      "created_at": "2023-05-24T14:56:42.089Z",
-      "modified_at": "2023-05-24T14:56:42.089Z",
+      "created_at": "2023-10-19T11:53:04.338Z",
+      "modified_at": "2023-10-19T11:53:04.338Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -81290,8 +81761,8 @@
     "model": "caluma_form.questionoption",
     "pk": "mehr-als-vier-wohneinheiten.mehr-als-vier-wohneinheiten-nein",
     "fields": {
-      "created_at": "2023-05-24T14:56:42.083Z",
-      "modified_at": "2023-05-24T14:56:42.083Z",
+      "created_at": "2023-10-19T11:53:04.332Z",
+      "modified_at": "2023-10-19T11:53:04.332Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -82115,8 +82586,8 @@
     "model": "caluma_form.questionoption",
     "pk": "nutzungszweck-landwirtschaft.nutzungszweck-landwirtschaft-alpwirtschaftlicher-betrieb",
     "fields": {
-      "created_at": "2023-10-19T09:01:06.518Z",
-      "modified_at": "2023-10-19T09:01:06.518Z",
+      "created_at": "2023-10-19T12:14:33.118Z",
+      "modified_at": "2023-10-19T12:14:33.118Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -82130,8 +82601,8 @@
     "model": "caluma_form.questionoption",
     "pk": "nutzungszweck-landwirtschaft.nutzungszweck-landwirtschaft-andere",
     "fields": {
-      "created_at": "2023-10-19T09:01:06.504Z",
-      "modified_at": "2023-10-19T09:01:06.504Z",
+      "created_at": "2023-10-19T12:14:33.100Z",
+      "modified_at": "2023-10-19T12:14:33.100Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -82145,8 +82616,8 @@
     "model": "caluma_form.questionoption",
     "pk": "nutzungszweck-landwirtschaft.nutzungszweck-landwirtschaft-aufbereitungsraum",
     "fields": {
-      "created_at": "2023-10-19T09:01:06.514Z",
-      "modified_at": "2023-10-19T09:01:06.514Z",
+      "created_at": "2023-10-19T12:14:33.113Z",
+      "modified_at": "2023-10-19T12:14:33.113Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -82160,8 +82631,8 @@
     "model": "caluma_form.questionoption",
     "pk": "nutzungszweck-landwirtschaft.nutzungszweck-landwirtschaft-bienenhaus",
     "fields": {
-      "created_at": "2023-10-19T09:01:06.507Z",
-      "modified_at": "2023-10-19T09:01:06.507Z",
+      "created_at": "2023-10-19T12:14:33.104Z",
+      "modified_at": "2023-10-19T12:14:33.105Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -82175,8 +82646,8 @@
     "model": "caluma_form.questionoption",
     "pk": "nutzungszweck-landwirtschaft.nutzungszweck-landwirtschaft-gastronomie",
     "fields": {
-      "created_at": "2023-10-19T09:01:06.529Z",
-      "modified_at": "2023-10-19T09:01:06.529Z",
+      "created_at": "2023-10-19T12:14:33.131Z",
+      "modified_at": "2023-10-19T12:14:33.131Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -82190,8 +82661,8 @@
     "model": "caluma_form.questionoption",
     "pk": "nutzungszweck-landwirtschaft.nutzungszweck-landwirtschaft-grossviehstall",
     "fields": {
-      "created_at": "2023-10-19T09:01:06.540Z",
-      "modified_at": "2023-10-19T09:01:06.540Z",
+      "created_at": "2023-10-19T12:14:33.143Z",
+      "modified_at": "2023-10-19T12:14:33.143Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -82205,8 +82676,8 @@
     "model": "caluma_form.questionoption",
     "pk": "nutzungszweck-landwirtschaft.nutzungszweck-landwirtschaft-heustall",
     "fields": {
-      "created_at": "2023-10-19T09:01:06.525Z",
-      "modified_at": "2023-10-19T09:01:06.525Z",
+      "created_at": "2023-10-19T12:14:33.127Z",
+      "modified_at": "2023-10-19T12:14:33.127Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -82220,8 +82691,8 @@
     "model": "caluma_form.questionoption",
     "pk": "nutzungszweck-landwirtschaft.nutzungszweck-landwirtschaft-hofduengeranlage",
     "fields": {
-      "created_at": "2023-10-19T09:01:06.522Z",
-      "modified_at": "2023-10-19T09:01:06.522Z",
+      "created_at": "2023-10-19T12:14:33.122Z",
+      "modified_at": "2023-10-19T12:14:33.122Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -82235,8 +82706,8 @@
     "model": "caluma_form.questionoption",
     "pk": "nutzungszweck-landwirtschaft.nutzungszweck-landwirtschaft-hotel",
     "fields": {
-      "created_at": "2023-10-19T09:01:06.532Z",
-      "modified_at": "2023-10-19T09:01:06.533Z",
+      "created_at": "2023-10-19T12:14:33.135Z",
+      "modified_at": "2023-10-19T12:14:33.135Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -82250,8 +82721,8 @@
     "model": "caluma_form.questionoption",
     "pk": "nutzungszweck-landwirtschaft.nutzungszweck-landwirtschaft-kleinviehstall",
     "fields": {
-      "created_at": "2023-10-19T09:01:06.536Z",
-      "modified_at": "2023-10-19T09:01:06.536Z",
+      "created_at": "2023-10-19T12:14:33.139Z",
+      "modified_at": "2023-10-19T12:14:33.139Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -82265,8 +82736,8 @@
     "model": "caluma_form.questionoption",
     "pk": "nutzungszweck-landwirtschaft.nutzungszweck-landwirtschaft-nutzungszweck-der-baute-alpwirtschaftlicher-betrieb",
     "fields": {
-      "created_at": "2023-10-19T09:01:06.559Z",
-      "modified_at": "2023-10-19T09:01:06.559Z",
+      "created_at": "2023-10-19T12:14:33.164Z",
+      "modified_at": "2023-10-19T12:14:33.164Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -82280,8 +82751,8 @@
     "model": "caluma_form.questionoption",
     "pk": "nutzungszweck-landwirtschaft.nutzungszweck-landwirtschaft-nutzungszweck-der-baute-andere",
     "fields": {
-      "created_at": "2023-10-19T09:01:06.543Z",
-      "modified_at": "2023-10-19T09:01:06.544Z",
+      "created_at": "2023-10-19T12:14:33.148Z",
+      "modified_at": "2023-10-19T12:14:33.148Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -82295,8 +82766,8 @@
     "model": "caluma_form.questionoption",
     "pk": "nutzungszweck-landwirtschaft.nutzungszweck-landwirtschaft-nutzungszweck-der-baute-aufbereitungsraum",
     "fields": {
-      "created_at": "2023-10-19T09:01:06.555Z",
-      "modified_at": "2023-10-19T09:01:06.555Z",
+      "created_at": "2023-10-19T12:14:33.160Z",
+      "modified_at": "2023-10-19T12:14:33.160Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -82310,8 +82781,8 @@
     "model": "caluma_form.questionoption",
     "pk": "nutzungszweck-landwirtschaft.nutzungszweck-landwirtschaft-nutzungszweck-der-baute-bienenhaus",
     "fields": {
-      "created_at": "2023-10-19T09:01:06.547Z",
-      "modified_at": "2023-10-19T09:01:06.547Z",
+      "created_at": "2023-10-19T12:14:33.152Z",
+      "modified_at": "2023-10-19T12:14:33.152Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -82325,8 +82796,8 @@
     "model": "caluma_form.questionoption",
     "pk": "nutzungszweck-landwirtschaft.nutzungszweck-landwirtschaft-nutzungszweck-der-baute-gastronomie",
     "fields": {
-      "created_at": "2023-10-19T09:01:06.572Z",
-      "modified_at": "2023-10-19T09:01:06.572Z",
+      "created_at": "2023-10-19T12:14:33.176Z",
+      "modified_at": "2023-10-19T12:14:33.176Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -82340,8 +82811,8 @@
     "model": "caluma_form.questionoption",
     "pk": "nutzungszweck-landwirtschaft.nutzungszweck-landwirtschaft-nutzungszweck-der-baute-grossviehstall",
     "fields": {
-      "created_at": "2023-10-19T09:01:06.584Z",
-      "modified_at": "2023-10-19T09:01:06.584Z",
+      "created_at": "2023-10-19T12:14:33.190Z",
+      "modified_at": "2023-10-19T12:14:33.190Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -82355,8 +82826,8 @@
     "model": "caluma_form.questionoption",
     "pk": "nutzungszweck-landwirtschaft.nutzungszweck-landwirtschaft-nutzungszweck-der-baute-heustall",
     "fields": {
-      "created_at": "2023-10-19T09:01:06.568Z",
-      "modified_at": "2023-10-19T09:01:06.568Z",
+      "created_at": "2023-10-19T12:14:33.172Z",
+      "modified_at": "2023-10-19T12:14:33.172Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -82370,8 +82841,8 @@
     "model": "caluma_form.questionoption",
     "pk": "nutzungszweck-landwirtschaft.nutzungszweck-landwirtschaft-nutzungszweck-der-baute-hofduengeranlage",
     "fields": {
-      "created_at": "2023-10-19T09:01:06.563Z",
-      "modified_at": "2023-10-19T09:01:06.563Z",
+      "created_at": "2023-10-19T12:14:33.168Z",
+      "modified_at": "2023-10-19T12:14:33.168Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -82385,8 +82856,8 @@
     "model": "caluma_form.questionoption",
     "pk": "nutzungszweck-landwirtschaft.nutzungszweck-landwirtschaft-nutzungszweck-der-baute-hotel",
     "fields": {
-      "created_at": "2023-10-19T09:01:06.576Z",
-      "modified_at": "2023-10-19T09:01:06.577Z",
+      "created_at": "2023-10-19T12:14:33.180Z",
+      "modified_at": "2023-10-19T12:14:33.181Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -82400,8 +82871,8 @@
     "model": "caluma_form.questionoption",
     "pk": "nutzungszweck-landwirtschaft.nutzungszweck-landwirtschaft-nutzungszweck-der-baute-kleinviehstall",
     "fields": {
-      "created_at": "2023-10-19T09:01:06.580Z",
-      "modified_at": "2023-10-19T09:01:06.580Z",
+      "created_at": "2023-10-19T12:14:33.184Z",
+      "modified_at": "2023-10-19T12:14:33.185Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -82415,8 +82886,8 @@
     "model": "caluma_form.questionoption",
     "pk": "nutzungszweck-landwirtschaft.nutzungszweck-landwirtschaft-nutzungszweck-der-baute-remise",
     "fields": {
-      "created_at": "2023-10-19T09:01:06.551Z",
-      "modified_at": "2023-10-19T09:01:06.551Z",
+      "created_at": "2023-10-19T12:14:33.156Z",
+      "modified_at": "2023-10-19T12:14:33.156Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -82430,8 +82901,8 @@
     "model": "caluma_form.questionoption",
     "pk": "nutzungszweck-landwirtschaft.nutzungszweck-landwirtschaft-remise",
     "fields": {
-      "created_at": "2023-10-19T09:01:06.511Z",
-      "modified_at": "2023-10-19T09:01:06.511Z",
+      "created_at": "2023-10-19T12:14:33.109Z",
+      "modified_at": "2023-10-19T12:14:33.109Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -83255,8 +83726,8 @@
     "model": "caluma_form.questionoption",
     "pk": "rodung.rodung-ja",
     "fields": {
-      "created_at": "2023-05-17T07:28:07.124Z",
-      "modified_at": "2023-05-17T07:28:07.124Z",
+      "created_at": "2023-10-19T11:50:01.579Z",
+      "modified_at": "2023-10-19T11:50:01.579Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -83270,8 +83741,8 @@
     "model": "caluma_form.questionoption",
     "pk": "rodung.rodung-nein",
     "fields": {
-      "created_at": "2023-05-17T07:28:07.121Z",
-      "modified_at": "2023-05-17T07:28:07.121Z",
+      "created_at": "2023-10-19T11:50:01.575Z",
+      "modified_at": "2023-10-19T11:50:01.575Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -88370,11 +88841,11 @@
     "model": "caluma_form.questionoption",
     "pk": "wohnhaus-bestandteil-landwirtschaftliches-gewerbe.wohnhaus-bestandteil-landwirtschaftliches-gewerbe-ja",
     "fields": {
-      "created_at": "2023-04-27T07:08:06.162Z",
-      "modified_at": "2023-04-27T07:08:06.162Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_at": "2023-10-19T12:22:36.605Z",
+      "modified_at": "2023-10-19T12:22:36.605Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "wohnhaus-bestandteil-landwirtschaftliches-gewerbe",
       "option": "wohnhaus-bestandteil-landwirtschaftliches-gewerbe-ja",
@@ -88385,11 +88856,11 @@
     "model": "caluma_form.questionoption",
     "pk": "wohnhaus-bestandteil-landwirtschaftliches-gewerbe.wohnhaus-bestandteil-landwirtschaftliches-gewerbe-nein",
     "fields": {
-      "created_at": "2023-04-27T07:08:06.157Z",
-      "modified_at": "2023-04-27T07:08:06.157Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_at": "2023-10-19T12:22:36.596Z",
+      "modified_at": "2023-10-19T12:22:36.596Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "wohnhaus-bestandteil-landwirtschaftliches-gewerbe",
       "option": "wohnhaus-bestandteil-landwirtschaftliches-gewerbe-nein",
@@ -88865,8 +89336,8 @@
     "model": "caluma_form.questionoption",
     "pk": "zweitwohnungsgesetz.zweitwohnungsgesetz-ja",
     "fields": {
-      "created_at": "2023-10-02T16:37:13.883Z",
-      "modified_at": "2023-10-02T16:37:13.883Z",
+      "created_at": "2023-10-19T11:55:56.722Z",
+      "modified_at": "2023-10-19T11:55:56.722Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -88880,8 +89351,8 @@
     "model": "caluma_form.questionoption",
     "pk": "zweitwohnungsgesetz.zweitwohnungsgesetz-nein",
     "fields": {
-      "created_at": "2023-10-02T16:37:13.875Z",
-      "modified_at": "2023-10-02T16:37:13.875Z",
+      "created_at": "2023-10-19T11:55:56.716Z",
+      "modified_at": "2023-10-19T11:55:56.716Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
