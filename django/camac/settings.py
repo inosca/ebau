@@ -962,6 +962,7 @@ APPLICATIONS = {
                 },
             ),
             "street": ("ng_answer", "ortsbezeichnung-des-vorhabens"),
+            "street_addition": ("ng_answer", "standort-spezialbezeichnung"),
             "city": ("ng_answer", "standort-ort"),
             "submit_date": ("first_workflow_entry", [10]),
             "publication_date": ("first_workflow_entry", [15]),
