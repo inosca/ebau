@@ -4,6 +4,7 @@ import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
 import { trackedTask } from "ember-resources/util/ember-concurrency";
 
+import mainConfig from "ember-ebau-core/config/main";
 import getPublications from "ember-ebau-core/gql/queries/get-publications.graphql";
 
 export default class PublicationController extends Controller {
@@ -18,19 +19,15 @@ export default class PublicationController extends Controller {
   ]);
 
   get variables() {
+    const { task, startQuestion, endQuestion } =
+      mainConfig.publication[this.model.type];
+
     return {
       instanceId: this.ebauModules.instanceId,
-      ...(this.model.type === "neighbors"
-        ? {
-            task: "information-of-neighbors",
-            startQuestion: "information-of-neighbors-start-date",
-            endQuestion: "information-of-neighbors-end-date",
-          }
-        : {
-            task: "fill-publication",
-            startQuestion: "publikation-startdatum",
-            endQuestion: "publikation-ablaufdatum",
-          }),
+      task,
+      startQuestion,
+      endQuestion,
+      fetchDates: Boolean(startQuestion && endQuestion),
     };
   }
 
