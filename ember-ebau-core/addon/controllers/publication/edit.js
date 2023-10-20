@@ -8,6 +8,7 @@ import { trackedTask } from "ember-resources/util/ember-concurrency";
 import { confirm } from "ember-uikit";
 import { dedupeTracked } from "tracked-toolbox";
 
+import mainConfig from "ember-ebau-core/config/main";
 import saveWorkItemMutation from "ember-ebau-core/gql/mutations/save-workitem.graphql";
 import getPublication from "ember-ebau-core/gql/queries/get-publication.graphql";
 import getPublications from "ember-ebau-core/gql/queries/get-publications.graphql";
@@ -84,26 +85,19 @@ export default class PublicationEditController extends Controller {
   }
 
   @action async refreshNavigation(transitionToIndex = false) {
+    const { task, startQuestion, endQuestion } =
+      mainConfig.publication[this.model.type];
+
     await this.apollo.query({
       query: getPublications,
       fetchPolicy: "network-only",
-      ...(this.model.type === "neighbors"
-        ? {
-            variables: {
-              instanceId: this.ebauModules.instanceId,
-              task: "information-of-neighbors",
-              startQuestion: "information-of-neighbors-start-date",
-              endQuestion: "information-of-neighbors-end-date",
-            },
-          }
-        : {
-            variables: {
-              instanceId: this.ebauModules.instanceId,
-              task: "fill-publication",
-              startQuestion: "publikation-startdatum",
-              endQuestion: "publikation-ablaufdatum",
-            },
-          }),
+      variables: {
+        instanceId: this.ebauModules.instanceId,
+        task,
+        startQuestion,
+        endQuestion,
+        fetchDates: Boolean(startQuestion && endQuestion),
+      },
     });
 
     if (transitionToIndex) {

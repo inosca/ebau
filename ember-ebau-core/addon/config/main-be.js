@@ -69,4 +69,16 @@ export default {
     },
   },
   intentSlugs: ["beschreibung-bauvorhaben"],
+  publication: {
+    neighbors: {
+      task: "information-of-neighbors",
+      startQuestion: "information-of-neighbors-start-date",
+      endQuestion: "information-of-neighbors-end-date",
+    },
+    public: {
+      task: "fill-publication",
+      startQuestion: "publikation-startdatum",
+      endQuestion: "publikation-ablaufdatum",
+    },
+  },
 };

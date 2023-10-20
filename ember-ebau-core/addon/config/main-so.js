@@ -49,6 +49,13 @@ const config = {
       "distribution",
     ],
   },
+  publication: {
+    public: {
+      task: "fill-publication",
+      startQuestion: "publikation-start",
+      endQuestion: "publikation-ende",
+    },
+  },
 };
 
 config.intentSlugs = [config.answerSlugs.description];

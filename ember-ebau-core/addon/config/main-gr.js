@@ -60,4 +60,9 @@ export default {
     instanceState: "correction",
     allowedInstanceStates: ["subm", "init-distribution", "circulation"],
   },
+  publication: {
+    public: {
+      task: "fill-publication",
+    },
+  },
 };
