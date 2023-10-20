@@ -1188,21 +1188,34 @@ class PublicCalumaInstanceView(mixins.InstanceQuerysetMixin, ListAPIView):
 
     def get_queryset_for_public(self):
         queryset = (
-            super()
-            .get_queryset_for_public()
-            .prefetch_related(
-                *build_document_prefetch_statements(prefix="document"),
-            )
-            .annotate(instance_id=F("instance__pk"))
+            super().get_queryset_for_public().annotate(instance_id=F("instance__pk"))
         )
 
-        if settings.PUBLICATION.get("BACKEND") == "caluma":
+        if settings.APPLICATION["FORM_BACKEND"] == "camac-ng":
+            queryset = queryset.prefetch_related("instance__fields")
+        elif settings.APPLICATION["FORM_BACKEND"] == "caluma":
+            queryset = queryset.prefetch_related(
+                *build_document_prefetch_statements(prefix="document")
+            )
+
+        if settings.PUBLICATION.get("BACKEND") == "camac-ng":
+            queryset = queryset.annotate(
+                dossier_nr=Cast(
+                    KeyTextTransform("dossier-number", "meta"), CharField()
+                ),
+                publication_end_date=Subquery(
+                    PublicationEntry.objects.filter(
+                        instance_id=OuterRef("instance_id")
+                    ).values("publication_end_date")[:1]
+                ),
+            ).order_by("instance__location", "publication_end_date", "dossier_nr")
+        elif settings.PUBLICATION.get("BACKEND") == "caluma":
             special_id = (
                 "ebau-number"
                 if settings.APPLICATION_NAME == "kt_bern"
                 else "dossier-number"
             )
-            return queryset.annotate(
+            queryset = queryset.annotate(
                 dossier_nr=Cast(
                     KeyTextTransform(
                         special_id,
@@ -1230,14 +1243,7 @@ class PublicCalumaInstanceView(mixins.InstanceQuerysetMixin, ListAPIView):
                 ),
             ).order_by("year", "nr")
 
-        return queryset.annotate(
-            dossier_nr=Cast(KeyTextTransform("dossier-number", "meta"), CharField()),
-            publication_end_date=Subquery(
-                PublicationEntry.objects.filter(
-                    instance_id=OuterRef("instance_id")
-                ).values("publication_end_date")[:1]
-            ),
-        ).order_by("instance__location", "publication_end_date", "dossier_nr")
+        return queryset
 
     def get_queryset_for_oereb_api(self):
         queryset = (

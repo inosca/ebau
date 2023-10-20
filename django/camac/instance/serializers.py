@@ -2212,11 +2212,11 @@ class PublicCalumaInstanceSerializer(serializers.Serializer):  # pragma: no cove
 
     document_id = serializers.CharField(read_only=True)
     instance_id = serializers.IntegerField(read_only=True)
-    dossier_nr = serializers.CharField(read_only=True)
     publication_date = serializers.DateTimeField(read_only=True)
     publication_end_date = serializers.DateTimeField(read_only=True)
     publication_text = serializers.CharField(read_only=True)
 
+    dossier_nr = serializers.SerializerMethodField()
     municipality = serializers.SerializerMethodField()
     applicant = serializers.SerializerMethodField()
     intent = serializers.SerializerMethodField()
@@ -2226,6 +2226,7 @@ class PublicCalumaInstanceSerializer(serializers.Serializer):  # pragma: no cove
     legal_state = serializers.SerializerMethodField()
     instance_state = serializers.SerializerMethodField()
     form_type = serializers.SerializerMethodField()
+    form_description = serializers.SerializerMethodField()
     authority = serializers.SerializerMethodField()
 
     _master_data_cache = {}
@@ -2241,7 +2242,10 @@ class PublicCalumaInstanceSerializer(serializers.Serializer):  # pragma: no cove
 
     def get_municipality(self, case):
         municipality = self.get_master_data(case).municipality
-        return municipality.get("label") if municipality else None
+        if not municipality:
+            return None
+
+        return municipality.get("label") if "label" in municipality else municipality
 
     def get_applicant(self, case):
         return ", ".join(
@@ -2266,6 +2270,18 @@ class PublicCalumaInstanceSerializer(serializers.Serializer):  # pragma: no cove
         return self.get_master_data(case).proposal
 
     def get_street(self, case):
+        if settings.APPLICATION_NAME == "kt_schwyz":
+            return ", ".join(
+                filter(
+                    None,
+                    [
+                        self.get_master_data(case).street,
+                        self.get_master_data(case).street_addition,
+                        self.get_master_data(case).city,
+                    ],
+                )
+            ).strip()
+
         return " ".join(
             filter(
                 None,
@@ -2281,7 +2297,7 @@ class PublicCalumaInstanceSerializer(serializers.Serializer):  # pragma: no cove
             filter(
                 None,
                 [
-                    plot.get("plot_number")
+                    str(plot.get("plot_number"))
                     for plot in self.get_master_data(case).plot_data
                 ],
             )
@@ -2300,11 +2316,20 @@ class PublicCalumaInstanceSerializer(serializers.Serializer):  # pragma: no cove
     def get_instance_state(self, case):
         if settings.APPLICATION.get("USE_OEREB_FIELDS_FOR_PUBLIC_ENDPOINT"):
             return case.instance.instance_state.name
+        elif settings.APPLICATION_NAME == "kt_schwyz":
+            return case.instance.instance_state.name
         return ""
 
     def get_form_type(self, case):
         if settings.APPLICATION.get("USE_OEREB_FIELDS_FOR_PUBLIC_ENDPOINT"):
             return self.get_master_data(case).form_type
+        elif settings.APPLICATION_NAME == "kt_schwyz":
+            return case.instance.form.name
+        return ""
+
+    def get_form_description(self, case):
+        if settings.APPLICATION_NAME == "kt_schwyz":
+            return case.instance.form.description
         return ""
 
     def get_authority(self, case):
@@ -2312,6 +2337,9 @@ class PublicCalumaInstanceSerializer(serializers.Serializer):  # pragma: no cove
             authority = self.get_master_data(case).authority
             return authority.get("label") if authority else None
         return ""
+
+    def get_dossier_nr(self, case):
+        return self.get_master_data(case).dossier_number
 
     class Meta:
         model = workflow_models.Case
