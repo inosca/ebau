@@ -3728,6 +3728,12 @@ APPLICATIONS = {
             "subservice": "service",
             "support": "support",
         },
+        "DEMO_MODE_GROUPS": [
+            4,  # Administration Gemeinde Solothurn
+            5,  # Leitung Gemeinde Solothurn
+            540,  # Administration Amt für Umwelt (AfU)
+            539,  # Leitung Amt für Umwelt (AfU)
+        ],
         "ADMIN_GROUP": 1,
         "IS_MULTILINGUAL": True,
         "FORM_BACKEND": "caluma",
