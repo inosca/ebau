@@ -154,30 +154,36 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
         user, created = self._update_or_create_user(defaults)
 
         self._update_applicants(user)
+        self._assign_demo_groups(user)
 
         if created:
             if settings.URI_MIGRATE_PORTAL_USER and "portalid" in data:
                 migrate_portal_user(data.get("portalid"), user)
-
-            demo_groups = settings.APPLICATION.get("DEMO_MODE_GROUPS")
-            if settings.DEMO_MODE and demo_groups:
-                for i, group_id in enumerate(demo_groups):
-                    default_group = 1 if i == 0 else 0
-                    try:
-                        group = Group.objects.get(pk=group_id)
-                        UserGroup.objects.create(
-                            user=user, group=group, default_group=default_group
-                        )
-                    except ObjectDoesNotExist:
-                        request_logger.error(
-                            f"Got invalid DEMO_MODE_GROUP ID ({group_id}), skipping"
-                        )
 
         if not user.is_active:
             msg = _("User is deactivated.")
             raise AuthenticationFailed(msg)
 
         return user
+
+    def _assign_demo_groups(self, user):
+        if not settings.DEMO_MODE:
+            return
+
+        group_ids = settings.APPLICATION.get("DEMO_MODE_GROUPS", [])
+
+        for i, group_id in enumerate(group_ids):
+            default_group = 1 if i == 0 else 0
+
+            try:
+                group = Group.objects.get(pk=group_id)
+                UserGroup.objects.update_or_create(
+                    user=user, group=group, defaults={"default_group": default_group}
+                )
+            except ObjectDoesNotExist:
+                request_logger.error(
+                    f"Got invalid DEMO_MODE_GROUP ID ({group_id}), skipping"
+                )
 
     def _update_applicants(self, user):
         pending_applicants = Applicant.objects.filter(email=user.email, invitee=None)
