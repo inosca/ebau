@@ -2709,7 +2709,7 @@
       "label": "{\"de\": \"is-paper\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "true",
-      "is_hidden": "'verlaengerung-geltungsdauer' == form || 'migriertes-dossier' == form",
+      "is_hidden": "'migriertes-dossier' == form",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
