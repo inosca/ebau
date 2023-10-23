@@ -43,6 +43,11 @@ export default class AlexandriaConfigService extends ConfigService {
         tooltip: this.intl.t("documents.mark.decision"),
         icon: "stamp",
       },
+      {
+        type: "publication",
+        tooltip: this.intl.t("documents.mark.publication"),
+        icon: "bullhorn",
+      },
     ];
   }
 

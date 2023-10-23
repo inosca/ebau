@@ -129,6 +129,7 @@ INSTALLED_APPS = [
     "camac.django_admin.apps.DjangoAdminConfig",
     # alexandria
     "alexandria.core.apps.DefaultConfig",
+    "camac.alexandria.apps.AlexandriaConfig",
     # TODO: remove this when all production environments ran the migration to
     # delete the tables of this app
     "camac.file.apps.DefaultConfig",
@@ -400,9 +401,6 @@ APPLICATIONS = {
         "ATTACHMENT_SECTION_INTERNAL": 4,
         "DOCUMENT_BACKEND": "camac-ng",
         "DOCUMENT_MERGE_SERVICE": {},
-        "ALEXANDRIA": {
-            "PUBLIC_ROLE": "applicant",
-        },
         "MASTER_DATA": {},
     },
     "kt_schwyz": {

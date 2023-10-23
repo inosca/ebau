@@ -4,7 +4,6 @@ from alexandria.core.permissions import (
     object_permission_for,
     permission_for,
 )
-from django.conf import settings
 
 from camac.alexandria.extensions.common import get_role
 from camac.alexandria.extensions.permissions import classes as permissions
@@ -79,9 +78,7 @@ class CustomPermission(BasePermission):
 
     @permission_for(Tag)
     def has_permission_for_tag(self, request):
-        if get_role(request.caluma_info.context.user) != settings.APPLICATION.get(
-            "ALEXANDRIA", {}
-        ).get("PUBLIC_ROLE", "public"):
+        if get_role(request.caluma_info.context.user) not in ["public", "applicant"]:
             return True
 
         return False
@@ -91,7 +88,5 @@ class CustomPermission(BasePermission):
         if get_role(request.caluma_info.context.user) == "support":
             return True
 
-        if get_role(request.caluma_info.context.user) != settings.APPLICATION.get(
-            "ALEXANDRIA", {}
-        ).get("PUBLIC_ROLE", "public"):
+        if get_role(request.caluma_info.context.user) not in ["public", "applicant"]:
             return tag.created_by_group == str(request.caluma_info.context.user.group)

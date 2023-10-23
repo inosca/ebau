@@ -1,53 +1,66 @@
-{{#if (macroCondition (macroGetOwnConfig "enablePublicationForm"))}}
-{{else}}
+{{#if (macroCondition (macroGetOwnConfig "enablePublicationForm"))}}{{else}}
   <h1>{{t "publicInstancesDetail.documents"}}</h1>
 {{/if}}
 
-<table class="uk-table uk-table-striped uk-table-hover uk-table-responsive">
-  <thead>
-    <tr>
-      <th class="uk-text-nowrap">{{t "instances.special-id"}}</th>
-      <th class="uk-text-nowrap">{{t "publicInstancesDetail.fileName"}}</th>
-      <th class="uk-text-nowrap">{{t "publicInstancesDetail.size"}}</th>
-      <th class="uk-text-nowrap">{{t "publicInstancesDetail.date"}}</th>
-    </tr>
-  </thead>
-  <tbody>
-    {{#if this.attachments.isRunning}}
+{{#if (macroCondition (macroGetOwnConfig "documentBackendCamac"))}}
+  <table class="uk-table uk-table-striped uk-table-hover uk-table-responsive">
+    <thead>
       <tr>
-        <td class="uk-text-center" colspan="4"><UkSpinner /></td>
+        <th class="uk-text-nowrap">{{t "instances.special-id"}}</th>
+        <th class="uk-text-nowrap">{{t "publicInstancesDetail.fileName"}}</th>
+        <th class="uk-text-nowrap">{{t "publicInstancesDetail.size"}}</th>
+        <th class="uk-text-nowrap">{{t "publicInstancesDetail.date"}}</th>
       </tr>
-    {{else if this.attachments.value.length}}
-      {{#each this.attachments.value as |attachment|}}
+    </thead>
+    <tbody>
+      {{#if this.attachments.isRunning}}
         <tr>
-          <td>
-            {{this.dossierNr}}
-          </td>
-          <td>
-            <Thumbnail @attachmentId={{attachment.id}}>
-              <button
-                class="uk-button uk-button-link"
-                title="{{t "publicInstancesDetail.download"}}"
-                type="button"
-                {{on "click" (perform attachment.download)}}
-              >
-                {{attachment.displayNameOrReplaced}}
-              </button>
-            </Thumbnail>
-            {{#if attachment.context.isPublishedWithoutObligation}}
-              <span uk-icon="icon: info; ratio: 1.2" class="uk-margin-small-left" title={{t "publicInstances.publishedWithoutObligation"}}></span>
-            {{/if}}
-          </td>
-          <td>{{attachment.filesize}}</td>
-          <td>{{format-date attachment.date format="date"}}</td>
+          <td class="uk-text-center" colspan="4"><UkSpinner /></td>
         </tr>
-      {{/each}}
-    {{else}}
-      <tr>
-        <td class="uk-text-center uk-text-italic" colspan="4">{{t "publicInstancesDetail.empty"}}</td>
-      </tr>
-    {{/if}}
-  </tbody>
-</table>
+      {{else if this.attachments.value.length}}
+        {{#each this.attachments.value as |attachment|}}
+          <tr>
+            <td>
+              {{this.dossierNr}}
+            </td>
+            <td>
+              <Thumbnail @attachmentId={{attachment.id}}>
+                <button
+                  class="uk-button uk-button-link"
+                  title="{{t 'publicInstancesDetail.download'}}"
+                  type="button"
+                  {{on "click" (perform attachment.download)}}
+                >
+                  {{attachment.displayNameOrReplaced}}
+                </button>
+              </Thumbnail>
+              {{#if attachment.context.isPublishedWithoutObligation}}
+                <span
+                  uk-icon="icon: info; ratio: 1.2"
+                  class="uk-margin-small-left"
+                  title={{t "publicInstances.publishedWithoutObligation"}}
+                ></span>
+              {{/if}}
+            </td>
+            <td>{{attachment.filesize}}</td>
+            <td>{{format-date attachment.date format="date"}}</td>
+          </tr>
+        {{/each}}
+      {{else}}
+        <tr>
+          <td class="uk-text-center uk-text-italic" colspan="4">{{t
+              "publicInstancesDetail.empty"
+            }}</td>
+        </tr>
+      {{/if}}
+    </tbody>
+  </table>
+{{else}}
+  <AlexandriaAttachmentList
+    @loading={{this.attachments.isRunning}}
+    @attachments={{this.attachments.value}}
+  />
+{{/if}}
+
 <p>{{t "publicInstancesDetail.copyrightText"}}</p>
 <p>{{t "publicInstancesDetail.privacyText"}}</p>

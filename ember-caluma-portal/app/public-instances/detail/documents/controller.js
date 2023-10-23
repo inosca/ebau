@@ -1,5 +1,6 @@
 import Controller, { inject as controller } from "@ember/controller";
 import { inject as service } from "@ember/service";
+import { macroCondition, getOwnConfig } from "@embroider/macros";
 import { dropTask } from "ember-concurrency";
 import { trackedTask } from "ember-resources/util/ember-concurrency";
 
@@ -21,7 +22,12 @@ export default class PublicInstancesDetailDocumentsController extends Controller
     yield Promise.resolve();
 
     try {
-      return yield this.store.query("attachment", {
+      if (macroCondition(getOwnConfig().documentBackendCamac)) {
+        return yield this.store.query("attachment", {
+          instance: this.model,
+        });
+      }
+      return yield this.store.query("document", {
         instance: this.model,
       });
     } catch (e) {
