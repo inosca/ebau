@@ -64,7 +64,7 @@
         </p>
       </div>
       <div uk-alert
-        class="uk-margin-remove-top instance-overview__action--highlight uk-width-1-1 uk-padding-small"
+        class="uk-margin-remove-top border-highlight uk-width-1-1 uk-padding-small"
       >
         {{t "instances.rejectionInfoText" htmlSafe=true}}
       </div>
@@ -104,7 +104,7 @@
   </div>
   <div class="uk-width-3-4 uk-width-2-3@m">
     {{#if (can "create copy of instance" this.instance.value)}}
-      <div class="instance-overview__action--highlight uk-padding-small uk-padding-remove-right uk-padding-remove-vertical">
+      <div class="border-highlight uk-padding-small uk-padding-remove-right uk-padding-remove-vertical">
         <h3 class="instance-overview__action-title">
           {{t "instances.rejectionTitle"}}
           {{t "instances.rejectionTitleSuffix"}}

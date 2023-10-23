@@ -2490,7 +2490,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"<hr>\\n<p class=\\\"uk-margin-remove-bottom\\\">S\\u00e4mtliche Pl\\u00e4ne und Dokumente sind unterzeichnet, datiert und in mindestens zweifacher Ausgabe mit dem Gesuchsformular bei der zust\\u00e4ndigen Gemeinde einzusenden.</p>\", \"fr\": \"<hr>\\n<p class=\\\"uk-margin-remove-bottom\\\">Tous les documents doivent \\u00eatre sign\\u00e9s, dat\\u00e9s et soumis en au moins deux exemplaires avec le formulaire de demande \\u00e0 la municipalit\\u00e9 responsable.</p>\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"<hr>\\n<div class=\\\"uk-margin-remove-bottom uk-alert border-highlight\\\">S\\u00e4mtliche Pl\\u00e4ne und Dokumente sind unterzeichnet, datiert und in mindestens zweifacher Ausgabe mit dem Gesuchsformular bei der zust\\u00e4ndigen Gemeinde einzusenden.</div>\", \"fr\": \"<hr>\\n<div class=\\\"uk-margin-remove-bottom uk-alert border-highlight\\\">Tous les documents doivent \\u00eatre sign\\u00e9s, dat\\u00e9s et soumis en au moins deux exemplaires avec le formulaire de demande \\u00e0 la municipalit\\u00e9 responsable.</div>\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
