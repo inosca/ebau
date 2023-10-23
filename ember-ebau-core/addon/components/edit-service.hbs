@@ -27,6 +27,11 @@
           </div>
         {{/if}}
       </div>
+      {{#if (and this.serviceParent (gt this.mainConfig.languages.length 1))}}
+        <div uk-alert>
+          {{t "service-permissions.name-hint" htmlSafe=true}}
+        </div>
+      {{/if}}
     </div>
     <div class="uk-margin">
       <label class="uk-form-label uk-text-bold" for="email">

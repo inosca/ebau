@@ -6,6 +6,9 @@ service-permissions:
   email: "E-Mail"
   group: "Gruppe"
   name: "Name"
+  name-hint: |-
+    <strong>Hinweis: </strong>Um den Namen und Ort der Unterfachstelle ebenfalls in anderen Sprachen zu definieren, 
+    wechseln Sie die Sprache, passen Sie die Bezeichnung an und drücken Sie erneut auf "Speichern".
   phone: "Telefon"
   website: "Webseite"
   website-placeholder: "https://gr.ch"
