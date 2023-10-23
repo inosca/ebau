@@ -227,7 +227,7 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
             )
             attachmentInInternSection = self.instance.attachment_sections.filter(
                 attachment_section_id=settings.APPLICATION.get(
-                    "ATTACHMENT_SECTION_INTERN", None
+                    "ATTACHMENT_SECTION_INTERNAL", None
                 )
             ).exists()
 
