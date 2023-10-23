@@ -74,6 +74,9 @@ def test_public_urls(db, public_urls, public_data, admin_client):
         # SZ form fields
         "/api/v1/form-fields",
         "/api/v1/form-fields/%(pk)s",
+        # alexandria
+        "/api/v1/documents",
+        "/api/v1/files",
     ]
 
     for model, url_config in public_urls:

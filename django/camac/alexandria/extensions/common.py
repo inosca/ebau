@@ -7,10 +7,11 @@ from camac.user.models import Service
 
 
 def get_role(user):
-    role = "public"
+    # TODO: tests set group even when its public
+    if user.group is None:  # pragma: no cover
+        return "public"
 
-    if user.group:
-        role = user.camac_role
+    role = user.camac_role
 
     if settings.APPLICATION_NAME == "kt_gr":
         role = get_kt_gr_mapped_role(user, role)
