@@ -5,6 +5,7 @@ import { tracked } from "@glimmer/tracking";
 import { dropTask } from "ember-concurrency";
 import { trackedFunction } from "ember-resources/util/function";
 
+import mainConfig from "ember-ebau-core/config/main";
 import parseError from "ember-ebau-core/utils/parse-error";
 
 export default class EditServiceComponent extends Component {
@@ -13,9 +14,13 @@ export default class EditServiceComponent extends Component {
   @service intl;
   @service notification;
   @service ebauModules;
+  @service fetch;
 
   @tracked name;
   @tracked postfix;
+  @tracked serviceParent;
+
+  mainConfig = mainConfig;
 
   service = trackedFunction(this, async () => {
     await Promise.resolve();
@@ -25,6 +30,7 @@ export default class EditServiceComponent extends Component {
         "service",
         this.ebauModules.serviceId,
       );
+      this.serviceParent = serviceParent;
 
       this.postfix = serviceParent.get("name");
 
@@ -39,15 +45,52 @@ export default class EditServiceComponent extends Component {
     });
 
     this.name = service.get("name");
-    this.postfix = service.get("serviceParent.name");
-
-    if (this.postfix) {
-      const fullPostfix = `(${this.postfix})`;
-
-      this.name = this.name.endsWith(fullPostfix)
-        ? this.name.slice(0, -1 * fullPostfix.length).trim()
-        : this.name;
+    this.serviceParent = await service.get("serviceParent");
+    if (!this.serviceParent) {
+      return service;
     }
+
+    // Postfix should always be set to current language for displaying and saving
+    this.postfix = this.serviceParent.name;
+    const fullPostfix = `(${this.postfix})`;
+
+    // Postfix matches in current language
+    if (this.name.endsWith(fullPostfix)) {
+      this.name = this.name.slice(0, -1 * fullPostfix.length).trim();
+      return service;
+    }
+
+    const currentLocale = this.intl.primaryLocale.split("-")[0];
+    // Fetch service parent in languages that aren't the current language
+    const requests = this.mainConfig.languages
+      .filter((language) => language !== currentLocale)
+      .map(async (language) => {
+        const response = await this.fetch.fetch(
+          `/api/v1/services/${this.args.id}?include=service_parent`,
+          {
+            headers: {
+              "accept-language": language,
+            },
+          },
+        );
+        const result = await response.json();
+        const name = result?.included?.[0]?.attributes.name;
+        return {
+          language,
+          name,
+          postfix: name ? `(${name})` : "",
+        };
+      });
+
+    const postfixTranslations = await Promise.all(requests);
+    // Find and replace matching postfix from another language
+    const postFixTranslation = postfixTranslations.find(({ postfix }) =>
+      this.name.endsWith(postfix),
+    );
+    const postfix = postFixTranslation?.postfix;
+    this.name = postfix
+      ? this.name.slice(0, -1 * postfix.length).trim()
+      : this.name;
 
     return service;
   });
@@ -80,6 +123,7 @@ export default class EditServiceComponent extends Component {
         return;
       }
 
+      // Always save service parent postfix in current language
       const name = this.postfix
         ? `${this.name.trim()} (${this.postfix})`
         : this.name;
