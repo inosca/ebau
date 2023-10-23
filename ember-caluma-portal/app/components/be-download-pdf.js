@@ -7,6 +7,7 @@ export default class BeDownloadPdfComponent extends Component {
   @service notification;
   @service intl;
   @service fetch;
+  @service session;
 
   @dropTask
   *export() {

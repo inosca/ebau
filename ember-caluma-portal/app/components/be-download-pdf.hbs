@@ -1,6 +1,7 @@
 <UkButton
   @size={{or @size ""}}
   @loading={{this.export.isRunning}}
+  @disabled={{this.session.enforcePublicAccess}}
   @label={{@field.question.raw.label}}
   @onClick={{perform this.export}}
 />
