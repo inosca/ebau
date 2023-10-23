@@ -7,8 +7,7 @@
 
   <label class="uk-form-label uk-text-bold">{{t "claims.documents"}}</label>
   <div
-    uk-grid
-    masonry="true"
+    uk-grid="masonry: next"
     class="uk-grid-small uk-child-width-1-1 uk-child-width-1-2@m"
     {{did-insert (perform this.fetchAttachments)}}
     {{will-destroy this.teardown}}
