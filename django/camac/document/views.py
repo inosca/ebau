@@ -256,9 +256,7 @@ class AttachmentView(
     @swagger_auto_schema(auto_schema=None)
     def convert(self, request, **kwargs):
         attachment = self.get_object()
-        temporary_pdf_file = DMSHandler().convert_docx_to_pdf(
-            request, attachment.path.file
-        )
+        temporary_pdf_file = DMSHandler().convert_docx_to_pdf(request, attachment)
 
         filename_as_pdf = attachment.name.replace(".docx", ".pdf")
 
