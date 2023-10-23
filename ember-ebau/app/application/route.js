@@ -2,9 +2,11 @@ import Route from "@ember/routing/route";
 import { inject as service } from "@ember/service";
 import AlexandriaDocumentsFormComponent from "ember-ebau-core/components/alexandria-documents-form";
 import CalculatedPublicationDateComponent from "ember-ebau-core/components/calculated-publication-date";
+import DynamicMaxDateInputComponent from "ember-ebau-core/components/dynamic-max-date-input";
 import GrGisComponent from "ember-ebau-core/components/gr-gis";
 import InquiryAnswerStatus from "ember-ebau-core/components/inquiry-answer-status";
 import PublicationDateKantonsamtsblattComponent from "ember-ebau-core/components/publication-date-kantonsamtsblatt";
+import PublicationStartDateComponent from "ember-ebau-core/components/publication-start-date";
 import SoGisComponent from "ember-ebau-core/components/so-gis";
 
 export default class ApplicationRoute extends Route {
@@ -52,6 +54,16 @@ export default class ApplicationRoute extends Route {
       label: "Alexandria Dokument Formular",
       component: "alexandria-documents-form",
       componentClass: AlexandriaDocumentsFormComponent,
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "Datum Anzeiger und Datum Amtsblatt (Kt. SO)",
+      component: "dynamic-max-date-input",
+      componentClass: DynamicMaxDateInputComponent,
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "Start Auflage (Kt. SO)",
+      component: "publication-start-date",
+      componentClass: PublicationStartDateComponent,
     });
   }
 }
