@@ -124,7 +124,7 @@ class Attachment(models.Model):
             date=now(),
             group=group,
             service=group.service,
-            context=self.context,
+            context={**self.context, "displayName": None},
         )
         copy.attachment_sections.set(self.attachment_sections.all())
         copy.save()

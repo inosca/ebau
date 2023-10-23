@@ -1,6 +1,7 @@
 import json
 import re
 from importlib import import_module
+from os.path import splitext
 
 import requests
 from alexandria.core import models as alexandria_models
@@ -353,12 +354,12 @@ class DMSHandler:
 
         return _file
 
-    def convert_docx_to_pdf(self, request, file):
+    def convert_docx_to_pdf(self, request, attachment):
         auth = get_authorization_header(request)
         dms_client = DMSClient(auth)
-        pdf_binary = dms_client.convert_docx_to_pdf(file)
+        pdf_binary = dms_client.convert_docx_to_pdf(attachment.path.file)
 
-        filename = file.name.split("/")[-1].split(".")[0]
+        filename = splitext(attachment.name)[0]
 
         _file = ContentFile(pdf_binary, f"{filename}.pdf")
         _file.content_type = "application/pdf"
