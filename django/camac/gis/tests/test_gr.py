@@ -15,7 +15,7 @@ def gr_data_sources(
     gis_questions = [
         ("gemeinde", Question.TYPE_DYNAMIC_CHOICE),
         ("parzelle", Question.TYPE_TABLE),
-        ("liegenschaftsnummer", Question.TYPE_TEXT),
+        ("parzellennummer", Question.TYPE_TEXT),
         ("baurecht-nummer", Question.TYPE_TEXT),
         ("ort", Question.TYPE_TEXT),
         ("street-and-housenumber", Question.TYPE_TEXT),
