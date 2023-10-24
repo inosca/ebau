@@ -86,7 +86,7 @@ class GrGisClient(GISBaseClient):
         for liegenschaften_data in liegenschaften_xml:
             result.append(
                 {
-                    "liegenschaftsnummer": liegenschaften_data.find("nummer").text,
+                    "parzellennummer": liegenschaften_data.find("nummer").text,
                     "e-grid-nr": liegenschaften_data.find("egris_egrid").text,
                 }
             )

@@ -12,8 +12,8 @@
       "metainfo": {
         "access": {
           "are": "AdminService",
-          "applicant": "Read",
           "support": "Admin",
+          "applicant": "Read",
           "subservice": "AdminService",
           "service-lead": "AdminService",
           "municipality-lead": "AdminService"
@@ -62,8 +62,8 @@
         "access": {
           "are": "Read",
           "uso": "Read",
-          "applicant": "AdminNew",
           "support": "Admin",
+          "applicant": "AdminNew",
           "subservice": "Read",
           "service-lead": "Read",
           "municipality-lead": "AdminBeilagenMunicipality"
@@ -207,8 +207,8 @@
       "metainfo": {
         "access": {
           "are": "Read",
-          "applicant": "AdminAdditionalDemand",
           "support": "Admin",
+          "applicant": "AdminAdditionalDemand",
           "service-lead": "Read",
           "municipality-lead": "Read"
         }
