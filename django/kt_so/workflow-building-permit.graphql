@@ -83,3 +83,15 @@ mutation InitAdditionalDemandFlow {
     clientMutationId
   }
 }
+
+mutation CreateFlowAfterDistribution {
+  addWorkflowFlow(
+    input: {
+      workflow: "building-permit"
+      tasks: ["distribution"]
+      next: "[\"decision\"]|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}

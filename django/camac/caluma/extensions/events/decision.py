@@ -31,23 +31,24 @@ def get_notification_config(instance):
 
 @on(post_create_work_item, raise_exception=True)
 @transaction.atomic
+@filter_events(lambda work_item: work_item.task.slug == settings.DECISION.get("TASK"))
 def set_workflow_answer(sender, work_item, user, context, **kwargs):
-    if work_item.task_id == get_caluma_setting("DECISION_TASK"):
-        decision_workflow_question = Question.objects.filter(pk="decision-workflow")
+    decision_workflow_question = Question.objects.filter(pk="decision-workflow")
 
-        if decision_workflow_question:
-            save_answer(
-                document=work_item.document,
-                question=decision_workflow_question[0],
-                value=work_item.case.workflow_id,
-                user=user,
-            )
+    if decision_workflow_question:
+        save_answer(
+            document=work_item.document,
+            question=decision_workflow_question[0],
+            value=work_item.case.workflow_id,
+            user=user,
+        )
 
 
 @on(post_complete_work_item, raise_exception=True)
 @transaction.atomic
+@filter_events(lambda work_item: work_item.task.slug == settings.DECISION.get("TASK"))
 def set_cycle_time_post_decision_complete(sender, work_item, user, context, **kwargs):
-    if work_item.task_id == get_caluma_setting("DECISION_TASK"):
+    if settings.DECISION.get("ENABLE_STATS"):
         instance = get_instance(work_item)
         instance.case.meta.update(compute_cycle_time(instance))
         instance.case.save()
@@ -55,9 +56,7 @@ def set_cycle_time_post_decision_complete(sender, work_item, user, context, **kw
 
 @on(post_complete_work_item, raise_exception=True)
 @transaction.atomic
-@filter_events(
-    lambda work_item: work_item.task.slug == get_caluma_setting("DECISION_TASK")
-)
+@filter_events(lambda work_item: work_item.task.slug == settings.DECISION.get("TASK"))
 def post_complete_decision(sender, work_item, user, context, **kwargs):
     instance = get_instance(work_item)
     camac_user = User.objects.get(username=user.username)

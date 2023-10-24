@@ -1472,7 +1472,6 @@ APPLICATIONS = {
             "REPORT_TASK": "sb1",
             "FINALIZE_TASK": "sb2",
             "AUDIT_TASK": "audit",
-            "DECISION_TASK": "decision",
             "EBAU_NUMBER_TASK": "ebau-number",
             "SIMPLE_WORKFLOW": {
                 "init-distribution": {
@@ -3257,7 +3256,6 @@ APPLICATIONS = {
             "SUBMIT_TASKS": ["submit"],
             "FORM_PERMISSIONS": ["main", "inquiry", "inquiry-answer"],
             "HAS_PROJECT_CHANGE": True,
-            "DECISION_TASK": "decision",
             "CREATE_IN_PROCESS": False,
             "GENERATE_IDENTIFIER": True,
             "USE_LOCATION": False,
@@ -3789,6 +3787,9 @@ APPLICATIONS = {
                     "next_instance_state": "distribution",
                     "history_text": _("Circulation started"),
                 },
+                "complete-distribution": {
+                    "next_instance_state": "decision",
+                },
             },
             "PRE_COMPLETE": {
                 # Cancel init-additional-demand after material-exam as it will
@@ -3797,6 +3798,15 @@ APPLICATIONS = {
                 # Complete publication work item after the first filled and
                 # completed publication
                 "fill-publication": {"complete": ["publication"]},
+                # Cancel additional demands outside of the distribution when the
+                # distribution is completed in order to have the same behaviour
+                # as additional demands inside the distribution
+                "distribution": {"cancel": ["additional-demand"]},
+                # Complete, skip and cancel various work items after decision
+                "decision": {
+                    "skip": ["publication", "fill-publication"],
+                    "cancel": ["create-publication"],
+                },
             },
             "PUBLIC_STATUS": {
                 "USE_SLUGS": True,
@@ -3862,6 +3872,7 @@ APPLICATIONS = {
             "caluma_publication_form": generate_form_dump_config(
                 regex=r"^publikation?$"
             ),
+            "caluma_decision_form": generate_form_dump_config(regex=r"^decision$"),
             # Distribution
             **DISTRIBUTION_DUMP_CONFIG,
             # Additional demand
