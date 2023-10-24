@@ -687,11 +687,17 @@ def decision_ruling(instance, caluma_workflow_slug):
     answers = work_item.document.answers.all()
 
     decision = (
-        answers.filter(question_id=settings.DECISION["QUESTION_SLUG"]).first().value
+        answers.filter(question_id=settings.DECISION["QUESTIONS"]["DECISION"])
+        .first()
+        .value
     )
-    date = answers.filter(question_id="decision-date").first().date
+    date = (
+        answers.filter(question_id=settings.DECISION["QUESTIONS"]["DATE"]).first().date
+    )
     ruling = (
-        answers.filter(question_id="decision-approval-type").first().value
+        answers.filter(question_id=settings.DECISION["QUESTIONS"]["APPROVAL_TYPE"])
+        .first()
+        .value
         if caluma_workflow_slug == "building-permit"
         else "VORABKLAERUNG"
     )

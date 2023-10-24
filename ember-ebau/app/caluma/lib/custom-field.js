@@ -1,3 +1,4 @@
+import { macroCondition, getOwnConfig } from "@embroider/macros";
 import Field from "@projectcaluma/ember-form/lib/field";
 import { dropTask } from "ember-concurrency";
 import { trackedTask } from "ember-resources/util/ember-concurrency";
@@ -25,31 +26,33 @@ export default class CustomField extends Field {
   }
 
   get enabledOptions() {
-    if (this.question.slug !== "decision-decision") {
-      return null;
-    }
+    if (macroCondition(getOwnConfig().application === "gr")) {
+      if (this.question.slug !== "decision-decision") {
+        return null;
+      }
 
-    if (!this.caseInformation.value) return [];
+      if (!this.caseInformation.value) return [];
 
-    const form = this.caseInformation.value;
+      const form = this.caseInformation.value;
 
-    if (form === "baugesuch") {
-      // Baugesuche
-      return [
-        "decision-decision-approved",
-        "decision-decision-rejected",
-        "decision-decision-written-off",
-        "decision-decision-other",
-      ];
-    } else if (form === "vorlaeufige-beurteilung") {
-      // Vorläufige Beurteilung
-      return [
-        "decision-decision-positive",
-        "decision-decision-negative",
-        "decision-decision-positive-with-reservation",
-        "decision-decision-retreat",
-        "decision-decision-other-preliminary",
-      ];
+      if (form === "baugesuch") {
+        // Baugesuche
+        return [
+          "decision-decision-approved",
+          "decision-decision-rejected",
+          "decision-decision-written-off",
+          "decision-decision-other",
+        ];
+      } else if (form === "vorlaeufige-beurteilung") {
+        // Vorläufige Beurteilung
+        return [
+          "decision-decision-positive",
+          "decision-decision-negative",
+          "decision-decision-positive-with-reservation",
+          "decision-decision-retreat",
+          "decision-decision-other-preliminary",
+        ];
+      }
     }
 
     return null;
