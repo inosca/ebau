@@ -152,8 +152,7 @@
         "directLink": {
           "route": "cases.detail.task-form",
           "models": ["INSTANCE_ID", "TASK_SLUG"]
-        },
-        "is-manually-completable": true
+        }
       },
       "address_groups": "[\"municipality\"]|groups",
       "control_groups": "[\"municipality\"]|groups",
@@ -181,8 +180,7 @@
         "directLink": {
           "route": "cases.detail.task-form",
           "models": ["INSTANCE_ID", "TASK_SLUG"]
-        },
-        "is-manually-completable": true
+        }
       },
       "address_groups": "[\"municipality\"]|groups",
       "control_groups": "[\"municipality\"]|groups",
