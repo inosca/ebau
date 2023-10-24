@@ -14,7 +14,7 @@
     },
     {
       "name": "kanton-gr",
-      "types": ["account", "login"]
+      "types": ["account", "login", "email"]
     },
     {
       "name": "kanton-so",
