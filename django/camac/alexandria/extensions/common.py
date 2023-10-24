@@ -8,7 +8,7 @@ from camac.user.models import Service
 
 def get_role(user):
     # TODO: tests set group even when its public
-    if user.group is None:  # pragma: no cover
+    if user.camac_group is None:  # pragma: no cover
         return "public"
 
     role = user.camac_role
