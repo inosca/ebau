@@ -6,6 +6,9 @@ publication:
   canceled: "Annulée"
   loadingError: "Erreur lors du téléchargement"
   cancelError: "Erreur lors de l'annulation"
+  active: "En cours"
+  future: "En attente"
+  past: "Expirée"
 
   cancelConfirm:
     public: "Voulez-vous vraiment annuler la publication ?"
