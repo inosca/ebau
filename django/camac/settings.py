@@ -3660,9 +3660,9 @@ APPLICATIONS = {
             "dossier_number": ("case_meta", "dossier-number"),
             "project": ("answer", "baubeschrieb", {"value_parser": "option"}),
             "proposal": ("answer", "beschreibung-bauvorhaben"),
-            "street": ("answer", "strasse-flurname"),
-            "street_number": ("answer", "nr"),
-            "zip": ("answer", "plz"),
+            "street": ("answer", "street-and-housenumber"),
+            "street_number": ("answer", "nr"),  # unused
+            "zip": ("answer", "plz"),  # unused
             "city": ("answer", "ort-grundstueck"),
             "construction_costs": ("answer", "baukosten-in-chf"),
             "municipality": ("answer", "gemeinde", {"value_parser": "dynamic_option"}),

@@ -411,8 +411,7 @@ def gr_master_data_case(db, gr_instance, group, master_data_is_visible_mock):
     # Simple data
     add_answer(document, "beschreibung-bauvorhaben", "Einfamilienhaus")
     add_answer(document, "projektaenderung", "projektaenderung-ja")
-    add_answer(document, "strasse-flurname", "Teststrasse")
-    add_answer(document, "nr", 12)
+    add_answer(document, "street-and-housenumber", "Teststrasse 12")
     add_answer(document, "plz-grundstueck-v3", 1234)
     add_answer(document, "ort-grundstueck", "Testhausen")
 

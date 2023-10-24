@@ -392,8 +392,7 @@ def test_eingabebestaetigung_gr(
     )
 
     # Prepare plot address
-    add_answer(gr_instance.case.document, "strasse-flurname", "Bahnhofstrasse")
-    add_answer(gr_instance.case.document, "nr", "2")
+    add_answer(gr_instance.case.document, "street-and-housenumber", "Bahnhofstrasse 2")
     add_answer(gr_instance.case.document, "ort-grundstueck", "Testhausen")
 
     # Prepare authority

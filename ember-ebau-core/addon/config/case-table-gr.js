@@ -92,6 +92,6 @@ export default {
     },
   },
   defaultOrder: "dossierNumber",
-  addressSlugs: ["strasse-flurname", "nr", "ort-grundstueck"],
+  addressSlugs: ["street-and-housenumber", "ort-grundstueck"],
   parcelSlugs: ["parzellennummer"],
 };
