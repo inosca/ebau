@@ -29,7 +29,7 @@ mutation CreateFormalExamTask {
       addressGroups: "[\"municipality\"]|groups"
       controlGroups: "[\"municipality\"]|groups"
       leadTime: 432000 # 5 days
-      meta: "{\"is-manually-completable\":true,\"directLink\":{\"route\":\"cases.detail.task-form\",\"models\":[\"INSTANCE_ID\",\"TASK_SLUG\"]}}"
+      meta: "{\"directLink\":{\"route\":\"cases.detail.task-form\",\"models\":[\"INSTANCE_ID\",\"TASK_SLUG\"]}}"
     }
   ) {
     clientMutationId
@@ -45,7 +45,7 @@ mutation CreateMaterialExamTask {
       addressGroups: "[\"municipality\"]|groups"
       controlGroups: "[\"municipality\"]|groups"
       leadTime: 432000 # 5 days
-      meta: "{\"is-manually-completable\":true,\"directLink\":{\"route\":\"cases.detail.task-form\",\"models\":[\"INSTANCE_ID\",\"TASK_SLUG\"]}}"
+      meta: "{\"directLink\":{\"route\":\"cases.detail.task-form\",\"models\":[\"INSTANCE_ID\",\"TASK_SLUG\"]}}"
     }
   ) {
     clientMutationId
