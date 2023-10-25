@@ -15,8 +15,7 @@ export default {
     "init-distribution": 120009,
   },
   answerSlugs: {
-    objectStreet: "strasse-flurname",
-    objectNumber: "nr",
+    objectStreet: "street-and-housenumber",
     objectLocation: "ort-grundstueck",
     description: "beschreibung-bauvorhaben",
     municipality: "gemeinde",
