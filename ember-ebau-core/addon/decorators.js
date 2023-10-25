@@ -94,10 +94,12 @@ export function confirmTask(textOrKey) {
 }
 
 export function cantonAware(target, property, desc) {
+  const application = getOwnConfig().application;
+
   return (
     Object.getOwnPropertyDescriptor(
       target,
-      `${property}${getOwnConfig().application.toUpperCase()}`,
+      `${property}${application.toUpperCase()}`,
     ) ?? desc
   );
 }
