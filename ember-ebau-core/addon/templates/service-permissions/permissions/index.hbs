@@ -58,8 +58,8 @@
           <td>{{row.user.fullName}}</td>
           <td>{{row.user.email}}</td>
           <td>{{row.group.name}}</td>
-          <td>{{row.createdBy.fullName}}</td>
-          <td>{{format-date row.createdAt format="date"}}</td>
+          <td>{{or row.createdBy.fullName "-"}}</td>
+          <td>{{if row.createdAt (format-date row.createdAt format="date") "-"}}</td>
           <td class="uk-text-right">
             <button
               type="button"

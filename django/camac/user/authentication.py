@@ -177,7 +177,7 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
 
             try:
                 group = Group.objects.get(pk=group_id)
-                UserGroup.objects.update_or_create(
+                UserGroup.objects.get_or_create(
                     user=user, group=group, defaults={"default_group": default_group}
                 )
             except ObjectDoesNotExist:
