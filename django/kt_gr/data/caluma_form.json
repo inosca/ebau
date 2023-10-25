@@ -9930,7 +9930,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "vorhaben",
-      "value": "vorhaben-umbau-erweiterung-zweckaenderung",
+      "value": ["vorhaben-umbau-erweiterung-zweckaenderung"],
       "meta": {},
       "document": "033433c2-3733-43a4-8d7b-3b57e82379c1",
       "date": null
@@ -12517,7 +12517,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "vorhaben",
-      "value": "vorhaben-neubau",
+      "value": ["vorhaben-neubau"],
       "meta": {},
       "document": "11b0b3fc-a5a7-4dd5-9166-9d12739da88f",
       "date": null
