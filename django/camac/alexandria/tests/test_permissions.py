@@ -69,8 +69,17 @@ from camac.alexandria.extensions.permissions import classes as permissions, kt_g
     ],
 )
 def test_document_permission(
-    db, role, admin_client, caluma_admin_user, instance, metainfo, method, status_code
+    db,
+    role,
+    applicant_factory,
+    admin_client,
+    caluma_admin_user,
+    instance,
+    metainfo,
+    method,
+    status_code,
 ):
+    applicant_factory(invitee=admin_client.user, instance=instance)
     alexandria_category = CategoryFactory(metainfo=metainfo)
     url = reverse("document-list")
 
@@ -368,6 +377,7 @@ def test_kt_gr_permissions(
     role,
     minio_mock,
     set_application_gr,
+    applicant_factory,
     settings,
     additional_demand_settings,
     mocker,
@@ -380,6 +390,7 @@ def test_kt_gr_permissions(
     method,
     status_code,
 ):
+    applicant_factory(invitee=admin_client.user, instance=gr_instance)
     settings.APPLICATION_NAME = "kt_gr"
     mocker.patch("camac.alexandria.extensions.permissions.permissions", permissions)
 
@@ -470,7 +481,8 @@ def test_kt_gr_permissions(
 
 
 @pytest.mark.parametrize("role__name", ["applicant"])
-def test_nested_permission(db, role, admin_client, instance):
+def test_nested_permission(db, role, applicant_factory, admin_client, instance):
+    applicant_factory(invitee=admin_client.user, instance=instance)
     parent_category = CategoryFactory(metainfo={"access": {"applicant": "Admin"}})
     category = CategoryFactory(parent=parent_category)
 
@@ -598,6 +610,7 @@ def test_admin_beilagen_municipality(
     role,
     minio_mock,
     set_application_gr,
+    applicant_factory,
     settings,
     mocker,
     admin_client,
@@ -608,6 +621,7 @@ def test_admin_beilagen_municipality(
     is_paper,
     has_additional_data,
 ):
+    applicant_factory(invitee=admin_client.user, instance=gr_instance)
     metainfo = {"access": {"municipality": "AdminBeilagenMunicipality"}}
     settings.APPLICATION_NAME = "kt_gr"
     mocker.patch("camac.alexandria.extensions.permissions.extension.permissions", kt_gr)

@@ -1,8 +1,9 @@
 ALEXANDRIA = {
     "default": {
         "MARKS": {
-            "ALL": ["publication"],
+            "ALL": ["publication", "decision"],
             "PUBLICATION": "publication",
+            "DECISION": "decision",
         },
     },
     "kt_gr": {
