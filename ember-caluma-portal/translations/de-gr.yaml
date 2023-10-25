@@ -11,11 +11,11 @@ instances:
   new:
     building-permit:
       title: "Baubewilligungsverfahren"
-      info: ""
+      info: "Der häufigste Fall ist die Eingabe eines **Baugesuchs** (z.B. Anbau Garage, Nebau Wohnhaus, Einbau Dachflächenfenster).\n\nDas **Baugesuch** ist zu wählen, um das ordentliche Baugesuch innerhalb der Bauzone (BIB-Gesuch) oder ausserhalb der Bauzone (BAB-Gesuch) nach Art. 42 der kantonalen  Raumplanungsverordnung (KRVO) zu starten.\n\nDas **Baugesuch** ist ebenfalls zu wählen, um das vereinfachte Baubewillligungsverfahren nach Art. 50 KRVO (z.B. Projektänderung) zu starten.\n\nBei unklarer Ausgangslage ist es empfehlenswert, vor Eingabe eines Baugesuchs die wesentlichen Punkte des Bauvorhabens vorzuprüfen. Dazu ist die **Vorläufige Beurteilung (Vorabklärung)** nach Art. 41 KRVO zu wählen."
 
     special-procedure:
       title: "Weitere Verfahren"
-      info: ""
+      info: "Die gemäss Art. 40 Abs. 1 der kantonalen Raumplanungsverordnung (KRVO) von der Baubewilligungspflicht ausgenommen Bauvorhaben sind mit der **Bauanzeige** bei der kommunalen Baubehörde anzuzeigen (vgl. Art. 40a KRVO).\n\n**Solaranlagen** auf Dächern unterliegen der Anzeigepflicht nach Art. 40a KRVO. Die kommunale Baubehörde entscheidet aufgrund des Bundesrechts, ob die Solaranlage auf dem Dach genügend angepasst und daher bewilligungsfrei ist."
 
 support:
   info: "Im Falle von Problemen oder Fragen, welche durch die hinterlegten Hilfestellungen nicht geklärt werden, können Sie sich entweder an <b>die zuständige Bauverwaltung der entsprechenden Gemeinde</b> oder an <b>das Amt für Raumentwicklung</b> wenden."
