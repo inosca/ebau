@@ -49,7 +49,7 @@ from camac.instance.placeholders import fields
 from camac.instance.validators import transform_coordinates
 from camac.user.models import Group, Role, Service, User
 from camac.user.utils import unpack_service_emails
-from camac.utils import build_url, flatten, get_responsible_koor_service_id
+from camac.utils import build_url, clean_join, flatten, get_responsible_koor_service_id
 
 from ..core import models as core_models
 from . import models
@@ -299,7 +299,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         descriptions = [
             CalumaApi().get_answer_value(slug, instance) for slug in description_slugs
         ]
-        return ", ".join(filter(None, descriptions))
+        return clean_join(*descriptions, separator=", ")
 
     def _get_row_answer_value(self, row, slug, fallback=None):
         try:

@@ -1,5 +1,6 @@
 import io
 import itertools
+from typing import Any, Optional
 from urllib.parse import parse_qsl
 
 import requests
@@ -164,3 +165,13 @@ def has_permission_for_inquiry_answer_document(group, document):
         document.case.parent_work_item.status == WorkItem.STATUS_READY
         and str(group.service_id) in document.case.parent_work_item.addressed_groups
     )
+
+
+def clean_join(*parts: Any, separator: Optional[str] = " ") -> str:
+    """Join all truthy arguments as trimmed string with a given separator.
+
+    >>> clean_join(" John", None, "", " Smith ")
+    "John Smith"
+    """
+
+    return separator.join([str(part).strip() for part in parts if part]).strip()
