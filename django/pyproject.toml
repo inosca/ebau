@@ -19,11 +19,7 @@ exclude = '''
 '''
 
 [tool.isort]
-skip = [
-    "migrations",
-    "snapshots",
-    "ech0211.schema",
-]
+skip = ["migrations", "snapshots", "ech0211.schema"]
 known_first_party = ["camac"]
 known_third_party = [
     "django",
@@ -56,11 +52,11 @@ filterwarnings = [
     "error::DeprecationWarning",
     "error::PendingDeprecationWarning",
     "error::RuntimeWarning",
-    "ignore:defusedxml.lxml:DeprecationWarning", # Deprecation in wsgidav
-    "ignore:The 'arrayconnection' module is deprecated:DeprecationWarning", # Deprecation in graphene
-    "ignore:No fixture data:RuntimeWarning", # Caused by automatically generated empty fixtures
-    "ignore:No directory at:UserWarning", # Caused by whitenoise in tests
-    "ignore:Duplicate name:UserWarning", # Caused by multiple tests using the same test files
+    "ignore:defusedxml.lxml:DeprecationWarning",                                       # Deprecation in wsgidav
+    "ignore:The 'arrayconnection' module is deprecated:DeprecationWarning",            # Deprecation in graphene
+    "ignore:No fixture data:RuntimeWarning",                                           # Caused by automatically generated empty fixtures
+    "ignore:No directory at:UserWarning",                                              # Caused by whitenoise in tests
+    "ignore:Duplicate name:UserWarning",                                               # Caused by multiple tests using the same test files
     "ignore:'django_extensions' defines default_app_config:PendingDeprecationWarning", # https://github.com/django-extensions/django-extensions/issues/1757
     # FIXME: requests-toolbelt uses deprecated urllib3.contrib.pyopenssl
     # see https://github.com/requests/toolbelt/issues/331
@@ -69,7 +65,7 @@ filterwarnings = [
     # Deprecated usage of django-filters method in drf-yasg
     "ignore:Built-in schema generation is deprecated.*:DeprecationWarning",
     # Issue in pytest-factoryboy
-    "ignore:.*_after_postgeneration will stop saving the instance.*:DeprecationWarning"
+    "ignore:.*_after_postgeneration will stop saving the instance.*:DeprecationWarning",
 ]
 
 [tool.coverage.run]
@@ -160,6 +156,7 @@ omit = [
     "camac/user/management/commands/migrate_user_group.py",
     "camac/user/management/commands/import_services.py",
     "camac/user/management/commands/set_service_sort_number.py",
+    "camac/core/management/commands/migrate_dossier_number_sort.py",
     # Audit migration"
     "camac/core/management/commands/config/",
     "camac/core/management/commands/migrate_audit.py",
@@ -178,6 +175,6 @@ omit = [
     # Distribution migration
     "camac/circulation/management/commands/distribution_*.py",
     # Views only used in migrations
-    "camac/core/db_views.py"
+    "camac/core/db_views.py",
 ]
 show_missing = true

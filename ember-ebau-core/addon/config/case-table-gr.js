@@ -1,3 +1,7 @@
+import mainConfig from "ember-ebau-core/config/main";
+
+const { answerSlugs } = mainConfig;
+
 export default {
   columns: {
     caluma: {
@@ -85,13 +89,13 @@ export default {
   },
   availableOrderings: {
     dossierNumber: {
-      caluma: [{ meta: "dossier-number" }],
+      caluma: [{ meta: `${answerSlugs.specialId}-sort` }],
     },
     submitDate: {
       caluma: [{ meta: "submit-date" }],
     },
   },
   defaultOrder: "dossierNumber",
-  addressSlugs: ["street-and-housenumber", "ort-grundstueck"],
-  parcelSlugs: ["parzellennummer"],
+  addressSlugs: [answerSlugs.objectStreet, answerSlugs.objectLocation],
+  parcelSlugs: [answerSlugs.parcelNumber],
 };
