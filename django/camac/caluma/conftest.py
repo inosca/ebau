@@ -33,3 +33,15 @@ def caluma_admin_public_schema_executor(caluma_admin_request):
         context_value=caluma_admin_request(HTTP_X_CAMAC_PUBLIC_ACCESS=True),
         middleware=[],
     )
+
+
+@pytest.fixture
+def caluma_admin_schema_executor_for_group(caluma_admin_request):
+    def wrap(group):
+        return functools.partial(
+            schema.execute,
+            context_value=caluma_admin_request(HTTP_X_CAMAC_GROUP=group),
+            middleware=[],
+        )
+
+    return wrap

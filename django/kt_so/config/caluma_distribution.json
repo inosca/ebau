@@ -40,7 +40,7 @@
     "pk": "inquiry-answer",
     "fields": {
       "created_at": "2023-10-05T07:31:03.091Z",
-      "modified_at": "2023-10-05T08:03:25.184Z",
+      "modified_at": "2023-10-18T14:44:27.671Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -55,62 +55,122 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "inquiry-answer.inquiry-answer-ancillary-clauses",
+    "pk": "inquiry-answer.inquiry-answer-forward",
     "fields": {
-      "created_at": "2023-10-05T08:01:53.868Z",
-      "modified_at": "2023-10-05T08:01:53.868Z",
+      "created_at": "2023-10-18T14:39:11.341Z",
+      "modified_at": "2023-10-18T14:39:11.341Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "inquiry-answer",
-      "question": "inquiry-answer-ancillary-clauses",
+      "question": "inquiry-answer-forward",
       "sort": 1
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "inquiry-answer.inquiry-answer-assessment",
+    "pk": "inquiry-answer.inquiry-answer-negative-assessments",
     "fields": {
-      "created_at": "2023-10-05T08:01:39.703Z",
-      "modified_at": "2023-10-05T08:01:39.703Z",
+      "created_at": "2023-10-18T14:34:19.384Z",
+      "modified_at": "2023-10-18T14:34:19.384Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "inquiry-answer",
-      "question": "inquiry-answer-assessment",
-      "sort": 2
+      "question": "inquiry-answer-negative-assessments",
+      "sort": 7
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "inquiry-answer.inquiry-answer-considerations",
+    "pk": "inquiry-answer.inquiry-answer-notices-for-applicant",
     "fields": {
-      "created_at": "2023-10-05T08:01:23.864Z",
-      "modified_at": "2023-10-05T08:01:23.864Z",
+      "created_at": "2023-10-18T14:37:30.087Z",
+      "modified_at": "2023-10-18T14:37:30.087Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "inquiry-answer",
-      "question": "inquiry-answer-considerations",
+      "question": "inquiry-answer-notices-for-applicant",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "inquiry-answer.inquiry-answer-notices-for-authority",
+    "fields": {
+      "created_at": "2023-10-18T14:38:07.626Z",
+      "modified_at": "2023-10-18T14:38:07.626Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "inquiry-answer",
+      "question": "inquiry-answer-notices-for-authority",
       "sort": 3
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "inquiry-answer.inquiry-answer-situation",
+    "pk": "inquiry-answer.inquiry-answer-notices-for-authority-arp",
     "fields": {
-      "created_at": "2023-10-05T08:01:07.464Z",
-      "modified_at": "2023-10-05T08:01:07.464Z",
+      "created_at": "2023-10-18T14:38:30.574Z",
+      "modified_at": "2023-10-18T14:38:30.574Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "inquiry-answer",
-      "question": "inquiry-answer-situation",
-      "sort": 4
+      "question": "inquiry-answer-notices-for-authority-arp",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "inquiry-answer.inquiry-answer-objections",
+    "fields": {
+      "created_at": "2023-10-18T14:35:41.758Z",
+      "modified_at": "2023-10-18T14:35:41.758Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "inquiry-answer",
+      "question": "inquiry-answer-objections",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "inquiry-answer.inquiry-answer-positive-assessments",
+    "fields": {
+      "created_at": "2023-10-18T14:33:59.401Z",
+      "modified_at": "2023-10-18T14:33:59.401Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "inquiry-answer",
+      "question": "inquiry-answer-positive-assessments",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "inquiry-answer.inquiry-answer-rejection-additional-demand",
+    "fields": {
+      "created_at": "2023-10-18T14:36:27.593Z",
+      "modified_at": "2023-10-18T14:36:27.593Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "inquiry-answer",
+      "question": "inquiry-answer-rejection-additional-demand",
+      "sort": 6
     }
   },
   {
@@ -125,7 +185,7 @@
       "modified_by_group": null,
       "form": "inquiry-answer",
       "question": "inquiry-answer-status",
-      "sort": 5
+      "sort": 9
     }
   },
   {
@@ -160,7 +220,7 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "inquiry-answer-status-needs-interaction",
+    "pk": "inquiry-answer-status-additional-demand",
     "fields": {
       "created_at": "2023-10-05T07:59:35.937Z",
       "modified_at": "2023-10-05T07:59:35.937Z",
@@ -179,12 +239,28 @@
     "pk": "inquiry-answer-status-negative",
     "fields": {
       "created_at": "2023-10-05T07:59:35.946Z",
-      "modified_at": "2023-10-05T07:59:35.946Z",
+      "modified_at": "2023-10-18T14:30:40.715Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ablehnung\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "inquiry-answer-status-no-comment",
+    "fields": {
+      "created_at": "2023-10-18T14:30:40.673Z",
+      "modified_at": "2023-10-18T14:30:40.673Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"Negativ\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Keine Bemerkung\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -195,12 +271,28 @@
     "pk": "inquiry-answer-status-positive",
     "fields": {
       "created_at": "2023-10-05T07:59:35.899Z",
-      "modified_at": "2023-10-05T07:59:35.899Z",
+      "modified_at": "2023-10-18T14:30:40.750Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Zustimmung\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "inquiry-answer-status-rejection",
+    "fields": {
+      "created_at": "2023-10-18T14:30:40.765Z",
+      "modified_at": "2023-10-18T14:30:40.765Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"Positiv\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"R\\u00fcckweisung\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -208,22 +300,22 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "inquiry-answer-ancillary-clauses",
+    "pk": "inquiry-answer-forward",
     "fields": {
-      "created_at": "2023-10-05T08:01:53.651Z",
-      "modified_at": "2023-10-05T08:01:53.651Z",
+      "created_at": "2023-10-18T14:39:11.103Z",
+      "modified_at": "2023-10-18T14:44:31.128Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Nebenbestimmungen\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Muss der Entscheid an weitere Stellen gesendet werden?\", \"fr\": null, \"it\": null}",
       "type": "textarea",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Bitte Adressen mit Komma abgetrennt erfassen.  \\nz.B: \\\"Max Muster, Musterstrasse 123, 4567 Irgendwo\\\"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -242,22 +334,22 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "inquiry-answer-assessment",
+    "pk": "inquiry-answer-negative-assessments",
     "fields": {
-      "created_at": "2023-10-05T08:01:39.463Z",
-      "modified_at": "2023-10-05T08:01:39.463Z",
+      "created_at": "2023-10-18T14:34:19.153Z",
+      "modified_at": "2023-10-18T14:43:33.754Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Beurteilung\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Ablehnende Beurteilungen\", \"fr\": null, \"it\": null}",
       "type": "textarea",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Bitte Beurteilung wie folgt gliedern:\\n\\nThema 1  \\n-\\tSachverhalt\\n-\\tErw\\u00e4gungen (1. Rechtliche Ausgangslage, 2. Beurteilung Einzelfall, 3. Fazit)  \\n\\nThema 2  \\n-\\tSachverhalt\\n-\\tErw\\u00e4gungen (1. Rechtliche Ausgangslage, 2. Beurteilung Einzelfall, 3. Fazit)   \\n\\nNebenbewilligung 1  \\n-\\tSachverhalt\\n-\\tErw\\u00e4gungen (1. Rechtliche Ausgangslage, 2. Beurteilung Einzelfall, 3. Fazit)\\n-\\tW\\u00fcnschen Sie f\\u00fcr den Fall, dass die Nebenbewilligung nach der Interessensabw\\u00e4gung erteilt wird, eine weitere Beurteilung zwecks Formulierung von Auflagen und Bedingungen? Bei Fehlen der Information wird Verzicht angenommen.  \\n\\nNebenbewilligung 2  \\n-\\tSachverhalt\\n-\\tErw\\u00e4gungen (1. Rechtliche Ausgangslage, 2. Beurteilung Einzelfall, 3. Fazit)\\n-\\tW\\u00fcnschen Sie f\\u00fcr den Fall, dass die Nebenbewilligung nach der Interessensabw\\u00e4gung erteilt wird, eine weitere Beurteilung zwecks Formulierung von Auflagen und Bedingungen? Bei Fehlen der Information wird Verzicht angenommen.  \\n\\nAusnahmebewilligung 1  \\n-\\tSachverhalt\\n-\\tErw\\u00e4gungen (1. Rechtliche Ausgangslage, 2. Beurteilung Einzelfall, 3. Fazit)\\n-\\tW\\u00fcnschen Sie f\\u00fcr den Fall, dass die Ausnahmebewilligung nach der Interessensabw\\u00e4gung erteilt wird, eine weitere Beurteilung zwecks Formulierung von Auflagen und Bedingungen? Bei Fehlen der Information wird Verzicht angenommen.  \\n\\nAusnahmebewilligung 2  \\n-\\tSachverhalt\\n-\\tErw\\u00e4gungen (1. Rechtliche Ausgangslage, 2. Beurteilung Einzelfall, 3. Fazit)\\n-\\tW\\u00fcnschen Sie f\\u00fcr den Fall, dass die Ausnahmebewilligung nach der Interessensabw\\u00e4gung erteilt wird, eine weitere Beurteilung zwecks Formulierung von Auflagen und Bedingungen? Bei Fehlen der Information wird Verzicht angenommen.  \\n\\nusw.\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -276,22 +368,22 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "inquiry-answer-considerations",
+    "pk": "inquiry-answer-notices-for-applicant",
     "fields": {
-      "created_at": "2023-10-05T08:01:23.630Z",
-      "modified_at": "2023-10-05T08:01:23.630Z",
+      "created_at": "2023-10-18T14:37:29.906Z",
+      "modified_at": "2023-10-18T14:44:02.973Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Erw\\u00e4gungen\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Hinweise an die Bauherrschaft\", \"fr\": null, \"it\": null}",
       "type": "textarea",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Hinweise sind unverbindlich!\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -310,22 +402,158 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "inquiry-answer-situation",
+    "pk": "inquiry-answer-notices-for-authority",
     "fields": {
-      "created_at": "2023-10-05T08:01:07.235Z",
-      "modified_at": "2023-10-05T08:01:07.235Z",
+      "created_at": "2023-10-18T14:38:07.395Z",
+      "modified_at": "2023-10-18T14:44:09.393Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Sachverhalt\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Hinweise an Leitbeh\\u00f6rde\", \"fr\": null, \"it\": null}",
       "type": "textarea",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Hinweise sind unverbindlich!\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "inquiry-answer-notices-for-authority-arp",
+    "fields": {
+      "created_at": "2023-10-18T14:38:30.350Z",
+      "modified_at": "2023-10-18T14:52:12.346Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweise an Leitbeh\\u00f6rde ARP\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Hinweise sind unverbindlich!\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "inquiry-answer-objections",
+    "fields": {
+      "created_at": "2023-10-18T14:35:41.543Z",
+      "modified_at": "2023-10-18T14:43:55.050Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Einsprachen\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Stellungnahme zu allf\\u00e4lligen Einsprachen im Zust\\u00e4ndigkeitsbereich der Dienststelle / Fachstelle\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "inquiry-answer-positive-assessments",
+    "fields": {
+      "created_at": "2023-10-18T14:33:59.171Z",
+      "modified_at": "2023-10-18T14:43:26.162Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Zustimmende Beurteilungen\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Bitte die Beurteilung wie folgt gliedern:\\n\\nThema 1:\\n-\\tSachverhalt  \\n-\\tErw\\u00e4gungen (1. Rechtliche Ausgangslage, 2. Beurteilung Einzelfall, 3. Fazit)  \\n-\\tDispositiv mit Auflagen / Bedingungen  \\n\\nThema 2:\\n-\\tSachverhalt  \\n-\\tErw\\u00e4gungen (1. Rechtliche Ausgangslage, 2. Beurteilung Einzelfall, 3. Fazit)  \\n-\\tDispositiv mit Auflagen / Bedingungen  \\n\\nNebenbewilligung 1\\n-\\tSachverhalt  \\n-\\tErw\\u00e4gungen (1. Rechtliche Ausgangslage, 2. Beurteilung Einzelfall, 3. Fazit)  \\n-\\tDispositiv mit Auflagen / Bedingungen\\n-\\tUnterschriftskompetenz: Amtschef - Departement/Amt, Vorname Name, Funktion  \\n\\nNebenbewilligung 2\\n-\\tSachverhalt\\n-\\tErw\\u00e4gungen (1. Rechtliche Ausgangslage, 2. Beurteilung Einzelfall, 3. Fazit)\\n-\\tDispositiv mit Auflagen / Bedingungen\\n-\\tUnterschriftskompetenz: Amtschef - Departement/Amt, Vorname Name, Funktion  \\n\\nAusnahmebewilligung 1\\n-\\tSachverhalt\\n-\\tErw\\u00e4gungen (1. Rechtliche Ausgangslage, 2. Beurteilung Einzelfall, 3. Fazit)\\n-\\tDispositiv mit Auflagen / Bedingungen\\n-\\tUnterschriftskompetenz: Amtschef - Departement/Amt, Vorname Name, Funktion   \\nusw.\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "inquiry-answer-rejection-additional-demand",
+    "fields": {
+      "created_at": "2023-10-18T14:36:27.418Z",
+      "modified_at": "2023-10-18T14:43:45.039Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"R\\u00fcckweisung / Nachforderung\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Begr\\u00fcndung f\\u00fcr die R\\u00fcckweisung, z.B.:  \\n\\n- Bitte Augenschein organisieren (Begr\\u00fcndung / Teilnehmer Fachstelle / Weitere Teilnehmer)\\n- Bitte Besprechung organisieren (Begr\\u00fcndung / Teilnehmer Fachstelle / Weitere Teilnehmer)\\n- Unvollst\\u00e4ndige Baugesuchsunterlagen (Rechtliche Grundlage / Fehlende Unterlagen)\\n- \\u00dcberarbeitung Baugesuchsunterlagen (Rechtliche Grundlage / zu \\u00fcberarbeitende Unterlagen)  \\n\\nFalls Teilbeurteilung trotzdem m\\u00f6glich, bitte zustimmende Beurteilung oder ablehnende Beurteilung ausf\\u00fcllen.\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -347,19 +575,19 @@
     "pk": "inquiry-answer-status",
     "fields": {
       "created_at": "2023-10-05T07:59:36.116Z",
-      "modified_at": "2023-10-05T07:59:36.116Z",
+      "modified_at": "2023-10-18T14:43:11.028Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Antwort\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"R\\u00fcckmeldung / Fazit\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"- **Zustimmung** = alle Unterfachstellen / Fachstellen sagen ja (evtl. mit Auflagen)  \\n- **Ablehnung** = eine Unterfachstelle / Fachstelle mit ***Killer*** gen\\u00fcgt f\\u00fcr Ablehnung  \\n- ***R\\u00fcckweisung = Beurteilung f\\u00fcr eine Unterfachstelle / Fachstelle nicht m\\u00f6glich gen\\u00fcgt, aber evtl. Teilzustimmung oder Teilablehnung zus\\u00e4tzlich m\\u00f6glich (andere Unterfachstellen / Fachstellen)***  \\n- **Keine Bemerkungen** = Unterfachstelle / Fachstelle nicht betroffen\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
@@ -442,47 +670,77 @@
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "inquiry-answer-status.inquiry-answer-status-needs-interaction",
+    "pk": "inquiry-answer-status.inquiry-answer-status-additional-demand",
     "fields": {
-      "created_at": "2023-10-05T07:59:36.127Z",
-      "modified_at": "2023-10-05T07:59:36.127Z",
+      "created_at": "2023-10-18T14:43:11.051Z",
+      "modified_at": "2023-10-18T14:43:11.051Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "inquiry-answer-status",
-      "option": "inquiry-answer-status-needs-interaction",
-      "sort": 1
+      "option": "inquiry-answer-status-additional-demand",
+      "sort": 3
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "inquiry-answer-status.inquiry-answer-status-negative",
     "fields": {
-      "created_at": "2023-10-05T07:59:36.133Z",
-      "modified_at": "2023-10-05T07:59:36.133Z",
+      "created_at": "2023-10-18T14:43:11.056Z",
+      "modified_at": "2023-10-18T14:43:11.056Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "inquiry-answer-status",
       "option": "inquiry-answer-status-negative",
-      "sort": 2
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "inquiry-answer-status.inquiry-answer-status-no-comment",
+    "fields": {
+      "created_at": "2023-10-18T14:43:11.040Z",
+      "modified_at": "2023-10-18T14:43:11.040Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "inquiry-answer-status",
+      "option": "inquiry-answer-status-no-comment",
+      "sort": 1
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "inquiry-answer-status.inquiry-answer-status-positive",
     "fields": {
-      "created_at": "2023-10-05T07:59:36.136Z",
-      "modified_at": "2023-10-05T07:59:36.136Z",
+      "created_at": "2023-10-18T14:43:11.062Z",
+      "modified_at": "2023-10-18T14:43:11.062Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "inquiry-answer-status",
       "option": "inquiry-answer-status-positive",
-      "sort": 3
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "inquiry-answer-status.inquiry-answer-status-rejection",
+    "fields": {
+      "created_at": "2023-10-18T14:43:11.046Z",
+      "modified_at": "2023-10-18T14:43:11.046Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "inquiry-answer-status",
+      "option": "inquiry-answer-status-rejection",
+      "sort": 2
     }
   },
   {
