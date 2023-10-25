@@ -31,7 +31,7 @@ from camac.core.models import (
     WorkflowEntry,
 )
 from camac.core.serializers import MultilingualField, MultilingualSerializer
-from camac.core.utils import create_history_entry, generate_ebau_nr
+from camac.core.utils import create_history_entry, generate_ebau_nr, generate_sort_key
 from camac.document.models import AttachmentSection
 from camac.ech0211.signals import (
     change_responsibility,
@@ -334,6 +334,7 @@ class SchwyzInstanceSerializer(InstanceSerializer):
         if caluma_workflow != "building-permit":
             identifier = domain_logic.CreateInstanceLogic.generate_identifier(instance)
             instance.case.meta["dossier-number"] = identifier
+            instance.case.meta["dossier-number-sort"] = generate_sort_key(identifier)
             instance.case.meta["form-backend"] = "caluma"
             instance.case.save()
             instance.identifier = identifier
@@ -1416,9 +1417,9 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
     def _generate_identifier(self, case, instance):
         if settings.APPLICATION["CALUMA"].get("GENERATE_IDENTIFIER"):
             # Give dossier a unique dossier number
-            case.meta[
-                "dossier-number"
-            ] = domain_logic.CreateInstanceLogic.generate_identifier(instance)
+            identifier = domain_logic.CreateInstanceLogic.generate_identifier(instance)
+            case.meta["dossier-number"] = identifier
+            case.meta["dossier-number-sort"] = generate_sort_key(identifier)
             case.save()
 
     def _get_authority_pk_for_forest_dossiers(self, instance):
@@ -1721,7 +1722,10 @@ class CalumaInstanceSetEbauNumberSerializer(serializers.Serializer):
 
     @transaction.atomic
     def update(self, instance, validated_data):
-        instance.case.meta["ebau-number"] = validated_data.get("ebau_number")
+        ebau_number = validated_data.get("ebau_number")
+        instance.case.meta["ebau-number"] = ebau_number
+        if ebau_number:
+            instance.case.meta["ebau-number-sort"] = generate_sort_key(ebau_number)
         instance.case.save()
 
         self._update_workflow(instance, instance.case)

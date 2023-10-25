@@ -33,7 +33,7 @@ export default {
   },
   availableOrderings: {
     dossierNumber: {
-      caluma: [{ meta: answerSlugs.specialId }],
+      caluma: [{ meta: `${answerSlugs.specialId}-sort` }],
     },
     submitDate: {
       caluma: [{ meta: "submit-date" }],
