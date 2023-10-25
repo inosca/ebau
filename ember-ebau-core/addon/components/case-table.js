@@ -226,6 +226,9 @@ export default class CaseTableComponent extends Component {
                 },
               ],
             },
+            form: {
+              documentForms: filter.form?.split(","),
+            },
           }
         : macroCondition(getOwnConfig().application === "sz")
         ? {
@@ -372,6 +375,7 @@ export default class CaseTableComponent extends Component {
             location: undefined,
             tags: this.args.filter.tags,
             decision: this.args.filter.decision,
+            is_paper: this.args.filter.paper,
           }
         : {}),
     };
