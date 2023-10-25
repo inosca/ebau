@@ -180,6 +180,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz.hinweis-gis",
+    "fields": {
+      "created_at": "2023-10-25T16:21:59.598Z",
+      "modified_at": "2023-10-25T16:21:59.598Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz",
+      "question": "hinweis-gis",
+      "sort": 14
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "allgemeine-angaben-kurz.is-paper",
     "fields": {
       "created_at": "2023-04-12T07:37:16.721Z",
@@ -205,7 +220,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben-kurz",
       "question": "lage-des-vorhabens-titel",
-      "sort": 14
+      "sort": 15
     }
   },
   {
@@ -1084,6 +1099,37 @@
       "meta": {
         "widgetOverride": "gr-gis"
       },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "hinweis-gis",
+    "fields": {
+      "created_at": "2023-10-25T16:21:59.439Z",
+      "modified_at": "2023-10-25T16:21:59.439Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis GIS\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"Bitte tragen Sie die Adresse Ihres Bauvorhabens in die Zeile ein oder klicken Sie in die nachfolgende Karte um die Lage des Bauvorhabens in der Karte zu verorten. \\n\\nSie k\\u00f6nnen einen Punkt, eine Linie oder eine Fl\\u00e4che in der Karte zeichnen.\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
