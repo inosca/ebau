@@ -64,7 +64,7 @@ def get_type_map(canton):
                 },
             },
             "PREFIX": {
-                1: "Leitbehörde",
+                1: "Gemeinde",
                 2: None,
                 3: None,
             },
