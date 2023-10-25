@@ -82,8 +82,8 @@ snapshots['test_gr_client[query0-baugesuch] 1'] = {
                         'label': 'e-grid-nr',
                         'value': 'CH676877828654'
                     },
-                    'liegenschaftsnummer': {
-                        'label': 'liegenschaftsnummer',
+                    'parzellennummer': {
+                        'label': 'parzellennummer',
                         'value': '2830'
                     }
                 }
@@ -174,8 +174,8 @@ snapshots['test_gr_client[query1-baugesuch] 1'] = {
                         'label': 'e-grid-nr',
                         'value': 'CH737679917002'
                     },
-                    'liegenschaftsnummer': {
-                        'label': 'liegenschaftsnummer',
+                    'parzellennummer': {
+                        'label': 'parzellennummer',
                         'value': '3051'
                     }
                 }
@@ -250,8 +250,8 @@ snapshots['test_gr_client[query10-baugesuch] 1'] = {
                         'label': 'e-grid-nr',
                         'value': 'CH427965866853'
                     },
-                    'liegenschaftsnummer': {
-                        'label': 'liegenschaftsnummer',
+                    'parzellennummer': {
+                        'label': 'parzellennummer',
                         'value': '31778'
                     }
                 }
@@ -340,8 +340,8 @@ snapshots['test_gr_client[query11-baugesuch] 1'] = {
                         'label': 'e-grid-nr',
                         'value': 'CH546886777384'
                     },
-                    'liegenschaftsnummer': {
-                        'label': 'liegenschaftsnummer',
+                    'parzellennummer': {
+                        'label': 'parzellennummer',
                         'value': '1257'
                     }
                 }
@@ -441,8 +441,8 @@ snapshots['test_gr_client[query12-baugesuch] 1'] = {
                         'label': 'e-grid-nr',
                         'value': 'CH776877828620'
                     },
-                    'liegenschaftsnummer': {
-                        'label': 'liegenschaftsnummer',
+                    'parzellennummer': {
+                        'label': 'parzellennummer',
                         'value': '2733'
                     }
                 },
@@ -538,8 +538,8 @@ snapshots['test_gr_client[query13-baugesuch] 1'] = {
                         'label': 'e-grid-nr',
                         'value': 'CH916888867745'
                     },
-                    'liegenschaftsnummer': {
-                        'label': 'liegenschaftsnummer',
+                    'parzellennummer': {
+                        'label': 'parzellennummer',
                         'value': '1844'
                     }
                 },
@@ -548,8 +548,8 @@ snapshots['test_gr_client[query13-baugesuch] 1'] = {
                         'label': 'e-grid-nr',
                         'value': 'CH738677680776'
                     },
-                    'liegenschaftsnummer': {
-                        'label': 'liegenschaftsnummer',
+                    'parzellennummer': {
+                        'label': 'parzellennummer',
                         'value': '4308'
                     }
                 }
@@ -601,8 +601,8 @@ snapshots['test_gr_client[query2-bauanzeige] 1'] = {
                         'label': 'e-grid-nr',
                         'value': 'CH737679917002'
                     },
-                    'liegenschaftsnummer': {
-                        'label': 'liegenschaftsnummer',
+                    'parzellennummer': {
+                        'label': 'parzellennummer',
                         'value': '3051'
                     }
                 }
@@ -682,8 +682,8 @@ snapshots['test_gr_client[query3-baugesuch] 1'] = {
                         'label': 'e-grid-nr',
                         'value': 'CH479178647641'
                     },
-                    'liegenschaftsnummer': {
-                        'label': 'liegenschaftsnummer',
+                    'parzellennummer': {
+                        'label': 'parzellennummer',
                         'value': '921'
                     }
                 },
@@ -692,8 +692,8 @@ snapshots['test_gr_client[query3-baugesuch] 1'] = {
                         'label': 'e-grid-nr',
                         'value': 'CH356476789154'
                     },
-                    'liegenschaftsnummer': {
-                        'label': 'liegenschaftsnummer',
+                    'parzellennummer': {
+                        'label': 'parzellennummer',
                         'value': '920'
                     }
                 }
@@ -794,8 +794,8 @@ snapshots['test_gr_client[query4-baugesuch] 1'] = {
                         'label': 'e-grid-nr',
                         'value': 'CH827700866871'
                     },
-                    'liegenschaftsnummer': {
-                        'label': 'liegenschaftsnummer',
+                    'parzellennummer': {
+                        'label': 'parzellennummer',
                         'value': '4628'
                     }
                 },
@@ -804,8 +804,8 @@ snapshots['test_gr_client[query4-baugesuch] 1'] = {
                         'label': 'e-grid-nr',
                         'value': 'CH846886770055'
                     },
-                    'liegenschaftsnummer': {
-                        'label': 'liegenschaftsnummer',
+                    'parzellennummer': {
+                        'label': 'parzellennummer',
                         'value': '4630'
                     }
                 },
@@ -814,8 +814,8 @@ snapshots['test_gr_client[query4-baugesuch] 1'] = {
                         'label': 'e-grid-nr',
                         'value': 'CH898677006887'
                     },
-                    'liegenschaftsnummer': {
-                        'label': 'liegenschaftsnummer',
+                    'parzellennummer': {
+                        'label': 'parzellennummer',
                         'value': '4625'
                     }
                 },
@@ -824,8 +824,8 @@ snapshots['test_gr_client[query4-baugesuch] 1'] = {
                         'label': 'e-grid-nr',
                         'value': 'CH807768008655'
                     },
-                    'liegenschaftsnummer': {
-                        'label': 'liegenschaftsnummer',
+                    'parzellennummer': {
+                        'label': 'parzellennummer',
                         'value': '4626'
                     }
                 },
@@ -834,8 +834,8 @@ snapshots['test_gr_client[query4-baugesuch] 1'] = {
                         'label': 'e-grid-nr',
                         'value': 'CH838677680049'
                     },
-                    'liegenschaftsnummer': {
-                        'label': 'liegenschaftsnummer',
+                    'parzellennummer': {
+                        'label': 'parzellennummer',
                         'value': '4629'
                     }
                 },
@@ -844,8 +844,8 @@ snapshots['test_gr_client[query4-baugesuch] 1'] = {
                         'label': 'e-grid-nr',
                         'value': 'CH880086687762'
                     },
-                    'liegenschaftsnummer': {
-                        'label': 'liegenschaftsnummer',
+                    'parzellennummer': {
+                        'label': 'parzellennummer',
                         'value': '4624'
                     }
                 },
@@ -854,8 +854,8 @@ snapshots['test_gr_client[query4-baugesuch] 1'] = {
                         'label': 'e-grid-nr',
                         'value': 'CH816800867795'
                     },
-                    'liegenschaftsnummer': {
-                        'label': 'liegenschaftsnummer',
+                    'parzellennummer': {
+                        'label': 'parzellennummer',
                         'value': '4627'
                     }
                 }
@@ -941,8 +941,8 @@ snapshots['test_gr_client[query5-baugesuch] 1'] = {
                         'label': 'e-grid-nr',
                         'value': 'CH786876917826'
                     },
-                    'liegenschaftsnummer': {
-                        'label': 'liegenschaftsnummer',
+                    'parzellennummer': {
+                        'label': 'parzellennummer',
                         'value': '493'
                     }
                 },
@@ -1022,8 +1022,8 @@ snapshots['test_gr_client[query6-baugesuch] 1'] = {
                         'label': 'e-grid-nr',
                         'value': 'CH698677986855'
                     },
-                    'liegenschaftsnummer': {
-                        'label': 'liegenschaftsnummer',
+                    'parzellennummer': {
+                        'label': 'parzellennummer',
                         'value': '3479'
                     }
                 }
@@ -1088,8 +1088,8 @@ snapshots['test_gr_client[query7-baugesuch] 1'] = {
                         'label': 'e-grid-nr',
                         'value': 'CH416823867724'
                     },
-                    'liegenschaftsnummer': {
-                        'label': 'liegenschaftsnummer',
+                    'parzellennummer': {
+                        'label': 'parzellennummer',
                         'value': '6978'
                     }
                 }
@@ -1154,8 +1154,8 @@ snapshots['test_gr_client[query8-baugesuch] 1'] = {
                         'label': 'e-grid-nr',
                         'value': 'CH416823867724'
                     },
-                    'liegenschaftsnummer': {
-                        'label': 'liegenschaftsnummer',
+                    'parzellennummer': {
+                        'label': 'parzellennummer',
                         'value': '6978'
                     }
                 },
@@ -1164,8 +1164,8 @@ snapshots['test_gr_client[query8-baugesuch] 1'] = {
                         'label': 'e-grid-nr',
                         'value': 'CH567786689869'
                     },
-                    'liegenschaftsnummer': {
-                        'label': 'liegenschaftsnummer',
+                    'parzellennummer': {
+                        'label': 'parzellennummer',
                         'value': '3476'
                     }
                 }
@@ -1256,8 +1256,8 @@ snapshots['test_gr_client[query9-baugesuch] 1'] = {
                         'label': 'e-grid-nr',
                         'value': 'CH946886778137'
                     },
-                    'liegenschaftsnummer': {
-                        'label': 'liegenschaftsnummer',
+                    'parzellennummer': {
+                        'label': 'parzellennummer',
                         'value': '2646'
                     }
                 }
