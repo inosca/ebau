@@ -143,7 +143,7 @@
     "fields": {
       "role": 4,
       "language": "de",
-      "name": "Administration Leitbehörde (Gemeinde)",
+      "name": "Administration Gemeinde",
       "group_prefix": null
     }
   },
@@ -153,7 +153,7 @@
     "fields": {
       "role": 5,
       "language": "de",
-      "name": "Leitung Leitbehörde (Gemeinde)",
+      "name": "Leitung Gemeinde",
       "group_prefix": null
     }
   },
@@ -163,7 +163,7 @@
     "fields": {
       "role": 6,
       "language": "de",
-      "name": "Sachbearbeitung Leitbehörde (Gemeinde)",
+      "name": "Sachbearbeitung Gemeinde",
       "group_prefix": null
     }
   },
@@ -173,7 +173,7 @@
     "fields": {
       "role": 7,
       "language": "de",
-      "name": "Baubegleitung Leitbehörde (Gemeinde)",
+      "name": "Baubegleitung Gemeinde",
       "group_prefix": null
     }
   },
@@ -183,7 +183,7 @@
     "fields": {
       "role": 8,
       "language": "de",
-      "name": "Einsichtsberechtigt Leitbehörde (Gemeinde)",
+      "name": "Einsichtsberechtigt Gemeinde",
       "group_prefix": null
     }
   },
@@ -257,7 +257,7 @@
     "fields": {
       "service_group": 1,
       "language": "de",
-      "name": "Leitbehörde (Gemeinde)"
+      "name": "Gemeinde"
     }
   },
   {

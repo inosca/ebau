@@ -90,7 +90,7 @@
       "template": 4,
       "template_slug": "eingang-dossier-leitbehoerde",
       "language": "de",
-      "purpose": "Eingang Dossier (Leitbehörde)",
+      "purpose": "Eingang Dossier (Gemeinde)",
       "subject": "Neu eingegangen",
       "body": "Guten Tag\r\n\r\nIm eBau gibt es einen neuen Eingang mit der Dossier-Nr. {{INSTANCE_ID}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}).\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\neBau"
     }
