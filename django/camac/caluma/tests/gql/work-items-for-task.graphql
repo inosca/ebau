@@ -1,0 +1,10 @@
+query ($task: ID!) {
+  allWorkItems(filter: [{ task: $task }]) {
+    edges {
+      node {
+        id
+        addressedGroups
+      }
+    }
+  }
+}

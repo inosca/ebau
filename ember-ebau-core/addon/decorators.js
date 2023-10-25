@@ -1,4 +1,5 @@
 import { getOwner } from "@ember/application";
+import { getOwnConfig } from "@embroider/macros";
 import { tracked } from "@glimmer/tracking";
 import { confirm } from "ember-uikit";
 
@@ -92,4 +93,13 @@ export function confirmTask(textOrKey) {
   };
 }
 
-export default { loadingTask, confirmTask, objectFromQueryParams };
+export function cantonAware(target, property, desc) {
+  return (
+    Object.getOwnPropertyDescriptor(
+      target,
+      `${property}${getOwnConfig().application.toUpperCase()}`,
+    ) ?? desc
+  );
+}
+
+export default { loadingTask, confirmTask, objectFromQueryParams, cantonAware };
