@@ -3867,6 +3867,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "bauvorhaben.dossiernummer-des-bewilligten-projekts",
+    "fields": {
+      "created_at": "2023-10-25T16:29:49.553Z",
+      "modified_at": "2023-10-25T16:29:49.553Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauvorhaben",
+      "question": "dossiernummer-des-bewilligten-projekts",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "bauvorhaben.gebaeudekubatur",
     "fields": {
       "created_at": "2023-04-12T07:50:27.239Z",
@@ -3892,7 +3907,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "hinweis-zustaendigkeit",
-      "sort": 11
+      "sort": 12
     }
   },
   {
@@ -3922,7 +3937,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "vorhaben",
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -3937,7 +3952,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "vorhaben-titel",
-      "sort": 12
+      "sort": 13
     }
   },
   {
@@ -48023,6 +48038,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "dossiernummer-des-bewilligten-projekts",
+    "fields": {
+      "created_at": "2023-10-25T16:29:49.395Z",
+      "modified_at": "2023-10-25T16:29:49.395Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dossiernummer des bewilligten Projekts\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "!(\"vorhaben-projektaenderung-einer-bewilligten-baute-anlage\" in \"vorhaben\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "download-eingabequittung",
     "fields": {
       "created_at": "2023-05-08T09:39:52.453Z",
@@ -69036,7 +69085,7 @@
     "pk": "vorhaben",
     "fields": {
       "created_at": "2023-04-05T10:41:47.866Z",
-      "modified_at": "2023-10-25T07:01:15.412Z",
+      "modified_at": "2023-10-25T16:27:44.689Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -69047,7 +69096,7 @@
       "is_hidden": "\"bauanzeige\" in form || \"solaranlage\" in form",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Der **Neubau** ist bei Neuerstellungen von Bauten und Anlagen zu w\\u00e4hlen.\\n\\nDie **Erweiterung** ist bei der Vergr\\u00f6sserung der Geb\\u00e4udefl\\u00e4che oder des Geb\\u00e4udevolumens (z.B. Anbau oder Aufstockung) zu w\\u00e4hlen.\\n\\nDer **Umbau** ist zu w\\u00e4hlen, sofern es sich um bauliche Massnahmen im Innern des Geb\\u00e4udes (ohne Vergr\\u00f6sserung der Geb\\u00e4udefl\\u00e4che oder des Geb\\u00e4udevolumens) handelt.\\n\\nDie **Erneuerung** umfasst bauliche Massnahmen, die \\u00fcber den Unterhalt hinausgehen und wertvermehrenden Charakter aufweisen. Das Bauwerk wird an die Erfordernisse der Zeit angeglichen (Modernisierung).\\n\\nDie **Zweck\\u00e4nderung** ist zu w\\u00e4hlen, um Geb\\u00e4ude in ihrer Nutzung zu \\u00e4ndern (z.B. Gewerbe- zu Wohnnutzung).\\n\\nDer **Abbruch/Teilabbruch** ist zu w\\u00e4hlen, um ein komplettes Bauwerk oder Teile davon r\\u00fcckzubauen. \\n\\nSofern das Baugesuch bereits bewilligt wurde und weitere \\u00c4nderungen geplant sind, ist die **Projekt\\u00e4nderung einer bewilligten Baute/Anlage** zu w\\u00e4hlen.\\n\\nL\\u00e4sst sich das Vorhaben keiner vorgegebenen Kategorie zuordnen, ist **andere baulich Massnahme** zu w\\u00e4hlen. Das Vorhaben ist pr\\u00e4szise zu beschreiben.\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -87259,8 +87308,8 @@
     "model": "caluma_form.questionoption",
     "pk": "vorhaben.vorhaben-abbruch-teilabbruch",
     "fields": {
-      "created_at": "2023-10-25T07:01:15.431Z",
-      "modified_at": "2023-10-25T07:01:15.431Z",
+      "created_at": "2023-10-25T16:27:44.715Z",
+      "modified_at": "2023-10-25T16:27:44.715Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -87274,8 +87323,8 @@
     "model": "caluma_form.questionoption",
     "pk": "vorhaben.vorhaben-andere",
     "fields": {
-      "created_at": "2023-10-25T07:01:15.422Z",
-      "modified_at": "2023-10-25T07:01:15.422Z",
+      "created_at": "2023-10-25T16:27:44.703Z",
+      "modified_at": "2023-10-25T16:27:44.703Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -87289,8 +87338,8 @@
     "model": "caluma_form.questionoption",
     "pk": "vorhaben.vorhaben-erneuerung",
     "fields": {
-      "created_at": "2023-10-25T07:01:15.440Z",
-      "modified_at": "2023-10-25T07:01:15.440Z",
+      "created_at": "2023-10-25T16:27:44.727Z",
+      "modified_at": "2023-10-25T16:27:44.727Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -87304,8 +87353,8 @@
     "model": "caluma_form.questionoption",
     "pk": "vorhaben.vorhaben-erweiterung-anbau",
     "fields": {
-      "created_at": "2023-10-25T07:01:15.448Z",
-      "modified_at": "2023-10-25T07:01:15.448Z",
+      "created_at": "2023-10-25T16:27:44.737Z",
+      "modified_at": "2023-10-25T16:27:44.737Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -87319,8 +87368,8 @@
     "model": "caluma_form.questionoption",
     "pk": "vorhaben.vorhaben-neubau",
     "fields": {
-      "created_at": "2023-10-25T07:01:15.453Z",
-      "modified_at": "2023-10-25T07:01:15.453Z",
+      "created_at": "2023-10-25T16:27:44.742Z",
+      "modified_at": "2023-10-25T16:27:44.742Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -87334,8 +87383,8 @@
     "model": "caluma_form.questionoption",
     "pk": "vorhaben.vorhaben-projektaenderung-einer-bewilligten-baute-anlage",
     "fields": {
-      "created_at": "2023-10-25T07:01:15.427Z",
-      "modified_at": "2023-10-25T07:01:15.427Z",
+      "created_at": "2023-10-25T16:27:44.709Z",
+      "modified_at": "2023-10-25T16:27:44.709Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -87349,8 +87398,8 @@
     "model": "caluma_form.questionoption",
     "pk": "vorhaben.vorhaben-umbau-erweiterung-zweckaenderung",
     "fields": {
-      "created_at": "2023-10-25T07:01:15.444Z",
-      "modified_at": "2023-10-25T07:01:15.444Z",
+      "created_at": "2023-10-25T16:27:44.732Z",
+      "modified_at": "2023-10-25T16:27:44.732Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -87364,8 +87413,8 @@
     "model": "caluma_form.questionoption",
     "pk": "vorhaben.vorhaben-zweckaenderung",
     "fields": {
-      "created_at": "2023-10-25T07:01:15.436Z",
-      "modified_at": "2023-10-25T07:01:15.436Z",
+      "created_at": "2023-10-25T16:27:44.721Z",
+      "modified_at": "2023-10-25T16:27:44.721Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
