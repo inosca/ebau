@@ -6747,10 +6747,10 @@ elliptic@^6.5.3:
     minimalistic-assert "^1.0.1"
     minimalistic-crypto-utils "^1.0.1"
 
-ember-alexandria@4.3.0, ember-alexandria@^4.3.0:
-  version "4.3.0"
-  resolved "https://registry.yarnpkg.com/ember-alexandria/-/ember-alexandria-4.3.0.tgz#bd0bc70ee3da3d73f17716e113443adbb11457ff"
-  integrity sha512-TW5oG7OU35VdkiQFsBcRVXwHeAH9wNAjfwJbG1y0BrAuoxS45E3FO7aCImQquQ84fXeVIqSB1tOX7ByAc1mAAQ==
+ember-alexandria@4.4.0:
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/ember-alexandria/-/ember-alexandria-4.4.0.tgz#6d17b4e5c0b254235b52c75bc65717646bc9dd62"
+  integrity sha512-Pjj8LFTOGADBtMvE7soaJ/PwYahb0ZkiftJ7P4uyhuhHd+mwQEeG/C0rqv8QMTNkeSDmhuJ8S/sGaQ6ECmAB6g==
   dependencies:
     "@ember/legacy-built-in-components" "^0.4.2"
     "@ember/optional-features" "^2.0.0"
