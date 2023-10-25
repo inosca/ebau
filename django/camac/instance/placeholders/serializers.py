@@ -11,11 +11,11 @@ from rest_framework import serializers
 from camac.caluma.api import CalumaApi
 from camac.core.translations import get_translations
 from camac.user.models import Service
-from camac.utils import build_url
+from camac.utils import build_url, clean_join
 
 from ..master_data import MasterData
 from . import fields
-from .utils import clean_join, get_option_label, human_readable_date
+from .utils import get_option_label, human_readable_date
 
 
 def sanitize_value(value):
