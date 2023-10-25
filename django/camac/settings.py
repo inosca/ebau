@@ -3871,6 +3871,7 @@ APPLICATIONS = {
             "city": ("answer", "ort"),
             "construction_costs": ("answer", "gesamtkosten"),
             "municipality": ("answer", "gemeinde", {"value_parser": "dynamic_option"}),
+            "dossier_number": ("case_meta", "dossier-number"),
             "plot_data": (
                 "table",
                 "parzellen",
