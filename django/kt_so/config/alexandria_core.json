@@ -12,7 +12,7 @@
       "metainfo": {
         "sort": 3,
         "access": {
-          "public": "Read",
+          "applicant": "Read",
           "support": "Admin",
           "subservice": "Read",
           "service-lead": "Read",
@@ -40,7 +40,7 @@
       "metainfo": {
         "sort": 1,
         "access": {
-          "public": "AdminNew",
+          "applicant": "AdminNew",
           "support": "Admin",
           "subservice": "Read",
           "service-lead": "Read",
@@ -190,7 +190,7 @@
       "metainfo": {
         "sort": 4,
         "access": {
-          "public": "AdminAdditionalDemand",
+          "applicant": "AdminAdditionalDemand",
           "support": "Admin",
           "service-lead": "Read",
           "service-clerk": "Read",
