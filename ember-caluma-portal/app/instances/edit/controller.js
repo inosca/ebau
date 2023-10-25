@@ -122,7 +122,6 @@ export default class InstancesEditController extends Controller {
           { key: "camac-instance-id", value: String(this.model) },
         ]),
       },
-      include: "tags",
       sort: "title",
     });
   }
