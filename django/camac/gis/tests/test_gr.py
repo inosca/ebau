@@ -40,7 +40,17 @@ def gr_data_sources(
         ("ort-grundstueck", Question.TYPE_TEXT),
         ("art-gewaesserschutzbereich", Question.TYPE_CHOICE, ["au", "nicht-betroffen"]),
         (
+            "lageranlagen-gewaesserschutzbereich",
+            Question.TYPE_CHOICE,
+            ["au", "nicht-betroffen"],
+        ),
+        (
             "grundwasserschutzzone",
+            Question.TYPE_CHOICE,
+            ["s1", "s2", "s3", "sh", "sm", "nicht-betroffen"],
+        ),
+        (
+            "lageranlagen-grundwasserschutzzone",
             Question.TYPE_CHOICE,
             ["s1", "s2", "s3", "sh", "sm", "nicht-betroffen"],
         ),
@@ -168,6 +178,13 @@ def gr__config(gis_data_source_factory, question_factory):
                         "mapper": "gewaesserschutzbereich",
                         "forms": ["baugesuch"],
                     },
+                    {
+                        "question": "lageranlagen-gewaesserschutzbereich",
+                        "propertyName": "typ",
+                        "mapper": "gewaesserschutzbereich",
+                        "forms": ["baugesuch"],
+                        "hidden": True,
+                    },
                 ],
             },
             {
@@ -178,6 +195,13 @@ def gr__config(gis_data_source_factory, question_factory):
                         "propertyName": "typ",
                         "mapper": "grundwasserschutzzone",
                         "forms": ["baugesuch"],
+                    },
+                    {
+                        "question": "lageranlagen-grundwasserschutzzone",
+                        "propertyName": "typ",
+                        "mapper": "grundwasserschutzzone",
+                        "forms": ["baugesuch"],
+                        "hidden": True,
                     },
                 ],
             },
