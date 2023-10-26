@@ -1,1 +1,112 @@
-[]
+[
+  {
+    "model": "gis.gisdatasource",
+    "pk": "bd026ef6-25cf-46a9-bfb7-8bcdc49bda8f",
+    "fields": {
+      "description": "E-GRID-Nr.",
+      "client": "camac.gis.clients.param.ParamGisClient",
+      "config": {
+        "question": "parzellen.e-grid-nr",
+        "parameterName": "egrid"
+      },
+      "disabled": false
+    }
+  },
+  {
+    "model": "gis.gisdatasource",
+    "pk": "f99fc65e-8720-4736-9840-59b09bc787a3",
+    "fields": {
+      "description": "GISBernOld",
+      "client": "camac.gis.clients.begis.BeGisClient",
+      "config": {
+        "layers": {
+          "GK5_SY": {
+            "is_boolean": true,
+            "properties": [
+              {
+                "mapper": "boolean",
+                "question": "gebiet-mit-naturgefahren"
+              }
+            ]
+          },
+          "NSG_NSGP": {
+            "is_boolean": true,
+            "properties": [
+              {
+                "mapper": "boolean",
+                "question": "naturschutz"
+              }
+            ]
+          },
+          "BALISKBS_KBS": {
+            "is_boolean": true,
+            "properties": [
+              {
+                "mapper": "boolean",
+                "question": "belasteter-standort"
+              }
+            ]
+          },
+          "ARCHINV_FUNDST": {
+            "is_boolean": true,
+            "properties": [
+              {
+                "mapper": "boolean",
+                "question": "gebiet-mit-archaeologischen-objekten"
+              }
+            ]
+          },
+          "BAUINV_BAUINV_VW": {
+            "is_boolean": true,
+            "properties": [
+              {
+                "mapper": "boolean",
+                "question": "handelt-es-sich-um-ein-baudenkmal"
+              }
+            ]
+          },
+          "GEODB.UZP_BAU_VW": {
+            "is_boolean": false,
+            "properties": [
+              {
+                "question": "nutzungszone"
+              }
+            ]
+          },
+          "GEODB.UZP_LSG_VW": {
+            "is_boolean": true,
+            "properties": [
+              {
+                "mapper": "boolean",
+                "question": "objekt-des-besonderen-landschaftsschutzes"
+              }
+            ]
+          },
+          "GEODB.UZP_UEO_VW": {
+            "is_boolean": false,
+            "properties": [
+              {
+                "question": "ueberbauungsordnung"
+              }
+            ]
+          },
+          "GEODB.GSK25_GSK_VW": {
+            "is_boolean": false,
+            "properties": [
+              {
+                "mapper": "gewaesserschutzbereich_v2",
+                "question": "gewaesserschutzbereich-v2"
+              },
+              {
+                "mapper": "grundwasserschutzzonen_v2",
+                "question": "grundwasserschutzzonen-v2"
+              }
+            ]
+          }
+        },
+        "service_code": "a42geo_ebau_kt_wfs_d_fk"
+      },
+      "disabled": false
+    }
+  }
+]

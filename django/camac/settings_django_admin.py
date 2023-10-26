@@ -37,7 +37,12 @@ DJANGO_ADMIN = {
         ],
         "CUSTOMER_MANAGED_MODELS": ["gis.GISDataSource"],
     },
-    "kt_bern": {"ENABLED": True},
+    "kt_bern": {
+        "ENABLED": True,
+        "ENABLED_MODELS": [
+            "gis.GISDataSource",
+        ],
+    },
     "kt_schwyz": {"ENABLED": True},
     "kt_uri": {"ENABLED": True},
 }
