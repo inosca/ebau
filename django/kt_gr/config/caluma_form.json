@@ -10347,21 +10347,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "lageranlagen-wassergefaehrdenden-fluessigkeiten.art-gewaesserschutzbereich",
-    "fields": {
-      "created_at": "2023-10-19T10:42:46.810Z",
-      "modified_at": "2023-10-19T10:42:46.810Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "lageranlagen-wassergefaehrdenden-fluessigkeiten",
-      "question": "art-gewaesserschutzbereich",
-      "sort": 44
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "lageranlagen-wassergefaehrdenden-fluessigkeiten.ausfuehrungsart",
     "fields": {
       "created_at": "2023-04-20T08:02:17.333Z",
@@ -10557,21 +10542,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "lageranlagen-wassergefaehrdenden-fluessigkeiten.grundwasserschutzzone",
-    "fields": {
-      "created_at": "2023-10-19T10:43:28.197Z",
-      "modified_at": "2023-10-19T10:43:28.197Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "lageranlagen-wassergefaehrdenden-fluessigkeiten",
-      "question": "grundwasserschutzzone",
-      "sort": 43
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "lageranlagen-wassergefaehrdenden-fluessigkeiten.hersteller-des-tanks",
     "fields": {
       "created_at": "2023-04-20T07:57:41.720Z",
@@ -10643,6 +10613,36 @@
       "form": "lageranlagen-wassergefaehrdenden-fluessigkeiten",
       "question": "laenge",
       "sort": 37
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "lageranlagen-wassergefaehrdenden-fluessigkeiten.lageranlagen-gewaesserschutzbereich",
+    "fields": {
+      "created_at": "2023-10-26T06:41:58.316Z",
+      "modified_at": "2023-10-26T06:41:58.316Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "lageranlagen-wassergefaehrdenden-fluessigkeiten",
+      "question": "lageranlagen-gewaesserschutzbereich",
+      "sort": 44
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "lageranlagen-wassergefaehrdenden-fluessigkeiten.lageranlagen-grundwasserschutzzone",
+    "fields": {
+      "created_at": "2023-10-26T06:11:57.501Z",
+      "modified_at": "2023-10-26T06:11:57.501Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "lageranlagen-wassergefaehrdenden-fluessigkeiten",
+      "question": "lageranlagen-grundwasserschutzzone",
+      "sort": 43
     }
   },
   {
@@ -26731,6 +26731,134 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "lageranlagen-gewaesserschutzbereich-au",
+    "fields": {
+      "created_at": "2023-10-26T06:41:58.020Z",
+      "modified_at": "2023-10-26T06:41:58.020Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"A\\u1d64\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "lageranlagen-gewaesserschutzbereich-nicht-betroffen",
+    "fields": {
+      "created_at": "2023-10-26T06:41:58.028Z",
+      "modified_at": "2023-10-26T06:41:58.028Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nicht betroffen\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "lageranlagen-grundwasserschutzzone-nicht-betroffen",
+    "fields": {
+      "created_at": "2023-10-26T06:11:57.100Z",
+      "modified_at": "2023-10-26T06:11:57.100Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nicht betroffen\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "lageranlagen-grundwasserschutzzone-s1",
+    "fields": {
+      "created_at": "2023-10-26T06:11:57.118Z",
+      "modified_at": "2023-10-26T06:11:57.118Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"S1\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "lageranlagen-grundwasserschutzzone-s2",
+    "fields": {
+      "created_at": "2023-10-26T06:11:57.108Z",
+      "modified_at": "2023-10-26T06:11:57.108Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"S2\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "lageranlagen-grundwasserschutzzone-s3",
+    "fields": {
+      "created_at": "2023-10-26T06:11:57.080Z",
+      "modified_at": "2023-10-26T06:11:57.080Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"S3\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "lageranlagen-grundwasserschutzzone-sh",
+    "fields": {
+      "created_at": "2023-10-26T06:11:57.062Z",
+      "modified_at": "2023-10-26T06:11:57.062Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Sh\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "lageranlagen-grundwasserschutzzone-sm",
+    "fields": {
+      "created_at": "2023-10-26T06:11:57.119Z",
+      "modified_at": "2023-10-26T06:11:57.119Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Sm\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -58027,6 +58155,68 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "lageranlagen-gewaesserschutzbereich",
+    "fields": {
+      "created_at": "2023-10-26T06:41:58.197Z",
+      "modified_at": "2023-10-26T06:41:58.197Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gew\\u00e4sserschutzbereich\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "lageranlagen-grundwasserschutzzone",
+    "fields": {
+      "created_at": "2023-10-26T06:11:57.371Z",
+      "modified_at": "2023-10-26T06:11:57.371Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Grundwasserschutzzone\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "lageranlagen-mit-wassergefaehrdenden-fluessigkeiten",
     "fields": {
       "created_at": "2023-04-19T10:30:25.810Z",
@@ -81137,6 +81327,126 @@
       "question": "lage-des-vorhabens-korrekt",
       "option": "lage-des-vorhabens-korrekt-nein",
       "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "lageranlagen-gewaesserschutzbereich.lageranlagen-gewaesserschutzbereich-au",
+    "fields": {
+      "created_at": "2023-10-26T06:41:58.206Z",
+      "modified_at": "2023-10-26T06:41:58.206Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "lageranlagen-gewaesserschutzbereich",
+      "option": "lageranlagen-gewaesserschutzbereich-au",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "lageranlagen-gewaesserschutzbereich.lageranlagen-gewaesserschutzbereich-nicht-betroffen",
+    "fields": {
+      "created_at": "2023-10-26T06:41:58.203Z",
+      "modified_at": "2023-10-26T06:41:58.203Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "lageranlagen-gewaesserschutzbereich",
+      "option": "lageranlagen-gewaesserschutzbereich-nicht-betroffen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "lageranlagen-grundwasserschutzzone.lageranlagen-grundwasserschutzzone-nicht-betroffen",
+    "fields": {
+      "created_at": "2023-10-26T06:11:57.378Z",
+      "modified_at": "2023-10-26T06:11:57.378Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "lageranlagen-grundwasserschutzzone",
+      "option": "lageranlagen-grundwasserschutzzone-nicht-betroffen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "lageranlagen-grundwasserschutzzone.lageranlagen-grundwasserschutzzone-s1",
+    "fields": {
+      "created_at": "2023-10-26T06:11:57.393Z",
+      "modified_at": "2023-10-26T06:11:57.393Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "lageranlagen-grundwasserschutzzone",
+      "option": "lageranlagen-grundwasserschutzzone-s1",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "lageranlagen-grundwasserschutzzone.lageranlagen-grundwasserschutzzone-s2",
+    "fields": {
+      "created_at": "2023-10-26T06:11:57.391Z",
+      "modified_at": "2023-10-26T06:11:57.391Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "lageranlagen-grundwasserschutzzone",
+      "option": "lageranlagen-grundwasserschutzzone-s2",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "lageranlagen-grundwasserschutzzone.lageranlagen-grundwasserschutzzone-s3",
+    "fields": {
+      "created_at": "2023-10-26T06:11:57.388Z",
+      "modified_at": "2023-10-26T06:11:57.388Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "lageranlagen-grundwasserschutzzone",
+      "option": "lageranlagen-grundwasserschutzzone-s3",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "lageranlagen-grundwasserschutzzone.lageranlagen-grundwasserschutzzone-sh",
+    "fields": {
+      "created_at": "2023-10-26T06:11:57.385Z",
+      "modified_at": "2023-10-26T06:11:57.385Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "lageranlagen-grundwasserschutzzone",
+      "option": "lageranlagen-grundwasserschutzzone-sh",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "lageranlagen-grundwasserschutzzone.lageranlagen-grundwasserschutzzone-sm",
+    "fields": {
+      "created_at": "2023-10-26T06:11:57.383Z",
+      "modified_at": "2023-10-26T06:11:57.383Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "lageranlagen-grundwasserschutzzone",
+      "option": "lageranlagen-grundwasserschutzzone-sm",
+      "sort": 2
     }
   },
   {
