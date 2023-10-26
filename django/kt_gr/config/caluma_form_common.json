@@ -195,6 +195,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz.hinweis-pilotphase",
+    "fields": {
+      "created_at": "2023-10-26T07:53:57.889Z",
+      "modified_at": "2023-10-26T07:53:57.889Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz",
+      "question": "hinweis-pilotphase",
+      "sort": 15
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "allgemeine-angaben-kurz.is-paper",
     "fields": {
       "created_at": "2023-04-12T07:37:16.721Z",
@@ -220,7 +235,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben-kurz",
       "question": "lage-des-vorhabens-titel",
-      "sort": 15
+      "sort": 16
     }
   },
   {
@@ -1078,7 +1093,7 @@
     "pk": "gis-map",
     "fields": {
       "created_at": "2023-10-03T11:45:55.373Z",
-      "modified_at": "2023-10-19T11:33:06.716Z",
+      "modified_at": "2023-10-26T08:28:54.536Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -1097,6 +1112,7 @@
         "min_length": null
       },
       "meta": {
+        "hideLabel": true,
         "widgetOverride": "gr-gis"
       },
       "data_source": null,
@@ -1114,10 +1130,10 @@
     "pk": "hinweis-gis",
     "fields": {
       "created_at": "2023-10-25T16:21:59.439Z",
-      "modified_at": "2023-10-25T16:21:59.439Z",
+      "modified_at": "2023-10-26T08:30:25.174Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Hinweis GIS\", \"fr\": null, \"it\": null}",
       "type": "static",
@@ -1125,9 +1141,9 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"Bitte tragen Sie die Adresse Ihres Bauvorhabens in die Zeile ein oder klicken Sie in die nachfolgende Karte um die Lage des Bauvorhabens in der Karte zu verorten. \\n\\nSie k\\u00f6nnen einen Punkt, eine Linie oder eine Fl\\u00e4che in der Karte zeichnen.\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"#### Lokalisierung\\n\\nBitte tragen Sie die Adresse Ihres Bauvorhabens in die Zeile ein oder klicken Sie in die nachfolgende Karte um die Lage des Bauvorhabens in der Karte zu verorten. \\n\\nSie k\\u00f6nnen einen Punkt, eine Linie oder eine Fl\\u00e4che in der Karte zeichnen.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -1159,6 +1175,37 @@
       "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"<div class=\\\"uk-alert\\\"><p>Wenn die hier erfasste Person zus\\u00e4tzlich Zugang zum Dossier erhalten und \\u00fcber dessen Bearbeitungsfortschritt informiert werden soll, erfassen Sie diese im Men\\u00fc \\\"Berechtigungen\\\".</p>\\n\\n<p>Um auf das Dossier zuzugreifen, muss die eingeladene Personen auf dem eBau Portal registriert sein. Falls dies noch nicht der Fall ist, wird bei der Einladung automatisch eine E-Mail mit einem Link zur Registrierung versendet.</p></div>\", \"fr\": \"<div class=\\\"uk-alert\\\"><p>Si la personne saisie ici doit \\u00e9galement avoir acc\\u00e8s au dossier et \\u00eatre inform\\u00e9e de l'avancement du projet, saisissez cette personne dans le menu \\\"Autorisation\\\".</p> \\n\\n<p>Pour acc\\u00e9der au dossier, la personne invit\\u00e9e doit \\u00eatre enregistr\\u00e9e sur le portail eBau. Si ce n'est pas encore le cas, un e-mail contenant un lien vers l'enregistrement sera automatiquement envoy\\u00e9 avec l'invitation.</p></div>\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "hinweis-pilotphase",
+    "fields": {
+      "created_at": "2023-10-26T07:53:57.702Z",
+      "modified_at": "2023-10-26T07:53:57.702Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis Pilotphase\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"**Bitte beachten:** Im Moment k\\u00f6nnen nur in folgenden Gemeinden Gesuche digital eingereicht werden:\\n\\n* Berg\\u00fcn Filisur\\n* Breil/Brigels\\n* Disentis/Must\\u00e9r\\n* Domleschg\\n* Felsberg\\n* Pontresina\\n* Samedan\\n* Tujetsch\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
