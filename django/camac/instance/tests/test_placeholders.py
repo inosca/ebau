@@ -170,6 +170,13 @@ def test_dms_placeholders_gr(
     )
     add_answer(gr_instance.case.document, "folgeplanung", "Baulinie allgemein")
 
+    # gis
+    add_answer(
+        gr_instance.case.document,
+        "gis-map",
+        '{"markers": [{"x": 2569941.12345, "y": 1298923.12345}, {"x": 2609995.12345,"y": 1271340.12345}] }',
+    )
+
     # Prepare project modification
     add_answer(
         gr_instance.case.document, "beschreibung-projektaenderung", "Projektänderung"

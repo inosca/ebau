@@ -1,5 +1,6 @@
 import csv
 import itertools
+import json
 from collections import OrderedDict
 
 from caluma.caluma_form.models import Answer
@@ -593,6 +594,10 @@ class GrDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         aliases=[_("RESPONSIBLE_NAME")],
         description=_("Name of the responsible employee"),
     )
+    koordinaten = fields.AliasedMethodField(
+        aliases=[_("COORDINATES")],
+        description=_("Coordinates of the parcel"),
+    )
 
     def get_zonenplan(self, instance):
         answer = Answer.objects.filter(
@@ -619,6 +624,24 @@ class GrDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
             question_id="folgeplanung", document_id=instance.case.document.pk
         )
         return answer.first().value if answer else ""
+
+    def get_koordinaten(self, instance):
+        coordinates = [
+            json.loads(answer.value)["markers"]
+            for answer in Answer.objects.filter(
+                question_id="gis-map", document_id=instance.case.document.pk
+            )
+        ]
+
+        if not coordinates:  # pragma: no cover
+            return ""
+
+        data = []
+        for coordinate in coordinates[0]:
+            x = f"{round(coordinate['x']):_}".replace("_", "’")
+            y = f"{round(coordinate['y']):_}".replace("_", "’")
+            data.append(f"{x} / {y}")
+        return "; ".join(data)
 
 
 class BeDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
