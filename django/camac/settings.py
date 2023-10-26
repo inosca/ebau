@@ -3248,7 +3248,6 @@ APPLICATIONS = {
         "PORTAL_GROUP": 3,
         "CALUMA": {
             "MANUAL_WORK_ITEM_TASK": "create-manual-workitems",
-            "FILL_PUBLICATION_TASK": "fill-publication",
             "SUBMIT_TASKS": ["submit"],
             "FORM_PERMISSIONS": ["main", "inquiry", "inquiry-answer"],
             "HAS_PROJECT_CHANGE": True,
@@ -3260,6 +3259,20 @@ APPLICATIONS = {
             "MODIFICATION_ALLOW_FORMS": [
                 "baugesuch",
             ],
+            "PRE_COMPLETE": {
+                "decision": {
+                    "skip": [
+                        "publication",
+                        "fill-publication",
+                    ],
+                    "cancel": [
+                        "create-publication",
+                    ],
+                    "complete": ["additional-demand"],
+                },
+                "fill-publication": {"complete": ["publication"]},
+                "construction-monitoring": {"cancel": ["create-manual-workitems"]},
+            },
             "SIMPLE_WORKFLOW": {
                 "formal-exam": {
                     "next_instance_state": "init-distribution",
