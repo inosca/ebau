@@ -92,6 +92,13 @@
               "mapper": "gewaesserschutzbereich",
               "question": "art-gewaesserschutzbereich",
               "propertyName": "typ"
+            },
+            {
+              "forms": ["baugesuch"],
+              "hidden": true,
+              "mapper": "gewaesserschutzbereich",
+              "question": "lageranlagen-gewaesserschutzbereich",
+              "propertyName": "typ"
             }
           ]
         },
@@ -102,6 +109,13 @@
               "forms": ["baugesuch"],
               "mapper": "grundwasserschutzzone",
               "question": "grundwasserschutzzone",
+              "propertyName": "typ"
+            },
+            {
+              "forms": ["baugesuch"],
+              "hidden": true,
+              "mapper": "grundwasserschutzzone",
+              "question": "lageranlagen-grundwasserschutzzone",
               "propertyName": "typ"
             }
           ]

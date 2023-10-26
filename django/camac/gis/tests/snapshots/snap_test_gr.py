@@ -67,6 +67,18 @@ snapshots['test_gr_client[query0-baugesuch] 1'] = {
             'label': 'kantonsstrassen',
             'value': 'kantonsstrassen-nein'
         },
+        'lageranlagen-gewaesserschutzbereich': {
+            'displayValue': 'au',
+            'hidden': True,
+            'label': 'lageranlagen-gewaesserschutzbereich',
+            'value': 'lageranlagen-gewaesserschutzbereich-au'
+        },
+        'lageranlagen-grundwasserschutzzone': {
+            'displayValue': 'nicht-betroffen',
+            'hidden': True,
+            'label': 'lageranlagen-grundwasserschutzzone',
+            'value': 'lageranlagen-grundwasserschutzzone-nicht-betroffen'
+        },
         'ort-grundstueck': {
             'hidden': False,
             'label': 'ort-grundstueck',
@@ -159,6 +171,18 @@ snapshots['test_gr_client[query1-baugesuch] 1'] = {
             'label': 'kantonsstrassen',
             'value': 'kantonsstrassen-nein'
         },
+        'lageranlagen-gewaesserschutzbereich': {
+            'displayValue': 'au',
+            'hidden': True,
+            'label': 'lageranlagen-gewaesserschutzbereich',
+            'value': 'lageranlagen-gewaesserschutzbereich-au'
+        },
+        'lageranlagen-grundwasserschutzzone': {
+            'displayValue': 'nicht-betroffen',
+            'hidden': True,
+            'label': 'lageranlagen-grundwasserschutzzone',
+            'value': 'lageranlagen-grundwasserschutzzone-nicht-betroffen'
+        },
         'ort-grundstueck': {
             'hidden': False,
             'label': 'ort-grundstueck',
@@ -234,6 +258,18 @@ snapshots['test_gr_client[query10-baugesuch] 1'] = {
             'hidden': False,
             'label': 'kantonsstrassen',
             'value': 'kantonsstrassen-nein'
+        },
+        'lageranlagen-gewaesserschutzbereich': {
+            'displayValue': 'au',
+            'hidden': True,
+            'label': 'lageranlagen-gewaesserschutzbereich',
+            'value': 'lageranlagen-gewaesserschutzbereich-au'
+        },
+        'lageranlagen-grundwasserschutzzone': {
+            'displayValue': 'nicht-betroffen',
+            'hidden': True,
+            'label': 'lageranlagen-grundwasserschutzzone',
+            'value': 'lageranlagen-grundwasserschutzzone-nicht-betroffen'
         },
         'ort-grundstueck': {
             'hidden': False,
@@ -324,6 +360,18 @@ snapshots['test_gr_client[query11-baugesuch] 1'] = {
             'hidden': False,
             'label': 'kantonsstrassen',
             'value': 'kantonsstrassen-nein'
+        },
+        'lageranlagen-gewaesserschutzbereich': {
+            'displayValue': 'au',
+            'hidden': True,
+            'label': 'lageranlagen-gewaesserschutzbereich',
+            'value': 'lageranlagen-gewaesserschutzbereich-au'
+        },
+        'lageranlagen-grundwasserschutzzone': {
+            'displayValue': 'nicht-betroffen',
+            'hidden': True,
+            'label': 'lageranlagen-grundwasserschutzzone',
+            'value': 'lageranlagen-grundwasserschutzzone-nicht-betroffen'
         },
         'ort-grundstueck': {
             'hidden': False,
@@ -426,6 +474,18 @@ snapshots['test_gr_client[query12-baugesuch] 1'] = {
             'label': 'kantonsstrassen',
             'value': 'kantonsstrassen-nein'
         },
+        'lageranlagen-gewaesserschutzbereich': {
+            'displayValue': 'au',
+            'hidden': True,
+            'label': 'lageranlagen-gewaesserschutzbereich',
+            'value': 'lageranlagen-gewaesserschutzbereich-au'
+        },
+        'lageranlagen-grundwasserschutzzone': {
+            'displayValue': 'nicht-betroffen',
+            'hidden': True,
+            'label': 'lageranlagen-grundwasserschutzzone',
+            'value': 'lageranlagen-grundwasserschutzzone-nicht-betroffen'
+        },
         'ort-grundstueck': {
             'hidden': False,
             'label': 'ort-grundstueck',
@@ -522,6 +582,18 @@ snapshots['test_gr_client[query13-baugesuch] 1'] = {
             'hidden': False,
             'label': 'kantonsstrassen',
             'value': 'kantonsstrassen-nein'
+        },
+        'lageranlagen-gewaesserschutzbereich': {
+            'displayValue': 'au',
+            'hidden': True,
+            'label': 'lageranlagen-gewaesserschutzbereich',
+            'value': 'lageranlagen-gewaesserschutzbereich-au'
+        },
+        'lageranlagen-grundwasserschutzzone': {
+            'displayValue': 's2',
+            'hidden': True,
+            'label': 'lageranlagen-grundwasserschutzzone',
+            'value': 'lageranlagen-grundwasserschutzzone-s2'
         },
         'ort-grundstueck': {
             'hidden': False,
@@ -667,6 +739,18 @@ snapshots['test_gr_client[query3-baugesuch] 1'] = {
             'label': 'kantonsstrassen',
             'value': 'kantonsstrassen-nein'
         },
+        'lageranlagen-gewaesserschutzbereich': {
+            'displayValue': 'au',
+            'hidden': True,
+            'label': 'lageranlagen-gewaesserschutzbereich',
+            'value': 'lageranlagen-gewaesserschutzbereich-au'
+        },
+        'lageranlagen-grundwasserschutzzone': {
+            'displayValue': 'nicht-betroffen',
+            'hidden': True,
+            'label': 'lageranlagen-grundwasserschutzzone',
+            'value': 'lageranlagen-grundwasserschutzzone-nicht-betroffen'
+        },
         'ort-grundstueck': {
             'hidden': False,
             'label': 'ort-grundstueck',
@@ -778,6 +862,18 @@ snapshots['test_gr_client[query4-baugesuch] 1'] = {
             'hidden': False,
             'label': 'kantonsstrassen',
             'value': 'kantonsstrassen-nein'
+        },
+        'lageranlagen-gewaesserschutzbereich': {
+            'displayValue': 'au',
+            'hidden': True,
+            'label': 'lageranlagen-gewaesserschutzbereich',
+            'value': 'lageranlagen-gewaesserschutzbereich-au'
+        },
+        'lageranlagen-grundwasserschutzzone': {
+            'displayValue': 'nicht-betroffen',
+            'hidden': True,
+            'label': 'lageranlagen-grundwasserschutzzone',
+            'value': 'lageranlagen-grundwasserschutzzone-nicht-betroffen'
         },
         'ort-grundstueck': {
             'hidden': False,
@@ -926,6 +1022,18 @@ snapshots['test_gr_client[query5-baugesuch] 1'] = {
             'label': 'kantonsstrassen',
             'value': 'kantonsstrassen-nein'
         },
+        'lageranlagen-gewaesserschutzbereich': {
+            'displayValue': 'au',
+            'hidden': True,
+            'label': 'lageranlagen-gewaesserschutzbereich',
+            'value': 'lageranlagen-gewaesserschutzbereich-au'
+        },
+        'lageranlagen-grundwasserschutzzone': {
+            'displayValue': 'nicht-betroffen',
+            'hidden': True,
+            'label': 'lageranlagen-grundwasserschutzzone',
+            'value': 'lageranlagen-grundwasserschutzzone-nicht-betroffen'
+        },
         'ort-grundstueck': {
             'hidden': False,
             'label': 'ort-grundstueck',
@@ -1007,6 +1115,12 @@ snapshots['test_gr_client[query6-baugesuch] 1'] = {
             'label': 'kantonsstrassen',
             'value': 'kantonsstrassen-nein'
         },
+        'lageranlagen-grundwasserschutzzone': {
+            'displayValue': 'nicht-betroffen',
+            'hidden': True,
+            'label': 'lageranlagen-grundwasserschutzzone',
+            'value': 'lageranlagen-grundwasserschutzzone-nicht-betroffen'
+        },
         'ort-grundstueck': {
             'hidden': False,
             'label': 'ort-grundstueck',
@@ -1073,6 +1187,12 @@ snapshots['test_gr_client[query7-baugesuch] 1'] = {
             'label': 'kantonsstrassen',
             'value': 'kantonsstrassen-nein'
         },
+        'lageranlagen-grundwasserschutzzone': {
+            'displayValue': 'nicht-betroffen',
+            'hidden': True,
+            'label': 'lageranlagen-grundwasserschutzzone',
+            'value': 'lageranlagen-grundwasserschutzzone-nicht-betroffen'
+        },
         'ort-grundstueck': {
             'hidden': False,
             'label': 'ort-grundstueck',
@@ -1138,6 +1258,12 @@ snapshots['test_gr_client[query8-baugesuch] 1'] = {
             'hidden': False,
             'label': 'kantonsstrassen',
             'value': 'kantonsstrassen-nein'
+        },
+        'lageranlagen-grundwasserschutzzone': {
+            'displayValue': 'nicht-betroffen',
+            'hidden': True,
+            'label': 'lageranlagen-grundwasserschutzzone',
+            'value': 'lageranlagen-grundwasserschutzzone-nicht-betroffen'
         },
         'ort-grundstueck': {
             'hidden': False,
@@ -1240,6 +1366,18 @@ snapshots['test_gr_client[query9-baugesuch] 1'] = {
             'hidden': False,
             'label': 'kantonsstrassen',
             'value': 'kantonsstrassen-ja'
+        },
+        'lageranlagen-gewaesserschutzbereich': {
+            'displayValue': 'au',
+            'hidden': True,
+            'label': 'lageranlagen-gewaesserschutzbereich',
+            'value': 'lageranlagen-gewaesserschutzbereich-au'
+        },
+        'lageranlagen-grundwasserschutzzone': {
+            'displayValue': 'nicht-betroffen',
+            'hidden': True,
+            'label': 'lageranlagen-grundwasserschutzzone',
+            'value': 'lageranlagen-grundwasserschutzzone-nicht-betroffen'
         },
         'ort-grundstueck': {
             'hidden': False,
