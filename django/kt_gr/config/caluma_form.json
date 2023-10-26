@@ -3762,21 +3762,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "bauvorhaben.bauanzeige-bauvorhaben-betrifft",
-    "fields": {
-      "created_at": "2023-07-03T06:36:22.009Z",
-      "modified_at": "2023-07-03T06:36:22.009Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "bauvorhaben",
-      "question": "bauanzeige-bauvorhaben-betrifft",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "bauvorhaben.bauanzeige-haustechnische-anlagen-brandschutz",
     "fields": {
       "created_at": "2023-09-06T07:17:38.677Z",
@@ -15623,21 +15608,6 @@
       "form": "vorlaeufige-beurteilung",
       "question": "allgemeine-informationen",
       "sort": 6
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "vorlaeufige-beurteilung.bestaetigung",
-    "fields": {
-      "created_at": "2023-05-19T08:49:22.803Z",
-      "modified_at": "2023-05-19T08:49:22.804Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "vorlaeufige-beurteilung",
-      "question": "bestaetigung",
-      "sort": 2
     }
   },
   {
@@ -41110,7 +41080,7 @@
     "pk": "bauanzeige-haustechnische-anlagen-brandschutz",
     "fields": {
       "created_at": "2023-09-06T07:17:38.540Z",
-      "modified_at": "2023-10-25T06:29:20.069Z",
+      "modified_at": "2023-10-26T08:11:59.883Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -41122,7 +41092,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"### Feuerpolizeiliche Bewilligung\\n\\nGem\\u00e4ss Brandschutzgesetz, Art. 7 Abs. 1 Feuerpolizeiliche Bewilligungspflicht: Bewilligungspflichtig sind: \\n\\n\\n1. Neu-, An-, Um- und Ausbauten sowie die Umnutzung von Geb\\u00e4uden oder Geb\\u00e4udeteilen;<br>\\n1. Neu-, Aus- und Umbauten von haustechnischen Anlagen und technischen Brandschutzeinrichtungen;<br>\\n1. Betriebe, Anlagen und Einrichtungen, die der Herstellung, Verarbeitung oder Lagerung feuer- oder explosionsgef\\u00e4hrlicher Stoffe und Waren dienen;<br>\\n1. Veranstaltungen mit besonderer Gef\\u00e4hrdung von Personen, Tieren oder Sachen;<br>\\n1. das Abbrennen von pyrotechnischen Gegenst\\u00e4nden zu Vergn\\u00fcgungszwecken (Feuerwerksk\\u00f6rper) und zu gewerblichen Zwecken.<br>\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"Bitte beachten: Die Befreiung von der Baubewilligungspflicht entbindet nicht von der Einhaltung der Vorschriften des materiellen Rechts (z.B. Grenzabstand bei Kleinbauten) und der Einholung anderer Bewilligungen (z.B. Gastwirtschaftsbewilligun-gen).    Bestehen Anzeichen daf\\u00fcr, dass durch ein bewilligungsfreies Bauvorhaben Vorschriften des materiellen Rechts verletzt sein k\\u00f6nnten, leitet die kommunale Baubeh\\u00f6rde von Amtes wegen, auf Ersuchen der Fachstelle oder auf Hinweis von Dritten hin das Baubewilligungsverfahren ein (vgl. Art. 40 Abs. 3 der kantonalen Raumplanungsverordnung [KRVO])\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -41239,7 +41209,7 @@
     "pk": "baugespann",
     "fields": {
       "created_at": "2023-04-12T07:53:03.844Z",
-      "modified_at": "2023-10-26T07:02:26.371Z",
+      "modified_at": "2023-10-26T07:57:32.893Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -41247,7 +41217,7 @@
       "label": "{\"de\": \"Baugespann\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "!(\"vorlaeufige-beurteilung\" in form || \"is-paper-yes\" in \"is-paper\"|answer)",
-      "is_hidden": "\"bauanzeige\" in form || \"solaranlage\" in form",
+      "is_hidden": "!(\"baugesuch\" in form)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"Bei Bauvorhaben, die nach aussen in Erscheinung treten, ist ein Baugespann aufzustellen. \\n\\nEs ist in jedem Falle w\\u00e4hrend der Dauer der \\u00f6ffentlichen Auflage stehen zu lassen (vgl. Art. 43 der kantonalen Raumplanungsverordnung [KRVO]).\", \"fr\": null, \"it\": null}",
@@ -44921,18 +44891,18 @@
     "pk": "bestaetigung",
     "fields": {
       "created_at": "2023-05-17T14:09:23.818Z",
-      "modified_at": "2023-05-17T14:09:23.818Z",
+      "modified_at": "2023-10-26T08:14:57.536Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Best\\u00e4tigung\", \"fr\": null, \"it\": null}",
       "type": "form",
       "is_required": "false",
-      "is_hidden": "false",
+      "is_hidden": "\"is-paper-yes\" == \"is-paper\"|answer",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -48722,7 +48692,7 @@
     "pk": "einleitung-des-verfahrens",
     "fields": {
       "created_at": "2023-07-03T06:20:13.929Z",
-      "modified_at": "2023-08-31T08:27:36.869Z",
+      "modified_at": "2023-10-26T08:16:28.680Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -48730,7 +48700,7 @@
       "label": "{\"de\": \"Best\\u00e4tigung Eingabequittung\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
       "is_required": "'is-paper'|answer != 'is-paper-yes'",
-      "is_hidden": "false",
+      "is_hidden": "\"vorlaeufige-beurteilung\" in form || \"is-paper-yes\" == \"is-paper\"|answer",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -75303,8 +75273,8 @@
     "model": "caluma_form.questionoption",
     "pk": "bauanzeige-haustechnische-anlagen-brandschutz.bauanzeige-haustechnische-anlagen-brandschutz-ja",
     "fields": {
-      "created_at": "2023-10-25T06:29:20.084Z",
-      "modified_at": "2023-10-25T06:29:20.084Z",
+      "created_at": "2023-10-26T08:11:59.898Z",
+      "modified_at": "2023-10-26T08:11:59.898Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -75318,8 +75288,8 @@
     "model": "caluma_form.questionoption",
     "pk": "bauanzeige-haustechnische-anlagen-brandschutz.bauanzeige-haustechnische-anlagen-brandschutz-nein",
     "fields": {
-      "created_at": "2023-10-25T06:29:20.078Z",
-      "modified_at": "2023-10-25T06:29:20.078Z",
+      "created_at": "2023-10-26T08:11:59.892Z",
+      "modified_at": "2023-10-26T08:11:59.892Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -75363,8 +75333,8 @@
     "model": "caluma_form.questionoption",
     "pk": "baugespann.baugespann-ja",
     "fields": {
-      "created_at": "2023-10-26T07:02:26.423Z",
-      "modified_at": "2023-10-26T07:02:26.423Z",
+      "created_at": "2023-10-26T07:57:32.910Z",
+      "modified_at": "2023-10-26T07:57:32.910Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -75378,8 +75348,8 @@
     "model": "caluma_form.questionoption",
     "pk": "baugespann.baugespann-nein",
     "fields": {
-      "created_at": "2023-10-26T07:02:26.403Z",
-      "modified_at": "2023-10-26T07:02:26.403Z",
+      "created_at": "2023-10-26T07:57:32.904Z",
+      "modified_at": "2023-10-26T07:57:32.904Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -78048,8 +78018,8 @@
     "model": "caluma_form.questionoption",
     "pk": "einleitung-des-verfahrens.einleitung-des-verfahrens-ja",
     "fields": {
-      "created_at": "2023-08-31T08:27:36.883Z",
-      "modified_at": "2023-08-31T08:27:36.883Z",
+      "created_at": "2023-10-26T08:16:28.688Z",
+      "modified_at": "2023-10-26T08:16:28.688Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
