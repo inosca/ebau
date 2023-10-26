@@ -3686,8 +3686,6 @@ APPLICATIONS = {
                     "column_mapping": {
                         "plot_number": "parzellennummer",
                         "egrid_number": "e-grid-nr",
-                        "coord_east": "lagekoordinaten-ost",
-                        "coord_north": "lagekoordinaten-nord",
                     }
                 },
             ),
