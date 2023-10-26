@@ -43,8 +43,11 @@ module.exports = function (environment) {
   const instanceStatesGr = {
     new: 1,
     subm: 120004,
-    circulationInit: 120009,
     circ: 120005,
+    decision: 120007,
+    inCorrection: 120008,
+    circulationInit: 120009,
+    constructionMonitoring: 120010,
     finished: 120006,
   };
   const instanceStatesSo = {
@@ -349,7 +352,9 @@ module.exports = function (environment) {
           instanceStatesGr.subm,
           instanceStatesGr.circulationInit,
           instanceStatesGr.circ,
+          instanceStatesGr.inCorrection,
         ],
+        constructionMonitoring: [instanceStatesGr.constructionMonitoring],
         done: [instanceStatesGr.finished],
       },
       completePreliminaryClarificationSlugs: [],
