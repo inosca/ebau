@@ -1208,7 +1208,7 @@ class PublicCalumaInstanceView(mixins.InstanceQuerysetMixin, ListAPIView):
                         instance_id=OuterRef("instance_id")
                     ).values("publication_end_date")[:1]
                 ),
-            ).order_by("instance__location", "publication_end_date", "dossier_nr")
+            ).order_by("instance__location__name", "publication_end_date", "dossier_nr")
         elif settings.PUBLICATION.get("BACKEND") == "caluma":
             special_id = (
                 "ebau-number"
