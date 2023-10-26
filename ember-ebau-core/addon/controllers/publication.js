@@ -3,6 +3,7 @@ import { inject as service } from "@ember/service";
 import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
 import { trackedTask } from "ember-resources/util/ember-concurrency";
+import { DateTime, Interval } from "luxon";
 
 import mainConfig from "ember-ebau-core/config/main";
 import getPublications from "ember-ebau-core/gql/queries/get-publications.graphql";
@@ -42,4 +43,26 @@ export default class PublicationController extends Controller {
       this.notification.danger(this.intl.t("publication.loadingError"));
     }
   }
+
+  dateStatus = (startDate, endDate) => {
+    if (!startDate || !endDate) {
+      return null;
+    }
+
+    const interval = Interval.fromDateTimes(
+      DateTime.fromISO(startDate),
+      DateTime.fromISO(endDate),
+    );
+    const now = DateTime.now();
+
+    const status = interval.contains(now)
+      ? "active"
+      : interval.isAfter(now)
+      ? "future"
+      : interval.isBefore(now)
+      ? "past"
+      : null;
+
+    return status ? this.intl.t(`publication.${status}`) : null;
+  };
 }

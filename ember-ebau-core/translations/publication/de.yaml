@@ -6,6 +6,9 @@ publication:
   canceled: "Abgebrochen"
   loadingError: "Fehler beim Laden"
   cancelError: "Fehler beim Abbrechen"
+  active: "Aktiv"
+  future: "Anstehend"
+  past: "Abgelaufen"
 
   cancelConfirm:
     public: "Wollen Sie die Publikation wirklich abbrechen?"
