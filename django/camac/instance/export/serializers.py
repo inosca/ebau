@@ -8,6 +8,8 @@ from django.core.cache import cache
 from django.utils.translation import gettext as _
 from rest_framework import serializers
 
+from camac.utils import clean_join
+
 
 class SubmitDateField(serializers.DateField):
     """Custom date field that can parse a string value to a proper date."""
@@ -196,28 +198,17 @@ class InstanceExportSerializerSZ(InstanceExportSerializer):
             value = applicant.get(key) or ""
             return value.strip()
 
-        return (
-            ", ".join(
-                filter(
-                    None,
-                    [
-                        answer(applicant, "firma")
-                        if answer(applicant, "firma")
-                        else " ".join(
-                            filter(
-                                None,
-                                [
-                                    answer(applicant, "vorname"),
-                                    answer(applicant, "name"),
-                                ],
-                            )
-                        )
-                        for applicant in instance.applicants
-                    ],
+        return clean_join(
+            *[
+                answer(applicant, "firma")
+                if answer(applicant, "firma")
+                else clean_join(
+                    answer(applicant, "vorname"),
+                    answer(applicant, "name"),
                 )
-            )
-            if instance.applicants
-            else ""
+                for applicant in instance.applicants
+            ],
+            separator=", ",
         )
 
     class Meta(InstanceExportSerializer.Meta):
