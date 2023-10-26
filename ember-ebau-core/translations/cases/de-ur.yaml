@@ -3,7 +3,7 @@ cases:
     address: "Strasse / Flurname / Ort"
     paper: "intern erfasst"
     legalStateOereb: "Rechtsstatus ÖREB Verfahren"
-    legalStateOereb-placeholder: "Rechtsstatus ÖREB Verfahren"
+    legalStateOereb-placeholder: ""
   paper:
     only: "Nur intern erfasste Dossiers"
     none: "keine intern erfassten Dossiers"
