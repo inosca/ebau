@@ -3882,6 +3882,7 @@ REST_FRAMEWORK = {
         "rest_framework_json_api.django_filters.DjangoFilterBackend",
     ),
     "ORDERING_PARAM": "sort",
+    "SEARCH_PARAM": "search",
     "TEST_REQUEST_RENDERER_CLASSES": (
         "rest_framework_json_api.renderers.JSONRenderer",
         "rest_framework.renderers.JSONRenderer",
