@@ -87,7 +87,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "name": "{\"de\": \"Baubegleitung\", \"fr\": null, \"it\": null}",
+      "name": "{\"de\": \"Bauabnahme\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
       "meta": {
