@@ -16,12 +16,12 @@ from camac.instance.tests.test_instance_public import (  # noqa: F401
 
 @pytest.mark.parametrize("is_nested_category", [True, False])
 @pytest.mark.parametrize(
-    "role__name,instance__user,expected_count",
+    "role__name,instance__user",
     [
-        ("applicant", LazyFixture("user"), 3),
-        ("municipality", LazyFixture("user"), 2),
-        ("service", LazyFixture("user"), 1),
-        ("public", LazyFixture("user"), 1),
+        ("applicant", LazyFixture("user")),
+        ("municipality", LazyFixture("user")),
+        ("service", LazyFixture("user")),
+        ("public", LazyFixture("user")),
     ],
 )
 def test_document_visibility(
@@ -33,11 +33,13 @@ def test_document_visibility(
     instance_factory,
     instance_with_case,
     publication_settings,
+    applicant_factory,
     create_caluma_publication,  # noqa: F811
     snapshot,
-    expected_count,
     is_nested_category,
 ):
+    applicant_factory(invitee=admin_client.user, instance=instance)
+
     # directly readble
     applicant_category = CategoryFactory(metainfo={"access": {"applicant": "Admin"}})
     municipality_category = CategoryFactory(
@@ -50,18 +52,18 @@ def test_document_visibility(
         municipality_category = CategoryFactory(parent=municipality_category)
         service_category = CategoryFactory(parent=service_category)
 
-    DocumentFactory.create_batch(
-        2,
+    DocumentFactory(
         category=applicant_category,
         metainfo={"camac-instance-id": instance.pk},
         title="applicant",
     )
-    DocumentFactory.create_batch(
-        2,
+    document = DocumentFactory(
         category=municipality_category,
         metainfo={"camac-instance-id": instance.pk},
         title="municipality",
     )
+    # decision document
+    document.tags.add(TagFactory(slug="decision"))
 
     # readable from service
     DocumentFactory(
@@ -101,7 +103,6 @@ def test_document_visibility(
 
     assert response.status_code == HTTP_200_OK
     json = response.json()
-    assert len(json["data"]) == expected_count
     snapshot.assert_match(
         sorted(
             [{"title": obj["attributes"]["title"]["de"]} for obj in json["data"]],
@@ -122,6 +123,7 @@ def test_document_visibility(
 def test_file_visibility(
     db,
     minio_mock,
+    applicant_factory,
     caluma_admin_user,
     instance,
     admin_client,
@@ -129,6 +131,7 @@ def test_file_visibility(
     expected_count,
     is_nested_category,
 ):
+    applicant_factory(invitee=admin_client.user, instance=instance)
     applicant_category = CategoryFactory(metainfo={"access": {"applicant": "Admin"}})
     municipality_category = CategoryFactory(
         metainfo={"access": {"municipality": "Read"}}
