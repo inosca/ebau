@@ -27,6 +27,7 @@ const EPSG2056toLatLng = ([x, y]) =>
 
 export default class GrGisComponent extends Component {
   @tracked markers = A([]);
+  @tracked ploygonSearchMarkers = [];
   @tracked selectedGeometry = "POLYGON";
   @tracked selectedSearchResult;
   @tracked zoom = 9;
@@ -58,11 +59,27 @@ export default class GrGisComponent extends Component {
     const response = yield fetch(this.search_url + address);
     const responseJson = yield response.json();
     return responseJson.features
-      .filter((f) => f.properties.layer_name === "Amtliche_Vermessung_farbig")
-      .filter((f) => f.properties.label.trim().endsWith("(Adresse AV)"))
-      .filter((f) => f.geometry.type === "Point")
+      .filter(
+        (f) =>
+          f.properties.layer_name === "Amtliche_Vermessung_farbig" ||
+          f.properties.layer_name === "Administrative_Einteilungen",
+      )
+      .filter(
+        (f) =>
+          f.properties.label.trim().endsWith("(Adresse AV)") ||
+          f.properties.label.trim().endsWith("(Gemeinde)") ||
+          f.properties.label.trim().endsWith("(Grundstück)"),
+      )
+      .filter(
+        (f) => f.geometry.type === "Point" || f.geometry.type === "Polygon",
+      )
       .map((feature) => ({
-        label: feature.properties.label.split("(")[0],
+        label:
+          feature.geometry.type === "Point"
+            ? feature.properties.label.split("(")[0]
+            : `${feature.properties.label.split("(")[0].split(" ")[0]} ${
+                feature.properties.label.split("(")[0].split(" ")[2]
+              }`,
         ...feature,
       }));
   }
@@ -70,9 +87,18 @@ export default class GrGisComponent extends Component {
   @action
   selectFeature(feature) {
     this.selectedSearchResult = feature;
-    const coords = EPSG2056toLatLng(feature.geometry.coordinates);
-    this.map.setView(coords, 19);
-    this.markers = [coords];
+    if (feature.geometry.type === "Polygon") {
+      this.clearMarkers();
+      this.ploygonSearchMarkers = feature.geometry.coordinates[0].map(
+        (marker) => EPSG2056toLatLng([marker[0], marker[1]]),
+      );
+
+      this.map.fitBounds(this.ploygonSearchMarkers, { padding: [20, 20] });
+    } else {
+      const coords = EPSG2056toLatLng(feature.geometry.coordinates);
+      this.map.setView(coords, 19);
+      this.markers = [coords];
+    }
   }
 
   @action
@@ -123,6 +149,9 @@ export default class GrGisComponent extends Component {
   }
 
   get showResetButton() {
+    if (this.ploygonSearchMarkers.length > 0) {
+      return this.ploygonSearchMarkers.length > 0;
+    }
     return this.markers.length > 0;
   }
 
@@ -133,6 +162,7 @@ export default class GrGisComponent extends Component {
   @action
   async clearMarkers() {
     this.markers = [];
+    this.ploygonSearchMarkers = [];
     this.selectedGeometry = "POLYGON";
     const field = this.args.field;
     field.answer.value = null;
