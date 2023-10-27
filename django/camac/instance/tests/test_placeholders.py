@@ -101,6 +101,8 @@ def test_dms_placeholders_gr(
     active_inquiry_factory,
     gr_dms_config,
     group,
+    user_factory,
+    responsible_service_factory,
 ):
     settings.DISTRIBUTION["QUESTIONS"]["STATEMENT"] = "inquiry-answer-statement"
     application_settings["MUNICIPALITY_DATA_SHEET"] = settings.ROOT_DIR(
@@ -116,6 +118,14 @@ def test_dms_placeholders_gr(
     responsible_service.zip = "1234"
     responsible_service.website = "www.example.com"
     responsible_service.save()
+
+    # responsible user
+    responsible_user = user_factory()
+    responsible_service_factory(
+        instance=gr_instance,
+        service=responsible_service,
+        responsible_user=responsible_user,
+    )
 
     # alexandria document
     TagFactory(slug="decision")
@@ -147,6 +157,18 @@ def test_dms_placeholders_gr(
         document=document,
         meta={"is-published": True},
     )
+
+    # zones
+    add_answer(gr_instance.case.document, "zonenplan", "Rebwirtschaftszone")
+    add_answer(
+        gr_instance.case.document, "genereller-gestaltungsplan", "Historischer Weg"
+    )
+    add_answer(
+        gr_instance.case.document,
+        "genereller-erschliessungsplan",
+        "Fuss- / Spazierweg, Parkierung Gebiete D",
+    )
+    add_answer(gr_instance.case.document, "folgeplanung", "Baulinie allgemein")
 
     # Prepare project modification
     add_answer(
