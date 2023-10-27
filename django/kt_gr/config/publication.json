@@ -29,7 +29,7 @@
       "modified_by_group": null,
       "form": "publikation",
       "question": "beginn-publikation-kantonsamtsblatt",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -44,7 +44,7 @@
       "modified_by_group": null,
       "form": "publikation",
       "question": "beginn-publikationsorgan-gemeinde",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -59,7 +59,7 @@
       "modified_by_group": null,
       "form": "publikation",
       "question": "ende-publikation-kantonsamtsblatt",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -74,7 +74,22 @@
       "modified_by_group": null,
       "form": "publikation",
       "question": "ende-publikationsorgan-gemeinde",
-      "sort": 6
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "publikation.hinweis-publikationsdokumente",
+    "fields": {
+      "created_at": "2023-10-27T09:30:39.837Z",
+      "modified_at": "2023-10-27T09:30:39.837Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "publikation",
+      "question": "hinweis-publikationsdokumente",
+      "sort": 2
     }
   },
   {
@@ -89,7 +104,7 @@
       "modified_by_group": null,
       "form": "publikation",
       "question": "oeffentliche-auflage",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -119,7 +134,7 @@
       "modified_by_group": null,
       "form": "publikation",
       "question": "publikation-text",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -265,6 +280,37 @@
         "publicationDuration": 20,
         "initialPublicationDateSlug": "beginn-publikationsorgan-gemeinde"
       },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "hinweis-publikationsdokumente",
+    "fields": {
+      "created_at": "2023-10-27T09:30:39.587Z",
+      "modified_at": "2023-10-27T09:31:07.907Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis Publikationsdokumente\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "\"oeffentliche-auflage-ja\" != \"oeffentliche-auflage\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"**Bitte beachten Sie, dass die Dokumente, welche publiziert werden sollen, im Voraus als Publikationsdokumente in der Dokumentenablage markiert werden m\\u00fcssen.**\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
