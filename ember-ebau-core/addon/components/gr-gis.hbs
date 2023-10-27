@@ -92,7 +92,10 @@
 
     {{#unless @disabled}}
       {{#if this.isPolygon}}
-        <map.polygon @locations={{this.markers}} @color="red" />
+        <map.polygon
+          @locations={{or this.markers this.ploygonSearchMarkers}}
+          @color="red"
+        />
       {{else}}
         <map.polyline @locations={{this.markers}} @color="red" />
       {{/if}}
@@ -111,10 +114,7 @@
     <GisApplyButton
       @document={{@field.document}}
       @disabled={{not this.markers}}
-      @params={{hash
-        query=this.query
-        form=this.rootForm
-      }}
+      @params={{hash query=this.query form=this.rootForm}}
     />
   {{/unless}}
 
