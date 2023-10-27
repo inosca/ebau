@@ -329,10 +329,17 @@
       </h2>
     </div>
     <div class="uk-width-3-4 uk-width-2-3@m">
-      <BeAttachmentList
-        @loading={{this.decision.isRunning}}
-        @attachments={{this.decision.value}}
-      />
+      {{#if (macroCondition (macroGetOwnConfig "documentBackendCamac"))}}
+        <BeAttachmentList
+          @loading={{this.decision.isRunning}}
+          @attachments={{this.decision.value}}
+        />
+      {{else}}
+        <AlexandriaAttachmentList
+          @loading={{this.decision.isRunning}}
+          @attachments={{this.decision.value}}
+        />
+      {{/if}}
     </div>
   </div>
 {{/if}}
