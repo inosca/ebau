@@ -4526,6 +4526,7 @@ DJANGO_ADMIN = load_module_settings("django_admin")
 CORRECTION = load_module_settings("correction")
 
 # Alexandria
+ALEXANDRIA = load_module_settings("alexandria")
 ALEXANDRIA_CREATED_BY_USER_PROPERTY = "alexandria_user"
 ALEXANDRIA_CREATED_BY_GROUP_PROPERTY = "alexandria_group"
 ALEXANDRIA_VISIBILITY_CLASSES = [

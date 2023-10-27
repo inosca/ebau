@@ -4,6 +4,7 @@ from django.db.models import Q
 
 from camac.instance.filters import CalumaInstanceFilterSet
 from camac.instance.mixins import InstanceQuerysetMixin
+from camac.settings import ALEXANDRIA
 from camac.utils import filters
 
 from .common import get_role
@@ -64,7 +65,9 @@ class CustomVisibility(BaseVisibility, InstanceQuerysetMixin):
         )
 
         if role == "public":
-            return aggregated_filter & Q(**{f"{prefix}tags__pk": "publication"})
+            return aggregated_filter & Q(
+                **{f"{prefix}tags__pk": ALEXANDRIA["MARKS"]["PUBLICATION"]}
+            )
 
         normal_permissions = ["Admin", "Read", "Write"]
         for permission in normal_permissions:
@@ -122,4 +125,7 @@ class CustomVisibility(BaseVisibility, InstanceQuerysetMixin):
         if get_role(request.caluma_info.context.user) in ["public", "applicant"]:
             return queryset.none()
 
-        return queryset.filter(created_by_group=request.caluma_info.context.user.group)
+        return queryset.filter(
+            Q(created_by_group=request.caluma_info.context.user.group)
+            | Q(pk__in=ALEXANDRIA["MARKS"]["ALL"])
+        )
