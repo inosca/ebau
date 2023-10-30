@@ -7,6 +7,16 @@ export default class EbauModulesService extends Service {
 
   registeredModules = {};
 
+  get applicationName() {
+    return getOwner(this).application.modulePrefix;
+  }
+
+  get storeServiceName() {
+    return this.applicationName === "caluma-portal"
+      ? "public-service"
+      : "service";
+  }
+
   setupModules() {
     const owner = getOwner(this);
 
