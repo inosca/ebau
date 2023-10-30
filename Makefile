@@ -330,3 +330,7 @@ prettier-check: # Check formatting of yml and config files with prettier
 .PHONY: prettier-fix
 prettier-fix: # Fix formatting of yml and config files with prettier
 	@npx --yes prettier@3.0.3 --write **/*.yml "django/**/*.json"
+
+.PHONY: compare-dump
+compare-dump: # Compares two given .json dump files
+	@node tools/bin/compare-dumps.js $(PWD)/$(word 1,$^) $(PWD)/$(word 2,$^)
