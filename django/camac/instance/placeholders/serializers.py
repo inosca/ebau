@@ -2,6 +2,7 @@ import csv
 import itertools
 from collections import OrderedDict
 
+from caluma.caluma_form.models import Answer
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 from django.utils.timezone import now
@@ -571,6 +572,53 @@ class GrDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         aliases=[_("DECISION_DOCUMENTS")],
         description=_("All documents marked as decision documents"),
     )
+    zonenplan = fields.AliasedMethodField(
+        aliases=[_("ZONING_PLAN")],
+        description=_("Zoning plan"),
+    )
+    genereller_gestaltungsplan = fields.AliasedMethodField(
+        aliases=[_("GENERAL_DESIGN_PLAN")],
+        description=_("General design plan"),
+    )
+    genereller_erschliessungsplan = fields.AliasedMethodField(
+        aliases=[_("GENERAL_ACCESS_PLAN")],
+        description=_("General access plan"),
+    )
+    folgeplanung = fields.AliasedMethodField(
+        aliases=[_("FOLLOWUP_PLANNING")],
+        description=_("Follow-up planning"),
+    )
+    zustaendig_name = fields.ResponsibleUserField(
+        source="full_name",
+        aliases=[_("RESPONSIBLE_NAME")],
+        description=_("Name of the responsible employee"),
+    )
+
+    def get_zonenplan(self, instance):
+        answer = Answer.objects.filter(
+            question_id="zonenplan", document_id=instance.case.document.pk
+        )
+        return answer.first().value if answer else ""
+
+    def get_genereller_gestaltungsplan(self, instance):
+        answer = Answer.objects.filter(
+            question_id="genereller-gestaltungsplan",
+            document_id=instance.case.document.pk,
+        )
+        return answer.first().value if answer else ""
+
+    def get_genereller_erschliessungsplan(self, instance):
+        answer = Answer.objects.filter(
+            question_id="genereller-erschliessungsplan",
+            document_id=instance.case.document.pk,
+        )
+        return answer.first().value if answer else ""
+
+    def get_folgeplanung(self, instance):
+        answer = Answer.objects.filter(
+            question_id="folgeplanung", document_id=instance.case.document.pk
+        )
+        return answer.first().value if answer else ""
 
 
 class BeDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
