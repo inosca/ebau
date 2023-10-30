@@ -1,10 +1,7 @@
 <li class={{if this.isActive "uk-active"}}>
   <LinkTo
     @route={{module-route "additional-demand" "detail"}}
-    @models={{array
-      this.ebauModules.instanceId
-      (decode-id @demand.raw.childCase.id)
-    }}
+    @models={{this.models}}
   >
     {{#let
       (concat

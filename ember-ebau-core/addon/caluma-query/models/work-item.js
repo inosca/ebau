@@ -26,10 +26,6 @@ export default class CustomWorkItemModel extends WorkItemModel {
   @tracked assignedUsers = this.raw.assignedUsers;
   @tracked addressedGroups = this.raw.addressedGroups;
 
-  get applicationName() {
-    return getOwner(this).application.modulePrefix;
-  }
-
   get assignedUser() {
     return this.store
       .peekAll("public-user")
@@ -51,7 +47,7 @@ export default class CustomWorkItemModel extends WorkItemModel {
     }
 
     return this.store
-      .peekAll("service")
+      .peekAll(this.ebauModules.storeServiceName)
       .find((service) => this.addressedGroups.includes(service.id));
   }
 
@@ -68,12 +64,10 @@ export default class CustomWorkItemModel extends WorkItemModel {
   }
 
   get createdByGroup() {
-    const applicationName = getOwner(this).application.modulePrefix;
-
     return (
       this.raw.createdByGroup &&
       this.store.peekRecord(
-        applicationName === "caluma-portal" ? "public-service" : "service",
+        this.ebauModules.storeServiceName,
         this.raw.createdByGroup,
       )
     );

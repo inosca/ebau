@@ -65,10 +65,21 @@ export default class AdditionalDemandItemComponent extends Component {
       "detail",
     );
 
-    return this.router.isActive(
-      route,
-      this.ebauModules.instanceId,
-      decodeId(this.args.demand.raw.childCase.id),
-    );
+    return this.ebauModules.applicationName === "camac-ng"
+      ? this.router.isActive(route, decodeId(this.args.demand.raw.childCase.id))
+      : this.router.isActive(
+          route,
+          this.ebauModules.instanceId,
+          decodeId(this.args.demand.raw.childCase.id),
+        );
+  }
+
+  get models() {
+    return this.ebauModules.applicationName === "camac-ng"
+      ? [decodeId(this.args.demand.raw.childCase.id)]
+      : [
+          this.ebauModules.instanceId,
+          decodeId(this.args.demand.raw.childCase.id),
+        ];
   }
 }
