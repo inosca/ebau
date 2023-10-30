@@ -211,6 +211,7 @@ class DMSHandler:
                     *[
                         obj["coord_east"]
                         for obj in graceful_get(master_data, "plot_data", default=[])
+                        if "coord_east" in obj
                     ],
                     separator=", ",
                 ),
@@ -218,6 +219,7 @@ class DMSHandler:
                     *[
                         obj["coord_north"]
                         for obj in graceful_get(master_data, "plot_data", default=[])
+                        if "coord_north" in obj
                     ],
                     separator=", ",
                 ),
