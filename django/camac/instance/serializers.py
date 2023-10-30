@@ -1162,7 +1162,10 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             document = alexandria_models.Document.objects.create(
                 title=pdf.name,
                 category=alexandria_models.Category.objects.get(pk=target_lookup),
-                metainfo={"camac-instance-id": instance.pk, "system-generated": True},
+                metainfo={
+                    "camac-instance-id": str(instance.pk),
+                    "system-generated": True,
+                },
             )
             file = alexandria_models.File.objects.create(
                 name=pdf.name, document=document
