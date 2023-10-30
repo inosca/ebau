@@ -8,7 +8,7 @@ export default class AlexandriaConfigService extends ConfigService {
   get defaultModelMeta() {
     return {
       document: {
-        "camac-instance-id": this.instanceId,
+        "camac-instance-id": String(this.instanceId),
         "caluma-document-id": this.documentId,
       },
     };

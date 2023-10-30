@@ -4218,7 +4218,7 @@ snapshots['test_dms_placeholders_gr[Municipality] 1'] = {
     'ENDE_PUBLIKATION_GEMEINDE': '21. August 2021',
     'ENDE_PUBLIKATION_KANTON': '23. August 2021',
     'ENDE_PUBLIKATION_KANTONSAMTSBLATT': '23. August 2021',
-    'ENTSCHEIDDOKUMENTE': 'Grundriss (submitted as Situationsplan) on 30.08.2021 at 00:00',
+    'ENTSCHEIDDOKUMENTE': 'Grundriss (eingereicht als Situationsplan) am 30.08.2021 um 00:00',
     'FACHSTELLEN_KANTONAL': [
         {
             'BEANTWORTET': '',
