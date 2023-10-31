@@ -87,7 +87,7 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
     "inquiry-answer-status-positive": INQUIRY_STATUS.POSITIVE,
     "inquiry-answer-status-negative": INQUIRY_STATUS.NEGATIVE,
     "inquiry-answer-status-additional-demand": INQUIRY_STATUS.NEEDS_INTERACTION,
-    "inquiry-answer-status-rejected": INQUIRY_STATUS.NEGATIVE,
+    "inquiry-answer-status-rejection": INQUIRY_STATUS.NEGATIVE,
     "inquiry-answer-status-no-comment": INQUIRY_STATUS.POSITIVE,
   };
 
