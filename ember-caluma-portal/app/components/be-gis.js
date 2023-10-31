@@ -258,6 +258,10 @@ export default class BeGisComponent extends Component {
     return REGEXP_ORIGIN.test(this.link) && this.link.match(REGEXP_ORIGIN)[1];
   }
 
+  get egrids() {
+    return this.parcels.map((parcel) => parcel[KEY_TABLE_EGRID]).join(",");
+  }
+
   /**
    * The message event handler which invokes
    * the right method with the relevant arguments.
@@ -307,7 +311,6 @@ export default class BeGisComponent extends Component {
     ) {
       return;
     }
-
     // Return if search result doesn't contain parcel information
     if (!features.keyname.includes("EGRID")) {
       return;

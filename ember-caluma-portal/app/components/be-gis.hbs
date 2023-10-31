@@ -6,17 +6,18 @@
   class="uk-flex uk-flex-between uk-margin-small-top"
 >
   <div>
-    <UkButton
+    <GisApplyButton
       @label={{t "gis.apply-button"}}
-      @onClick={{this.applySelection}}
-      @loading={{or
-        this.populateTable.isRunning
-        this.fetchAdditionalData.isRunning
+      @document={{@field.document}}
+      @disabled={{not this.egrids}}
+      @params={{hash
+        egrids=this.egrids
       }}
+      @onClick={{this.applySelection}}
       @size="small"
     />
 
-    <button
+   <button
       type="button"
       uk-icon="warning"
       class="uk-margin-small-left"

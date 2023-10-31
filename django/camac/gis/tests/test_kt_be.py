@@ -7,9 +7,7 @@ from camac.gis.models import GISDataSource
 
 
 @pytest.fixture
-def be_data_sources(
-    question_factory, question_option_factory, option_factory, settings
-):
+def be_data_sources(question_factory, question_option_factory, option_factory):
     gis_questions = [
         ("nutzungszone", Question.TYPE_TEXT),
         ("ueberbauungsordnung", Question.TYPE_TEXT),
@@ -57,13 +55,13 @@ def be_data_sources(
 
 
 @pytest.fixture
-def be__config(gis_data_source_factory, question_factory):
-    return gis_data_source_factory(
+def be__config(gis_data_source_factory):
+    gis_data_source_factory(
         client=GISDataSource.CLIENT_BEGIS,
         config={
-            "service_code": "a42geo_ebau_kt_wfs_d_fk",
+            "service_code": "of_inlandwaters01_de_ms_wfs",
             "layers": {
-                "GEODB.GSK25_GSK_VW": {
+                "GSK25_GSK_VW_3275": {
                     "is_boolean": False,
                     "properties": [
                         {
@@ -75,88 +73,137 @@ def be__config(gis_data_source_factory, question_factory):
                             "mapper": "grundwasserschutzzonen_v2",
                         },
                     ],
-                },
-                "BALISKBS_KBS": {
+                }
+            },
+        },
+    )
+
+    gis_data_source_factory(
+        client=GISDataSource.CLIENT_BEGIS,
+        config={
+            "layers": {
+                "BALISKBS_KBS_VW_1764": {
                     "is_boolean": True,
                     "properties": [
-                        {
-                            "question": "belasteter-standort",
-                            "mapper": "boolean",
-                        },
+                        {"mapper": "boolean", "question": "belasteter-standort"}
                     ],
-                },
-                "GK5_SY": {
+                }
+            },
+            "service_code": "of_environment02_de_ms_wfs",
+        },
+    )
+
+    gis_data_source_factory(
+        client=GISDataSource.CLIENT_BEGIS,
+        config={
+            "layers": {
+                "GK5_SY_VW_21534": {
                     "is_boolean": True,
                     "properties": [
-                        {
-                            "question": "gebiet-mit-naturgefahren",
-                            "mapper": "boolean",
-                        },
+                        {"mapper": "boolean", "question": "gebiet-mit-naturgefahren"}
                     ],
-                },
-                "BAUINV_BAUINV_VW": {
+                }
+            },
+            "service_code": "of_geoscientificinformation01_de_ms_wfs",
+        },
+    )
+
+    gis_data_source_factory(
+        client=GISDataSource.CLIENT_BEGIS,
+        config={
+            "service_code": "of_structure01_de_ms_wfs",
+            "layers": {
+                "BAUINV_BAUINVGB_VW_13644": {
                     "is_boolean": True,
                     "properties": [
                         {
                             "question": "handelt-es-sich-um-ein-baudenkmal",
                             "mapper": "boolean",
-                        },
+                        }
                     ],
-                },
-                "GEODB.UZP_LSG_VW": {
+                }
+            },
+        },
+    )
+
+    gis_data_source_factory(
+        client=GISDataSource.CLIENT_BEGIS,
+        config={
+            "service_code": "of_planningcadastre01_de_ms_wfs",
+            "layers": {
+                "UZP_LSG_VW_13624": {
                     "is_boolean": True,
                     "properties": [
                         {
                             "question": "objekt-des-besonderen-landschaftsschutzes",
                             "mapper": "boolean",
-                        },
+                        }
                     ],
                 },
-                "ARCHINV_FUNDST": {
-                    "is_boolean": True,
-                    "properties": [
-                        {
-                            "question": "gebiet-mit-archaeologischen-objekten",
-                            "mapper": "boolean",
-                        },
-                    ],
-                },
-                "NSG_NSGP": {
-                    "is_boolean": True,
-                    "properties": [
-                        {
-                            "question": "naturschutz",
-                            "mapper": "boolean",
-                        },
-                    ],
-                },
-                "GEODB.UZP_BAU_VW": {
-                    "is_boolean": False,
-                    "properties": [
-                        {
-                            "question": "nutzungszone",
-                        },
-                    ],
-                },
-                "GEODB.UZP_UEO_VW": {
+                "UZP_UEO_VW_13678": {
                     "is_boolean": False,
                     "properties": [
                         {
                             "question": "ueberbauungsordnung",
-                        },
+                            "mapper": "ueberbauungsordnung",
+                        }
+                    ],
+                },
+                "UZP_BAU_VW_13587": {
+                    "is_boolean": False,
+                    "properties": [
+                        {"question": "nutzungszone", "mapper": "nutzungszone"}
                     ],
                 },
             },
         },
     )
 
+    gis_data_source_factory(
+        client=GISDataSource.CLIENT_BEGIS,
+        config={
+            "service_code": "of_environment01_de_ms_wfs",
+            "layers": {
+                "NSG_NSGP_VW_13597": {
+                    "is_boolean": True,
+                    "properties": [{"question": "naturschutz", "mapper": "boolean"}],
+                }
+            },
+        },
+    )
+
+    gis_data_source_factory(
+        client=GISDataSource.CLIENT_BEGIS,
+        config={
+            "service_code": "of_society01_de_ms_wfs",
+            "layers": {
+                "ARCHINV_FUNDST_VW_14657": {
+                    "is_boolean": True,
+                    "properties": [
+                        {
+                            "question": "gebiet-mit-archaeologischen-objekten",
+                            "mapper": "boolean",
+                        }
+                    ],
+                }
+            },
+        },
+    )
+
+    return GISDataSource.objects.all()
+
 
 @pytest.mark.parametrize(
-    "egrid",
+    "egrids",
     [
         "CH673533354667",
         "CH643546955207",
         "CH851446093521",
+        "CH673533354667,CH643546955207",
+        "CH673533354667,CH851446093521",
+        "CH643546955207,CH851446093521",
+        "CH643546955207,CH843546955632",
+        "CH643546955207,CH851446093521,CH673533354667",
     ],
 )
 @pytest.mark.vcr()
@@ -166,13 +213,13 @@ def test_be_client(
     snapshot,
     vcr_config,
     be__config,
-    egrid,
+    egrids,
     be_data_sources,
 ):
     response = admin_client.get(
         reverse("gis-data"),
         data={
-            "egrid": egrid,
+            "egrids": egrids,
         },
     )
 
@@ -181,7 +228,7 @@ def test_be_client(
 
 
 @pytest.mark.parametrize(
-    "egrid",
+    "egrids",
     [
         "doesntexist",
         "emptypolygon",
@@ -195,13 +242,13 @@ def test_be_client_error(
     snapshot,
     vcr_config,
     be__config,
-    egrid,
+    egrids,
     be_data_sources,
 ):
     response = admin_client.get(
         reverse("gis-data"),
         data={
-            "egrid": egrid,
+            "egrids": egrids,
         },
     )
 

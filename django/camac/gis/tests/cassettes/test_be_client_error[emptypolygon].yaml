@@ -11,28 +11,28 @@ interactions:
       User-Agent:
       - python-requests/2.31.0
     method: GET
-    uri: https://www.geoservice2-test.apps.be.ch/geoservice3/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer?service=WFS&version=2.0.0&Request=GetFeature&typename=a42geo_a42geo_ebau_kt_wfs_d_fk:DIPANU_DIPANUF&count=10&Filter=%3Cogc:Filter%3E%3Cogc:PropertyIsEqualTo%20matchCase=%22true%22%3E%3Cogc:PropertyName%3EEGRID%3C/ogc:PropertyName%3E%3Cogc:Literal%3Eemptypolygon%3C/ogc:Literal%3E%3C/ogc:PropertyIsEqualTo%3E%3C/ogc:Filter%3E
+    uri: https://www.geoservice2-test.apps.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer?service=WFS&version=2.0.0&Request=GetFeature&typename=of_planningcadastre01_de_ms_wfs:DIPANU_DIPANUF_VW_13541&count=10&Filter=%3Cogc:Filter%3E%3Cogc:PropertyIsEqualTo%20matchCase=%22true%22%3E%3Cogc:PropertyName%3EEGRID%3C/ogc:PropertyName%3E%3Cogc:Literal%3Eemptypolygon%3C/ogc:Literal%3E%3C/ogc:PropertyIsEqualTo%3E%3C/ogc:Filter%3E
   response:
     body:
       string: <?xml version="1.0" encoding="utf-8" ?><wfs:FeatureCollection xmlns:xs="http://www.w3.org/2001/XMLSchema"
         xmlns:wfs="http://www.opengis.net/wfs/2.0" xmlns:gml="http://www.opengis.net/gml/3.2"
-        xmlns:a42geo_ebau_kt_wfs_d_fk="https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer"
+        xmlns:of_planningcadastre01_de_ms_wfs="https://a4pa-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer"
         xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        timeStamp="2023-10-25T13:43:43Z" numberMatched="0" numberReturned="0" xsi:schemaLocation="http://www.opengis.net/wfs/2.0
+        timeStamp="2023-10-31T17:52:17Z" numberMatched="0" numberReturned="0" xsi:schemaLocation="http://www.opengis.net/wfs/2.0
         http://schemas.opengis.net/wfs/2.0/wfs.xsd http://www.opengis.net/gml/3.2
-        http://schemas.opengis.net/gml/3.2.1/gml.xsd https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer
-        https://www.geoservice2-test.apps.be.ch/geoservice3/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer?service=wfs%26version=2.0.0%26request=DescribeFeatureType"></wfs:FeatureCollection>
+        http://schemas.opengis.net/gml/3.2.1/gml.xsd https://a4pa-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer
+        https://www.geoservice2-test.apps.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer?service=wfs%26version=2.0.0%26request=DescribeFeatureType"></wfs:FeatureCollection>
     headers:
       Cache-Control:
       - no-cache
       Connection:
       - Keep-Alive
       Content-Length:
-      - '972'
+      - '998'
       Content-Type:
       - application/xml;charset=UTF-8
       Date:
-      - Wed, 25 Oct 2023 13:43:43 GMT
+      - Tue, 31 Oct 2023 17:52:18 GMT
       Expires:
       - '-1'
       Keep-Alive:
@@ -52,11 +52,11 @@ interactions:
       accept:
       - text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
       host:
-      - x3012app994.infra.be.ch:6443
+      - x3012app1012.infra.be.ch:6443
       referer:
-      - c6fb8147-52d1-4bcd-bd2a-a88fe3dade7a
+      - cf4e5004-4a77-410c-b2a3-4f6bd397a54d
       referrer:
-      - c6fb8147-52d1-4bcd-bd2a-a88fe3dade7a
+      - cf4e5004-4a77-410c-b2a3-4f6bd397a54d
       response_buffer_size:
       - '8192'
       response_character_encoding:

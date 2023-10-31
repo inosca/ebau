@@ -9,24 +9,22 @@ from camac.utils import build_url
 
 
 class BeGisClient(GISBaseClient):
-    required_params = ["egrid"]
+    required_params = ["egrids"]
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
         self.session: requests.Session = requests.Session()
-        self.polygon = None
+        self.polygons = {}
 
     def get_root(self, response):
         return etree.fromstring(response.content)
 
-    def get_polygon(self):
-        #  TODO: Figure out how to update get_polygon to new service call
-        egrid = self.params.get("egrid")
+    def get_polygon(self, egrid):
         response = self.session.get(
             build_url(
                 settings.GIS_BASE_URL,
-                f"/geoservice3/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer?service=WFS&version=2.0.0&Request=GetFeature&typename=a42geo_a42geo_ebau_kt_wfs_d_fk:DIPANU_DIPANUF&count=10&Filter=%3Cogc:Filter%3E%3Cogc:PropertyIsEqualTo%20matchCase=%22true%22%3E%3Cogc:PropertyName%3EEGRID%3C/ogc:PropertyName%3E%3Cogc:Literal%3E{egrid}%3C/ogc:Literal%3E%3C/ogc:PropertyIsEqualTo%3E%3C/ogc:Filter%3E",
+                f"/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer?service=WFS&version=2.0.0&Request=GetFeature&typename=of_planningcadastre01_de_ms_wfs:DIPANU_DIPANUF_VW_13541&count=10&Filter=%3Cogc:Filter%3E%3Cogc:PropertyIsEqualTo%20matchCase=%22true%22%3E%3Cogc:PropertyName%3EEGRID%3C/ogc:PropertyName%3E%3Cogc:Literal%3E{egrid}%3C/ogc:Literal%3E%3C/ogc:PropertyIsEqualTo%3E%3C/ogc:Filter%3E",
             )
         )
         try:
@@ -38,7 +36,7 @@ class BeGisClient(GISBaseClient):
         try:
             polygon = root.find(".//gml:Polygon", root.nsmap)
             polygon_to_string = etree.tostring(polygon, encoding="unicode")
-            self.polygon = polygon_to_string
+            self.polygons[egrid] = polygon_to_string
             return polygon_to_string
 
         except (SyntaxError, TypeError):
@@ -49,29 +47,39 @@ class BeGisClient(GISBaseClient):
         service_code = config.get("service_code")
         layers_dict = config.get("layers", {})
         boolean_layers, special_layers = self.get_config_layers(layers_dict)
-        polygon = (
-            self.polygon or self.get_polygon()
-        )  # checking if polygon already retrieved
-        query = self.get_query(service_code, boolean_layers, special_layers, polygon)
-        payload = self.get_feature_xml(service_code, query)
-        response = self.session.post(
-            "{0}/geoservice3/services/a42geo/{1}/MapServer/WFSServer".format(
-                settings.GIS_BASE_URL, service_code
-            ),
-            data=payload,
-        )
-        try:
-            response.raise_for_status()
-        except requests.HTTPError:  # pragma: no cover
-            #  TODO: Translation
-            raise RuntimeError(
-                f"Error {response.status_code} while fetching data from the API"
-            )
 
-        xml_data, et = self.get_xml_data(response)
-        data = self.get_data_from_xml(boolean_layers, xml_data, et)
-
+        data = {}
         result = {}
+
+        egrids = self.params.get("egrids").split(",")
+
+        for egrid in egrids:
+            polygon = self.polygons.get(egrid) or self.get_polygon(
+                egrid
+            )  # checking if polygon already retrieved
+            query = self.get_query(
+                service_code, boolean_layers, special_layers, polygon
+            )
+            payload = self.get_feature_xml(service_code, query)
+            response = self.session.post(
+                "{0}/geoservice3/services/a42geo/{1}/MapServer/WFSServer".format(
+                    settings.GIS_BASE_URL, service_code
+                ),
+                data=payload,
+            )
+            try:
+                response.raise_for_status()
+            except requests.HTTPError:  # pragma: no cover
+                #  TODO: Translation
+                raise RuntimeError(
+                    f"Error {response.status_code} while fetching data from the API"
+                )
+
+            xml_data, et = self.get_xml_data(response)
+            new_data = self.get_data_from_xml(
+                service_code, boolean_layers, xml_data, et
+            )
+            self.merge_data_dict(data, new_data, special_layers)
 
         for layer_id in special_layers:
             layer = layers_dict.get(layer_id, {})
@@ -95,10 +103,11 @@ class BeGisClient(GISBaseClient):
         xml_data = et.findall("./gml:featureMember/", et.nsmap)
         return xml_data, et
 
-    def get_data_from_xml(self, boolean_layers, xml_data, et):
+    def get_data_from_xml(self, service_code, boolean_layers, xml_data, et):
         usage_zones = set()
         building_regulations = set()
         water_protection_zones = set()
+
         boolean_data = {}
         identifier_list = []
 
@@ -106,17 +115,15 @@ class BeGisClient(GISBaseClient):
             identifier = child.tag.split("}")[-1]
             identifier_list.append(identifier)
 
-            if "GEODB.UZP_BAU_VW" in child.tag:
-                for item in child.findall("a42geo_ebau_kt_wfs_d_fk:ZONE_LO", et.nsmap):
+            if "UZP_BAU_VW_13587" in child.tag:
+                for item in child.findall(f"{service_code}:ZONE_LO", et.nsmap):
                     usage_zones.add(item.text.strip())
 
-            if "GEODB.UZP_UEO_VW" in child.tag:
-                for item in child.findall("a42geo_ebau_kt_wfs_d_fk:ZONE_LO", et.nsmap):
+            if "UZP_UEO_VW_13678" in child.tag:
+                for item in child.findall(f"{service_code}:ZONE_LO", et.nsmap):
                     building_regulations.add(item.text.strip())
 
-            for item in child.findall(
-                "a42geo_ebau_kt_wfs_d_fk:GSKT_BEZEICH_DE", et.nsmap
-            ):
+            for item in child.findall(f"{service_code}:GSKT_BEZEICH_DE", et.nsmap):
                 water_protection_zones.add(item.text.strip())
 
         for value in boolean_layers:
@@ -124,10 +131,22 @@ class BeGisClient(GISBaseClient):
 
         return {
             **boolean_data,
-            "GEODB.UZP_BAU_VW": sorted(usage_zones),
-            "GEODB.UZP_UEO_VW": sorted(building_regulations),
-            "GEODB.GSK25_GSK_VW": sorted(water_protection_zones),
+            "UZP_BAU_VW_13587": sorted(usage_zones),
+            "UZP_UEO_VW_13678": sorted(building_regulations),
+            "GSK25_GSK_VW_3275": sorted(water_protection_zones),
         }
+
+    def merge_data_dict(self, data, new_data, special_layers):
+        for layer in special_layers:
+            new_layer_data = new_data.pop(layer)
+            previous_layer_data = data.get(layer, [])
+            data[layer] = sorted(set(new_layer_data + previous_layer_data))
+
+        for key, value in new_data.items():
+            if not data.get(key):
+                data[key] = value
+            elif data.get(key) and value:
+                data[key] = value
 
     def map_data(self, layer, layer_data, intermediate_result):
         result = {}
@@ -160,10 +179,11 @@ class BeGisClient(GISBaseClient):
             values_mapping[key] for key in values if key in values_mapping.keys()
         ]
 
-        if values_to_add:
-            return sorted(list(set(previous_value + values_to_add)))
-
-        return previous_value
+        return (
+            sorted(list(set(previous_value + values_to_add)))
+            if values_to_add
+            else previous_value
+        )
 
     def map_grundwasserschutzzonen_v2(self, values, intermediate_result, question):
         previous_value = intermediate_result.get(question, [])
@@ -183,16 +203,28 @@ class BeGisClient(GISBaseClient):
         values_to_add = [
             values_mapping[key] for key in values if key in values_mapping.keys()
         ]
-        if values_to_add:
-            return sorted(list(set(previous_value + values_to_add)))
 
-        return previous_value
+        return (
+            sorted(list(set(previous_value + values_to_add)))
+            if values_to_add
+            else previous_value
+        )
 
     def map_boolean(self, values, intermediate_result, question):
         if values:
             return "ja"
 
         return "nein"
+
+    def map_nutzungszone(self, values, intermediate_result, question):
+        previous_value = intermediate_result.get(question, [])
+
+        return sorted(list(set(previous_value + values))) if values else previous_value
+
+    def map_ueberbauungsordnung(self, values, intermediate_result, question):
+        previous_value = intermediate_result.get(question, [])
+
+        return sorted(list(set(previous_value + values))) if values else previous_value
 
     def get_config_layers(self, layers_dict):
         boolean_layers = [
@@ -228,7 +260,6 @@ class BeGisClient(GISBaseClient):
         return query
 
     def get_feature_xml(self, service_code, query):
-        #  TODO: Update get_feature.xml xmlns: with service_code
         get_feature_xml = open(
             path.join(path.dirname(__file__), "xml/get_feature.xml"), "r"
         ).read()
