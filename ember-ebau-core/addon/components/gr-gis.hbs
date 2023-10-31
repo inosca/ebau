@@ -4,7 +4,7 @@
     @search={{perform this.searchAddress}}
     @searchEnabled={{true}}
     @selected={{this.selectedSearchResult}}
-    @onChange={{this.selectFeature}}
+    @onChange={{this.selectSearchResult}}
     @placeholder={{t "gis.searchPlaceholder"}}
     @loadingMessage={{t "gis.loading"}}
     @searchMessage={{null}}
@@ -90,10 +90,17 @@
       />
     {{/each}}
 
+    {{#if this.searchHighlight}}
+      <map.polygon
+        @locations={{this.searchHighlight}}
+        @color="blue"
+      />
+    {{/if}}
+
     {{#unless @disabled}}
       {{#if this.isPolygon}}
         <map.polygon
-          @locations={{or this.markers this.ploygonSearchMarkers}}
+          @locations={{this.markers}}
           @color="red"
         />
       {{else}}
@@ -104,7 +111,7 @@
   {{#unless @disabled}}
     <div class="reset-button">
       {{#if this.showResetButton}}
-        <UkButton @onClick={{this.clearMarkers}}><FaIcon
+        <UkButton @onClick={{this.resetMarkers}}><FaIcon
             @icon="rotate-left"
             @size="1x"
           />
