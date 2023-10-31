@@ -17,22 +17,19 @@ def get_municipality_label(service, municipality_prefix=False):
     label = {}
 
     for translation in translations:
-        name = (
-            translation.name.replace(
-                "Leitbehörde", "Gemeinde" if municipality_prefix else ""
-            ).replace(
-                "Autorité directrice", "Municipalité" if municipality_prefix else ""
-            )
-        ).strip()
+        name = translation.name
 
-        if service.disabled:
-            with override(translation.language):
+        with override(translation.language):
+            for prefix in [_("Authority"), _("Municipality")]:
+                name = name.replace(
+                    prefix, _("Municipality") if municipality_prefix else ""
+                ).strip()
+
+            if service.disabled:
                 postfix = _("not activated")
-                text = f"{name} ({postfix})"
-        else:
-            text = name
+                name = f"{name} ({postfix})"
 
-        label[translation.language] = text
+        label[translation.language] = name
 
     for language in ["de", "fr"]:
         if language not in label.keys():
