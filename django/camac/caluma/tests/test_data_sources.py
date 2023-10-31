@@ -227,3 +227,17 @@ def test_landowners(db, caluma_admin_user, be_instance):
     assert len(data) == 2
     assert "Foobar AG" in names
     assert "Foo Bar" in names
+
+
+def test_municipalities_so(db, service_factory, service_t_factory):
+    service = service_factory(service_group__name="municipality")
+    service_t_factory(service=service, name="Gemeinde Solothurn")
+
+    User = namedtuple("OIDCUser", "group")
+    user = User(group=service.pk)
+
+    data = Municipalities().get_data(user, None, None)
+
+    assert len(data) == 1
+    assert data[0][0] == service.pk
+    assert data[0][1]["de"] == "Solothurn"
