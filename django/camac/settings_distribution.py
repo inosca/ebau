@@ -598,6 +598,18 @@ DISTRIBUTION = {
             "STATEMENT": "inquiry-answer-assessment",
             "ANCILLARY_CLAUSES": "inquiry-answer-ancillary-clauses",
         },
+        "SUGGESTIONS": {
+            "QUESTIONS": {
+                (
+                    "fumoir",
+                    "fumoir-ja",
+                ): [117],
+                (
+                    "infrastrukturanlagen-landschaft",
+                    "infrastrukturanlagen-landschaft-trinkwasser",
+                ): [117],
+            },
+        },
     },
     "demo": {"ENABLED": True},
 }
