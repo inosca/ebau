@@ -1,8 +1,9 @@
 import { A } from "@ember/array";
 import { action } from "@ember/object";
+import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
-import { task } from "ember-concurrency";
+import { task, timeout } from "ember-concurrency";
 
 const { L } = window;
 
@@ -25,8 +26,22 @@ function LatLngToEPSG2056(coordinates) {
 const EPSG2056toLatLng = ([x, y]) =>
   L.CRS.EPSG2056.unproject(new L.point(x, y));
 
+function addLabel(feature) {
+  let label;
+  if (feature.geometry.type === "Point") {
+    label = feature.properties.label.split("(")[0];
+  } else {
+    const [city, , plot] = feature.properties.label.split("(")[0].split(" ");
+    label = [city, plot].join(" ");
+  }
+  return { label, ...feature };
+}
+
 export default class GrGisComponent extends Component {
+  @service intl;
+
   @tracked markers = A([]);
+  @tracked searchHighlight;
   @tracked selectedGeometry = "POLYGON";
   @tracked selectedSearchResult;
   @tracked zoom = 9;
@@ -36,7 +51,7 @@ export default class GrGisComponent extends Component {
   minZoom = 8;
   maxZoom = 20;
   wmsLayerMaxZoom = 25;
-  search_url =
+  searchUrl =
     "/maps/search?limit=30&partitionlimit=5&interface=desktop&lang=de&query=";
 
   get drawPoints() {
@@ -54,25 +69,55 @@ export default class GrGisComponent extends Component {
     return this.args.field.fieldset.document.rootForm.slug;
   }
 
-  @task *searchAddress(address) {
-    const response = yield fetch(this.search_url + address);
+  @task
+  *searchAddress(address) {
+    yield timeout(300);
+    const response = yield fetch(this.searchUrl + address);
     const responseJson = yield response.json();
-    return responseJson.features
-      .filter((f) => f.properties.layer_name === "Amtliche_Vermessung_farbig")
-      .filter((f) => f.properties.label.trim().endsWith("(Adresse AV)"))
-      .filter((f) => f.geometry.type === "Point")
-      .map((feature) => ({
-        label: feature.properties.label.split("(")[0],
-        ...feature,
-      }));
+    const features = responseJson.features
+      .filter((f) =>
+        ["Amtliche_Vermessung_farbig", "Administrative_Einteilungen"].includes(
+          f.properties.layer_name,
+        ),
+      )
+      .filter((f) => ["Point", "Polygon"].includes(f.geometry.type))
+      .map(addLabel);
+
+    return [
+      {
+        groupName: this.intl.t("gis.groups.addresses"),
+        options: features.filter((f) =>
+          f.properties.label.trim().endsWith("(Adresse AV)"),
+        ),
+      },
+      {
+        groupName: this.intl.t("gis.groups.municipalities"),
+        options: features.filter((f) =>
+          f.properties.label.trim().endsWith("(Gemeinde)"),
+        ),
+      },
+      {
+        groupName: this.intl.t("gis.groups.plots"),
+        options: features.filter((f) =>
+          f.properties.label.trim().endsWith("(Grundstück)"),
+        ),
+      },
+    ].filter((group) => !!group.options.length);
   }
 
   @action
-  selectFeature(feature) {
+  selectSearchResult(feature) {
     this.selectedSearchResult = feature;
-    const coords = EPSG2056toLatLng(feature.geometry.coordinates);
-    this.map.setView(coords, 19);
-    this.markers = [coords];
+    if (feature.geometry.type === "Polygon") {
+      this.searchHighlight =
+        feature.geometry.coordinates[0].map(EPSG2056toLatLng);
+
+      this.map.fitBounds(this.searchHighlight, { padding: [20, 20] });
+    } else {
+      const coords = EPSG2056toLatLng(feature.geometry.coordinates);
+      this.map.setView(coords, 19);
+      this.markers = [coords];
+    }
   }
 
   @action
@@ -91,6 +136,7 @@ export default class GrGisComponent extends Component {
 
   @action
   updateMarkers(e) {
+    this.searchHighlight = null;
     this.markers.pushObject({ lat: e.latlng.lat, lng: e.latlng.lng });
   }
 
@@ -131,8 +177,9 @@ export default class GrGisComponent extends Component {
   }
 
   @action
-  async clearMarkers() {
+  async resetMarkers() {
     this.markers = [];
+    this.searchHighlight = [];
     this.selectedGeometry = "POLYGON";
     const field = this.args.field;
     field.answer.value = null;
