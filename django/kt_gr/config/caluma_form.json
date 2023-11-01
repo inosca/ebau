@@ -40930,7 +40930,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"Bauabhnahme durchgef\\u00fchrt\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Bauabnahme durchgef\\u00fchrt\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "false",
       "is_hidden": "false",
