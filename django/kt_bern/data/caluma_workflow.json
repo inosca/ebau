@@ -89,7 +89,8 @@
         "submit-date": "2021-03-31T13:17:08+0000",
         "net-cycle-time": 6,
         "total-cycle-time": 6,
-        "camac-instance-id": 3
+        "camac-instance-id": 3,
+        "ebau-number-sort": 2021000001
       },
       "document": "75980e39-1378-47d5-8253-4b19567569ff"
     }
