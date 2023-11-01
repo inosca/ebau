@@ -1106,7 +1106,7 @@
       "modified_by_group": null,
       "form": "materielle-pruefung-ergebnis",
       "question": "ergebnis-der-materiellen-pruefung",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -1126,17 +1126,32 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "materielle-pruefung-ergebnis.materielle-pruefung-durchgefuehrt",
+    "pk": "materielle-pruefung-ergebnis.materielle-pruefung-nachforderung-info",
     "fields": {
-      "created_at": "2023-10-05T11:14:40.919Z",
-      "modified_at": "2023-10-05T11:14:40.919Z",
+      "created_at": "2023-11-01T07:47:31.663Z",
+      "modified_at": "2023-11-01T07:47:31.663Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "materielle-pruefung-ergebnis",
-      "question": "materielle-pruefung-durchgefuehrt",
+      "question": "materielle-pruefung-nachforderung-info",
       "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-ergebnis.materielle-pruefung-resultat",
+    "fields": {
+      "created_at": "2023-11-01T07:44:38.274Z",
+      "modified_at": "2023-11-01T07:44:38.274Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-ergebnis",
+      "question": "materielle-pruefung-resultat",
+      "sort": 3
     }
   },
   {
@@ -1769,15 +1784,63 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "materielle-pruefung-durchgefuehrt-ja",
+    "pk": "materielle-pruefung-resultat-nachforderung-warten",
     "fields": {
-      "created_at": "2023-10-02T06:38:31.353Z",
-      "modified_at": "2023-10-02T06:38:31.353Z",
+      "created_at": "2023-11-01T07:44:37.826Z",
+      "modified_at": "2023-11-01T07:44:37.826Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"Die materielle Pr\\u00fcfung wurde durchgef\\u00fchrt\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Nachforderung, auf Antwort warten\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "materielle-pruefung-resultat-nachforderung-weiter",
+    "fields": {
+      "created_at": "2023-11-01T07:44:37.825Z",
+      "modified_at": "2023-11-01T07:44:37.825Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nachforderung, weiter zur Zirkulation\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "materielle-pruefung-resultat-positiv",
+    "fields": {
+      "created_at": "2023-11-01T07:44:37.745Z",
+      "modified_at": "2023-11-01T07:44:37.745Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Positiv\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "materielle-pruefung-resultat-rueckweisung",
+    "fields": {
+      "created_at": "2023-11-01T07:44:37.773Z",
+      "modified_at": "2023-11-01T07:44:37.774Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"R\\u00fcckweisung\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -4071,7 +4134,7 @@
     "pk": "materielle-pruefung-abschliessen",
     "fields": {
       "created_at": "2023-10-02T06:39:51.121Z",
-      "modified_at": "2023-10-02T08:10:50.518Z",
+      "modified_at": "2023-11-01T07:45:07.175Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -4079,7 +4142,7 @@
       "label": "{\"de\": \"Materielle Pr\\u00fcfung abschliessen\", \"fr\": null, \"it\": null}",
       "type": "action_button",
       "is_required": "false",
-      "is_hidden": "false",
+      "is_hidden": "\"materielle-pruefung-resultat\"|answer == \"materielle-pruefung-resultat-nachforderung-warten\"",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"Wollen Sie die materielle Pr\\u00fcfung wirklich abschliessen? Dieser Schritt kann nicht mehr r\\u00fcckg\\u00e4ngig gemacht werden.\", \"fr\": null, \"it\": null}",
@@ -4166,39 +4229,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "materielle-pruefung-durchgefuehrt",
-    "fields": {
-      "created_at": "2023-10-02T06:38:31.609Z",
-      "modified_at": "2023-10-02T08:31:34.919Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Die materielle Pr\\u00fcfung wurde durchgef\\u00fchrt\", \"fr\": null, \"it\": null}",
-      "type": "multiple_choice",
-      "is_required": "true",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {
-        "hideLabel": true
-      },
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "materielle-pruefung-ergebnis",
     "fields": {
       "created_at": "2023-10-05T09:12:33.808Z",
@@ -4221,6 +4251,68 @@
       "data_source": null,
       "row_form": null,
       "sub_form": "materielle-pruefung-ergebnis",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "materielle-pruefung-nachforderung-info",
+    "fields": {
+      "created_at": "2023-11-01T07:47:31.528Z",
+      "modified_at": "2023-11-01T07:50:19.639Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nachforderung Info\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "!(\n\t\"materielle-pruefung-resultat\"|answer in [\n\t\t\"materielle-pruefung-resultat-nachforderung-weiter\",\n\t\t\"materielle-pruefung-resultat-nachforderung-warten\"\n\t]\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"<div class=\\\"uk-alert uk-margin-remove\\\">Sie k\\u00f6nnen die Nachforderung im Menu \\\"Nachforderung\\\" erfassen.</div>\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "materielle-pruefung-resultat",
+    "fields": {
+      "created_at": "2023-11-01T07:44:37.978Z",
+      "modified_at": "2023-11-01T07:44:37.978Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Resultat der materiellen Pr\\u00fcfung\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
@@ -5332,17 +5424,62 @@
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "materielle-pruefung-durchgefuehrt.materielle-pruefung-durchgefuehrt-ja",
+    "pk": "materielle-pruefung-resultat.materielle-pruefung-resultat-nachforderung-warten",
     "fields": {
-      "created_at": "2023-10-02T08:31:34.934Z",
-      "modified_at": "2023-10-02T08:31:34.934Z",
+      "created_at": "2023-11-01T07:44:37.984Z",
+      "modified_at": "2023-11-01T07:44:37.984Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "question": "materielle-pruefung-durchgefuehrt",
-      "option": "materielle-pruefung-durchgefuehrt-ja",
+      "question": "materielle-pruefung-resultat",
+      "option": "materielle-pruefung-resultat-nachforderung-warten",
       "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "materielle-pruefung-resultat.materielle-pruefung-resultat-nachforderung-weiter",
+    "fields": {
+      "created_at": "2023-11-01T07:44:37.988Z",
+      "modified_at": "2023-11-01T07:44:37.988Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "materielle-pruefung-resultat",
+      "option": "materielle-pruefung-resultat-nachforderung-weiter",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "materielle-pruefung-resultat.materielle-pruefung-resultat-positiv",
+    "fields": {
+      "created_at": "2023-11-01T07:44:37.995Z",
+      "modified_at": "2023-11-01T07:44:37.995Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "materielle-pruefung-resultat",
+      "option": "materielle-pruefung-resultat-positiv",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "materielle-pruefung-resultat.materielle-pruefung-resultat-rueckweisung",
+    "fields": {
+      "created_at": "2023-11-01T07:44:37.992Z",
+      "modified_at": "2023-11-01T07:44:37.992Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "materielle-pruefung-resultat",
+      "option": "materielle-pruefung-resultat-rueckweisung",
+      "sort": 3
     }
   },
   {

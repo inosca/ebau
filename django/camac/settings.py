@@ -3790,6 +3790,14 @@ APPLICATIONS = {
                     "history_text": _("Circulation started"),
                 },
             },
+            "PRE_COMPLETE": {
+                # Cancel init-additional-demand after material-exam as it will
+                # again be created in the distribution child case
+                "material-exam": {"cancel": ["init-additional-demand"]},
+                # Complete publication work item after the first filled and
+                # completed publication
+                "fill-publication": {"complete": ["publication"]},
+            },
             "PUBLIC_STATUS": {
                 "USE_SLUGS": True,
                 "MAP": {

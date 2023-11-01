@@ -48,7 +48,20 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "[\"create-manual-workitems\", \"formal-exam\"]|tasks"
+      "next": "[\"create-manual-workitems\", \"formal-exam\", \"init-additional-demand\"]|tasks"
+    }
+  },
+  {
+    "model": "caluma_workflow.flow",
+    "pk": "81f6ab97-f106-4061-852b-6d8862987d5a",
+    "fields": {
+      "created_at": "2023-11-01T08:03:37.829Z",
+      "modified_at": "2023-11-01T08:03:37.829Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "next": "[\"init-additional-demand\", \"additional-demand\"]|tasks"
     }
   },
   {
@@ -272,6 +285,22 @@
       "workflow": "building-permit",
       "task": "create-publication",
       "flow": "4252dbf6-4a03-4982-9688-14125c771a61",
+      "redoable": null
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
+    "pk": "75884557-b676-4056-bc33-40e425f9b8f0",
+    "fields": {
+      "created_at": "2023-11-01T08:03:37.834Z",
+      "modified_at": "2023-11-01T08:03:37.834Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "workflow": "building-permit",
+      "task": "init-additional-demand",
+      "flow": "81f6ab97-f106-4061-852b-6d8862987d5a",
       "redoable": null
     }
   },
