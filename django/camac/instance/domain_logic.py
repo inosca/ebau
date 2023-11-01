@@ -22,7 +22,7 @@ from camac.constants.kt_bern import (
     DECISIONS_BEWILLIGT,
 )
 from camac.core.models import InstanceLocation, InstanceService
-from camac.core.utils import canton_aware, generate_dossier_nr
+from camac.core.utils import canton_aware, generate_dossier_nr, generate_sort_key
 from camac.instance.models import Instance, InstanceGroup
 from camac.instance.utils import (
     copy_instance,
@@ -192,8 +192,6 @@ class CreateInstanceLogic:
         CAVEAT: if an instance uses form abbreviation the prefix param is ignored.
 
         Uniqueness is not verified here in order to avoid coupling.
-
-
         """
 
         separator = "-"
@@ -240,7 +238,6 @@ class CreateInstanceLogic:
         For internal instances service_id is added to
         the second position and the seq_zero_padding is set to 4.
         Example: IG-6-23-014
-
         """
         separator = "-"
 
@@ -583,9 +580,9 @@ class CreateInstanceLogic:
 
         if generate_identifier:
             # Give dossier a unique dossier number
-            case_meta["dossier-number"] = CreateInstanceLogic.generate_identifier(
-                instance, year
-            )
+            identifier = CreateInstanceLogic.generate_identifier(instance, year)
+            case_meta["dossier-number"] = identifier
+            case_meta["dossier-number-sort"] = generate_sort_key(identifier)
 
         case = workflow_api.start_case(
             workflow=workflow,

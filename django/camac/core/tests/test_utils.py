@@ -68,3 +68,15 @@ class FakeClass:
 def test_canton_aware_decorator(db, role, expected, canton, application_settings):
     application_settings["SHORT_NAME"] = canton
     assert FakeClass().foo() == expected
+
+
+@pytest.mark.freeze_time("2020-10-16")
+def test_generate_sort_key(db, case_factory):
+    assert utils.generate_sort_key(utils.generate_ebau_nr(2020)) == 2020000001
+
+    case_factory(meta={"ebau-number": "2020-123"})
+    case_factory(meta={"ebau-number": "2020-99"})
+    assert utils.generate_sort_key(utils.generate_ebau_nr(2020)) == 2020000124
+
+    assert utils.generate_sort_key("2020-999999") == 2020999999
+    assert utils.generate_sort_key("abab-12-abab-2020-999999") == 2020999999
