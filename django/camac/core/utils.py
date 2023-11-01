@@ -14,10 +14,18 @@ from camac.instance.models import HistoryEntry, HistoryEntryT, Instance
 from camac.user.models import User
 
 
+def generate_sort_key(special_id: str) -> int:
+    year, number = special_id.split("-")[-2:]
+    # up to 1 million cases a year before it rolls over and causes issues
+    return int(year) * 1_000_000 + int(number)
+
+
 def generate_special_id(special_id_key: str, year: int) -> str:
     max_increment = (
         Case.objects.filter(**{f"meta__{special_id_key}__startswith": year})
         .annotate(
+            # TODO this can be switched to use dossier-number-sort, after everyone has migrated
+            # 2020-1234 -> 1234
             increment=Cast(
                 Substr(Cast(KeyTextTransform(special_id_key, "meta"), CharField()), 6),
                 IntegerField(),
@@ -26,9 +34,9 @@ def generate_special_id(special_id_key: str, year: int) -> str:
         .order_by("-increment")
         .values_list("increment", flat=True)
         .first()
-    )
+    ) or 0
 
-    return "%d-%d" % (year, (max_increment or 0) + 1)
+    return f"{year}-{max_increment + 1}"
 
 
 def generate_ebau_nr(year: int) -> str:
@@ -42,6 +50,7 @@ def generate_dossier_nr(year: int) -> str:
 
 
 def assign_ebau_nr(instance: Instance, year=None) -> str:
+    # TODO: seems to be unnecessary, from an old migration
     existing = instance.case.meta.get("ebau-number")
     if existing:
         return existing
@@ -94,7 +103,7 @@ def create_history_entry(
         **data,
     )
 
-    for (language, text) in get_translations(text).items():
+    for language, text in get_translations(text).items():
         HistoryEntryT.objects.create(
             history_entry=history,
             title=text % text_data(language),
