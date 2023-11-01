@@ -342,7 +342,8 @@
       "meta": {
         "submit-date": "2023-10-27T08:53:34+0000",
         "dossier-number": "2023-2",
-        "camac-instance-id": 4
+        "camac-instance-id": 4,
+        "dossier-number-sort": 2023000002
       },
       "document": "2da7f8fc-1f73-40bc-8647-049ad41ecaac"
     }
@@ -389,7 +390,8 @@
       "meta": {
         "submit-date": "2023-09-21T09:29:47+0000",
         "dossier-number": "2023-1",
-        "camac-instance-id": 3
+        "camac-instance-id": 3,
+        "dossier-number-sort": 2023000001
       },
       "document": "033433c2-3733-43a4-8d7b-3b57e82379c1"
     }
