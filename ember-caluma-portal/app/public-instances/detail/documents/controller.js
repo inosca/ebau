@@ -28,7 +28,12 @@ export default class PublicInstancesDetailDocumentsController extends Controller
         });
       }
       return yield this.store.query("document", {
-        instance: this.model,
+        filter: {
+          metainfo: JSON.stringify([
+            { key: "camac-instance-id", value: String(this.model) },
+          ]),
+        },
+        sort: "title",
       });
     } catch (e) {
       this.notification.danger(this.intl.t("publicInstancesDetail.loadError"));
