@@ -13,8 +13,9 @@ export default class PublicationStartDateComponent extends CfFieldInputDateCompo
           const dateField = this.args.field.document.findField(dateSlug);
 
           if (
+            !date ||
             startDate.startOf("day") <=
-            DateTime.fromISO(dateField?.answer.value).startOf("day")
+              DateTime.fromISO(dateField?.answer.value).startOf("day")
           ) {
             dateField.answer.value = null;
             await dateField.save.perform();

@@ -12,8 +12,8 @@
       "metainfo": {
         "sort": 3,
         "access": {
-          "applicant": "Read",
           "support": "Admin",
+          "applicant": "Read",
           "subservice": "Read",
           "service-lead": "Read",
           "service-clerk": "Read",
@@ -40,8 +40,8 @@
       "metainfo": {
         "sort": 1,
         "access": {
-          "applicant": "AdminNew",
           "support": "Admin",
+          "applicant": "AdminNew",
           "subservice": "Read",
           "service-lead": "Read",
           "service-clerk": "Read",
@@ -190,8 +190,8 @@
       "metainfo": {
         "sort": 4,
         "access": {
-          "applicant": "AdminAdditionalDemand",
           "support": "Admin",
+          "applicant": "AdminAdditionalDemand",
           "service-lead": "Read",
           "service-clerk": "Read",
           "municipality-lead": "Read",

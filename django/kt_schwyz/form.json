@@ -360,6 +360,41 @@
       "fachthemen.bauabfaelle",
       "gesuchsunterlagen"
     ],
+    "baugesuch-reklamegesuch-v9": [
+      "grundinformationen",
+      "grundinformationen.lokalisierung",
+      "grundinformationen.kategorisierung-v2",
+      "grundinformationen.allgemeine-informationen-zum-vorhaben-v4",
+      "grundinformationen.ausnahmebewilligungen",
+      "grundinformationen.gwr-v2",
+      "personalien",
+      "personalien.grundeigentumerschaft-v2",
+      "personalien.bauherrschaft-v3",
+      "personalien.projektverfasser-planer-v3",
+      "personalien.vertreter-mit-vollmacht-v2",
+      "fachthemen",
+      "fachthemen.landwirtschaft",
+      "fachthemen.nicht-landwirtschaftliche-bauten-und-anlagen-ausserhalb-bauzone",
+      "fachthemen.umweltschutz",
+      "fachthemen.natur-und-landschaftsschutz",
+      "fachthemen.wald",
+      "fachthemen.naturgefahren",
+      "fachthemen.verkehr",
+      "fachthemen.energie-v2",
+      "fachthemen.arbeitssicherheit-und-gesundheitsschutz",
+      "fachthemen.zivilschutz-v2",
+      "fachthemen.brandschutz",
+      "fachthemen.liegenschaftsentwasserung",
+      "fachthemen.gewasserschutz",
+      "fachthemen.grundwasser-und-altlasten",
+      "fachthemen.reklamen",
+      "fachthemen.denkmalschutz-und-archaeologie",
+      "fachthemen.lebensmittel-und-hygienesicherheit",
+      "fachthemen.fischerei",
+      "fachthemen.radon",
+      "fachthemen.bauabfaelle",
+      "gesuchsunterlagen"
+    ],
     "projektanderung-v3": [
       "projektanderung",
       "grundinformationen",
@@ -465,6 +500,23 @@
       "personalien.projektverfasser-planer-v3",
       "fachthemen",
       "fachthemen.energie",
+      "fachthemen.bauabfaelle",
+      "gesuchsunterlagen"
+    ],
+    "projektanderung-v10": [
+      "projektanderung",
+      "grundinformationen",
+      "grundinformationen.lokalisierung",
+      "grundinformationen.kategorisierung-v2",
+      "grundinformationen.allgemeine-informationen-zum-vorhaben-v4",
+      "grundinformationen.ausnahmebewilligungen",
+      "grundinformationen.gwr-v2",
+      "personalien",
+      "personalien.grundeigentumerschaft-v2",
+      "personalien.bauherrschaft-v3",
+      "personalien.projektverfasser-planer-v3",
+      "fachthemen",
+      "fachthemen.energie-v2",
       "fachthemen.bauabfaelle",
       "gesuchsunterlagen"
     ],
@@ -651,6 +703,40 @@
       "fachthemen.naturgefahren",
       "fachthemen.verkehr",
       "fachthemen.energie",
+      "fachthemen.arbeitssicherheit-und-gesundheitsschutz",
+      "fachthemen.zivilschutz-v2",
+      "fachthemen.brandschutz",
+      "fachthemen.liegenschaftsentwasserung",
+      "fachthemen.gewasserschutz",
+      "fachthemen.grundwasser-und-altlasten",
+      "fachthemen.reklamen",
+      "fachthemen.denkmalschutz-und-archaeologie",
+      "fachthemen.lebensmittel-und-hygienesicherheit",
+      "fachthemen.fischerei",
+      "fachthemen.radon",
+      "fachthemen.bauabfaelle",
+      "gesuchsunterlagen"
+    ],
+    "vorentscheid-gemass-ss84-pbg-v9": [
+      "vorentscheid",
+      "grundinformationen",
+      "grundinformationen.lokalisierung",
+      "grundinformationen.kategorisierung-v2",
+      "grundinformationen.allgemeine-informationen-zum-vorhaben-v4",
+      "grundinformationen.gwr-v2",
+      "personalien",
+      "personalien.grundeigentumerschaft-v2",
+      "personalien.bauherrschaft-v3",
+      "personalien.projektverfasser-planer-v3",
+      "fachthemen",
+      "fachthemen.landwirtschaft",
+      "fachthemen.nicht-landwirtschaftliche-bauten-und-anlagen-ausserhalb-bauzone",
+      "fachthemen.umweltschutz",
+      "fachthemen.natur-und-landschaftsschutz",
+      "fachthemen.wald",
+      "fachthemen.naturgefahren",
+      "fachthemen.verkehr",
+      "fachthemen.energie-v2",
       "fachthemen.arbeitssicherheit-und-gesundheitsschutz",
       "fachthemen.zivilschutz-v2",
       "fachthemen.brandschutz",
@@ -857,6 +943,37 @@
       "gesuchsunterlagen",
       "meta"
     ],
+    "baumeldung-fur-geringfugiges-vorhaben-v6": [
+      "grundinformationen",
+      "grundinformationen.lokalisierung",
+      "baumeldung-fur-geringfugige-vorhaben-v2",
+      "personalien",
+      "personalien.grundeigentumerschaft-v2",
+      "personalien.bauherrschaft-v3",
+      "personalien.projektverfasser-planer-v3",
+      "fachthemen",
+      "fachthemen.landwirtschaft",
+      "fachthemen.nicht-landwirtschaftliche-bauten-und-anlagen-ausserhalb-bauzone",
+      "fachthemen.umweltschutz",
+      "fachthemen.natur-und-landschaftsschutz",
+      "fachthemen.wald",
+      "fachthemen.naturgefahren",
+      "fachthemen.verkehr",
+      "fachthemen.energie-v2",
+      "fachthemen.arbeitssicherheit-und-gesundheitsschutz",
+      "fachthemen.zivilschutz-v2",
+      "fachthemen.brandschutz",
+      "fachthemen.liegenschaftsentwasserung",
+      "fachthemen.gewasserschutz",
+      "fachthemen.grundwasser-und-altlasten",
+      "fachthemen.reklamen",
+      "fachthemen.denkmalschutz-und-archaeologie",
+      "fachthemen.lebensmittel-und-hygienesicherheit",
+      "fachthemen.fischerei",
+      "fachthemen.radon",
+      "gesuchsunterlagen",
+      "meta"
+    ],
     "technische-bewilligung": [
       "technische-bewilligung",
       "grundinformationen",
@@ -934,6 +1051,37 @@
       "fachthemen.naturgefahren",
       "fachthemen.verkehr",
       "fachthemen.energie",
+      "fachthemen.arbeitssicherheit-und-gesundheitsschutz",
+      "fachthemen.zivilschutz-v2",
+      "fachthemen.brandschutz",
+      "fachthemen.liegenschaftsentwasserung",
+      "fachthemen.gewasserschutz",
+      "fachthemen.grundwasser-und-altlasten",
+      "fachthemen.reklamen",
+      "fachthemen.denkmalschutz-und-archaeologie",
+      "fachthemen.lebensmittel-und-hygienesicherheit",
+      "fachthemen.fischerei",
+      "fachthemen.radon",
+      "gesuchsunterlagen",
+      "meta"
+    ],
+    "technische-bewilligung-v4": [
+      "technische-bewilligung",
+      "grundinformationen",
+      "grundinformationen.lokalisierung",
+      "personalien",
+      "personalien.grundeigentumerschaft-v2",
+      "personalien.bauherrschaft-v3",
+      "personalien.projektverfasser-planer-v3",
+      "fachthemen",
+      "fachthemen.landwirtschaft",
+      "fachthemen.nicht-landwirtschaftliche-bauten-und-anlagen-ausserhalb-bauzone",
+      "fachthemen.umweltschutz",
+      "fachthemen.natur-und-landschaftsschutz",
+      "fachthemen.wald",
+      "fachthemen.naturgefahren",
+      "fachthemen.verkehr",
+      "fachthemen.energie-v2",
       "fachthemen.arbeitssicherheit-und-gesundheitsschutz",
       "fachthemen.zivilschutz-v2",
       "fachthemen.brandschutz",
@@ -1172,6 +1320,36 @@
       "fachthemen.naturgefahren",
       "fachthemen.verkehr",
       "fachthemen.energie",
+      "fachthemen.arbeitssicherheit-und-gesundheitsschutz",
+      "fachthemen.zivilschutz-v2",
+      "fachthemen.brandschutz",
+      "fachthemen.liegenschaftsentwasserung",
+      "fachthemen.gewasserschutz",
+      "fachthemen.grundwasser-und-altlasten",
+      "fachthemen.reklamen",
+      "fachthemen.denkmalschutz-und-archaeologie",
+      "fachthemen.lebensmittel-und-hygienesicherheit",
+      "fachthemen.fischerei",
+      "fachthemen.radon",
+      "gesuchsunterlagen",
+      "meta"
+    ],
+    "projektgenehmigungsgesuch-gemass-ss15-strag-v5": [
+      "grundinformationen",
+      "grundinformationen.lokalisierung",
+      "personalien",
+      "personalien.grundeigentumerschaft-v2",
+      "personalien.bauherrschaft-v3",
+      "personalien.projektverfasser-planer-v3",
+      "fachthemen",
+      "fachthemen.landwirtschaft",
+      "fachthemen.nicht-landwirtschaftliche-bauten-und-anlagen-ausserhalb-bauzone",
+      "fachthemen.umweltschutz",
+      "fachthemen.natur-und-landschaftsschutz",
+      "fachthemen.wald",
+      "fachthemen.naturgefahren",
+      "fachthemen.verkehr",
+      "fachthemen.energie-v2",
       "fachthemen.arbeitssicherheit-und-gesundheitsschutz",
       "fachthemen.zivilschutz-v2",
       "fachthemen.brandschutz",
@@ -1587,6 +1765,30 @@
         "datenverschnitt-energie"
       ]
     },
+    "fachthemen.energie-v2": {
+      "title": "Energie",
+      "parent": "fachthemen",
+      "questions": [
+        "energie-art",
+        "energie-montagetyp",
+        "energie-dachform",
+        "energie-vorgaben-32a-abs1-rpv",
+        "energie-anlage-winkel-20",
+        "energie-anlage-oben-nicht-hinaus-ragt",
+        "energie-anlage-technik-reflexionsarm",
+        "energie-anlage-kompakte-flache",
+        "energie-anlage-uberragt-1-meter",
+        "energie-anlage-winkel-45-nicht-sichtbar",
+        "energie-thermisch-kollektorenart",
+        "energie-thermisch-aufbereitung",
+        "energie-thermisch-grosse",
+        "energie-photovoltaik-batterie",
+        "energie-photovoltaik-gesamtleistung",
+        "energie-photovoltaik-jahresertrag",
+        "energie-inbetriebnahme",
+        "datenverschnitt-energie"
+      ]
+    },
     "fachthemen.arbeitssicherheit-und-gesundheitsschutz": {
       "title": "Arbeitssicherheit und Gesundheitsschutz",
       "parent": "fachthemen",
@@ -1789,6 +1991,7 @@
         "info-wald-auswirkungen",
         "info-wald-auswirkungen-roden",
         "info-energie-dachaufstellung",
+        "info-energie",
         "info-arbeitssicherheit-sicherheitsdatenblatter",
         "info-zivilschutz-elementarschaden",
         "info-zivilschutz-aufhebung",
@@ -2805,7 +3008,7 @@
     },
     "art-der-anlage": {
       "label": "Welche Anlagearten sind geplant?",
-      "hint": "**Befestigte Fläche:** Als befestigte oder versiegelte Flächen sind jene Flächen gemeint, die durch menschliches Einwirken so verändert oder verdichtet werden, dass die natürliche Versickerungsfähigkeit des Bodens beeinträchtigt wird. (z. B. Verkehrsflächen, Plätze).\n\n**Ver- / Entsorungsleitung:** Leitungen können dem Transport verschiedener Medien dienen und je nachdem sind es zu- oder wegführende Leitungen (z. B. Trinkwasserleitung oder Abwasserleitung).\n\n**Reklame:** Unter dem Begriff der *Reklamen* lassen sich diverse Ausprägungen von Werbeformen und anderen Ankündigungen subsumieren. Verfahrenstechnisch wird ein reines Reklamegesuch auch als Baugesuch behandelt.\n\n**Terrainveränderung:** Mit Terrainveränderungen sind der Abtrag oder die Aufschüttung von Erdreich gemeint.\n\n**Wärmepumpe:** Dies ist ein Überbegriff für Maschinen, die unter Aufwendung von technischer Arbeit thermische Energie aus einem Reservoir mit niedrigerer Temperatur (in der Regel ist das die Umgebung) aufnimmt und – zusammen mit der Antriebsenergie – als Nutzwärme auf ein zu beheizendes System mit höherer Temperatur (Raumheizung) überträgt.\n\n**Sondierbohrung:** Damit sind Probebohrungen (in der Regel als Kernbohrung ausgeführt) für Baugrunduntersuchungen oder zur Abklärung der Verfügbarkeit von Grundwasser für eine Grundwasserwärmepumpe gemeint.\n\n**Solaranlage:** Mit Solaranlagen sind technische Anlagen zur Umwandlung von Sonnenenergie in eine andere Energieform gemeint.\n\n**Abfallanlage, Deponie:** Damit sind stationäre Anlagen gemeint, in der Abfälle gemäss Abfallverordnung behandelt werden.\n\n**Antennen:** Damit sind stationäre Anlagen gemeint, die Signale empfangen oder senden können.\n\n**Andere:** Sollte für Ihr Vorhaben keine der vorgeschlagenen Arten von Anlagen passen, wählen Sie bitte *\"Andere\"*.",
+      "hint": "**Befestigte Fläche:** Als befestigte oder versiegelte Flächen sind jene Flächen gemeint, die durch menschliches Einwirken so verändert oder verdichtet werden, dass die natürliche Versickerungsfähigkeit des Bodens beeinträchtigt wird. (z. B. Verkehrsflächen, Plätze).\n\n**Ver- / Entsorungsleitung:** Leitungen können dem Transport verschiedener Medien dienen und je nachdem sind es zu- oder wegführende Leitungen (z. B. Trinkwasserleitung oder Abwasserleitung).\n\n**Reklame:** Unter dem Begriff der *Reklamen* lassen sich diverse Ausprägungen von Werbeformen und anderen Ankündigungen subsumieren. Verfahrenstechnisch wird ein reines Reklamegesuch auch als Baugesuch behandelt.\n\n**Terrainveränderung:** Mit Terrainveränderungen sind der Abtrag oder die Aufschüttung von Erdreich gemeint.\n\n**Wärmepumpe:** Dies ist ein Überbegriff für Maschinen, die unter Aufwendung von technischer Arbeit thermische Energie aus einem Reservoir mit niedrigerer Temperatur (in der Regel ist das die Umgebung) aufnimmt und – zusammen mit der Antriebsenergie – als Nutzwärme auf ein zu beheizendes System mit höherer Temperatur (Raumheizung) überträgt.\n\n**Sondierbohrung:** Damit sind Probebohrungen (in der Regel als Kernbohrung ausgeführt) für Baugrunduntersuchungen oder zur Abklärung der Verfügbarkeit von Grundwasser für eine Grundwasserwärmepumpe gemeint.\n\n**Solaranlage:** Der Begriff Solaranlage ist ein Sammelbegriff für technische Anlagen zur Umwandlung von Sonnenenergie in eine andere Energieform.\n\n**Abfallanlage, Deponie:** Damit sind stationäre Anlagen gemeint, in der Abfälle gemäss Abfallverordnung behandelt werden.\n\n**Antennen:** Damit sind stationäre Anlagen gemeint, die Signale empfangen oder senden können.\n\n**Andere:** Sollte für Ihr Vorhaben keine der vorgeschlagenen Arten von Anlagen passen, wählen Sie bitte *\"Andere\"*.",
       "type": "checkbox",
       "required": true,
       "active-expression": "'Anlage(n)' in 'kategorie-des-vorhabens'|value",
@@ -5372,7 +5575,7 @@
     },
     "energie-art": {
       "label": "Um welche Art Solaranlage handelt es sich?",
-      "hint": "Der Begriff *Solaranlage* ist ein Sammelbegriff für technische Anlagen zur Umwandlung von Sonnenenergie in eine andere Energieform. Mit thermischer oder photovoltaischer Solaranlage wird eine grundsätzliche Unterscheidung vorgenommen.",
+      "hint": "Der Begriff Solaranlage ist ein Sammelbegriff für technische Anlagen zur Umwandlung von Sonnenenergie in eine andere Energieform. Mit thermischer oder photovoltaischer Solaranlage wird eine grundsätzliche Unterscheidung vorgenommen. Mehr Informationen finden Sie in der <a href=\"/assets/documents/planungshilfe_solaranlagen_final.pdf\" target=\"_blank\">Planungshilfe für Solaranlagen</a>.",
       "type": "checkbox",
       "required": true,
       "active-expression": "'Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja'",
@@ -5434,17 +5637,17 @@
       }
     },
     "energie-thermisch-kollektorenart": {
-      "label": "Welche Kollektorenart ist vorgesehen?",
-      "hint": "**Flachkollektoren:** Als Flachkollektor wird ein bestimmter Bautyp von Sonnenkollektoren bezeichnet. Hauptmerkmal ist die Ausrichtung einer flachen, ebenen Absorberfläche zur Sonne (keine Krümmung, keine Konzentration). Flachkollektoren werden zur Erwärmung von Schwimmbadwasser, Gemischen aus Wasser und Frostschutz sowie Luft verwendet.\n\n**Röhrenkollektoren:** Der Vakuumröhrenkollektor ist eine Bauweise von Sonnenkollektoren und Bestandteil einer thermischen Solaranlage. Er wird zur Erwärmung von Wasser und/oder Wasser-Frostschutz-Gemischen eingesetzt. Das Wärmemedium wird gegen die Aussenumgebung durch ein Vakuum isoliert.",
+      "label": "Kollektorenart:",
+      "hint": "**Flachkollektoren:** Als Flachkollektor wird ein bestimmter Bautyp von Sonnenkollektoren bezeichnet. Hauptmerkmal ist die Ausrichtung einer flachen, ebenen Absorberfläche zur Sonne (keine Krümmung, keine Konzentration). Flachkollektoren werden zur Erwärmung von Schwimmbadwasser, Gemischen aus Wasser und Frostschutz sowie Luft verwendet.\n\n**Röhrenkollektoren:** Der Vakuumröhrenkollektor ist eine Bauweise von Sonnenkollektoren und Bestandteil einer thermischen Solaranlage. Er wird zur Erwärmung von Wasser und/oder Wasser-Frostschutz-Gemischen eingesetzt. Das Wärmemedium wird gegen die Aussenumgebung durch ein Vakuum isoliert.\n\n**WISC-Kollektoren:** (Wind and Infrared Sensitive Collectors): Diese Kategorie beinhaltet unverglaste Kollektoren, unverglaste, selektiv beschichtete Kollektoren und PVT-Kollektoren.",
       "type": "checkbox",
       "required": true,
       "active-expression": "('Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja') && 'Thermische Solaranlage (Wärmeproduktion)' in 'energie-art'|value",
       "config": {
-        "options": ["Flachkollektoren", "Röhrenkollektoren"]
+        "options": ["Flachkollektoren", "Röhrenkollektoren", "WISC-Kollektoren"]
       }
     },
     "energie-thermisch-aufbereitung": {
-      "label": "Die Anlage ist vorgesehen für die Aufbereitung von:",
+      "label": "Art der Wärmenutzung:",
       "hint": "**(Brauch)Warmwasser:** Warmwasser ist erwärmtes Trink- oder Brauchwasser im Temperaturbereich von üblicherweise 30 °C bis 60 °C, darüber hinaus spricht man von Heißwasser. Brauchwasser ist Wasser, das einer spezifischen technischen, gewerblichen, landwirtschaftlichen oder hauswirtschaftlichen Anwendung dient.\n\n**Warmwasser mit Heizungsunterstützung:** Dies bezeichnet eine Solarthermieanlage zur kombinierten Warmwasser- und Heizungsunterstützung, im Gegensatz zur reinen Erwärmung von Brauch- und Trinkwasser.",
       "type": "radio",
       "required": true,
@@ -5457,7 +5660,7 @@
       }
     },
     "energie-thermisch-grosse": {
-      "label": "Wie gross ist die vorgesehene Absorberfläche in m²?",
+      "label": "Fläche (in m²)?:",
       "hint": "Geben Sie bitte die Absorberfläche in m2 an. Die Absorberfläche ist die nicht verschattete, vom Licht bestrahlbare gesamte Oberfläche des Absorbers. Bei ebenen Flächen (Rechtecke), die schwarze obere Fläche. Bei zylindrischen Absorbern , die gesamte Fläche des schwarzen Zylindermantels.",
       "type": "number-separator",
       "required": true,
@@ -5476,8 +5679,18 @@
         "options": ["Monokristalline Zellen", "Polykristalline Zellen"]
       }
     },
+    "energie-photovoltaik-batterie": {
+      "label": "Ist ein Batteriespeicher vorgesehen?",
+      "hint": "",
+      "type": "radio",
+      "required": true,
+      "active-expression": "('Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja') && 'Photovoltaische Solaranlage (Stromproduktion)' in 'energie-art'|value",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
     "energie-photovoltaik-gesamtleistung": {
-      "label": "Gesamtleistung in kWpeak:",
+      "label": "Leistung (in kWp):",
       "hint": "Kilowatt Peak ist eine im Bereich Photovoltaik gebräuchliche, aber nicht normgerechte Bezeichnung für die elektrische Leistung von Solarzellen.  Die Einheit dient dazu, unterschiedliche Solarzellen und Solarmodule unter genormten Testbedingungen vergleichen zu können. ",
       "type": "number-separator",
       "required": true,
@@ -5487,8 +5700,8 @@
       }
     },
     "energie-photovoltaik-jahresertrag": {
-      "label": "Erwarteter Jahresertrag in kWh / Jahr:",
-      "hint": "Geben Sie bitte den erwarteten Jahresertrag in Kilowattstunden pro Jahr an.",
+      "label": "Erwartete Jaresproduktion (in kWh/Jahr):",
+      "hint": "",
       "type": "number-separator",
       "required": true,
       "active-expression": "('Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja') && 'Photovoltaische Solaranlage (Stromproduktion)' in 'energie-art'|value",
@@ -5508,11 +5721,103 @@
     },
     "energie-inbetriebnahme": {
       "label": "Voraussichtliche Inbetriebnahme:",
-      "hint": "Falls kein genaues Datum angegeben werden kann, sind auch Angaben wie *Anfang Juli 2019* möglich.",
+      "hint": "Falls kein genaues Datum angegeben werden kann, sind auch Angaben wie *Anfang Juli 2024* möglich.",
       "type": "text",
       "required": true,
       "active-expression": "'Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja'",
       "config": {}
+    },
+    "energie-montagetyp": {
+      "label": "Welcher Montagetyp ist vorgesehen?",
+      "hint": "Bei Fassadenanlagen kommt (mit Ausnahme von Industrie- und Gewerbezonen sowie in Zonen für öffentliche Bauten und Anlagen) immer das ordentliche Baubewilligungsverfahren zum Zuge.\n\nBei Anlagen auf oder an geschützten Objekten oder in geschützten Zonen kommt im Normalfall ebenfalls das ordentliche Bewilligungsverfahren zum Zuge.\n\nMehr Informationen finden Sie in der <a href=\"/assets/documents/planungshilfe_solaranlagen_final.pdf\" target=\"_blank\">Planungshilfe für Solaranlagen</a> (Kap. 4).",
+      "type": "checkbox",
+      "required": true,
+      "active-expression": "'Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja'",
+      "config": {
+        "options": [
+          "Dachanlage",
+          "Fassadenanlage in Industrie- und Gewerbezone oder Zone für öffentliche Bauten und Anlagen",
+          "Fassadenanlage in anderer Zone"
+        ]
+      }
+    },
+    "energie-dachform": {
+      "label": "Um welche Dachform handelt es sich?",
+      "hint": "Mehr Informationen finden Sie in der <a href=\"/assets/documents/planungshilfe_solaranlagen_final.pdf\" target=\"_blank\">Planungshilfe für Solaranlagen</a> (Kap. 4).",
+      "type": "checkbox",
+      "required": true,
+      "active-expression": "'Dachanlage' in 'energie-montagetyp'|value",
+      "config": {
+        "options": ["Schrägdach", "Flachdach"]
+      }
+    },
+    "energie-vorgaben-32a-abs1-rpv": {
+      "label": "Die Vorgaben gemäss Art. 32a Abs. 1 der eidgenössischen Raumplanungsverordnung (RPV) sind eingehalten:",
+      "hint": "Mehr Informationen finden Sie in der <a href=\"/assets/documents/planungshilfe_solaranlagen_final.pdf\" target=\"_blank\">Planungshilfe für Solaranlagen</a> (Kap. 4.2).",
+      "type": "radio",
+      "required": false,
+      "active-expression": "'Schrägdach' in 'energie-dachform'|value || 'Flachdach' in 'energie-dachform'|value",
+      "config": {}
+    },
+    "energie-anlage-winkel-20": {
+      "label": "Die Anlage überragt die Dachfläche im rechten Winkel um höchstens 20 cm.",
+      "hint": "",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'Schrägdach' in 'energie-dachform'|value",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "energie-anlage-oben-nicht-hinaus-ragt": {
+      "label": "Die Anlage ragt von oben gesehen nicht über die Dachfläche hinaus.",
+      "hint": "",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'Schrägdach' in 'energie-dachform'|value",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "energie-anlage-technik-reflexionsarm": {
+      "label": "Die Anlage wird nach dem Stand der Technik reflexionsarm ausgeführt.",
+      "hint": "",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'Schrägdach' in 'energie-dachform'|value || 'Flachdach' in 'energie-dachform'|value",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "energie-anlage-kompakte-flache": {
+      "label": "Die Anlage ist als kompakte Fläche angeordnet (Aussparungen für Kamine, etc. sind erlaubt).",
+      "hint": "",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'Schrägdach' in 'energie-dachform'|value",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "energie-anlage-uberragt-1-meter": {
+      "label": "Die Anlage überragt die Oberkante des Dachrandes um höchstens einen Meter.",
+      "hint": "",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'Flachdach' in 'energie-dachform'|value",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "energie-anlage-winkel-45-nicht-sichtbar": {
+      "label": "Die Anlage ist von der Dachkante so weit zurückversetzt, dass sie, von unten in einem Winkel von 45 Grad betrachtet, nicht sichtbar ist.",
+      "hint": "",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'Flachdach' in 'energie-dachform'|value",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
     },
     "datenverschnitt-energie": {
       "label": "Ihr Vorhaben befindet sich in der Nähe von Anlagen mit erheblichen Strahlungs-Emissionen (Sendeantennen, Trafostationen, Hochspannungsleitungen, SBB-Übertragungsleitungen o. ä.). Die Vorschriften der entsprechenden gesetzlichen Grundlagen müssen eingehalten werden.",
@@ -8648,6 +8953,21 @@
       "active-expression": "'energie-dachaufstellung'|value == 'Ja'",
       "config": {
         "options": ["Vorhanden"]
+      }
+    },
+    "info-energie": {
+      "label": "Folgende notwendigen Unterlagen sind beigelegt:",
+      "hint": "Mehr Informationen finden Sie in der <a href=\"/assets/documents/planungshilfe_solaranlagen_final.pdf\" target=\"_blank\">Planungshilfe für Solaranlagen</a> (Kap. 4.3).",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "'Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja'",
+      "config": {
+        "options": [
+          "Situationsplan inkl. Orientierungsplan für die Feuerwehr («Feuerwehrplan»)",
+          "Dachaufsicht: Plan oder Foto mit Angabe der Dach-/Dachrandabstände (Vermassung)",
+          "Dachschnitt: Schnittplan mit Angabe der Konstruktionshöhe",
+          "Technische Angaben (Produktblätter und ‑beschrieb)"
+        ]
       }
     },
     "info-arbeitssicherheit-sicherheitsdatenblatter": {

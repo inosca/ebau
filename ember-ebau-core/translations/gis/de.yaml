@@ -11,3 +11,8 @@ gis:
   loading: "Lädt..."
   noMatchesMessage: "keine Ergebnisse gefunden"
   searchPlaceholder: "Adresse suchen..."
+
+  groups:
+    addresses: "Adressen"
+    municipalities: "Gemeinden"
+    plots: "Grundstücke"

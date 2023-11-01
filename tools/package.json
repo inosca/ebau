@@ -21,7 +21,8 @@
     "node-fetch": "3.0.0",
     "slugify": "1.6.1",
     "uuid": "8.3.2",
-    "yargs": "17.2.1"
+    "yargs": "17.2.1",
+    "prettyjson": "1.2.5"
   },
   "devDependencies": {
     "tap": "15.0.10"

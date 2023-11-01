@@ -1,18 +1,10 @@
 from datetime import date, datetime
-from typing import Any, Optional, Union
+from typing import Union
 
 from babel.dates import format_date
 from django.utils.translation import get_language
 
-
-def clean_join(*parts: Any, separator: Optional[str] = " ") -> str:
-    """Join all truthy arguments as trimmed string with a given separator.
-
-    >>> clean_join(" John", None, "", " Smith ")
-    "John Smith"
-    """
-
-    return separator.join([str(part).strip() for part in parts if part]).strip()
+from camac.utils import clean_join
 
 
 def get_option_label(option: Union[dict, None]) -> Union[str, None]:

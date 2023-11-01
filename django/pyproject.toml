@@ -157,6 +157,8 @@ omit = [
     "camac/user/management/commands/import_services.py",
     "camac/user/management/commands/set_service_sort_number.py",
     "camac/core/management/commands/migrate_dossier_number_sort.py",
+    "camac/core/management/commands/revert_mandatory_questions_gr.py",
+    "camac/core/management/commands/migrate_alexandria_document_metainfo_gr.py",
     # Audit migration"
     "camac/core/management/commands/config/",
     "camac/core/management/commands/migrate_audit.py",

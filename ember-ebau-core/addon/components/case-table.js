@@ -1,4 +1,3 @@
-import { getOwner } from "@ember/application";
 import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
 import { isEmpty } from "@ember/utils";
@@ -465,8 +464,7 @@ export default class CaseTableComponent extends Component {
   @action
   redirectToCase(caseRecord) {
     const instanceId = caseRecord.instanceId;
-    const applicationName = getOwner(this).application.modulePrefix;
-    if (applicationName === "ebau") {
+    if (this.ebauModules.applicationName === "ebau") {
       return this.router.transitionTo("cases.detail", instanceId);
     }
 

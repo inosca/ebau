@@ -38,6 +38,8 @@ def extend_user(user, camac_request):
     and `camac_group` in case they are needed.
     """
 
+    # FIXME: always settings `camac_role` and `camac_group` would simplify
+    # several callsites
     if camac_request.group:
         user.camac_role = camac_request.group.role.name
         user.camac_group = camac_request.group.pk

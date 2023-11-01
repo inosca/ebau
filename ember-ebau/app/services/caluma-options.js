@@ -10,7 +10,7 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
   @service store;
 
   get currentGroupId() {
-    return this.session.service.id;
+    return this.session.service?.id;
   }
 
   get currentInstanceId() {
@@ -81,12 +81,13 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
     "inquiry-answer-status-approved": INQUIRY_STATUS.POSITIVE,
     "inquiry-answer-status-rejected": INQUIRY_STATUS.NEGATIVE,
     "inquiry-answer-status-written-off": INQUIRY_STATUS.NEGATIVE,
+    "inquiry-answer-status-claim": INQUIRY_STATUS.NEEDS_INTERACTION,
   };
   static distributionStatusMappingSO = {
     "inquiry-answer-status-positive": INQUIRY_STATUS.POSITIVE,
     "inquiry-answer-status-negative": INQUIRY_STATUS.NEGATIVE,
     "inquiry-answer-status-additional-demand": INQUIRY_STATUS.NEEDS_INTERACTION,
-    "inquiry-answer-status-rejected": INQUIRY_STATUS.NEGATIVE,
+    "inquiry-answer-status-rejection": INQUIRY_STATUS.NEGATIVE,
     "inquiry-answer-status-no-comment": INQUIRY_STATUS.POSITIVE,
   };
 

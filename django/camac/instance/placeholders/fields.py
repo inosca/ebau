@@ -13,10 +13,9 @@ from rest_framework import serializers
 from camac.caluma.utils import find_answer, work_item_by_addressed_service_condition
 from camac.core.models import BillingV2Entry
 from camac.user.models import Service
-from camac.utils import build_url
+from camac.utils import build_url, clean_join
 
 from .utils import (
-    clean_join,
     get_person_address_1,
     get_person_address_2,
     get_person_name,

@@ -368,11 +368,12 @@ module.exports = function (environment) {
         backend: "alexandria",
         excludeFromDocuments: [],
         feedbackSections: ["alle-beteiligten"], // Alle Beteiligten
+        decisionTag: "decision",
       },
       instanceStates: instanceStatesGr,
       modification: {
         allowForms: ["baugesuch"],
-        disallowStates: [instanceStatesGr.new, instanceStatesGr.finished],
+        disallowStates: [instanceStatesGr.new],
       },
       // Who can create which forms. Roles can be given by ID, or magic key ("internal" or "public")
       formCreationPermissions: [
@@ -415,6 +416,7 @@ module.exports = function (environment) {
         backend: "alexandria",
         excludeFromDocuments: [],
         feedbackSections: ["alle-beteiligten"], // Alle Beteiligten
+        decisionTag: "decision",
       },
       instanceStates: instanceStatesSo,
       modification: {

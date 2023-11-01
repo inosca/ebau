@@ -1,7 +1,9 @@
 import csv
 import itertools
+import json
 from collections import OrderedDict
 
+from caluma.caluma_form.models import Answer
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 from django.utils.timezone import now
@@ -11,11 +13,11 @@ from rest_framework import serializers
 from camac.caluma.api import CalumaApi
 from camac.core.translations import get_translations
 from camac.user.models import Service
-from camac.utils import build_url
+from camac.utils import build_url, clean_join
 
 from ..master_data import MasterData
 from . import fields
-from .utils import clean_join, get_option_label, human_readable_date
+from .utils import get_option_label, human_readable_date
 
 
 def sanitize_value(value):
@@ -571,6 +573,75 @@ class GrDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         aliases=[_("DECISION_DOCUMENTS")],
         description=_("All documents marked as decision documents"),
     )
+    zonenplan = fields.AliasedMethodField(
+        aliases=[_("ZONING_PLAN")],
+        description=_("Zoning plan"),
+    )
+    genereller_gestaltungsplan = fields.AliasedMethodField(
+        aliases=[_("GENERAL_DESIGN_PLAN")],
+        description=_("General design plan"),
+    )
+    genereller_erschliessungsplan = fields.AliasedMethodField(
+        aliases=[_("GENERAL_ACCESS_PLAN")],
+        description=_("General access plan"),
+    )
+    folgeplanung = fields.AliasedMethodField(
+        aliases=[_("FOLLOWUP_PLANNING")],
+        description=_("Follow-up planning"),
+    )
+    zustaendig_name = fields.ResponsibleUserField(
+        source="full_name",
+        aliases=[_("RESPONSIBLE_NAME")],
+        description=_("Name of the responsible employee"),
+    )
+    koordinaten = fields.AliasedMethodField(
+        aliases=[_("COORDINATES")],
+        description=_("Coordinates of the parcel"),
+    )
+
+    def get_zonenplan(self, instance):
+        answer = Answer.objects.filter(
+            question_id="zonenplan", document_id=instance.case.document.pk
+        )
+        return answer.first().value if answer else ""
+
+    def get_genereller_gestaltungsplan(self, instance):
+        answer = Answer.objects.filter(
+            question_id="genereller-gestaltungsplan",
+            document_id=instance.case.document.pk,
+        )
+        return answer.first().value if answer else ""
+
+    def get_genereller_erschliessungsplan(self, instance):
+        answer = Answer.objects.filter(
+            question_id="genereller-erschliessungsplan",
+            document_id=instance.case.document.pk,
+        )
+        return answer.first().value if answer else ""
+
+    def get_folgeplanung(self, instance):
+        answer = Answer.objects.filter(
+            question_id="folgeplanung", document_id=instance.case.document.pk
+        )
+        return answer.first().value if answer else ""
+
+    def get_koordinaten(self, instance):
+        coordinates = [
+            json.loads(answer.value)["markers"]
+            for answer in Answer.objects.filter(
+                question_id="gis-map", document_id=instance.case.document.pk
+            )
+        ]
+
+        if not coordinates:  # pragma: no cover
+            return ""
+
+        data = []
+        for coordinate in coordinates[0]:
+            x = f"{round(coordinate['x']):_}".replace("_", "’")
+            y = f"{round(coordinate['y']):_}".replace("_", "’")
+            data.append(f"{x} / {y}")
+        return "; ".join(data)
 
 
 class BeDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
