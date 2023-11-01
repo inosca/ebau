@@ -14,6 +14,7 @@ from django.contrib.postgres.fields import ArrayField
 from django.core.mail import EmailMessage, get_connection
 from django.db.models import (
     Case,
+    CharField,
     Exists,
     F,
     Func,
@@ -22,9 +23,10 @@ from django.db.models import (
     Q,
     Subquery,
     Sum,
+    Value as V,
     When,
 )
-from django.db.models.functions import Cast
+from django.db.models.functions import Cast, Concat
 from django.utils import timezone, translation
 from django.utils.text import slugify
 from rest_framework import exceptions
@@ -686,7 +688,20 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
                 service_group_sort=Subquery(
                     service_subquery.values("service_group__sort")[:1]
                 ),
-                service_sort=Subquery(service_subquery.values("sort")[:1]),
+                parent_service_sort=Case(
+                    When(
+                        Exists(
+                            service_subquery.filter(service_parent_id__isnull=False)
+                        ),
+                        then=Subquery(
+                            service_subquery.values("service_parent__sort")[:1],
+                            output_field=CharField(),
+                        ),
+                    ),
+                    default=Subquery(
+                        service_subquery.values("sort")[:1], output_field=CharField()
+                    ),
+                ),
                 service_grouping=Case(
                     When(
                         Exists(
@@ -694,12 +709,15 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
                         ),
                         then=Subquery(
                             service_subquery.values("service_parent_id")[:1],
-                            output_field=IntegerField(),
+                            output_field=CharField(),
                         ),
                     ),
                     default=Subquery(
-                        service_subquery.values("pk")[:1], output_field=IntegerField()
+                        service_subquery.values("pk")[:1], output_field=CharField()
                     ),
+                ),
+                sorted_grouping=Concat(
+                    F("parent_service_sort"), V("-"), F("service_grouping")
                 ),
                 is_subservice=Exists(
                     service_subquery.filter(service_parent_id__isnull=False)
@@ -707,10 +725,9 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
             )
             .order_by(
                 "service_group_sort",
-                "service_grouping",
+                "sorted_grouping",
                 "is_subservice",
                 "controlling_groups",
-                "service_sort",
                 F("closed_at").desc(nulls_first=True),
                 "-deadline",
             )
