@@ -583,6 +583,29 @@
   },
   {
     "model": "caluma_form.historicalanswer",
+    "pk": "0cd8ab88-50df-484a-9e8e-311465514e73",
+    "fields": {
+      "created_at": "2023-09-08T17:01:48.418Z",
+      "modified_at": "2023-09-08T17:01:48.418Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "history_question_type": "choice",
+      "id": "69b1c1e7-34b5-4f66-acac-603c5e132423",
+      "value": "entwasserungsplan-ja",
+      "meta": {},
+      "date": null,
+      "history_user_id": null,
+      "question": "entwasserungsplan",
+      "document": "88099d1f-7c40-48fc-8e66-a86c7c3a42f2",
+      "history_date": "2023-11-01T07:38:24.566Z",
+      "history_change_reason": null,
+      "history_type": "-"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
     "pk": "0cfaf5a2-9e25-476a-8834-e70334f60cf5",
     "fields": {
       "created_at": "2023-09-08T17:01:48.418Z",
@@ -855,6 +878,29 @@
       "history_date": "2023-10-05T08:58:55.829Z",
       "history_change_reason": null,
       "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
+    "pk": "34bb276b-ec14-4c31-9c6e-558849dceaa8",
+    "fields": {
+      "created_at": "2023-09-08T17:01:52.471Z",
+      "modified_at": "2023-09-08T17:01:52.471Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "history_question_type": "choice",
+      "id": "80c2f49c-46b7-45a2-bed8-1b4367076ae3",
+      "value": "groesse-der-baustelle-groesser-4000",
+      "meta": {},
+      "date": null,
+      "history_user_id": null,
+      "question": "groesse-der-baustelle",
+      "document": "88099d1f-7c40-48fc-8e66-a86c7c3a42f2",
+      "history_date": "2023-11-01T07:38:24.564Z",
+      "history_change_reason": null,
+      "history_type": "-"
     }
   },
   {
@@ -2101,6 +2147,52 @@
   },
   {
     "model": "caluma_form.historicalanswer",
+    "pk": "ae9c5b64-32aa-4b18-a6fb-dbdcef0cdd69",
+    "fields": {
+      "created_at": "2023-10-05T08:59:50.991Z",
+      "modified_at": "2023-10-05T08:59:50.991Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "history_question_type": "choice",
+      "id": "fcc85c0b-5552-4b6c-8a45-c1f1de885606",
+      "value": "groesse-der-baustelle-kleiner-4000",
+      "meta": {},
+      "date": null,
+      "history_user_id": null,
+      "question": "groesse-der-baustelle",
+      "document": "5e7dcb8b-b7ef-434e-8e87-d7fb9be53c31",
+      "history_date": "2023-11-01T07:38:24.560Z",
+      "history_change_reason": null,
+      "history_type": "-"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
+    "pk": "b1c8485c-c8ef-4d22-9f34-d33123d331c9",
+    "fields": {
+      "created_at": "2023-10-05T08:59:45.943Z",
+      "modified_at": "2023-10-05T08:59:45.943Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "history_question_type": "choice",
+      "id": "03ce096c-f658-4cec-8a2f-3da8445d3f00",
+      "value": "entwasserungsplan-nein",
+      "meta": {},
+      "date": null,
+      "history_user_id": null,
+      "question": "entwasserungsplan",
+      "document": "5e7dcb8b-b7ef-434e-8e87-d7fb9be53c31",
+      "history_date": "2023-11-01T07:38:24.568Z",
+      "history_change_reason": null,
+      "history_type": "-"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
     "pk": "b3e3a92f-4739-4ea2-9bdb-e7ce30e6e6db",
     "fields": {
       "created_at": "2023-09-08T17:01:52.471Z",
@@ -2902,23 +2994,6 @@
       "history_date": "2023-09-08T17:02:09.532Z",
       "history_change_reason": null,
       "history_type": "+"
-    }
-  },
-  {
-    "model": "caluma_form.answer",
-    "pk": "03ce096c-f658-4cec-8a2f-3da8445d3f00",
-    "fields": {
-      "created_at": "2023-10-05T08:59:45.943Z",
-      "modified_at": "2023-10-05T08:59:45.943Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "entwasserungsplan",
-      "value": "entwasserungsplan-nein",
-      "meta": {},
-      "document": "5e7dcb8b-b7ef-434e-8e87-d7fb9be53c31",
-      "date": null
     }
   },
   {
@@ -3960,23 +4035,6 @@
   },
   {
     "model": "caluma_form.answer",
-    "pk": "69b1c1e7-34b5-4f66-acac-603c5e132423",
-    "fields": {
-      "created_at": "2023-09-08T17:01:48.418Z",
-      "modified_at": "2023-09-08T17:01:48.418Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "entwasserungsplan",
-      "value": "entwasserungsplan-ja",
-      "meta": {},
-      "document": "88099d1f-7c40-48fc-8e66-a86c7c3a42f2",
-      "date": null
-    }
-  },
-  {
-    "model": "caluma_form.answer",
     "pk": "70eeacb9-2bee-4f6e-812c-a4008ba55ed5",
     "fields": {
       "created_at": "2023-07-07T07:32:28.704Z",
@@ -4176,23 +4234,6 @@
       "value": 1.0,
       "meta": {},
       "document": "cb984b37-46e4-4c3b-986e-b34a875d0e11",
-      "date": null
-    }
-  },
-  {
-    "model": "caluma_form.answer",
-    "pk": "80c2f49c-46b7-45a2-bed8-1b4367076ae3",
-    "fields": {
-      "created_at": "2023-09-08T17:01:52.471Z",
-      "modified_at": "2023-09-08T17:01:52.471Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "groesse-der-baustelle",
-      "value": "groesse-der-baustelle-groesser-4000",
-      "meta": {},
-      "document": "88099d1f-7c40-48fc-8e66-a86c7c3a42f2",
       "date": null
     }
   },
@@ -5536,23 +5577,6 @@
       "value": "Schweiz",
       "meta": {},
       "document": "61ffdfe2-bd4c-4bb4-aa1b-0c2ee8606596",
-      "date": null
-    }
-  },
-  {
-    "model": "caluma_form.answer",
-    "pk": "fcc85c0b-5552-4b6c-8a45-c1f1de885606",
-    "fields": {
-      "created_at": "2023-10-05T08:59:50.991Z",
-      "modified_at": "2023-10-05T08:59:50.991Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "groesse-der-baustelle",
-      "value": "groesse-der-baustelle-kleiner-4000",
-      "meta": {},
-      "document": "5e7dcb8b-b7ef-434e-8e87-d7fb9be53c31",
       "date": null
     }
   },
