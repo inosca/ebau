@@ -5,7 +5,6 @@ from django.core.management import call_command
 from django.urls import reverse
 from rest_framework import status
 
-from camac.constants.kt_bern import DECISIONS_ABGELEHNT, DECISIONS_BEWILLIGT
 from camac.instance.models import Instance, InstanceState
 
 
@@ -66,9 +65,9 @@ def instance_for_appeal(
 
             if task_id == "decision":
                 decision_factory(
-                    decision=DECISIONS_BEWILLIGT
+                    decision=be_decision_settings["ANSWERS"]["DECISION"]["APPROVED"]
                     if instance_state_name == "sb1"
-                    else DECISIONS_ABGELEHNT
+                    else be_decision_settings["ANSWERS"]["DECISION"]["REJECTED"]
                 )
 
             complete_work_item(work_item=work_item, user=caluma_admin_user)

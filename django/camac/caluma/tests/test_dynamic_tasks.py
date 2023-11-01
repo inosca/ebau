@@ -10,18 +10,6 @@ from camac.caluma.tests.test_distribution_workflow import (  # noqa: F401
     distribution_child_case_be,
     inquiry_factory_be,
 )
-from camac.constants.kt_bern import (
-    DECISION_TYPE_BAUBEWILLIGUNGSFREI,
-    DECISION_TYPE_BUILDING_PERMIT,
-    DECISION_TYPE_CONSTRUCTION_TEE_WITH_RESTORATION,
-    DECISION_TYPE_PARTIAL_PERMIT_WITH_PARTIAL_CONSTRUCTION_TEE_AND_PARTIAL_RESTORATION,
-    DECISIONS_ABGELEHNT,
-    DECISIONS_ABGESCHRIEBEN,
-    DECISIONS_BEWILLIGT,
-    VORABKLAERUNG_DECISIONS_BEWILLIGT,
-    VORABKLAERUNG_DECISIONS_BEWILLIGT_MIT_VORBEHALT,
-    VORABKLAERUNG_DECISIONS_NEGATIVE,
-)
 
 
 @pytest.mark.parametrize(
@@ -29,68 +17,68 @@ from camac.constants.kt_bern import (
     [
         (
             "building-permit",
-            DECISIONS_ABGELEHNT,
-            DECISION_TYPE_BUILDING_PERMIT,
+            "REJECTED",
+            "BUILDING_PERMIT",
             Case.STATUS_COMPLETED,
         ),
         (
             "building-permit",
-            DECISIONS_ABGESCHRIEBEN,
-            DECISION_TYPE_BUILDING_PERMIT,
+            "DEPRECIATED",
+            "BUILDING_PERMIT",
             Case.STATUS_COMPLETED,
         ),
         (
             "building-permit",
-            DECISIONS_BEWILLIGT,
-            DECISION_TYPE_BUILDING_PERMIT,
+            "APPROVED",
+            "BUILDING_PERMIT",
             Case.STATUS_RUNNING,
         ),
         (
             "preliminary-clarification",
-            VORABKLAERUNG_DECISIONS_BEWILLIGT,
+            "POSITIVE",
             None,
             Case.STATUS_COMPLETED,
         ),
         (
             "preliminary-clarification",
-            VORABKLAERUNG_DECISIONS_BEWILLIGT_MIT_VORBEHALT,
+            "POSITIVE_WITH_RESERVATION",
             None,
             Case.STATUS_COMPLETED,
         ),
         (
             "preliminary-clarification",
-            VORABKLAERUNG_DECISIONS_NEGATIVE,
+            "NEGATIVE",
             None,
             Case.STATUS_COMPLETED,
         ),
         (
             "building-permit",
-            DECISIONS_ABGELEHNT,
-            DECISION_TYPE_CONSTRUCTION_TEE_WITH_RESTORATION,
+            "REJECTED",
+            "CONSTRUCTION_TEE_WITH_RESTORATION",
             Case.STATUS_RUNNING,
         ),
         (
             "building-permit",
-            DECISIONS_ABGESCHRIEBEN,
-            DECISION_TYPE_CONSTRUCTION_TEE_WITH_RESTORATION,
+            "DEPRECIATED",
+            "CONSTRUCTION_TEE_WITH_RESTORATION",
             Case.STATUS_RUNNING,
         ),
         (
             "building-permit",
-            DECISIONS_BEWILLIGT,
-            DECISION_TYPE_BAUBEWILLIGUNGSFREI,
+            "APPROVED",
+            "BUILDING_PERMIT_FREE",
             Case.STATUS_COMPLETED,
         ),
         (
             "building-permit",
-            DECISIONS_ABGELEHNT,
-            DECISION_TYPE_PARTIAL_PERMIT_WITH_PARTIAL_CONSTRUCTION_TEE_AND_PARTIAL_RESTORATION,
+            "REJECTED",
+            "PARTIAL_PERMIT_WITH_PARTIAL_CONSTRUCTION_TEE_AND_PARTIAL_RESTORATION",
             Case.STATUS_RUNNING,
         ),
         (
             "building-permit",
-            DECISIONS_ABGESCHRIEBEN,
-            DECISION_TYPE_PARTIAL_PERMIT_WITH_PARTIAL_CONSTRUCTION_TEE_AND_PARTIAL_RESTORATION,
+            "DEPRECIATED",
+            "PARTIAL_PERMIT_WITH_PARTIAL_CONSTRUCTION_TEE_AND_PARTIAL_RESTORATION",
             Case.STATUS_RUNNING,
         ),
     ],
@@ -145,7 +133,14 @@ def test_dynamic_task_after_decision(
         ("decision", complete_work_item),
     ]:
         if task_id == "decision":
-            decision_factory(decision=decision, decision_type=decision_type)
+            decision_factory(
+                decision=be_decision_settings["ANSWERS"]["DECISION"][decision],
+                decision_type=be_decision_settings["ANSWERS"]["APPROVAL_TYPE"][
+                    decision_type
+                ]
+                if decision_type
+                else None,
+            )
 
         fn(case.work_items.get(task_id=task_id), caluma_admin_user)
 

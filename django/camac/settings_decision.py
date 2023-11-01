@@ -1,3 +1,10 @@
+from camac.ech0211.constants import (
+    ECH_JUDGEMENT_APPROVED,
+    ECH_JUDGEMENT_APPROVED_WITH_RESERVATION,
+    ECH_JUDGEMENT_DECLINED,
+    ECH_JUDGEMENT_WRITTEN_OFF,
+)
+
 DECISION = {
     "default": {
         "TASK": "decision",
@@ -71,5 +78,28 @@ DECISION = {
     "test": {
         "ENABLED": True,
         "ENABLE_STATS": True,
+    },
+}
+
+# ECH 211 judgementType
+# Grundsätzliche Beurteilung.
+# 1 = Positiv
+# 2 = Positiv mit Bedingungen
+# 3 = Nicht eintreten
+# 4 = abgelehnt
+DECISION["kt_bern"]["ECH_JUDGEMENT_MAP"] = {
+    "building-permit": {
+        DECISION["kt_bern"]["ANSWERS"]["DECISION"]["APPROVED"]: ECH_JUDGEMENT_APPROVED,
+        DECISION["kt_bern"]["ANSWERS"]["DECISION"][
+            "DEPRECIATED"
+        ]: ECH_JUDGEMENT_WRITTEN_OFF,
+        DECISION["kt_bern"]["ANSWERS"]["DECISION"]["REJECTED"]: ECH_JUDGEMENT_DECLINED,
+    },
+    "preliminary-clarification": {
+        DECISION["kt_bern"]["ANSWERS"]["DECISION"]["POSITIVE"]: ECH_JUDGEMENT_APPROVED,
+        DECISION["kt_bern"]["ANSWERS"]["DECISION"][
+            "POSITIVE_WITH_RESERVATION"
+        ]: ECH_JUDGEMENT_APPROVED_WITH_RESERVATION,
+        DECISION["kt_bern"]["ANSWERS"]["DECISION"]["NEGATIVE"]: ECH_JUDGEMENT_DECLINED,
     },
 }

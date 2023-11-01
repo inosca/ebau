@@ -7,13 +7,6 @@ Only contains the constants that we actually need
 """
 
 # Instance states
-from camac.ech0211.constants import (
-    ECH_JUDGEMENT_APPROVED,
-    ECH_JUDGEMENT_APPROVED_WITH_RESERVATION,
-    ECH_JUDGEMENT_DECLINED,
-    ECH_JUDGEMENT_WRITTEN_OFF,
-)
-
 INSTANCE_STATE_NEW = 1
 
 INSTANCE_STATE_EBAU_NUMMER_VERGEBEN = 20000
@@ -116,45 +109,6 @@ CIRCULATION_STATE_DONE = 2
 
 CIRCULATION_TYPE_STANDARD = 20000
 
-# decisions
-DECISIONS_POSITIVE = "decision-decision-assessment-positive"
-DECISIONS_BEWILLIGT = "decision-decision-assessment-accepted"
-DECISIONS_ABGELEHNT = "decision-decision-assessment-denied"
-DECISIONS_ABGESCHRIEBEN = "decision-decision-assessment-depreciated"
-VORABKLAERUNG_DECISIONS_BEWILLIGT = "decision-decision-assessment-positive"
-VORABKLAERUNG_DECISIONS_BEWILLIGT_MIT_VORBEHALT = (
-    "decision-decision-assessment-positive-with-reservation"
-)
-VORABKLAERUNG_DECISIONS_NEGATIVE = "decision-decision-assessment-negative"
-
-# decision type
-DECISION_TYPE_CONSTRUCTION_TEE_WITH_RESTORATION = (
-    "decision-approval-type-construction-tee-with-restoration"
-)
-DECISION_TYPE_BUILDING_PERMIT = "decision-approval-type-building-permit"
-DECISION_TYPE_BAUBEWILLIGUNGSFREI = "decision-approval-type-building-permit-free"
-DECISION_TYPE_PARTIAL_PERMIT_WITH_PARTIAL_CONSTRUCTION_TEE_AND_PARTIAL_RESTORATION = "decision-approval-type-partial-building-permit-partial-construction-tee-partial-restoration"
-DECISION_TYPE_OVERALL_BUILDING_PERMIT = "decision-approval-type-overall-building-permit"
-DECISION_TYPE_UNKNOWN = "decision-approval-type-unknown"
-
-# ECH 211 judgementType
-# Grundsätzliche Beurteilung.
-# 1 = Positiv
-# 2 = Positiv mit Bedingungen
-# 3 = Nicht eintreten
-# 4 = abgelehnt
-DECISION_JUDGEMENT_MAP = {
-    "building-permit": {
-        DECISIONS_BEWILLIGT: ECH_JUDGEMENT_APPROVED,
-        DECISIONS_ABGESCHRIEBEN: ECH_JUDGEMENT_WRITTEN_OFF,
-        DECISIONS_ABGELEHNT: ECH_JUDGEMENT_DECLINED,
-    },
-    "preliminary-clarification": {
-        VORABKLAERUNG_DECISIONS_BEWILLIGT: ECH_JUDGEMENT_APPROVED,
-        VORABKLAERUNG_DECISIONS_BEWILLIGT_MIT_VORBEHALT: ECH_JUDGEMENT_APPROVED_WITH_RESERVATION,
-        VORABKLAERUNG_DECISIONS_NEGATIVE: ECH_JUDGEMENT_DECLINED,
-    },
-}
 
 # Attachment sections
 ATTACHMENT_SECTION_BETEILIGTE_BEHOERDEN = 2
