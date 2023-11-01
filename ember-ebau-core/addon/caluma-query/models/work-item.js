@@ -222,7 +222,7 @@ export default class CustomWorkItemModel extends WorkItemModel {
       return false;
     }
 
-    if (this.applicationName === "camac-ng") {
+    if (this.ebauModules.applicationName === "camac-ng") {
       const url = this._getDirectLinkFor("edit");
       const hash = this.router.urlFor(
         "work-items.instance.edit",
@@ -268,7 +268,7 @@ export default class CustomWorkItemModel extends WorkItemModel {
       return null;
     }
 
-    if (this.applicationName === "camac-ng") {
+    if (this.ebauModules.applicationName === "camac-ng") {
       const query = this.ebauModules.directLinkConfig[configKey];
 
       return query
