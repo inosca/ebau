@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-10-17 16:38+0200\n"
-"PO-Revision-Date: 2023-09-22 14:46+0200\n"
+"PO-Revision-Date: 2023-10-27 14:07+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
@@ -640,8 +640,7 @@ msgid "START_PUBLICATION_MUNICIPALITY"
 msgstr "START_PUBLIKATION_GEMEINDE"
 
 #: camac/instance/placeholders/serializers.py:543
-msgid ""
-"Start date of the publication in the publication organ of the municipality"
+msgid "Start date of the publication in the publication organ of the municipality"
 msgstr "Startdatum der Publikation im Publikationsorgan der Gemeinde"
 
 #: camac/instance/placeholders/serializers.py:550
@@ -649,8 +648,7 @@ msgid "END_PUBLICATION_MUNICIPALITY"
 msgstr "ENDE_PUBLIKATION_GEMEINDE"
 
 #: camac/instance/placeholders/serializers.py:552
-msgid ""
-"End date of the publication in the publication organ of the municipality"
+msgid "End date of the publication in the publication organ of the municipality"
 msgstr "Enddatum der Publikation im Publikationsorgan der Gemeinde"
 
 #: camac/instance/placeholders/serializers.py:559
@@ -670,14 +668,44 @@ msgid "End date of the publication in the cantonal Gazette"
 msgstr "Enddatum der Publikation im Kantonsamtsblatt"
 
 #: camac/instance/placeholders/serializers.py:571
-#, fuzzy
-#| msgid "DECISION_DATE"
 msgid "DECISION_DOCUMENTS"
-msgstr "BAUENTSCHEID_DATUM"
+msgstr "ENTSCHEIDDOKUMENTE"
 
 #: camac/instance/placeholders/serializers.py:572
 msgid "All documents marked as decision documents"
-msgstr ""
+msgstr "Alle Dokumente die als Entscheiddokument markiert wurden"
+
+#: camac/instance/placeholders/serializers.py:576
+msgid "ZONING_PLAN"
+msgstr "ZONENPLAN"
+
+#: camac/instance/placeholders/serializers.py:577
+msgid "Zoning plan"
+msgstr "Zonenplan"
+
+#: camac/instance/placeholders/serializers.py:580
+msgid "GENERAL_DESIGN_PLAN"
+msgstr "GENERELLER_GESTALTUNGSPLAN"
+
+#: camac/instance/placeholders/serializers.py:581
+msgid "General design plan"
+msgstr "Genereller Gestaltungsplan"
+
+#: camac/instance/placeholders/serializers.py:584
+msgid "GENERAL_ACCESS_PLAN"
+msgstr "GENERELLER_ERSCHLIESSUNGSPLAN"
+
+#: camac/instance/placeholders/serializers.py:585
+msgid "General access plan"
+msgstr "Genereller Erschliessungsplan"
+
+#: camac/instance/placeholders/serializers.py:588
+msgid "FOLLOWUP_PLANNING"
+msgstr "FOLGEPLANUNG"
+
+#: camac/instance/placeholders/serializers.py:589
+msgid "Follow-up planning"
+msgstr "Folgeplanung"
 
 #: camac/instance/placeholders/serializers.py:585
 msgid "PROJECT"
@@ -1147,6 +1175,7 @@ msgstr "ZUSTAENDIG_EMAIL"
 msgid "Email address of the responsible employee"
 msgstr "Email-Adresse des/r zuständigen/r Mitarbeiter/in"
 
+#: camac/instance/placeholders/serializers.py:593
 #: camac/instance/placeholders/serializers.py:975
 msgid "RESPONSIBLE_NAME"
 msgstr "ZUSTAENDIG_NAME"

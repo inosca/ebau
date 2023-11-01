@@ -1,37 +1,40 @@
-<PowerSelect
-  data-test-search
-  @search={{perform this.searchAddress}}
-  @searchEnabled={{true}}
-  @selected={{this.selectedSearchResult}}
-  @onChange={{this.selectFeature}}
-  @placeholder={{t "gis.searchPlaceholder"}}
-  @loadingMessage={{t "gis.loading"}}
-  @searchMessage={{null}}
-  @noMatchesMessage={{t "gis.noMatchesMessage"}}
-  as |address|
->
-  {{address.label}}
-</PowerSelect>
+{{#unless @disabled}}
+  <PowerSelect
+    data-test-search
+    @search={{perform this.searchAddress}}
+    @searchEnabled={{true}}
+    @selected={{this.selectedSearchResult}}
+    @onChange={{this.selectSearchResult}}
+    @placeholder={{t "gis.searchPlaceholder"}}
+    @loadingMessage={{t "gis.loading"}}
+    @searchMessage={{null}}
+    @noMatchesMessage={{t "gis.noMatchesMessage"}}
+    as |address|
+  >
+    {{address.label}}
+  </PowerSelect>
+{{/unless}}
 <div class="map">
+  {{#unless @disabled}}
+    <div class="leaflet-touch">
+      <div class="draw-polygon-line leaflet-touch leaflet-bar">
+        {{#if this.showGeometrySwitch}}
+          <button
+            class="polygon-icon {{if this.isPolygon 'is-active'}}"
+            type="button"
+            {{on "click" (fn this.setGeometry "POLYGON")}}
+          ><FaIcon @icon="draw-polygon" @size="1x" /></button>
 
-  <div class="leaflet-touch">
-    <div class="draw-polygon-line leaflet-touch leaflet-bar">
-      {{#if this.showGeometrySwitch}}
-        <button
-          class="polygon-icon {{if this.isPolygon 'is-active'}}"
-          type="button"
-          {{on "click" (fn this.setGeometry "POLYGON")}}
-        ><FaIcon @icon="draw-polygon" @size="1x" /></button>
+          <button
+            type="button"
+            class="line-icon {{unless this.isPolygon 'is-active'}}"
+            {{on "click" (fn this.setGeometry "LINESTRING")}}
+          ><FaIcon @icon="minus" @size="1x" /></button>
 
-        <button
-          type="button"
-          class="line-icon {{unless this.isPolygon 'is-active'}}"
-          {{on "click" (fn this.setGeometry "LINESTRING")}}
-        ><FaIcon @icon="minus" @size="1x" /></button>
-
-      {{/if}}
+        {{/if}}
+      </div>
     </div>
-  </div>
+  {{/unless}}
 
   <LeafletMap
     data-test-map
@@ -41,7 +44,7 @@
     @maxZoom={{this.maxZoom}}
     @minZoom={{this.minZoom}}
     @onLoad={{this.handleLoad}}
-    @onClick={{this.updateMarkers}}
+    @onClick={{unless @disabled this.updateMarkers}}
     class="uk-width-1-1 uk-height-large uk-margin"
     as |map|
   >
@@ -82,34 +85,43 @@
       <map.marker
         @lat={{point.lat}}
         @lng={{point.lng}}
-        @draggable={{true}}
+        @draggable={{not @disabled}}
         @onDragend={{fn this.updateDragged index}}
       />
     {{/each}}
 
-    {{#if this.isPolygon}}
-      <map.polygon @locations={{this.markers}} @color="red" />
-    {{else}}
-      <map.polyline @locations={{this.markers}} @color="red" />
+    {{#if this.searchHighlight}}
+      <map.polygon
+        @locations={{this.searchHighlight}}
+        @color="blue"
+      />
     {{/if}}
-  </LeafletMap>
-  <div class="reset-button">
-    {{#if this.showResetButton}}
-      <UkButton @onClick={{this.clearMarkers}}><FaIcon
-          @icon="rotate-left"
-          @size="1x"
+
+    {{#unless @disabled}}
+      {{#if this.isPolygon}}
+        <map.polygon
+          @locations={{this.markers}}
+          @color="red"
         />
-        {{t "gis.reset"}}</UkButton>
-    {{/if}}
-  </div>
+      {{else}}
+        <map.polyline @locations={{this.markers}} @color="red" />
+      {{/if}}
+    {{/unless}}
+  </LeafletMap>
   {{#unless @disabled}}
+    <div class="reset-button">
+      {{#if this.showResetButton}}
+        <UkButton @onClick={{this.resetMarkers}}><FaIcon
+            @icon="rotate-left"
+            @size="1x"
+          />
+          {{t "gis.reset"}}</UkButton>
+      {{/if}}
+    </div>
     <GisApplyButton
       @document={{@field.document}}
       @disabled={{not this.markers}}
-      @params={{hash
-        query=this.query
-        form=this.rootForm
-      }}
+      @params={{hash query=this.query form=this.rootForm}}
     />
   {{/unless}}
 

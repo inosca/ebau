@@ -48,6 +48,30 @@
     }
   },
   {
+    "model": "notification.notificationtemplate",
+    "pk": 5,
+    "fields": {
+      "slug": "additional-demand-decision-accept",
+      "purpose": null,
+      "subject": null,
+      "body": null,
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
+    "model": "notification.notificationtemplate",
+    "pk": 6,
+    "fields": {
+      "slug": "additional-demand-decision-reject",
+      "purpose": null,
+      "subject": null,
+      "body": null,
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
     "model": "notification.notificationtemplatet",
     "pk": 1,
     "fields": {
@@ -93,6 +117,30 @@
       "purpose": "Eingang Dossier (Gemeinde)",
       "subject": "Neu eingegangen",
       "body": "Guten Tag\r\n\r\nIm eBau gibt es einen neuen Eingang mit der Dossier-Nr. {{INSTANCE_ID}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}).\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\neBau"
+    }
+  },
+  {
+    "model": "notification.notificationtemplatet",
+    "pk": 5,
+    "fields": {
+      "template": 5,
+      "template_slug": "additional-demand-decision-accept",
+      "language": "de",
+      "purpose": "Nachforderung vollständig",
+      "subject": "Nachforderung vollständig (Dossier-Nr. {{DOSSIER_NR}})",
+      "body": "Guten Tag\r\n\r\nIm eBau wurde eine Nachforderung im Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) abgeschlossen.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}/additional-demand\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\neBau"
+    }
+  },
+  {
+    "model": "notification.notificationtemplatet",
+    "pk": 6,
+    "fields": {
+      "template": 6,
+      "template_slug": "additional-demand-decision-reject",
+      "language": "de",
+      "purpose": "Nachforderung unvollständig",
+      "subject": "Nachforderung unvollständig (Dossier-Nr. {{DOSSIER_NR}})",
+      "body": "Guten Tag\r\n\r\nIhre Nachforderung zum Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde als unvollständig beurteilt.\r\n\r\n{{PUBLIC_DOSSIER_LINK}}/additional-demand\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\neBau"
     }
   }
 ]

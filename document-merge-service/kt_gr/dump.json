@@ -28,5 +28,25 @@
       "engine": "docx-template",
       "meta": {}
     }
+  },
+  {
+    "model": "api.template",
+    "pk": "bab-bewilligung",
+    "fields": {
+      "description": "BAB Bewilligung",
+      "template": "BAB_Bewilligung.docx",
+      "engine": "docx-template",
+      "meta": {}
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "publikationsformular-baugesuch",
+    "fields": {
+      "description": "Publikationsformular Baugesuch",
+      "template": "publikationsformular_baugesuch.docx",
+      "engine": "docx-template",
+      "meta": {}
+    }
   }
 ]

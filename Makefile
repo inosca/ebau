@@ -7,8 +7,8 @@ include .env
 .DEFAULT_GOAL := help
 
 GIT_USER=$(shell git config user.email)
-DB_CONTAINER=$(shell docker-compose ps -q db)
-APPLICATION_ENV=$(shell docker-compose exec django bash -c 'echo $$APPLICATION_ENV')
+DB_CONTAINER=$(shell docker compose ps -q db)
+APPLICATION_ENV=$(shell docker compose exec django bash -c 'echo $$APPLICATION_ENV')
 
 define set_app
 	sed 's/^\(APPLICATION=\).*$//\1$(1)/' -i .env django/.env
@@ -49,34 +49,34 @@ css-watch: ## Watch the sass files and create the css when they change
 
 .PHONY: clear-cache
 clear-cache: ## Clear memcache
-	docker-compose exec cache sh -c "echo flush_all | nc localhost 11211"
+	docker compose exec cache sh -c "echo flush_all | nc localhost 11211"
 
 .PHONY: dumpconfig
 dumpconfig: ## Dump the current camac and caluma configuration
-	docker-compose exec django python manage.py camac_dump_config
+	docker compose exec django python manage.py camac_dump_config
 	@npx --yes prettier@3.0.3 --log-level silent --write "django/${APPLICATION}/config/*.json"
 
 .PHONY: dumpdata
 dumpdata: ## Dump the current camac and caluma data
-	docker-compose exec django /app/manage.py camac_dump_data
+	docker compose exec django /app/manage.py camac_dump_data
 	@npx --yes prettier@3.0.3 --log-level silent --write "django/${APPLICATION}/data/*.json"
 
 .PHONY: loadconfig-camac
 loadconfig-camac: ## Load the camac configuration
 	@echo "\e[31m⚠️  Loading CAMAC config. This can take a moment, especially if migrations are running.\e[0m"
 	@echo "\e[31m   While this is in progress, do not use the web-interface yet!\e[0m"
-	@docker-compose exec django ./wait-for-it.sh -t 300 127.0.0.1:80 -- python manage.py camac_load --user $(GIT_USER)
+	@docker compose exec django ./wait-for-it.sh -t 300 127.0.0.1:80 -- python manage.py camac_load --user $(GIT_USER)
 
 .PHONY: loadconfig-dms
 loadconfig-dms: ## Load the DMS configuration
-	@if docker-compose config|grep -q document-merge-service; then \
-		docker-compose exec document-merge-service poetry run python manage.py loaddata /tmp/document-merge-service/dump.json; \
+	@if docker compose config|grep -q document-merge-service; then \
+		docker compose exec document-merge-service poetry run python manage.py loaddata /tmp/document-merge-service/dump.json; \
 	fi
 
 .PHONY: dumpconfig-dms
 dumpconfig-dms: ## Dump the DMS configuration
-	@if docker-compose config|grep -q document-merge-service; then \
-		docker-compose exec -u root document-merge-service bash -c "poetry run python manage.py dumpdata api.Template > /tmp/document-merge-service/dump.json" ; \
+	@if docker compose config|grep -q document-merge-service; then \
+		docker compose exec -u root document-merge-service bash -c "poetry run python manage.py dumpdata api.Template > /tmp/document-merge-service/dump.json" ; \
 		npx --yes prettier@3.0.3 --log-level silent --write "document-merge-service/${APPLICATION}/dump.json"; \
 	fi
 
@@ -85,13 +85,13 @@ dumpconfig-dms: ## Dump the DMS configuration
 loadconfig-keycloak: ## Load the keycloak configuration
 	@if [ ${APPLICATION_ENV} = "development" ]; then \
 		echo -n "loading keycloak config... "; \
-		docker-compose exec keycloak /opt/keycloak/bin/kc.sh import --override true --file /opt/keycloak/data/import/test-config.json >/dev/null 2>&1 || true; \
+		docker compose exec keycloak /opt/keycloak/bin/kc.sh import --override true --file /opt/keycloak/data/import/test-config.json >/dev/null 2>&1 || true; \
 		echo "done."; \
 	fi
 
 .PHONY: dumpconfig-keycloak
 dumpconfig-keycloak: ## Dump the keycloak configuration
-	docker-compose exec keycloak /opt/keycloak/bin/kc.sh export --file /opt/keycloak/data/import/test-config.json
+	docker compose exec keycloak /opt/keycloak/bin/kc.sh export --file /opt/keycloak/data/import/test-config.json
 	@npx --yes prettier@3.0.3 --log-level silent --write "keycloak/config/${APPLICATION}-test-config.json"
 
 .PHONY: loadconfig
@@ -100,11 +100,11 @@ loadconfig: loadconfig-camac loadconfig-dms loadconfig-keycloak ## Load all conf
 
 .PHONY: dbshell
 dbshell: ## Start a psql shell
-	@docker-compose exec db psql -Ucamac ${APPLICATION}
+	@docker compose exec db psql -Ucamac ${APPLICATION}
 
 .PHONY: ember-dev
 ember-dev: ## Set up .env and application.ini for local ember development
-	@if docker-compose config|grep -q php; then \
+	@if docker compose config|grep -q php; then \
 		sed -re 's/ember\.development.*/ember\.development = true/' -i php/${APPLICATION}/configs/application.ini; \
 		sed -re 's/portal\.uri.*/portal\.uri = http:\/\/localhost:4200/' -i php/${APPLICATION}/configs/application.ini; \
 		sed -re 's/baseURLPortal.*/baseURLPortal = http:\/\/localhost:4200/' -i php/${APPLICATION}/configs/application.ini; \
@@ -118,7 +118,7 @@ ember-dev: ## Set up .env and application.ini for local ember development
 
 .PHONY: ember-dev-reset
 ember-dev-reset: ## Set up .env and application.ini for non-local runtime (docker)
-	@if docker-compose config|grep -q php; then \
+	@if docker compose config|grep -q php; then \
 		sed -re 's/ember\.development.*/ember.development = false/' -i php/${APPLICATION}/configs/application.ini; \
 		sed -re 's/portal\.uri.*/portal.uri = http:\/\/ebau-portal.local/' -i php/${APPLICATION}/configs/application.ini; \
 		sed -re 's/baseURLPortal.*/baseURLPortal = http:\/\/ebau-portal.local/' -i php/${APPLICATION}/configs/application.ini; \
@@ -136,7 +136,7 @@ mergeconfig: ## Merge config.json
 
 .PHONY: migrate
 migrate:  ## Migrate schema
-	docker-compose exec django /app/manage.py migrate
+	docker compose exec django /app/manage.py migrate
 	make sequencenamespace
 
 
@@ -154,11 +154,11 @@ format:
 
 .PHONY: makemigrations
 makemigrations: ## Create schema migrations
-	docker-compose exec django /app/manage.py makemigrations
+	docker compose exec django /app/manage.py makemigrations
 
 .PHONY: flush
 flush:
-	@docker-compose exec django /app/manage.py flush --no-input
+	@docker compose exec django /app/manage.py flush --no-input
 
 # Directory for DB snapshots
 .PHONY: _db_snapshots_dir
@@ -167,21 +167,21 @@ _db_snapshots_dir:
 
 .PHONY: db_snapshot
 db_snapshot: _db_snapshots_dir  ## Make a snapshot of the current state of the database
-	@docker-compose exec db  pg_dump -Ucamac -c > db_snapshots/$(shell date -Iseconds).sql
+	@docker compose exec db  pg_dump -Ucamac -c > db_snapshots/$(shell date -Iseconds).sql
 
 .PHONY: db_restore
 db_restore:  _db_snapshots_dir ## Restore latest DB snapshot created with `make db_snapshot`
 	@echo "restoring from $(SNAPSHOT)"
-	@docker-compose exec -T db psql -Ucamac < $(SNAPSHOT) > /dev/null
+	@docker compose exec -T db psql -Ucamac < $(SNAPSHOT) > /dev/null
 
 .PHONY: sequencenamespace
 sequencenamespace:  ## Set the Sequence namespace for a given user. GIT_USER is detected from your git repository.
-	@docker-compose exec django make sequencenamespace GIT_USER=$(GIT_USER)
+	@docker compose exec django make sequencenamespace GIT_USER=$(GIT_USER)
 
 
 .PHONY: test
 test: ## Run backend tests
-	@docker-compose exec django make test
+	@docker compose exec django make test
 
 .PHONY: kt_uri
 kt_uri: ## Set APPLICATION to kt_uri
@@ -245,17 +245,17 @@ release-folder: ## Add a template for a release folder
 
 .PHONY: django-shell
 django-shell:
-	@docker-compose exec django python manage.py shell
+	@docker compose exec django python manage.py shell
 
 .PHONY: user-admin
 user-admin: ## Add most recent user to admin group
-	@docker-compose exec db psql -Ucamac ${APPLICATION} -c 'insert into "USER_GROUP" ("DEFAULT_GROUP", "GROUP_ID", "USER_ID") values (1, 1, (select "USER_ID" from "USER" order by "USER_ID" desc limit 1));'
+	@docker compose exec db psql -Ucamac ${APPLICATION} -c 'insert into "USER_GROUP" ("DEFAULT_GROUP", "GROUP_ID", "USER_ID") values (1, 1, (select "USER_ID" from "USER" order by "USER_ID" desc limit 1));'
 
 .PHONY: debug-django
 debug-django: ## start a api container with service ports for debugging
-	@docker-compose stop django
+	@docker compose stop django
 	@echo "Run './manage.py runserver 0:80' to start the debugging server"
-	@docker-compose run --user root --use-aliases --service-ports django bash
+	@docker compose run --user root --use-aliases --service-ports django bash
 
 .PHONY: load-be-dump
 load-be-dump: SHELL:=/bin/bash
@@ -269,24 +269,24 @@ load-be-dump:
 	fi
 	@docker cp latest.dmp $(DB_CONTAINER):/tmp
 	@echo "Importing dump into DB..."
-	@docker-compose restart db > /dev/null 2>&1
-	@docker-compose exec db dropdb -U camac ${APPLICATION}
-	@docker-compose exec db createdb -U camac ${APPLICATION}
-	@docker-compose exec db pg_restore -d ${APPLICATION} -U camac -c --no-privileges --no-owner --if-exists /tmp/latest.dmp
+	@docker compose restart db > /dev/null 2>&1
+	@docker compose exec db dropdb -U camac ${APPLICATION}
+	@docker compose exec db createdb -U camac ${APPLICATION}
+	@docker compose exec db pg_restore -d ${APPLICATION} -U camac -c --no-privileges --no-owner --if-exists /tmp/latest.dmp
 	@echo "Running migrations and loading new config..."
-	@docker-compose stop keycloak
-	@docker-compose rm -f keycloak
-	@docker-compose restart > /dev/null 2>&1
+	@docker compose stop keycloak
+	@docker compose rm -f keycloak
+	@docker compose restart > /dev/null 2>&1
 	@make loadconfig > /dev/null 2>&1
 	@rm latest.dmp
 
 
 create-be-dump:
 	@docker cp db/clean-dump.sql $(DB_CONTAINER):/tmp/clean-dump.sql
-	@docker-compose exec db psql -U camac ${APPLICATION} -f /tmp/clean-dump.sql
-	@docker-compose exec db pg_dump -U camac -d ${APPLICATION} -Fc -f /tmp/latest.dmp
+	@docker compose exec db psql -U camac ${APPLICATION} -f /tmp/clean-dump.sql
+	@docker compose exec db pg_dump -U camac -d ${APPLICATION} -Fc -f /tmp/latest.dmp
 	@docker cp $(DB_CONTAINER):/tmp/latest.dmp .
-	@docker-compose exec db rm /tmp/latest.dmp
+	@docker compose exec db rm /tmp/latest.dmp
 	@echo "Please upload latest.dmp here: https://cloud.adfinis.com/apps/files/?dir=/partner/KantonBE/db_dumps/ebau.apps.be.ch"
 
 update-lockfile:
@@ -330,3 +330,7 @@ prettier-check: # Check formatting of yml and config files with prettier
 .PHONY: prettier-fix
 prettier-fix: # Fix formatting of yml and config files with prettier
 	@npx --yes prettier@3.0.3 --write **/*.yml "django/**/*.json"
+
+.PHONY: compare-dump
+compare-dump: # Compares two given .json dump files
+	@node tools/bin/compare-dumps.js $(PWD)/$(word 1,$^) $(PWD)/$(word 2,$^)

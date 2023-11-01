@@ -676,6 +676,7 @@ APPLICATIONS = {
             "vorentscheid-gemass-ss84-pbg-v6",
             "vorentscheid-gemass-ss84-pbg-v7",
             "vorentscheid-gemass-ss84-pbg-v8",
+            "vorentscheid-gemass-ss84-pbg-v9",
             "baugesuch-reklamegesuch-v2",
             "baugesuch-reklamegesuch-v3",
             "baugesuch-reklamegesuch-v4",
@@ -683,6 +684,7 @@ APPLICATIONS = {
             "baugesuch-reklamegesuch-v6",
             "baugesuch-reklamegesuch-v7",
             "baugesuch-reklamegesuch-v8",
+            "baugesuch-reklamegesuch-v9",
             "projektanderung-v2",
             "projektanderung-v3",
             "projektanderung-v4",
@@ -691,18 +693,22 @@ APPLICATIONS = {
             "projektanderung-v7",
             "projektanderung-v8",
             "projektanderung-v9",
+            "projektanderung-v10",
             "technische-bewilligung",
             "technische-bewilligung-v2",
             "technische-bewilligung-v3",
+            "technische-bewilligung-v4",
             "baumeldung-fur-geringfugiges-vorhaben-v2",
             "baumeldung-fur-geringfugiges-vorhaben-v3",
             "baumeldung-fur-geringfugiges-vorhaben-v4",
             "baumeldung-fur-geringfugiges-vorhaben-v5",
+            "baumeldung-fur-geringfugiges-vorhaben-v6",
             "anlassbewilligungen-verkehrsbewilligungen-v2",
             "anlassbewilligungen-verkehrsbewilligungen-v3",
             "projektgenehmigungsgesuch-gemass-ss15-strag-v2",
             "projektgenehmigungsgesuch-gemass-ss15-strag-v3",
             "projektgenehmigungsgesuch-gemass-ss15-strag-v4",
+            "projektgenehmigungsgesuch-gemass-ss15-strag-v5",
         ],
         "STORE_PDF": {"SECTION": 1},
         "DUMP_CONFIG_GROUPS": {
@@ -3248,7 +3254,6 @@ APPLICATIONS = {
         "PORTAL_GROUP": 3,
         "CALUMA": {
             "MANUAL_WORK_ITEM_TASK": "create-manual-workitems",
-            "FILL_PUBLICATION_TASK": "fill-publication",
             "SUBMIT_TASKS": ["submit"],
             "FORM_PERMISSIONS": ["main", "inquiry", "inquiry-answer"],
             "HAS_PROJECT_CHANGE": True,
@@ -3260,6 +3265,20 @@ APPLICATIONS = {
             "MODIFICATION_ALLOW_FORMS": [
                 "baugesuch",
             ],
+            "PRE_COMPLETE": {
+                "decision": {
+                    "skip": [
+                        "publication",
+                        "fill-publication",
+                    ],
+                    "cancel": [
+                        "create-publication",
+                    ],
+                    "complete": ["additional-demand"],
+                },
+                "fill-publication": {"complete": ["publication"]},
+                "construction-monitoring": {"cancel": ["create-manual-workitems"]},
+            },
             "SIMPLE_WORKFLOW": {
                 "formal-exam": {
                     "next_instance_state": "init-distribution",
@@ -3673,8 +3692,6 @@ APPLICATIONS = {
                     "column_mapping": {
                         "plot_number": "parzellennummer",
                         "egrid_number": "e-grid-nr",
-                        "coord_east": "lagekoordinaten-ost",
-                        "coord_north": "lagekoordinaten-nord",
                     }
                 },
             ),
@@ -4513,6 +4530,7 @@ DJANGO_ADMIN = load_module_settings("django_admin")
 CORRECTION = load_module_settings("correction")
 
 # Alexandria
+ALEXANDRIA = load_module_settings("alexandria")
 ALEXANDRIA_CREATED_BY_USER_PROPERTY = "alexandria_user"
 ALEXANDRIA_CREATED_BY_GROUP_PROPERTY = "alexandria_group"
 ALEXANDRIA_VISIBILITY_CLASSES = [

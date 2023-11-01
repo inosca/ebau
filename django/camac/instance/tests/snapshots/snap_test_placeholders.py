@@ -4207,7 +4207,6 @@ snapshots['test_dms_placeholders_gr[Municipality] 1'] = {
     'BESCHREIBUNG_BAUVORHABEN': 'Einfamilienhaus',
     'BESCHREIBUNG_PROJEKTAENDERUNG': 'Projektänderung',
     'DECISION_DATE': '30. August 2021',
-    'DECISION_DOCUMENTS': 'Grundriss (submitted as Situationsplan) on 30.08.2021 at 00:00',
     'DESCRIPTION_MODIFICATION': 'Projektänderung',
     'DOSSIER_NUMBER': '2023-1',
     'DOSSIER_NUMMER': '2023-1',
@@ -4219,19 +4218,19 @@ snapshots['test_dms_placeholders_gr[Municipality] 1'] = {
     'ENDE_PUBLIKATION_GEMEINDE': '21. August 2021',
     'ENDE_PUBLIKATION_KANTON': '23. August 2021',
     'ENDE_PUBLIKATION_KANTONSAMTSBLATT': '23. August 2021',
-    'ENTSCHEIDDOKUMENTE': 'Grundriss (submitted as Situationsplan) on 30.08.2021 at 00:00',
+    'ENTSCHEIDDOKUMENTE': 'Grundriss (eingereicht als Situationsplan) am 30.08.2021 um 00:00',
     'FACHSTELLEN_KANTONAL': [
         {
             'BEANTWORTET': '',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '02.09.1973',
-            'NAME': 'Trevor Shah'
+            'FRIST': '23.01.1977',
+            'NAME': 'Jorge Olson'
         },
         {
             'BEANTWORTET': '',
             'ERSTELLT': '30.08.2021',
             'FRIST': '14.01.1982',
-            'NAME': 'Troy Wyatt'
+            'NAME': 'Jason Ward'
         },
         {
             'BEANTWORTET': '',
@@ -4258,13 +4257,17 @@ snapshots['test_dms_placeholders_gr[Municipality] 1'] = {
             'NAME': 'Dr. Kimberly Ali'
         }
     ],
+    'FOLGEPLANUNG': 'Baulinie allgemein',
+    'FOLLOWUP_PLANNING': 'Baulinie allgemein',
     'FORM_NAME': 'Baugesuch',
-    'GEMEINDE': 'Eric Scott',
+    'GEMEINDE': 'Tammie Reeves',
     'GEMEINDE_ADRESSE': '',
-    'GEMEINDE_EMAIL': 'connieosborne@example.com',
-    'GEMEINDE_NAME_ADRESSE': 'Gemeinde Eric Scott',
+    'GEMEINDE_EMAIL': 'david61@example.com',
+    'GEMEINDE_NAME_ADRESSE': 'Gemeinde Tammie Reeves',
     'GEMEINDE_ORT': '',
     'GEMEINDE_TELEFON': '',
+    'GENERELLER_ERSCHLIESSUNGSPLAN': 'Fuss- / Spazierweg, Parkierung Gebiete D',
+    'GENERELLER_GESTALTUNGSPLAN': 'Historischer Weg',
     'GESUCHSTELLER': 'Test AG, Esther Tester',
     'GESUCHSTELLER_ADDRESS_1': 'Testweg 321',
     'GESUCHSTELLER_ADDRESS_2': '4321 Testingen',
@@ -4305,7 +4308,7 @@ snapshots['test_dms_placeholders_gr[Municipality] 1'] = {
     'MEINE_ORGANISATION_NAME_KURZ': 'Alex Smith',
     'MEINE_ORGANISATION_ORT': 'Testdorf',
     'MEINE_ORGANISATION_TELEFON': '032163546546',
-    'MUNICIPALITY': 'Eric Scott',
+    'MUNICIPALITY': 'Tammie Reeves',
     'MUNICIPALITY_ADDRESS': '',
     'NAME': '',
     'NEBENBESTIMMUNGEN': '',
@@ -4331,14 +4334,14 @@ snapshots['test_dms_placeholders_gr[Municipality] 1'] = {
         {
             'BEANTWORTET': '',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '02.09.1973',
-            'NAME': 'Trevor Shah'
+            'FRIST': '23.01.1977',
+            'NAME': 'Jorge Olson'
         },
         {
             'BEANTWORTET': '',
             'ERSTELLT': '30.08.2021',
             'FRIST': '14.01.1982',
-            'NAME': 'Troy Wyatt'
+            'NAME': 'Jason Ward'
         },
         {
             'BEANTWORTET': '',
@@ -4406,5 +4409,7 @@ snapshots['test_dms_placeholders_gr[Municipality] 1'] = {
             'STELLUNGNAHME': 'Stellungnahme 6',
             'VON': 'Dr. Kimberly Ali'
         }
-    ]
+    ],
+    'ZONENPLAN': 'Rebwirtschaftszone',
+    'ZUSTAENDIG_NAME': 'Rebecca Gonzalez'
 }

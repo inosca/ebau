@@ -23,6 +23,7 @@ from django.db.models.functions import Cast, Concat
 
 from camac.core.models import Activation, Circulation, Notice
 from camac.instance.models import Instance
+from camac.utils import clean_join
 
 
 class Command(BaseCommand):
@@ -92,16 +93,14 @@ class Command(BaseCommand):
                 ).delete()
 
     def _format_instance(self, instance):
-        info = filter(
-            None,
-            [
-                instance.identifier or instance.case.meta.get("ebau-number"),
-                instance.instance_state.get_name(),
-                instance.responsible_service(filter="municipality").get_name(),
-            ],
+        info = clean_join(
+            instance.identifier or instance.case.meta.get("ebau-number"),
+            instance.instance_state.get_name(),
+            instance.responsible_service(filter="municipality").get_name(),
+            separator=", ",
         )
 
-        return f"Instance {instance.pk} ({', '.join(info)})"
+        return f"Instance {instance.pk} ({info})"
 
     def _log_instance(self, instance, info):
         self.faulty_instances.append(instance.pk)

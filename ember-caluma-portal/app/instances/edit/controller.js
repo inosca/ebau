@@ -115,6 +115,14 @@ export default class InstancesEditController extends Controller {
         include: "attachment_sections",
       });
     }
-    return [];
+    return yield this.store.query("document", {
+      filter: {
+        tags: config.APPLICATION.documents.decisionTag,
+        metainfo: JSON.stringify([
+          { key: "camac-instance-id", value: String(this.model) },
+        ]),
+      },
+      sort: "title",
+    });
   }
 }

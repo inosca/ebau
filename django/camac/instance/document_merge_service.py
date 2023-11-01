@@ -18,13 +18,9 @@ from rest_framework.authentication import get_authorization_header
 
 from camac.instance.master_data import MasterData
 from camac.instance.models import Instance
-from camac.instance.placeholders.utils import (
-    clean_join,
-    enrich_personal_data,
-    get_person_name,
-)
+from camac.instance.placeholders.utils import enrich_personal_data, get_person_name
 from camac.instance.utils import build_document_prefetch_statements
-from camac.utils import build_url
+from camac.utils import build_url, clean_join
 
 
 def find_in_result(slug, node):
@@ -215,6 +211,7 @@ class DMSHandler:
                     *[
                         obj["coord_east"]
                         for obj in graceful_get(master_data, "plot_data", default=[])
+                        if "coord_east" in obj
                     ],
                     separator=", ",
                 ),
@@ -222,6 +219,7 @@ class DMSHandler:
                     *[
                         obj["coord_north"]
                         for obj in graceful_get(master_data, "plot_data", default=[])
+                        if "coord_north" in obj
                     ],
                     separator=", ",
                 ),

@@ -54,7 +54,7 @@ from camac.user.relations import (
 )
 from camac.user.serializers import CurrentGroupDefault, CurrentServiceDefault
 
-from ..utils import get_paper_settings
+from ..utils import clean_join, get_paper_settings
 from . import document_merge_service, domain_logic, models, validators
 
 SUBMIT_DATE_CHAPTER = 100001
@@ -1163,7 +1163,10 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             document = alexandria_models.Document.objects.create(
                 title=pdf.name,
                 category=alexandria_models.Category.objects.get(pk=target_lookup),
-                metainfo={"camac-instance-id": instance.pk, "system-generated": True},
+                metainfo={
+                    "camac-instance-id": str(instance.pk),
+                    "system-generated": True,
+                },
             )
             file = alexandria_models.File.objects.create(
                 name=pdf.name, document=document
@@ -2252,15 +2255,14 @@ class PublicCalumaInstanceSerializer(serializers.Serializer):  # pragma: no cove
         return municipality.get("label") if "label" in municipality else municipality
 
     def get_applicant(self, case):
-        return ", ".join(
-            [
-                (
-                    applicant.get("juristic_name", "")
-                    if applicant.get("is_juristic_person")
-                    else f"{applicant.get('first_name', '')} {applicant.get('last_name', '')}"
-                ).strip()
+        return clean_join(
+            *[
+                applicant.get("juristic_name")
+                if applicant.get("is_juristic_person")
+                else clean_join(applicant.get("first_name"), applicant.get("last_name"))
                 for applicant in self.get_master_data(case).applicants
-            ]
+            ],
+            separator=", ",
         )
 
     def get_intent(self, case):
@@ -2275,36 +2277,22 @@ class PublicCalumaInstanceSerializer(serializers.Serializer):  # pragma: no cove
 
     def get_street(self, case):
         if settings.APPLICATION_NAME == "kt_schwyz":
-            return ", ".join(
-                filter(
-                    None,
-                    [
-                        self.get_master_data(case).street,
-                        self.get_master_data(case).street_addition,
-                        self.get_master_data(case).city,
-                    ],
-                )
-            ).strip()
-
-        return " ".join(
-            filter(
-                None,
-                [
-                    self.get_master_data(case).street,
-                    self.get_master_data(case).street_number,
-                ],
+            return clean_join(
+                self.get_master_data(case).street,
+                self.get_master_data(case).street_addition,
+                self.get_master_data(case).city,
+                separator=", ",
             )
-        ).strip()
+
+        return clean_join(
+            self.get_master_data(case).street,
+            self.get_master_data(case).street_number,
+        )
 
     def get_parcels(self, case):
-        return ", ".join(
-            filter(
-                None,
-                [
-                    str(plot.get("plot_number"))
-                    for plot in self.get_master_data(case).plot_data
-                ],
-            )
+        return clean_join(
+            *[plot.get("plot_number") for plot in self.get_master_data(case).plot_data],
+            separator=", ",
         )
 
     def get_oereb_topic(self, case):

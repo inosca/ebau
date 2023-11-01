@@ -4,6 +4,7 @@ from django.db.models import Q
 
 from camac.instance.filters import CalumaInstanceFilterSet
 from camac.instance.mixins import InstanceQuerysetMixin
+from camac.settings import ALEXANDRIA
 from camac.utils import filters
 
 from .common import get_role
@@ -58,14 +59,20 @@ class CustomVisibility(BaseVisibility, InstanceQuerysetMixin):
         user = request.caluma_info.context.user
         role = get_role(user)
 
-        visible_instances = self._all_visible_instances(request)
-        aggregated_filter = Q(
-            **{f"{prefix}instance_document__instance__in": visible_instances}
+        visible_instances_filter = Q(
+            **{
+                f"{prefix}instance_document__instance__in": self._all_visible_instances(
+                    request
+                )
+            }
         )
 
         if role == "public":
-            return aggregated_filter & Q(**{f"{prefix}tags__pk": "publication"})
+            return visible_instances_filter & Q(
+                **{f"{prefix}tags__pk": ALEXANDRIA["MARKS"]["PUBLICATION"]}
+            )
 
+        aggregated_filter = Q()
         normal_permissions = ["Admin", "Read", "Write"]
         for permission in normal_permissions:
             # directly readable categories
@@ -73,21 +80,18 @@ class CustomVisibility(BaseVisibility, InstanceQuerysetMixin):
                 prefix, permission, role, "istartswith"
             )
 
-        return (
+        if role == "applicant":
+            # decision document available for applicants
+            aggregated_filter |= Q(
+                **{f"{prefix}tags__pk": ALEXANDRIA["MARKS"]["DECISION"]}
+            )
+
+        return visible_instances_filter & (
             aggregated_filter
             | Q(
                 # categories where only documents from my own service are readable
                 get_category_access_rule(prefix, "Internal", role, "icontains")
                 & Q(**{f"{prefix}created_by_group": user.group})
-            )
-            | Q(
-                # instances where i'm invitee
-                get_category_access_rule(prefix, "applicant")
-                & Q(
-                    **{
-                        f"{prefix}instance_document__instance__involved_applicants__invitee__username": user.username
-                    }
-                )
             )
         )
 
@@ -122,4 +126,7 @@ class CustomVisibility(BaseVisibility, InstanceQuerysetMixin):
         if get_role(request.caluma_info.context.user) in ["public", "applicant"]:
             return queryset.none()
 
-        return queryset.filter(created_by_group=request.caluma_info.context.user.group)
+        return queryset.filter(
+            Q(created_by_group=request.caluma_info.context.user.group)
+            | Q(pk__in=ALEXANDRIA["MARKS"]["ALL"])
+        )

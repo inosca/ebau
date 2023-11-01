@@ -22,6 +22,7 @@ from camac.applicants.models import Applicant
 from camac.core.models import InstancePortal
 from camac.instance.models import Instance
 from camac.user.models import Group, UserGroup
+from camac.utils import clean_join
 
 request_logger = logging.getLogger("django.request")
 
@@ -122,25 +123,16 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
             "surname": data.get("family_name", username),
             "city": data.get("city", ""),
             "zip": data.get("zip", ""),
-            "address": " ".join(
-                filter(
-                    None,
-                    [
-                        data.get("street"),
-                        data.get("streetNumber"),
-                        data.get("addressSupplement"),
-                    ],
-                )
+            "address": clean_join(
+                data.get("street"),
+                data.get("streetNumber"),
+                data.get("addressSupplement"),
             ),
-            "phone": ", ".join(
-                filter(
-                    None,
-                    [
-                        data.get("phoneWork"),
-                        data.get("phonePrivate"),
-                        data.get("phoneMobile"),
-                    ],
-                )
+            "phone": clean_join(
+                data.get("phoneWork"),
+                data.get("phonePrivate"),
+                data.get("phoneMobile"),
+                separator=", ",
             ),
         }
         if username.startswith("service-account-") and not data.get("email"):
