@@ -470,7 +470,7 @@
       "modified_by_group": null,
       "form": "formelle-pruefung-ergebnis",
       "question": "ergebnis-der-formellen-pruefung",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -490,17 +490,32 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "formelle-pruefung-ergebnis.formelle-pruefung-durchgefuehrt",
+    "pk": "formelle-pruefung-ergebnis.formelle-pruefung-nachforderung-info",
     "fields": {
-      "created_at": "2023-10-05T11:19:03.462Z",
-      "modified_at": "2023-10-05T11:19:03.463Z",
+      "created_at": "2023-11-01T07:48:24.439Z",
+      "modified_at": "2023-11-01T07:48:24.439Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "formelle-pruefung-ergebnis",
-      "question": "formelle-pruefung-durchgefuehrt",
+      "question": "formelle-pruefung-nachforderung-info",
       "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "formelle-pruefung-ergebnis.formelle-pruefung-resultat",
+    "fields": {
+      "created_at": "2023-11-01T07:34:39.732Z",
+      "modified_at": "2023-11-01T07:34:39.732Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "formelle-pruefung-ergebnis",
+      "question": "formelle-pruefung-resultat",
+      "sort": 3
     }
   },
   {
@@ -1691,15 +1706,63 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "formelle-pruefung-durchgefuehrt-ja",
+    "pk": "formelle-pruefung-resultat-nachforderung-warten",
     "fields": {
-      "created_at": "2023-10-02T06:37:42.014Z",
-      "modified_at": "2023-10-02T06:37:42.014Z",
+      "created_at": "2023-11-01T07:34:39.247Z",
+      "modified_at": "2023-11-01T07:34:39.247Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"Die formelle Pr\\u00fcfung wurde durchgef\\u00fchrt\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Nachforderung, auf Antwort warten\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "formelle-pruefung-resultat-nachforderung-weiter",
+    "fields": {
+      "created_at": "2023-11-01T07:34:39.261Z",
+      "modified_at": "2023-11-01T07:34:39.261Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nachforderung, weiter zur materiellen Pr\\u00fcfung\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "formelle-pruefung-resultat-positiv",
+    "fields": {
+      "created_at": "2023-11-01T07:34:39.306Z",
+      "modified_at": "2023-11-01T07:34:39.306Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Positiv\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "formelle-pruefung-resultat-rueckweisung",
+    "fields": {
+      "created_at": "2023-11-01T07:34:39.211Z",
+      "modified_at": "2023-11-01T07:34:39.211Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"R\\u00fcckweisung\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -3065,7 +3128,7 @@
     "pk": "formelle-pruefung-abschliessen",
     "fields": {
       "created_at": "2023-10-02T06:40:18.382Z",
-      "modified_at": "2023-10-02T08:10:38.460Z",
+      "modified_at": "2023-11-01T07:53:23.765Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -3073,7 +3136,7 @@
       "label": "{\"de\": \"Formelle Pr\\u00fcfung abschliessen\", \"fr\": null, \"it\": null}",
       "type": "action_button",
       "is_required": "false",
-      "is_hidden": "false",
+      "is_hidden": "\"formelle-pruefung-resultat\"|answer == \"formelle-pruefung-resultat-nachforderung-warten\"",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"Wollen Sie die formelle Pr\\u00fcfung wirklich abschliessen? Dieser Schritt kann nicht mehr r\\u00fcckg\\u00e4ngig gemacht werden.\", \"fr\": null, \"it\": null}",
@@ -3160,39 +3223,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "formelle-pruefung-durchgefuehrt",
-    "fields": {
-      "created_at": "2023-10-02T06:37:42.196Z",
-      "modified_at": "2023-10-02T08:24:24.697Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Die formelle Pr\\u00fcfung wurde durchgef\\u00fchrt\", \"fr\": null, \"it\": null}",
-      "type": "multiple_choice",
-      "is_required": "true",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {
-        "hideLabel": true
-      },
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "formelle-pruefung-ergebnis",
     "fields": {
       "created_at": "2023-10-05T08:52:27.909Z",
@@ -3255,6 +3285,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "formelle-pruefung-nachforderung-info",
+    "fields": {
+      "created_at": "2023-11-01T07:48:24.216Z",
+      "modified_at": "2023-11-01T07:50:26.464Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nachforderung Info\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "!(\n\t\"formelle-pruefung-resultat\"|answer in [\n\t\t\"formelle-pruefung-resultat-nachforderung-weiter\",\n\t\t\"formelle-pruefung-resultat-nachforderung-warten\"\n\t]\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"<div class=\\\"uk-alert uk-margin-remove\\\">Sie k\\u00f6nnen die Nachforderung im Menu \\\"Nachforderung\\\" erfassen.</div>\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "formelle-pruefung-plaene",
     "fields": {
       "created_at": "2023-10-05T07:51:50.988Z",
@@ -3277,6 +3338,37 @@
       "data_source": null,
       "row_form": null,
       "sub_form": "formelle-pruefung-plaene",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "formelle-pruefung-resultat",
+    "fields": {
+      "created_at": "2023-11-01T07:34:39.524Z",
+      "modified_at": "2023-11-01T07:43:17.188Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Resultat der formellen Pr\\u00fcfung\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
@@ -5351,17 +5443,62 @@
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "formelle-pruefung-durchgefuehrt.formelle-pruefung-durchgefuehrt-ja",
+    "pk": "formelle-pruefung-resultat.formelle-pruefung-resultat-nachforderung-warten",
     "fields": {
-      "created_at": "2023-10-02T08:24:24.710Z",
-      "modified_at": "2023-10-02T08:24:24.710Z",
+      "created_at": "2023-11-01T07:43:17.198Z",
+      "modified_at": "2023-11-01T07:43:17.198Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "question": "formelle-pruefung-durchgefuehrt",
-      "option": "formelle-pruefung-durchgefuehrt-ja",
+      "question": "formelle-pruefung-resultat",
+      "option": "formelle-pruefung-resultat-nachforderung-warten",
       "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "formelle-pruefung-resultat.formelle-pruefung-resultat-nachforderung-weiter",
+    "fields": {
+      "created_at": "2023-11-01T07:43:17.202Z",
+      "modified_at": "2023-11-01T07:43:17.202Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "formelle-pruefung-resultat",
+      "option": "formelle-pruefung-resultat-nachforderung-weiter",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "formelle-pruefung-resultat.formelle-pruefung-resultat-positiv",
+    "fields": {
+      "created_at": "2023-11-01T07:43:17.210Z",
+      "modified_at": "2023-11-01T07:43:17.210Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "formelle-pruefung-resultat",
+      "option": "formelle-pruefung-resultat-positiv",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "formelle-pruefung-resultat.formelle-pruefung-resultat-rueckweisung",
+    "fields": {
+      "created_at": "2023-11-01T07:43:17.206Z",
+      "modified_at": "2023-11-01T07:43:17.206Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "formelle-pruefung-resultat",
+      "option": "formelle-pruefung-resultat-rueckweisung",
+      "sort": 3
     }
   },
   {

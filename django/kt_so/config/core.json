@@ -1673,6 +1673,42 @@
     }
   },
   {
+    "model": "core.irroleacl",
+    "pk": 111,
+    "fields": {
+      "instance_resource": 11,
+      "role": 5,
+      "instance_state": 2
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 112,
+    "fields": {
+      "instance_resource": 11,
+      "role": 6,
+      "instance_state": 2
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 113,
+    "fields": {
+      "instance_resource": 11,
+      "role": 5,
+      "instance_state": 3
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 114,
+    "fields": {
+      "instance_resource": 11,
+      "role": 6,
+      "instance_state": 3
+    }
+  },
+  {
     "model": "core.irtaskform",
     "pk": 4,
     "fields": {
