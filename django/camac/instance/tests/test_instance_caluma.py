@@ -1398,7 +1398,9 @@ def test_instance_report(
             ("decision", workflow_api.complete_work_item),
         ]:
             if task_id == "decision":
-                decision_factory(decision=be_constants.DECISIONS_BEWILLIGT)
+                decision_factory(
+                    decision=be_decision_settings["ANSWERS"]["DECISION"]["APPROVED"]
+                )
 
             fn(
                 work_item=be_instance.case.work_items.get(task_id=task_id),
@@ -1492,7 +1494,9 @@ def test_instance_finalize(
             ("sb1", workflow_api.complete_work_item),
         ]:
             if task_id == "decision":
-                decision_factory(decision=be_constants.DECISIONS_BEWILLIGT)
+                decision_factory(
+                    decision=be_decision_settings["ANSWERS"]["DECISION"]["APPROVED"]
+                )
 
             fn(
                 work_item=be_instance.case.work_items.get(task_id=task_id),
