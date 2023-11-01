@@ -170,7 +170,7 @@
       "modified_by_group": null,
       "form": "send-additional-demand",
       "question": "additional-demand-comment",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -200,7 +200,7 @@
       "modified_by_group": null,
       "form": "send-additional-demand",
       "question": "additional-demand-deadline",
-      "sort": 3
+      "sort": 2
     }
   },
   {
