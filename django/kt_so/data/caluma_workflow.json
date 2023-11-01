@@ -18,7 +18,8 @@
       "meta": {
         "submit-date": "2023-10-05T09:00:36+0000",
         "dossier-number": "2023-1",
-        "camac-instance-id": 1
+        "camac-instance-id": 1,
+        "dossier-number-sort": 2023000001
       },
       "document": "88099d1f-7c40-48fc-8e66-a86c7c3a42f2"
     }
