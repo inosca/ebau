@@ -29,6 +29,11 @@ module("Integration | Component | gis-apply-button", function (hooks) {
               assert.step("save-field");
             },
           },
+          validate: {
+            perform() {
+              assert.step("validate-field");
+            },
+          },
         };
       },
     };
@@ -115,6 +120,11 @@ module("Integration | Component | gis-apply-button", function (hooks) {
 
     await click("[data-test-confirm]");
 
-    assert.verifySteps(["save-field", "save-field"]);
+    assert.verifySteps([
+      "validate-field",
+      "validate-field",
+      "save-field",
+      "save-field",
+    ]);
   });
 });
