@@ -603,11 +603,11 @@ DISTRIBUTION = {
                 (
                     "fumoir",
                     "fumoir-ja",
-                ): [117],
+                ): [114],
                 (
                     "infrastrukturanlagen-landschaft",
                     "infrastrukturanlagen-landschaft-trinkwasser",
-                ): [117],
+                ): [114],
             },
         },
     },
