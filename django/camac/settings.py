@@ -3948,7 +3948,7 @@ APPLICATIONS = {
                     },
                 },
                 "baugesuch": {
-                    "forms": ["baugesuch"],
+                    "forms": ["baugesuch", "erdwaermesonden"],
                     "template": "form",
                     "personalien": "personalien",
                     "exclude_slugs": [
