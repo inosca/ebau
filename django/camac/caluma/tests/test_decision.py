@@ -330,13 +330,13 @@ def test_complete_decision_appeal(
 
 
 @pytest.mark.parametrize(
-    "decision,construction_tee,expected",
+    "decision,bauabschlag,expected",
     [
         ("APPROVED", None, True),
-        ("PARTIALLY_APPROVED", "WITH_RESTORATION", True),
-        ("PARTIALLY_APPROVED", "WITHOUT_RESTORATION", True),
-        ("REJECTED", "WITH_RESTORATION", True),
-        ("REJECTED", "WITHOUT_RESTORATION", False),
+        ("PARTIALLY_APPROVED", "MIT_WIEDERHERSTELLUNG", True),
+        ("PARTIALLY_APPROVED", "OHNE_WIEDERHERSTELLUNG", True),
+        ("REJECTED", "MIT_WIEDERHERSTELLUNG", True),
+        ("REJECTED", "OHNE_WIEDERHERSTELLUNG", False),
         ("RETREAT", None, False),
     ],
 )
@@ -348,7 +348,7 @@ def test_should_continue_after_decision_so(
     task_factory,
     work_item_factory,
     decision,
-    construction_tee,
+    bauabschlag,
     expected,
 ):
     work_item = work_item_factory(
@@ -362,12 +362,12 @@ def test_should_continue_after_decision_so(
         value=so_decision_settings["ANSWERS"]["DECISION"][decision],
     )
 
-    if construction_tee:
+    if bauabschlag:
         work_item.document.answers.create(
             question=question_factory(
-                slug=so_decision_settings["QUESTIONS"]["CONSTRUCTION_TEE"]
+                slug=so_decision_settings["QUESTIONS"]["BAUABSCHLAG"]
             ),
-            value=so_decision_settings["ANSWERS"]["CONSTRUCTION_TEE"][construction_tee],
+            value=so_decision_settings["ANSWERS"]["BAUABSCHLAG"][bauabschlag],
         )
 
     DecisionLogic.should_continue_after_decision_so(None, work_item) == expected

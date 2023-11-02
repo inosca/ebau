@@ -3872,7 +3872,7 @@ APPLICATIONS = {
             "caluma_publication_form": generate_form_dump_config(
                 regex=r"^publikation?$"
             ),
-            "caluma_decision_form": generate_form_dump_config(regex=r"^decision$"),
+            "caluma_decision_form": generate_form_dump_config(regex=r"^entscheid$"),
             # Distribution
             **DISTRIBUTION_DUMP_CONFIG,
             # Additional demand
