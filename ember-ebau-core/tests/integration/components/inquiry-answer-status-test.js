@@ -24,7 +24,7 @@ module("Integration | Component | inquiry-answer-status", function (hooks) {
       },
     );
 
-    this.formSlug = "baugesuch-v2";
+    this.formSlug = "baugesuch-v3";
 
     this.server.post(
       "/graphql/",
