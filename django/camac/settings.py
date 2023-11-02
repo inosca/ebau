@@ -1505,10 +1505,13 @@ APPLICATIONS = {
             "MODIFICATION_ALLOW_FORMS": [
                 "baugesuch",
                 "baugesuch-v2",
+                "baugesuch-v3",
                 "baugesuch-generell",
                 "baugesuch-generell-v2",
+                "baugesuch-generell-v3",
                 "baugesuch-mit-uvp",
                 "baugesuch-mit-uvp-v2",
+                "baugesuch-mit-uvp-v3",
             ],
             "MODIFICATION_DISALLOW_STATES": [
                 "new",
@@ -1713,10 +1716,13 @@ APPLICATIONS = {
                     "forms": [
                         "baugesuch",
                         "baugesuch-v2",
+                        "baugesuch-v3",
                         "baugesuch-mit-uvp",
                         "baugesuch-mit-uvp-v2",
+                        "baugesuch-mit-uvp-v3",
                         "baugesuch-generell",
                         "baugesuch-generell-v2",
+                        "baugesuch-generell-v3",
                         "hecken-feldgehoelze-baeume",
                         "baupolizeiliches-verfahren",
                         "zutrittsermaechtigung",

@@ -22,6 +22,7 @@ export default {
   interchangeableForms: [
     ["baugesuch", "baugesuch-generell", "baugesuch-mit-uvp"],
     ["baugesuch-v2", "baugesuch-generell-v2", "baugesuch-mit-uvp-v2"],
+    ["baugesuch-v3", "baugesuch-generell-v3", "baugesuch-mit-uvp-v3"],
   ],
   useLocation: false,
   answerSlugs: {
