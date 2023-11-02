@@ -7,6 +7,17 @@ import { parseDocument } from "@projectcaluma/ember-form/lib/parsers";
 import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
 
+function countAnswers(data) {
+  const rootCount = Object.keys(data).length;
+
+  const childrenCount = Object.values(data)
+    .filter(({ value, form = null }) => form && Array.isArray(value))
+    .flatMap(({ value }) => value.map((row) => countAnswers(row)))
+    .reduce((a, b) => a + b, 0);
+
+  return rootCount + childrenCount;
+}
+
 export default class GisApplyButtonComponent extends Component {
   @service intl;
   @service notification;
@@ -17,6 +28,9 @@ export default class GisApplyButtonComponent extends Component {
 
   @tracked data = [];
   @tracked showModal = false;
+
+  @tracked totalAnswers = 0;
+  @tracked appliedAnswers = 0;
 
   getData = dropTask(async () => {
     if (this.args.disabled) return;
@@ -49,6 +63,8 @@ export default class GisApplyButtonComponent extends Component {
   });
 
   applyData = dropTask(async () => {
+    this.totalAnswers = countAnswers(this.data);
+
     const success = await Promise.all(
       Object.entries(this.data).map(
         async ([question, value]) => await this.applyAnswer(question, value),
@@ -58,6 +74,9 @@ export default class GisApplyButtonComponent extends Component {
     if (success.every(Boolean)) {
       this.showModal = false;
     }
+
+    this.totalAnswers = 0;
+    this.appliedAnswers = 0;
   });
 
   async applyAnswer(question, { value, label, form = null }, document) {
@@ -83,6 +102,8 @@ export default class GisApplyButtonComponent extends Component {
         this.intl.t("so-gis.apply-answer-error", { label }),
       );
       return false;
+    } finally {
+      this.appliedAnswers += 1;
     }
   }
 
