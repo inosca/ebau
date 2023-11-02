@@ -29,7 +29,6 @@ export default {
     isJuristicApplicantYes: "juristische-person-gesuchstellerin-ja",
     personalDataApplicant: "personalien-gesuchstellerin",
   },
-  decisionSlug: "decision-decision",
   personalSuggestions: {
     tableQuestions: [
       "personalien-gesuchstellerin",
@@ -62,6 +61,22 @@ export default {
   publication: {
     public: {
       task: "fill-publication",
+    },
+  },
+  decision: {
+    task: "decision",
+    answerSlugs: {
+      decision: "decision-decision",
+      remarks: "decision-remarks",
+    },
+    colorMapping: {
+      "decision-decision-approved": "uk-alert-success",
+      "decision-decision-rejected": "uk-alert-danger",
+      "decision-decision-written-off": "uk-alert-warning",
+      "decision-decision-positive": "uk-alert-success",
+      "decision-decision-negative": "uk-alert-danger",
+      "decision-decision-positive-with-reservation": "uk-alert-warning",
+      "decision-decision-retreat": "uk-alert-warning",
     },
   },
 };

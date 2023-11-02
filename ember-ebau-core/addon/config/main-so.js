@@ -56,6 +56,19 @@ const config = {
       endQuestion: "publikation-ende",
     },
   },
+  decision: {
+    task: "decision",
+    answerSlugs: {
+      decision: "entscheid-entscheid",
+      remarks: "entscheid-bemerkungen",
+    },
+    colorMapping: {
+      "entscheid-entscheid-zustimmung": "uk-alert-success",
+      "entscheid-entscheid-ablehnung": "uk-alert-danger",
+      "entscheid-entscheid-teilzustimmung": "uk-alert-warning",
+      "entscheid-entscheid-rueckzug": "uk-alert-warning",
+    },
+  },
 };
 
 config.intentSlugs = [config.answerSlugs.description];
