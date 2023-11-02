@@ -95,6 +95,7 @@ export default class GisApplyButtonComponent extends Component {
         field.answer.value = value;
       }
 
+      await field.validate.perform();
       await field.save.perform();
       return true;
     } catch {
