@@ -12,9 +12,6 @@ from rest_framework import status
 from camac.constants.kt_bern import (
     ATTACHMENT_SECTION_ALLE_BETEILIGTEN,
     ATTACHMENT_SECTION_BETEILIGTE_BEHOERDEN,
-    DECISION_JUDGEMENT_MAP,
-    DECISIONS_ABGESCHRIEBEN,
-    VORABKLAERUNG_DECISIONS_BEWILLIGT_MIT_VORBEHALT,
 )
 from camac.ech0211.schema.ech_0211_2_0 import CreateFromDocument
 
@@ -63,9 +60,11 @@ def test_application_retrieve_full_be(
 ):
     # this is required to actually really dynamically load the correcto urls as configured
     # reload(import_string(settings.ROOT_URLCONF))
-    decision = DECISIONS_ABGESCHRIEBEN
+    decision = be_decision_settings["ANSWERS"]["DECISION"]["DEPRECIATED"]
     if is_vorabklaerung:
-        decision = VORABKLAERUNG_DECISIONS_BEWILLIGT_MIT_VORBEHALT
+        decision = be_decision_settings["ANSWERS"]["DECISION"][
+            "POSITIVE_WITH_RESERVATION"
+        ]
     decision_factory(instance=ech_instance_be, decision=decision)
 
     i = instance_with_case(instance_factory())
@@ -97,7 +96,7 @@ def test_application_retrieve_full_be(
         xml.eventBaseDelivery.planningPermissionApplicationInformation[0]
         .planningPermissionApplication.decisionRuling[0]
         .judgement
-        == DECISION_JUDGEMENT_MAP[
+        == be_decision_settings["ECH_JUDGEMENT_MAP"][
             "preliminary-clarification" if is_vorabklaerung else "building-permit"
         ][decision]
     )
@@ -296,6 +295,7 @@ def test_send(
     service_factory,
     caluma_workflow_config_be,
     caluma_admin_user,
+    be_decision_settings,
 ):
     if has_permission:
         service_group_baukontrolle = service_group_factory(name="construction-control")

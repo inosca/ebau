@@ -1,4 +1,4 @@
-from camac.constants.kt_bern import DECISION_JUDGEMENT_MAP
+from django.conf import settings
 
 
 def strip_whitespace(value):
@@ -24,8 +24,10 @@ def handle_string_values(value):
 
 
 def decision_to_judgement(decision: str, workflow_slug: str):
-    return DECISION_JUDGEMENT_MAP[workflow_slug][decision]
+    return settings.DECISION["ECH_JUDGEMENT_MAP"][workflow_slug][decision]
 
 
 def judgement_to_decision(judgement: int, workflow_slug: str):
-    return {v: k for k, v in DECISION_JUDGEMENT_MAP[workflow_slug].items()}[judgement]
+    return {
+        v: k for k, v in settings.DECISION["ECH_JUDGEMENT_MAP"][workflow_slug].items()
+    }[judgement]

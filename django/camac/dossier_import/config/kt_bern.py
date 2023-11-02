@@ -12,14 +12,6 @@ from django.db import transaction
 from rest_framework.exceptions import ValidationError
 
 from camac.caluma.extensions.events.general import get_caluma_setting
-from camac.constants.kt_bern import (
-    DECISION_TYPE_UNKNOWN,
-    DECISIONS_ABGELEHNT,
-    DECISIONS_ABGESCHRIEBEN,
-    DECISIONS_BEWILLIGT,
-    VORABKLAERUNG_DECISIONS_BEWILLIGT,
-    VORABKLAERUNG_DECISIONS_NEGATIVE,
-)
 from camac.core.models import InstanceService
 from camac.dossier_import.dossier_classes import Dossier
 from camac.dossier_import.messages import (
@@ -438,28 +430,48 @@ class KtBernDossierWriter(DossierWriter):
     def write_decision_form(self, decision_work_item, dossier):
         decision_mapping = {
             "BUILDINGPERMIT": {
-                TargetStatus.APPROVED.value: DECISIONS_BEWILLIGT,
-                TargetStatus.REJECTED.value: DECISIONS_ABGELEHNT,
-                TargetStatus.WRITTEN_OFF.value: DECISIONS_ABGESCHRIEBEN,
-                TargetStatus.DONE.value: DECISIONS_BEWILLIGT,
+                TargetStatus.APPROVED.value: settings.DECISION["ANSWERS"]["DECISION"][
+                    "APPROVED"
+                ],
+                TargetStatus.REJECTED.value: settings.DECISION["ANSWERS"]["DECISION"][
+                    "REJECTED"
+                ],
+                TargetStatus.WRITTEN_OFF.value: settings.DECISION["ANSWERS"][
+                    "DECISION"
+                ]["DEPRECIATED"],
+                TargetStatus.DONE.value: settings.DECISION["ANSWERS"]["DECISION"][
+                    "APPROVED"
+                ],
             },
             "PRELIMINARY": {
-                TargetStatus.APPROVED.value: VORABKLAERUNG_DECISIONS_BEWILLIGT,
-                TargetStatus.REJECTED.value: VORABKLAERUNG_DECISIONS_NEGATIVE,
-                TargetStatus.WRITTEN_OFF.value: VORABKLAERUNG_DECISIONS_NEGATIVE,
-                TargetStatus.DONE.value: VORABKLAERUNG_DECISIONS_BEWILLIGT,
+                TargetStatus.APPROVED.value: settings.DECISION["ANSWERS"]["DECISION"][
+                    "POSITIVE"
+                ],
+                TargetStatus.REJECTED.value: settings.DECISION["ANSWERS"]["DECISION"][
+                    "NEGATIVE"
+                ],
+                TargetStatus.WRITTEN_OFF.value: settings.DECISION["ANSWERS"][
+                    "DECISION"
+                ]["NEGATIVE"],
+                TargetStatus.DONE.value: settings.DECISION["ANSWERS"]["DECISION"][
+                    "POSITIVE"
+                ],
             },
         }
         form_api.save_answer(
             document=decision_work_item.document,
-            question=Question.objects.get(slug=settings.DECISION["QUESTION_SLUG"]),
+            question=Question.objects.get(
+                slug=settings.DECISION["QUESTIONS"]["DECISION"]
+            ),
             value=decision_mapping[dossier._meta.workflow][dossier._meta.target_state],
             user=self._caluma_user,
         )
         if dossier._meta.workflow == "BUILDINGPERMIT":
             form_api.save_answer(
                 document=decision_work_item.document,
-                question=Question.objects.get(pk="decision-approval-type"),
-                value=DECISION_TYPE_UNKNOWN,
+                question=Question.objects.get(
+                    pk=settings.DECISION["QUESTIONS"]["APPROVAL_TYPE"]
+                ),
+                value=settings.DECISION["ANSWERS"]["APPROVAL_TYPE"]["UNKNOWN"],
                 user=self._caluma_user,
             )

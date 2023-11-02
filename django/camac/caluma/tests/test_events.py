@@ -10,7 +10,6 @@ from caluma.caluma_workflow.events import (
 from django.conf import settings
 from django.utils import timezone
 
-from camac.constants.kt_bern import DECISIONS_BEWILLIGT
 from camac.instance.models import HistoryEntryT
 
 
@@ -40,7 +39,9 @@ def test_copy_papierdossier(
     ]:
         # skip case to sb2
         if task_id == "decision":
-            decision_factory(decision=DECISIONS_BEWILLIGT)
+            decision_factory(
+                decision=be_decision_settings["ANSWERS"]["DECISION"]["APPROVED"]
+            )
 
         workflow_api.skip_work_item(
             work_item=case.work_items.get(task_id=task_id), user=caluma_admin_user
@@ -91,7 +92,9 @@ def test_copy_sb_personalien(
         "decision",
     ]:
         if task_id == "decision":
-            decision_factory(decision=DECISIONS_BEWILLIGT)
+            decision_factory(
+                decision=be_decision_settings["ANSWERS"]["DECISION"]["APPROVED"]
+            )
 
         workflow_api.skip_work_item(
             work_item=case.work_items.get(task_id=task_id), user=caluma_admin_user
@@ -150,7 +153,9 @@ def test_post_complete_sb1(
 
     for task_id in ["submit", "ebau-number", "distribution", "decision"]:
         if task_id == "decision":
-            decision_factory(decision=DECISIONS_BEWILLIGT)
+            decision_factory(
+                decision=be_decision_settings["ANSWERS"]["DECISION"]["APPROVED"]
+            )
 
         workflow_api.skip_work_item(
             work_item=case.work_items.get(task_id=task_id), user=caluma_admin_user
@@ -246,7 +251,7 @@ def test_copy_municipality_tags_for_sb1(
     be_instance.instance_state = instance_state_factory(name="sb1")
     be_instance.save()
 
-    decision_factory(decision=DECISIONS_BEWILLIGT)
+    decision_factory(decision=be_decision_settings["ANSWERS"]["DECISION"]["APPROVED"])
 
     workflow_api.complete_work_item(
         work_item=be_instance.case.work_items.get(task_id="decision"),
@@ -303,7 +308,7 @@ def test_copy_responsible_person_lead_authority(
             user=caluma_admin_user,
         )
 
-    decision_factory(decision=DECISIONS_BEWILLIGT)
+    decision_factory(decision=be_decision_settings["ANSWERS"]["DECISION"]["APPROVED"])
 
     workflow_api.complete_work_item(
         work_item=be_instance.case.work_items.get(task_id="decision"),
@@ -384,7 +389,9 @@ def test_copy_tank_installation(
         "sb1",
     ]:
         if task_id == "decision":
-            decision_factory(decision=DECISIONS_BEWILLIGT)
+            decision_factory(
+                decision=be_decision_settings["ANSWERS"]["DECISION"]["APPROVED"]
+            )
 
         workflow_api.skip_work_item(
             work_item=case.work_items.get(task_id=task_id), user=caluma_admin_user
