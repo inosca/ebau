@@ -675,7 +675,7 @@ class DecisionLogic:
 
         construction_tee = (
             work_item.document.answers.filter(
-                question_id=settings.DECISION["QUESTIONS"]["CONSTRUCTION_TEE"]
+                question_id=settings.DECISION["QUESTIONS"]["BAUABSCHLAG"]
             )
             .values_list("value", flat=True)
             .first()
@@ -690,7 +690,7 @@ class DecisionLogic:
         ) or (
             decision == settings.DECISION["ANSWERS"]["DECISION"]["REJECTED"]
             and construction_tee
-            == settings.DECISION["ANSWERS"]["CONSTRUCTION_TEE"]["WITH_RESTORATION"]
+            == settings.DECISION["ANSWERS"]["BAUABSCHLAG"]["MIT_WIEDERHERSTELLUNG"]
         )
 
     @classmethod
