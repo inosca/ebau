@@ -37,7 +37,7 @@ def find_in_result(slug, node):
 
 
 def get_form_config():
-    return settings.APPLICATION.get("DOCUMENT_MERGE_SERVICE", {}).get("FORM", {})
+    return settings.DMS.get("FORM", {})
 
 
 def get_form_type_key(form_slug):
@@ -153,9 +153,7 @@ class DMSHandler:
             },
         }
 
-        if settings.APPLICATION.get("DOCUMENT_MERGE_SERVICE", {}).get(
-            "ADD_HEADER_DATA"
-        ):
+        if settings.DMS.get("ADD_HEADER_DATA"):
             header_data = {
                 "addressHeader": clean_join(
                     clean_join(
@@ -235,9 +233,7 @@ class DMSHandler:
             # not implemented
             return []
 
-        categories = settings.APPLICATION.get("DOCUMENT_MERGE_SERVICE", {}).get(
-            "ALEXANDRIA_DOCUMENT_CATEGORIES", []
-        )
+        categories = settings.DMS.get("ALEXANDRIA_DOCUMENT_CATEGORIES", [])
 
         documents = (
             alexandria_models.Document.objects.filter(
