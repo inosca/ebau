@@ -58,17 +58,20 @@ DECISION = {
     "kt_so": {
         "ENABLED": True,
         "QUESTIONS": {
-            "CONSTRUCTION_TEE": "decision-construction-tee",
+            "DECISION": "entscheid-entscheid",
+            "DATE": "entscheid-datum",
+            "BAUABSCHLAG": "entscheid-bauabschlag",
         },
         "ANSWERS": {
             "DECISION": {
-                "REJECTED": "decision-decision-declined",
-                "PARTIALLY_APPROVED": "decision-decision-partially-approved",
-                "RETREAT": "decision-decision-retreat",
+                "APPROVED": "entscheid-entscheid-zustimmung",
+                "REJECTED": "entscheid-entscheid-ablehnung",
+                "PARTIALLY_APPROVED": "entscheid-entscheid-teilzustimmung",
+                "RETREAT": "entscheid-entscheid-rueckzug",
             },
-            "CONSTRUCTION_TEE": {
-                "WITH_RESTORATION": "decision-construction-tee-with-restoration",
-                "WITHOUT_RESTORATION": "decision-construction-tee-without-restoration",
+            "BAUABSCHLAG": {
+                "MIT_WIEDERHERSTELLUNG": "entscheid-bauabschlag-mit-wiederherstellung",
+                "OHNE_WIEDERHERSTELLUNG": "entscheid-bauabschlag-ohne-wiederherstellung",
             },
         },
     },
