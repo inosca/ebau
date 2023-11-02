@@ -1,16 +1,12 @@
 import pytest
 from caluma.caluma_core.events import send_event
+from caluma.caluma_form.factories import FormFactory
 from caluma.caluma_form.models import Question
 from caluma.caluma_workflow.events import post_complete_work_item
 from caluma.caluma_workflow.models import Workflow, WorkItem
 from django.core.management import call_command
 
-from camac.constants.kt_bern import (
-    DECISION_TYPE_BUILDING_PERMIT,
-    DECISION_TYPE_CONSTRUCTION_TEE_WITH_RESTORATION,
-    DECISIONS_ABGELEHNT,
-    DECISIONS_BEWILLIGT,
-)
+from camac.instance.domain_logic import DecisionLogic
 from camac.instance.models import HistoryEntryT, Instance
 from camac.instance.utils import copy_instance
 
@@ -60,6 +56,7 @@ def test_complete_decision(
     question_factory,
     instance_state_factory,
     decision,
+    decision_settings,
     expected_instance_state,
     expected_text,
     settings,
@@ -70,7 +67,6 @@ def test_complete_decision(
     application_settings["CALUMA"][
         "CONSTRUCTION_MONITORING_TASK"
     ] = "construction-monitoring"
-    application_settings["CALUMA"]["DECISION_TASK"] = "decision"
     settings.APPLICATION["NOTIFICATIONS"] = {}
 
     gr_instance.case.workflow = Workflow.objects.get(pk="building-permit")
@@ -78,16 +74,19 @@ def test_complete_decision(
 
     work_item = work_item_factory(
         case=gr_instance.case,
-        task_id="decision",
+        task_id=decision_settings["TASK"],
         status=WorkItem.STATUS_COMPLETED,
         document=document_factory(form_id="decision"),
     )
     decision_question = question_factory(
-        slug="decision-decision", label="Entscheid", type=Question.TYPE_TEXT
+        slug=decision_settings["QUESTIONS"]["DECISION"],
+        label="Entscheid",
+        type=Question.TYPE_TEXT,
     )
 
     work_item.document.answers.create(
-        question=decision_question, value=settings.DECISION[decision]
+        question=decision_question,
+        value=decision_settings["ANSWERS"]["DECISION"][decision],
     )
 
     send_event(
@@ -111,43 +110,43 @@ def test_complete_decision(
     [
         (
             "building-permit",
-            DECISIONS_BEWILLIGT,
-            DECISION_TYPE_BUILDING_PERMIT,
+            "APPROVED",
+            "BUILDING_PERMIT",
             "sb1",
             "Bauentscheid verfügt",
         ),
         (
             "building-permit",
-            DECISIONS_ABGELEHNT,
-            DECISION_TYPE_BUILDING_PERMIT,
+            "REJECTED",
+            "BUILDING_PERMIT",
             "finished",
             "Bauentscheid verfügt",
         ),
         (
             "building-permit",
-            DECISIONS_ABGELEHNT,
-            DECISION_TYPE_CONSTRUCTION_TEE_WITH_RESTORATION,
+            "REJECTED",
+            "CONSTRUCTION_TEE_WITH_RESTORATION",
             "sb1",
             "Bauentscheid verfügt",
         ),
         (
             "migrated",
-            DECISIONS_BEWILLIGT,
-            DECISION_TYPE_BUILDING_PERMIT,
+            "APPROVED",
+            "BUILDING_PERMIT",
             "finished",
             "Beurteilung abgeschlossen",
         ),
         (
             "preliminary-clarification",
-            DECISIONS_BEWILLIGT,
-            DECISION_TYPE_BUILDING_PERMIT,
+            "POSITIVE",
+            "BUILDING_PERMIT",
             "evaluated",
             "Beurteilung abgeschlossen",
         ),
         (
             "internal",
-            DECISIONS_BEWILLIGT,
-            DECISION_TYPE_BUILDING_PERMIT,
+            "APPROVED",
+            "BUILDING_PERMIT",
             "finished_internal",
             "Beurteilung abgeschlossen",
         ),
@@ -176,7 +175,6 @@ def test_complete_decision_be(
 ):
     settings.APPLICATION_NAME = "kt_bern"
     application_settings["SHORT_NAME"] = "be"
-    application_settings["CALUMA"]["DECISION_TASK"] = "decision"
     application_settings["NOTIFICATIONS"] = {
         "DECISION": [
             {
@@ -197,7 +195,10 @@ def test_complete_decision_be(
     be_instance.case.workflow = Workflow.objects.get(pk=workflow)
     be_instance.case.save()
 
-    work_item = decision_factory(decision=decision, decision_type=decision_type)
+    work_item = decision_factory(
+        decision=be_decision_settings["ANSWERS"]["DECISION"][decision],
+        decision_type=be_decision_settings["ANSWERS"]["APPROVAL_TYPE"][decision_type],
+    )
 
     if workflow == "internal":
         ebau_number_work_item = work_item_factory(case=be_instance.case)
@@ -326,3 +327,47 @@ def test_complete_decision_appeal(
             new_instance.case.meta["ebau-number"] == instance.case.meta["ebau-number"]
         )
         assert new_instance.instance_state.name == "circulation_init"
+
+
+@pytest.mark.parametrize(
+    "decision,construction_tee,expected",
+    [
+        ("APPROVED", None, True),
+        ("PARTIALLY_APPROVED", "WITH_RESTORATION", True),
+        ("PARTIALLY_APPROVED", "WITHOUT_RESTORATION", True),
+        ("REJECTED", "WITH_RESTORATION", True),
+        ("REJECTED", "WITHOUT_RESTORATION", False),
+        ("RETREAT", None, False),
+    ],
+)
+def test_should_continue_after_decision_so(
+    db,
+    document_factory,
+    question_factory,
+    so_decision_settings,
+    task_factory,
+    work_item_factory,
+    decision,
+    construction_tee,
+    expected,
+):
+    work_item = work_item_factory(
+        task=task_factory(slug=so_decision_settings["TASK"]),
+        status=WorkItem.STATUS_COMPLETED,
+        document=document_factory(form=FormFactory(slug="decision")),
+    )
+
+    work_item.document.answers.create(
+        question=question_factory(slug=so_decision_settings["QUESTIONS"]["DECISION"]),
+        value=so_decision_settings["ANSWERS"]["DECISION"][decision],
+    )
+
+    if construction_tee:
+        work_item.document.answers.create(
+            question=question_factory(
+                slug=so_decision_settings["QUESTIONS"]["CONSTRUCTION_TEE"]
+            ),
+            value=so_decision_settings["ANSWERS"]["CONSTRUCTION_TEE"][construction_tee],
+        )
+
+    DecisionLogic.should_continue_after_decision_so(None, work_item) == expected

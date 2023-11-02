@@ -194,6 +194,9 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
         reopenInquiry: () => this.session.isLeadRole,
         checkInquiries: () => this.session.isLeadRole,
       },
+      hooks: {
+        postCompleteDistribution: () => this.ebauModules.redirectToWorkItems(),
+      },
     };
   }
 

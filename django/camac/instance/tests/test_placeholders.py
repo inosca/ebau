@@ -18,10 +18,6 @@ from django.utils.timezone import make_aware
 from django.utils.translation import override
 from rest_framework import status
 
-from camac.constants.kt_bern import (
-    DECISION_TYPE_OVERALL_BUILDING_PERMIT,
-    VORABKLAERUNG_DECISIONS_BEWILLIGT,
-)
 from camac.instance.placeholders.utils import get_tel_and_email, human_readable_date
 
 from .test_master_data import (  # noqa
@@ -290,6 +286,7 @@ def test_dms_placeholders(
     stellungnahme_question,
     nebenbestimmungen_question,
     be_dms_config,
+    be_decision_settings,
 ):
     application_settings["MUNICIPALITY_DATA_SHEET"] = settings.ROOT_DIR(
         "kt_bern",
@@ -535,8 +532,10 @@ def test_dms_placeholders(
     tag_factory.create_batch(5, service=group.service, instance=be_instance)
     responsible_service_factory(instance=be_instance, service=group.service)
     decision = decision_factory(
-        decision=VORABKLAERUNG_DECISIONS_BEWILLIGT,
-        decision_type=DECISION_TYPE_OVERALL_BUILDING_PERMIT,
+        decision=be_decision_settings["ANSWERS"]["DECISION"]["APPROVED"],
+        decision_type=be_decision_settings["ANSWERS"]["APPROVAL_TYPE"][
+            "OVERALL_BUILDING_PERMIT"
+        ],
     )
     decision.status = WorkItem.STATUS_COMPLETED
     decision.save()

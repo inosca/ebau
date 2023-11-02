@@ -6,10 +6,7 @@ from caluma.caluma_workflow import api as workflow_api
 from caluma.caluma_workflow.models import Case, WorkItem
 from django.conf import settings
 
-from camac.constants.kt_bern import (
-    ATTACHMENT_SECTION_ALLE_BETEILIGTEN,
-    DECISION_TYPE_UNKNOWN,
-)
+from camac.constants.kt_bern import ATTACHMENT_SECTION_ALLE_BETEILIGTEN
 from camac.core.models import InstanceService
 from camac.document.models import Attachment, AttachmentSection
 from camac.instance.models import Instance
@@ -165,28 +162,34 @@ class NoticeRulingSendHandler(DocumentAccessibilityMixin, BaseSendHandler):
 
             # write the decision document
             decision_document = case.work_items.get(
-                task_id="decision", status=WorkItem.STATUS_READY
+                task_id=settings.DECISION["TASK"], status=WorkItem.STATUS_READY
             ).document
             save_answer(
                 document=decision_document,
-                question=Question.objects.get(slug=settings.DECISION["QUESTION_SLUG"]),
+                question=Question.objects.get(
+                    slug=settings.DECISION["QUESTIONS"]["DECISION"]
+                ),
                 value=decision,
             )
             save_answer(
                 document=decision_document,
-                question=Question.objects.get(slug="decision-date"),
+                question=Question.objects.get(
+                    slug=settings.DECISION["QUESTIONS"]["DATE"]
+                ),
                 date=self.data.eventNotice.decisionRuling.date.date(),
             )
             if workflow_slug == "building-permit":
                 save_answer(
                     document=decision_document,
-                    question=Question.objects.get(slug="decision-approval-type"),
-                    value=DECISION_TYPE_UNKNOWN,
+                    question=Question.objects.get(
+                        slug=settings.DECISION["QUESTIONS"]["APPROVAL_TYPE"]
+                    ),
+                    value=settings.DECISION["ANSWERS"]["APPROVAL_TYPE"]["UNKNOWN"],
                 )
 
             # this handle status changes and assignment of the construction control
             # for "normal" judgements
-            self.complete_work_item("decision")
+            self.complete_work_item(settings.DECISION["TASK"])
 
         self.link_to_section(attachments)
 

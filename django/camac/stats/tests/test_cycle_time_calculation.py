@@ -4,10 +4,6 @@ import pytest
 from caluma.caluma_core.events import send_event
 from caluma.caluma_workflow.events import post_complete_work_item
 
-from camac.constants.kt_bern import (
-    DECISION_TYPE_BAUBEWILLIGUNGSFREI,
-    DECISIONS_BEWILLIGT,
-)
 from camac.instance.serializers import SUBMIT_DATE_FORMAT
 from camac.stats.cycle_time import _compute_total_idle_days, compute_cycle_time
 
@@ -38,6 +34,7 @@ def test_overlapping_nfd_durations(
     expected_net_cycle_time,
     freezer,
     decision_factory,
+    be_decision_settings,
 ):
     decision_date = be_instance.creation_date.date() + datetime.timedelta(
         days=case_cycle_time
@@ -45,8 +42,10 @@ def test_overlapping_nfd_durations(
     freezer.move_to(decision_date)
 
     decision_factory(
-        decision=DECISIONS_BEWILLIGT,
-        decision_type=DECISION_TYPE_BAUBEWILLIGUNGSFREI,
+        decision=be_decision_settings["ANSWERS"]["DECISION"]["APPROVED"],
+        decision_type=be_decision_settings["ANSWERS"]["APPROVAL_TYPE"][
+            "BUILDING_PERMIT_FREE"
+        ],
         decision_date=decision_date,
     )
     table_answer = nfd_tabelle_table_answer(be_instance)
@@ -115,10 +114,13 @@ def test_total_cycle_time_with_previously_rejected(
     previous_instances,
     expected_total_cycle_time,
     decision_factory,
+    be_decision_settings,
 ):
     decision_factory(
-        decision=DECISIONS_BEWILLIGT,
-        decision_type=DECISION_TYPE_BAUBEWILLIGUNGSFREI,
+        decision=be_decision_settings["ANSWERS"]["DECISION"]["APPROVED"],
+        decision_type=be_decision_settings["ANSWERS"]["APPROVAL_TYPE"][
+            "BUILDING_PERMIT_FREE"
+        ],
         decision_date=be_instance.creation_date.date()
         + datetime.timedelta(days=case_cycle_time),
     )
@@ -143,12 +145,15 @@ def test_decision_completion_computes_cycle_time(
     decision_factory,
     settings,
     application_settings,
+    be_decision_settings,
 ):
     settings.APPLICATION_NAME = "kt_bern"
     application_settings["SHORT_NAME"] = "be"
     work_item = decision_factory(
-        decision=DECISIONS_BEWILLIGT,
-        decision_type=DECISION_TYPE_BAUBEWILLIGUNGSFREI,
+        decision=be_decision_settings["ANSWERS"]["DECISION"]["APPROVED"],
+        decision_type=be_decision_settings["ANSWERS"]["APPROVAL_TYPE"][
+            "BUILDING_PERMIT_FREE"
+        ],
         decision_date=be_instance.creation_date.date()
         + datetime.timedelta(days=case_cycle_time),
     )
@@ -233,6 +238,7 @@ def test_exclude_nonstandard_cases(
     exp_net,
     exp_total,
     decision_factory,
+    be_decision_settings,
 ):
     # as non standard cases we've had so far cases that result in negative
     # net or total cycle times because
@@ -244,8 +250,10 @@ def test_exclude_nonstandard_cases(
     be_instance.case.save()
 
     decision_factory(
-        decision=DECISIONS_BEWILLIGT,
-        decision_type=DECISION_TYPE_BAUBEWILLIGUNGSFREI,
+        decision=be_decision_settings["ANSWERS"]["DECISION"]["APPROVED"],
+        decision_type=be_decision_settings["ANSWERS"]["APPROVAL_TYPE"][
+            "BUILDING_PERMIT_FREE"
+        ],
         decision_date=decision_date,
     )
 

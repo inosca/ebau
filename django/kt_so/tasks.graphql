@@ -91,3 +91,19 @@ mutation CreateNewPublicationTask {
     clientMutationId
   }
 }
+
+mutation CreateDecisionTask {
+  saveCompleteTaskFormTask(
+    input: {
+      slug: "decision"
+      form: "decision"
+      name: "Entscheid verfügen"
+      addressGroups: "[\"municipality\"]|groups"
+      controlGroups: "[\"municipality\"]|groups"
+      leadTime: 864000 # 10 days
+      meta: "{\"directLink\":{\"route\":\"cases.detail.task-form\",\"models\":[\"INSTANCE_ID\",\"TASK_SLUG\"]}}"
+    }
+  ) {
+    clientMutationId
+  }
+}

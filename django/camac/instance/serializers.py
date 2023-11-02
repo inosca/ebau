@@ -529,8 +529,8 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
 
         answer = (
             form_models.Answer.objects.filter(
-                question_id=settings.DECISION["QUESTION_SLUG"],
-                document__work_item__task_id="decision",
+                question_id=settings.DECISION["QUESTIONS"]["DECISION"],
+                document__work_item__task_id=settings.DECISION["TASK"],
                 document__work_item__status__in=[
                     workflow_models.WorkItem.STATUS_COMPLETED,
                     workflow_models.WorkItem.STATUS_SKIPPED,
@@ -547,10 +547,13 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
         return str(answer.selected_options[0].label)
 
     def get_decision_date(self, instance):
+        if not settings.DECISION:  # pragma: no cover
+            return None
+
         return (
             form_models.Answer.objects.filter(
-                question_id="decision-date",
-                document__work_item__task_id="decision",
+                question_id=settings.DECISION["QUESTIONS"]["DATE"],
+                document__work_item__task_id=settings.DECISION["TASK"],
                 document__work_item__status__in=[
                     workflow_models.WorkItem.STATUS_COMPLETED,
                     workflow_models.WorkItem.STATUS_SKIPPED,

@@ -5,7 +5,6 @@ from caluma.caluma_workflow.models import WorkItem
 from camac.constants.kt_bern import (
     ATTACHMENT_SECTION_ALLE_BETEILIGTEN,
     ATTACHMENT_SECTION_BETEILIGTE_BEHOERDEN,
-    DECISIONS_BEWILLIGT,
 )
 from camac.core.models import InstanceService
 from camac.ech0211.tests.utils import xml_data
@@ -404,7 +403,10 @@ def test_close_dossier_send_handler(
         "decision",
     ]:
         if task_id == "decision":
-            decision_factory(instance=ech_instance_be, decision=DECISIONS_BEWILLIGT)
+            decision_factory(
+                instance=ech_instance_be,
+                decision=be_decision_settings["ANSWERS"]["DECISION"]["APPROVED"],
+            )
 
         workflow_api.skip_work_item(
             work_item=case.work_items.get(task_id=task_id), user=caluma_admin_user

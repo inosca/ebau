@@ -14,9 +14,13 @@ from pyxb import IncompleteElementContentError, UnprocessedElementContentError
 
 from camac import camac_metadata
 from camac.caluma.utils import find_answer
-from camac.constants.kt_schwyz import DECISION_JUDGEMENT
 from camac.core.models import Answer
 from camac.document.models import Attachment
+from camac.ech0211.constants import (
+    ECH_JUDGEMENT_APPROVED,
+    ECH_JUDGEMENT_DECLINED,
+    ECH_JUDGEMENT_WRITTEN_OFF,
+)
 from camac.instance.models import Instance
 from camac.utils import build_url
 
@@ -411,12 +415,12 @@ def determine_decision_state(instance: Instance):
     if instance.case.work_items.filter(
         task_id=decision_task_id, status=WorkItem.STATUS_CANCELED
     ).first():
-        return DECISION_JUDGEMENT["denied"], MasterData(instance.case).decision_date
+        return ECH_JUDGEMENT_DECLINED, MasterData(instance.case).decision_date
 
     if instance.case.work_items.filter(
         task_id=decision_task_id, status=WorkItem.STATUS_COMPLETED
     ).first():
-        return DECISION_JUDGEMENT["accepted"], MasterData(instance.case).decision_date
+        return ECH_JUDGEMENT_APPROVED, MasterData(instance.case).decision_date
 
     # Rejection should only be considered if no positive decision exists
     if instance.case.work_items.filter(  # pragma: no cover
@@ -435,8 +439,7 @@ def determine_decision_state(instance: Instance):
             .first()
             .created_at
         )
-        judgement = 3
-        return judgement, decision_date
+        return ECH_JUDGEMENT_WRITTEN_OFF, decision_date
     return None, None
 
 
@@ -687,11 +690,17 @@ def decision_ruling(instance, caluma_workflow_slug):
     answers = work_item.document.answers.all()
 
     decision = (
-        answers.filter(question_id=settings.DECISION["QUESTION_SLUG"]).first().value
+        answers.filter(question_id=settings.DECISION["QUESTIONS"]["DECISION"])
+        .first()
+        .value
     )
-    date = answers.filter(question_id="decision-date").first().date
+    date = (
+        answers.filter(question_id=settings.DECISION["QUESTIONS"]["DATE"]).first().date
+    )
     ruling = (
-        answers.filter(question_id="decision-approval-type").first().value
+        answers.filter(question_id=settings.DECISION["QUESTIONS"]["APPROVAL_TYPE"])
+        .first()
+        .value
         if caluma_workflow_slug == "building-permit"
         else "VORABKLAERUNG"
     )

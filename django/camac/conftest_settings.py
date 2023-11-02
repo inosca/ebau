@@ -53,5 +53,5 @@ generate_module_test_settings(
     "distribution", ["kt_bern", "kt_schwyz", "kt_gr", "kt_so"]
 )
 generate_module_test_settings("publication", ["kt_gr"])
-generate_module_test_settings("decision", ["kt_bern", "kt_gr"])
+generate_module_test_settings("decision", ["kt_bern", "kt_gr", "kt_so"])
 generate_module_test_settings("additional_demand")

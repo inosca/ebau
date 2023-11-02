@@ -856,7 +856,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
 
     def _get_decision(self, instance, language):
         decision = instance.case.work_items.filter(
-            task_id="decision",
+            task_id=settings.DECISION["TASK"],
             status__in=[
                 caluma_workflow_models.WorkItem.STATUS_COMPLETED,
                 caluma_workflow_models.WorkItem.STATUS_SKIPPED,
@@ -867,7 +867,9 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
             return ""
 
         return find_answer(
-            decision.document, settings.DECISION["QUESTION_SLUG"], language=language
+            decision.document,
+            settings.DECISION["QUESTIONS"]["DECISION"],
+            language=language,
         )
 
     def to_representation(self, instance):
