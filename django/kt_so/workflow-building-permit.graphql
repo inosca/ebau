@@ -4,7 +4,7 @@ mutation CreateBuildingPermitWorkflow {
       slug: "building-permit"
       name: "Baugesuch"
       startTasks: ["submit"]
-      allowForms: ["baugesuch"]
+      allowForms: ["baugesuch", "erdwaermesonden"]
       isPublished: true
     }
   ) {

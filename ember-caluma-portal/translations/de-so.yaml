@@ -14,6 +14,12 @@ instances:
   processingOfForm: "Dossier bearbeiten"
   activateFurtherPersons: "Weitere Personen für dieses Dossier freischalten"
 
+  new:
+    building-permit:
+      info: ""
+    special-procedure:
+      info: ""
+
 nav:
   logout: "Abmelden"
   faq: "Online-Hilfe"

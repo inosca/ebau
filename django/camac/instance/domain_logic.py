@@ -571,9 +571,9 @@ class CreateInstanceLogic:
             if workflow_slug
             else allowed_workflows.first()
         )
-        if workflow is None:  # pragma: no cover  TODO: cover
+        if workflow is None:  # pragma: todo cover
             raise ValidationError(
-                f"The workflow {workflow_slug} does not allow the form {caluma_form.slug}"
+                f"The workflow {workflow_slug} does not allow the form {caluma_form}"
             )
 
         case_meta = {"camac-instance-id": instance.pk}

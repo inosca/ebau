@@ -369,7 +369,7 @@
       "is_archived": false,
       "allow_all_forms": false,
       "start_tasks": ["submit"],
-      "allow_forms": ["baugesuch"]
+      "allow_forms": ["baugesuch", "erdwaermesonden"]
     }
   }
 ]
