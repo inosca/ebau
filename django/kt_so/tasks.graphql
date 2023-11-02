@@ -96,7 +96,7 @@ mutation CreateDecisionTask {
   saveCompleteTaskFormTask(
     input: {
       slug: "decision"
-      form: "decision"
+      form: "entscheid"
       name: "Entscheid verfügen"
       addressGroups: "[\"municipality\"]|groups"
       controlGroups: "[\"municipality\"]|groups"
