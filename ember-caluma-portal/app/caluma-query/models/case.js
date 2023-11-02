@@ -5,16 +5,7 @@ import { getAnswerDisplayValue } from "ember-ebau-core/utils/get-answer";
 
 import getFormTitle from "caluma-portal/utils/form-title";
 
-const { answerSlugs } = mainConfig;
-
-const DECISION_COLOR_MAPPING = {
-  "decision-decision-assessment-positive": "uk-alert-success",
-  "decision-decision-assessment-accepted": "uk-alert-success",
-  "decision-decision-assessment-negative": "uk-alert-danger",
-  "decision-decision-assessment-denied": "uk-alert-danger",
-  "decision-decision-assessment-positive-with-reservation": "uk-alert-warning",
-  "decision-decision-assessment-retreat": "uk-alert-warning",
-};
+const { answerSlugs, decision = null } = mainConfig;
 
 // TODO: Could potentially be merged with caluma query model in ember-ebau-core
 export default class CustomCaseModel extends CaseModel {
@@ -112,28 +103,27 @@ export default class CustomCaseModel extends CaseModel {
     if (!document) return null;
 
     const color =
-      DECISION_COLOR_MAPPING[
-        getAnswerDisplayValue(document, "decision-decision-assessment", false)
+      decision.colorMapping?.[
+        getAnswerDisplayValue(document, decision.answerSlugs.decision, false)
       ] ?? "uk-background-muted";
-    const remarks = getAnswerDisplayValue(document, "decision-remarks");
-    const decision = getAnswerDisplayValue(
-      document,
-      "decision-decision-assessment",
-    );
 
-    return { remarks, color, decision };
+    return {
+      color,
+      remarks: getAnswerDisplayValue(document, decision.answerSlugs.remarks),
+      decision: getAnswerDisplayValue(document, decision.answerSlugs.decision),
+    };
   }
 
   static fragment = `{
     id
     meta
-    workItems(filter: [{ task: "decision" }, { status: COMPLETED }]) {
+    workItems(filter: [{ task: "${decision?.task}" }, { status: COMPLETED }]) {
       edges {
         node {
           id
           document {
             id
-            answers(filter: [{ questions: ["decision-remarks", "decision-decision-assessment"] }]) {
+            answers(filter: [{ questions: ["${decision?.answerSlugs.decision}", "${decision?.answerSlugs.remarks}"] }]) {
               edges {
                 node {
                   id
