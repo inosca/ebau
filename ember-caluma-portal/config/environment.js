@@ -148,10 +148,13 @@ module.exports = function (environment) {
         allowForms: [
           "baugesuch",
           "baugesuch-v2",
+          "baugesuch-v3",
           "baugesuch-generell",
           "baugesuch-generell-v2",
+          "baugesuch-generell-v3",
           "baugesuch-mit-uvp",
           "baugesuch-mit-uvp-v2",
+          "baugesuch-mit-uvp-v3",
         ],
         disallowStates: [
           instanceStatesBe.new,
