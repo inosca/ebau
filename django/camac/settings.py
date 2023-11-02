@@ -400,7 +400,6 @@ APPLICATIONS = {
         ],
         "ATTACHMENT_SECTION_INTERNAL": 4,
         "DOCUMENT_BACKEND": "camac-ng",
-        "DOCUMENT_MERGE_SERVICE": {},
         "MASTER_DATA": {},
     },
     "kt_schwyz": {
@@ -1680,119 +1679,6 @@ APPLICATIONS = {
             "ALLOWED_SERVICE_GROUPS": {"SB1": [3], "SB2": [3], "DEFAULT": [2, 20000]},
         },
         "DOCUMENT_BACKEND": "camac-ng",
-        "DOCUMENT_MERGE_SERVICE": {
-            "FORM": {
-                "_base": {
-                    "people_sources": [
-                        # bulding permit
-                        "personalien-gesuchstellerin",
-                        "personalien-vertreterin-mit-vollmacht",
-                        "personalien-grundeigentumerin",
-                        "personalien-gebaudeeigentumerin",
-                        "personalien-projektverfasserin",
-                        "personalien-sb",
-                        # sb1 & sb2
-                        "personalien-sb1-sb2",
-                    ],
-                    "people_names": {
-                        "name-gesuchstellerin": "familyName",
-                        "vorname-gesuchstellerin": "givenName",
-                        "name-juristische-person-gesuchstellerin": "juristicName",
-                        "name-vertreterin": "familyName",
-                        "vorname-vertreterin": "givenName",
-                        "name-juristische-person-vertreterin": "juristicName",
-                        "name-grundeigentuemerin": "familyName",
-                        "vorname-grundeigentuemerin": "givenName",
-                        "name-juristische-person-grundeigentuemerin": "juristicName",
-                        "name-gebaeudeeigentuemerin": "familyName",
-                        "vorname-gebaeudeeigentuemerin": "givenName",
-                        "name-juristische-person-gebaeudeeigentuemerin": "juristicName",
-                        "name-projektverfasserin": "familyName",
-                        "vorname-projektverfasserin": "givenName",
-                        "name-juristische-person-projektverfasserin": "juristicName",
-                    },
-                },
-                "baugesuch": {
-                    "forms": [
-                        "baugesuch",
-                        "baugesuch-v2",
-                        "baugesuch-v3",
-                        "baugesuch-mit-uvp",
-                        "baugesuch-mit-uvp-v2",
-                        "baugesuch-mit-uvp-v3",
-                        "baugesuch-generell",
-                        "baugesuch-generell-v2",
-                        "baugesuch-generell-v3",
-                        "hecken-feldgehoelze-baeume",
-                        "baupolizeiliches-verfahren",
-                        "zutrittsermaechtigung",
-                        "klaerung-baubewilligungspflicht",
-                        "verlaengerung-geltungsdauer",
-                    ],
-                    "template": "form",
-                    "personalien": "personalien",
-                    "exclude_slugs": [
-                        "is-paper",
-                        "projektaenderung",
-                        "einreichen-button",
-                        "karte",
-                        "dokumente-platzhalter",
-                    ],
-                },
-                "vorabklaerung": {
-                    "forms": [
-                        "vorabklaerung-einfach",
-                        "vorabklaerung-vollstaendig",
-                        "vorabklaerung-vollstaendig-v2",
-                        "solaranlagen-meldung",
-                        "heat-generator",
-                    ],
-                    "template": "form",
-                    "personalien": "personalien",
-                    "exclude_slugs": [
-                        "is-paper",
-                        "projektaenderung",
-                        "einreichen-button",
-                        "karte",
-                        "dokumente-platzhalter",
-                    ],
-                },
-                "migriertes-dossier": {
-                    "forms": [
-                        "migriertes-dossier",
-                    ],
-                    "template": "form",
-                    "personalien": "personalien",
-                    "exclude_slugs": [],
-                },
-                "selbstdeklaration": {
-                    "forms": ["sb1", "sb2"],
-                    "template": "form",
-                    "personalien": "selbstdeklaration-sb1",
-                    "exclude_slugs": [
-                        "is-paper",
-                        "einreichen-button-sb1",
-                        "einreichen-button-sb2",
-                        "dokumente-sb1",
-                        "dokumente-sb2",
-                        "dokumente-platzhalter",
-                    ],
-                },
-                "regular-exams": {
-                    "forms": ["fp-form", "bab-form"],
-                    "template": "audit-form",
-                    "exclude_slugs": [
-                        "bab-01-07-1972-um-und-ausgebaut-meldung",
-                        "bab-naehe-von-schutzenswerten-gebaeuden-meldung",
-                    ],
-                },
-                "material-exam": {
-                    "forms": ["mp-form"],
-                    "template": "form",
-                },
-            },
-            "ADD_HEADER_DATA": True,
-        },
         "GROUP_RENAME_ON_SERVICE_RENAME": True,
         "SUBSERVICE_ROLES": ["subservice"],
         "SERVICE_UPDATE_ALLOWED_ROLES": [
@@ -2231,58 +2117,6 @@ APPLICATIONS = {
             },
         },
         "DOCUMENT_BACKEND": "camac-ng",
-        "DOCUMENT_MERGE_SERVICE": {
-            "FORM": {
-                "building-permit": {
-                    "forms": [
-                        "building-permit",
-                        "preliminary-clarification",
-                        "commercial-permit",
-                        "proposal-declaration",
-                        "solar-declaration",
-                        "cantonal-territory-usage",
-                        "technische-bewilligung",
-                        "oereb",
-                        "mitbericht-kanton",
-                        "mitbericht-bund",
-                        "bgbb",
-                        "archivdossier",
-                        "konzession-waermeentnahme",
-                        "bohrbewilligung-waermeentnahme",
-                        "pgv-gemeindestrasse",
-                        "oereb-verfahren-gemeinde",
-                    ],
-                    "people_sources": [
-                        "applicant",
-                        "landowner",
-                        "project-author",
-                    ],
-                    "people_names": {
-                        "last-name": "familyName",
-                        "first-name": "givenName",
-                    },
-                    "template": "2-level-extended",
-                    "personalien": "personalien",
-                    "exclude_slugs": [
-                        "is-paper",
-                        "einreichen",
-                        "gis-karte",
-                        "form-type",
-                        "allgemeine-informationen-baugesuch",
-                        "allgemeine-informationen-reklamegesuch",
-                        "allgemeine-informationen-baugesuch-vorabklaerung",
-                        "allgemeine-informationen-meldung-solaranlage",
-                        "allgemeine-informationen-proposal-declaration",
-                        "allgemeine-informationen-cantonal-territory-usage",
-                        "allgemeine-informationen-mitbericht-kanton",
-                        "allgemeine-informationen-oereb-verfahren",
-                        "allgemeine-informationen-mitberichtsverfahren-bund",
-                        "parzellen-oder-baurechtsnummer",
-                    ],
-                },
-            },
-            "ADD_HEADER_DATA": False,
-        },
         "ARCHIVE_FORMS": [293, 294],
         "PAPER": {
             "ALLOWED_ROLES": {
@@ -2960,49 +2794,6 @@ APPLICATIONS = {
         },
         "ATTACHMENT_SECTION_INTERNAL": 4,
         "DOCUMENT_BACKEND": "camac-ng",
-        "DOCUMENT_MERGE_SERVICE": {
-            "FORM": {
-                "_base": {
-                    "people_sources": [
-                        "personalien-gesuchstellerin",
-                        "personalien-vertreterin-mit-vollmacht",
-                        "personalien-grundeigentumerin",
-                        "personalien-gebaudeeigentumerin",
-                        "personalien-projektverfasserin",
-                    ],
-                    "people_names": {
-                        "name-gesuchstellerin": "familyName",
-                        "vorname-gesuchstellerin": "givenName",
-                        "name-juristische-person-gesuchstellerin": "juristicName",
-                        "name-vertreterin": "familyName",
-                        "vorname-vertreterin": "givenName",
-                        "name-juristische-person-vertreterin": "juristicName",
-                        "name-grundeigentuemerin": "familyName",
-                        "vorname-grundeigentuemerin": "givenName",
-                        "name-juristische-person-grundeigentuemerin": "juristicName",
-                        "name-gebaeudeeigentuemerin": "familyName",
-                        "vorname-gebaeudeeigentuemerin": "givenName",
-                        "name-juristische-person-gebaeudeeigentuemerin": "juristicName",
-                        "name-projektverfasserin": "familyName",
-                        "vorname-projektverfasserin": "givenName",
-                        "name-juristische-person-projektverfasserin": "juristicName",
-                    },
-                },
-                "baugesuch": {
-                    "forms": [
-                        "baugesuch",
-                    ],
-                    "template": "form",
-                    "personalien": "personalien",
-                    "exclude_slugs": [
-                        "is-paper",
-                        "einreichen-button",
-                        "dokumente-platzhalter",
-                    ],
-                },
-            },
-            "ADD_HEADER_DATA": False,
-        },
         "MASTER_DATA": {
             "applicants": (
                 "table",
@@ -3424,106 +3215,6 @@ APPLICATIONS = {
             "user.ServiceT",
         ],
         "DOCUMENT_BACKEND": "alexandria",
-        "DOCUMENT_MERGE_SERVICE": {
-            "FORM": {
-                "_base": {
-                    "people_sources": [
-                        "personalien-gesuchstellerin",
-                        "personalien-vertreterin-mit-vollmacht",
-                        "personalien-grundeigentumerin",
-                        "personalien-gebaudeeigentumerin",
-                        "personalien-projektverfasserin",
-                    ],
-                    "people_names": {
-                        "name-gesuchstellerin": "familyName",
-                        "vorname-gesuchstellerin": "givenName",
-                        "name-juristische-person-gesuchstellerin": "juristicName",
-                        "name-vertreterin": "familyName",
-                        "vorname-vertreterin": "givenName",
-                        "name-juristische-person-vertreterin": "juristicName",
-                        "name-grundeigentuemerin": "familyName",
-                        "vorname-grundeigentuemerin": "givenName",
-                        "name-juristische-person-grundeigentuemerin": "juristicName",
-                        "name-gebaeudeeigentuemerin": "familyName",
-                        "vorname-gebaeudeeigentuemerin": "givenName",
-                        "name-juristische-person-gebaeudeeigentuemerin": "juristicName",
-                        "name-projektverfasserin": "familyName",
-                        "vorname-projektverfasserin": "givenName",
-                        "name-juristische-person-projektverfasserin": "juristicName",
-                    },
-                },
-                "baugesuch": {
-                    "forms": [
-                        "baugesuch",
-                    ],
-                    "template": "form",
-                    "personalien": "personalien",
-                    "exclude_slugs": [
-                        "is-paper",
-                        "einreichen-button",
-                        "dokumente",
-                        "einreichen",
-                        "bestaetigung",
-                        "gis-map",
-                    ],
-                },
-                "bauanzeige": {
-                    "forms": [
-                        "bauanzeige",
-                    ],
-                    "template": "form",
-                    "personalien": "personalien",
-                    "exclude_slugs": [
-                        "is-paper",
-                        "einreichen-button",
-                        "dokumente-ohne-pflichtdokumente",
-                        "dokumente-platzhalter",
-                        "einreichen",
-                        "bestaetigung",
-                        "gis-map",
-                    ],
-                },
-                "vorlaeufige-beurteilung": {
-                    "forms": [
-                        "vorlaeufige-beurteilung",
-                    ],
-                    "template": "form",
-                    "personalien": "personalien",
-                    "exclude_slugs": [
-                        "is-paper",
-                        "einreichen-button",
-                        "dokumente-ohne-pflichtdokumente",
-                        "dokumente-platzhalter",
-                        "einreichen",
-                        "bestaetigung",
-                        "gis-map",
-                    ],
-                },
-                "solaranlage": {
-                    "forms": [
-                        "solaranlage",
-                    ],
-                    "template": "form",
-                    "personalien": "personalien",
-                    "exclude_slugs": [
-                        "is-paper",
-                        "einreichen-button",
-                        "dokumente-ohne-pflichtdokumente",
-                        "dokumente-platzhalter",
-                        "einreichen",
-                        "bestaetigung",
-                        "gis-map",
-                    ],
-                },
-            },
-            "ADD_HEADER_DATA": True,
-            "ALEXANDRIA_DOCUMENT_CATEGORIES": [
-                "beilagen-zum-gesuch-grundstuecksangaben",
-                "beilagen-zum-gesuch-gutachten-nachweise-begruendungen",
-                "beilagen-zum-gesuch-projektplaene-projektbeschrieb",
-                "beilagen-zum-gesuch-weitere-gesuchsunterlagen",
-            ],
-        },
         "MASTER_DATA": {
             "applicants": (
                 "table",
@@ -3950,43 +3641,6 @@ APPLICATIONS = {
         },
         "REJECTION_FEEDBACK_QUESTION": {},
         "DOCUMENT_BACKEND": "alexandria",
-        "DOCUMENT_MERGE_SERVICE": {
-            "FORM": {
-                "_base": {
-                    "people_sources": [
-                        "bauherrin",
-                        "grundeigentuemerin",
-                        "projektverfasserin",
-                    ],
-                    "people_names": {
-                        "nachname": "familyName",
-                        "vorname": "givenName",
-                        "juristische-person-name": "juristicName",
-                    },
-                },
-                "baugesuch": {
-                    "forms": ["baugesuch", "erdwaermesonden"],
-                    "template": "form",
-                    "personalien": "personalien",
-                    "exclude_slugs": [
-                        # Forms
-                        "allgemeine-informationen",
-                        "dokumente",
-                        "einreichen",
-                        # Questions
-                        "is-paper",
-                        "projektaenderung",
-                    ],
-                },
-            },
-            "ADD_HEADER_DATA": True,
-            "ALEXANDRIA_DOCUMENT_CATEGORIES": [
-                "beilagen-zum-gesuch-grundstuecksangaben",
-                "beilagen-zum-gesuch-gutachten-nachweise-begruendungen",
-                "beilagen-zum-gesuch-projektplaene-projektbeschrieb",
-                "beilagen-zum-gesuch-weitere-gesuchsunterlagen",
-            ],
-        },
     },
 }
 
@@ -4553,6 +4207,7 @@ DECISION = load_module_settings("decision")
 ADDITIONAL_DEMAND = load_module_settings("additional_demand")
 DJANGO_ADMIN = load_module_settings("django_admin")
 CORRECTION = load_module_settings("correction")
+DMS = load_module_settings("dms")
 
 # Alexandria
 ALEXANDRIA = load_module_settings("alexandria")
