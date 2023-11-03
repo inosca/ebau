@@ -51,23 +51,13 @@ def caluma_form_fixture(db):
     call_command("loaddata", *[kt_bern_path / path for path in paths])
 
 
-@pytest.fixture
-def dms_settings(application_settings):
-    application_settings["DOCUMENT_MERGE_SERVICE"] = settings.APPLICATIONS["kt_bern"][
-        "DOCUMENT_MERGE_SERVICE"
-    ]
-    application_settings["DOCUMENT_MERGE_SERVICE"]["FORM"]["baugesuch"]["forms"].append(
-        "main-form"
-    )
-
-
 @pytest.mark.freeze_time("2023-01-06 16:10")
 def test_document_merge_service_snapshot(
     db,
     application_settings,
     caluma_form_fixture,
     django_assert_num_queries,
-    dms_settings,
+    be_dms_settings,
     service,
     snapshot,
 ):
@@ -112,7 +102,7 @@ def test_document_merge_service_snapshot(
             snapshot.assert_match(visitor.visit(root_document), snapshot_name)
 
 
-def test_document_merge_service_is_valid(db, caluma_form_fixture, dms_settings):
+def test_document_merge_service_is_valid(db, caluma_form_fixture, be_dms_settings):
     cache.clear()
 
     instance, root_document = DMSHandler().get_instance_and_document(instance_id=1)
@@ -148,7 +138,7 @@ def test_document_merge_service_client(db, requests_mock):
 @pytest.mark.django_db(transaction=True, reset_sequences=True)
 def test_document_merge_service_cover_sheet_with_header_values(
     db,
-    dms_settings,
+    be_dms_settings,
     service_factory,
     tag_factory,
     be_instance,
@@ -258,7 +248,7 @@ def test_document_merge_service_cover_sheet_with_header_values(
 @pytest.mark.django_db(transaction=True, reset_sequences=True)
 def test_document_merge_service_cover_sheet_without_header_values(
     db,
-    dms_settings,
+    be_dms_settings,
     be_instance,
     group,
     snapshot,
@@ -287,7 +277,7 @@ def test_document_merge_service_cover_sheet_without_header_values(
 @pytest.mark.django_db(transaction=True, reset_sequences=True)
 def test_eingabebestaetigung_gr(
     db,
-    dms_settings,
+    gr_dms_settings,
     settings,
     gr_instance,
     service_factory,
@@ -318,9 +308,9 @@ def test_eingabebestaetigung_gr(
 
     alexandria_category = CategoryFactory()
 
-    application_settings["DOCUMENT_MERGE_SERVICE"]["ALEXANDRIA_DOCUMENT_CATEGORIES"] = [
-        alexandria_category.pk
-    ]
+    # In the test we use "main-form" as form
+    gr_dms_settings["FORM"]["baugesuch"]["forms"].append("main-form")
+    gr_dms_settings["ALEXANDRIA_DOCUMENT_CATEGORIES"] = [alexandria_category.pk]
 
     AlexandriaDocument.objects.create(
         title="Lageplan.pdf",

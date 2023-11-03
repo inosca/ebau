@@ -1576,6 +1576,7 @@ def test_generate_and_store_pdf(
     application_settings,
     caluma_workflow_config_be,
     caluma_admin_user,
+    dms_settings,
 ):
     application_settings["DOCUMENT_BACKEND"] = "camac-ng"
     mocker.patch("camac.caluma.api.CalumaApi.is_paper", lambda s, i: paper)
@@ -1609,11 +1610,9 @@ def test_generate_and_store_pdf(
 
     serializer = CalumaInstanceSubmitSerializer()
 
-    application_settings["DOCUMENT_MERGE_SERVICE"] = {
-        "FORM": {
-            "main-form": {"template": "some-template"},
-            "nfd": {"template": "some-template"},
-        },
+    dms_settings["FORM"] = {
+        "main-form": {"template": "some-template"},
+        "nfd": {"template": "some-template"},
     }
 
     be_instance.case.document.answers.create(
@@ -1639,6 +1638,7 @@ def test_generate_and_store_pdf_in_alexandria(
     caluma_admin_user,
     minio_mock,
     mocker,
+    dms_settings,
 ):
     alexandria_category = CategoryFactory()
     application_settings["STORE_PDF"] = {
@@ -1657,10 +1657,9 @@ def test_generate_and_store_pdf_in_alexandria(
 
     serializer = CalumaInstanceSubmitSerializer()
 
-    application_settings["DOCUMENT_MERGE_SERVICE"] = {
-        "FORM": {
-            "main-form": {"template": "some-template"},
-        },
+    dms_settings["ADD_HEADER_DATA"] = False
+    dms_settings["FORM"] = {
+        "main-form": {"template": "some-template"},
     }
 
     serializer._generate_and_store_pdf(gr_instance)
@@ -1928,10 +1927,10 @@ def test_generate_pdf_action(
     form_factory,
     form_slug,
     expected_status,
-    application_settings,
     caluma_workflow_config_be,
     caluma_admin_user,
     has_document_id,
+    dms_settings,
 ):
     content = b"some binary data"
 
@@ -1947,12 +1946,10 @@ def test_generate_pdf_action(
     context["request"].group = group
     mocker.patch("rest_framework.authentication.get_authorization_header")
 
-    application_settings["DOCUMENT_MERGE_SERVICE"] = {
-        "FORM": {
-            "main-form": {"template": "some-template"},
-            "nfd": {"template": "some-template"},
-            "mp-form": {"template": "some-template"},
-        }
+    dms_settings["FORM"] = {
+        "main-form": {"template": "some-template"},
+        "nfd": {"template": "some-template"},
+        "mp-form": {"template": "some-template"},
     }
 
     if form_slug:
