@@ -29,8 +29,6 @@ import municipalitiesQuery from "ember-ebau-core/gql/queries/municipalities.grap
 import oerebLegalStateAnswersQuery from "ember-ebau-core/gql/queries/oereb-legal-state-answers.graphql";
 import rootFormsQuery from "ember-ebau-core/gql/queries/root-forms.graphql";
 
-const { decisionSlug } = mainConfig;
-
 const COMPONENT_MAPPING = {
   "async-select-multiple": AsyncSelectMultipleComponent,
   date: DateComponent,
@@ -286,7 +284,7 @@ export default class CaseFilterComponent extends Component {
     const response = await this.apollo.query(
       {
         query: decisionsQuery,
-        variables: { decisionSlug },
+        variables: { decisionSlug: mainConfig.decision?.answerSlugs.decision },
       },
       "allQuestions.edges",
     );
