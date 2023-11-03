@@ -100,7 +100,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben-kurz",
       "question": "beschreibung-projektaenderung",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -115,7 +115,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben-kurz",
       "question": "folgeplanung",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -130,7 +130,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben-kurz",
       "question": "gemeinde",
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -145,7 +145,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben-kurz",
       "question": "genereller-erschliessungsplan",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -160,7 +160,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben-kurz",
       "question": "genereller-gestaltungsplan",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -175,7 +175,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben-kurz",
       "question": "gis-map",
-      "sort": 13
+      "sort": 14
     }
   },
   {
@@ -190,7 +190,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben-kurz",
       "question": "hinweis-gis",
-      "sort": 14
+      "sort": 15
     }
   },
   {
@@ -205,7 +205,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben-kurz",
       "question": "hinweis-pilotphase",
-      "sort": 15
+      "sort": 16
     }
   },
   {
@@ -220,7 +220,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben-kurz",
       "question": "is-paper",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -235,7 +235,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben-kurz",
       "question": "lage-des-vorhabens-titel",
-      "sort": 16
+      "sort": 17
     }
   },
   {
@@ -250,7 +250,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben-kurz",
       "question": "ort-grundstueck",
-      "sort": 11
+      "sort": 12
     }
   },
   {
@@ -265,7 +265,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben-kurz",
       "question": "parzelle",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -280,7 +280,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben-kurz",
       "question": "projektaenderung",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -295,7 +295,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben-kurz",
       "question": "sachverhalt",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -310,7 +310,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben-kurz",
       "question": "street-and-housenumber",
-      "sort": 12
+      "sort": 13
     }
   },
   {
@@ -325,7 +325,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben-kurz",
       "question": "zonenplan",
-      "sort": 4
+      "sort": 5
     }
   },
   {
