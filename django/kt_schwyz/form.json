@@ -1775,10 +1775,12 @@
         "energie-vorgaben-32a-abs1-rpv",
         "energie-anlage-winkel-20",
         "energie-anlage-oben-nicht-hinaus-ragt",
-        "energie-anlage-technik-reflexionsarm",
-        "energie-anlage-kompakte-flache",
+        "energie-anlage-technik-reflexionsarm-sd",
+        "energie-anlage-kompakte-flache-sd",
         "energie-anlage-uberragt-1-meter",
+        "energie-vorgaben-32a-abs1bis-rpv",
         "energie-anlage-winkel-45-nicht-sichtbar",
+        "energie-anlage-technik-reflexionsarm-fd",
         "energie-thermisch-kollektorenart",
         "energie-thermisch-aufbereitung",
         "energie-thermisch-grosse",
@@ -5649,7 +5651,7 @@
     "energie-thermisch-aufbereitung": {
       "label": "Art der Wärmenutzung:",
       "hint": "**(Brauch)Warmwasser:** Warmwasser ist erwärmtes Trink- oder Brauchwasser im Temperaturbereich von üblicherweise 30 °C bis 60 °C, darüber hinaus spricht man von Heißwasser. Brauchwasser ist Wasser, das einer spezifischen technischen, gewerblichen, landwirtschaftlichen oder hauswirtschaftlichen Anwendung dient.\n\n**Warmwasser mit Heizungsunterstützung:** Dies bezeichnet eine Solarthermieanlage zur kombinierten Warmwasser- und Heizungsunterstützung, im Gegensatz zur reinen Erwärmung von Brauch- und Trinkwasser.",
-      "type": "radio",
+      "type": "checkbox",
       "required": true,
       "active-expression": "('Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja') && 'Thermische Solaranlage (Wärmeproduktion)' in 'energie-art'|value",
       "config": {
@@ -5661,7 +5663,7 @@
     },
     "energie-thermisch-grosse": {
       "label": "Fläche (in m²)?:",
-      "hint": "Geben Sie bitte die Absorberfläche in m2 an. Die Absorberfläche ist die nicht verschattete, vom Licht bestrahlbare gesamte Oberfläche des Absorbers. Bei ebenen Flächen (Rechtecke), die schwarze obere Fläche. Bei zylindrischen Absorbern , die gesamte Fläche des schwarzen Zylindermantels.",
+      "hint": "Geben Sie bitte die Absorberfläche in m² an. Die Absorberfläche ist die nicht verschattete, vom Licht bestrahlbare gesamte Oberfläche des Absorbers. Bei ebenen Flächen (Rechtecke), die schwarze obere Fläche. Bei zylindrischen Absorbern, die gesamte Fläche des schwarzen Zylindermantels.",
       "type": "number-separator",
       "required": true,
       "active-expression": "('Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja') && 'Thermische Solaranlage (Wärmeproduktion)' in 'energie-art'|value",
@@ -5700,7 +5702,7 @@
       }
     },
     "energie-photovoltaik-jahresertrag": {
-      "label": "Erwartete Jaresproduktion (in kWh/Jahr):",
+      "label": "Erwartete Jahresproduktion (in kWh/Jahr):",
       "hint": "",
       "type": "number-separator",
       "required": true,
@@ -5756,7 +5758,7 @@
       "hint": "Mehr Informationen finden Sie in der <a href=\"/assets/documents/planungshilfe_solaranlagen_final.pdf\" target=\"_blank\">Planungshilfe für Solaranlagen</a> (Kap. 4.2).",
       "type": "radio",
       "required": false,
-      "active-expression": "'Schrägdach' in 'energie-dachform'|value || 'Flachdach' in 'energie-dachform'|value",
+      "active-expression": "'Schrägdach' in 'energie-dachform'|value",
       "config": {}
     },
     "energie-anlage-winkel-20": {
@@ -5779,7 +5781,7 @@
         "options": ["Ja", "Nein"]
       }
     },
-    "energie-anlage-technik-reflexionsarm": {
+    "energie-anlage-technik-reflexionsarm-sd": {
       "label": "Die Anlage wird nach dem Stand der Technik reflexionsarm ausgeführt.",
       "hint": "",
       "type": "radio",
@@ -5789,7 +5791,7 @@
         "options": ["Ja", "Nein"]
       }
     },
-    "energie-anlage-kompakte-flache": {
+    "energie-anlage-kompakte-flache-sd": {
       "label": "Die Anlage ist als kompakte Fläche angeordnet (Aussparungen für Kamine, etc. sind erlaubt).",
       "hint": "",
       "type": "radio",
@@ -5798,6 +5800,14 @@
       "config": {
         "options": ["Ja", "Nein"]
       }
+    },
+    "energie-vorgaben-32a-abs1bis-rpv": {
+      "label": "Die Vorgaben gemäss Art. 32a Abs. 1<sup>bis</sup> der eidgenössischen Raumplanungsverordnung (RPV) sind eingehalten:",
+      "hint": "Mehr Informationen finden Sie in der <a href=\"/assets/documents/planungshilfe_solaranlagen_final.pdf\" target=\"_blank\">Planungshilfe für Solaranlagen</a> (Kap. 4.2).",
+      "type": "radio",
+      "required": false,
+      "active-expression": "'Flachdach' in 'energie-dachform'|value",
+      "config": {}
     },
     "energie-anlage-uberragt-1-meter": {
       "label": "Die Anlage überragt die Oberkante des Dachrandes um höchstens einen Meter.",
@@ -5815,6 +5825,16 @@
       "type": "radio",
       "required": true,
       "active-expression": "'Flachdach' in 'energie-dachform'|value",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "energie-anlage-technik-reflexionsarm-fd": {
+      "label": "Die Anlage wird nach dem Stand der Technik reflexionsarm ausgeführt.",
+      "hint": "",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'Schrägdach' in 'energie-dachform'|value || 'Flachdach' in 'energie-dachform'|value",
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -8956,7 +8976,7 @@
       }
     },
     "info-energie": {
-      "label": "Folgende notwendigen Unterlagen sind beigelegt:",
+      "label": "Folgende notwendigen Unterlagen für Solaranlagen sind beigelegt:",
       "hint": "Mehr Informationen finden Sie in der <a href=\"/assets/documents/planungshilfe_solaranlagen_final.pdf\" target=\"_blank\">Planungshilfe für Solaranlagen</a> (Kap. 4.3).",
       "type": "checkbox",
       "required": false,
