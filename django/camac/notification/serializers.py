@@ -23,10 +23,9 @@ from django.db.models import (
     Q,
     Subquery,
     Sum,
-    Value as V,
     When,
 )
-from django.db.models.functions import Cast, Concat
+from django.db.models.functions import Cast
 from django.utils import timezone, translation
 from django.utils.text import slugify
 from rest_framework import exceptions
@@ -688,6 +687,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
                 service_group_sort=Subquery(
                     service_subquery.values("service_group__sort")[:1]
                 ),
+                service_sort=Subquery(service_subquery.values("sort")[:1]),
                 parent_service_sort=Case(
                     When(
                         Exists(
@@ -716,17 +716,16 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
                         service_subquery.values("pk")[:1], output_field=CharField()
                     ),
                 ),
-                sorted_grouping=Concat(
-                    F("parent_service_sort"), V("-"), F("service_grouping")
-                ),
                 is_subservice=Exists(
                     service_subquery.filter(service_parent_id__isnull=False)
                 ),
             )
             .order_by(
                 "service_group_sort",
-                "sorted_grouping",
+                "parent_service_sort",
+                "service_grouping",
                 "is_subservice",
+                "service_sort",
                 "controlling_groups",
                 F("closed_at").desc(nulls_first=True),
                 "-deadline",
