@@ -855,6 +855,9 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         return self._get_decision(instance, "fr")
 
     def _get_decision(self, instance, language):
+        if not settings.DECISION:  # pragma: no cover
+            return ""
+
         decision = instance.case.work_items.filter(
             task_id=settings.DECISION["TASK"],
             status__in=[
