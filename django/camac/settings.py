@@ -3254,6 +3254,7 @@ APPLICATIONS = {
         "CALUMA": {
             "MANUAL_WORK_ITEM_TASK": "create-manual-workitems",
             "SUBMIT_TASKS": ["submit"],
+            "CONSTRUCTION_MONITORING_TASK": "construction-monitoring",
             "FORM_PERMISSIONS": ["main", "inquiry", "inquiry-answer"],
             "HAS_PROJECT_CHANGE": True,
             "CREATE_IN_PROCESS": False,
@@ -3306,6 +3307,10 @@ APPLICATIONS = {
                 "construction-monitoring": {
                     "next_instance_state": "finished",
                     "history_text": _("Construction monitoring performed"),
+                    "notification": {
+                        "template_slug": "bauabnahme",
+                        "recipient_types": ["construction_monitoring"],
+                    },
                 },
             },
             "PUBLIC_STATUS": {
@@ -3362,6 +3367,22 @@ APPLICATIONS = {
                 },
                 {
                     "template_slug": "entscheid-behoerden",
+                    "recipient_types": ["leitbehoerde"],
+                },
+            ],
+            "DOSSIERKORREKTUR": [
+                {
+                    "template_slug": "dossierkorrektur",
+                    "recipient_types": ["applicant"],
+                },
+            ],
+            "NON_BUILDING_PERMIT_DECISION": [
+                {
+                    "template_slug": "beurteilung-gesuchsteller",
+                    "recipient_types": ["applicant"],
+                },
+                {
+                    "template_slug": "beurteilung-behoerden",
                     "recipient_types": ["leitbehoerde"],
                 },
             ],

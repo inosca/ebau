@@ -418,6 +418,61 @@ def test_notification_template_sendmail(
 
 
 @pytest.mark.parametrize(
+    "form_name,expected_recipients",
+    [
+        ("baugesuch", ["info@gvg.gr.ch"]),
+        ("solaranlage", ["info@gvg.gr.ch", "info@aev.gr.ch"]),
+    ],
+)
+@pytest.mark.parametrize(
+    "notification_template__subject,instance__identifier",
+    [("{{identifier}}", "identifer")],
+)
+@pytest.mark.parametrize(
+    "role__name,status_code",
+    [
+        ("Municipality", status.HTTP_204_NO_CONTENT),
+    ],
+)
+def test_notification_template_construction_monitoring(
+    admin_client,
+    notification_template,
+    gr_instance,
+    status_code,
+    form_name,
+    mailoutbox,
+    expected_recipients,
+):
+    url = reverse("notificationtemplate-sendmail")
+
+    gr_instance.case.document.form = caluma_form_models.Form.objects.create(
+        pk=form_name
+    )
+    gr_instance.case.document.save()
+
+    data = {
+        "data": {
+            "type": "notification-template-sendmails",
+            "id": None,
+            "attributes": {
+                "template-slug": notification_template.slug,
+                "body": "Test body",
+                "recipient-types": [
+                    "construction_monitoring",
+                ],
+            },
+            "relationships": {
+                "instance": {"data": {"type": "instances", "id": gr_instance.pk}},
+            },
+        }
+    }
+    response = admin_client.post(url, data=data)
+    assert response.status_code == status_code
+    assert len(mailoutbox) == 1
+    assert mailoutbox[0].recipients() == expected_recipients
+
+
+@pytest.mark.parametrize(
     "user__email,service__email",
     [("user@example.com", "service@example.com, service2@example.com")],
 )
