@@ -1,12 +1,15 @@
 <div class="uk-inline uk-width-1-1">
-  <a
-    class="uk-form-icon uk-form-icon-flip"
-    href="#"
-    {{uk-tooltip (t "caluma.form.delete")}}
-    {{on "click" this.clearCalendar}}
-  >
-    <UkIcon @icon="close" />
-  </a>
+  {{#unless @disabled}}
+    <a
+      class="uk-form-icon uk-form-icon-flip"
+      href="#"
+      {{uk-tooltip (t "caluma.form.delete")}}
+      {{on "click" this.clearCalendar}}
+    >
+      <UkIcon @icon="close" />
+    </a>
+  {{/unless}}
+
   <EmberFlatpickr
     id={{@field.pk}}
     name={{@field.pk}}
