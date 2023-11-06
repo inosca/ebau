@@ -25,3 +25,27 @@ yarn build # builds css once
 yarn watch # builds css on file change
 ```
 
+## Custom authenticator
+
+We're implementing two internal SPIs to support 2FA auth via SMS:
+
+- required action: Used in the registration process for first setup
+- authenticator: The actual 2FA logic during login
+
+### Debugging
+
+It is possible to debug the SPI code using VScode with the following settings on the `keycloak` container:
+
+```yaml
+  environment:
+    - DEBUG_MODE=true
+    - DEBUG_PORT="*:8787"
+  ports:
+    - 8080:8080
+    - 8787:8787
+  command:
+    [
+      ...
+      "--debug",
+    ]
+```
