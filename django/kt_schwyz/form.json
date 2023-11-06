@@ -5786,7 +5786,7 @@
       "hint": "",
       "type": "radio",
       "required": true,
-      "active-expression": "'Schrägdach' in 'energie-dachform'|value || 'Flachdach' in 'energie-dachform'|value",
+      "active-expression": "'Schrägdach' in 'energie-dachform'|value",
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -5834,7 +5834,7 @@
       "hint": "",
       "type": "radio",
       "required": true,
-      "active-expression": "'Schrägdach' in 'energie-dachform'|value || 'Flachdach' in 'energie-dachform'|value",
+      "active-expression": "'Flachdach' in 'energie-dachform'|value",
       "config": {
         "options": ["Ja", "Nein"]
       }
