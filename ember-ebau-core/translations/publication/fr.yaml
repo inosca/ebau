@@ -1,6 +1,6 @@
 publication:
   title: "{name} n° {index}"
-  new: "Créer"
+  new: "Nouvelle publication"
   published: "Autorisée"
   draft: "Brouillon"
   canceled: "Annulée"
