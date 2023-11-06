@@ -6357,21 +6357,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "construction-monitoring.bauabnahme-abgeschlossen",
-    "fields": {
-      "created_at": "2023-10-11T09:02:22.165Z",
-      "modified_at": "2023-10-11T09:02:22.165Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "construction-monitoring",
-      "question": "bauabnahme-abgeschlossen",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "construction-monitoring.baubegleitung-abschliessen",
     "fields": {
       "created_at": "2023-10-19T06:43:38.077Z",
@@ -6397,7 +6382,7 @@
       "modified_by_group": null,
       "form": "construction-monitoring",
       "question": "bemerkungen-baubegleitung",
-      "sort": 3
+      "sort": 2
     }
   },
   {
@@ -6412,6 +6397,21 @@
       "modified_by_group": null,
       "form": "construction-monitoring",
       "question": "frist-zur-maengelbehebung",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-monitoring.hinweis-maengel",
+    "fields": {
+      "created_at": "2023-11-06T13:47:37.043Z",
+      "modified_at": "2023-11-06T13:47:37.043Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-monitoring",
+      "question": "hinweis-maengel",
       "sort": 4
     }
   },
@@ -43520,18 +43520,18 @@
     "pk": "baubegleitung-abschliessen",
     "fields": {
       "created_at": "2023-10-19T06:43:37.901Z",
-      "modified_at": "2023-10-19T06:43:37.901Z",
+      "modified_at": "2023-11-06T13:44:37.964Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Abschliessen\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Bauabnahme erfolgt\", \"fr\": null, \"it\": null}",
       "type": "action_button",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
@@ -47335,12 +47335,12 @@
     "pk": "bestaetigung-radon",
     "fields": {
       "created_at": "2023-05-17T14:13:02.172Z",
-      "modified_at": "2023-09-04T12:26:18.391Z",
+      "modified_at": "2023-11-06T13:52:39.425Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Die Bauherrschaft best\\u00e4tigt, dass die erforderlichen Massnahmen zum Schutz vor erh\\u00f6hten Radongaskonzentrationen nach den anerkannten Regeln der Baukunde getroffen werden (siehe \\u201cMehr Informationen\\u201d). Die Bauherrschaft hat zur Kenntnis genommen, dass die Bauabnahme grunds\\u00e4tzlich auch eine Radonmessung umfassen kann.\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Die Bauherrschaft best\\u00e4tigt, dass die erforderlichen Massnahmen zum Schutz vor erh\\u00f6hten Radongaskonzentrationen nach den anerkannten Regeln der Baukunde getroffen werden (siehe \\u201cInfo-Button\\u201d). Die Bauherrschaft hat zur Kenntnis genommen, dass die Bauabnahme grunds\\u00e4tzlich auch eine Radonmessung umfassen kann.\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
       "is_required": "'is-paper'|answer != 'is-paper-yes'",
       "is_hidden": "false",
@@ -57787,6 +57787,37 @@
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"Der \\\"L\\u00e4rmschutznachweis f\\u00fcr Luft / Wasser-W\\u00e4rmepumpen\\\" ist durch den Planer der W\\u00e4rmepumpe auszuf\\u00fcllen und dem Gesuch beizulegen. Sie finden das Formular z.B. [hier](https://www.cerclebruit.ch/enforcement/6/621WP-Deklarations-Formular.xls).\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "hinweis-maengel",
+    "fields": {
+      "created_at": "2023-11-06T13:47:36.888Z",
+      "modified_at": "2023-11-06T13:47:36.888Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis M\\u00e4ngel\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "\"nicht-abgenommen-maengel\"|answer == null",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"Bitte beachten Sie, dass die Bauabnahme nicht abgeschlossen werden sollte, solange noch M\\u00e4ngel zu beheben sind.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -78949,8 +78980,8 @@
     "model": "caluma_form.questionoption",
     "pk": "bestaetigung-radon.bestaetigung-radon-ja",
     "fields": {
-      "created_at": "2023-09-04T12:26:18.402Z",
-      "modified_at": "2023-09-04T12:26:18.402Z",
+      "created_at": "2023-11-06T13:52:39.438Z",
+      "modified_at": "2023-11-06T13:52:39.438Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
