@@ -1,0 +1,417 @@
+{
+  "1": {
+    "label": "Aufgaben",
+    "acls": {
+      "municipality-clerk": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished",
+        "init-distribution",
+        "material-exam",
+        "subm"
+      ],
+      "municipality-lead": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished",
+        "init-distribution",
+        "material-exam",
+        "subm"
+      ],
+      "service-clerk": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished"
+      ],
+      "service-lead": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished"
+      ],
+      "subservice": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished"
+      ]
+    }
+  },
+  "2": {
+    "label": "Dokumente",
+    "acls": {
+      "municipality-clerk": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished",
+        "init-distribution",
+        "material-exam",
+        "subm"
+      ],
+      "municipality-lead": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished",
+        "init-distribution",
+        "material-exam",
+        "subm"
+      ],
+      "service-clerk": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished"
+      ],
+      "service-lead": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished"
+      ],
+      "subservice": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished"
+      ]
+    }
+  },
+  "3": {
+    "label": "Formular",
+    "acls": {
+      "municipality-clerk": [
+        "construction-monitoring",
+        "correction",
+        "decision",
+        "distribution",
+        "finished",
+        "init-distribution",
+        "material-exam",
+        "subm"
+      ],
+      "municipality-lead": [
+        "construction-monitoring",
+        "correction",
+        "decision",
+        "distribution",
+        "finished",
+        "init-distribution",
+        "material-exam",
+        "subm"
+      ],
+      "service-clerk": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished"
+      ],
+      "service-lead": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished"
+      ],
+      "subservice": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished"
+      ]
+    }
+  },
+  "4": {
+    "label": "Formelle Prüfung",
+    "acls": {
+      "municipality-clerk": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished",
+        "init-distribution",
+        "material-exam",
+        "subm"
+      ],
+      "municipality-lead": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished",
+        "init-distribution",
+        "material-exam",
+        "subm"
+      ]
+    }
+  },
+  "5": {
+    "label": "Materielle Prüfung",
+    "acls": {
+      "municipality-clerk": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished",
+        "init-distribution",
+        "material-exam"
+      ],
+      "municipality-lead": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished",
+        "init-distribution",
+        "material-exam"
+      ]
+    }
+  },
+  "6": {
+    "label": "Publikation",
+    "acls": {
+      "municipality-clerk": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished",
+        "init-distribution"
+      ],
+      "municipality-lead": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished",
+        "init-distribution"
+      ]
+    }
+  },
+  "7": {
+    "label": "History",
+    "acls": {
+      "municipality-clerk": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished",
+        "init-distribution",
+        "material-exam",
+        "subm"
+      ],
+      "municipality-lead": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished",
+        "init-distribution",
+        "material-exam",
+        "subm"
+      ],
+      "service-clerk": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished"
+      ],
+      "service-lead": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished"
+      ],
+      "subservice": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished"
+      ]
+    }
+  },
+  "8": {
+    "label": "Journal",
+    "acls": {
+      "municipality-clerk": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished",
+        "init-distribution",
+        "material-exam",
+        "subm"
+      ],
+      "municipality-lead": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished",
+        "init-distribution",
+        "material-exam",
+        "subm"
+      ],
+      "service-clerk": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished"
+      ],
+      "service-lead": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished"
+      ],
+      "subservice": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished"
+      ]
+    }
+  },
+  "9": {
+    "label": "Zuständigkeit",
+    "acls": {
+      "municipality-clerk": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished",
+        "init-distribution",
+        "material-exam",
+        "subm"
+      ],
+      "municipality-lead": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished",
+        "init-distribution",
+        "material-exam",
+        "subm"
+      ],
+      "service-clerk": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished"
+      ],
+      "service-lead": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished"
+      ],
+      "subservice": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished"
+      ]
+    }
+  },
+  "10": {
+    "label": "Zirkulation",
+    "acls": {
+      "municipality-clerk": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished",
+        "init-distribution"
+      ],
+      "municipality-lead": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished",
+        "init-distribution"
+      ],
+      "service-clerk": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished"
+      ],
+      "service-lead": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished"
+      ],
+      "subservice": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished"
+      ]
+    }
+  },
+  "11": {
+    "label": "Nachforderungen",
+    "acls": {
+      "municipality-clerk": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished",
+        "init-distribution",
+        "material-exam",
+        "subm"
+      ],
+      "municipality-lead": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished",
+        "init-distribution",
+        "material-exam",
+        "subm"
+      ],
+      "service-clerk": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished"
+      ],
+      "service-lead": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished"
+      ]
+    }
+  },
+  "12": {
+    "label": "Korrekturhilfen",
+    "acls": {
+      "municipality-clerk": [
+        "construction-monitoring",
+        "correction",
+        "decision",
+        "distribution",
+        "finished",
+        "init-distribution",
+        "material-exam",
+        "subm"
+      ],
+      "municipality-lead": [
+        "construction-monitoring",
+        "correction",
+        "decision",
+        "distribution",
+        "finished",
+        "init-distribution",
+        "material-exam",
+        "subm"
+      ]
+    }
+  },
+  "13": {
+    "label": "Entscheid",
+    "acls": {
+      "municipality-clerk": ["construction-monitoring", "decision", "finished"],
+      "municipality-lead": ["construction-monitoring", "decision", "finished"]
+    }
+  }
+}
