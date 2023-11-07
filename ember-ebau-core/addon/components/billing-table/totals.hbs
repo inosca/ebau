@@ -1,0 +1,13 @@
+{{#each-in this.totals as |organization totals|}}
+  <tr class="billing-table__divider">
+    <td colspan={{add @colspanTotalLabel 1}}><hr /></td>
+    <td colspan={{@colspanTotalFill}}></td>
+  </tr>
+  {{#each-in totals as |key value|}}
+    <tr class="uk-text-bold">
+      <td colspan={{@colspanTotalLabel}}>{{t (concat "billing.totals." organization "." key)}}</td>
+      <td class="uk-text-right">{{format-number value minimumFractionDigits=2}}</td>
+      <td colspan={{@colspanTotalFill}}></td>
+    </tr>
+  {{/each-in}}
+{{/each-in}}

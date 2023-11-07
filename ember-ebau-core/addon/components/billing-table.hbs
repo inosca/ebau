@@ -1,0 +1,80 @@
+{{#if (has-feature "billing.charge")}}
+  <div class="uk-text-right">
+    <label>
+      {{t "billing.hide-charged"}}
+      <Input
+        @type="checkbox"
+        @checked={{this.hideCharged}}
+        class="uk-checkbox uk-margin-small-left"
+        data-test-toggle-charged
+      />
+    </label>
+  </div>
+{{/if}}
+
+<table class="uk-table uk-table-striped uk-table-middle billing-table" data-test-billing-table>
+  <thead>
+    <tr>
+      {{#if (can "charge billing-v2-entries")}}
+        <th data-test-charge>
+          <input
+            type="checkbox"
+            class="uk-checkbox"
+            aria-label={{t "billing.toggle-all"}}
+            title={{t "billing.toggle-all"}}
+            data-test-toggle-all
+            {{on "change" @onToggleAll}}
+          >
+        </th>
+      {{/if}}
+      <th data-test-text>{{t "billing.position"}}</th>
+      <th data-test-group>{{t "billing.group"}}</th>
+      <th data-test-user>{{t "billing.user"}}</th>
+      <th data-test-amount>{{t "billing.amount"}}</th>
+      <th class="uk-text-right" data-test-final-rate>{{t "billing.total"}}</th>
+      <th data-test-added>{{t "billing.created-at"}}</th>
+      {{#if (has-feature "billing.charge")}}
+        <th data-test-charged>{{t "billing.charged-at"}}</th>
+      {{/if}}
+      {{#if (has-feature "billing.organization")}}
+        <th data-test-organization>{{t "billing.organization"}}</th>
+      {{/if}}
+      {{#if (can "edit billing-v2-entries")}}
+        <th data-test-delete></th>
+      {{/if}}
+    </tr>
+  </thead>
+  <tbody>
+    {{#if (and (not this.filteredEntries.length) @entries.isLoading)}}
+      <tr>
+        <td class="uk-text-center" colspan={{this.fullColspan}}>
+          <UkSpinner @ratio="0.5" />
+        </td>
+      </tr>
+    {{else}}
+      {{#each this.filteredEntries as |entry|}}
+        <BillingTable::Row
+          @entry={{entry}}
+          @selected={{includes entry.id @selectedRows}}
+          @onToggle={{@onToggleRow}}
+          @onRefresh={{@onRefresh}}
+        />
+      {{else}}
+        <tr>
+          <td class="uk-text-center uk-text-italic" colspan={{this.fullColspan}}>
+            {{t "global.empty"}}
+          </td>
+        </tr>
+      {{/each}}
+    {{/if}}
+  </tbody>
+  {{#if @entries.records.length}}
+    <tfoot>
+      <BillingTable::Totals
+        @totals={{@entries.records.meta.totals}}
+        @colspanTotalLabel={{this.colspanTotalLabel}}
+        @colspanTotalFill={{this.colspanTotalFill}}
+      />
+    </tfoot>
+  {{/if}}
+</table>

@@ -1,3 +1,4 @@
+import { faker } from "@faker-js/faker";
 import graphqlHandler from "@projectcaluma/ember-testing/mirage-graphql";
 import { discoverEmberDataModels } from "ember-cli-mirage";
 import { DateTime } from "luxon";
@@ -21,6 +22,49 @@ export default function makeServer(config) {
       this.resource("public-users");
       this.resource("public-services");
       this.resource("public-groups");
+
+      this.resource("billing-v2-entries");
+      this.post(
+        "billing-v2-entries",
+        function ({ billingV2Entries }) {
+          return billingV2Entries.create({
+            ...this.normalizedRequestAttrs(),
+            finalRate: faker.finance.amount(1, 1000),
+          });
+        },
+        201,
+      );
+      this.get("billing-v2-entries", function ({ billingV2Entries }) {
+        const json = this.serialize(billingV2Entries.all());
+
+        json.meta = {
+          totals: {
+            cantonal: {
+              uncharged: faker.finance.amount(1, 1000),
+              total: faker.finance.amount(1, 1000),
+            },
+            municipal: {
+              uncharged: faker.finance.amount(1, 1000),
+              total: faker.finance.amount(1, 1000),
+            },
+            all: {
+              uncharged: faker.finance.amount(1, 1000),
+              total: faker.finance.amount(1, 1000),
+            },
+          },
+        };
+
+        return json;
+      });
+      this.patch(
+        "billing-v2-entries/:id/charge",
+        ({ billingV2Entries }, request) => {
+          const entry = billingV2Entries.find(request.params.id);
+          entry.update({ dateCharged: DateTime.now().toISO() });
+          return null;
+        },
+        204,
+      );
 
       this.resource("communications-topics");
       this.resource("communications-messages");

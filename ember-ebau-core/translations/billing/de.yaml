@@ -1,0 +1,63 @@
+billing:
+  info: |-
+    Im Menü «Gebühren» können die Gebühren, die im Zusammenhang mit dem Dossier
+    entstehen, erfasst werden. Die erfassten Einträge werden aber nicht
+    automatisch an die Verrechnungsstellen der Organisation weitergleitet. Die
+    Rechnungsstellung muss jede beteiligte Organisation wie bisher vornehmen.
+  position: Position
+  group: Gruppe
+  user: Benutzer
+  amount: Betrag (CHF)
+  total: Total (CHF)
+  created-at: Erfasst am
+  charged-at: Verrechnet am
+  organization: Art
+  charge: Verrechnen
+  hide-charged: Verrechnete Gebühreneinträge ausblenden
+  calculation: Berechnung
+  hours: Stunden
+  hourly-rate: Stundensatz (CHF)
+  tax-mode: Mehrwertsteuer
+  percentage: Anteil (%) ...
+  of-amount: ... an Gesamtkosten (CHF)
+  add: Gebühr hinzufügen
+  toggle-all: Alle Gebühreneinträge auswählen
+  toggle-row: Gebühreneintrag auswählen
+  confirm-delete: Wollen Sie den Gebühreneintrag wirklich löschen?
+  confirm-charge: |-
+    Stellen Sie bitte sicher, dass die Rechnung erstellt wurde, bevor der
+    Gebühreneintrag auf "Verrechnet" gesetzt wird.
+  add-success: Der Gebühreneintrag wurde erfolgreich hinzugefügt
+  add-error: Fehler beim Hinzufügen des Gebühreneintrag
+  delete-error: Fehler beim Löschen des Gebühreneintrag
+  charge-error: Fehler beim Verrechnen des Gebühreneintrag
+
+  organizations:
+    cantonal: Kantonal
+    municipal: Kommunal
+
+  calculations:
+    flat: "{totalCost, number, ::.00} {taxMode}"
+    percentage: "{percentage, number, ::.00 % scale/0.01} von {totalCost, number, ::.00} {taxMode}"
+    hourly: "{hours, number, ::.00} Std à {hourlyRate, number, ::.00} {taxMode}"
+
+    titles:
+      flat: pauschal
+      percentage: prozentual
+      hourly: nach Aufwand
+
+  tax-modes:
+    exempt: nicht MWSt-pflichtig
+    inclusive: "inkl. {taxRate, number, ::.0 % scale/0.01} MWSt"
+    exclusive: "exkl. {taxRate, number, ::.0 % scale/0.01} MWSt"
+
+  totals:
+    cantonal:
+      uncharged: Subtotal Kanton (nicht verrechnet)
+      total: Subtotal Kanton
+    municipal:
+      uncharged: Subtotal Gemeinde (nicht verrechnet)
+      total: Subtotal Gemeinde
+    all:
+      uncharged: Total (nicht verrechnet)
+      total: Total
