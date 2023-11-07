@@ -1,6 +1,6 @@
 publication:
   title: "{index}. {name}"
-  new: "Erstellen"
+  new: "Neue Publikation"
   published: "Freigegeben"
   draft: "Entwurf"
   canceled: "Abgebrochen"
