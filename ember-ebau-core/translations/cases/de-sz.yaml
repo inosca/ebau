@@ -11,6 +11,7 @@ cases:
     caseCreatedDateBefore: "Erstellung bis"
     objectionReceived: "Einsprache eingegangen"
     constructionZoneLocation: "Lage bezgl. Bauzone"
+    constructionZoneLocation-placeholder: ""
     constructionZoneLocationInside: "Innerhalb"
     constructionZoneLocationOutside: "Ausserhalb"
     constructionZoneLocationBoth: "Beides"
