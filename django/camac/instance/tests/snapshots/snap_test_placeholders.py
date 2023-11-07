@@ -214,17 +214,17 @@ Test LAB 2''',
     'EBAU_URL': 'http://ebau.local',
     'EIGENE_GEBUEHREN': [
         {
-            'BETRAG': '392.66',
-            'FORFAIT': '392.66',
+            'BETRAG': '103.04',
+            'FORFAIT': '103.04',
             'POSITION': ''
         },
         {
-            'BETRAG': '574.29',
-            'FORFAIT': '574.29',
+            'BETRAG': '31.59',
+            'FORFAIT': '31.59',
             'POSITION': ''
         }
     ],
-    'EIGENE_GEBUEHREN_TOTAL': '966.95',
+    'EIGENE_GEBUEHREN_TOTAL': '134.63',
     'EIGENE_NEBENBESTIMMUNGEN': 'Nebenbestimmungen 1',
     'EIGENE_STELLUNGNAHMEN': 'Stellungnahme 1',
     'EINSPRACHEN': [
@@ -254,27 +254,27 @@ Test E 2''',
     'EMAIL': '',
     'EMOLUMENTS': [
         {
-            'BETRAG': '378.78',
-            'FORFAIT': '378.78',
+            'BETRAG': '553.85',
+            'FORFAIT': '553.85',
             'POSITION': ''
         },
         {
-            'BETRAG': '780.57',
-            'FORFAIT': '780.57',
+            'BETRAG': '21.60',
+            'FORFAIT': '21.60',
             'POSITION': ''
         },
         {
-            'BETRAG': '392.66',
-            'FORFAIT': '392.66',
+            'BETRAG': '103.04',
+            'FORFAIT': '103.04',
             'POSITION': ''
         },
         {
-            'BETRAG': '574.29',
-            'FORFAIT': '574.29',
+            'BETRAG': '31.59',
+            'FORFAIT': '31.59',
             'POSITION': ''
         }
     ],
-    'EMOLUMENTS_TOTAL': '2’126.30',
+    'EMOLUMENTS_TOTAL': '710.08',
     'ETAT': 'Pamela Horton',
     'FACHSTELLEN_KANTONAL': [
         {
@@ -372,27 +372,27 @@ Test E 2''',
     'GEBAEUDEEIGENTUEMER_NAME_ADRESSE': 'Peter Meier, Thunstrasse 88, 3002 Bern',
     'GEBUEHREN': [
         {
-            'BETRAG': '378.78',
-            'FORFAIT': '378.78',
+            'BETRAG': '553.85',
+            'FORFAIT': '553.85',
             'POSITION': ''
         },
         {
-            'BETRAG': '780.57',
-            'FORFAIT': '780.57',
+            'BETRAG': '21.60',
+            'FORFAIT': '21.60',
             'POSITION': ''
         },
         {
-            'BETRAG': '392.66',
-            'FORFAIT': '392.66',
+            'BETRAG': '103.04',
+            'FORFAIT': '103.04',
             'POSITION': ''
         },
         {
-            'BETRAG': '574.29',
-            'FORFAIT': '574.29',
+            'BETRAG': '31.59',
+            'FORFAIT': '31.59',
             'POSITION': ''
         }
     ],
-    'GEBUEHREN_TOTAL': '2’126.30',
+    'GEBUEHREN_TOTAL': '710.08',
     'GEMEINDE': 'Burgdorf',
     'GEMEINDE_ADRESSE': 'Jacobmouth',
     'GEMEINDE_ADRESSE_1': '',
@@ -512,17 +512,17 @@ Test LAB 2''',
     'MEINE_ORGANISATION_TELEFON': '',
     'MES_EMOLUMENTS': [
         {
-            'BETRAG': '392.66',
-            'FORFAIT': '392.66',
+            'BETRAG': '103.04',
+            'FORFAIT': '103.04',
             'POSITION': ''
         },
         {
-            'BETRAG': '574.29',
-            'FORFAIT': '574.29',
+            'BETRAG': '31.59',
+            'FORFAIT': '31.59',
             'POSITION': ''
         }
     ],
-    'MES_EMOLUMENTS_TOTAL': '966.95',
+    'MES_EMOLUMENTS_TOTAL': '134.63',
     'MODIFICATION_DATE': '',
     'MODIFICATION_TIME': '',
     'MON_ORGANISATION_ADRESSE_1': '',

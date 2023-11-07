@@ -40,6 +40,7 @@ def public_data(
     circulation_factory,
     communications_attachment_factory,
     attachment_version_factory,
+    billing_v2_entry_factory,
 ):
     attachment = attachment_factory(instance=be_instance, context={"isPublished": True})
     attachment_version_factory(attachment=attachment)
@@ -55,6 +56,7 @@ def public_data(
     objection_factory(instance=be_instance)
     circulation = circulation_factory(instance=be_instance)
     activation_factory(circulation=circulation)
+    billing_v2_entry_factory(instance=be_instance)
 
     create_caluma_publication(be_instance)
 

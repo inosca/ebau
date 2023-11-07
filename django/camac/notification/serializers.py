@@ -31,13 +31,13 @@ from django.utils.text import slugify
 from rest_framework import exceptions
 from rest_framework_json_api import serializers
 
+from camac.billing.models import BillingV2Entry
 from camac.caluma.api import CalumaApi
 from camac.caluma.utils import find_answer, get_answer_display_value
 from camac.constants import kt_uri as uri_constants
 from camac.core.models import (
     Activation,
     Answer,
-    BillingV2Entry,
     Circulation,
     HistoryActionConfig,
     WorkflowEntry,
