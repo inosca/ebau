@@ -18,6 +18,10 @@ export default {
     circulationInit: 20003,
     finished: 120000,
     sb1: 20011,
+    sb2: 20013,
+    conclusion: 20014,
+    evaluated: 20010,
+    finishedInternal: 120003,
   },
   interchangeableForms: [
     ["baugesuch", "baugesuch-generell", "baugesuch-mit-uvp"],
@@ -96,5 +100,15 @@ export default {
         "uk-alert-warning",
       "decision-decision-assessment-retreat": "uk-alert-warning",
     },
+  },
+  billing: {
+    readOnlyInstanceStates: [
+      "sb1",
+      "sb2",
+      "conclusion",
+      "evaluated",
+      "finished",
+      "finishedInternal",
+    ],
   },
 };
