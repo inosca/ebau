@@ -1,3 +1,4 @@
+import logging
 from os import path
 
 import requests
@@ -6,6 +7,8 @@ from lxml import etree
 
 from camac.gis.clients.base import GISBaseClient
 from camac.utils import build_url
+
+logger = logging.getLogger(__name__)
 
 
 class BeGisClient(GISBaseClient):
@@ -21,12 +24,30 @@ class BeGisClient(GISBaseClient):
         return etree.fromstring(response.content)
 
     def get_polygon(self, egrid):
-        response = self.session.get(
-            build_url(
-                settings.GIS_BASE_URL,
-                f"/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer?service=WFS&version=2.0.0&Request=GetFeature&typename=of_planningcadastre01_de_ms_wfs:DIPANU_DIPANUF_VW_13541&count=10&Filter=%3Cogc:Filter%3E%3Cogc:PropertyIsEqualTo%20matchCase=%22true%22%3E%3Cogc:PropertyName%3EEGRID%3C/ogc:PropertyName%3E%3Cogc:Literal%3E{egrid}%3C/ogc:Literal%3E%3C/ogc:PropertyIsEqualTo%3E%3C/ogc:Filter%3E",
+        try:
+            response = self.session.get(
+                build_url(
+                    settings.GIS_BASE_URL,
+                    f"/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer?service=WFS&version=2.0.0&Request=GetFeature&typename=of_planningcadastre01_de_ms_wfs:DIPANU_DIPANUF_VW_13541&count=10&Filter=%3Cogc:Filter%3E%3Cogc:PropertyIsEqualTo%20matchCase=%22true%22%3E%3Cogc:PropertyName%3EEGRID%3C/ogc:PropertyName%3E%3Cogc:Literal%3E{egrid}%3C/ogc:Literal%3E%3C/ogc:PropertyIsEqualTo%3E%3C/ogc:Filter%3E",
+                )
             )
-        )
+            response.raise_for_status()
+        except requests.exceptions.HTTPError as e:  # pragma: no cover
+            logger.error(f"Polygon: {e}")
+            # TODO: Translation
+            raise RuntimeError(
+                f"Error {e.response.status_code} while fetching polygon data from the API"
+            )
+        except (
+            requests.exceptions.Timeout,
+            requests.exceptions.ConnectionError,
+        ) as e:  # pragma: no cover
+            logger.error(f"Polygon: {e}")
+            # TODO: Translation
+            raise RuntimeError(
+                "Connection error while fetching polygon data from the API"
+            )
+
         try:
             root = self.get_root(response)
         except etree.XMLSyntaxError:  # pragma: no cover
@@ -61,18 +82,29 @@ class BeGisClient(GISBaseClient):
                 service_code, boolean_layers, special_layers, polygon
             )
             payload = self.get_feature_xml(service_code, query)
-            response = self.session.post(
-                "{0}/geoservice3/services/a42geo/{1}/MapServer/WFSServer".format(
-                    settings.GIS_BASE_URL, service_code
-                ),
-                data=payload,
-            )
+
             try:
+                response = self.session.post(
+                    "{0}/geoservice3/services/a42geo/{1}/MapServer/WFSServer".format(
+                        settings.GIS_BASE_URL, service_code
+                    ),
+                    data=payload,
+                )
                 response.raise_for_status()
-            except requests.HTTPError:  # pragma: no cover
-                #  TODO: Translation
+            except requests.exceptions.HTTPError as e:  # pragma: no cover
+                logger.error(f"{service_code}: {e}")
+                # TODO: Translation
                 raise RuntimeError(
-                    f"Error {response.status_code} while fetching data from the API"
+                    f"Error {e.response.status_code} while fetching layer data from the API"
+                )
+            except (
+                requests.exceptions.Timeout,
+                requests.exceptions.ConnectionError,
+            ) as e:  # pragma: no cover
+                logger.error(f"{service_code}: {e}")
+                # TODO: Translation
+                raise RuntimeError(
+                    "Connection error while fetching layer data from the API"
                 )
 
             xml_data, et = self.get_xml_data(response)
