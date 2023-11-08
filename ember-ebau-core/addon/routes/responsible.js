@@ -7,4 +7,12 @@ export default class ResponsibleRoute extends Route {
   model() {
     return this.ebauModules.instanceId;
   }
+
+  resetController(controller, isExiting) {
+    if (isExiting) {
+      controller._selectedUser = null;
+      controller.responsibilities = [];
+      controller.users = [];
+    }
+  }
 }
