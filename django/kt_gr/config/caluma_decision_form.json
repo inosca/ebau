@@ -371,10 +371,10 @@
     "pk": "decision-submit",
     "fields": {
       "created_at": "2023-06-21T10:36:14.796Z",
-      "modified_at": "2023-06-21T10:36:14.796Z",
+      "modified_at": "2023-11-08T13:37:32.382Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Entscheid verf\\u00fcgen\", \"fr\": null, \"it\": null}",
       "type": "action_button",
@@ -382,7 +382,7 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"Haben Sie den Entscheid im Men\\u00fc \\\"Dokumente\\\" hochgeladen und m\\u00f6chten Sie den Entscheid jetzt verf\\u00fcgen? Dieser Schritt kann nicht r\\u00fcckg\\u00e4ngig gemacht werden.\\n<br><br>\\nAnsonsten k\\u00f6nnen Sie unter \\\"Vorlagen\\\" den Entscheid generieren. Nachdem der Entscheid unter \\\"Dokumente\\\" abgelegt wurde, kann dieser verf\\u00fcgt werden.\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Haben Sie den Entscheid im Men\\u00fc \\\"Dokumente\\\" unter der Kategorie \\u201calle Beteiligten\\u201d hochgeladen und m\\u00f6chten Sie den Entscheid jetzt verf\\u00fcgen? Dieser Schritt kann nicht r\\u00fcckg\\u00e4ngig gemacht werden.\\n<br><br>\\nAnsonsten k\\u00f6nnen Sie unter \\\"Vorlagen\\\" den Entscheid generieren. Nachdem der Entscheid unter \\\"Dokumente\\\" abgelegt wurde, kann dieser verf\\u00fcgt werden.\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
