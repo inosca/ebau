@@ -68,7 +68,7 @@ export default class InstanceAbility extends Ability {
   get canReadApplicants() {
     return (
       this.canManageApplicants ||
-      parseInt(this.model?.activeService.get("id")) ===
+      parseInt(this.model?.activeService?.get("id")) ===
         parseInt(this.session.group?.get("service.id"))
     );
   }
