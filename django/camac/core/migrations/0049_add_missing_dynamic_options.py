@@ -51,7 +51,10 @@ def add_missing_dynamic_options(apps, schema_editor):
 
 class Migration(migrations.Migration):
 
-    dependencies = [("core", "0048_auto_20200123_1053")]
+    dependencies = [
+        ("core", "0048_auto_20200123_1053"),
+        ("caluma_form", "0030_auto_20200219_1359"),
+    ]
 
     operations = [
         migrations.RunPython(add_missing_dynamic_options, migrations.RunPython.noop)

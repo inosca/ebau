@@ -4,11 +4,13 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
-    dependencies = [("instance", "0015_instance_service")]
+    dependencies = [
+        ("instance", "0015_instance_service"),
+        ("caluma_form", "0021_auto_20190708_0905"),
+    ]
 
     operations = [
         migrations.RunSQL(
             """CREATE INDEX "document_instance_id" ON caluma_form_document((meta->'camac-instance-id'));"""
         )
     ]
-

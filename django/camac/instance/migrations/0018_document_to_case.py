@@ -307,7 +307,10 @@ def document_to_case(apps, schema_editor):
 
 class Migration(migrations.Migration):
 
-    dependencies = [("instance", "0017_fix_submit_date")]
+    dependencies = [
+        ("instance", "0017_fix_submit_date"),
+        ("caluma_workflow", "0027_add_modified_by_user_group"),
+    ]
 
     operations = [
         migrations.RunSQL(
