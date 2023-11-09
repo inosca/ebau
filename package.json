@@ -4,7 +4,8 @@
     "ember-camac-ng",
     "ember-caluma-portal",
     "ember-ebau-core",
-    "ember-ebau"
+    "ember-ebau",
+    "ember"
   ],
   "//": [
     "ember-concurrency: pending update in ember-simple-auth-oidc, ember-alexandria and ember-power-select",
