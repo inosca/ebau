@@ -52,6 +52,20 @@ mutation CreateMaterialExamTask {
   }
 }
 
+mutation CreateObjectionsTask {
+  saveCompleteTaskFormTask(
+    input: {
+      slug: "objections"
+      form: "einsprachen"
+      name: "Einsprachen erfassen"
+      addressGroups: "[\"municipality\"]|groups"
+      meta: "{\"directLink\":{\"route\":\"cases.detail.legal-submissions\",\"models\":[\"INSTANCE_ID\"]}}"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
 mutation CreatePublicationTask {
   saveSimpleTask(
     input: {

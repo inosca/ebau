@@ -117,4 +117,21 @@ export default {
     instanceState: "rejected",
     allowedInstanceStates: ["circulationInit", "circulation"],
   },
+  legalSubmission: {
+    task: "legal-submission",
+    tableForm: "legal-submission-form",
+    tableQuestion: "legal-submission-table",
+    orderQuestion: "legal-submission-receipt-date",
+    filters: {
+      types: "legal-submission-type",
+      status: "legal-submission-status",
+    },
+    columns: {
+      date: "legal-submission-receipt-date",
+      type: "legal-submission-type",
+      title: "legal-submission-title",
+      "legal-claimants": "legal-submission-legal-claimants-table-question",
+      status: "legal-submission-status",
+    },
+  },
 };

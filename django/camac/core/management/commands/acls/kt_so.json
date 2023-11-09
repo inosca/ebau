@@ -495,5 +495,42 @@
         "finished"
       ]
     }
+  },
+  "17": {
+    "label": "Meine Dossiers (Dossierliste für Gemeinden) > Einsprachen",
+    "acls": {
+      "municipality-clerk": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished",
+        "init-distribution"
+      ],
+      "municipality-lead": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished",
+        "init-distribution"
+      ],
+      "service-clerk": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished"
+      ],
+      "service-lead": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished"
+      ],
+      "subservice": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished"
+      ]
+    }
   }
 }

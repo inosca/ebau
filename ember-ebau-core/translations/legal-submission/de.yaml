@@ -10,6 +10,7 @@ legal-submission:
   title: "Titel"
   legal-claimants: "Rechtsbegehrende"
   status: "Status"
+  withdrawn: "Zurückgezogen?"
 
   loading-error: "Fehler beim Laden der Rechtsbegehren"
   create-error: "Fehler beim Erstellen des Rechtsbegehren"
