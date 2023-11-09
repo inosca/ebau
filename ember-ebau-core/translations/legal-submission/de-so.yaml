@@ -1,0 +1,13 @@
+legal-submission:
+  new: "Neue Einsprache"
+  edit: "Einsprache bearbeiten"
+
+  date: "Datum Poststempel / persönliche Abgabe"
+  legal-claimants: "Einsprechende"
+
+  loading-error: "Fehler beim Laden der Einsprachen"
+  create-error: "Fehler beim Erstellen des Einsprachen"
+
+  delete-confirm: "Wollen Sie die Einsprache wirklich löschen?"
+  delete-success: "Die Einsprache wurde erfolgreich gelöscht."
+  delete-error: "Fehler beim Löschen der Einsprache"

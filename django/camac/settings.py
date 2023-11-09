@@ -3519,7 +3519,7 @@ APPLICATIONS = {
                 "distribution": {"cancel": ["additional-demand"]},
                 # Complete, skip and cancel various work items after decision
                 "decision": {
-                    "skip": ["publication", "fill-publication"],
+                    "skip": ["publication", "fill-publication", "objections"],
                     "cancel": ["create-publication"],
                 },
             },
@@ -3592,6 +3592,10 @@ APPLICATIONS = {
             **DISTRIBUTION_DUMP_CONFIG,
             # Additional demand
             **ADDITIONAL_DEMAND_DUMP_CONFIG,
+            # Objections
+            "caluma_objection_form": generate_form_dump_config(
+                regex=r"^einsprache(n)?"
+            ),
         },
         "DUMP_CONFIG_EXCLUDED_MODELS": [
             "user.Group",
