@@ -1,4 +1,5 @@
 version: "3.4"
+
 services:
   cache:
     image: memcached:1.6-alpine
@@ -15,6 +16,7 @@ services:
       - cache
       - keycloak
       - mailhog
+      - s3-hooked
     environment:
       - DATABASE_HOST=db
       - DATABASE_NAME=${APPLICATION}
@@ -77,6 +79,18 @@ services:
       - FILE_STORAGE=storages.backends.s3boto3.S3Boto3Storage
       - AWS_STORAGE_BUCKET_NAME=dms-media
       - AWS_S3_SIGNATURE_VERSION=s3v4
+
+  s3-hooked:
+    image: ghcr.io/projectcaluma/s3-hooked:0.1.0
+    environment:
+      - PROXY_SECRET
+      - PROXY_OBJECT_STORE_HOST=${PROXY_OBJECT_STORE_HOST:-minio}
+      - PROXY_OBJECT_STORE_PORT=${PROXY_OBJECT_STORE_PORT:-9000}
+      - PROXY_OBJECT_STORE_SSL_ENABLED=${OBJECT_STORE_SSL_ENABLED:-true}
+      - PROXY_ENVIRONMENT=production
+
+  clamav:
+    image: tiredofit/clamav:2.3.0
 
 volumes:
   pgdata:
