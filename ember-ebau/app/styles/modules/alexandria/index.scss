@@ -1,0 +1,4 @@
+table.document-list tbody tr:has(svg[data-icon="ban"]) {
+  text-decoration: line-through;
+  color: $global-muted-color;
+}

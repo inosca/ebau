@@ -13,6 +13,7 @@ $main-navigation-background: $global-primary-background !default;
 @import "a11y";
 @import "power-select";
 
+@import "modules/alexandria";
 @import "modules/work-items";
 
 @import "components/main-navigation";
