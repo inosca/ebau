@@ -80,7 +80,9 @@ class CustomDynamicGroups(BaseDynamicGroups):
     def resolve_create_init_additional_demand(
         self, task, case, user, prev_work_item, context, **kwargs
     ):
-        if prev_work_item:
+        if prev_work_item and prev_work_item.task_id not in settings.APPLICATION[
+            "CALUMA"
+        ].get("SUBMIT_TASKS", []):
             target_ids = set()
 
             if prev_work_item.task_id == settings.ADDITIONAL_DEMAND["CREATE_TASK"]:
@@ -107,7 +109,8 @@ class CustomDynamicGroups(BaseDynamicGroups):
             return [str(pk) for pk in services.values_list("pk", flat=True)]
 
         # If no context is given it's the first "init-additional-demand" work
-        # item in the case which must be assigned to the municipality
+        # item in the case (either main case or distribution child case) which
+        # must be assigned to the municipality
         return self.resolve_municipality(
             task, case, user, prev_work_item, context, **kwargs
         )
