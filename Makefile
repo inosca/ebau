@@ -252,10 +252,21 @@ user-admin: ## Add most recent user to admin group
 	@docker compose exec db psql -Ucamac ${APPLICATION} -c 'insert into "USER_GROUP" ("DEFAULT_GROUP", "GROUP_ID", "USER_ID") values (1, 1, (select "USER_ID" from "USER" order by "USER_ID" desc limit 1));'
 
 .PHONY: debug-django
-debug-django: ## start a api container with service ports for debugging
+debug-django: ## attach shell to django container for debugging
+	@echo "attached debug shell to django container. Use CTRL+p - CTRL+q to exit."
+	@docker attach compose-django-1
+
+.PHONY: debug-django-service-ports
+debug-django-service-ports: ## start a api container with service ports for debugging
 	@docker compose stop django
 	@echo "Run './manage.py runserver 0:80' to start the debugging server"
 	@docker compose run --user root --use-aliases --service-ports django bash
+
+.PHONY: debug-s3-hooked
+debug-s3-hooked: ## start the s3-hooked container with editable source
+	@docker compose stop s3-hooked
+	@echo "Run 'adev runserver proxy' to start the debugging server"
+	@docker compose run --user root --use-aliases --service-ports s3-hooked bash
 
 .PHONY: load-be-dump
 load-be-dump: SHELL:=/bin/bash
