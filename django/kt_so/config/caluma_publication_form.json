@@ -79,6 +79,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "publikation.publikation-organ",
+    "fields": {
+      "created_at": "2023-11-09T10:24:00.889Z",
+      "modified_at": "2023-11-09T10:24:00.889Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "publikation",
+      "question": "publikation-organ",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "publikation.publikation-start",
     "fields": {
       "created_at": "2023-10-02T06:34:50.284Z",
@@ -90,6 +105,118 @@
       "form": "publikation",
       "question": "publikation-start",
       "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "publikation-organ-amtsblatt",
+    "fields": {
+      "created_at": "2023-11-09T10:24:00.315Z",
+      "modified_at": "2023-11-09T10:24:00.315Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Amtsblatt\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "publikation-organ-anzeiger-thal-gaeu-olten",
+    "fields": {
+      "created_at": "2023-11-09T10:24:00.331Z",
+      "modified_at": "2023-11-09T10:24:00.331Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anzeiger Thal G\\u00e4u Olten\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "publikation-organ-azeiger",
+    "fields": {
+      "created_at": "2023-11-09T10:24:00.229Z",
+      "modified_at": "2023-11-09T10:24:00.229Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Azeiger\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "publikation-organ-grenchner-stadt-anzeiger",
+    "fields": {
+      "created_at": "2023-11-09T10:24:00.125Z",
+      "modified_at": "2023-11-09T10:24:00.125Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Grenchner Stadt Anzeiger\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "publikation-organ-niederaemter-anzeiger",
+    "fields": {
+      "created_at": "2023-11-09T10:24:00.355Z",
+      "modified_at": "2023-11-09T10:24:00.356Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nieder\\u00e4mter Anzeiger\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "publikation-organ-wochenblatt-birseck-dorneck",
+    "fields": {
+      "created_at": "2023-11-09T10:24:00.304Z",
+      "modified_at": "2023-11-09T10:24:00.304Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wochenblatt Birseck / Dorneck\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "publikation-organ-wochenblatt-schwarzbubenland-laufenthal",
+    "fields": {
+      "created_at": "2023-11-09T10:24:00.440Z",
+      "modified_at": "2023-11-09T10:24:00.440Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wochenblatt Schwarzbubenland / Laufenthal\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
     }
   },
   {
@@ -227,6 +354,39 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "publikation-organ",
+    "fields": {
+      "created_at": "2023-11-09T10:24:00.657Z",
+      "modified_at": "2023-11-09T10:24:15.357Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Publikationsorgan\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/powerselect"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "publikation-start",
     "fields": {
       "created_at": "2023-10-02T06:34:50.079Z",
@@ -256,6 +416,111 @@
       "default_answer": null,
       "calc_expression": null,
       "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "publikation-organ.publikation-organ-amtsblatt",
+    "fields": {
+      "created_at": "2023-11-09T10:24:15.395Z",
+      "modified_at": "2023-11-09T10:24:15.395Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "publikation-organ",
+      "option": "publikation-organ-amtsblatt",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "publikation-organ.publikation-organ-anzeiger-thal-gaeu-olten",
+    "fields": {
+      "created_at": "2023-11-09T10:24:15.381Z",
+      "modified_at": "2023-11-09T10:24:15.381Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "publikation-organ",
+      "option": "publikation-organ-anzeiger-thal-gaeu-olten",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "publikation-organ.publikation-organ-azeiger",
+    "fields": {
+      "created_at": "2023-11-09T10:24:15.390Z",
+      "modified_at": "2023-11-09T10:24:15.390Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "publikation-organ",
+      "option": "publikation-organ-azeiger",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "publikation-organ.publikation-organ-grenchner-stadt-anzeiger",
+    "fields": {
+      "created_at": "2023-11-09T10:24:15.386Z",
+      "modified_at": "2023-11-09T10:24:15.386Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "publikation-organ",
+      "option": "publikation-organ-grenchner-stadt-anzeiger",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "publikation-organ.publikation-organ-niederaemter-anzeiger",
+    "fields": {
+      "created_at": "2023-11-09T10:24:15.377Z",
+      "modified_at": "2023-11-09T10:24:15.377Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "publikation-organ",
+      "option": "publikation-organ-niederaemter-anzeiger",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "publikation-organ.publikation-organ-wochenblatt-birseck-dorneck",
+    "fields": {
+      "created_at": "2023-11-09T10:24:15.373Z",
+      "modified_at": "2023-11-09T10:24:15.373Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "publikation-organ",
+      "option": "publikation-organ-wochenblatt-birseck-dorneck",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "publikation-organ.publikation-organ-wochenblatt-schwarzbubenland-laufenthal",
+    "fields": {
+      "created_at": "2023-11-09T10:24:15.367Z",
+      "modified_at": "2023-11-09T10:24:15.367Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "publikation-organ",
+      "option": "publikation-organ-wochenblatt-schwarzbubenland-laufenthal",
+      "sort": 1
     }
   }
 ]

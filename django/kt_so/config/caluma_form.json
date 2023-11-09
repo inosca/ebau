@@ -78,6 +78,24 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "bauprojekt-erdwaermesonde",
+    "fields": {
+      "created_at": "2023-11-09T10:31:01.989Z",
+      "modified_at": "2023-11-09T10:31:01.989Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Bauprojekt Erdw\\u00e4rmesonde\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "bauten-ausserhalb-bauzone",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -2273,6 +2291,51 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "bauprojekt-erdwaermesonde.gebaeude",
+    "fields": {
+      "created_at": "2023-11-09T10:32:33.431Z",
+      "modified_at": "2023-11-09T10:32:33.431Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauprojekt-erdwaermesonde",
+      "question": "gebaeude",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauprojekt-erdwaermesonde.gebaeudetechnik",
+    "fields": {
+      "created_at": "2023-11-09T10:33:18.191Z",
+      "modified_at": "2023-11-09T10:33:18.191Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauprojekt-erdwaermesonde",
+      "question": "gebaeudetechnik",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauprojekt-erdwaermesonde.umschreibung-bauprojekt",
+    "fields": {
+      "created_at": "2023-11-09T10:32:12.467Z",
+      "modified_at": "2023-11-09T10:32:12.467Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauprojekt-erdwaermesonde",
+      "question": "umschreibung-bauprojekt",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "bauprojekt.gesamtkosten",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -4458,7 +4521,22 @@
       "modified_by_group": null,
       "form": "erdwaermesonden",
       "question": "allgemeine-informationen",
-      "sort": 7
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "erdwaermesonden.bauprojekt-erdwaermesonde",
+    "fields": {
+      "created_at": "2023-11-09T10:31:29.707Z",
+      "modified_at": "2023-11-09T10:31:29.707Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "erdwaermesonden",
+      "question": "bauprojekt-erdwaermesonde",
+      "sort": 4
     }
   },
   {
@@ -4488,7 +4566,7 @@
       "modified_by_group": null,
       "form": "erdwaermesonden",
       "question": "durchgefuehrte-vorabklaerungen",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -4533,7 +4611,7 @@
       "modified_by_group": null,
       "form": "erdwaermesonden",
       "question": "lokalisierung",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -4548,22 +4626,7 @@
       "modified_by_group": null,
       "form": "erdwaermesonden",
       "question": "personalien",
-      "sort": 4
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "erdwaerme.umschreibung-bauprojekt",
-    "fields": {
-      "created_at": "2023-11-02T07:40:19.157Z",
-      "modified_at": "2023-11-02T07:40:19.157Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "erdwaerme",
-      "question": "umschreibung-bauprojekt",
-      "sort": 48
+      "sort": 5
     }
   },
   {
@@ -17992,6 +18055,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "bauprojekt-erdwaermesonde",
+    "fields": {
+      "created_at": "2023-11-09T10:31:29.472Z",
+      "modified_at": "2023-11-09T10:31:29.472Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bauprojekt\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "bauprojekt-erdwaermesonde",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "bauprojekt-titel",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -24241,7 +24335,7 @@
     "pk": "gebaeudetechnik",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-08-30T08:52:42.309Z",
+      "modified_at": "2023-11-09T10:34:45.208Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -24249,7 +24343,7 @@
       "label": "{\"de\": \"Geb\\u00e4udetechnik\", \"fr\": null, \"it\": null}",
       "type": "table",
       "is_required": "true",
-      "is_hidden": "\"haustechnische-anlagen-erstellt\"|answer != \"haustechnische-anlagen-erstellt-ja\"",
+      "is_hidden": "info.root.form != \"erdwaermesonden\" && \"haustechnische-anlagen-erstellt\"|answer != \"haustechnische-anlagen-erstellt-ja\"",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -32386,7 +32480,7 @@
     "pk": "umschreibung-bauprojekt",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-11-02T07:41:23.528Z",
+      "modified_at": "2023-11-09T10:30:15.928Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -32394,7 +32488,7 @@
       "label": "{\"de\": \"Umschreibung Bauprojekt\", \"fr\": null, \"it\": null}",
       "type": "text",
       "is_required": "true",
-      "is_hidden": "info.parent.form == \"erdwaerme\" && info.root.form != \"erdwaermesonden\"",
+      "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"zum Beispiel: Neubau Einfamilienhaus mit Carport\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"Bitte geben Sie eine m\\u00f6glichst detaillierte Beschreibung Ihres Vorhabens ein z.B. \\\"Neubau Einfamilienhaus mit Carport\\\".  Die hier angegebenen Eingaben werden unter anderem auch bei der Suche nach Dossiers abgefragt.\", \"fr\": null, \"it\": null}",
