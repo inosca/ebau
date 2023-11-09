@@ -79,4 +79,7 @@ export default {
       "decision-decision-retreat": "uk-alert-warning",
     },
   },
+  alexandria: {
+    enabledMarks: ["decision", "publication"],
+  },
 };

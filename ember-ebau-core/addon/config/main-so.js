@@ -69,6 +69,9 @@ const config = {
       "entscheid-entscheid-rueckzug": "uk-alert-warning",
     },
   },
+  alexandria: {
+    enabledMarks: ["decision", "publication", "void"],
+  },
 };
 
 config.intentSlugs = [config.answerSlugs.description];
