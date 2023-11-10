@@ -1,0 +1,33 @@
+permissions:
+  empty: Keine Einträge gefunden.
+  new: Neue Berechtigung erstellen
+  create: Erstellen
+  saveError: Beim Speichern ist ein Fehler aufgetreten, bitte versuchen Sie es erneut.
+  fetchError: Fehler beim Laden der ACL.
+ 
+  details:
+    heading: Informationen zur Berechtigung
+    entity-name: Berechtigte Entität
+    entity-email: E-Mail
+    access-level: Zugangsstufe
+    start-time: Gültig von
+    end-time: Gültig bis
+    status: Status
+    created-at: Erstellt am
+    created-by: Erstellt von
+    revoked-by: Entzogen von
+
+  status:
+    active: Aktiv
+    inactive: Inaktiv
+    all: Alle
+
+   # those have to be added manually according to the configured acls 
+  access-level:
+    all-levels: Alle Zugangsstufen
+    public-access: Öffentlich
+    registered-user: Antragstellende
+    service: Behörde
+    controlling: Mitarbeiter
+    token: Zugangscode
+
