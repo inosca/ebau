@@ -54,7 +54,7 @@ urlpatterns = [
         CamacAuthenticatedGraphQLView.as_view(graphiql=settings.DEBUG),
         name="graphql",
     ),
-    re_path(r"^alexandria/api/v1/", include("alexandria.core.urls")),
+    re_path(r"^alexandria/api/v1/", include("camac.alexandria.urls")),
     re_path(
         r"^api/swagger(?P<format>\.json|\.yaml)$",
         schema_view.without_ui(cache_timeout=0),
