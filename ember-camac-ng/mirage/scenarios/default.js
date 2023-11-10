@@ -1,3 +1,5 @@
+import { faker } from "@faker-js/faker";
+
 export default function (server) {
   server.create("service", { id: 20032 }); // Amt für Gemeinden und Raumordnung - Abteilung Bauen
   server.create("service", { id: 2 }); // Leitbehörde Burgdorf
@@ -11,5 +13,32 @@ export default function (server) {
 
   server.createList("notification-template", 3);
 
-  server.createList("user-group", 10);
+  server.create("access-level", {
+    slug: "service",
+    requiredGrantType: "service",
+  });
+  server.create("access-level", {
+    slug: "controlling",
+    requiredGrantType: "user",
+  });
+  server.create("access-level", {
+    slug: "token",
+    requiredGrantType: "token",
+  });
+  server.create("access-level", {
+    slug: "registered-user",
+    requiredGrantType: "authenticated-public",
+  });
+  server.create("access-level", {
+    slug: "public-access",
+    requiredGrantType: "anonymous-public",
+  });
+
+  server.createList("user-group", 5).forEach((userGroup) => {
+    server
+      .createList("user", 2, { defaultGroup: userGroup })
+      .forEach((user) => {
+        server.create("instance-acl", { user });
+      });
+  });
 }

@@ -5,6 +5,7 @@ import { DateTime } from "luxon";
 import { createServer } from "miragejs";
 
 import mainConfig from "ember-ebau-core/config/main";
+import applyTestQueryParamsFilter from "ember-ebau-core/utils/apply-test-query-params-filter";
 
 export default function makeServer(config) {
   return createServer({
@@ -14,6 +15,7 @@ export default function makeServer(config) {
       this.namespace = "/api/v1";
       this.timing = 400;
 
+      this.resource("access-levels", { only: ["index"] });
       this.resource("history-entries", { only: ["index"] });
       this.resource("journal-entries");
       this.resource("attachments");
@@ -120,6 +122,15 @@ export default function makeServer(config) {
         const message = schema.communicationsMessages.find(request.params.id);
         message.update({ readAt: undefined });
         return message;
+      });
+
+      this.resource("instance-acls", { only: ["index", "show"] });
+      this.get("instance-acls", (schema, { queryParams }) => {
+        const filtered = applyTestQueryParamsFilter(
+          schema.instanceAcls.all(),
+          queryParams,
+        );
+        return filtered;
       });
 
       this.namespace = ""; // reset namespace
