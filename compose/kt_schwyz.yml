@@ -59,7 +59,8 @@ services:
 
   ember:
     build:
-      context: ../ember
+      context: ../
+      dockerfile: ./ember/Dockerfile
       cache_from:
         - acr.run/camac-ng/camac-ng/ember:master
 
