@@ -19,7 +19,6 @@ services:
       - document-merge-service
       - ember-ebau
       - minio
-      - s3-hooked
     ports:
       - "80:80"
     networks:
@@ -60,8 +59,6 @@ services:
     build:
       args:
         REQUIREMENTS: requirements-dev.txt
-    tty: true
-    stdin_open: true
     ports:
       - "5555:5555"
       - "5678:5678"
@@ -152,7 +149,7 @@ services:
       - EXTENSIONS_ARGUMENTS=DJANGO_API=http://django
       - AWS_S3_ACCESS_KEY_ID=minio
       - AWS_S3_SECRET_ACCESS_KEY=minio123
-      - AWS_S3_ENDPOINT_URL=http://s3-hooked:8000
+      - AWS_S3_ENDPOINT_URL=http://minio:9000
     user: "${UID:?Set UID env variable to your user id}"
     volumes:
       - ../document-merge-service/extensions:/app/document_merge_service/extensions
@@ -172,7 +169,8 @@ services:
       - MINIO_ROOT_USER=minio
       - MINIO_ROOT_PASSWORD=minio123
       - MINIO_BROWSER_REDIRECT_URL=http://ember-ebau.local/minio/ui
-      - MINIO_NOTIFY_WEBHOOK_ENABLE_ALEXANDRIA=off
+      - MINIO_NOTIFY_WEBHOOK_ENABLE_ALEXANDRIA=on
+      - MINIO_NOTIFY_WEBHOOK_ENDPOINT_ALEXANDRIA=http://django:80/alexandria/api/v1/hook
     command: server data --console-address ":9090"
     networks:
       - ebau.local
@@ -189,35 +187,6 @@ services:
     entrypoint: /entrypoint.sh
     depends_on:
       - minio
-    networks:
-      - ebau.local
-
-  s3-hooked:
-    environment:
-      - PROXY_SECRET=12341234abcde
-      - PROXY_OBJECT_STORE_SSL_ENABLED=${PROXY_OBJECT_STORE_SSL_ENABLED:-false}
-      - PYTHONBREAKPOINT=ipdb.set_trace
-      - PROXY_ENVIRONMENT=development
-      - PROXY_LOG_LEVEL=${PROXY_LOG_LEVEL:-info}
-      - PROXY_CLAMD_ENABLED=false
-    volumes:
-      - ../s3-hooked/hooks.py:/app/proxy/hooks.py:ro
-    depends_on:
-      - minio
-    tty: true
-    stdin_open: true
-    ports:
-      - "8080:8000"
-    networks:
-      - ebau.local
-
-  clamav:
-    profiles:
-      - full
-    ports:
-      - "3310:3310"
-    environment:
-      - ENABLE_DEFINITIONS_UPDATE=false
     networks:
       - ebau.local
 

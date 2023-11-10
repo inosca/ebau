@@ -59,8 +59,6 @@ services:
     ports:
       - "5555:5555"
       - "5678:5678"
-    tty: true
-    stdin_open: true
     volumes:
       - ../django:/app
       - djangomedia:/var/lib/camac/media
