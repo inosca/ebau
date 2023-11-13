@@ -4656,7 +4656,7 @@
       "template": null,
       "class_field": "displaySearch",
       "hidden": 0,
-      "sort": 2
+      "sort": 1
     }
   },
   {
@@ -4669,7 +4669,7 @@
       "template": null,
       "class_field": "displaySearch",
       "hidden": 0,
-      "sort": 3
+      "sort": 2
     }
   },
   {
@@ -4682,7 +4682,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 1
+      "sort": 0
     }
   },
   {
@@ -4695,7 +4695,7 @@
       "template": null,
       "class_field": "displaySearch",
       "hidden": 0,
-      "sort": 5
+      "sort": 4
     }
   },
   {
@@ -4708,7 +4708,7 @@
       "template": "/ember-camac-ng/dms-admin.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 6
+      "sort": 5
     }
   },
   {
@@ -4721,7 +4721,7 @@
       "template": "/ember-camac-ng/service-permissions.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 7
+      "sort": 6
     }
   },
   {
@@ -4734,7 +4734,7 @@
       "template": null,
       "class_field": "displaySearch",
       "hidden": 0,
-      "sort": 4
+      "sort": 3
     }
   },
   {
@@ -4747,7 +4747,7 @@
       "template": "/dashboard/news.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 0
+      "sort": 7
     }
   },
   {
