@@ -107,7 +107,7 @@ class TopicSerializer(serializers.ModelSerializer):
     initiated_by_entity = EntityField(required=False)
 
     def get_dossier_number(self, topic):
-        lookup = settings.APPLICATION["COMMUNICATIONS"]["dossier_number_lookup"]
+        lookup = settings.COMMUNICATIONS["NOTIFICATIONS"]["DOSSIER_NUMBER_LOOKUP"]
         return lookup(topic.instance)
 
     def _validate_entity(self, value):

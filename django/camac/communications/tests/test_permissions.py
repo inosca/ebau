@@ -289,10 +289,15 @@ def test_adding_message_with_allow_replies(
     topic_with_admin_involved,
     has_other_messages,
     notification_template,
-    application_settings,
+    communications_settings,
     expect_status,
 ):
-    application_settings["COMMUNICATIONS"]["template_slug"] = notification_template.slug
+    communications_settings["NOTIFICATIONS"]["APPLICANT"][
+        "template_slug"
+    ] = notification_template.slug
+    communications_settings["NOTIFICATIONS"]["INTERNAL_INVOLVED_ENTITIES"][
+        "template_slug"
+    ] = notification_template.slug
 
     """Check whether we can add messages if topic forbids it"""
     if role.name == "Applicant":
