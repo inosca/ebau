@@ -14,14 +14,15 @@ from camac.instance.tests.test_instance_public import (  # noqa: F401
 )
 
 
-@pytest.mark.parametrize("is_nested_category", [True, False])
+@pytest.mark.parametrize("instance__user", [LazyFixture("user")])
 @pytest.mark.parametrize(
-    "role__name,instance__user",
+    "role__name,is_nested_category,expected",
     [
-        ("applicant", LazyFixture("user")),
-        ("municipality", LazyFixture("user")),
-        ("service", LazyFixture("user")),
-        ("public", LazyFixture("user")),
+        ("applicant", False, ["municipality", "invitee", "applicant"]),
+        ("municipality", False, ["municipality"]),
+        ("municipality", True, ["municipality"]),
+        ("service", False, ["service"]),
+        ("public", False, ["public"]),
     ],
 )
 def test_document_visibility(
@@ -35,22 +36,24 @@ def test_document_visibility(
     publication_settings,
     applicant_factory,
     create_caluma_publication,  # noqa: F811
-    snapshot,
     is_nested_category,
+    expected,
 ):
     applicant_factory(invitee=admin_client.user, instance=instance)
 
     # directly readble
-    applicant_category = CategoryFactory(metainfo={"access": {"applicant": "Admin"}})
-    municipality_category = CategoryFactory(
-        metainfo={"access": {"municipality": "Read"}}
+    applicant_category = CategoryFactory(
+        metainfo={"access": {"applicant": {"visibility": "all"}}}
     )
-    service_category = CategoryFactory(metainfo={"access": {"service": "InternalRead"}})
+    municipality_category = CategoryFactory(
+        metainfo={"access": {"municipality": {"visibility": "all"}}}
+    )
+    service_category = CategoryFactory(
+        metainfo={"access": {"service": {"visibility": "service"}}}
+    )
 
     if is_nested_category:
-        applicant_category = CategoryFactory(parent=applicant_category)
         municipality_category = CategoryFactory(parent=municipality_category)
-        service_category = CategoryFactory(parent=service_category)
 
     DocumentFactory(
         category=applicant_category,
@@ -103,11 +106,8 @@ def test_document_visibility(
 
     assert response.status_code == HTTP_200_OK
     json = response.json()
-    snapshot.assert_match(
-        sorted(
-            [{"title": obj["attributes"]["title"]["de"]} for obj in json["data"]],
-            key=lambda o: o["title"],
-        )
+    assert set([obj["attributes"]["title"]["de"] for obj in json["data"]]) == set(
+        expected
     )
 
 
@@ -132,11 +132,15 @@ def test_file_visibility(
     is_nested_category,
 ):
     applicant_factory(invitee=admin_client.user, instance=instance)
-    applicant_category = CategoryFactory(metainfo={"access": {"applicant": "Admin"}})
-    municipality_category = CategoryFactory(
-        metainfo={"access": {"municipality": "Read"}}
+    applicant_category = CategoryFactory(
+        metainfo={"access": {"applicant": {"visibility": "all"}}}
     )
-    service_category = CategoryFactory(metainfo={"access": {"service": "Internal"}})
+    municipality_category = CategoryFactory(
+        metainfo={"access": {"municipality": {"visibility": "all"}}}
+    )
+    service_category = CategoryFactory(
+        metainfo={"access": {"service": {"visibility": "service"}}}
+    )
 
     if is_nested_category:
         applicant_category = CategoryFactory(parent=applicant_category)
@@ -166,52 +170,46 @@ def test_file_visibility(
     assert len(json["data"]) == expected_count
 
 
-@pytest.mark.parametrize("is_nested_category", [True, False])
 @pytest.mark.parametrize(
-    "role__name,expected_count",
+    "role__name,expected",
     [
-        ("applicant", 1),
-        ("municipality", 3),
-        ("service", 2),
+        ("applicant", ["common"]),
+        ("municipality", ["common", "municipality", "municipality-parent", "service"]),
+        ("service", ["common", "service"]),
     ],
 )
-def test_category_visibility(
-    db, admin_client, role, expected_count, snapshot, is_nested_category
-):
-    categories = [
-        CategoryFactory(
-            metainfo={
-                "access": {
-                    "applicant": "Admin",
-                    "municipality": "Read",
-                    "service": "Read",
-                }
+def test_category_visibility(db, admin_client, role, expected):
+    CategoryFactory(
+        slug="common",
+        metainfo={
+            "access": {
+                "applicant": {"visibility": "all"},
+                "municipality": {"visibility": "all"},
+                "service": {"visibility": "all"},
             }
-        ),
-        CategoryFactory(metainfo={"access": {"municipality": "Read"}}),
-        CategoryFactory(
-            metainfo={"access": {"service": "Internal", "municipality": "Read"}}
-        ),
-    ]
-
-    if is_nested_category:
-        for category in categories:
-            CategoryFactory(parent=category)
-
-        expected_count *= 2
+        },
+    )
+    municipality_category = CategoryFactory(
+        slug="municipality",
+        metainfo={"access": {"municipality": {"visibility": "all"}}},
+    )
+    CategoryFactory(slug="municipality-parent", parent=municipality_category)
+    CategoryFactory(
+        slug="service",
+        metainfo={
+            "access": {
+                "service": {"visibility": "service"},
+                "municipality": {"visibility": "all"},
+            }
+        },
+    )
 
     url = reverse("category-list")
     response = admin_client.get(url)
 
     assert response.status_code == HTTP_200_OK
     json = response.json()
-    assert len(json["data"]) == expected_count
-    snapshot.assert_match(
-        [
-            {"id": obj["id"], "metainfo": obj["attributes"]["metainfo"]}
-            for obj in json["data"]
-        ]
-    )
+    assert set([obj["id"] for obj in json["data"]]) == set(expected)
 
 
 @pytest.mark.parametrize(

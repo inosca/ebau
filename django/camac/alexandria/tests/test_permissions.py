@@ -15,56 +15,188 @@ from rest_framework.status import (
     HTTP_405_METHOD_NOT_ALLOWED,
 )
 
-from camac.alexandria.extensions.permissions import classes as permissions, kt_gr
-
 
 @pytest.mark.parametrize(
-    "role__name,method,status_code,metainfo",
+    "role__name,method,status_code,access",
     [
         (
             "applicant",
             "post",
             HTTP_201_CREATED,
-            {"access": {"applicant": "Admin"}},
+            {
+                "applicant": {
+                    "visibility": "all",
+                    "permissions": [
+                        {"permission": "create", "scope": "All"},
+                    ],
+                },
+            },
         ),
-        ("applicant", "patch", HTTP_200_OK, {"access": {"applicant": "Admin"}}),
+        (
+            "applicant",
+            "post",
+            HTTP_201_CREATED,
+            {
+                "applicant": {
+                    "visibility": "all",
+                    "permissions": [
+                        {
+                            "permission": "create",
+                            "fields": ["title", "metainfo", "category"],
+                            "scope": "All",
+                        },
+                    ],
+                },
+            },
+        ),
+        (
+            "applicant",
+            "post",
+            HTTP_403_FORBIDDEN,
+            {
+                "applicant": {
+                    "visibility": "all",
+                    "permissions": [
+                        {
+                            "permission": "create",
+                            "fields": ["description"],
+                            "scope": "All",
+                        },
+                    ],
+                },
+            },
+        ),
+        (
+            "applicant",
+            "patch",
+            HTTP_200_OK,
+            {
+                "applicant": {
+                    "visibility": "all",
+                    "permissions": [
+                        {
+                            "permission": "update",
+                            "scope": "All",
+                        },
+                    ],
+                },
+            },
+        ),
+        (
+            "applicant",
+            "patch",
+            HTTP_200_OK,
+            {
+                "applicant": {
+                    "visibility": "all",
+                    "permissions": [
+                        {
+                            "permission": "update",
+                            "fields": ["title"],
+                            "scope": "All",
+                        },
+                    ],
+                },
+            },
+        ),
+        (
+            "applicant",
+            "patch",
+            HTTP_403_FORBIDDEN,
+            {
+                "applicant": {
+                    "visibility": "all",
+                    "permissions": [
+                        {
+                            "permission": "update",
+                            "fields": ["description"],
+                            "scope": "All",
+                        },
+                    ],
+                },
+            },
+        ),
         (
             "applicant",
             "delete",
             HTTP_204_NO_CONTENT,
-            {"access": {"applicant": "Admin"}},
+            {
+                "applicant": {
+                    "visibility": "all",
+                    "permissions": [
+                        {
+                            "permission": "delete",
+                            "scope": "All",
+                        },
+                    ],
+                },
+            },
+        ),
+        (
+            "applicant",
+            "delete",
+            HTTP_403_FORBIDDEN,
+            {
+                "applicant": {
+                    "visibility": "all",
+                    "permissions": [
+                        {
+                            "permission": "create",
+                            "scope": "All",
+                        },
+                    ],
+                },
+            },
         ),
         (
             "municipality",
             "post",
             HTTP_403_FORBIDDEN,
-            {"access": {"applicant": "Admin"}},
-        ),
-        (
-            "municipality",
-            "patch",
-            HTTP_404_NOT_FOUND,
-            {"access": {"applicant": "Admin"}},
-        ),
-        (
-            "municipality",
-            "delete",
-            HTTP_404_NOT_FOUND,
-            {"access": {"applicant": "Admin"}},
+            {
+                "applicant": {
+                    "visibility": "all",
+                    "permissions": [
+                        {
+                            "permission": "create",
+                            "fields": ["title", "metainfo", "category"],
+                            "scope": "All",
+                        },
+                    ],
+                },
+            },
         ),
         (
             "service",
             "post",
             HTTP_201_CREATED,
-            {"access": {"service": "Write"}},
+            {
+                "service": {
+                    "visibility": "all",
+                    "permissions": [
+                        {
+                            "permission": "create",
+                            "fields": ["title", "metainfo", "category"],
+                        },
+                    ],
+                },
+            },
         ),
-        ("service", "patch", HTTP_200_OK, {"access": {"service": "Write"}}),
-        ("service", "patch", HTTP_200_OK, {"access": {"service": "InternalAdmin"}}),
         (
             "service",
-            "delete",
-            HTTP_403_FORBIDDEN,
-            {"access": {"service": "Write"}},
+            "patch",
+            HTTP_200_OK,
+            {
+                "service": {
+                    "visibility": "all",
+                    "permissions": [
+                        {
+                            "permission": "update",
+                            "fields": ["title"],
+                            "scope": "All",
+                        },
+                    ],
+                },
+            },
         ),
     ],
 )
@@ -75,12 +207,12 @@ def test_document_permission(
     admin_client,
     caluma_admin_user,
     instance,
-    metainfo,
+    access,
     method,
     status_code,
 ):
     applicant_factory(invitee=admin_client.user, instance=instance)
-    alexandria_category = CategoryFactory(metainfo=metainfo)
+    alexandria_category = CategoryFactory(metainfo={"access": access})
     url = reverse("document-list")
 
     data = {
@@ -121,44 +253,105 @@ def test_document_permission(
 
 
 @pytest.mark.parametrize(
-    "role__name,method,status_code,metainfo",
+    "role__name,method,status_code,access",
     [
         (
             "applicant",
             "post",
             HTTP_201_CREATED,
-            {"access": {"applicant": "Admin"}},
+            {
+                "applicant": {
+                    "visibility": "all",
+                    "permissions": [
+                        {"permission": "create", "scope": "All"},
+                    ],
+                },
+            },
+        ),
+        (
+            "applicant",
+            "post",
+            HTTP_201_CREATED,
+            {
+                "applicant": {
+                    "visibility": "all",
+                    "permissions": [
+                        {"permission": "create", "fields": ["files"], "scope": "All"},
+                    ],
+                },
+            },
+        ),
+        (
+            "applicant",
+            "post",
+            HTTP_403_FORBIDDEN,
+            {
+                "applicant": {
+                    "visibility": "all",
+                    "permissions": [
+                        {"permission": "create", "fields": ["title"], "scope": "All"},
+                    ],
+                },
+            },
         ),
         (
             "applicant",
             "patch",
             HTTP_405_METHOD_NOT_ALLOWED,
-            {"access": {"applicant": "Admin"}},
+            {
+                "applicant": {
+                    "visibility": "all",
+                    "permissions": [
+                        {"permission": "update", "scope": "All"},
+                    ],
+                },
+            },
         ),
         (
             "applicant",
             "delete",
             HTTP_405_METHOD_NOT_ALLOWED,
-            {"access": {"applicant": "Admin"}},
+            {
+                "applicant": {
+                    "visibility": "all",
+                    "permissions": [
+                        {"permission": "delete", "scope": "All"},
+                    ],
+                },
+            },
         ),
         (
             "municipality",
             "post",
             HTTP_403_FORBIDDEN,
-            {"access": {"applicant": "Admin"}},
+            {
+                "applicant": {
+                    "visibility": "all",
+                    "permissions": [
+                        {"permission": "create", "scope": "All"},
+                    ],
+                },
+            },
         ),
         (
             "service",
             "post",
             HTTP_201_CREATED,
-            {"access": {"service": "Write"}},
+            {
+                "service": {
+                    "visibility": "all",
+                    "permissions": [
+                        {"permission": "create", "scope": "All"},
+                    ],
+                },
+            },
         ),
     ],
 )
 def test_file_permission(
-    db, role, minio_mock, admin_client, instance, metainfo, method, status_code
+    db, role, minio_mock, admin_client, instance, access, method, status_code
 ):
-    alexandria_category = CategoryFactory(metainfo=metainfo)
+    alexandria_category = CategoryFactory(metainfo={"access": access})
     doc = DocumentFactory(
         title="Foo",
         category=alexandria_category,
@@ -276,214 +469,22 @@ def test_category_permission(
     assert response.status_code == HTTP_405_METHOD_NOT_ALLOWED
 
 
-@pytest.mark.parametrize(
-    "instance_state__name,role__name,service_group__name,method,status_code,metainfo",
-    [
-        # AdminNew
-        (
-            "new",
-            "applicant",
-            None,
-            "post",
-            HTTP_201_CREATED,
-            {"access": {"applicant": "AdminNew"}},
-        ),
-        (
-            "new",
-            "applicant",
-            None,
-            "patch",
-            HTTP_200_OK,
-            {"access": {"applicant": "AdminNew"}},
-        ),
-        (
-            "subm",
-            "applicant",
-            None,
-            "post",
-            HTTP_403_FORBIDDEN,
-            {"access": {"applicant": "AdminNew"}},
-        ),
-        # InternalAdminCirculation
-        (
-            "subm",
-            "service",
-            "authority-bab",
-            "delete",
-            HTTP_404_NOT_FOUND,
-            {"access": {"service": "InternalAdminCirculation"}},
-        ),
-        (
-            "subm",
-            "service",
-            "service",
-            "post",
-            HTTP_201_CREATED,
-            {"access": {"service": "InternalAdminCirculation"}},
-        ),
-        (
-            "subm",
-            "service",
-            "service",
-            "delete",
-            HTTP_403_FORBIDDEN,
-            {"access": {"service": "InternalAdminCirculation"}},
-        ),
-        (
-            "circulation",
-            "service",
-            "service",
-            "delete",
-            HTTP_204_NO_CONTENT,
-            {"access": {"service": "InternalAdminCirculation"}},
-        ),
-        # AdminAdditionalDemand
-        (
-            "init-distribution",
-            "applicant",
-            None,
-            "post",
-            HTTP_201_CREATED,
-            {"access": {"applicant": "AdminAdditionalDemand"}},
-        ),
-        (
-            "init-distribution",
-            "applicant",
-            None,
-            "patch",
-            HTTP_200_OK,
-            {"access": {"applicant": "AdminAdditionalDemand"}},
-        ),
-        (
-            "init-distribution",
-            "applicant",
-            None,
-            "delete",
-            HTTP_403_FORBIDDEN,
-            {"access": {"applicant": "AdminAdditionalDemand"}},
-        ),
-        (
-            "init-distribution",
-            "applicant",
-            None,
-            "delete",
-            HTTP_204_NO_CONTENT,
-            {"access": {"applicant": "AdminAdditionalDemand"}},
-        ),
-    ],
-)
-def test_kt_gr_permissions(
-    db,
-    role,
-    minio_mock,
-    set_application_gr,
-    applicant_factory,
-    settings,
-    additional_demand_settings,
-    mocker,
-    admin_client,
-    caluma_admin_user,
-    task_factory,
-    work_item_factory,
-    gr_instance,
-    metainfo,
-    method,
-    status_code,
-):
-    applicant_factory(invitee=admin_client.user, instance=gr_instance)
-    settings.APPLICATION_NAME = "kt_gr"
-    mocker.patch("camac.alexandria.extensions.permissions.permissions", permissions)
-
-    if status_code != HTTP_403_FORBIDDEN:
-        work_item = work_item_factory(
-            task=task_factory(slug=additional_demand_settings["FILL_TASK"]),
-            document=gr_instance.case.document,
-        )
-        gr_instance.case.work_items.add(work_item)
-
-    alexandria_category = CategoryFactory(metainfo=metainfo)
-    url = reverse("document-list")
-
-    doc_metainfo = {
-        "camac-instance-id": gr_instance.pk,
-        "caluma-document-id": str(gr_instance.case.document.pk),
-    }
-    data = {
-        "data": {
-            "type": "documents",
-            "attributes": {
-                "title": {"de": "Foo"},
-                "description": {"de": "Important"},
-                "metainfo": doc_metainfo,
-            },
-            "relationships": {
-                "category": {
-                    "data": {
-                        "id": alexandria_category.pk,
-                        "type": "categories",
-                    },
-                },
-            },
-        },
-    }
-
-    if method in ["patch", "delete"]:
-        doc = DocumentFactory(
-            title="Foo",
-            description="Foo",
-            category=alexandria_category,
-            metainfo=doc_metainfo,
-            created_by_group=caluma_admin_user.group,
-        )
-        url = reverse("document-detail", args=[doc.pk])
-        data["data"]["id"] = str(doc.pk)
-
-    response = getattr(admin_client, method)(url, data)
-
-    assert response.status_code == status_code
-
-    if method == "post" and status_code == HTTP_201_CREATED:
-        result = response.json()
-        assert result["data"]["attributes"]["description"]["de"] == "Important"
-
-    # file permissions should be the same as document
-    if method in ["patch", "delete"]:
-        return
-
-    doc = DocumentFactory(
-        title="Foo",
-        category=alexandria_category,
-        metainfo=doc_metainfo,
-    )
-    url = reverse("file-list")
-
-    data = {
-        "data": {
-            "type": "files",
-            "attributes": {
-                "name": "Old",
-                "variant": "original",
-            },
-            "relationships": {
-                "document": {
-                    "data": {
-                        "id": doc.pk,
-                        "type": "documents",
-                    },
-                },
-            },
-        },
-    }
-
-    response = getattr(admin_client, method)(url, data)
-
-    assert response.status_code == status_code
-
-
 @pytest.mark.parametrize("role__name", ["applicant"])
 def test_nested_permission(db, role, applicant_factory, admin_client, instance):
     applicant_factory(invitee=admin_client.user, instance=instance)
-    parent_category = CategoryFactory(metainfo={"access": {"applicant": "Admin"}})
+    parent_category = CategoryFactory(
+        metainfo={
+            "access": {
+                "applicant": {
+                    "visibility": "all",
+                    "permissions": [
+                        {"permission": "create", "scope": "All"},
+                        {"permission": "update", "scope": "All"},
+                    ],
+                },
+            }
+        }
+    )
     category = CategoryFactory(parent=parent_category)
 
     data = {
@@ -522,129 +523,642 @@ def test_nested_permission(db, role, applicant_factory, admin_client, instance):
     assert patch_result["data"]["attributes"]["title"]["de"] == "More important"
 
 
-@pytest.mark.parametrize("role__name", ["municipality"])
+@pytest.mark.parametrize("role__name", ["applicant"])
+@pytest.mark.parametrize("expected_status", [HTTP_403_FORBIDDEN, HTTP_200_OK])
+@pytest.mark.parametrize("changes", [["metainfo"], ["category"], ["tags"], ["files"]])
+def test_patch_fields(
+    db,
+    role,
+    caluma_admin_user,
+    applicant_factory,
+    admin_client,
+    instance,
+    expected_status,
+    changes,
+):
+    applicant_factory(invitee=admin_client.user, instance=instance)
+
+    fields = changes
+    if expected_status == HTTP_403_FORBIDDEN:
+        fields = ["title"]
+
+    category = CategoryFactory(
+        metainfo={
+            "access": {
+                "applicant": {
+                    "visibility": "all",
+                    "permissions": [
+                        {"permission": "update", "fields": fields, "scope": "All"},
+                    ],
+                },
+            }
+        }
+    )
+    metainfo = {"camac-instance-id": instance.pk}
+    document = DocumentFactory(
+        title="Important",
+        description="Important",
+        category=category,
+        metainfo=metainfo,
+        created_by_group=caluma_admin_user.group,
+    )
+    tag = TagFactory()
+    document.tags.add(tag)
+    document.save()
+    file = FileFactory(document=document)
+
+    if "metainfo" in changes:
+        metainfo = {}
+    if "category" in changes:
+        category = CategoryFactory()
+    if "tags" in changes:
+        tag = TagFactory()
+    if "files" in changes:
+        file = FileFactory()
+
+    data = {
+        "data": {
+            "type": "documents",
+            "id": document.pk,
+            "attributes": {
+                "title": {"de": "Important"},
+                "description": {"de": "Important"},
+                "metainfo": metainfo,
+            },
+            "relationships": {
+                "category": {
+                    "data": {
+                        "id": category.pk,
+                        "type": "categories",
+                    },
+                },
+                "tags": {
+                    "data": [
+                        {
+                            "id": tag.pk,
+                            "type": "tags",
+                        }
+                    ],
+                },
+                "files": {
+                    "data": [
+                        {
+                            "id": file.pk,
+                            "type": "files",
+                        }
+                    ],
+                },
+            },
+        },
+    }
+
+    patch_response = admin_client.patch(
+        reverse("document-detail", args=[document.pk]), data
+    )
+    assert patch_response.status_code == expected_status
+
+
 @pytest.mark.parametrize(
-    "instance_state__name,method,status_code,is_paper,has_additional_data",
+    "role__name,method,status_code,access,include_fields",
     [
         (
-            "new",
+            "applicant",
             "post",
             HTTP_201_CREATED,
-            True,
-            True,
+            {
+                "applicant": {
+                    "visibility": "all",
+                    "permissions": [
+                        {
+                            "permission": "create",
+                            "fields": ["title", "metainfo", "category", "marks"],
+                            "scope": "All",
+                        },
+                    ],
+                },
+            },
+            "marks",
         ),
         (
-            "new",
+            "applicant",
             "post",
-            HTTP_403_FORBIDDEN,
-            False,
-            True,
+            HTTP_201_CREATED,
+            {
+                "applicant": {
+                    "visibility": "all",
+                    "permissions": [
+                        {
+                            "permission": "create",
+                            "fields": ["title", "metainfo", "category", "tags"],
+                            "scope": "All",
+                        },
+                    ],
+                },
+            },
+            "tags",
         ),
         (
-            "new",
+            "applicant",
+            "post",
+            HTTP_201_CREATED,
+            {
+                "applicant": {
+                    "visibility": "all",
+                    "permissions": [
+                        {
+                            "permission": "create",
+                            "fields": [
+                                "title",
+                                "metainfo",
+                                "category",
+                                "marks",
+                                "tags",
+                            ],
+                            "scope": "All",
+                        },
+                    ],
+                },
+            },
+            "marks+tags",
+        ),
+        (
+            "applicant",
             "patch",
             HTTP_200_OK,
-            True,
-            True,
+            {
+                "applicant": {
+                    "visibility": "all",
+                    "permissions": [
+                        {
+                            "permission": "update",
+                            "fields": ["title", "metainfo", "category", "marks"],
+                            "scope": "All",
+                        },
+                    ],
+                },
+            },
+            "marks",
         ),
         (
-            "new",
-            "patch",
-            HTTP_403_FORBIDDEN,
-            False,
-            True,
-        ),
-        (
-            "new",
-            "patch",
-            HTTP_403_FORBIDDEN,
-            False,
-            False,
-        ),
-        (
-            "new",
-            "delete",
-            HTTP_204_NO_CONTENT,
-            True,
-            True,
-        ),
-        (
-            "subm",
-            "post",
-            HTTP_403_FORBIDDEN,
-            True,
-            True,
-        ),
-        (
-            "subm",
+            "applicant",
             "patch",
             HTTP_200_OK,
-            True,
-            True,
+            {
+                "applicant": {
+                    "visibility": "all",
+                    "permissions": [
+                        {
+                            "permission": "update",
+                            "fields": ["title", "metainfo", "category", "tags"],
+                            "scope": "All",
+                        },
+                    ],
+                },
+            },
+            "tags",
         ),
         (
-            "subm",
+            "applicant",
+            "patch",
+            HTTP_200_OK,
+            {
+                "applicant": {
+                    "visibility": "all",
+                    "permissions": [
+                        {
+                            "permission": "update",
+                            "fields": [
+                                "title",
+                                "metainfo",
+                                "category",
+                                "marks",
+                                "tags",
+                            ],
+                            "scope": "All",
+                        },
+                    ],
+                },
+            },
+            "marks+tags",
+        ),
+        (
+            "applicant",
+            "post",
+            HTTP_403_FORBIDDEN,
+            {
+                "applicant": {
+                    "visibility": "all",
+                    "permissions": [
+                        {
+                            "permission": "create",
+                            "fields": ["title", "metainfo", "category", "tags"],
+                            "scope": "All",
+                        },
+                    ],
+                },
+            },
+            "marks",
+        ),
+        (
+            "applicant",
             "patch",
             HTTP_403_FORBIDDEN,
-            True,
-            False,
-        ),
-        (
-            "subm",
-            "patch",
-            HTTP_403_FORBIDDEN,
-            False,
-            False,
-        ),
-        (
-            "subm",
-            "delete",
-            HTTP_403_FORBIDDEN,
-            True,
-            True,
+            {
+                "applicant": {
+                    "visibility": "all",
+                    "permissions": [
+                        {
+                            "permission": "update",
+                            "fields": ["title", "metainfo", "category", "marks"],
+                            "scope": "All",
+                        },
+                    ],
+                },
+            },
+            "tags",
         ),
     ],
 )
-def test_admin_beilagen_municipality(
+def test_marks(
     db,
     role,
-    minio_mock,
+    alexandria_settings,
     set_application_gr,
     applicant_factory,
-    settings,
-    mocker,
+    admin_client,
+    caluma_admin_user,
+    instance,
+    access,
+    method,
+    status_code,
+    include_fields,
+):
+    applicant_factory(invitee=admin_client.user, instance=instance)
+    alexandria_category = CategoryFactory(metainfo={"access": access})
+    url = reverse("document-list")
+    tag = TagFactory()
+    mark = TagFactory(slug="decision")
+
+    tag_data = []
+    if "marks" in include_fields:
+        tag_data.append(
+            {
+                "id": mark.pk,
+                "type": "tags",
+            }
+        )
+    if "tags" in include_fields:
+        tag_data.append(
+            {
+                "id": tag.pk,
+                "type": "tags",
+            }
+        )
+
+    data = {
+        "data": {
+            "type": "documents",
+            "attributes": {
+                "title": {"de": "Important"},
+                "metainfo": {"camac-instance-id": instance.pk},
+            },
+            "relationships": {
+                "category": {
+                    "data": {
+                        "id": alexandria_category.pk,
+                        "type": "categories",
+                    },
+                },
+                "tags": {
+                    "data": tag_data,
+                },
+            },
+        },
+    }
+
+    if method in ["patch", "delete"]:
+        doc = DocumentFactory(
+            title="Foo",
+            category=alexandria_category,
+            metainfo={"camac-instance-id": instance.pk},
+            created_by_group=caluma_admin_user.group,
+        )
+        url = reverse("document-detail", args=[doc.pk])
+        data["data"]["id"] = str(doc.pk)
+
+    response = getattr(admin_client, method)(url, data)
+
+    assert response.status_code == status_code
+
+
+@pytest.mark.parametrize(
+    "role__name,method,status_code,access",
+    [
+        (
+            "service",
+            "patch",
+            HTTP_200_OK,
+            {
+                "service": {
+                    "visibility": "all",
+                    "permissions": [
+                        {
+                            "permission": "update",
+                            "fields": ["title"],
+                            "scope": "Service",
+                        },
+                    ],
+                },
+            },
+        ),
+        (
+            "service",
+            "delete",
+            HTTP_204_NO_CONTENT,
+            {
+                "service": {
+                    "visibility": "all",
+                    "permissions": [
+                        {
+                            "permission": "delete",
+                            "scope": "Service",
+                        },
+                    ],
+                },
+            },
+        ),
+        (
+            "service",
+            "patch",
+            HTTP_403_FORBIDDEN,
+            {
+                "service": {
+                    "visibility": "all",
+                    "permissions": [
+                        {
+                            "permission": "update",
+                            "fields": ["title"],
+                            "scope": "Service",
+                        },
+                    ],
+                },
+            },
+        ),
+        (
+            "service",
+            "delete",
+            HTTP_403_FORBIDDEN,
+            {
+                "service": {
+                    "visibility": "all",
+                    "permissions": [
+                        {
+                            "permission": "delete",
+                            "scope": "Service",
+                        },
+                    ],
+                },
+            },
+        ),
+    ],
+)
+def test_scope_service(
+    db,
+    role,
+    applicant_factory,
+    admin_client,
+    caluma_admin_user,
+    instance,
+    service_factory,
+    access,
+    method,
+    status_code,
+):
+    applicant_factory(invitee=admin_client.user, instance=instance)
+    alexandria_category = CategoryFactory(metainfo={"access": access})
+
+    created_by_group = caluma_admin_user.group
+    if status_code == HTTP_403_FORBIDDEN:
+        created_by_group = service_factory().pk
+
+    doc = DocumentFactory(
+        title="Foo",
+        category=alexandria_category,
+        metainfo={"camac-instance-id": instance.pk},
+        created_by_group=created_by_group,
+    )
+
+    data = {
+        "data": {
+            "type": "documents",
+            "id": doc.pk,
+            "attributes": {
+                "title": {"de": "Important"},
+            },
+        },
+    }
+
+    url = reverse("document-detail", args=[doc.pk])
+
+    response = getattr(admin_client, method)(url, data)
+
+    assert response.status_code == status_code
+
+
+@pytest.mark.parametrize(
+    "role__name,method,status_code,access",
+    [
+        (
+            "applicant",
+            "post",
+            HTTP_201_CREATED,
+            {
+                "applicant": {
+                    "visibility": "all",
+                    "permissions": [
+                        {
+                            "permission": "create",
+                            "condition": {
+                                "ReadyWorkItem": "submit",
+                            },
+                        },
+                    ],
+                },
+            },
+        ),
+        (
+            "service",
+            "post",
+            HTTP_201_CREATED,
+            {
+                "service": {
+                    "visibility": "all",
+                    "permissions": [
+                        {
+                            "permission": "create",
+                            "condition": {
+                                "ReadyWorkItem": "additional-demand",
+                            },
+                        },
+                    ],
+                },
+            },
+        ),
+        (
+            "service",
+            "patch",
+            HTTP_200_OK,
+            {
+                "service": {
+                    "visibility": "all",
+                    "permissions": [
+                        {
+                            "permission": "update",
+                            "scope": "All",
+                            "condition": {
+                                "ReadyWorkItem": "additional-demand",
+                            },
+                        },
+                    ],
+                },
+            },
+        ),
+        (
+            "service",
+            "delete",
+            HTTP_204_NO_CONTENT,
+            {
+                "service": {
+                    "visibility": "all",
+                    "permissions": [
+                        {
+                            "permission": "delete",
+                            "scope": "All",
+                            "condition": {
+                                "ReadyWorkItem": "additional-demand",
+                            },
+                        },
+                    ],
+                },
+            },
+        ),
+        (
+            "applicant",
+            "post",
+            HTTP_403_FORBIDDEN,
+            {
+                "applicant": {
+                    "visibility": "all",
+                    "permissions": [
+                        {
+                            "permission": "create",
+                            "condition": {
+                                "ReadyWorkItem": "submit",
+                            },
+                        },
+                    ],
+                },
+            },
+        ),
+        (
+            "service",
+            "post",
+            HTTP_403_FORBIDDEN,
+            {
+                "service": {
+                    "visibility": "all",
+                    "permissions": [
+                        {
+                            "permission": "create",
+                            "condition": {
+                                "ReadyWorkItem": "additional-demand",
+                            },
+                        },
+                    ],
+                },
+            },
+        ),
+        (
+            "service",
+            "patch",
+            HTTP_403_FORBIDDEN,
+            {
+                "service": {
+                    "visibility": "all",
+                    "permissions": [
+                        {
+                            "permission": "update",
+                            "scope": "All",
+                            "condition": {
+                                "ReadyWorkItem": "additional-demand",
+                            },
+                        },
+                    ],
+                },
+            },
+        ),
+        (
+            "service",
+            "delete",
+            HTTP_403_FORBIDDEN,
+            {
+                "service": {
+                    "visibility": "all",
+                    "permissions": [
+                        {
+                            "permission": "delete",
+                            "scope": "All",
+                            "condition": {
+                                "ReadyWorkItem": "additional-demand",
+                            },
+                        },
+                    ],
+                },
+            },
+        ),
+    ],
+)
+def test_condition_ready_work_item(
+    db,
+    role,
+    applicant_factory,
+    work_item_factory,
+    task_factory,
     admin_client,
     caluma_admin_user,
     gr_instance,
+    access,
     method,
     status_code,
-    is_paper,
-    has_additional_data,
 ):
     applicant_factory(invitee=admin_client.user, instance=gr_instance)
-    metainfo = {"access": {"municipality": "AdminBeilagenMunicipality"}}
-    settings.APPLICATION_NAME = "kt_gr"
-    mocker.patch("camac.alexandria.extensions.permissions.extension.permissions", kt_gr)
-
-    if is_paper:
-        gr_instance.case.document.answers.create(
-            question_id="is-paper", value="is-paper-yes"
-        )
-
-    alexandria_category = CategoryFactory(metainfo=metainfo)
+    alexandria_category = CategoryFactory(metainfo={"access": access})
     url = reverse("document-list")
 
-    doc_metainfo = {
+    work_item_status = "ready"
+    if status_code == HTTP_403_FORBIDDEN:
+        work_item_status = "completed"
+        submit = gr_instance.case.work_items.get(task_id="submit")
+        submit.status = work_item_status
+        submit.save()
+
+    work_item = work_item_factory(
+        task=task_factory(slug="additional-demand"),
+        document=gr_instance.case.document,
+        status=work_item_status,
+    )
+    gr_instance.case.work_items.add(work_item)
+
+    metainfo = {
         "camac-instance-id": gr_instance.pk,
-        "caluma-document-id": str(gr_instance.case.document.pk),
+        "caluma-document-id": str(work_item.document.pk),
     }
     data = {
         "data": {
             "type": "documents",
             "attributes": {
-                "title": {"de": "Foo"},
-                "description": {"de": "Important"},
-                "metainfo": doc_metainfo,
+                "title": {"de": "Important"},
+                "metainfo": metainfo,
             },
             "relationships": {
                 "category": {
@@ -660,22 +1174,348 @@ def test_admin_beilagen_municipality(
     if method in ["patch", "delete"]:
         doc = DocumentFactory(
             title="Foo",
-            description="Foo",
             category=alexandria_category,
-            metainfo=doc_metainfo,
-            created_by_group=caluma_admin_user.group,
+            metainfo=metainfo,
         )
         url = reverse("document-detail", args=[doc.pk])
         data["data"]["id"] = str(doc.pk)
-        if has_additional_data:
-            data["data"]["attributes"]["created_at"] = doc.created_at
-            data["data"]["attributes"]["created_by_group"] = str(doc.created_by_group)
-            data["data"]["attributes"]["modified_by_group"] = str(doc.modified_by_group)
 
     response = getattr(admin_client, method)(url, data)
 
     assert response.status_code == status_code
 
-    if method == "post" and status_code == HTTP_201_CREATED:
-        result = response.json()
-        assert result["data"]["attributes"]["description"]["de"] == "Important"
+
+@pytest.mark.parametrize(
+    "role__name,method,status_code,access",
+    [
+        (
+            "service",
+            "post",
+            HTTP_201_CREATED,
+            {
+                "service": {
+                    "visibility": "all",
+                    "permissions": [
+                        {
+                            "permission": "create",
+                            "condition": {
+                                "InstanceState": "new",
+                            },
+                        },
+                    ],
+                },
+            },
+        ),
+        (
+            "service",
+            "patch",
+            HTTP_200_OK,
+            {
+                "service": {
+                    "visibility": "all",
+                    "permissions": [
+                        {
+                            "permission": "update",
+                            "scope": "All",
+                            "condition": {
+                                "InstanceState": ["new"],
+                            },
+                        },
+                    ],
+                },
+            },
+        ),
+        (
+            "service",
+            "delete",
+            HTTP_204_NO_CONTENT,
+            {
+                "service": {
+                    "visibility": "all",
+                    "permissions": [
+                        {
+                            "permission": "delete",
+                            "scope": "All",
+                            "condition": {
+                                "InstanceState": "new",
+                            },
+                        },
+                    ],
+                },
+            },
+        ),
+        (
+            "service",
+            "post",
+            HTTP_403_FORBIDDEN,
+            {
+                "service": {
+                    "visibility": "all",
+                    "permissions": [
+                        {
+                            "permission": "create",
+                            "condition": {
+                                "InstanceState": "done",
+                            },
+                        },
+                    ],
+                },
+            },
+        ),
+        (
+            "service",
+            "patch",
+            HTTP_403_FORBIDDEN,
+            {
+                "service": {
+                    "visibility": "all",
+                    "permissions": [
+                        {
+                            "permission": "update",
+                            "scope": "All",
+                            "condition": {
+                                "InstanceState": "done",
+                            },
+                        },
+                    ],
+                },
+            },
+        ),
+        (
+            "service",
+            "delete",
+            HTTP_403_FORBIDDEN,
+            {
+                "service": {
+                    "visibility": "all",
+                    "permissions": [
+                        {
+                            "permission": "delete",
+                            "scope": "All",
+                            "condition": {
+                                "InstanceState": "done",
+                            },
+                        },
+                    ],
+                },
+            },
+        ),
+    ],
+)
+def test_condition_instance_state(
+    db,
+    role,
+    applicant_factory,
+    admin_client,
+    caluma_admin_user,
+    instance_state_factory,
+    gr_instance,
+    access,
+    method,
+    status_code,
+):
+    state = instance_state_factory(name="new")
+    gr_instance.instance_state = state
+    gr_instance.save()
+    applicant_factory(invitee=admin_client.user, instance=gr_instance)
+    alexandria_category = CategoryFactory(metainfo={"access": access})
+    url = reverse("document-list")
+
+    data = {
+        "data": {
+            "type": "documents",
+            "attributes": {
+                "title": {"de": "Important"},
+                "metainfo": {"camac-instance-id": gr_instance.pk},
+            },
+            "relationships": {
+                "category": {
+                    "data": {
+                        "id": alexandria_category.pk,
+                        "type": "categories",
+                    },
+                },
+            },
+        },
+    }
+
+    if method in ["patch", "delete"]:
+        doc = DocumentFactory(
+            title="Foo",
+            category=alexandria_category,
+            metainfo={"camac-instance-id": gr_instance.pk},
+        )
+        url = reverse("document-detail", args=[doc.pk])
+        data["data"]["id"] = str(doc.pk)
+
+    response = getattr(admin_client, method)(url, data)
+
+    assert response.status_code == status_code
+
+
+@pytest.mark.parametrize(
+    "role__name,method,status_code,access",
+    [
+        (
+            "service",
+            "post",
+            HTTP_201_CREATED,
+            {
+                "service": {
+                    "visibility": "all",
+                    "permissions": [
+                        {
+                            "permission": "create",
+                            "condition": {
+                                "PaperInstance": True,
+                            },
+                        },
+                    ],
+                },
+            },
+        ),
+        (
+            "service",
+            "patch",
+            HTTP_200_OK,
+            {
+                "service": {
+                    "visibility": "all",
+                    "permissions": [
+                        {
+                            "permission": "update",
+                            "scope": "All",
+                            "condition": {
+                                "PaperInstance": True,
+                            },
+                        },
+                    ],
+                },
+            },
+        ),
+        (
+            "service",
+            "delete",
+            HTTP_204_NO_CONTENT,
+            {
+                "service": {
+                    "visibility": "all",
+                    "permissions": [
+                        {
+                            "permission": "delete",
+                            "scope": "All",
+                            "condition": {
+                                "PaperInstance": True,
+                            },
+                        },
+                    ],
+                },
+            },
+        ),
+        (
+            "service",
+            "post",
+            HTTP_403_FORBIDDEN,
+            {
+                "service": {
+                    "visibility": "all",
+                    "permissions": [
+                        {
+                            "permission": "create",
+                            "condition": {
+                                "PaperInstance": True,
+                            },
+                        },
+                    ],
+                },
+            },
+        ),
+        (
+            "service",
+            "patch",
+            HTTP_403_FORBIDDEN,
+            {
+                "service": {
+                    "visibility": "all",
+                    "permissions": [
+                        {
+                            "permission": "update",
+                            "scope": "All",
+                            "condition": {
+                                "PaperInstance": True,
+                            },
+                        },
+                    ],
+                },
+            },
+        ),
+        (
+            "service",
+            "delete",
+            HTTP_403_FORBIDDEN,
+            {
+                "service": {
+                    "visibility": "all",
+                    "permissions": [
+                        {
+                            "permission": "delete",
+                            "scope": "All",
+                            "condition": {
+                                "PaperInstance": True,
+                            },
+                        },
+                    ],
+                },
+            },
+        ),
+    ],
+)
+def test_condition_paper_instance(
+    db,
+    role,
+    applicant_factory,
+    admin_client,
+    caluma_admin_user,
+    gr_instance,
+    access,
+    method,
+    status_code,
+):
+    applicant_factory(invitee=admin_client.user, instance=gr_instance)
+    alexandria_category = CategoryFactory(metainfo={"access": access})
+    url = reverse("document-list")
+    if status_code != HTTP_403_FORBIDDEN:
+        gr_instance.case.document.answers.create(
+            question_id="is-paper", value="is-paper-yes"
+        )
+
+    data = {
+        "data": {
+            "type": "documents",
+            "attributes": {
+                "title": {"de": "Important"},
+                "metainfo": {"camac-instance-id": gr_instance.pk},
+            },
+            "relationships": {
+                "category": {
+                    "data": {
+                        "id": alexandria_category.pk,
+                        "type": "categories",
+                    },
+                },
+            },
+        },
+    }
+
+    if method in ["patch", "delete"]:
+        doc = DocumentFactory(
+            title="Foo",
+            category=alexandria_category,
+            metainfo={"camac-instance-id": gr_instance.pk},
+        )
+        url = reverse("document-detail", args=[doc.pk])
+        data["data"]["id"] = str(doc.pk)
+
+    response = getattr(admin_client, method)(url, data)
+
+    assert response.status_code == status_code
