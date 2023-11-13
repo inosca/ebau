@@ -12,13 +12,66 @@
       "metainfo": {
         "sort": 3,
         "access": {
-          "support": "Admin",
-          "applicant": "Read",
-          "subservice": "Read",
-          "service-lead": "Read",
-          "service-clerk": "Read",
-          "municipality-lead": "AdminService",
-          "municipality-clerk": "AdminService"
+          "support": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "permission": "delete"
+              }
+            ]
+          },
+          "applicant": {
+            "visibility": "all"
+          },
+          "subservice": {
+            "visibility": "all"
+          },
+          "service-lead": {
+            "visibility": "all"
+          },
+          "service-clerk": {
+            "visibility": "all"
+          },
+          "municipality-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "permission": "delete"
+              }
+            ]
+          },
+          "municipality-clerk": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "permission": "delete"
+              }
+            ]
+          }
         }
       },
       "name": "{\"de\": \"Alle Beteiligten\", \"fr\": \"\", \"it\": \"\"}",
@@ -40,13 +93,48 @@
       "metainfo": {
         "sort": 1,
         "access": {
-          "support": "Admin",
-          "applicant": "AdminNew",
-          "subservice": "Read",
-          "service-lead": "Read",
-          "service-clerk": "Read",
-          "municipality-lead": "Read",
-          "municipality-clerk": "Read"
+          "support": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "permission": "delete"
+              }
+            ]
+          },
+          "applicant": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "fields": ["metainfo", "title", "category", "files"],
+                "condition": {
+                  "InstanceState": "new"
+                },
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "condition": {
+                  "InstanceState": "new"
+                },
+                "permission": "delete"
+              }
+            ]
+          },
+          "subservice": {
+            "visibility": "all"
+          },
+          "service-lead": { "visibility": "all" },
+          "service-clerk": { "visibility": "all" },
+          "municipality-lead": { "visibility": "all" },
+          "municipality-clerk": { "visibility": "all" }
         }
       },
       "name": "{\"de\": \"Beilagen zum Gesuch\", \"fr\": \"\", \"it\": \"\"}",
@@ -136,12 +224,102 @@
       "metainfo": {
         "sort": 2,
         "access": {
-          "support": "Admin",
-          "subservice": "AdminService",
-          "service-lead": "AdminService",
-          "service-clerk": "AdminService",
-          "municipality-lead": "AdminService",
-          "municipality-clerk": "AdminService"
+          "support": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "permission": "delete"
+              }
+            ]
+          },
+          "subservice": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "permission": "delete"
+              }
+            ]
+          },
+          "service-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "permission": "delete"
+              }
+            ]
+          },
+          "service-clerk": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "permission": "delete"
+              }
+            ]
+          },
+          "municipality-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "permission": "delete"
+              }
+            ]
+          },
+          "municipality-clerk": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "permission": "delete"
+              }
+            ]
+          }
         }
       },
       "name": "{\"de\": \"Beteiligte Beh\\u00f6rden\", \"fr\": \"\", \"it\": \"\"}",
@@ -163,12 +341,102 @@
       "metainfo": {
         "sort": 5,
         "access": {
-          "support": "Admin",
-          "subservice": "InternalAdmin",
-          "service-lead": "InternalAdmin",
-          "service-clerk": "InternalAdmin",
-          "municipality-lead": "InternalAdmin",
-          "municipality-clerk": "InternalAdmin"
+          "support": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "permission": "delete"
+              }
+            ]
+          },
+          "subservice": {
+            "visibility": "service",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "permission": "delete"
+              }
+            ]
+          },
+          "service-lead": {
+            "visibility": "service",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "permission": "delete"
+              }
+            ]
+          },
+          "service-clerk": {
+            "visibility": "service",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "permission": "delete"
+              }
+            ]
+          },
+          "municipality-lead": {
+            "visibility": "service",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "permission": "delete"
+              }
+            ]
+          },
+          "municipality-clerk": {
+            "visibility": "service",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "permission": "delete"
+              }
+            ]
+          }
         }
       },
       "name": "{\"de\": \"Intern\", \"fr\": \"\", \"it\": \"\"}",
@@ -190,12 +458,45 @@
       "metainfo": {
         "sort": 4,
         "access": {
-          "support": "Admin",
-          "applicant": "AdminAdditionalDemand",
-          "service-lead": "Read",
-          "service-clerk": "Read",
-          "municipality-lead": "Read",
-          "municipality-clerk": "Read"
+          "support": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "permission": "delete"
+              }
+            ]
+          },
+          "applicant": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "fields": ["metainfo", "title", "category", "files"],
+                "condition": {
+                  "ReadyWorkItem": "additional-demand"
+                },
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "condition": {
+                  "ReadyWorkItem": "additional-demand"
+                },
+                "permission": "delete"
+              }
+            ]
+          },
+          "service-lead": { "visibility": "all" },
+          "service-clerk": { "visibility": "all" },
+          "municipality-lead": { "visibility": "all" },
+          "municipality-clerk": { "visibility": "all" }
         }
       },
       "name": "{\"de\": \"Nachforderung\", \"fr\": \"\", \"it\": \"\"}",
