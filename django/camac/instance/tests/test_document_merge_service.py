@@ -1,9 +1,9 @@
 from datetime import datetime
 from pathlib import Path
 
+import faker
 import pytest
-from alexandria.core.factories import CategoryFactory
-from alexandria.core.models import Document as AlexandriaDocument
+from alexandria.core.factories import CategoryFactory, DocumentFactory, FileFactory
 from caluma.caluma_form.models import DynamicOption
 from caluma.caluma_user.models import BaseUser
 from django.conf import settings
@@ -312,10 +312,13 @@ def test_eingabebestaetigung_gr(
     gr_dms_settings["FORM"]["baugesuch"]["forms"].append("main-form")
     gr_dms_settings["ALEXANDRIA_DOCUMENT_CATEGORIES"] = [alexandria_category.pk]
 
-    AlexandriaDocument.objects.create(
-        title="Lageplan.pdf",
-        category=alexandria_category,
-        metainfo={"camac-instance-id": gr_instance.pk},
+    FileFactory(
+        document=DocumentFactory(
+            title="Lageplan.pdf",
+            category=alexandria_category,
+            metainfo={"camac-instance-id": gr_instance.pk},
+        ),
+        checksum=f"sha256:{faker.Faker().sha256()}",
     )
 
     # Prepare plot answer

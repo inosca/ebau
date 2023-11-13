@@ -1841,12 +1841,12 @@
     broccoli-funnel "^3.0.8"
     semver "^7.3.8"
 
-"@embroider/macros@1.13.1", "@embroider/macros@^0.50.0 || ^1.0.0", "@embroider/macros@^1.0.0", "@embroider/macros@^1.10.0", "@embroider/macros@^1.12.0", "@embroider/macros@^1.12.2", "@embroider/macros@^1.12.3", "@embroider/macros@^1.13.0", "@embroider/macros@^1.13.1", "@embroider/macros@^1.3.0", "@embroider/macros@^1.5.0", "@embroider/macros@^1.8.3", "@embroider/macros@^1.9.0":
-  version "1.13.1"
-  resolved "https://registry.yarnpkg.com/@embroider/macros/-/macros-1.13.1.tgz#aee17e5af0e0086bd36873bdb4e49ea346bab3fa"
-  integrity sha512-4htraP/rNIht8uCxXoc59Bw2EsBFfc4YUQD9XSpzJ4xUr1V0GQf9wL/noeSuYSxIhwRfZOErnJhsdyf1hH+I/A==
+"@embroider/macros@1.13.3", "@embroider/macros@^0.50.0 || ^1.0.0", "@embroider/macros@^1.0.0", "@embroider/macros@^1.10.0", "@embroider/macros@^1.12.0", "@embroider/macros@^1.12.2", "@embroider/macros@^1.12.3", "@embroider/macros@^1.13.0", "@embroider/macros@^1.13.2", "@embroider/macros@^1.3.0", "@embroider/macros@^1.5.0", "@embroider/macros@^1.8.3", "@embroider/macros@^1.9.0":
+  version "1.13.3"
+  resolved "https://registry.yarnpkg.com/@embroider/macros/-/macros-1.13.3.tgz#e1ff584e01bcdebb9fa9f6982ecc2ea89886867f"
+  integrity sha512-JUC1aHRLIN2LNy1l+gz7gWkw9JmnsE20GL3LduCzNvCAnEQpMTJhW5BUbEWqdCnAWBPte/M2ofckqBXyTZioTQ==
   dependencies:
-    "@embroider/shared-internals" "2.4.0"
+    "@embroider/shared-internals" "2.5.1"
     assert-never "^1.2.1"
     babel-import-util "^2.0.0"
     ember-cli-babel "^7.26.6"
@@ -1855,10 +1855,10 @@
     resolve "^1.20.0"
     semver "^7.3.2"
 
-"@embroider/shared-internals@2.4.0":
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/@embroider/shared-internals/-/shared-internals-2.4.0.tgz#0e9fdb0b2df9bad45fab8c54cbb70d8a2cbf01fc"
-  integrity sha512-pFE05ebenWMC9XAPRjadYCXXb6VmqjkhYN5uqkhPo+VUmMHnx7sZYYxqGjxfVuhC/ghS/BNlOffOCXDOoE7k7g==
+"@embroider/shared-internals@2.5.1":
+  version "2.5.1"
+  resolved "https://registry.yarnpkg.com/@embroider/shared-internals/-/shared-internals-2.5.1.tgz#a4d8c057cbff293ef6eb29ee6537f263d206b444"
+  integrity sha512-b+TWDBisH1p6HeTbJIO8pgu1WzfTP0ZSAlZBqjXwOyrS0ZxP1qNYRrEX+IxyzIibEFjXBxeLakiejz3DJvZX5A==
   dependencies:
     babel-import-util "^2.0.0"
     debug "^4.3.2"
@@ -6770,15 +6770,15 @@ elliptic@^6.5.3:
     minimalistic-assert "^1.0.1"
     minimalistic-crypto-utils "^1.0.1"
 
-ember-alexandria@4.5.0:
-  version "4.5.0"
-  resolved "https://registry.yarnpkg.com/ember-alexandria/-/ember-alexandria-4.5.0.tgz#f7db119cb04eff6ece184a37a65caa44119d4cfa"
-  integrity sha512-CVuuq73+dM/YszuXcn5R4Lxf8GdYbuqozf8EwBzTcjx+vzKr8Vu0UrziArGRDUOwccjtG2KTy0g7tnLX0v7+XQ==
+ember-alexandria@4.6.0:
+  version "4.6.0"
+  resolved "https://registry.yarnpkg.com/ember-alexandria/-/ember-alexandria-4.6.0.tgz#ac2d0e02b052480e73a691f63db2ba86a18a06d4"
+  integrity sha512-Y6ZXJgU3HHXS18lJrcb1W8Yf86+gBSEDse+nE6/fCYYsIPsT9DHh/LkhGhmxlE1Uop+PShe+0K5SCiX2qr5L7A==
   dependencies:
     "@ember/legacy-built-in-components" "^0.5.0"
     "@ember/optional-features" "^2.0.0"
     "@ember/render-modifiers" "^2.1.0"
-    "@embroider/macros" "^1.13.1"
+    "@embroider/macros" "^1.13.2"
     "@fortawesome/ember-fontawesome" "^2.0.0"
     "@fortawesome/free-regular-svg-icons" "^6.4.2"
     "@fortawesome/free-solid-svg-icons" "^6.4.2"

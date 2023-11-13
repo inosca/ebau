@@ -1,4 +1,5 @@
 from alexandria.core import views as alexandria_views
+from django.urls import path
 from rest_framework.routers import SimpleRouter
 
 from .views import PatchedDocumentViewSet, PatchedFileViewSet
@@ -14,3 +15,5 @@ r.register(r"tags", alexandria_views.TagViewSet)
 r.register(r"tagsynonymgroups", alexandria_views.TagSynonymGroupViewSet)
 
 urlpatterns = r.urls
+
+urlpatterns.append(path("hook", alexandria_views.hook_view, name="hook"))
