@@ -95,3 +95,16 @@ mutation CreateFlowAfterDistribution {
     clientMutationId
   }
 }
+
+mutation CreateFlowAfterDecision {
+  addWorkflowFlow(
+    input: {
+      workflow: "building-permit"
+      tasks: ["decision"]
+      next: "[]|tasks"
+      redoable: "'distribution'|task"
+    }
+  ) {
+    clientMutationId
+  }
+}

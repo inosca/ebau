@@ -66,6 +66,19 @@
   },
   {
     "model": "caluma_workflow.flow",
+    "pk": "aeb4d3ec-f338-4ef7-b6e4-8745c31b2f52",
+    "fields": {
+      "created_at": "2023-11-09T10:48:11.261Z",
+      "modified_at": "2023-11-09T10:48:11.261Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "next": "[]|tasks"
+    }
+  },
+  {
+    "model": "caluma_workflow.flow",
     "pk": "ddae5ff6-e7e7-4212-a0a8-b6fb9765f583",
     "fields": {
       "created_at": "2023-10-24T11:22:05.497Z",
@@ -295,6 +308,22 @@
       "lead_time": null,
       "is_multiple_instance": false,
       "continue_async": false
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
+    "pk": "533ed675-6ef2-4358-80cf-c19f8af27ea0",
+    "fields": {
+      "created_at": "2023-11-09T10:48:11.267Z",
+      "modified_at": "2023-11-09T10:48:11.267Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "workflow": "building-permit",
+      "task": "decision",
+      "flow": "aeb4d3ec-f338-4ef7-b6e4-8745c31b2f52",
+      "redoable": "'distribution'|task"
     }
   },
   {
