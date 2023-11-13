@@ -7,7 +7,7 @@ from camac.instance.mixins import InstanceQuerysetMixin
 from camac.settings import ALEXANDRIA
 from camac.utils import filters
 
-from .common import get_role
+from .common import get_role, get_service_parent_and_children
 
 
 def get_category_access_rule(prefix, value, role=None):
@@ -80,6 +80,18 @@ class CustomVisibility(BaseVisibility, InstanceQuerysetMixin):
         aggregated_filter |= Q(
             get_category_access_rule(prefix, "service", role)
             & Q(**{f"{prefix}created_by_group": user.group})
+        )
+        # categories where only documents from my own service, it's parent and
+        # their subservices are readable
+        aggregated_filter |= Q(
+            get_category_access_rule(prefix, "service-and-subservice", role)
+            & Q(
+                **{
+                    f"{prefix}created_by_group__in": get_service_parent_and_children(
+                        user.group
+                    )
+                }
+            )
         )
 
         if role == "applicant":

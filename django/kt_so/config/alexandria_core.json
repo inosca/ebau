@@ -131,10 +131,18 @@
           "subservice": {
             "visibility": "all"
           },
-          "service-lead": { "visibility": "all" },
-          "service-clerk": { "visibility": "all" },
-          "municipality-lead": { "visibility": "all" },
-          "municipality-clerk": { "visibility": "all" }
+          "service-lead": {
+            "visibility": "all"
+          },
+          "service-clerk": {
+            "visibility": "all"
+          },
+          "municipality-lead": {
+            "visibility": "all"
+          },
+          "municipality-clerk": {
+            "visibility": "all"
+          }
         }
       },
       "name": "{\"de\": \"Beilagen zum Gesuch\", \"fr\": \"\", \"it\": \"\"}",
@@ -447,6 +455,123 @@
   },
   {
     "model": "alexandria_core.category",
+    "pk": "intern-mit-unterfachstellen",
+    "fields": {
+      "created_at": "2023-11-13T00:00:00Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2023-11-13T00:00:00Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "sort": 6,
+        "access": {
+          "support": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "permission": "delete"
+              }
+            ]
+          },
+          "subservice": {
+            "visibility": "service-and-subservice",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "ServiceAndSubservice",
+                "permission": "update"
+              },
+              {
+                "scope": "ServiceAndSubservice",
+                "permission": "delete"
+              }
+            ]
+          },
+          "service-lead": {
+            "visibility": "service-and-subservice",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "ServiceAndSubservice",
+                "permission": "update"
+              },
+              {
+                "scope": "ServiceAndSubservice",
+                "permission": "delete"
+              }
+            ]
+          },
+          "service-clerk": {
+            "visibility": "service-and-subservice",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "ServiceAndSubservice",
+                "permission": "update"
+              },
+              {
+                "scope": "ServiceAndSubservice",
+                "permission": "delete"
+              }
+            ]
+          },
+          "municipality-lead": {
+            "visibility": "service-and-subservice",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "ServiceAndSubservice",
+                "permission": "update"
+              },
+              {
+                "scope": "ServiceAndSubservice",
+                "permission": "delete"
+              }
+            ]
+          },
+          "municipality-clerk": {
+            "visibility": "service-and-subservice",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "ServiceAndSubservice",
+                "permission": "update"
+              },
+              {
+                "scope": "ServiceAndSubservice",
+                "permission": "delete"
+              }
+            ]
+          }
+        }
+      },
+      "name": "{\"de\": \"Intern (mit Unterfachstellen)\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "color": "#024A91",
+      "parent": null
+    }
+  },
+  {
+    "model": "alexandria_core.category",
     "pk": "nachforderung",
     "fields": {
       "created_at": "2023-10-04T00:00:00Z",
@@ -493,10 +618,18 @@
               }
             ]
           },
-          "service-lead": { "visibility": "all" },
-          "service-clerk": { "visibility": "all" },
-          "municipality-lead": { "visibility": "all" },
-          "municipality-clerk": { "visibility": "all" }
+          "service-lead": {
+            "visibility": "all"
+          },
+          "service-clerk": {
+            "visibility": "all"
+          },
+          "municipality-lead": {
+            "visibility": "all"
+          },
+          "municipality-clerk": {
+            "visibility": "all"
+          }
         }
       },
       "name": "{\"de\": \"Nachforderung\", \"fr\": \"\", \"it\": \"\"}",
