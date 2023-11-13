@@ -851,114 +851,175 @@ def test_marks(
     assert response.status_code == status_code
 
 
+@pytest.mark.parametrize("role__name", ["service"])
 @pytest.mark.parametrize(
-    "role__name,method,status_code,access",
+    "method,created_by,status_code",
     [
-        (
-            "service",
-            "patch",
-            HTTP_200_OK,
-            {
-                "service": {
-                    "visibility": "all",
-                    "permissions": [
-                        {
-                            "permission": "update",
-                            "fields": ["title"],
-                            "scope": "Service",
-                        },
-                    ],
-                },
-            },
-        ),
-        (
-            "service",
-            "delete",
-            HTTP_204_NO_CONTENT,
-            {
-                "service": {
-                    "visibility": "all",
-                    "permissions": [
-                        {
-                            "permission": "delete",
-                            "scope": "Service",
-                        },
-                    ],
-                },
-            },
-        ),
-        (
-            "service",
-            "patch",
-            HTTP_403_FORBIDDEN,
-            {
-                "service": {
-                    "visibility": "all",
-                    "permissions": [
-                        {
-                            "permission": "update",
-                            "fields": ["title"],
-                            "scope": "Service",
-                        },
-                    ],
-                },
-            },
-        ),
-        (
-            "service",
-            "delete",
-            HTTP_403_FORBIDDEN,
-            {
-                "service": {
-                    "visibility": "all",
-                    "permissions": [
-                        {
-                            "permission": "delete",
-                            "scope": "Service",
-                        },
-                    ],
-                },
-            },
-        ),
+        ("patch", "own_service", HTTP_200_OK),
+        ("delete", "own_service", HTTP_204_NO_CONTENT),
+        ("patch", "other_service", HTTP_403_FORBIDDEN),
+        ("delete", "other_service", HTTP_403_FORBIDDEN),
     ],
 )
 def test_scope_service(
     db,
-    role,
-    applicant_factory,
     admin_client,
-    caluma_admin_user,
+    created_by,
     instance,
-    service_factory,
-    access,
     method,
+    mocker,
+    role,
+    service_factory,
+    service,
     status_code,
 ):
-    applicant_factory(invitee=admin_client.user, instance=instance)
-    alexandria_category = CategoryFactory(metainfo={"access": access})
+    mocker.patch(
+        "camac.alexandria.extensions.visibilities.CustomVisibility._all_visible_instances",
+        return_value=[instance.pk],
+    )
 
-    created_by_group = caluma_admin_user.group
-    if status_code == HTTP_403_FORBIDDEN:
-        created_by_group = service_factory().pk
+    alexandria_category = CategoryFactory(
+        metainfo={
+            "access": {
+                "service": {
+                    "visibility": "all",
+                    "permissions": [
+                        {
+                            "permission": "update",
+                            "fields": ["title"],
+                            "scope": "Service",
+                        },
+                        {
+                            "permission": "delete",
+                            "scope": "Service",
+                        },
+                    ],
+                },
+            }
+        }
+    )
 
-    doc = DocumentFactory(
+    services = {"own_service": service, "other_service": service_factory()}
+
+    document = DocumentFactory(
         title="Foo",
         category=alexandria_category,
         metainfo={"camac-instance-id": instance.pk},
-        created_by_group=created_by_group,
+        created_by_group=str(services[created_by].pk),
     )
 
     data = {
         "data": {
             "type": "documents",
-            "id": doc.pk,
+            "id": document.pk,
             "attributes": {
                 "title": {"de": "Important"},
             },
         },
     }
 
-    url = reverse("document-detail", args=[doc.pk])
+    url = reverse("document-detail", args=[document.pk])
+
+    response = getattr(admin_client, method)(url, data)
+
+    assert response.status_code == status_code
+
+
+@pytest.mark.parametrize("role__name", ["service", "subservice"])
+@pytest.mark.parametrize(
+    "method,created_by,status_code",
+    [
+        ("patch", "own_service", HTTP_200_OK),
+        ("patch", "subservice_or_parent", HTTP_200_OK),
+        ("delete", "own_service", HTTP_204_NO_CONTENT),
+        ("delete", "subservice_or_parent", HTTP_204_NO_CONTENT),
+        ("patch", "other_service", HTTP_403_FORBIDDEN),
+        ("delete", "other_service", HTTP_403_FORBIDDEN),
+    ],
+)
+def test_scope_service_and_subservice(
+    db,
+    admin_client,
+    created_by,
+    instance,
+    method,
+    mocker,
+    role,
+    service_factory,
+    service,
+    status_code,
+):
+    mocker.patch(
+        "camac.alexandria.extensions.visibilities.CustomVisibility._all_visible_instances",
+        return_value=[instance.pk],
+    )
+
+    alexandria_category = CategoryFactory(
+        metainfo={
+            "access": {
+                "service": {
+                    "visibility": "all",
+                    "permissions": [
+                        {
+                            "permission": "update",
+                            "fields": ["title"],
+                            "scope": "ServiceAndSubservice",
+                        },
+                        {
+                            "permission": "delete",
+                            "scope": "ServiceAndSubservice",
+                        },
+                    ],
+                },
+                "subservice": {
+                    "visibility": "all",
+                    "permissions": [
+                        {
+                            "permission": "update",
+                            "fields": ["title"],
+                            "scope": "ServiceAndSubservice",
+                        },
+                        {
+                            "permission": "delete",
+                            "scope": "ServiceAndSubservice",
+                        },
+                    ],
+                },
+            }
+        }
+    )
+
+    services = {
+        "own_service": service,
+        "other_service": service_factory(),
+    }
+
+    if role.name == "subservice":
+        service.service_parent = service_factory()
+        service.save()
+
+        services["subservice_or_parent"] = service.service_parent
+    else:
+        services["subservice_or_parent"] = service_factory(service_parent=service)
+
+    document = DocumentFactory(
+        title="Foo",
+        category=alexandria_category,
+        metainfo={"camac-instance-id": instance.pk},
+        created_by_group=str(services[created_by].pk),
+    )
+
+    data = {
+        "data": {
+            "type": "documents",
+            "id": document.pk,
+            "attributes": {
+                "title": {"de": "Important"},
+            },
+        },
+    }
+
+    url = reverse("document-detail", args=[document.pk])
 
     response = getattr(admin_client, method)(url, data)
 
