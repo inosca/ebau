@@ -43,7 +43,7 @@ from camac.instance.domain_logic import link_instances
 from camac.instance.master_data import MasterData
 from camac.instance.mixins import InstanceEditableMixin, InstanceQuerysetMixin
 from camac.instance.utils import copy_instance, fill_ebau_number
-from camac.notification.utils import send_mail
+from camac.notification.utils import send_mail, send_mail_without_request
 from camac.user.models import Group, Location, Service
 from camac.user.permissions import permission_aware
 from camac.user.relations import (
@@ -2459,6 +2459,18 @@ class CalumaInstanceCorrectionSerializer(serializers.Serializer):
             instance.set_instance_state(
                 instance.previous_instance_state.name, camac_user
             )
+
+            for config in settings.APPLICATION["NOTIFICATIONS"].get(
+                "DOSSIERKORREKTUR", []
+            ):  # pragma: no cover
+                send_mail_without_request(
+                    config["template_slug"],
+                    caluma_user.username,
+                    caluma_user.camac_group,
+                    instance={"id": instance.pk, "type": "instances"},
+                    recipient_types=config["recipient_types"],
+                )
+
             create_history_entry(
                 instance, camac_user, settings.CORRECTION["HISTORY_ENTRY"]
             )
