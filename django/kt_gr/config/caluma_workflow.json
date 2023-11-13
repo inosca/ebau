@@ -100,7 +100,7 @@
       "control_groups": "['municipality']|groups",
       "is_archived": false,
       "form": "construction-monitoring",
-      "lead_time": 864000,
+      "lead_time": 8640000,
       "is_multiple_instance": false,
       "continue_async": false
     }
