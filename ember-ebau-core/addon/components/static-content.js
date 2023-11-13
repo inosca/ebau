@@ -18,6 +18,11 @@ export default class StaticContentComponent extends Component {
   *fetchData() {
     try {
       yield Promise.resolve();
+
+      if (this.data.value) {
+        this.reset();
+      }
+
       const response = yield this.store.query("static-content", {
         slug: this.args.type,
       });
