@@ -29,7 +29,7 @@
     "potentially also related to missing transform-3d support, but details remain unclear"
   ],
   "dependencies": {
-    "@embroider/macros": "1.13.1",
+    "@embroider/macros": "1.13.3",
     "@embroider/util": "1.12.0",
     "@faker-js/faker": "8.0.2",
     "@fortawesome/ember-fontawesome": "2.0.0",
@@ -39,7 +39,7 @@
     "@projectcaluma/ember-core": "12.4.0",
     "@projectcaluma/ember-form": "12.4.0",
     "@projectcaluma/ember-workflow": "12.4.0",
-    "ember-alexandria": "4.5.0",
+    "ember-alexandria": "4.6.0",
     "ember-apollo-client": "4.0.2",
     "ember-auto-import": "2.6.3",
     "ember-can": "4.2.0",
