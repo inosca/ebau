@@ -2589,6 +2589,7 @@ snapshots['test_eingabebestaetigung_gr 1'] = {
     'descriptionHeaderLabel': 'Beschreibung',
     'documents': [
         {
+            'checksum': 'sha256:cf3427c431ed849f891ac9975ed1b43333b5e5a21ed41397c552421c3c1f37be',
             'date': '06.09.2022',
             'filename': 'Lageplan.pdf',
             'time': '15:37'
