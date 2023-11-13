@@ -28,8 +28,8 @@ class CategoryAdmin(EbauAdminMixin, LocalizedFieldsAdminMixin, ModelAdmin):
 
     def get_readonly_fields(self, request, obj=None):
         if obj:
-            return self.readonly_fields + ["slug"]
-        return self.readonly_fields
+            return ["slug"]
+        return []
 
 
 @register(WorkItem)
