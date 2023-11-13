@@ -11,12 +11,154 @@
       "modified_by_group": null,
       "metainfo": {
         "access": {
-          "are": "AdminService",
-          "support": "Admin",
-          "applicant": "Read",
-          "subservice": "AdminService",
-          "service-lead": "AdminService",
-          "municipality-lead": "AdminService"
+          "are": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "create"
+              },
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "files"
+                ],
+                "scope": "Service",
+                "permission": "update"
+              },
+              {
+                "fields": ["tags"],
+                "scope": "All",
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "permission": "delete"
+              }
+            ]
+          },
+          "support": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "permission": "delete"
+              }
+            ]
+          },
+          "applicant": {
+            "visibility": "all"
+          },
+          "subservice": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "create"
+              },
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "files"
+                ],
+                "scope": "Service",
+                "permission": "update"
+              },
+              {
+                "fields": ["tags"],
+                "scope": "All",
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "permission": "delete"
+              }
+            ]
+          },
+          "service-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "create"
+              },
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "files"
+                ],
+                "scope": "Service",
+                "permission": "update"
+              },
+              {
+                "fields": ["tags"],
+                "scope": "All",
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "permission": "delete"
+              }
+            ]
+          },
+          "municipality-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "permission": "update"
+              },
+              {
+                "fields": ["tags"],
+                "scope": "All",
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "permission": "delete"
+              }
+            ]
+          }
         }
       },
       "name": "{\"de\": \"Alle Beteiligten\", \"fr\": \"\", \"it\": \"Tutti coinvolti\"}",
@@ -37,9 +179,95 @@
       "modified_by_group": null,
       "metainfo": {
         "access": {
-          "are": "AdminService",
-          "support": "Admin",
-          "service-lead": "AdminService"
+          "are": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "create"
+              },
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "files"
+                ],
+                "scope": "Service",
+                "permission": "update"
+              },
+              {
+                "fields": ["tags"],
+                "scope": "All",
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "permission": "delete"
+              }
+            ]
+          },
+          "support": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "permission": "delete"
+              }
+            ]
+          },
+          "service-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "scope": "Service",
+                "permission": "create"
+              },
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "files"
+                ],
+                "scope": "Service",
+                "permission": "update"
+              },
+              {
+                "fields": ["tags"],
+                "scope": "All",
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "permission": "delete"
+              }
+            ]
+          }
         }
       },
       "name": "{\"de\": \"Alle Kanton\", \"fr\": \"\", \"it\": \"Tutti i canton\"}",
@@ -60,13 +288,105 @@
       "modified_by_group": null,
       "metainfo": {
         "access": {
-          "are": "Read",
-          "uso": "Read",
-          "support": "Admin",
-          "applicant": "AdminNew",
-          "subservice": "Read",
-          "service-lead": "Read",
-          "municipality-lead": "AdminBeilagenMunicipality"
+          "are": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "fields": ["tags"],
+                "scope": "All",
+                "permission": "update"
+              }
+            ]
+          },
+          "uso": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "fields": ["tags"],
+                "scope": "All",
+                "permission": "update"
+              }
+            ]
+          },
+          "support": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "permission": "delete"
+              }
+            ]
+          },
+          "applicant": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "fields": ["metainfo", "title", "category", "files"],
+                "condition": {
+                  "InstanceState": "new"
+                },
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "condition": {
+                  "InstanceState": "new"
+                },
+                "permission": "delete"
+              }
+            ]
+          },
+          "subservice": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "fields": ["tags"],
+                "scope": "All",
+                "permission": "update"
+              }
+            ]
+          },
+          "service-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "fields": ["tags"],
+                "scope": "All",
+                "permission": "update"
+              }
+            ]
+          },
+          "municipality-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "condition": {
+                  "PaperInstance": true
+                },
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "fields": ["title", "description", "tags", "marks"],
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "condition": {
+                  "InstanceState": "new",
+                  "PaperInstance": true
+                },
+                "permission": "delete"
+              }
+            ]
+          }
         }
       },
       "name": "{\"de\": \"Beilagen zum Gesuch\", \"fr\": \"\", \"it\": \"Allegati alla domanda\"}",
@@ -155,11 +475,151 @@
       "modified_by_group": null,
       "metainfo": {
         "access": {
-          "are": "AdminService",
-          "support": "Admin",
-          "subservice": "AdminService",
-          "service-lead": "AdminService",
-          "municipality-lead": "AdminService"
+          "are": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "create"
+              },
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "files"
+                ],
+                "scope": "Service",
+                "permission": "update"
+              },
+              {
+                "fields": ["tags"],
+                "scope": "All",
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "permission": "delete"
+              }
+            ]
+          },
+          "support": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "permission": "delete"
+              }
+            ]
+          },
+          "subservice": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "create"
+              },
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "files"
+                ],
+                "scope": "Service",
+                "permission": "update"
+              },
+              {
+                "fields": ["tags"],
+                "scope": "All",
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "permission": "delete"
+              }
+            ]
+          },
+          "service-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "create"
+              },
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "files"
+                ],
+                "scope": "Service",
+                "permission": "update"
+              },
+              {
+                "fields": ["tags"],
+                "scope": "All",
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "permission": "delete"
+              }
+            ]
+          },
+          "municipality-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "permission": "update"
+              },
+              {
+                "fields": ["tags"],
+                "scope": "All",
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "permission": "delete"
+              }
+            ]
+          }
         }
       },
       "name": "{\"de\": \"Beteiligte Beh\\u00f6rden\", \"fr\": \"\", \"it\": \"Autorit\\u00e0 coinvolte\"}",
@@ -180,12 +640,182 @@
       "modified_by_group": null,
       "metainfo": {
         "access": {
-          "are": "InternalAdmin",
-          "uso": "InternalAdmin",
-          "support": "Admin",
-          "subservice": "InternalAdmin",
-          "service-lead": "InternalAdmin",
-          "municipality-lead": "InternalAdmin"
+          "are": {
+            "visibility": "service",
+            "permissions": [
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "create"
+              },
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "scope": "Service",
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "permission": "delete"
+              }
+            ]
+          },
+          "uso": {
+            "visibility": "service",
+            "permissions": [
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "create"
+              },
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "scope": "Service",
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "permission": "delete"
+              }
+            ]
+          },
+          "support": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "permission": "delete"
+              }
+            ]
+          },
+          "subservice": {
+            "visibility": "service",
+            "permissions": [
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "create"
+              },
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "scope": "Service",
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "permission": "delete"
+              }
+            ]
+          },
+          "service-lead": {
+            "visibility": "service",
+            "permissions": [
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "create"
+              },
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "scope": "Service",
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "permission": "delete"
+              }
+            ]
+          },
+          "municipality-lead": {
+            "visibility": "service",
+            "permissions": [
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "create"
+              },
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "scope": "Service",
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "permission": "delete"
+              }
+            ]
+          }
         }
       },
       "name": "{\"de\": \"Intern\", \"fr\": \"\", \"it\": \"Interno\"}",
@@ -206,11 +836,71 @@
       "modified_by_group": null,
       "metainfo": {
         "access": {
-          "are": "Read",
-          "support": "Admin",
-          "applicant": "AdminAdditionalDemand",
-          "service-lead": "Read",
-          "municipality-lead": "Read"
+          "are": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "fields": ["tags"],
+                "scope": "All",
+                "permission": "update"
+              }
+            ]
+          },
+          "support": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "permission": "delete"
+              }
+            ]
+          },
+          "applicant": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "fields": ["metainfo", "title", "category", "files"],
+                "condition": {
+                  "ReadyWorkItem": "additional-demand"
+                },
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "condition": {
+                  "ReadyWorkItem": "additional-demand"
+                },
+                "permission": "delete"
+              }
+            ]
+          },
+          "service-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "fields": ["tags"],
+                "scope": "All",
+                "permission": "update"
+              }
+            ]
+          },
+          "municipality-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "fields": ["tags"],
+                "scope": "All",
+                "permission": "update"
+              }
+            ]
+          }
         }
       },
       "name": "{\"de\": \"Nachforderung\", \"fr\": \"\", \"it\": \"\"}",
@@ -231,10 +921,110 @@
       "modified_by_group": null,
       "metainfo": {
         "access": {
-          "are": "Read",
-          "uso": "InternalAdminCirculation",
-          "support": "Admin",
-          "service-lead": "InternalAdminCirculation"
+          "are": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "fields": ["tags"],
+                "scope": "All",
+                "permission": "update"
+              }
+            ]
+          },
+          "uso": {
+            "visibility": "service",
+            "permissions": [
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "create"
+              },
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "files"
+                ],
+                "scope": "Service",
+                "permission": "update"
+              },
+              {
+                "fields": ["tags"],
+                "scope": "All",
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "InstanceState": "circulation"
+                },
+                "permission": "delete"
+              }
+            ]
+          },
+          "support": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "permission": "delete"
+              }
+            ]
+          },
+          "service-lead": {
+            "visibility": "service",
+            "permissions": [
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "create"
+              },
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "files"
+                ],
+                "scope": "Service",
+                "permission": "update"
+              },
+              {
+                "fields": ["tags"],
+                "scope": "All",
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "InstanceState": "circulation"
+                },
+                "permission": "delete"
+              }
+            ]
+          }
         }
       },
       "name": "{\"de\": \"Stellungnahmen ans ARE\", \"fr\": \"\", \"it\": \"Dichiarazioni all'ARE\"}",
@@ -255,10 +1045,89 @@
       "modified_by_group": null,
       "metainfo": {
         "access": {
-          "are": "AdminService",
-          "uso": "Read",
-          "support": "Admin",
-          "municipality-lead": "AdminService"
+          "are": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "create"
+              },
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "files"
+                ],
+                "scope": "Service",
+                "permission": "update"
+              },
+              {
+                "fields": ["tags"],
+                "scope": "All",
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "permission": "delete"
+              }
+            ]
+          },
+          "uso": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "fields": ["tags"],
+                "scope": "All",
+                "permission": "update"
+              }
+            ]
+          },
+          "support": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "permission": "delete"
+              }
+            ]
+          },
+          "municipality-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "permission": "update"
+              },
+              {
+                "fields": ["tags"],
+                "scope": "All",
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "permission": "delete"
+              }
+            ]
+          }
         }
       },
       "name": "{\"de\": \"Umweltschutzorganisationen\", \"fr\": \"\", \"it\": \"Organizzazioni di protezione ambientale\"}",
