@@ -16,6 +16,7 @@ from caluma.caluma_workflow.models import WorkItem
 from django.urls import reverse
 from django.utils.timezone import make_aware
 from django.utils.translation import override
+from pytest_lazyfixture import lazy_fixture
 from rest_framework import status
 
 from camac.instance.placeholders.utils import get_tel_and_email, human_readable_date
@@ -50,6 +51,19 @@ def gr_dms_config(settings):
     ]
     settings.APPLICATION_NAME = "kt_gr"
     settings.INTERNAL_BASE_URL = "http://ember-ebau.local"
+    yield
+    settings.LANGUAGES = original_languages
+
+
+@pytest.fixture
+def so_dms_config(settings, application_settings):
+    original_languages = settings.LANGUAGES
+    settings.LANGUAGES = [
+        (code, name) for code, name in settings.LANGUAGES if code in ["de"]
+    ]
+    settings.APPLICATION_NAME = "kt_so"
+    settings.INTERNAL_BASE_URL = "http://ember-ebau.local"
+    application_settings["SHORT_NAME"] = "so"
     yield
     settings.LANGUAGES = original_languages
 
@@ -624,14 +638,30 @@ def test_human_readable_date(language, expected):
         assert human_readable_date(date.today()) == expected
 
 
-def test_dms_placeholders_docs(admin_client, snapshot, be_dms_config):
+@pytest.mark.parametrize(
+    "dms_config",
+    [
+        lazy_fixture("be_dms_config"),
+        lazy_fixture("gr_dms_config"),
+        lazy_fixture("so_dms_config"),
+    ],
+)
+def test_dms_placeholders_docs(admin_client, snapshot, dms_config):
     response = admin_client.get(reverse("dms-placeholders-docs"))
     assert response.status_code == status.HTTP_200_OK
     snapshot.assert_match(response.json())
 
 
+@pytest.mark.parametrize(
+    "dms_config",
+    [
+        lazy_fixture("be_dms_config"),
+        lazy_fixture("gr_dms_config"),
+        lazy_fixture("so_dms_config"),
+    ],
+)
 def test_dms_placeholders_docs_available_placeholders(
-    admin_client, snapshot, be_dms_config
+    admin_client, snapshot, dms_config
 ):
     response = admin_client.get(
         reverse("dms-placeholders-docs"), data={"available_placeholders": True}

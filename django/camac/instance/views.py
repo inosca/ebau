@@ -57,6 +57,7 @@ from .placeholders.serializers import (
     BeDMSPlaceholdersSerializer,
     DMSPlaceholdersSerializer,
     GrDMSPlaceholdersSerializer,
+    SoDMSPlaceholdersSerializer,
 )
 
 
@@ -175,6 +176,7 @@ class InstanceView(
                 "dms_placeholders": {
                     "kt_bern": BeDMSPlaceholdersSerializer,
                     "kt_gr": GrDMSPlaceholdersSerializer,
+                    "kt_so": SoDMSPlaceholdersSerializer,
                     "default": DMSPlaceholdersSerializer,
                 },
                 "appeal": serializers.CalumaInstanceAppealSerializer,
