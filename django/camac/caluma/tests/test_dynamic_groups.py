@@ -91,6 +91,7 @@ def test_dynamic_create_additional_demand(
     additional_demand_settings,
     caluma_admin_user,
     be_instance,
+    application_settings,
 ):
     target_service = service_factory()
     target_subservice = service_factory(service_parent=service_factory())
@@ -128,6 +129,24 @@ def test_dynamic_create_additional_demand(
     assert (
         str(be_instance.responsible_service(filter_type="municipality").pk)
         in groups_without_prev
+    )
+
+    groups_submit = set(
+        CustomDynamicGroups().resolve("create_init_additional_demand")(
+            task=None,
+            case=be_instance.case,
+            user=caluma_admin_user,
+            prev_work_item=work_item_factory(
+                task_id=application_settings["CALUMA"]["SUBMIT_TASKS"][0],
+            ),
+            context={},
+        )
+    )
+
+    # if previous work item is submit, fallback to municipality
+    assert (
+        str(be_instance.responsible_service(filter_type="municipality").pk)
+        in groups_submit
     )
 
     groups_additional_demand = set(
