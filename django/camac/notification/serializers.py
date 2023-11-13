@@ -34,6 +34,7 @@ from rest_framework_json_api import serializers
 from camac.billing.models import BillingV2Entry
 from camac.caluma.api import CalumaApi
 from camac.caluma.utils import find_answer, get_answer_display_value
+from camac.communications.models import CommunicationsMessage
 from camac.constants import kt_uri as uri_constants
 from camac.core.models import (
     Activation,
@@ -67,6 +68,9 @@ RECIPIENT_TYPE_NAMES = {
     "construction_control": translation.gettext_noop("Construction control"),
     "inactive_municipality": translation.gettext_noop(
         "Municipality (if district active)"
+    ),
+    "internal_involved_entities": translation.gettext_noop(
+        "Internal Message Recipients"
     ),
     "inquiry_addressed": translation.gettext_noop("Addressed service of inquiry"),
     "inquiry_controlling": translation.gettext_noop("Controlling service of inquiry"),
@@ -1017,12 +1021,16 @@ class NotificationTemplateMergeSerializer(
 
 
 class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer):
-    # Activation and circulation are only needed for the recipient types
+    # Activation, circulation and message are only needed for the recipient types
     activation = serializers.ResourceRelatedField(
         queryset=Activation.objects.all(), required=False
     )
     circulation = serializers.ResourceRelatedField(
         queryset=Circulation.objects.all(), required=False
+    )
+
+    message = serializers.ResourceRelatedField(
+        queryset=CommunicationsMessage.objects.all(), required=False
     )
 
     # Used for passing in additional information to the recipient
@@ -1050,6 +1058,7 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             # New circulation (BE, SZ)
             "involved_in_distribution",
             "unanswered_inquiries",
+            "internal_involved_entities",
             "inquiry_addressed",
             "inquiry_controlling",
             # Work items
@@ -1335,6 +1344,25 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
 
         return self._get_responsible(
             instance, Service.objects.get(pk=inquiry.addressed_groups[0])
+        )
+
+    def _get_recipients_internal_involved_entities(self, instance):
+        message = self.validated_data.get("message")
+
+        if not message:  # pragma: no cover
+            return []
+
+        created_by = message.created_by
+
+        result = [
+            entity
+            for entity in message.topic.involved_entities
+            if entity not in ["APPLICANT", created_by]
+        ]
+
+        services = Service.objects.filter(pk__in=result, notification=1)
+        return flatten(
+            [self._get_responsible(instance, service) for service in services]
         )
 
     def _get_recipients_inquiry_controlling(self, instance):

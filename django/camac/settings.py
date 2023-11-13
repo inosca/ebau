@@ -316,12 +316,6 @@ APPLICATIONS = {
             "subservice": "service",
             "Geometer": "geometer",
         },
-        "COMMUNICATIONS": {
-            "template_slug": "communications-new-message",
-            "dossier_number_lookup": lambda instance: instance.case.meta.get(
-                "ebau-number"
-            ),
-        },
         "ADMIN_GROUP": 1,
         "ROLE_INHERITANCE": {"trusted_service": "service"},
         "IS_MULTILINGUAL": False,
@@ -1353,12 +1347,6 @@ APPLICATIONS = {
         "CIRCULATION_ANSWER_UNINVOLVED": "not_concerned",
         "COPY_RESPONSIBLE_PERSON_ON_SUBMIT": True,
         "THUMBNAIL_SIZE": "x300",
-        "COMMUNICATIONS": {
-            "template_slug": "communications-new-message",
-            "dossier_number_lookup": lambda instance: instance.case.meta.get(
-                "ebau-number"
-            ),
-        },
         "NOTIFICATIONS": {
             "SUBMIT": [
                 {
@@ -2923,12 +2911,6 @@ APPLICATIONS = {
             "START_CIRC": None,
             "DECISION": None,
         },
-        "COMMUNICATIONS": {
-            "template_slug": "communications-new-message",
-            "dossier_number_lookup": lambda instance: instance.case.meta.get(
-                "ebau-number"
-            ),
-        },
         "PAPER": {
             "ALLOWED_ROLES": {"DEFAULT": []},
             "ALLOWED_SERVICE_GROUPS": {"DEFAULT": []},
@@ -4492,6 +4474,7 @@ DMS = load_module_settings("dms")
 REJECTION = load_module_settings("rejection")
 WITHDRAWAL = load_module_settings("withdrawal")
 PERMISSIONS = load_module_settings("permissions")
+COMMUNICATIONS = load_module_settings("communications")
 
 # Alexandria
 ALEXANDRIA = load_module_settings("alexandria")
