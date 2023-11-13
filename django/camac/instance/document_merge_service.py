@@ -10,6 +10,7 @@ from caluma.caluma_form.validators import CustomValidationError, DocumentValidat
 from django.conf import settings
 from django.core.files.base import ContentFile
 from django.core.serializers.json import DjangoJSONEncoder
+from django.db.models import OuterRef
 from django.utils.text import slugify
 from django.utils.timezone import get_current_timezone, localtime
 from django.utils.translation import get_language, gettext as _
@@ -240,9 +241,16 @@ class DMSHandler:
                 category_id__in=categories,
                 instance_document__instance=instance,
             )
+            .annotate(
+                checksum=alexandria_models.File.objects.filter(
+                    document=OuterRef("pk"), variant=alexandria_models.File.ORIGINAL
+                )
+                .order_by("-created_at")
+                .values("checksum")[:1]
+            )
             .exclude(metainfo__has_key="system-generated")
             .order_by("-created_at")
-            .values("title", "created_at")
+            .values("title", "created_at", "checksum")
         )
 
         timezone = get_current_timezone()
@@ -254,6 +262,7 @@ class DMSHandler:
                 .astimezone(timezone)
                 .strftime("%d.%m.%Y"),
                 "time": document["created_at"].astimezone(timezone).strftime("%H:%M"),
+                "checksum": document["checksum"],
             }
             for document in documents
         ]
@@ -629,7 +638,6 @@ class DMSVisitor:
         return {"value": answer.date if answer and answer.date else None}
 
     def _visit_question(self, node, parent_doc=None, flatten=False):
-
         ret = {
             "label": str(node.label),
             "slug": node.slug,
