@@ -5,6 +5,15 @@ ALEXANDRIA = {
             "PUBLICATION": "publication",
             "DECISION": "decision",
         },
+        "RESTRICTED_FIELDS": {
+            "title",
+            "description",
+            "metainfo",
+            "category",
+            "tags",
+            "marks",
+            "files",
+        },
     },
     "kt_gr": {
         "ENABLED": True,

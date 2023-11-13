@@ -10,14 +10,15 @@ from camac.utils import filters
 from .common import get_role
 
 
-def get_category_access_rule(prefix, value, role=None, lookup=None):
-    query = (
-        f"metainfo__access__{role}__{lookup}" if role else "metainfo__access__has_key"
-    )
-
+def get_category_access_rule(prefix, value, role=None):
     return Q(
-        Q(**{f"{prefix}category__{query}": value})
-        | Q(**{f"{prefix}category__parent__{query}": value})
+        Q(**{f"{prefix}category__metainfo__access__has_key": role})
+        & Q(**{f"{prefix}category__metainfo__access__{role}__visibility": value})
+    ) | Q(
+        Q(**{f"{prefix}category__parent__metainfo__access__has_key": role})
+        & Q(
+            **{f"{prefix}category__parent__metainfo__access__{role}__visibility": value}
+        )
     )
 
 
@@ -73,12 +74,13 @@ class CustomVisibility(BaseVisibility, InstanceQuerysetMixin):
             )
 
         aggregated_filter = Q()
-        normal_permissions = ["Admin", "Read", "Write"]
-        for permission in normal_permissions:
-            # directly readable categories
-            aggregated_filter |= get_category_access_rule(
-                prefix, permission, role, "istartswith"
-            )
+        # directly readable categories
+        aggregated_filter |= get_category_access_rule(prefix, "all", role)
+        # categories where only documents from my own service are readable
+        aggregated_filter |= Q(
+            get_category_access_rule(prefix, "service", role)
+            & Q(**{f"{prefix}created_by_group": user.group})
+        )
 
         if role == "applicant":
             # decision document available for applicants
@@ -86,14 +88,7 @@ class CustomVisibility(BaseVisibility, InstanceQuerysetMixin):
                 **{f"{prefix}tags__pk": ALEXANDRIA["MARKS"]["DECISION"]}
             )
 
-        return visible_instances_filter & (
-            aggregated_filter
-            | Q(
-                # categories where only documents from my own service are readable
-                get_category_access_rule(prefix, "Internal", role, "icontains")
-                & Q(**{f"{prefix}created_by_group": user.group})
-            )
-        )
+        return visible_instances_filter & aggregated_filter
 
     @filter_queryset_for(Document)
     def filter_queryset_for_document(self, queryset, request):

@@ -54,5 +54,8 @@ generate_module_test_settings(
 )
 generate_module_test_settings("publication", ["kt_gr"])
 generate_module_test_settings("decision", ["kt_bern", "kt_gr", "kt_so"])
-generate_module_test_settings("additional_demand")
 generate_module_test_settings("dms", ["kt_bern", "kt_gr"])
+generate_module_test_settings(
+    "additional_demand", ["kt_gr", "kt_so", "kt_bern", "kt_uri"]
+)
+generate_module_test_settings("alexandria", ["kt_gr", "kt_so"])
