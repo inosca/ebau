@@ -1041,7 +1041,7 @@ Test RV 2''',
     'ZUSTAENDIG_TELEFON': ''
 }
 
-snapshots['test_dms_placeholders_docs 1'] = {
+snapshots['test_dms_placeholders_docs[be_dms_config] 1'] = {
     'ADDRESS': {
         'aliases': [
             {
@@ -3218,7 +3218,1763 @@ snapshots['test_dms_placeholders_docs 1'] = {
     }
 }
 
-snapshots['test_dms_placeholders_docs_available_placeholders 1'] = [
+snapshots['test_dms_placeholders_docs[gr_dms_config] 1'] = {
+    'ADDRESS': {
+        'aliases': [
+            {
+                'de': 'ADRESSE'
+            }
+        ],
+        'description': {
+            'de': 'Adresse des betroffenen Grundstückes'
+        },
+        'nested_aliases': {
+        }
+    },
+    'ALLE_GESUCHSTELLER': {
+        'aliases': [
+            {
+                'de': 'ALLE_GESUCHSTELLER'
+            }
+        ],
+        'description': {
+            'de': 'Namen aller Gesuchsteller/innen'
+        },
+        'nested_aliases': {
+        }
+    },
+    'ALLE_GESUCHSTELLER_NAME_ADDRESS': {
+        'aliases': [
+            {
+                'de': 'ALLE_GESUCHSTELLER_NAME_ADRESSE'
+            }
+        ],
+        'description': {
+            'de': 'Namen und Adressen aller Gesuchsteller/innen'
+        },
+        'nested_aliases': {
+        }
+    },
+    'ALLE_GRUNDEIGENTUEMER': {
+        'aliases': [
+            {
+                'de': 'ALLE_GRUNDEIGENTUEMER'
+            }
+        ],
+        'description': {
+            'de': 'Namen aller Grundeigentümer/innen'
+        },
+        'nested_aliases': {
+        }
+    },
+    'ALLE_GRUNDEIGENTUEMER_NAME_ADDRESS': {
+        'aliases': [
+            {
+                'de': 'ALLE_GRUNDEIGENTUEMER_NAME_ADRESSE'
+            }
+        ],
+        'description': {
+            'de': 'Namen und Adressen aller Grundeigentümer/innen'
+        },
+        'nested_aliases': {
+        }
+    },
+    'ALLE_PROJEKTVERFASSER': {
+        'aliases': [
+            {
+                'de': 'ALLE_PROJEKTVERFASSER'
+            }
+        ],
+        'description': {
+            'de': 'Namen aller Projektverfasser/innen'
+        },
+        'nested_aliases': {
+        }
+    },
+    'ALLE_PROJEKTVERFASSER_NAME_ADDRESS': {
+        'aliases': [
+            {
+                'de': 'ALLE_PROJEKTVERFASSER_NAME_ADRESSE'
+            }
+        ],
+        'description': {
+            'de': 'Namen und Adressen aller Projektverfasser/innen'
+        },
+        'nested_aliases': {
+        }
+    },
+    'BASE_URL': {
+        'aliases': [
+            {
+                'de': 'EBAU_URL'
+            }
+        ],
+        'description': {
+            'de': 'Die URL vom eBau-System'
+        },
+        'nested_aliases': {
+        }
+    },
+    'BAUEINGABE_DATUM': {
+        'aliases': [
+            {
+                'de': 'BAUEINGABE_DATUM'
+            }
+        ],
+        'description': {
+            'de': 'Datum an dem das Dossier eingereicht wurde'
+        },
+        'nested_aliases': {
+        }
+    },
+    'BAUENTSCHEID': {
+        'aliases': [
+            {
+                'de': 'BAUENTSCHEID'
+            }
+        ],
+        'description': {
+            'de': 'Bauentscheid'
+        },
+        'nested_aliases': {
+        }
+    },
+    'BEGINN_PUBLIKATIONSORGAN_GEMEINDE': {
+        'aliases': [
+            {
+                'de': 'START_PUBLIKATION_GEMEINDE'
+            }
+        ],
+        'description': {
+            'de': 'Startdatum der Publikation im Publikationsorgan der Gemeinde'
+        },
+        'nested_aliases': {
+        }
+    },
+    'BEGINN_PUBLIKATION_KANTONSAMTSBLATT': {
+        'aliases': [
+            {
+                'de': 'START_PUBLIKATION_KANTON'
+            }
+        ],
+        'description': {
+            'de': 'Startdatum der Publikation im Kantonsamtsblatt'
+        },
+        'nested_aliases': {
+        }
+    },
+    'BESCHREIBUNG_BAUVORHABEN': {
+        'aliases': [
+            {
+                'de': 'BESCHREIBUNG_BAUVORHABEN'
+            }
+        ],
+        'description': {
+            'de': 'Beschreibung des Bauvorhabens'
+        },
+        'nested_aliases': {
+        }
+    },
+    'DECISION_DATE': {
+        'aliases': [
+            {
+                'de': 'BAUENTSCHEID_DATUM'
+            }
+        ],
+        'description': {
+            'de': 'Datum des Bauentscheids'
+        },
+        'nested_aliases': {
+        }
+    },
+    'DESCRIPTION_MODIFICATION': {
+        'aliases': [
+            {
+                'de': 'BESCHREIBUNG_PROJEKTAENDERUNG'
+            }
+        ],
+        'description': {
+            'de': 'Projektänderung'
+        },
+        'nested_aliases': {
+        }
+    },
+    'DOSSIER_NUMBER': {
+        'aliases': [
+            {
+                'de': 'DOSSIER_NUMMER'
+            }
+        ],
+        'description': {
+            'de': 'Die Nummer des Dossiers'
+        },
+        'nested_aliases': {
+        }
+    },
+    'ENDE_PUBLIKATIONSORGAN_GEMEINDE': {
+        'aliases': [
+            {
+                'de': 'ENDE_PUBLIKATION_GEMEINDE'
+            }
+        ],
+        'description': {
+            'de': 'Enddatum der Publikation im Publikationsorgan der Gemeinde'
+        },
+        'nested_aliases': {
+        }
+    },
+    'ENDE_PUBLIKATION_KANTONSAMTSBLATT': {
+        'aliases': [
+            {
+                'de': 'ENDE_PUBLIKATION_KANTON'
+            }
+        ],
+        'description': {
+            'de': 'Enddatum der Publikation im Kantonsamtsblatt'
+        },
+        'nested_aliases': {
+        }
+    },
+    'ENTSCHEIDDOKUMENTE': {
+        'aliases': [
+            {
+                'de': 'ENTSCHEIDDOKUMENTE'
+            }
+        ],
+        'description': {
+            'de': 'Alle Dokumente die als Entscheiddokument markiert wurden'
+        },
+        'nested_aliases': {
+        }
+    },
+    'FACHSTELLEN_KANTONAL': {
+        'aliases': [
+            {
+                'de': 'ZIRKULATION_ALLE'
+            },
+            {
+                'de': 'FACHSTELLEN_KANTONAL'
+            }
+        ],
+        'description': {
+            'de': 'In Dossier involvierte Stellen'
+        },
+        'nested_aliases': {
+            'BEANTWORTET': [
+                {
+                    'de': 'BEANTWORTET'
+                }
+            ],
+            'ERSTELLT': [
+                {
+                    'de': 'ERSTELLT'
+                }
+            ],
+            'FRIST': [
+                {
+                    'de': 'FRIST'
+                }
+            ],
+            'NAME': [
+                {
+                    'de': 'NAME'
+                }
+            ]
+        }
+    },
+    'FOLGEPLANUNG': {
+        'aliases': [
+            {
+                'de': 'FOLGEPLANUNG'
+            }
+        ],
+        'description': {
+            'de': 'Folgeplanung'
+        },
+        'nested_aliases': {
+        }
+    },
+    'FORM_NAME': {
+        'aliases': [
+            {
+                'de': 'DOSSIER_TYP'
+            }
+        ],
+        'description': {
+            'de': 'Typ des Dossiers'
+        },
+        'nested_aliases': {
+        }
+    },
+    'GEMEINDE_EMAIL': {
+        'aliases': [
+            {
+                'de': 'GEMEINDE_EMAIL'
+            }
+        ],
+        'description': {
+            'de': 'Email-Adresse der Gemeinde'
+        },
+        'nested_aliases': {
+        }
+    },
+    'GEMEINDE_NAME_ADRESSE': {
+        'aliases': [
+            {
+                'de': 'GEMEINDE_NAME_ADRESSE'
+            }
+        ],
+        'description': {
+            'de': 'Name und Adresse der Gemeinde'
+        },
+        'nested_aliases': {
+        }
+    },
+    'GEMEINDE_ORT': {
+        'aliases': [
+            {
+                'de': 'GEMEINDE_ORT'
+            }
+        ],
+        'description': {
+            'de': 'Ort der Gemeinde'
+        },
+        'nested_aliases': {
+        }
+    },
+    'GEMEINDE_TELEFON': {
+        'aliases': [
+            {
+                'de': 'GEMEINDE_TELEFON'
+            }
+        ],
+        'description': {
+            'de': 'Telefonnummer der Gemeinde'
+        },
+        'nested_aliases': {
+        }
+    },
+    'GENERELLER_ERSCHLIESSUNGSPLAN': {
+        'aliases': [
+            {
+                'de': 'GENERELLER_ERSCHLIESSUNGSPLAN'
+            }
+        ],
+        'description': {
+            'de': 'Genereller Erschliessungsplan'
+        },
+        'nested_aliases': {
+        }
+    },
+    'GENERELLER_GESTALTUNGSPLAN': {
+        'aliases': [
+            {
+                'de': 'GENERELLER_GESTALTUNGSPLAN'
+            }
+        ],
+        'description': {
+            'de': 'Genereller Gestaltungsplan'
+        },
+        'nested_aliases': {
+        }
+    },
+    'GESUCHSTELLER': {
+        'aliases': [
+            {
+                'de': 'GESUCHSTELLER'
+            }
+        ],
+        'description': {
+            'de': 'Name des/r Gesuchsteller/in'
+        },
+        'nested_aliases': {
+        }
+    },
+    'GESUCHSTELLER_ADDRESS_1': {
+        'aliases': [
+            {
+                'de': 'GESUCHSTELLER_ADRESSE_1'
+            }
+        ],
+        'description': {
+            'de': 'Adresslinie 1 des/r ersten Gesuchsteller/in'
+        },
+        'nested_aliases': {
+        }
+    },
+    'GESUCHSTELLER_ADDRESS_2': {
+        'aliases': [
+            {
+                'de': 'GESUCHSTELLER_ADRESSE_2'
+            }
+        ],
+        'description': {
+            'de': 'Adresslinie 2 des/r ersten Gesuchsteller/in'
+        },
+        'nested_aliases': {
+        }
+    },
+    'GESUCHSTELLER_NAME_ADDRESS': {
+        'aliases': [
+            {
+                'de': 'GESUCHSTELLER_NAME_ADRESSE'
+            }
+        ],
+        'description': {
+            'de': 'Name und Adresse des/r Gesuchsteller/in'
+        },
+        'nested_aliases': {
+        }
+    },
+    'GRUNDEIGENTUEMER': {
+        'aliases': [
+            {
+                'de': 'GRUNDEIGENTUEMER'
+            }
+        ],
+        'description': {
+            'de': 'Name des/r Grundeigentümer/in'
+        },
+        'nested_aliases': {
+        }
+    },
+    'GRUNDEIGENTUEMER_ADDRESS_1': {
+        'aliases': [
+            {
+                'de': 'GRUNDEIGENTUEMER_ADRESSE_1'
+            }
+        ],
+        'description': {
+            'de': 'Adresslinie 1 des/r ersten Grundeigentümer/in'
+        },
+        'nested_aliases': {
+        }
+    },
+    'GRUNDEIGENTUEMER_ADDRESS_2': {
+        'aliases': [
+            {
+                'de': 'GRUNDEIGENTUEMER_ADRESSE_2'
+            }
+        ],
+        'description': {
+            'de': 'Adresslinie 2 des/r ersten Grundeigentümer/in'
+        },
+        'nested_aliases': {
+        }
+    },
+    'GRUNDEIGENTUEMER_NAME_ADDRESS': {
+        'aliases': [
+            {
+                'de': 'GRUNDEIGENTUEMER_NAME_ADRESSE'
+            }
+        ],
+        'description': {
+            'de': 'Name und Adresse des/r Grundeigentümer/in'
+        },
+        'nested_aliases': {
+        }
+    },
+    'INSTANCE_ID': {
+        'aliases': [
+            {
+                'de': 'ID'
+            }
+        ],
+        'description': {
+            'de': 'Die Nummer des Dossiers'
+        },
+        'nested_aliases': {
+        }
+    },
+    'JURISTIC_NAME': {
+        'aliases': [
+            {
+                'de': 'JURISTISCHER_NAME'
+            }
+        ],
+        'description': {
+            'de': 'Juristischer Name des/r Gesuchsteller/in'
+        },
+        'nested_aliases': {
+        }
+    },
+    'KOORDINATEN': {
+        'aliases': [
+            {
+                'de': 'KOORDINATEN'
+            }
+        ],
+        'description': {
+            'de': 'Lagekoordinaten der Parzelle(n)'
+        },
+        'nested_aliases': {
+        }
+    },
+    'LANGUAGE': {
+        'aliases': [
+            {
+                'de': 'SPRACHE'
+            }
+        ],
+        'description': {
+            'de': 'Die momentan ausgewählte Systemsprache'
+        },
+        'nested_aliases': {
+        }
+    },
+    'LEITBEHOERDE_ADDRESS_1': {
+        'aliases': [
+            {
+                'de': 'LEITBEHOERDE_ADRESSE_1'
+            }
+        ],
+        'description': {
+            'de': 'Adresslinie 1 der zuständigen Leitbehörde'
+        },
+        'nested_aliases': {
+        }
+    },
+    'LEITBEHOERDE_ADDRESS_2': {
+        'aliases': [
+            {
+                'de': 'LEITBEHOERDE_ADRESSE_2'
+            }
+        ],
+        'description': {
+            'de': 'Adresslinie 2 der zuständigen Leitbehörde'
+        },
+        'nested_aliases': {
+        }
+    },
+    'LEITBEHOERDE_CITY': {
+        'aliases': [
+            {
+                'de': 'LEITBEHOERDE_STADT'
+            }
+        ],
+        'description': {
+            'de': 'Ort der zuständigen Leitbehörde'
+        },
+        'nested_aliases': {
+        }
+    },
+    'LEITBEHOERDE_EMAIL': {
+        'aliases': [
+            {
+                'de': 'LEITBEHOERDE_EMAIL'
+            }
+        ],
+        'description': {
+            'de': 'Email-Adresse der zuständigen Leitbehörde'
+        },
+        'nested_aliases': {
+        }
+    },
+    'LEITBEHOERDE_NAME': {
+        'aliases': [
+            {
+                'de': 'LEITBEHOERDE_NAME'
+            }
+        ],
+        'description': {
+            'de': 'Name der zuständigen Leitbehörde'
+        },
+        'nested_aliases': {
+        }
+    },
+    'LEITBEHOERDE_NAME_KURZ': {
+        'aliases': [
+            {
+                'de': 'LEITBEHOERDE_NAME_KURZ'
+            }
+        ],
+        'description': {
+            'de': 'Abgekürzter Name der zuständigen Leitbehörde'
+        },
+        'nested_aliases': {
+        }
+    },
+    'LEITBEHOERDE_PHONE': {
+        'aliases': [
+            {
+                'de': 'LEITBEHOERDE_TELEFON'
+            }
+        ],
+        'description': {
+            'de': 'Telefonnummer der zuständigen Leitbehörde'
+        },
+        'nested_aliases': {
+        }
+    },
+    'MEINE_ORGANISATION_ADRESSE_1': {
+        'aliases': [
+            {
+                'de': 'MEINE_ORGANISATION_ADRESSE_1'
+            }
+        ],
+        'description': {
+            'de': 'Adresslinie 1 der momentan ausgewählten Organisation'
+        },
+        'nested_aliases': {
+        }
+    },
+    'MEINE_ORGANISATION_ADRESSE_2': {
+        'aliases': [
+            {
+                'de': 'MEINE_ORGANISATION_ADRESSE_2'
+            }
+        ],
+        'description': {
+            'de': 'Adresslinie 2 der momentan ausgewählten Organisation'
+        },
+        'nested_aliases': {
+        }
+    },
+    'MEINE_ORGANISATION_EMAIL': {
+        'aliases': [
+            {
+                'de': 'MEINE_ORGANISATION_EMAIL'
+            }
+        ],
+        'description': {
+            'de': 'Email-Adresse der momentan ausgewählten Organisation'
+        },
+        'nested_aliases': {
+        }
+    },
+    'MEINE_ORGANISATION_NAME': {
+        'aliases': [
+            {
+                'de': 'MEINE_ORGANISATION_NAME'
+            }
+        ],
+        'description': {
+            'de': 'Name der momentan ausgewählten Organisation'
+        },
+        'nested_aliases': {
+        }
+    },
+    'MEINE_ORGANISATION_NAME_ADRESSE': {
+        'aliases': [
+            {
+                'de': 'MEINE_ORGANISATION_NAME_ADRESSE'
+            }
+        ],
+        'description': {
+            'de': 'Name und Adresse der momentan ausgewählten Organisation'
+        },
+        'nested_aliases': {
+        }
+    },
+    'MEINE_ORGANISATION_NAME_KURZ': {
+        'aliases': [
+            {
+                'de': 'MEINE_ORGANISATION_NAME_KURZ'
+            }
+        ],
+        'description': {
+            'de': 'Abgekürzter Name der momentan ausgewählten Organisation'
+        },
+        'nested_aliases': {
+        }
+    },
+    'MEINE_ORGANISATION_ORT': {
+        'aliases': [
+            {
+                'de': 'MEINE_ORGANISATION_ORT'
+            }
+        ],
+        'description': {
+            'de': 'Ort der momentan ausgewählten Organisation'
+        },
+        'nested_aliases': {
+        }
+    },
+    'MEINE_ORGANISATION_TELEFON': {
+        'aliases': [
+            {
+                'de': 'MEINE_ORGANISATION_TELEFON'
+            }
+        ],
+        'description': {
+            'de': 'Telefonnummer der momentan ausgewählten Organisation'
+        },
+        'nested_aliases': {
+        }
+    },
+    'MUNICIPALITY': {
+        'aliases': [
+            {
+                'de': 'GEMEINDE'
+            }
+        ],
+        'description': {
+            'de': 'Die ausgewählte Gemeinde des/der Gesuchsteller/in'
+        },
+        'nested_aliases': {
+        }
+    },
+    'MUNICIPALITY_ADDRESS': {
+        'aliases': [
+            {
+                'de': 'GEMEINDE_ADRESSE'
+            }
+        ],
+        'description': {
+            'de': 'Die Adresse der ausgewählten Gemeinde des/der Gesuchsteller/in'
+        },
+        'nested_aliases': {
+        }
+    },
+    'NAME': {
+        'aliases': [
+        ],
+        'description': None,
+        'nested_aliases': {
+        }
+    },
+    'NEBENBESTIMMUNGEN': {
+        'aliases': [
+            {
+                'de': 'EIGENE_NEBENBESTIMMUNGEN'
+            },
+            {
+                'de': 'NEBENBESTIMMUNGEN'
+            }
+        ],
+        'description': {
+            'de': 'Eigene Nebenbestimmungen'
+        },
+        'nested_aliases': {
+        }
+    },
+    'NEBENBESTIMMUNGEN_MAPPED': {
+        'aliases': [
+            {
+                'de': 'NEBENBESTIMMUNGEN_MAPPED'
+            }
+        ],
+        'description': None,
+        'nested_aliases': {
+            'FACHSTELLE': [
+                {
+                    'de': 'FACHSTELLE'
+                }
+            ],
+            'TEXT': [
+                {
+                    'de': 'TEXT'
+                }
+            ]
+        }
+    },
+    'PARZELLE': {
+        'aliases': [
+            {
+                'de': 'PARZELLE'
+            }
+        ],
+        'description': {
+            'de': 'Die ausgewählte Parzelle(n) des/der Gesuchsteller/in'
+        },
+        'nested_aliases': {
+        }
+    },
+    'PROJEKTVERFASSER': {
+        'aliases': [
+            {
+                'de': 'PROJEKTVERFASSER'
+            }
+        ],
+        'description': {
+            'de': 'Name des/r Projektverfasser/in'
+        },
+        'nested_aliases': {
+        }
+    },
+    'PROJEKTVERFASSER_ADDRESS_1': {
+        'aliases': [
+            {
+                'de': 'PROJEKTVERFASSER_ADRESSE_1'
+            }
+        ],
+        'description': {
+            'de': 'Adresslinie 1 des/r ersten Projektverfasser/in'
+        },
+        'nested_aliases': {
+        }
+    },
+    'PROJEKTVERFASSER_ADDRESS_2': {
+        'aliases': [
+            {
+                'de': 'PROJEKTVERFASSER_ADRESSE_2'
+            }
+        ],
+        'description': {
+            'de': 'Adresslinie 2 des/r ersten Projektverfasser/in'
+        },
+        'nested_aliases': {
+        }
+    },
+    'PROJEKTVERFASSER_NAME_ADDRESS': {
+        'aliases': [
+            {
+                'de': 'PROJEKTVERFASSER_NAME_ADRESSE'
+            }
+        ],
+        'description': {
+            'de': 'Name und Adresse des/r Projektverfasser/in'
+        },
+        'nested_aliases': {
+        }
+    },
+    'PUBLIKATION_LINK': {
+        'aliases': [
+            {
+                'de': 'PUBLIKATION_LINK'
+            }
+        ],
+        'description': {
+            'de': 'Link zur öffentlichen Auflage'
+        },
+        'nested_aliases': {
+        }
+    },
+    'PUBLIKATION_TEXT': {
+        'aliases': [
+            {
+                'de': 'PUBLIKATION_TEXT'
+            }
+        ],
+        'description': {
+            'de': 'Publikationstext des Dossiers'
+        },
+        'nested_aliases': {
+        }
+    },
+    'STATUS': {
+        'aliases': [
+            {
+                'de': 'STATUS'
+            }
+        ],
+        'description': {
+            'de': 'Momentaner Status des Dossiers'
+        },
+        'nested_aliases': {
+        }
+    },
+    'STELLUNGNAHME': {
+        'aliases': [
+            {
+                'de': 'EIGENE_STELLUNGNAHMEN'
+            },
+            {
+                'de': 'STELLUNGNAHME'
+            }
+        ],
+        'description': {
+            'de': 'Eigene Stellungnahmen'
+        },
+        'nested_aliases': {
+        }
+    },
+    'TODAY': {
+        'aliases': [
+            {
+                'de': 'HEUTE'
+            }
+        ],
+        'description': {
+            'de': 'Das heutige Datum'
+        },
+        'nested_aliases': {
+        }
+    },
+    'ZIRKULATION_FACHSTELLEN': {
+        'aliases': [
+            {
+                'de': 'ZIRKULATION_FACHSTELLEN'
+            }
+        ],
+        'description': {
+            'de': 'In Dossier involvierte Fachstellen'
+        },
+        'nested_aliases': {
+            'BEANTWORTET': [
+                {
+                    'de': 'BEANTWORTET'
+                }
+            ],
+            'ERSTELLT': [
+                {
+                    'de': 'ERSTELLT'
+                }
+            ],
+            'FRIST': [
+                {
+                    'de': 'FRIST'
+                }
+            ],
+            'NAME': [
+                {
+                    'de': 'NAME'
+                }
+            ]
+        }
+    },
+    'ZIRKULATION_GEMEINDEN': {
+        'aliases': [
+            {
+                'de': 'ZIRKULATION_GEMEINDEN'
+            }
+        ],
+        'description': {
+            'de': 'In Dossier involvierte Gemeinden'
+        },
+        'nested_aliases': {
+            'BEANTWORTET': [
+                {
+                    'de': 'BEANTWORTET'
+                }
+            ],
+            'ERSTELLT': [
+                {
+                    'de': 'ERSTELLT'
+                }
+            ],
+            'FRIST': [
+                {
+                    'de': 'FRIST'
+                }
+            ],
+            'NAME': [
+                {
+                    'de': 'NAME'
+                }
+            ]
+        }
+    },
+    'ZIRKULATION_RUECKMELDUNGEN': {
+        'aliases': [
+            {
+                'de': 'ZIRKULATION_RUECKMELDUNGEN'
+            }
+        ],
+        'description': {
+            'de': 'Stellungnahmen und Nebenbestimmungen der eingeladenen Fachstellen'
+        },
+        'nested_aliases': {
+            'ANTWORT': [
+                {
+                    'de': 'ANTWORT'
+                }
+            ],
+            'NEBENBESTIMMUNGEN': [
+                {
+                    'de': 'NEBENBESTIMMUNGEN'
+                }
+            ],
+            'STELLUNGNAHME': [
+                {
+                    'de': 'STELLUNGNAHME'
+                }
+            ],
+            'VON': [
+                {
+                    'de': 'VON'
+                }
+            ]
+        }
+    },
+    'ZONENPLAN': {
+        'aliases': [
+            {
+                'de': 'ZONENPLAN'
+            }
+        ],
+        'description': {
+            'de': 'Zonenplan'
+        },
+        'nested_aliases': {
+        }
+    },
+    'ZUSTAENDIG_NAME': {
+        'aliases': [
+            {
+                'de': 'ZUSTAENDIG_NAME'
+            }
+        ],
+        'description': {
+            'de': 'Name des/r zuständigen/r Mitarbeiter/in'
+        },
+        'nested_aliases': {
+        }
+    }
+}
+
+snapshots['test_dms_placeholders_docs[so_dms_config] 1'] = {
+    'ALLE_GESUCHSTELLER': {
+        'aliases': [
+            {
+                'de': 'ALLE_BAUHERREN'
+            }
+        ],
+        'description': {
+            'de': 'Namen aller Bauherr/innen'
+        },
+        'nested_aliases': {
+        }
+    },
+    'ALLE_GESUCHSTELLER_NAME_ADDRESS': {
+        'aliases': [
+            {
+                'de': 'ALLE_BAUHERREN_NAME_ADRESSE'
+            }
+        ],
+        'description': {
+            'de': 'Namen und Adressen aller Bauherr/innen'
+        },
+        'nested_aliases': {
+        }
+    },
+    'ALLE_GRUNDEIGENTUEMER': {
+        'aliases': [
+            {
+                'de': 'ALLE_GRUNDEIGENTUEMER'
+            }
+        ],
+        'description': {
+            'de': 'Namen aller Grundeigentümer/innen'
+        },
+        'nested_aliases': {
+        }
+    },
+    'ALLE_GRUNDEIGENTUEMER_NAME_ADDRESS': {
+        'aliases': [
+            {
+                'de': 'ALLE_GRUNDEIGENTUEMER_NAME_ADRESSE'
+            }
+        ],
+        'description': {
+            'de': 'Namen und Adressen aller Grundeigentümer/innen'
+        },
+        'nested_aliases': {
+        }
+    },
+    'ALLE_PROJEKTVERFASSER': {
+        'aliases': [
+            {
+                'de': 'ALLE_PROJEKTVERFASSER'
+            }
+        ],
+        'description': {
+            'de': 'Namen aller Projektverfasser/innen'
+        },
+        'nested_aliases': {
+        }
+    },
+    'ALLE_PROJEKTVERFASSER_NAME_ADDRESS': {
+        'aliases': [
+            {
+                'de': 'ALLE_PROJEKTVERFASSER_NAME_ADRESSE'
+            }
+        ],
+        'description': {
+            'de': 'Namen und Adressen aller Projektverfasser/innen'
+        },
+        'nested_aliases': {
+        }
+    },
+    'BASE_URL': {
+        'aliases': [
+            {
+                'de': 'EBAU_URL'
+            }
+        ],
+        'description': {
+            'de': 'Die URL vom eBau-System'
+        },
+        'nested_aliases': {
+        }
+    },
+    'BAUEINGABE_DATUM': {
+        'aliases': [
+            {
+                'de': 'BAUEINGABE_DATUM'
+            }
+        ],
+        'description': {
+            'de': 'Datum an dem das Dossier eingereicht wurde'
+        },
+        'nested_aliases': {
+        }
+    },
+    'BESCHREIBUNG_BAUVORHABEN': {
+        'aliases': [
+            {
+                'de': 'BESCHREIBUNG_BAUVORHABEN'
+            }
+        ],
+        'description': {
+            'de': 'Beschreibung des Bauvorhabens'
+        },
+        'nested_aliases': {
+        }
+    },
+    'DECISION_DATE': {
+        'aliases': [
+            {
+                'de': 'BAUENTSCHEID_DATUM'
+            }
+        ],
+        'description': {
+            'de': 'Datum des Bauentscheids'
+        },
+        'nested_aliases': {
+        }
+    },
+    'FACHSTELLEN_KANTONAL': {
+        'aliases': [
+            {
+                'de': 'ZIRKULATION_ALLE'
+            },
+            {
+                'de': 'FACHSTELLEN_KANTONAL'
+            }
+        ],
+        'description': {
+            'de': 'In Dossier involvierte Stellen'
+        },
+        'nested_aliases': {
+            'BEANTWORTET': [
+                {
+                    'de': 'BEANTWORTET'
+                }
+            ],
+            'ERSTELLT': [
+                {
+                    'de': 'ERSTELLT'
+                }
+            ],
+            'FRIST': [
+                {
+                    'de': 'FRIST'
+                }
+            ],
+            'NAME': [
+                {
+                    'de': 'NAME'
+                }
+            ]
+        }
+    },
+    'FORM_NAME': {
+        'aliases': [
+            {
+                'de': 'DOSSIER_TYP'
+            }
+        ],
+        'description': {
+            'de': 'Typ des Dossiers'
+        },
+        'nested_aliases': {
+        }
+    },
+    'GEMEINDE_EMAIL': {
+        'aliases': [
+            {
+                'de': 'GEMEINDE_EMAIL'
+            }
+        ],
+        'description': {
+            'de': 'Email-Adresse der Gemeinde'
+        },
+        'nested_aliases': {
+        }
+    },
+    'GEMEINDE_NAME_ADRESSE': {
+        'aliases': [
+            {
+                'de': 'GEMEINDE_NAME_ADRESSE'
+            }
+        ],
+        'description': {
+            'de': 'Name und Adresse der Gemeinde'
+        },
+        'nested_aliases': {
+        }
+    },
+    'GEMEINDE_ORT': {
+        'aliases': [
+            {
+                'de': 'GEMEINDE_ORT'
+            }
+        ],
+        'description': {
+            'de': 'Ort der Gemeinde'
+        },
+        'nested_aliases': {
+        }
+    },
+    'GEMEINDE_TELEFON': {
+        'aliases': [
+            {
+                'de': 'GEMEINDE_TELEFON'
+            }
+        ],
+        'description': {
+            'de': 'Telefonnummer der Gemeinde'
+        },
+        'nested_aliases': {
+        }
+    },
+    'GESUCHSTELLER': {
+        'aliases': [
+            {
+                'de': 'BAUHERR'
+            }
+        ],
+        'description': {
+            'de': 'Name des/r Bauherr/in'
+        },
+        'nested_aliases': {
+        }
+    },
+    'GESUCHSTELLER_ADDRESS_1': {
+        'aliases': [
+            {
+                'de': 'BAUHERR_ADRESSE_1'
+            }
+        ],
+        'description': {
+            'de': 'Adresslinie 1 des/r ersten Bauherr/in'
+        },
+        'nested_aliases': {
+        }
+    },
+    'GESUCHSTELLER_ADDRESS_2': {
+        'aliases': [
+            {
+                'de': 'BAUHERR_ADRESSE_2'
+            }
+        ],
+        'description': {
+            'de': 'Adresslinie 2 des/r ersten Bauherr/in'
+        },
+        'nested_aliases': {
+        }
+    },
+    'GESUCHSTELLER_NAME_ADDRESS': {
+        'aliases': [
+            {
+                'de': 'BAUHERR_NAME_ADRESSE'
+            }
+        ],
+        'description': {
+            'de': 'Name und Adresse des/r Bauherr/in'
+        },
+        'nested_aliases': {
+        }
+    },
+    'GRUNDEIGENTUEMER': {
+        'aliases': [
+            {
+                'de': 'GRUNDEIGENTUEMER'
+            }
+        ],
+        'description': {
+            'de': 'Name des/r Grundeigentümer/in'
+        },
+        'nested_aliases': {
+        }
+    },
+    'GRUNDEIGENTUEMER_ADDRESS_1': {
+        'aliases': [
+            {
+                'de': 'GRUNDEIGENTUEMER_ADRESSE_1'
+            }
+        ],
+        'description': {
+            'de': 'Adresslinie 1 des/r ersten Grundeigentümer/in'
+        },
+        'nested_aliases': {
+        }
+    },
+    'GRUNDEIGENTUEMER_ADDRESS_2': {
+        'aliases': [
+            {
+                'de': 'GRUNDEIGENTUEMER_ADRESSE_2'
+            }
+        ],
+        'description': {
+            'de': 'Adresslinie 2 des/r ersten Grundeigentümer/in'
+        },
+        'nested_aliases': {
+        }
+    },
+    'GRUNDEIGENTUEMER_NAME_ADDRESS': {
+        'aliases': [
+            {
+                'de': 'GRUNDEIGENTUEMER_NAME_ADRESSE'
+            }
+        ],
+        'description': {
+            'de': 'Name und Adresse des/r Grundeigentümer/in'
+        },
+        'nested_aliases': {
+        }
+    },
+    'JURISTIC_NAME': {
+        'aliases': [
+            {
+                'de': 'JURISTISCHER_NAME'
+            }
+        ],
+        'description': {
+            'de': 'Juristischer Name des/r Bauherr/in\t'
+        },
+        'nested_aliases': {
+        }
+    },
+    'KOORDINATEN': {
+        'aliases': [
+            {
+                'de': 'KOORDINATEN'
+            }
+        ],
+        'description': {
+            'de': 'Lagekoordinaten der Parzelle(n)'
+        },
+        'nested_aliases': {
+        }
+    },
+    'LEITBEHOERDE_ADDRESS_1': {
+        'aliases': [
+            {
+                'de': 'LEITBEHOERDE_ADRESSE_1'
+            }
+        ],
+        'description': {
+            'de': 'Adresslinie 1 der zuständigen Leitbehörde'
+        },
+        'nested_aliases': {
+        }
+    },
+    'LEITBEHOERDE_ADDRESS_2': {
+        'aliases': [
+            {
+                'de': 'LEITBEHOERDE_ADRESSE_2'
+            }
+        ],
+        'description': {
+            'de': 'Adresslinie 2 der zuständigen Leitbehörde'
+        },
+        'nested_aliases': {
+        }
+    },
+    'LEITBEHOERDE_CITY': {
+        'aliases': [
+            {
+                'de': 'LEITBEHOERDE_STADT'
+            }
+        ],
+        'description': {
+            'de': 'Ort der zuständigen Leitbehörde'
+        },
+        'nested_aliases': {
+        }
+    },
+    'LEITBEHOERDE_EMAIL': {
+        'aliases': [
+            {
+                'de': 'LEITBEHOERDE_EMAIL'
+            }
+        ],
+        'description': {
+            'de': 'Email-Adresse der zuständigen Leitbehörde'
+        },
+        'nested_aliases': {
+        }
+    },
+    'LEITBEHOERDE_NAME': {
+        'aliases': [
+            {
+                'de': 'LEITBEHOERDE_NAME'
+            }
+        ],
+        'description': {
+            'de': 'Name der zuständigen Leitbehörde'
+        },
+        'nested_aliases': {
+        }
+    },
+    'LEITBEHOERDE_NAME_KURZ': {
+        'aliases': [
+            {
+                'de': 'LEITBEHOERDE_NAME_KURZ'
+            }
+        ],
+        'description': {
+            'de': 'Abgekürzter Name der zuständigen Leitbehörde'
+        },
+        'nested_aliases': {
+        }
+    },
+    'LEITBEHOERDE_PHONE': {
+        'aliases': [
+            {
+                'de': 'LEITBEHOERDE_TELEFON'
+            }
+        ],
+        'description': {
+            'de': 'Telefonnummer der zuständigen Leitbehörde'
+        },
+        'nested_aliases': {
+        }
+    },
+    'MEINE_ORGANISATION_ADRESSE_1': {
+        'aliases': [
+            {
+                'de': 'MEINE_ORGANISATION_ADRESSE_1'
+            }
+        ],
+        'description': {
+            'de': 'Adresslinie 1 der momentan ausgewählten Organisation'
+        },
+        'nested_aliases': {
+        }
+    },
+    'MEINE_ORGANISATION_ADRESSE_2': {
+        'aliases': [
+            {
+                'de': 'MEINE_ORGANISATION_ADRESSE_2'
+            }
+        ],
+        'description': {
+            'de': 'Adresslinie 2 der momentan ausgewählten Organisation'
+        },
+        'nested_aliases': {
+        }
+    },
+    'MEINE_ORGANISATION_EMAIL': {
+        'aliases': [
+            {
+                'de': 'MEINE_ORGANISATION_EMAIL'
+            }
+        ],
+        'description': {
+            'de': 'Email-Adresse der momentan ausgewählten Organisation'
+        },
+        'nested_aliases': {
+        }
+    },
+    'MEINE_ORGANISATION_NAME': {
+        'aliases': [
+            {
+                'de': 'MEINE_ORGANISATION_NAME'
+            }
+        ],
+        'description': {
+            'de': 'Name der momentan ausgewählten Organisation'
+        },
+        'nested_aliases': {
+        }
+    },
+    'MEINE_ORGANISATION_NAME_ADRESSE': {
+        'aliases': [
+            {
+                'de': 'MEINE_ORGANISATION_NAME_ADRESSE'
+            }
+        ],
+        'description': {
+            'de': 'Name und Adresse der momentan ausgewählten Organisation'
+        },
+        'nested_aliases': {
+        }
+    },
+    'MEINE_ORGANISATION_NAME_KURZ': {
+        'aliases': [
+            {
+                'de': 'MEINE_ORGANISATION_NAME_KURZ'
+            }
+        ],
+        'description': {
+            'de': 'Abgekürzter Name der momentan ausgewählten Organisation'
+        },
+        'nested_aliases': {
+        }
+    },
+    'MEINE_ORGANISATION_ORT': {
+        'aliases': [
+            {
+                'de': 'MEINE_ORGANISATION_ORT'
+            }
+        ],
+        'description': {
+            'de': 'Ort der momentan ausgewählten Organisation'
+        },
+        'nested_aliases': {
+        }
+    },
+    'MEINE_ORGANISATION_TELEFON': {
+        'aliases': [
+            {
+                'de': 'MEINE_ORGANISATION_TELEFON'
+            }
+        ],
+        'description': {
+            'de': 'Telefonnummer der momentan ausgewählten Organisation'
+        },
+        'nested_aliases': {
+        }
+    },
+    'MUNICIPALITY': {
+        'aliases': [
+            {
+                'de': 'GEMEINDE'
+            }
+        ],
+        'description': {
+            'de': 'Die ausgewählte Gemeinde des/der Bauherr/in'
+        },
+        'nested_aliases': {
+        }
+    },
+    'MUNICIPALITY_ADDRESS': {
+        'aliases': [
+            {
+                'de': 'GEMEINDE_ADRESSE'
+            }
+        ],
+        'description': {
+            'de': 'Die Adresse der ausgewählten Gemeinde des/der Bauherr/in'
+        },
+        'nested_aliases': {
+        }
+    },
+    'NAME': {
+        'aliases': [
+        ],
+        'description': None,
+        'nested_aliases': {
+        }
+    },
+    'NEBENBESTIMMUNGEN_MAPPED': {
+        'aliases': [
+            {
+                'de': 'NEBENBESTIMMUNGEN_MAPPED'
+            }
+        ],
+        'description': None,
+        'nested_aliases': {
+            'FACHSTELLE': [
+                {
+                    'de': 'FACHSTELLE'
+                }
+            ],
+            'TEXT': [
+                {
+                    'de': 'TEXT'
+                }
+            ]
+        }
+    },
+    'PARZELLE': {
+        'aliases': [
+            {
+                'de': 'PARZELLE'
+            }
+        ],
+        'description': {
+            'de': 'Die ausgewählte Parzelle(n) des/der Bauherr/in'
+        },
+        'nested_aliases': {
+        }
+    },
+    'PROJEKTVERFASSER': {
+        'aliases': [
+            {
+                'de': 'PROJEKTVERFASSER'
+            }
+        ],
+        'description': {
+            'de': 'Name des/r Projektverfasser/in'
+        },
+        'nested_aliases': {
+        }
+    },
+    'PROJEKTVERFASSER_ADDRESS_1': {
+        'aliases': [
+            {
+                'de': 'PROJEKTVERFASSER_ADRESSE_1'
+            }
+        ],
+        'description': {
+            'de': 'Adresslinie 1 des/r ersten Projektverfasser/in'
+        },
+        'nested_aliases': {
+        }
+    },
+    'PROJEKTVERFASSER_ADDRESS_2': {
+        'aliases': [
+            {
+                'de': 'PROJEKTVERFASSER_ADRESSE_2'
+            }
+        ],
+        'description': {
+            'de': 'Adresslinie 2 des/r ersten Projektverfasser/in'
+        },
+        'nested_aliases': {
+        }
+    },
+    'PROJEKTVERFASSER_NAME_ADDRESS': {
+        'aliases': [
+            {
+                'de': 'PROJEKTVERFASSER_NAME_ADRESSE'
+            }
+        ],
+        'description': {
+            'de': 'Name und Adresse des/r Projektverfasser/in'
+        },
+        'nested_aliases': {
+        }
+    },
+    'PUBLIKATION_LINK': {
+        'aliases': [
+            {
+                'de': 'PUBLIKATION_LINK'
+            }
+        ],
+        'description': {
+            'de': 'Link zur öffentlichen Auflage'
+        },
+        'nested_aliases': {
+        }
+    },
+    'STATUS': {
+        'aliases': [
+            {
+                'de': 'STATUS'
+            }
+        ],
+        'description': {
+            'de': 'Momentaner Status des Dossiers'
+        },
+        'nested_aliases': {
+        }
+    },
+    'TODAY': {
+        'aliases': [
+            {
+                'de': 'HEUTE'
+            }
+        ],
+        'description': {
+            'de': 'Das heutige Datum'
+        },
+        'nested_aliases': {
+        }
+    },
+    'ZIRKULATION_FACHSTELLEN': {
+        'aliases': [
+            {
+                'de': 'ZIRKULATION_FACHSTELLEN'
+            }
+        ],
+        'description': {
+            'de': 'In Dossier involvierte Fachstellen'
+        },
+        'nested_aliases': {
+            'BEANTWORTET': [
+                {
+                    'de': 'BEANTWORTET'
+                }
+            ],
+            'ERSTELLT': [
+                {
+                    'de': 'ERSTELLT'
+                }
+            ],
+            'FRIST': [
+                {
+                    'de': 'FRIST'
+                }
+            ],
+            'NAME': [
+                {
+                    'de': 'NAME'
+                }
+            ]
+        }
+    },
+    'ZIRKULATION_GEMEINDEN': {
+        'aliases': [
+            {
+                'de': 'ZIRKULATION_GEMEINDEN'
+            }
+        ],
+        'description': {
+            'de': 'In Dossier involvierte Gemeinden'
+        },
+        'nested_aliases': {
+            'BEANTWORTET': [
+                {
+                    'de': 'BEANTWORTET'
+                }
+            ],
+            'ERSTELLT': [
+                {
+                    'de': 'ERSTELLT'
+                }
+            ],
+            'FRIST': [
+                {
+                    'de': 'FRIST'
+                }
+            ],
+            'NAME': [
+                {
+                    'de': 'NAME'
+                }
+            ]
+        }
+    },
+    'ZIRKULATION_RUECKMELDUNGEN': {
+        'aliases': [
+            {
+                'de': 'ZIRKULATION_RUECKMELDUNGEN'
+            }
+        ],
+        'description': {
+            'de': 'Stellungnahmen und Nebenbestimmungen der eingeladenen Fachstellen'
+        },
+        'nested_aliases': {
+            'ANTWORT': [
+                {
+                    'de': 'ANTWORT'
+                }
+            ],
+            'NEBENBESTIMMUNGEN': [
+                {
+                    'de': 'NEBENBESTIMMUNGEN'
+                }
+            ],
+            'STELLUNGNAHME': [
+                {
+                    'de': 'STELLUNGNAHME'
+                }
+            ],
+            'VON': [
+                {
+                    'de': 'VON'
+                }
+            ]
+        }
+    }
+}
+
+snapshots['test_dms_placeholders_docs_available_placeholders[be_dms_config] 1'] = [
     'ADDRESS',
     'ADMINISTRATIVE_DISTRICT',
     'ADRESSE',
@@ -3822,6 +5578,260 @@ snapshots['test_dms_placeholders_docs_available_placeholders 1'] = [
     'ZUSTAENDIG_NAME',
     'ZUSTAENDIG_PHONE',
     'ZUSTAENDIG_TELEFON'
+]
+
+snapshots['test_dms_placeholders_docs_available_placeholders[gr_dms_config] 1'] = [
+    'ADDRESS',
+    'ADRESSE',
+    'ALLE_GESUCHSTELLER',
+    'ALLE_GESUCHSTELLER_NAME_ADDRESS',
+    'ALLE_GESUCHSTELLER_NAME_ADRESSE',
+    'ALLE_GRUNDEIGENTUEMER',
+    'ALLE_GRUNDEIGENTUEMER_NAME_ADDRESS',
+    'ALLE_GRUNDEIGENTUEMER_NAME_ADRESSE',
+    'ALLE_PROJEKTVERFASSER',
+    'ALLE_PROJEKTVERFASSER_NAME_ADDRESS',
+    'ALLE_PROJEKTVERFASSER_NAME_ADRESSE',
+    'BASE_URL',
+    'BAUEINGABE_DATUM',
+    'BAUENTSCHEID',
+    'BAUENTSCHEID_DATUM',
+    'BEGINN_PUBLIKATIONSORGAN_GEMEINDE',
+    'BEGINN_PUBLIKATION_KANTONSAMTSBLATT',
+    'BESCHREIBUNG_BAUVORHABEN',
+    'BESCHREIBUNG_PROJEKTAENDERUNG',
+    'DECISION_DATE',
+    'DESCRIPTION_MODIFICATION',
+    'DOSSIER_NUMBER',
+    'DOSSIER_NUMMER',
+    'DOSSIER_TYP',
+    'EBAU_URL',
+    'EIGENE_NEBENBESTIMMUNGEN',
+    'EIGENE_STELLUNGNAHMEN',
+    'ENDE_PUBLIKATIONSORGAN_GEMEINDE',
+    'ENDE_PUBLIKATION_GEMEINDE',
+    'ENDE_PUBLIKATION_KANTON',
+    'ENDE_PUBLIKATION_KANTONSAMTSBLATT',
+    'ENTSCHEIDDOKUMENTE',
+    'FACHSTELLEN_KANTONAL',
+    'FACHSTELLEN_KANTONAL[]',
+    'FACHSTELLEN_KANTONAL[].BEANTWORTET',
+    'FACHSTELLEN_KANTONAL[].ERSTELLT',
+    'FACHSTELLEN_KANTONAL[].FRIST',
+    'FACHSTELLEN_KANTONAL[].NAME',
+    'FOLGEPLANUNG',
+    'FORM_NAME',
+    'GEMEINDE',
+    'GEMEINDE_ADRESSE',
+    'GEMEINDE_EMAIL',
+    'GEMEINDE_NAME_ADRESSE',
+    'GEMEINDE_ORT',
+    'GEMEINDE_TELEFON',
+    'GENERELLER_ERSCHLIESSUNGSPLAN',
+    'GENERELLER_GESTALTUNGSPLAN',
+    'GESUCHSTELLER',
+    'GESUCHSTELLER_ADDRESS_1',
+    'GESUCHSTELLER_ADDRESS_2',
+    'GESUCHSTELLER_ADRESSE_1',
+    'GESUCHSTELLER_ADRESSE_2',
+    'GESUCHSTELLER_NAME_ADDRESS',
+    'GESUCHSTELLER_NAME_ADRESSE',
+    'GRUNDEIGENTUEMER',
+    'GRUNDEIGENTUEMER_ADDRESS_1',
+    'GRUNDEIGENTUEMER_ADDRESS_2',
+    'GRUNDEIGENTUEMER_ADRESSE_1',
+    'GRUNDEIGENTUEMER_ADRESSE_2',
+    'GRUNDEIGENTUEMER_NAME_ADDRESS',
+    'GRUNDEIGENTUEMER_NAME_ADRESSE',
+    'HEUTE',
+    'ID',
+    'INSTANCE_ID',
+    'JURISTIC_NAME',
+    'JURISTISCHER_NAME',
+    'KOORDINATEN',
+    'LANGUAGE',
+    'LEITBEHOERDE_ADDRESS_1',
+    'LEITBEHOERDE_ADDRESS_2',
+    'LEITBEHOERDE_ADRESSE_1',
+    'LEITBEHOERDE_ADRESSE_2',
+    'LEITBEHOERDE_CITY',
+    'LEITBEHOERDE_EMAIL',
+    'LEITBEHOERDE_NAME',
+    'LEITBEHOERDE_NAME_KURZ',
+    'LEITBEHOERDE_PHONE',
+    'LEITBEHOERDE_STADT',
+    'LEITBEHOERDE_TELEFON',
+    'MEINE_ORGANISATION_ADRESSE_1',
+    'MEINE_ORGANISATION_ADRESSE_2',
+    'MEINE_ORGANISATION_EMAIL',
+    'MEINE_ORGANISATION_NAME',
+    'MEINE_ORGANISATION_NAME_ADRESSE',
+    'MEINE_ORGANISATION_NAME_KURZ',
+    'MEINE_ORGANISATION_ORT',
+    'MEINE_ORGANISATION_TELEFON',
+    'MUNICIPALITY',
+    'MUNICIPALITY_ADDRESS',
+    'NAME',
+    'NEBENBESTIMMUNGEN',
+    'NEBENBESTIMMUNGEN_MAPPED',
+    'NEBENBESTIMMUNGEN_MAPPED[]',
+    'NEBENBESTIMMUNGEN_MAPPED[].FACHSTELLE',
+    'NEBENBESTIMMUNGEN_MAPPED[].TEXT',
+    'PARZELLE',
+    'PROJEKTVERFASSER',
+    'PROJEKTVERFASSER_ADDRESS_1',
+    'PROJEKTVERFASSER_ADDRESS_2',
+    'PROJEKTVERFASSER_ADRESSE_1',
+    'PROJEKTVERFASSER_ADRESSE_2',
+    'PROJEKTVERFASSER_NAME_ADDRESS',
+    'PROJEKTVERFASSER_NAME_ADRESSE',
+    'PUBLIKATION_LINK',
+    'PUBLIKATION_TEXT',
+    'SPRACHE',
+    'START_PUBLIKATION_GEMEINDE',
+    'START_PUBLIKATION_KANTON',
+    'STATUS',
+    'STELLUNGNAHME',
+    'TODAY',
+    'ZIRKULATION_ALLE',
+    'ZIRKULATION_ALLE[]',
+    'ZIRKULATION_ALLE[].BEANTWORTET',
+    'ZIRKULATION_ALLE[].ERSTELLT',
+    'ZIRKULATION_ALLE[].FRIST',
+    'ZIRKULATION_ALLE[].NAME',
+    'ZIRKULATION_FACHSTELLEN',
+    'ZIRKULATION_FACHSTELLEN[]',
+    'ZIRKULATION_FACHSTELLEN[].BEANTWORTET',
+    'ZIRKULATION_FACHSTELLEN[].ERSTELLT',
+    'ZIRKULATION_FACHSTELLEN[].FRIST',
+    'ZIRKULATION_FACHSTELLEN[].NAME',
+    'ZIRKULATION_GEMEINDEN',
+    'ZIRKULATION_GEMEINDEN[]',
+    'ZIRKULATION_GEMEINDEN[].BEANTWORTET',
+    'ZIRKULATION_GEMEINDEN[].ERSTELLT',
+    'ZIRKULATION_GEMEINDEN[].FRIST',
+    'ZIRKULATION_GEMEINDEN[].NAME',
+    'ZIRKULATION_RUECKMELDUNGEN',
+    'ZIRKULATION_RUECKMELDUNGEN[]',
+    'ZIRKULATION_RUECKMELDUNGEN[].ANTWORT',
+    'ZIRKULATION_RUECKMELDUNGEN[].NEBENBESTIMMUNGEN',
+    'ZIRKULATION_RUECKMELDUNGEN[].STELLUNGNAHME',
+    'ZIRKULATION_RUECKMELDUNGEN[].VON',
+    'ZONENPLAN',
+    'ZUSTAENDIG_NAME'
+]
+
+snapshots['test_dms_placeholders_docs_available_placeholders[so_dms_config] 1'] = [
+    'ALLE_BAUHERREN',
+    'ALLE_BAUHERREN_NAME_ADRESSE',
+    'ALLE_GESUCHSTELLER',
+    'ALLE_GESUCHSTELLER_NAME_ADDRESS',
+    'ALLE_GRUNDEIGENTUEMER',
+    'ALLE_GRUNDEIGENTUEMER_NAME_ADDRESS',
+    'ALLE_GRUNDEIGENTUEMER_NAME_ADRESSE',
+    'ALLE_PROJEKTVERFASSER',
+    'ALLE_PROJEKTVERFASSER_NAME_ADDRESS',
+    'ALLE_PROJEKTVERFASSER_NAME_ADRESSE',
+    'BASE_URL',
+    'BAUEINGABE_DATUM',
+    'BAUENTSCHEID_DATUM',
+    'BAUHERR',
+    'BAUHERR_ADRESSE_1',
+    'BAUHERR_ADRESSE_2',
+    'BAUHERR_NAME_ADRESSE',
+    'BESCHREIBUNG_BAUVORHABEN',
+    'DECISION_DATE',
+    'DOSSIER_TYP',
+    'EBAU_URL',
+    'FACHSTELLEN_KANTONAL',
+    'FACHSTELLEN_KANTONAL[]',
+    'FACHSTELLEN_KANTONAL[].BEANTWORTET',
+    'FACHSTELLEN_KANTONAL[].ERSTELLT',
+    'FACHSTELLEN_KANTONAL[].FRIST',
+    'FACHSTELLEN_KANTONAL[].NAME',
+    'FORM_NAME',
+    'GEMEINDE',
+    'GEMEINDE_ADRESSE',
+    'GEMEINDE_EMAIL',
+    'GEMEINDE_NAME_ADRESSE',
+    'GEMEINDE_ORT',
+    'GEMEINDE_TELEFON',
+    'GESUCHSTELLER',
+    'GESUCHSTELLER_ADDRESS_1',
+    'GESUCHSTELLER_ADDRESS_2',
+    'GESUCHSTELLER_NAME_ADDRESS',
+    'GRUNDEIGENTUEMER',
+    'GRUNDEIGENTUEMER_ADDRESS_1',
+    'GRUNDEIGENTUEMER_ADDRESS_2',
+    'GRUNDEIGENTUEMER_ADRESSE_1',
+    'GRUNDEIGENTUEMER_ADRESSE_2',
+    'GRUNDEIGENTUEMER_NAME_ADDRESS',
+    'GRUNDEIGENTUEMER_NAME_ADRESSE',
+    'HEUTE',
+    'JURISTIC_NAME',
+    'JURISTISCHER_NAME',
+    'KOORDINATEN',
+    'LEITBEHOERDE_ADDRESS_1',
+    'LEITBEHOERDE_ADDRESS_2',
+    'LEITBEHOERDE_ADRESSE_1',
+    'LEITBEHOERDE_ADRESSE_2',
+    'LEITBEHOERDE_CITY',
+    'LEITBEHOERDE_EMAIL',
+    'LEITBEHOERDE_NAME',
+    'LEITBEHOERDE_NAME_KURZ',
+    'LEITBEHOERDE_PHONE',
+    'LEITBEHOERDE_STADT',
+    'LEITBEHOERDE_TELEFON',
+    'MEINE_ORGANISATION_ADRESSE_1',
+    'MEINE_ORGANISATION_ADRESSE_2',
+    'MEINE_ORGANISATION_EMAIL',
+    'MEINE_ORGANISATION_NAME',
+    'MEINE_ORGANISATION_NAME_ADRESSE',
+    'MEINE_ORGANISATION_NAME_KURZ',
+    'MEINE_ORGANISATION_ORT',
+    'MEINE_ORGANISATION_TELEFON',
+    'MUNICIPALITY',
+    'MUNICIPALITY_ADDRESS',
+    'NAME',
+    'NEBENBESTIMMUNGEN_MAPPED',
+    'NEBENBESTIMMUNGEN_MAPPED[]',
+    'NEBENBESTIMMUNGEN_MAPPED[].FACHSTELLE',
+    'NEBENBESTIMMUNGEN_MAPPED[].TEXT',
+    'PARZELLE',
+    'PROJEKTVERFASSER',
+    'PROJEKTVERFASSER_ADDRESS_1',
+    'PROJEKTVERFASSER_ADDRESS_2',
+    'PROJEKTVERFASSER_ADRESSE_1',
+    'PROJEKTVERFASSER_ADRESSE_2',
+    'PROJEKTVERFASSER_NAME_ADDRESS',
+    'PROJEKTVERFASSER_NAME_ADRESSE',
+    'PUBLIKATION_LINK',
+    'STATUS',
+    'TODAY',
+    'ZIRKULATION_ALLE',
+    'ZIRKULATION_ALLE[]',
+    'ZIRKULATION_ALLE[].BEANTWORTET',
+    'ZIRKULATION_ALLE[].ERSTELLT',
+    'ZIRKULATION_ALLE[].FRIST',
+    'ZIRKULATION_ALLE[].NAME',
+    'ZIRKULATION_FACHSTELLEN',
+    'ZIRKULATION_FACHSTELLEN[]',
+    'ZIRKULATION_FACHSTELLEN[].BEANTWORTET',
+    'ZIRKULATION_FACHSTELLEN[].ERSTELLT',
+    'ZIRKULATION_FACHSTELLEN[].FRIST',
+    'ZIRKULATION_FACHSTELLEN[].NAME',
+    'ZIRKULATION_GEMEINDEN',
+    'ZIRKULATION_GEMEINDEN[]',
+    'ZIRKULATION_GEMEINDEN[].BEANTWORTET',
+    'ZIRKULATION_GEMEINDEN[].ERSTELLT',
+    'ZIRKULATION_GEMEINDEN[].FRIST',
+    'ZIRKULATION_GEMEINDEN[].NAME',
+    'ZIRKULATION_RUECKMELDUNGEN',
+    'ZIRKULATION_RUECKMELDUNGEN[]',
+    'ZIRKULATION_RUECKMELDUNGEN[].ANTWORT',
+    'ZIRKULATION_RUECKMELDUNGEN[].NEBENBESTIMMUNGEN',
+    'ZIRKULATION_RUECKMELDUNGEN[].STELLUNGNAHME',
+    'ZIRKULATION_RUECKMELDUNGEN[].VON'
 ]
 
 snapshots['test_dms_placeholders_empty[Municipality] 1'] = {
