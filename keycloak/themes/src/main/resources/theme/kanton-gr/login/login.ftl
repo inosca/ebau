@@ -8,11 +8,11 @@
         </div>
     </#if>
     <div id="kc-form" <#if realm.password>class="${properties.kcContentWrapperClass!}"</#if>>
-      <div id="kc-form-wrapper" <#if realm.password && social.providers??>class="${properties.kcFormSocialAccountContentClass!} ${properties.kcFormSocialAccountClass!}"</#if>>
+      <div id="kc-form-wrapper" <#if realm.password>class="${properties.kcFormSocialAccountContentClass!} ${properties.kcFormSocialAccountClass!}"</#if>>
         <#-- Custom order: social providers appear later in DOM in base theme -->
-        <#if realm.password && social.providers??>
+        <#if realm.password??>
             <div id="kc-social-providers" class="${properties.kcFormSocialAccountContentClass!} ${properties.kcFormSocialAccountClass!}">
-                <ul class="${properties.kcFormSocialAccountListClass!} <#if social.providers?size gt 4>${properties.kcFormSocialAccountDoubleListClass!}</#if>">
+                <ul class="${properties.kcFormSocialAccountListClass!}">
                     <#-- "pseudo"-IdP: local login -->
                     <#if realm.password>
                         <form id="kc-form-login" class="kc-form-card is-login-form uk-form-horizontal uk-width-xlarge uk-margin-auto" onsubmit="login.disabled = true; return true;" action="${url.loginAction}" method="post">
@@ -65,6 +65,15 @@
                             </div>
                             <span>${msg("noAccount")} <a tabindex="6" href="${url.registrationUrl}">${msg("doRegister")}</a></span>
                         </form>
+                    </#if>
+                    <#if social.providers??>
+                      <#list social.providers as p>
+                          <li class="${properties.kcFormSocialAccountListLinkClass!}"><a href="${p.loginUrl}" id="zocial-${p.alias}" class="${p.providerId}">
+                              <#-- show icons for IdPs -->
+                              <div class="icon icon-gr"></div>
+                              <span>${p.displayName}</span></a>
+                          </li>
+                      </#list>
                     </#if>
                 </ul>
             </div>
