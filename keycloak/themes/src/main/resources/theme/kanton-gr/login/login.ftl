@@ -7,7 +7,7 @@
             ${kcSanitize(msg((realm.displayNameHtml!'')))?no_esc}
         </div>
     </#if>
-    <div id="kc-form" <#if realm.password>class="${properties.kcContentWrapperClass!}"</#if>>
+    <div id="kc-form" <#if realm.password && social.providers??>class="${properties.kcContentWrapperClass!}"</#if>>
       <div id="kc-form-wrapper" <#if realm.password && social.providers??>class="${properties.kcFormSocialAccountContentClass!} ${properties.kcFormSocialAccountClass!}"</#if>>
         <#-- Custom order: social providers appear later in DOM in base theme -->
         <#if realm.password && social.providers??>
@@ -66,6 +66,13 @@
                             <span>${msg("noAccount")} <a tabindex="6" href="${url.registrationUrl}">${msg("doRegister")}</a></span>
                         </form>
                     </#if>
+                    <#list social.providers as p>
+                        <li class="${properties.kcFormSocialAccountListLinkClass!}"><a href="${p.loginUrl}" id="zocial-${p.alias}" class="${p.providerId}">
+                            <#-- show icons for IdPs -->
+                            <div class="icon icon-gr"></div>
+                            <span>${p.displayName}</span></a>
+                        </li>
+                    </#list>
                 </ul>
             </div>
         </#if>
