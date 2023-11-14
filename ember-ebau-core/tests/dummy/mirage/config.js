@@ -18,6 +18,7 @@ export default function makeServer(config) {
       this.resource("instance-states", { only: ["index", "show"] });
       this.resource("services");
       this.resource("users");
+      this.resource("public-users");
       this.resource("public-services");
       this.resource("public-groups");
 

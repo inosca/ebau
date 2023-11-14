@@ -1,6 +1,6 @@
 <div class="uk-margin-small-right uk-margin-small-top uk-flex uk-flex-column" ...attributes>
   <label class="uk-form-label uk-text-bold">{{@label}}</label>
-  <div class="uk-button-group">
+  <div class="uk-button-group uk-flex-wrap" uk-margin>
     {{#each @options as |option|}}
       <UkButton
         @label={{option.label}}

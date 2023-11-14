@@ -6,6 +6,7 @@ const ENV_MAP = {
   kt_uri: "ur",
   kt_gr: "gr",
   kt_so: "so",
+  test: "test",
 };
 
 const ENVS = Object.values(ENV_MAP);

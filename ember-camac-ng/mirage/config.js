@@ -11,8 +11,9 @@ export default function makeServer(config) {
       this.timing = 400;
       this.logging = true;
 
-      this.resource("instances", { only: ["show"] });
+      this.resource("instances", { only: ["index", "show"] });
       this.resource("users", { only: ["index"] });
+      this.resource("public-users");
       this.resource("services", { except: ["create"] });
       this.resource("history-entries", { only: ["index"] });
       this.resource("journal-entries");
