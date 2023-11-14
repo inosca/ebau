@@ -309,6 +309,7 @@ APPLICATIONS = {
             "service-lead": "service",
             "service-clerk": "service",
             "subservice": "service",
+            "Geometer": "geometer",
         },
         "COMMUNICATIONS": {
             "template_slug": "communications-new-message",
@@ -1329,6 +1330,7 @@ APPLICATIONS = {
             "construction-control-readonly": "municipality",
             "construction-control-admin": "municipality",
             "support": "support",
+            "Geometer": "geometer",
         },
         "INSTANCE_PERMISSIONS": {"MUNICIPALITY_WRITE": ["correction"]},
         "CUSTOM_NOTIFICATION_TYPES": [
