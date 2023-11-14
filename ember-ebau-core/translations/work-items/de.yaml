@@ -48,6 +48,7 @@ workItems:
     type: "Typ"
     role: "Rolle"
     order: "Sortierung"
+    task: "Aufgabe"
 
     all: "Alle"
     own: "Eigene"

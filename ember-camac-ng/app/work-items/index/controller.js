@@ -3,7 +3,7 @@ import { action } from "@ember/object";
 import { tracked } from "@glimmer/tracking";
 
 export default class WorkItemsIndexController extends Controller {
-  queryParams = ["order", "responsible", "type", "status", "role"];
+  queryParams = ["order", "responsible", "type", "status", "role", "task"];
 
   // Filters
   @tracked order = "urgent";
@@ -11,6 +11,7 @@ export default class WorkItemsIndexController extends Controller {
   @tracked type = "all";
   @tracked role = "active";
   @tracked status = "READY";
+  @tracked task = "all";
 
   @action
   setFilter(filter, value) {

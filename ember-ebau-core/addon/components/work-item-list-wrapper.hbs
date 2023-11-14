@@ -9,7 +9,6 @@
       (hash value="own" label=(t "workItems.filters.own"))
     }}
     @onChange={{@setFilter}}
-    @size="small"
   />
   <Filter.RadioButtons
     @name="type"
@@ -21,12 +20,10 @@
       (hash value="unread" label=(t "workItems.filters.unread"))
     }}
     @onChange={{@setFilter}}
-    @size="small"
   />
   <Filter.RadioButtons
     @name="status"
     @label={{t "workItems.filters.status"}}
-    @size="small"
     @selected={{@status}}
     @options={{
       array
@@ -46,7 +43,6 @@
       (hash value="control" label=(t "workItems.filters.control"))
     }}
     @onChange={{@setFilter}}
-    @size="small"
   />
   <Filter.RadioButtons
     @name="order"
@@ -58,8 +54,17 @@
       (hash value="new" label=(t "workItems.filters.new"))
     }}
     @onChange={{@setFilter}}
-    @size="small"
   />
+  {{#if this.workItemListConfig.showTaskFilter}}
+    <Filter.RadioButtons
+      @name="task"
+      @label={{t "workItems.filters.task"}}
+      @selected={{@task}}
+      @options={{this.availableTasks.value}}
+      @onChange={{@setFilter}}
+      data-test-task-radio
+    />
+  {{/if}}
 </Filters>
 
 <WorkItemList
@@ -68,4 +73,5 @@
   @highlight={{not-eq @status "COMPLETED"}}
   @useLinkTo={{@useLinkTo}}
   @baseRoute={{@baseRoute}}
+  data-test-work-item-list
 />
