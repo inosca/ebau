@@ -47,6 +47,7 @@ workItems:
     type: "Type"
     role: "Rôle"
     order: "Triage"
+    task: "Tâche"
 
     all: "Tous"
     own: "Propre"
