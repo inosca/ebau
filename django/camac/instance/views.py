@@ -30,6 +30,7 @@ from camac.constants import kt_uri as ur_constants
 from camac.core.models import InstanceService, PublicationEntry, WorkflowEntry
 from camac.core.views import SendfileHttpResponse
 from camac.document.models import Attachment, AttachmentSection
+from camac.instance.domain_logic import RejectionLogic
 from camac.instance.utils import build_document_prefetch_statements
 from camac.notification.utils import send_mail
 from camac.swagger.utils import get_operation_description, group_param
@@ -179,6 +180,7 @@ class InstanceView(
                 "appeal": serializers.CalumaInstanceAppealSerializer,
                 "default": serializers.CalumaInstanceSerializer,
                 "correction": serializers.CalumaInstanceCorrectionSerializer,
+                "rejection": serializers.CalumaInstanceRejectionSerializer,
             },
             "camac-ng": {
                 "submit": serializers.InstanceSubmitSerializer,
@@ -362,6 +364,9 @@ class InstanceView(
 
     def has_object_correction_permission_for_support(self, instance):
         return True
+
+    def has_object_rejection_permission(self, instance):
+        return RejectionLogic.has_permission(instance, self.request.group)
 
     @swagger_auto_schema(auto_schema=None)
     def retrieve(self, request, *args, **kwargs):  # pragma: no cover
@@ -738,6 +743,11 @@ class InstanceView(
     @swagger_auto_schema(auto_schema=None)
     @action(methods=["post"], detail=True)
     def correction(self, request, pk=None):
+        return self._custom_serializer_action(request, pk)
+
+    @swagger_auto_schema(auto_schema=None)
+    @action(methods=["post"], detail=True)
+    def rejection(self, request, pk=None):
         return self._custom_serializer_action(request, pk)
 
 
