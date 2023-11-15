@@ -296,6 +296,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
             "bezeichnung",
             "vorhaben-proposal-description",
             "veranstaltung-beschrieb",
+            "beschrieb-verfahren",
         ]
         descriptions = [
             CalumaApi().get_answer_value(slug, instance) for slug in description_slugs
