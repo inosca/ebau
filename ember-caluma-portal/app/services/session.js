@@ -146,15 +146,10 @@ export default class CustomSession extends Session {
 
     const token = this.data.authenticated[tokenPropertyName];
     const tokenKey = authHeaderName.toLowerCase();
-    const publicAccessKey = this.router.currentRoute?.queryParams?.key;
 
     return {
       ...(token ? { [tokenKey]: `${authPrefix} ${token}` } : {}),
       ...(this.groupId ? { "x-camac-group": this.groupId } : {}),
-      ...(this.enforcePublicAccess ? { "x-camac-public-access": true } : {}),
-      ...(publicAccessKey
-        ? { "x-camac-public-access-key": publicAccessKey }
-        : {}),
     };
   }
 
@@ -168,7 +163,16 @@ export default class CustomSession extends Session {
   }
 
   get headers() {
-    return { ...this.authHeaders, ...this.languageHeaders };
+    const publicAccessKey = this.router.currentRoute?.queryParams?.key;
+
+    return {
+      ...this.authHeaders,
+      ...this.languageHeaders,
+      ...(this.enforcePublicAccess ? { "x-camac-public-access": true } : {}),
+      ...(publicAccessKey
+        ? { "x-camac-public-access-key": publicAccessKey }
+        : {}),
+    };
   }
 
   handleUnauthorized() {
