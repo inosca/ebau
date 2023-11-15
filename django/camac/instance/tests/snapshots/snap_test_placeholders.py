@@ -4258,7 +4258,6 @@ snapshots['test_dms_placeholders_gr[Municipality] 1'] = {
         }
     ],
     'FOLGEPLANUNG': 'Baulinie allgemein',
-    'FOLLOWUP_PLANNING': 'Baulinie allgemein',
     'FORM_NAME': 'Baugesuch',
     'GEMEINDE': 'Tammie Reeves',
     'GEMEINDE_ADRESSE': '',
