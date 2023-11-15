@@ -1,3 +1,5 @@
+from datetime import date
+
 import pytest
 from caluma.caluma_core.events import send_event
 from caluma.caluma_form import models as caluma_form_models
@@ -7,6 +9,7 @@ from caluma.caluma_workflow.events import (
     post_create_work_item,
     post_skip_work_item,
 )
+from caluma.caluma_workflow.models import Task
 from django.conf import settings
 from django.utils import timezone
 
@@ -730,3 +733,58 @@ def test_reopen_redo_unread(
 
     assert work_item.status == caluma_workflow_models.WorkItem.STATUS_READY
     assert work_item.meta["not-viewed"]
+
+
+@pytest.mark.freeze_time("2023-01-01")
+@pytest.mark.parametrize(
+    "service_group_name,expected_deadline",
+    [
+        ("service-with-no-custom-deadline", date(2023, 1, 31)),
+        ("municipality", date(2023, 1, 11)),
+        ("service", date(2023, 1, 8)),
+    ],
+)
+def test_role_dependent_default_leadtime(
+    caluma_admin_user,
+    application_settings,
+    work_item_factory,
+    settings,
+    be_distribution_settings,
+    be_instance,
+    service_factory,
+    service_group_name,
+    expected_deadline,
+):
+    inquiry_task = Task.objects.get(slug=settings.DISTRIBUTION["INQUIRY_TASK"])
+    addressed_group = service_factory(
+        service_group__name=service_group_name,
+    )
+    work_item = work_item_factory(
+        task=inquiry_task,
+        addressed_groups=[addressed_group.pk],
+    )
+
+    settings.DISTRIBUTION[
+        "NOTIFICATIONS"
+    ] = {}  # this short-circuits the notification logic which we dont want to test here
+    settings.DISTRIBUTION["DEFAULT_DEADLINE_LEAD_TIME"] = 30
+    settings.DISTRIBUTION["DEADLINE_LEAD_TIME_FOR_ADDRESSED_SERVICES"] = {
+        "municipality": 10,
+        "service": 7,
+    }
+
+    assert work_item.document.answers.count() == 0
+
+    send_event(
+        post_create_work_item,
+        sender="post_create_work_item",
+        work_item=work_item,
+        user=caluma_admin_user,
+        context={},
+    )
+
+    deadline_answer = work_item.document.answers.get(
+        question__pk=settings.DISTRIBUTION["QUESTIONS"]["DEADLINE"]
+    )
+
+    assert deadline_answer.date == expected_deadline
