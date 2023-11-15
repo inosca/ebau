@@ -717,6 +717,7 @@ class InstanceFilterSet(FilterSet):
 
     def filter_circulation_service(self, queryset, name, value):
         if settings.DISTRIBUTION:
+            pks = [str(pk) for pk in value] if isinstance(value, list) else [str(value)]
             return queryset.filter(
                 Exists(
                     WorkItem.objects.filter(
@@ -728,7 +729,7 @@ class InstanceFilterSet(FilterSet):
                                 WorkItem.STATUS_COMPLETED,
                             ]
                         )
-                        & Q(addressed_groups__contains=[str(value)])
+                        & Q(addressed_groups__overlap=pks)
                     )
                 )
             )
