@@ -44,6 +44,7 @@
     @maxZoom={{this.maxZoom}}
     @minZoom={{this.minZoom}}
     @onLoad={{this.handleLoad}}
+    @onZoomend={{this.onZoomend}}
     @onClick={{unless @disabled this.updateMarkers}}
     class="uk-width-1-1 uk-height-large uk-margin"
     as |map|
@@ -91,18 +92,12 @@
     {{/each}}
 
     {{#if this.searchHighlight}}
-      <map.polygon
-        @locations={{this.searchHighlight}}
-        @color="blue"
-      />
+      <map.polygon @locations={{this.searchHighlight}} @color="blue" />
     {{/if}}
 
     {{#unless @disabled}}
       {{#if this.isPolygon}}
-        <map.polygon
-          @locations={{this.markers}}
-          @color="red"
-        />
+        <map.polygon @locations={{this.markers}} @color="red" />
       {{else}}
         <map.polyline @locations={{this.markers}} @color="red" />
       {{/if}}
@@ -124,5 +119,13 @@
       @params={{hash query=this.query form=this.rootForm}}
     />
   {{/unless}}
+  {{#if this.centerCoordinate}}
+    <a
+      class="uk-link-text centered-coordinates"
+      href={{this.centerCoordinateUrl}}
+      target="_blank"
+      rel="noopener noreferrer"
+    >{{t "gis.centeredCoordinates"}}: {{format-coordinate this.centerCoordinate}}</a>
+  {{/if}}
 
 </div>
