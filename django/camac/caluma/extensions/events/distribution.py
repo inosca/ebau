@@ -256,6 +256,23 @@ def post_redo_inquiry(sender, work_item, user, context=None, **kwargs):
         complete_work_item(work_item=work_item_to_complete, user=user, context=context)
 
 
+def _get_default_deadline(settings):
+    return now().date() + timedelta(
+        days=settings.DISTRIBUTION["DEFAULT_DEADLINE_LEAD_TIME"]
+    )
+
+
+def _get_deadline_override(settings, work_item):
+    if settings.DISTRIBUTION.get("DEADLINE_LEAD_TIME_FOR_ADDRESSED_SERVICES"):
+        addressed_service = Service.objects.get(pk=work_item.addressed_groups[0])
+        default_deadline_for_service = settings.DISTRIBUTION[
+            "DEADLINE_LEAD_TIME_FOR_ADDRESSED_SERVICES"
+        ].get(addressed_service.service_group.name)
+
+        if default_deadline_for_service:
+            return now().date() + timedelta(default_deadline_for_service)
+
+
 @on(post_create_work_item, raise_exception=True)
 @filter_by_task("INQUIRY_TASK")
 @transaction.atomic
@@ -263,15 +280,19 @@ def post_create_inquiry(sender, work_item, user, context=None, **kwargs):
     # suspend work item so it's a draft
     suspend_work_item(work_item=work_item, user=user, context=context)
 
-    default_deadline = now().date() + timedelta(
-        days=settings.DISTRIBUTION["DEFAULT_DEADLINE_LEAD_TIME"]
-    )
-    default_answers = {
-        settings.DISTRIBUTION["QUESTIONS"]["DEADLINE"]: default_deadline.isoformat(),
+    answers = {
+        settings.DISTRIBUTION["QUESTIONS"]["DEADLINE"]: _get_default_deadline(
+            settings
+        ).isoformat(),
         **(context.get("answers", {}) if context else {}),
     }
 
-    for slug, value in default_answers.items():
+    if deadline_override := _get_deadline_override(settings, work_item):
+        answers[
+            settings.DISTRIBUTION["QUESTIONS"]["DEADLINE"]
+        ] = deadline_override.isoformat()
+
+    for slug, value in answers.items():
         question = Question.objects.get(pk=slug)
 
         if question.type == Question.TYPE_DATE:
