@@ -13,7 +13,8 @@
       "identifier": null,
       "location": null,
       "case": "087e3c47-df7c-4c6d-a80c-19ef8c0f116d",
-      "instance_group": null
+      "instance_group": null,
+      "rejection_feedback": null
     }
   },
   {
@@ -30,7 +31,8 @@
       "identifier": null,
       "location": null,
       "case": "484dcd39-ea8e-4553-828d-50bc1408a3f0",
-      "instance_group": null
+      "instance_group": null,
+      "rejection_feedback": null
     }
   },
   {

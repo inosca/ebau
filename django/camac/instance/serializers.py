@@ -504,7 +504,6 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
         many=True,
         read_only=True,
     )
-    rejection_feedback = serializers.SerializerMethodField()
     name = serializers.SerializerMethodField()
     decision_date = serializers.SerializerMethodField()
     decision = serializers.SerializerMethodField()
@@ -1041,15 +1040,6 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
             is_paper=is_paper,
             caluma_form=caluma_form,
             source_instance=source_instance,
-        )
-
-    def get_rejection_feedback(self, instance):
-        return Answer.get_value_by_cqi(
-            instance,
-            settings.APPLICATION["REJECTION_FEEDBACK_QUESTION"].get("CHAPTER"),
-            settings.APPLICATION["REJECTION_FEEDBACK_QUESTION"].get("QUESTION"),
-            settings.APPLICATION["REJECTION_FEEDBACK_QUESTION"].get("ITEM"),
-            default="",
         )
 
     class Meta(InstanceSerializer.Meta):
@@ -2479,3 +2469,39 @@ class CalumaInstanceCorrectionSerializer(serializers.Serializer):
 
     class Meta:
         resource_name = "instance-corrections"
+
+
+class CalumaInstanceRejectionSerializer(serializers.Serializer):
+    rejection_feedback = serializers.CharField(write_only=True)
+
+    def validate(self, data):
+        domain_logic.RejectionLogic.validate_for_rejection(self.instance)
+
+        return super().validate(data)
+
+    @transaction.atomic
+    def update(self, instance, validated_data):
+        caluma_user = self.context["request"].caluma_info.context.user
+        camac_user = self.context["request"].user
+        camac_group = self.context["request"].group
+
+        if instance.instance_state.name == settings.REJECTION["INSTANCE_STATE"]:
+            instance = domain_logic.RejectionLogic.revert_instance_rejection(
+                instance,
+                camac_user,
+                camac_group,
+                caluma_user,
+            )
+        else:
+            instance = domain_logic.RejectionLogic.reject_instance(
+                instance,
+                camac_user,
+                camac_group,
+                caluma_user,
+                validated_data["rejection_feedback"],
+            )
+
+        return instance
+
+    class Meta:
+        resource_name = "instance-rejections"

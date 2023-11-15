@@ -4229,6 +4229,7 @@ ADDITIONAL_DEMAND = load_module_settings("additional_demand")
 DJANGO_ADMIN = load_module_settings("django_admin")
 CORRECTION = load_module_settings("correction")
 DMS = load_module_settings("dms")
+REJECTION = load_module_settings("rejection")
 
 # Alexandria
 ALEXANDRIA = load_module_settings("alexandria")

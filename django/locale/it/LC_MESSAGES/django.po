@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-15 17:09+0100\n"
+"POT-Creation-Date: 2023-11-15 17:58+0100\n"
 "PO-Revision-Date: 2023-03-21 08:21+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -315,7 +315,7 @@ msgid ""
 "The import took more than %(timeout)i seconds to complete and timed out."
 msgstr ""
 
-#: camac/dossier_import/serializers.py:57 camac/instance/serializers.py:1956
+#: camac/dossier_import/serializers.py:57 camac/instance/serializers.py:1946
 msgid "No location assigned."
 msgstr ""
 
@@ -385,15 +385,15 @@ msgstr ""
 msgid "Value \"%(value)s\" in field %(target)s is too long (max: %(max)s)"
 msgstr ""
 
-#: camac/ech0211/event_handlers.py:280
+#: camac/ech0211/event_handlers.py:282
 msgid "Inquiry sent"
 msgstr ""
 
-#: camac/ech0211/event_handlers.py:285 camac/instance/serializers.py:1579
+#: camac/ech0211/event_handlers.py:287 camac/instance/serializers.py:1569
 msgid "SB1 submitted"
 msgstr ""
 
-#: camac/ech0211/event_handlers.py:290 camac/instance/serializers.py:1902
+#: camac/ech0211/event_handlers.py:292 camac/instance/serializers.py:1892
 msgid "SB2 submitted"
 msgstr ""
 
@@ -525,6 +525,14 @@ msgstr ""
 msgid "Signature has expired."
 msgstr ""
 
+#: camac/instance/domain_logic/rejection.py:39
+msgid "Instance can't be rejected while there is an open circulation"
+msgstr ""
+
+#: camac/instance/domain_logic/rejection.py:49
+msgid "Instance can't be rejected while there are pending claims"
+msgstr ""
+
 #: camac/instance/export/serializers.py:41
 msgid "Arrival Department"
 msgstr ""
@@ -629,12 +637,12 @@ msgstr ""
 msgid "Form may not be changed."
 msgstr ""
 
-#: camac/instance/serializers.py:402 camac/instance/serializers.py:1652
+#: camac/instance/serializers.py:402 camac/instance/serializers.py:1642
 #, python-format
 msgid "'%(form)s' is not a valid form type"
 msgstr ""
 
-#: camac/instance/serializers.py:412 camac/instance/serializers.py:1646
+#: camac/instance/serializers.py:412 camac/instance/serializers.py:1636
 #, python-format
 msgid "The current form '%(form)s' can't be changed"
 msgstr ""
@@ -644,113 +652,113 @@ msgstr ""
 msgid "Form is already of type '%(form)s'"
 msgstr ""
 
-#: camac/instance/serializers.py:934 camac/instance/serializers.py:940
+#: camac/instance/serializers.py:933 camac/instance/serializers.py:939
 msgid "migrated"
 msgstr ""
 
-#: camac/instance/serializers.py:943
+#: camac/instance/serializers.py:942
 msgid "paper"
 msgstr ""
 
-#: camac/instance/serializers.py:946
+#: camac/instance/serializers.py:945
 msgid "modification"
 msgstr ""
 
-#: camac/instance/serializers.py:949
+#: camac/instance/serializers.py:948
 msgid "coordinated"
 msgstr ""
 
-#: camac/instance/serializers.py:952
+#: camac/instance/serializers.py:951
 msgid "appeal"
 msgstr ""
 
-#: camac/instance/serializers.py:983
+#: camac/instance/serializers.py:982
 msgid "Source instance not found"
 msgstr ""
 
-#: camac/instance/serializers.py:1019
+#: camac/instance/serializers.py:1018
 #, python-format
 msgid "The form '%(form)s' can only be used by an internal role"
 msgstr ""
 
-#: camac/instance/serializers.py:1030
+#: camac/instance/serializers.py:1029
 msgid "Project modification is not allowed"
 msgstr ""
 
-#: camac/instance/serializers.py:1221
+#: camac/instance/serializers.py:1211
 msgid "Dossier completed by resubmission"
 msgstr ""
 
-#: camac/instance/serializers.py:1538
+#: camac/instance/serializers.py:1528
 msgid "Dossier submitted"
 msgstr ""
 
-#: camac/instance/serializers.py:1618
+#: camac/instance/serializers.py:1608
 msgid "Archived"
 msgstr "Archiviato"
 
-#: camac/instance/serializers.py:1668
+#: camac/instance/serializers.py:1658
 msgid "Changed form type"
 msgstr ""
 
-#: camac/instance/serializers.py:1698
+#: camac/instance/serializers.py:1688
 msgid "Invalid format"
 msgstr ""
 
-#: camac/instance/serializers.py:1705
+#: camac/instance/serializers.py:1695
 msgid "This eBau number doesn't exist"
 msgstr ""
 
-#: camac/instance/serializers.py:1709
+#: camac/instance/serializers.py:1699
 msgid "This eBau number is already in use by a different municipality"
 msgstr ""
 
-#: camac/instance/serializers.py:1761
+#: camac/instance/serializers.py:1751
 #, python-format
 msgid "%(value)s is not a valid service type - valid types are: %(expected)s"
 msgstr ""
 
-#: camac/instance/serializers.py:1775
+#: camac/instance/serializers.py:1765
 msgid "Invalid audit"
 msgstr ""
 
-#: camac/instance/serializers.py:1815
+#: camac/instance/serializers.py:1805
 #, python-format
 msgid "Changed responsible service to: %(service)s"
 msgstr ""
 
-#: camac/instance/serializers.py:1837
+#: camac/instance/serializers.py:1827
 #, python-format
 msgid "Responsible service did not change for instance %(instance_id)s"
 msgstr ""
 
-#: camac/instance/serializers.py:1930
+#: camac/instance/serializers.py:1920
 #, python-format
 msgid "User %(user)s does not belong to service %(service)s."
 msgstr ""
 
-#: camac/instance/serializers.py:1975
+#: camac/instance/serializers.py:1965
 #, python-format
 msgid "No group found for location %(name)s."
 msgstr ""
 
-#: camac/instance/serializers.py:2015
+#: camac/instance/serializers.py:2005
 #, python-format
 msgid "invalid question %(question)s."
 msgstr ""
 
-#: camac/instance/serializers.py:2022
+#: camac/instance/serializers.py:2012
 #, python-format
 msgid "%(permission)s is not allowed to edit question %(question)s."
 msgstr ""
 
-#: camac/instance/serializers.py:2412
+#: camac/instance/serializers.py:2402
 #, fuzzy
 #| msgid "Archived"
 msgid "Appeal received"
 msgstr "Archiviato"
 
-#: camac/instance/serializers.py:2437
+#: camac/instance/serializers.py:2427
 msgid "The Dossier can't be correct because there are running inquiries."
 msgstr ""
 
@@ -968,6 +976,14 @@ msgstr ""
 #: camac/settings_distribution.py:72 camac/settings_distribution.py:565
 #: camac/settings_distribution.py:592
 msgid "Circulation reopened"
+msgstr ""
+
+#: camac/settings_rejection.py:8
+msgid "Instance rejected"
+msgstr ""
+
+#: camac/settings_rejection.py:9
+msgid "Instance rejection reverted"
 msgstr ""
 
 #: camac/templates/admin/base.html:25
