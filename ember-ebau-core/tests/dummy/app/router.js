@@ -3,6 +3,7 @@ import { inject as service } from "@ember/service";
 
 import config from "dummy/config/environment";
 import registerBilling from "ember-ebau-core/modules/billing";
+import registerRejection from "ember-ebau-core/modules/rejection";
 
 export default class Router extends EmberRouter {
   @service ebauModules;
@@ -31,4 +32,5 @@ Router.map(function () {
   this.route("work-items");
 
   registerBilling(this);
+  registerRejection(this);
 });

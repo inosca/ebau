@@ -22,6 +22,8 @@ export default {
     conclusion: 20014,
     evaluated: 20010,
     finishedInternal: 120003,
+    rejected: 10000,
+    circulation: 20004,
   },
   interchangeableForms: [
     ["baugesuch", "baugesuch-generell", "baugesuch-mit-uvp"],
@@ -110,5 +112,9 @@ export default {
       "finished",
       "finishedInternal",
     ],
+  },
+  rejection: {
+    instanceState: "rejected",
+    allowedInstanceStates: ["circulationInit", "circulation"],
   },
 };
