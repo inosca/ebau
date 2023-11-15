@@ -271,6 +271,7 @@ export default class CustomCaseModel extends CustomCaseBaseModel {
               "bezeichnung"
               "vorhaben-proposal-description"
               "veranstaltung-beschrieb"
+              "beschrieb-verfahren"
               "municipality"
               "parcels"
               "status-bauprojekt"

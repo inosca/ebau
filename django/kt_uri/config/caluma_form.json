@@ -1,6 +1,24 @@
 [
   {
     "model": "caluma_form.form",
+    "pk": "allgemeine-informationen-bgbb-abparzellierung",
+    "fields": {
+      "created_at": "2023-11-07T10:34:19.079Z",
+      "modified_at": "2023-11-07T12:40:24.263Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Allgemeine Informationen zu BGBB und Abparzellierungsdossiers\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": true,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "allgemeine-informationen-meldung-gebaeudetechnik",
     "fields": {
       "created_at": "2021-11-21T18:51:30.764Z",
@@ -103,10 +121,10 @@
     "pk": "bgbb",
     "fields": {
       "created_at": "2022-08-30T11:27:36.166Z",
-      "modified_at": "2022-08-30T11:27:36.166Z",
+      "modified_at": "2023-11-08T07:15:21.052Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "name": "{\"de\": \"BGBB / Apparzellierung\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -115,6 +133,24 @@
         "is-creatable": true,
         "is-main-form": true
       },
+      "is_published": true,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "bgbb-abparzellierung-grundbuch",
+    "fields": {
+      "created_at": "2023-11-07T07:13:34.337Z",
+      "modified_at": "2023-11-07T08:13:31.010Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "name": "{\"de\": \"BGBB Abparzellierung Grundbuch\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"Einfaches Formular zum Erfassen von BGBB Dossiers, Abparzellierungsgesch\\u00e4fte und Meldung Grundbuch\", \"fr\": null, \"it\": null}",
+      "meta": {},
       "is_published": true,
       "is_archived": false,
       "source": null
@@ -1688,6 +1724,21 @@
       "is_published": true,
       "is_archived": false,
       "source": null
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-informationen-bgbb-abparzellierung.allgemeine-informationen-bgbb",
+    "fields": {
+      "created_at": "2023-11-07T10:50:33.795Z",
+      "modified_at": "2023-11-07T10:50:33.795Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-informationen-bgbb-abparzellierung",
+      "question": "allgemeine-informationen-bgbb",
+      "sort": 1
     }
   },
   {
@@ -3447,17 +3498,167 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "bgbb.allgemeine-informationen-baugesuch",
+    "pk": "bgbb-abparzellierung-grundbuch.auflistung-der-grundstuecke",
     "fields": {
-      "created_at": "2022-08-30T11:27:46.922Z",
-      "modified_at": "2022-08-30T11:27:46.922Z",
-      "created_by_user": "admin",
+      "created_at": "2023-11-07T09:39:54.940Z",
+      "modified_at": "2023-11-07T09:39:54.940Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bgbb-abparzellierung-grundbuch",
+      "question": "auflistung-der-grundstuecke",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bgbb-abparzellierung-grundbuch.behoerde-anmerkung",
+    "fields": {
+      "created_at": "2023-11-07T10:15:44.132Z",
+      "modified_at": "2023-11-07T10:15:44.132Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bgbb-abparzellierung-grundbuch",
+      "question": "behoerde-anmerkung",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bgbb-abparzellierung-grundbuch.bemerkungen-bgbb",
+    "fields": {
+      "created_at": "2023-11-07T10:55:10.686Z",
+      "modified_at": "2023-11-07T10:55:10.686Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bgbb-abparzellierung-grundbuch",
+      "question": "bemerkungen-bgbb",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bgbb-abparzellierung-grundbuch.beschreibung-anfrage",
+    "fields": {
+      "created_at": "2023-11-07T09:37:48.916Z",
+      "modified_at": "2023-11-07T09:37:48.916Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bgbb-abparzellierung-grundbuch",
+      "question": "beschreibung-anfrage",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bgbb-abparzellierung-grundbuch.beschrieb-verfahren",
+    "fields": {
+      "created_at": "2023-11-07T08:15:07.658Z",
+      "modified_at": "2023-11-07T08:15:07.658Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bgbb-abparzellierung-grundbuch",
+      "question": "beschrieb-verfahren",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bgbb-abparzellierung-grundbuch.betroffene-hochbauten",
+    "fields": {
+      "created_at": "2023-11-07T09:29:29.644Z",
+      "modified_at": "2023-11-07T09:29:29.644Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bgbb-abparzellierung-grundbuch",
+      "question": "betroffene-hochbauten",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bgbb-abparzellierung-grundbuch.grund-des-gesuches",
+    "fields": {
+      "created_at": "2023-11-07T09:18:27.677Z",
+      "modified_at": "2023-11-07T09:18:27.677Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bgbb-abparzellierung-grundbuch",
+      "question": "grund-des-gesuches",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bgbb-abparzellierung-grundbuch.hochbauten-betroffen",
+    "fields": {
+      "created_at": "2023-11-07T10:23:41.070Z",
+      "modified_at": "2023-11-07T10:23:41.070Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bgbb-abparzellierung-grundbuch",
+      "question": "hochbauten-betroffen",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bgbb-abparzellierung-grundbuch.sind-mehrere-grundstuecke-betroffen",
+    "fields": {
+      "created_at": "2023-11-07T09:34:57Z",
+      "modified_at": "2023-11-07T09:34:57Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bgbb-abparzellierung-grundbuch",
+      "question": "sind-mehrere-grundstuecke-betroffen",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bgbb-abparzellierung-grundbuch.zustaendige-person-der-verfahrensleitenden-behoerde",
+    "fields": {
+      "created_at": "2023-11-07T08:29:35.988Z",
+      "modified_at": "2023-11-07T08:29:35.988Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bgbb-abparzellierung-grundbuch",
+      "question": "zustaendige-person-der-verfahrensleitenden-behoerde",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bgbb.bgbb-abparzellierung-grundbuch",
+    "fields": {
+      "created_at": "2023-11-07T08:18:34.735Z",
+      "modified_at": "2023-11-07T08:18:34.735Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "bgbb",
-      "question": "allgemeine-informationen-baugesuch",
-      "sort": 8
+      "question": "bgbb-abparzellierung-grundbuch",
+      "sort": 6
     }
   },
   {
@@ -3472,7 +3673,7 @@
       "modified_by_group": null,
       "form": "bgbb",
       "question": "dokumente",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -3487,7 +3688,7 @@
       "modified_by_group": null,
       "form": "bgbb",
       "question": "einreichen",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -3502,7 +3703,7 @@
       "modified_by_group": null,
       "form": "bgbb",
       "question": "fachthemen",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -3517,7 +3718,22 @@
       "modified_by_group": null,
       "form": "bgbb",
       "question": "generelle-fachthemen",
-      "sort": 4
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bgbb.informationen-bgbb",
+    "fields": {
+      "created_at": "2023-11-07T12:39:17.407Z",
+      "modified_at": "2023-11-07T12:39:17.407Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bgbb",
+      "question": "informationen-bgbb",
+      "sort": 9
     }
   },
   {
@@ -3532,7 +3748,7 @@
       "modified_by_group": null,
       "form": "bgbb",
       "question": "lokalisierung",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -3547,22 +3763,22 @@
       "modified_by_group": null,
       "form": "bgbb",
       "question": "personalien",
-      "sort": 6
+      "sort": 7
     }
   },
   {
     "model": "caluma_form.formquestion",
     "pk": "bgbb.projektdaten",
     "fields": {
-      "created_at": "2022-08-30T11:28:11.059Z",
-      "modified_at": "2022-08-30T11:28:11.059Z",
-      "created_by_user": "admin",
+      "created_at": "2023-11-08T07:19:52.977Z",
+      "modified_at": "2023-11-08T07:19:52.977Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "bgbb",
       "question": "projektdaten",
-      "sort": 5
+      "sort": 1
     }
   },
   {
@@ -18963,6 +19179,118 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "betroffene-bauten-andere-bauten",
+    "fields": {
+      "created_at": "2023-11-07T09:29:28.985Z",
+      "modified_at": "2023-11-07T09:29:28.985Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Andere Bauten\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "betroffene-bauten-oekonomiebauten-fuer-tierhaltung",
+    "fields": {
+      "created_at": "2023-11-07T09:29:28.975Z",
+      "modified_at": "2023-11-07T09:29:28.975Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"\\u00d6konomiebauten f\\u00fcr Tierhaltung\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "betroffene-bauten-oekonomiebauten-ohne-tierhaltung",
+    "fields": {
+      "created_at": "2023-11-07T09:29:28.960Z",
+      "modified_at": "2023-11-07T09:29:28.960Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"\\u00d6konomiebauten ohne Tierhaltung\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "betroffene-bauten-wohnbauten",
+    "fields": {
+      "created_at": "2023-11-07T09:29:28.789Z",
+      "modified_at": "2023-11-07T09:29:28.789Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wohnbauten\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "betroffene-grundstuecke-ja",
+    "fields": {
+      "created_at": "2023-11-07T09:34:56.768Z",
+      "modified_at": "2023-11-07T10:07:21.876Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_archived": true,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "betroffene-grundstuecke-nein",
+    "fields": {
+      "created_at": "2023-11-07T09:34:56.768Z",
+      "modified_at": "2023-11-07T10:07:21.886Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_archived": true,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "betroffene-hochbauten-es-sind-keine-hochbauten-betroffen",
+    "fields": {
+      "created_at": "2023-11-07T09:38:10.949Z",
+      "modified_at": "2023-11-07T09:38:10.949Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Es sind keine Hochbauten betroffen\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "bewilligung-fuer-nichtforstliche-kleinbauten-ja",
     "fields": {
       "created_at": "2020-09-21T09:00:53.156Z",
@@ -19206,10 +19534,10 @@
     "pk": "category-spezielle-bauten-und-anlagen",
     "fields": {
       "created_at": "2020-09-04T07:45:14.484Z",
-      "modified_at": "2023-11-01T07:33:39.125Z",
+      "modified_at": "2023-10-31T13:32:29.123Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Sonderbau\", \"fr\": null, \"it\": null}",
       "is_archived": false,
@@ -22387,6 +22715,54 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "grund-des-gesuches-andere",
+    "fields": {
+      "created_at": "2023-11-07T09:30:13.340Z",
+      "modified_at": "2023-11-07T09:30:13.340Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Andere\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "grund-des-gesuches-anmerkung-im-grundbuch",
+    "fields": {
+      "created_at": "2023-11-07T09:18:27.527Z",
+      "modified_at": "2023-11-07T10:25:54.364Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Eingetragene Anmerkung im Grundbuch\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "grund-des-gesuches-bewilligung-bgbb",
+    "fields": {
+      "created_at": "2023-11-07T09:18:27.519Z",
+      "modified_at": "2023-11-07T10:25:54.350Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bewilligung nach BGBB erforderlich\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "grundrissplaene-ja",
     "fields": {
       "created_at": "2021-04-08T08:45:16.553Z",
@@ -23052,6 +23428,38 @@
       "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Zusatzheizung\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "hochbauten-betroffen-ja",
+    "fields": {
+      "created_at": "2023-11-07T10:23:40.943Z",
+      "modified_at": "2023-11-07T10:23:40.943Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "hochbauten-betroffen-nein",
+    "fields": {
+      "created_at": "2023-11-07T10:23:40.945Z",
+      "modified_at": "2023-11-07T10:23:40.945Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -27468,6 +27876,38 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Waren-und Transportseilbahn\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "sind-mehrere-grundstuecke-betroffen-ja",
+    "fields": {
+      "created_at": "2023-11-07T10:07:21.858Z",
+      "modified_at": "2023-11-07T10:07:21.858Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "sind-mehrere-grundstuecke-betroffen-nein",
+    "fields": {
+      "created_at": "2023-11-07T10:07:21.882Z",
+      "modified_at": "2023-11-07T10:07:21.882Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -32957,6 +33397,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "allgemeine-informationen-bgbb",
+    "fields": {
+      "created_at": "2023-11-07T10:36:39.914Z",
+      "modified_at": "2023-11-07T10:54:07.620Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Allgemeine Informationen BGBB\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"##Willkommen bei URec##\\nAllgemeine Informationen zu verwaltungsinternen Verfahren\\n\\nAlle internen Verfahren werden, analog wie das zum Beispiel beim Baubewilligungsverfahren gemacht wird, auf dem URec Portal mit dem benutzergef\\u00fchrten Formular erfasst. Die Themen \\\"Personalien\\\", \\\"Lokalisierung\\\", \\\"Dokumente\\\" und \\\"Einreichen\\\"  sind dabei bei allen Verfahren identisch.\\n\\nDie Verfahren \\\"\\\"BGBB / Abparzellierung\\\"\\\" werden je nach Art des Gesuches bzw. der Anfrage vom Amt f\\u00fcr Landwirtschaft (BGBB Dossiers) oder vom Amt f\\u00fcr das Grundbuch (Abparzellierungen) im URec erfasst.\\n\\nBitte beachten Sie, dass Sie als verfahrensleitende Beh\\u00f6rde die entsprechenden Beh\\u00f6rden via das Zirkulationsmenu zur Stellungnahme einladen. \\n\\nBei Fragen hilft Ihnen der URec Supportdienst gerne weiter.\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "allgemeine-informationen-bgbb-abparzellierung",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "allgemeine-informationen-bundesverfahren",
     "fields": {
       "created_at": "2021-03-16T08:38:10.610Z",
@@ -33991,6 +34462,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "anlagen-in-ortsbildschutzgebieten",
+    "fields": {
+      "created_at": "2023-05-02T08:09:10.720Z",
+      "modified_at": "2023-05-02T08:13:55.517Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anlagen in Ortsbildschutzgebieten gem\\u00e4ss ISOS (Erhaltungsziel A)\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"In Orts\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "anlagenschema",
     "fields": {
       "created_at": "2022-09-27T14:19:34.253Z",
@@ -34213,10 +34715,10 @@
     "pk": "anleitung-zum-ausfuellen-der-formulare",
     "fields": {
       "created_at": "2020-10-30T17:44:40.930Z",
-      "modified_at": "2023-11-01T07:35:03.074Z",
+      "modified_at": "2023-10-31T13:33:56.171Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Anleitung extern\", \"fr\": null, \"it\": null}",
       "type": "static",
@@ -35934,6 +36436,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "auflistung-der-grundstuecke",
+    "fields": {
+      "created_at": "2023-11-07T09:39:54.860Z",
+      "modified_at": "2023-11-07T10:10:33.070Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Auflistung der Grundst\\u00fccke\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "!(\"sind-mehrere-grundstuecke-betroffen-ja\" == \"sind-mehrere-grundstuecke-betroffen\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"*Bitte erfassen Sie die Grundst\\u00fccke mit der entsprechenden Tabelle im Menu Lokalisierung*\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "auflistung-der-stoffe",
     "fields": {
       "created_at": "2020-10-26T10:39:15.166Z",
@@ -37337,6 +37870,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "behoerde-anmerkung",
+    "fields": {
+      "created_at": "2023-11-07T10:15:44.068Z",
+      "modified_at": "2023-11-07T10:17:39.365Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wann und von welcher Beh\\u00f6rde wurde die Anmerkung veranlasst?\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "!(\"grund-des-gesuches-anmerkung-im-grundbuch\" == \"grund-des-gesuches\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "belasteter-standort",
     "fields": {
       "created_at": "2022-02-24T12:09:27.852Z",
@@ -37517,6 +38084,40 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bemerkungen-bgbb",
+    "fields": {
+      "created_at": "2023-11-07T10:55:10.627Z",
+      "modified_at": "2023-11-07T12:33:29.268Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkungen\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"z.B. TgB Nr.\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -38290,6 +38891,40 @@
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "beschreibung-anfrage",
+    "fields": {
+      "created_at": "2023-11-07T09:37:48.856Z",
+      "modified_at": "2023-11-07T10:06:09.492Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschreibung\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "!(\"grund-des-gesuches-andere\" == \"grund-des-gesuches\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -39356,6 +39991,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "beschrieb-verfahren",
+    "fields": {
+      "created_at": "2023-11-07T07:14:20.992Z",
+      "modified_at": "2023-11-07T10:30:42.995Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschreibung des Vorhabens\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"z.B. Abparzellierung Wohnhaus, Ver\\u00e4usserung Liegenschaft, Erbteilung, Betriebs\\u00fcbergabe usw.\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "beschriftungstext",
     "fields": {
       "created_at": "2020-12-02T10:48:27.389Z",
@@ -39629,6 +40298,68 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"####INFO\\nHaupterwerbsbetrieb: Als Haupterwerbsbetriebe gelten Landwirtschaftsbetriebe dessen Bewirtschafter \\u00fcberwiegend im Betrieb t\\u00e4tig ist, bzw. dessen Erwerbseinkommen \\u00fcberwiegend aus dem landwirtschaftlichen Betrieb stammt.\\n\\nNebenerwerbsbetrieb: Dies ist ein Landwirtschaftsbetrieb, dessen Bewirtschafter einen grossen Teil seines Erwerbseinkommens ausserhalb des Landwirtschaftsbetriebes erzielt (> 0.2 SAK).\\n\\nFreizeitlandwirtschaft: Die Bewirtschaftung von landwirtschaftlichen Nutzfl\\u00e4chen in der Freizeit, mit einem geringen landwirtschaftlichem Einkommen (< 0.2 SAK) wird als Hobbylandwirtschaft klassiert. Solche Kleinstbetriebe haben aufgrund der Gr\\u00f6sse keinen Anspruch auf Direktzahlungen des Bundes und somit raumplanungsrechtlich auch keinen Anspruch auf die Bewilligung von Bauten und Anlagen.\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "betroffene-grundstuecke",
+    "fields": {
+      "created_at": "2023-11-07T09:26:32.347Z",
+      "modified_at": "2023-11-07T09:26:32.347Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Betroffene Grundst\\u00fccke\", \"fr\": null, \"it\": null}",
+      "type": "table",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": "parcel-table",
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "betroffene-hochbauten",
+    "fields": {
+      "created_at": "2023-11-07T09:29:29.544Z",
+      "modified_at": "2023-11-07T14:29:55.050Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Betroffene Hochbauten\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "!(\"hochbauten-betroffen-ja\" == \"hochbauten-betroffen\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"###Feststellung der Baubewilligungspflicht\\n\\nDie Justizdirektion pr\\u00fcft im Rahmen einer Feststellungsverf\\u00fcgung gem\\u00e4ss BGBB, ob die Baute rechtm\\u00e4ssig besteht und ob, im Falle einer Nutzungs\\u00e4nderung, eine Baubewilligung erforderlich ist. Das Verfahren nach BGBB ersetzt das Baubewilligungsverfahren nicht. Gegebenenfalls wird die Bauherrschaft durch die Justizdirektion darauf hingewiesen, bei der zust\\u00e4ndigen Gemeindebaubeh\\u00f6rde ein Baugesuch einzureichen.\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -39982,6 +40713,37 @@
       "data_source": null,
       "row_form": null,
       "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bgbb-abparzellierung-grundbuch",
+    "fields": {
+      "created_at": "2023-11-07T08:11:30.453Z",
+      "modified_at": "2023-11-07T08:18:34.590Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"BGBB Abparzellierung Grundbuch\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "bgbb-abparzellierung-grundbuch",
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
@@ -40669,10 +41431,10 @@
     "pk": "category",
     "fields": {
       "created_at": "2020-09-04T07:45:14.592Z",
-      "modified_at": "2023-11-01T07:33:39.556Z",
+      "modified_at": "2023-10-31T13:32:29.261Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Art der Bauwerke\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
@@ -45836,6 +46598,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "grund-des-gesuches",
+    "fields": {
+      "created_at": "2023-11-07T09:18:27.602Z",
+      "modified_at": "2023-11-07T10:25:54.680Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Grund des Gesuches bzw. der Anfrage\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "grundnutzung",
     "fields": {
       "created_at": "2020-09-04T08:42:52.610Z",
@@ -46456,6 +47249,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "hinweis-auswahl",
+    "fields": {
+      "created_at": "2023-06-07T09:19:40.178Z",
+      "modified_at": "2023-06-07T11:54:50.376Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis Auswahl Art der Beanspruchung\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"###<span style=\\\"color:red\\\">Bitte beachten</span>\\n\\nJe nach Art der Beanspruchung liegt die Zust\\u00e4ndigkeit entweder bei der Baudirektion oder bei der Sicherheitsdirektion. Sportanl\\u00e4sse, Foto- und Filmaufnahmen und alle anderen, nicht separat aufgef\\u00fchrten Beanspruchungen von Kantonsgebiet werden direkt an die Sicherheitsdirektion weitergeleitet. Wenn Sie sich nicht sicher sind, welche Art der Beanspruchung Sie w\\u00e4hlen m\\u00fcssen, bitten wir Sie dies vor Einreichung des Dossiers mit der Baudirektion zu kl\\u00e4ren  [E-Mail: ds.bd@ur.ch](https://www.ur.ch/departemente/54).\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "hinweis-bab-fachthema",
     "fields": {
       "created_at": "2020-11-11T10:45:09.180Z",
@@ -46721,6 +47545,37 @@
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"**Hinweis zur Meldung von Solaranlagen**\\nBitte verwenden Sie f\\u00fcr die Meldung einer thermischen oder photovoltaischen Solaranlage das separate Formular \\\"SOLARANLAGE\\\".\\n\\nDas Formular \\\"SOLARANLAGE\\\" ist so aufgebaut, dass je nach Art und Lage der Anlage und unter der Voraussetzung, dass die Fragen korrekt beantwortet werden, bereits im Formular gekl\\u00e4rt wird, ob eine Baubewilligung notwendig ist. Wenn dies der Fall ist, werden Sie im Formular darauf hingewiesen, f\\u00fcr die Meldung der Solaranlage das Formular \\u201eBaugesuch\\u201c zu verwenden.\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "hinweis-gis-problem",
+    "fields": {
+      "created_at": "2023-01-20T09:29:34.045Z",
+      "modified_at": "2023-01-20T09:30:41.991Z",
+      "created_by_user": "christian.zosel@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": "christian.zosel@adfinis.com",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis GIS Problem\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"<span style=\\\"color:red\\\">Aufgrund von technischen Problemen dauert der Ladevorgang der Karte sowie der Gemeindeauswahl aktuell bis zu 5 Minuten. Das Problem wird so rasch wie m\\u00f6glich behoben. Wir entschuldigen uns f\\u00fcr die Unannehmlichkeiten.</span>\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -47111,6 +47966,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "hochbauten-betroffen",
+    "fields": {
+      "created_at": "2023-11-07T10:23:41.003Z",
+      "modified_at": "2023-11-07T14:32:14.858Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Sind Hochbauten betroffen?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"###Zust\\u00e4ndigkeit\\n\\nIm Verfahren um Bewilligung von Ausnahmen vom Realteilungs- und Zerst\\u00fcckelungsverbot und im Verfahren um Erla\\u00df einer entsprechenden Feststellungsverf\\u00fcgung oder einer solchen \\u00fcber die Nichtanwendbarkeit des Bundesgesetzes \\u00fcber das b\\u00e4uerliche Bodenrecht (BGBB; SR 211.412.11) stellt die BGBB - Bewilligungsbeh\\u00f6rde der kantonalen Beh\\u00f6rde, die gest\\u00fctzt auf Art. 25 Abs. 2 Bundesgesetzes \\u00fcber die Raumplanung (RPG; SR 700) f\\u00fcr den Entscheid \\u00fcber Bauvorhaben ausserhalb der Bauzonen zust\\u00e4ndig ist, die Akten zum Erla\\u00df einer Verf\\u00fcgung zu, wenn auf dem betroffenen Grundst\\u00fcck eine Baute oder Anlage besteht und sich diese ausserhalb der Bauzone im Sinne des Raumplanungsrechts befindet.\\n\\nVorhaben welche diese Voraussetzungen erf\\u00fcllen, sind der Justizdirektion zur Zustimmung zu unterbreiten.\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "hoechstanteil",
     "fields": {
       "created_at": "2020-11-02T11:38:24.285Z",
@@ -47485,6 +48371,37 @@
       "data_source": null,
       "row_form": null,
       "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "informationen-bgbb",
+    "fields": {
+      "created_at": "2023-11-07T12:39:17.342Z",
+      "modified_at": "2023-11-07T12:39:33.486Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Allgemeine Informationen BGBB\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"##Willkommen bei URec##\\nAllgemeine Informationen zu verwaltungsinternen Verfahren\\n\\nAlle internen Verfahren werden, analog wie das zum Beispiel beim Baubewilligungsverfahren gemacht wird, auf dem URec Portal mit dem benutzergef\\u00fchrten Formular erfasst. Die Themen \\\"Personalien\\\", \\\"Lokalisierung\\\", \\\"Dokumente\\\" und \\\"Einreichen\\\"  sind dabei bei allen Verfahren identisch.\\n\\nDie Verfahren \\\"\\\"BGBB / Abparzellierung\\\"\\\" werden je nach Art des Gesuches bzw. der Anfrage vom Amt f\\u00fcr Landwirtschaft (BGBB Dossiers) oder vom Amt f\\u00fcr das Grundbuch (Abparzellierungen) im URec erfasst.\\n\\nBitte beachten Sie, dass Sie als verfahrensleitende Beh\\u00f6rde die entsprechenden Beh\\u00f6rden via das Zirkulationsmenu zur Stellungnahme einladen. \\n\\nBei Fragen hilft Ihnen der URec Supportdienst gerne weiter.\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "allgemeine-informationen-bgbb-abparzellierung",
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
@@ -49460,10 +50377,10 @@
     "pk": "leitbehoerde",
     "fields": {
       "created_at": "2020-07-12T10:30:37.816Z",
-      "modified_at": "2022-10-24T07:57:32.712Z",
+      "modified_at": "2023-11-07T08:22:27.504Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "jonas.lehmann@adfinis.com",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Leitbeh\\u00f6rde\", \"fr\": null, \"it\": null}",
       "type": "dynamic_choice",
@@ -51711,6 +52628,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "oereb-themen-gemeindliche-nutzungsplanung",
+    "fields": {
+      "created_at": "2023-07-28T14:16:25.161Z",
+      "modified_at": "2023-07-28T14:25:15.755Z",
+      "created_by_user": "pirmin.scheuber@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "pirmin.scheuber@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Betroffene \\u00d6REB-Themen (Geobasisdaten)\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "!(\"oereb-thema-gemeinde-gnp\" == \"oereb-thema-gemeinde\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"#\\u00d6REB-Themen\\n\\nDie \\u00d6REB-Themen sind die auf Grundlage von Art. 16 Abs. 2 und 3 GeoIG vom Bundesrat beziehungsweise vom Regierungsrat bezeichneten grundeigent\\u00fcmerverbindlichen Geobasisdaten. Es sind die in den Geobasisdatenkatalogen des Bundesrechts (= GeoIV Anhang und kGeoIR Anhang 1) und des Kantonsrechts (= kGeoIR Anhang 2) aufgef\\u00fchrten Geobasisdaten, bei denen die Attributspalte \\u00ab\\u00d6REB-Kataster\\u00bb markiert wurde.\\n\\n Die \\u00d6REB-Themen sind jeweils einem \\u00d6REB-Verfahren zugeordnet.\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "oereb-titel",
     "fields": {
       "created_at": "2020-11-11T07:32:11.625Z",
@@ -52891,15 +53839,15 @@
     "pk": "projektdaten",
     "fields": {
       "created_at": "2020-09-18T14:36:33.271Z",
-      "modified_at": "2021-04-16T07:39:36.226Z",
+      "modified_at": "2023-11-08T07:19:03.736Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "label": "{\"de\": \"Bauprojekt\", \"fr\": null, \"it\": null}",
       "type": "form",
       "is_required": "false",
-      "is_hidden": "!(\n  \"form-type\"|answer in [\n    \"form-type-baubewilligungsverfahren\",\n    \"form-type-baugesuch-vorabklaerung\",\n    \"form-type-bgbb\",\n    \"form-type-archiv\",\n    \"form-type-archiv-afj\"\n    ]\n)",
+      "is_hidden": "!(\n  \"form-type\"|answer in [\n    \"form-type-baubewilligungsverfahren\",\n    \"form-type-baugesuch-vorabklaerung\",\n    \"form-type-archiv\",\n    \"form-type-archiv-afj\"\n    ]\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -54778,6 +55726,37 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "sind-mehrere-grundstuecke-betroffen",
+    "fields": {
+      "created_at": "2023-11-07T09:34:56.911Z",
+      "modified_at": "2023-11-07T10:07:21.957Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Sind mehrere Grundst\\u00fccke betroffen?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -59778,6 +60757,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "willkommen-bei-urec",
+    "fields": {
+      "created_at": "2023-11-07T10:40:07.647Z",
+      "modified_at": "2023-11-07T10:40:07.647Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Willkommen bei URec\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "winkel-45-grad",
     "fields": {
       "created_at": "2022-09-15T07:13:45.638Z",
@@ -60292,6 +61305,40 @@
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "zustaendige-person-der-verfahrensleitenden-behoerde",
+    "fields": {
+      "created_at": "2023-11-07T08:29:35.910Z",
+      "modified_at": "2023-11-07T08:29:35.910Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Zust\\u00e4ndige Person der verfahrensleitenden Beh\\u00f6rde\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -63941,6 +64988,81 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "betroffene-hochbauten.betroffene-bauten-andere-bauten",
+    "fields": {
+      "created_at": "2023-11-07T14:29:55.056Z",
+      "modified_at": "2023-11-07T14:29:55.056Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "betroffene-hochbauten",
+      "option": "betroffene-bauten-andere-bauten",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "betroffene-hochbauten.betroffene-bauten-oekonomiebauten-fuer-tierhaltung",
+    "fields": {
+      "created_at": "2023-11-07T14:29:55.060Z",
+      "modified_at": "2023-11-07T14:29:55.060Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "betroffene-hochbauten",
+      "option": "betroffene-bauten-oekonomiebauten-fuer-tierhaltung",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "betroffene-hochbauten.betroffene-bauten-oekonomiebauten-ohne-tierhaltung",
+    "fields": {
+      "created_at": "2023-11-07T14:29:55.058Z",
+      "modified_at": "2023-11-07T14:29:55.058Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "betroffene-hochbauten",
+      "option": "betroffene-bauten-oekonomiebauten-ohne-tierhaltung",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "betroffene-hochbauten.betroffene-bauten-wohnbauten",
+    "fields": {
+      "created_at": "2023-11-07T14:29:55.063Z",
+      "modified_at": "2023-11-07T14:29:55.063Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "betroffene-hochbauten",
+      "option": "betroffene-bauten-wohnbauten",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "betroffene-hochbauten.betroffene-hochbauten-es-sind-keine-hochbauten-betroffen",
+    "fields": {
+      "created_at": "2023-11-07T14:29:55.054Z",
+      "modified_at": "2023-11-07T14:29:55.054Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "betroffene-hochbauten",
+      "option": "betroffene-hochbauten-es-sind-keine-hochbauten-betroffen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "bewilligung-fuer-nichtforstliche-kleinbauten.bewilligung-fuer-nichtforstliche-kleinbauten-ja",
     "fields": {
       "created_at": "2020-11-11T15:26:11.992Z",
@@ -64153,11 +65275,11 @@
     "model": "caluma_form.questionoption",
     "pk": "category.category-hochbaute",
     "fields": {
-      "created_at": "2023-11-01T07:33:39.574Z",
-      "modified_at": "2023-11-01T07:33:39.574Z",
-      "created_by_user": "admin",
+      "created_at": "2023-10-31T13:32:29.282Z",
+      "modified_at": "2023-10-31T13:32:29.282Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "category",
       "option": "category-hochbaute",
@@ -64168,11 +65290,11 @@
     "model": "caluma_form.questionoption",
     "pk": "category.category-spezielle-bauten-und-anlagen",
     "fields": {
-      "created_at": "2023-11-01T07:33:39.565Z",
-      "modified_at": "2023-11-01T07:33:39.565Z",
-      "created_by_user": "admin",
+      "created_at": "2023-10-31T13:32:29.278Z",
+      "modified_at": "2023-10-31T13:32:29.278Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "category",
       "option": "category-spezielle-bauten-und-anlagen",
@@ -64183,11 +65305,11 @@
     "model": "caluma_form.questionoption",
     "pk": "category.category-tiefbaute",
     "fields": {
-      "created_at": "2023-11-01T07:33:39.570Z",
-      "modified_at": "2023-11-01T07:33:39.570Z",
-      "created_by_user": "admin",
+      "created_at": "2023-10-31T13:32:29.280Z",
+      "modified_at": "2023-10-31T13:32:29.280Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "category",
       "option": "category-tiefbaute",
@@ -67046,6 +68168,51 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "grund-des-gesuches.grund-des-gesuches-andere",
+    "fields": {
+      "created_at": "2023-11-07T10:25:54.684Z",
+      "modified_at": "2023-11-07T10:25:54.684Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "grund-des-gesuches",
+      "option": "grund-des-gesuches-andere",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "grund-des-gesuches.grund-des-gesuches-anmerkung-im-grundbuch",
+    "fields": {
+      "created_at": "2023-11-07T10:25:54.687Z",
+      "modified_at": "2023-11-07T10:25:54.687Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "grund-des-gesuches",
+      "option": "grund-des-gesuches-anmerkung-im-grundbuch",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "grund-des-gesuches.grund-des-gesuches-bewilligung-bgbb",
+    "fields": {
+      "created_at": "2023-11-07T10:25:54.689Z",
+      "modified_at": "2023-11-07T10:25:54.689Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "grund-des-gesuches",
+      "option": "grund-des-gesuches-bewilligung-bgbb",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "grundrissplaene.grundrissplaene-ja",
     "fields": {
       "created_at": "2021-04-27T07:09:01.509Z",
@@ -67686,6 +68853,36 @@
       "modified_by_group": null,
       "question": "heizsystem-art",
       "option": "-zusatzheizung",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "hochbauten-betroffen.hochbauten-betroffen-ja",
+    "fields": {
+      "created_at": "2023-11-07T14:32:14.866Z",
+      "modified_at": "2023-11-07T14:32:14.866Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "hochbauten-betroffen",
+      "option": "hochbauten-betroffen-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "hochbauten-betroffen.hochbauten-betroffen-nein",
+    "fields": {
+      "created_at": "2023-11-07T14:32:14.864Z",
+      "modified_at": "2023-11-07T14:32:14.864Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "hochbauten-betroffen",
+      "option": "hochbauten-betroffen-nein",
       "sort": 1
     }
   },
@@ -71586,6 +72783,66 @@
       "modified_by_group": null,
       "question": "seilbahnanlage",
       "option": "seilbahnanlage-warenseilbahn",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "sind-mehrere-grundstuecke-betroffen.betroffene-grundstuecke-ja",
+    "fields": {
+      "created_at": "2023-11-07T10:07:21.968Z",
+      "modified_at": "2023-11-07T10:07:21.968Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "sind-mehrere-grundstuecke-betroffen",
+      "option": "betroffene-grundstuecke-ja",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "sind-mehrere-grundstuecke-betroffen.betroffene-grundstuecke-nein",
+    "fields": {
+      "created_at": "2023-11-07T10:07:21.966Z",
+      "modified_at": "2023-11-07T10:07:21.966Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "sind-mehrere-grundstuecke-betroffen",
+      "option": "betroffene-grundstuecke-nein",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "sind-mehrere-grundstuecke-betroffen.sind-mehrere-grundstuecke-betroffen-ja",
+    "fields": {
+      "created_at": "2023-11-07T10:07:21.964Z",
+      "modified_at": "2023-11-07T10:07:21.964Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "sind-mehrere-grundstuecke-betroffen",
+      "option": "sind-mehrere-grundstuecke-betroffen-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "sind-mehrere-grundstuecke-betroffen.sind-mehrere-grundstuecke-betroffen-nein",
+    "fields": {
+      "created_at": "2023-11-07T10:07:21.961Z",
+      "modified_at": "2023-11-07T10:07:21.961Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "sind-mehrere-grundstuecke-betroffen",
+      "option": "sind-mehrere-grundstuecke-betroffen-nein",
       "sort": 1
     }
   },
