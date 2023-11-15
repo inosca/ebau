@@ -11,6 +11,7 @@ gis:
   loading: "Lädt..."
   noMatchesMessage: "keine Ergebnisse gefunden"
   searchPlaceholder: "Adresse suchen..."
+  centeredCoordinates: "Koordinaten"
 
   groups:
     addresses: "Adressen"

@@ -69,6 +69,24 @@ export default class GrGisComponent extends Component {
     return this.args.field.fieldset.document.rootForm.slug;
   }
 
+  get centerCoordinate() {
+    if (!this.markers.length) {
+      return null;
+    }
+    if (this.geometry === "POLYGON" && this.markers.length > 2) {
+      return LatLngToEPSG2056(L.polygon(this.markers).getBounds().getCenter());
+    } else if (this.geometry === "POINT") {
+      return LatLngToEPSG2056(this.markers[0]);
+    }
+    return LatLngToEPSG2056(L.polyline(this.markers).getBounds().getCenter());
+  }
+
+  get centerCoordinateUrl() {
+    // GIS seems to use different zoom levels than we do, do a rough conversion
+    const convertedZoom = this.zoom - 5;
+    return `https://edit.geo.gr.ch/theme/Nutzungsplanung_Kommunaler_Darstellungsdienst?lang=de&baselayer_ref=Karte%20grau&map_x=${this.centerCoordinate.x}&map_y=${this.centerCoordinate.y}&map_zoom=${convertedZoom}`;
+  }
+
   @task
   *searchAddress(address) {
     yield timeout(300);
@@ -118,6 +136,11 @@ export default class GrGisComponent extends Component {
       this.map.setView(coords, 19);
       this.markers = [coords];
     }
+  }
+
+  @action
+  onZoomend(event) {
+    this.zoom = event.sourceTarget.getZoom();
   }
 
   @action
