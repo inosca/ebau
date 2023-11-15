@@ -1,0 +1,57 @@
+query RejectionValidations($instanceId: GenericScalar!) {
+  distribution: allWorkItems(
+    filter: [
+      { task: "inquiry" }
+      { rootCaseMetaValue: { key: "camac-instance-id", value: $instanceId } }
+      { status: CANCELED, invert: true }
+      { status: COMPLETED, invert: true }
+      { status: SKIPPED, invert: true }
+      { status: REDO, invert: true }
+    ]
+  ) {
+    totalCount
+  }
+  claims: allCases(
+    filter: [{ metaValue: { key: "camac-instance-id", value: $instanceId } }]
+  ) {
+    edges {
+      node {
+        id
+        workItems(filter: [{ task: "nfd" }]) {
+          edges {
+            node {
+              id
+              document {
+                id
+                answers(filter: [{ question: "nfd-tabelle-table" }]) {
+                  edges {
+                    node {
+                      id
+                      ... on TableAnswer {
+                        value {
+                          id
+                          answers(
+                            filter: [{ question: "nfd-tabelle-status" }]
+                          ) {
+                            edges {
+                              node {
+                                id
+                                ... on StringAnswer {
+                                  value
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

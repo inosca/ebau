@@ -1,0 +1,67 @@
+{{#if (and this.instance.record this.validations.value)}}
+  {{#if this.validations.value.hasOpenClaims}}
+    <div class="uk-alert uk-alert-warning">
+      {{t "rejection.has-open-claims"}}
+    </div>
+  {{/if}}
+
+  {{#if this.validations.value.hasActiveDistribution}}
+    <div class="uk-alert uk-alert-warning">
+      {{t "rejection.has-active-distribution"}}
+    </div>
+  {{/if}}
+
+  <div class="uk-alert" data-test-rejection-info>
+    {{t "rejection.info" htmlSafe=true}}
+  </div>
+
+  {{#let
+    (can
+      "reject instance"
+      this.instance.record
+      hasOpenClaims=this.validations.value.hasOpenClaims
+      hasActiveDistribution=this.validations.value.hasActiveDistribution
+    )
+    as |canReject|
+  }}
+    <form {{on "submit" (perform this.reject)}}>
+      <div class="uk-margin">
+        <label class="uk-form-label">{{t "rejection.feedback"}}</label>
+        <div class="uk-form-controls">
+          <Snippets @disabled={{not canReject}}>
+            <Textarea
+              required
+              id="feedback"
+              name="feedback"
+              class="uk-textarea"
+              disabled={{not canReject}}
+              @value={{this.feedback}}
+              {{autoresize mode="height"}}
+            />
+          </Snippets>
+        </div>
+      </div>
+
+      <div class="uk-margin">
+        {{#if canReject}}
+          <UkButton
+            @type="submit"
+            @color="primary"
+            @label={{t "rejection.reject"}}
+            @disabled={{this.reject.isRunning}}
+            @loading={{this.reject.isRunning}}
+            data-test-reject
+          />
+        {{else if (can "revert rejection of instance" this.instance.record)}}
+          <UkButton
+            @label={{t "rejection.revert"}}
+            @disabled={{this.revert.isRunning}}
+            @loading={{this.revert.isRunning}}
+            @onClick={{perform this.revert}}
+            data-test-revert
+          />
+        {{/if}}
+      </div>
+    </form>
+  {{/let}}
+{{/if}}
