@@ -56,6 +56,10 @@ PUBLICATION = {
         ],
         "PUBLISH_QUESTION": "oeffentliche-auflage",
         "PUBLISH_ANSWER": ["oeffentliche-auflage-ja"],
+        "SCRUBBED_ANSWERS": [
+            "e-mail-gesuchstellerin",
+            "telefon-oder-mobile-gesuchstellerin",
+        ],
     },
     "kt_so": {
         "ENABLED": True,
