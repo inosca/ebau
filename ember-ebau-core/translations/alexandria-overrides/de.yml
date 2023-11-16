@@ -1,0 +1,6 @@
+alexandria:
+  document-list:
+    created-by-group: Organisation
+
+  document-details:
+    created-by-group: Erstellt von Organisation
