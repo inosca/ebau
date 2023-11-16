@@ -4,3 +4,5 @@ alexandria:
 
   document-details:
     created-by-group: Erstellt von Organisation
+    version:
+      checksum: Eindeutiger Indentifikationsindex
