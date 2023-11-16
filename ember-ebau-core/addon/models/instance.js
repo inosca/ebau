@@ -19,6 +19,7 @@ export default class InstanceModel extends Model {
   @attr decisionDate;
   @attr involvedAt;
   @attr isAfterDecision;
+  @attr rejectionFeedback;
 
   @belongsTo("user", { inverse: null, async: true }) user;
   @belongsTo("form", { inverse: null, async: true }) form;

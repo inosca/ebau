@@ -13,7 +13,8 @@
       "identifier": null,
       "location": null,
       "case": "c7e5eef4-4919-4f5d-accc-995d080e1c00",
-      "instance_group": null
+      "instance_group": null,
+      "rejection_feedback": null
     }
   },
   {
@@ -30,7 +31,8 @@
       "identifier": null,
       "location": null,
       "case": "857ff0e6-9547-46c8-bd44-7258c9fa33e4",
-      "instance_group": null
+      "instance_group": null,
+      "rejection_feedback": null
     }
   },
   {
@@ -47,7 +49,8 @@
       "identifier": null,
       "location": 1,
       "case": "76357c78-61e1-4cfa-8b2a-30203af5b777",
-      "instance_group": null
+      "instance_group": null,
+      "rejection_feedback": null
     }
   },
   {

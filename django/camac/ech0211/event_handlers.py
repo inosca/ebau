@@ -58,6 +58,8 @@ from .signals import (
     file_subsequently,
     finished,
     instance_submitted,
+    rejected,
+    rejection_reverted,
     ruling,
     sb1_submitted,
     sb2_submitted,
@@ -454,6 +456,8 @@ def submit_callback(sender, instance, user_pk, group_pk, **kwargs):
 @receiver(circulation_ended)
 @receiver(ruling)
 @receiver(finished)
+@receiver(rejected)
+@receiver(rejection_reverted)
 @if_ech_enabled
 def send_status_notification(sender, instance, user_pk, group_pk, **kwargs):
     handler = StatusNotificationEventHandler(

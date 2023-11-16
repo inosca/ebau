@@ -1,0 +1,22 @@
+rejection:
+  info: |-
+    <p>Le retour d'information doit être formulé d'une manière non sexiste et contenir les informations précises suivantes pour la personne requérante :</p>
+    <ul class="uk-list uk-list-bullet">
+      <li>Modifications à apporter à la demande de permis de construire</li>
+      <li>Référence à tout document divulgué par l'autorité directrice</li>
+      <li>Documents qui doivent être soumis à nouveau sous forme signée (par exemple, le formulaire de demande de permis de construire)</li>
+      <li>La personne requérante doit soumettre à nouveau le dossier par voie électronique.</li>
+    </ul>
+
+  feedback: Préavis
+
+  reject: Renvoyer le dossier
+  reject-success: Le dossier a été renvoyé avec succès
+  reject-error: Erreur lors du renvoi du dossier
+
+  revert: Annuler le renvoi
+  revert-success: Le renvoi du dossier a été annulé avec succès
+  revert-error: Erreur lors de l'annulation du renvoi du dossier
+
+  has-open-claims: Le dossier ne peut être rejeté tant que des demandes complémentaires sont encore ouvertes.
+  has-active-distribution: Le dossier ne peut être rejeté tant qu'il est encore en circulation.

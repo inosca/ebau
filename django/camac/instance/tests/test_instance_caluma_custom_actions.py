@@ -364,9 +364,8 @@ def test_change_responsible_service(
     expected_status,
     caluma_admin_user,
     be_distribution_settings,
+    enable_ech,
 ):
-    application_settings["DOSSIER_IMPORT"]["PROD_URL"] = "ebau.local"
-    application_settings["ECH0211"]["API_ACTIVE"] = True
     application_settings["NOTIFICATIONS"]["CHANGE_RESPONSIBLE_SERVICE"] = {
         "template_slug": notification_template.slug,
         "recipient_types": ["leitbehoerde"],
