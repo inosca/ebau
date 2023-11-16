@@ -13,7 +13,8 @@
       "identifier": "72-20-001",
       "location": 26,
       "case": "21f2cb9f-2c45-49a5-9351-d85b0eaa6ad5",
-      "instance_group": null
+      "instance_group": null,
+      "rejection_feedback": null
     }
   },
   {
@@ -30,7 +31,8 @@
       "identifier": "72-20-002",
       "location": 26,
       "case": "4e5c5224-66f3-4ebf-937e-99be66ee79e3",
-      "instance_group": null
+      "instance_group": null,
+      "rejection_feedback": null
     }
   },
   {
@@ -47,7 +49,8 @@
       "identifier": "72-20-003",
       "location": 26,
       "case": "cd2eb86c-e2e9-4c4c-ac53-057b30b434f7",
-      "instance_group": null
+      "instance_group": null,
+      "rejection_feedback": null
     }
   },
   {
@@ -64,7 +67,8 @@
       "identifier": "72-20-004",
       "location": 26,
       "case": "e26389d9-da0d-4809-b38a-eb1503002f3b",
-      "instance_group": null
+      "instance_group": null,
+      "rejection_feedback": null
     }
   },
   {
@@ -81,7 +85,8 @@
       "identifier": null,
       "location": 26,
       "case": "5ecfb2d0-0917-4350-96d2-ed28a25ecbfb",
-      "instance_group": null
+      "instance_group": null,
+      "rejection_feedback": null
     }
   },
   {

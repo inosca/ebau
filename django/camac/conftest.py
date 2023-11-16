@@ -1277,3 +1277,9 @@ def minio_mock(mocker):
     Minio.stat_object.return_value = stat_response
     Minio.bucket_exists.return_value = True
     return Minio
+
+
+@pytest.fixture
+def enable_ech(application_settings):
+    application_settings["ECH0211"]["API_ACTIVE"] = True
+    application_settings["DOSSIER_IMPORT"]["PROD_URL"] = "ebau.local"

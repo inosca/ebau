@@ -90,4 +90,21 @@ export default class InstanceAbility extends Ability {
       hasInstanceState(this.model, mainConfig.correction?.instanceState)
     );
   }
+
+  // rejection
+  get canReject() {
+    return (
+      !this.hasOpenClaims &&
+      !this.hasActiveDistribution &&
+      isAuthority(this.model, this.ebauModules.serviceId) &&
+      hasInstanceState(this.model, mainConfig.rejection?.allowedInstanceStates)
+    );
+  }
+
+  get canRevertRejection() {
+    return (
+      isAuthority(this.model, this.ebauModules.serviceId) &&
+      hasInstanceState(this.model, mainConfig.rejection?.instanceState)
+    );
+  }
 }

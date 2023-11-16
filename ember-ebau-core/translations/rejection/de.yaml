@@ -1,0 +1,22 @@
+rejection:
+  info: |-
+    <p>Die Rückmeldung sollte gendergerecht formuliert sein und folgende für die gesuchstellende Person präzise Angaben enthalten:</p>
+    <ul class="uk-list uk-list-bullet">
+      <li>Anpassungen, welche am Baugesuch vorgenommen werden müssen</li>
+      <li>Mitteilung auf allfällige von der Leitbehörde freigegebene Dokumente</li>
+      <li>Dokumente, welche in unterschriebener Form nochmals eingereicht werden müssen (z.B. Baugesuchsformular)</li>
+      <li>Hinweis, dass die gesuchstellende Person das Dossier wieder elektronisch einreichen muss</li>
+    </ul>
+
+  feedback: Rückmeldung
+
+  reject: Dossier zurückweisen
+  reject-success: Das Dossier wurde erfolgreich zurückgewiesen
+  reject-error: Fehler beim Zurückweisen des Dossiers
+
+  revert: Rückweisung aufheben
+  revert-success: Die Rückweisung des Dossiers wurde erfolgreich aufgehoben
+  revert-error: Fehler beim Aufheben der Rückweisung des Dossiers
+
+  has-open-claims: Das Dossier kann nicht zurückgewiesen werden solange noch Nachforderungen offen sind.
+  has-active-distribution: Das Dossier kann nicht zurückgewiesen werden solange noch eine Zirkulation läuft.
