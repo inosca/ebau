@@ -1,10 +1,10 @@
 from alexandria.core.models import BaseModel, Category, Document, File, Tag
 from alexandria.core.visibilities import BaseVisibility, filter_queryset_for
+from django.conf import settings
 from django.db.models import Q
 
 from camac.instance.filters import CalumaInstanceFilterSet
 from camac.instance.mixins import InstanceQuerysetMixin
-from camac.settings import ALEXANDRIA
 from camac.utils import filters
 
 from .common import get_role, get_service_parent_and_children
@@ -70,7 +70,7 @@ class CustomVisibility(BaseVisibility, InstanceQuerysetMixin):
 
         if role == "public":
             return visible_instances_filter & Q(
-                **{f"{prefix}tags__pk": ALEXANDRIA["MARKS"]["PUBLICATION"]}
+                **{f"{prefix}tags__pk": settings.ALEXANDRIA["MARKS"]["PUBLICATION"]}
             )
 
         aggregated_filter = Q()
@@ -97,7 +97,7 @@ class CustomVisibility(BaseVisibility, InstanceQuerysetMixin):
         if role == "applicant":
             # decision document available for applicants
             aggregated_filter |= Q(
-                **{f"{prefix}tags__pk": ALEXANDRIA["MARKS"]["DECISION"]}
+                **{f"{prefix}tags__pk": settings.ALEXANDRIA["MARKS"]["DECISION"]}
             )
 
         return visible_instances_filter & aggregated_filter
@@ -133,11 +133,16 @@ class CustomVisibility(BaseVisibility, InstanceQuerysetMixin):
         if get_role(request.caluma_info.context.user) in ["public", "applicant"]:
             return queryset.none()
 
-        return queryset.filter(
-            Q(
-                created_by_group__in=get_service_parent_and_children(
-                    request.caluma_info.context.user.group
+        if settings.ALEXANDRIA["TAG_VISIBILITY"] == "all":
+            return queryset
+        elif settings.ALEXANDRIA["TAG_VISIBILITY"] == "service-subservice":
+            return queryset.filter(
+                Q(
+                    created_by_group__in=get_service_parent_and_children(
+                        request.caluma_info.context.user.group
+                    )
                 )
+                | Q(pk__in=settings.ALEXANDRIA["MARKS"]["ALL"])
             )
-            | Q(pk__in=ALEXANDRIA["MARKS"]["ALL"])
-        )
+        else:  # pragma: no cover
+            raise ValueError("Unknown tag visibility setting")
