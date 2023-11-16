@@ -13,7 +13,9 @@
       {{/unless}}
     {{/if}}
   {{/if}}
-  <li><LinkTo @route="public-instances">{{t "nav.public-instance"}}</LinkTo></li>
+  {{#if (or @isAuthenticated (has-feature "publication.disableAuthentication"))}}
+    <li><LinkTo @route="public-instances">{{t "nav.public-instance"}}</LinkTo></li>
+  {{/if}}
   {{#if @showFormBuilder}}
     <li><LinkTo @route="form-builder">{{t "nav.form-builder"}}</LinkTo></li>
   {{/if}}

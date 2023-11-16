@@ -3,7 +3,7 @@
   @loading={{this.publicInstance.isRunning}}
   @hasPermission={{this.publicInstance.value}}
 >
-  {{#if (macroCondition (macroGetOwnConfig "enablePublicationForm"))}}
+  {{#if (has-feature "publication.form")}}
     <UkTab as |Tab|>
       <Tab.item @href={{concat "/public-instances/" @model "/form"}} as |active|>
         <AriaHeading @enabled={{active}}>
@@ -15,7 +15,9 @@
           {{t "publicInstancesDetail.documents"}}
         </AriaHeading>
       </Tab.item>
-      <RelatedPublications @dossierNr={{this.publicInstance.value.dossierNr}} @instanceId={{this.publicInstance.value.instanceId}} />
+      {{#if (has-feature "publication.related")}}
+        <RelatedPublications @dossierNr={{this.publicInstance.value.dossierNr}} @instanceId={{this.publicInstance.value.instanceId}} />
+      {{/if}}
     </UkTab>
   {{/if}}
 

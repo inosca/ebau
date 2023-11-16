@@ -1,7 +1,6 @@
 import Route from "@ember/routing/route";
 import { inject as service } from "@ember/service";
-
-import config from "caluma-portal/config/environment";
+import { hasFeature } from "ember-ebau-core/helpers/has-feature";
 
 export default class PublicInstancesRoute extends Route {
   @service session;
@@ -15,7 +14,7 @@ export default class PublicInstancesRoute extends Route {
   }
 
   beforeModel(transition) {
-    if (config.APPLICATION.name === "be") {
+    if (!hasFeature("publication.disableAuthentication")) {
       this.session.requireAuthentication(transition, "login");
     }
   }
