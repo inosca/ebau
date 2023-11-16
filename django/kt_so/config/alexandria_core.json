@@ -32,13 +32,34 @@
             "visibility": "all"
           },
           "subservice": {
-            "visibility": "all"
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
           },
           "service-lead": {
-            "visibility": "all"
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
           },
           "service-clerk": {
-            "visibility": "all"
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
           },
           "municipality-lead": {
             "visibility": "all",
@@ -48,6 +69,11 @@
               },
               {
                 "scope": "Service",
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags", "marks"],
                 "permission": "update"
               },
               {
@@ -64,6 +90,11 @@
               },
               {
                 "scope": "Service",
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags", "marks"],
                 "permission": "update"
               },
               {
@@ -129,19 +160,54 @@
             ]
           },
           "subservice": {
-            "visibility": "all"
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
           },
           "service-lead": {
-            "visibility": "all"
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
           },
           "service-clerk": {
-            "visibility": "all"
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
           },
           "municipality-lead": {
-            "visibility": "all"
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags", "marks"],
+                "permission": "update"
+              }
+            ]
           },
           "municipality-clerk": {
-            "visibility": "all"
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags", "marks"],
+                "permission": "update"
+              }
+            ]
           }
         }
       },
@@ -252,10 +318,30 @@
             "visibility": "all",
             "permissions": [
               {
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
                 "permission": "create"
               },
               {
                 "scope": "Service",
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "files"
+                ],
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags"],
                 "permission": "update"
               },
               {
@@ -268,10 +354,30 @@
             "visibility": "all",
             "permissions": [
               {
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
                 "permission": "create"
               },
               {
                 "scope": "Service",
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "files"
+                ],
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags"],
                 "permission": "update"
               },
               {
@@ -284,10 +390,30 @@
             "visibility": "all",
             "permissions": [
               {
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
                 "permission": "create"
               },
               {
                 "scope": "Service",
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "files"
+                ],
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags"],
                 "permission": "update"
               },
               {
@@ -307,6 +433,11 @@
                 "permission": "update"
               },
               {
+                "scope": "All",
+                "fields": ["tags", "marks"],
+                "permission": "update"
+              },
+              {
                 "scope": "Service",
                 "permission": "delete"
               }
@@ -320,6 +451,11 @@
               },
               {
                 "scope": "Service",
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags", "marks"],
                 "permission": "update"
               },
               {
@@ -369,10 +505,26 @@
             "visibility": "service",
             "permissions": [
               {
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
                 "permission": "create"
               },
               {
                 "scope": "Service",
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
                 "permission": "update"
               },
               {
@@ -385,10 +537,26 @@
             "visibility": "service",
             "permissions": [
               {
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
                 "permission": "create"
               },
               {
                 "scope": "Service",
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
                 "permission": "update"
               },
               {
@@ -401,10 +569,26 @@
             "visibility": "service",
             "permissions": [
               {
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
                 "permission": "create"
               },
               {
                 "scope": "Service",
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
                 "permission": "update"
               },
               {
@@ -417,10 +601,26 @@
             "visibility": "service",
             "permissions": [
               {
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
                 "permission": "create"
               },
               {
                 "scope": "Service",
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
                 "permission": "update"
               },
               {
@@ -433,10 +633,26 @@
             "visibility": "service",
             "permissions": [
               {
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
                 "permission": "create"
               },
               {
                 "scope": "Service",
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
                 "permission": "update"
               },
               {
@@ -486,10 +702,26 @@
             "visibility": "service-and-subservice",
             "permissions": [
               {
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
                 "permission": "create"
               },
               {
                 "scope": "ServiceAndSubservice",
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
                 "permission": "update"
               },
               {
@@ -502,10 +734,26 @@
             "visibility": "service-and-subservice",
             "permissions": [
               {
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
                 "permission": "create"
               },
               {
                 "scope": "ServiceAndSubservice",
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
                 "permission": "update"
               },
               {
@@ -518,10 +766,26 @@
             "visibility": "service-and-subservice",
             "permissions": [
               {
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
                 "permission": "create"
               },
               {
                 "scope": "ServiceAndSubservice",
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
                 "permission": "update"
               },
               {
@@ -534,10 +798,26 @@
             "visibility": "service-and-subservice",
             "permissions": [
               {
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
                 "permission": "create"
               },
               {
                 "scope": "ServiceAndSubservice",
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
                 "permission": "update"
               },
               {
@@ -550,10 +830,26 @@
             "visibility": "service-and-subservice",
             "permissions": [
               {
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
                 "permission": "create"
               },
               {
                 "scope": "ServiceAndSubservice",
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
                 "permission": "update"
               },
               {
@@ -619,16 +915,44 @@
             ]
           },
           "service-lead": {
-            "visibility": "all"
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
           },
           "service-clerk": {
-            "visibility": "all"
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
           },
           "municipality-lead": {
-            "visibility": "all"
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags", "marks"],
+                "permission": "update"
+              }
+            ]
           },
           "municipality-clerk": {
-            "visibility": "all"
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags", "marks"],
+                "permission": "update"
+              }
+            ]
           }
         }
       },

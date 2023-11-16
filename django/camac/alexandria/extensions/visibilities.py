@@ -134,6 +134,10 @@ class CustomVisibility(BaseVisibility, InstanceQuerysetMixin):
             return queryset.none()
 
         return queryset.filter(
-            Q(created_by_group=request.caluma_info.context.user.group)
+            Q(
+                created_by_group__in=get_service_parent_and_children(
+                    request.caluma_info.context.user.group
+                )
+            )
             | Q(pk__in=ALEXANDRIA["MARKS"]["ALL"])
         )
