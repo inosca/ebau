@@ -60,6 +60,13 @@ PUBLICATION = {
     "kt_so": {
         "ENABLED": True,
         "RANGE_QUESTIONS": [("publikation-start", "publikation-ende")],
+        "SCRUBBED_ANSWERS": [
+            "e-mail",
+            "vertretung-e-mail",
+            "telefon",
+            "vertretung-telefon",
+            "telefon-oder-mobil",
+        ],
     },
     "kt_schwyz": {
         "ENABLED": True,
