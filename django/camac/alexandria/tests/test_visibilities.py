@@ -229,8 +229,8 @@ def test_category_visibility(db, admin_client, role, expected):
     "role__name,expected_count",
     [
         ("applicant", 0),
-        ("municipality", 1),
-        ("service", 1),
+        ("municipality", 2),
+        ("service", 2),
     ],
 )
 def test_tag_visibility(
@@ -242,6 +242,45 @@ def test_tag_visibility(
     expected_count,
 ):
     TagFactory(created_by_group=caluma_admin_user.group)
+    TagFactory(created_by_group="abc")
+
+    url = reverse("tag-list")
+    response = admin_client.get(url)
+
+    assert response.status_code == HTTP_200_OK
+    json = response.json()
+    assert len(json["data"]) == expected_count
+
+
+@pytest.mark.parametrize(
+    "role__name,expected_count",
+    [
+        ("service", 2),
+        ("subservice", 2),
+    ],
+)
+def test_tag_visibility_service_subservice(
+    db,
+    caluma_admin_user,
+    set_application_so,
+    so_alexandria_settings,
+    admin_client,
+    service_factory,
+    service,
+    role,
+    expected_count,
+):
+
+    if role.name == "subservice":
+        service2 = service_factory()
+        service.service_parent = service2
+        service.save()
+    elif role.name == "service":
+        service2 = service_factory(service_parent=service)
+
+    TagFactory(created_by_group=service.pk)
+    TagFactory(created_by_group=service2.pk)
+    TagFactory(created_by_group=service_factory().pk)
 
     url = reverse("tag-list")
     response = admin_client.get(url)
