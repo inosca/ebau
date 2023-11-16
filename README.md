@@ -69,7 +69,7 @@ Due to ongoing modernization work, some Frontend modules are not yet integrated 
 | Task list                    | Show a list of tasks                     | :heavy_check_mark: | :heavy_check_mark:       | :heavy_check_mark:       |
 | Templates                    | Manage document templates (docx)         | :heavy_check_mark: | :heavy_check_mark:       | :heavy_check_mark:       |
 | Organization / Permissions   | Manage own organization and permissions  | :heavy_check_mark: | :heavy_check_mark:       | :heavy_check_mark:       |
-| Static content               | Static content, markdown editor          | :heavy_check_mark: | :hourglass_flowing_sand: | :hourglass_flowing_sand: |
+| Static content               | Static content, markdown editor          | :heavy_check_mark: | :heavy_check_mark:       | :heavy_check_mark:       |
 | Text components              | Manage snippets for usage in text fields | :heavy_check_mark: | :hourglass_flowing_sand: | :hourglass_flowing_sand: |
 | _Subnav (instance resource)_ |                                          |                    |                          |                          |
 | Tasks                        | View and manage tasks                    | :heavy_check_mark: | :heavy_check_mark:       | :heavy_check_mark:       |
@@ -80,10 +80,13 @@ Due to ongoing modernization work, some Frontend modules are not yet integrated 
 | Journal                      | Collaborative notebook                   | :heavy_check_mark: | :heavy_check_mark:       | :heavy_check_mark:       |
 | History                      | Shows milestones and historical data     | :heavy_check_mark: | :heavy_check_mark:       | :heavy_check_mark:       |
 | Publication                  | Manage publication in newspaper          | :heavy_check_mark: | :heavy_check_mark:       | :heavy_check_mark:       |
-| Responsible                  | Assign responsible users                 | :heavy_check_mark: | :heavy_check_mark:       | :hourglass_flowing_sand: |
+| Objections                   | Manage objections                        | :heavy_check_mark: | :heavy_check_mark:       | :heavy_check_mark:       |
+| Responsible                  | Assign responsible users                 | :heavy_check_mark: | :heavy_check_mark:       | :heavy_check_mark:       |
+| Claims                       | Ask applicant for additional info        | :heavy_check_mark: | :heavy_check_mark:       | :heavy_check_mark:       |
+| Rejection                    | Reject instance                          | :heavy_check_mark: | :heavy_check_mark:       | :heavy_check_mark:       |
+| Billing                      | Manage billing entries                   | :heavy_check_mark: | :heavy_check_mark:       | :heavy_check_mark:       |
 | Audit                        | Perform structured audit                 | :heavy_check_mark: | :heavy_check_mark:       | :hourglass_flowing_sand: |
 | Audit-Log                    | Shows form changes                       | :heavy_check_mark: | :hourglass_flowing_sand: | :hourglass_flowing_sand: |
-| Claims                       | Ask applicant for additional info        | :heavy_check_mark: | :hourglass_flowing_sand: | :hourglass_flowing_sand: |
 
 ## Requirements
 
