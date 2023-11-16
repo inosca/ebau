@@ -1,0 +1,32 @@
+{{#if (t "billing.info")}}
+  <div class="uk-alert" data-test-billing-info>{{t "billing.info"}}</div>
+{{/if}}
+
+<BillingTable
+  @entries={{this.entries}}
+  @selectedRows={{this.selectedRows}}
+  @onToggleAll={{this.toggleAll}}
+  @onToggleRow={{this.toggleRow}}
+  @onRefresh={{this.refresh}}
+/>
+
+{{#if (can "edit billing-v2-entries")}}
+  <div class="uk-margin">
+    <LinkTo
+      @route={{module-route "billing" "new"}}
+      class="uk-button uk-button-primary"
+      data-test-add
+    >
+      {{t "billing.add"}}
+    </LinkTo>
+    {{#if (can "charge billing-v2-entries")}}
+      <UkButton
+        @label={{t "billing.charge"}}
+        @loading={{this.charge.isRunning}}
+        @disabled={{or (eq this.selectedRows.length 0) this.charge.isRunning}}
+        @onClick={{perform this.charge}}
+        data-test-charge-submit
+      />
+    {{/if}}
+  </div>
+{{/if}}

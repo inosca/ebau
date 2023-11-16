@@ -41,6 +41,7 @@ from rest_framework import status
 from rest_framework.test import APIClient, APIRequestFactory
 
 from camac.applicants import factories as applicant_factories
+from camac.billing import factories as billing_factories
 from camac.caluma.utils import CalumaInfo
 from camac.communications import factories as communications_factories
 from camac.core import factories as core_factories
@@ -104,6 +105,7 @@ register_module(objection_factories)
 register_module(tags_factories)
 register_module(communications_factories)
 register_module(gis_factories)
+register_module(billing_factories)
 
 # caluma factories
 register_module(caluma_form_factories, prefix="caluma")

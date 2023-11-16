@@ -1,0 +1,181 @@
+<form class="uk-form-horizontal" {{on "submit" (perform this.save)}}>
+  <div class="uk-margin">
+    <label class="uk-form-label uk-text-bold" for="text">
+      {{t "billing.position"}}
+      <span class="uk-text-danger">*</span>
+    </label>
+    <div class="uk-form-controls">
+      <Input
+        @type="text"
+        @value={{this.newEntry.text}}
+        id="text"
+        name="text"
+        class="uk-input"
+        required
+      />
+    </div>
+  </div>
+
+  <div class="uk-margin">
+    <label class="uk-form-label uk-text-bold" for="calculation">
+      {{t "billing.calculation"}}
+      <span class="uk-text-danger">*</span>
+    </label>
+    <div class="uk-form-controls">
+      <select
+        class="uk-select"
+        name="calculation"
+        id="calculation"
+        required
+        {{on "change" this.updateCalculation}}
+      >
+        {{#each this.calculations as |calculation|}}
+          <option value={{calculation}}>
+            {{t (concat "billing.calculations.titles." calculation)}}
+          </option>
+        {{/each}}
+      </select>
+    </div>
+  </div>
+
+  {{#if (eq this.newEntry.calculation "hourly")}}
+    <div class="uk-margin">
+      <label class="uk-form-label uk-text-bold" for="hours">
+        {{t "billing.hours"}}
+        <span class="uk-text-danger">*</span>
+      </label>
+      <div class="uk-form-controls">
+        <Input
+          @type="number"
+          @value={{this.newEntry.hours}}
+          id="hours"
+          name="hours"
+          class="uk-input"
+          step="0.01"
+          required
+        />
+      </div>
+    </div>
+
+    <div class="uk-margin">
+      <label class="uk-form-label uk-text-bold" for="hourly-rate">
+        {{t "billing.hourly-rate"}}
+        <span class="uk-text-danger">*</span>
+      </label>
+      <div class="uk-form-controls">
+        <Input
+          @type="number"
+          @value={{this.newEntry.hourlyRate}}
+          id="hourly-rate"
+          name="hourly-rate"
+          class="uk-input"
+          step="0.01"
+          required
+        />
+      </div>
+    </div>
+  {{/if}}
+
+  {{#if (eq this.newEntry.calculation "percentage")}}
+    <div class="uk-margin">
+      <label class="uk-form-label uk-text-bold" for="percentage">
+        {{t "billing.percentage"}}
+        <span class="uk-text-danger">*</span>
+      </label>
+      <div class="uk-form-controls">
+        <Input
+          @type="number"
+          @value={{this.newEntry.percentage}}
+          id="percentage"
+          name="percentage"
+          class="uk-input"
+          min="0"
+          max="100"
+          step="0.01"
+          required
+        />
+      </div>
+    </div>
+  {{/if}}
+
+  {{#if (includes this.newEntry.calculation (array "flat" "percentage"))}}
+    <div class="uk-margin">
+      <label class="uk-form-label uk-text-bold" for="total-cost">
+        {{#if (eq this.newEntry.calculation "flat")}}
+          {{t "billing.amount"}}
+        {{else if (eq this.newEntry.calculation "percentage")}}
+          {{t "billing.of-amount"}}
+        {{/if}}
+        <span class="uk-text-danger">*</span>
+      </label>
+      <div class="uk-form-controls">
+        <Input
+          @type="number"
+          @value={{this.newEntry.totalCost}}
+          id="total-cost"
+          name="total-cost"
+          class="uk-input"
+          step="0.01"
+          required
+        />
+      </div>
+    </div>
+  {{/if}}
+
+  <div class="uk-margin">
+    <label class="uk-form-label uk-text-bold" for="tax-mode">
+      {{t "billing.tax-mode"}}
+      <span class="uk-text-danger">*</span>
+    </label>
+    <div class="uk-form-controls">
+      <select
+        class="uk-select"
+        name="tax-mode"
+        id="tax-mode"
+        required
+        {{on "change" this.updateTaxMode}}
+      >
+        {{#each this.taxModeOptions as |taxMode|}}
+          <option value={{taxMode.value}}>{{taxMode.label}}</option>
+        {{/each}}
+      </select>
+    </div>
+  </div>
+
+  {{#if (has-feature "billing.organization")}}
+    <div class="uk-margin">
+      <label class="uk-form-label uk-text-bold" for="organization">
+        {{t "billing.organization"}}
+      </label>
+      <div class="uk-form-controls">
+        <select
+          class="uk-select"
+          name="organization"
+          id="organization"
+          {{on "change" this.updateOrganization}}
+        >
+          <option value=""></option>
+          <option value="cantonal">{{t "billing.organizations.cantonal"}}</option>
+          <option value="municipal">{{t "billing.organizations.municipal"}}</option>
+        </select>
+      </div>
+    </div>
+  {{/if}}
+
+  <div class="uk-margin">
+    <UkButton
+      @type="submit"
+      @color="primary"
+      @loading={{this.save.isRunning}}
+      @disabled={{this.save.isRunning}}
+      @label={{t "global.save"}}
+      data-test-submit
+    />
+    <LinkTo
+      @route={{module-route "billing" "index"}}
+      class="uk-button uk-button-default"
+    >
+      {{t "global.cancel"}}
+    </LinkTo>
+  </div>
+</form>

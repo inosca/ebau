@@ -121,6 +121,7 @@ INSTALLED_APPS = [
     "camac.gisbern.apps.GisbernConfig",
     "camac.communications.apps.CommunicationsConfig",
     "camac.gis.apps.GisConfig",
+    "camac.billing.apps.BillingConfig",
     "sorl.thumbnail",
     "django_clamd",
     "django_q",

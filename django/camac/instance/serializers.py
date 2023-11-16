@@ -123,6 +123,10 @@ class InstanceSerializer(InstanceEditableMixin, serializers.ModelSerializer):
         many=True,
     )
 
+    active_service = relations.SerializerMethodResourceRelatedField(
+        source="get_active_service", model=Service, read_only=True
+    )
+
     def get_permissions(self, instance):
         return {}
 
@@ -189,6 +193,9 @@ class InstanceSerializer(InstanceEditableMixin, serializers.ModelSerializer):
 
         return Service.objects.filter(filters).distinct()
 
+    def get_active_service(self, instance):
+        return instance.responsible_service(filter_type="municipality")
+
     included_serializers = {
         "location": "camac.user.serializers.LocationSerializer",
         "user": "camac.user.serializers.UserSerializer",
@@ -201,6 +208,7 @@ class InstanceSerializer(InstanceEditableMixin, serializers.ModelSerializer):
         "involved_services": "camac.user.serializers.ServiceSerializer",
         "linked_instances": "camac.instance.serializers.InstanceSerializer",
         "circulation_initializer_services": "camac.user.serializers.ServiceSerializer",
+        "active_service": "camac.user.serializers.PublicServiceSerializer",
     }
 
     def validate_location(self, location):
@@ -277,6 +285,7 @@ class InstanceSerializer(InstanceEditableMixin, serializers.ModelSerializer):
             "involved_services",
             "linked_instances",
             "circulation_initializer_services",
+            "active_service",
         )
         read_only_fields = (
             "circulations",
@@ -287,6 +296,7 @@ class InstanceSerializer(InstanceEditableMixin, serializers.ModelSerializer):
             "involved_services",
             "linked_instances",
             "circulation_initializer_services",
+            "active_service",
         )
 
 
@@ -488,10 +498,6 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
 
     public_status = serializers.SerializerMethodField()
 
-    active_service = relations.SerializerMethodResourceRelatedField(
-        source="get_active_service", model=Service, read_only=True
-    )
-
     responsible_service_users = relations.SerializerMethodResourceRelatedField(
         source="get_responsible_service_users",
         model=get_user_model(),
@@ -519,9 +525,6 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
 
     def get_ebau_number(self, instance):
         return instance.case.meta.get("ebau-number")
-
-    def get_active_service(self, instance):
-        return instance.responsible_service(filter_type="municipality")
 
     def get_decision(self, instance):
         if not settings.DECISION:  # pragma: no cover
@@ -614,7 +617,6 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
 
     included_serializers = {
         **InstanceSerializer.included_serializers,
-        "active_service": "camac.user.serializers.PublicServiceSerializer",
         "responsible_service_users": "camac.user.serializers.UserSerializer",
         "involved_applicants": "camac.applicants.serializers.ApplicantSerializer",
         "linked_instances": "camac.instance.serializers.CalumaInstanceSerializer",
@@ -1059,7 +1061,6 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
             "extend_validity_for",
             "year",
             "public_status",
-            "active_service",
             "responsible_service_users",
             "involved_applicants",
             "rejection_feedback",
@@ -1077,7 +1078,6 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
             "is_paper",
             "is_modification",
             "public_status",
-            "active_service",
             "responsible_service_users",
             "involved_applicants",
             "rejection_feedback",
