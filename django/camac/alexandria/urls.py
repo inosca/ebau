@@ -2,7 +2,7 @@ from alexandria.core import views as alexandria_views
 from django.urls import path
 from rest_framework.routers import SimpleRouter
 
-from .views import PatchedDocumentViewSet, PatchedFileViewSet
+from .views import PatchedDocumentViewSet, PatchedFileViewSet, PatchedTagViewSet
 
 r = SimpleRouter(trailing_slash=False)
 
@@ -11,7 +11,7 @@ r = SimpleRouter(trailing_slash=False)
 r.register(r"categories", alexandria_views.CategoryViewSet)
 r.register(r"documents", PatchedDocumentViewSet)
 r.register(r"files", PatchedFileViewSet)
-r.register(r"tags", alexandria_views.TagViewSet)
+r.register(r"tags", PatchedTagViewSet)
 r.register(r"tagsynonymgroups", alexandria_views.TagSynonymGroupViewSet)
 
 urlpatterns = r.urls
