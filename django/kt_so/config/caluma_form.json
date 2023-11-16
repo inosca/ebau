@@ -222,24 +222,6 @@
   },
   {
     "model": "caluma_form.form",
-    "pk": "erdwaerme",
-    "fields": {
-      "created_at": "2023-10-23T06:33:51.559Z",
-      "modified_at": "2023-10-23T07:33:40.081Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "name": "{\"de\": \"Erdw\\u00e4rme\", \"fr\": null, \"it\": null}",
-      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "meta": {},
-      "is_published": false,
-      "is_archived": false,
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.form",
     "pk": "erdwaermesonden",
     "fields": {
       "created_at": "2023-11-02T07:35:08.109Z",
@@ -3791,726 +3773,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "erdwaerme.erdwaerme-bauobjekt",
-    "fields": {
-      "created_at": "2023-10-23T06:36:39.981Z",
-      "modified_at": "2023-10-23T06:36:39.981Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "erdwaerme",
-      "question": "erdwaerme-bauobjekt",
-      "sort": 46
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "erdwaerme.erdwaerme-bauobjekt-titel",
-    "fields": {
-      "created_at": "2023-10-23T06:51:57.428Z",
-      "modified_at": "2023-10-23T06:51:57.428Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "erdwaerme",
-      "question": "erdwaerme-bauobjekt-titel",
-      "sort": 47
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "erdwaerme.erdwaerme-beschreibung-bauprojekt",
-    "fields": {
-      "created_at": "2023-10-23T06:37:54.084Z",
-      "modified_at": "2023-10-23T06:37:54.084Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "erdwaerme",
-      "question": "erdwaerme-beschreibung-bauprojekt",
-      "sort": 45
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "erdwaerme.erdwaerme-bohrbeginn",
-    "fields": {
-      "created_at": "2023-10-23T08:57:51.715Z",
-      "modified_at": "2023-10-23T08:57:51.715Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "erdwaerme",
-      "question": "erdwaerme-bohrbeginn",
-      "sort": 3
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "erdwaerme.erdwaerme-bohrfirma",
-    "fields": {
-      "created_at": "2023-10-23T06:42:10.257Z",
-      "modified_at": "2023-10-23T06:42:10.257Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "erdwaerme",
-      "question": "erdwaerme-bohrfirma",
-      "sort": 42
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "erdwaerme.erdwaerme-bohrungen-titel",
-    "fields": {
-      "created_at": "2023-10-23T06:57:57.276Z",
-      "modified_at": "2023-10-23T06:57:57.276Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "erdwaerme",
-      "question": "erdwaerme-bohrungen-titel",
-      "sort": 43
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "erdwaerme.erdwaerme-bohrverfahren",
-    "fields": {
-      "created_at": "2023-10-23T06:42:23.155Z",
-      "modified_at": "2023-10-23T06:42:23.155Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "erdwaerme",
-      "question": "erdwaerme-bohrverfahren",
-      "sort": 41
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "erdwaerme.erdwaerme-durchmesser",
-    "fields": {
-      "created_at": "2023-10-23T06:43:01.808Z",
-      "modified_at": "2023-10-23T06:43:01.808Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "erdwaerme",
-      "question": "erdwaerme-durchmesser",
-      "sort": 40
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "erdwaerme.erdwaerme-erdwaermesonden-absperrorgane",
-    "fields": {
-      "created_at": "2023-10-23T08:48:40.849Z",
-      "modified_at": "2023-10-23T08:48:40.849Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "erdwaerme",
-      "question": "erdwaerme-erdwaermesonden-absperrorgane",
-      "sort": 17
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "erdwaerme.erdwaerme-erdwaermesonden-anzahl-sonden",
-    "fields": {
-      "created_at": "2023-10-23T08:45:37.505Z",
-      "modified_at": "2023-10-23T08:45:37.505Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "erdwaerme",
-      "question": "erdwaerme-erdwaermesonden-anzahl-sonden",
-      "sort": 22
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "erdwaerme.erdwaerme-erdwaermesonden-beschreibung-sicherheit",
-    "fields": {
-      "created_at": "2023-10-23T08:50:35.386Z",
-      "modified_at": "2023-10-23T08:50:35.386Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "erdwaerme",
-      "question": "erdwaerme-erdwaermesonden-beschreibung-sicherheit",
-      "sort": 15
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "erdwaerme.erdwaerme-erdwaermesonden-hersteller",
-    "fields": {
-      "created_at": "2023-10-23T08:44:37.803Z",
-      "modified_at": "2023-10-23T08:44:37.803Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "erdwaerme",
-      "question": "erdwaerme-erdwaermesonden-hersteller",
-      "sort": 24
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "erdwaerme.erdwaerme-erdwaermesonden-laenge-einzeln",
-    "fields": {
-      "created_at": "2023-10-23T08:46:05.477Z",
-      "modified_at": "2023-10-23T08:46:05.477Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "erdwaerme",
-      "question": "erdwaerme-erdwaermesonden-laenge-einzeln",
-      "sort": 21
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "erdwaerme.erdwaerme-erdwaermesonden-laenge-total",
-    "fields": {
-      "created_at": "2023-10-23T08:46:46.020Z",
-      "modified_at": "2023-10-23T08:46:46.020Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "erdwaerme",
-      "question": "erdwaerme-erdwaermesonden-laenge-total",
-      "sort": 20
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "erdwaerme.erdwaerme-erdwaermesonden-sicherheit",
-    "fields": {
-      "created_at": "2023-10-23T08:49:31.337Z",
-      "modified_at": "2023-10-23T08:49:31.337Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "erdwaerme",
-      "question": "erdwaerme-erdwaermesonden-sicherheit",
-      "sort": 16
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "erdwaerme.erdwaerme-erdwaermesonden-sondendurchmesser",
-    "fields": {
-      "created_at": "2023-10-23T08:47:17.143Z",
-      "modified_at": "2023-10-23T08:47:17.143Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "erdwaerme",
-      "question": "erdwaerme-erdwaermesonden-sondendurchmesser",
-      "sort": 19
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "erdwaerme.erdwaerme-erdwaermesonden-titel",
-    "fields": {
-      "created_at": "2023-10-23T08:39:40.911Z",
-      "modified_at": "2023-10-23T08:39:40.911Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "erdwaerme",
-      "question": "erdwaerme-erdwaermesonden-titel",
-      "sort": 25
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "erdwaerme.erdwaerme-erdwaermesonden-typ",
-    "fields": {
-      "created_at": "2023-10-23T08:45:13.216Z",
-      "modified_at": "2023-10-23T08:45:13.216Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "erdwaerme",
-      "question": "erdwaerme-erdwaermesonden-typ",
-      "sort": 23
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "erdwaerme.erdwaerme-erdwaermesonden-waermeentzug",
-    "fields": {
-      "created_at": "2023-10-23T08:48:00.742Z",
-      "modified_at": "2023-10-23T08:48:00.742Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "erdwaerme",
-      "question": "erdwaerme-erdwaermesonden-waermeentzug",
-      "sort": 18
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "erdwaerme.erdwaerme-ergaenzende-bemerkungen",
-    "fields": {
-      "created_at": "2023-10-23T08:58:42.803Z",
-      "modified_at": "2023-10-23T08:58:42.803Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "erdwaerme",
-      "question": "erdwaerme-ergaenzende-bemerkungen",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "erdwaerme.erdwaerme-geplante-termine-titel",
-    "fields": {
-      "created_at": "2023-10-23T08:57:32.035Z",
-      "modified_at": "2023-10-23T08:57:32.035Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "erdwaerme",
-      "question": "erdwaerme-geplante-termine-titel",
-      "sort": 4
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "erdwaerme.erdwaerme-heizleistungsbedarf",
-    "fields": {
-      "created_at": "2023-10-23T06:38:31.918Z",
-      "modified_at": "2023-10-23T06:38:31.918Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "erdwaerme",
-      "question": "erdwaerme-heizleistungsbedarf",
-      "sort": 44
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "erdwaerme.erdwaerme-hinterfuellung-fuellmenge",
-    "fields": {
-      "created_at": "2023-10-23T08:54:16.834Z",
-      "modified_at": "2023-10-23T08:54:16.834Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "erdwaerme",
-      "question": "erdwaerme-hinterfuellung-fuellmenge",
-      "sort": 10
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "erdwaerme.erdwaerme-hinterfuellung-hersteller",
-    "fields": {
-      "created_at": "2023-10-23T08:53:04.913Z",
-      "modified_at": "2023-10-23T08:53:04.913Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "erdwaerme",
-      "question": "erdwaerme-hinterfuellung-hersteller",
-      "sort": 13
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "erdwaerme.erdwaerme-hinterfuellung-titel",
-    "fields": {
-      "created_at": "2023-10-23T08:52:42.887Z",
-      "modified_at": "2023-10-23T08:52:42.887Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "erdwaerme",
-      "question": "erdwaerme-hinterfuellung-titel",
-      "sort": 14
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "erdwaerme.erdwaerme-hinterfuellung-typ",
-    "fields": {
-      "created_at": "2023-10-23T08:53:16.866Z",
-      "modified_at": "2023-10-23T08:53:16.866Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "erdwaerme",
-      "question": "erdwaerme-hinterfuellung-typ",
-      "sort": 12
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "erdwaerme.erdwaerme-hinterfuellung-waermeleitfaehigkeit",
-    "fields": {
-      "created_at": "2023-10-23T08:53:43.853Z",
-      "modified_at": "2023-10-23T08:53:43.853Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "erdwaerme",
-      "question": "erdwaerme-hinterfuellung-waermeleitfaehigkeit",
-      "sort": 11
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "erdwaerme.erdwaerme-inbetriebnahme-anlage",
-    "fields": {
-      "created_at": "2023-10-23T08:58:11.570Z",
-      "modified_at": "2023-10-23T08:58:11.570Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "erdwaerme",
-      "question": "erdwaerme-inbetriebnahme-anlage",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "erdwaerme.erdwaerme-tiefe",
-    "fields": {
-      "created_at": "2023-10-23T06:48:24.487Z",
-      "modified_at": "2023-10-23T06:48:24.487Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "erdwaerme",
-      "question": "erdwaerme-tiefe",
-      "sort": 39
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "erdwaerme.erdwaerme-titel",
-    "fields": {
-      "created_at": "2023-10-23T09:00:47.363Z",
-      "modified_at": "2023-10-23T09:00:47.363Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "erdwaerme",
-      "question": "erdwaerme-titel",
-      "sort": 49
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "erdwaerme.erdwaerme-waermepumpe",
-    "fields": {
-      "created_at": "2023-10-23T06:49:30.830Z",
-      "modified_at": "2023-10-23T06:49:30.830Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "erdwaerme",
-      "question": "erdwaerme-waermepumpe",
-      "sort": 37
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "erdwaerme.erdwaerme-waermepumpe-beschreibung-der-bivalenz",
-    "fields": {
-      "created_at": "2023-10-23T06:50:49.574Z",
-      "modified_at": "2023-10-23T06:50:49.574Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "erdwaerme",
-      "question": "erdwaerme-waermepumpe-beschreibung-der-bivalenz",
-      "sort": 36
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "erdwaerme.erdwaerme-waermepumpe-beschreibung-verwendung",
-    "fields": {
-      "created_at": "2023-10-23T07:07:18.157Z",
-      "modified_at": "2023-10-23T07:07:18.157Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "erdwaerme",
-      "question": "erdwaerme-waermepumpe-beschreibung-verwendung",
-      "sort": 27
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "erdwaerme.erdwaerme-waermepumpe-fuellgewicht",
-    "fields": {
-      "created_at": "2023-10-23T07:03:02.692Z",
-      "modified_at": "2023-10-23T07:03:02.692Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "erdwaerme",
-      "question": "erdwaerme-waermepumpe-fuellgewicht",
-      "sort": 32
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "erdwaerme.erdwaerme-waermepumpe-heizleistung",
-    "fields": {
-      "created_at": "2023-10-23T07:03:33.138Z",
-      "modified_at": "2023-10-23T07:03:33.139Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "erdwaerme",
-      "question": "erdwaerme-waermepumpe-heizleistung",
-      "sort": 31
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "erdwaerme.erdwaerme-waermepumpe-hersteller",
-    "fields": {
-      "created_at": "2023-10-23T06:59:39.247Z",
-      "modified_at": "2023-10-23T06:59:39.247Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "erdwaerme",
-      "question": "erdwaerme-waermepumpe-hersteller",
-      "sort": 35
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "erdwaerme.erdwaerme-waermepumpe-hinweis-grossanlagen",
-    "fields": {
-      "created_at": "2023-10-23T07:12:56.516Z",
-      "modified_at": "2023-10-23T07:12:56.516Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "erdwaerme",
-      "question": "erdwaerme-waermepumpe-hinweis-grossanlagen",
-      "sort": 26
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "erdwaerme.erdwaerme-waermepumpe-kaeltemittel",
-    "fields": {
-      "created_at": "2023-10-23T07:02:35.849Z",
-      "modified_at": "2023-10-23T07:02:35.849Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "erdwaerme",
-      "question": "erdwaerme-waermepumpe-kaeltemittel",
-      "sort": 33
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "erdwaerme.erdwaerme-waermepumpe-titel",
-    "fields": {
-      "created_at": "2023-10-23T06:58:48.330Z",
-      "modified_at": "2023-10-23T06:58:48.331Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "erdwaerme",
-      "question": "erdwaerme-waermepumpe-titel",
-      "sort": 38
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "erdwaerme.erdwaerme-waermepumpe-typ",
-    "fields": {
-      "created_at": "2023-10-23T07:00:11.087Z",
-      "modified_at": "2023-10-23T07:00:11.088Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "erdwaerme",
-      "question": "erdwaerme-waermepumpe-typ",
-      "sort": 34
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "erdwaerme.erdwaerme-waermepumpe-verdampferleistung",
-    "fields": {
-      "created_at": "2023-10-23T07:04:24.732Z",
-      "modified_at": "2023-10-23T07:04:24.732Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "erdwaerme",
-      "question": "erdwaerme-waermepumpe-verdampferleistung",
-      "sort": 30
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "erdwaerme.erdwaerme-waermepumpe-verwendung",
-    "fields": {
-      "created_at": "2023-10-23T07:06:01.856Z",
-      "modified_at": "2023-10-23T07:06:01.856Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "erdwaerme",
-      "question": "erdwaerme-waermepumpe-verwendung",
-      "sort": 29
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "erdwaerme.erdwaerme-waermepumpe-waermeeintrag",
-    "fields": {
-      "created_at": "2023-10-23T07:10:22.055Z",
-      "modified_at": "2023-10-23T07:10:22.055Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "erdwaerme",
-      "question": "erdwaerme-waermepumpe-waermeeintrag",
-      "sort": 28
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "erdwaerme.erdwaerme-waermetraegerfluessigkeit-basisstoff",
-    "fields": {
-      "created_at": "2023-10-23T08:56:02.467Z",
-      "modified_at": "2023-10-23T08:56:02.467Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "erdwaerme",
-      "question": "erdwaerme-waermetraegerfluessigkeit-basisstoff",
-      "sort": 6
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "erdwaerme.erdwaerme-waermetraegerfluessigkeit-fuellmenge",
-    "fields": {
-      "created_at": "2023-10-23T08:56:50.934Z",
-      "modified_at": "2023-10-23T08:56:50.934Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "erdwaerme",
-      "question": "erdwaerme-waermetraegerfluessigkeit-fuellmenge",
-      "sort": 5
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "erdwaerme.erdwaerme-waermetraegerfluessigkeit-hersteller",
-    "fields": {
-      "created_at": "2023-10-23T08:55:20.524Z",
-      "modified_at": "2023-10-23T08:55:20.524Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "erdwaerme",
-      "question": "erdwaerme-waermetraegerfluessigkeit-hersteller",
-      "sort": 8
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "erdwaerme.erdwaerme-waermetraegerfluessigkeit-titel",
-    "fields": {
-      "created_at": "2023-10-23T08:55:05.357Z",
-      "modified_at": "2023-10-23T08:55:05.357Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "erdwaerme",
-      "question": "erdwaerme-waermetraegerfluessigkeit-titel",
-      "sort": 9
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "erdwaerme.erdwaerme-waermetraegerfluessigkeit-typ",
-    "fields": {
-      "created_at": "2023-10-23T08:55:32.072Z",
-      "modified_at": "2023-10-23T08:55:32.072Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "erdwaerme",
-      "question": "erdwaerme-waermetraegerfluessigkeit-typ",
-      "sort": 7
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "erdwaermesonden.allgemeine-informationen",
     "fields": {
       "created_at": "2023-11-02T07:35:56.139Z",
@@ -4582,21 +3844,6 @@
       "form": "erdwaermesonden",
       "question": "einreichen",
       "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "erdwaermesonden.erdwaerme",
-    "fields": {
-      "created_at": "2023-11-02T07:38:00.561Z",
-      "modified_at": "2023-11-02T07:38:00.561Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "erdwaermesonden",
-      "question": "erdwaerme",
-      "sort": 3
     }
   },
   {
@@ -4687,21 +3934,6 @@
       "form": "fachthemen",
       "question": "energetische-massnahmen",
       "sort": 8
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "fachthemen.erdwaerme",
-    "fields": {
-      "created_at": "2023-10-23T08:20:54.746Z",
-      "modified_at": "2023-10-23T08:20:54.746Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "fachthemen",
-      "question": "erdwaerme",
-      "sort": 1
     }
   },
   {
@@ -5376,7 +4608,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "angaben-dieselbetankungsanlagen",
-      "sort": 31
+      "sort": 79
     }
   },
   {
@@ -5391,7 +4623,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "angaben-zum-tank",
-      "sort": 18
+      "sort": 66
     }
   },
   {
@@ -5406,7 +4638,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "anlagetyp",
-      "sort": 55
+      "sort": 103
     }
   },
   {
@@ -5421,7 +4653,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "anlagetyp-art",
-      "sort": 51
+      "sort": 99
     }
   },
   {
@@ -5436,7 +4668,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "anzahl-tanks",
-      "sort": 22
+      "sort": 70
     }
   },
   {
@@ -5451,7 +4683,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "art-der-fernwaerme",
-      "sort": 42
+      "sort": 90
     }
   },
   {
@@ -5466,7 +4698,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "art-der-holzheizung",
-      "sort": 46
+      "sort": 94
     }
   },
   {
@@ -5481,7 +4713,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "art-der-tankanlage",
-      "sort": 25
+      "sort": 73
     }
   },
   {
@@ -5496,7 +4728,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "auffangwanne",
-      "sort": 21
+      "sort": 69
     }
   },
   {
@@ -5511,7 +4743,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "auffangwanne-mittelgrosse-tankanlage",
-      "sort": 16
+      "sort": 64
     }
   },
   {
@@ -5526,7 +4758,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "auswahl-der-eingereichten-unterlagen",
-      "sort": 3
+      "sort": 51
     }
   },
   {
@@ -5541,7 +4773,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "bemerkungen-haustechnik",
-      "sort": 1
+      "sort": 49
     }
   },
   {
@@ -5556,7 +4788,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "beschreibung-auffangwanne",
-      "sort": 15
+      "sort": 63
     }
   },
   {
@@ -5571,7 +4803,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "beschreibung-entwaesserung",
-      "sort": 29
+      "sort": 77
     }
   },
   {
@@ -5586,7 +4818,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "beschreibung-gasverbrauchsgeraete",
-      "sort": 6
+      "sort": 54
     }
   },
   {
@@ -5601,7 +4833,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "beschreibung-installationsart",
-      "sort": 13
+      "sort": 61
     }
   },
   {
@@ -5616,7 +4848,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "beschreibung-medium1",
-      "sort": 11
+      "sort": 59
     }
   },
   {
@@ -5631,7 +4863,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "betankungsanlagen",
-      "sort": 32
+      "sort": 80
     }
   },
   {
@@ -5646,7 +4878,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "betreiber",
-      "sort": 26
+      "sort": 74
     }
   },
   {
@@ -5661,7 +4893,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "bezeichnung-dazugehoeriges-gebaeude",
-      "sort": 56
+      "sort": 104
     }
   },
   {
@@ -5676,7 +4908,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "brennstoffe-lagerort",
-      "sort": 40
+      "sort": 88
     }
   },
   {
@@ -5691,7 +4923,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "brennstoffe-lagerort-beschreibung",
-      "sort": 38
+      "sort": 86
     }
   },
   {
@@ -5706,7 +4938,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "brennstoffe-menge",
-      "sort": 35
+      "sort": 83
     }
   },
   {
@@ -5721,7 +4953,727 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "datum-inbetriebnahme",
+      "sort": 53
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "haustechnik.erdwaerme-bauobjekt",
+    "fields": {
+      "created_at": "2023-11-16T14:54:34.639Z",
+      "modified_at": "2023-11-16T14:54:34.639Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "haustechnik",
+      "question": "erdwaerme-bauobjekt",
+      "sort": 46
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "haustechnik.erdwaerme-bauobjekt-titel",
+    "fields": {
+      "created_at": "2023-11-16T14:54:31.402Z",
+      "modified_at": "2023-11-16T14:54:31.402Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "haustechnik",
+      "question": "erdwaerme-bauobjekt-titel",
+      "sort": 47
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "haustechnik.erdwaerme-beschreibung-bauprojekt",
+    "fields": {
+      "created_at": "2023-11-16T14:54:44.257Z",
+      "modified_at": "2023-11-16T14:54:44.257Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "haustechnik",
+      "question": "erdwaerme-beschreibung-bauprojekt",
+      "sort": 45
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "haustechnik.erdwaerme-bohrbeginn",
+    "fields": {
+      "created_at": "2023-11-16T14:59:04.410Z",
+      "modified_at": "2023-11-16T14:59:04.410Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "haustechnik",
+      "question": "erdwaerme-bohrbeginn",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "haustechnik.erdwaerme-bohrfirma",
+    "fields": {
+      "created_at": "2023-11-16T14:55:05.684Z",
+      "modified_at": "2023-11-16T14:55:05.684Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "haustechnik",
+      "question": "erdwaerme-bohrfirma",
+      "sort": 42
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "haustechnik.erdwaerme-bohrungen-titel",
+    "fields": {
+      "created_at": "2023-11-16T14:55:00.572Z",
+      "modified_at": "2023-11-16T14:55:00.572Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "haustechnik",
+      "question": "erdwaerme-bohrungen-titel",
+      "sort": 43
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "haustechnik.erdwaerme-bohrverfahren",
+    "fields": {
+      "created_at": "2023-11-16T14:55:11.147Z",
+      "modified_at": "2023-11-16T14:55:11.147Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "haustechnik",
+      "question": "erdwaerme-bohrverfahren",
+      "sort": 41
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "haustechnik.erdwaerme-durchmesser",
+    "fields": {
+      "created_at": "2023-11-16T14:55:16.040Z",
+      "modified_at": "2023-11-16T14:55:16.040Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "haustechnik",
+      "question": "erdwaerme-durchmesser",
+      "sort": 40
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "haustechnik.erdwaerme-erdwaermesonden-absperrorgane",
+    "fields": {
+      "created_at": "2023-11-16T14:57:42.448Z",
+      "modified_at": "2023-11-16T14:57:42.448Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "haustechnik",
+      "question": "erdwaerme-erdwaermesonden-absperrorgane",
+      "sort": 17
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "haustechnik.erdwaerme-erdwaermesonden-anzahl-sonden",
+    "fields": {
+      "created_at": "2023-11-16T14:57:12.828Z",
+      "modified_at": "2023-11-16T14:57:12.828Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "haustechnik",
+      "question": "erdwaerme-erdwaermesonden-anzahl-sonden",
+      "sort": 22
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "haustechnik.erdwaerme-erdwaermesonden-beschreibung-sicherheit",
+    "fields": {
+      "created_at": "2023-11-16T14:57:53.812Z",
+      "modified_at": "2023-11-16T14:57:53.812Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "haustechnik",
+      "question": "erdwaerme-erdwaermesonden-beschreibung-sicherheit",
+      "sort": 15
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "haustechnik.erdwaerme-erdwaermesonden-hersteller",
+    "fields": {
+      "created_at": "2023-11-16T14:57:01.189Z",
+      "modified_at": "2023-11-16T14:57:01.189Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "haustechnik",
+      "question": "erdwaerme-erdwaermesonden-hersteller",
+      "sort": 24
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "haustechnik.erdwaerme-erdwaermesonden-laenge-einzeln",
+    "fields": {
+      "created_at": "2023-11-16T14:57:18.722Z",
+      "modified_at": "2023-11-16T14:57:18.722Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "haustechnik",
+      "question": "erdwaerme-erdwaermesonden-laenge-einzeln",
+      "sort": 21
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "haustechnik.erdwaerme-erdwaermesonden-laenge-total",
+    "fields": {
+      "created_at": "2023-11-16T14:57:24.713Z",
+      "modified_at": "2023-11-16T14:57:24.714Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "haustechnik",
+      "question": "erdwaerme-erdwaermesonden-laenge-total",
+      "sort": 20
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "haustechnik.erdwaerme-erdwaermesonden-sicherheit",
+    "fields": {
+      "created_at": "2023-11-16T14:57:48.618Z",
+      "modified_at": "2023-11-16T14:57:48.618Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "haustechnik",
+      "question": "erdwaerme-erdwaermesonden-sicherheit",
+      "sort": 16
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "haustechnik.erdwaerme-erdwaermesonden-sondendurchmesser",
+    "fields": {
+      "created_at": "2023-11-16T14:57:31.042Z",
+      "modified_at": "2023-11-16T14:57:31.042Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "haustechnik",
+      "question": "erdwaerme-erdwaermesonden-sondendurchmesser",
+      "sort": 19
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "haustechnik.erdwaerme-erdwaermesonden-titel",
+    "fields": {
+      "created_at": "2023-11-16T14:56:55.459Z",
+      "modified_at": "2023-11-16T14:56:55.459Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "haustechnik",
+      "question": "erdwaerme-erdwaermesonden-titel",
+      "sort": 25
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "haustechnik.erdwaerme-erdwaermesonden-typ",
+    "fields": {
+      "created_at": "2023-11-16T14:57:07.833Z",
+      "modified_at": "2023-11-16T14:57:07.833Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "haustechnik",
+      "question": "erdwaerme-erdwaermesonden-typ",
+      "sort": 23
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "haustechnik.erdwaerme-erdwaermesonden-waermeentzug",
+    "fields": {
+      "created_at": "2023-11-16T14:57:36.887Z",
+      "modified_at": "2023-11-16T14:57:36.887Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "haustechnik",
+      "question": "erdwaerme-erdwaermesonden-waermeentzug",
+      "sort": 18
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "haustechnik.erdwaerme-ergaenzende-bemerkungen",
+    "fields": {
+      "created_at": "2023-11-16T14:59:16.508Z",
+      "modified_at": "2023-11-16T14:59:16.509Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "haustechnik",
+      "question": "erdwaerme-ergaenzende-bemerkungen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "haustechnik.erdwaerme-geplante-termine-titel",
+    "fields": {
+      "created_at": "2023-11-16T14:58:58.870Z",
+      "modified_at": "2023-11-16T14:58:58.870Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "haustechnik",
+      "question": "erdwaerme-geplante-termine-titel",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "haustechnik.erdwaerme-heizleistungsbedarf",
+    "fields": {
+      "created_at": "2023-11-16T14:54:53.185Z",
+      "modified_at": "2023-11-16T14:54:53.185Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "haustechnik",
+      "question": "erdwaerme-heizleistungsbedarf",
+      "sort": 44
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "haustechnik.erdwaerme-hinterfuellung-fuellmenge",
+    "fields": {
+      "created_at": "2023-11-16T14:58:22.361Z",
+      "modified_at": "2023-11-16T14:58:22.361Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "haustechnik",
+      "question": "erdwaerme-hinterfuellung-fuellmenge",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "haustechnik.erdwaerme-hinterfuellung-hersteller",
+    "fields": {
+      "created_at": "2023-11-16T14:58:05.479Z",
+      "modified_at": "2023-11-16T14:58:05.479Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "haustechnik",
+      "question": "erdwaerme-hinterfuellung-hersteller",
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "haustechnik.erdwaerme-hinterfuellung-titel",
+    "fields": {
+      "created_at": "2023-11-16T14:57:59.711Z",
+      "modified_at": "2023-11-16T14:57:59.711Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "haustechnik",
+      "question": "erdwaerme-hinterfuellung-titel",
+      "sort": 14
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "haustechnik.erdwaerme-hinterfuellung-typ",
+    "fields": {
+      "created_at": "2023-11-16T14:58:11.402Z",
+      "modified_at": "2023-11-16T14:58:11.402Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "haustechnik",
+      "question": "erdwaerme-hinterfuellung-typ",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "haustechnik.erdwaerme-hinterfuellung-waermeleitfaehigkeit",
+    "fields": {
+      "created_at": "2023-11-16T14:58:16.856Z",
+      "modified_at": "2023-11-16T14:58:16.856Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "haustechnik",
+      "question": "erdwaerme-hinterfuellung-waermeleitfaehigkeit",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "haustechnik.erdwaerme-inbetriebnahme-anlage",
+    "fields": {
+      "created_at": "2023-11-16T14:59:10.364Z",
+      "modified_at": "2023-11-16T14:59:10.364Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "haustechnik",
+      "question": "erdwaerme-inbetriebnahme-anlage",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "haustechnik.erdwaerme-tiefe",
+    "fields": {
+      "created_at": "2023-11-16T14:55:21.932Z",
+      "modified_at": "2023-11-16T14:55:21.932Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "haustechnik",
+      "question": "erdwaerme-tiefe",
+      "sort": 39
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "haustechnik.erdwaerme-titel",
+    "fields": {
+      "created_at": "2023-11-16T14:54:18.711Z",
+      "modified_at": "2023-11-16T14:54:18.711Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "haustechnik",
+      "question": "erdwaerme-titel",
+      "sort": 48
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "haustechnik.erdwaerme-waermepumpe",
+    "fields": {
+      "created_at": "2023-11-16T14:55:33.579Z",
+      "modified_at": "2023-11-16T14:55:33.579Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "haustechnik",
+      "question": "erdwaerme-waermepumpe",
+      "sort": 37
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "haustechnik.erdwaerme-waermepumpe-beschreibung-der-bivalenz",
+    "fields": {
+      "created_at": "2023-11-16T14:55:39.392Z",
+      "modified_at": "2023-11-16T14:55:39.392Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "haustechnik",
+      "question": "erdwaerme-waermepumpe-beschreibung-der-bivalenz",
+      "sort": 36
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "haustechnik.erdwaerme-waermepumpe-beschreibung-verwendung",
+    "fields": {
+      "created_at": "2023-11-16T14:56:41.598Z",
+      "modified_at": "2023-11-16T14:56:41.598Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "haustechnik",
+      "question": "erdwaerme-waermepumpe-beschreibung-verwendung",
+      "sort": 27
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "haustechnik.erdwaerme-waermepumpe-fuellgewicht",
+    "fields": {
+      "created_at": "2023-11-16T14:56:09.647Z",
+      "modified_at": "2023-11-16T14:56:09.647Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "haustechnik",
+      "question": "erdwaerme-waermepumpe-fuellgewicht",
+      "sort": 32
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "haustechnik.erdwaerme-waermepumpe-heizleistung",
+    "fields": {
+      "created_at": "2023-11-16T14:56:15.899Z",
+      "modified_at": "2023-11-16T14:56:15.899Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "haustechnik",
+      "question": "erdwaerme-waermepumpe-heizleistung",
+      "sort": 31
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "haustechnik.erdwaerme-waermepumpe-hersteller",
+    "fields": {
+      "created_at": "2023-11-16T14:55:47.770Z",
+      "modified_at": "2023-11-16T14:55:47.770Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "haustechnik",
+      "question": "erdwaerme-waermepumpe-hersteller",
+      "sort": 35
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "haustechnik.erdwaerme-waermepumpe-hinweis-grossanlagen",
+    "fields": {
+      "created_at": "2023-11-16T14:56:48.547Z",
+      "modified_at": "2023-11-16T14:56:48.547Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "haustechnik",
+      "question": "erdwaerme-waermepumpe-hinweis-grossanlagen",
+      "sort": 26
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "haustechnik.erdwaerme-waermepumpe-kaeltemittel",
+    "fields": {
+      "created_at": "2023-11-16T14:56:00.427Z",
+      "modified_at": "2023-11-16T14:56:00.427Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "haustechnik",
+      "question": "erdwaerme-waermepumpe-kaeltemittel",
+      "sort": 33
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "haustechnik.erdwaerme-waermepumpe-titel",
+    "fields": {
+      "created_at": "2023-11-16T14:55:27.548Z",
+      "modified_at": "2023-11-16T14:55:27.548Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "haustechnik",
+      "question": "erdwaerme-waermepumpe-titel",
+      "sort": 38
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "haustechnik.erdwaerme-waermepumpe-typ",
+    "fields": {
+      "created_at": "2023-11-16T14:55:54.345Z",
+      "modified_at": "2023-11-16T14:55:54.345Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "haustechnik",
+      "question": "erdwaerme-waermepumpe-typ",
+      "sort": 34
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "haustechnik.erdwaerme-waermepumpe-verdampferleistung",
+    "fields": {
+      "created_at": "2023-11-16T14:56:22.405Z",
+      "modified_at": "2023-11-16T14:56:22.405Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "haustechnik",
+      "question": "erdwaerme-waermepumpe-verdampferleistung",
+      "sort": 30
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "haustechnik.erdwaerme-waermepumpe-verwendung",
+    "fields": {
+      "created_at": "2023-11-16T14:56:27.656Z",
+      "modified_at": "2023-11-16T14:56:27.656Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "haustechnik",
+      "question": "erdwaerme-waermepumpe-verwendung",
+      "sort": 29
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "haustechnik.erdwaerme-waermepumpe-waermeeintrag",
+    "fields": {
+      "created_at": "2023-11-16T14:56:33.014Z",
+      "modified_at": "2023-11-16T14:56:33.014Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "haustechnik",
+      "question": "erdwaerme-waermepumpe-waermeeintrag",
+      "sort": 28
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "haustechnik.erdwaerme-waermetraegerfluessigkeit-basisstoff",
+    "fields": {
+      "created_at": "2023-11-16T14:58:47.488Z",
+      "modified_at": "2023-11-16T14:58:47.488Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "haustechnik",
+      "question": "erdwaerme-waermetraegerfluessigkeit-basisstoff",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "haustechnik.erdwaerme-waermetraegerfluessigkeit-fuellmenge",
+    "fields": {
+      "created_at": "2023-11-16T14:58:53.253Z",
+      "modified_at": "2023-11-16T14:58:53.253Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "haustechnik",
+      "question": "erdwaerme-waermetraegerfluessigkeit-fuellmenge",
       "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "haustechnik.erdwaerme-waermetraegerfluessigkeit-hersteller",
+    "fields": {
+      "created_at": "2023-11-16T14:58:35.278Z",
+      "modified_at": "2023-11-16T14:58:35.278Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "haustechnik",
+      "question": "erdwaerme-waermetraegerfluessigkeit-hersteller",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "haustechnik.erdwaerme-waermetraegerfluessigkeit-titel",
+    "fields": {
+      "created_at": "2023-11-16T14:58:28.869Z",
+      "modified_at": "2023-11-16T14:58:28.869Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "haustechnik",
+      "question": "erdwaerme-waermetraegerfluessigkeit-titel",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "haustechnik.erdwaerme-waermetraegerfluessigkeit-typ",
+    "fields": {
+      "created_at": "2023-11-16T14:58:41.936Z",
+      "modified_at": "2023-11-16T14:58:41.936Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "haustechnik",
+      "question": "erdwaerme-waermetraegerfluessigkeit-typ",
+      "sort": 7
     }
   },
   {
@@ -5736,7 +5688,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "erforderliche-unterlagen-kleintankanlagen",
-      "sort": 23
+      "sort": 71
     }
   },
   {
@@ -5751,7 +5703,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "erforderliche-unterlagen-mittelgrosse-tankanlagen",
-      "sort": 19
+      "sort": 67
     }
   },
   {
@@ -5766,7 +5718,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "gasanlagen-inspektion",
-      "sort": 10
+      "sort": 58
     }
   },
   {
@@ -5781,7 +5733,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "gasversorgung-feuerpolizei-gebaeudeversicherung",
-      "sort": 7
+      "sort": 55
     }
   },
   {
@@ -5796,7 +5748,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "gesamtflaeche-m2",
-      "sort": 37
+      "sort": 85
     }
   },
   {
@@ -5811,7 +5763,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "gesamtleitstung-kw",
-      "sort": 36
+      "sort": 84
     }
   },
   {
@@ -5826,7 +5778,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "hauptheizung-beschreibung",
-      "sort": 41
+      "sort": 89
     }
   },
   {
@@ -5841,7 +5793,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "hauptheizungsanlage",
-      "sort": 49
+      "sort": 97
     }
   },
   {
@@ -5856,7 +5808,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "haus-und-gebaeudetechnik-einleitung",
-      "sort": 57
+      "sort": 105
     }
   },
   {
@@ -5871,7 +5823,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "heizsystem-art",
-      "sort": 50
+      "sort": 98
     }
   },
   {
@@ -5886,7 +5838,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "hinweis-kaminhoehe",
-      "sort": 45
+      "sort": 93
     }
   },
   {
@@ -5901,7 +5853,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "hinweis-nutzung-von-grundwasser",
-      "sort": 33
+      "sort": 81
     }
   },
   {
@@ -5916,7 +5868,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "hinweis-tankanlage",
-      "sort": 47
+      "sort": 95
     }
   },
   {
@@ -5931,7 +5883,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "inhaber-identisch-mit-gesuchsteller",
-      "sort": 27
+      "sort": 75
     }
   },
   {
@@ -5946,7 +5898,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "installateur-der-anlage",
-      "sort": 8
+      "sort": 56
     }
   },
   {
@@ -5961,7 +5913,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "installationsart-tank",
-      "sort": 14
+      "sort": 62
     }
   },
   {
@@ -5976,7 +5928,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "klassierung",
-      "sort": 24
+      "sort": 72
     }
   },
   {
@@ -5991,7 +5943,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "leckschutz",
-      "sort": 20
+      "sort": 68
     }
   },
   {
@@ -6006,7 +5958,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "leistung-motor",
-      "sort": 54
+      "sort": 102
     }
   },
   {
@@ -6021,7 +5973,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "leistung-strom",
-      "sort": 53
+      "sort": 101
     }
   },
   {
@@ -6036,7 +5988,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "lieferant-der-anlage",
-      "sort": 9
+      "sort": 57
     }
   },
   {
@@ -6051,7 +6003,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "luftwaermepumpen--laermschutznachweis",
-      "sort": 34
+      "sort": 82
     }
   },
   {
@@ -6066,7 +6018,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "medium",
-      "sort": 12
+      "sort": 60
     }
   },
   {
@@ -6081,7 +6033,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "nennwaermeleistung",
-      "sort": 39
+      "sort": 87
     }
   },
   {
@@ -6096,7 +6048,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "nennwaermeleistung-gas",
-      "sort": 48
+      "sort": 96
     }
   },
   {
@@ -6111,7 +6063,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "nennwaermeleistung-holzheizung",
-      "sort": 44
+      "sort": 92
     }
   },
   {
@@ -6126,7 +6078,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "netzeinspeisung",
-      "sort": 52
+      "sort": 100
     }
   },
   {
@@ -6141,7 +6093,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "nicht-ueberdachte-flaeche",
-      "sort": 30
+      "sort": 78
     }
   },
   {
@@ -6156,7 +6108,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "speichervolumen-holzheizung",
-      "sort": 43
+      "sort": 91
     }
   },
   {
@@ -6171,7 +6123,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "tankanlagen",
-      "sort": 28
+      "sort": 76
     }
   },
   {
@@ -6186,7 +6138,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "tankform",
-      "sort": 17
+      "sort": 65
     }
   },
   {
@@ -6201,7 +6153,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "unterlagen-gasanlage",
-      "sort": 2
+      "sort": 50
     }
   },
   {
@@ -6216,7 +6168,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "verwendete-gasart",
-      "sort": 4
+      "sort": 52
     }
   },
   {
@@ -9385,6 +9337,22 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Heizung\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "anlagetyp-heizung-und-warmwasseraufbereitung",
+    "fields": {
+      "created_at": "2023-11-16T14:53:58.065Z",
+      "modified_at": "2023-11-16T14:53:58.065Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Heizung & Warmwasseraufbereitung\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -16685,7 +16653,7 @@
     "pk": "anlagetyp",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-10-23T12:33:00.771Z",
+      "modified_at": "2023-11-16T14:54:06.002Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -20932,49 +20900,18 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "erdwaerme",
-    "fields": {
-      "created_at": "2023-10-23T07:34:53.790Z",
-      "modified_at": "2023-11-02T08:04:50.822Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Erdw\\u00e4rme\", \"fr\": null, \"it\": null}",
-      "type": "form",
-      "is_required": "false",
-      "is_hidden": "!(\n\t\"hauptheizungsanlage-erdwaerme\" in \"gebaeudetechnik\"|answer([])|mapby(\"hauptheizungsanlage\") ||\n\tinfo.root.form == \"erdwaermesonden\"\n)",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": "erdwaerme",
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "erdwaerme-bauobjekt",
     "fields": {
       "created_at": "2023-10-23T06:36:39.797Z",
-      "modified_at": "2023-11-02T08:10:35.166Z",
+      "modified_at": "2023-11-16T15:04:38.752Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Art des Bauobjektes\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
-      "is_required": "true",
-      "is_hidden": "false",
+      "is_required": "false",
+      "is_hidden": "\"hauptheizungsanlage\"|answer != \"hauptheizungsanlage-erdwaerme\"",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -20997,7 +20934,7 @@
     "pk": "erdwaerme-bauobjekt-titel",
     "fields": {
       "created_at": "2023-10-23T06:51:57.253Z",
-      "modified_at": "2023-10-23T08:37:31.147Z",
+      "modified_at": "2023-11-16T15:04:24.959Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -21005,7 +20942,7 @@
       "label": "{\"de\": \"Bauobjekt Titel\", \"fr\": null, \"it\": null}",
       "type": "static",
       "is_required": "false",
-      "is_hidden": "false",
+      "is_hidden": "\"hauptheizungsanlage\"|answer != \"hauptheizungsanlage-erdwaerme\"",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -21028,7 +20965,7 @@
     "pk": "erdwaerme-beschreibung-bauprojekt",
     "fields": {
       "created_at": "2023-10-23T06:37:53.936Z",
-      "modified_at": "2023-11-02T08:10:50.511Z",
+      "modified_at": "2023-11-16T15:17:21.446Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -21062,15 +20999,15 @@
     "pk": "erdwaerme-bohrbeginn",
     "fields": {
       "created_at": "2023-10-23T08:57:51.533Z",
-      "modified_at": "2023-11-02T08:15:54.304Z",
+      "modified_at": "2023-11-16T15:10:29.648Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Bohrbeginn\", \"fr\": null, \"it\": null}",
       "type": "date",
-      "is_required": "true",
-      "is_hidden": "false",
+      "is_required": "false",
+      "is_hidden": "\"hauptheizungsanlage\"|answer != \"hauptheizungsanlage-erdwaerme\"",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -21093,15 +21030,15 @@
     "pk": "erdwaerme-bohrfirma",
     "fields": {
       "created_at": "2023-10-23T06:42:10.093Z",
-      "modified_at": "2023-11-02T08:11:08.401Z",
+      "modified_at": "2023-11-16T15:12:32.229Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Bohrfirma\", \"fr\": null, \"it\": null}",
       "type": "text",
-      "is_required": "true",
-      "is_hidden": "false",
+      "is_required": "false",
+      "is_hidden": "\"hauptheizungsanlage\"|answer != \"hauptheizungsanlage-erdwaerme\"",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -21127,7 +21064,7 @@
     "pk": "erdwaerme-bohrungen-titel",
     "fields": {
       "created_at": "2023-10-23T06:57:57.118Z",
-      "modified_at": "2023-10-23T08:37:41.589Z",
+      "modified_at": "2023-11-16T15:05:38.244Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -21135,7 +21072,7 @@
       "label": "{\"de\": \"Bohrungen Titel\", \"fr\": null, \"it\": null}",
       "type": "static",
       "is_required": "false",
-      "is_hidden": "false",
+      "is_hidden": "\"hauptheizungsanlage\"|answer != \"hauptheizungsanlage-erdwaerme\"",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -21158,15 +21095,15 @@
     "pk": "erdwaerme-bohrverfahren",
     "fields": {
       "created_at": "2023-10-23T06:42:22.981Z",
-      "modified_at": "2023-11-02T08:11:14.374Z",
+      "modified_at": "2023-11-16T15:12:37.369Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Bohrverfahren\", \"fr\": null, \"it\": null}",
       "type": "text",
-      "is_required": "true",
-      "is_hidden": "false",
+      "is_required": "false",
+      "is_hidden": "\"hauptheizungsanlage\"|answer != \"hauptheizungsanlage-erdwaerme\"",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -21192,21 +21129,23 @@
     "pk": "erdwaerme-durchmesser",
     "fields": {
       "created_at": "2023-10-23T06:43:01.630Z",
-      "modified_at": "2023-11-02T08:11:21.137Z",
+      "modified_at": "2023-11-16T15:12:42.967Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Durchmesser (m)\", \"fr\": null, \"it\": null}",
       "type": "float",
-      "is_required": "true",
-      "is_hidden": "false",
+      "is_required": "false",
+      "is_hidden": "\"hauptheizungsanlage\"|answer != \"hauptheizungsanlage-erdwaerme\"",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
+        "max_value": null,
+        "min_value": null,
         "max_length": null,
         "min_length": null
       },
@@ -21226,15 +21165,15 @@
     "pk": "erdwaerme-erdwaermesonden-absperrorgane",
     "fields": {
       "created_at": "2023-10-23T08:48:40.682Z",
-      "modified_at": "2023-11-02T08:14:28.515Z",
+      "modified_at": "2023-11-16T15:11:29.175Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Absperrorgane\", \"fr\": null, \"it\": null}",
       "type": "text",
-      "is_required": "true",
-      "is_hidden": "false",
+      "is_required": "false",
+      "is_hidden": "\"hauptheizungsanlage\"|answer != \"hauptheizungsanlage-erdwaerme\"",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -21260,15 +21199,15 @@
     "pk": "erdwaerme-erdwaermesonden-anzahl-sonden",
     "fields": {
       "created_at": "2023-10-23T08:45:37.330Z",
-      "modified_at": "2023-11-02T08:13:30.669Z",
+      "modified_at": "2023-11-16T15:11:54.867Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Anzahl Sonden\", \"fr\": null, \"it\": null}",
       "type": "integer",
-      "is_required": "true",
-      "is_hidden": "false",
+      "is_required": "false",
+      "is_hidden": "\"hauptheizungsanlage\"|answer != \"hauptheizungsanlage-erdwaerme\"",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -21294,7 +21233,7 @@
     "pk": "erdwaerme-erdwaermesonden-beschreibung-sicherheit",
     "fields": {
       "created_at": "2023-10-23T08:50:35.190Z",
-      "modified_at": "2023-11-02T08:14:47.266Z",
+      "modified_at": "2023-11-16T15:16:59.664Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -21328,15 +21267,15 @@
     "pk": "erdwaerme-erdwaermesonden-hersteller",
     "fields": {
       "created_at": "2023-10-23T08:44:37.629Z",
-      "modified_at": "2023-11-02T08:13:18.706Z",
+      "modified_at": "2023-11-16T15:12:05.943Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Hersteller\", \"fr\": null, \"it\": null}",
       "type": "text",
-      "is_required": "true",
-      "is_hidden": "false",
+      "is_required": "false",
+      "is_hidden": "\"hauptheizungsanlage\"|answer != \"hauptheizungsanlage-erdwaerme\"",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -21362,15 +21301,15 @@
     "pk": "erdwaerme-erdwaermesonden-laenge-einzeln",
     "fields": {
       "created_at": "2023-10-23T08:46:05.286Z",
-      "modified_at": "2023-11-02T08:13:41.838Z",
+      "modified_at": "2023-11-16T15:11:50.035Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"L\\u00e4nge einzeln (m)\", \"fr\": null, \"it\": null}",
       "type": "float",
-      "is_required": "true",
-      "is_hidden": "false",
+      "is_required": "false",
+      "is_hidden": "\"hauptheizungsanlage\"|answer != \"hauptheizungsanlage-erdwaerme\"",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -21396,15 +21335,15 @@
     "pk": "erdwaerme-erdwaermesonden-laenge-total",
     "fields": {
       "created_at": "2023-10-23T08:46:45.836Z",
-      "modified_at": "2023-11-02T08:14:07.019Z",
+      "modified_at": "2023-11-16T15:11:43.744Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"L\\u00e4nge total (m)\", \"fr\": null, \"it\": null}",
       "type": "float",
-      "is_required": "true",
-      "is_hidden": "false",
+      "is_required": "false",
+      "is_hidden": "\"hauptheizungsanlage\"|answer != \"hauptheizungsanlage-erdwaerme\"",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -21430,15 +21369,15 @@
     "pk": "erdwaerme-erdwaermesonden-sicherheit",
     "fields": {
       "created_at": "2023-10-23T08:49:31.133Z",
-      "modified_at": "2023-11-02T08:14:41.585Z",
+      "modified_at": "2023-11-16T15:11:24.360Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Sicherheit\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
-      "is_required": "true",
-      "is_hidden": "false",
+      "is_required": "false",
+      "is_hidden": "\"hauptheizungsanlage\"|answer != \"hauptheizungsanlage-erdwaerme\"",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -21461,15 +21400,15 @@
     "pk": "erdwaerme-erdwaermesonden-sondendurchmesser",
     "fields": {
       "created_at": "2023-10-23T08:47:16.960Z",
-      "modified_at": "2023-11-02T08:14:13.933Z",
+      "modified_at": "2023-11-16T15:11:38.925Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Sondendurchmesser (mm)\", \"fr\": null, \"it\": null}",
       "type": "float",
-      "is_required": "true",
-      "is_hidden": "false",
+      "is_required": "false",
+      "is_hidden": "\"hauptheizungsanlage\"|answer != \"hauptheizungsanlage-erdwaerme\"",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -21495,18 +21434,18 @@
     "pk": "erdwaerme-erdwaermesonden-titel",
     "fields": {
       "created_at": "2023-10-23T08:39:40.745Z",
-      "modified_at": "2023-10-23T08:39:40.745Z",
+      "modified_at": "2023-11-16T15:07:31.512Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Erdw\\u00e4rmesonden Titel\", \"fr\": null, \"it\": null}",
       "type": "static",
       "is_required": "false",
-      "is_hidden": "false",
+      "is_hidden": "\"hauptheizungsanlage\"|answer != \"hauptheizungsanlage-erdwaerme\"",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"#### Erdw\\u00e4rmesonde(n)\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -21526,15 +21465,15 @@
     "pk": "erdwaerme-erdwaermesonden-typ",
     "fields": {
       "created_at": "2023-10-23T08:45:13.021Z",
-      "modified_at": "2023-11-02T08:13:24.679Z",
+      "modified_at": "2023-11-16T15:12:00.277Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Typ\", \"fr\": null, \"it\": null}",
       "type": "text",
-      "is_required": "true",
-      "is_hidden": "false",
+      "is_required": "false",
+      "is_hidden": "\"hauptheizungsanlage\"|answer != \"hauptheizungsanlage-erdwaerme\"",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -21560,21 +21499,23 @@
     "pk": "erdwaerme-erdwaermesonden-waermeentzug",
     "fields": {
       "created_at": "2023-10-23T08:48:00.567Z",
-      "modified_at": "2023-11-02T08:14:22.366Z",
+      "modified_at": "2023-11-16T15:11:34.360Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"W\\u00e4rmeentzug pro Meter Sonde (W/m)\", \"fr\": null, \"it\": null}",
       "type": "float",
-      "is_required": "true",
-      "is_hidden": "false",
+      "is_required": "false",
+      "is_hidden": "\"hauptheizungsanlage\"|answer != \"hauptheizungsanlage-erdwaerme\"",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
+        "max_value": null,
+        "min_value": null,
         "max_length": null,
         "min_length": null
       },
@@ -21594,19 +21535,19 @@
     "pk": "erdwaerme-ergaenzende-bemerkungen",
     "fields": {
       "created_at": "2023-10-23T08:58:42.618Z",
-      "modified_at": "2023-10-23T08:58:42.618Z",
+      "modified_at": "2023-11-16T15:10:22.469Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Erg\\u00e4nzende Bemerkungen\", \"fr\": null, \"it\": null}",
       "type": "textarea",
       "is_required": "false",
-      "is_hidden": "false",
+      "is_hidden": "\"hauptheizungsanlage\"|answer != \"hauptheizungsanlage-erdwaerme\"",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -21628,18 +21569,18 @@
     "pk": "erdwaerme-geplante-termine-titel",
     "fields": {
       "created_at": "2023-10-23T08:57:31.850Z",
-      "modified_at": "2023-10-23T08:57:31.850Z",
+      "modified_at": "2023-11-16T15:10:02.346Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Geplante Termine Titel\", \"fr\": null, \"it\": null}",
       "type": "static",
       "is_required": "false",
-      "is_hidden": "false",
+      "is_hidden": "\"hauptheizungsanlage\"|answer != \"hauptheizungsanlage-erdwaerme\"",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"#### Geplante Termine\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -21659,21 +21600,23 @@
     "pk": "erdwaerme-heizleistungsbedarf",
     "fields": {
       "created_at": "2023-10-23T06:38:31.687Z",
-      "modified_at": "2023-11-02T08:10:56.796Z",
+      "modified_at": "2023-11-16T15:12:27.017Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Heizleistungsbedarf (kW)\", \"fr\": null, \"it\": null}",
       "type": "float",
-      "is_required": "true",
-      "is_hidden": "false",
+      "is_required": "false",
+      "is_hidden": "\"hauptheizungsanlage\"|answer != \"hauptheizungsanlage-erdwaerme\"",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
+        "max_value": null,
+        "min_value": null,
         "max_length": null,
         "min_length": null
       },
@@ -21693,21 +21636,23 @@
     "pk": "erdwaerme-hinterfuellung-fuellmenge",
     "fields": {
       "created_at": "2023-10-23T08:54:16.643Z",
-      "modified_at": "2023-11-02T08:15:14.100Z",
+      "modified_at": "2023-11-16T15:10:59.021Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"F\\u00fcllmenge (geplant) (l)\", \"fr\": null, \"it\": null}",
       "type": "float",
-      "is_required": "true",
-      "is_hidden": "false",
+      "is_required": "false",
+      "is_hidden": "\"hauptheizungsanlage\"|answer != \"hauptheizungsanlage-erdwaerme\"",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
+        "max_value": null,
+        "min_value": null,
         "max_length": null,
         "min_length": null
       },
@@ -21727,15 +21672,15 @@
     "pk": "erdwaerme-hinterfuellung-hersteller",
     "fields": {
       "created_at": "2023-10-23T08:53:04.731Z",
-      "modified_at": "2023-11-02T08:14:53.810Z",
+      "modified_at": "2023-11-16T15:11:14.318Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Hersteller\", \"fr\": null, \"it\": null}",
       "type": "text",
-      "is_required": "true",
-      "is_hidden": "false",
+      "is_required": "false",
+      "is_hidden": "\"hauptheizungsanlage\"|answer != \"hauptheizungsanlage-erdwaerme\"",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -21761,18 +21706,18 @@
     "pk": "erdwaerme-hinterfuellung-titel",
     "fields": {
       "created_at": "2023-10-23T08:52:42.720Z",
-      "modified_at": "2023-10-23T08:52:42.720Z",
+      "modified_at": "2023-11-16T15:08:58.685Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Hinterf\\u00fcllung Titel\", \"fr\": null, \"it\": null}",
       "type": "static",
       "is_required": "false",
-      "is_hidden": "false",
+      "is_hidden": "\"hauptheizungsanlage\"|answer != \"hauptheizungsanlage-erdwaerme\"",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"#### Hinterf\\u00fcllung\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -21792,15 +21737,15 @@
     "pk": "erdwaerme-hinterfuellung-typ",
     "fields": {
       "created_at": "2023-10-23T08:53:16.696Z",
-      "modified_at": "2023-11-02T08:15:01.049Z",
+      "modified_at": "2023-11-16T15:11:09.551Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Typ\", \"fr\": null, \"it\": null}",
       "type": "text",
-      "is_required": "true",
-      "is_hidden": "false",
+      "is_required": "false",
+      "is_hidden": "\"hauptheizungsanlage\"|answer != \"hauptheizungsanlage-erdwaerme\"",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -21826,21 +21771,23 @@
     "pk": "erdwaerme-hinterfuellung-waermeleitfaehigkeit",
     "fields": {
       "created_at": "2023-10-23T08:53:43.670Z",
-      "modified_at": "2023-11-02T08:15:06.987Z",
+      "modified_at": "2023-11-16T15:11:04.323Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"W\\u00e4rmeleitf\\u00e4higkeit (W/mK)\", \"fr\": null, \"it\": null}",
       "type": "float",
-      "is_required": "true",
-      "is_hidden": "false",
+      "is_required": "false",
+      "is_hidden": "\"hauptheizungsanlage\"|answer != \"hauptheizungsanlage-erdwaerme\"",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
+        "max_value": null,
+        "min_value": null,
         "max_length": null,
         "min_length": null
       },
@@ -21860,15 +21807,15 @@
     "pk": "erdwaerme-inbetriebnahme-anlage",
     "fields": {
       "created_at": "2023-10-23T08:58:11.374Z",
-      "modified_at": "2023-11-02T08:15:59.827Z",
+      "modified_at": "2023-11-16T15:10:33.783Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Inbetriebnahme Anlage\", \"fr\": null, \"it\": null}",
       "type": "date",
-      "is_required": "true",
-      "is_hidden": "false",
+      "is_required": "false",
+      "is_hidden": "\"hauptheizungsanlage\"|answer != \"hauptheizungsanlage-erdwaerme\"",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -21891,21 +21838,23 @@
     "pk": "erdwaerme-tiefe",
     "fields": {
       "created_at": "2023-10-23T06:48:24.304Z",
-      "modified_at": "2023-11-02T08:11:31.266Z",
+      "modified_at": "2023-11-16T15:12:48.801Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Tiefe (m)\", \"fr\": null, \"it\": null}",
       "type": "float",
-      "is_required": "true",
-      "is_hidden": "false",
+      "is_required": "false",
+      "is_hidden": "\"hauptheizungsanlage\"|answer != \"hauptheizungsanlage-erdwaerme\"",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
+        "max_value": null,
+        "min_value": null,
         "max_length": null,
         "min_length": null
       },
@@ -21925,18 +21874,18 @@
     "pk": "erdwaerme-titel",
     "fields": {
       "created_at": "2023-10-23T09:00:47.175Z",
-      "modified_at": "2023-10-23T09:00:47.175Z",
+      "modified_at": "2023-11-16T15:04:14.457Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Erdw\\u00e4rme Titel\", \"fr\": null, \"it\": null}",
       "type": "static",
       "is_required": "false",
-      "is_hidden": "false",
+      "is_hidden": "\"hauptheizungsanlage\"|answer != \"hauptheizungsanlage-erdwaerme\"",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"## Erdw\\u00e4rme\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -21956,15 +21905,15 @@
     "pk": "erdwaerme-waermepumpe",
     "fields": {
       "created_at": "2023-10-23T06:49:30.660Z",
-      "modified_at": "2023-11-02T08:11:41.416Z",
+      "modified_at": "2023-11-16T15:12:55.348Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Art der W\\u00e4rmepumpe\", \"fr\": null, \"it\": null}",
       "type": "choice",
-      "is_required": "true",
-      "is_hidden": "false",
+      "is_required": "false",
+      "is_hidden": "\"hauptheizungsanlage\"|answer != \"hauptheizungsanlage-erdwaerme\"",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -22021,7 +21970,7 @@
     "pk": "erdwaerme-waermepumpe-beschreibung-verwendung",
     "fields": {
       "created_at": "2023-10-23T07:07:17.996Z",
-      "modified_at": "2023-11-02T08:13:06.478Z",
+      "modified_at": "2023-11-16T15:16:27.515Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -22055,21 +22004,23 @@
     "pk": "erdwaerme-waermepumpe-fuellgewicht",
     "fields": {
       "created_at": "2023-10-23T07:03:02.511Z",
-      "modified_at": "2023-11-02T08:12:26.537Z",
+      "modified_at": "2023-11-16T15:13:27.764Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"F\\u00fcllgewicht (kg)\", \"fr\": null, \"it\": null}",
       "type": "float",
-      "is_required": "true",
-      "is_hidden": "false",
+      "is_required": "false",
+      "is_hidden": "\"hauptheizungsanlage\"|answer != \"hauptheizungsanlage-erdwaerme\"",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
+        "max_value": null,
+        "min_value": null,
         "max_length": null,
         "min_length": null
       },
@@ -22089,21 +22040,23 @@
     "pk": "erdwaerme-waermepumpe-heizleistung",
     "fields": {
       "created_at": "2023-10-23T07:03:32.963Z",
-      "modified_at": "2023-11-02T08:12:38.535Z",
+      "modified_at": "2023-11-16T15:13:32.461Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Heizleistung (kW)\", \"fr\": null, \"it\": null}",
       "type": "float",
-      "is_required": "true",
-      "is_hidden": "false",
+      "is_required": "false",
+      "is_hidden": "\"hauptheizungsanlage\"|answer != \"hauptheizungsanlage-erdwaerme\"",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
+        "max_value": null,
+        "min_value": null,
         "max_length": null,
         "min_length": null
       },
@@ -22123,15 +22076,15 @@
     "pk": "erdwaerme-waermepumpe-hersteller",
     "fields": {
       "created_at": "2023-10-23T06:59:39.070Z",
-      "modified_at": "2023-11-02T08:12:05.650Z",
+      "modified_at": "2023-11-16T15:13:09.842Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Hersteller\", \"fr\": null, \"it\": null}",
       "type": "text",
-      "is_required": "true",
-      "is_hidden": "false",
+      "is_required": "false",
+      "is_hidden": "\"hauptheizungsanlage\"|answer != \"hauptheizungsanlage-erdwaerme\"",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -22157,18 +22110,18 @@
     "pk": "erdwaerme-waermepumpe-hinweis-grossanlagen",
     "fields": {
       "created_at": "2023-10-23T07:12:56.336Z",
-      "modified_at": "2023-10-23T07:12:56.336Z",
+      "modified_at": "2023-11-16T15:07:24.545Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Hinweis Grossanlagen\", \"fr\": null, \"it\": null}",
       "type": "static",
       "is_required": "false",
-      "is_hidden": "false",
+      "is_hidden": "\"hauptheizungsanlage\"|answer != \"hauptheizungsanlage-erdwaerme\"",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"Bei Grossanlagen ab 50 kW Verdampferleistung ist zus\\u00e4tzlich ein Nachweis zur Dimensionierung und Anordnung der Erdw\\u00e4rmesonden\\neinzureichen (gem\\u00e4ss Norm SIA 384/6).\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -22188,15 +22141,15 @@
     "pk": "erdwaerme-waermepumpe-kaeltemittel",
     "fields": {
       "created_at": "2023-10-23T07:02:35.675Z",
-      "modified_at": "2023-11-02T08:12:17.269Z",
+      "modified_at": "2023-11-16T15:13:21.710Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"K\\u00e4ltemittel\", \"fr\": null, \"it\": null}",
       "type": "text",
-      "is_required": "true",
-      "is_hidden": "false",
+      "is_required": "false",
+      "is_hidden": "\"hauptheizungsanlage\"|answer != \"hauptheizungsanlage-erdwaerme\"",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -22222,7 +22175,7 @@
     "pk": "erdwaerme-waermepumpe-titel",
     "fields": {
       "created_at": "2023-10-23T06:58:48.154Z",
-      "modified_at": "2023-10-23T08:37:49.593Z",
+      "modified_at": "2023-11-16T15:06:18.539Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -22230,7 +22183,7 @@
       "label": "{\"de\": \"W\\u00e4rmepumpe Titel\", \"fr\": null, \"it\": null}",
       "type": "static",
       "is_required": "false",
-      "is_hidden": "false",
+      "is_hidden": "\"hauptheizungsanlage\"|answer != \"hauptheizungsanlage-erdwaerme\"",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -22253,15 +22206,15 @@
     "pk": "erdwaerme-waermepumpe-typ",
     "fields": {
       "created_at": "2023-10-23T07:00:10.910Z",
-      "modified_at": "2023-11-02T08:12:11.987Z",
+      "modified_at": "2023-11-16T15:13:15.605Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Typ\", \"fr\": null, \"it\": null}",
       "type": "text",
-      "is_required": "true",
-      "is_hidden": "false",
+      "is_required": "false",
+      "is_hidden": "\"hauptheizungsanlage\"|answer != \"hauptheizungsanlage-erdwaerme\"",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -22287,21 +22240,23 @@
     "pk": "erdwaerme-waermepumpe-verdampferleistung",
     "fields": {
       "created_at": "2023-10-23T07:04:24.548Z",
-      "modified_at": "2023-11-02T08:12:44.949Z",
+      "modified_at": "2023-11-16T15:13:37.773Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Verdampferleistung (W\\u00e4rmeentzug aus dem Untergrund) (kW)\", \"fr\": null, \"it\": null}",
       "type": "float",
-      "is_required": "true",
-      "is_hidden": "false",
+      "is_required": "false",
+      "is_hidden": "\"hauptheizungsanlage\"|answer != \"hauptheizungsanlage-erdwaerme\"",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
+        "max_value": null,
+        "min_value": null,
         "max_length": null,
         "min_length": null
       },
@@ -22321,15 +22276,15 @@
     "pk": "erdwaerme-waermepumpe-verwendung",
     "fields": {
       "created_at": "2023-10-23T07:06:01.678Z",
-      "modified_at": "2023-11-02T08:12:51.263Z",
+      "modified_at": "2023-11-16T15:13:42.758Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Verwendung\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
-      "is_required": "true",
-      "is_hidden": "false",
+      "is_required": "false",
+      "is_hidden": "\"hauptheizungsanlage\"|answer != \"hauptheizungsanlage-erdwaerme\"",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -22352,14 +22307,14 @@
     "pk": "erdwaerme-waermepumpe-waermeeintrag",
     "fields": {
       "created_at": "2023-10-23T07:10:21.880Z",
-      "modified_at": "2023-11-02T08:12:58.931Z",
+      "modified_at": "2023-11-16T15:12:16.635Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"W\\u00e4rmeeintrag in den Untergrund (Leistung) (kW)\", \"fr\": null, \"it\": null}",
       "type": "float",
-      "is_required": "true",
+      "is_required": "false",
       "is_hidden": "!(\"erdwaerme-waermepumpe-verwendung-kuehlung\" in \"erdwaerme-waermepumpe-verwendung\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -22367,6 +22322,8 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
+        "max_value": null,
+        "min_value": null,
         "max_length": null,
         "min_length": null
       },
@@ -22386,15 +22343,15 @@
     "pk": "erdwaerme-waermetraegerfluessigkeit-basisstoff",
     "fields": {
       "created_at": "2023-10-23T08:56:02.283Z",
-      "modified_at": "2023-11-02T08:15:38.876Z",
+      "modified_at": "2023-11-16T15:10:44.241Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Basisstoff\", \"fr\": null, \"it\": null}",
       "type": "text",
-      "is_required": "true",
-      "is_hidden": "false",
+      "is_required": "false",
+      "is_hidden": "\"hauptheizungsanlage\"|answer != \"hauptheizungsanlage-erdwaerme\"",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -22420,21 +22377,23 @@
     "pk": "erdwaerme-waermetraegerfluessigkeit-fuellmenge",
     "fields": {
       "created_at": "2023-10-23T08:56:50.722Z",
-      "modified_at": "2023-11-02T08:15:48.279Z",
+      "modified_at": "2023-11-16T15:10:38.343Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"F\\u00fcllmenge (unverd\\u00fcnnt) (l)\", \"fr\": null, \"it\": null}",
       "type": "float",
-      "is_required": "true",
-      "is_hidden": "false",
+      "is_required": "false",
+      "is_hidden": "\"hauptheizungsanlage\"|answer != \"hauptheizungsanlage-erdwaerme\"",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
+        "max_value": null,
+        "min_value": null,
         "max_length": null,
         "min_length": null
       },
@@ -22454,15 +22413,15 @@
     "pk": "erdwaerme-waermetraegerfluessigkeit-hersteller",
     "fields": {
       "created_at": "2023-10-23T08:55:20.356Z",
-      "modified_at": "2023-11-02T08:15:22.072Z",
+      "modified_at": "2023-11-16T15:10:53.854Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Hersteller\", \"fr\": null, \"it\": null}",
       "type": "text",
-      "is_required": "true",
-      "is_hidden": "false",
+      "is_required": "false",
+      "is_hidden": "\"hauptheizungsanlage\"|answer != \"hauptheizungsanlage-erdwaerme\"",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -22488,18 +22447,18 @@
     "pk": "erdwaerme-waermetraegerfluessigkeit-titel",
     "fields": {
       "created_at": "2023-10-23T08:55:05.165Z",
-      "modified_at": "2023-10-23T08:55:05.166Z",
+      "modified_at": "2023-11-16T15:09:33.157Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"W\\u00e4rmetr\\u00e4gerfl\\u00fcssigkeit Titel\", \"fr\": null, \"it\": null}",
       "type": "static",
       "is_required": "false",
-      "is_hidden": "false",
+      "is_hidden": "\"hauptheizungsanlage\"|answer != \"hauptheizungsanlage-erdwaerme\"",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"#### W\\u00e4rmetr\\u00e4gerfl\\u00fcssigkeit\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -22519,15 +22478,15 @@
     "pk": "erdwaerme-waermetraegerfluessigkeit-typ",
     "fields": {
       "created_at": "2023-10-23T08:55:31.896Z",
-      "modified_at": "2023-11-02T08:15:28.182Z",
+      "modified_at": "2023-11-16T15:10:49.340Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Typ\", \"fr\": null, \"it\": null}",
       "type": "text",
-      "is_required": "true",
-      "is_hidden": "false",
+      "is_required": "false",
+      "is_hidden": "\"hauptheizungsanlage\"|answer != \"hauptheizungsanlage-erdwaerme\"",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -25064,7 +25023,7 @@
     "pk": "hauptheizungsanlage",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-10-23T06:18:46.669Z",
+      "modified_at": "2023-11-16T15:20:00.295Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -25072,7 +25031,7 @@
       "label": "{\"de\": \"Energie- / W\\u00e4rmequelle\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "true",
-      "is_hidden": "!(\n \"anlagetyp\"|answer in [\"anlagetyp-hauptheizung\", \"anlagetyp-warmwasser\"]\n)",
+      "is_hidden": "!(\n \"anlagetyp\"|answer in [\"anlagetyp-hauptheizung\", \"anlagetyp-warmwasser\", \"anlagetyp-heizung-und-warmwasseraufbereitung\"]\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -25126,10 +25085,10 @@
     "pk": "haus-und-gebaeudetechnik-einleitung",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-09-20T10:58:57.504Z",
+      "modified_at": "2023-11-16T15:00:29.082Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "645a484a-3312-4602-9d87-77215f03f5bf",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Haus- und Geb\\u00e4udetechnik\", \"fr\": null, \"it\": null}",
       "type": "static",
@@ -25139,7 +25098,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"**Geb\\u00e4udetechnik**\\n\\nDie Angaben zur W\\u00e4rmequelle und zum W\\u00e4rmeerzeuger f\\u00fcr Heizung und Warmwasser sind je nach Art des Vorhabens zwingender Bestantteil einer Baueingabe. **Bitte erfassen Sie f\\u00fcr alle geb\\u00e4udetechnischen Anlagen jeweils einen separaten Datensatz** (z.B. f\\u00fcr die W\\u00e4rmequelle der Hauptheizung, f\\u00fcr die W\\u00e4rmequelle der Zusatzheizung und, falls vorgesehen, auch f\\u00fcr die Solaranlage usw.).\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"# Geb\\u00e4udetechnik\\n\\nDie Angaben zur W\\u00e4rmequelle und zum W\\u00e4rmeerzeuger f\\u00fcr Heizung und Warmwasser sind je nach Art des Vorhabens zwingender Bestantteil einer Baueingabe. **Bitte erfassen Sie f\\u00fcr alle geb\\u00e4udetechnischen Anlagen jeweils einen separaten Datensatz** (z.B. f\\u00fcr die W\\u00e4rmequelle der Hauptheizung, f\\u00fcr die W\\u00e4rmequelle der Zusatzheizung und, falls vorgesehen, auch f\\u00fcr die Solaranlage usw.).\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -25188,7 +25147,7 @@
     "pk": "heizsystem-art",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "modified_at": "2023-11-16T15:20:15.948Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -25196,11 +25155,11 @@
       "label": "{\"de\": \"Art\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "true",
-      "is_hidden": "!(\n  \"anlagetyp\"|answer in [\"anlagetyp-hauptheizung\", \"anlagetyp-warmwasser\"]\n)",
+      "is_hidden": "!(\n  \"anlagetyp\"|answer in [\"anlagetyp-hauptheizung\", \"anlagetyp-warmwasser\", \"anlagetyp-heizung-und-warmwasseraufbereitung\"]\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -34019,38 +33978,38 @@
     "model": "caluma_form.questionoption",
     "pk": "anlagetyp.anlagetyp-analgetyp-klima",
     "fields": {
-      "created_at": "2023-10-23T12:33:00.813Z",
-      "modified_at": "2023-10-23T12:33:00.813Z",
+      "created_at": "2023-11-16T14:54:06.041Z",
+      "modified_at": "2023-11-16T14:54:06.042Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "anlagetyp",
       "option": "anlagetyp-analgetyp-klima",
-      "sort": 10
+      "sort": 11
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "anlagetyp.anlagetyp-aufzuege",
     "fields": {
-      "created_at": "2023-10-23T12:33:00.806Z",
-      "modified_at": "2023-10-23T12:33:00.806Z",
+      "created_at": "2023-11-16T14:54:06.035Z",
+      "modified_at": "2023-11-16T14:54:06.035Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "anlagetyp",
       "option": "anlagetyp-aufzuege",
-      "sort": 8
+      "sort": 9
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "anlagetyp.anlagetyp-betankungsanlage",
     "fields": {
-      "created_at": "2023-10-23T12:33:00.787Z",
-      "modified_at": "2023-10-23T12:33:00.787Z",
+      "created_at": "2023-11-16T14:54:06.015Z",
+      "modified_at": "2023-11-16T14:54:06.015Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -34064,8 +34023,8 @@
     "model": "caluma_form.questionoption",
     "pk": "anlagetyp.anlagetyp-gasanlage",
     "fields": {
-      "created_at": "2023-10-23T12:33:00.779Z",
-      "modified_at": "2023-10-23T12:33:00.779Z",
+      "created_at": "2023-11-16T14:54:06.009Z",
+      "modified_at": "2023-11-16T14:54:06.009Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -34079,38 +34038,53 @@
     "model": "caluma_form.questionoption",
     "pk": "anlagetyp.anlagetyp-hauptheizung",
     "fields": {
-      "created_at": "2023-10-23T12:33:00.802Z",
-      "modified_at": "2023-10-23T12:33:00.802Z",
+      "created_at": "2023-11-16T14:54:06.032Z",
+      "modified_at": "2023-11-16T14:54:06.032Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "anlagetyp",
       "option": "anlagetyp-hauptheizung",
-      "sort": 7
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "anlagetyp.anlagetyp-heizung-und-warmwasseraufbereitung",
+    "fields": {
+      "created_at": "2023-11-16T14:54:06.025Z",
+      "modified_at": "2023-11-16T14:54:06.025Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "anlagetyp",
+      "option": "anlagetyp-heizung-und-warmwasseraufbereitung",
+      "sort": 6
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "anlagetyp.anlagetyp-lueftungsanlage",
     "fields": {
-      "created_at": "2023-10-23T12:33:00.810Z",
-      "modified_at": "2023-10-23T12:33:00.810Z",
+      "created_at": "2023-11-16T14:54:06.038Z",
+      "modified_at": "2023-11-16T14:54:06.038Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "anlagetyp",
       "option": "anlagetyp-lueftungsanlage",
-      "sort": 9
+      "sort": 10
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "anlagetyp.anlagetyp-notstrom-aggregat",
     "fields": {
-      "created_at": "2023-10-23T12:33:00.783Z",
-      "modified_at": "2023-10-23T12:33:00.783Z",
+      "created_at": "2023-11-16T14:54:06.012Z",
+      "modified_at": "2023-11-16T14:54:06.012Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -34124,8 +34098,8 @@
     "model": "caluma_form.questionoption",
     "pk": "anlagetyp.anlagetyp-photovoltaische-solaranlage",
     "fields": {
-      "created_at": "2023-10-23T12:33:00.791Z",
-      "modified_at": "2023-10-23T12:33:00.791Z",
+      "created_at": "2023-11-16T14:54:06.019Z",
+      "modified_at": "2023-11-16T14:54:06.019Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -34139,8 +34113,8 @@
     "model": "caluma_form.questionoption",
     "pk": "anlagetyp.anlagetyp-thermische-solaranlage",
     "fields": {
-      "created_at": "2023-10-23T12:33:00.795Z",
-      "modified_at": "2023-10-23T12:33:00.795Z",
+      "created_at": "2023-11-16T14:54:06.022Z",
+      "modified_at": "2023-11-16T14:54:06.022Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -34154,15 +34128,15 @@
     "model": "caluma_form.questionoption",
     "pk": "anlagetyp.anlagetyp-warmwasser",
     "fields": {
-      "created_at": "2023-10-23T12:33:00.798Z",
-      "modified_at": "2023-10-23T12:33:00.798Z",
+      "created_at": "2023-11-16T14:54:06.028Z",
+      "modified_at": "2023-11-16T14:54:06.028Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "anlagetyp",
       "option": "anlagetyp-warmwasser",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -35519,8 +35493,8 @@
     "model": "caluma_form.questionoption",
     "pk": "erdwaerme-bauobjekt.erdwaerme-bauobjekt-andere",
     "fields": {
-      "created_at": "2023-11-02T08:10:35.176Z",
-      "modified_at": "2023-11-02T08:10:35.176Z",
+      "created_at": "2023-11-16T15:04:38.762Z",
+      "modified_at": "2023-11-16T15:04:38.762Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -35534,8 +35508,8 @@
     "model": "caluma_form.questionoption",
     "pk": "erdwaerme-bauobjekt.erdwaerme-bauobjekt-efh",
     "fields": {
-      "created_at": "2023-11-02T08:10:35.193Z",
-      "modified_at": "2023-11-02T08:10:35.193Z",
+      "created_at": "2023-11-16T15:04:38.776Z",
+      "modified_at": "2023-11-16T15:04:38.776Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -35549,8 +35523,8 @@
     "model": "caluma_form.questionoption",
     "pk": "erdwaerme-bauobjekt.erdwaerme-bauobjekt-gewerbe",
     "fields": {
-      "created_at": "2023-11-02T08:10:35.181Z",
-      "modified_at": "2023-11-02T08:10:35.181Z",
+      "created_at": "2023-11-16T15:04:38.767Z",
+      "modified_at": "2023-11-16T15:04:38.767Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -35564,8 +35538,8 @@
     "model": "caluma_form.questionoption",
     "pk": "erdwaerme-bauobjekt.erdwaerme-bauobjekt-heizungsersatz",
     "fields": {
-      "created_at": "2023-11-02T08:10:35.198Z",
-      "modified_at": "2023-11-02T08:10:35.198Z",
+      "created_at": "2023-11-16T15:04:38.780Z",
+      "modified_at": "2023-11-16T15:04:38.780Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -35579,8 +35553,8 @@
     "model": "caluma_form.questionoption",
     "pk": "erdwaerme-bauobjekt.erdwaerme-bauobjekt-mfh",
     "fields": {
-      "created_at": "2023-11-02T08:10:35.188Z",
-      "modified_at": "2023-11-02T08:10:35.188Z",
+      "created_at": "2023-11-16T15:04:38.772Z",
+      "modified_at": "2023-11-16T15:04:38.772Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -35594,8 +35568,8 @@
     "model": "caluma_form.questionoption",
     "pk": "erdwaerme-bauobjekt.erdwaerme-bauobjekt-neubau",
     "fields": {
-      "created_at": "2023-11-02T08:10:35.205Z",
-      "modified_at": "2023-11-02T08:10:35.205Z",
+      "created_at": "2023-11-16T15:04:38.785Z",
+      "modified_at": "2023-11-16T15:04:38.785Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -35609,8 +35583,8 @@
     "model": "caluma_form.questionoption",
     "pk": "erdwaerme-erdwaermesonden-sicherheit.erdwaerme-erdwaermesonden-sicherheit-andere",
     "fields": {
-      "created_at": "2023-11-02T08:14:41.593Z",
-      "modified_at": "2023-11-02T08:14:41.593Z",
+      "created_at": "2023-11-16T15:11:24.370Z",
+      "modified_at": "2023-11-16T15:11:24.370Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -35624,8 +35598,8 @@
     "model": "caluma_form.questionoption",
     "pk": "erdwaerme-erdwaermesonden-sicherheit.erdwaerme-erdwaermesonden-sicherheit-druckwaechter",
     "fields": {
-      "created_at": "2023-11-02T08:14:41.603Z",
-      "modified_at": "2023-11-02T08:14:41.603Z",
+      "created_at": "2023-11-16T15:11:24.380Z",
+      "modified_at": "2023-11-16T15:11:24.380Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -35639,8 +35613,8 @@
     "model": "caluma_form.questionoption",
     "pk": "erdwaerme-erdwaermesonden-sicherheit.erdwaerme-erdwaermesonden-sicherheit-niveauanzeige",
     "fields": {
-      "created_at": "2023-11-02T08:14:41.598Z",
-      "modified_at": "2023-11-02T08:14:41.599Z",
+      "created_at": "2023-11-16T15:11:24.375Z",
+      "modified_at": "2023-11-16T15:11:24.375Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -35654,8 +35628,8 @@
     "model": "caluma_form.questionoption",
     "pk": "erdwaerme-waermepumpe.erdwaerme-waermepumpe-bivalent",
     "fields": {
-      "created_at": "2023-11-02T08:11:41.426Z",
-      "modified_at": "2023-11-02T08:11:41.426Z",
+      "created_at": "2023-11-16T15:12:55.356Z",
+      "modified_at": "2023-11-16T15:12:55.356Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -35669,8 +35643,8 @@
     "model": "caluma_form.questionoption",
     "pk": "erdwaerme-waermepumpe.erdwaerme-waermepumpe-monovalent",
     "fields": {
-      "created_at": "2023-11-02T08:11:41.431Z",
-      "modified_at": "2023-11-02T08:11:41.431Z",
+      "created_at": "2023-11-16T15:12:55.361Z",
+      "modified_at": "2023-11-16T15:12:55.361Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -35684,8 +35658,8 @@
     "model": "caluma_form.questionoption",
     "pk": "erdwaerme-waermepumpe-verwendung.erdwaerme-waermepumpe-verwendung-andere",
     "fields": {
-      "created_at": "2023-11-02T08:12:51.273Z",
-      "modified_at": "2023-11-02T08:12:51.273Z",
+      "created_at": "2023-11-16T15:13:42.768Z",
+      "modified_at": "2023-11-16T15:13:42.768Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -35699,8 +35673,8 @@
     "model": "caluma_form.questionoption",
     "pk": "erdwaerme-waermepumpe-verwendung.erdwaerme-waermepumpe-verwendung-brauchwarmwasser",
     "fields": {
-      "created_at": "2023-11-02T08:12:51.283Z",
-      "modified_at": "2023-11-02T08:12:51.283Z",
+      "created_at": "2023-11-16T15:13:42.777Z",
+      "modified_at": "2023-11-16T15:13:42.778Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -35714,8 +35688,8 @@
     "model": "caluma_form.questionoption",
     "pk": "erdwaerme-waermepumpe-verwendung.erdwaerme-waermepumpe-verwendung-kuehlung",
     "fields": {
-      "created_at": "2023-11-02T08:12:51.278Z",
-      "modified_at": "2023-11-02T08:12:51.278Z",
+      "created_at": "2023-11-16T15:13:42.773Z",
+      "modified_at": "2023-11-16T15:13:42.773Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -35729,8 +35703,8 @@
     "model": "caluma_form.questionoption",
     "pk": "erdwaerme-waermepumpe-verwendung.erdwaerme-waermepumpe-verwendung-raumheizung",
     "fields": {
-      "created_at": "2023-11-02T08:12:51.287Z",
-      "modified_at": "2023-11-02T08:12:51.287Z",
+      "created_at": "2023-11-16T15:13:42.783Z",
+      "modified_at": "2023-11-16T15:13:42.783Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -36494,8 +36468,8 @@
     "model": "caluma_form.questionoption",
     "pk": "hauptheizungsanlage.hauptheizungsanlage-abwaerme",
     "fields": {
-      "created_at": "2023-10-23T06:18:46.691Z",
-      "modified_at": "2023-10-23T06:18:46.691Z",
+      "created_at": "2023-11-16T15:20:00.325Z",
+      "modified_at": "2023-11-16T15:20:00.325Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -36509,8 +36483,8 @@
     "model": "caluma_form.questionoption",
     "pk": "hauptheizungsanlage.hauptheizungsanlage-andere",
     "fields": {
-      "created_at": "2023-10-23T06:18:46.677Z",
-      "modified_at": "2023-10-23T06:18:46.677Z",
+      "created_at": "2023-11-16T15:20:00.304Z",
+      "modified_at": "2023-11-16T15:20:00.304Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -36524,8 +36498,8 @@
     "model": "caluma_form.questionoption",
     "pk": "hauptheizungsanlage.hauptheizungsanlage-elektrizitaet",
     "fields": {
-      "created_at": "2023-10-23T06:18:46.680Z",
-      "modified_at": "2023-10-23T06:18:46.680Z",
+      "created_at": "2023-11-16T15:20:00.308Z",
+      "modified_at": "2023-11-16T15:20:00.308Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -36539,8 +36513,8 @@
     "model": "caluma_form.questionoption",
     "pk": "hauptheizungsanlage.hauptheizungsanlage-erdwaerme",
     "fields": {
-      "created_at": "2023-10-23T06:18:46.707Z",
-      "modified_at": "2023-10-23T06:18:46.707Z",
+      "created_at": "2023-11-16T15:20:00.350Z",
+      "modified_at": "2023-11-16T15:20:00.350Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -36554,8 +36528,8 @@
     "model": "caluma_form.questionoption",
     "pk": "hauptheizungsanlage.hauptheizungsanlage-fernwaerme",
     "fields": {
-      "created_at": "2023-10-23T06:18:46.704Z",
-      "modified_at": "2023-10-23T06:18:46.704Z",
+      "created_at": "2023-11-16T15:20:00.346Z",
+      "modified_at": "2023-11-16T15:20:00.346Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -36569,8 +36543,8 @@
     "model": "caluma_form.questionoption",
     "pk": "hauptheizungsanlage.hauptheizungsanlage-gas",
     "fields": {
-      "created_at": "2023-10-23T06:18:46.687Z",
-      "modified_at": "2023-10-23T06:18:46.687Z",
+      "created_at": "2023-11-16T15:20:00.316Z",
+      "modified_at": "2023-11-16T15:20:00.316Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -36584,8 +36558,8 @@
     "model": "caluma_form.questionoption",
     "pk": "hauptheizungsanlage.hauptheizungsanlage-grundwasserwaermepumpe",
     "fields": {
-      "created_at": "2023-10-23T06:18:46.701Z",
-      "modified_at": "2023-10-23T06:18:46.701Z",
+      "created_at": "2023-11-16T15:20:00.341Z",
+      "modified_at": "2023-11-16T15:20:00.341Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -36599,8 +36573,8 @@
     "model": "caluma_form.questionoption",
     "pk": "hauptheizungsanlage.hauptheizungsanlage-heizoel",
     "fields": {
-      "created_at": "2023-10-23T06:18:46.684Z",
-      "modified_at": "2023-10-23T06:18:46.684Z",
+      "created_at": "2023-11-16T15:20:00.313Z",
+      "modified_at": "2023-11-16T15:20:00.313Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -36614,8 +36588,8 @@
     "model": "caluma_form.questionoption",
     "pk": "hauptheizungsanlage.hauptheizungsanlage-holz",
     "fields": {
-      "created_at": "2023-10-23T06:18:46.694Z",
-      "modified_at": "2023-10-23T06:18:46.694Z",
+      "created_at": "2023-11-16T15:20:00.333Z",
+      "modified_at": "2023-11-16T15:20:00.333Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -36629,8 +36603,8 @@
     "model": "caluma_form.questionoption",
     "pk": "hauptheizungsanlage.hauptheizungsanlage-luftwaermepumpe",
     "fields": {
-      "created_at": "2023-10-23T06:18:46.711Z",
-      "modified_at": "2023-10-23T06:18:46.711Z",
+      "created_at": "2023-11-16T15:20:00.354Z",
+      "modified_at": "2023-11-16T15:20:00.354Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -36644,8 +36618,8 @@
     "model": "caluma_form.questionoption",
     "pk": "hauptheizungsanlage.hauptheizungsanlage-sonne-thermisch",
     "fields": {
-      "created_at": "2023-10-23T06:18:46.697Z",
-      "modified_at": "2023-10-23T06:18:46.697Z",
+      "created_at": "2023-11-16T15:20:00.337Z",
+      "modified_at": "2023-11-16T15:20:00.337Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -36689,8 +36663,8 @@
     "model": "caluma_form.questionoption",
     "pk": "heizsystem-art.-hauptheizung",
     "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "created_at": "2023-11-16T15:20:15.960Z",
+      "modified_at": "2023-11-16T15:20:15.961Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -36704,8 +36678,8 @@
     "model": "caluma_form.questionoption",
     "pk": "heizsystem-art.-zusatzheizung",
     "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "created_at": "2023-11-16T15:20:15.956Z",
+      "modified_at": "2023-11-16T15:20:15.956Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
