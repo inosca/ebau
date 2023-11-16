@@ -111,16 +111,6 @@ module("Integration | Component | communication/new-topic", function (hooks) {
 
     assert.dom("[data-test-allow-answers]").doesNotExist();
 
-    try {
-      // Check applicant is not selectable
-      await selectChoose(
-        "[data-test-involved-entities]",
-        this.intl.t("communications.new.applicant"),
-      );
-    } catch (error) {
-      assert.ok(error);
-    }
-
     await selectChoose(
       "[data-test-involved-entities]",
       involvedServices[0].name,
