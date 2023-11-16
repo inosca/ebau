@@ -170,6 +170,22 @@ yarn test # Run tests
 yarn start-proxy # Run dev server with proxy to django api
 ```
 
+#### Help, ember-cli is not rebuilding after changes!
+
+Since this is a large project with lots of files, the default setup of ember
+will possibly fail to rebuild properly as it can't watch all of those files.
+
+In order to fix that, [install watchman](https://facebook.github.io/watchman/docs/install) as file watcher and
+adjust the `inotify` settings:
+
+```bash
+echo fs.inotify.max_user_watches=1000000 | sudo tee -a /etc/sysctl.conf # adjust settings
+sudo sysctl -p # re-read config
+```
+
+Make sure that the latter command only returns one value, otherwise the settings
+is duplicated and needs to be cleaned up.
+
 #### Yarn workspace
 
 Note however that those two apps `ember-caluma-portal` and `ember-camac-ng` share the same node modules tree through a [yarn workspace](https://classic.yarnpkg.com/en/docs/workspaces/).
