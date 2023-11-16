@@ -1,6 +1,8 @@
-import { Factory, trait } from "miragejs";
+import { Factory, trait, association } from "miragejs";
 
 export default Factory.extend({
+  instanceState: association(),
+
   afterCreate(instance, server) {
     if (!instance.activeServiceId) {
       instance.update({

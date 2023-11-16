@@ -10,8 +10,8 @@ from django.db.models import Exists, OuterRef, Q, Sum
 from django.utils.translation import get_language, gettext, gettext_noop as _
 from rest_framework import serializers
 
+from camac.billing.models import BillingV2Entry
 from camac.caluma.utils import find_answer, work_item_by_addressed_service_condition
-from camac.core.models import BillingV2Entry
 from camac.user.models import Service
 from camac.utils import build_url, clean_join
 

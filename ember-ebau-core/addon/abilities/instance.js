@@ -4,7 +4,7 @@ import { Ability } from "ember-can";
 
 import mainConfig from "ember-ebau-core/config/main";
 
-function hasInstanceState(instance, instanceState) {
+export function hasInstanceState(instance, instanceState) {
   const instanceStates = Array.isArray(instanceState)
     ? instanceState
     : [instanceState];
@@ -14,6 +14,12 @@ function hasInstanceState(instance, instanceState) {
     .filter(Boolean);
 
   return ids.includes(parseInt(instance.belongsTo("instanceState").id()));
+}
+
+export function isAuthority(instance, serviceId) {
+  return (
+    parseInt(instance.belongsTo("activeService").id()) === parseInt(serviceId)
+  );
 }
 
 export default class InstanceAbility extends Ability {

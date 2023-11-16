@@ -1,0 +1,44 @@
+<tr>
+  {{#if (can "charge billing-v2-entries")}}
+    <td data-test-entry-charge>
+      <input
+        type="checkbox"
+        class="uk-checkbox"
+        aria-label={{t "billing.toggle-row"}}
+        title={{t "billing.toggle-row"}}
+        disabled={{not-eq @entry.dateCharged null}}
+        checked={{or (not-eq @entry.dateCharged null) @selected}}
+        data-test-toggle
+        {{on "change" this.toggle}}
+      >
+    </td>
+  {{/if}}
+  <td data-test-entry-text>{{@entry.text}}</td>
+  <td data-test-entry-group>{{@entry.group.name}}</td>
+  <td data-test-entry-user>{{@entry.user.fullName}}</td>
+  <td data-test-entry-amount>{{@entry.amount}}</td>
+  <td class="uk-text-right" data-test-entry-final-rate>
+    {{format-number @entry.finalRate minimumFractionDigits=2}}
+  </td>
+  <td data-test-entry-added>{{format-date @entry.dateAdded format="date"}}</td>
+  {{#if (has-feature "billing.charge")}}
+    <td data-test-entry-charged>{{format-date @entry.dateCharged format="date"}}</td>
+  {{/if}}
+  {{#if (has-feature "billing.organization")}}
+    <td data-test-entry-organization>{{if @entry.organization (t (concat "billing.organizations." @entry.organization))}}</td>
+  {{/if}}
+  {{#if (can "edit billing-v2-entries")}}
+    <td data-test-entry-delete>
+      {{#if (can "delete billing-v2-entry" @entry)}}
+        <button
+          type="button"
+          class="uk-button uk-button-link"
+          data-test-delete
+          {{on "click" (perform this.delete)}}
+        >
+          <UkIcon @icon="trash" />
+        </button>
+      {{/if}}
+    </td>
+  {{/if}}
+</tr>

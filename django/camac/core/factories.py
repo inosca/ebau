@@ -2,7 +2,7 @@ from math import trunc
 
 import pytz
 from django.utils import timezone
-from factory import Faker, SubFactory, fuzzy
+from factory import Faker, SubFactory
 from factory.django import DjangoModelFactory
 
 from camac.instance.factories import InstanceFactory, InstanceStateFactory
@@ -267,18 +267,6 @@ class PublicationEntryFactory(DjangoModelFactory):
 
     class Meta:
         model = models.PublicationEntry
-
-
-class BillingV2EntryFactory(DjangoModelFactory):
-    instance = SubFactory(InstanceFactory)
-    user = SubFactory(UserFactory)
-    group = SubFactory(GroupFactory)
-    date_added = Faker("past_datetime", tzinfo=pytz.UTC)
-    final_rate = Faker("pyfloat", left_digits=3, right_digits=2, positive=True)
-    organization = fuzzy.FuzzyChoice(["municipal", "cantonal"])
-
-    class Meta:
-        model = models.BillingV2Entry
 
 
 class InstancePortalFactory(DjangoModelFactory):

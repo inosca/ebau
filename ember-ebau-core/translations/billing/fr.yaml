@@ -1,0 +1,64 @@
+billing:
+  info: |-
+    Dans le menu "Emoluments", il est possible de saisir les emoluments
+    encourus en rapport avec le dossier. Toutefois, les entrées enregistrées ne
+    sont pas automatiquement transmises au service de facturation de votre
+    organisation. La facturation doit être effectuée par chaque organisation
+    participante comme auparavant.
+  position: Position
+  group: Groupe
+  user: Utilisateur
+  amount: Forfait (CHF)
+  total: Total (CHF)
+  created-at: Capturé sur
+  charged-at: Facturé le
+  organization: Type
+  charge: Facturer
+  hide-charged: Cacher les entrées de frais facturés
+  calculation: Calcul
+  hours: Heures
+  hourly-rate: Taux horaire (CHF)
+  tax-mode: Taxe sur la valeur ajoutée
+  percentage: Proportion (%) ...
+  of-amount: ... du total des coûts (CHF)
+  add: Ajouter des frais
+  toggle-all: Sélectionner toutes les entrées de frais
+  toggle-row: Sélectionner l'entrée de frais
+  confirm-delete: Voulez-vous vraiment supprimer cette entrée de frais ?
+  confirm-charge: |-
+    Veuillez vous assurer que la facture a bien été créée avant que l'entrée des
+    frais ne soit mise sur "facturé".
+  add-success: L'entrée de frais a été ajoutée avec succès
+  add-error: Erreur lors de l'ajout de l'entrée de frais
+  delete-error: Erreur lors de la suppression de l'entrée des frais
+  charge-error: Erreur lors de la facturation de l'entrée des frais
+
+  organizations:
+    cantonal: Cantonal
+    municipal: Municipal
+
+  calculations:
+    flat: "{totalCost, number, ::.00} {taxMode}"
+    percentage: "{percentage, number, ::.00 % scale/0.01} de {totalCost, number, ::.00} {taxMode}"
+    hourly: "{hours, number, ::.00} heures à {hourlyRate, number, ::.00} {taxMode}"
+
+    titles:
+      flat: forfait (montant)
+      percentage: pourcentage (des coûts totaux)
+      hourly: selon le temps employé (heures * taux horaire)
+
+  tax-modes:
+    exempt: non soumis à la TVA
+    inclusive: "TVA de {taxRate, number, ::.0 % scale/0.01} incluse"
+    exclusive: "sans la TVA de {taxRate, number, ::.0 % scale/0.01}"
+
+  totals:
+    cantonal:
+      uncharged: Sous-total canton (non facturé)
+      total: Sous-total canton
+    municipal:
+      uncharged: Sous-total municipalité (non facturé)
+      total: Sous-total municipalité
+    all:
+      uncharged: Total (non facturé)
+      total: Total
