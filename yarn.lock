@@ -6770,10 +6770,10 @@ elliptic@^6.5.3:
     minimalistic-assert "^1.0.1"
     minimalistic-crypto-utils "^1.0.1"
 
-ember-alexandria@4.6.0:
-  version "4.6.0"
-  resolved "https://registry.yarnpkg.com/ember-alexandria/-/ember-alexandria-4.6.0.tgz#ac2d0e02b052480e73a691f63db2ba86a18a06d4"
-  integrity sha512-Y6ZXJgU3HHXS18lJrcb1W8Yf86+gBSEDse+nE6/fCYYsIPsT9DHh/LkhGhmxlE1Uop+PShe+0K5SCiX2qr5L7A==
+ember-alexandria@4.6.1:
+  version "4.6.1"
+  resolved "https://registry.yarnpkg.com/ember-alexandria/-/ember-alexandria-4.6.1.tgz#f802918a53f73e04604f3cd9ff0f3d96844b123b"
+  integrity sha512-B+qXfRO51k62ylcXuPlOE0rYuIk/d6eALDu65X3NtTC+IdEs2JOpQHB0I6LAiSIf2Jq+RGKfkjtadxnKbW45kw==
   dependencies:
     "@ember/legacy-built-in-components" "^0.5.0"
     "@ember/optional-features" "^2.0.0"
@@ -6802,7 +6802,7 @@ ember-alexandria@4.6.0:
     ember-resources "^6.4.0"
     ember-simple-auth-oidc "^5.1.0"
     ember-truth-helpers "^4.0.3"
-    ember-uikit "^8.0.0"
+    ember-uikit "^9.0.0"
     file-saver "^2.0.5"
     luxon "^3.4.3"
 
@@ -8390,7 +8390,7 @@ ember-truth-helpers@^4.0.3:
     "@embroider/addon-shim" "^1.8.6"
     ember-functions-as-helper-polyfill "^2.1.2"
 
-ember-uikit@9.0.0:
+ember-uikit@9.0.0, ember-uikit@^9.0.0:
   version "9.0.0"
   resolved "https://registry.yarnpkg.com/ember-uikit/-/ember-uikit-9.0.0.tgz#4b5dda8b7413b8a60e51936eb4bfa7d66e3fb635"
   integrity sha512-zEmifiWleNmRHRd0A8I4Ylonh6lJoeUxX9w8tgrBkMtONUqe2lwQNJTbiaOEvCZQjuHyBoYjti83DnQ0FykL0Q==
