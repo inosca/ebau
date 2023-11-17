@@ -1,4 +1,11 @@
-{{#if (and this.instance.record this.validations.value)}}
+{{#if
+  (or
+    this.validations.isLoading
+    (and this.instance.isLoading (not this.instance.record))
+  )
+}}
+  <div class="uk-text-center"><UkSpinner @ratio="2" /></div>
+{{else if (and this.instance.record this.validations.value)}}
   {{#if this.validations.value.hasOpenClaims}}
     <div class="uk-alert uk-alert-warning">
       {{t "rejection.has-open-claims"}}
@@ -28,7 +35,7 @@
       <div class="uk-margin">
         <label class="uk-form-label">{{t "rejection.feedback"}}</label>
         <div class="uk-form-controls">
-          <Snippets @disabled={{not canReject}}>
+          <Snippets @disabled={{or (not canReject) (not (has-feature "rejection.snippets"))}}>
             <Textarea
               required
               id="feedback"

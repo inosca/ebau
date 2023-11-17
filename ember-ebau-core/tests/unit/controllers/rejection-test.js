@@ -2,9 +2,12 @@ import { setupMirage } from "ember-cli-mirage/test-support";
 import { module, test } from "qunit";
 
 import { setupTest } from "dummy/tests/helpers";
+import setupFeatures from "dummy/tests/helpers/features";
 import {
   CLAIMS_EMPTY,
   CLAIMS_NOT_EMPTY,
+  LEGACY_CLAIMS_EMPTY,
+  LEGACY_CLAIMS_NOT_EMPTY,
   DISTRIBUTION_EMPTY,
   DISTRIBUTION_NOT_EMPTY,
 } from "dummy/tests/unit/controllers/rejection-data";
@@ -13,6 +16,7 @@ import RejectionController from "ember-ebau-core/controllers/rejection";
 module("Unit | Controller | rejection", function (hooks) {
   setupTest(hooks);
   setupMirage(hooks);
+  setupFeatures(hooks);
 
   hooks.beforeEach(function () {
     this.owner.register("controller:rejection", RejectionController);
@@ -21,25 +25,38 @@ module("Unit | Controller | rejection", function (hooks) {
   test.each(
     "it computes validations",
     [
-      [CLAIMS_EMPTY, DISTRIBUTION_EMPTY, false, false],
-      [CLAIMS_NOT_EMPTY, DISTRIBUTION_EMPTY, true, false],
-      [CLAIMS_EMPTY, DISTRIBUTION_NOT_EMPTY, false, true],
-      [CLAIMS_NOT_EMPTY, DISTRIBUTION_NOT_EMPTY, true, true],
-    ],
-    async function (
-      assert,
       [
-        claimsResponse,
-        distributionResponse,
-        hasOpenClaims,
-        hasActiveDistribution,
+        ["rejection.useLegacyClaims"],
+        [LEGACY_CLAIMS_EMPTY, DISTRIBUTION_EMPTY],
+        { hasOpenClaims: false },
       ],
-    ) {
+      [
+        ["rejection.useLegacyClaims"],
+        [LEGACY_CLAIMS_NOT_EMPTY, DISTRIBUTION_EMPTY],
+        { hasOpenClaims: true },
+      ],
+      [[], [CLAIMS_EMPTY, DISTRIBUTION_EMPTY], { hasOpenClaims: false }],
+      [[], [CLAIMS_NOT_EMPTY, DISTRIBUTION_EMPTY], { hasOpenClaims: true }],
+      [
+        [],
+        [DISTRIBUTION_EMPTY, CLAIMS_EMPTY],
+        { hasActiveDistribution: false },
+      ],
+      [
+        [],
+        [DISTRIBUTION_NOT_EMPTY, CLAIMS_EMPTY],
+        { hasActiveDistribution: true },
+      ],
+    ],
+    async function (assert, [enabledFeatures, responses, expected]) {
+      this.features.disableAll();
+      this.features.enable(...enabledFeatures);
+
       const controller = this.owner.lookup("controller:rejection");
 
       this.server.post(
         "/graphql",
-        { data: { ...distributionResponse, ...claimsResponse } },
+        { data: responses.reduce((full, part) => ({ ...full, ...part }), {}) },
         200,
       );
 
@@ -47,9 +64,8 @@ module("Unit | Controller | rejection", function (hooks) {
       controller.validations;
       await controller.validations.fetchData.last;
 
-      assert.deepEqual(controller.validations.value, {
-        hasOpenClaims,
-        hasActiveDistribution,
+      Object.entries(expected).forEach(([key, value]) => {
+        assert.strictEqual(controller.validations.value[key], value);
       });
     },
   );

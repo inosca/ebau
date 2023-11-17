@@ -1,4 +1,7 @@
-query RejectionValidations($instanceId: GenericScalar!) {
+query RejectionValidations(
+  $instanceId: GenericScalar!
+  $useLegacyClaims: Boolean!
+) {
   distribution: allWorkItems(
     filter: [
       { task: "inquiry" }
@@ -11,9 +14,9 @@ query RejectionValidations($instanceId: GenericScalar!) {
   ) {
     totalCount
   }
-  claims: allCases(
+  legacyClaims: allCases(
     filter: [{ metaValue: { key: "camac-instance-id", value: $instanceId } }]
-  ) {
+  ) @include(if: $useLegacyClaims) {
     edges {
       node {
         id
@@ -53,5 +56,14 @@ query RejectionValidations($instanceId: GenericScalar!) {
         }
       }
     }
+  }
+  claims: allWorkItems(
+    filter: [
+      { task: "additional-demand" }
+      { rootCaseMetaValue: { key: "camac-instance-id", value: $instanceId } }
+      { status: READY }
+    ]
+  ) @skip(if: $useLegacyClaims) {
+    totalCount
   }
 }

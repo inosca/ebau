@@ -12,4 +12,8 @@ export default {
     orderTaxByRate: false,
     displayService: false,
   },
+  rejection: {
+    useLegacyClaims: true,
+    snippets: true,
+  },
 };

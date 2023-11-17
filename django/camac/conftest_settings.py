@@ -15,7 +15,7 @@ def generate_module_test_settings(module_name, cantons=[]):
     `[canton_shortname]_distribution_settings`.
     """
 
-    def generate(canton=None):
+    def generate(canton=None, disable=False):
         @pytest.fixture
         def fn(settings, request):
             original_settings = getattr(
@@ -28,6 +28,8 @@ def generate_module_test_settings(module_name, cantons=[]):
                     copy.deepcopy(request.getfixturevalue(f"{module_name}_settings")),
                     original_settings[canton],
                 )
+            elif disable:
+                new_settings = {}
             else:
                 new_settings = copy.deepcopy(original_settings["default"])
 
@@ -40,12 +42,13 @@ def generate_module_test_settings(module_name, cantons=[]):
     fixture_name = f"{module_name}_settings"
 
     setattr(sys.modules[__name__], fixture_name, generate())
+    setattr(sys.modules[__name__], f"disable_{fixture_name}", generate(disable=True))
 
     for canton in cantons:
         prefix = settings.APPLICATIONS[canton].get("SHORT_NAME")
         scoped_fixture_name = f"{prefix}_{fixture_name}"
 
-        setattr(sys.modules[__name__], scoped_fixture_name, generate(canton))
+        setattr(sys.modules[__name__], scoped_fixture_name, generate(canton=canton))
 
 
 generate_module_test_settings("appeal", ["kt_bern"])

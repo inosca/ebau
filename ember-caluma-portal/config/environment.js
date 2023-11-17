@@ -49,6 +49,7 @@ module.exports = function (environment) {
     circulationInit: 120009,
     constructionMonitoring: 120010,
     finished: 120006,
+    rejected: 120011,
   };
   const instanceStatesSo = {
     new: 1,
@@ -356,6 +357,7 @@ module.exports = function (environment) {
           instanceStatesGr.circulationInit,
           instanceStatesGr.circ,
           instanceStatesGr.inCorrection,
+          instanceStatesGr.rejected,
         ],
         constructionMonitoring: [instanceStatesGr.constructionMonitoring],
         done: [instanceStatesGr.finished],
