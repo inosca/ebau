@@ -28,7 +28,11 @@
         </th>
       {{/if}}
       <th data-test-text>{{t "billing.position"}}</th>
-      <th data-test-group>{{t "billing.group"}}</th>
+      {{#if (has-feature "billing.displayService")}}
+        <th data-test-service>{{t "billing.service"}}</th>
+      {{else}}
+        <th data-test-group>{{t "billing.group"}}</th>
+      {{/if}}
       <th data-test-user>{{t "billing.user"}}</th>
       <th data-test-amount>{{t "billing.amount"}}</th>
       <th class="uk-text-right" data-test-final-rate>{{t "billing.total"}}</th>

@@ -6,6 +6,7 @@ billing:
     organisation. La facturation doit être effectuée par chaque organisation
     participante comme auparavant.
   position: Position
+  service: Organisation
   group: Groupe
   user: Utilisateur
   amount: Forfait (CHF)

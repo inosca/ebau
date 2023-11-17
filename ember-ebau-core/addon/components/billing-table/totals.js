@@ -11,7 +11,10 @@ export default class BillingTableTotalsComponent extends Component {
           : { total: totals.total };
 
         if (hasFeature("billing.organization")) {
-          const sum = Object.values(totals).reduce((sum, v) => sum + v, 0);
+          const sum = Object.values(totals).reduce(
+            (sum, v) => sum + parseFloat(v),
+            0,
+          );
 
           if (organization !== "all" && sum === 0) {
             return filteredTotals;

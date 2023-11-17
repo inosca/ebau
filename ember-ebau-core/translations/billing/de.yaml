@@ -5,6 +5,7 @@ billing:
     automatisch an die Verrechnungsstellen der Organisation weitergleitet. Die
     Rechnungsstellung muss jede beteiligte Organisation wie bisher vornehmen.
   position: Position
+  service: Organisation
   group: Gruppe
   user: Benutzer
   amount: Betrag (CHF)

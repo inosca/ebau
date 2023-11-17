@@ -413,5 +413,48 @@
       "municipality-clerk": ["construction-monitoring", "decision", "finished"],
       "municipality-lead": ["construction-monitoring", "decision", "finished"]
     }
+  },
+  "15": {
+    "label": "Gebühren",
+    "acls": {
+      "municipality-clerk": [
+        "construction-monitoring",
+        "correction",
+        "decision",
+        "distribution",
+        "finished",
+        "init-distribution",
+        "material-exam",
+        "subm"
+      ],
+      "municipality-lead": [
+        "construction-monitoring",
+        "correction",
+        "decision",
+        "distribution",
+        "finished",
+        "init-distribution",
+        "material-exam",
+        "subm"
+      ],
+      "service-clerk": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished"
+      ],
+      "service-lead": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished"
+      ],
+      "subservice": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished"
+      ]
+    }
   }
 }
