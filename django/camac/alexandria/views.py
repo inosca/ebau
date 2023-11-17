@@ -25,3 +25,11 @@ class PatchedDocumentViewSet(views.DocumentViewSet):
 
 class PatchedFileViewSet(views.FileViewSet):
     permission_classes = [DefaultPermission | PublicationPermission]
+
+
+class PatchedTagViewSet(views.TagViewSet):
+    filter_backends = [
+        PatchedSearch,
+        OrderingFilter,
+        PatchedDjangoFilterBackend,
+    ]
