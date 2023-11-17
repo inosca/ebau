@@ -36,7 +36,6 @@ def be_dms_config(settings):
     ]
     settings.APPLICATION_NAME = "kt_bern"
     settings.INTERNAL_BASE_URL = "http://ebau.local"
-    settings.INTERNAL_INSTANCE_URL_TEMPLATE = "http://ebau.local/index/redirect-to-instance-resource/instance-id/{instance_id}"
     yield
     settings.LANGUAGES = original_languages
 
@@ -51,9 +50,6 @@ def gr_dms_config(settings):
     ]
     settings.APPLICATION_NAME = "kt_gr"
     settings.INTERNAL_BASE_URL = "http://ember-ebau.local"
-    settings.INTERNAL_INSTANCE_URL_TEMPLATE = (
-        "http://ember-ebau.local/cases/{instance_id}"
-    )
     yield
     settings.LANGUAGES = original_languages
 
@@ -288,6 +284,7 @@ def test_dms_placeholders(
     be_dms_config,
     be_decision_settings,
 ):
+    application_settings["INTERNAL_FRONTEND"] = "camac"
     application_settings["MUNICIPALITY_DATA_SHEET"] = settings.ROOT_DIR(
         "kt_bern",
         pathlib.Path(settings.APPLICATIONS["kt_bern"]["MUNICIPALITY_DATA_SHEET"]).name,
@@ -601,6 +598,7 @@ def test_dms_placeholders_empty(
     snapshot,
     be_dms_config,
 ):
+    application_settings["INTERNAL_FRONTEND"] = "camac"
     application_settings["MUNICIPALITY_DATA_SHEET"] = settings.ROOT_DIR(
         "kt_bern",
         pathlib.Path(settings.APPLICATIONS["kt_bern"]["MUNICIPALITY_DATA_SHEET"]).name,
