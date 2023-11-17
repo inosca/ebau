@@ -489,9 +489,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
             )
 
         return build_url(
-            settings.INTERNAL_BASE_URL,
-            "/cases/",
-            instance.pk,
+            instance.get_internal_url(),
             "/distribution/",
             self.inquiry.case.pk,
             "from",
@@ -532,7 +530,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         return CalumaApi().get_dossier_number(instance) or "-"
 
     def get_internal_dossier_link(self, instance):
-        return settings.INTERNAL_INSTANCE_URL_TEMPLATE.format(instance_id=instance.pk)
+        return instance.get_internal_url()
 
     def get_public_dossier_link(self, instance):
         return settings.PUBLIC_INSTANCE_URL_TEMPLATE.format(instance_id=instance.pk)
