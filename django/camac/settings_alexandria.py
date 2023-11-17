@@ -14,12 +14,14 @@ ALEXANDRIA = {
             "marks",
             "files",
         },
+        "TAG_VISIBILITY": "all",
     },
     "kt_gr": {
         "ENABLED": True,
     },
     "kt_so": {
         "ENABLED": True,
+        "TAG_VISIBILITY": "service-subservice",
     },
     "test": {
         "ENABLED": True,
