@@ -1,14 +1,12 @@
 import Route from "@ember/routing/route";
 import { inject as service } from "@ember/service";
-import { macroCondition, getOwnConfig } from "@embroider/macros";
+import { hasFeature } from "ember-ebau-core/helpers/has-feature";
 
 export default class PublicInstancesDetailFormRoute extends Route {
   @service router;
 
   redirectTo() {
-    if (macroCondition(getOwnConfig().enablePublicationForm)) {
-      // do nothing
-    } else {
+    if (!hasFeature("publication.form")) {
       return this.router.replaceWith("public-instances.detail.index");
     }
   }

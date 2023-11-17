@@ -1,4 +1,4 @@
-{{#if (macroCondition (macroGetOwnConfig "enablePublicationForm"))}}{{else}}
+{{#if (not (has-feature "publication.form"))}}
   <h1>{{t "publicInstancesDetail.documents"}}</h1>
 {{/if}}
 
