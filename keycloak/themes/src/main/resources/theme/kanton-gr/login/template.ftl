@@ -42,8 +42,14 @@
 
 <body class="${properties.kcBodyClass!}">
   <div class="${properties.kcLoginClass!}">
-    <div class="copyright">
-       <a href="https://www.andreabadrutt.ch/" target="_blank" rel="noopener noreferrer">© Andrea Badrutt</a>
+    <div class="footer">
+      <a class="copyright" href="https://www.andreabadrutt.ch/" target="_blank" rel="noopener noreferrer">© Andrea Badrutt</a>
+      <div class="footer-content">
+        <div class="uk-container uk-container-small uk-flex uk-flex-right">
+          <a class="uk-margin-right"href="https://pcloud.gr.ch/s/Datenschutzerklaerung-eBau-GR/download/Datenschutzerklärung_eBau_GR.pdf">Datenschutzerklärung</a>
+          <a href="https://pcloud.gr.ch/s/Disclaimer-eBau-GR/download/Disclaimer_eBau_gr.pdf">Disclaimer</a>
+        </div>
+      </div>
     </div>
     <div id="kc-header" class="${properties.kcHeaderClass!}">
       <div id="kc-header-wrapper" class="${properties.kcHeaderWrapperClass!}">
