@@ -181,17 +181,23 @@ h1 {
   background-image: url("../img/wappen.png");
 }
 
-.copyright {
+.footer {
   position: absolute;
   bottom: 0;
   font-size: 12px;
-  padding: 0.5rem;
+  padding: 0;
+  margin: 0;
+  width: 100%;
 }
 
-.copyright a {
-  color: black;
+a.copyright {
+  color: white;
   font-weight: 400;
-  text-shadow: 0 0 3px white;
+  text-shadow: 0 0 3px black;
+}
+
+a.copyright:hover {
+  color: darken($transparent-white, 5%);
 }
 
 ul.nav {
@@ -227,4 +233,9 @@ ul.nav {
 a#kc-current-locale-link::after {
   content: "\2c5";
   margin-left: 4px;
+}
+
+.footer-content {
+  background-color: white;
+  padding: 1rem;
 }
