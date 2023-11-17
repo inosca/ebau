@@ -37,13 +37,11 @@ export default class CommunicationNewTopicComponent extends Component {
       )
       .map((service) => ({ id: service.get("id"), name: service.name }));
 
-    // We are a Leitbehörde so we add the applicant to the list
-    if (this.abilities.can("involve applicant on topic", this.topic)) {
-      services.push({
-        id: "APPLICANT",
-        name: this.intl.t("communications.new.applicant"),
-      });
-    }
+    // Any involved authority can add applicant to the list
+    services.push({
+      id: "APPLICANT",
+      name: this.intl.t("communications.new.applicant"),
+    });
 
     return services;
   }
