@@ -26,6 +26,7 @@
                 "permission": "create"
               },
               {
+                "scope": "Service",
                 "fields": [
                   "title",
                   "description",
@@ -33,12 +34,11 @@
                   "category",
                   "files"
                 ],
-                "scope": "Service",
                 "permission": "update"
               },
               {
-                "fields": ["tags"],
                 "scope": "All",
+                "fields": ["tags"],
                 "permission": "update"
               },
               {
@@ -81,6 +81,7 @@
                 "permission": "create"
               },
               {
+                "scope": "Service",
                 "fields": [
                   "title",
                   "description",
@@ -88,12 +89,11 @@
                   "category",
                   "files"
                 ],
-                "scope": "Service",
                 "permission": "update"
               },
               {
-                "fields": ["tags"],
                 "scope": "All",
+                "fields": ["tags"],
                 "permission": "update"
               },
               {
@@ -117,6 +117,7 @@
                 "permission": "create"
               },
               {
+                "scope": "Service",
                 "fields": [
                   "title",
                   "description",
@@ -124,12 +125,11 @@
                   "category",
                   "files"
                 ],
-                "scope": "Service",
                 "permission": "update"
               },
               {
-                "fields": ["tags"],
                 "scope": "All",
+                "fields": ["tags"],
                 "permission": "update"
               },
               {
@@ -149,8 +149,8 @@
                 "permission": "update"
               },
               {
-                "fields": ["tags"],
                 "scope": "All",
+                "fields": ["tags"],
                 "permission": "update"
               },
               {
@@ -194,6 +194,7 @@
                 "permission": "create"
               },
               {
+                "scope": "Service",
                 "fields": [
                   "title",
                   "description",
@@ -201,12 +202,11 @@
                   "category",
                   "files"
                 ],
-                "scope": "Service",
                 "permission": "update"
               },
               {
-                "fields": ["tags"],
                 "scope": "All",
+                "fields": ["tags"],
                 "permission": "update"
               },
               {
@@ -235,6 +235,7 @@
             "visibility": "all",
             "permissions": [
               {
+                "scope": "Service",
                 "fields": [
                   "title",
                   "description",
@@ -243,10 +244,10 @@
                   "tags",
                   "files"
                 ],
-                "scope": "Service",
                 "permission": "create"
               },
               {
+                "scope": "Service",
                 "fields": [
                   "title",
                   "description",
@@ -254,12 +255,11 @@
                   "category",
                   "files"
                 ],
-                "scope": "Service",
                 "permission": "update"
               },
               {
-                "fields": ["tags"],
                 "scope": "All",
+                "fields": ["tags"],
                 "permission": "update"
               },
               {
@@ -292,8 +292,8 @@
             "visibility": "all",
             "permissions": [
               {
-                "fields": ["tags"],
                 "scope": "All",
+                "fields": ["tags"],
                 "permission": "update"
               }
             ]
@@ -302,8 +302,8 @@
             "visibility": "all",
             "permissions": [
               {
-                "fields": ["tags"],
                 "scope": "All",
+                "fields": ["tags"],
                 "permission": "update"
               }
             ]
@@ -347,8 +347,8 @@
             "visibility": "all",
             "permissions": [
               {
-                "fields": ["tags"],
                 "scope": "All",
+                "fields": ["tags"],
                 "permission": "update"
               }
             ]
@@ -357,8 +357,8 @@
             "visibility": "all",
             "permissions": [
               {
-                "fields": ["tags"],
                 "scope": "All",
+                "fields": ["tags"],
                 "permission": "update"
               }
             ]
@@ -490,6 +490,7 @@
                 "permission": "create"
               },
               {
+                "scope": "Service",
                 "fields": [
                   "title",
                   "description",
@@ -497,12 +498,11 @@
                   "category",
                   "files"
                 ],
-                "scope": "Service",
                 "permission": "update"
               },
               {
-                "fields": ["tags"],
                 "scope": "All",
+                "fields": ["tags"],
                 "permission": "update"
               },
               {
@@ -542,6 +542,7 @@
                 "permission": "create"
               },
               {
+                "scope": "Service",
                 "fields": [
                   "title",
                   "description",
@@ -549,12 +550,11 @@
                   "category",
                   "files"
                 ],
-                "scope": "Service",
                 "permission": "update"
               },
               {
-                "fields": ["tags"],
                 "scope": "All",
+                "fields": ["tags"],
                 "permission": "update"
               },
               {
@@ -578,6 +578,7 @@
                 "permission": "create"
               },
               {
+                "scope": "Service",
                 "fields": [
                   "title",
                   "description",
@@ -585,12 +586,11 @@
                   "category",
                   "files"
                 ],
-                "scope": "Service",
                 "permission": "update"
               },
               {
-                "fields": ["tags"],
                 "scope": "All",
+                "fields": ["tags"],
                 "permission": "update"
               },
               {
@@ -610,8 +610,8 @@
                 "permission": "update"
               },
               {
-                "fields": ["tags"],
                 "scope": "All",
+                "fields": ["tags"],
                 "permission": "update"
               },
               {
@@ -655,6 +655,7 @@
                 "permission": "create"
               },
               {
+                "scope": "Service",
                 "fields": [
                   "title",
                   "description",
@@ -663,7 +664,6 @@
                   "tags",
                   "files"
                 ],
-                "scope": "Service",
                 "permission": "update"
               },
               {
@@ -687,6 +687,7 @@
                 "permission": "create"
               },
               {
+                "scope": "Service",
                 "fields": [
                   "title",
                   "description",
@@ -695,7 +696,6 @@
                   "tags",
                   "files"
                 ],
-                "scope": "Service",
                 "permission": "update"
               },
               {
@@ -735,6 +735,7 @@
                 "permission": "create"
               },
               {
+                "scope": "Service",
                 "fields": [
                   "title",
                   "description",
@@ -743,7 +744,6 @@
                   "tags",
                   "files"
                 ],
-                "scope": "Service",
                 "permission": "update"
               },
               {
@@ -767,6 +767,7 @@
                 "permission": "create"
               },
               {
+                "scope": "Service",
                 "fields": [
                   "title",
                   "description",
@@ -775,7 +776,6 @@
                   "tags",
                   "files"
                 ],
-                "scope": "Service",
                 "permission": "update"
               },
               {
@@ -799,6 +799,7 @@
                 "permission": "create"
               },
               {
+                "scope": "Service",
                 "fields": [
                   "title",
                   "description",
@@ -807,7 +808,6 @@
                   "tags",
                   "files"
                 ],
-                "scope": "Service",
                 "permission": "update"
               },
               {
@@ -840,8 +840,8 @@
             "visibility": "all",
             "permissions": [
               {
-                "fields": ["tags"],
                 "scope": "All",
+                "fields": ["tags"],
                 "permission": "update"
               }
             ]
@@ -885,8 +885,8 @@
             "visibility": "all",
             "permissions": [
               {
-                "fields": ["tags"],
                 "scope": "All",
+                "fields": ["tags"],
                 "permission": "update"
               }
             ]
@@ -895,8 +895,8 @@
             "visibility": "all",
             "permissions": [
               {
-                "fields": ["tags"],
                 "scope": "All",
+                "fields": ["tags"],
                 "permission": "update"
               }
             ]
@@ -925,8 +925,8 @@
             "visibility": "all",
             "permissions": [
               {
-                "fields": ["tags"],
                 "scope": "All",
+                "fields": ["tags"],
                 "permission": "update"
               }
             ]
@@ -946,6 +946,7 @@
                 "permission": "create"
               },
               {
+                "scope": "Service",
                 "fields": [
                   "title",
                   "description",
@@ -953,12 +954,11 @@
                   "category",
                   "files"
                 ],
-                "scope": "Service",
                 "permission": "update"
               },
               {
-                "fields": ["tags"],
                 "scope": "All",
+                "fields": ["tags"],
                 "permission": "update"
               },
               {
@@ -1001,6 +1001,7 @@
                 "permission": "create"
               },
               {
+                "scope": "Service",
                 "fields": [
                   "title",
                   "description",
@@ -1008,12 +1009,11 @@
                   "category",
                   "files"
                 ],
-                "scope": "Service",
                 "permission": "update"
               },
               {
-                "fields": ["tags"],
                 "scope": "All",
+                "fields": ["tags"],
                 "permission": "update"
               },
               {
@@ -1060,6 +1060,7 @@
                 "permission": "create"
               },
               {
+                "scope": "Service",
                 "fields": [
                   "title",
                   "description",
@@ -1067,12 +1068,11 @@
                   "category",
                   "files"
                 ],
-                "scope": "Service",
                 "permission": "update"
               },
               {
-                "fields": ["tags"],
                 "scope": "All",
+                "fields": ["tags"],
                 "permission": "update"
               },
               {
@@ -1085,8 +1085,8 @@
             "visibility": "all",
             "permissions": [
               {
-                "fields": ["tags"],
                 "scope": "All",
+                "fields": ["tags"],
                 "permission": "update"
               }
             ]
@@ -1118,8 +1118,8 @@
                 "permission": "update"
               },
               {
-                "fields": ["tags"],
                 "scope": "All",
+                "fields": ["tags"],
                 "permission": "update"
               },
               {
