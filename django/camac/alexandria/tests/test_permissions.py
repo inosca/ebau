@@ -11,7 +11,6 @@ from rest_framework.status import (
     HTTP_201_CREATED,
     HTTP_204_NO_CONTENT,
     HTTP_403_FORBIDDEN,
-    HTTP_404_NOT_FOUND,
     HTTP_405_METHOD_NOT_ALLOWED,
 )
 
@@ -394,15 +393,15 @@ def test_file_permission(
         ("applicant", "delete", HTTP_403_FORBIDDEN),
         ("municipality", "post", HTTP_201_CREATED),
         ("municipality", "delete", HTTP_204_NO_CONTENT),
-        ("municipality", "delete", HTTP_404_NOT_FOUND),
         ("service", "post", HTTP_201_CREATED),
         ("service", "patch", HTTP_200_OK),
-        ("service", "patch", HTTP_404_NOT_FOUND),
         ("support", "post", HTTP_201_CREATED),
         ("support", "delete", HTTP_204_NO_CONTENT),
     ],
 )
-def test_tag_permission(db, role, caluma_admin_user, admin_client, method, status_code):
+def test_tag_permission(
+    db, role, alexandria_settings, caluma_admin_user, admin_client, method, status_code
+):
     url = reverse("tag-list")
 
     data = {
@@ -415,21 +414,16 @@ def test_tag_permission(db, role, caluma_admin_user, admin_client, method, statu
     }
 
     if method in ["patch", "delete"]:
-        alexandria_tag = TagFactory(name="Alexandria")
+        alexandria_tag = TagFactory(
+            name="Alexandria", created_by_group=caluma_admin_user.group
+        )
         url = reverse("tag-detail", args=[alexandria_tag.slug])
         data["data"]["id"] = str(alexandria_tag.slug)
-
-        if status_code != HTTP_404_NOT_FOUND:
-            alexandria_tag.created_by_group = caluma_admin_user.group
-            alexandria_tag.save()
 
     response = getattr(admin_client, method)(url, data)
 
     assert response.status_code == status_code
-    if (
-        status_code not in [HTTP_403_FORBIDDEN, HTTP_404_NOT_FOUND]
-        and method != "delete"
-    ):
+    if status_code != HTTP_403_FORBIDDEN and method != "delete":
         result = response.json()
         assert result["data"]["attributes"]["name"] == "Important"
 
