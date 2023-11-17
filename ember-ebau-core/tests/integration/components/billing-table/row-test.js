@@ -34,13 +34,16 @@ module("Integration | Component | billing-table/row", function (hooks) {
 
     this.entry = await this.owner
       .lookup("service:store")
-      .findRecord("billing-v2-entry", entry.id, { include: "group,user" });
+      .findRecord("billing-v2-entry", entry.id, {
+        include: "user,group,group.service",
+      });
 
     this.owner.lookup("service:ebau-modules").serviceId = service.id;
   });
 
   test("it renders", async function (assert) {
     this.features.enable("billing.charge", "billing.organization");
+    this.features.disable("billing.displayService");
     await render(hbs`<BillingTable::Row @entry={{this.entry}} />`);
 
     assert.dom("tr").exists({ count: 1 });
@@ -78,6 +81,15 @@ module("Integration | Component | billing-table/row", function (hooks) {
     stub(BillingV2EntryAbility.prototype, "canEdit").get(() => false);
     await render(hbs`<BillingTable::Row @entry={{this.entry}} />`);
     assert.dom("td[data-test-entry-delete]").doesNotExist();
+  });
+
+  test("it displays service instead of group if configured", async function (assert) {
+    this.features.enable("billing.displayService");
+    await render(hbs`<BillingTable::Row @entry={{this.entry}} />`);
+    assert.dom("td[data-test-entry-group]").doesNotExist();
+    assert
+      .dom("td[data-test-entry-service]")
+      .hasText(this.entry.get("group.service.name"));
   });
 
   test("it can delete", async function (assert) {

@@ -32,6 +32,7 @@ module("Integration | Component | billing-table", function (hooks) {
 
   test("it renders", async function (assert) {
     this.features.enable("billing.charge", "billing.organization");
+    this.features.disable("billing.displayService");
 
     await render(hbs`<BillingTable
       @entries={{this.entries}}
@@ -66,6 +67,20 @@ module("Integration | Component | billing-table", function (hooks) {
 
     assert.dom("tbody tr").exists({ count: 5 });
     assert.dom("tfoot tr").exists({ count: 9 });
+  });
+
+  test("it displays service instead of group if configured", async function (assert) {
+    this.features.enable("billing.displayService");
+
+    await render(hbs`<BillingTable
+      @entries={{this.entries}}
+      @onToggleAll={{this.noop}}
+      @onToggleRow={{this.noop}}
+      @onRefresh={{this.noop}}
+    />`);
+
+    assert.dom("th[data-test-group]").doesNotExist();
+    assert.dom("th[data-test-service]").hasText("t:billing.service:()");
   });
 
   test("it can hide charged entries", async function (assert) {
