@@ -15,6 +15,7 @@ class PatchedSearch(MultilingualSearchFilter):
 
 
 class PatchedDocumentViewSet(views.DocumentViewSet):
+    swagger_schema = None
     permission_classes = [DefaultPermission | PublicationPermission]
     filter_backends = [
         PatchedSearch,
@@ -24,12 +25,22 @@ class PatchedDocumentViewSet(views.DocumentViewSet):
 
 
 class PatchedFileViewSet(views.FileViewSet):
+    swagger_schema = None
     permission_classes = [DefaultPermission | PublicationPermission]
 
 
 class PatchedTagViewSet(views.TagViewSet):
+    swagger_schema = None
     filter_backends = [
         PatchedSearch,
         OrderingFilter,
         PatchedDjangoFilterBackend,
     ]
+
+
+class PatchedCategoryViewSet(views.CategoryViewSet):
+    swagger_schema = None
+
+
+class PatchedTagSynonymGroupViewSet(views.TagSynonymGroupViewSet):
+    swagger_schema = None
