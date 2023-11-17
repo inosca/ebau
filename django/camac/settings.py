@@ -3678,13 +3678,6 @@ PUBLIC_INSTANCE_URL_TEMPLATE = env.str(
     "DJANGO_PUBLIC_INSTANCE_URL_TEMPLATE",
     default=build_url(PUBLIC_BASE_URL, "/instances/{instance_id}"),
 )
-INTERNAL_INSTANCE_URL_TEMPLATE = env.str(
-    "DJANGO_INTERNAL_INSTANCE_URL_TEMPLATE",
-    default=build_url(
-        INTERNAL_BASE_URL,
-        "/index/redirect-to-instance-resource/instance-id/{instance_id}",
-    ),
-)
 
 # Logging
 

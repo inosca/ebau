@@ -735,6 +735,7 @@ def test_notification_placeholders(
 @pytest.mark.django_db(transaction=True, reset_sequences=True)
 def test_notification_caluma_placeholders(
     db,
+    application_settings,
     settings,
     active_inquiry_factory,
     admin_client,
@@ -753,8 +754,8 @@ def test_notification_caluma_placeholders(
     be_decision_settings,
 ):
     # make sure that tests also run locally when INTERNAL_BASE_URL might be something else
+    application_settings["INTERNAL_FRONTEND"] = "camac"
     settings.INTERNAL_BASE_URL = "http://ebau.local"
-    settings.INTERNAL_INSTANCE_URL_TEMPLATE = "http://ebau.local/index/redirect-to-instance-resource/instance-id/{instance_id}"
     notification_template.body = """
         BASE_URL: {{BASE_URL}}
         EBAU_NUMBER: {{EBAU_NUMBER}}

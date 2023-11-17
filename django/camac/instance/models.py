@@ -7,6 +7,7 @@ from django.db import models
 from camac.core.models import HistoryActionConfig
 from camac.user.models import User
 from camac.user.permissions import get_role_name
+from camac.utils import build_url
 
 from ..core import models as core_models
 
@@ -240,6 +241,13 @@ class Instance(models.Model):
             self.previous_instance_state = self.instance_state
             self.instance_state = InstanceState.objects.get(name=instance_state_name)
             self.save(update_fields=["previous_instance_state", "instance_state"])
+
+    def get_internal_url(self):
+        path = "/cases/"
+        if settings.APPLICATION["INTERNAL_FRONTEND"] == "camac":
+            path = "/index/redirect-to-instance-resource/instance-id/"
+
+        return build_url(settings.INTERNAL_BASE_URL, path, self.pk)
 
     class Meta:
         managed = True

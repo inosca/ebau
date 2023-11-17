@@ -1072,7 +1072,7 @@ class BeDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         return municipalities.get(municipality, "")
 
     def get_dossier_link(self, instance):
-        return settings.INTERNAL_INSTANCE_URL_TEMPLATE.format(instance_id=instance.pk)
+        return instance.get_internal_url()
 
     def get_inventar(self, instance):
         inventory = []
