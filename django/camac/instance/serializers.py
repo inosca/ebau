@@ -1192,13 +1192,15 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         source_instance = source_case.instance if source_case else None
 
         if (
-            source_instance
-            and source_instance.instance_state.name == "rejected"
+            settings.REJECTION
+            and source_instance
+            and source_instance.instance_state.name
+            == settings.REJECTION["INSTANCE_STATE"]
             and not caluma_api.is_modification(instance)
         ):
             source_instance.previous_instance_state = source_instance.instance_state
             source_instance.instance_state = models.InstanceState.objects.get(
-                name=settings.APPLICATION["INSTANCE_STATE_REJECTION_COMPLETE"]
+                name=settings.REJECTION["INSTANCE_STATE_REJECTION_COMPLETE"]
             )
             source_instance.save()
 
@@ -1208,7 +1210,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             create_history_entry(
                 source_instance,
                 self.context["request"].user,
-                gettext_noop("Dossier completed by resubmission"),
+                settings.REJECTION["HISTORY_ENTRIES"]["COMPLETE"],
             )
 
     def _complete_submit_work_item(self, instance):

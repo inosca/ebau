@@ -1,0 +1,384 @@
+{
+  "2000000": {
+    "label": "Meine Dossiers (Dossier list for Leitbehörde (Caluma)) > Aufgaben",
+    "acls": {
+      "municipality-lead": [
+        "circulation",
+        "construction-monitoring",
+        "correction",
+        "decision",
+        "finished",
+        "init-distribution",
+        "new",
+        "rejected",
+        "subm"
+      ]
+    }
+  },
+  "2000001": {
+    "label": "Meine Dossiers (Dossier list for Leitbehörde (Caluma)) > Formular",
+    "acls": {
+      "municipality-lead": [
+        "circulation",
+        "construction-monitoring",
+        "correction",
+        "decision",
+        "finished",
+        "init-distribution",
+        "new",
+        "rejected",
+        "subm"
+      ]
+    }
+  },
+  "2000002": {
+    "label": "Meine Dossiers (Dossier list for Leitbehörde (Caluma)) > Vorläufige Prüfung",
+    "acls": {
+      "municipality-lead": [
+        "circulation",
+        "construction-monitoring",
+        "decision",
+        "init-distribution",
+        "rejected",
+        "subm"
+      ]
+    }
+  },
+  "2000003": {
+    "label": "Meine Dossiers (Dossier list for Services (Caluma)) > Dokumente",
+    "acls": {
+      "service-lead": ["circulation", "decision", "finished"]
+    }
+  },
+  "2000004": {
+    "label": "Meine Dossiers (Dossier list for Subservices (Caluma)) > Dokumente",
+    "acls": {
+      "subservice": [
+        "circulation",
+        "correction",
+        "decision",
+        "finished",
+        "init-distribution",
+        "new",
+        "subm"
+      ]
+    }
+  },
+  "2000005": {
+    "label": "Meine Dossiers (Dossier list for Services (Caluma)) > Nachforderungen",
+    "acls": {
+      "service-lead": ["circulation", "decision"]
+    }
+  },
+  "2000006": {
+    "label": "Meine Dossiers (Dossier list for Leitbehörde (Caluma)) > Bauabnahme",
+    "acls": {
+      "municipality-lead": ["construction-monitoring", "finished"]
+    }
+  },
+  "12000000": {
+    "label": "Meine Dossiers (Dossier list for Subservices (Caluma)) > Aufgaben",
+    "acls": {
+      "subservice": ["circulation", "decision", "finished"]
+    }
+  },
+  "12000001": {
+    "label": "Meine Dossiers (Dossier list for Subservices (Caluma)) > Formular",
+    "acls": {
+      "applicant": ["decision"],
+      "subservice": ["circulation", "finished"]
+    }
+  },
+  "12000002": {
+    "label": "Meine Dossiers (Dossier list for Subservices (Caluma)) > History",
+    "acls": {
+      "subservice": ["circulation", "decision", "finished"]
+    }
+  },
+  "12000003": {
+    "label": "Meine Dossiers (Dossier list for Subservices (Caluma)) > Journal",
+    "acls": {
+      "subservice": ["circulation", "decision", "finished"]
+    }
+  },
+  "12000004": {
+    "label": "Meine Dossiers (Dossier list for Subservices (Caluma)) > Vorlagen",
+    "acls": {
+      "subservice": ["circulation", "decision", "finished"]
+    }
+  },
+  "12000005": {
+    "label": "Meine Dossiers (Dossier list for Subservices (Caluma)) > Zirkulation",
+    "acls": {
+      "subservice": ["circulation", "decision", "finished"]
+    }
+  },
+  "12000006": {
+    "label": "Meine Dossiers (Dossier list for Leitbehörde (Caluma)) > Publikation",
+    "acls": {
+      "municipality-admin": ["construction-monitoring"],
+      "municipality-lead": [
+        "circulation",
+        "decision",
+        "init-distribution",
+        "rejected"
+      ]
+    }
+  },
+  "12000007": {
+    "label": "Alle Dossiers (Admin-Liste für Support) > Dokumente",
+    "acls": {
+      "support": [
+        "circulation",
+        "correction",
+        "decision",
+        "finished",
+        "init-distribution",
+        "new",
+        "rejected",
+        "subm"
+      ]
+    }
+  },
+  "12000008": {
+    "label": "Meine Dossiers (Dossier list for Leitbehörde (Caluma)) > Zuständigkeit",
+    "acls": {
+      "municipality-lead": [
+        "circulation",
+        "construction-monitoring",
+        "correction",
+        "decision",
+        "finished",
+        "init-distribution",
+        "rejected",
+        "subm"
+      ]
+    }
+  },
+  "12000009": {
+    "label": "Meine Dossiers (Dossier list for Services (Caluma)) > Zuständigkeit",
+    "acls": {
+      "service-lead": [
+        "circulation",
+        "construction-monitoring",
+        "decision",
+        "finished",
+        "init-distribution"
+      ]
+    }
+  },
+  "12000010": {
+    "label": "Alle Dossiers (Admin-Liste für Support) > Zuständigkeit",
+    "acls": {
+      "support": [
+        "circulation",
+        "construction-monitoring",
+        "correction",
+        "decision",
+        "finished",
+        "init-distribution",
+        "new",
+        "rejected",
+        "subm"
+      ]
+    }
+  },
+  "12000011": {
+    "label": "Meine Dossiers (Dossier list for Subservices (Caluma)) > Zuständigkeit",
+    "acls": {
+      "subservice": [
+        "circulation",
+        "construction-monitoring",
+        "decision",
+        "finished",
+        "init-distribution"
+      ]
+    }
+  },
+  "14000001": {
+    "label": "Meine Dossiers (Dossier list for Services (Caluma)) > Formular",
+    "acls": {
+      "service-lead": ["circulation", "decision", "finished", "subm"]
+    }
+  },
+  "14000002": {
+    "label": "Meine Dossiers (Dossier list for Services (Caluma)) > Aufgaben",
+    "acls": {
+      "service-lead": ["circulation", "decision", "finished", "subm"]
+    }
+  },
+  "14000003": {
+    "label": "Alle Dossiers (Admin-Liste für Support) > Aufgaben",
+    "acls": {
+      "support": ["new", "rejected", "subm"]
+    }
+  },
+  "14000004": {
+    "label": "Alle Dossiers (Admin-Liste für Support) > Formular",
+    "acls": {
+      "support": ["new", "rejected", "subm"]
+    }
+  },
+  "14000005": {
+    "label": "Meine Dossiers (Dossier list for Leitbehörde (Caluma)) > Zirkulation",
+    "acls": {
+      "municipality-lead": [
+        "circulation",
+        "construction-monitoring",
+        "decision",
+        "init-distribution",
+        "new",
+        "rejected"
+      ]
+    }
+  },
+  "14000006": {
+    "label": "Meine Dossiers (Dossier list for Services (Caluma)) > Zirkulation",
+    "acls": {
+      "service-lead": ["circulation", "decision", "finished", "subm"]
+    }
+  },
+  "14000007": {
+    "label": "Alle Dossiers (Admin-Liste für Support) > Zirkulation",
+    "acls": {
+      "support": ["circulation", "finished", "new", "rejected", "subm"]
+    }
+  },
+  "14000008": {
+    "label": "Meine Dossiers (Dossier list for Leitbehörde (Caluma)) > Journal",
+    "acls": {
+      "municipality-lead": [
+        "circulation",
+        "construction-monitoring",
+        "correction",
+        "decision",
+        "finished",
+        "init-distribution",
+        "new",
+        "rejected",
+        "subm"
+      ]
+    }
+  },
+  "14000009": {
+    "label": "Meine Dossiers (Dossier list for Services (Caluma)) > Journal",
+    "acls": {
+      "service-lead": ["circulation", "decision", "finished", "new", "subm"]
+    }
+  },
+  "14000010": {
+    "label": "Alle Dossiers (Admin-Liste für Support) > Journal",
+    "acls": {
+      "support": ["circulation", "finished", "new", "rejected", "subm"]
+    }
+  },
+  "14000011": {
+    "label": "Meine Dossiers (Dossier list for Leitbehörde (Caluma)) > Vorlagen",
+    "acls": {
+      "municipality-lead": [
+        "circulation",
+        "construction-monitoring",
+        "correction",
+        "decision",
+        "finished",
+        "init-distribution",
+        "new",
+        "rejected",
+        "subm"
+      ]
+    }
+  },
+  "14000012": {
+    "label": "Meine Dossiers (Dossier list for Services (Caluma)) > Vorlagen",
+    "acls": {
+      "service-lead": ["circulation", "decision", "finished", "subm"]
+    }
+  },
+  "14000013": {
+    "label": "Alle Dossiers (Admin-Liste für Support) > Vorlagen",
+    "acls": {
+      "support": ["circulation", "finished", "new", "rejected", "subm"]
+    }
+  },
+  "14000014": {
+    "label": "Meine Dossiers (Dossier list for Leitbehörde (Caluma)) > Korrekturhilfen",
+    "acls": {
+      "municipality-lead": [
+        "circulation",
+        "construction-monitoring",
+        "correction",
+        "decision",
+        "init-distribution",
+        "rejected",
+        "subm"
+      ]
+    }
+  },
+  "14000016": {
+    "label": "Meine Dossiers (Dossier list for Leitbehörde (Caluma)) > Nachforderung",
+    "acls": {
+      "municipality-lead": [
+        "circulation",
+        "construction-monitoring",
+        "decision",
+        "finished",
+        "init-distribution",
+        "rejected"
+      ]
+    }
+  },
+  "15000000": {
+    "label": "Meine Dossiers (Dossier list for Leitbehörde (Caluma)) > Entscheid",
+    "acls": {
+      "municipality-lead": ["construction-monitoring", "decision"]
+    }
+  },
+  "15000001": {
+    "label": "Meine Dossiers (Dossier list for Leitbehörde (Caluma)) > Dossier zurückweisen",
+    "acls": {
+      "municipality-lead": ["init-distribution", "rejected", "subm"]
+    }
+  },
+  "18000000": {
+    "label": "Meine Dossiers (Dossier list for Leitbehörde (Caluma)) > Dokumente",
+    "acls": {
+      "municipality-lead": [
+        "circulation",
+        "construction-monitoring",
+        "correction",
+        "decision",
+        "finished",
+        "init-distribution",
+        "rejected",
+        "subm"
+      ]
+    }
+  },
+  "18000001": {
+    "label": "Meine Dossiers (Dossier list for Leitbehörde (Caluma)) > History",
+    "acls": {
+      "municipality-lead": [
+        "circulation",
+        "construction-monitoring",
+        "correction",
+        "decision",
+        "finished",
+        "init-distribution",
+        "rejected",
+        "subm"
+      ]
+    }
+  },
+  "18000002": {
+    "label": "Meine Dossiers (Dossier list for Services (Caluma)) > History",
+    "acls": {
+      "service-lead": ["circulation", "decision", "finished", "subm"]
+    }
+  },
+  "18000003": {
+    "label": "Alle Dossiers (Admin-Liste für Support) > History",
+    "acls": {
+      "support": ["circulation", "finished", "new", "rejected", "subm"]
+    }
+  }
+}

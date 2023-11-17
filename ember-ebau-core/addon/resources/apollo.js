@@ -40,6 +40,10 @@ export class ApolloQuery extends Resource {
 
     return queryData;
   });
+
+  get hasRan() {
+    return this.fetchData.lastComplete !== null;
+  }
 }
 
 export default (context, params, path, postProcess) =>
