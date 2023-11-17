@@ -70,7 +70,7 @@
                 <UkSubnav::Item @href="/support">{{t "nav.support"}}</UkSubnav::Item>
               {{/if}}
             {{/if}}
-            {{#if (or this.session.isAuthenticated (is-application "ur"))}}
+            {{#if (or this.session.isAuthenticated (has-feature "publication.disableAuthentication"))}}
               <UkSubnav::Item @href="/public-instances">
                 {{t "nav.public-instance"}}
               </UkSubnav::Item>

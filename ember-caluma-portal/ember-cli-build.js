@@ -25,8 +25,6 @@ module.exports = function (defaults) {
         enableFaq: ENV === "be",
         enableSupport: ["be", "ur", "gr"].includes(ENV),
         enableInstanceSupport: ENV === "be",
-        enablePublicationForm: ["be", "gr"].includes(ENV),
-        enablePublicationEndDate: ENV === "ur",
         enableModificationConfirm: ENV === "be",
         enableCommunications: ["be", "so"].includes(ENV),
         enableAdditionalDemand: ["gr", "so"].includes(ENV),
@@ -34,7 +32,6 @@ module.exports = function (defaults) {
         instancePaperFilterDefault: ENV === "ur",
         showProfileLink: ENV === "gr",
         documentBackendCamac: !["gr", "so"].includes(ENV),
-        useEbauNumber: ENV === "be",
         eGovPortalURL: process.env.EGOV_PORTAL_URL ?? "https://my-t.so.ch",
       },
       setConfig: {
