@@ -17426,7 +17426,7 @@
     "fields": {
       "building_authority_button": 8,
       "email_text": "URec Info\r\n\r\n(automatisch generierte E-Mail von URec, bitte nicht darauf antworten)\r\n\r\nMeldung Abnahme Schnurgerüst\r\n\r\nBeim Bauvorhaben mit der Dossier ID [INSTANCE_ID] / URec Dossier Nr. [DOSSIER_NUMBER] ist die Abnahme Schnurgerüst erfolgt.\r\n\r\n[INSTANCE_LOCATION], [DATE]",
-      "receiver_query": "gisler.martin@ur.ch",
+      "receiver_query": "[gisler.martin@ur.ch,markus.jauch@ur.ch]",
       "email_subject": "URec Dossier Nr. [DOSSIER_NUMBER]: Meldung Abnahme Schnurgerüst",
       "from_email": "urec@ur.ch",
       "from_name": "URec Info",
