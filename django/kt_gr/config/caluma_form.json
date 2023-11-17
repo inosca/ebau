@@ -3787,7 +3787,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "baugespann",
-      "sort": 4
+      "sort": 3
     }
   },
   {
@@ -3802,7 +3802,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "baugespann-erstellt-am",
-      "sort": 3
+      "sort": 2
     }
   },
   {
@@ -3817,7 +3817,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "baukosten",
-      "sort": 5
+      "sort": 4
     }
   },
   {
@@ -3837,6 +3837,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "bauvorhaben.beschreibung-bauvorhaben-details",
+    "fields": {
+      "created_at": "2023-11-16T15:43:37.394Z",
+      "modified_at": "2023-11-16T15:43:37.394Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauvorhaben",
+      "question": "beschreibung-bauvorhaben-details",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "bauvorhaben.divider",
     "fields": {
       "created_at": "2023-04-12T07:48:18.434Z",
@@ -3847,7 +3862,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "divider",
-      "sort": 8
+      "sort": 7
     }
   },
   {
@@ -3877,7 +3892,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "gebaeudekubatur",
-      "sort": 7
+      "sort": 6
     }
   },
   {
@@ -3907,7 +3922,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "kosten-pro-m3",
-      "sort": 6
+      "sort": 5
     }
   },
   {
@@ -45803,13 +45818,13 @@
     "pk": "beschreibung-bauvorhaben",
     "fields": {
       "created_at": "2019-04-12T08:18:11.316Z",
-      "modified_at": "2023-10-26T06:53:41.595Z",
+      "modified_at": "2023-11-16T15:42:49.827Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": "[]",
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Beschreibung\", \"fr\": \"Description\", \"it\": null}",
-      "type": "textarea",
+      "label": "{\"de\": \"Titel des Vorhabens\", \"fr\": \"Description\", \"it\": null}",
+      "type": "text",
       "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
@@ -45819,6 +45834,40 @@
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": 1000,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "beschreibung-bauvorhaben-details",
+    "fields": {
+      "created_at": "2023-11-16T15:43:37.230Z",
+      "modified_at": "2023-11-16T15:43:37.230Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschreibung\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
         "min_length": null
       },
       "meta": {},
