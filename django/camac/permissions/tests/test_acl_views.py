@@ -175,13 +175,14 @@ def test_create_acl(
 
 
 @pytest.mark.parametrize(
-    "role__name, end_time, expect_success",
+    "role__name, end_time, is_responsible_service, expect_success",
     [
-        ("Municipality", None, True),
-        ("Support", None, False),
-        ("Municipality", timezone.now(), False),
-        ("Municipality", timezone.now() + timedelta(days=5), True),
-        ("Municipality", timezone.now() - timedelta(days=5), False),
+        ("Municipality", None, True, True),
+        ("Municipality", None, False, False),
+        ("Support", None, True, False),
+        ("Municipality", timezone.now(), True, False),
+        ("Municipality", timezone.now() + timedelta(days=5), True, True),
+        ("Municipality", timezone.now() - timedelta(days=5), True, False),
     ],
 )
 def test_revoke_acl(
@@ -191,7 +192,9 @@ def test_revoke_acl(
     permissions_settings,
     access_level,
     service,
+    group_factory,
     end_time,
+    is_responsible_service,
     expect_success,
 ):
     the_acl = api.grant(
@@ -200,6 +203,12 @@ def test_revoke_acl(
         access_level=access_level,
         user=admin_client.user,
     )
+
+    if not is_responsible_service:
+        # The instance's responsible group (and therefore it's responsible
+        # service) should be someone else - don't care, just not *us*
+        instance.group = group_factory()
+        instance.save()
 
     url = reverse("instance-acls-revoke", args=[the_acl.pk])
     post_data = {
