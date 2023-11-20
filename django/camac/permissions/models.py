@@ -81,7 +81,7 @@ class InstanceACL(models.Model):
 
     # Duration for which the ACL is valid/active: start_time / end_time
     start_time = models.DateTimeField(
-        auto_now_add=True, help_text="At this time, the ACL becomes valid"
+        default=timezone.now, help_text="At this time, the ACL becomes valid"
     )
     end_time = models.DateTimeField(
         null=True, default=None, help_text="At this time, the ACL becomes invalid"
@@ -138,7 +138,7 @@ class InstanceACL(models.Model):
         user_filter_parts = []
 
         # If anonymous-public access is granted, it's irrelevant if we have
-        # are requesting-user or not
+        # a requesting-user or not
         user_filter_parts.append(
             models.Q(**{f"{prefix}grant_type": GRANT_CHOICES.ANONYMOUS_PUBLIC.value})
         )
