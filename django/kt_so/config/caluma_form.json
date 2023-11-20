@@ -19325,7 +19325,7 @@
     "pk": "beschreibung-tiefbaute-landschaft",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "modified_at": "2023-11-20T10:53:20.508Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -19333,11 +19333,11 @@
       "label": "{\"de\": \"Bemerkungen\", \"fr\": null, \"it\": null}",
       "type": "textarea",
       "is_required": "false",
-      "is_hidden": "!(\"tiefbau-landschaft-art\"|answer in\n\"tiefbau-landschaft-art-andere\")",
+      "is_hidden": "\"tiefbau-landschaft-art\"|answer != \"tiefbau-landschaft-art-andere\"",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -22670,7 +22670,7 @@
     "pk": "erschliessungen",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-08-30T06:37:51.901Z",
+      "modified_at": "2023-11-20T10:53:45.835Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -22678,7 +22678,7 @@
       "label": "{\"de\": \"Infrastruktur: Strassen und Wege\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "false",
-      "is_hidden": "!(\n  \"tiefbau-landschaft-art-erschliessungen\" in \"tiefbau-landschaft-art\"|answer\n)",
+      "is_hidden": "\"tiefbau-landschaft-art\"|answer != \"tiefbau-landschaft-art-erschliessungen\"",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -26266,15 +26266,15 @@
     "pk": "infrastrukturanlagen-landschaft",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-09-13T12:57:25.146Z",
+      "modified_at": "2023-11-20T10:54:07.871Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "bec90c3f-0ac3-4f9d-b4b0-af73472f0749",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Infrastruktur: Versorgung (Leitungsbau)\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "false",
-      "is_hidden": "!(\n  \"tiefbau-landschaft-art-leitungsbau\" in \"tiefbau-landschaft-art\"|answer\n)",
+      "is_hidden": "\"tiefbau-landschaft-art\"|answer != \"tiefbau-landschaft-art-leitungsbau\"",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -26297,7 +26297,7 @@
     "pk": "infrastruktur-entsorgung",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "modified_at": "2023-11-20T10:54:28.936Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -26305,11 +26305,11 @@
       "label": "{\"de\": \"Infrastruktur: Entsorgung\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "false",
-      "is_hidden": "!(\n  \"tiefbau-landschaft-art-entsorgung\" in \"tiefbau-landschaft-art\"|answer\n)",
+      "is_hidden": "\"tiefbau-landschaft-art\"|answer != \"tiefbau-landschaft-art-entsorgung\"",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -31631,7 +31631,7 @@
     "pk": "terrainveraenderungen",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-08-30T06:34:38.404Z",
+      "modified_at": "2023-11-20T10:55:04.409Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -31639,7 +31639,7 @@
       "label": "{\"de\": \"Terrainver\\u00e4nderungen\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "false",
-      "is_hidden": "!(\n  \"tiefbau-landschaft-art-terrainveraenderungen\" in \"tiefbau-landschaft-art\"|answer\n)",
+      "is_hidden": "\"tiefbau-landschaft-art\"|answer != \"tiefbau-landschaft-art-terrainveraenderungen\"",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -35718,53 +35718,53 @@
     "model": "caluma_form.questionoption",
     "pk": "erschliessungen.erschliessungen-baupiste-temporaer",
     "fields": {
-      "created_at": "2023-08-30T06:37:51.934Z",
-      "modified_at": "2023-08-30T06:37:51.934Z",
+      "created_at": "2023-11-20T10:53:45.863Z",
+      "modified_at": "2023-11-20T10:53:45.863Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "erschliessungen",
       "option": "erschliessungen-baupiste-temporaer",
-      "sort": 5
+      "sort": 4
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "erschliessungen.erschliessungen-flurweg-befahrbar",
     "fields": {
-      "created_at": "2023-08-30T06:37:51.946Z",
-      "modified_at": "2023-08-30T06:37:51.946Z",
+      "created_at": "2023-11-20T10:53:45.872Z",
+      "modified_at": "2023-11-20T10:53:45.872Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "erschliessungen",
       "option": "erschliessungen-flurweg-befahrbar",
-      "sort": 7
+      "sort": 6
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "erschliessungen.erschliessungen-fussweg",
     "fields": {
-      "created_at": "2023-08-30T06:37:51.963Z",
-      "modified_at": "2023-08-30T06:37:51.963Z",
+      "created_at": "2023-11-20T10:53:45.886Z",
+      "modified_at": "2023-11-20T10:53:45.886Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "erschliessungen",
       "option": "erschliessungen-fussweg",
-      "sort": 10
+      "sort": 9
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "erschliessungen.erschliessungen-gemeindestrasse",
     "fields": {
-      "created_at": "2023-08-30T06:37:51.911Z",
-      "modified_at": "2023-08-30T06:37:51.911Z",
+      "created_at": "2023-11-20T10:53:45.847Z",
+      "modified_at": "2023-11-20T10:53:45.847Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -35778,90 +35778,90 @@
     "model": "caluma_form.questionoption",
     "pk": "erschliessungen.erschliessungen-gueterstrasse",
     "fields": {
-      "created_at": "2023-08-30T06:37:51.926Z",
-      "modified_at": "2023-08-30T06:37:51.926Z",
+      "created_at": "2023-11-20T10:53:45.858Z",
+      "modified_at": "2023-11-20T10:53:45.858Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "erschliessungen",
       "option": "erschliessungen-gueterstrasse",
-      "sort": 4
+      "sort": 3
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "erschliessungen.erschliessungen-liegenschaftszufahrt",
     "fields": {
-      "created_at": "2023-08-30T06:37:51.939Z",
-      "modified_at": "2023-08-30T06:37:51.939Z",
+      "created_at": "2023-11-20T10:53:45.868Z",
+      "modified_at": "2023-11-20T10:53:45.868Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "erschliessungen",
       "option": "erschliessungen-liegenschaftszufahrt",
-      "sort": 6
+      "sort": 5
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "erschliessungen.erschliessungen-quartierstrasse",
     "fields": {
-      "created_at": "2023-08-30T06:37:51.920Z",
-      "modified_at": "2023-08-30T06:37:51.920Z",
+      "created_at": "2023-11-20T10:53:45.853Z",
+      "modified_at": "2023-11-20T10:53:45.853Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "erschliessungen",
       "option": "erschliessungen-quartierstrasse",
-      "sort": 3
+      "sort": 2
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "erschliessungen.erschliessungen-veloweg",
     "fields": {
-      "created_at": "2023-08-30T06:37:51.957Z",
-      "modified_at": "2023-08-30T06:37:51.957Z",
+      "created_at": "2023-11-20T10:53:45.882Z",
+      "modified_at": "2023-11-20T10:53:45.882Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "erschliessungen",
       "option": "erschliessungen-veloweg",
-      "sort": 9
+      "sort": 8
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "erschliessungen.erschliessungen-viehtriebweg",
     "fields": {
-      "created_at": "2023-08-30T06:37:51.952Z",
-      "modified_at": "2023-08-30T06:37:51.952Z",
+      "created_at": "2023-11-20T10:53:45.877Z",
+      "modified_at": "2023-11-20T10:53:45.877Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "erschliessungen",
       "option": "erschliessungen-viehtriebweg",
-      "sort": 8
+      "sort": 7
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "erschliessungen.erschliessungen-wanderweg",
     "fields": {
-      "created_at": "2023-08-30T06:37:51.971Z",
-      "modified_at": "2023-08-30T06:37:51.971Z",
+      "created_at": "2023-11-20T10:53:45.890Z",
+      "modified_at": "2023-11-20T10:53:45.890Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "erschliessungen",
       "option": "erschliessungen-wanderweg",
-      "sort": 11
+      "sort": 10
     }
   },
   {
@@ -36753,11 +36753,11 @@
     "model": "caluma_form.questionoption",
     "pk": "infrastrukturanlagen-landschaft.infrastrukturanlagen-landschaft-datenversorgung",
     "fields": {
-      "created_at": "2023-09-13T12:57:25.151Z",
-      "modified_at": "2023-09-13T12:57:25.151Z",
-      "created_by_user": "bec90c3f-0ac3-4f9d-b4b0-af73472f0749",
+      "created_at": "2023-11-20T10:54:07.881Z",
+      "modified_at": "2023-11-20T10:54:07.881Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "bec90c3f-0ac3-4f9d-b4b0-af73472f0749",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "infrastrukturanlagen-landschaft",
       "option": "infrastrukturanlagen-landschaft-datenversorgung",
@@ -36768,11 +36768,11 @@
     "model": "caluma_form.questionoption",
     "pk": "infrastrukturanlagen-landschaft.infrastrukturanlagen-landschaft-elektriziaet",
     "fields": {
-      "created_at": "2023-09-13T12:57:25.160Z",
-      "modified_at": "2023-09-13T12:57:25.160Z",
-      "created_by_user": "bec90c3f-0ac3-4f9d-b4b0-af73472f0749",
+      "created_at": "2023-11-20T10:54:07.905Z",
+      "modified_at": "2023-11-20T10:54:07.905Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "bec90c3f-0ac3-4f9d-b4b0-af73472f0749",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "infrastrukturanlagen-landschaft",
       "option": "infrastrukturanlagen-landschaft-elektriziaet",
@@ -36783,11 +36783,11 @@
     "model": "caluma_form.questionoption",
     "pk": "infrastrukturanlagen-landschaft.infrastrukturanlagen-landschaft-fernheizung",
     "fields": {
-      "created_at": "2023-09-13T12:57:25.155Z",
-      "modified_at": "2023-09-13T12:57:25.156Z",
-      "created_by_user": "bec90c3f-0ac3-4f9d-b4b0-af73472f0749",
+      "created_at": "2023-11-20T10:54:07.892Z",
+      "modified_at": "2023-11-20T10:54:07.892Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "bec90c3f-0ac3-4f9d-b4b0-af73472f0749",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "infrastrukturanlagen-landschaft",
       "option": "infrastrukturanlagen-landschaft-fernheizung",
@@ -36798,11 +36798,11 @@
     "model": "caluma_form.questionoption",
     "pk": "infrastrukturanlagen-landschaft.infrastrukturanlagen-landschaft-gas",
     "fields": {
-      "created_at": "2023-09-13T12:57:25.153Z",
-      "modified_at": "2023-09-13T12:57:25.153Z",
-      "created_by_user": "bec90c3f-0ac3-4f9d-b4b0-af73472f0749",
+      "created_at": "2023-11-20T10:54:07.886Z",
+      "modified_at": "2023-11-20T10:54:07.886Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "bec90c3f-0ac3-4f9d-b4b0-af73472f0749",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "infrastrukturanlagen-landschaft",
       "option": "infrastrukturanlagen-landschaft-gas",
@@ -36813,11 +36813,11 @@
     "model": "caluma_form.questionoption",
     "pk": "infrastrukturanlagen-landschaft.infrastrukturanlagen-landschaft-trinkwasser",
     "fields": {
-      "created_at": "2023-09-13T12:57:25.158Z",
-      "modified_at": "2023-09-13T12:57:25.158Z",
-      "created_by_user": "bec90c3f-0ac3-4f9d-b4b0-af73472f0749",
+      "created_at": "2023-11-20T10:54:07.900Z",
+      "modified_at": "2023-11-20T10:54:07.900Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "bec90c3f-0ac3-4f9d-b4b0-af73472f0749",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "infrastrukturanlagen-landschaft",
       "option": "infrastrukturanlagen-landschaft-trinkwasser",
@@ -36828,8 +36828,8 @@
     "model": "caluma_form.questionoption",
     "pk": "infrastruktur-entsorgung.infrastruktur-entsorgung-abwasser",
     "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "created_at": "2023-11-20T10:54:28.946Z",
+      "modified_at": "2023-11-20T10:54:28.946Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -38793,8 +38793,8 @@
     "model": "caluma_form.questionoption",
     "pk": "terrainveraenderungen.terrainveraenderungen-bodenverbesserung-mit-materialzufuhr",
     "fields": {
-      "created_at": "2023-08-30T06:34:38.416Z",
-      "modified_at": "2023-08-30T06:34:38.417Z",
+      "created_at": "2023-11-20T10:55:04.420Z",
+      "modified_at": "2023-11-20T10:55:04.420Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -38808,8 +38808,8 @@
     "model": "caluma_form.questionoption",
     "pk": "terrainveraenderungen.terrainveraenderungen-bodenverbesserungohne-materialzufuhr",
     "fields": {
-      "created_at": "2023-08-30T06:34:38.423Z",
-      "modified_at": "2023-08-30T06:34:38.423Z",
+      "created_at": "2023-11-20T10:55:04.426Z",
+      "modified_at": "2023-11-20T10:55:04.426Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -38823,8 +38823,8 @@
     "model": "caluma_form.questionoption",
     "pk": "terrainveraenderungen.terrainveraenderungen-deponie",
     "fields": {
-      "created_at": "2023-08-30T06:34:38.440Z",
-      "modified_at": "2023-08-30T06:34:38.440Z",
+      "created_at": "2023-11-20T10:55:04.442Z",
+      "modified_at": "2023-11-20T10:55:04.442Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -38838,8 +38838,8 @@
     "model": "caluma_form.questionoption",
     "pk": "terrainveraenderungen.terrainveraenderungen-gelaendeaufschuettung",
     "fields": {
-      "created_at": "2023-08-30T06:34:38.445Z",
-      "modified_at": "2023-08-30T06:34:38.445Z",
+      "created_at": "2023-11-20T10:55:04.447Z",
+      "modified_at": "2023-11-20T10:55:04.447Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -38853,8 +38853,8 @@
     "model": "caluma_form.questionoption",
     "pk": "terrainveraenderungen.terrainveraenderungen-kiesabbau",
     "fields": {
-      "created_at": "2023-08-30T06:34:38.435Z",
-      "modified_at": "2023-08-30T06:34:38.435Z",
+      "created_at": "2023-11-20T10:55:04.437Z",
+      "modified_at": "2023-11-20T10:55:04.437Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -38868,8 +38868,8 @@
     "model": "caluma_form.questionoption",
     "pk": "terrainveraenderungen.terrainveraenderungen-steinabbau",
     "fields": {
-      "created_at": "2023-08-30T06:34:38.429Z",
-      "modified_at": "2023-08-30T06:34:38.429Z",
+      "created_at": "2023-11-20T10:55:04.431Z",
+      "modified_at": "2023-11-20T10:55:04.431Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
