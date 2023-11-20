@@ -2311,6 +2311,7 @@ APPLICATIONS = {
                     "bezeichnung",
                     "vorhaben-proposal-description",
                     "veranstaltung-beschrieb",
+                    "beschrieb-verfahren",
                 ],
             ),
             "veranstaltung_art": (

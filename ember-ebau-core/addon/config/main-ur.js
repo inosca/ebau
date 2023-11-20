@@ -123,6 +123,7 @@ export default {
     "vorhaben-proposal-description",
     "veranstaltung-beschrieb",
     "beschreibung-reklame",
+    "beschrieb-verfahren",
   ],
   coordinationServices: [1, 87, 302, 590, 546, 545], // kantonale KOORs
 };
