@@ -85,6 +85,7 @@ def test_list_acl_view(
 
 
 @pytest.mark.parametrize("set_end_time", [True, False])
+@pytest.mark.parametrize("set_start_time", [True, False])
 @pytest.mark.parametrize(
     "role__name, responsible_for_instance, expect_success",
     [
@@ -103,12 +104,16 @@ def test_create_acl(
     group_factory,
     expect_success,
     responsible_for_instance,
+    set_start_time,
     set_end_time,
 ):
-    # TODO: For now, no modification or creation of ACLs via API is allowed.
-    # Only viewing one's own ACLs. This will change in the future when we're
-    # implementing "manual" management of ACLs.
     url = reverse("instance-acls-list")
+
+    tz = timezone.get_current_timezone()
+    if set_start_time:
+        set_start_time = datetime.now(tz=tz) + timedelta(days=5)
+    if set_end_time:
+        set_end_time = datetime.now(tz=tz) + timedelta(days=30)
 
     permissions_settings["ACCESS_LEVELS"] = {
         access_level.pk: [("foo", "*"), ("bar", "*")]
@@ -134,7 +139,10 @@ def test_create_acl(
         },
     }
     if set_end_time:
-        post_data["data"]["attributes"]["end-time"] = "2040-04-04T00:00:00Z"
+        post_data["data"]["attributes"]["end-time"] = set_end_time.isoformat()
+    if set_start_time:
+        # In the future, but still before end time
+        post_data["data"]["attributes"]["start-time"] = set_start_time.isoformat()
 
     result = admin_client.post(url, post_data)
 
@@ -147,11 +155,19 @@ def test_create_acl(
         relationships = get_dict_item(result_data, "data.relationships")
         created_by_user = get_dict_item(relationships, "created-by-user.data.id")
 
+        if set_start_time:
+            assert attrs["start-time"] == set_start_time.isoformat()
+        else:
+            # start time should be now-ish
+            created_start_time = datetime.fromisoformat(attrs["start-time"])
+            delta = timezone.now() - created_start_time
+            assert abs(delta) < timedelta(minutes=1)
+
         if set_end_time:
             assert relationships["revoked-by-service"]["data"]["id"]
             assert relationships["revoked-by-user"]["data"]["id"]
             assert attrs["revoked-by-event"]
-            assert attrs["end-time"]
+            assert attrs["end-time"] == set_end_time.isoformat()
 
         assert created_by_user == str(admin_client.user.id)
     else:

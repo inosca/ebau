@@ -1,3 +1,4 @@
+from django.utils import timezone
 from factory import Faker, LazyAttribute, Maybe, SubFactory, fuzzy
 from factory.django import DjangoModelFactory
 
@@ -35,7 +36,7 @@ class InstanceACLFactory(DjangoModelFactory):
     )
 
     end_time = None
-    start_time = None  # set by auto_add_now
+    start_time = Faker("date_time", tzinfo=timezone.get_current_timezone())
 
     access_level = SubFactory(AccessLevelFactory)
 
