@@ -735,6 +735,43 @@ def test_instance_submit_ur(
         assert ur_instance.instance_state.name == "subm"
 
 
+@pytest.mark.parametrize("instance_state__name", ["new"])
+@pytest.mark.parametrize("instance__user", [LazyFixture("admin_user")])
+def test_instance_submit_ur_without_camac_form_id(
+    admin_client,
+    ur_instance,
+    settings,
+    caluma_workflow_config_ur,
+    instance_state_factory,
+    authority_location_factory,
+):
+    settings.APPLICATION_NAME = "kt_uri"
+    instance_state_factory(name="subm")
+
+    ur_instance.case.document.answers.create(
+        value=str(ur_instance.group.locations.first().communal_federal_number),
+        question_id="municipality",
+    )
+    authority_location_factory(location=ur_instance.group.locations.first())
+
+    form = caluma_form_factories.FormFactory()
+    ur_instance.case.document.form = form
+    ur_instance.case.document.form.save()
+
+    data = {
+        "data": {
+            "type": "instances",
+            "attributes": {"caluma-form": ur_instance.case.document.form.slug},
+        }
+    }
+
+    response = admin_client.post(
+        reverse("instance-submit", args=[ur_instance.pk]), data
+    )
+
+    assert response.status_code == status.HTTP_400_BAD_REQUEST
+
+
 @pytest.mark.parametrize("service_group__name", ["coordination"])
 @pytest.mark.parametrize("submit_to", ["KOOR_BD", "KOOR_SD"])
 @pytest.mark.parametrize("instance_state__name", ["new"])
