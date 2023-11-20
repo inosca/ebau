@@ -70,6 +70,7 @@ INTENT_SLUGS = [
     "bezeichnung",
     "vorhaben-proposal-description",
     "veranstaltung-beschrieb",
+    "beschrieb-verfahren",
 ]
 
 # Question identifiers (Chapter/Question/Item) for various information that we need
