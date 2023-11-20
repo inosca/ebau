@@ -1024,6 +1024,55 @@ def test_instance_submit_pgv_gemeindestrasse_ur(
     assert ur_instance.group == koor_group
 
 
+@pytest.mark.parametrize("instance_state__name", ["new"])
+@pytest.mark.parametrize("instance__user", [LazyFixture("admin_user")])
+@pytest.mark.parametrize(
+    "role__name,service_group__name", [("Applicant", "coordination")]
+)
+def test_instance_submit_mitbericht_kanton_doesnt_send_mail(
+    mocker,
+    admin_client,
+    settings,
+    caluma_workflow_config_ur,
+    ur_instance,
+    admin_user,
+    notification_template,
+    application_settings,
+    mock_generate_and_store_pdf,
+    ech_mandatory_answers_einfache_vorabklaerung,
+    workflow_item_factory,
+    location_factory,
+    group_factory,
+    instance_state_factory,
+    service_factory,
+    authority_location_factory,
+):
+    settings.APPLICATION_NAME = "kt_uri"
+
+    mitbericht_kanton_form = caluma_form_factories.FormFactory(slug="mitbericht-kanton")
+    ur_instance.case.document.form = mitbericht_kanton_form
+    ur_instance.case.document.save()
+
+    application_settings["SET_SUBMIT_DATE_CAMAC_ANSWER"] = False
+
+    location = location_factory()
+
+    ur_instance.case.document.answers.create(
+        value=str(location.communal_federal_number), question_id="municipality"
+    )
+
+    authority_location_factory(location=location)
+
+    instance_state_factory(name="ext")
+    instance_state_factory(name="subm")
+
+    response = admin_client.post(reverse("instance-submit", args=[ur_instance.pk]))
+
+    assert response.status_code == status.HTTP_200_OK
+
+    assert len(mail.outbox) == 0
+
+
 @pytest.mark.parametrize("form_slug", ["oereb", "oereb-verfahren-gemeinde"])
 @pytest.mark.parametrize("service_group__name", [("municipality", "coordination")])
 @pytest.mark.parametrize("instance_state__name", ["new"])
