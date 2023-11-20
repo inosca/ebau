@@ -1376,6 +1376,8 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             notification_key = "SUBMIT_KOOR_BD"
         if case.document.form_id == "oereb":
             notification_key = "SUBMIT_KOOR_NP"
+        if case.document.form_id == "mitbericht-kanton":
+            return
 
         # send out emails upon submission
         for notification_config in settings.APPLICATION["NOTIFICATIONS"][
@@ -1507,6 +1509,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         request_logger.info(f"Submitting instance {instance.pk}")
 
         case = self.instance.case
+        group = self.context["request"].group
 
         instance.previous_instance_state = instance.instance_state
         instance.instance_state = models.InstanceState.objects.get(name="subm")
@@ -1514,7 +1517,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         self._be_handle_internal_workflow(case, instance)
         self._handle_extend_validity_form(case, instance)
         self._set_location_for_municipality(case, instance)
-        self._ur_internal_submission(instance, self.context["request"].group)
+        self._ur_internal_submission(instance, group)
         self._ur_prepare_cantonal_instances(instance)
 
         instance.save()
@@ -1536,7 +1539,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             sender=self.__class__,
             instance=instance,
             user_pk=self.context["request"].user.pk,
-            group_pk=self.context["request"].group.pk,
+            group_pk=group.pk,
         )
 
         return instance
