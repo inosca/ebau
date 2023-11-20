@@ -41,7 +41,13 @@ class InstanceACLViewset(InstanceQuerysetMixin, ModelViewSet):
         raise ValidationError("You do not have permission to revoke ACLs here")
 
     def revoke_for_municipality(self, request, pk):
-        acl = self.get_object()
+        acl: models.InstanceACL = self.get_object()
+        responsible_service_id = acl.instance.responsible_service().pk
+        request_service_id = request.group.service.pk
+        if responsible_service_id != request_service_id:  # pragma: no cover
+            # This is primarily already handled via visibility, but this will
+            # change and then we'll need this check here as well
+            raise ValidationError("Only responsible service may revoke InstanceACLs")
 
         serializer = self.get_serializer(acl, data=request.data)
         serializer.is_valid(raise_exception=True)
