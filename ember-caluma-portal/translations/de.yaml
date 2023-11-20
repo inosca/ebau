@@ -240,6 +240,11 @@ instances:
   messageBuildingServicesText: "Bitte verwenden Sie für die Meldung von gebäudetechnischen Anlagen und für die Einreichung von Nachweisen im Zusammenhang mit einen laufenden Baubewilligungsverfahren (z.B. wärmetechnische Anlagen, Brandschutz-, Energie-, oder Lärmschutznachweis) das Formular „GEBÄUDETECHNIK“ in der Übersicht."
   messageBuildingServicesButton: "Meldung für Gebäudetechnik einreichen"
 
+  withdrawInstance: "Dossier zurückziehen"
+  withdrawInstanceModal: "Sind Sie sicher, dass Sie das Dossier zurückziehen möchten?"
+  withdrawInstanceError: "Das Dossier konnte nicht zurückgezogen werden"
+  withdrawInstanceSuccess: "Das Dossier wurde erfolgreich zurückgezogen"
+
   categories:
     pending: "Offen"
     sb: "Selbstdeklaration"
@@ -350,6 +355,10 @@ instances:
     circulation: "In Zirkulation"
     inProcedure: "Im Verfahren"
     submitted: "Eingereicht"
+    constructionMonitoring: "Baubegleitung"
+
+    # SO
+    withdrawn: "Zurückgezogen"
 
     # Shared
     done: "Abgeschlossen"

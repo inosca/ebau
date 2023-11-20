@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-24 18:28+0100\n"
+"POT-Creation-Date: 2023-11-27 09:52+0100\n"
 "PO-Revision-Date: 2023-11-22 08:23+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -969,7 +969,7 @@ msgstr ""
 msgid "Objection %(objection) already has a representative"
 msgstr "Einsprache %(objection) hat bereits einen Vertreter"
 
-#: camac/settings.py:1479 camac/settings.py:3083 camac/settings.py:3503
+#: camac/settings.py:1479 camac/settings.py:3083 camac/settings.py:3504
 msgid "Circulation started"
 msgstr "Zirkulation gestartet"
 
@@ -993,23 +993,23 @@ msgstr "Nachforderung wurde beantwortet"
 msgid "Construction monitoring performed"
 msgstr "Baubegleitung durchgeführt"
 
-#: camac/settings.py:3495
+#: camac/settings.py:3496
 msgid "Formal exam performed"
 msgstr "Formelle Prüfung durchgeführt"
 
-#: camac/settings.py:3499
+#: camac/settings.py:3500
 msgid "Material exam performed"
 msgstr "Materielle Prüfung durchgeführt"
 
-#: camac/settings.py:3883
+#: camac/settings.py:3885
 msgid "German"
 msgstr "Deutsch"
 
-#: camac/settings.py:3884
+#: camac/settings.py:3886
 msgid "French"
 msgstr "Französisch"
 
-#: camac/settings.py:3885
+#: camac/settings.py:3887
 msgid "Italian"
 msgstr "Italienisch"
 
@@ -1051,6 +1051,10 @@ msgstr "Rückweisung aufgehoben"
 #: camac/settings_rejection.py:11
 msgid "Instance completed by resubmission"
 msgstr "Dossier durch Neueinreichung abgeschlossen"
+
+#: camac/settings_withdrawal.py:8
+msgid "Instance withdrawn"
+msgstr "Dossier zurückgezogen"
 
 #: camac/templates/admin/base.html:25
 msgid "Back to CAMAC admin"

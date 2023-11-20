@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-24 18:28+0100\n"
+"POT-Creation-Date: 2023-11-27 09:52+0100\n"
 "PO-Revision-Date: 2023-08-07 17:32+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -973,7 +973,7 @@ msgstr "delete_by_purpose n'a pas été fourni avec le paramètre requis"
 msgid "Objection %(objection) already has a representative"
 msgstr "Objection %(objection) a déjà un représentant"
 
-#: camac/settings.py:1479 camac/settings.py:3083 camac/settings.py:3503
+#: camac/settings.py:1479 camac/settings.py:3083 camac/settings.py:3504
 msgid "Circulation started"
 msgstr "Procédure de circulation lancée"
 
@@ -999,23 +999,23 @@ msgstr ""
 msgid "Construction monitoring performed"
 msgstr "Contrôle construction"
 
-#: camac/settings.py:3495
+#: camac/settings.py:3496
 msgid "Formal exam performed"
 msgstr ""
 
-#: camac/settings.py:3499
+#: camac/settings.py:3500
 msgid "Material exam performed"
 msgstr ""
 
-#: camac/settings.py:3883
+#: camac/settings.py:3885
 msgid "German"
 msgstr "Allemand"
 
-#: camac/settings.py:3884
+#: camac/settings.py:3886
 msgid "French"
 msgstr "Français"
 
-#: camac/settings.py:3885
+#: camac/settings.py:3887
 msgid "Italian"
 msgstr "L'italien"
 
@@ -1057,6 +1057,10 @@ msgstr "Annulation du renvoyé du dossier"
 #: camac/settings_rejection.py:11
 msgid "Instance completed by resubmission"
 msgstr "Dossier complété par une nouvelle soumission"
+
+#: camac/settings_withdrawal.py:8
+msgid "Instance withdrawn"
+msgstr ""
 
 #: camac/templates/admin/base.html:25
 msgid "Back to CAMAC admin"
