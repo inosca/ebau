@@ -232,6 +232,8 @@ class InstanceView(
     def has_object_submit_permission(self, instance):
         return self.has_base_permission(instance) and instance.instance_state.name in (
             "new",
+            # kt. uri
+            "old",
             # kt. schwyz
             "nfd",
             "rejected",

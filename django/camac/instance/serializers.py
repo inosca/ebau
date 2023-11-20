@@ -480,7 +480,6 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
         default=NewInstanceStateDefault(),
     )
 
-    # TODO fix this for UR
     form = serializers.ResourceRelatedField(
         queryset=models.Form.objects.all(), default=lambda: models.Form.objects.first()
     )
@@ -958,6 +957,23 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
 
     @permission_aware
     def validate(self, data):
+        if settings.APPLICATION_NAME == "kt_uri":
+            request = self.context.get("request")
+            if (
+                request.data
+                and "caluma_form" in request.data
+                and "camac-form-id"
+                not in form_models.Form.objects.get(
+                    slug=request.data["caluma_form"]
+                ).meta
+            ):
+                raise exceptions.ValidationError(
+                    _(
+                        "There is no camac form mapped on the caluma form '%(caluma_form)s'!"
+                        % {"caluma_form": request.data["caluma_form"]}
+                    )
+                )
+
         return domain_logic.CreateInstanceLogic.validate(
             data, group=self.context.get("request").group
         )
