@@ -63,6 +63,7 @@ module.exports = function (environment) {
     finished: 9,
     reject: 10,
     rejected: 11,
+    withdrawn: 12,
   };
   const appConfig = {
     demo: {
@@ -416,6 +417,7 @@ module.exports = function (environment) {
           instanceStatesSo.decision,
           instanceStatesSo.reject,
           instanceStatesSo.rejected,
+          instanceStatesSo.withdrawn,
         ],
         constructionMonitoring: [instanceStatesSo["construction-monitoring"]],
         done: [instanceStatesSo.finished],

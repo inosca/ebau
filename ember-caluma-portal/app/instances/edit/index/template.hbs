@@ -241,6 +241,19 @@
       </UkButton>
     {{/if}}
 
+    {{#if (can "withdraw instance" this.editController.instance)}}
+      <h3 class="instance-overview__action-title">
+        {{t "instances.withdrawInstance"}}
+      </h3>
+      <UkButton
+        @onClick={{perform this.withdrawInstance}}
+        @disabled={{this.withdrawInstance.isRunning}}
+        @loading={{this.withdrawInstance.isRunning}}
+      >
+        {{t "instances.withdrawInstance"}}
+      </UkButton>
+    {{/if}}
+
     {{#if (can "convert to building permit instance" this.editController.instance)}}
       <h3 class="instance-overview__action-title">
         {{t "instances.createBuildingPermitTitle"}}

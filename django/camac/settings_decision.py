@@ -8,6 +8,7 @@ from camac.ech0211.constants import (
 DECISION = {
     "default": {
         "TASK": "decision",
+        "INSTANCE_STATE": "decision",
         "QUESTIONS": {
             "DECISION": "decision-decision",
             "DATE": "decision-date",
@@ -67,7 +68,7 @@ DECISION = {
                 "APPROVED": "entscheid-entscheid-zustimmung",
                 "REJECTED": "entscheid-entscheid-ablehnung",
                 "PARTIALLY_APPROVED": "entscheid-entscheid-teilzustimmung",
-                "RETREAT": "entscheid-entscheid-rueckzug",
+                "WITHDRAWAL": "entscheid-entscheid-rueckzug",
             },
             "BAUABSCHLAG": {
                 "MIT_WIEDERHERSTELLUNG": "entscheid-bauabschlag-mit-wiederherstellung",

@@ -11,7 +11,8 @@
         "material-exam",
         "reject",
         "rejected",
-        "subm"
+        "subm",
+        "withdrawn"
       ],
       "municipality-lead": [
         "construction-monitoring",
@@ -22,25 +23,29 @@
         "material-exam",
         "reject",
         "rejected",
-        "subm"
+        "subm",
+        "withdrawn"
       ],
       "service-clerk": [
         "construction-monitoring",
         "decision",
         "distribution",
-        "finished"
+        "finished",
+        "withdrawn"
       ],
       "service-lead": [
         "construction-monitoring",
         "decision",
         "distribution",
-        "finished"
+        "finished",
+        "withdrawn"
       ],
       "subservice": [
         "construction-monitoring",
         "decision",
         "distribution",
-        "finished"
+        "finished",
+        "withdrawn"
       ]
     }
   },
@@ -56,7 +61,8 @@
         "material-exam",
         "reject",
         "rejected",
-        "subm"
+        "subm",
+        "withdrawn"
       ],
       "municipality-lead": [
         "construction-monitoring",
@@ -67,25 +73,29 @@
         "material-exam",
         "reject",
         "rejected",
-        "subm"
+        "subm",
+        "withdrawn"
       ],
       "service-clerk": [
         "construction-monitoring",
         "decision",
         "distribution",
-        "finished"
+        "finished",
+        "withdrawn"
       ],
       "service-lead": [
         "construction-monitoring",
         "decision",
         "distribution",
-        "finished"
+        "finished",
+        "withdrawn"
       ],
       "subservice": [
         "construction-monitoring",
         "decision",
         "distribution",
-        "finished"
+        "finished",
+        "withdrawn"
       ]
     }
   },
@@ -102,7 +112,8 @@
         "material-exam",
         "reject",
         "rejected",
-        "subm"
+        "subm",
+        "withdrawn"
       ],
       "municipality-lead": [
         "construction-monitoring",
@@ -114,25 +125,29 @@
         "material-exam",
         "reject",
         "rejected",
-        "subm"
+        "subm",
+        "withdrawn"
       ],
       "service-clerk": [
         "construction-monitoring",
         "decision",
         "distribution",
-        "finished"
+        "finished",
+        "withdrawn"
       ],
       "service-lead": [
         "construction-monitoring",
         "decision",
         "distribution",
-        "finished"
+        "finished",
+        "withdrawn"
       ],
       "subservice": [
         "construction-monitoring",
         "decision",
         "distribution",
-        "finished"
+        "finished",
+        "withdrawn"
       ]
     }
   },
@@ -148,7 +163,8 @@
         "material-exam",
         "reject",
         "rejected",
-        "subm"
+        "subm",
+        "withdrawn"
       ],
       "municipality-lead": [
         "construction-monitoring",
@@ -159,7 +175,8 @@
         "material-exam",
         "reject",
         "rejected",
-        "subm"
+        "subm",
+        "withdrawn"
       ]
     }
   },
@@ -174,7 +191,8 @@
         "init-distribution",
         "material-exam",
         "reject",
-        "rejected"
+        "rejected",
+        "withdrawn"
       ],
       "municipality-lead": [
         "construction-monitoring",
@@ -184,7 +202,8 @@
         "init-distribution",
         "material-exam",
         "reject",
-        "rejected"
+        "rejected",
+        "withdrawn"
       ]
     }
   },
@@ -196,14 +215,16 @@
         "decision",
         "distribution",
         "finished",
-        "init-distribution"
+        "init-distribution",
+        "withdrawn"
       ],
       "municipality-lead": [
         "construction-monitoring",
         "decision",
         "distribution",
         "finished",
-        "init-distribution"
+        "init-distribution",
+        "withdrawn"
       ]
     }
   },
@@ -219,7 +240,8 @@
         "material-exam",
         "reject",
         "rejected",
-        "subm"
+        "subm",
+        "withdrawn"
       ],
       "municipality-lead": [
         "construction-monitoring",
@@ -230,25 +252,29 @@
         "material-exam",
         "reject",
         "rejected",
-        "subm"
+        "subm",
+        "withdrawn"
       ],
       "service-clerk": [
         "construction-monitoring",
         "decision",
         "distribution",
-        "finished"
+        "finished",
+        "withdrawn"
       ],
       "service-lead": [
         "construction-monitoring",
         "decision",
         "distribution",
-        "finished"
+        "finished",
+        "withdrawn"
       ],
       "subservice": [
         "construction-monitoring",
         "decision",
         "distribution",
-        "finished"
+        "finished",
+        "withdrawn"
       ]
     }
   },
@@ -264,7 +290,8 @@
         "material-exam",
         "reject",
         "rejected",
-        "subm"
+        "subm",
+        "withdrawn"
       ],
       "municipality-lead": [
         "construction-monitoring",
@@ -275,25 +302,29 @@
         "material-exam",
         "reject",
         "rejected",
-        "subm"
+        "subm",
+        "withdrawn"
       ],
       "service-clerk": [
         "construction-monitoring",
         "decision",
         "distribution",
-        "finished"
+        "finished",
+        "withdrawn"
       ],
       "service-lead": [
         "construction-monitoring",
         "decision",
         "distribution",
-        "finished"
+        "finished",
+        "withdrawn"
       ],
       "subservice": [
         "construction-monitoring",
         "decision",
         "distribution",
-        "finished"
+        "finished",
+        "withdrawn"
       ]
     }
   },
@@ -309,7 +340,8 @@
         "material-exam",
         "reject",
         "rejected",
-        "subm"
+        "subm",
+        "withdrawn"
       ],
       "municipality-lead": [
         "construction-monitoring",
@@ -320,25 +352,29 @@
         "material-exam",
         "reject",
         "rejected",
-        "subm"
+        "subm",
+        "withdrawn"
       ],
       "service-clerk": [
         "construction-monitoring",
         "decision",
         "distribution",
-        "finished"
+        "finished",
+        "withdrawn"
       ],
       "service-lead": [
         "construction-monitoring",
         "decision",
         "distribution",
-        "finished"
+        "finished",
+        "withdrawn"
       ],
       "subservice": [
         "construction-monitoring",
         "decision",
         "distribution",
-        "finished"
+        "finished",
+        "withdrawn"
       ]
     }
   },
@@ -350,32 +386,37 @@
         "decision",
         "distribution",
         "finished",
-        "init-distribution"
+        "init-distribution",
+        "withdrawn"
       ],
       "municipality-lead": [
         "construction-monitoring",
         "decision",
         "distribution",
         "finished",
-        "init-distribution"
+        "init-distribution",
+        "withdrawn"
       ],
       "service-clerk": [
         "construction-monitoring",
         "decision",
         "distribution",
-        "finished"
+        "finished",
+        "withdrawn"
       ],
       "service-lead": [
         "construction-monitoring",
         "decision",
         "distribution",
-        "finished"
+        "finished",
+        "withdrawn"
       ],
       "subservice": [
         "construction-monitoring",
         "decision",
         "distribution",
-        "finished"
+        "finished",
+        "withdrawn"
       ]
     }
   },
@@ -391,7 +432,8 @@
         "material-exam",
         "reject",
         "rejected",
-        "subm"
+        "subm",
+        "withdrawn"
       ],
       "municipality-lead": [
         "construction-monitoring",
@@ -402,19 +444,22 @@
         "material-exam",
         "reject",
         "rejected",
-        "subm"
+        "subm",
+        "withdrawn"
       ],
       "service-clerk": [
         "construction-monitoring",
         "decision",
         "distribution",
-        "finished"
+        "finished",
+        "withdrawn"
       ],
       "service-lead": [
         "construction-monitoring",
         "decision",
         "distribution",
-        "finished"
+        "finished",
+        "withdrawn"
       ]
     }
   },
@@ -431,7 +476,8 @@
         "material-exam",
         "reject",
         "rejected",
-        "subm"
+        "subm",
+        "withdrawn"
       ],
       "municipality-lead": [
         "construction-monitoring",
@@ -443,15 +489,26 @@
         "material-exam",
         "reject",
         "rejected",
-        "subm"
+        "subm",
+        "withdrawn"
       ]
     }
   },
   "13": {
     "label": "Meine Dossiers (Dossierliste für Gemeinden) > Entscheid",
     "acls": {
-      "municipality-clerk": ["construction-monitoring", "decision", "finished"],
-      "municipality-lead": ["construction-monitoring", "decision", "finished"]
+      "municipality-clerk": [
+        "construction-monitoring",
+        "decision",
+        "finished",
+        "withdrawn"
+      ],
+      "municipality-lead": [
+        "construction-monitoring",
+        "decision",
+        "finished",
+        "withdrawn"
+      ]
     }
   },
   "14": {
@@ -464,7 +521,8 @@
         "finished",
         "init-distribution",
         "material-exam",
-        "subm"
+        "subm",
+        "withdrawn"
       ],
       "municipality-lead": [
         "construction-monitoring",
@@ -473,25 +531,29 @@
         "finished",
         "init-distribution",
         "material-exam",
-        "subm"
+        "subm",
+        "withdrawn"
       ],
       "service-clerk": [
         "construction-monitoring",
         "decision",
         "distribution",
-        "finished"
+        "finished",
+        "withdrawn"
       ],
       "service-lead": [
         "construction-monitoring",
         "decision",
         "distribution",
-        "finished"
+        "finished",
+        "withdrawn"
       ],
       "subservice": [
         "construction-monitoring",
         "decision",
         "distribution",
-        "finished"
+        "finished",
+        "withdrawn"
       ]
     }
   },
@@ -508,7 +570,8 @@
         "material-exam",
         "reject",
         "rejected",
-        "subm"
+        "subm",
+        "withdrawn"
       ],
       "municipality-lead": [
         "construction-monitoring",
@@ -520,25 +583,29 @@
         "material-exam",
         "reject",
         "rejected",
-        "subm"
+        "subm",
+        "withdrawn"
       ],
       "service-clerk": [
         "construction-monitoring",
         "decision",
         "distribution",
-        "finished"
+        "finished",
+        "withdrawn"
       ],
       "service-lead": [
         "construction-monitoring",
         "decision",
         "distribution",
-        "finished"
+        "finished",
+        "withdrawn"
       ],
       "subservice": [
         "construction-monitoring",
         "decision",
         "distribution",
-        "finished"
+        "finished",
+        "withdrawn"
       ]
     }
   },
@@ -557,32 +624,37 @@
         "decision",
         "distribution",
         "finished",
-        "init-distribution"
+        "init-distribution",
+        "withdrawn"
       ],
       "municipality-lead": [
         "construction-monitoring",
         "decision",
         "distribution",
         "finished",
-        "init-distribution"
+        "init-distribution",
+        "withdrawn"
       ],
       "service-clerk": [
         "construction-monitoring",
         "decision",
         "distribution",
-        "finished"
+        "finished",
+        "withdrawn"
       ],
       "service-lead": [
         "construction-monitoring",
         "decision",
         "distribution",
-        "finished"
+        "finished",
+        "withdrawn"
       ],
       "subservice": [
         "construction-monitoring",
         "decision",
         "distribution",
-        "finished"
+        "finished",
+        "withdrawn"
       ]
     }
   }

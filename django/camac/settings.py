@@ -3430,6 +3430,7 @@ APPLICATIONS = {
         "ENABLE_PUBLIC_CALUMA": True,
         # Mapping between camac role and instance permission.
         "ROLE_PERMISSIONS": {
+            "applicant": "applicant",
             "municipality-admin": "municipality",
             "municipality-lead": "municipality",
             "municipality-clerk": "municipality",
@@ -3519,6 +3520,7 @@ APPLICATIONS = {
                     "finished": "done",
                     "reject": "inProcedure",
                     "rejected": "rejected",
+                    "withdrawn": "withdrawn",
                 },
                 "DEFAULT": "inProcedure",
             },
@@ -4214,6 +4216,7 @@ DJANGO_ADMIN = load_module_settings("django_admin")
 CORRECTION = load_module_settings("correction")
 DMS = load_module_settings("dms")
 REJECTION = load_module_settings("rejection")
+WITHDRAWAL = load_module_settings("withdrawal")
 
 # Alexandria
 ALEXANDRIA = load_module_settings("alexandria")
