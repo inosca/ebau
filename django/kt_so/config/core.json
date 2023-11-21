@@ -447,7 +447,7 @@
       "template": null,
       "class_field": "menu-category-process",
       "hidden": 0,
-      "sort": 5,
+      "sort": 6,
       "form_group": 1
     }
   },
@@ -462,7 +462,7 @@
       "template": null,
       "class_field": "menu-category-process",
       "hidden": 0,
-      "sort": 6,
+      "sort": 7,
       "form_group": 1
     }
   },
@@ -477,7 +477,7 @@
       "template": "/ember-camac-ng/publication.phtml",
       "class_field": "menu-category-process",
       "hidden": 0,
-      "sort": 8,
+      "sort": 9,
       "form_group": 1
     }
   },
@@ -492,7 +492,7 @@
       "template": null,
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 12,
+      "sort": 13,
       "form_group": 1
     }
   },
@@ -507,7 +507,7 @@
       "template": "/ember-camac-ng/journal.phtml",
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 13,
+      "sort": 14,
       "form_group": 1
     }
   },
@@ -522,7 +522,7 @@
       "template": "/ember-camac-ng/responsible.phtml",
       "class_field": "menu-category-primary",
       "hidden": 0,
-      "sort": 4,
+      "sort": 5,
       "form_group": 1
     }
   },
@@ -537,7 +537,7 @@
       "template": "/ember-camac-ng/distribution.phtml",
       "class_field": "menu-category-process",
       "hidden": 0,
-      "sort": 7,
+      "sort": 8,
       "form_group": 1
     }
   },
@@ -552,7 +552,7 @@
       "template": "/ember-camac-ng/additional-demand.phtml",
       "class_field": "menu-category-extraordinary",
       "hidden": 0,
-      "sort": 10,
+      "sort": 11,
       "form_group": 1
     }
   },
@@ -567,7 +567,7 @@
       "template": "/ember-camac-ng/corrections.phtml",
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 14,
+      "sort": 15,
       "form_group": 1
     }
   },
@@ -582,7 +582,22 @@
       "template": null,
       "class_field": "menu-category-process",
       "hidden": 0,
-      "sort": 9,
+      "sort": 10,
+      "form_group": 1
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 14,
+    "fields": {
+      "available_instance_resource": "page",
+      "resource": 3,
+      "name": null,
+      "description": null,
+      "template": "/ember-camac-ng/dms-generate.phtml",
+      "class_field": "menu-category-primary",
+      "hidden": 0,
+      "sort": 4,
       "form_group": 1
     }
   },
@@ -597,7 +612,7 @@
       "template": "/ember-camac-ng/billing.phtml",
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 11,
+      "sort": 12,
       "form_group": 1
     }
   },
@@ -728,6 +743,16 @@
       "instance_resource": 13,
       "language": "de",
       "name": "Entscheid",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 14,
+    "fields": {
+      "instance_resource": 14,
+      "language": "de",
+      "name": "Vorlagen",
       "description": null
     }
   },
@@ -3334,6 +3359,240 @@
     }
   },
   {
+    "model": "core.irroleacl",
+    "pk": 297,
+    "fields": {
+      "instance_resource": 14,
+      "role": 6,
+      "instance_state": 8
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 298,
+    "fields": {
+      "instance_resource": 14,
+      "role": 6,
+      "instance_state": 7
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 299,
+    "fields": {
+      "instance_resource": 14,
+      "role": 6,
+      "instance_state": 5
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 300,
+    "fields": {
+      "instance_resource": 14,
+      "role": 6,
+      "instance_state": 9
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 301,
+    "fields": {
+      "instance_resource": 14,
+      "role": 6,
+      "instance_state": 4
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 302,
+    "fields": {
+      "instance_resource": 14,
+      "role": 6,
+      "instance_state": 3
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 303,
+    "fields": {
+      "instance_resource": 14,
+      "role": 6,
+      "instance_state": 2
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 304,
+    "fields": {
+      "instance_resource": 14,
+      "role": 5,
+      "instance_state": 8
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 305,
+    "fields": {
+      "instance_resource": 14,
+      "role": 5,
+      "instance_state": 7
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 306,
+    "fields": {
+      "instance_resource": 14,
+      "role": 5,
+      "instance_state": 5
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 307,
+    "fields": {
+      "instance_resource": 14,
+      "role": 5,
+      "instance_state": 9
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 308,
+    "fields": {
+      "instance_resource": 14,
+      "role": 5,
+      "instance_state": 4
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 309,
+    "fields": {
+      "instance_resource": 14,
+      "role": 5,
+      "instance_state": 3
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 310,
+    "fields": {
+      "instance_resource": 14,
+      "role": 5,
+      "instance_state": 2
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 311,
+    "fields": {
+      "instance_resource": 14,
+      "role": 11,
+      "instance_state": 8
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 312,
+    "fields": {
+      "instance_resource": 14,
+      "role": 11,
+      "instance_state": 7
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 313,
+    "fields": {
+      "instance_resource": 14,
+      "role": 11,
+      "instance_state": 5
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 314,
+    "fields": {
+      "instance_resource": 14,
+      "role": 11,
+      "instance_state": 9
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 315,
+    "fields": {
+      "instance_resource": 14,
+      "role": 11,
+      "instance_state": 4
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 316,
+    "fields": {
+      "instance_resource": 14,
+      "role": 11,
+      "instance_state": 2
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 317,
+    "fields": {
+      "instance_resource": 14,
+      "role": 10,
+      "instance_state": 8
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 318,
+    "fields": {
+      "instance_resource": 14,
+      "role": 10,
+      "instance_state": 7
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 319,
+    "fields": {
+      "instance_resource": 14,
+      "role": 10,
+      "instance_state": 5
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 320,
+    "fields": {
+      "instance_resource": 14,
+      "role": 10,
+      "instance_state": 9
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 321,
+    "fields": {
+      "instance_resource": 14,
+      "role": 10,
+      "instance_state": 4
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 322,
+    "fields": {
+      "instance_resource": 14,
+      "role": 10,
+      "instance_state": 2
+    }
+  },
+  {
     "model": "core.irtaskform",
     "pk": 4,
     "fields": {
@@ -3489,6 +3748,22 @@
     }
   },
   {
+    "model": "core.rroleacl",
+    "pk": 16,
+    "fields": {
+      "resource": 5,
+      "role": 4
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 17,
+    "fields": {
+      "resource": 5,
+      "role": 9
+    }
+  },
+  {
     "model": "core.resource",
     "pk": 1,
     "fields": {
@@ -3541,6 +3816,19 @@
     }
   },
   {
+    "model": "core.resource",
+    "pk": 5,
+    "fields": {
+      "available_resource": "page",
+      "name": null,
+      "description": null,
+      "template": "/ember-camac-ng/dms-admin.phtml",
+      "class_field": null,
+      "hidden": 0,
+      "sort": 4
+    }
+  },
+  {
     "model": "core.resourcet",
     "pk": 1,
     "fields": {
@@ -3578,6 +3866,16 @@
       "language": "de",
       "name": "Meine Organisation",
       "description": "Verwaltung von Berechtigungen, Stammdaten und Unterfachstellen"
+    }
+  },
+  {
+    "model": "core.resourcet",
+    "pk": 5,
+    "fields": {
+      "resource": 5,
+      "language": "de",
+      "name": "Vorlagenverwaltung",
+      "description": "Verwaltung von Dokumentenvorlagen"
     }
   }
 ]
