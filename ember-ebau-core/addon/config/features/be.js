@@ -5,4 +5,11 @@ export default {
     related: true,
     disableAuthentication: false,
   },
+  billing: {
+    charge: false,
+    organization: false,
+    reducedTaxRate: false,
+    orderTaxByRate: false,
+    displayService: false,
+  },
 };

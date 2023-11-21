@@ -67,6 +67,7 @@ Router.map(function () {
         registerPublication(this);
         registerAdditionalDemand(this);
         registerResponsible(this);
+        registerBilling(this);
       });
       this.route("new");
     });
@@ -74,6 +75,5 @@ Router.map(function () {
     registerServicePermissions(this, { resetNamespace });
     registerCommunicationsGlobal(this, { resetNamespace });
     registerStaticContent(this, { resetNamespace });
-    registerBilling(this, { resetNamespace });
   });
 });
