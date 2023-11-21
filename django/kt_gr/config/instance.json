@@ -106,6 +106,15 @@
     }
   },
   {
+    "model": "instance.instancestate",
+    "pk": 120011,
+    "fields": {
+      "name": "rejected",
+      "sort": 7,
+      "description": ""
+    }
+  },
+  {
     "model": "instance.instancestatet",
     "pk": 1,
     "fields": {
@@ -182,6 +191,16 @@
       "instance_state": 120010,
       "language": "de",
       "name": "Bauabnahme",
+      "description": ""
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 120041,
+    "fields": {
+      "instance_state": 120011,
+      "language": "de",
+      "name": "Zurückgewiesen",
       "description": ""
     }
   }

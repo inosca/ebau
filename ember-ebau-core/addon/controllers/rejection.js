@@ -6,6 +6,7 @@ import { findRecord } from "ember-data-resources";
 import { localCopy } from "tracked-toolbox";
 
 import validationsQuery from "ember-ebau-core/gql/queries/rejection/validations.graphql";
+import { hasFeature } from "ember-ebau-core/helpers/has-feature";
 import apolloQuery from "ember-ebau-core/resources/apollo";
 
 export default class RejectionController extends Controller {
@@ -27,17 +28,22 @@ export default class RejectionController extends Controller {
     () => ({
       query: validationsQuery,
       fetchPolicy: "network-only",
-      variables: { instanceId: this.ebauModules.instanceId },
+      variables: {
+        instanceId: this.ebauModules.instanceId,
+        useLegacyClaims: hasFeature("rejection.useLegacyClaims"),
+      },
     }),
     null,
     async (data) => {
       return {
         hasActiveDistribution: data.distribution.totalCount > 0,
-        hasOpenClaims: (
-          data.claims.edges[0].node.workItems.edges[0]?.node.document.answers.edges[0]?.node.value.map(
-            (row) => row.answers.edges[0]?.node.value,
-          ) ?? []
-        ).includes("nfd-tabelle-status-in-bearbeitung"),
+        hasOpenClaims: hasFeature("rejection.useLegacyClaims")
+          ? (
+              data.legacyClaims.edges[0].node.workItems.edges[0]?.node.document.answers.edges[0]?.node.value.map(
+                (row) => row.answers.edges[0]?.node.value,
+              ) ?? []
+            ).includes("nfd-tabelle-status-in-bearbeitung")
+          : data.claims.totalCount > 0,
       };
     },
   );

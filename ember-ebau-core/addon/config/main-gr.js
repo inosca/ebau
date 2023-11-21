@@ -13,6 +13,7 @@ export default {
     circulation: 120005,
     correction: 120008,
     "init-distribution": 120009,
+    rejected: 120011,
   },
   answerSlugs: {
     objectStreet: "street-and-housenumber",
@@ -81,5 +82,9 @@ export default {
   },
   alexandria: {
     enabledMarks: ["decision", "publication"],
+  },
+  rejection: {
+    instanceState: "rejected",
+    allowedInstanceStates: ["subm", "init-distribution"],
   },
 };

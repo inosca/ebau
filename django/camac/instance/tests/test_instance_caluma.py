@@ -1372,7 +1372,6 @@ def test_instance_submit_state_change_be(
 
 @pytest.mark.parametrize("role__name,instance__user", [("Canton", LazyFixture("user"))])
 def test_responsible_user(admin_client, instance, user, service, multilang):
-
     instance.responsibilities.create(user=user, service=service)
 
     # First make sure we can find instances with given responsible user
@@ -1436,7 +1435,6 @@ def test_instance_report(
     ]
 
     if instance_state.name == "sb1":
-
         service = be_instance.responsible_service()
         construction_control = construction_control_for(service)
 
@@ -1531,7 +1529,6 @@ def test_instance_finalize(
     be_instance.case.save()
 
     if instance_state.name == "sb2":
-
         service = be_instance.responsible_service()
         construction_control = construction_control_for(service)
 
@@ -2110,6 +2107,7 @@ def test_rejection(
     ech_mandatory_answers_einfache_vorabklaerung,
     mocker,
     submit_date_question,
+    rejection_settings,
 ):
     application_settings["NOTIFICATIONS"]["SUBMIT"] = []
 
@@ -2117,7 +2115,7 @@ def test_rejection(
     subm_state = instance_state_factory(name="subm")
     rejected_state = instance_state_factory(name="rejected")
     finished_state = instance_state_factory(
-        name=application_settings["INSTANCE_STATE_REJECTION_COMPLETE"]
+        name=rejection_settings["INSTANCE_STATE_REJECTION_COMPLETE"]
     )
 
     create_response = admin_client.post(

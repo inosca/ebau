@@ -4,9 +4,11 @@ REJECTION = {
     "default": {
         "INSTANCE_STATE": "rejected",
         "ALLOWED_INSTANCE_STATES": [],
+        "INSTANCE_STATE_REJECTION_COMPLETE": "finished",
         "HISTORY_ENTRIES": {
             "REJECTED": _("Instance rejected"),
             "REVERTED": _("Instance rejection reverted"),
+            "COMPLETE": _("Instance completed by resubmission"),
         },
         "NOTIFICATIONS": {
             "REJECTED": [],
@@ -38,6 +40,14 @@ REJECTION = {
                 },
             ],
         },
+    },
+    "kt_gr": {
+        "ENABLED": True,
+        "ALLOWED_INSTANCE_STATES": ["subm", "init-distribution"],
+        # TODO: Notifications?
+    },
+    "kt_uri": {
+        "ENABLED": True,
     },
     "test": {
         "ENABLED": True,

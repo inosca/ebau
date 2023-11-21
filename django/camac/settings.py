@@ -11,7 +11,7 @@ from deepmerge import always_merger
 from django.db.models.expressions import Q
 from django.utils.translation import gettext_lazy as _
 
-from camac.constants import kt_bern as be_constants, kt_gr as gr_constants
+from camac.constants import kt_bern as be_constants
 from camac.constants.kt_bern import (
     INSTANCE_STATE_DONE,
     INSTANCE_STATE_EVALUATED,
@@ -357,7 +357,6 @@ APPLICATIONS = {
             "SAVE_DOSSIER_NUMBER_IN_CALUMA": True,
         },
         "STORE_PDF": {"SECTION": 1},
-        "INSTANCE_STATE_REJECTION_COMPLETE": "finished",
         "SET_SUBMIT_DATE_CAMAC_ANSWER": True,
         "REJECTION_FEEDBACK_QUESTION": {
             "CHAPTER": 20001,
@@ -1691,7 +1690,6 @@ APPLICATIONS = {
         "SEQUENCE_NAMESPACE_APPS": ["core", "responsible", "document"],
         "HAS_EBAU_NUMBER": True,
         "HAS_GESUCHSNUMMER": False,
-        "INSTANCE_STATE_REJECTION_COMPLETE": "finished",
         "SET_SUBMIT_DATE_CAMAC_ANSWER": True,
         "REJECTION_FEEDBACK_QUESTION": {
             "CHAPTER": 20001,
@@ -2265,7 +2263,6 @@ APPLICATIONS = {
             "notification.NotificationTemplate",
             "notification.NotificationTemplateT",
         ],
-        "INSTANCE_STATE_REJECTION_COMPLETE": "arch",
         "SET_SUBMIT_DATE_CAMAC_WORKFLOW": True,
         "REJECTION_FEEDBACK_QUESTION": {
             "CHAPTER": 12000000,
@@ -2739,7 +2736,6 @@ APPLICATIONS = {
             "USE_LOCATION": False,
             "SAVE_DOSSIER_NUMBER_IN_CALUMA": True,
         },
-        "INSTANCE_STATE_REJECTION_COMPLETE": "finished",
         "REJECTION_FEEDBACK_QUESTION": {},
         "USE_INSTANCE_SERVICE": True,
         "ACTIVE_SERVICES": {
@@ -3113,19 +3109,20 @@ APPLICATIONS = {
                 },
             },
             "PUBLIC_STATUS": {
+                "USE_SLUGS": True,
                 "MAP": {
-                    gr_constants.INSTANCE_STATE_NEW: gr_constants.PUBLIC_INSTANCE_STATE_CREATING,
-                    gr_constants.INSTANCE_STATE_SUBM: gr_constants.PUBLIC_INSTANCE_STATE_RECEIVING,
-                    gr_constants.INSTANCE_STATE_INIT_DISTRIBUTION: gr_constants.PUBLIC_INSTANCE_STATE_IN_PROGRESS,
-                    gr_constants.INSTANCE_STATE_CORRECTION: gr_constants.PUBLIC_INSTANCE_STATE_IN_PROGRESS,
-                    gr_constants.INSTANCE_STATE_CIRCULATION: gr_constants.PUBLIC_INSTANCE_STATE_IN_PROGRESS,
-                    gr_constants.INSTANCE_STATE_DECISION: gr_constants.PUBLIC_INSTANCE_STATE_IN_PROGRESS,
-                    gr_constants.INSTANCE_STATE_FINISHED: gr_constants.PUBLIC_INSTANCE_STATE_FINISHED,
+                    "new": "creation",
+                    "subm": "submitted",
+                    "init-distribution": "inProcedure",
+                    "correction": "inProcedure",
+                    "circulation": "inProcedure",
+                    "decision": "inProcedure",
+                    "finished": "done",
+                    "rejected": "rejected",
                 },
-                "DEFAULT": gr_constants.PUBLIC_INSTANCE_STATE_CREATING,
+                "DEFAULT": "inProcedure",
             },
         },
-        "INSTANCE_STATE_REJECTION_COMPLETE": "finished",
         "INSTANCE_PERMISSIONS": {"MUNICIPALITY_WRITE": ["correction"]},
         "REJECTION_FEEDBACK_QUESTION": {},
         "USE_INSTANCE_SERVICE": True,
