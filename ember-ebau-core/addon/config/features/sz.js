@@ -4,5 +4,6 @@ export default {
     organization: true,
     reducedTaxRate: true,
     orderTaxByRate: true,
+    displayService: false,
   },
 };
