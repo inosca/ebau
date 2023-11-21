@@ -4,6 +4,25 @@ from django.urls import reverse
 from camac.permissions import api
 
 
+@pytest.fixture
+def configure_access_levels(permissions_settings, instance, access_level):
+    def do_configure(has_functional_permission):
+        # Configure a dynamic (functional) permission for our access level, along
+        # with two static ones...
+        def check_functional_permission(userinfo, instance):
+            return has_functional_permission
+
+        permissions_settings["ACCESS_LEVELS"] = {
+            access_level.pk: [
+                ("foo", instance.instance_state),
+                ("bar", instance.instance_state),
+                ("func", check_functional_permission),
+            ]
+        }
+
+    return do_configure
+
+
 @pytest.mark.parametrize("has_functional_permission", [True, False])
 def test_permissions_view(
     db,
@@ -11,22 +30,12 @@ def test_permissions_view(
     admin_client,
     permissions_settings,
     access_level,
+    configure_access_levels,
     has_functional_permission,
 ):
     url = reverse("instance-permissions-list")
 
-    # Configure a dynamic (functional) permission for our access level, along
-    # with two static ones...
-    def check_functional_permission(userinfo, instance):
-        return has_functional_permission
-
-    permissions_settings["ACCESS_LEVELS"] = {
-        access_level.pk: [
-            ("foo", instance.instance_state),
-            ("bar", instance.instance_state),
-            ("func", check_functional_permission),
-        ]
-    }
+    configure_access_levels(has_functional_permission=has_functional_permission)
 
     # Check permissions before...
     result = admin_client.get(url, {"instance": instance.pk})
