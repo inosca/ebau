@@ -1,6 +1,6 @@
 {
   "1": {
-    "label": "Aufgaben",
+    "label": "Meine Dossiers (Dossierliste für Gemeinden) > Aufgaben",
     "acls": {
       "municipality-clerk": [
         "construction-monitoring",
@@ -41,7 +41,7 @@
     }
   },
   "2": {
-    "label": "Dokumente",
+    "label": "Meine Dossiers (Dossierliste für Gemeinden) > Dokumente",
     "acls": {
       "municipality-clerk": [
         "construction-monitoring",
@@ -82,7 +82,7 @@
     }
   },
   "3": {
-    "label": "Formular",
+    "label": "Meine Dossiers (Dossierliste für Gemeinden) > Formular",
     "acls": {
       "municipality-clerk": [
         "construction-monitoring",
@@ -125,7 +125,7 @@
     }
   },
   "4": {
-    "label": "Formelle Prüfung",
+    "label": "Meine Dossiers (Dossierliste für Gemeinden) > Formelle Prüfung",
     "acls": {
       "municipality-clerk": [
         "construction-monitoring",
@@ -148,7 +148,7 @@
     }
   },
   "5": {
-    "label": "Materielle Prüfung",
+    "label": "Meine Dossiers (Dossierliste für Gemeinden) > Materielle Prüfung",
     "acls": {
       "municipality-clerk": [
         "construction-monitoring",
@@ -169,7 +169,7 @@
     }
   },
   "6": {
-    "label": "Publikation",
+    "label": "Meine Dossiers (Dossierliste für Gemeinden) > Publikation",
     "acls": {
       "municipality-clerk": [
         "construction-monitoring",
@@ -188,7 +188,7 @@
     }
   },
   "7": {
-    "label": "History",
+    "label": "Meine Dossiers (Dossierliste für Gemeinden) > History",
     "acls": {
       "municipality-clerk": [
         "construction-monitoring",
@@ -229,7 +229,7 @@
     }
   },
   "8": {
-    "label": "Journal",
+    "label": "Meine Dossiers (Dossierliste für Gemeinden) > Journal",
     "acls": {
       "municipality-clerk": [
         "construction-monitoring",
@@ -270,7 +270,7 @@
     }
   },
   "9": {
-    "label": "Zuständigkeit",
+    "label": "Meine Dossiers (Dossierliste für Gemeinden) > Zuständigkeit",
     "acls": {
       "municipality-clerk": [
         "construction-monitoring",
@@ -311,7 +311,7 @@
     }
   },
   "10": {
-    "label": "Zirkulation",
+    "label": "Meine Dossiers (Dossierliste für Gemeinden) > Zirkulation",
     "acls": {
       "municipality-clerk": [
         "construction-monitoring",
@@ -348,7 +348,7 @@
     }
   },
   "11": {
-    "label": "Nachforderungen",
+    "label": "Meine Dossiers (Dossierliste für Gemeinden) > Nachforderungen",
     "acls": {
       "municipality-clerk": [
         "construction-monitoring",
@@ -383,7 +383,7 @@
     }
   },
   "12": {
-    "label": "Korrekturhilfen",
+    "label": "Meine Dossiers (Dossierliste für Gemeinden) > Korrekturhilfen",
     "acls": {
       "municipality-clerk": [
         "construction-monitoring",
@@ -408,14 +408,53 @@
     }
   },
   "13": {
-    "label": "Entscheid",
+    "label": "Meine Dossiers (Dossierliste für Gemeinden) > Entscheid",
     "acls": {
       "municipality-clerk": ["construction-monitoring", "decision", "finished"],
       "municipality-lead": ["construction-monitoring", "decision", "finished"]
     }
   },
+  "14": {
+    "label": "Meine Dossiers (Dossierliste für Gemeinden) > Vorlagen",
+    "acls": {
+      "municipality-clerk": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished",
+        "init-distribution",
+        "material-exam",
+        "subm"
+      ],
+      "municipality-lead": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished",
+        "init-distribution",
+        "material-exam",
+        "subm"
+      ],
+      "service-clerk": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished",
+        "init-distribution",
+        "subm"
+      ],
+      "service-lead": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished",
+        "init-distribution",
+        "subm"
+      ]
+    }
+  },
   "15": {
-    "label": "Gebühren",
+    "label": "Meine Dossiers (Dossierliste für Gemeinden) > Gebühren",
     "acls": {
       "municipality-clerk": [
         "construction-monitoring",
