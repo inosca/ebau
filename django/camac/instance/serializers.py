@@ -45,6 +45,8 @@ from camac.instance.mixins import InstanceEditableMixin, InstanceQuerysetMixin
 from camac.instance.utils import copy_instance, fill_ebau_number
 from camac.notification.utils import send_mail, send_mail_without_request
 from camac.permissions import api as permissions_api
+from camac.responsible.models import ResponsibleService
+from camac.responsible.serializers import reassign_work_items
 from camac.user.models import Group, Location, Service
 from camac.user.permissions import permission_aware
 from camac.user.relations import (
@@ -1249,6 +1251,31 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
                 settings.REJECTION["HISTORY_ENTRIES"]["COMPLETE"],
             )
 
+    def _be_copy_responsible_person(self, instance):
+        try:
+            source_instance = instance.case.document.source.case.instance
+        except AttributeError:
+            return
+
+        if (
+            settings.APPLICATION.get("COPY_RESPONSIBLE_PERSON_ON_SUBMIT")
+            and source_instance
+        ):
+            target_active_service = instance.responsible_service(
+                filter_type="municipality"
+            )
+            source_responsible_service = source_instance.responsible_services.filter(
+                service=target_active_service
+            ).first()
+
+            if source_responsible_service:
+                target_responsible_service = ResponsibleService.objects.create(
+                    instance=instance,
+                    service=target_active_service,
+                    responsible_user=source_responsible_service.responsible_user,
+                )
+                reassign_work_items(target_responsible_service)
+
     def _complete_submit_work_item(self, instance):
         work_item = instance.case.work_items.filter(
             task_id__in=settings.APPLICATION["CALUMA"]["SUBMIT_TASKS"],
@@ -1575,6 +1602,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         self._update_rejected_instance(instance)
         self._complete_submit_work_item(instance)
         self._be_extend_validity_skip_ebau_number(case)
+        self._be_copy_responsible_person(instance)
         self._ur_copy_oereb_instance_for_koor_afj(instance)
         self._send_notifications(case)
 

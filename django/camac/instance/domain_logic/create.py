@@ -491,6 +491,7 @@ class CreateInstanceLogic:
                 CreateInstanceLogic.copy_applicants(source_instance, instance)
                 instance.form = source_instance.form
                 instance.save()
+
         elif extend_validity_for:
             extend_validity_instance = models.Instance.objects.get(
                 pk=extend_validity_for
