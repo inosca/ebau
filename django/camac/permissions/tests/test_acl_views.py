@@ -256,7 +256,13 @@ def test_revoke_acl(
         time_diff = abs(actual_end_time - expected_end_time)
         assert time_diff < timedelta(seconds=5)
     else:
-        assert result.status_code == status.HTTP_400_BAD_REQUEST
+        # 404 allowed as well because not being responsible service makes the
+        # ACLs invisible to the user, so we won't even get to the permission
+        # checking stage
+        assert result.status_code in (
+            status.HTTP_404_NOT_FOUND,
+            status.HTTP_400_BAD_REQUEST,
+        )
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
