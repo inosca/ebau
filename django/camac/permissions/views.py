@@ -1,8 +1,10 @@
+from django.db.models import Exists, OuterRef, Q
 from rest_framework import response, status
 from rest_framework.decorators import action
 from rest_framework.exceptions import ValidationError
 from rest_framework_json_api.views import ModelViewSet, ReadOnlyModelViewSet
 
+from camac.core import models as core_models
 from camac.instance import filters as instance_filters, models as instance_models
 from camac.instance.mixins import InstanceQuerysetMixin
 from camac.user.permissions import get_group, get_role_name, permission_aware
@@ -26,9 +28,21 @@ class InstanceACLViewset(InstanceQuerysetMixin, ModelViewSet):
         # instance is visible to a wider audience than the ACLs should be.
         # Therefore we need to do the role switching manually and just call
         # `get_queryset_for_municipality()` in the right circumstances
-        role_name = get_role_name(get_group(self))
+        group = get_group(self)
+        role_name = get_role_name(group)
         if role_name == "municipality":
-            return self.get_queryset_for_municipality()
+            qs = self.get_queryset_for_municipality()
+            # Filter it down some more: Only if user is actually part of a
+            # responsible service for the instances, can they be seen
+            return qs.filter(
+                Exists(
+                    core_models.InstanceService.objects.filter(
+                        instance=OuterRef("instance"), service=group.service
+                    )
+                )
+                | Q(instance__group__service=group.service)
+            )
+
         return models.InstanceACL.objects.none()
 
     @action(
