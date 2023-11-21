@@ -821,3 +821,31 @@ def test_role_dependent_default_leadtime(
     )
 
     assert deadline_answer.date == expected_deadline
+
+
+def test_post_create_reject_work_item(
+    caluma_admin_user,
+    so_rejection_settings,
+    work_item_factory,
+    so_instance,
+    instance_state_factory,
+):
+    instance_state_factory(name=so_rejection_settings["WORK_ITEM"]["INSTANCE_STATE"])
+
+    send_event(
+        post_create_work_item,
+        sender="post_create_work_item",
+        work_item=work_item_factory(
+            task_id=so_rejection_settings["WORK_ITEM"]["TASK"],
+            case=so_instance.case,
+        ),
+        user=caluma_admin_user,
+        context={},
+    )
+
+    so_instance.refresh_from_db()
+
+    assert (
+        so_instance.instance_state.name
+        == so_rejection_settings["WORK_ITEM"]["INSTANCE_STATE"]
+    )

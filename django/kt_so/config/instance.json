@@ -108,6 +108,24 @@
     }
   },
   {
+    "model": "instance.instancestate",
+    "pk": 10,
+    "fields": {
+      "name": "reject",
+      "sort": 0,
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 11,
+    "fields": {
+      "name": "rejected",
+      "sort": 0,
+      "description": null
+    }
+  },
+  {
     "model": "instance.instancestatet",
     "pk": 1,
     "fields": {
@@ -194,6 +212,26 @@
       "instance_state": 9,
       "language": "de",
       "name": "Abgeschlossen",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 10,
+    "fields": {
+      "instance_state": 10,
+      "language": "de",
+      "name": "Zur Rückweisung",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 11,
+    "fields": {
+      "instance_state": 11,
+      "language": "de",
+      "name": "Zurückgewiesen",
       "description": null
     }
   }

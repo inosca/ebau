@@ -63,6 +63,7 @@ class InstanceResourceAdmin(
         "get_resource_name",
         "get_resource_description",
         "template",
+        "class_field",
         "get_hidden",
         "get_available_instance_resource",
     ]

@@ -53,11 +53,16 @@ module.exports = function (environment) {
   };
   const instanceStatesSo = {
     new: 1,
-    formalExam: 2,
-    materialExam: 3,
-    distributionInit: 4,
+    subm: 2,
+    "material-exam": 3,
+    "init-distribution": 4,
     distribution: 5,
     correction: 6,
+    decision: 7,
+    "construction-monitoring": 8,
+    finished: 9,
+    reject: 10,
+    rejected: 11,
   };
   const appConfig = {
     demo: {
@@ -403,13 +408,17 @@ module.exports = function (environment) {
       instanceStateCategories: {
         pending: [
           instanceStatesSo.new,
-          instanceStatesSo.formalExam,
-          instanceStatesSo.materialExam,
-          instanceStatesSo.distributionInit,
+          instanceStatesSo.subm,
+          instanceStatesSo["material-exam"],
+          instanceStatesSo["init-distribution"],
           instanceStatesSo.distribution,
           instanceStatesSo.correction,
+          instanceStatesSo.decision,
+          instanceStatesSo.reject,
+          instanceStatesSo.rejected,
         ],
-        done: [null], // Placeholder until a finished state is added
+        constructionMonitoring: [instanceStatesSo["construction-monitoring"]],
+        done: [instanceStatesSo.finished],
       },
       completePreliminaryClarificationSlugs: [],
       selectableGroups: {

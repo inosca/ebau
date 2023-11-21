@@ -10,6 +10,8 @@ const config = {
     "init-distribution": 4,
     distribution: 5,
     correction: 6,
+    reject: 10,
+    rejected: 11,
   },
   answerSlugs: {
     objectStreet: "strasse-flurname",
@@ -82,6 +84,10 @@ const config = {
       "legal-claimants": "einsprache-einsprechende",
       withdrawn: "einsprache-zurueckgezogen",
     },
+  },
+  rejection: {
+    instanceState: "rejected",
+    allowedInstanceStates: ["reject"],
   },
 };
 
