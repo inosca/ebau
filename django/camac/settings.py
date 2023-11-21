@@ -166,7 +166,6 @@ MIDDLEWARE = [
     "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
-
 ROOT_URLCONF = "camac.urls"
 
 TEMPLATES = [
@@ -1352,6 +1351,7 @@ APPLICATIONS = {
         ],
         "CIRCULATION_STATE_END": "DONE",
         "CIRCULATION_ANSWER_UNINVOLVED": "not_concerned",
+        "COPY_RESPONSIBLE_PERSON_ON_SUBMIT": True,
         "THUMBNAIL_SIZE": "x300",
         "COMMUNICATIONS": {
             "template_slug": "communications-new-message",
