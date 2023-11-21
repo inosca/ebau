@@ -49,6 +49,24 @@ REJECTION = {
     "kt_uri": {
         "ENABLED": True,
     },
+    "kt_so": {
+        "ENABLED": True,
+        "ALLOWED_INSTANCE_STATES": ["reject"],
+        "WORK_ITEM": {
+            "TASK": "reject",
+            "INSTANCE_STATE": "reject",
+            "ON_ANSWER": {
+                "formal-exam": (
+                    "formelle-pruefung-resultat",
+                    "formelle-pruefung-resultat-rueckweisung",
+                ),
+                "material-exam": (
+                    "materielle-pruefung-resultat",
+                    "materielle-pruefung-resultat-rueckweisung",
+                ),
+            },
+        },
+    },
     "test": {
         "ENABLED": True,
         "ALLOWED_INSTANCE_STATES": ["circulation_init"],
