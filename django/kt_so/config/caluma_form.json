@@ -4638,7 +4638,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "anlagetyp",
-      "sort": 103
+      "sort": 98
     }
   },
   {
@@ -4653,7 +4653,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "anlagetyp-art",
-      "sort": 99
+      "sort": 94
     }
   },
   {
@@ -4683,7 +4683,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "art-der-fernwaerme",
-      "sort": 90
+      "sort": 88
     }
   },
   {
@@ -4698,7 +4698,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "art-der-holzheizung",
-      "sort": 94
+      "sort": 90
     }
   },
   {
@@ -4893,52 +4893,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "bezeichnung-dazugehoeriges-gebaeude",
-      "sort": 104
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "haustechnik.brennstoffe-lagerort",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "form": "haustechnik",
-      "question": "brennstoffe-lagerort",
-      "sort": 88
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "haustechnik.brennstoffe-lagerort-beschreibung",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "form": "haustechnik",
-      "question": "brennstoffe-lagerort-beschreibung",
-      "sort": 86
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "haustechnik.brennstoffe-menge",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "form": "haustechnik",
-      "question": "brennstoffe-menge",
-      "sort": 83
+      "sort": 99
     }
   },
   {
@@ -5748,7 +5703,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "gesamtflaeche-m2",
-      "sort": 85
+      "sort": 84
     }
   },
   {
@@ -5763,7 +5718,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "gesamtleitstung-kw",
-      "sort": 84
+      "sort": 83
     }
   },
   {
@@ -5778,7 +5733,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "hauptheizung-beschreibung",
-      "sort": 89
+      "sort": 87
     }
   },
   {
@@ -5793,7 +5748,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "hauptheizungsanlage",
-      "sort": 97
+      "sort": 92
     }
   },
   {
@@ -5808,7 +5763,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "haus-und-gebaeudetechnik-einleitung",
-      "sort": 105
+      "sort": 100
     }
   },
   {
@@ -5823,7 +5778,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "heizsystem-art",
-      "sort": 98
+      "sort": 93
     }
   },
   {
@@ -5838,7 +5793,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "hinweis-kaminhoehe",
-      "sort": 93
+      "sort": 89
     }
   },
   {
@@ -5868,7 +5823,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "hinweis-tankanlage",
-      "sort": 95
+      "sort": 91
     }
   },
   {
@@ -5958,7 +5913,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "leistung-motor",
-      "sort": 102
+      "sort": 97
     }
   },
   {
@@ -5973,7 +5928,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "leistung-strom",
-      "sort": 101
+      "sort": 96
     }
   },
   {
@@ -6033,37 +5988,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "nennwaermeleistung",
-      "sort": 87
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "haustechnik.nennwaermeleistung-gas",
-    "fields": {
-      "created_at": "2023-10-23T12:22:24.965Z",
-      "modified_at": "2023-10-23T12:22:24.965Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "haustechnik",
-      "question": "nennwaermeleistung-gas",
-      "sort": 96
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "haustechnik.nennwaermeleistung-holzheizung",
-    "fields": {
-      "created_at": "2023-10-23T12:03:25.928Z",
-      "modified_at": "2023-10-23T12:03:25.928Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "haustechnik",
-      "question": "nennwaermeleistung-holzheizung",
-      "sort": 92
+      "sort": 86
     }
   },
   {
@@ -6078,7 +6003,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "netzeinspeisung",
-      "sort": 100
+      "sort": 95
     }
   },
   {
@@ -6108,7 +6033,7 @@
       "modified_by_group": null,
       "form": "haustechnik",
       "question": "speichervolumen-holzheizung",
-      "sort": 91
+      "sort": 85
     }
   },
   {
@@ -7878,7 +7803,7 @@
       "modified_by_group": null,
       "form": "umweltschutz",
       "question": "200m3-abfall",
-      "sort": 43
+      "sort": 38
     }
   },
   {
@@ -7893,7 +7818,7 @@
       "modified_by_group": null,
       "form": "umweltschutz",
       "question": "abbruch",
-      "sort": 44
+      "sort": 39
     }
   },
   {
@@ -7908,7 +7833,7 @@
       "modified_by_group": null,
       "form": "umweltschutz",
       "question": "abbruch-aushub-entsorgung-titel",
-      "sort": 45
+      "sort": 40
     }
   },
   {
@@ -7923,7 +7848,7 @@
       "modified_by_group": null,
       "form": "umweltschutz",
       "question": "altlasten",
-      "sort": 16
+      "sort": 13
     }
   },
   {
@@ -7938,7 +7863,7 @@
       "modified_by_group": null,
       "form": "umweltschutz",
       "question": "art-der-einbauten",
-      "sort": 25
+      "sort": 22
     }
   },
   {
@@ -7953,7 +7878,7 @@
       "modified_by_group": null,
       "form": "umweltschutz",
       "question": "asbest",
-      "sort": 42
+      "sort": 37
     }
   },
   {
@@ -7968,7 +7893,7 @@
       "modified_by_group": null,
       "form": "umweltschutz",
       "question": "aushub-erforderlich",
-      "sort": 40
+      "sort": 35
     }
   },
   {
@@ -7998,7 +7923,7 @@
       "modified_by_group": null,
       "form": "umweltschutz",
       "question": "bauen-im-grundwasser",
-      "sort": 27
+      "sort": 24
     }
   },
   {
@@ -8013,7 +7938,7 @@
       "modified_by_group": null,
       "form": "umweltschutz",
       "question": "belasteter-standort",
-      "sort": 15
+      "sort": 12
     }
   },
   {
@@ -8028,7 +7953,7 @@
       "modified_by_group": null,
       "form": "umweltschutz",
       "question": "beschreibung-aushub",
-      "sort": 36
+      "sort": 31
     }
   },
   {
@@ -8043,7 +7968,7 @@
       "modified_by_group": null,
       "form": "umweltschutz",
       "question": "beschreibung-einbauten",
-      "sort": 22
+      "sort": 19
     }
   },
   {
@@ -8058,7 +7983,7 @@
       "modified_by_group": null,
       "form": "umweltschutz",
       "question": "einbauten-ins-grundwasser",
-      "sort": 26
+      "sort": 23
     }
   },
   {
@@ -8073,7 +7998,7 @@
       "modified_by_group": null,
       "form": "umweltschutz",
       "question": "entsorgungskonzept",
-      "sort": 41
+      "sort": 36
     }
   },
   {
@@ -8088,7 +8013,37 @@
       "modified_by_group": null,
       "form": "umweltschutz",
       "question": "entwasserung",
-      "sort": 34
+      "sort": 30
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "umweltschutz.geruchsabstaende",
+    "fields": {
+      "created_at": "2023-11-21T08:18:55.044Z",
+      "modified_at": "2023-11-21T08:18:55.044Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "umweltschutz",
+      "question": "geruchsabstaende",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "umweltschutz.gewaesserschutz-titel",
+    "fields": {
+      "created_at": "2023-11-21T08:04:30.571Z",
+      "modified_at": "2023-11-21T08:04:30.571Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "umweltschutz",
+      "question": "gewaesserschutz-titel",
+      "sort": 18
     }
   },
   {
@@ -8103,7 +8058,7 @@
       "modified_by_group": null,
       "form": "umweltschutz",
       "question": "hinweis-altlasten-voruntersuchung",
-      "sort": 14
+      "sort": 11
     }
   },
   {
@@ -8118,7 +8073,7 @@
       "modified_by_group": null,
       "form": "umweltschutz",
       "question": "hinweis-einbau-unter-den-mittleren-grundwasserspiegel",
-      "sort": 24
+      "sort": 21
     }
   },
   {
@@ -8133,7 +8088,7 @@
       "modified_by_group": null,
       "form": "umweltschutz",
       "question": "hinweis-einleitungsgesuch",
-      "sort": 29
+      "sort": 25
     }
   },
   {
@@ -8148,7 +8103,7 @@
       "modified_by_group": null,
       "form": "umweltschutz",
       "question": "hinweis-entwaesserungsplan",
-      "sort": 18
+      "sort": 14
     }
   },
   {
@@ -8163,7 +8118,7 @@
       "modified_by_group": null,
       "form": "umweltschutz",
       "question": "hinweis-foerderung-von-grundwasser",
-      "sort": 23
+      "sort": 20
     }
   },
   {
@@ -8178,7 +8133,7 @@
       "modified_by_group": null,
       "form": "umweltschutz",
       "question": "hinweis-gesuch-fuer-lageranlagen",
-      "sort": 20
+      "sort": 16
     }
   },
   {
@@ -8193,7 +8148,7 @@
       "modified_by_group": null,
       "form": "umweltschutz",
       "question": "hinweis-kanalisation",
-      "sort": 32
+      "sort": 28
     }
   },
   {
@@ -8208,7 +8163,7 @@
       "modified_by_group": null,
       "form": "umweltschutz",
       "question": "hinweis-versickerungsgesuch",
-      "sort": 30
+      "sort": 26
     }
   },
   {
@@ -8223,7 +8178,7 @@
       "modified_by_group": null,
       "form": "umweltschutz",
       "question": "hofduengeranlage",
-      "sort": 19
+      "sort": 15
     }
   },
   {
@@ -8238,7 +8193,7 @@
       "modified_by_group": null,
       "form": "umweltschutz",
       "question": "immissionsnachweis-luftwaermepumpen",
-      "sort": 7
+      "sort": 6
     }
   },
   {
@@ -8253,7 +8208,7 @@
       "modified_by_group": null,
       "form": "umweltschutz",
       "question": "kanalisation",
-      "sort": 33
+      "sort": 29
     }
   },
   {
@@ -8268,7 +8223,7 @@
       "modified_by_group": null,
       "form": "umweltschutz",
       "question": "kein-laermgutachten",
-      "sort": 9
+      "sort": 8
     }
   },
   {
@@ -8283,7 +8238,7 @@
       "modified_by_group": null,
       "form": "umweltschutz",
       "question": "laermgutachten-erfoderlich",
-      "sort": 8
+      "sort": 7
     }
   },
   {
@@ -8298,7 +8253,7 @@
       "modified_by_group": null,
       "form": "umweltschutz",
       "question": "laermschutz",
-      "sort": 11
+      "sort": 10
     }
   },
   {
@@ -8313,7 +8268,7 @@
       "modified_by_group": null,
       "form": "umweltschutz",
       "question": "laermschutzfragen",
-      "sort": 10
+      "sort": 9
     }
   },
   {
@@ -8358,7 +8313,7 @@
       "modified_by_group": null,
       "form": "umweltschutz",
       "question": "meteorwasser",
-      "sort": 31
+      "sort": 27
     }
   },
   {
@@ -8388,7 +8343,7 @@
       "modified_by_group": null,
       "form": "umweltschutz",
       "question": "ort-verwendung-humus",
-      "sort": 38
+      "sort": 33
     }
   },
   {
@@ -8403,112 +8358,7 @@
       "modified_by_group": null,
       "form": "umweltschutz",
       "question": "pruefung-umweltschutz",
-      "sort": 46
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "umweltschutz.trennlinie-altlasten",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "form": "umweltschutz",
-      "question": "trennlinie-altlasten",
-      "sort": 17
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "umweltschutz.trennlinie-bauen-im-grundwasser",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "form": "umweltschutz",
-      "question": "trennlinie-bauen-im-grundwasser",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "umweltschutz.trennlinie-laerm",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "form": "umweltschutz",
-      "question": "trennlinie-laerm",
-      "sort": 12
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "umweltschutz.trennlinie-lichtschutz",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "form": "umweltschutz",
-      "question": "trennlinie-lichtschutz",
-      "sort": 6
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "umweltschutz.trennlinie-liegenschaftsentwasserung",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "form": "umweltschutz",
-      "question": "trennlinie-liegenschaftsentwasserung",
-      "sort": 13
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "umweltschutz.trennlinie-luft-laerm-licht",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "form": "umweltschutz",
-      "question": "trennlinie-luft-laerm-licht",
-      "sort": 35
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "umweltschutz.trennlinie-nisv",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "form": "umweltschutz",
-      "question": "trennlinie-nisv",
-      "sort": 28
+      "sort": 41
     }
   },
   {
@@ -8523,7 +8373,7 @@
       "modified_by_group": null,
       "form": "umweltschutz",
       "question": "verwendung-aushub",
-      "sort": 37
+      "sort": 32
     }
   },
   {
@@ -8538,7 +8388,7 @@
       "modified_by_group": null,
       "form": "umweltschutz",
       "question": "verwendung-humus",
-      "sort": 39
+      "sort": 34
     }
   },
   {
@@ -8553,7 +8403,7 @@
       "modified_by_group": null,
       "form": "umweltschutz",
       "question": "wassergefaehrdende-fluessigkeiten",
-      "sort": 21
+      "sort": 17
     }
   },
   {
@@ -9347,12 +9197,12 @@
     "pk": "anlagetyp-heizung-und-warmwasseraufbereitung",
     "fields": {
       "created_at": "2023-11-16T14:53:58.065Z",
-      "modified_at": "2023-11-16T14:53:58.065Z",
+      "modified_at": "2023-11-21T07:45:28.537Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Heizung & Warmwasseraufbereitung\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Heizung / Warmwasser\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -9673,22 +9523,6 @@
       "modified_by_user": "645a484a-3312-4602-9d87-77215f03f5bf",
       "modified_by_group": null,
       "label": "{\"de\": \"Unter den mittleren Grundwasserspiegel\", \"fr\": null, \"it\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "art-der-einbauten-spundwand",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-09-20T11:15:28.437Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "645a484a-3312-4602-9d87-77215f03f5bf",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Unter den tiefsten Grundwasserspiegel\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -10537,54 +10371,6 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "brennstoffe-lagerort-andere",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Andere\", \"fr\": null, \"it\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "brennstoffe-lagerort-heizraum",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Heizraum\", \"fr\": null, \"it\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "brennstoffe-lagerort-tankraum-tankanlage",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Tankraum / Tankanlage\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -12003,12 +11789,12 @@
     "pk": "hauptheizungsanlage-luftwaermepumpe",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-09-14T10:54:32.954Z",
+      "modified_at": "2023-11-21T07:47:09.644Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "645a484a-3312-4602-9d87-77215f03f5bf",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Luft- / Wasserw\\u00e4rmepumpe\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Luft/Wasser-W\\u00e4rmepumpe\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -12419,12 +12205,12 @@
     "pk": "kanalisation-dezentral",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "modified_at": "2023-11-21T08:00:03.443Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Dezentrale L\\u00f6sung (z.B. Kleinkl\\u00e4ranlage)\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Dezentrale L\\u00f6sung (z.B. Kleinkl\\u00e4ranlage, G\\u00fcllegrube)\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -16273,10 +16059,10 @@
     "pk": "abbruch-aushub-entsorgung-titel",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-09-30T14:17:04.011Z",
+      "modified_at": "2023-11-21T08:28:19.292Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "645a484a-3312-4602-9d87-77215f03f5bf",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Abbruch, Aushub, Entsorgung Titel\", \"fr\": null, \"it\": null}",
       "type": "static",
@@ -16286,7 +16072,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"####Abbruch, Aushub, Entsorgung\\nBei belasteten Standorten mit Untersuchungsbedarf ist vor Ausf\\u00fchrung des Bauvorhabens zwingend eine Altlasten-Voruntersuchung nach Art. 7 AltlV durchzuf\\u00fchren.\\n\\nF\\u00fcr alle belasteten Standorte sind f\\u00fcr die Beurteilung nach Art. 3 AltlV eine baubedingte Gef\\u00e4hrdungsabsch\\u00e4tzung und ein Entsorgungs-konzept zu erstellen. Diese sind mit der Baueingabe einzureichen und werden durch die Baubeh\\u00f6rde der Gemeinde dem Amt f\\u00fcr Umwelt zur Pr\\u00fcfung weitergeleitet.\\n\\nInformationen zur Lage und Klassierung der belasteten Standorte im Kanton Solothurn sind auf dem Geoportal Kanton Solothurn dokumentiert\\u00bb (https://so.ch/kbs)\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"#### Abbruch, Aushub, Entsorgung\\n\\nBei Neubau-, Umbau- oder R\\u00fcckbauarbeiten fallen Bauabf\\u00e4lle an. Bei Bauarbeiten bei denen voraussichtlich mehr als 200 m3 Bauabf\\u00e4lle anfallen oder Bauabf\\u00e4lle mit umwelt- oder gesundheitsgef\\u00e4hrdenden Stoffen wie polychlorierte Biphenyle (PCB), polyaromatische Kohlenwasserstoffe (PAK), Blei oder Asbest zu erwarten sind, muss die Bauherrschaft bei der Baubewilligungs Beh\\u00f6rde ein Entsorgungskonzept einreichen.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -16428,10 +16214,10 @@
     "pk": "altlasten",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-09-26T09:47:38.911Z",
+      "modified_at": "2023-11-21T08:17:37.228Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "bec90c3f-0ac3-4f9d-b4b0-af73472f0749",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Altlasten\", \"fr\": null, \"it\": null}",
       "type": "static",
@@ -16441,7 +16227,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"####Altlasten / belastete Standorte (KbS)\\n\\nWenn belastete Standorte betroffen sind, muss der Sachverhalt m\\u00f6glichst fr\\u00fchzeitig gekl\\u00e4rt werden. Allenfalls sind zus\\u00e4tzliche Untersuchungen notwendig. Eine entsprechende Dokumentation des Standorts ist mit der Baueingabe einzureichen.\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"---\\n\\n#### Altlasten / belastete Standorte (KbS)\\n\\nBei belasteten Standorten mit Untersuchungsbedarf ist vor Ausf\\u00fchrung des Bauvorhabens zwingend eine Altlasten-Voruntersuchung nach Art. 7 AltlV durchzuf\\u00fchren.\\n\\nF\\u00fcr alle belasteten Standorte sind f\\u00fcr die Beurteilung nach Art. 3 AltlV eine baubedingte Gef\\u00e4hrdungsabsch\\u00e4tzung und ein Entsorgungs-konzept zu erstellen. Diese sind mit der Baueingabe einzureichen und werden durch die Baubeh\\u00f6rde der Gemeinde dem Amt f\\u00fcr Umwelt zur Pr\\u00fcfung weitergeleitet.\\n\\nInformationen zur Lage und Klassierung der belasteten Standorte im Kanton Solothurn sind auf dem [Geoportal Kanton Solothurn](https://so.ch/kbs) dokumentiert.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -16653,7 +16439,7 @@
     "pk": "anlagetyp",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-11-16T14:54:06.002Z",
+      "modified_at": "2023-11-21T07:45:28.848Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -17931,7 +17717,7 @@
     "pk": "bauen-im-grundwasser",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "modified_at": "2023-11-21T08:06:24.123Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -17942,9 +17728,9 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"####Bauen im Grundwasser\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"---\\n\\n####Bauen im Grundwasser\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -19768,105 +19554,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "brennstoffe-lagerort",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-10-23T12:18:16.684Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Lagerort Brennstoffe\", \"fr\": null, \"it\": null}",
-      "type": "choice",
-      "is_required": "false",
-      "is_hidden": "!(\n  \"hauptheizungsanlage\"|answer in [\"hauptheizungsanlage-heizoel\"] \n && \"anlagetyp-art-neu\" != \"anlagetyp-art\"|answer)",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "brennstoffe-lagerort-beschreibung",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Beschreibung\", \"fr\": null, \"it\": null}",
-      "type": "text",
-      "is_required": "false",
-      "is_hidden": "!(\n  \"brennstoffe-lagerort-andere\" == \"brennstoffe-lagerort\"|answer\n)",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "max_length": null,
-        "min_length": null
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "brennstoffe-menge",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-10-23T12:18:37.982Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Menge\", \"fr\": null, \"it\": null}",
-      "type": "text",
-      "is_required": "false",
-      "is_hidden": "!(\n  \"hauptheizungsanlage\"|answer in [\"hauptheizungsanlage-heizoel\"]\n)",
-      "is_archived": false,
-      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "max_length": null,
-        "min_length": null
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "bs-nein",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -20841,7 +20528,7 @@
     "pk": "entwasserung",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "modified_at": "2023-11-21T08:07:43.233Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -20854,7 +20541,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"####Liegenschaftsentw\\u00e4sserung\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"---\\n\\n#### Liegenschaftsentw\\u00e4sserung\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -24562,6 +24249,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "geruchsabstaende",
+    "fields": {
+      "created_at": "2023-11-21T08:18:54.811Z",
+      "modified_at": "2023-11-21T08:20:20.375Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Geruchsabst\\u00e4nde\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "!(\"nutzungszwecke-landwirtschaft\" in \"nutzungszwecke\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"---\\n\\n#### Geruchsabst\\u00e4nde bei Tierhaltungsanlagen\\n\\nBeim Neubau oder der \\u00c4nderung von Tierhaltungsanlagen muss zur\\nVermeidung von Geruchsbel\\u00e4stigungen die Einhaltung der\\nMindestabst\\u00e4nde gegen\\u00fcber bestehenden Wohnzonen / Wohnnutzungen\\nnachgewiesen werden. Weitere Informationen finden sich auf der [Website\\ndes Amtes f\\u00fcr Umwelt](https://so.ch/verwaltung/bau-und-justizdepartement/amt-fuer-umwelt/landwirtschaft/gerueche-und-tierhaltung/).\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "gesamtflaeche-m2",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -24681,6 +24399,37 @@
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"---\\n\\n#### Gesundheitssch\\u00e4dliche Stoffe\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "gewaesserschutz-titel",
+    "fields": {
+      "created_at": "2023-11-21T08:04:30.348Z",
+      "modified_at": "2023-11-21T08:06:53.748Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gew\\u00e4sserschutz Titel\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "!(\n\t[\n\t\t\"nutzungszwecke-industrie\",\n\t\t\"nutzungszwecke-gewerbe\",\n\t\t\"nutzungszwecke-landwirtschaft\"\n\t] intersects \"nutzungszwecke\"|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"---\\n\\n#### Gew\\u00e4sserschutz\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -25023,7 +24772,7 @@
     "pk": "hauptheizungsanlage",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-11-16T15:20:00.295Z",
+      "modified_at": "2023-11-21T07:47:10.120Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -26647,7 +26396,7 @@
     "pk": "kanalisation",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "modified_at": "2023-11-21T08:00:03.694Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -26659,7 +26408,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -27157,7 +26906,7 @@
     "pk": "laermschutz",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "modified_at": "2023-11-21T08:08:54.853Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -27170,7 +26919,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"####Pr\\u00fcfung Erfordernis L\\u00e4rmschutznachweis\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"---\\n\\n#### Pr\\u00fcfung Erfordernis L\\u00e4rmschutznachweis\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -27797,7 +27546,7 @@
     "pk": "lichtschutz-titel",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "modified_at": "2023-11-21T08:09:32.948Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -27810,7 +27559,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"####Lichtschutz\\nUnter Lichtverschmutzung versteht man die k\\u00fcnstliche und ungewollte Aufhellung der Umgebung und des Nachthimmels mit sch\\u00e4dlichen oder l\\u00e4stigen Auswirkungen auf Mensch und Umwelt. Bei der Neuinstallation von Aussenbeleuchtungen im Rahmen von Baugesuchen, bei neuen Leuchtreklamen sowie bei Strassen- und Platzbeleuchtungen sind die Aspekte des Lichtschutzes zu ber\\u00fccksichtigen.\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"---\\n\\n#### Lichtschutz\\n\\nUnter Lichtverschmutzung versteht man die k\\u00fcnstliche und ungewollte Aufhellung der Umgebung und des Nachthimmels mit sch\\u00e4dlichen oder l\\u00e4stigen Auswirkungen auf Mensch und Umwelt. Bei der Neuinstallation von Aussenbeleuchtungen im Rahmen von Baugesuchen, bei neuen Leuchtreklamen sowie bei Strassen- und Platzbeleuchtungen sind die Aspekte des Lichtschutzes zu ber\\u00fccksichtigen.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -28626,83 +28375,15 @@
     "pk": "nennwaermeleistung",
     "fields": {
       "created_at": "2023-10-23T09:13:04.157Z",
-      "modified_at": "2023-10-23T09:13:04.157Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Nennw\\u00e4rmeleistung\", \"fr\": null, \"it\": null}",
-      "type": "text",
-      "is_required": "true",
-      "is_hidden": "\"brennstoffe-lagerort-heizraum\" != \"brennstoffe-lagerort\"|answer",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "max_length": null,
-        "min_length": null
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "nennwaermeleistung-gas",
-    "fields": {
-      "created_at": "2023-10-23T12:22:24.787Z",
-      "modified_at": "2023-10-23T12:23:58.718Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Nennw\\u00e4rmeleistung\", \"fr\": null, \"it\": null}",
-      "type": "text",
-      "is_required": "true",
-      "is_hidden": "\"hauptheizungsanlage-gas\" != \"hauptheizungsanlage\"|answer",
-      "is_archived": false,
-      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "max_length": null,
-        "min_length": null
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "nennwaermeleistung-holzheizung",
-    "fields": {
-      "created_at": "2023-10-23T12:03:25.778Z",
-      "modified_at": "2023-10-23T12:31:30.304Z",
+      "modified_at": "2023-11-21T07:56:07.285Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Nennw\\u00e4rmeleistung (kW)\", \"fr\": null, \"it\": null}",
       "type": "text",
-      "is_required": "[\n\t\"art-der-holzheizung-stueckholz\",\n\t\"art-der-holzheizung-holzschnitzel\",\n\t\"art-der-holzheizung-pellets\"\n] \nintersects \"art-der-holzheizung\"|answer",
-      "is_hidden": "!(\n\t[\n\t\t\"art-der-holzheizung-stueckholz\",\n\t\t\"art-der-holzheizung-holzschnitzel\",\n\t\t\"art-der-holzheizung-pellets\"\n\t] \n\tintersects \"art-der-holzheizung\"|answer\n)",
+      "is_required": "true",
+      "is_hidden": "!(\n\t\"hauptheizungsanlage\"|answer in[\n\t\t\"hauptheizungsanlage-gas\",\n\t\t\"hauptheizungsanlage-heizoel\"\n\t] ||\n\t\"art-der-holzheizung\"|answer in [\n\t\t\"art-der-holzheizung-stueckholz\",\n\t\t\"art-der-holzheizung-holzschnitzel\",\n\t\t\"art-der-holzheizung-pellets\"\n\t]\n)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -28728,19 +28409,19 @@
     "pk": "netzeinspeisung",
     "fields": {
       "created_at": "2023-10-23T12:37:13.035Z",
-      "modified_at": "2023-10-23T12:37:13.035Z",
+      "modified_at": "2023-11-21T07:57:41.633Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Netzeinspeisung\", \"fr\": null, \"it\": null}",
       "type": "choice",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "\"anlagetyp-notstrom-aggregat\" != \"anlagetyp\"|answer",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -28948,10 +28629,10 @@
     "pk": "nisv",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-09-15T07:59:03.216Z",
+      "modified_at": "2023-11-21T08:10:03.466Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "645a484a-3312-4602-9d87-77215f03f5bf",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"NISV\", \"fr\": null, \"it\": null}",
       "type": "static",
@@ -28961,7 +28642,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"####Nichtionisierende Strahlung\\n\\n**Hinweis:** Bauvorhaben im Einzugsbereich von Hochspannungsleitungen (z.B. Swissgrid, SBB oder \\u00f6rtliche Elektrizit\\u00e4tswerke) m\\u00fcssen hinsichtlich nichtionisierender Strahlung (NISV) gepr\\u00fcft werden.\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"---\\n\\n#### Nichtionisierende Strahlung\\n\\n**Hinweis:** Bauvorhaben im Einzugsbereich von Hochspannungsleitungen (z.B. Swissgrid, SBB oder \\u00f6rtliche Elektrizit\\u00e4tswerke) m\\u00fcssen hinsichtlich nichtionisierender Strahlung (NISV) gepr\\u00fcft werden.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -32089,223 +31770,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "trennlinie-altlasten",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Trennlinie-Altlasten\", \"fr\": null, \"it\": null}",
-      "type": "static",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"---\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "trennlinie-bauen-im-grundwasser",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Trennlinie Bauen im Grundwasser\", \"fr\": null, \"it\": null}",
-      "type": "static",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"---\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "trennlinie-laerm",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Trennlinie L\\u00e4rm\", \"fr\": null, \"it\": null}",
-      "type": "static",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"---\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "trennlinie-lichtschutz",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Trennlinie Lichtschutz\", \"fr\": null, \"it\": null}",
-      "type": "static",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"---\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "trennlinie-liegenschaftsentwasserung",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Trennlinie Liegenschaftsentw\\u00e4sserung\", \"fr\": null, \"it\": null}",
-      "type": "static",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"---\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "trennlinie-luft-laerm-licht",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Trennlinie Luft L\\u00e4rm Licht\", \"fr\": null, \"it\": null}",
-      "type": "static",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"---\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "trennlinie-nisv",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Trennlinie NISV\", \"fr\": null, \"it\": null}",
-      "type": "static",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"---\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "trinkwasser-durchmesser",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -33360,7 +32824,7 @@
     "pk": "wassergefaehrdende-fluessigkeiten",
     "fields": {
       "created_at": "2023-10-23T13:22:01.881Z",
-      "modified_at": "2023-10-23T13:25:50.763Z",
+      "modified_at": "2023-11-21T08:03:58.154Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -33368,7 +32832,7 @@
       "label": "{\"de\": \"Ist eine Lageranlage oder ein Umschlagplatz f\\u00fcr wassergef\\u00e4hrdende Fl\\u00fcssigkeiten vorgesehen?\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "false",
-      "is_hidden": "!(\n\t[\n\t\t\"nutzungszwecke-industrie\",\n\t\t\"nutzungszwecke-gewerbe\",\n\t\t\"nutzungszwecke-landwirtschaft\"\n\t] intersects \"nutzungszwecke\"|answer\n\n)",
+      "is_hidden": "!(\n\t[\n\t\t\"nutzungszwecke-industrie\",\n\t\t\"nutzungszwecke-gewerbe\",\n\t\t\"nutzungszwecke-landwirtschaft\"\n\t] intersects \"nutzungszwecke\"|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -33978,8 +33442,8 @@
     "model": "caluma_form.questionoption",
     "pk": "anlagetyp.anlagetyp-analgetyp-klima",
     "fields": {
-      "created_at": "2023-11-16T14:54:06.041Z",
-      "modified_at": "2023-11-16T14:54:06.042Z",
+      "created_at": "2023-11-21T07:45:28.889Z",
+      "modified_at": "2023-11-21T07:45:28.889Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -33993,8 +33457,8 @@
     "model": "caluma_form.questionoption",
     "pk": "anlagetyp.anlagetyp-aufzuege",
     "fields": {
-      "created_at": "2023-11-16T14:54:06.035Z",
-      "modified_at": "2023-11-16T14:54:06.035Z",
+      "created_at": "2023-11-21T07:45:28.883Z",
+      "modified_at": "2023-11-21T07:45:28.883Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -34008,8 +33472,8 @@
     "model": "caluma_form.questionoption",
     "pk": "anlagetyp.anlagetyp-betankungsanlage",
     "fields": {
-      "created_at": "2023-11-16T14:54:06.015Z",
-      "modified_at": "2023-11-16T14:54:06.015Z",
+      "created_at": "2023-11-21T07:45:28.863Z",
+      "modified_at": "2023-11-21T07:45:28.863Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -34023,8 +33487,8 @@
     "model": "caluma_form.questionoption",
     "pk": "anlagetyp.anlagetyp-gasanlage",
     "fields": {
-      "created_at": "2023-11-16T14:54:06.009Z",
-      "modified_at": "2023-11-16T14:54:06.009Z",
+      "created_at": "2023-11-21T07:45:28.856Z",
+      "modified_at": "2023-11-21T07:45:28.856Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -34038,8 +33502,8 @@
     "model": "caluma_form.questionoption",
     "pk": "anlagetyp.anlagetyp-hauptheizung",
     "fields": {
-      "created_at": "2023-11-16T14:54:06.032Z",
-      "modified_at": "2023-11-16T14:54:06.032Z",
+      "created_at": "2023-11-21T07:45:28.879Z",
+      "modified_at": "2023-11-21T07:45:28.879Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -34053,8 +33517,8 @@
     "model": "caluma_form.questionoption",
     "pk": "anlagetyp.anlagetyp-heizung-und-warmwasseraufbereitung",
     "fields": {
-      "created_at": "2023-11-16T14:54:06.025Z",
-      "modified_at": "2023-11-16T14:54:06.025Z",
+      "created_at": "2023-11-21T07:45:28.873Z",
+      "modified_at": "2023-11-21T07:45:28.873Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -34068,8 +33532,8 @@
     "model": "caluma_form.questionoption",
     "pk": "anlagetyp.anlagetyp-lueftungsanlage",
     "fields": {
-      "created_at": "2023-11-16T14:54:06.038Z",
-      "modified_at": "2023-11-16T14:54:06.038Z",
+      "created_at": "2023-11-21T07:45:28.886Z",
+      "modified_at": "2023-11-21T07:45:28.886Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -34083,8 +33547,8 @@
     "model": "caluma_form.questionoption",
     "pk": "anlagetyp.anlagetyp-notstrom-aggregat",
     "fields": {
-      "created_at": "2023-11-16T14:54:06.012Z",
-      "modified_at": "2023-11-16T14:54:06.012Z",
+      "created_at": "2023-11-21T07:45:28.860Z",
+      "modified_at": "2023-11-21T07:45:28.860Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -34098,8 +33562,8 @@
     "model": "caluma_form.questionoption",
     "pk": "anlagetyp.anlagetyp-photovoltaische-solaranlage",
     "fields": {
-      "created_at": "2023-11-16T14:54:06.019Z",
-      "modified_at": "2023-11-16T14:54:06.019Z",
+      "created_at": "2023-11-21T07:45:28.866Z",
+      "modified_at": "2023-11-21T07:45:28.867Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -34113,8 +33577,8 @@
     "model": "caluma_form.questionoption",
     "pk": "anlagetyp.anlagetyp-thermische-solaranlage",
     "fields": {
-      "created_at": "2023-11-16T14:54:06.022Z",
-      "modified_at": "2023-11-16T14:54:06.022Z",
+      "created_at": "2023-11-21T07:45:28.870Z",
+      "modified_at": "2023-11-21T07:45:28.870Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -34128,8 +33592,8 @@
     "model": "caluma_form.questionoption",
     "pk": "anlagetyp.anlagetyp-warmwasser",
     "fields": {
-      "created_at": "2023-11-16T14:54:06.028Z",
-      "modified_at": "2023-11-16T14:54:06.028Z",
+      "created_at": "2023-11-21T07:45:28.876Z",
+      "modified_at": "2023-11-21T07:45:28.876Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -34407,21 +33871,6 @@
       "question": "art-der-einbauten",
       "option": "art-der-einbauten-pfahlung",
       "sort": 4
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "art-der-einbauten.art-der-einbauten-spundwand",
-    "fields": {
-      "created_at": "2023-09-20T11:15:28.602Z",
-      "modified_at": "2023-09-20T11:15:28.602Z",
-      "created_by_user": "645a484a-3312-4602-9d87-77215f03f5bf",
-      "created_by_group": null,
-      "modified_by_user": "645a484a-3312-4602-9d87-77215f03f5bf",
-      "modified_by_group": null,
-      "question": "art-der-einbauten",
-      "option": "art-der-einbauten-spundwand",
-      "sort": 3
     }
   },
   {
@@ -35247,51 +34696,6 @@
       "question": "brandschutzabstand-eingehalten",
       "option": "brandschutzabstand-eingehalten-nein",
       "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "brennstoffe-lagerort.brennstoffe-lagerort-andere",
-    "fields": {
-      "created_at": "2023-10-23T12:18:16.692Z",
-      "modified_at": "2023-10-23T12:18:16.693Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "brennstoffe-lagerort",
-      "option": "brennstoffe-lagerort-andere",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "brennstoffe-lagerort.brennstoffe-lagerort-heizraum",
-    "fields": {
-      "created_at": "2023-10-23T12:18:16.701Z",
-      "modified_at": "2023-10-23T12:18:16.701Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "brennstoffe-lagerort",
-      "option": "brennstoffe-lagerort-heizraum",
-      "sort": 3
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "brennstoffe-lagerort.brennstoffe-lagerort-tankraum-tankanlage",
-    "fields": {
-      "created_at": "2023-10-23T12:18:16.697Z",
-      "modified_at": "2023-10-23T12:18:16.697Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "brennstoffe-lagerort",
-      "option": "brennstoffe-lagerort-tankraum-tankanlage",
-      "sort": 2
     }
   },
   {
@@ -36468,8 +35872,8 @@
     "model": "caluma_form.questionoption",
     "pk": "hauptheizungsanlage.hauptheizungsanlage-abwaerme",
     "fields": {
-      "created_at": "2023-11-16T15:20:00.325Z",
-      "modified_at": "2023-11-16T15:20:00.325Z",
+      "created_at": "2023-11-21T07:47:10.144Z",
+      "modified_at": "2023-11-21T07:47:10.144Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -36483,8 +35887,8 @@
     "model": "caluma_form.questionoption",
     "pk": "hauptheizungsanlage.hauptheizungsanlage-andere",
     "fields": {
-      "created_at": "2023-11-16T15:20:00.304Z",
-      "modified_at": "2023-11-16T15:20:00.304Z",
+      "created_at": "2023-11-21T07:47:10.128Z",
+      "modified_at": "2023-11-21T07:47:10.129Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -36498,8 +35902,8 @@
     "model": "caluma_form.questionoption",
     "pk": "hauptheizungsanlage.hauptheizungsanlage-elektrizitaet",
     "fields": {
-      "created_at": "2023-11-16T15:20:00.308Z",
-      "modified_at": "2023-11-16T15:20:00.308Z",
+      "created_at": "2023-11-21T07:47:10.132Z",
+      "modified_at": "2023-11-21T07:47:10.132Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -36513,8 +35917,8 @@
     "model": "caluma_form.questionoption",
     "pk": "hauptheizungsanlage.hauptheizungsanlage-erdwaerme",
     "fields": {
-      "created_at": "2023-11-16T15:20:00.350Z",
-      "modified_at": "2023-11-16T15:20:00.350Z",
+      "created_at": "2023-11-21T07:47:10.161Z",
+      "modified_at": "2023-11-21T07:47:10.161Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -36528,8 +35932,8 @@
     "model": "caluma_form.questionoption",
     "pk": "hauptheizungsanlage.hauptheizungsanlage-fernwaerme",
     "fields": {
-      "created_at": "2023-11-16T15:20:00.346Z",
-      "modified_at": "2023-11-16T15:20:00.346Z",
+      "created_at": "2023-11-21T07:47:10.158Z",
+      "modified_at": "2023-11-21T07:47:10.158Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -36543,8 +35947,8 @@
     "model": "caluma_form.questionoption",
     "pk": "hauptheizungsanlage.hauptheizungsanlage-gas",
     "fields": {
-      "created_at": "2023-11-16T15:20:00.316Z",
-      "modified_at": "2023-11-16T15:20:00.316Z",
+      "created_at": "2023-11-21T07:47:10.140Z",
+      "modified_at": "2023-11-21T07:47:10.140Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -36558,8 +35962,8 @@
     "model": "caluma_form.questionoption",
     "pk": "hauptheizungsanlage.hauptheizungsanlage-grundwasserwaermepumpe",
     "fields": {
-      "created_at": "2023-11-16T15:20:00.341Z",
-      "modified_at": "2023-11-16T15:20:00.341Z",
+      "created_at": "2023-11-21T07:47:10.154Z",
+      "modified_at": "2023-11-21T07:47:10.154Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -36573,8 +35977,8 @@
     "model": "caluma_form.questionoption",
     "pk": "hauptheizungsanlage.hauptheizungsanlage-heizoel",
     "fields": {
-      "created_at": "2023-11-16T15:20:00.313Z",
-      "modified_at": "2023-11-16T15:20:00.313Z",
+      "created_at": "2023-11-21T07:47:10.136Z",
+      "modified_at": "2023-11-21T07:47:10.136Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -36588,8 +35992,8 @@
     "model": "caluma_form.questionoption",
     "pk": "hauptheizungsanlage.hauptheizungsanlage-holz",
     "fields": {
-      "created_at": "2023-11-16T15:20:00.333Z",
-      "modified_at": "2023-11-16T15:20:00.333Z",
+      "created_at": "2023-11-21T07:47:10.148Z",
+      "modified_at": "2023-11-21T07:47:10.148Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -36603,8 +36007,8 @@
     "model": "caluma_form.questionoption",
     "pk": "hauptheizungsanlage.hauptheizungsanlage-luftwaermepumpe",
     "fields": {
-      "created_at": "2023-11-16T15:20:00.354Z",
-      "modified_at": "2023-11-16T15:20:00.354Z",
+      "created_at": "2023-11-21T07:47:10.164Z",
+      "modified_at": "2023-11-21T07:47:10.164Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -36618,8 +36022,8 @@
     "model": "caluma_form.questionoption",
     "pk": "hauptheizungsanlage.hauptheizungsanlage-sonne-thermisch",
     "fields": {
-      "created_at": "2023-11-16T15:20:00.337Z",
-      "modified_at": "2023-11-16T15:20:00.337Z",
+      "created_at": "2023-11-21T07:47:10.151Z",
+      "modified_at": "2023-11-21T07:47:10.151Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -37008,8 +36412,8 @@
     "model": "caluma_form.questionoption",
     "pk": "kanalisation.kanalisation-bestehend",
     "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "created_at": "2023-11-21T08:00:03.709Z",
+      "modified_at": "2023-11-21T08:00:03.709Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -37023,8 +36427,8 @@
     "model": "caluma_form.questionoption",
     "pk": "kanalisation.kanalisation-dezentral",
     "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "created_at": "2023-11-21T08:00:03.701Z",
+      "modified_at": "2023-11-21T08:00:03.701Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -37038,8 +36442,8 @@
     "model": "caluma_form.questionoption",
     "pk": "kanalisation.kanalisation-neu",
     "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "created_at": "2023-11-21T08:00:03.706Z",
+      "modified_at": "2023-11-21T08:00:03.706Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -37638,8 +37042,8 @@
     "model": "caluma_form.questionoption",
     "pk": "netzeinspeisung.netzeinspeisung-ja",
     "fields": {
-      "created_at": "2023-10-23T12:37:13.051Z",
-      "modified_at": "2023-10-23T12:37:13.051Z",
+      "created_at": "2023-11-21T07:57:41.647Z",
+      "modified_at": "2023-11-21T07:57:41.647Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -37653,8 +37057,8 @@
     "model": "caluma_form.questionoption",
     "pk": "netzeinspeisung.netzeinspeisung-nein",
     "fields": {
-      "created_at": "2023-10-23T12:37:13.045Z",
-      "modified_at": "2023-10-23T12:37:13.045Z",
+      "created_at": "2023-11-21T07:57:41.642Z",
+      "modified_at": "2023-11-21T07:57:41.642Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -40293,8 +39697,8 @@
     "model": "caluma_form.questionoption",
     "pk": "wassergefaehrdende-fluessigkeiten.wassergefaehrdende-fluessigkeiten-ja",
     "fields": {
-      "created_at": "2023-10-23T13:25:50.778Z",
-      "modified_at": "2023-10-23T13:25:50.778Z",
+      "created_at": "2023-11-21T08:03:58.168Z",
+      "modified_at": "2023-11-21T08:03:58.168Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -40308,8 +39712,8 @@
     "model": "caluma_form.questionoption",
     "pk": "wassergefaehrdende-fluessigkeiten.wassergefaehrdende-fluessigkeiten-nein",
     "fields": {
-      "created_at": "2023-10-23T13:25:50.773Z",
-      "modified_at": "2023-10-23T13:25:50.773Z",
+      "created_at": "2023-11-21T08:03:58.163Z",
+      "modified_at": "2023-11-21T08:03:58.163Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
