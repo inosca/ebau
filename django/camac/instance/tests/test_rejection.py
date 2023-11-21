@@ -1,7 +1,8 @@
 import pytest
 from caluma.caluma_workflow.api import suspend_case
-from caluma.caluma_workflow.models import Case
+from caluma.caluma_workflow.models import Case, WorkItem
 from django.urls import reverse
+from pytest_lazyfixture import lazy_fixture
 from rest_framework import status
 from rest_framework.exceptions import ValidationError
 
@@ -34,14 +35,21 @@ def test_has_permission(
 
 
 @pytest.mark.parametrize(
-    "reason,message",
+    "reason,module_settings,message",
     [
         (
             "inquiry",
+            None,
             "Das Dossier kann nicht zurückgewiesen werden solange noch eine Zirkulation läuft.",
         ),
         (
             "claim",
+            lazy_fixture("additional_demand_settings"),
+            "Das Dossier kann nicht zurückgewiesen werden solange noch Nachforderungen offen sind.",
+        ),
+        (
+            "claim_legacy",
+            lazy_fixture("disable_additional_demand_settings"),
             "Das Dossier kann nicht zurückgewiesen werden solange noch Nachforderungen offen sind.",
         ),
     ],
@@ -53,12 +61,21 @@ def test_validate(
     document_factory,
     answer_factory,
     work_item_factory,
+    settings,
     reason,
+    module_settings,
     message,
 ):
     if reason == "inquiry":
         active_inquiry_factory(be_instance)
     elif reason == "claim":
+        work_item_factory(
+            case=be_instance.case,
+            task__slug=module_settings["TASK"],
+            status=WorkItem.STATUS_READY,
+        )
+    elif reason == "claim_legacy":
+        settings.APPLICATION_NAME = "kt_bern"
         document = document_factory(form_id="nfd")
 
         work_item_factory(case=be_instance.case, document=document)

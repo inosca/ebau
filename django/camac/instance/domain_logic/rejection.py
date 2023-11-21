@@ -39,12 +39,22 @@ class RejectionLogic:
                 _("Instance can't be rejected while there is an open circulation")
             )
 
-        if Document.objects.filter(
-            form_id="nfd-tabelle",
-            answers__question_id="nfd-tabelle-status",
-            answers__value="nfd-tabelle-status-in-bearbeitung",
-            family__work_item__case__instance=instance,
-        ).exists():
+        if (
+            settings.ADDITIONAL_DEMAND
+            and WorkItem.objects.filter(
+                task_id=settings.ADDITIONAL_DEMAND["TASK"],
+                status=WorkItem.STATUS_READY,
+                case__family__instance=instance,
+            ).exists()
+        ) or (
+            settings.APPLICATION_NAME == "kt_bern"
+            and Document.objects.filter(
+                form_id="nfd-tabelle",
+                answers__question_id="nfd-tabelle-status",
+                answers__value="nfd-tabelle-status-in-bearbeitung",
+                family__work_item__case__instance=instance,
+            ).exists()
+        ):
             raise ValidationError(
                 _("Instance can't be rejected while there are pending claims")
             )

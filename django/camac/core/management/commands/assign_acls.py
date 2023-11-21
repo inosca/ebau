@@ -7,6 +7,7 @@ from django.core.management.base import BaseCommand
 from camac.core.models import InstanceResource, IrRoleAcl
 from camac.instance.models import InstanceState
 from camac.user.models import Role
+from camac.utils import clean_join
 
 
 class Command(BaseCommand):
@@ -44,8 +45,18 @@ class Command(BaseCommand):
                     .values_list("instance_state__name", flat=True)
                 )
 
+            resource_description = ir.resource.get_trans_attr("description")
+            label = clean_join(
+                clean_join(
+                    ir.resource.get_name(),
+                    f"({resource_description})" if resource_description else None,
+                ),
+                ir.get_name(),
+                separator=" > ",
+            )
+
             data[ir.pk] = {
-                "label": ir.get_name(),
+                "label": label,
                 "acls": acls,
             }
 

@@ -16,6 +16,20 @@ export const DISTRIBUTION_NOT_EMPTY = {
 
 export const CLAIMS_EMPTY = {
   claims: {
+    totalCount: 0,
+    __typename: "WorkItemConnection",
+  },
+};
+
+export const CLAIMS_NOT_EMPTY = {
+  claims: {
+    totalCount: 1,
+    __typename: "WorkItemConnection",
+  },
+};
+
+export const LEGACY_CLAIMS_EMPTY = {
+  legacyClaims: {
     edges: [
       {
         node: {
@@ -77,8 +91,8 @@ export const CLAIMS_EMPTY = {
   },
 };
 
-export const CLAIMS_NOT_EMPTY = {
-  claims: {
+export const LEGACY_CLAIMS_NOT_EMPTY = {
+  legacyClaims: {
     edges: [
       {
         node: {
