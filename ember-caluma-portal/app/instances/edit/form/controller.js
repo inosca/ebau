@@ -2,8 +2,7 @@ import Controller, { inject as controller } from "@ember/controller";
 import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 import { queryManager } from "ember-apollo-client";
-import { dropTask } from "ember-concurrency";
-import { trackedTask } from "ember-resources/util/ember-concurrency";
+import apolloQuery from "ember-ebau-core/resources/apollo";
 
 import getInstanceCaseQuery from "caluma-portal/gql/queries/get-instance-case.graphql";
 
@@ -18,40 +17,29 @@ export default class InstancesEditFormController extends Controller {
 
   @tracked displayedForm = "";
 
-  get instanceId() {
-    return this.editController.model;
-  }
-
-  get instance() {
-    return this.editController.instance;
-  }
-
-  document = trackedTask(this, this.fetchDocument, () => [
-    this.model,
-    this.instanceId,
-  ]);
-
-  @dropTask()
-  *fetchDocument() {
-    yield this.instance;
-
-    const raw = yield this.apollo.query(
-      {
-        query: getInstanceCaseQuery,
-        fetchPolicy: "network-only",
-        variables: { instanceId: this.instanceId },
+  document = apolloQuery(
+    this,
+    () => ({
+      query: getInstanceCaseQuery,
+      fetchPolicy: "network-only",
+      variables: {
+        instanceId: this.editController.model,
+        // This is not used in the query itself but is passed as variable in
+        // order to trigger a refresh if the model changes
+        form: this.model,
       },
-      "allCases.edges.firstObject.node",
-    );
+    }),
+    "allCases.edges.firstObject.node",
+    (raw) => {
+      if (this.editController.instance.calumaForm === this.model) {
+        return raw.document;
+      }
 
-    if (this.instance.value.mainForm.slug === this.model) {
-      return raw.document;
-    }
+      const workItemEdge = raw.workItems.edges.find(
+        ({ node }) => node.document && node.document.form.slug === this.model,
+      );
 
-    const workItemEdge = raw.workItems.edges.find(
-      ({ node }) => node.document && node.document.form.slug === this.model,
-    );
-
-    return workItemEdge?.node.document;
-  }
+      return workItemEdge?.node.document;
+    },
+  );
 }
