@@ -14,7 +14,7 @@ export default class InstancesEditApplicantsController extends Controller {
   @tracked email = "";
 
   get applicants() {
-    return this.editController.instance.value?.involvedApplicants;
+    return this.editController.instance?.involvedApplicants;
   }
 
   get usedEmails() {
@@ -27,10 +27,7 @@ export default class InstancesEditApplicantsController extends Controller {
 
     const user = this.store.createRecord("applicant", {
       email: this.email,
-      instance: this.store.peekRecord(
-        "instance",
-        this.editController.instance.value.id,
-      ),
+      instance: this.editController.instance,
     });
 
     try {

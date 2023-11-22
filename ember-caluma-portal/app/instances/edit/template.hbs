@@ -1,11 +1,11 @@
 <LoadingOrNotfound
-  @loading={{this.instance.isRunning}}
-  @hasPermission={{can "read instance" this.instance.value}}
+  @loading={{this.isLoading}}
+  @hasPermission={{can "read instance" this.instance}}
 >
   {{#if (not (is-embedded))}}
     <h2>
-      {{or this.case.type this.instance.value.mainForm.name}}
-      {{this.instance.value.typeDetail}}
+      {{or this.case.type this.case.document.form.name}}
+      {{this.instance.typeDetail}}
       <span class="uk-text-light">
         ({{t "instances.instance-id"}}
         {{this.model}})
@@ -13,7 +13,7 @@
     </h2>
   {{/if}}
 
-  {{#if (can "read instance" this.instance.value)}}
+  {{#if (can "read instance" this.instance)}}
     <UkTab as |Tab|>
       {{#if (not (is-embedded))}}
         <Tab.item
@@ -26,25 +26,23 @@
           </AriaHeading>
         </Tab.item>
       {{/if}}
-      {{#if this.instance.value.mainForm}}
-        <Tab.item
-          @href={{concat
-            "/instances/"
-            @model
-            "/"
-            this.instance.value.mainForm.slug
-          }}
-          as |active|
-        >
-          <AriaHeading @enabled={{active}}>
-            {{this.instance.value.mainForm.name}}
-          </AriaHeading>
-        </Tab.item>
-      {{/if}}
+      <Tab.item
+        @href={{concat
+          "/instances/"
+          @model
+          "/"
+          this.instance.calumaForm
+        }}
+        as |active|
+      >
+        <AriaHeading @enabled={{active}}>
+          {{this.case.document.form.name}}
+        </AriaHeading>
+      </Tab.item>
       {{#each (array "nfd" "sb1" "sb2") as |form|}}
         {{#if
           (can
-            "read form of instance" this.instance.value form=(hash slug=form)
+            "read form of instance" this.instance form=(hash slug=form)
           )
         }}
           <Tab.item @href={{concat "/instances/" @model "/" form}} as |active|>
@@ -57,15 +55,15 @@
       {{#if
         (and
           this.hasFeedbackSection
-          (can "read feedback of instance" this.instance.value)
+          (can "read feedback of instance" this.instance)
         )
       }}
         <Tab.item @href={{concat "/instances/" @model "/feedback"}} as |active|>
           <AriaHeading @enabled={{active}}>
             {{t "nav.feedback"}}
-            {{#if this.feedback.value}}
+            {{#if this.feedback}}
               <UkBadge
-                @label={{this.feedback.value.length}}
+                @label={{this.feedback.length}}
                 class="uk-margin-small-left"
               />
             {{/if}}
@@ -73,7 +71,7 @@
         </Tab.item>
       {{/if}}
       {{#if (macroCondition (macroGetOwnConfig "enableCommunications"))}}
-        {{#if (can "read communication of instance" this.instance.value)}}
+        {{#if (can "read communication of instance" this.instance)}}
           <Tab.item
             @href={{concat "/instances/" @model "/communications"}}
             as |active|
@@ -81,14 +79,14 @@
             <AriaHeading @enabled={{active}}>
               {{t "nav.communications"}}
               <Communication::UnreadMessageBadge
-                @instanceId={{this.instance.value.id}}
+                @instanceId={{this.model}}
                 class="uk-margin-small-left"
               />
             </AriaHeading>
           </Tab.item>
         {{/if}}
       {{/if}}
-      {{#if (can "read applicants of instance" this.instance.value)}}
+      {{#if (can "read applicants of instance" this.instance)}}
         <Tab.item
           @href={{concat "/instances/" @model "/applicants"}}
           as |active|
@@ -122,7 +120,7 @@
       {{/if}}
       {{#if (macroCondition (macroGetOwnConfig "enableInstanceSupport"))}}
         {{#if (not (is-embedded))}}
-          <InstanceSupport @instance={{this.instance.value}} />
+          <InstanceSupport @instance={{this.instance}} />
         {{/if}}
       {{/if}}
     </UkTab>

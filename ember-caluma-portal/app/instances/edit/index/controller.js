@@ -15,25 +15,9 @@ export default class InstancesEditIndexController extends Controller {
 
   @controller("instances.edit") editController;
 
-  get feedback() {
-    return this.editController.feedback;
-  }
-
-  get case() {
-    return this.editController.case;
-  }
-
-  get decision() {
-    return this.editController.decision;
-  }
-
-  get instance() {
-    return this.editController.instance;
-  }
-
   get isRejection() {
     return (
-      parseInt(this.instance.value?.get("instanceState.id")) ===
+      parseInt(this.editController.instance?.get("instanceState.id")) ===
       config.APPLICATION.instanceStates.rejected
     );
   }
@@ -41,9 +25,9 @@ export default class InstancesEditIndexController extends Controller {
   get showSubmitTechnischeBewilligung() {
     return (
       config.APPLICATION.name === "ur" &&
-      parseInt(this.instance.value?.get("instanceState.id")) ===
+      parseInt(this.editController.instance?.get("instanceState.id")) ===
         config.APPLICATION.instanceStates.finished &&
-      this.instance.value?.mainForm.slug === "building-permit"
+      this.editController.instance?.calumaForm === "building-permit"
     );
   }
 
@@ -74,7 +58,7 @@ export default class InstancesEditIndexController extends Controller {
       body: JSON.stringify({
         data: {
           attributes: {
-            "copy-source": this.model,
+            "copy-source": this.editController.model,
             "is-modification": isModification,
           },
           type: "instances",
@@ -87,7 +71,7 @@ export default class InstancesEditIndexController extends Controller {
     yield this.router.transitionTo(
       "instances.edit.form",
       data.id,
-      this.instance.value.calumaForm,
+      this.editController.instance.calumaForm,
     );
   }
 
@@ -98,7 +82,7 @@ export default class InstancesEditIndexController extends Controller {
     }
 
     try {
-      yield this.instance.value.destroyRecord();
+      yield this.editController.instance.destroyRecord();
       this.notification.success(this.intl.t("instances.deleteInstanceSuccess"));
       yield this.router.transitionTo("instances");
     } catch (error) {
@@ -114,7 +98,7 @@ export default class InstancesEditIndexController extends Controller {
         data: {
           attributes: {
             "caluma-form": "verlaengerung-geltungsdauer",
-            "extend-validity-for": this.model,
+            "extend-validity-for": this.editController.model,
           },
           type: "instances",
         },
