@@ -1,9 +1,22 @@
 <tr>
-  <td>{{format-date this.receiptDate format="date"}}</td>
-  <td>{{this.type}}</td>
-  <td class="uk-text-truncate" title={{this.title}}>{{this.title}}</td>
-  <td>{{this.legalClaimants}}</td>
-  <td>{{this.status}}</td>
+  {{#if (this.hasColumn "date")}}
+    <td>{{format-date this.date format="date"}}</td>
+  {{/if}}
+  {{#if (this.hasColumn "type")}}
+    <td>{{this.type}}</td>
+  {{/if}}
+  {{#if (this.hasColumn "title")}}
+    <td class="uk-text-truncate" title={{this.title}}>{{this.title}}</td>
+  {{/if}}
+  {{#if (this.hasColumn "legal-claimants")}}
+    <td>{{this.legalClaimants}}</td>
+  {{/if}}
+  {{#if (this.hasColumn "status")}}
+    <td>{{this.status}}</td>
+  {{/if}}
+  {{#if (this.hasColumn "withdrawn")}}
+    <td>{{t (concat "global." (if this.withdrawn "yes" "no"))}}</td>
+  {{/if}}
   {{#if (can "edit legal-submission" @workItem)}}
     <td>
       <div class="uk-flex uk-flex-middle uk-flex-right">

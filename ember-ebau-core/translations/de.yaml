@@ -1,2 +1,4 @@
 global:
   delete: "Löschen"
+  yes: "Ja"
+  no: "Nein"

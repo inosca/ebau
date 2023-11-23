@@ -1,24 +1,14 @@
-query LegalSubmissionDocuments($filter: [DocumentFilterSetType]) {
-  allDocuments(
-    filter: $filter
-    order: [{ answerValue: "legal-submission-receipt-date" }]
-  ) {
+query LegalSubmissionDocuments(
+  $filter: [DocumentFilterSetType]
+  $orderQuestion: String!
+  $questions: [ID]!
+  $personQuestions: [ID]!
+) {
+  allDocuments(filter: $filter, order: [{ answerValue: $orderQuestion }]) {
     edges {
       node {
         id
-        answers(
-          filter: [
-            {
-              questions: [
-                "legal-submission-type"
-                "legal-submission-status"
-                "legal-submission-title"
-                "legal-submission-receipt-date"
-                "legal-submission-legal-claimants-table-question"
-              ]
-            }
-          ]
-        ) {
+        answers(filter: [{ questions: $questions }]) {
           edges {
             node {
               id
@@ -49,18 +39,7 @@ query LegalSubmissionDocuments($filter: [DocumentFilterSetType]) {
               ... on TableAnswer {
                 tableValue: value {
                   id
-                  answers(
-                    filter: [
-                      {
-                        questions: [
-                          "juristische-person-gesuchstellerin"
-                          "name-juristische-person-gesuchstellerin"
-                          "vorname-gesuchstellerin"
-                          "name-gesuchstellerin"
-                        ]
-                      }
-                    ]
-                  ) {
+                  answers(filter: [{ questions: $personQuestions }]) {
                     edges {
                       node {
                         id

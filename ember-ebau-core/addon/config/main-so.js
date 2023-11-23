@@ -72,6 +72,17 @@ const config = {
   alexandria: {
     enabledMarks: ["decision", "publication", "void"],
   },
+  legalSubmission: {
+    task: "objections",
+    tableForm: "einsprache",
+    tableQuestion: "einsprachen",
+    orderQuestion: "einsprache-datum",
+    columns: {
+      date: "einsprache-datum",
+      "legal-claimants": "einsprache-einsprechende",
+      withdrawn: "einsprache-zurueckgezogen",
+    },
+  },
 };
 
 config.intentSlugs = [config.answerSlugs.description];

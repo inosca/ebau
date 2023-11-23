@@ -456,6 +456,118 @@
   },
   {
     "model": "alexandria_core.category",
+    "pk": "einsprachen",
+    "fields": {
+      "created_at": "2023-11-23T00:00:00Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2023-11-23T00:00:00Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "sort": 5,
+        "access": {
+          "support": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "permission": "delete"
+              }
+            ]
+          },
+          "applicant": {
+            "visibility": "all"
+          },
+          "subservice": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
+          },
+          "service-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
+          },
+          "service-clerk": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
+          },
+          "municipality-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags", "marks"],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "permission": "delete"
+              }
+            ]
+          },
+          "municipality-clerk": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags", "marks"],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "permission": "delete"
+              }
+            ]
+          }
+        }
+      },
+      "name": "{\"de\": \"Einsprachen\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "color": "#9B0000",
+      "parent": null
+    }
+  },
+  {
+    "model": "alexandria_core.category",
     "pk": "intern",
     "fields": {
       "created_at": "2023-10-04T00:00:00Z",
@@ -465,7 +577,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
-        "sort": 5,
+        "sort": 6,
         "access": {
           "support": {
             "visibility": "all",
@@ -627,7 +739,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
-        "sort": 6,
+        "sort": 7,
         "access": {
           "support": {
             "visibility": "all",
