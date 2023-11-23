@@ -24,6 +24,11 @@ class Command(BaseCommand):
         )
         for archive_dossier in all_archive_dossiers:
             archive_dossier.instance.form_id = ARCHIVE_DOSSIER_CAMAC_FORM_ID
+            form_type = archive_dossier.document.answers.get(question_id="form-type")
+            if form_type.value != "form-type-archiv":
+                form_type.value = "form-type-archiv"
+                form_type.save()
+                self.stdout.write("Form-type was changed to 'form-type-archiv'")
             archive_dossier.instance.save()
             self.stdout.write(
                 f"Archivedossier with instance-id {archive_dossier.instance.pk} was migrated"
@@ -36,6 +41,13 @@ class Command(BaseCommand):
         )
         for meldung_vorhaben in all_meldung_vorhaben_dossiers:
             meldung_vorhaben.instance.form_id = MELDUNG_VORHABEN_CAMAC_FORM_ID
+            form_type = meldung_vorhaben.document.answers.get(question_id="form-type")
+            if form_type.value != "form-type-project-announcement":
+                form_type.value = "form-type-project-announcement"
+                form_type.save()
+                self.stdout.write(
+                    "Form-type was changed to 'form-type-project-announcement'"
+                )
             meldung_vorhaben.instance.save()
             self.stdout.write(
                 f"Meldung Vorhaben with instance-id {meldung_vorhaben.instance.pk} was migrated"
@@ -48,6 +60,11 @@ class Command(BaseCommand):
         )
         for bgbb_dossier in all_bgbb_dossiers:
             bgbb_dossier.document.form_id = "bgbb"
+            form_type = bgbb_dossier.document.answers.get(question_id="form-type")
+            if form_type.value != "form-type-bgbb":
+                form_type.value = "form-type-bgbb"
+                form_type.save()
+                self.stdout.write("Form-type was changed to 'form-type-bgbb'")
             bgbb_dossier.document.save()
             self.stdout.write(
                 f"BGBB Dossier with instance-id {bgbb_dossier.instance.pk} was migrated"
