@@ -6,7 +6,7 @@ const config = {
   instanceStates: {
     new: 1,
     subm: 2,
-    "formal-exam": 3,
+    "material-exam": 3,
     "init-distribution": 4,
     distribution: 5,
     correction: 6,
@@ -44,7 +44,7 @@ const config = {
     instanceState: "correction",
     allowedInstanceStates: [
       "subm",
-      "formal-exam",
+      "material-exam",
       "init-distribution",
       "distribution",
     ],
