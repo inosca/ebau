@@ -1,3 +1,5 @@
+from typing import Union
+
 from alexandria.core.models import BaseModel, Category, Document, File, Tag
 from alexandria.core.permissions import (
     BasePermission,
@@ -26,7 +28,7 @@ MODE_DELETE = "delete"
 
 
 class CustomPermission(BasePermission):
-    def get_needed_permissions(self, request) -> set:
+    def get_needed_permissions(self, request, document=None) -> set:
         if request.method == "POST":
             used_permissions = {MODE_CREATE}
             for key, value in request.data.items():
@@ -45,65 +47,62 @@ class CustomPermission(BasePermission):
 
             return used_permissions
         elif request.method == "PATCH":
-            return {MODE_UPDATE}
+            return self.get_needed_patch_permissions(request, document)
         elif request.method == "DELETE":
             return {MODE_DELETE}
 
         return set()  # pragma: no cover
 
-    # TODO noqa can probably removed after marks model
-    def get_needed_object_permissions(self, request, document) -> set:  # noqa: C901
-        if request.method == "DELETE":
-            return {MODE_DELETE}
-        elif request.method == "PATCH":
-            used_permissions = {MODE_UPDATE}
-            for key in settings.ALEXANDRIA["RESTRICTED_FIELDS"]:
+    def get_needed_patch_permissions(self, request, document) -> set:
+        used_permissions = {MODE_UPDATE}
+        for key in settings.ALEXANDRIA["RESTRICTED_FIELDS"]:
+            # TODO temporary case for marks, while they are tags
+            if key not in request.data and not (
+                key == "marks" and "tags" in request.data
+            ):
+                continue
+
+            was_marks = False
+            if key == "marks":
+                was_marks = True
+                key = "tags"
+
+            old_value = getattr(document, key)
+            new_value = request.data.get(key)
+
+            if isinstance(old_value, LocalizedStringValue):
+                new_value = LocalizedStringValue(new_value)
+            elif isinstance(old_value, Category):
+                old_value = old_value.pk
+                new_value = new_value["id"]
+            elif hasattr(old_value, "values_list") and new_value:
+                old_value = [str(v) for v in old_value.values_list("pk", flat=True)]
+                new_value = [item["id"] for item in new_value]
+
                 # TODO temporary case for marks, while they are tags
-                if key not in request.data and not (
-                    key == "marks" and "tags" in request.data
-                ):
-                    continue
+                if key == "tags":
+                    filter_list = settings.ALEXANDRIA["MARKS"]["ALL"]
+                    filter_func = (
+                        (lambda v: v in filter_list)
+                        if was_marks
+                        else (lambda v: v not in filter_list)
+                    )
+                    old_value = list(filter(filter_func, old_value))
+                    new_value = list(filter(filter_func, new_value))
 
-                was_marks = False
-                if key == "marks":
-                    was_marks = True
-                    key = "tags"
+            if old_value != new_value:
+                if was_marks:
+                    key = "marks"
+                used_permissions.add(f"{MODE_UPDATE}-{key}")
 
-                old_value = getattr(document, key)
-                new_value = request.data.get(key)
-
-                if isinstance(old_value, LocalizedStringValue):
-                    new_value = LocalizedStringValue(new_value)
-                elif isinstance(old_value, Category):
-                    old_value = old_value.pk
-                    new_value = new_value["id"]
-                elif hasattr(old_value, "values_list") and new_value:
-                    old_value = [str(v) for v in old_value.values_list("pk", flat=True)]
-                    new_value = [item["id"] for item in new_value]
-
-                    # TODO temporary case for marks, while they are tags
-                    if key == "tags":
-                        filter_list = settings.ALEXANDRIA["MARKS"]["ALL"]
-                        filter_func = (
-                            (lambda v: v in filter_list)
-                            if was_marks
-                            else (lambda v: v not in filter_list)
-                        )
-                        old_value = list(filter(filter_func, old_value))
-                        new_value = list(filter(filter_func, new_value))
-
-                if old_value != new_value:
-                    if was_marks:
-                        key = "marks"
-                    used_permissions.add(f"{MODE_UPDATE}-{key}")
-
-            return used_permissions
-
-        # Fallback, never assign this permission anywhere!
-        return {"FORBIDDEN_METHOD"}  # pragma: no cover
+        return used_permissions
 
     def get_available_permissions(
-        self, request, instance: Instance, category: Category, document: Document = None
+        self,
+        request,
+        instance: Instance,
+        category: Category,
+        document: Union[Document, None] = None,
     ) -> set:
         user = request.caluma_info.context.user
         category_permissions = resolve_permissions(category, user)
@@ -143,30 +142,31 @@ class CustomPermission(BasePermission):
 
     @permission_for(BaseModel)
     def has_permission_default(self, request):  # pragma: no cover
-        if get_role(request.caluma_info.context.user) == "support":
-            return True
-
-        return False
+        return get_role(request.caluma_info.context.user) == "support"
 
     @permission_for(Document)
-    def has_permission_for_document(self, request):
+    @object_permission_for(Document)
+    def has_permission_for_document(self, request, document=None):
         if request.method == "POST":
+            # On creation we don't have an data in the database yet. Therefore
+            # we need to get the needed data from the request.
             instance = Instance.objects.get(
                 pk=request.data["metainfo"]["camac-instance-id"]
             )
             category = Category.objects.get(pk=request.data["category"]["id"])
-        elif request.method == "PATCH":
-            document = Document.objects.get(pk=request.data["id"])
+        elif document is not None:
+            # On update and delete we can get the needed data from the database
             instance = document.instance_document.instance
             category = document.category
-        elif request.method == "DELETE":
-            document = Document.objects.get(pk=request.path.split("/")[-1])
-            instance = document.instance_document.instance
-            category = document.category
+        else:
+            # If there is no document, we called `permission_for` which can be
+            # ignored for update and delete requests as `object_permission_for`
+            # will be called afterwards and will execute the branch above.
+            return True
 
         # analyze category to figure out available permissions
         available_permissions = self.get_available_permissions(
-            request, instance, category
+            request, instance, category, document
         )
 
         # short circuit if no permissions are available
@@ -174,22 +174,9 @@ class CustomPermission(BasePermission):
             return False
 
         # analyze request to figure out needed permissions
-        needed_permissions = self.get_needed_permissions(request)
+        needed_permissions = self.get_needed_permissions(request, document)
 
         # check if needed permissions are subset of available permissions
-        return needed_permissions.issubset(available_permissions)
-
-    @object_permission_for(Document)
-    def has_object_permission_for_document(self, request, document):
-        available_permissions = self.get_available_permissions(
-            request, document.instance_document.instance, document.category, document
-        )
-
-        if not available_permissions:
-            return False
-
-        needed_permissions = self.get_needed_object_permissions(request, document)
-
         return needed_permissions.issubset(available_permissions)
 
     @permission_for(File)
@@ -206,16 +193,18 @@ class CustomPermission(BasePermission):
         return needed_permissions.issubset(available_permissions)
 
     @permission_for(Tag)
-    def has_permission_for_tag(self, request):
-        if get_role(request.caluma_info.context.user) not in ["public", "applicant"]:
+    @object_permission_for(Tag)
+    def has_permission_for_tag(self, request, tag=None):
+        role = get_role(request.caluma_info.context.user)
+
+        if role == "support":
+            # Support can create, edit and delete tags
             return True
+        elif role not in ["public", "applicant"] and tag is None:
+            # Internal roles can create tags
+            return True
+        elif role not in ["public", "applicant"] and tag is not None:
+            # Internal roles can only edit and delete own tags
+            return tag.created_by_group == str(request.group.service_id)
 
         return False
-
-    @object_permission_for(Tag)
-    def has_object_permission_for_tag(self, request, tag):
-        if get_role(request.caluma_info.context.user) == "support":
-            return True
-
-        if get_role(request.caluma_info.context.user) not in ["public", "applicant"]:
-            return tag.created_by_group == str(request.caluma_info.context.user.group)

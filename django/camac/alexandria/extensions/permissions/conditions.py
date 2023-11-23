@@ -15,16 +15,20 @@ class Condition:
 
 
 class ReadyWorkItem(Condition):
-    def get_additional_demand(self) -> WorkItem:
+    def get_fill_additional_demand(self) -> WorkItem:
         if self.document:
-            document_id = self.document.metainfo["caluma-document-id"]
+            document_id = self.document.metainfo.get("caluma-document-id")
         else:
-            document_id = self.request.data["metainfo"]["caluma-document-id"]
+            document_id = self.request.data["metainfo"].get("caluma-document-id")
+
+        if not document_id:
+            return None
 
         return (
             WorkItem.objects.filter(
                 task_id=self.value,
                 document_id=document_id,
+                case__family=self.instance.case,
             )
             .order_by("-created_at")
             .first()
@@ -44,7 +48,10 @@ class ReadyWorkItem(Condition):
                 .first()
             )
 
-        return work_item and work_item.status == WorkItem.STATUS_READY
+        if not work_item:
+            return False
+
+        return work_item.status == WorkItem.STATUS_READY
 
 
 class InstanceState(Condition):
