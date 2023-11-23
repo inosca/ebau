@@ -819,9 +819,9 @@ def caluma_forms_be(settings):
 @pytest.fixture
 def caluma_forms_ur(settings):
     # forms
-    for form in ["main-form", "oereb", "oereb-verfahren-gemeinde"]:
+    for counter, form in enumerate(["main-form", "oereb", "oereb-verfahren-gemeinde"]):
         caluma_form_models.Form.objects.create(
-            slug=form, meta={"is-main-form": True}, name=form
+            slug=form, meta={"is-main-form": True, "camac-form-id": counter}, name=form
         )
 
     # dynamic choice options get cached, so we clear them
