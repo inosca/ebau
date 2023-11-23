@@ -9,39 +9,39 @@
       {{#if this.hasSpecialId}}
         <BeOverviewGridCell
           @label={{t "instances.special-id"}}
-          @value={{or this.case.specialId "-"}}
+          @value={{or this.editController.case.specialId "-"}}
         />
       {{/if}}
       <BeOverviewGridCell
         @label={{t "instances.address"}}
-        @value={{or this.case.address "-"}}
+        @value={{or this.editController.case.address "-"}}
       />
       <BeOverviewGridCell
         @label={{t "instances.type"}}
-        @value={{or this.case.type "-"}}
+        @value={{or this.editController.case.type "-"}}
       />
       <BeOverviewGridCell
         @label={{t "instances.municipality"}}
-        @value={{or this.case.municipality "-"}}
+        @value={{or this.editController.case.municipality "-"}}
       />
       <BeOverviewGridCell
         @label={{t "instances.status.title"}}
-        @value={{or this.instance.value.status "-"}}
+        @value={{or this.editController.instance.status "-"}}
       />
       {{#if (is-application "be")}}
         <BeOverviewGridCell
           @label={{t "instances.lead"}}
-          @value={{or this.instance.value.activeService.name "-"}}
+          @value={{or this.editController.instance.activeService.name "-"}}
         />
       {{/if}}
       <BeOverviewGridCell
         @label={{t "instances.description"}}
-        @value={{or this.case.description "-"}}
+        @value={{or this.editController.case.description "-"}}
       />
       {{#if (is-application "be")}}
         <BeOverviewGridCell
           @label={{t "instances.applicant"}}
-          @value={{or this.case.applicant "-"}}
+          @value={{or this.editController.case.applicant "-"}}
         />
       {{/if}}
     </div>
@@ -60,7 +60,7 @@
     <div class="uk-width-3-4 uk-width-2-3@m">
       <div class="uk-alert-danger" uk-alert>
         <p class="white-space-pre-line">
-          {{~this.instance.value.rejectionFeedback~}}
+          {{~this.editController.instance.rejectionFeedback~}}
         </p>
       </div>
       <div uk-alert
@@ -74,7 +74,7 @@
   <hr />
 {{/if}}
 
-{{#if this.case.decision}}
+{{#if this.editController.case.decision}}
   <div class="uk-grid-collapse" uk-grid>
     <div class="uk-width-1-4 uk-width-1-3@m">
       <h2 class="instance-overview__title">
@@ -82,13 +82,13 @@
       </h2>
     </div>
     <div class="uk-width-3-4 uk-width-2-3@m">
-      <div class="{{this.case.decision.color}} uk-padding-small">
+      <div class="{{this.editController.case.decision.color}} uk-padding-small">
         <p class="white-space-pre-line uk-margin-remove"><span
             class="uk-text-bold"
-          >{{this.case.decision.decision}}{{if
-              this.case.decision.remarks
+          >{{this.editController.case.decision.decision}}{{if
+              this.editController.case.decision.remarks
               ": "
-            }}</span>{{~this.case.decision.remarks~}}</p>
+            }}</span>{{~this.editController.case.decision.remarks~}}</p>
       </div>
     </div>
   </div>
@@ -103,7 +103,7 @@
     </h2>
   </div>
   <div class="uk-width-3-4 uk-width-2-3@m">
-    {{#if (can "create copy of instance" this.instance.value)}}
+    {{#if (can "create copy of instance" this.editController.instance)}}
       <div class="border-highlight uk-padding-small uk-padding-remove-right uk-padding-remove-vertical">
         <h3 class="instance-overview__action-title">
           {{t "instances.rejectionTitle"}}
@@ -123,7 +123,7 @@
       </div>
     {{/if}}
 
-    {{#if (can "create modification of instance" this.instance.value)}}
+    {{#if (can "create modification of instance" this.editController.instance)}}
       <h3 class="instance-overview__action-title">
         {{t "instances.modificationTitle"}}
       </h3>
@@ -140,7 +140,7 @@
     {{/if}}
 
     {{#if
-      (can "write form of instance" this.instance.value form=(hash slug="main"))
+      (can "write form of instance" this.editController.instance form=(hash slug="main"))
     }}
       <h3 class="instance-overview__action-title">
         {{t "instances.furtherProcessingOfForm"}}
@@ -152,7 +152,7 @@
       {{/if}}
       <LinkTo
         @route="instances.edit.form"
-        @model={{this.instance.value.mainForm.slug}}
+        @model={{this.editController.instance.calumaForm}}
         class="uk-button uk-button-default"
       >
         {{t "instances.processingOfForm"}}
@@ -160,7 +160,7 @@
     {{/if}}
 
     {{#if
-      (can "write form of instance" this.instance.value form=(hash slug="sb1"))
+      (can "write form of instance" this.editController.instance form=(hash slug="sb1"))
     }}
       <h3 class="instance-overview__action-title">
         {{t "instances.processingOfFormSb1"}}
@@ -178,7 +178,7 @@
     {{/if}}
 
     {{#if
-      (can "write form of instance" this.instance.value form=(hash slug="sb2"))
+      (can "write form of instance" this.editController.instance form=(hash slug="sb2"))
     }}
       <h3 class="instance-overview__action-title">
         {{t "instances.processingOfFormSb2"}}
@@ -195,7 +195,7 @@
       </LinkTo>
     {{/if}}
 
-    {{#if (can "extend validity of instance" this.instance.value)}}
+    {{#if (can "extend validity of instance" this.editController.instance)}}
       <h3 class="instance-overview__action-title">
         {{t "instances.extensionPeriodOfValidityTitle"}}
       </h3>
@@ -223,7 +223,7 @@
       {{t "instances.managePermissions"}}
     </LinkTo>
 
-    {{#if (can "delete instance" this.instance.value)}}
+    {{#if (can "delete instance" this.editController.instance)}}
       <h3 class="instance-overview__action-title">
         {{t "instances.deleteInstance"}}
       </h3>
@@ -241,7 +241,7 @@
       </UkButton>
     {{/if}}
 
-    {{#if (can "convert to building permit instance" this.instance.value)}}
+    {{#if (can "convert to building permit instance" this.editController.instance)}}
       <h3 class="instance-overview__action-title">
         {{t "instances.createBuildingPermitTitle"}}
       </h3>
@@ -250,7 +250,7 @@
       </p>
       <LinkTo
         @route="instances.new"
-        @query={{hash convertFrom=this.instance.value.id}}
+        @query={{hash convertFrom=this.editController.model}}
         class="uk-button uk-button-default"
       >
         {{t "instances.createBuildingPermitButton"}}
@@ -283,26 +283,20 @@
     <div class="uk-width-1-4 uk-width-1-3@m">
       <h2 class="instance-overview__title">
         {{t "nav.feedback"}}
-        {{#if this.feedback.value}}
+        {{#if this.editController.feedback}}
           <UkBadge
-            @label={{this.feedback.value.length}}
+            @label={{this.editController.feedback.length}}
             class="uk-margin-small-left"
           />
         {{/if}}
       </h2>
     </div>
     <div class="uk-width-3-4 uk-width-2-3@m">
-      {{#if this.feedback.value}}
+      {{#if this.editController.feedback}}
         {{#if (macroCondition (macroGetOwnConfig "documentBackendCamac"))}}
-          <BeAttachmentList
-            @loading={{this.feedback.isRunning}}
-            @attachments={{this.feedback.value}}
-          />
+          <BeAttachmentList @attachments={{this.editController.feedback}} />
         {{else}}
-          <AlexandriaAttachmentList
-            @loading={{this.feedback.isRunning}}
-            @attachments={{this.feedback.value}}
-          />
+          <AlexandriaAttachmentList @attachments={{this.editController.feedback}} />
         {{/if}}
       {{else}}
         <p>
@@ -313,16 +307,16 @@
   </div>
 {{/if}}
 
-{{#if this.decision.value}}
+{{#if this.editController.decision}}
   <hr />
 
   <div class="uk-grid-collapse" uk-grid>
     <div class="uk-width-1-4 uk-width-1-3@m">
       <h2 class="instance-overview__title">
         {{t "nav.decision"}}
-        {{#if this.decision.value}}
+        {{#if this.editController.decision}}
           <UkBadge
-            @label={{this.decision.value.length}}
+            @label={{this.editController.decision.length}}
             class="uk-margin-small-left"
           />
         {{/if}}
@@ -330,15 +324,9 @@
     </div>
     <div class="uk-width-3-4 uk-width-2-3@m">
       {{#if (macroCondition (macroGetOwnConfig "documentBackendCamac"))}}
-        <BeAttachmentList
-          @loading={{this.decision.isRunning}}
-          @attachments={{this.decision.value}}
-        />
+        <BeAttachmentList @attachments={{this.editController.decision}} />
       {{else}}
-        <AlexandriaAttachmentList
-          @loading={{this.decision.isRunning}}
-          @attachments={{this.decision.value}}
-        />
+        <AlexandriaAttachmentList @attachments={{this.editController.decision}} />
       {{/if}}
     </div>
   </div>

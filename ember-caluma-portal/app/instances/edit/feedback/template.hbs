@@ -1,21 +1,14 @@
 <LoadingOrNotfound
-  @loading={{this.editController.instanceTask.isRunning}}
   @hasPermission={{can
     "read feedback of instance"
-    this.editController.instance.value
+    this.editController.instance
   }}
 >
-  {{#if this.feedback}}
+  {{#if this.editController.feedback}}
     {{#if (macroCondition (macroGetOwnConfig "documentBackendCamac"))}}
-      <BeAttachmentList
-        @loading={{this.loading}}
-        @attachments={{this.feedback}}
-      />
+      <BeAttachmentList @attachments={{this.editController.feedback}} />
     {{else}}
-      <AlexandriaAttachmentList
-        @loading={{this.loading}}
-        @attachments={{this.feedback}}
-      />
+      <AlexandriaAttachmentList @attachments={{this.editController.feedback}} />
     {{/if}}
   {{else}}
     <div class="uk-text-center">{{t "feedback.info"}}</div>
