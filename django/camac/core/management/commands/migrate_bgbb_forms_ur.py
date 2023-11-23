@@ -23,7 +23,7 @@ class Command(BaseCommand):
 
         for answer in category_answers:
             if "category-hochbaute" in answer.value:
-                Answer.objects.create(
+                Answer.objects.update_or_create(
                     question_id="hochbauten-betroffen",
                     document=answer.document,
                     value="hochbauten-betroffen-ja",
@@ -37,7 +37,7 @@ class Command(BaseCommand):
                 if category
                 in ["category-tiefbaute", "category-spezielle-bauten-und-anlagen"]
             ]:
-                Answer.objects.create(
+                Answer.objects.update_or_create(
                     question_id="hochbauten-betroffen",
                     document=answer.document,
                     value="hochbauten-betroffen-nein",
