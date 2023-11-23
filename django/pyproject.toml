@@ -161,6 +161,7 @@ omit = [
     "camac/core/management/commands/migrate_alexandria_document_metainfo_gr.py",
     "camac/core/management/commands/assign_acls.py",
     "camac/core/management/commands/migrate_bgbb_forms_ur.py",
+    "camac/core/management/commands/migrate_camac_and_caluma_forms_ur.py",
     # Audit migration"
     "camac/core/management/commands/config/",
     "camac/core/management/commands/migrate_audit.py",
