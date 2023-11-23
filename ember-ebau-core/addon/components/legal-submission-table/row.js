@@ -3,6 +3,7 @@ import Component from "@glimmer/component";
 import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
 
+import mainConfig from "ember-ebau-core/config/main";
 import { confirmTask } from "ember-ebau-core/decorators";
 import deleteDocument from "ember-ebau-core/gql/mutations/delete-document.graphql";
 import {
@@ -10,44 +11,53 @@ import {
   getAnswer,
 } from "ember-ebau-core/utils/get-answer";
 
+const { answerSlugs, legalSubmission } = mainConfig;
+
 export default class LegalSubmissionTableRowComponent extends Component {
   @service notification;
   @service intl;
 
   @queryManager apollo;
 
-  get receiptDate() {
+  get date() {
     return getAnswerDisplayValue(
       this.args.legalSubmission,
-      "legal-submission-receipt-date",
+      legalSubmission.columns.date,
     );
   }
 
   get type() {
     return getAnswerDisplayValue(
       this.args.legalSubmission,
-      "legal-submission-type",
+      legalSubmission.columns.type,
     )?.join(", ");
   }
 
   get title() {
     return getAnswerDisplayValue(
       this.args.legalSubmission,
-      "legal-submission-title",
+      legalSubmission.columns.title,
     );
   }
 
   get status() {
     return getAnswerDisplayValue(
       this.args.legalSubmission,
-      "legal-submission-status",
+      legalSubmission.columns.status,
+    );
+  }
+
+  get withdrawn() {
+    return (
+      getAnswer(this.args.legalSubmission, legalSubmission.columns.withdrawn)
+        ?.node.listValue.length > 0 ?? false
     );
   }
 
   get legalClaimants() {
     const rows = getAnswer(
       this.args.legalSubmission,
-      "legal-submission-legal-claimants-table-question",
+      legalSubmission.columns["legal-claimants"],
     )?.node.tableValue;
 
     if (!rows) return "";
@@ -55,17 +65,14 @@ export default class LegalSubmissionTableRowComponent extends Component {
     return rows
       ?.map((row) => {
         const isJuristic =
-          getAnswer(row, "juristische-person-gesuchstellerin")?.node
-            .stringValue === "juristische-person-gesuchstellerin-ja";
+          getAnswer(row, answerSlugs.isJuristicApplicant)?.node.stringValue ===
+          answerSlugs.isJuristicApplicantYes;
 
         return isJuristic
-          ? getAnswerDisplayValue(
-              row,
-              "name-juristische-person-gesuchstellerin",
-            )
+          ? getAnswerDisplayValue(row, answerSlugs.juristicNameApplicant)
           : [
-              getAnswerDisplayValue(row, "name-gesuchstellerin"),
-              getAnswerDisplayValue(row, "vorname-gesuchstellerin"),
+              getAnswerDisplayValue(row, answerSlugs.lastNameApplicant),
+              getAnswerDisplayValue(row, answerSlugs.firstNameApplicant),
             ].join(" ");
       })
       .join(", ");
@@ -87,4 +94,6 @@ export default class LegalSubmissionTableRowComponent extends Component {
       this.notification.danger(this.intl.t("legal-submission.delete-error"));
     }
   }
+
+  hasColumn = (name) => Object.keys(legalSubmission.columns).includes(name);
 }

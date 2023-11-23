@@ -1,38 +1,44 @@
-<div uk-grid class="uk-grid-small uk-margin uk-child-width-1-1 uk-child-width-1-2@m">
-  <div>
-    <label class="uk-form-label" for="types">{{t "legal-submission.type"}}</label>
-    <div class="uk-form-controls">
-      <PowerSelectMultiple
-        @triggerId="types"
-        @options={{this.types}}
-        @selected={{this.selectedTypes}}
-        @placeholder={{t "legal-submission.all-types"}}
-        @onChange={{this.updateTypes}}
-        @renderInPlace={{true}}
-        class="uk-select"
-      as |type|>
-        {{type.label}}
-      </PowerSelectMultiple>
-    </div>
+{{#if (or (this.hasFilter "types") (this.hasFilter "status"))}}
+  <div uk-grid class="uk-grid-small uk-margin uk-child-width-1-1 uk-child-width-1-2@m">
+    {{#if (this.hasFilter "types")}}
+      <div>
+        <label class="uk-form-label" for="types">{{t "legal-submission.type"}}</label>
+        <div class="uk-form-controls">
+          <PowerSelectMultiple
+            @triggerId="types"
+            @options={{this.types}}
+            @selected={{this.selectedTypes}}
+            @placeholder={{t "legal-submission.all-types"}}
+            @onChange={{this.updateTypes}}
+            @renderInPlace={{true}}
+            class="uk-select"
+          as |type|>
+            {{type.label}}
+          </PowerSelectMultiple>
+        </div>
+      </div>
+    {{/if}}
+    {{#if (this.hasFilter "status")}}
+      <div>
+        <label class="uk-form-label" for="status">{{t "legal-submission.status"}}</label>
+        <div class="uk-form-controls">
+          <PowerSelect
+            @triggerId="status"
+            @options={{this.status}}
+            @selected={{this.selectedStatus}}
+            @placeholder={{t "legal-submission.all-status"}}
+            @onChange={{this.updateStatus}}
+            @allowClear={{true}}
+            @renderInPlace={{true}}
+            class="uk-select"
+          as |status|>
+            {{status.label}}
+          </PowerSelect>
+        </div>
+      </div>
+    {{/if}}
   </div>
-  <div>
-    <label class="uk-form-label" for="status">{{t "legal-submission.status"}}</label>
-    <div class="uk-form-controls">
-      <PowerSelect
-        @triggerId="status"
-        @options={{this.status}}
-        @selected={{this.selectedStatus}}
-        @placeholder={{t "legal-submission.all-status"}}
-        @onChange={{this.updateStatus}}
-        @allowClear={{true}}
-        @renderInPlace={{true}}
-        class="uk-select"
-      as |status|>
-        {{status.label}}
-      </PowerSelect>
-    </div>
-  </div>
-</div>
+{{/if}}
 
 {{#if (or this.workItem.isLoading this.legalSubmissions.isLoading)}}
   <div class="uk-text-center">
@@ -42,11 +48,24 @@
   <table class="uk-table uk-table-striped uk-table-middle">
     <thead>
       <tr>
-        <th class="uk-text-nowrap">{{t "legal-submission.receipt-date"}}</th>
-        <th>{{t "legal-submission.type"}}</th>
-        <th class="uk-width-small">{{t "legal-submission.title"}}</th>
-        <th>{{t "legal-submission.legal-claimants"}}</th>
-        <th>{{t "legal-submission.status"}}</th>
+        {{#if (this.hasColumn "date")}}
+          <th class="uk-text-nowrap">{{t "legal-submission.receipt-date"}}</th>
+        {{/if}}
+        {{#if (this.hasColumn "type")}}
+          <th>{{t "legal-submission.type"}}</th>
+        {{/if}}
+        {{#if (this.hasColumn "title")}}
+          <th class="uk-width-small">{{t "legal-submission.title"}}</th>
+        {{/if}}
+        {{#if (this.hasColumn "legal-claimants")}}
+          <th>{{t "legal-submission.legal-claimants"}}</th>
+        {{/if}}
+        {{#if (this.hasColumn "status")}}
+          <th>{{t "legal-submission.status"}}</th>
+        {{/if}}
+        {{#if (this.hasColumn "withdrawn")}}
+          <th>{{t "legal-submission.withdrawn"}}</th>
+        {{/if}}
         {{#if (can "edit legal-submission" this.workItem.value)}}
           <th></th>
         {{/if}}

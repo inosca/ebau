@@ -6,6 +6,7 @@ import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
 import { trackedFunction } from "ember-resources/util/function";
 
+import mainConfig from "ember-ebau-core/config/main";
 import createDocumentMutation from "ember-ebau-core/gql/mutations/create-document.graphql";
 import linkDocumentMutation from "ember-ebau-core/gql/mutations/link-document.graphql";
 import documentsQuery from "ember-ebau-core/gql/queries/legal-submission/documents.graphql";
@@ -50,9 +51,11 @@ export default class LegalSubmissionTableComponent extends Component {
   }
 
   get colspan() {
+    const colspan = Object.keys(mainConfig.legalSubmission.columns).length;
+
     return this.abilities.can("edit legal-submission", this.workItem.value)
-      ? 6
-      : 5;
+      ? colspan + 1
+      : colspan;
   }
 
   filterOptions = trackedFunction(this, async () => {
@@ -63,7 +66,10 @@ export default class LegalSubmissionTableComponent extends Component {
     try {
       const response = await this.apollo.query({
         query: workItemQuery,
-        variables: { instanceId: this.ebauModules.instanceId },
+        variables: {
+          task: mainConfig.legalSubmission.task,
+          instanceId: this.ebauModules.instanceId,
+        },
       });
 
       return response.allWorkItems.edges[0].node;
@@ -88,25 +94,33 @@ export default class LegalSubmissionTableComponent extends Component {
         query: documentsQuery,
         fetchPolicy: "network-only",
         variables: {
+          orderQuestion: mainConfig.legalSubmission.orderQuestion,
+          questions: Object.values(mainConfig.legalSubmission.columns),
+          personQuestions: [
+            mainConfig.answerSlugs.firstNameApplicant,
+            mainConfig.answerSlugs.lastNameApplicant,
+            mainConfig.answerSlugs.juristicNameApplicant,
+            mainConfig.answerSlugs.isJuristicApplicant,
+          ],
           filter: [
             { rootDocument: this.rootDocumentId },
-            { form: "legal-submission-form" },
-            this.args.status
+            { form: mainConfig.legalSubmission.tableForm },
+            mainConfig.legalSubmission.filters?.status && this.args.status
               ? {
                   hasAnswer: [
                     {
-                      question: "legal-submission-status",
+                      question: mainConfig.legalSubmission.filters.status,
                       value: this.args.status,
                       hierarchy: "DIRECT",
                     },
                   ],
                 }
               : {},
-            this.args.types
+            mainConfig.legalSubmission.filters?.types && this.args.types
               ? {
                   hasAnswer: [
                     {
-                      question: "legal-submission-type",
+                      question: mainConfig.legalSubmission.filters.types,
                       value: this.args.types.split(","),
                       lookup: "INTERSECTS",
                       hierarchy: "DIRECT",
@@ -120,7 +134,7 @@ export default class LegalSubmissionTableComponent extends Component {
 
       return response.allDocuments.edges.map((edge) => edge.node);
     } catch (error) {
-      this.notification.danger(this.intl.t("legalSubmission.loading-error"));
+      this.notification.danger(this.intl.t("legal-submission.loading-error"));
     }
   });
 
@@ -132,7 +146,7 @@ export default class LegalSubmissionTableComponent extends Component {
       const rawDocumentId = yield this.apollo.mutate(
         {
           mutation: createDocumentMutation,
-          variables: { form: "legal-submission-form" },
+          variables: { form: mainConfig.legalSubmission.tableForm },
         },
         "saveDocument.document.id",
       );
@@ -145,7 +159,7 @@ export default class LegalSubmissionTableComponent extends Component {
       yield this.apollo.mutate({
         mutation: linkDocumentMutation,
         variables: {
-          question: "legal-submission-table",
+          question: mainConfig.legalSubmission.tableQuestion,
           document: this.rootDocumentId,
           value: [...rowIds, documentId],
         },
@@ -169,4 +183,10 @@ export default class LegalSubmissionTableComponent extends Component {
   updateTypes(value) {
     this.args.onUpdateTypes(value.map((v) => v.slug).join(","));
   }
+
+  hasColumn = (name) =>
+    Object.keys(mainConfig.legalSubmission.columns).includes(name);
+
+  hasFilter = (name) =>
+    Object.keys(mainConfig.legalSubmission.filters ?? {}).includes(name);
 }

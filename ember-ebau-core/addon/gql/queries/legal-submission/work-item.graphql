@@ -1,7 +1,7 @@
-query LegalSubmissionWorkItem($instanceId: GenericScalar!) {
+query LegalSubmissionWorkItem($task: ID!, $instanceId: GenericScalar!) {
   allWorkItems(
     filter: [
-      { task: "legal-submission" }
+      { task: $task }
       { rootCaseMetaValue: { key: "camac-instance-id", value: $instanceId } }
     ]
   ) {
