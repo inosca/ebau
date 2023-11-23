@@ -2,7 +2,7 @@ import { getOwner } from "@ember/application";
 import { render, fillIn, click } from "@ember/test-helpers";
 import { hbs } from "ember-cli-htmlbars";
 import { setupRenderingTest } from "ember-qunit";
-import { module, test, todo } from "qunit";
+import { module, test, skip } from "qunit";
 
 module(
   "Integration | Component | communication/message-input",
@@ -115,7 +115,7 @@ module(
       assert.dom("[data-test-loading]").exists();
     });
 
-    todo("it selects files", async function () {
+    skip("it selects files", async function () {
       await render(hbs`
       <Communication::MessageInput
         @message={{this.message.value}}
