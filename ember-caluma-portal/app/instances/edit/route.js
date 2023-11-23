@@ -20,8 +20,6 @@ export default class InstancesEditRoute extends Route {
     this.ebauModules.onAdditionalDemandComplete =
       controller.additionalDemandsCount.reload;
 
-    if (controller.fetchInstance.lastComplete !== null) {
-      controller.fetchInstance.perform();
-    }
+    controller.reload();
   }
 }

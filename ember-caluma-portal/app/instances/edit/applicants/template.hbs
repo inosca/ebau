@@ -1,6 +1,5 @@
 <LoadingOrNotfound
-  @loading={{this.editController.instance.isRunning}}
-  @hasPermission={{can "read applicants of instance" this.editController.instance.value}}
+  @hasPermission={{can "read applicants of instance" this.editController.instance}}
 >
   <table class="uk-table uk-table-striped">
     <thead>
@@ -8,7 +7,7 @@
         <th>{{t "instances.applicants.invitee"}}</th>
         <th>{{t "instances.applicants.created"}}</th>
         <th>{{t "instances.applicants.user"}}</th>
-        {{#if (and (gt this.applicants.length 1) (can "manage applicants of instance" this.editController.instance.value))}}
+        {{#if (and (gt this.applicants.length 1) (can "manage applicants of instance" this.editController.instance))}}
           <td></td>
         {{/if}}
       </tr>
@@ -27,7 +26,7 @@
           </td>
           <td>{{format-date applicant.created format="datetime"}}</td>
           <td>{{applicant.user.fullName}}</td>
-          {{#if (and (gt this.applicants.length 1) (can "manage applicants of instance" this.editController.instance.value))}}
+          {{#if (and (gt this.applicants.length 1) (can "manage applicants of instance" this.editController.instance))}}
             <td class="uk-text-right">
                 <button
                   type="button"
@@ -50,12 +49,12 @@
   </table>
 
 
-  {{#if (can "manage applicants of instance" this.editController.instance.value)}}
+  {{#if (can "manage applicants of instance" this.editController.instance)}}
     <form uk-grid class="uk-grid-small" onsubmit={{perform this.add}}>
       <div class="uk-width-expand">
         <div class="uk-inline uk-width-1-1">
           <PersonalSuggestions
-            @instanceId={{this.editController.instance.value.id}}
+            @instanceId={{this.editController.model}}
             @usedEmails={{this.usedEmails}}
             @onSelect={{fn (mut this.email)}}
           >

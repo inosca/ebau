@@ -1,14 +1,14 @@
 <LoadingOrNotfound
-  @loading={{this.document.isRunning}}
-  @hasPermission={{can "read form of instance" this.instance.value form=this.document.value.form}}
+  @loading={{this.document.isLoading}}
+  @hasPermission={{can "read form of instance" this.editController.instance form=this.document.value.form}}
 >
   {{#if (is-embedded)}}
     <CfContent
       @documentId={{decode-id this.document.value.id}}
-      @disabled={{cannot "write form of instance" this.instance.value form=this.document.value.form}}
+      @disabled={{cannot "write form of instance" this.editController.instance form=this.document.value.form}}
       @useAsHeading={{true}}
       @headingBaseLevel={{2}}
-      @context={{hash instanceId=this.instance.value.id}}
+      @context={{hash instanceId=this.editController.model}}
     as |content|>
       {{#if (gt content.document.fieldsets.length 1)}}
         <div uk-grid>
@@ -26,10 +26,10 @@
   {{else}}
     <CfContent
       @documentId={{decode-id this.document.value.id}}
-      @disabled={{cannot "write form of instance" this.instance.value form=this.document.value.form}}
+      @disabled={{cannot "write form of instance" this.editController.instance form=this.document.value.form}}
       @useAsHeading={{true}}
       @headingBaseLevel={{2}}
-      @context={{hash instanceId=this.instance.value.id}}
+      @context={{hash instanceId=this.editController.model}}
     />
   {{/if}}
 </LoadingOrNotfound>
