@@ -24,7 +24,7 @@ test: ## Test the project
 	@touch .env
 	@black --check .
 	@flake8
-	@pytest -vv --cov --cov-report term --cov-report xml:artifacts/coverage.xml --vcr-record=none -n 8 --dist worksteal --junitxml=artifacts/report.xml
+	@pytest -vv --cov --cov-report term --cov-report xml:artifacts/cobertura.xml --vcr-record=none -n 8 --dist worksteal --junitxml=artifacts/junit.xml
 
 .PHONY: sqlsequencereset
 sqlsequencereset:

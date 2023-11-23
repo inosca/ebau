@@ -89,7 +89,7 @@ module.exports = function (/* environment */) {
      * @default "function(key,locale) { return true }"
      */
     requiresTranslation(/* key, locale */) {
-      return true;
+      return !process.env.CI;
     },
   };
 };

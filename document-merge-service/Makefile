@@ -12,7 +12,7 @@ install-dev: ## Install development environment
 test: ## Test the extensions
 	@poetry run black --check document_merge_service/extensions/
 	@poetry run flake8 document_merge_service/extensions/
-	@poetry run pytest -vv --cov document_merge_service/extensions --cov-report term --cov-report xml:artifacts/coverage.xml --junitxml=artifacts/report.xml document_merge_service/extensions/
+	@poetry run pytest -vv --cov document_merge_service/extensions --cov-report term --cov-report xml:artifacts/cobertura.xml --junitxml=artifacts/junit.xml document_merge_service/extensions/
 
 .PHONY: format
 format: ## Format the extensions
