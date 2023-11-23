@@ -15984,6 +15984,18 @@ terser@^5.16.8, terser@^5.3.0:
     commander "^2.20.0"
     source-map-support "~0.5.20"
 
+testem-gitlab-reporter@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/testem-gitlab-reporter/-/testem-gitlab-reporter-1.0.0.tgz#60b24cfa006c5e3816e611ccbbbd2c28f02923dc"
+  integrity sha512-GUVWEDUjwAIfsK+zn39ZOW2lFeKgu8TIefIMl5hxd4GQXmQYTUCgKteTU4Hp6XYma50vmwn2ZAo4guuvqYGvgw==
+  dependencies:
+    xmlbuilder "^13.0.2"
+
+testem-multi-reporter@1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/testem-multi-reporter/-/testem-multi-reporter-1.2.0.tgz#e93abdee54f821eb464232aba6b6483f2802664e"
+  integrity sha512-ttIds/wpU0njpRBQsDl+tcPOy8jvafad6MCEIy21+BpNEcpCBZWrYuNva8TtxaZcoLuFTW0B8FsWl6XuJfH3rQ==
+
 testem@^3.10.1:
   version "3.10.1"
   resolved "https://registry.yarnpkg.com/testem/-/testem-3.10.1.tgz#bab8a83bec11e975f7d1e47e924eed6135957e5b"
@@ -17074,6 +17086,11 @@ xml-js@1.6.11:
   integrity sha512-7rVi2KMfwfWFl+GpPg6m80IVMWXLRjO+PxTq7V2CDhoGak0wzYzFgUY2m4XJ47OGdXd8eLE8EmwfAmdjw7lC1g==
   dependencies:
     sax "^1.2.4"
+
+xmlbuilder@^13.0.2:
+  version "13.0.2"
+  resolved "https://registry.yarnpkg.com/xmlbuilder/-/xmlbuilder-13.0.2.tgz#02ae33614b6a047d1c32b5389c1fdacb2bce47a7"
+  integrity sha512-Eux0i2QdDYKbdbA6AM6xE4m6ZTZr4G4xF9kahI2ukSEMCzwce2eX9WlTI5J3s+NU7hpasFsr8hWIONae7LluAQ==
 
 xtend@^4.0.0, xtend@~4.0.1:
   version "4.0.2"

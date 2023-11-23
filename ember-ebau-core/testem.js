@@ -1,5 +1,35 @@
 "use strict";
 
+const fs = require("fs");
+
+const MultiReporter = require("testem-multi-reporter");
+
+const REPORTER = process.env.CI
+  ? {
+      reporter: new MultiReporter({
+        reporters: [
+          {
+            // eslint-disable-next-line n/no-extraneous-require
+            ReporterClass: require("testem/lib/reporters/tap_reporter"),
+            args: [
+              false,
+              null,
+              { get: (key) => key === "tap_failed_tests_only" },
+            ],
+          },
+          {
+            ReporterClass: require("testem-gitlab-reporter"),
+            args: [
+              false,
+              fs.createWriteStream(`../artifacts/junit-${Date.now()}.xml`),
+              { get: () => false },
+            ],
+          },
+        ],
+      }),
+    }
+  : {};
+
 module.exports = {
   test_page: "tests/index.html?hidepassed",
   disable_watching: true,
@@ -17,4 +47,5 @@ module.exports = {
       ],
     },
   },
+  ...REPORTER,
 };
