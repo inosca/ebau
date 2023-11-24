@@ -479,17 +479,19 @@
         "construction-monitoring",
         "decision",
         "distribution",
-        "finished",
-        "init-distribution",
-        "subm"
+        "finished"
       ],
       "service-lead": [
         "construction-monitoring",
         "decision",
         "distribution",
-        "finished",
-        "init-distribution",
-        "subm"
+        "finished"
+      ],
+      "subservice": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished"
       ]
     }
   },
