@@ -354,3 +354,41 @@ def test_dynamic_task_after_create_inquiry(
         expected_tasks.add(additional_demand_settings["CREATE_TASK"])
 
     assert tasks == expected_tasks
+
+
+@pytest.mark.parametrize(
+    "task_id,has_rejection_answer,expected_tasks",
+    [
+        ("formal-exam", True, ["reject"]),
+        ("material-exam", True, ["reject"]),
+        ("formal-exam", False, ["material-exam"]),
+        (
+            "material-exam",
+            False,
+            ["distribution", "publication", "fill-publication", "objections"],
+        ),
+    ],
+)
+def test_dynamic_task_after_exam(
+    db,
+    answer_factory,
+    expected_tasks,
+    has_rejection_answer,
+    so_instance,
+    so_rejection_settings,
+    task_id,
+    work_item_factory,
+):
+    work_item = work_item_factory(task_id=task_id, case=so_instance.case)
+
+    if has_rejection_answer:
+        answer_factory(
+            document=work_item.document,
+            question__slug=so_rejection_settings["WORK_ITEM"]["ON_ANSWER"][task_id][0],
+            value=so_rejection_settings["WORK_ITEM"]["ON_ANSWER"][task_id][1],
+        )
+
+    assert (
+        CustomDynamicTasks().resolve_after_exam(so_instance.case, None, work_item, None)
+        == expected_tasks
+    )

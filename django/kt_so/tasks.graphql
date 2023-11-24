@@ -121,3 +121,18 @@ mutation CreateDecisionTask {
     clientMutationId
   }
 }
+
+mutation CreateRejectTask {
+  saveSimpleTask(
+    input: {
+      slug: "reject"
+      name: "Dossier zurückweisen"
+      addressGroups: "[\"municipality\"]|groups"
+      controlGroups: "[\"municipality\"]|groups"
+      leadTime: 86400 # 1 day
+      meta: "{\"directLink\":{\"route\":\"cases.detail.rejection\",\"models\":[\"INSTANCE_ID\"]}}"
+    }
+  ) {
+    clientMutationId
+  }
+}

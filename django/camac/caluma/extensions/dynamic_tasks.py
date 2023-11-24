@@ -120,3 +120,25 @@ class CustomDynamicTasks(BaseDynamicTasks):
             tasks.append(settings.ADDITIONAL_DEMAND["CREATE_TASK"])
 
         return tasks
+
+    @register_dynamic_task("after-exam")
+    def resolve_after_exam(self, case, user, prev_work_item, context):
+        if (
+            settings.REJECTION.get("WORK_ITEM")
+            and prev_work_item.document.answers.filter(
+                question_id=settings.REJECTION["WORK_ITEM"]["ON_ANSWER"][
+                    prev_work_item.task_id
+                ][0],
+                value=settings.REJECTION["WORK_ITEM"]["ON_ANSWER"][
+                    prev_work_item.task_id
+                ][1],
+            ).exists()
+        ):
+            return [settings.REJECTION["WORK_ITEM"]["TASK"]]
+
+        if prev_work_item.task_id == "formal-exam":
+            return ["material-exam"]
+        elif prev_work_item.task_id == "material-exam":
+            return ["distribution", "publication", "fill-publication", "objections"]
+
+        return []  # pragma: no cover

@@ -62,4 +62,4 @@ generate_module_test_settings(
     "additional_demand", ["kt_gr", "kt_so", "kt_bern", "kt_uri"]
 )
 generate_module_test_settings("alexandria", ["kt_gr", "kt_so"])
-generate_module_test_settings("rejection", ["kt_bern"])
+generate_module_test_settings("rejection", ["kt_bern", "kt_so"])

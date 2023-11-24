@@ -15,7 +15,6 @@ def test_attachment_section_list(
     role,
     mocker,
 ):
-
     # valid case: attachment section allowed by role acl
     attachment_section_role = attachment_section_factory(sort=1)
 
@@ -155,7 +154,9 @@ def test_attachment_section_special_permissions_ur(
     group_key,
 ):
     settings.APPLICATION_NAME = "kt_uri"
-    group = group_factory(role=role)
+    # set some static group ID explicitly to avoid random collisions with
+    # configured IDs
+    group = group_factory(pk=99999, role=role)
 
     if group_key:
         mocker.patch(f"camac.constants.kt_uri.{group_key}_GROUP_ID", group.pk)
