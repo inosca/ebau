@@ -2127,21 +2127,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "ableitung-von-industrie-und-gewerbeabwasser.hinweis-zustaendigkeit-anu",
-    "fields": {
-      "created_at": "2023-10-19T13:11:56.753Z",
-      "modified_at": "2023-10-19T13:11:56.753Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "ableitung-von-industrie-und-gewerbeabwasser",
-      "question": "hinweis-zustaendigkeit-anu",
-      "sort": 23
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "ableitung-von-industrie-und-gewerbeabwasser.industrie-und-gewerbeabwasser-titel",
     "fields": {
       "created_at": "2023-04-20T08:17:31.547Z",
@@ -21680,12 +21665,12 @@
     "pk": "bestaetigung-radon-ja",
     "fields": {
       "created_at": "2023-05-17T14:13:02.026Z",
-      "modified_at": "2023-05-17T14:13:02.026Z",
+      "modified_at": "2023-11-24T13:38:02.947Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Die Bauherrschaft best\\u00e4tigt, dass die erforderlichen Massnahmen zum Schutz vor erh\\u00f6hten Radongaskonzentrationen nach den anerkannten Regeln der Baukunde getroffen werden (siehe \\u201cMehr Informationen\\u201d). Die Bauherrschaft hat zur Kenntnis genommen, dass die Bauabnahme grunds\\u00e4tzlich auch eine Radonmessung umfassen kann.\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Die Bauherrschaft best\\u00e4tigt, dass die erforderlichen Massnahmen zum Schutz vor erh\\u00f6hten Radongaskonzentrationen nach den anerkannten Regeln der Baukunde getroffen werden (siehe Info-Button). Die Bauherrschaft hat zur Kenntnis genommen, dass die Bauabnahme grunds\\u00e4tzlich auch eine Radonmessung umfassen kann.\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -45844,7 +45829,7 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"Wahl eines kurzen und pr\\u00e4gnanten Titels des Vorhabens wie z.B. Neubau Garage zu Wohnhaus, Anbau eines Balkons, Neuerstellung W\\u00e4rmepumpe auf der Nordseite.\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Wahl eines kurzen und pr\\u00e4gnanten Titels des Vorhabens wie z.B. \\u00abNeubau Garage zu Wohnhaus\\u00bb, \\u00abAnbau eines Balkons\\u00bb oder \\u00abNeuerstellung W\\u00e4rmepumpe auf der Nordseite\\u00bb.\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
@@ -47377,7 +47362,7 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"Alle g\\u00fcltigen Formulare, Gesetze und Protokolle sind unter www.energienachweis.gr.ch zu finden. Im Rahmen der \\u00abPrivaten Kontrolle\\u00bb pr\\u00fcfen akkreditierte Fachleute f\\u00fcr die Fachbereiche W\\u00e4rmed\\u00e4mmung, Heizungsanlagen, Klima- und Bel\\u00fcftungsanlagen ob ein Bauvorhaben den gesetzlichen Bestimmungen entspricht und nach den bewilligten Pl\\u00e4nen ausgef\\u00fchrt wurde. Die Formulare \\u00abEnergienachweise\\u00bb und \\u00abAusf\\u00fchrungskontrolle\\u00bb m\\u00fcssen beim Bauamt eingereicht werden.\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Alle g\\u00fcltigen Formulare, Gesetze und Protokolle sind unter [energienachweis.gr.ch](http://www.energienachweis.gr.ch/) zu finden.\\n\\nIm Rahmen der \\u00abPrivaten Kontrolle\\u00bb pr\\u00fcfen akkreditierte Fachleute f\\u00fcr die Fachbereiche W\\u00e4rmed\\u00e4mmung, Heizungsanlagen sowie Klima- und Bel\\u00fcftungsanlagen, ob ein Bauvorhaben den gesetzlichen Bestimmungen entspricht und nach den bewilligten Pl\\u00e4nen ausgef\\u00fchrt wurde. Die Formulare \\u00abEnergienachweise\\u00bb und \\u00abAusf\\u00fchrungskontrolle\\u00bb m\\u00fcssen beim Bauamt eingereicht werden.\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -47399,12 +47384,12 @@
     "pk": "bestaetigung-radon",
     "fields": {
       "created_at": "2023-05-17T14:13:02.172Z",
-      "modified_at": "2023-11-06T13:52:39.425Z",
+      "modified_at": "2023-11-24T13:38:03.060Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Die Bauherrschaft best\\u00e4tigt, dass die erforderlichen Massnahmen zum Schutz vor erh\\u00f6hten Radongaskonzentrationen nach den anerkannten Regeln der Baukunde getroffen werden (siehe \\u201cInfo-Button\\u201d). Die Bauherrschaft hat zur Kenntnis genommen, dass die Bauabnahme grunds\\u00e4tzlich auch eine Radonmessung umfassen kann.\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Die Bauherrschaft best\\u00e4tigt, dass die erforderlichen Massnahmen zum Schutz vor erh\\u00f6hten Radongaskonzentrationen nach den anerkannten Regeln der Baukunde getroffen werden (siehe Info-Button). Die Bauherrschaft hat zur Kenntnis genommen, dass die Bauabnahme grunds\\u00e4tzlich auch eine Radonmessung umfassen kann.\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
       "is_required": "'is-paper'|answer != 'is-paper-yes'",
       "is_hidden": "false",
@@ -58717,7 +58702,7 @@
     "pk": "industrie-und-gewerbeabwasser-titel",
     "fields": {
       "created_at": "2023-04-20T08:17:31.374Z",
-      "modified_at": "2023-11-23T10:41:49.769Z",
+      "modified_at": "2023-11-24T14:35:14.229Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -58730,7 +58715,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"### Ableitung von Industrie- und Gewerbeabwasser\\n\\nDie Ableitung von Industrie- und Gewerbeabwasser ist bewilligungspflichtig.\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"### Ableitung von Industrie- und Gewerbeabwasser\\n\\nDie Ableitung von Industrie- und Gewerbeabwasser ist bewilligungspflichtig.\\n\\nF\\u00fcr dieses Fachthema ist das Amt f\\u00fcr Natur und Umwelt (ANU) zust\\u00e4ndig.  \\nEmail: [info@anu.gr.ch](mailto:info@anu.gr.ch) Telefon: 081 257 29 46\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
