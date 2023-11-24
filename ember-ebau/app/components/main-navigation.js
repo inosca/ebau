@@ -4,7 +4,6 @@ import { isTesting, macroCondition } from "@embroider/macros";
 import Component from "@glimmer/component";
 import { findAll } from "ember-data-resources";
 import mainConfig from "ember-ebau-core/config/main";
-import UIkit from "uikit";
 
 const { languages, name } = mainConfig;
 
@@ -60,25 +59,11 @@ export default class MainNavigationComponent extends Component {
       window.location.href = "/django/admin";
     }
 
-    UIkit.dropdown("#group-dropdown").hide();
-
     await this.fetch.fetch(`/api/v1/public-groups/${group}/set-default`, {
       method: "POST",
     });
 
-    this.store.unloadAll();
-
-    await Promise.all([
-      this.resources.retry(),
-      this.session._data.retry(),
-      this.session.groups.retry(),
-    ]);
-
-    if (this.router.currentRouteName === "index") {
-      await this.router.refresh("index");
-    } else {
-      await this.router.transitionTo("index");
-    }
+    window.location.href = "/";
   }
 
   @action
