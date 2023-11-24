@@ -1,8 +1,10 @@
 import json
 import os
+from functools import reduce
 
 from django.conf import settings
 from django.core.management.base import BaseCommand
+from django.db.models import Q
 
 from camac.core.models import InstanceResource, IrRoleAcl
 from camac.instance.models import InstanceState
@@ -70,6 +72,7 @@ class Command(BaseCommand):
             for ir_pk, config in data.items():
                 instance_resource = InstanceResource.objects.get(pk=ir_pk)
 
+                # Create new ACLs
                 for role_name, instance_states in config["acls"].items():
                     role = Role.objects.get(name=role_name)
 
@@ -90,3 +93,26 @@ class Command(BaseCommand):
                                     f"New ACL: {role_name}, {instance_state_name} on IR {instance_resource.get_name()}"
                                 )
                             )
+
+                # Clean up old ACLs
+                existing_filters = reduce(
+                    lambda x, y: x | y,
+                    [
+                        Q(
+                            role__name=role_name,
+                            instance_state__name__in=instance_states,
+                        )
+                        for role_name, instance_states in config["acls"].items()
+                    ],
+                )
+
+                deleted_acls = instance_resource.role_acls.exclude(existing_filters)
+
+                for acl in deleted_acls:
+                    self.stdout.write(
+                        self.style.WARNING(
+                            f"Deleted ACL: {acl.role.name}, {acl.instance_state.name} on IR {instance_resource.get_name()}"
+                        )
+                    )
+
+                deleted_acls.delete()
