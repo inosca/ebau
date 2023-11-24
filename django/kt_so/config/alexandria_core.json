@@ -925,14 +925,14 @@
               {
                 "fields": ["metainfo", "title", "category", "files"],
                 "condition": {
-                  "ReadyWorkItem": "additional-demand"
+                  "ReadyWorkItem": "fill-additional-demand"
                 },
                 "permission": "create"
               },
               {
                 "scope": "All",
                 "condition": {
-                  "ReadyWorkItem": "additional-demand"
+                  "ReadyWorkItem": "fill-additional-demand"
                 },
                 "permission": "delete"
               }
