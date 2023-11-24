@@ -90,6 +90,7 @@ module.exports = function (/* environment */) {
      */
     requiresTranslation(key, locale) {
       return (
+        !process.env.CI &&
         !key.startsWith("caluma.") &&
         !key.startsWith("ember-gwr.") &&
         require("./locales").includes(locale)
