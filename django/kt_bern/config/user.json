@@ -553,6 +553,14 @@
     }
   },
   {
+    "model": "user.servicegroup",
+    "pk": 20003,
+    "fields": {
+      "name": "Nachführungsgeometer",
+      "sort": null
+    }
+  },
+  {
     "model": "user.servicegroupt",
     "pk": 20000,
     "fields": {
@@ -595,6 +603,24 @@
       "service_group": 20001,
       "language": "de",
       "name": "Leitbehörde Fachstelle"
+    }
+  },
+  {
+    "model": "user.servicegroupt",
+    "pk": 20005,
+    "fields": {
+      "service_group": 20003,
+      "language": "de",
+      "name": "Nachführungsgeometer"
+    }
+  },
+  {
+    "model": "user.servicegroupt",
+    "pk": 20006,
+    "fields": {
+      "service_group": 20003,
+      "language": "fr",
+      "name": "Géomètre de suivi"
     }
   }
 ]

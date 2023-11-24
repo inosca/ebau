@@ -8,6 +8,7 @@ from camac.user.models import (
     RoleT,
     Service,
     ServiceGroupT,
+    ServiceRelation,
     ServiceT,
     User,
     UserGroup,
@@ -76,4 +77,10 @@ class ServiceGroupTForm(ModelForm):
 
     class Meta:
         model = ServiceGroupT
+        exclude = []
+
+
+class ServiceRelationForm(ModelForm):
+    class Meta:
+        model = ServiceRelation
         exclude = []
