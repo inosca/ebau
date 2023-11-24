@@ -5,6 +5,7 @@ from alexandria.core.factories import (
     FileFactory,
     TagFactory,
 )
+from caluma.caluma_workflow.models import WorkItem
 from django.urls import reverse
 from rest_framework.status import (
     HTTP_200_OK,
@@ -1020,222 +1021,148 @@ def test_scope_service_and_subservice(
     assert response.status_code == status_code
 
 
+@pytest.mark.parametrize("role__name", ["service"])
 @pytest.mark.parametrize(
-    "role__name,method,status_code,access",
+    "work_item_status,status_code",
     [
-        (
-            "applicant",
-            "post",
-            HTTP_201_CREATED,
-            {
-                "applicant": {
-                    "visibility": "all",
-                    "permissions": [
-                        {
-                            "permission": "create",
-                            "condition": {
-                                "ReadyWorkItem": "submit",
-                            },
-                        },
-                    ],
-                },
-            },
-        ),
-        (
-            "service",
-            "post",
-            HTTP_201_CREATED,
-            {
-                "service": {
-                    "visibility": "all",
-                    "permissions": [
-                        {
-                            "permission": "create",
-                            "condition": {
-                                "ReadyWorkItem": "additional-demand",
-                            },
-                        },
-                    ],
-                },
-            },
-        ),
-        (
-            "service",
-            "patch",
-            HTTP_200_OK,
-            {
-                "service": {
-                    "visibility": "all",
-                    "permissions": [
-                        {
-                            "permission": "update",
-                            "scope": "All",
-                            "condition": {
-                                "ReadyWorkItem": "additional-demand",
-                            },
-                        },
-                    ],
-                },
-            },
-        ),
-        (
-            "service",
-            "delete",
-            HTTP_204_NO_CONTENT,
-            {
-                "service": {
-                    "visibility": "all",
-                    "permissions": [
-                        {
-                            "permission": "delete",
-                            "scope": "All",
-                            "condition": {
-                                "ReadyWorkItem": "additional-demand",
-                            },
-                        },
-                    ],
-                },
-            },
-        ),
-        (
-            "applicant",
-            "post",
-            HTTP_403_FORBIDDEN,
-            {
-                "applicant": {
-                    "visibility": "all",
-                    "permissions": [
-                        {
-                            "permission": "create",
-                            "condition": {
-                                "ReadyWorkItem": "submit",
-                            },
-                        },
-                    ],
-                },
-            },
-        ),
-        (
-            "service",
-            "post",
-            HTTP_403_FORBIDDEN,
-            {
-                "service": {
-                    "visibility": "all",
-                    "permissions": [
-                        {
-                            "permission": "create",
-                            "condition": {
-                                "ReadyWorkItem": "additional-demand",
-                            },
-                        },
-                    ],
-                },
-            },
-        ),
-        (
-            "service",
-            "patch",
-            HTTP_403_FORBIDDEN,
-            {
-                "service": {
-                    "visibility": "all",
-                    "permissions": [
-                        {
-                            "permission": "update",
-                            "scope": "All",
-                            "condition": {
-                                "ReadyWorkItem": "additional-demand",
-                            },
-                        },
-                    ],
-                },
-            },
-        ),
-        (
-            "service",
-            "delete",
-            HTTP_403_FORBIDDEN,
-            {
-                "service": {
-                    "visibility": "all",
-                    "permissions": [
-                        {
-                            "permission": "delete",
-                            "scope": "All",
-                            "condition": {
-                                "ReadyWorkItem": "additional-demand",
-                            },
-                        },
-                    ],
-                },
-            },
-        ),
+        (WorkItem.STATUS_READY, HTTP_204_NO_CONTENT),
+        (WorkItem.STATUS_COMPLETED, HTTP_403_FORBIDDEN),
+        (None, HTTP_403_FORBIDDEN),
     ],
 )
 def test_condition_ready_work_item(
     db,
-    role,
-    applicant_factory,
-    work_item_factory,
-    task_factory,
     admin_client,
-    caluma_admin_user,
     gr_instance,
-    access,
-    method,
+    mocker,
     status_code,
+    work_item_factory,
+    work_item_status,
 ):
-    applicant_factory(invitee=admin_client.user, instance=gr_instance)
-    alexandria_category = CategoryFactory(metainfo={"access": access})
-    url = reverse("document-list")
+    mocker.patch(
+        "camac.alexandria.extensions.visibilities.CustomVisibility._all_visible_instances",
+        return_value=[gr_instance.pk],
+    )
 
-    work_item_status = "ready"
-    if status_code == HTTP_403_FORBIDDEN:
-        work_item_status = "completed"
-        submit = gr_instance.case.work_items.get(task_id="submit")
-        submit.status = work_item_status
-        submit.save()
+    if work_item_status:
+        work_item_factory(
+            task__slug="some-work-item", case=gr_instance.case, status=work_item_status
+        )
+
+    document = DocumentFactory(
+        title="Foo",
+        category=CategoryFactory(
+            metainfo={
+                "access": {
+                    "service": {
+                        "visibility": "all",
+                        "permissions": [
+                            {
+                                "permission": "delete",
+                                "scope": "All",
+                                "condition": {
+                                    "ReadyWorkItem": "some-work-item",
+                                },
+                            },
+                        ],
+                    },
+                }
+            }
+        ),
+        metainfo={"camac-instance-id": gr_instance.pk},
+    )
+
+    url = reverse("document-detail", args=[document.pk])
+
+    response = admin_client.delete(url)
+    assert response.status_code == status_code
+
+
+@pytest.mark.parametrize("role__name", ["applicant"])
+@pytest.mark.parametrize(
+    "method,work_item_status,has_document_id,status_code",
+    [
+        ("delete", WorkItem.STATUS_READY, True, HTTP_204_NO_CONTENT),
+        ("delete", WorkItem.STATUS_READY, False, HTTP_403_FORBIDDEN),
+        ("delete", WorkItem.STATUS_COMPLETED, True, HTTP_403_FORBIDDEN),
+        ("post", WorkItem.STATUS_READY, True, HTTP_201_CREATED),
+        ("post", WorkItem.STATUS_READY, False, HTTP_403_FORBIDDEN),
+        ("post", WorkItem.STATUS_COMPLETED, True, HTTP_403_FORBIDDEN),
+    ],
+)
+def test_condition_ready_work_item_additional_demand(
+    db,
+    admin_client,
+    gr_instance,
+    has_document_id,
+    method,
+    mocker,
+    status_code,
+    work_item_factory,
+    work_item_status,
+):
+    mocker.patch(
+        "camac.alexandria.extensions.visibilities.CustomVisibility._all_visible_instances",
+        return_value=[gr_instance.pk],
+    )
 
     work_item = work_item_factory(
-        task=task_factory(slug="additional-demand"),
-        document=gr_instance.case.document,
+        task__slug="fill-additional-demand",
+        case=gr_instance.case,
         status=work_item_status,
     )
-    gr_instance.case.work_items.add(work_item)
 
-    metainfo = {
-        "camac-instance-id": gr_instance.pk,
-        "caluma-document-id": str(work_item.document.pk),
-    }
-    data = {
-        "data": {
-            "type": "documents",
-            "attributes": {
-                "title": {"de": "Important"},
-                "metainfo": metainfo,
-            },
-            "relationships": {
-                "category": {
-                    "data": {
-                        "id": alexandria_category.pk,
-                        "type": "categories",
+    category = CategoryFactory(
+        metainfo={
+            "access": {
+                "applicant": {
+                    "visibility": "all",
+                    "permissions": [
+                        {
+                            "permission": "create",
+                            "scope": "All",
+                            "condition": {
+                                "ReadyWorkItem": "fill-additional-demand",
+                            },
+                        },
+                        {
+                            "permission": "delete",
+                            "scope": "All",
+                            "condition": {
+                                "ReadyWorkItem": "fill-additional-demand",
+                            },
+                        },
+                    ],
+                },
+            }
+        }
+    )
+
+    metainfo = {"camac-instance-id": gr_instance.pk}
+    if has_document_id:
+        metainfo["caluma-document-id"] = str(work_item.document_id)
+
+    if method == "delete":
+        document = DocumentFactory(title="Foo", category=category, metainfo=metainfo)
+
+        response = admin_client.delete(reverse("document-detail", args=[document.pk]))
+    elif method == "post":
+        data = {
+            "data": {
+                "type": "documents",
+                "attributes": {"title": {"de": "Foo"}, "metainfo": metainfo},
+                "relationships": {
+                    "category": {
+                        "data": {
+                            "id": category.pk,
+                            "type": "categories",
+                        },
                     },
                 },
             },
-        },
-    }
+        }
 
-    if method in ["patch", "delete"]:
-        doc = DocumentFactory(
-            title="Foo",
-            category=alexandria_category,
-            metainfo=metainfo,
-        )
-        url = reverse("document-detail", args=[doc.pk])
-        data["data"]["id"] = str(doc.pk)
-
-    response = getattr(admin_client, method)(url, data)
+        response = admin_client.post(reverse("document-list"), data=data)
 
     assert response.status_code == status_code
 
