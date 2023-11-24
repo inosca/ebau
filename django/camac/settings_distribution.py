@@ -598,6 +598,16 @@ DISTRIBUTION = {
             "STATEMENT": "inquiry-answer-assessment",
             "ANCILLARY_CLAUSES": "inquiry-answer-ancillary-clauses",
         },
+        "NOTIFICATIONS": {
+            "INQUIRY_SENT": {
+                "template_slug": "stellungnahme-angefordert",
+                "recipient_types": ["inquiry_addressed"],
+            },
+            "INQUIRY_ANSWERED": {
+                "template_slug": "stellungnahme-beantwortet",
+                "recipient_types": ["inquiry_controlling"],
+            },
+        },
         "SUGGESTIONS": {
             "QUESTIONS": {
                 (

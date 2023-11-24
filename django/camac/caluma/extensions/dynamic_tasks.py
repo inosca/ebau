@@ -87,11 +87,10 @@ class CustomDynamicTasks(BaseDynamicTasks):
     def resolve_after_check_additional_demand(
         self, case, user, prev_work_item, context
     ):
-        decision = prev_work_item.document.answers.get(
-            question_id=settings.ADDITIONAL_DEMAND["DECISION_QUESTION"]
-        )
-
-        if settings.ADDITIONAL_DEMAND["DECISION_REJECT"] == decision.value:
+        if prev_work_item.document.answers.filter(
+            question_id=settings.ADDITIONAL_DEMAND["QUESTIONS"]["DECISION"],
+            value=settings.ADDITIONAL_DEMAND["ANSWERS"]["DECISION"]["REJECTED"],
+        ).exists():
             return [settings.ADDITIONAL_DEMAND["FILL_TASK"]]
 
         return []

@@ -9,19 +9,22 @@ from camac.notification.models import NotificationTemplate
 
 @register(NotificationTemplate)
 class NotificationTemplateAdmin(EbauAdminMixin, ModelAdmin):
-    exclude = ["service", "type", "slug", "subject", "body", "purpose"]
+    exclude = ["service", "type", "subject", "body", "purpose"]
     form = NotificationTemplateForm
     inlines = [NotificationTemplateTInline]
     ordering = ["pk"]
-    list_display = ["id", "get_purpose", "get_subject"]
+    list_display = ["id", "slug", "get_purpose", "get_subject"]
     list_per_page = 20
     search_fields = ["purpose", "subject"]
-    search_fields_ml = ["trans__name"]
+    search_fields_ml = ["trans__purpose", "trans__subject"]
 
     @display(description=_("Purpose"))
     def get_purpose(self, obj):
-        return obj.get_trans_obj().purpose
+        return obj.get_trans_attr("purpose")
 
     @display(description=_("Subject"))
     def get_subject(self, obj):
-        return obj.get_trans_obj().subject
+        return obj.get_trans_attr("subject")
+
+    def get_queryset(self, request):
+        return super().get_queryset(request).filter(type=NotificationTemplate.EMAIL)

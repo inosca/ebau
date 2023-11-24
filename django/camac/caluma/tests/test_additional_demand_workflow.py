@@ -4,6 +4,8 @@ from caluma.caluma_workflow.api import complete_work_item
 from caluma.caluma_workflow.events import post_complete_case, post_create_work_item
 from caluma.caluma_workflow.models import Case, WorkItem
 
+from camac.instance.models import HistoryActionConfig
+
 
 def test_additonal_demand(
     db,
@@ -50,49 +52,64 @@ def test_additonal_demand(
     assert work_item.status == WorkItem.STATUS_COMPLETED
 
 
-@pytest.mark.parametrize(
-    "answer",
-    ["additional-demand-decision-reject", "additional-demand-decision-accept"],
-)
+@pytest.mark.parametrize("decision", ["REJECTED", "ACCEPTED"])
 def test_additonal_demand_check_notification(
     db,
-    set_application_gr,
-    application_settings,
-    mocker,
+    additional_demand_settings,
+    answer_factory,
+    caluma_admin_user,
+    decision,
     gr_instance,
     mailoutbox,
-    additional_demand_settings,
-    caluma_admin_user,
-    work_item_factory,
     notification_template_factory,
-    answer_factory,
-    document_factory,
-    service,
-    service_factory,
-    active_inquiry_factory,
-    answer,
+    work_item_factory,
 ):
-    document = document_factory()
-    notification_template = notification_template_factory(
-        slug=answer,
-        subject=answer,
-    )
+    accepted_notification = notification_template_factory()
+    rejected_notification = notification_template_factory()
+
+    additional_demand_settings["NOTIFICATIONS"] = {
+        "ACCEPTED": [
+            {
+                "template_slug": accepted_notification.slug,
+                "recipient_types": ["applicant"],
+            }
+        ],
+        "REJECTED": [
+            {
+                "template_slug": rejected_notification.slug,
+                "recipient_types": ["applicant"],
+            }
+        ],
+    }
+    additional_demand_settings["HISTORY_ENTRIES"] = {
+        "ACCEPTED": "Test accepted",
+        "REJECTED": "Test rejected",
+    }
+
     answer = answer_factory(
-        question__slug=additional_demand_settings["DECISION_QUESTION"],
-        value=answer,
-        document=document,
+        question__slug=additional_demand_settings["QUESTIONS"]["DECISION"],
+        value=additional_demand_settings["ANSWERS"]["DECISION"][decision],
     )
+
     work_item = work_item_factory(
         task__slug=additional_demand_settings["CHECK_TASK"],
-        document=document,
+        document=answer.document,
         child_case=None,
         case=gr_instance.case,
     )
 
-    active_inquiry_factory(gr_instance, service, service_factory())
-    work_item_factory(addressed_groups=[str(service.pk)], child_case=gr_instance.case)
-
     complete_work_item(work_item=work_item, user=caluma_admin_user, context={})
 
+    history_entry = (
+        gr_instance.history.filter(history_type=HistoryActionConfig.HISTORY_TYPE_STATUS)
+        .latest("created_at")
+        .get_trans_attr("title")
+    )
+
     assert len(mailoutbox) == 1
-    assert notification_template.subject in mailoutbox[0].subject
+    if decision == "ACCEPTED":
+        assert accepted_notification.subject in mailoutbox[0].subject
+        assert history_entry == "Test accepted"
+    elif decision == "REJECTED":
+        assert rejected_notification.subject in mailoutbox[0].subject
+        assert history_entry == "Test rejected"
