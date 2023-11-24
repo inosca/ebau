@@ -16,4 +16,4 @@ class NotificationTemplateTForm(ModelForm):
 class NotificationTemplateForm(ModelForm):
     class Meta:
         model = NotificationTemplate
-        exclude = []
+        fields = ["slug"]

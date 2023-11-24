@@ -73,23 +73,32 @@ def post_complete_check_additional_demand(
     sender, work_item, user, context=None, **kwargs
 ):
     decision = work_item.document.answers.get(
-        question_id=settings.ADDITIONAL_DEMAND["DECISION_QUESTION"]
+        question_id=settings.ADDITIONAL_DEMAND["QUESTIONS"]["DECISION"]
+    ).value
+    decision_key = next(
+        (
+            key
+            for key, value in settings.ADDITIONAL_DEMAND["ANSWERS"]["DECISION"].items()
+            if value == decision
+        ),
+        None,
     )
+
     instance = get_instance(work_item)
 
-    if decision.value in settings.ADDITIONAL_DEMAND["CHECK_NOTIFICATON"]:
-        config = settings.ADDITIONAL_DEMAND["CHECK_NOTIFICATON"][decision.value]
-
+    for config in settings.ADDITIONAL_DEMAND["NOTIFICATIONS"].get(decision_key, []):
         send_mail_without_request(
-            decision.value,
+            config["template_slug"],
             user.username,
             user.camac_group,
-            recipient_types=config["notification_recipients"],
+            recipient_types=config["recipient_types"],
             instance={"id": instance.pk, "type": "instances"},
             work_item={"id": work_item.pk, "type": "work-items"},
         )
+
+    if history_entry := settings.ADDITIONAL_DEMAND["HISTORY_ENTRIES"].get(decision_key):
         create_history_entry(
             instance,
             User.objects.get(username=user.username),
-            gettext_noop(config["history_text"]),
+            gettext_noop(history_entry),
         )
