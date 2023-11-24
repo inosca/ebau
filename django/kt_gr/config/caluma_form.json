@@ -2127,21 +2127,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "ableitung-von-industrie-und-gewerbeabwasser.hinweis-zustaendigkeit-anu",
-    "fields": {
-      "created_at": "2023-10-19T13:11:56.753Z",
-      "modified_at": "2023-10-19T13:11:56.753Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "ableitung-von-industrie-und-gewerbeabwasser",
-      "question": "hinweis-zustaendigkeit-anu",
-      "sort": 23
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "ableitung-von-industrie-und-gewerbeabwasser.industrie-und-gewerbeabwasser-titel",
     "fields": {
       "created_at": "2023-04-20T08:17:31.547Z",
@@ -11482,7 +11467,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "ausserhalb-bauzone",
-      "sort": 33
+      "sort": 34
     }
   },
   {
@@ -11497,7 +11482,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "baute-oder-anlage",
-      "sort": 34
+      "sort": 35
     }
   },
   {
@@ -11512,7 +11497,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "bauvorhaben-mit-gewerbenutzung",
-      "sort": 21
+      "sort": 22
     }
   },
   {
@@ -11527,7 +11512,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "beschreibung-der-anlagen",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -11542,7 +11527,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "beschreibung-der-nutzung",
-      "sort": 20
+      "sort": 21
     }
   },
   {
@@ -11557,7 +11542,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "beschreibung-der-wohnnutzung",
-      "sort": 24
+      "sort": 25
     }
   },
   {
@@ -11572,7 +11557,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "beschreibung-kantonsstrassen",
-      "sort": 13
+      "sort": 14
     }
   },
   {
@@ -11587,7 +11572,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "das-bauvorhaben-befindet-sich-in",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -11602,7 +11587,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "fallen-emissionen-an",
-      "sort": 19
+      "sort": 20
     }
   },
   {
@@ -11617,7 +11602,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "forstliche-baute",
-      "sort": 28
+      "sort": 29
     }
   },
   {
@@ -11632,7 +11617,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "haustechnische-anlagen-brandschutz",
-      "sort": 12
+      "sort": 13
     }
   },
   {
@@ -11647,7 +11632,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "hinweis-denkmalpflege",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -11662,7 +11647,22 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "hinweis-hindernisfreies-bauen",
-      "sort": 25
+      "sort": 26
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "nutzung-bauvorhaben.hinweis-laermvorbelastetes-gebiet",
+    "fields": {
+      "created_at": "2023-11-23T10:36:19.307Z",
+      "modified_at": "2023-11-23T10:36:19.307Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "nutzung-bauvorhaben",
+      "question": "hinweis-laermvorbelastetes-gebiet",
+      "sort": 1
     }
   },
   {
@@ -11677,7 +11677,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "hinweis-vorabklaerungspflicht",
-      "sort": 14
+      "sort": 15
     }
   },
   {
@@ -11692,7 +11692,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "hinweis-vorpruefung-gvg",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -11707,7 +11707,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "hinweis-waldabstandsbereich",
-      "sort": 31
+      "sort": 32
     }
   },
   {
@@ -11722,7 +11722,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "industrie-und-gewerbeabwasser",
-      "sort": 17
+      "sort": 18
     }
   },
   {
@@ -11737,7 +11737,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "ist-ein-gewaesser-betroffen",
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -11752,7 +11752,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "kantonsstrassen",
-      "sort": 15
+      "sort": 16
     }
   },
   {
@@ -11767,7 +11767,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "mehr-als-50-arbeitsplaetze",
-      "sort": 16
+      "sort": 17
     }
   },
   {
@@ -11782,7 +11782,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "mehr-als-vier-wohneinheiten",
-      "sort": 26
+      "sort": 27
     }
   },
   {
@@ -11797,7 +11797,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "muessen-ufervegetation-hecken-oder-feldgehoelze-entfernt-werden",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -11812,7 +11812,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "nichtforstliche-kleinbaute",
-      "sort": 29
+      "sort": 30
     }
   },
   {
@@ -11827,7 +11827,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "objekt-der-denkmalpflege",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -11842,7 +11842,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "rodung",
-      "sort": 30
+      "sort": 31
     }
   },
   {
@@ -11857,7 +11857,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "triage-brandschutz",
-      "sort": 11
+      "sort": 12
     }
   },
   {
@@ -11872,7 +11872,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "triage-titel",
-      "sort": 35
+      "sort": 36
     }
   },
   {
@@ -11887,7 +11887,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "uvp-pflicht",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -11902,7 +11902,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "waldareal",
-      "sort": 32
+      "sort": 33
     }
   },
   {
@@ -11917,7 +11917,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "was-verursacht-die-emissionen",
-      "sort": 18
+      "sort": 19
     }
   },
   {
@@ -11932,7 +11932,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "werden-neue-wohnungen-erstellt",
-      "sort": 23
+      "sort": 24
     }
   },
   {
@@ -11947,7 +11947,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "wie-ist-das-gewaesser-betroffen",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -11962,7 +11962,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "wird-material-vor-ort-aufbereitet",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -11977,7 +11977,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "wohnnutzung",
-      "sort": 27
+      "sort": 28
     }
   },
   {
@@ -11992,7 +11992,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "zweitwohnungsgesetz",
-      "sort": 22
+      "sort": 23
     }
   },
   {
@@ -21649,12 +21649,12 @@
     "pk": "bestaetigung-energienachweise-ja",
     "fields": {
       "created_at": "2023-05-17T14:21:04.604Z",
-      "modified_at": "2023-05-17T14:21:04.604Z",
+      "modified_at": "2023-11-23T10:56:31.213Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Der/die Gesuchsteller/in nimmt zur Kenntnis, dass je nach Bauvorhaben Energienachweise einzureichen sind. Alle g\\u00fcltigen Formulare, Gesetze und Protokolle sind unter www.energienachweis.gr.ch zu finden.\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Der/die Gesuchsteller/in nimmt zur Kenntnis, dass je nach Bauvorhaben Energienachweise einzureichen sind (f\\u00fcr Formular, Gesetze und Protokolle siehe Info-Button).\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -21665,12 +21665,12 @@
     "pk": "bestaetigung-radon-ja",
     "fields": {
       "created_at": "2023-05-17T14:13:02.026Z",
-      "modified_at": "2023-05-17T14:13:02.026Z",
+      "modified_at": "2023-11-24T13:38:02.947Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Die Bauherrschaft best\\u00e4tigt, dass die erforderlichen Massnahmen zum Schutz vor erh\\u00f6hten Radongaskonzentrationen nach den anerkannten Regeln der Baukunde getroffen werden (siehe \\u201cMehr Informationen\\u201d). Die Bauherrschaft hat zur Kenntnis genommen, dass die Bauabnahme grunds\\u00e4tzlich auch eine Radonmessung umfassen kann.\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Die Bauherrschaft best\\u00e4tigt, dass die erforderlichen Massnahmen zum Schutz vor erh\\u00f6hten Radongaskonzentrationen nach den anerkannten Regeln der Baukunde getroffen werden (siehe Info-Button). Die Bauherrschaft hat zur Kenntnis genommen, dass die Bauabnahme grunds\\u00e4tzlich auch eine Radonmessung umfassen kann.\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -45818,7 +45818,7 @@
     "pk": "beschreibung-bauvorhaben",
     "fields": {
       "created_at": "2019-04-12T08:18:11.316Z",
-      "modified_at": "2023-11-16T15:42:49.827Z",
+      "modified_at": "2023-11-23T09:38:07.034Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": "[]",
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -45829,7 +45829,7 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Wahl eines kurzen und pr\\u00e4gnanten Titels des Vorhabens wie z.B. \\u00abNeubau Garage zu Wohnhaus\\u00bb, \\u00abAnbau eines Balkons\\u00bb oder \\u00abNeuerstellung W\\u00e4rmepumpe auf der Nordseite\\u00bb.\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
@@ -47351,18 +47351,18 @@
     "pk": "bestaetigung-energienachweise",
     "fields": {
       "created_at": "2023-05-17T14:21:04.749Z",
-      "modified_at": "2023-09-04T12:26:11.244Z",
+      "modified_at": "2023-11-23T10:58:54.825Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Der/die Gesuchsteller/in nimmt zur Kenntnis, dass je nach Bauvorhaben Energienachweise einzureichen sind. Alle g\\u00fcltigen Formulare, Gesetze und Protokolle sind unter www.energienachweis.gr.ch zu finden.\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Der/die Gesuchsteller/in nimmt zur Kenntnis, dass je nach Bauvorhaben Energienachweise einzureichen sind (f\\u00fcr Formular, Gesetze und Protokolle siehe Info-Button).\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
       "is_required": "'is-paper'|answer != 'is-paper-yes'",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"Im Rahmen der \\u00abPrivaten Kontrolle\\u00bb pr\\u00fcfen akkreditierte Fachleute f\\u00fcr die Fachbereiche W\\u00e4rmed\\u00e4mmung, Heizungsanlagen, Klima- und Bel\\u00fcftungsanlagen sowie Beleuchtungsanlagen, ob ein Bauvorhaben den gesetzlichen Bestimmungen entspricht und nach den bewilligten Pl\\u00e4nen ausgef\\u00fchrt wurde. Die Formulare \\u00abEnergienachweise\\u00bb und \\u00abAusf\\u00fchrungskontrolle\\u00bb m\\u00fcssen beim Bauamt eingereicht werden. Fehlt die Unterschrift der Privaten Kontrolle, ist der Energienachweis ung\\u00fcltig. Unter dem folgenden [Link](https://www.zh.ch/de/planen-bauen/baubewilligung/private-kontrolle/pk-energie.html) sind die befugten Personen f\\u00fcr die private Kontrolle aufgelistet.\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Alle g\\u00fcltigen Formulare, Gesetze und Protokolle sind unter [energienachweis.gr.ch](http://www.energienachweis.gr.ch/) zu finden.\\n\\nIm Rahmen der \\u00abPrivaten Kontrolle\\u00bb pr\\u00fcfen akkreditierte Fachleute f\\u00fcr die Fachbereiche W\\u00e4rmed\\u00e4mmung, Heizungsanlagen sowie Klima- und Bel\\u00fcftungsanlagen, ob ein Bauvorhaben den gesetzlichen Bestimmungen entspricht und nach den bewilligten Pl\\u00e4nen ausgef\\u00fchrt wurde. Die Formulare \\u00abEnergienachweise\\u00bb und \\u00abAusf\\u00fchrungskontrolle\\u00bb m\\u00fcssen beim Bauamt eingereicht werden.\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -47384,12 +47384,12 @@
     "pk": "bestaetigung-radon",
     "fields": {
       "created_at": "2023-05-17T14:13:02.172Z",
-      "modified_at": "2023-11-06T13:52:39.425Z",
+      "modified_at": "2023-11-24T13:38:03.060Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Die Bauherrschaft best\\u00e4tigt, dass die erforderlichen Massnahmen zum Schutz vor erh\\u00f6hten Radongaskonzentrationen nach den anerkannten Regeln der Baukunde getroffen werden (siehe \\u201cInfo-Button\\u201d). Die Bauherrschaft hat zur Kenntnis genommen, dass die Bauabnahme grunds\\u00e4tzlich auch eine Radonmessung umfassen kann.\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Die Bauherrschaft best\\u00e4tigt, dass die erforderlichen Massnahmen zum Schutz vor erh\\u00f6hten Radongaskonzentrationen nach den anerkannten Regeln der Baukunde getroffen werden (siehe Info-Button). Die Bauherrschaft hat zur Kenntnis genommen, dass die Bauabnahme grunds\\u00e4tzlich auch eine Radonmessung umfassen kann.\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
       "is_required": "'is-paper'|answer != 'is-paper-yes'",
       "is_hidden": "false",
@@ -49037,7 +49037,7 @@
     "pk": "branche-gemaess-noga",
     "fields": {
       "created_at": "2023-06-02T12:46:21.984Z",
-      "modified_at": "2023-10-27T14:14:07.266Z",
+      "modified_at": "2023-11-23T10:43:26.144Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -49048,7 +49048,7 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"https://www.kubb-tool.bfs.admin.ch/de\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Siehe [Webportal des Bundes f\\u00fcr NOGA-Codes](https://www.kubb-tool.bfs.admin.ch/de)\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
@@ -49847,7 +49847,7 @@
     "pk": "das-bauvorhaben-befindet-sich-in",
     "fields": {
       "created_at": "2023-07-05T07:20:33.087Z",
-      "modified_at": "2023-10-27T13:06:03.375Z",
+      "modified_at": "2023-11-23T10:34:31.797Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -49859,7 +49859,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"Bitte beachten: Werden in l\\u00e4rmbelasteten Gebieten l\\u00e4rmempfindliche R\\u00e4ume erstellt oder ver\\u00e4ndert, ist ein L\\u00e4rmschutznachweis nach eidg. L\\u00e4rmschutz-Verordnung (LSV) einzureichen.\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -57788,6 +57788,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "hinweis-laermvorbelastetes-gebiet",
+    "fields": {
+      "created_at": "2023-11-23T10:36:19.153Z",
+      "modified_at": "2023-11-23T10:38:17.727Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis L\\u00e4rmvorbelastetes Gebiet\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "!(\n\t\"das-bauvorhaben-befindet-sich-in-laermvorbelastetes-gebiet\"\n\tin \"das-bauvorhaben-befindet-sich-in\"|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"**Bitte beachten:** Werden in l\\u00e4rmbelasteten Gebieten entlang von z.B. Strasse, Eisenbahn, Schiessanlage usw. l\\u00e4rmempflindliche R\\u00e4ume durch Errichtung oder Umnutzung geschaffen oder wesentliche \\u00c4nderungen an Geb\\u00e4uden mit l\\u00e4rmempfindlichen R\\u00e4umen vorgenommen, ist ein L\\u00e4rmschutznachweis nach Art. 31 Abs. 1 der eidg. L\\u00e4rmschutz-Verordnung (LSV) einzureichen.\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "hinweis-lufthygienisch-relevante-stoffe",
     "fields": {
       "created_at": "2023-04-24T13:01:54.475Z",
@@ -58008,7 +58039,7 @@
     "pk": "hinweis-vorabklaerungspflicht",
     "fields": {
       "created_at": "2023-09-18T10:54:55.851Z",
-      "modified_at": "2023-09-18T10:59:10.663Z",
+      "modified_at": "2023-11-23T10:33:12.671Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -58021,7 +58052,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"Bauvorhaben an Kantons- oder Nationalstrassen sind Vorabkl\\u00e4rungspflichtig (Art. 52 Abs. 2 KRVO). Die Vorabkl\\u00e4rung hat vor der Baueingabe zu erfolgen. Bitte informieren Sie sich auf der Homepage des Tiefbauamtes:\\n\\n* [Strassenreklamen - Bauen in Strassenn\\u00e4he (gr.ch)](https://www.gr.ch/DE/institutionen/verwaltung/diem/tba/Strassennetz/Bauen-in-Strassennaehe/Seiten/Strassenreklamen.aspx)\\n* [N\\u00e4herbauten und Zufahrten (gr.ch)](https://www.gr.ch/DE/institutionen/verwaltung/diem/tba/Strassennetz/Bauen-in-Strassennaehe/Seiten/N%C3%A4herbauten-und-Zufahrten.aspx)\\n* [Leitungen - Leitungen (gr.ch)](https://www.gr.ch/DE/institutionen/verwaltung/diem/tba/Strassennetz/Bauen-in-Strassennaehe/Leitungen/Seiten/Leitungen.aspx)\\n\\nBitte beachten Sie, dass der Vorabkl\\u00e4rungsbericht des Tiefbauamtes bei der Einreichung des Baugesuches vorliegen muss.\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"Bauvorhaben an Kantons- oder Nationalstrassen sind vorabkl\\u00e4rungspflichtig (vgl. Art. 52 Abs. 2 der kantonalen Raumplanungsverordnung [KRVO]). Die Vorabkl\\u00e4rung hat vor der Baueingabe zu erfolgen. Bitte informieren Sie sich auf der Homepage des Tiefbauamtes:\\n\\n* [Strassenreklamen - Bauen in Strassenn\\u00e4he (gr.ch)](https://www.gr.ch/DE/institutionen/verwaltung/diem/tba/Strassennetz/Bauen-in-Strassennaehe/Seiten/Strassenreklamen.aspx)\\n* [N\\u00e4herbauten und Zufahrten (gr.ch)](https://www.gr.ch/DE/institutionen/verwaltung/diem/tba/Strassennetz/Bauen-in-Strassennaehe/Seiten/N%C3%A4herbauten-und-Zufahrten.aspx)\\n* [Leitungen - Leitungen (gr.ch)](https://www.gr.ch/DE/institutionen/verwaltung/diem/tba/Strassennetz/Bauen-in-Strassennaehe/Leitungen/Seiten/Leitungen.aspx)\\n\\nBitte beachten Sie, dass der Vorabkl\\u00e4rungsbericht des Tiefbauamtes bei der Einreichung des Baugesuches vorliegen muss.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -58671,7 +58702,7 @@
     "pk": "industrie-und-gewerbeabwasser-titel",
     "fields": {
       "created_at": "2023-04-20T08:17:31.374Z",
-      "modified_at": "2023-10-19T12:31:06.639Z",
+      "modified_at": "2023-11-24T14:35:14.229Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -58684,7 +58715,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"### Ableitung von Industrie- und Gewerbeabwasser\\n<small>Die Ableitung von Industrie- und Gewerbeabwasser ist bewilligungspflichtig.</small>\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"### Ableitung von Industrie- und Gewerbeabwasser\\n\\nDie Ableitung von Industrie- und Gewerbeabwasser ist bewilligungspflichtig.\\n\\nF\\u00fcr dieses Fachthema ist das Amt f\\u00fcr Natur und Umwelt (ANU) zust\\u00e4ndig.  \\nEmail: [info@anu.gr.ch](mailto:info@anu.gr.ch) Telefon: 081 257 29 46\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -59677,7 +59708,7 @@
     "pk": "kantonsstrassen",
     "fields": {
       "created_at": "2023-04-12T08:10:14.647Z",
-      "modified_at": "2023-10-25T07:05:59.228Z",
+      "modified_at": "2023-11-23T10:32:06.888Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -59689,7 +59720,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"Bauvorhaben an Kantons- oder Nationalstrassen sind vorabkl\\u00e4rungspflichtig (vgl. Art. 52 Abs. 2 der kantonalen Raumplanungsverordnung [KRVO]).\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -79014,8 +79045,8 @@
     "model": "caluma_form.questionoption",
     "pk": "bestaetigung-energienachweise.bestaetigung-energienachweise-ja",
     "fields": {
-      "created_at": "2023-09-04T12:26:11.254Z",
-      "modified_at": "2023-09-04T12:26:11.254Z",
+      "created_at": "2023-11-23T10:58:54.835Z",
+      "modified_at": "2023-11-23T10:58:54.835Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -80214,8 +80245,8 @@
     "model": "caluma_form.questionoption",
     "pk": "das-bauvorhaben-befindet-sich-in.das-bauvorhaben-befindet-sich-in-archaeologiezone",
     "fields": {
-      "created_at": "2023-10-27T13:06:03.395Z",
-      "modified_at": "2023-10-27T13:06:03.395Z",
+      "created_at": "2023-11-23T10:34:31.808Z",
+      "modified_at": "2023-11-23T10:34:31.808Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -80229,8 +80260,8 @@
     "model": "caluma_form.questionoption",
     "pk": "das-bauvorhaben-befindet-sich-in.das-bauvorhaben-befindet-sich-in-gefahrenzone",
     "fields": {
-      "created_at": "2023-10-27T13:06:03.423Z",
-      "modified_at": "2023-10-27T13:06:03.423Z",
+      "created_at": "2023-11-23T10:34:31.830Z",
+      "modified_at": "2023-11-23T10:34:31.830Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -80244,8 +80275,8 @@
     "model": "caluma_form.questionoption",
     "pk": "das-bauvorhaben-befindet-sich-in.das-bauvorhaben-befindet-sich-in-gewaesserschutzbereich",
     "fields": {
-      "created_at": "2023-10-27T13:06:03.410Z",
-      "modified_at": "2023-10-27T13:06:03.410Z",
+      "created_at": "2023-11-23T10:34:31.819Z",
+      "modified_at": "2023-11-23T10:34:31.819Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -80259,8 +80290,8 @@
     "model": "caluma_form.questionoption",
     "pk": "das-bauvorhaben-befindet-sich-in.das-bauvorhaben-befindet-sich-in-kataster-belasteter-standorte",
     "fields": {
-      "created_at": "2023-10-27T13:06:03.416Z",
-      "modified_at": "2023-10-27T13:06:03.416Z",
+      "created_at": "2023-11-23T10:34:31.825Z",
+      "modified_at": "2023-11-23T10:34:31.825Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -80274,8 +80305,8 @@
     "model": "caluma_form.questionoption",
     "pk": "das-bauvorhaben-befindet-sich-in.das-bauvorhaben-befindet-sich-in-laermvorbelastetes-gebiet",
     "fields": {
-      "created_at": "2023-10-27T13:06:03.403Z",
-      "modified_at": "2023-10-27T13:06:03.403Z",
+      "created_at": "2023-11-23T10:34:31.813Z",
+      "modified_at": "2023-11-23T10:34:31.813Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -83559,8 +83590,8 @@
     "model": "caluma_form.questionoption",
     "pk": "kantonsstrassen.kantonsstrassen-ja",
     "fields": {
-      "created_at": "2023-10-25T07:05:59.248Z",
-      "modified_at": "2023-10-25T07:05:59.248Z",
+      "created_at": "2023-11-23T10:32:06.906Z",
+      "modified_at": "2023-11-23T10:32:06.906Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -83574,8 +83605,8 @@
     "model": "caluma_form.questionoption",
     "pk": "kantonsstrassen.kantonsstrassen-nein",
     "fields": {
-      "created_at": "2023-10-25T07:05:59.241Z",
-      "modified_at": "2023-10-25T07:05:59.241Z",
+      "created_at": "2023-11-23T10:32:06.899Z",
+      "modified_at": "2023-11-23T10:32:06.899Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
