@@ -44,4 +44,5 @@ node_modules
 __pycache__/
 
 # coverage and test reports
-artifacts
+artifacts/*
+!artifacts/.gitkeep

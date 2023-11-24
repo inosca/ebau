@@ -81,7 +81,7 @@ module.exports = function (/* environment */) {
         return false;
       }
 
-      return ["de", "fr"].includes(locale);
+      return !process.env.CI && ["de", "fr"].includes(locale);
     },
   };
 };
