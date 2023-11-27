@@ -46,7 +46,7 @@
       <a class="copyright" href="https://www.andreabadrutt.ch/" target="_blank" rel="noopener noreferrer">© Andrea Badrutt</a>
       <div class="footer-content">
         <div class="uk-container uk-container-small uk-flex uk-flex-right">
-          <a class="uk-margin-right" href="https://pcloud.gr.ch/s/Datenschutzerklaerung-eBau-GR/download/Datenschutzerklärung_eBau_GR.pdf">Datenschutzerklärung</a>
+          <a class="uk-margin-right" href="https://pcloud.gr.ch/s/Datenschutzerklaerung-eBau-GR/download/Datenschutzerklaerung_eBau_GR.pdf">Datenschutzerklärung</a>
           <a class="uk-margin-right" href="https://pcloud.gr.ch/s/Disclaimer-eBau-GR/download/Disclaimer_eBau_gr.pdf">Disclaimer</a>
           <a href="https://www.gr.ch/DE/institutionen/verwaltung/dvs/are/projekte/Seiten/Elektronisches-Baubewilligungsverfahren-(eBBV).aspx">Informationen zu eBau</a>
         </div>
