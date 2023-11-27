@@ -11,7 +11,7 @@
       "phone": null,
       "disabled": 0,
       "language": "de",
-      "last_login": "2023-11-02T10:36:23.596Z",
+      "last_login": "2023-11-27T09:24:02.101Z",
       "address": null,
       "city": null,
       "zip": null
@@ -9010,6 +9010,102 @@
     }
   },
   {
+    "model": "user.group",
+    "pk": 566,
+    "fields": {
+      "role": 12,
+      "service": 117,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 567,
+    "fields": {
+      "role": 12,
+      "service": 118,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 568,
+    "fields": {
+      "role": 12,
+      "service": 119,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 569,
+    "fields": {
+      "role": 12,
+      "service": 120,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 570,
+    "fields": {
+      "role": 12,
+      "service": 121,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 571,
+    "fields": {
+      "role": 12,
+      "service": 122,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
     "model": "user.groupt",
     "pk": 4,
     "fields": {
@@ -14630,6 +14726,66 @@
     }
   },
   {
+    "model": "user.groupt",
+    "pk": 566,
+    "fields": {
+      "group": 566,
+      "language": "de",
+      "name": "AS; Anlagensicherheit (Amt für Umwelt (AfU))",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 567,
+    "fields": {
+      "group": 567,
+      "language": "de",
+      "name": "AW; Abfallwirtschaft (Amt für Umwelt (AfU))",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 568,
+    "fields": {
+      "group": 568,
+      "language": "de",
+      "name": "BSA; Belastete Standorte (Amt für Umwelt (AfU))",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 569,
+    "fields": {
+      "group": 569,
+      "language": "de",
+      "name": "GWS; Gewässerschutz (Amt für Umwelt (AfU))",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 570,
+    "fields": {
+      "group": 570,
+      "language": "de",
+      "name": "LEL; Lärm, Elektrosmog, Licht (Amt für Umwelt (AfU))",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 571,
+    "fields": {
+      "group": 571,
+      "language": "de",
+      "name": "WBP; Wasserbau (Amt für Umwelt (AfU))",
+      "city": null
+    }
+  },
+  {
     "model": "user.usergroup",
     "pk": 1,
     "fields": {
@@ -14668,7 +14824,7 @@
     "fields": {
       "user": 1,
       "group": 4,
-      "default_group": 1,
+      "default_group": 0,
       "created_at": "2023-09-18T11:01:57.158Z",
       "created_by": 1
     }
@@ -14690,8 +14846,52 @@
     "fields": {
       "user": 1,
       "group": 539,
-      "default_group": 0,
+      "default_group": 1,
       "created_at": "2023-10-09T14:18:19.477Z",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "user.usergroup",
+    "pk": 7,
+    "fields": {
+      "user": 1,
+      "group": 560,
+      "default_group": 0,
+      "created_at": "2023-11-27T09:25:31.023Z",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "user.usergroup",
+    "pk": 8,
+    "fields": {
+      "user": 1,
+      "group": 561,
+      "default_group": 0,
+      "created_at": "2023-11-27T09:25:31.025Z",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "user.usergroup",
+    "pk": 9,
+    "fields": {
+      "user": 1,
+      "group": 566,
+      "default_group": 0,
+      "created_at": "2023-11-27T09:28:16.236Z",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "user.usergroup",
+    "pk": 10,
+    "fields": {
+      "user": 1,
+      "group": 567,
+      "default_group": 0,
+      "created_at": "2023-11-27T09:28:20.636Z",
       "created_by": 1
     }
   },
@@ -17016,6 +17216,126 @@
     }
   },
   {
+    "model": "user.service",
+    "pk": 117,
+    "fields": {
+      "service_group": 2,
+      "service_parent": 108,
+      "name": null,
+      "description": null,
+      "sort": 3,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 118,
+    "fields": {
+      "service_group": 2,
+      "service_parent": 108,
+      "name": null,
+      "description": null,
+      "sort": 4,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.com",
+      "website": null,
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 119,
+    "fields": {
+      "service_group": 2,
+      "service_parent": 108,
+      "name": null,
+      "description": null,
+      "sort": 5,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.com",
+      "website": null,
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 120,
+    "fields": {
+      "service_group": 2,
+      "service_parent": 108,
+      "name": null,
+      "description": null,
+      "sort": 6,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.com",
+      "website": null,
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 121,
+    "fields": {
+      "service_group": 2,
+      "service_parent": 108,
+      "name": null,
+      "description": null,
+      "sort": 7,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 122,
+    "fields": {
+      "service_group": 2,
+      "service_parent": 108,
+      "name": null,
+      "description": null,
+      "sort": 8,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.com",
+      "website": null,
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false
+    }
+  },
+  {
     "model": "user.servicet",
     "pk": 1,
     "fields": {
@@ -18289,6 +18609,72 @@
       "name": "Procap",
       "description": "Procap",
       "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 117,
+    "fields": {
+      "service": 117,
+      "language": "de",
+      "name": "AS; Anlagensicherheit (Amt für Umwelt (AfU))",
+      "description": "AS; Anlagensicherheit (Amt für Umwelt (AfU))",
+      "city": ""
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 118,
+    "fields": {
+      "service": 118,
+      "language": "de",
+      "name": "AW; Abfallwirtschaft (Amt für Umwelt (AfU))",
+      "description": "AW; Abfallwirtschaft (Amt für Umwelt (AfU))",
+      "city": ""
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 119,
+    "fields": {
+      "service": 119,
+      "language": "de",
+      "name": "BSA; Belastete Standorte (Amt für Umwelt (AfU))",
+      "description": "BSA; Belastete Standorte (Amt für Umwelt (AfU))",
+      "city": ""
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 120,
+    "fields": {
+      "service": 120,
+      "language": "de",
+      "name": "GWS; Gewässerschutz (Amt für Umwelt (AfU))",
+      "description": "GWS; Gewässerschutz (Amt für Umwelt (AfU))",
+      "city": ""
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 121,
+    "fields": {
+      "service": 121,
+      "language": "de",
+      "name": "LEL; Lärm, Elektrosmog, Licht (Amt für Umwelt (AfU))",
+      "description": "LEL; Lärm, Elektrosmog, Licht (Amt für Umwelt (AfU))",
+      "city": ""
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 122,
+    "fields": {
+      "service": 122,
+      "language": "de",
+      "name": "WBP; Wasserbau (Amt für Umwelt (AfU))",
+      "description": "WBP; Wasserbau (Amt für Umwelt (AfU))",
+      "city": ""
     }
   }
 ]

@@ -21,16 +21,34 @@
     "model": "instance.instance",
     "pk": 2,
     "fields": {
-      "instance_state": 1,
+      "instance_state": 5,
       "form": 1,
       "user": 1,
       "group": 2,
       "creation_date": "2023-10-05T08:55:20.534Z",
       "modification_date": "2023-10-05T08:55:20.535Z",
-      "previous_instance_state": 1,
+      "previous_instance_state": 4,
       "identifier": null,
       "location": null,
       "case": "484dcd39-ea8e-4553-828d-50bc1408a3f0",
+      "instance_group": null,
+      "rejection_feedback": null
+    }
+  },
+  {
+    "model": "instance.instance",
+    "pk": 3,
+    "fields": {
+      "instance_state": 1,
+      "form": 1,
+      "user": 1,
+      "group": 2,
+      "creation_date": "2023-11-27T09:20:09.629Z",
+      "modification_date": "2023-11-27T09:20:09.629Z",
+      "previous_instance_state": 1,
+      "identifier": null,
+      "location": null,
+      "case": "0bbfa433-1fd9-41dc-a834-6f24bb31458e",
       "instance_group": null,
       "rejection_feedback": null
     }
@@ -72,6 +90,84 @@
       "title": null,
       "body": null,
       "history_type": "notification"
+    }
+  },
+  {
+    "model": "instance.historyentry",
+    "pk": 4,
+    "fields": {
+      "instance": 2,
+      "service": null,
+      "user": 1,
+      "created_at": "2023-11-27T09:21:30.962Z",
+      "title": null,
+      "body": null,
+      "history_type": "status-change"
+    }
+  },
+  {
+    "model": "instance.historyentry",
+    "pk": 5,
+    "fields": {
+      "instance": 2,
+      "service": null,
+      "user": 1,
+      "created_at": "2023-11-27T09:21:33.418Z",
+      "title": null,
+      "body": null,
+      "history_type": "notification"
+    }
+  },
+  {
+    "model": "instance.historyentry",
+    "pk": 6,
+    "fields": {
+      "instance": 2,
+      "service": null,
+      "user": 1,
+      "created_at": "2023-11-27T09:21:33.481Z",
+      "title": null,
+      "body": null,
+      "history_type": "notification"
+    }
+  },
+  {
+    "model": "instance.historyentry",
+    "pk": 7,
+    "fields": {
+      "instance": 2,
+      "service": null,
+      "user": 1,
+      "created_at": "2023-11-27T09:24:16.825Z",
+      "title": null,
+      "body": null,
+      "history_type": "status-change"
+    }
+  },
+  {
+    "model": "instance.historyentry",
+    "pk": 8,
+    "fields": {
+      "instance": 2,
+      "service": null,
+      "user": 1,
+      "created_at": "2023-11-27T09:24:26.995Z",
+      "title": null,
+      "body": null,
+      "history_type": "status-change"
+    }
+  },
+  {
+    "model": "instance.historyentry",
+    "pk": 9,
+    "fields": {
+      "instance": 2,
+      "service": null,
+      "user": 1,
+      "created_at": "2023-11-27T09:24:55.267Z",
+      "title": null,
+      "body": null,
+      "history_type": "status-change"
     }
   },
   {
@@ -161,6 +257,186 @@
       "title": "Notifikation gesendet an email@example.ch (Gemeinde) ([eBau Test]: Neu eingegangen)",
       "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nIm eBau gibt es einen neuen Eingang mit der Dossier-Nr. 1 (Baugesuch, Gemeinde Solothurn).\n\nhttp://ember-ebau.local/index/redirect-to-instance-resource/instance-id/1\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\neBau",
       "history_entry": 3,
+      "language": "it"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 10,
+    "fields": {
+      "title": "Dossier eingereicht",
+      "body": "",
+      "history_entry": 4,
+      "language": "de"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 11,
+    "fields": {
+      "title": "Dossier envoyé",
+      "body": "",
+      "history_entry": 4,
+      "language": "fr"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 12,
+    "fields": {
+      "title": "Dossier eingereicht",
+      "body": "",
+      "history_entry": 4,
+      "language": "it"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 13,
+    "fields": {
+      "title": "Notifikation gesendet an admin@example.com (Gesuchsteller/in) ([eBau Test]: Erfolgreiche Einreichung)",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nIhr Dossier mit der Dossier-Nr. 2 (Baugesuch, Gemeinde Solothurn) wurde erfolgreich übermittelt.\n\nhttp://ebau-portal.local/instances/2\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\nGemeinde Solothurn",
+      "history_entry": 5,
+      "language": "de"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 14,
+    "fields": {
+      "title": "Notification envoyée à admin@example.com (Requérant/e) ([eBau Test]: Erfolgreiche Einreichung)",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nIhr Dossier mit der Dossier-Nr. 2 (Baugesuch, Gemeinde Solothurn) wurde erfolgreich übermittelt.\n\nhttp://ebau-portal.local/instances/2\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\nGemeinde Solothurn",
+      "history_entry": 5,
+      "language": "fr"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 15,
+    "fields": {
+      "title": "Notifikation gesendet an admin@example.com (Gesuchsteller/in) ([eBau Test]: Erfolgreiche Einreichung)",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nIhr Dossier mit der Dossier-Nr. 2 (Baugesuch, Gemeinde Solothurn) wurde erfolgreich übermittelt.\n\nhttp://ebau-portal.local/instances/2\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\nGemeinde Solothurn",
+      "history_entry": 5,
+      "language": "it"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 16,
+    "fields": {
+      "title": "Notifikation gesendet an Gemeinde (keine Empfänger) ([eBau Test]: Neu eingegangen)",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nIm eBau gibt es einen neuen Eingang mit der Dossier-Nr. 2 (Baugesuch, Gemeinde Solothurn).\n\nhttp://ember-ebau.local/cases/2\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\neBau",
+      "history_entry": 6,
+      "language": "de"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 17,
+    "fields": {
+      "title": "Notification envoyée à Municipalité (aucun destinataire) ([eBau Test]: Neu eingegangen)",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nIm eBau gibt es einen neuen Eingang mit der Dossier-Nr. 2 (Baugesuch, Gemeinde Solothurn).\n\nhttp://ember-ebau.local/cases/2\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\neBau",
+      "history_entry": 6,
+      "language": "fr"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 18,
+    "fields": {
+      "title": "Notifikation gesendet an Comune (keine Empfänger) ([eBau Test]: Neu eingegangen)",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nIm eBau gibt es einen neuen Eingang mit der Dossier-Nr. 2 (Baugesuch, Gemeinde Solothurn).\n\nhttp://ember-ebau.local/cases/2\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\neBau",
+      "history_entry": 6,
+      "language": "it"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 19,
+    "fields": {
+      "title": "Formelle Prüfung durchgeführt",
+      "body": "",
+      "history_entry": 7,
+      "language": "de"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 20,
+    "fields": {
+      "title": "Formelle Prüfung durchgeführt",
+      "body": "",
+      "history_entry": 7,
+      "language": "fr"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 21,
+    "fields": {
+      "title": "Formelle Prüfung durchgeführt",
+      "body": "",
+      "history_entry": 7,
+      "language": "it"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 22,
+    "fields": {
+      "title": "Materielle Prüfung durchgeführt",
+      "body": "",
+      "history_entry": 8,
+      "language": "de"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 23,
+    "fields": {
+      "title": "Materielle Prüfung durchgeführt",
+      "body": "",
+      "history_entry": 8,
+      "language": "fr"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 24,
+    "fields": {
+      "title": "Materielle Prüfung durchgeführt",
+      "body": "",
+      "history_entry": 8,
+      "language": "it"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 25,
+    "fields": {
+      "title": "Zirkulation gestartet",
+      "body": "",
+      "history_entry": 9,
+      "language": "de"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 26,
+    "fields": {
+      "title": "Procédure de circulation lancée",
+      "body": "",
+      "history_entry": 9,
+      "language": "fr"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 27,
+    "fields": {
+      "title": "Zirkulation gestartet",
+      "body": "",
+      "history_entry": 9,
       "language": "it"
     }
   }
