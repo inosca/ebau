@@ -8,5 +8,15 @@
       "active": 1,
       "activation_date": null
     }
+  },
+  {
+    "model": "core.instanceservice",
+    "pk": 2,
+    "fields": {
+      "instance": 2,
+      "service": 1,
+      "active": 1,
+      "activation_date": null
+    }
   }
 ]
