@@ -7,11 +7,12 @@ from rest_framework.generics import RetrieveAPIView
 from rest_framework.renderers import JSONRenderer
 from rest_framework.response import Response
 
-from camac.core.translations import get_translations
+from camac.core.translations import get_translations_canton_aware
 from camac.instance.placeholders.serializers import (
     BeDMSPlaceholdersSerializer,
     DMSPlaceholdersSerializer,
     GrDMSPlaceholdersSerializer,
+    SoDMSPlaceholdersSerializer,
 )
 
 
@@ -24,19 +25,24 @@ class DMSPlaceholdersDocsView(RetrieveAPIView):
             return BeDMSPlaceholdersSerializer
         elif settings.APPLICATION_NAME == "kt_gr":  # pragma: todo cover
             return GrDMSPlaceholdersSerializer
+        elif settings.APPLICATION_NAME == "kt_so":  # pragma: todo cover
+            return SoDMSPlaceholdersSerializer
 
         return DMSPlaceholdersSerializer  # pragma: no cover
 
     def get_field_docs(self, field):
         return {
-            "aliases": [get_translations(alias) for alias in field.aliases],
+            "aliases": [
+                get_translations_canton_aware(alias) for alias in field.aliases
+            ],
             "nested_aliases": {
                 nested_name: [
-                    get_translations(nested_alias) for nested_alias in nested_aliases
+                    get_translations_canton_aware(nested_alias)
+                    for nested_alias in nested_aliases
                 ]
                 for nested_name, nested_aliases in field.nested_aliases.items()
             },
-            "description": get_translations(field.description)
+            "description": get_translations_canton_aware(field.description)
             if field.description
             else None,
         }
@@ -47,6 +53,7 @@ class DMSPlaceholdersDocsView(RetrieveAPIView):
         docs = {
             field_name.upper(): self.get_field_docs(field)
             for field_name, field in serializer._declared_fields.items()
+            if field_name not in serializer.Meta.exclude
         }
 
         if available_placeholders:

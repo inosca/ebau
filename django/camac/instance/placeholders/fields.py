@@ -373,9 +373,14 @@ class InquiriesField(AliasedMixin, serializers.ReadOnlyField):
                 addressed_groups__contains=[str(service.pk)]
             )
         elif self.service_group:
+            service_groups = self.service_group
+
+            if not isinstance(service_groups, list):
+                service_groups = [service_groups]
+
             queryset = queryset.filter(
                 work_item_by_addressed_service_condition(
-                    Q(service_group__name=self.service_group)
+                    Q(service_group__name__in=service_groups)
                 )
             )
 

@@ -11,7 +11,7 @@ from django.utils.translation import get_language, gettext_noop as _
 from rest_framework import serializers
 
 from camac.caluma.api import CalumaApi
-from camac.core.translations import get_translations
+from camac.core.translations import get_translations_canton_aware
 from camac.user.models import Service
 from camac.utils import build_url, clean_join
 
@@ -47,7 +47,7 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
         keys = {key.upper()}
 
         for alias_config in field.aliases:
-            for alias in get_translations(alias_config).values():
+            for alias in get_translations_canton_aware(alias_config).values():
                 keys.add(alias.upper())
 
         if field.nested_aliases:
@@ -59,7 +59,10 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
         parsed_aliases = {
             key: list(
                 itertools.chain(
-                    *[get_translations(alias).values() for alias in alias_config]
+                    *[
+                        get_translations_canton_aware(alias).values()
+                        for alias in alias_config
+                    ]
                 )
             )
             for key, alias_config in aliases.items()
@@ -78,6 +81,12 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
 
     def to_representation(self, instance):
         return self.get_aliased_collection(super().to_representation(instance))
+
+    @property
+    def _readable_fields(self):
+        for field_name, field in self.fields.items():
+            if field_name not in self.Meta.exclude:
+                yield field
 
     address = fields.JointField(
         fields=[
@@ -101,13 +110,29 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
     alle_gesuchsteller_name_address = fields.MasterDataPersonField(
         source="applicants",
         fields="__all__",
-        aliases=[_("ALL_APPLICANTS_NAME_ADDRESS")],
-        description=_("Names and addresses of all applicants"),
+        aliases=[
+            {
+                "default": _("ALL_APPLICANTS_NAME_ADDRESS"),
+                "so": _("ALL_BUILDERS_NAME_ADDRESS"),
+            }
+        ],
+        description={
+            "default": _("Names and addresses of all applicants"),
+            "so": _("Names and addresses of all builders"),
+        },
     )
     alle_gesuchsteller = fields.MasterDataPersonField(
         source="applicants",
-        aliases=[_("ALL_APPLICANTS")],
-        description=_("Names of all applicants"),
+        aliases=[
+            {
+                "default": _("ALL_APPLICANTS"),
+                "so": _("ALL_BUILDERS"),
+            }
+        ],
+        description={
+            "default": _("Names of all applicants"),
+            "so": _("Names of all builders"),
+        },
     )
     alle_grundeigentuemer_name_address = fields.MasterDataPersonField(
         source="landowners",
@@ -203,28 +228,60 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
         source="applicants",
         only_first=True,
         fields=["address_1"],
-        aliases=[_("APPLICANT_ADDRESS_1")],
-        description=_("Address line 1 of the first applicant"),
+        aliases=[
+            {
+                "default": _("APPLICANT_ADDRESS_1"),
+                "so": _("BUILDER_ADDRESS_1"),
+            }
+        ],
+        description={
+            "default": _("Address line 1 of the first applicant"),
+            "so": _("Address line 1 of the first builder"),
+        },
     )
     gesuchsteller_address_2 = fields.MasterDataPersonField(
         source="applicants",
         only_first=True,
         fields=["address_2"],
-        aliases=[_("APPLICANT_ADDRESS_2")],
-        description=_("Address line 2 of the first applicant"),
+        aliases=[
+            {
+                "default": _("APPLICANT_ADDRESS_2"),
+                "so": _("BUILDER_ADDRESS_2"),
+            }
+        ],
+        description={
+            "default": _("Address line 2 of the first applicant"),
+            "so": _("Address line 2 of the first builder"),
+        },
     )
     gesuchsteller_name_address = fields.MasterDataPersonField(
         source="applicants",
         only_first=True,
         fields="__all__",
-        aliases=[_("APPLICANT_ADDRESS_NAME_ADDRESS")],
-        description=_("Name and address of the applicant"),
+        aliases=[
+            {
+                "default": _("APPLICANT_NAME_ADDRESS"),
+                "so": _("BUILDER_NAME_ADDRESS"),
+            }
+        ],
+        description={
+            "default": _("Name and address of the applicant"),
+            "so": _("Name and address of the builder"),
+        },
     )
     gesuchsteller = fields.MasterDataPersonField(
         source="applicants",
         only_first=True,
-        aliases=[_("APPLICANT")],
-        description=_("Name of the applicant"),
+        aliases=[
+            {
+                "default": _("APPLICANT"),
+                "so": _("BUILDER"),
+            }
+        ],
+        description={
+            "default": _("Name of the applicant"),
+            "so": _("Name of the builder"),
+        },
     )
     grundeigentuemer_address_1 = fields.MasterDataPersonField(
         source="landowners",
@@ -258,7 +315,10 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
         only_first=True,
         fields=["juristic_name"],
         aliases=[_("JURISTIC_NAME")],
-        description=_("Juristic name of the applicant"),
+        description={
+            "default": _("Juristic name of the applicant"),
+            "so": _("Juristic name of the builder"),
+        },
     )
     koordinaten = fields.AliasedMethodField(
         aliases=[_("COORDINATES")],
@@ -382,13 +442,19 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
         ],
         separator=", ",
         aliases=[_("MUNICIPALITY_ADDRESS")],
-        description=_("Address of the municipality"),
+        description={
+            "default": _("Address of the municipality selected by the applicant"),
+            "so": _("Address of the municipality selected by the builder"),
+        },
     )
     municipality = fields.MunicipalityField(
         source="get_name",
         remove_name_prefix=True,
         aliases=[_("MUNICIPALITY")],
-        description=_("Name of the municipality"),
+        description={
+            "default": _("Name of the municipality selected by the applicant"),
+            "so": _("Name of the municipality selected by the builder"),
+        },
     )
     name = fields.DeprecatedField()
     nebenbestimmungen_mapped = fields.InquiriesField(
@@ -405,7 +471,10 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
     )
     parzelle = fields.AliasedMethodField(
         aliases=[_("PARCEL")],
-        description=_("Selected parcel of the applicant"),
+        description={
+            "default": _("Parcel selected by the applicant"),
+            "so": _("Parcel selected by the builder"),
+        },
     )
     projektverfasser_address_1 = fields.MasterDataPersonField(
         source="project_authors",
@@ -519,6 +588,9 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
 
     def get_today(self, instance):
         return human_readable_date(now().date())
+
+    class Meta:
+        exclude = []
 
 
 class GrDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
@@ -1125,3 +1197,21 @@ class BeDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
 
     def get_uvp_ja_nein(self, instance):
         return "mit-uvp" in instance.case.document.form_id
+
+
+class SoDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
+    zirkulation_fachstellen = fields.InquiriesField(
+        service_group=["service-cantonal", "service-extra-cantonal"],
+        aliases=[_("CIRCULATION_SERVICES")],
+        description=_("Involved services of the instance"),
+    )
+
+    class Meta:
+        exclude = [
+            "description_modification",
+            "address",
+            "nebenbestimmungen",
+            "stellungnahme",
+            "publikation_text",
+            "language",
+        ]
