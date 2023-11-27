@@ -1859,6 +1859,29 @@
   },
   {
     "model": "caluma_form.historicalanswer",
+    "pk": "304b89b0-d1a2-426f-bd80-147ffd13a526",
+    "fields": {
+      "created_at": "2023-11-27T12:31:36.849Z",
+      "modified_at": "2023-11-27T12:31:36.849Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "history_question_type": "choice",
+      "id": "c7d02eae-a724-44d7-bac0-a03f0d017398",
+      "value": "bab-nein",
+      "meta": {},
+      "date": null,
+      "history_user_id": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "question": "bab",
+      "document": "5e7dcb8b-b7ef-434e-8e87-d7fb9be53c31",
+      "history_date": "2023-11-27T12:31:36.850Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
     "pk": "31312702-d414-4c76-9ddf-9d88b02d8701",
     "fields": {
       "created_at": "2023-11-27T09:22:26.554Z",
@@ -3722,6 +3745,29 @@
   },
   {
     "model": "caluma_form.historicalanswer",
+    "pk": "91f03388-81db-4e1a-980b-1fc8a0e1dba5",
+    "fields": {
+      "created_at": "2023-11-27T12:31:49.405Z",
+      "modified_at": "2023-11-27T12:31:49.405Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "history_question_type": "choice",
+      "id": "a68a6799-6077-4fc9-b3a3-7cde19bf2985",
+      "value": "bab-nein",
+      "meta": {},
+      "date": null,
+      "history_user_id": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "question": "bab",
+      "document": "88099d1f-7c40-48fc-8e66-a86c7c3a42f2",
+      "history_date": "2023-11-27T12:31:49.406Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
     "pk": "93c595ef-98b8-4d43-848c-5c1ac952857b",
     "fields": {
       "created_at": "2023-09-08T17:01:51.381Z",
@@ -3831,6 +3877,29 @@
       "question": "lagekoordinaten-ost",
       "document": "504b4147-3372-406d-b283-0e7476c7092d",
       "history_date": "2023-11-27T09:20:48.937Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_form.historicalanswer",
+    "pk": "9c213703-08c8-4c82-bcb9-68545c7ba42f",
+    "fields": {
+      "created_at": "2023-11-27T12:31:19.727Z",
+      "modified_at": "2023-11-27T12:31:19.727Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "history_question_type": "choice",
+      "id": "e6e3082e-54a3-4d7e-9a99-07cd13457799",
+      "value": "bab-nein",
+      "meta": {},
+      "date": null,
+      "history_user_id": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "question": "bab",
+      "document": "49c897f2-6c95-4414-bdb5-4c29074f23b6",
+      "history_date": "2023-11-27T12:31:19.728Z",
       "history_change_reason": null,
       "history_type": "+"
     }
@@ -7781,6 +7850,23 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "a68a6799-6077-4fc9-b3a3-7cde19bf2985",
+    "fields": {
+      "created_at": "2023-11-27T12:31:49.405Z",
+      "modified_at": "2023-11-27T12:31:49.405Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "bab",
+      "value": "bab-nein",
+      "meta": {},
+      "document": "88099d1f-7c40-48fc-8e66-a86c7c3a42f2",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "a95e51a1-c6d3-465d-bf92-b4325efad87d",
     "fields": {
       "created_at": "2023-07-07T07:33:29.856Z",
@@ -8201,6 +8287,23 @@
       "value": "juristische-person-nein",
       "meta": {},
       "document": "2b450a93-28b6-4cd8-a0e9-48708a66eca9",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "c7d02eae-a724-44d7-bac0-a03f0d017398",
+    "fields": {
+      "created_at": "2023-11-27T12:31:36.849Z",
+      "modified_at": "2023-11-27T12:31:36.849Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "bab",
+      "value": "bab-nein",
+      "meta": {},
+      "document": "5e7dcb8b-b7ef-434e-8e87-d7fb9be53c31",
       "date": null
     }
   },
@@ -8711,6 +8814,23 @@
       "value": "aushub-erforderlich-nein",
       "meta": {},
       "document": "88099d1f-7c40-48fc-8e66-a86c7c3a42f2",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "e6e3082e-54a3-4d7e-9a99-07cd13457799",
+    "fields": {
+      "created_at": "2023-11-27T12:31:19.727Z",
+      "modified_at": "2023-11-27T12:31:19.727Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "bab",
+      "value": "bab-nein",
+      "meta": {},
+      "document": "49c897f2-6c95-4414-bdb5-4c29074f23b6",
       "date": null
     }
   },
