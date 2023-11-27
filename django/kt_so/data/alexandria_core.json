@@ -1,1 +1,62 @@
-[]
+[
+  {
+    "model": "alexandria_core.document",
+    "pk": "cdf48370-2dd5-458e-95e4-80edebe21a66",
+    "fields": {
+      "created_at": "2023-11-27T09:21:24.797Z",
+      "created_by_user": "1",
+      "created_by_group": null,
+      "modified_at": "2023-11-27T09:21:24.797Z",
+      "modified_by_user": "1",
+      "modified_by_group": null,
+      "metainfo": {
+        "camac-instance-id": "2",
+        "caluma-document-id": "5e7dcb8b-b7ef-434e-8e87-d7fb9be53c31"
+      },
+      "title": "{\"de\": \"Situationsplan.pdf\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "category": "beilagen-zum-gesuch-projektplaene-projektbeschrieb",
+      "date": null,
+      "tags": [],
+      "marks": []
+    }
+  },
+  {
+    "model": "alexandria_core.file",
+    "pk": "30c7d656-2464-415c-9b4b-377313ac0e79",
+    "fields": {
+      "created_at": "2023-11-27T09:21:24.893Z",
+      "created_by_user": "1",
+      "created_by_group": null,
+      "modified_at": "2023-11-27T09:21:24.964Z",
+      "modified_by_user": "1",
+      "modified_by_group": null,
+      "metainfo": {},
+      "variant": "original",
+      "original": null,
+      "name": "Situationsplan.pdf",
+      "document": "cdf48370-2dd5-458e-95e4-80edebe21a66",
+      "checksum": "sha256:f6edcd8a1b4f7cb85486d0c6777f9174eadbc4d1d0d9e5aeba7132f30b34bc3e",
+      "upload_status": "completed"
+    }
+  },
+  {
+    "model": "alexandria_core.file",
+    "pk": "c9026529-e853-4af3-8d29-f5b0dfe5d434",
+    "fields": {
+      "created_at": "2023-11-27T09:21:26.121Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2023-11-27T09:21:26.135Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {},
+      "variant": "thumbnail",
+      "original": "30c7d656-2464-415c-9b4b-377313ac0e79",
+      "name": "Situationsplan.pdf.jpg",
+      "document": "cdf48370-2dd5-458e-95e4-80edebe21a66",
+      "checksum": null,
+      "upload_status": "completed"
+    }
+  }
+]
