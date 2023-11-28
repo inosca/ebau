@@ -10,7 +10,7 @@ export default class AdditionalDemandAbility extends Ability {
       return this.session.isInternal;
     }
 
-    return true;
+    return !this.session.isReadOnlyRole;
   }
 
   get canDisplay() {
@@ -33,7 +33,9 @@ export default class AdditionalDemandAbility extends Ability {
       return this.ebauModules.isApplicant;
     }
 
-    return this.model.isAddressedToCurrentService;
+    return (
+      !this.session.isReadOnlyRole && this.model.isAddressedToCurrentService
+    );
   }
 
   get canCancel() {
@@ -44,6 +46,7 @@ export default class AdditionalDemandAbility extends Ability {
 
     return (
       this.session.isInternal &&
+      !this.session.isReadOnlyRole &&
       this.model.isReady &&
       this.model.isAddressedToCurrentService &&
       !checkWorkItem
