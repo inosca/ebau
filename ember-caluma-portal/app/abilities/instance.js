@@ -1,5 +1,7 @@
 import { inject as service } from "@ember/service";
 import { Ability } from "ember-can";
+import { hasInstanceState } from "ember-ebau-core/abilities/instance";
+import mainConfig from "ember-ebau-core/config/main";
 
 import config from "caluma-portal/config/environment";
 
@@ -123,6 +125,13 @@ export default class InstanceAbility extends Ability {
     return (
       !this.session.isInternal &&
       this.instanceStateId !== config.APPLICATION.instanceStates.new
+    );
+  }
+
+  get canWithdraw() {
+    return hasInstanceState(
+      this.model,
+      mainConfig.withdrawal?.allowedInstanceStates ?? [],
     );
   }
 }

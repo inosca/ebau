@@ -10,8 +10,12 @@ const config = {
     "init-distribution": 4,
     distribution: 5,
     correction: 6,
+    decision: 7,
+    "construction-monitoring": 8,
+    finished: 9,
     reject: 10,
     rejected: 11,
+    withdrawn: 12,
   },
   answerSlugs: {
     objectStreet: "strasse-flurname",
@@ -88,6 +92,15 @@ const config = {
   rejection: {
     instanceState: "rejected",
     allowedInstanceStates: ["reject"],
+  },
+  withdrawal: {
+    allowedInstanceStates: [
+      "subm",
+      "material-exam",
+      "init-distribution",
+      "distribution",
+      "decision",
+    ],
   },
 };
 
