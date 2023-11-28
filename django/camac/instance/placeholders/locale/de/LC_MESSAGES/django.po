@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-27 09:52+0100\n"
+"POT-Creation-Date: 2023-11-28 17:36+0100\n"
 "PO-Revision-Date: 2023-10-27 14:07+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -18,104 +18,113 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.0.1\n"
 
-#: camac/instance/placeholders/fields.py:83
+#: camac/instance/placeholders/fields.py:75
+msgid "Authority"
+msgstr "Leitbehörde"
+
+#: camac/instance/placeholders/fields.py:75
+#: camac/instance/placeholders/fields.py:79
 msgid "Municipality"
 msgstr "Gemeinde"
 
-#: camac/instance/placeholders/fields.py:137
+#: camac/instance/placeholders/fields.py:75
+msgid "District"
+msgstr "Regierungsstatthalteramt"
+
+#: camac/instance/placeholders/fields.py:133
 msgid "POSITION"
 msgstr "POSITION"
 
-#: camac/instance/placeholders/fields.py:137
+#: camac/instance/placeholders/fields.py:133
 msgid "AMOUNT"
 msgstr "BETRAG"
 
-#: camac/instance/placeholders/fields.py:269
+#: camac/instance/placeholders/fields.py:265
 msgid "ANSWER"
 msgstr "ANTWORT"
 
-#: camac/instance/placeholders/fields.py:270
+#: camac/instance/placeholders/fields.py:266
 msgid "ANSWERED"
 msgstr "BEANTWORTET"
 
-#: camac/instance/placeholders/fields.py:271
+#: camac/instance/placeholders/fields.py:267
 msgid "CREATED"
 msgstr "ERSTELLT"
 
-#: camac/instance/placeholders/fields.py:272
+#: camac/instance/placeholders/fields.py:268
 msgid "SERVICE"
 msgstr "FACHSTELLE"
 
-#: camac/instance/placeholders/fields.py:273
+#: camac/instance/placeholders/fields.py:269
 msgid "DEADLINE"
 msgstr "FRIST"
 
-#: camac/instance/placeholders/fields.py:274
-#: camac/instance/placeholders/fields.py:481
-#: camac/instance/placeholders/fields.py:604
+#: camac/instance/placeholders/fields.py:270
+#: camac/instance/placeholders/fields.py:477
+#: camac/instance/placeholders/fields.py:600
 msgid "NAME"
 msgstr "NAME"
 
-#: camac/instance/placeholders/fields.py:275
+#: camac/instance/placeholders/fields.py:271
 #: camac/instance/placeholders/serializers.py:469
 msgid "ANCILLARY_CLAUSES"
 msgstr "NEBENBESTIMMUNGEN"
 
-#: camac/instance/placeholders/fields.py:276
+#: camac/instance/placeholders/fields.py:272
 msgid "OPINION"
 msgstr "STELLUNGNAHME"
 
-#: camac/instance/placeholders/fields.py:277
+#: camac/instance/placeholders/fields.py:273
 msgid "TEXT"
 msgstr "TEXT"
 
-#: camac/instance/placeholders/fields.py:278
+#: camac/instance/placeholders/fields.py:274
 msgid "BY"
 msgstr "VON"
 
-#: camac/instance/placeholders/fields.py:393
+#: camac/instance/placeholders/fields.py:389
 msgid "DATE_DOCUMENT"
 msgstr "DATUM_DOKUMENT"
 
-#: camac/instance/placeholders/fields.py:394
+#: camac/instance/placeholders/fields.py:390
 msgid "DATE_RECEIPT"
 msgstr "DATUM_EINGANG"
 
-#: camac/instance/placeholders/fields.py:395
+#: camac/instance/placeholders/fields.py:391
 #: camac/instance/placeholders/serializers.py:981
 msgid "LEGAL_CLAIMANTS"
 msgstr "RECHTSBEGEHRENDE"
 
-#: camac/instance/placeholders/fields.py:396
+#: camac/instance/placeholders/fields.py:392
 msgid "TITLE"
 msgstr "TITEL"
 
-#: camac/instance/placeholders/fields.py:400
+#: camac/instance/placeholders/fields.py:396
 msgid "REPRIMANDS"
 msgstr "RUEGEPUNKTE"
 
-#: camac/instance/placeholders/fields.py:402
+#: camac/instance/placeholders/fields.py:398
 msgid "REQUEST"
 msgstr "ANLIEGEN"
 
-#: camac/instance/placeholders/fields.py:402
+#: camac/instance/placeholders/fields.py:398
 msgid "CONCERN"
 msgstr "ANLIEGEN"
 
-#: camac/instance/placeholders/fields.py:481
+#: camac/instance/placeholders/fields.py:477
 #: camac/instance/placeholders/serializers.py:107
 msgid "ADDRESS"
 msgstr "ADRESSE"
 
-#: camac/instance/placeholders/fields.py:602
+#: camac/instance/placeholders/fields.py:598
 msgid "ADDRESS_1"
 msgstr "ADRESSE_1"
 
-#: camac/instance/placeholders/fields.py:603
+#: camac/instance/placeholders/fields.py:599
 msgid "ADDRESS_2"
 msgstr "ADRESSE_2"
 
-#: camac/instance/placeholders/fields.py:755
+#: camac/instance/placeholders/fields.py:751
 #, python-format
 msgid "%(title)s (submitted as %(original_title)s) on %(date)s at %(time)s"
 msgstr "%(title)s (eingereicht als %(original_title)s) am %(date)s um %(time)s"
