@@ -21,6 +21,10 @@
             {
               "mapper": "street_and_housenumber",
               "question": "street-and-housenumber"
+            },
+            {
+              "question": "egid-nr",
+              "propertyName": "gwr_egid"
             }
           ]
         },
@@ -141,7 +145,8 @@
           ]
         }
       ],
-      "disabled": false
+      "disabled": false,
+      "sort": 0
     }
   },
   {
@@ -157,7 +162,98 @@
           "parameterName": "query"
         }
       ],
-      "disabled": false
+      "disabled": false,
+      "sort": 1
+    }
+  },
+  {
+    "model": "gis.gisdatasource",
+    "pk": "e46a2846-76eb-4e4f-99a5-59c86dea47b1",
+    "fields": {
+      "description": "eCH0206",
+      "client": "camac.gis.clients.ech_0206.Ech0206",
+      "config": [
+        {
+          "properties": [
+            {
+              "question": "energie-waermequelle-heizung",
+              "propertyName": "thermotechnicalDeviceForHeating1.energySourceHeating"
+            },
+            {
+              "question": "weitere-energie-waermequelle-heizung",
+              "propertyName": "thermotechnicalDeviceForHeating1.energySourceHeating"
+            },
+            {
+              "question": "waermeerzeuger-heizung",
+              "propertyName": "thermotechnicalDeviceForHeating1.heatGeneratorHeating"
+            },
+            {
+              "question": "weitere-waermeerzeuger-heizung",
+              "propertyName": "thermotechnicalDeviceForHeating2.heatGeneratorHeating"
+            },
+            {
+              "question": "energie-waermequelle-warmwasser",
+              "propertyName": "thermotechnicalDeviceForWarmWater1.energySourceHeating"
+            },
+            {
+              "question": "weitere-energie-waermequelle-warmwasser",
+              "propertyName": "thermotechnicalDeviceForWarmWater2.energySourceHeating"
+            },
+            {
+              "question": "waermeerzeuger-warmwasser",
+              "propertyName": "thermotechnicalDeviceForWarmWater1.heatGeneratorHotWater"
+            },
+            {
+              "question": "weitere-waermeerzeuger-warmwasser",
+              "propertyName": "thermotechnicalDeviceForWarmWater2.heatGeneratorHotWater"
+            }
+          ]
+        },
+        {
+          "properties": [
+            {
+              "question": "amtliche-gebaeudenummer",
+              "propertyName": "officialBuildingNo"
+            }
+          ]
+        },
+        {
+          "properties": [
+            {
+              "question": "gwr-gebaeudevolumen",
+              "propertyName": "volume"
+            }
+          ]
+        },
+        {
+          "properties": [
+            {
+              "question": "energiebezugsflaeche",
+              "propertyName": "energyRelevantSurface"
+            }
+          ]
+        },
+        {
+          "properties": [
+            {
+              "hidden": true,
+              "mapper": "heat_surface",
+              "question": "werden-flaechen-beheizt"
+            }
+          ]
+        },
+        {
+          "properties": [
+            {
+              "hidden": true,
+              "mapper": "warm_water_connection",
+              "question": "ist-ein-warmwasseranschluss-geplant"
+            }
+          ]
+        }
+      ],
+      "disabled": false,
+      "sort": 2
     }
   }
 ]

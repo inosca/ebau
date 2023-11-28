@@ -7,6 +7,10 @@ from django.utils.translation import gettext as _
 class MergeStrategy(Enum):
     MERGE_FIRST = "merge_first"
 
+    # actually not merge anything at all, give full control over return value
+    # to each client (later clients can change output of previous clients)
+    OVERRIDE = "override"
+
 
 def get_bbox(x: Union[float, str], y: Union[float, str], buffer: int = 0) -> str:
     delta = 0
@@ -93,7 +97,7 @@ def merge_data(data: dict, new_data: dict, merge_strategy: MergeStrategy) -> dic
             if isinstance(data[key], list):
                 for row in value:
                     value = merge_table(data[key], row, merge_strategy)
-            else:
+            elif merge_strategy == MergeStrategy.MERGE_FIRST:
                 # If a previous data source already returned a value for a
                 # certain question we concat the new and old value
                 value = concat_values(data[key], value)
