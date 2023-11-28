@@ -446,12 +446,12 @@
     "pk": "landschaft-ortsbild",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "modified_at": "2023-11-28T17:49:47.248Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "name": "{\"de\": \"Landschaft / Ortsbild\", \"fr\": null, \"it\": null}",
+      "name": "{\"de\": \"Natur / Landschaft\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "meta": {},
       "is_published": false,
@@ -506,6 +506,24 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "name": "{\"de\": \"Naturgefahren\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "ortsbildschutz-denkmalpflege-archaeologie",
+    "fields": {
+      "created_at": "2023-11-28T17:50:08.358Z",
+      "modified_at": "2023-11-28T17:50:08.358Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Ortsbildschutz / Denkmalpflege / Arch\\u00e4ologie\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "meta": {},
       "is_published": false,
@@ -7143,7 +7161,7 @@
       "modified_by_group": null,
       "form": "generelle-fachthemen",
       "question": "afu-umweltschutz",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -7158,7 +7176,7 @@
       "modified_by_group": null,
       "form": "generelle-fachthemen",
       "question": "landschaft-ortsbild",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -7178,6 +7196,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "generelle-fachthemen.ortsbildschutz-denkmalpflege-archaeologie",
+    "fields": {
+      "created_at": "2023-11-28T17:51:02.769Z",
+      "modified_at": "2023-11-28T17:51:02.769Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "generelle-fachthemen",
+      "question": "ortsbildschutz-denkmalpflege-archaeologie",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "generelle-fachthemen.verkehr",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -7188,7 +7221,7 @@
       "modified_by_group": null,
       "form": "generelle-fachthemen",
       "question": "verkehr",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -8813,21 +8846,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "landschaft-ortsbild.denkmalpflege",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "form": "landschaft-ortsbild",
-      "question": "denkmalpflege",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "landschaft-ortsbild.landschaftsschutz-titel",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -9303,6 +9321,21 @@
       "modified_by_group": null,
       "form": "naturgefahren",
       "question": "radon",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "ortsbildschutz-denkmalpflege-archaeologie.denkmalpflege",
+    "fields": {
+      "created_at": "2023-11-28T17:52:24.903Z",
+      "modified_at": "2023-11-28T17:52:24.903Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "ortsbildschutz-denkmalpflege-archaeologie",
+      "question": "denkmalpflege",
       "sort": 1
     }
   },
@@ -26165,10 +26198,10 @@
     "pk": "denkmalpflege",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-09-21T06:07:56.268Z",
+      "modified_at": "2023-11-28T18:03:03.400Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "645a484a-3312-4602-9d87-77215f03f5bf",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Denkmalpflege Titel\", \"fr\": null, \"it\": null}",
       "type": "static",
@@ -26178,7 +26211,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"---\\n\\n##Ortsbildschutz / Denkmalpflege / Arch\\u00e4ologie\\n\\n####Ortsbildschutz\\n\\n- **[Bundesinventar der sch\\u00fctzenswerten Ortsbilder der Schweiz, ISOS](https://www.bak.admin.ch/bak/de/home/baukultur/isos-und-ortsbildschutz.html)** Im [ISOS](https://www.bak.admin.ch/bak/de/home/baukultur/isos-und-ortsbildschutz.html) sind zw\\u00f6lf Ortsbilder von nationaler Bedeutung, vier regional bedeutende und neun lokal bedeutende Ortsbilder erfasst. In diesen Gebieten m\\u00fcssen Bauvorhaben bedeutend h\\u00f6here Anforderungen erf\\u00fcllen als in anderen Ortsbildern.  Die Einpassung von Vorhaben in das Ortsbild muss allerdings an allen Orten, insbesondere auch ausserhalb der Hauptsiedlungen ber\\u00fccksichtigt werden.\\n\\n####Denkmalpflege\\n- Der Anblick eines denkmalgesch\\u00fctzten Geb\\u00e4udes fasziniert und wirkt wie eine Reise in vergangene Epochen. Abgesehen davon dass bei Umbauten von Schutzobjekten auch Kostenbeitr\\u00e4ge der \\u00f6ffentliche Hand m\\u00f6glich sind, ist allein schon dieser Gedanke \\u00e4usserst vorteilhaft.\\n\\n- Gem\\u00e4ss Artikel 13 des kantonalen Natur- und Heimatschutzgesetzes (NHG) sind Massnahmen, die ein Schutzobjekt nachhaltig ver\\u00e4ndern, bewilligungspflichtig. Es empfiehlt sich, beim Umbau und bei der Sanierung von Schutzobjekten, fr\\u00fchzeitig mit dem Amt f\\u00fcr Denkmalpflege und Arch\\u00e4ologie Kontakt aufzunehmen, um unerw\\u00fcnschte Plan\\u00e4nderungen und Folgekosten zu vermeiden. \\n\\n####Arch\\u00e4ologie \\n- **Bauen an arch\\u00e4ologisch bedeutsamen Stellen** \\nIm Geoinformationsystem des Kantons sind an diversen Stellen, Orten und Gebieten so genannte arch\\u00e4ologische Funderwartungsgebiete ausgeschieden. F\\u00fcr Bauherrschaften, die in einem solchen Gebiet ein Vorhaben realisieren m\\u00f6chte, bedeutet das in erster Linie, dass im Zeitplan eine gewisse Reserve f\\u00fcr die arch\\u00e4ologischen Abkl\\u00e4rungen eingeplant werden sollte.\\n\\n- **Historische Funde** \\nGem\\u00e4ss Artikel 21 des kantonalen Natur- und Heimatschutzgesetzes (NHG) bed\\u00fcrfen einerseits Ausgrabungen von historisch und naturwissenschaftlich bedeutsamen Objekten der Bewilligung der zust\\u00e4ndigen Direktion. Andererseits sind, unabh\\u00e4ngig ob dies in einem speziell festgelegten Gebiet (arch\\u00e4ologische Funderwartungsgebiete) oder ausserhalb solcher Gebiete eintrifft, wissenschaftliche Funde der zust\\u00e4ndigen Direktion sofort anzuzeigen.\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"## Ortsbildschutz / Denkmalpflege / Arch\\u00e4ologie\\n\\n#### Ortsbildschutz\\n\\n**[Bundesinventar der sch\\u00fctzenswerten Ortsbilder der Schweiz, ISOS](https://www.bak.admin.ch/bak/de/home/baukultur/isos-und-ortsbildschutz.html)** Im [ISOS](https://www.bak.admin.ch/bak/de/home/baukultur/isos-und-ortsbildschutz.html) sind zw\\u00f6lf Ortsbilder von nationaler Bedeutung, vier regional bedeutende und neun lokal bedeutende Ortsbilder erfasst. In diesen Gebieten m\\u00fcssen Bauvorhaben bedeutend h\\u00f6here Anforderungen erf\\u00fcllen als in anderen Ortsbildern.  Die Einpassung von Vorhaben in das Ortsbild muss allerdings an allen Orten, insbesondere auch ausserhalb der Hauptsiedlungen ber\\u00fccksichtigt werden.\\n\\n#### Denkmalpflege\\n\\nDie Kantonale Denkmalpflege setzt sich f\\u00fcr den Schutz und die Pflege von historischen Kulturdenkm\\u00e4lern ein. Eine \\u00dcbersicht \\u00fcber die gesch\\u00fctzten Kulturdenkm\\u00e4ler im Kanton Solothurn findet sich im [Geoinformationssystem](https://geo.so.ch/map/?k=d6859d0b0) des Kantons.\\n\\nDie Denkmalpflege ber\\u00e4t Beh\\u00f6rden, Institutionen und Private bei Bau- und Restaurierungsvorhaben und erm\\u00f6glicht die schonungsvolle Weiterentwicklung der historischen Kulturdenkm\\u00e4ler. In diesem Fall empfiehlt es sich, fr\\u00fchzeitig <u>**vor der Einreichung dieses Baugesuchs**</u> mit der Denkmalpflege f\\u00fcr Vorabkl\\u00e4rungen in Kontakt zu treten, um unerw\\u00fcnschte Plan\\u00e4nderungen zu vermeiden: Link zur [Kantonale Denkmalpflege](https://so.ch/verwaltung/bau-und-justizdepartement/amt-fuer-denkmalpflege-und-archaeologie/denkmalpflege/) mit den Kontaktdaten.\\n\\nDie Denkmalpflege kann finanzielle Beitr\\u00e4ge leisten an die Erhaltung und Pflege gesch\\u00fctzter Kulturdenkm\\u00e4ler. Weitere Informationen dazu und das Antragsformular finden sich unter folgendem Link: [Beitragsgesuch](https://so.ch/verwaltung/bau-und-justizdepartement/amt-fuer-denkmalpflege-und-archaeologie/denkmalpflege/)\\n\\n#### Arch\\u00e4ologie\\n\\nIm [Geoinformationsystem](https://geo.so.ch/map/?k=681b69e3c) des Kantons sind die bisher bekannten arch\\u00e4ologischen Fundstellen innerhalb des Siedlungsgebietes aufgef\\u00fchrt. F\\u00fcr Bauherrschaften, die in einem solchen Gebiet ein Vorhaben realisieren m\\u00f6chten, das Bodeneingriffe beinhaltet, bedeutet das in erster Linie, dass im Zeitplan eine gewisse Reserve f\\u00fcr die arch\\u00e4ologischen Untersuchungen eingeplant werden sollte. Deren Umfang kann je nach Fundstelle und Bauvorhaben stark variieren. Eine vorg\\u00e4ngige Beratung <u>**wird vor der Einreichung dieses Baugesuchs**</u> empfohlen. \\nLink zur [Kantonsarch\\u00e4ologie](https://so.ch/verwaltung/bau-und-justizdepartement/amt-fuer-denkmalpflege-und-archaeologie/archaeologie/) mit den Kontaktdaten.\\n\\nAber auch an anderen Stellen \\u2013 insbesondere in Dorfzentren, in Kirchenn\\u00e4he oder auf auff\\u00e4lligen Gel\\u00e4ndeterrassen \\u2013 k\\u00f6nnten bisher noch unbekannte arch\\u00e4ologische Fundstellen zum Vorschein kommen. Werden bei Bau- und Grabarbeiten arch\\u00e4ologische Funde oder eine Fundstelle entdeckt, so haben gem\\u00e4ss Art. 22 der kantonalen Verordnung \\u00fcber den Schutz der historischen Kulturdenkm\\u00e4ler (KDV) die Bauherrschaft, die Bauleitung oder die Unternehmerschaft sofort die [Kantonsarch\\u00e4ologie](https://so.ch/verwaltung/bau-und-justizdepartement/amt-fuer-denkmalpflege-und-archaeologie/archaeologie/) zu benachrichtigen.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -35805,18 +35838,18 @@
     "pk": "landschaft-ortsbild",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "modified_at": "2023-11-28T17:50:36.539Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Landschaft / Ortsbild\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Natur / Landschaft\", \"fr\": null, \"it\": null}",
       "type": "form",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -38589,6 +38622,37 @@
       "data_source": null,
       "row_form": null,
       "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "ortsbildschutz-denkmalpflege-archaeologie",
+    "fields": {
+      "created_at": "2023-11-28T17:51:02.546Z",
+      "modified_at": "2023-11-28T17:51:02.546Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ortsbildschutz / Denkmalpflege / Arch\\u00e4ologie\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "ortsbildschutz-denkmalpflege-archaeologie",
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
