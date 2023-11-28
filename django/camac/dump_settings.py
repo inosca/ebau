@@ -144,6 +144,7 @@ DUMP_CONFIG_MODELS = [
     "caluma_workflow.TaskFlow",
     "caluma_workflow.Flow",
     "gis.GISDataSource",
+    "permissions.AccessLevel",
 ]
 
 # List of models that have foreign keys referencing non-config tables

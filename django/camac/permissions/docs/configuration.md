@@ -13,6 +13,28 @@ is conditional: Either depending on an instance's state, or it may be dynamic.
 
 Second, the event handler defines when to grant and when to revoke ACLs.
 
+## Permission naming schema
+
+The permissions granted in the permission module are technically quite freestyle:
+There is no requirement for a specific naming pattern.
+
+However, to make things easy to understand, we define the
+general permission naming pattern as follows: `(module)-(function)-(detail)`
+whereas the `(detail)` is optional and module-specific.
+
+For each module, there should be at least a `(module)-read` permission to
+denote that a user may see the module. Further actions (such as access to
+specific module data, or to perform certain actions) can be named freely. The
+following example gives a few possible permission names; however these do not
+neccessarily match what is available in the application.
+
+
+## Instance resource permissions
+
+The Camac instance resources have a field `require_permission`. If that field is
+configured, then Camac (PHP) checks against the permission module to see if the
+current user has the permission.
+
 ## Example configuration
 
 ```python
@@ -26,19 +48,19 @@ PERMISSIONS = {
         "ACCESS_LEVELS": {
             "applicant": [
                 # editing only in new and in "nachforderung"
-                ("edit-form", "new"),
-                ("edit-form", "nfd"),
+                ("form-edit", "new"),
+                ("form-edit", "nfd"),
 
                 # viewing is always allowed for applicants
-                ("view-form", "*"),
+                ("form-read", "*"),
             ],
             "service": [
                 # view form in submitted state
-                ("view-form", "subm"),
+                ("form-read", "subm"),
 
                 # editing and viewing the form in correction state
-                ("edit-form", "corr"),
-                ("view-form", "corr"),
+                ("form-edit", "corr"),
+                ("form-read", "corr"),
 
                 # Be lucky: Only allowed if a coin toss says so 
                 ("be-lucky", toss_a_coin)

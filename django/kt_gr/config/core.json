@@ -1136,7 +1136,8 @@
       "class_field": "menu-category-meta",
       "hidden": 0,
       "sort": 0,
-      "form_group": 2000000
+      "form_group": 2000000,
+      "require_permission": null
     }
   },
   {
@@ -1151,7 +1152,8 @@
       "class_field": "menu-category-primary",
       "hidden": 0,
       "sort": 1,
-      "form_group": 2000000
+      "form_group": 2000000,
+      "require_permission": null
     }
   },
   {
@@ -1166,7 +1168,8 @@
       "class_field": "menu-category-process",
       "hidden": 0,
       "sort": 5,
-      "form_group": 2000000
+      "form_group": 2000000,
+      "require_permission": null
     }
   },
   {
@@ -1181,7 +1184,8 @@
       "class_field": null,
       "hidden": 0,
       "sort": 17,
-      "form_group": 2000000
+      "form_group": 2000000,
+      "require_permission": null
     }
   },
   {
@@ -1196,7 +1200,8 @@
       "class_field": null,
       "hidden": 0,
       "sort": 34,
-      "form_group": 2000000
+      "form_group": 2000000,
+      "require_permission": null
     }
   },
   {
@@ -1211,7 +1216,8 @@
       "class_field": null,
       "hidden": 0,
       "sort": 21,
-      "form_group": 2000000
+      "form_group": 2000000,
+      "require_permission": null
     }
   },
   {
@@ -1226,7 +1232,8 @@
       "class_field": "menu-category-process",
       "hidden": 0,
       "sort": 11,
-      "form_group": 2000000
+      "form_group": 2000000,
+      "require_permission": null
     }
   },
   {
@@ -1241,7 +1248,8 @@
       "class_field": null,
       "hidden": 0,
       "sort": 32,
-      "form_group": 2000000
+      "form_group": 2000000,
+      "require_permission": null
     }
   },
   {
@@ -1256,7 +1264,8 @@
       "class_field": null,
       "hidden": 0,
       "sort": 33,
-      "form_group": 2000000
+      "form_group": 2000000,
+      "require_permission": null
     }
   },
   {
@@ -1271,7 +1280,8 @@
       "class_field": null,
       "hidden": 0,
       "sort": 39,
-      "form_group": 2000000
+      "form_group": 2000000,
+      "require_permission": null
     }
   },
   {
@@ -1286,7 +1296,8 @@
       "class_field": null,
       "hidden": 0,
       "sort": 38,
-      "form_group": 2000000
+      "form_group": 2000000,
+      "require_permission": null
     }
   },
   {
@@ -1301,7 +1312,8 @@
       "class_field": null,
       "hidden": 0,
       "sort": 35,
-      "form_group": 2000000
+      "form_group": 2000000,
+      "require_permission": null
     }
   },
   {
@@ -1316,7 +1328,8 @@
       "class_field": null,
       "hidden": 0,
       "sort": 37,
-      "form_group": 2000000
+      "form_group": 2000000,
+      "require_permission": null
     }
   },
   {
@@ -1331,7 +1344,8 @@
       "class_field": "menu-category-process",
       "hidden": 0,
       "sort": 7,
-      "form_group": 2000000
+      "form_group": 2000000,
+      "require_permission": null
     }
   },
   {
@@ -1346,7 +1360,8 @@
       "class_field": null,
       "hidden": 0,
       "sort": 26,
-      "form_group": 2000000
+      "form_group": 2000000,
+      "require_permission": null
     }
   },
   {
@@ -1361,7 +1376,8 @@
       "class_field": "menu-category-primary",
       "hidden": 0,
       "sort": 4,
-      "form_group": 2000000
+      "form_group": 2000000,
+      "require_permission": null
     }
   },
   {
@@ -1376,7 +1392,8 @@
       "class_field": "menu-category-primary",
       "hidden": 0,
       "sort": 19,
-      "form_group": 2000000
+      "form_group": 2000000,
+      "require_permission": null
     }
   },
   {
@@ -1391,7 +1408,8 @@
       "class_field": "menu-category-analysis",
       "hidden": 0,
       "sort": 28,
-      "form_group": 2000000
+      "form_group": 2000000,
+      "require_permission": null
     }
   },
   {
@@ -1406,7 +1424,8 @@
       "class_field": "menu-category-primary",
       "hidden": 0,
       "sort": 36,
-      "form_group": 2000000
+      "form_group": 2000000,
+      "require_permission": null
     }
   },
   {
@@ -1421,7 +1440,8 @@
       "class_field": null,
       "hidden": 0,
       "sort": 16,
-      "form_group": 2000000
+      "form_group": 2000000,
+      "require_permission": null
     }
   },
   {
@@ -1436,7 +1456,8 @@
       "class_field": null,
       "hidden": 0,
       "sort": 15,
-      "form_group": 2000000
+      "form_group": 2000000,
+      "require_permission": null
     }
   },
   {
@@ -1451,7 +1472,8 @@
       "class_field": null,
       "hidden": 0,
       "sort": 24,
-      "form_group": 2000000
+      "form_group": 2000000,
+      "require_permission": null
     }
   },
   {
@@ -1466,7 +1488,8 @@
       "class_field": null,
       "hidden": 0,
       "sort": 25,
-      "form_group": 2000000
+      "form_group": 2000000,
+      "require_permission": null
     }
   },
   {
@@ -1481,7 +1504,8 @@
       "class_field": "menu-category-process",
       "hidden": 0,
       "sort": 6,
-      "form_group": 2000000
+      "form_group": 2000000,
+      "require_permission": null
     }
   },
   {
@@ -1496,7 +1520,8 @@
       "class_field": null,
       "hidden": 0,
       "sort": 20,
-      "form_group": 2000000
+      "form_group": 2000000,
+      "require_permission": null
     }
   },
   {
@@ -1511,7 +1536,8 @@
       "class_field": null,
       "hidden": 0,
       "sort": 29,
-      "form_group": 2000000
+      "form_group": 2000000,
+      "require_permission": null
     }
   },
   {
@@ -1526,7 +1552,8 @@
       "class_field": "menu-category-analysis",
       "hidden": 0,
       "sort": 12,
-      "form_group": 2000000
+      "form_group": 2000000,
+      "require_permission": null
     }
   },
   {
@@ -1541,7 +1568,8 @@
       "class_field": null,
       "hidden": 0,
       "sort": 22,
-      "form_group": 2000000
+      "form_group": 2000000,
+      "require_permission": null
     }
   },
   {
@@ -1556,7 +1584,8 @@
       "class_field": null,
       "hidden": 0,
       "sort": 30,
-      "form_group": 2000000
+      "form_group": 2000000,
+      "require_permission": null
     }
   },
   {
@@ -1571,7 +1600,8 @@
       "class_field": "menu-category-primary",
       "hidden": 0,
       "sort": 3,
-      "form_group": 2000000
+      "form_group": 2000000,
+      "require_permission": null
     }
   },
   {
@@ -1586,7 +1616,8 @@
       "class_field": null,
       "hidden": 0,
       "sort": 18,
-      "form_group": 2000000
+      "form_group": 2000000,
+      "require_permission": null
     }
   },
   {
@@ -1601,7 +1632,8 @@
       "class_field": null,
       "hidden": 0,
       "sort": 27,
-      "form_group": 2000000
+      "form_group": 2000000,
+      "require_permission": null
     }
   },
   {
@@ -1616,7 +1648,8 @@
       "class_field": "menu-category-analysis",
       "hidden": 0,
       "sort": 14,
-      "form_group": 2000000
+      "form_group": 2000000,
+      "require_permission": null
     }
   },
   {
@@ -1631,7 +1664,8 @@
       "class_field": "menu-category-process",
       "hidden": 0,
       "sort": 8,
-      "form_group": 2000000
+      "form_group": 2000000,
+      "require_permission": null
     }
   },
   {
@@ -1646,7 +1680,8 @@
       "class_field": "menu-category-process",
       "hidden": 0,
       "sort": 10,
-      "form_group": 2000000
+      "form_group": 2000000,
+      "require_permission": null
     }
   },
   {
@@ -1661,7 +1696,8 @@
       "class_field": "menu-category-process",
       "hidden": 0,
       "sort": 9,
-      "form_group": 2000000
+      "form_group": 2000000,
+      "require_permission": null
     }
   },
   {
@@ -1676,7 +1712,8 @@
       "class_field": "menu-category-primary",
       "hidden": 0,
       "sort": 2,
-      "form_group": 2000000
+      "form_group": 2000000,
+      "require_permission": null
     }
   },
   {
@@ -1691,7 +1728,8 @@
       "class_field": "menu-category-analysis",
       "hidden": 0,
       "sort": 13,
-      "form_group": 2000000
+      "form_group": 2000000,
+      "require_permission": null
     }
   },
   {
@@ -1706,7 +1744,8 @@
       "class_field": null,
       "hidden": 0,
       "sort": 23,
-      "form_group": 2000000
+      "form_group": 2000000,
+      "require_permission": null
     }
   },
   {
@@ -1721,7 +1760,8 @@
       "class_field": null,
       "hidden": 0,
       "sort": 31,
-      "form_group": 2000000
+      "form_group": 2000000,
+      "require_permission": null
     }
   },
   {
