@@ -46001,7 +46001,8 @@
       "class_field": "menu-category-extraordinary",
       "hidden": 0,
       "sort": 19,
-      "form_group": 40000
+      "form_group": 40000,
+      "require_permission": null
     }
   },
   {
@@ -46016,7 +46017,8 @@
       "class_field": "menu-category-process",
       "hidden": 0,
       "sort": 10,
-      "form_group": 40000
+      "form_group": 40000,
+      "require_permission": "publication-read"
     }
   },
   {
@@ -46031,7 +46033,8 @@
       "class_field": "menu-category-primary",
       "hidden": 0,
       "sort": 5,
-      "form_group": 40000
+      "form_group": 40000,
+      "require_permission": "responsible-read"
     }
   },
   {
@@ -46046,7 +46049,8 @@
       "class_field": "menu-category-primary",
       "hidden": 0,
       "sort": 5,
-      "form_group": 40000
+      "form_group": 40000,
+      "require_permission": "responsible-read"
     }
   },
   {
@@ -46061,7 +46065,8 @@
       "class_field": "menu-category-extraordinary",
       "hidden": 0,
       "sort": 20,
-      "form_group": 40000
+      "form_group": 40000,
+      "require_permission": null
     }
   },
   {
@@ -46076,7 +46081,8 @@
       "class_field": "menu-category-extraordinary",
       "hidden": 0,
       "sort": 7,
-      "form_group": 40000
+      "form_group": 40000,
+      "require_permission": null
     }
   },
   {
@@ -46091,7 +46097,8 @@
       "class_field": "menu-category-primary",
       "hidden": 0,
       "sort": 2,
-      "form_group": 40000
+      "form_group": 40000,
+      "require_permission": null
     }
   },
   {
@@ -46106,7 +46113,8 @@
       "class_field": "menu-category-primary",
       "hidden": 0,
       "sort": 3,
-      "form_group": 40000
+      "form_group": 40000,
+      "require_permission": "apidocuments-read"
     }
   },
   {
@@ -46121,7 +46129,8 @@
       "class_field": "menu-category-primary",
       "hidden": 0,
       "sort": 3,
-      "form_group": 40000
+      "form_group": 40000,
+      "require_permission": "apidocuments-read"
     }
   },
   {
@@ -46136,7 +46145,8 @@
       "class_field": "menu-category-primary",
       "hidden": 0,
       "sort": 2,
-      "form_group": 40000
+      "form_group": 40000,
+      "require_permission": null
     }
   },
   {
@@ -46151,7 +46161,8 @@
       "class_field": "menu-category-primary",
       "hidden": 0,
       "sort": 3,
-      "form_group": 40000
+      "form_group": 40000,
+      "require_permission": "adpidocuments-read"
     }
   },
   {
@@ -46166,7 +46177,8 @@
       "class_field": "menu-category-primary",
       "hidden": 0,
       "sort": 2,
-      "form_group": 40000
+      "form_group": 40000,
+      "require_permission": null
     }
   },
   {
@@ -46181,7 +46193,8 @@
       "class_field": "menu-category-primary",
       "hidden": 0,
       "sort": 4,
-      "form_group": 40000
+      "form_group": 40000,
+      "require_permission": null
     }
   },
   {
@@ -46196,7 +46209,8 @@
       "class_field": "menu-category-primary",
       "hidden": 0,
       "sort": 4,
-      "form_group": 40000
+      "form_group": 40000,
+      "require_permission": null
     }
   },
   {
@@ -46211,7 +46225,8 @@
       "class_field": "menu-category-primary",
       "hidden": 0,
       "sort": 5,
-      "form_group": 40000
+      "form_group": 40000,
+      "require_permission": "responsible-read"
     }
   },
   {
@@ -46226,7 +46241,8 @@
       "class_field": null,
       "hidden": 0,
       "sort": 5,
-      "form_group": 40000
+      "form_group": 40000,
+      "require_permission": null
     }
   },
   {
@@ -46241,7 +46257,8 @@
       "class_field": null,
       "hidden": 0,
       "sort": 0,
-      "form_group": 40000
+      "form_group": 40000,
+      "require_permission": null
     }
   },
   {
@@ -46256,7 +46273,8 @@
       "class_field": null,
       "hidden": 0,
       "sort": 0,
-      "form_group": 40000
+      "form_group": 40000,
+      "require_permission": null
     }
   },
   {
@@ -46271,7 +46289,8 @@
       "class_field": null,
       "hidden": 0,
       "sort": 0,
-      "form_group": 40000
+      "form_group": 40000,
+      "require_permission": null
     }
   },
   {
@@ -46286,7 +46305,8 @@
       "class_field": null,
       "hidden": 0,
       "sort": 23,
-      "form_group": 40000
+      "form_group": 40000,
+      "require_permission": "history-read"
     }
   },
   {
@@ -46301,7 +46321,8 @@
       "class_field": "menu-category-analysis",
       "hidden": 0,
       "sort": 21,
-      "form_group": 40000
+      "form_group": 40000,
+      "require_permission": "journal-read"
     }
   },
   {
@@ -46316,7 +46337,8 @@
       "class_field": "menu-category-analysis",
       "hidden": 0,
       "sort": 8,
-      "form_group": 40000
+      "form_group": 40000,
+      "require_permission": "journal-read"
     }
   },
   {
@@ -46331,7 +46353,8 @@
       "class_field": null,
       "hidden": 0,
       "sort": 10,
-      "form_group": 40000
+      "form_group": 40000,
+      "require_permission": null
     }
   },
   {
@@ -46346,7 +46369,8 @@
       "class_field": "menu-category-analysis",
       "hidden": 0,
       "sort": 12,
-      "form_group": 40000
+      "form_group": 40000,
+      "require_permission": "journal-read"
     }
   },
   {
@@ -46361,7 +46385,8 @@
       "class_field": null,
       "hidden": 0,
       "sort": 14,
-      "form_group": 40000
+      "form_group": 40000,
+      "require_permission": null
     }
   },
   {
@@ -46376,7 +46401,8 @@
       "class_field": "menu-category-extraordinary",
       "hidden": 0,
       "sort": 16,
-      "form_group": 40000
+      "form_group": 40000,
+      "require_permission": null
     }
   },
   {
@@ -46391,7 +46417,8 @@
       "class_field": "menu-category-primary",
       "hidden": 0,
       "sort": 1,
-      "form_group": 40000
+      "form_group": 40000,
+      "require_permission": null
     }
   },
   {
@@ -46406,7 +46433,8 @@
       "class_field": "menu-category-primary",
       "hidden": 0,
       "sort": 2,
-      "form_group": 40000
+      "form_group": 40000,
+      "require_permission": null
     }
   },
   {
@@ -46421,7 +46449,8 @@
       "class_field": "menu-category-analysis",
       "hidden": 0,
       "sort": 3,
-      "form_group": 40000
+      "form_group": 40000,
+      "require_permission": "auditlog-read"
     }
   },
   {
@@ -46436,7 +46465,8 @@
       "class_field": "menu-category-analysis",
       "hidden": 0,
       "sort": 22,
-      "form_group": 40000
+      "form_group": 40000,
+      "require_permission": "revisionhistory-read"
     }
   },
   {
@@ -46451,7 +46481,8 @@
       "class_field": "menu-category-analysis",
       "hidden": 0,
       "sort": 9,
-      "form_group": 40000
+      "form_group": 40000,
+      "require_permission": "revisionhistory-read"
     }
   },
   {
@@ -46466,7 +46497,8 @@
       "class_field": "menu-category-analysis",
       "hidden": 0,
       "sort": 13,
-      "form_group": 40000
+      "form_group": 40000,
+      "require_permission": "revisionhistory-read"
     }
   },
   {
@@ -46481,7 +46513,8 @@
       "class_field": "menu-category-analysis",
       "hidden": 0,
       "sort": 4,
-      "form_group": 40000
+      "form_group": 40000,
+      "require_permission": "revisionhistory-read"
     }
   },
   {
@@ -46496,7 +46529,8 @@
       "class_field": "menu-category-process",
       "hidden": 0,
       "sort": 7,
-      "form_group": 40000
+      "form_group": 40000,
+      "require_permission": "audit-read"
     }
   },
   {
@@ -46511,7 +46545,8 @@
       "class_field": "menu-category-process",
       "hidden": 0,
       "sort": 6,
-      "form_group": 40000
+      "form_group": 40000,
+      "require_permission": "audit-read"
     }
   },
   {
@@ -46526,7 +46561,8 @@
       "class_field": "menu-category-primary",
       "hidden": 0,
       "sort": 0,
-      "form_group": 40000
+      "form_group": 40000,
+      "require_permission": null
     }
   },
   {
@@ -46541,7 +46577,8 @@
       "class_field": "menu-category-primary active_leitung_leitbehoerde_only",
       "hidden": 0,
       "sort": 24,
-      "form_group": 40000
+      "form_group": 40000,
+      "require_permission": null
     }
   },
   {
@@ -46556,7 +46593,8 @@
       "class_field": "menu-category-process",
       "hidden": 0,
       "sort": 6,
-      "form_group": 40000
+      "form_group": 40000,
+      "require_permission": null
     }
   },
   {
@@ -46571,7 +46609,8 @@
       "class_field": "menu-category-process",
       "hidden": 0,
       "sort": 14,
-      "form_group": 40000
+      "form_group": 40000,
+      "require_permission": null
     }
   },
   {
@@ -46586,7 +46625,8 @@
       "class_field": "menu-category-primary",
       "hidden": 0,
       "sort": 4,
-      "form_group": 40000
+      "form_group": 40000,
+      "require_permission": null
     }
   },
   {
@@ -46601,7 +46641,8 @@
       "class_field": "menu-category-process",
       "hidden": 0,
       "sort": 13,
-      "form_group": 40000
+      "form_group": 40000,
+      "require_permission": "gwr-read"
     }
   },
   {
@@ -46616,7 +46657,8 @@
       "class_field": "menu-category-process",
       "hidden": 0,
       "sort": 11,
-      "form_group": 40000
+      "form_group": 40000,
+      "require_permission": null
     }
   },
   {
@@ -46631,7 +46673,8 @@
       "class_field": "menu-category-process",
       "hidden": 0,
       "sort": 9,
-      "form_group": 40000
+      "form_group": 40000,
+      "require_permission": null
     }
   },
   {
@@ -46646,7 +46689,8 @@
       "class_field": "menu-category-process",
       "hidden": 0,
       "sort": 6,
-      "form_group": 40000
+      "form_group": 40000,
+      "require_permission": null
     }
   },
   {
@@ -46661,7 +46705,8 @@
       "class_field": "menu-category-process",
       "hidden": 0,
       "sort": 8,
-      "form_group": 40000
+      "form_group": 40000,
+      "require_permission": null
     }
   },
   {
@@ -46676,7 +46721,8 @@
       "class_field": "menu-category-process",
       "hidden": 0,
       "sort": 7,
-      "form_group": 40000
+      "form_group": 40000,
+      "require_permission": "distribution-read"
     }
   },
   {
@@ -46691,7 +46737,8 @@
       "class_field": "menu-category-process",
       "hidden": 0,
       "sort": 11,
-      "form_group": 40000
+      "form_group": 40000,
+      "require_permission": null
     }
   },
   {
@@ -46706,7 +46753,8 @@
       "class_field": "menu-category-process",
       "hidden": 0,
       "sort": 8,
-      "form_group": 40000
+      "form_group": 40000,
+      "require_permission": null
     }
   },
   {
@@ -46721,7 +46769,8 @@
       "class_field": "menu-category-process appeal",
       "hidden": 0,
       "sort": 15,
-      "form_group": 40000
+      "form_group": 40000,
+      "require_permission": null
     }
   },
   {
@@ -46736,7 +46785,8 @@
       "class_field": "menu-category-process",
       "hidden": 0,
       "sort": 12,
-      "form_group": 40000
+      "form_group": 40000,
+      "require_permission": "billing-read"
     }
   },
   {
@@ -46751,7 +46801,8 @@
       "class_field": "menu-category-process",
       "hidden": 0,
       "sort": 10,
-      "form_group": 40000
+      "form_group": 40000,
+      "require_permission": "billing-read"
     }
   },
   {
@@ -46766,7 +46817,8 @@
       "class_field": "menu-category-extraordinary",
       "hidden": 0,
       "sort": 18,
-      "form_group": 40000
+      "form_group": 40000,
+      "require_permission": null
     }
   },
   {
@@ -46781,7 +46833,8 @@
       "class_field": "communications",
       "hidden": 0,
       "sort": 1,
-      "form_group": 40000
+      "form_group": 40000,
+      "require_permission": "communications-read"
     }
   },
   {
@@ -46796,7 +46849,8 @@
       "class_field": "communications",
       "hidden": 0,
       "sort": 1,
-      "form_group": 40000
+      "form_group": 40000,
+      "require_permission": "communications-read"
     }
   },
   {
@@ -46811,7 +46865,8 @@
       "class_field": "communications",
       "hidden": 0,
       "sort": 1,
-      "form_group": 40000
+      "form_group": 40000,
+      "require_permission": "communications-read"
     }
   },
   {

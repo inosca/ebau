@@ -64,4 +64,37 @@ PERMISSIONS: PermissionsConfig = {
         "EVENT_HANDLER": "camac.permissions.events.EmptyEventHandler",
         "ENABLED": True,
     },
+    "kt_bern": {
+        "ACCESS_LEVELS": {
+            # Admin access level config: this is just a suggestion for now...
+            # "admin": [
+            #    ("permissions-read", "*"),
+            #    ("permissions-grant-geometer", "*"),
+            #    ("permissions-grant-admin", "*"),
+            # ],
+            "geometer": [
+                # TODO: It seems that it would be useful to allow a list for the
+                # matching instance states, to simplify the list here
+                ("form-read", "sb1"),
+                ("form-read", "sb2"),
+                ("workitems-read", "sb1"),
+                ("workitems-read", "sb2"),
+                ("communications-read", "sb1"),
+                ("communications-read", "sb2"),
+                # all documents can be read, but only a specific category can be written
+                ("responsible-service-read", "sb1"),
+                ("responsible-service-read", "sb2"),
+                ("documents-read", "sb1"),
+                ("documents-read", "sb2"),
+                ("journal-read", "sb1"),
+                ("journal-read", "sb2"),
+                ("history-read", "sb1"),
+                ("history-read", "sb2"),
+                ("documents-write-sb1-paper", "sb1"),
+                ("documents-write-sb1-paper", "sb2"),
+            ],
+        },
+        "EVENT_HANDLER": "camac.permissions.events.EmptyEventHandler",
+        "ENABLED": True,
+    },
 }
