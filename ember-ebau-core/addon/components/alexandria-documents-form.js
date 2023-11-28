@@ -134,7 +134,7 @@ export default class AlexandriaDocumentsFormComponent extends Component {
     await Promise.resolve();
 
     const metainfoFilter = [
-      { key: "camac-instance-id", value: this.args.context.instanceId },
+      { key: "camac-instance-id", value: String(this.args.context.instanceId) },
     ];
 
     if (this.field.question.raw.meta.alexandriaEnableDocumentFilter) {
