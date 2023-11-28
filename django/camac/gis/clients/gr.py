@@ -54,7 +54,7 @@ class GrGisClient(GISBaseClient):
             )
         )
 
-    def process_data_source(self, config) -> dict:
+    def process_data_source(self, config, _intermediate_data) -> dict:
         """Process GR GIS config.
 
         See the config example in the test file

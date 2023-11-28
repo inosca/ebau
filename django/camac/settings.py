@@ -4033,6 +4033,9 @@ GIS_BASE_URL = build_url(
 GR_GIS_BASE_URL = env.str("GR_GIS_BASE_URL", default="https://wps.geo.gr.ch")
 GIS_API_USER = env.str("GIS_API_USER", "")
 GIS_API_PASSWORD = env.str("GIS_API_PASSWORD", "")
+GR_ECH0206_BASE_URL = env.str(
+    "GR_ECH0206_BASE_URL", default="https://madd.bfs.admin.ch/eCH-0206"
+)
 
 GIS_SKIP_BOOLEAN_LAYERS = env.list("GIS_SKIP_BOOLEAN_LAYERS", default=[])
 
