@@ -4334,6 +4334,40 @@ snapshots['test_dms_placeholders_docs[so_dms_config] 1'] = {
         'nested_aliases': {
         }
     },
+    'EIGENE_GEBUEHREN': {
+        'aliases': [
+            {
+                'de': 'EIGENE_GEBUEHREN'
+            }
+        ],
+        'description': {
+            'de': 'Eigene Gebühren des Dossiers'
+        },
+        'nested_aliases': {
+            'BETRAG': [
+                {
+                    'de': 'BETRAG'
+                }
+            ],
+            'POSITION': [
+                {
+                    'de': 'POSITION'
+                }
+            ]
+        }
+    },
+    'EIGENE_GEBUEHREN_TOTAL': {
+        'aliases': [
+            {
+                'de': 'EIGENE_GEBUEHREN_TOTAL'
+            }
+        ],
+        'description': {
+            'de': 'Totalbetrag aller eigenen Gebühren des Dossiers'
+        },
+        'nested_aliases': {
+        }
+    },
     'FACHSTELLEN_KANTONAL': {
         'aliases': [
             {
@@ -4377,6 +4411,40 @@ snapshots['test_dms_placeholders_docs[so_dms_config] 1'] = {
         ],
         'description': {
             'de': 'Typ des Dossiers'
+        },
+        'nested_aliases': {
+        }
+    },
+    'GEBUEHREN': {
+        'aliases': [
+            {
+                'de': 'GEBUEHREN'
+            }
+        ],
+        'description': {
+            'de': 'Gebühren des Dossiers'
+        },
+        'nested_aliases': {
+            'BETRAG': [
+                {
+                    'de': 'BETRAG'
+                }
+            ],
+            'POSITION': [
+                {
+                    'de': 'POSITION'
+                }
+            ]
+        }
+    },
+    'GEBUEHREN_TOTAL': {
+        'aliases': [
+            {
+                'de': 'GEBUEHREN_TOTAL'
+            }
+        ],
+        'description': {
+            'de': 'Totalbetrag aller Gebühren des Dossiers'
         },
         'nested_aliases': {
         }
@@ -5743,6 +5811,11 @@ snapshots['test_dms_placeholders_docs_available_placeholders[so_dms_config] 1'] 
     'DECISION_DATE',
     'DOSSIER_TYP',
     'EBAU_URL',
+    'EIGENE_GEBUEHREN',
+    'EIGENE_GEBUEHREN[]',
+    'EIGENE_GEBUEHREN[].BETRAG',
+    'EIGENE_GEBUEHREN[].POSITION',
+    'EIGENE_GEBUEHREN_TOTAL',
     'FACHSTELLEN_KANTONAL',
     'FACHSTELLEN_KANTONAL[]',
     'FACHSTELLEN_KANTONAL[].BEANTWORTET',
@@ -5750,6 +5823,11 @@ snapshots['test_dms_placeholders_docs_available_placeholders[so_dms_config] 1'] 
     'FACHSTELLEN_KANTONAL[].FRIST',
     'FACHSTELLEN_KANTONAL[].NAME',
     'FORM_NAME',
+    'GEBUEHREN',
+    'GEBUEHREN[]',
+    'GEBUEHREN[].BETRAG',
+    'GEBUEHREN[].POSITION',
+    'GEBUEHREN_TOTAL',
     'GEMEINDE',
     'GEMEINDE_ADRESSE',
     'GEMEINDE_EMAIL',

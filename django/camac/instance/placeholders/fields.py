@@ -72,12 +72,12 @@ class ServiceField(AliasedMixin, serializers.ReadOnlyField):
         if value and self.remove_name_prefix:
             # Municipalities and districts in BE all have a prefix which is
             # sometimes unwanted in certain placeholder.
-            value = (
-                value.replace("Leitbehörde", "")
-                .replace("Regierungsstatthalteramt", "")
-                .replace("Autorité directrice", "")
-                .replace("Préfecuture", "")
-            ).strip()
+            for prefix in [
+                gettext("Authority"),
+                gettext("Municipality"),
+                gettext("District"),
+            ]:
+                value = value.replace(prefix, "").strip()
 
         if value and self.add_municipality_prefix:
             value = clean_join(gettext("Municipality"), value)
