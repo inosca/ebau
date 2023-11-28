@@ -33,7 +33,6 @@ from camac.document.models import Attachment, AttachmentSection
 from camac.instance.domain_logic import RejectionLogic, WithdrawalLogic
 from camac.instance.utils import build_document_prefetch_statements
 from camac.notification.utils import send_mail
-from camac.permissions import events as permissions_events
 from camac.swagger.utils import get_operation_description, group_param
 from camac.user.permissions import (
     DefaultPermission,
@@ -195,7 +194,7 @@ class InstanceView(
         serializer_config = SERIALIZER_CLASS[backend].get(
             self.action, SERIALIZER_CLASS[backend]["default"]
         )
-        if type(serializer_config) == dict:
+        if isinstance(serializer_config, dict):
             return serializer_config.get(settings.APPLICATION_NAME, "default")
 
         return serializer_config
@@ -604,8 +603,6 @@ class InstanceView(
                 instance={"id": pk, "type": "instances"},
             )
 
-        permissions_events.Trigger.instance_post_state_transition(request, instance)
-
         return response.Response(data=serializer.data)
 
     def _custom_serializer_action(self, request, pk=None, status_code=None):
@@ -614,10 +611,6 @@ class InstanceView(
         )
         serializer.is_valid(raise_exception=True)
         serializer.save()
-
-        permissions_events.Trigger.instance_post_state_transition(
-            request, serializer.instance
-        )
 
         if status_code == status.HTTP_204_NO_CONTENT:
             return response.Response(data=None, status=status_code)
