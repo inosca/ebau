@@ -36,6 +36,7 @@ Sie dient nur zu Testzwecken und kann ignoriert werden.
         WORK_ITEM_NAME_FR: Envoyer la demande
         DECISION_DE: Bewilligt
         DECISION_FR: Approuveé
+        REJECTION_FEEDBACK: Grund für die Rückweisung
     '''
 
 snapshots['test_notification_caluma_placeholders[False-2-2-user@example.com-Municipality] 1'] = '''Hinweis: Diese Nachricht wurde von einem Testsystem versendet.
@@ -67,6 +68,7 @@ Sie dient nur zu Testzwecken und kann ignoriert werden.
         WORK_ITEM_NAME_FR: Envoyer la demande
         DECISION_DE: Bewilligt
         DECISION_FR: Approuveé
+        REJECTION_FEEDBACK: Grund für die Rückweisung
     '''
 
 snapshots['test_notification_caluma_placeholders[True-2-1-user@example.com-Municipality] 1'] = '''Hinweis: Diese Nachricht wurde von einem Testsystem versendet.
@@ -98,6 +100,7 @@ Sie dient nur zu Testzwecken und kann ignoriert werden.
         WORK_ITEM_NAME_FR: Envoyer la demande
         DECISION_DE: Bewilligt
         DECISION_FR: Approuveé
+        REJECTION_FEEDBACK: Grund für die Rückweisung
     '''
 
 snapshots['test_notification_caluma_placeholders[True-2-2-user@example.com-Municipality] 1'] = '''Hinweis: Diese Nachricht wurde von einem Testsystem versendet.
@@ -129,6 +132,7 @@ Sie dient nur zu Testzwecken und kann ignoriert werden.
         WORK_ITEM_NAME_FR: Envoyer la demande
         DECISION_DE: Bewilligt
         DECISION_FR: Approuveé
+        REJECTION_FEEDBACK: Grund für die Rückweisung
     '''
 
 snapshots['test_notification_template_merge[Canton-identifier-{{identifier}}-200] 1'] = '''
