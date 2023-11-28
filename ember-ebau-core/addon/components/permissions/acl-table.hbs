@@ -1,24 +1,21 @@
 <div class="permission-table">
-  <div class="uk-flex">
+  <div class="uk-flex uk-margin-small-bottom">
     <Filters::RadioButtons
       @name="status"
+      @buttonGroupClass="uk-margin-remove-top"
       @label={{t "permissions.details.status"}}
       @selected={{this.statusFilter}}
-      @options={{array
-        (hash value="all" label=(t "permissions.status.all"))
-        (hash value="active" label=(t "permissions.status.active"))
-        (hash value="inactive" label=(t "permissions.status.inactive"))
-      }}
+      @options={{this.statusFilterOptions}}
       @onChange={{this.updateStatusFilter}}
     />
-    <div class="uk-width-1-3 uk-margin-small-top">
+    <div class="uk-width-1-3 uk-margin-small-left uk-margin-small-top">
       <label class="uk-form-label uk-text-bold" for="access-level">{{t
           "permissions.details.access-level"
         }}</label>
       <div class="uk-form-controls">
         <PowerSelect
           @triggerId="access-level"
-          @options={{this.availableAccessLevels}}
+          @options={{this.availableAccessLevels.records}}
           @selected={{this.accessLevelFilter}}
           @placeholder={{t "permissions.access-level.all-levels"}}
           @onChange={{this.updateAccessLevelFilter}}
@@ -27,13 +24,33 @@
           class="uk-select"
           as |level|
         >
-          {{t (concat "permissions.access-level." level.slug)}}
+          {{level.name}}
         </PowerSelect>
       </div>
     </div>
   </div>
 
-  <table class="uk-table uk-table-hover uk-table-striped">
+  {{#let
+    (can "create acl for instance" this.instance.record)
+    as |canCreateAcl|
+  }}
+    {{#if canCreateAcl}}
+      <div class="uk-text-center">
+        <IconButton
+          @icon="plus"
+          @onClick={{fn (mut this.creatingAcl) true}}
+          @disabled={{this.creatingAcl}}
+          @loading={{this.creatingAcl}}
+          title={{t "permissions.new"}}
+        />
+      </div>
+    {{/if}}
+
+  {{/let}}
+
+  <table
+    class="uk-table uk-table-hover uk-table-small uk-table-striped uk-table-middle"
+  >
     <thead>
       <tr>
         <th>{{t "permissions.details.entity-name"}}</th>
@@ -41,6 +58,7 @@
         <th>{{t "permissions.details.start-time"}}</th>
         <th>{{t "permissions.details.end-time"}}</th>
         <th>{{t "permissions.details.status"}}</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -54,17 +72,33 @@
                 {{on "click" (fn (mut this.detailViewAcl) acl)}}
               >{{acl.entityName}}</a>
             </td>
-            <td>{{t
-                (concat "permissions.access-level." acl.accessLevel.slug)
-              }}</td>
+            <td>{{acl.accessLevel.name}}</td>
             <td>{{or (format-date acl.startTime format="date") "-"}}</td>
             <td>{{or (format-date acl.endTime format="date") "-"}}</td>
             <td><span
                 class={{(concat
-                  "uk-label uk-label-"
-                  (if (eq acl.status "active") "success" "warning")
+                  "uk-label "
+                  (if (eq acl.status "active") "uk-label-success")
+                  (if (eq acl.status "scheduled") "uk-label-warning")
+                  (if (eq acl.status "expired") "background-expired ")
                 )}}
               >{{t (concat "permissions.status." acl.status)}}</span></td>
+            <td>
+              {{#let
+                (can "create acl for instance" this.instance.record)
+                as |canCreateAcl|
+              }}
+                {{#if (and acl.revokeable canCreateAcl)}}
+                  <UkButton
+                    class="uk-margin-small-right"
+                    @title={{t "permissions.revoke"}}
+                    @size="small"
+                    @color="link"
+                    {{on "click" (fn this.revokeAcl acl)}}
+                  ><UkIcon @icon="ban" /></UkButton>
+                {{/if}}
+              {{/let}}
+            </td>
           </tr>
         {{else}}
           {{#unless this.acls.isLoading}}
@@ -89,113 +123,15 @@
     </tbody>
   </table>
 
-  <UkModal
-    @visible={{this.detailViewAcl}}
+  <Permissions::AclDetails
+    @instanceAcl={{this.detailViewAcl}}
     @onHide={{fn (mut this.detailViewAcl) false}}
-    @dialogClass="permissions-module-modal-dialog"
-    as |modal|
-  >
-    <modal.header>
-      <h2 class="uk-modal-title uk-margin-right">{{t
-          "permissions.details.heading"
-        }}</h2>
-    </modal.header>
-    <modal.body class="uk-margin-left">
-      <div
-        class="uk-grid-large uk-child-width-1-2 uk-text-large uk-text-break"
-        uk-grid
-      >
-        <div class="uk-flex uk-flex-start uk-flex-column uk-width-auto">
-          <div
-            class="uk-margin-small-top"
-            data-test-instance-acl-modal-access-level
-          >
-            <p class="uk-text-bold uk-margin-remove">{{t
-                "permissions.details.access-level"
-              }}</p>
-            {{t
-              (concat
-                "permissions.access-level." this.detailViewAcl.accessLevel.slug
-              )
-            }}
-          </div>
-          <div
-            class="uk-margin-small-top"
-            data-test-instance-acl-modal-entity-name
-          >
-            <p class="uk-text-bold uk-margin-remove">{{t
-                "permissions.details.entity-name"
-              }}</p>
-            {{this.detailViewAcl.entityName}}
-          </div>
-          <div class="uk-margin-small-top" data-test-instance-acl-modal-email>
-            <p class="uk-text-bold uk-margin-remove">{{t
-                "permissions.details.entity-email"
-              }}</p>
-            {{this.detailViewAcl.user.email}}
-          </div>
-          <div class="uk-margin-small-top" data-test-instance-acl-modal-status>
-            <p class="uk-text-bold uk-margin-remove">{{t
-                "permissions.details.status"
-              }}</p>
-            {{t (concat "permissions.status." this.detailViewAcl.status)}}
-          </div>
-        </div>
-        <div class="uk-flex uk-flex-start uk-flex-column uk-width-auto">
-          <div
-            class="uk-margin-small-top"
-            data-test-instance-acl-modal-created-at
-          >
-            <p class="uk-text-bold uk-margin-remove">{{t
-                "permissions.details.created-at"
-              }}</p>
-            {{or (format-date this.detailViewAcl.createdAt format="date") "-"}}
-          </div>
-          <div
-            class="uk-margin-small-top"
-            data-test-instance-acl-modal-created-by
-          >
-            <p class="uk-text-bold uk-margin-remove">{{t
-                "permissions.details.created-by"
-              }}</p>
-            {{or this.detailViewAcl.createdByUser.fullName "-"}}
-          </div>
-          <div
-            class="uk-margin-small-top"
-            data-test-instance-acl-modal-revoked-by
-          >
-            <p class="uk-text-bold uk-margin-remove">{{t
-                "permissions.details.revoked-by"
-              }}</p>
-            {{or this.detailViewAcl.revokedByUser.fullName "-"}}
-          </div>
-          <div
-            class="uk-margin-small-top"
-            data-test-instance-acl-modal-start-time
-          >
-            <p class="uk-text-bold uk-margin-remove">{{t
-                "permissions.details.start-time"
-              }}</p>
-            {{or (format-date this.detailViewAcl.startTime format="date") "-"}}
-          </div>
-          <div
-            class="uk-margin-small-top"
-            data-test-instance-acl-modal-end-time
-          >
-            <p class="uk-text-bold uk-margin-remove">{{t
-                "permissions.details.end-time"
-              }}</p>
-            {{or (format-date this.detailViewAcl.endTime format="date") "-"}}
-          </div>
-        </div>
-      </div>
-    </modal.body>
-    <modal.footer class="uk-text-right">
-      <UkButton
-        @color="primary"
-        @label={{t "global.close"}}
-        @onClick={{fn (mut this.detailViewAcl) false}}
-      />
-    </modal.footer>
-  </UkModal>
+  />
+
+  <Permissions::CreateAclModal
+    @visible={{this.creatingAcl}}
+    @onHide={{fn (mut this.creatingAcl) false}}
+    @afterCreate={{this.reload}}
+    @instanceId={{@instanceId}}
+  />
 </div>

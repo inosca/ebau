@@ -99,6 +99,9 @@ class InstancePermissionSerializer(serializers.ModelSerializer):
 
 
 class AccessLevelSerializer(serializers.ModelSerializer):
+    description = serializers.CharField()
+    name = serializers.CharField()
+
     class Meta:
         resource_name = "access-levels"
         model = models.AccessLevel

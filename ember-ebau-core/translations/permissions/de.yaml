@@ -4,11 +4,23 @@ permissions:
   create: Erstellen
   saveError: Beim Speichern ist ein Fehler aufgetreten, bitte versuchen Sie es erneut.
   fetchError: Fehler beim Laden der ACL.
+  revokeError: Beim Widerrufen der Berechtigung ist ein Fehler aufgetreten.
+  revoke: Berechtigung entziehen
+
+  entities:
+    public-registered: Öffentlicher Zugriff (registriert)
+    public-anonymous: Öffentlicher Zugriff (nicht registriert)
+    token: Via Zugriffscode
+   
+  placeholder:
+    name: "-"
+    email: "-"
  
   details:
     heading: Informationen zur Berechtigung
     entity-name: Berechtigte Entität
     entity-email: E-Mail
+    organisation: Organisation
     access-level: Zugangsstufe
     start-time: Gültig von
     end-time: Gültig bis
@@ -19,7 +31,8 @@ permissions:
 
   status:
     active: Aktiv
-    inactive: Inaktiv
+    scheduled: Geplant
+    expired: Abgelaufen
     all: Alle
 
    # those have to be added manually according to the configured acls 

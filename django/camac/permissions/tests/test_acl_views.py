@@ -352,8 +352,8 @@ def test_get_access_levels(
                 {
                     "attributes": {
                         "slug": "page-event-two",
-                        "name": {"de": "", "fr": "", "it": ""},
-                        "description": {"de": "", "fr": "", "it": ""},
+                        "name": access_level.name.de,
+                        "description": access_level.description.de,
                         "required-grant-type": None,
                     },
                     "id": "page-event-two",

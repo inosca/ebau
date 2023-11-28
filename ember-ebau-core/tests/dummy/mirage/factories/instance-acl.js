@@ -26,7 +26,7 @@ export default Factory.extend({
       accessLevel,
       grantType: accessLevel.requiredGrantType,
       endTime: instanceAcl.revokedAt ?? faker.helpers.maybe(faker.date.future),
-      status: instanceAcl.revokedAt ? "inactive" : "active",
+      status: instanceAcl.revokedAt ? "expired" : "active",
       entityName: `${instanceAcl.user.name} ${instanceAcl.user.surname}`,
     });
     if (instanceAcl.revokedAt) {
@@ -42,9 +42,14 @@ export default Factory.extend({
     }
   },
 
-  inactive: trait({
+  expired: trait({
     revokedAt: (instance) => instance.endTime ?? faker.date.recent(),
-    status: "inactive",
+    status: "expired",
+  }),
+
+  scheduled: trait({
+    startTime: () => faker.date.future(),
+    status: "scheduled",
   }),
 
   active: trait({
