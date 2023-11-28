@@ -337,7 +337,7 @@ def test_complete_decision_appeal(
         ("PARTIALLY_APPROVED", "OHNE_WIEDERHERSTELLUNG", True),
         ("REJECTED", "MIT_WIEDERHERSTELLUNG", True),
         ("REJECTED", "OHNE_WIEDERHERSTELLUNG", False),
-        ("RETREAT", None, False),
+        ("WITHDRAWAL", None, False),
     ],
 )
 def test_should_continue_after_decision_so(

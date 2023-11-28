@@ -140,4 +140,25 @@ export default class InstancesEditIndexController extends Controller {
       "technische-bewilligung",
     );
   }
+
+  @dropTask
+  *withdrawInstance() {
+    if (!(yield confirm(this.intl.t("instances.withdrawInstanceModal")))) {
+      return;
+    }
+
+    try {
+      yield this.fetch.fetch(`/api/v1/instances/${this.model}/withdraw`, {
+        method: "POST",
+      });
+
+      this.notification.success(
+        this.intl.t("instances.withdrawInstanceSuccess"),
+      );
+
+      yield this.router.transitionTo("instances");
+    } catch (error) {
+      this.notification.danger(this.intl.t("instances.withdrawInstanceError"));
+    }
+  }
 }

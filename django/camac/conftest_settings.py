@@ -63,3 +63,4 @@ generate_module_test_settings(
 )
 generate_module_test_settings("alexandria", ["kt_gr", "kt_so"])
 generate_module_test_settings("rejection", ["kt_bern", "kt_so"])
+generate_module_test_settings("withdrawal", ["kt_so"])
