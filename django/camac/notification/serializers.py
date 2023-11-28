@@ -319,15 +319,8 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     def get_street(self, instance):
         return CalumaApi().get_answer_value("parcel-street", instance)
 
-    def get_rejection_feedback(self, instance):  # pragma: no cover
-        rejection_config = settings.APPLICATION["REJECTION_FEEDBACK_QUESTION"]
-        return Answer.get_value_by_cqi(
-            instance,
-            rejection_config.get("CHAPTER"),
-            rejection_config.get("QUESTION"),
-            rejection_config.get("ITEM"),
-            default="",
-        )
+    def get_rejection_feedback(self, instance):
+        return instance.rejection_feedback or ""
 
     def get_answer_period_date(self, instace):
         answer_period_date = date.today() + timedelta(days=settings.MERGE_ANSWER_PERIOD)

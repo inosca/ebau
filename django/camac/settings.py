@@ -358,11 +358,6 @@ APPLICATIONS = {
         },
         "STORE_PDF": {"SECTION": 1},
         "SET_SUBMIT_DATE_CAMAC_ANSWER": True,
-        "REJECTION_FEEDBACK_QUESTION": {
-            "CHAPTER": 20001,
-            "QUESTION": 20037,
-            "ITEM": 1,
-        },
         "SIDE_EFFECTS": {
             "document_downloaded": "camac.document.side_effects.create_workflow_entry",
         },
@@ -730,7 +725,6 @@ APPLICATIONS = {
             # Distribution
             **DISTRIBUTION_DUMP_CONFIG,
         },
-        "REJECTION_FEEDBACK_QUESTION": {},
         "FORM_FIELD_HISTORY_ENTRY": [
             {
                 "name": "materieller-pruefbericht-bemerkung",
@@ -1691,11 +1685,6 @@ APPLICATIONS = {
         "HAS_EBAU_NUMBER": True,
         "HAS_GESUCHSNUMMER": False,
         "SET_SUBMIT_DATE_CAMAC_ANSWER": True,
-        "REJECTION_FEEDBACK_QUESTION": {
-            "CHAPTER": 20001,
-            "QUESTION": 20037,
-            "ITEM": 1,
-        },
         "NOTIFICATIONS_EXCLUDED_TASKS": [],
         "DUMP_CONFIG_GROUPS": {
             "email_notifications": {
@@ -2264,11 +2253,6 @@ APPLICATIONS = {
             "notification.NotificationTemplateT",
         ],
         "SET_SUBMIT_DATE_CAMAC_WORKFLOW": True,
-        "REJECTION_FEEDBACK_QUESTION": {
-            "CHAPTER": 12000000,
-            "QUESTION": 12000000,
-            "ITEM": 1,
-        },
         "MASTER_DATA": {
             "applicants": (
                 "table",
@@ -2736,7 +2720,6 @@ APPLICATIONS = {
             "USE_LOCATION": False,
             "SAVE_DOSSIER_NUMBER_IN_CALUMA": True,
         },
-        "REJECTION_FEEDBACK_QUESTION": {},
         "USE_INSTANCE_SERVICE": True,
         "ACTIVE_SERVICES": {
             "MUNICIPALITY": {
@@ -3124,7 +3107,6 @@ APPLICATIONS = {
             },
         },
         "INSTANCE_PERMISSIONS": {"MUNICIPALITY_WRITE": ["correction"]},
-        "REJECTION_FEEDBACK_QUESTION": {},
         "USE_INSTANCE_SERVICE": True,
         "ACTIVE_SERVICES": {
             "MUNICIPALITY": {
@@ -3666,7 +3648,6 @@ APPLICATIONS = {
                 "DEFAULT": True,
             },
         },
-        "REJECTION_FEEDBACK_QUESTION": {},
         "DOCUMENT_BACKEND": "alexandria",
     },
 }

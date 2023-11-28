@@ -782,6 +782,7 @@ def test_notification_caluma_placeholders(
         WORK_ITEM_NAME_FR: {{WORK_ITEM_NAME_FR}}
         DECISION_DE: {{DECISION_DE}}
         DECISION_FR: {{DECISION_FR}}
+        REJECTION_FEEDBACK: {{REJECTION_FEEDBACK}}
     """
     notification_template.save()
 
@@ -811,6 +812,9 @@ def test_notification_caluma_placeholders(
         ],
         *[active_inquiry_factory() for _ in range(total_inquiries - done_inquiries)],
     ]
+
+    be_instance.rejection_feedback = "Grund für die Rückweisung"
+    be_instance.save()
 
     be_instance.case.meta["ebau-number"] = "2019-01"
     be_instance.case.save()
