@@ -81,12 +81,13 @@ export default class CustomSession extends Session {
   }
 
   get isLeadRole() {
-    return true;
+    return (
+      this.role?.slug.endsWith("-lead") || this.role?.slug === "subservice"
+    );
   }
 
   get isReadOnlyRole() {
-    // TODO we used to do role.name.endsWith("-readonly"), but now we only have translated names
-    return false;
+    return this.role?.slug.endsWith("-read");
   }
 
   get service() {
