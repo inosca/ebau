@@ -3444,6 +3444,7 @@ APPLICATIONS = {
         },
         "DEMO_MODE_GROUPS": [
             5,  # Leitung Gemeinde Solothurn
+            8,  # Einsichtsberechtigte Gemeinde Solothurn
             539,  # Leitung Amt für Umwelt (AfU)
         ],
         "ADMIN_GROUP": 1,

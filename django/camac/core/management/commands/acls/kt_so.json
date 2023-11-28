@@ -76,6 +76,18 @@
         "subm",
         "withdrawn"
       ],
+      "municipality-read": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished",
+        "init-distribution",
+        "material-exam",
+        "reject",
+        "rejected",
+        "subm",
+        "withdrawn"
+      ],
       "service-clerk": [
         "construction-monitoring",
         "decision",
@@ -116,6 +128,19 @@
         "withdrawn"
       ],
       "municipality-lead": [
+        "construction-monitoring",
+        "correction",
+        "decision",
+        "distribution",
+        "finished",
+        "init-distribution",
+        "material-exam",
+        "reject",
+        "rejected",
+        "subm",
+        "withdrawn"
+      ],
+      "municipality-read": [
         "construction-monitoring",
         "correction",
         "decision",
@@ -177,6 +202,18 @@
         "rejected",
         "subm",
         "withdrawn"
+      ],
+      "municipality-read": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished",
+        "init-distribution",
+        "material-exam",
+        "reject",
+        "rejected",
+        "subm",
+        "withdrawn"
       ]
     }
   },
@@ -195,6 +232,17 @@
         "withdrawn"
       ],
       "municipality-lead": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished",
+        "init-distribution",
+        "material-exam",
+        "reject",
+        "rejected",
+        "withdrawn"
+      ],
+      "municipality-read": [
         "construction-monitoring",
         "decision",
         "distribution",
@@ -225,6 +273,14 @@
         "finished",
         "init-distribution",
         "withdrawn"
+      ],
+      "municipality-read": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished",
+        "init-distribution",
+        "withdrawn"
       ]
     }
   },
@@ -244,6 +300,18 @@
         "withdrawn"
       ],
       "municipality-lead": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished",
+        "init-distribution",
+        "material-exam",
+        "reject",
+        "rejected",
+        "subm",
+        "withdrawn"
+      ],
+      "municipality-read": [
         "construction-monitoring",
         "decision",
         "distribution",
@@ -294,6 +362,18 @@
         "withdrawn"
       ],
       "municipality-lead": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished",
+        "init-distribution",
+        "material-exam",
+        "reject",
+        "rejected",
+        "subm",
+        "withdrawn"
+      ],
+      "municipality-read": [
         "construction-monitoring",
         "decision",
         "distribution",
@@ -397,6 +477,14 @@
         "init-distribution",
         "withdrawn"
       ],
+      "municipality-read": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished",
+        "init-distribution",
+        "withdrawn"
+      ],
       "service-clerk": [
         "construction-monitoring",
         "decision",
@@ -436,6 +524,18 @@
         "withdrawn"
       ],
       "municipality-lead": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished",
+        "init-distribution",
+        "material-exam",
+        "reject",
+        "rejected",
+        "subm",
+        "withdrawn"
+      ],
+      "municipality-read": [
         "construction-monitoring",
         "decision",
         "distribution",
@@ -504,6 +604,12 @@
         "withdrawn"
       ],
       "municipality-lead": [
+        "construction-monitoring",
+        "decision",
+        "finished",
+        "withdrawn"
+      ],
+      "municipality-read": [
         "construction-monitoring",
         "decision",
         "finished",
@@ -628,6 +734,14 @@
         "withdrawn"
       ],
       "municipality-lead": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished",
+        "init-distribution",
+        "withdrawn"
+      ],
+      "municipality-read": [
         "construction-monitoring",
         "decision",
         "distribution",

@@ -3,8 +3,20 @@ import { inject as service } from "@ember/service";
 
 export default class CasesDetailIndexRoute extends Route {
   @service router;
+  @service store;
 
-  redirect() {
-    this.router.transitionTo("cases.detail.work-items");
+  async redirect() {
+    const instanceId = this.modelFor("cases.detail").id;
+    const first = (
+      await this.store.query("instance-resource", {
+        instance: this.modelFor("cases.detail").id,
+        "page[size]": 1,
+        "page[number]": 1,
+      })
+    )[0];
+
+    if (first) {
+      this.router.transitionTo(`/cases/${instanceId}/${first.link}`);
+    }
   }
 }
