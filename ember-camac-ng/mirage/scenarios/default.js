@@ -1,5 +1,3 @@
-import { faker } from "@faker-js/faker";
-
 export default function (server) {
   server.create("service", { id: 20032 }); // Amt für Gemeinden und Raumordnung - Abteilung Bauen
   server.create("service", { id: 2 }); // Leitbehörde Burgdorf
@@ -15,23 +13,23 @@ export default function (server) {
 
   server.create("access-level", {
     slug: "service",
-    requiredGrantType: "service",
+    requiredGrantType: "SERVICE",
   });
   server.create("access-level", {
     slug: "controlling",
-    requiredGrantType: "user",
+    requiredGrantType: "USER",
   });
   server.create("access-level", {
     slug: "token",
-    requiredGrantType: "token",
+    requiredGrantType: "TOKEN",
   });
   server.create("access-level", {
     slug: "registered-user",
-    requiredGrantType: "authenticated-public",
+    requiredGrantType: "AUTHENTICATED-PUBLIC",
   });
   server.create("access-level", {
     slug: "public-access",
-    requiredGrantType: "anonymous-public",
+    requiredGrantType: "ANONYMOUS-PUBLIC",
   });
 
   server.createList("user-group", 5).forEach((userGroup) => {

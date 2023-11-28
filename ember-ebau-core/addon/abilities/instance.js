@@ -107,4 +107,9 @@ export default class InstanceAbility extends Ability {
       hasInstanceState(this.model, mainConfig.rejection?.instanceState)
     );
   }
+
+  // instance acls
+  get canCreateAcl() {
+    return this.model && isAuthority(this.model, this.ebauModules.serviceId);
+  }
 }

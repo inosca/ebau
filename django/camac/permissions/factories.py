@@ -10,6 +10,8 @@ from . import models
 
 class AccessLevelFactory(DjangoModelFactory):
     slug = Faker("slug")
+    name = Faker("word")
+    description = Faker("sentence")
     required_grant_type = None
 
     class Meta:

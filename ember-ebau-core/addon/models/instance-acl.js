@@ -3,8 +3,8 @@ import Model, { attr, belongsTo } from "@ember-data/model";
 import { DateTime } from "luxon";
 
 export const AVAILABLE_GRANT_TYPES = [
-  "ANONYMOUS_PUBLIC",
-  "AUTHENTICATED_PUBLIC",
+  "ANONYMOUS-PUBLIC",
+  "AUTHENTICATED-PUBLIC",
   "SERVICE",
   "TOKEN",
   "USER",
@@ -13,6 +13,7 @@ export const AVAILABLE_GRANT_TYPES = [
 export default class InstanceAclModel extends Model {
   @service store;
   @service fetch;
+  @service intl;
 
   @attr grantType;
   @attr createdByEvent;
@@ -48,32 +49,42 @@ export default class InstanceAclModel extends Model {
   }
 
   get status() {
-    if (
-      this.revokedAt ||
-      DateTime.now() > DateTime.fromISO(this.endTime) ||
-      DateTime.now() < DateTime.fromISO(this.startTime)
+    if (DateTime.now() <= DateTime.fromISO(this.startTime)) {
+      return "scheduled";
+    } else if (
+      !this.endTime ||
+      DateTime.now() < DateTime.fromISO(this.endTime)
     ) {
-      return "inactive";
+      return "active";
     }
-    return "active";
+    return "expired";
   }
 
   get entityName() {
-    const placeholder = "-";
+    const placeholder = this.intl.t("permissions.placeholder.name");
     switch (this.grantType) {
       case "USER":
         return this.user.get("fullName") ?? placeholder;
       case "SERVICE":
         return this.service.get("name") ?? placeholder;
-      case "AUTHENTICATED_PUBLIC":
-        // TODO: translate
-        return "Öffentlicher Zugriff (registriert)";
-      case "ANONYMOUS_PUBLIC":
-        // TODO: translate
-        return "Öffentlicher Zugriff (nicht registriert)";
+      case "AUTHENTICATED-PUBLIC":
+        return this.intl.t("permissions.entities.public-registered");
+      case "ANONYMOUS-PUBLIC":
+        return this.intl.t("permissions.entities.public-anonymous");
       case "TOKEN":
-        // TODO: translate
-        return "Via Zugangscode";
+        return this.intl.t("permissions.entities.token");
+      default:
+        return placeholder;
+    }
+  }
+
+  get entityMail() {
+    const placeholder = this.intl.t("permissions.placeholder.email");
+    switch (this.grantType) {
+      case "USER":
+        return this.user.get("email") ?? placeholder;
+      case "SERVICE":
+        return this.service.get("email") ?? placeholder;
       default:
         return placeholder;
     }
@@ -81,7 +92,7 @@ export default class InstanceAclModel extends Model {
 
   get revokeable() {
     return (
-      this.createdByEvent === "manual-creation" && this.status === "active"
+      this.createdByEvent === "manual-creation" && this.status !== "expired"
     );
   }
 

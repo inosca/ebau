@@ -14,16 +14,17 @@ module("Integration | Component | permissions/acl-table", function (hooks) {
   hooks.beforeEach(function () {
     this.server.create("access-level", {
       slug: "service",
+      name: "Service",
       requiredGrantType: "service",
     });
     this.instance = this.server.create("instance");
   });
 
-  test("it toggles between all, read and unread", async function (assert) {
+  test("it toggles between all, active, scheduled and expired", async function (assert) {
     this.server.createList("instance-acl", 2, "active", {
       instance: this.instance,
     });
-    this.server.createList("instance-acl", 3, "inactive", {
+    this.server.createList("instance-acl", 3, "expired", {
       instance: this.instance,
     });
 
@@ -43,10 +44,10 @@ module("Integration | Component | permissions/acl-table", function (hooks) {
 
     assert.dom("[data-test-instance-acl]").exists({ count: 2 });
 
-    await click("button[data-test-filter-button=inactive]");
+    await click("button[data-test-filter-button=scheduled]");
 
     assert.deepEqual(requests[requests.length - 1].queryParams, {
-      "filter[status]": "inactive",
+      "filter[status]": "scheduled",
       instance: `${this.instance.id}`,
       "page[number]": "1",
       "page[size]": "20",

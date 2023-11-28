@@ -9,16 +9,18 @@
   ],
   "//": [
     "ember-concurrency: pending update in ember-simple-auth-oidc, ember-alexandria and ember-power-select",
-    "ember-power-select: v7.1.0-v7.1.2 have issues in tests",
+    "ember-power-select: pending update in ember-caluma and ember-ebau-gwr",
     "ember-data: ember-alexandria already uses v4.12",
     "@fortawesome/ember-fontawesome: ember-ebau-gwr still uses v1",
-    "@ember/legacy-built-in-components: ember-caluma still uses v0.4"
+    "@ember/legacy-built-in-components: ember-caluma still uses v0.4",
+    "ember-validated-form: pending updates in ember-caluma and ember-ebau-gwr"
   ],
   "resolutions": {
     "ember-concurrency": "3.0.0",
     "ember-power-select": "7.2.0",
     "ember-data": "4.12.3",
     "@fortawesome/ember-fontawesome": "2.0.0",
-    "@ember/legacy-built-in-components": "0.5.0"
+    "@ember/legacy-built-in-components": "0.5.0",
+    "ember-validated-form": "7.0.0"
   }
 }
