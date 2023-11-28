@@ -15,7 +15,8 @@
           }
         ]
       },
-      "disabled": false
+      "disabled": false,
+      "sort": 0
     }
   },
   {
@@ -36,7 +37,8 @@
           "parameterName": "y"
         }
       ],
-      "disabled": false
+      "disabled": false,
+      "sort": 1
     }
   },
   {
@@ -55,7 +57,8 @@
           }
         ]
       },
-      "disabled": false
+      "disabled": false,
+      "sort": 2
     }
   },
   {
@@ -73,7 +76,8 @@
           }
         ]
       },
-      "disabled": false
+      "disabled": false,
+      "sort": 3
     }
   },
   {
@@ -106,7 +110,8 @@
         ],
         "invalidLayers": ["ch.bafu.bundesinventare-flachmoore_regional"]
       },
-      "disabled": false
+      "disabled": false,
+      "sort": 4
     }
   },
   {
@@ -126,7 +131,8 @@
           }
         ]
       },
-      "disabled": false
+      "disabled": false,
+      "sort": 5
     }
   },
   {
@@ -146,7 +152,8 @@
           }
         ]
       },
-      "disabled": false
+      "disabled": false,
+      "sort": 6
     }
   },
   {
@@ -171,7 +178,8 @@
           }
         ]
       },
-      "disabled": false
+      "disabled": false,
+      "sort": 7
     }
   },
   {
@@ -192,7 +200,8 @@
           }
         ]
       },
-      "disabled": false
+      "disabled": false,
+      "sort": 8
     }
   },
   {
@@ -217,7 +226,8 @@
           }
         ]
       },
-      "disabled": false
+      "disabled": false,
+      "sort": 9
     }
   },
   {
@@ -239,7 +249,8 @@
           }
         ]
       },
-      "disabled": false
+      "disabled": false,
+      "sort": 10
     }
   },
   {
@@ -259,7 +270,8 @@
           }
         ]
       },
-      "disabled": false
+      "disabled": false,
+      "sort": 11
     }
   },
   {
@@ -284,7 +296,8 @@
           }
         ]
       },
-      "disabled": false
+      "disabled": false,
+      "sort": 12
     }
   },
   {
@@ -304,7 +317,8 @@
           }
         ]
       },
-      "disabled": false
+      "disabled": false,
+      "sort": 13
     }
   },
   {
@@ -325,7 +339,8 @@
           }
         ]
       },
-      "disabled": false
+      "disabled": false,
+      "sort": 14
     }
   },
   {
@@ -343,7 +358,8 @@
           }
         ]
       },
-      "disabled": false
+      "disabled": false,
+      "sort": 15
     }
   },
   {
@@ -365,7 +381,8 @@
           }
         ]
       },
-      "disabled": false
+      "disabled": false,
+      "sort": 16
     }
   },
   {
@@ -384,7 +401,8 @@
           }
         ]
       },
-      "disabled": false
+      "disabled": false,
+      "sort": 17
     }
   },
   {
@@ -407,7 +425,8 @@
           }
         ]
       },
-      "disabled": false
+      "disabled": false,
+      "sort": 18
     }
   },
   {
@@ -443,7 +462,8 @@
           }
         ]
       },
-      "disabled": false
+      "disabled": false,
+      "sort": 19
     }
   },
   {
@@ -462,7 +482,8 @@
           }
         ]
       },
-      "disabled": false
+      "disabled": false,
+      "sort": 20
     }
   },
   {
@@ -482,7 +503,8 @@
           }
         ]
       },
-      "disabled": false
+      "disabled": false,
+      "sort": 21
     }
   },
   {
@@ -504,7 +526,8 @@
           }
         ]
       },
-      "disabled": false
+      "disabled": false,
+      "sort": 22
     }
   },
   {
@@ -529,7 +552,8 @@
           }
         ]
       },
-      "disabled": false
+      "disabled": false,
+      "sort": 23
     }
   }
 ]

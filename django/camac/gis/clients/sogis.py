@@ -15,7 +15,7 @@ class SoGisClient(GISBaseClient):
 
         self.session: requests.Session = requests.Session()
 
-    def process_data_source(self, config: dict) -> dict:
+    def process_data_source(self, config: dict, _intermediate_data) -> dict:
         """Process SOGIS data source.
 
         Example config:
