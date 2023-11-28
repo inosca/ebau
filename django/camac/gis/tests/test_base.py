@@ -1,6 +1,5 @@
 import pytest
 from caluma.caluma_form.models import Question
-from django.http import QueryDict
 from django.urls import reverse
 from rest_framework import status
 
@@ -9,7 +8,7 @@ from camac.gis.models import GISDataSource
 
 
 class FakeClient(GISBaseClient):
-    def process_data_source(self, config):
+    def process_data_source(self, config, intermediate_data):
         return {
             "text-question": "foo",
             "table-question": [
@@ -26,10 +25,11 @@ class FakeClient(GISBaseClient):
 
 
 def test_process_data_source(db, gis_data_source):
-    gis_client = GISBaseClient(QueryDict(), GISDataSource.objects.all())
+    gis_client = GISBaseClient(GISDataSource.objects.all())
+    fake_data = {}
 
     with pytest.raises(NotImplementedError):
-        gis_client.process_data_source(gis_data_source)
+        gis_client.process_data_source(gis_data_source, fake_data)
 
 
 def test_view_structure(
@@ -65,6 +65,7 @@ def test_view_structure(
     gis_data_source_factory()
 
     mocker.patch("camac.gis.views.get_client", return_value=FakeClient)
+    mocker.patch("camac.gis.models.GISDataSource.get_required_params", return_value=[])
 
     response = admin_client.get(reverse("gis-data"))
 

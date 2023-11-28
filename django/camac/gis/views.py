@@ -2,6 +2,7 @@ import itertools
 from importlib import import_module
 
 from caluma.caluma_form.models import Question
+from django.utils.translation import gettext as _
 from rest_framework.exceptions import ValidationError
 from rest_framework.generics import ListAPIView
 from rest_framework.renderers import JSONRenderer
@@ -21,7 +22,7 @@ def get_client(identifier):
 class GISDataView(ListAPIView):
     swagger_schema = None
     renderer_classes = [JSONRenderer]
-    queryset = GISDataSource.objects.filter(disabled=False)
+    queryset = GISDataSource.objects.filter(disabled=False).order_by("sort")
 
     def add_labels(self, data: dict) -> dict:
         labeled_data = {}
@@ -87,22 +88,29 @@ class GISDataView(ListAPIView):
         data = {}
         errors = []
 
-        try:
-            for client_identifier in sorted(
-                set(queryset.values_list("client", flat=True))
-            ):
-                client = get_client(client_identifier)(
-                    queryset.filter(client=client_identifier).order_by("pk"),
-                    request.query_params,
-                )
-
-                new_data, new_errors = client.get_data()
+        for gis_data in queryset:
+            try:
+                for required_param in gis_data.get_required_params():
+                    if required_param not in request.query_params.keys():
+                        raise ValueError(
+                            _("Required parameter %(parameter)s was not passed")
+                            % {"parameter": required_param}
+                        )
+                client = get_client(gis_data.client)(request.query_params)
+                new_data = client.process_data_source(gis_data.config, data)
 
                 merge_data(data, new_data, client.merge_strategy)
 
-                errors.extend(new_errors)
-        except ValueError as e:
-            raise ValidationError(e)
+            except RuntimeError as e:
+                errors.append(
+                    {
+                        "detail": str(e),
+                        "client": gis_data.client,
+                        "data_source_id": gis_data.pk,
+                    }
+                )
+            except ValueError as e:
+                raise ValidationError(e)
 
         response = {"data": self.add_hidden(self.add_labels(data))}
 

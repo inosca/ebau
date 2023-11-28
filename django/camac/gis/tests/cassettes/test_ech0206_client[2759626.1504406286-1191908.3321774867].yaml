@@ -1,0 +1,505 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: https://wps.geo.gr.ch/?service=WPS&version=1.0.0&request=Execute&storeExecuteResponse=false&lineage=false&status=false&identifier=get_info_ebbv&datainputs=geometry=POINT(2759626.1504406286%201191908.3321774867)
+  response:
+    body:
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<wps:ExecuteResponse xmlns:wps=\"http://www.opengis.net/wps/1.0.0\"
+        xmlns:ows=\"http://www.opengis.net/ows/1.1\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"
+        xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.opengis.net/wps/1.0.0
+        ../wpsExecute_response.xsd\" service=\"WPS\" version=\"1.0.0\" xml:lang=\"de-CH\"
+        serviceInstance=\"http://wps.geo.gr.ch/?request=GetCapabilities&amp;amp;service=WPS\"
+        statusLocation=\"\">\n    <wps:Process wps:processVersion=\"1.0.0\">\n        <ows:Identifier>get_info_ebbv</ows:Identifier>\n
+        \       <ows:Title>Diverse Layer-Informationen fuer eBBV anhand Geometrie</ows:Title>\n
+        \       <ows:Abstract></ows:Abstract>\n\t</wps:Process>\n    <wps:Status creationTime=\"2023-11-21T13:29:03Z\">\n
+        \       <wps:ProcessSucceeded>PyWPS Process Diverse Layer-Informationen fuer
+        eBBV anhand Geometrie finished</wps:ProcessSucceeded>\n\t</wps:Status>\n\t<wps:ProcessOutputs>\n\t\t<wps:Output>\n
+        \           <ows:Identifier>folgeplanung_bau_niveaulinienplaene</ows:Identifier>\n
+        \           <ows:Title>Folgeplanung - Bau Niveaulinienplanung</ows:Title>\n
+        \           <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n                <wps:LiteralData
+        \ dataType=\"string\">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;
+        ?&gt;&lt;root&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
+        \           <ows:Identifier>folgeplanung_quartierplaene</ows:Identifier>\n
+        \           <ows:Title>Folgeplanung - Quartierplaene</ows:Title>\n            <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n
+        \               <wps:LiteralData  dataType=\"string\">&lt;?xml version=&#34;1.0&#34;
+        encoding=&#34;UTF-8&#34; ?&gt;&lt;root&gt;&lt;item&gt;&lt;NUPNr type=&#34;str&#34;&gt;3901&lt;/NUPNr&gt;&lt;Code
+        type=&#34;int&#34;&gt;51931&lt;/Code&gt;&lt;Bezeichnung type=&#34;str&#34;&gt;Quartierplan
+        Roter Turm&lt;/Bezeichnung&gt;&lt;Artikel type=&#34;str&#34;&gt;88 BauG ;
+        51ff KRG&lt;/Artikel&gt;&lt;Verbindlichkeit type=&#34;str&#34;&gt;hinweisend&lt;/Verbindlichkeit&gt;&lt;Typ_Bemerkung
+        type=&#34;null&#34;&gt;&lt;/Typ_Bemerkung&gt;&lt;Rechtsstatus type=&#34;str&#34;&gt;in
+        Kraft - vorbehaltlos&lt;/Rechtsstatus&gt;&lt;RechtsstatusBemerkung type=&#34;null&#34;&gt;&lt;/RechtsstatusBemerkung&gt;&lt;Entscheidnummer
+        type=&#34;str&#34;&gt;02.GDE742&lt;/Entscheidnummer&gt;&lt;Genehmigungsdatum
+        type=&#34;str&#34;&gt;2002-10-28&lt;/Genehmigungsdatum&gt;&lt;Darstellung
+        type=&#34;str&#34;&gt;Quartierplan&lt;/Darstellung&gt;&lt;Beschrieb type=&#34;null&#34;&gt;&lt;/Beschrieb&gt;&lt;Bemerkung
+        type=&#34;str&#34;&gt;1. \xC4nderung&lt;/Bemerkung&gt;&lt;Festsetzungstyp
+        type=&#34;null&#34;&gt;&lt;/Festsetzungstyp&gt;&lt;Ebene type=&#34;str&#34;&gt;PLI_Planungsinhalt_F&lt;/Ebene&gt;&lt;Darstellungscode
+        type=&#34;str&#34;&gt;513F05&lt;/Darstellungscode&gt;&lt;Kt_Code type=&#34;int&#34;&gt;5193&lt;/Kt_Code&gt;&lt;Kt_Bezeichnung
+        type=&#34;str&#34;&gt;Quartierplan rechtskr\xE4ftig&lt;/Kt_Bezeichnung&gt;&lt;CH_Hauptnutzung_Code
+        type=&#34;int&#34;&gt;61&lt;/CH_Hauptnutzung_Code&gt;&lt;CH_Hauptnutzung_Name
+        type=&#34;str&#34;&gt;Bereiche_rechtsgueltiger_Sondernutzungsplaene&lt;/CH_Hauptnutzung_Name&gt;&lt;PlanungsinhaltTypGemeinde
+        type=&#34;str&#34;&gt;CH39010000148452&lt;/PlanungsinhaltTypGemeinde&gt;&lt;Dokumente
+        type=&#34;str&#34;&gt;https://oereblex.gr.ch/api/geolinks/1011.html&lt;/Dokumente&gt;&lt;/item&gt;&lt;item&gt;&lt;NUPNr
+        type=&#34;str&#34;&gt;3901&lt;/NUPNr&gt;&lt;Code type=&#34;int&#34;&gt;51931&lt;/Code&gt;&lt;Bezeichnung
+        type=&#34;str&#34;&gt;Quartierplan Roter Turm&lt;/Bezeichnung&gt;&lt;Artikel
+        type=&#34;str&#34;&gt;88 BauG ; 51ff KRG&lt;/Artikel&gt;&lt;Verbindlichkeit
+        type=&#34;str&#34;&gt;hinweisend&lt;/Verbindlichkeit&gt;&lt;Typ_Bemerkung
+        type=&#34;null&#34;&gt;&lt;/Typ_Bemerkung&gt;&lt;Rechtsstatus type=&#34;str&#34;&gt;in
+        Kraft - vorbehaltlos&lt;/Rechtsstatus&gt;&lt;RechtsstatusBemerkung type=&#34;null&#34;&gt;&lt;/RechtsstatusBemerkung&gt;&lt;Entscheidnummer
+        type=&#34;str&#34;&gt;01.GDEf3&lt;/Entscheidnummer&gt;&lt;Genehmigungsdatum
+        type=&#34;str&#34;&gt;2001-08-28&lt;/Genehmigungsdatum&gt;&lt;Darstellung
+        type=&#34;str&#34;&gt;Quartierplan&lt;/Darstellung&gt;&lt;Beschrieb type=&#34;null&#34;&gt;&lt;/Beschrieb&gt;&lt;Bemerkung
+        type=&#34;null&#34;&gt;&lt;/Bemerkung&gt;&lt;Festsetzungstyp type=&#34;null&#34;&gt;&lt;/Festsetzungstyp&gt;&lt;Ebene
+        type=&#34;str&#34;&gt;PLI_Planungsinhalt_F&lt;/Ebene&gt;&lt;Darstellungscode
+        type=&#34;str&#34;&gt;513F05&lt;/Darstellungscode&gt;&lt;Kt_Code type=&#34;int&#34;&gt;5193&lt;/Kt_Code&gt;&lt;Kt_Bezeichnung
+        type=&#34;str&#34;&gt;Quartierplan rechtskr\xE4ftig&lt;/Kt_Bezeichnung&gt;&lt;CH_Hauptnutzung_Code
+        type=&#34;int&#34;&gt;61&lt;/CH_Hauptnutzung_Code&gt;&lt;CH_Hauptnutzung_Name
+        type=&#34;str&#34;&gt;Bereiche_rechtsgueltiger_Sondernutzungsplaene&lt;/CH_Hauptnutzung_Name&gt;&lt;PlanungsinhaltTypGemeinde
+        type=&#34;str&#34;&gt;CH39010000148452&lt;/PlanungsinhaltTypGemeinde&gt;&lt;Dokumente
+        type=&#34;str&#34;&gt;https://oereblex.gr.ch/api/geolinks/1010.html&lt;/Dokumente&gt;&lt;/item&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
+        \           <ows:Identifier>folgeplanung_arealplaene</ows:Identifier>\n            <ows:Title>Folgeplanung
+        - Arealplaene</ows:Title>\n            <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n
+        \               <wps:LiteralData  dataType=\"string\">&lt;?xml version=&#34;1.0&#34;
+        encoding=&#34;UTF-8&#34; ?&gt;&lt;root&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
+        \           <ows:Identifier>gep_plaene_in_pdf_form_gep</ows:Identifier>\n
+        \           <ows:Title>GEP - Plaene in PDF-Form GEP</ows:Title>\n            <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n
+        \               <wps:LiteralData  dataType=\"string\">&lt;?xml version=&#34;1.0&#34;
+        encoding=&#34;UTF-8&#34; ?&gt;&lt;root&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
+        \           <ows:Identifier>gep_allgemeine_planungsinhalte_punktobjekte_gep</ows:Identifier>\n
+        \           <ows:Title>GEP - Allgemeine Planungsinhalte Punktobjekte GEP</ows:Title>\n
+        \           <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n                <wps:LiteralData
+        \ dataType=\"string\">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;
+        ?&gt;&lt;root&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
+        \           <ows:Identifier>gep_allgemeine_planungsinhalte_linienobjekte_gep</ows:Identifier>\n
+        \           <ows:Title>GEP - Allgemeine Planungsinhalte Linienobjekte GEP</ows:Title>\n
+        \           <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n                <wps:LiteralData
+        \ dataType=\"string\">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;
+        ?&gt;&lt;root&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
+        \           <ows:Identifier>gep_allgemeine_planungsinhalte_flaechenobjekte_gep</ows:Identifier>\n
+        \           <ows:Title>GEP - Allgemeine Planungsinhalte Flaechenobjekte GEP</ows:Title>\n
+        \           <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n                <wps:LiteralData
+        \ dataType=\"string\">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;
+        ?&gt;&lt;root&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
+        \           <ows:Identifier>gep_ausstattung_punktobjekte</ows:Identifier>\n
+        \           <ows:Title>GEP - Ausstattung Punktobjekte</ows:Title>\n            <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n
+        \               <wps:LiteralData  dataType=\"string\">&lt;?xml version=&#34;1.0&#34;
+        encoding=&#34;UTF-8&#34; ?&gt;&lt;root&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
+        \           <ows:Identifier>gep_ausstattung_linienobjekte</ows:Identifier>\n
+        \           <ows:Title>GEP - Ausstattung Linienobjekte</ows:Title>\n            <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n
+        \               <wps:LiteralData  dataType=\"string\">&lt;?xml version=&#34;1.0&#34;
+        encoding=&#34;UTF-8&#34; ?&gt;&lt;root&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
+        \           <ows:Identifier>gep_ausstattung_flaechenobjekte</ows:Identifier>\n
+        \           <ows:Title>GEP - Ausstattung Flaechenobjekte</ows:Title>\n            <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n
+        \               <wps:LiteralData  dataType=\"string\">&lt;?xml version=&#34;1.0&#34;
+        encoding=&#34;UTF-8&#34; ?&gt;&lt;root&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
+        \           <ows:Identifier>gep_energie_punktobjekte</ows:Identifier>\n            <ows:Title>GEP
+        - Energie Punktobjekte</ows:Title>\n            <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n
+        \               <wps:LiteralData  dataType=\"string\">&lt;?xml version=&#34;1.0&#34;
+        encoding=&#34;UTF-8&#34; ?&gt;&lt;root&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
+        \           <ows:Identifier>gep_energie_linienobjekte</ows:Identifier>\n            <ows:Title>GEP
+        - Energie Linienobjekte</ows:Title>\n            <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n
+        \               <wps:LiteralData  dataType=\"string\">&lt;?xml version=&#34;1.0&#34;
+        encoding=&#34;UTF-8&#34; ?&gt;&lt;root&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
+        \           <ows:Identifier>gep_energie_flaechenobjekte</ows:Identifier>\n
+        \           <ows:Title>GEP - Energie Flaechenobjekte</ows:Title>\n            <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n
+        \               <wps:LiteralData  dataType=\"string\">&lt;?xml version=&#34;1.0&#34;
+        encoding=&#34;UTF-8&#34; ?&gt;&lt;root&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
+        \           <ows:Identifier>gep_entsorgung_punktobjekte</ows:Identifier>\n
+        \           <ows:Title>GEP - Entsorgung Punktobjekte</ows:Title>\n            <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n
+        \               <wps:LiteralData  dataType=\"string\">&lt;?xml version=&#34;1.0&#34;
+        encoding=&#34;UTF-8&#34; ?&gt;&lt;root&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
+        \           <ows:Identifier>gep_entsorgung_linienobjekte</ows:Identifier>\n
+        \           <ows:Title>GEP - Entsorgung Linienobjekte</ows:Title>\n            <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n
+        \               <wps:LiteralData  dataType=\"string\">&lt;?xml version=&#34;1.0&#34;
+        encoding=&#34;UTF-8&#34; ?&gt;&lt;root&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
+        \           <ows:Identifier>gep_entsorgung_flaechenobjekte</ows:Identifier>\n
+        \           <ows:Title>GEP - Entsorgung Flaechenobjekte</ows:Title>\n            <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n
+        \               <wps:LiteralData  dataType=\"string\">&lt;?xml version=&#34;1.0&#34;
+        encoding=&#34;UTF-8&#34; ?&gt;&lt;root&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
+        \           <ows:Identifier>gep_wasser_punktobjekte</ows:Identifier>\n            <ows:Title>GEP
+        - Wasser Punktobjekte</ows:Title>\n            <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n
+        \               <wps:LiteralData  dataType=\"string\">&lt;?xml version=&#34;1.0&#34;
+        encoding=&#34;UTF-8&#34; ?&gt;&lt;root&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
+        \           <ows:Identifier>gep_wasser_linienobjekte</ows:Identifier>\n            <ows:Title>GEP
+        - Wasser Linienobjekte</ows:Title>\n            <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n
+        \               <wps:LiteralData  dataType=\"string\">&lt;?xml version=&#34;1.0&#34;
+        encoding=&#34;UTF-8&#34; ?&gt;&lt;root&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
+        \           <ows:Identifier>gep_wasser_flaechenobjekte</ows:Identifier>\n
+        \           <ows:Title>GEP - Wasser Flaechenobjekte</ows:Title>\n            <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n
+        \               <wps:LiteralData  dataType=\"string\">&lt;?xml version=&#34;1.0&#34;
+        encoding=&#34;UTF-8&#34; ?&gt;&lt;root&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
+        \           <ows:Identifier>gep_verkehr_punktobjekte</ows:Identifier>\n            <ows:Title>GEP
+        - Verkehr Punktobjekte</ows:Title>\n            <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n
+        \               <wps:LiteralData  dataType=\"string\">&lt;?xml version=&#34;1.0&#34;
+        encoding=&#34;UTF-8&#34; ?&gt;&lt;root&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
+        \           <ows:Identifier>gep_verkehr_uebrige_verkehrswege</ows:Identifier>\n
+        \           <ows:Title>GEP - Verkehr uebrige Verkehrswege</ows:Title>\n            <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n
+        \               <wps:LiteralData  dataType=\"string\">&lt;?xml version=&#34;1.0&#34;
+        encoding=&#34;UTF-8&#34; ?&gt;&lt;root&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
+        \           <ows:Identifier>gep_verkehr_radwege</ows:Identifier>\n            <ows:Title>GEP
+        - Verkehr Radwege</ows:Title>\n            <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n
+        \               <wps:LiteralData  dataType=\"string\">&lt;?xml version=&#34;1.0&#34;
+        encoding=&#34;UTF-8&#34; ?&gt;&lt;root&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
+        \           <ows:Identifier>gep_verkehr_fuss_wanderwege</ows:Identifier>\n
+        \           <ows:Title>GEP - Verkehr Fuss- und Wanderwege</ows:Title>\n            <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n
+        \               <wps:LiteralData  dataType=\"string\">&lt;?xml version=&#34;1.0&#34;
+        encoding=&#34;UTF-8&#34; ?&gt;&lt;root&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
+        \           <ows:Identifier>gep_verkehr_strassen_und_wege</ows:Identifier>\n
+        \           <ows:Title>GEP - Verkehr Strassen und Wege</ows:Title>\n            <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n
+        \               <wps:LiteralData  dataType=\"string\">&lt;?xml version=&#34;1.0&#34;
+        encoding=&#34;UTF-8&#34; ?&gt;&lt;root&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
+        \           <ows:Identifier>gep_verkehr_flaechenobjekte</ows:Identifier>\n
+        \           <ows:Title>GEP - Verkehr Flaechenobjekte</ows:Title>\n            <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n
+        \               <wps:LiteralData  dataType=\"string\">&lt;?xml version=&#34;1.0&#34;
+        encoding=&#34;UTF-8&#34; ?&gt;&lt;root&gt;&lt;item&gt;&lt;NUPNr type=&#34;str&#34;&gt;3901&lt;/NUPNr&gt;&lt;Code
+        type=&#34;int&#34;&gt;61144&lt;/Code&gt;&lt;Bezeichnung type=&#34;str&#34;&gt;Parkierung
+        Gebiete A&lt;/Bezeichnung&gt;&lt;Artikel type=&#34;null&#34;&gt;&lt;/Artikel&gt;&lt;Verbindlichkeit
+        type=&#34;str&#34;&gt;Nutzungsplanfestlegung&lt;/Verbindlichkeit&gt;&lt;Typ_Bemerkung
+        type=&#34;null&#34;&gt;&lt;/Typ_Bemerkung&gt;&lt;Rechtsstatus type=&#34;str&#34;&gt;in
+        Kraft - vorbehaltlos&lt;/Rechtsstatus&gt;&lt;RechtsstatusBemerkung type=&#34;null&#34;&gt;&lt;/RechtsstatusBemerkung&gt;&lt;Entscheidnummer
+        type=&#34;str&#34;&gt;07.813&lt;/Entscheidnummer&gt;&lt;Genehmigungsdatum
+        type=&#34;str&#34;&gt;2007-07-03&lt;/Genehmigungsdatum&gt;&lt;Bemerkung type=&#34;null&#34;&gt;&lt;/Bemerkung&gt;&lt;Realisierungsstand
+        type=&#34;str&#34;&gt;bestehend&lt;/Realisierungsstand&gt;&lt;Festsetzungstyp
+        type=&#34;null&#34;&gt;&lt;/Festsetzungstyp&gt;&lt;Ebene type=&#34;str&#34;&gt;GEP_Verkehr_F&lt;/Ebene&gt;&lt;Darstellungscodebestehend
+        type=&#34;str&#34;&gt;210F12&lt;/Darstellungscodebestehend&gt;&lt;Darstellungscodegeplant
+        type=&#34;null&#34;&gt;&lt;/Darstellungscodegeplant&gt;&lt;Darstellungscode
+        type=&#34;str&#34;&gt;210F12&lt;/Darstellungscode&gt;&lt;Kt_Code type=&#34;int&#34;&gt;6114&lt;/Kt_Code&gt;&lt;Kt_Bezeichnung
+        type=&#34;str&#34;&gt;Parkierung&lt;/Kt_Bezeichnung&gt;&lt;CH_Hauptnutzung_Code
+        type=&#34;int&#34;&gt;69&lt;/CH_Hauptnutzung_Code&gt;&lt;CH_Hauptnutzung_Name
+        type=&#34;str&#34;&gt;weitere_flaechenbezogene_Festlegungen&lt;/CH_Hauptnutzung_Name&gt;&lt;ErschliessungTypGemeinde
+        type=&#34;str&#34;&gt;CH39010000000018&lt;/ErschliessungTypGemeinde&gt;&lt;Dokumente
+        type=&#34;str&#34;&gt;https://oereblex.gr.ch/api/geolinks/1628.html&lt;/Dokumente&gt;&lt;/item&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
+        \           <ows:Identifier>ggp_plaene_in_pdf_form_ggp</ows:Identifier>\n
+        \           <ows:Title>GGP - Plaene in PDF-Form GGP</ows:Title>\n            <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n
+        \               <wps:LiteralData  dataType=\"string\">&lt;?xml version=&#34;1.0&#34;
+        encoding=&#34;UTF-8&#34; ?&gt;&lt;root&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
+        \           <ows:Identifier>ggp_allgemeine_planungsinhalte_punktobjekte_ggp</ows:Identifier>\n
+        \           <ows:Title>GGP - Allgemeine Planungsinhalte Punktobjekte GGP</ows:Title>\n
+        \           <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n                <wps:LiteralData
+        \ dataType=\"string\">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;
+        ?&gt;&lt;root&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
+        \           <ows:Identifier>ggp_allgemeine_planungsinhalte_linienobjekte_ggp</ows:Identifier>\n
+        \           <ows:Title>GGP - Allgemeine Planungsinhalte Linienobjekte GGP</ows:Title>\n
+        \           <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n                <wps:LiteralData
+        \ dataType=\"string\">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;
+        ?&gt;&lt;root&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
+        \           <ows:Identifier>ggp_allgemeine_planungsinhalte_flaechenobjekte_ggp</ows:Identifier>\n
+        \           <ows:Title>GGP - Allgemeine Planungsinhalte Flaechenobjekte GGP</ows:Title>\n
+        \           <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n                <wps:LiteralData
+        \ dataType=\"string\">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;
+        ?&gt;&lt;root&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
+        \           <ows:Identifier>ggp_gestaltungsanweisung_punktobjekte</ows:Identifier>\n
+        \           <ows:Title>GGP - Gestaltungsanweisung Punktobjekte</ows:Title>\n
+        \           <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n                <wps:LiteralData
+        \ dataType=\"string\">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;
+        ?&gt;&lt;root&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
+        \           <ows:Identifier>ggp_gestaltungsanweisung_linienobjekte</ows:Identifier>\n
+        \           <ows:Title>GGP - Gestaltungsanweisung Linienobjekte</ows:Title>\n
+        \           <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n                <wps:LiteralData
+        \ dataType=\"string\">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;
+        ?&gt;&lt;root&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
+        \           <ows:Identifier>ggp_gestaltungsanweisung_flaechenobjekte</ows:Identifier>\n
+        \           <ows:Title>GGP - Gestaltungsanweisung Flaechenobjekte</ows:Title>\n
+        \           <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n                <wps:LiteralData
+        \ dataType=\"string\">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;
+        ?&gt;&lt;root&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
+        \           <ows:Identifier>ggp_objektschutz_punktobjekte</ows:Identifier>\n
+        \           <ows:Title>GGP - Objektschutz Punktobjekte</ows:Title>\n            <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n
+        \               <wps:LiteralData  dataType=\"string\">&lt;?xml version=&#34;1.0&#34;
+        encoding=&#34;UTF-8&#34; ?&gt;&lt;root&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
+        \           <ows:Identifier>ggp_objektschutz_linienobjekte</ows:Identifier>\n
+        \           <ows:Title>GGP - Objektschutz Linienobjekte</ows:Title>\n            <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n
+        \               <wps:LiteralData  dataType=\"string\">&lt;?xml version=&#34;1.0&#34;
+        encoding=&#34;UTF-8&#34; ?&gt;&lt;root&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
+        \           <ows:Identifier>ggp_objektschutz_flaechenobjekte</ows:Identifier>\n
+        \           <ows:Title>GGP - Objektschutz Flaechenobjekte</ows:Title>\n            <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n
+        \               <wps:LiteralData  dataType=\"string\">&lt;?xml version=&#34;1.0&#34;
+        encoding=&#34;UTF-8&#34; ?&gt;&lt;root&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
+        \           <ows:Identifier>ggp_gestaltungsbereiche</ows:Identifier>\n            <ows:Title>GGP
+        - Gestaltungsbereiche</ows:Title>\n            <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n
+        \               <wps:LiteralData  dataType=\"string\">&lt;?xml version=&#34;1.0&#34;
+        encoding=&#34;UTF-8&#34; ?&gt;&lt;root&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
+        \           <ows:Identifier>zp_allgemeine_planungsinhalte_punktobjekte_zp</ows:Identifier>\n
+        \           <ows:Title>ZP - Allgemeine Planungsinhalte Punktobjekte ZP</ows:Title>\n
+        \           <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n                <wps:LiteralData
+        \ dataType=\"string\">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;
+        ?&gt;&lt;root&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
+        \           <ows:Identifier>zp_allgemeine_planungsinhalte_linienobjekte_zp</ows:Identifier>\n
+        \           <ows:Title>ZP - Allgemeine Planungsinhalte Linienobjekte ZP</ows:Title>\n
+        \           <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n                <wps:LiteralData
+        \ dataType=\"string\">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;
+        ?&gt;&lt;root&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
+        \           <ows:Identifier>zp_allgemeine_planungsinhalte_flaechenobjekte_zp</ows:Identifier>\n
+        \           <ows:Title>ZP - Allgemeine Planungsinhalte Flaechenobjekte ZP</ows:Title>\n
+        \           <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n                <wps:LiteralData
+        \ dataType=\"string\">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;
+        ?&gt;&lt;root&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
+        \           <ows:Identifier>zp_festgelegte_waldgrenzen</ows:Identifier>\n
+        \           <ows:Title>ZP - Festgelegte Waldgrenzen</ows:Title>\n            <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n
+        \               <wps:LiteralData  dataType=\"string\">&lt;?xml version=&#34;1.0&#34;
+        encoding=&#34;UTF-8&#34; ?&gt;&lt;root&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
+        \           <ows:Identifier>zp_touristische_zonen_und_freizeitzonen</ows:Identifier>\n
+        \           <ows:Title>ZP - Touristische Zonen und Freizeitzonen</ows:Title>\n
+        \           <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n                <wps:LiteralData
+        \ dataType=\"string\">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;
+        ?&gt;&lt;root&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
+        \           <ows:Identifier>zp_gewaesserschutzzonen</ows:Identifier>\n            <ows:Title>ZP
+        - Gewaesserschutzzonen</ows:Title>\n            <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n
+        \               <wps:LiteralData  dataType=\"string\">&lt;?xml version=&#34;1.0&#34;
+        encoding=&#34;UTF-8&#34; ?&gt;&lt;root&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
+        \           <ows:Identifier>zp_gefahrenzonen</ows:Identifier>\n            <ows:Title>ZP
+        - Gefahrenzonen</ows:Title>\n            <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n
+        \               <wps:LiteralData  dataType=\"string\">&lt;?xml version=&#34;1.0&#34;
+        encoding=&#34;UTF-8&#34; ?&gt;&lt;root&gt;&lt;item&gt;&lt;NUPNr type=&#34;str&#34;&gt;3901&lt;/NUPNr&gt;&lt;Code
+        type=&#34;int&#34;&gt;87630&lt;/Code&gt;&lt;Bezeichnung type=&#34;str&#34;&gt;Keine
+        Gefahrenzone&lt;/Bezeichnung&gt;&lt;Abkuerzung type=&#34;str&#34;&gt;kGF&lt;/Abkuerzung&gt;&lt;Artikel
+        type=&#34;str&#34;&gt;56 BauG ; 38 KRG&lt;/Artikel&gt;&lt;Verbindlichkeit
+        type=&#34;str&#34;&gt;Nutzungsplanfestlegung&lt;/Verbindlichkeit&gt;&lt;Typ_Bemerkung
+        type=&#34;null&#34;&gt;&lt;/Typ_Bemerkung&gt;&lt;Rechtsstatus type=&#34;str&#34;&gt;in
+        Kraft - vorbehaltlos&lt;/Rechtsstatus&gt;&lt;RechtsstatusBemerkung type=&#34;null&#34;&gt;&lt;/RechtsstatusBemerkung&gt;&lt;Entscheidnummer
+        type=&#34;str&#34;&gt;07.813&lt;/Entscheidnummer&gt;&lt;Genehmigungsdatum
+        type=&#34;str&#34;&gt;2007-07-03&lt;/Genehmigungsdatum&gt;&lt;Bemerkung type=&#34;null&#34;&gt;&lt;/Bemerkung&gt;&lt;Festsetzungstyp
+        type=&#34;null&#34;&gt;&lt;/Festsetzungstyp&gt;&lt;Ebene type=&#34;str&#34;&gt;ZP_Gefahrenzone&lt;/Ebene&gt;&lt;Darstellungscode
+        type=&#34;str&#34;&gt;876F03&lt;/Darstellungscode&gt;&lt;Kt_Code type=&#34;int&#34;&gt;8763&lt;/Kt_Code&gt;&lt;Kt_Bezeichnung
+        type=&#34;str&#34;&gt;Keine Gefahrenzone&lt;/Kt_Bezeichnung&gt;&lt;CH_Hauptnutzung_Code
+        type=&#34;int&#34;&gt;53&lt;/CH_Hauptnutzung_Code&gt;&lt;CH_Hauptnutzung_Name
+        type=&#34;str&#34;&gt;Ueberlagernde_Gefahrenzonen&lt;/CH_Hauptnutzung_Name&gt;&lt;ZonenTypGemeinde
+        type=&#34;str&#34;&gt;CH39010000000108&lt;/ZonenTypGemeinde&gt;&lt;Dokumente
+        type=&#34;str&#34;&gt;https://oereblex.gr.ch/api/geolinks/1628.html&lt;/Dokumente&gt;&lt;/item&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
+        \           <ows:Identifier>zp_materialgewinnung_materialablagerung_und_energie</ows:Identifier>\n
+        \           <ows:Title>ZP - Materialgewinnung, Materialablagerung und Energie</ows:Title>\n
+        \           <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n                <wps:LiteralData
+        \ dataType=\"string\">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;
+        ?&gt;&lt;root&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
+        \           <ows:Identifier>zp_land_und_forstwirtschaftliche_nutzungen</ows:Identifier>\n
+        \           <ows:Title>ZP - Land- und Forstwirtschaftliche Nutzungen</ows:Title>\n
+        \           <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n                <wps:LiteralData
+        \ dataType=\"string\">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;
+        ?&gt;&lt;root&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
+        \           <ows:Identifier>zp_ortsbild_und_kulturgueterschutzzonen</ows:Identifier>\n
+        \           <ows:Title>ZP - Ortsbild- und Kulturgueterschutzzonen</ows:Title>\n
+        \           <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n                <wps:LiteralData
+        \ dataType=\"string\">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;
+        ?&gt;&lt;root&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
+        \           <ows:Identifier>zp_schutzzonen_fuer_besondere_zwecke</ows:Identifier>\n
+        \           <ows:Title>ZP - Schutzzonen fuer besondere Zwecke</ows:Title>\n
+        \           <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n                <wps:LiteralData
+        \ dataType=\"string\">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;
+        ?&gt;&lt;root&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
+        \           <ows:Identifier>zp_natur_und_landschaftsschutzzonen</ows:Identifier>\n
+        \           <ows:Title>ZP - Natur- und Landschaftsschutzzonen</ows:Title>\n
+        \           <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n                <wps:LiteralData
+        \ dataType=\"string\">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;
+        ?&gt;&lt;root&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
+        \           <ows:Identifier>zp_grundnutzung</ows:Identifier>\n            <ows:Title>ZP
+        - Grundnutzung</ows:Title>\n            <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n
+        \               <wps:LiteralData  dataType=\"string\">&lt;?xml version=&#34;1.0&#34;
+        encoding=&#34;UTF-8&#34; ?&gt;&lt;root&gt;&lt;item&gt;&lt;NUPNr type=&#34;str&#34;&gt;3901&lt;/NUPNr&gt;&lt;Code
+        type=&#34;int&#34;&gt;11340&lt;/Code&gt;&lt;Bezeichnung type=&#34;str&#34;&gt;Wohnzone
+        4&lt;/Bezeichnung&gt;&lt;Abkuerzung type=&#34;str&#34;&gt;W4&lt;/Abkuerzung&gt;&lt;Artikel
+        type=&#34;str&#34;&gt;44 BauG&lt;/Artikel&gt;&lt;Verbindlichkeit type=&#34;str&#34;&gt;Nutzungsplanfestlegung&lt;/Verbindlichkeit&gt;&lt;Typ_Bemerkung
+        type=&#34;null&#34;&gt;&lt;/Typ_Bemerkung&gt;&lt;Rechtsstatus type=&#34;str&#34;&gt;in
+        Kraft - vorbehaltlos&lt;/Rechtsstatus&gt;&lt;RechtsstatusBemerkung type=&#34;null&#34;&gt;&lt;/RechtsstatusBemerkung&gt;&lt;Entscheidnummer
+        type=&#34;str&#34;&gt;07.813&lt;/Entscheidnummer&gt;&lt;Genehmigungsdatum
+        type=&#34;str&#34;&gt;2007-07-03&lt;/Genehmigungsdatum&gt;&lt;Bemerkung type=&#34;null&#34;&gt;&lt;/Bemerkung&gt;&lt;Festsetzungstyp
+        type=&#34;null&#34;&gt;&lt;/Festsetzungstyp&gt;&lt;Ebene type=&#34;str&#34;&gt;ZP_Grundnutzung&lt;/Ebene&gt;&lt;Darstellungscode
+        type=&#34;str&#34;&gt;113F06&lt;/Darstellungscode&gt;&lt;Kt_Code type=&#34;int&#34;&gt;1134&lt;/Kt_Code&gt;&lt;Kt_Bezeichnung
+        type=&#34;str&#34;&gt;Wohnzone 4&lt;/Kt_Bezeichnung&gt;&lt;CH_Hauptnutzung_Code
+        type=&#34;int&#34;&gt;11&lt;/CH_Hauptnutzung_Code&gt;&lt;CH_Hauptnutzung_Name
+        type=&#34;str&#34;&gt;Wohnzonen&lt;/CH_Hauptnutzung_Name&gt;&lt;ZonenTypGemeinde
+        type=&#34;str&#34;&gt;CH39010000000083&lt;/ZonenTypGemeinde&gt;&lt;Dokumente
+        type=&#34;str&#34;&gt;https://oereblex.gr.ch/api/geolinks/1628.html&lt;/Dokumente&gt;&lt;/item&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
+        \           <ows:Identifier>zp_wald_puffer</ows:Identifier>\n            <ows:Title>ZP
+        - Wald-Puffer</ows:Title>\n            <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n
+        \               <wps:LiteralData  dataType=\"string\">&lt;?xml version=&#34;1.0&#34;
+        encoding=&#34;UTF-8&#34; ?&gt;&lt;root&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
+        \           <ows:Identifier>erdwaermenutzung_zulaessigkeit</ows:Identifier>\n
+        \           <ows:Title>Erdwaermenutzung Zulaessigkeit</ows:Title>\n            <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n
+        \               <wps:LiteralData  dataType=\"string\">&lt;?xml version=&#34;1.0&#34;
+        encoding=&#34;UTF-8&#34; ?&gt;&lt;root&gt;&lt;item&gt;&lt;zulaessigkeit type=&#34;str&#34;&gt;zul\xE4ssig&lt;/zulaessigkeit&gt;&lt;begruendung
+        type=&#34;null&#34;&gt;&lt;/begruendung&gt;&lt;bemerkung type=&#34;null&#34;&gt;&lt;/bemerkung&gt;&lt;auflagen_spezielle
+        type=&#34;null&#34;&gt;&lt;/auflagen_spezielle&gt;&lt;auflagen_spezielle_link
+        type=&#34;null&#34;&gt;&lt;/auflagen_spezielle_link&gt;&lt;bohrtiefe_max type=&#34;null&#34;&gt;&lt;/bohrtiefe_max&gt;&lt;/item&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
+        \           <ows:Identifier>gewaesserschutzbereiche</ows:Identifier>\n            <ows:Title>Gewaesserschutzbereiche</ows:Title>\n
+        \           <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n                <wps:LiteralData
+        \ dataType=\"string\">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;
+        ?&gt;&lt;root&gt;&lt;item&gt;&lt;typ type=&#34;str&#34;&gt;Au&lt;/typ&gt;&lt;alluvial
+        type=&#34;str&#34;&gt;Ja&lt;/alluvial&gt;&lt;/item&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
+        \           <ows:Identifier>grundwasserschutzzonen</ows:Identifier>\n            <ows:Title>Grundwasserschutzzonen</ows:Title>\n
+        \           <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n                <wps:LiteralData
+        \ dataType=\"string\">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;
+        ?&gt;&lt;root&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
+        \           <ows:Identifier>grundwasserfassungen_und_quellen</ows:Identifier>\n
+        \           <ows:Title>Grundwasserfassungen und Quellen</ows:Title>\n            <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n
+        \               <wps:LiteralData  dataType=\"string\">&lt;?xml version=&#34;1.0&#34;
+        encoding=&#34;UTF-8&#34; ?&gt;&lt;root&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
+        \           <ows:Identifier>kantonales_strassennetz</ows:Identifier>\n            <ows:Title>Kantonales
+        Strassennetz</ows:Title>\n            <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n
+        \               <wps:LiteralData  dataType=\"string\">&lt;?xml version=&#34;1.0&#34;
+        encoding=&#34;UTF-8&#34; ?&gt;&lt;root&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
+        \           <ows:Identifier>liegenschaften</ows:Identifier>\n            <ows:Title>Liegenschaften</ows:Title>\n
+        \           <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n                <wps:LiteralData
+        \ dataType=\"string\">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;
+        ?&gt;&lt;root&gt;&lt;item&gt;&lt;nummer type=&#34;str&#34;&gt;129&lt;/nummer&gt;&lt;egris_egrid
+        type=&#34;str&#34;&gt;CH916878867738&lt;/egris_egrid&gt;&lt;gueltigkeit type=&#34;str&#34;&gt;rechtskraeftig&lt;/gueltigkeit&gt;&lt;vollstaendigkeit
+        type=&#34;str&#34;&gt;Vollstaendig&lt;/vollstaendigkeit&gt;&lt;art type=&#34;str&#34;&gt;Liegenschaft&lt;/art&gt;&lt;bfsnr
+        type=&#34;int&#34;&gt;3901&lt;/bfsnr&gt;&lt;gdename type=&#34;str&#34;&gt;Chur&lt;/gdename&gt;&lt;/item&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
+        \           <ows:Identifier>projliegenschaften</ows:Identifier>\n            <ows:Title>Projektierte
+        Liegenschaften</ows:Title>\n            <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n
+        \               <wps:LiteralData  dataType=\"string\">&lt;?xml version=&#34;1.0&#34;
+        encoding=&#34;UTF-8&#34; ?&gt;&lt;root&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
+        \           <ows:Identifier>selbstrecht</ows:Identifier>\n            <ows:Title>Selbst\xE4ndiges
+        Recht</ows:Title>\n            <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n
+        \               <wps:LiteralData  dataType=\"string\">&lt;?xml version=&#34;1.0&#34;
+        encoding=&#34;UTF-8&#34; ?&gt;&lt;root&gt;&lt;item&gt;&lt;nummer type=&#34;str&#34;&gt;9962&lt;/nummer&gt;&lt;egris_egrid
+        type=&#34;str&#34;&gt;CH438677685533&lt;/egris_egrid&gt;&lt;gueltigkeit type=&#34;str&#34;&gt;rechtskraeftig&lt;/gueltigkeit&gt;&lt;vollstaendigkeit
+        type=&#34;str&#34;&gt;Vollstaendig&lt;/vollstaendigkeit&gt;&lt;art type=&#34;str&#34;&gt;SelbstRecht.Baurecht&lt;/art&gt;&lt;bfsnr
+        type=&#34;int&#34;&gt;3901&lt;/bfsnr&gt;&lt;gdename type=&#34;str&#34;&gt;Chur&lt;/gdename&gt;&lt;/item&gt;&lt;item&gt;&lt;nummer
+        type=&#34;str&#34;&gt;9066&lt;/nummer&gt;&lt;egris_egrid type=&#34;str&#34;&gt;CH616845867749&lt;/egris_egrid&gt;&lt;gueltigkeit
+        type=&#34;str&#34;&gt;rechtskraeftig&lt;/gueltigkeit&gt;&lt;vollstaendigkeit
+        type=&#34;str&#34;&gt;Vollstaendig&lt;/vollstaendigkeit&gt;&lt;art type=&#34;str&#34;&gt;SelbstRecht.Baurecht&lt;/art&gt;&lt;bfsnr
+        type=&#34;int&#34;&gt;3901&lt;/bfsnr&gt;&lt;gdename type=&#34;str&#34;&gt;Chur&lt;/gdename&gt;&lt;/item&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
+        \           <ows:Identifier>projselbstrecht</ows:Identifier>\n            <ows:Title>Projektiertes
+        selbst\xE4ndiges Recht</ows:Title>\n            <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n
+        \               <wps:LiteralData  dataType=\"string\">&lt;?xml version=&#34;1.0&#34;
+        encoding=&#34;UTF-8&#34; ?&gt;&lt;root&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
+        \           <ows:Identifier>ortschaftsname</ows:Identifier>\n            <ows:Title>Ortschaftsname</ows:Title>\n
+        \           <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n                <wps:LiteralData
+        \ dataType=\"string\">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;
+        ?&gt;&lt;root&gt;&lt;item&gt;&lt;ortschaftsname type=&#34;str&#34;&gt;Chur&lt;/ortschaftsname&gt;&lt;/item&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t\t<wps:Output>\n
+        \           <ows:Identifier>gebaeudeadressen_av</ows:Identifier>\n            <ows:Title>Geb\xE4udeadressen
+        AV</ows:Title>\n            <ows:Abstract></ows:Abstract>\n\t\t\t<wps:Data>\n
+        \               <wps:LiteralData  dataType=\"string\">&lt;?xml version=&#34;1.0&#34;
+        encoding=&#34;UTF-8&#34; ?&gt;&lt;root&gt;&lt;item&gt;&lt;bfsnr type=&#34;int&#34;&gt;3901&lt;/bfsnr&gt;&lt;status
+        type=&#34;int&#34;&gt;1&lt;/status&gt;&lt;geb_inaenderung2 type=&#34;int&#34;&gt;1&lt;/geb_inaenderung2&gt;&lt;geb_attributeprovisorisch2
+        type=&#34;int&#34;&gt;1&lt;/geb_attributeprovisorisch2&gt;&lt;geb_istoffiziellebezeichnung2
+        type=&#34;int&#34;&gt;0&lt;/geb_istoffiziellebezeichnung2&gt;&lt;hoehenlage
+        type=&#34;null&#34;&gt;&lt;/hoehenlage&gt;&lt;hausnummer type=&#34;str&#34;&gt;23&lt;/hausnummer&gt;&lt;im_gebaeude
+        type=&#34;int&#34;&gt;0&lt;/im_gebaeude&gt;&lt;gwr_egid type=&#34;int&#34;&gt;400017774&lt;/gwr_egid&gt;&lt;gwr_edid
+        type=&#34;int&#34;&gt;0&lt;/gwr_edid&gt;&lt;gebaeudestatus type=&#34;null&#34;&gt;&lt;/gebaeudestatus&gt;&lt;gebaeudenummer
+        type=&#34;null&#34;&gt;&lt;/gebaeudenummer&gt;&lt;text_ type=&#34;str&#34;&gt;Roterturmstrasse&lt;/text_&gt;&lt;/item&gt;&lt;/root&gt;</wps:LiteralData>\n\t\t\t</wps:Data>\n\t\t</wps:Output>\n\t</wps:ProcessOutputs>\n</wps:ExecuteResponse>"
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '36619'
+      Content-Type:
+      - text/xml; charset=utf-8
+      Date:
+      - Tue, 21 Nov 2023 12:29:03 GMT
+    status:
+      code: 200
+      message: OK
+- request:
+    body: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<eCH-0206:maddRequest xmlns:eCH-0058=\"http://www.ech.ch/xmlns/eCH-0058/5\"
+      xmlns:eCH-0206=\"http://www.ech.ch/xmlns/eCH-0206/2\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
+      xsi:schemaLocation=\"http://www.ech.ch/xmlns/eCH-0206/2 eCH-0206-2-0-draft.xsd\">\n
+      \  <eCH-0206:requestHeader>\n      <eCH-0206:messageId>myMessageId</eCH-0206:messageId>\n
+      \     <eCH-0206:businessReferenceId>BFS/OFS/UST</eCH-0206:businessReferenceId>\n
+      \     <eCH-0206:requestingApplication>\n         <eCH-0058:manufacturer>Adfinis</eCH-0058:manufacturer>\n
+      \        <eCH-0058:product>eBau Kt. GR</eCH-0058:product>\n         <eCH-0058:productVersion>1.0.0</eCH-0058:productVersion>\n
+      \     </eCH-0206:requestingApplication>\n      <eCH-0206:requestDate>2023-11-21T12:29:03.864697</eCH-0206:requestDate>\n
+      \ </eCH-0206:requestHeader>\n  <eCH-0206:requestContext>building</eCH-0206:requestContext>\n
+      \ <eCH-0206:requestQuery>\n    <eCH-0206:condition>\n         <eCH-0206:attributePath>/eCH-0206:maddResponse/eCH-0206:buildingList/eCH-0206:buildingItem/eCH-0206:EGID</eCH-0206:attributePath>\n
+      \        <eCH-0206:operator>in</eCH-0206:operator><eCH-0206:attributeValue>400017774</eCH-0206:attributeValue>\n
+      \     </eCH-0206:condition>\n  </eCH-0206:requestQuery>\n</eCH-0206:maddRequest>"
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '1279'
+      Content-Type:
+      - text/xml
+      User-Agent:
+      - python-requests/2.31.0
+    method: POST
+    uri: https://madd.bfs.admin.ch/eCH-0206
+  response:
+    body:
+      string: !!binary |
+        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
+        Qe6ze09XLwAAAP//AwBICojmgCsAAA==
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/xml; charset=UTF-8
+      Date:
+      - Tue, 21 Nov 2023 12:29:04 GMT
+      Transfer-Encoding:
+      - chunked
+      cache-control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      content-disposition:
+      - inline
+      content-encoding:
+      - gzip
+      expires:
+      - Tue, 21 Nov 2023 12:29:04 GMT
+      last-modified:
+      - Tue, 21 Nov 2023 12:29:04 GMT
+      pragma:
+      - no-cache
+      server:
+      - gunicorn/20.0.4
+      server-timing:
+      - route;desc=ech_0206, route;dur=34
+      vary:
+      - Cookie
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+version: 1
