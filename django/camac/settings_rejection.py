@@ -44,7 +44,14 @@ REJECTION = {
     "kt_gr": {
         "ENABLED": True,
         "ALLOWED_INSTANCE_STATES": ["subm", "init-distribution"],
-        # TODO: Notifications?
+        "NOTIFICATIONS": {
+            "REJECTED": [
+                {
+                    "recipient_types": ["applicant"],
+                    "template_slug": "rueckweisung",
+                }
+            ]
+        },
     },
     "kt_uri": {
         "ENABLED": True,
