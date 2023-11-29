@@ -240,6 +240,24 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "dokumente-ohne-bab",
+    "fields": {
+      "created_at": "2023-11-29T15:38:46.395Z",
+      "modified_at": "2023-11-29T15:44:57.231Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Dokumente (ohne BaB)\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "durchgefuehrte-vorabklaerungen",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -5516,6 +5534,216 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "dokumente-ohne-bab.bemerkungen-dokumente",
+    "fields": {
+      "created_at": "2023-11-29T15:39:39.836Z",
+      "modified_at": "2023-11-29T15:39:39.836Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente-ohne-bab",
+      "question": "bemerkungen-dokumente",
+      "sort": 14
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-ohne-bab.energienachweis",
+    "fields": {
+      "created_at": "2023-11-29T15:41:24.472Z",
+      "modified_at": "2023-11-29T15:41:24.472Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente-ohne-bab",
+      "question": "energienachweis",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-ohne-bab.entwaesserungsplan",
+    "fields": {
+      "created_at": "2023-11-29T15:41:51.085Z",
+      "modified_at": "2023-11-29T15:41:51.085Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente-ohne-bab",
+      "question": "entwaesserungsplan",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-ohne-bab.fassadenplaene",
+    "fields": {
+      "created_at": "2023-11-29T15:41:11.374Z",
+      "modified_at": "2023-11-29T15:41:11.374Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente-ohne-bab",
+      "question": "fassadenplaene",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-ohne-bab.fotodokumentation",
+    "fields": {
+      "created_at": "2023-11-29T15:44:02.711Z",
+      "modified_at": "2023-11-29T15:44:02.711Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente-ohne-bab",
+      "question": "fotodokumentation",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-ohne-bab.grundrissplaene",
+    "fields": {
+      "created_at": "2023-11-29T15:40:48.923Z",
+      "modified_at": "2023-11-29T15:40:48.924Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente-ohne-bab",
+      "question": "grundrissplaene",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-ohne-bab.laengenprofile",
+    "fields": {
+      "created_at": "2023-11-29T15:43:58.878Z",
+      "modified_at": "2023-11-29T15:43:58.878Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente-ohne-bab",
+      "question": "laengenprofile",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-ohne-bab.normalprofil",
+    "fields": {
+      "created_at": "2023-11-29T15:43:47.826Z",
+      "modified_at": "2023-11-29T15:43:47.826Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente-ohne-bab",
+      "question": "normalprofil",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-ohne-bab.querprofile",
+    "fields": {
+      "created_at": "2023-11-29T15:43:43.127Z",
+      "modified_at": "2023-11-29T15:43:43.127Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente-ohne-bab",
+      "question": "querprofile",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-ohne-bab.schnittplaene",
+    "fields": {
+      "created_at": "2023-11-29T15:40:59.412Z",
+      "modified_at": "2023-11-29T15:40:59.412Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente-ohne-bab",
+      "question": "schnittplaene",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-ohne-bab.situationsplan-1-1000",
+    "fields": {
+      "created_at": "2023-11-29T15:43:16.380Z",
+      "modified_at": "2023-11-29T15:43:16.380Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente-ohne-bab",
+      "question": "situationsplan-1-1000",
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-ohne-bab.situationsplan-1-500",
+    "fields": {
+      "created_at": "2023-11-29T15:43:22.056Z",
+      "modified_at": "2023-11-29T15:43:22.056Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente-ohne-bab",
+      "question": "situationsplan-1-500",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-ohne-bab.technischer-beschrieb",
+    "fields": {
+      "created_at": "2023-11-29T15:44:13.031Z",
+      "modified_at": "2023-11-29T15:44:13.031Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente-ohne-bab",
+      "question": "technischer-beschrieb",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-ohne-bab.werkleitungsplan",
+    "fields": {
+      "created_at": "2023-11-29T15:44:07.392Z",
+      "modified_at": "2023-11-29T15:44:07.392Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente-ohne-bab",
+      "question": "werkleitungsplan",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "dokumente.plan-der-abwasserentsorgung-sowie-wasser-und-stromversorgung",
     "fields": {
       "created_at": "2023-11-13T08:35:45.209Z",
@@ -6416,16 +6644,16 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "erdwaermesonden.dokumente",
+    "pk": "erdwaermesonden.dokumente-ohne-bab",
     "fields": {
-      "created_at": "2023-11-02T08:06:13.071Z",
-      "modified_at": "2023-11-02T08:06:13.071Z",
+      "created_at": "2023-11-29T15:39:14.465Z",
+      "modified_at": "2023-11-29T15:39:14.465Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "erdwaermesonden",
-      "question": "dokumente",
+      "question": "dokumente-ohne-bab",
       "sort": 2
     }
   },
@@ -26358,6 +26586,45 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "dokumente-ohne-bab",
+    "fields": {
+      "created_at": "2023-11-29T15:39:14.270Z",
+      "modified_at": "2023-11-29T15:40:04.422Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dokumente\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "alexandria-documents-form",
+        "alexandria-categories": [
+          "beilagen-zum-gesuch-grundstuecksangaben",
+          "beilagen-zum-gesuch-gutachten-nachweise-begruendungen",
+          "beilagen-zum-gesuch-projektplaene-projektbeschrieb",
+          "beilagen-zum-gesuch-weitere-gesuchsunterlagen"
+        ]
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "dokumente-ohne-bab",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "druckbehaelter-titel",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -27039,7 +27306,7 @@
     "pk": "entwaesserungsplan",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-11-10T13:35:05.466Z",
+      "modified_at": "2023-11-29T15:46:04.954Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -27047,7 +27314,7 @@
       "label": "{\"de\": \"Entw\\u00e4sserungsplan\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
       "is_required": "true",
-      "is_hidden": "!(\n\t[\n\t\t\"typ-des-bauwerks-ekonomie-mit-tieren-mit-tieren\",\n\t\t\"typ-des-bauwerks-oekonomiegebaude\",\n\t\t\"typ-des-bauwerks-landwirtschaft-betrieb-wohnteil\",\n\t\t\"typ-des-bauwerks-forstwirtschaft\",\n\t\t\"typ-des-bauwerks-brennstofflager\",\n\t\t\"typ-des-bauwerks-silo\"\n\t]\n\tintersects \"gebaeude\"|answer([])|mapby(\"typ-des-bauwerks\") ||\n\t[\n\t\t\"tiefbau-siedlung-art-parkplaetze\",\n\t\t\"tiefbau-siedlung-art-veloabstellplaetze\",\n\t\t\"tiefbau-siedlung-art-spielplaetze\"\n\t]\n\tintersects \"tiefbauten\"|answer([])|mapby(\"tiefbau-siedlung-art\") || \n\t\"art-der-landwirtschaftlichen-baute-bauten-und-anlagen-aufbereitung\"\n\tin \"art-der-landwirtschaftlichen-baute\"|answer\n\n)",
+      "is_hidden": "!(\n\t[\n\t\t\"typ-des-bauwerks-ekonomie-mit-tieren-mit-tieren\",\n\t\t\"typ-des-bauwerks-oekonomiegebaude\",\n\t\t\"typ-des-bauwerks-landwirtschaft-betrieb-wohnteil\",\n\t\t\"typ-des-bauwerks-forstwirtschaft\",\n\t\t\"typ-des-bauwerks-brennstofflager\",\n\t\t\"typ-des-bauwerks-silo\"\n\t]\n\tintersects \"gebaeude\"|answer([])|mapby(\"typ-des-bauwerks\") ||\n\t[\n\t\t\"tiefbau-siedlung-art-parkplaetze\",\n\t\t\"tiefbau-siedlung-art-veloabstellplaetze\",\n\t\t\"tiefbau-siedlung-art-spielplaetze\"\n\t]\n\tintersects \"tiefbauten\"|answer([])|mapby(\"tiefbau-siedlung-art\") || \n\t\"art-der-landwirtschaftlichen-baute-bauten-und-anlagen-aufbereitung\" in \"art-der-landwirtschaftlichen-baute\"|answer([])\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -46167,8 +46434,8 @@
     "model": "caluma_form.questionoption",
     "pk": "entwaesserungsplan.entwaesserungsplan-ja",
     "fields": {
-      "created_at": "2023-11-10T13:35:05.475Z",
-      "modified_at": "2023-11-10T13:35:05.475Z",
+      "created_at": "2023-11-29T15:46:04.962Z",
+      "modified_at": "2023-11-29T15:46:04.962Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
