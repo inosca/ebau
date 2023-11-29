@@ -203,6 +203,15 @@ class GrGisClient(GISBaseClient):
 
                         result[question] += [bezeichnung + bracket]
 
+        if "Keine Gefahrenzone" in result["zonenplan"]:
+            ordered_zonenplan_values = result["zonenplan"]
+            ordered_zonenplan_values.append(
+                ordered_zonenplan_values.pop(
+                    ordered_zonenplan_values.index("Keine Gefahrenzone")
+                )
+            )
+            result["zonenplan"] = ordered_zonenplan_values
+
         return {
             question: ", ".join(list(dict.fromkeys(value)))
             for question, value in result.items()
