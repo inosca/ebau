@@ -560,6 +560,13 @@
         "distribution",
         "finished",
         "withdrawn"
+      ],
+      "subservice": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished",
+        "withdrawn"
       ]
     }
   },
