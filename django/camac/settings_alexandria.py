@@ -1,9 +1,10 @@
 ALEXANDRIA = {
     "default": {
         "MARKS": {
-            "ALL": ["publication", "decision"],
+            "ALL": ["publication", "decision", "void"],
             "PUBLICATION": "publication",
             "DECISION": "decision",
+            "VOID": "void",
         },
         "RESTRICTED_FIELDS": {
             "title",
