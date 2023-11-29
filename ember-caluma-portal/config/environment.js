@@ -363,6 +363,7 @@ module.exports = function (environment) {
           instanceStatesGr.circulationInit,
           instanceStatesGr.circ,
           instanceStatesGr.inCorrection,
+          instanceStatesGr.decision,
           instanceStatesGr.rejected,
         ],
         constructionMonitoring: [instanceStatesGr.constructionMonitoring],
