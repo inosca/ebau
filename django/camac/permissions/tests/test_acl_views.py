@@ -367,12 +367,15 @@ def test_get_access_levels(
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
 @pytest.mark.parametrize(
-    "filter, expect_results",
+    "filter, filtervalue, expect_results",
     [
-        ({"user": "IMPLICIT"}, ["user"]),
-        ({"service": "IMPLICIT"}, ["service", "inact"]),
-        ({"is_active": "true"}, ["service", "user"]),
-        ({"is_active": "false"}, ["inact"]),
+        ("user", "IMPLICIT", ["user"]),
+        ("service", "IMPLICIT", ["sched", "inact", "service"]),
+        ("is_active", "true", ["service", "user"]),
+        ("is_active", "false", ["sched", "inact"]),
+        ("status", "scheduled", ["sched"]),
+        ("status", "active", ["service", "user"]),
+        ("status", "expired", ["inact"]),
     ],
 )
 def test_list_acl_filters(
@@ -386,16 +389,18 @@ def test_list_acl_filters(
     role,
     group_factory,
     filter,
+    filtervalue,
     expect_results,
 ):
     url = reverse("instance-acls-list")
 
     level_1 = access_level_factory(slug="level1")
     level_2 = access_level_factory(slug="level2")
-    if "user" in filter:
-        filter["user"] = str(admin_client.user.pk)
-    if "service" in filter:
-        filter["service"] = str(service.pk)
+    filter_dict = {filter: filtervalue}
+    if filter == "user":
+        filter_dict["user"] = str(admin_client.user.pk)
+    if filter == "service":
+        filter_dict["service"] = str(service.pk)
 
     permissions_settings["ACCESS_LEVELS"] = {
         level_1.pk: [("foo", "*"), ("bar", "*")],
@@ -417,7 +422,7 @@ def test_list_acl_filters(
         grant_type=api.GRANT_CHOICES.SERVICE.value,
         access_level=level_2,
         service=service,
-        start_time=timezone.now() - timedelta(days=5),
+        start_time=timezone.now() - timedelta(days=4),
     )
     # one inactive SERVICE ACL
     inact_service_acl = instance_acl_factory(
@@ -425,20 +430,32 @@ def test_list_acl_filters(
         grant_type=api.GRANT_CHOICES.SERVICE.value,
         access_level=level_2,
         service=service,
-        start_time=timezone.now() - timedelta(days=5),
+        start_time=timezone.now() - timedelta(days=3),
         end_time=timezone.now(),
     )
+    # one scheduled SERVICE ACL
+    sched_acl = instance_acl_factory(
+        instance=instance,
+        grant_type=api.GRANT_CHOICES.SERVICE.value,
+        access_level=level_2,
+        service=service,
+        start_time=timezone.now() + timedelta(days=2),
+    )
+
     acl_to_name = {
         str(user_acl.pk): "user",
         str(service_acl.pk): "service",
         str(inact_service_acl.pk): "inact",
+        str(sched_acl.pk): "sched",
     }
 
-    result = admin_client.get(url, filter)
+    result = admin_client.get(url, filter_dict)
     acls_data = result.json()["data"]
 
     acl_ids = [a["id"] for a in acls_data]
 
-    acl_names = set(acl_to_name[id] for id in acl_ids)
+    acl_names = [acl_to_name[id] for id in acl_ids]
 
-    assert acl_names == set(expect_results)
+    # Note: we set the start times to slightly different values. We implicitly
+    # test the result order as well, we want the latest starting ACL first
+    assert acl_names == expect_results
