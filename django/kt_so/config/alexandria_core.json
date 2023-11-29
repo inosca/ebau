@@ -1,121 +1,6 @@
 [
   {
     "model": "alexandria_core.category",
-    "pk": "alle-beteiligten",
-    "fields": {
-      "created_at": "2023-10-04T00:00:00Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_at": "2023-11-28T08:52:05.024Z",
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "metainfo": {
-        "sort": 3,
-        "access": {
-          "support": {
-            "visibility": "all",
-            "permissions": [
-              {
-                "permission": "create"
-              },
-              {
-                "scope": "All",
-                "permission": "update"
-              },
-              {
-                "scope": "All",
-                "permission": "delete"
-              }
-            ]
-          },
-          "applicant": {
-            "visibility": "all"
-          },
-          "subservice": {
-            "visibility": "all",
-            "permissions": [
-              {
-                "scope": "All",
-                "fields": ["tags"],
-                "permission": "update"
-              }
-            ]
-          },
-          "service-lead": {
-            "visibility": "all",
-            "permissions": [
-              {
-                "scope": "All",
-                "fields": ["tags"],
-                "permission": "update"
-              }
-            ]
-          },
-          "service-clerk": {
-            "visibility": "all",
-            "permissions": [
-              {
-                "scope": "All",
-                "fields": ["tags"],
-                "permission": "update"
-              }
-            ]
-          },
-          "municipality-lead": {
-            "visibility": "all",
-            "permissions": [
-              {
-                "permission": "create"
-              },
-              {
-                "scope": "Service",
-                "permission": "update"
-              },
-              {
-                "scope": "All",
-                "fields": ["tags", "marks"],
-                "permission": "update"
-              },
-              {
-                "scope": "Service",
-                "permission": "delete"
-              }
-            ]
-          },
-          "municipality-read": {
-            "visibility": "all"
-          },
-          "municipality-clerk": {
-            "visibility": "all",
-            "permissions": [
-              {
-                "permission": "create"
-              },
-              {
-                "scope": "Service",
-                "permission": "update"
-              },
-              {
-                "scope": "All",
-                "fields": ["tags", "marks"],
-                "permission": "update"
-              },
-              {
-                "scope": "Service",
-                "permission": "delete"
-              }
-            ]
-          }
-        }
-      },
-      "name": "{\"de\": \"Alle Beteiligten\", \"fr\": \"\", \"it\": \"\"}",
-      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "color": "#E1B422",
-      "parent": null
-    }
-  },
-  {
-    "model": "alexandria_core.category",
     "pk": "beilagen-zum-gesuch",
     "fields": {
       "created_at": "2023-10-04T00:00:00Z",
@@ -474,7 +359,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
-        "sort": 5,
+        "sort": 4,
         "access": {
           "support": {
             "visibility": "all",
@@ -574,7 +459,7 @@
       },
       "name": "{\"de\": \"Einsprachen\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "color": "#9B0000",
+      "color": "#E1B422",
       "parent": null
     }
   },
@@ -589,7 +474,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
-        "sort": 6,
+        "sort": 5,
         "access": {
           "support": {
             "visibility": "all",
@@ -754,7 +639,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
-        "sort": 7,
+        "sort": 6,
         "access": {
           "support": {
             "visibility": "all",
@@ -919,7 +804,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
-        "sort": 4,
+        "sort": 3,
         "access": {
           "support": {
             "visibility": "all",
