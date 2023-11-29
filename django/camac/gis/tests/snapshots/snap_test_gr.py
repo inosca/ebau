@@ -115,7 +115,7 @@ snapshots['test_gr_client[query0-baugesuch] 1'] = {
         'zonenplan': {
             'hidden': False,
             'label': 'zonenplan',
-            'value': 'Keine Gefahrenzone, Archäologiezone, Zentrumszone Altstadt 2'
+            'value': 'Archäologiezone, Zentrumszone Altstadt 2, Keine Gefahrenzone'
         }
     }
 }
@@ -302,7 +302,7 @@ snapshots['test_gr_client[query10-baugesuch] 1'] = {
         'zonenplan': {
             'hidden': False,
             'label': 'zonenplan',
-            'value': 'Gewässerraumzone, Keine Gefahrenzone, Zone übriges Gemeindegebiet (Gewässer)'
+            'value': 'Gewässerraumzone, Zone übriges Gemeindegebiet (Gewässer), Keine Gefahrenzone'
         }
     }
 }
@@ -527,7 +527,7 @@ snapshots['test_gr_client[query12-baugesuch] 1'] = {
         'zonenplan': {
             'hidden': False,
             'label': 'zonenplan',
-            'value': 'Keine Gefahrenzone, Archäologiezone, Wohnzone 5'
+            'value': 'Archäologiezone, Wohnzone 5, Keine Gefahrenzone'
         }
     }
 }
@@ -636,7 +636,7 @@ snapshots['test_gr_client[query13-baugesuch] 1'] = {
         'zonenplan': {
             'hidden': False,
             'label': 'zonenplan',
-            'value': 'Grundwasser- und Quellschutzzone, Keine Gefahrenzone, Wald (orientierend), Übriges Gemeindegebiet'
+            'value': 'Grundwasser- und Quellschutzzone, Wald (orientierend), Übriges Gemeindegebiet, Keine Gefahrenzone'
         }
     }
 }
@@ -971,7 +971,7 @@ snapshots['test_gr_client[query4-baugesuch] 1'] = {
         'zonenplan': {
             'hidden': False,
             'label': 'zonenplan',
-            'value': 'Keine Gefahrenzone, Wohnzone 2'
+            'value': 'Wohnzone 2, Keine Gefahrenzone'
         }
     }
 }
@@ -1224,7 +1224,7 @@ snapshots['test_gr_client[query7-baugesuch] 1'] = {
         'zonenplan': {
             'hidden': False,
             'label': 'zonenplan',
-            'value': 'Keine Gefahrenzone, Landwirtschaftszone'
+            'value': 'Landwirtschaftszone, Keine Gefahrenzone'
         }
     }
 }
@@ -1306,7 +1306,7 @@ snapshots['test_gr_client[query8-baugesuch] 1'] = {
         'zonenplan': {
             'hidden': False,
             'label': 'zonenplan',
-            'value': 'Keine Gefahrenzone, Auf Gefahrenzonen nicht untersuchtes Gebiet (orientierend), Landwirtschaftszone, Wald (orientierend)'
+            'value': 'Auf Gefahrenzonen nicht untersuchtes Gebiet (orientierend), Landwirtschaftszone, Wald (orientierend), Keine Gefahrenzone'
         }
     }
 }
@@ -1415,7 +1415,7 @@ snapshots['test_gr_client[query9-baugesuch] 1'] = {
         'zonenplan': {
             'hidden': False,
             'label': 'zonenplan',
-            'value': 'Keine Gefahrenzone, Wohnzone 3'
+            'value': 'Wohnzone 3, Keine Gefahrenzone'
         }
     }
 }
