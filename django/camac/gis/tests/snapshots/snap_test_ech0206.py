@@ -114,7 +114,7 @@ snapshots['test_ech0206_client[2759626.1504406286-1191908.3321774867] 1'] = {
         'zonenplan': {
             'hidden': False,
             'label': None,
-            'value': 'Keine Gefahrenzone, Wohnzone 4'
+            'value': 'Wohnzone 4, Keine Gefahrenzone'
         }
     }
 }
@@ -314,7 +314,7 @@ snapshots['test_ech0206_client[2759647.4234941704-1191526.8007143869] 1'] = {
         'zonenplan': {
             'hidden': False,
             'label': None,
-            'value': 'Keine Gefahrenzone, Wohnzone 3'
+            'value': 'Wohnzone 3, Keine Gefahrenzone'
         }
     }
 }
@@ -355,7 +355,7 @@ snapshots['test_ech0206_client[2759652.9068137-1191423.1268269215] 1'] = {
         'zonenplan': {
             'hidden': False,
             'label': None,
-            'value': 'Keine Gefahrenzone, Wohnzone 3'
+            'value': 'Wohnzone 3, Keine Gefahrenzone'
         }
     }
 }
@@ -502,7 +502,7 @@ snapshots['test_ech0206_client[2759664.9038492967-1191395.5015286694] 1'] = {
         'zonenplan': {
             'hidden': False,
             'label': None,
-            'value': 'Keine Gefahrenzone, Wohnzone 3'
+            'value': 'Wohnzone 3, Keine Gefahrenzone'
         }
     }
 }
@@ -591,7 +591,7 @@ snapshots['test_ech0206_client[2759746.044642407-1191415.6188414234] 1'] = {
         'zonenplan': {
             'hidden': False,
             'label': None,
-            'value': 'Keine Gefahrenzone, Wohnzone 3'
+            'value': 'Wohnzone 3, Keine Gefahrenzone'
         }
     }
 }
@@ -670,7 +670,7 @@ snapshots['test_ech0206_client[2759772.4989033034-1191611.9958049427] 1'] = {
         'zonenplan': {
             'hidden': False,
             'label': None,
-            'value': 'Keine Gefahrenzone, Zone für öffentliche Bauten und Anlagen'
+            'value': 'Zone für öffentliche Bauten und Anlagen, Keine Gefahrenzone'
         }
     }
 }
@@ -740,7 +740,7 @@ snapshots['test_ech0206_client[2760073.7106244904-1191456.8678512666] 1'] = {
         'zonenplan': {
             'hidden': False,
             'label': None,
-            'value': 'Keine Gefahrenzone, Wohnzone 2'
+            'value': 'Wohnzone 2, Keine Gefahrenzone'
         }
     }
 }
