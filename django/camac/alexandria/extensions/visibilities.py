@@ -1,10 +1,12 @@
 from alexandria.core.models import BaseModel, Category, Document, File, Tag
 from alexandria.core.visibilities import BaseVisibility, filter_queryset_for
 from django.conf import settings
-from django.db.models import Q
+from django.db.models import CharField, Q
+from django.db.models.functions import Cast
 
 from camac.instance.filters import CalumaInstanceFilterSet
 from camac.instance.mixins import InstanceQuerysetMixin
+from camac.user.models import Service
 from camac.utils import filters
 
 from .common import get_role, get_service_parent_and_children
@@ -141,6 +143,13 @@ class CustomVisibility(BaseVisibility, InstanceQuerysetMixin):
                     created_by_group__in=get_service_parent_and_children(
                         request.caluma_info.context.user.group
                     )
+                )
+                | Q(
+                    created_by_group__in=Service.objects.filter(
+                        service_group__name="municipality"
+                    )
+                    .annotate(id_string=Cast("pk", CharField()))
+                    .values_list("id_string", flat=True)
                 )
                 | Q(pk__in=settings.ALEXANDRIA["MARKS"]["ALL"])
             )
