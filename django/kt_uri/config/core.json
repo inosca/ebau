@@ -23439,6 +23439,14 @@
     }
   },
   {
+    "model": "core.formgroupform",
+    "pk": 12000088,
+    "fields": {
+      "form_group": 241,
+      "form": 304
+    }
+  },
+  {
     "model": "core.grouppermission",
     "pk": 130195,
     "fields": {
