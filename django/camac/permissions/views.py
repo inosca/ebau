@@ -18,6 +18,8 @@ class InstanceACLViewset(InstanceQuerysetMixin, ModelViewSet):
     queryset = models.InstanceACL.objects
 
     instance_field = "instance"
+    ordering_fields = ["start_time"]
+    ordering = ["-start_time"]
 
     def get_queryset(self):
         # TODO: This uses the old permissions / visibility system for now.
