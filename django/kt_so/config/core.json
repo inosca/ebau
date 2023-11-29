@@ -5677,6 +5677,51 @@
     }
   },
   {
+    "model": "core.irroleacl",
+    "pk": 553,
+    "fields": {
+      "instance_resource": 11,
+      "role": 12,
+      "instance_state": 8
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 554,
+    "fields": {
+      "instance_resource": 11,
+      "role": 12,
+      "instance_state": 7
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 555,
+    "fields": {
+      "instance_resource": 11,
+      "role": 12,
+      "instance_state": 5
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 556,
+    "fields": {
+      "instance_resource": 11,
+      "role": 12,
+      "instance_state": 9
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 557,
+    "fields": {
+      "instance_resource": 11,
+      "role": 12,
+      "instance_state": 12
+    }
+  },
+  {
     "model": "core.irtaskform",
     "pk": 4,
     "fields": {
