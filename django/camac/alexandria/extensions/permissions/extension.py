@@ -75,7 +75,7 @@ class CustomPermission(BasePermission):
             elif isinstance(old_value, Category):
                 old_value = old_value.pk
                 new_value = new_value["id"]
-            elif hasattr(old_value, "values_list") and new_value:
+            elif hasattr(old_value, "values_list"):
                 old_value = [str(v) for v in old_value.values_list("pk", flat=True)]
                 new_value = [item["id"] for item in new_value]
 
