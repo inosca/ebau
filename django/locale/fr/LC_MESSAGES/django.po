@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-27 09:52+0100\n"
+"POT-Creation-Date: 2023-11-28 17:36+0100\n"
 "PO-Revision-Date: 2023-08-07 17:32+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -452,34 +452,38 @@ msgstr "DC2 envoyé"
 msgid "Error %(code)s while fetching data from the geo.admin.ch API"
 msgstr ""
 
-#: camac/gis/clients/base.py:29
-#, python-format
-msgid "Required parameter %(parameter)s was not passed"
-msgstr ""
-
 #: camac/gis/clients/sogis.py:60
 #, python-format
 msgid "Error %(code)s while fetching data from the geo.so.ch API"
 msgstr ""
 
-#: camac/gis/models.py:15
+#: camac/gis/models.py:24
 msgid "GIS Canton Solothurn"
 msgstr ""
 
-#: camac/gis/models.py:16
+#: camac/gis/models.py:25
 msgid "GIS Canton GR"
 msgstr ""
 
-#: camac/gis/models.py:17
+#: camac/gis/models.py:26
 msgid "Parameter"
 msgstr ""
 
-#: camac/gis/models.py:18
+#: camac/gis/models.py:27
+msgid "Ech0206"
+msgstr ""
+
+#: camac/gis/models.py:28
 msgid "Federal GIS Switzerland"
 msgstr ""
 
-#: camac/gis/utils.py:21
+#: camac/gis/utils.py:25
 msgid "Coordinates must be floats"
+msgstr ""
+
+#: camac/gis/views.py:96
+#, python-format
+msgid "Required parameter %(parameter)s was not passed"
 msgstr ""
 
 #: camac/instance/document_merge_service.py:82
@@ -934,28 +938,28 @@ msgstr "Service à l'origine de la tâche"
 msgid "Inviter of additional demand creator"
 msgstr ""
 
-#: camac/notification/serializers.py:443
+#: camac/notification/serializers.py:436
 #, python-format
 msgid "%(pending)d of %(total)d inquries are still pending."
 msgstr "%(pending)d de %(total)d prises de position sont toujours en attente."
 
-#: camac/notification/serializers.py:446
+#: camac/notification/serializers.py:439
 #, python-format
 msgid "All %(total)d inquries were received."
 msgstr "Tous les %(total)d prises de position ont été reçues."
 
-#: camac/notification/serializers.py:1416
+#: camac/notification/serializers.py:1409
 msgid "Unknown recipient type"
 msgstr "Type de récepteur inconnu"
 
-#: camac/notification/serializers.py:1517
+#: camac/notification/serializers.py:1510
 #, python-format
 msgid ""
 "Notification sent to %(receiver_emails)s (%(receiver_type)s) (%(subject)s)"
 msgstr ""
 "Notification envoyée à %(receiver_emails)s (%(receiver_type)s) (%(subject)s)"
 
-#: camac/notification/serializers.py:1521
+#: camac/notification/serializers.py:1514
 #, python-format
 msgid "Notification sent to %(receiver_type)s (no receivers) (%(subject)s)"
 msgstr ""
@@ -973,49 +977,49 @@ msgstr "delete_by_purpose n'a pas été fourni avec le paramètre requis"
 msgid "Objection %(objection) already has a representative"
 msgstr "Objection %(objection) a déjà un représentant"
 
-#: camac/settings.py:1479 camac/settings.py:3083 camac/settings.py:3504
+#: camac/settings.py:1473 camac/settings.py:3066 camac/settings.py:3487
 msgid "Circulation started"
 msgstr "Procédure de circulation lancée"
 
-#: camac/settings.py:1496
+#: camac/settings.py:1490
 msgid "Procedure completed"
 msgstr "Procédure de demande de permis de construire complétée"
 
-#: camac/settings.py:3079
+#: camac/settings.py:3062
 msgid "Preliminary exam performed"
 msgstr ""
 
-#: camac/settings.py:3089
+#: camac/settings.py:3072
 msgid "Additional demand sent"
 msgstr ""
 
-#: camac/settings.py:3096
+#: camac/settings.py:3079
 msgid "Additional demand was answered"
 msgstr ""
 
-#: camac/settings.py:3104
+#: camac/settings.py:3087
 #, fuzzy
 #| msgid "Construction control"
 msgid "Construction monitoring performed"
 msgstr "Contrôle construction"
 
-#: camac/settings.py:3496
+#: camac/settings.py:3479
 msgid "Formal exam performed"
 msgstr ""
 
-#: camac/settings.py:3500
+#: camac/settings.py:3483
 msgid "Material exam performed"
 msgstr ""
 
-#: camac/settings.py:3885
+#: camac/settings.py:3867
 msgid "German"
 msgstr "Allemand"
 
-#: camac/settings.py:3886
+#: camac/settings.py:3868
 msgid "French"
 msgstr "Français"
 
-#: camac/settings.py:3887
+#: camac/settings.py:3869
 msgid "Italian"
 msgstr "L'italien"
 

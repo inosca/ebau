@@ -548,6 +548,26 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
         aliases=[_("CIRCULATION_FEEDBACK")],
         description=_("Opinions and ancillary clauses of the invited services"),
     )
+    eigene_gebuehren_total = fields.BillingEntriesField(
+        own=True,
+        total=True,
+        aliases=[_("OWN_BILLING_ENTRIES_TOTAL")],
+        description=_("Total of all own billing entries of the instance"),
+    )
+    eigene_gebuehren = fields.BillingEntriesField(
+        own=True,
+        aliases=[_("OWN_BILLING_ENTRIES")],
+        description=_("Own billing entries of the instance"),
+    )
+    gebuehren_total = fields.BillingEntriesField(
+        total=True,
+        aliases=[_("BILLING_ENTRIES_TOTAL")],
+        description=_("Total of all billing entries of the instance"),
+    )
+    gebuehren = fields.BillingEntriesField(
+        aliases=[_("BILLING_ENTRIES")],
+        description=_("Billing entries of the instance"),
+    )
 
     def get_base_url(self, instance):
         return settings.INTERNAL_BASE_URL
@@ -715,6 +735,14 @@ class GrDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
             data.append(f"{x} / {y}")
         return "; ".join(data)
 
+    class Meta:
+        exclude = [
+            "eigene_gebuehren_total",
+            "eigene_gebuehren",
+            "gebuehren_total",
+            "gebuehren",
+        ]
+
 
 class BeDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
     bauvorhaben = fields.JointField(
@@ -858,17 +886,6 @@ class BeDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         use_identifier=True,
     )
     dossier_link = fields.AliasedMethodField()
-    eigene_gebuehren_total = fields.BillingEntriesField(
-        own=True,
-        total=True,
-        aliases=[_("OWN_BILLING_ENTRIES_TOTAL")],
-        description=_("Total of all own billing entries of the instance"),
-    )
-    eigene_gebuehren = fields.BillingEntriesField(
-        own=True,
-        aliases=[_("OWN_BILLING_ENTRIES")],
-        description=_("Own billing entries of the instance"),
-    )
     email = fields.DeprecatedField()
     fachstellen_kantonal_list = fields.InquiriesField(
         props=["service_with_prefix"],
@@ -902,15 +919,6 @@ class BeDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         only_first=True,
         aliases=[_("BUILDING_OWNER")],
         description=_("Name of the building owner"),
-    )
-    gebuehren_total = fields.BillingEntriesField(
-        total=True,
-        aliases=[_("BILLING_ENTRIES_TOTAL")],
-        description=_("Total of all billing entries of the instance"),
-    )
-    gebuehren = fields.BillingEntriesField(
-        aliases=[_("BILLING_ENTRIES")],
-        description=_("Billing entries of the instance"),
     )
     gemeinde_adresse_1 = fields.MunicipalityField(
         source="address",
