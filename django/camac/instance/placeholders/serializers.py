@@ -568,6 +568,10 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
         aliases=[_("BILLING_ENTRIES")],
         description=_("Billing entries of the instance"),
     )
+    dossier_number = fields.MasterDataField(
+        aliases=[_("DOSSIER_NUMBER")],
+        description=_("Dossier number of the instance"),
+    )
 
     def get_base_url(self, instance):
         return settings.INTERNAL_BASE_URL
@@ -618,10 +622,6 @@ class GrDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         source="pk",
         aliases=[_("ID")],
         description=_("ID of the instance"),
-    )
-    dossier_number = fields.MasterDataField(
-        aliases=[_("DOSSIER_NUMBER")],
-        description=_("Dossier number of the instance"),
     )
     bauentscheid = fields.DecisionField(
         source="decision-decision",
@@ -1206,6 +1206,9 @@ class BeDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
     def get_uvp_ja_nein(self, instance):
         return "mit-uvp" in instance.case.document.form_id
 
+    class Meta:
+        exclude = ["dossier_number"]
+
 
 class SoDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
     zirkulation_fachstellen = fields.InquiriesField(
@@ -1222,4 +1225,5 @@ class SoDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
             "stellungnahme",
             "publikation_text",
             "language",
+            "zirkulation_rueckmeldungen",
         ]

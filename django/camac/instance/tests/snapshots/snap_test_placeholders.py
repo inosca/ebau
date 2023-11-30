@@ -4334,6 +4334,18 @@ snapshots['test_dms_placeholders_docs[so_dms_config] 1'] = {
         'nested_aliases': {
         }
     },
+    'DOSSIER_NUMBER': {
+        'aliases': [
+            {
+                'de': 'DOSSIER_NUMMER'
+            }
+        ],
+        'description': {
+            'de': 'Die Nummer des Dossiers'
+        },
+        'nested_aliases': {
+        }
+    },
     'EIGENE_GEBUEHREN': {
         'aliases': [
             {
@@ -5004,38 +5016,6 @@ snapshots['test_dms_placeholders_docs[so_dms_config] 1'] = {
             'NAME': [
                 {
                     'de': 'NAME'
-                }
-            ]
-        }
-    },
-    'ZIRKULATION_RUECKMELDUNGEN': {
-        'aliases': [
-            {
-                'de': 'ZIRKULATION_RUECKMELDUNGEN'
-            }
-        ],
-        'description': {
-            'de': 'Stellungnahmen und Nebenbestimmungen der eingeladenen Fachstellen'
-        },
-        'nested_aliases': {
-            'ANTWORT': [
-                {
-                    'de': 'ANTWORT'
-                }
-            ],
-            'NEBENBESTIMMUNGEN': [
-                {
-                    'de': 'NEBENBESTIMMUNGEN'
-                }
-            ],
-            'STELLUNGNAHME': [
-                {
-                    'de': 'STELLUNGNAHME'
-                }
-            ],
-            'VON': [
-                {
-                    'de': 'VON'
                 }
             ]
         }
@@ -5809,6 +5789,8 @@ snapshots['test_dms_placeholders_docs_available_placeholders[so_dms_config] 1'] 
     'BAUHERR_NAME_ADRESSE',
     'BESCHREIBUNG_BAUVORHABEN',
     'DECISION_DATE',
+    'DOSSIER_NUMBER',
+    'DOSSIER_NUMMER',
     'DOSSIER_TYP',
     'EBAU_URL',
     'EIGENE_GEBUEHREN',
@@ -5903,13 +5885,7 @@ snapshots['test_dms_placeholders_docs_available_placeholders[so_dms_config] 1'] 
     'ZIRKULATION_GEMEINDEN[].BEANTWORTET',
     'ZIRKULATION_GEMEINDEN[].ERSTELLT',
     'ZIRKULATION_GEMEINDEN[].FRIST',
-    'ZIRKULATION_GEMEINDEN[].NAME',
-    'ZIRKULATION_RUECKMELDUNGEN',
-    'ZIRKULATION_RUECKMELDUNGEN[]',
-    'ZIRKULATION_RUECKMELDUNGEN[].ANTWORT',
-    'ZIRKULATION_RUECKMELDUNGEN[].NEBENBESTIMMUNGEN',
-    'ZIRKULATION_RUECKMELDUNGEN[].STELLUNGNAHME',
-    'ZIRKULATION_RUECKMELDUNGEN[].VON'
+    'ZIRKULATION_GEMEINDEN[].NAME'
 ]
 
 snapshots['test_dms_placeholders_empty[Municipality] 1'] = {
