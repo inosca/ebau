@@ -553,44 +553,6 @@ def test_dms_placeholders(
     billing_v2_entry_factory.create_batch(2, instance=be_instance)
     billing_v2_entry_factory.create_batch(2, instance=be_instance, group=group)
 
-    # Inventar
-    add_answer(
-        be_instance.case.document,
-        "schuetzenswert",
-        "schuetzenswert-ja",
-        question_label="Schützenswert",
-    )
-    add_answer(
-        be_instance.case.document,
-        "erhaltenswert",
-        "erhaltenswert-nein",
-        question_label="Erhaltenswert",
-    )
-    add_answer(
-        be_instance.case.document, "k-objekt", "k-objekt-ja", question_label="K-Objekt"
-    )
-    add_answer(
-        be_instance.case.document,
-        "baugruppe-bauinventar",
-        "baugruppe-bauinventar-ja",
-        question_label="Baugruppe Bauinventar",
-    )
-    add_answer(be_instance.case.document, "bezeichnung-baugruppe", "Test Baugruppe")
-    add_answer(be_instance.case.document, "rrb", "rrb-ja")
-    add_answer(
-        be_instance.case.document,
-        "rrb-vom",
-        date(2022, 1, 1),
-        question_label="RRB vom",
-    )
-    add_answer(be_instance.case.document, "vertrag", "vertrag-ja")
-    add_answer(
-        be_instance.case.document,
-        "vertrag-vom",
-        date(2022, 2, 1),
-        question_label="Vertrag vom",
-    )
-
     url = reverse("instance-dms-placeholders", args=[be_instance.pk])
 
     response = admin_client.get(url)
