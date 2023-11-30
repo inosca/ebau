@@ -124,7 +124,7 @@ export default function makeServer(config) {
         return message;
       });
 
-      this.resource("instance-acls", { only: ["index", "show"] });
+      this.resource("instance-acls");
       this.get("instance-acls", (schema, { queryParams }) => {
         const filtered = applyTestQueryParamsFilter(
           schema.instanceAcls.all(),
