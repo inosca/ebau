@@ -27,7 +27,7 @@
     "model": "notification.notificationtemplate",
     "pk": 3,
     "fields": {
-      "slug": "eingang-dossier-gesuchsteller",
+      "slug": "empfang-baugesuch-bauherrschaft",
       "purpose": null,
       "subject": null,
       "body": null,
@@ -39,7 +39,7 @@
     "model": "notification.notificationtemplate",
     "pk": 4,
     "fields": {
-      "slug": "eingang-dossier-leitbehoerde",
+      "slug": "empfang-baugesuch-gemeinde",
       "purpose": null,
       "subject": null,
       "body": null,
@@ -51,7 +51,7 @@
     "model": "notification.notificationtemplate",
     "pk": 5,
     "fields": {
-      "slug": "additional-demand-decision-accept",
+      "slug": "nachforderung-akzeptiert",
       "purpose": null,
       "subject": null,
       "body": null,
@@ -63,7 +63,115 @@
     "model": "notification.notificationtemplate",
     "pk": 6,
     "fields": {
-      "slug": "additional-demand-decision-reject",
+      "slug": "nachforderung-abgelehnt",
+      "purpose": null,
+      "subject": null,
+      "body": null,
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
+    "model": "notification.notificationtemplate",
+    "pk": 7,
+    "fields": {
+      "slug": "nachforderung-neu",
+      "purpose": null,
+      "subject": null,
+      "body": null,
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
+    "model": "notification.notificationtemplate",
+    "pk": 8,
+    "fields": {
+      "slug": "nachforderung-beantwortet",
+      "purpose": null,
+      "subject": null,
+      "body": null,
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
+    "model": "notification.notificationtemplate",
+    "pk": 9,
+    "fields": {
+      "slug": "stellungnahme-angefordert",
+      "purpose": null,
+      "subject": null,
+      "body": null,
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
+    "model": "notification.notificationtemplate",
+    "pk": 10,
+    "fields": {
+      "slug": "stellungnahme-beantwortet",
+      "purpose": null,
+      "subject": null,
+      "body": null,
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
+    "model": "notification.notificationtemplate",
+    "pk": 11,
+    "fields": {
+      "slug": "entscheid-bauherrschaft",
+      "purpose": null,
+      "subject": null,
+      "body": null,
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
+    "model": "notification.notificationtemplate",
+    "pk": 12,
+    "fields": {
+      "slug": "entscheid-behoerden",
+      "purpose": null,
+      "subject": null,
+      "body": null,
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
+    "model": "notification.notificationtemplate",
+    "pk": 13,
+    "fields": {
+      "slug": "dossierkorrektur",
+      "purpose": null,
+      "subject": null,
+      "body": null,
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
+    "model": "notification.notificationtemplate",
+    "pk": 14,
+    "fields": {
+      "slug": "rueckweisung",
+      "purpose": null,
+      "subject": null,
+      "body": null,
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
+    "model": "notification.notificationtemplate",
+    "pk": 15,
+    "fields": {
+      "slug": "rueckzug",
       "purpose": null,
       "subject": null,
       "body": null,
@@ -78,9 +186,9 @@
       "template": 1,
       "template_slug": "gesuchsbearbeitungs-einladung-bestehend",
       "language": "de",
-      "purpose": "Gesuchsbearbeitungs Einladung, Bestehend",
-      "subject": "Einsicht respektive Mitarbeit in Dossier (Nr. {{ INSTANCE_ID }})",
-      "body": "Guten Tag\r\n\r\nSie haben vom/von der Bauherr/in den Zugriff auf das Dossier-Nr. {{ INSTANCE_ID }} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}, {{ PUBLIC_DOSSIER_LINK }}) erhalten. Damit können Sie dieses einsehen respektive mitbearbeiten.\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse"
+      "purpose": "Gesuchsbearbeitungs Einladung (bestehend)",
+      "subject": "Einsicht respektive Mitarbeit (Dossier Nr. {{ DOSSIER_NR }})",
+      "body": "Guten Tag\r\n\r\nSie haben Zugriff auf das Dossier-Nr. {{ DOSSIER_NR }} erhalten. Damit können Sie dieses einsehen respektive mitbearbeiten:\r\n\r\n{{ PUBLIC_DOSSIER_LINK }}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\neBau"
     }
   },
   {
@@ -90,9 +198,9 @@
       "template": 2,
       "template_slug": "gesuchsbearbeitungs-einladung-neu",
       "language": "de",
-      "purpose": "Gesuchsbearbeitungs Einladung, Neu",
-      "subject": "Einsicht respektive Mitarbeit in Dossier (Nr. {{ INSTANCE_ID }})",
-      "body": "Guten Tag\r\n\r\nSie haben vom/von der Bauherr/in den Zugriff auf das Dossier-Nr. {{ INSTANCE_ID }} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}, {{ PUBLIC_DOSSIER_LINK }}) erhalten. Damit können Sie dieses einsehen respektive mitbearbeiten.\r\n\r\nUm das Dossier einsehen respektive mitbearbeiten zu können, ist eine Registrierung auf dem eBau Portal des Kantons Bern erforderlich.\r\n\r\nUnter folgendem Link können Sie sich registrieren: {{ REGISTRATION_LINK }}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse"
+      "purpose": "Gesuchsbearbeitungs Einladung (neu)",
+      "subject": "Einsicht respektive Mitarbeit (Dossier Nr. {{ DOSSIER_NR }})",
+      "body": "Guten Tag\r\n\r\nSie haben Zugriff auf das Dossier-Nr. {{ DOSSIER_NR }} erhalten. Damit können Sie dieses einsehen respektive mitbearbeiten:\r\n\r\n{{ PUBLIC_DOSSIER_LINK }}\r\n\r\nUm das Dossier einsehen respektive mitbearbeiten zu können, ist eine Registrierung auf dem eBau Portal des Kanton Solothurn erforderlich.\r\n\r\nUnter folgendem Link können Sie sich registrieren: {{ REGISTRATION_LINK }}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\neBau"
     }
   },
   {
@@ -100,11 +208,11 @@
     "pk": 3,
     "fields": {
       "template": 3,
-      "template_slug": "eingang-dossier-gesuchsteller",
+      "template_slug": "empfang-baugesuch-bauherrschaft",
       "language": "de",
-      "purpose": "Eingang Dossier (Gesuchsteller)",
-      "subject": "Erfolgreiche Einreichung",
-      "body": "Guten Tag\r\n\r\nIhr Dossier mit der Dossier-Nr. {{INSTANCE_ID}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde erfolgreich übermittelt.\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{LEITBEHOERDE_NAME_DE}}"
+      "purpose": "Empfang Baugesuch (Bauherrschaft)",
+      "subject": "Erfolgreiche Einreichung (Dossier-Nr. {{ DOSSIER_NR }})",
+      "body": "Guten Tag\r\n\r\nIhr Dossier mit der Dossier-Nr. {{ DOSSIER_NR }} wurde erfolgreich übermittelt. Bitte beachten Sie, dass das Verfahren erst eingeleitet wird, wenn das Unterschriftenblatt ausgedruckt und unterzeichnet bei der Gemeinde eingereicht wurde. \r\n\r\n{{ PUBLIC_DOSSIER_LINK }}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{ LEITBEHOERDE_NAME_DE }}"
     }
   },
   {
@@ -112,11 +220,11 @@
     "pk": 4,
     "fields": {
       "template": 4,
-      "template_slug": "eingang-dossier-leitbehoerde",
+      "template_slug": "empfang-baugesuch-gemeinde",
       "language": "de",
-      "purpose": "Eingang Dossier (Gemeinde)",
-      "subject": "Neu eingegangen",
-      "body": "Guten Tag\r\n\r\nIm eBau gibt es einen neuen Eingang mit der Dossier-Nr. {{INSTANCE_ID}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}).\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\neBau"
+      "purpose": "Empfang Baugesuch (Gemeinde)",
+      "subject": "Neu eingegangen (Dossier-Nr. {{ DOSSIER_NR }})",
+      "body": "Guten Tag\r\n\r\nIm eBau gibt es einen neuen Eingang mit der Dossier-Nr. {{ DOSSIER_NR }}.\r\n\r\n{{ INTERNAL_DOSSIER_LINK }}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\neBau"
     }
   },
   {
@@ -124,11 +232,11 @@
     "pk": 5,
     "fields": {
       "template": 5,
-      "template_slug": "additional-demand-decision-accept",
+      "template_slug": "nachforderung-akzeptiert",
       "language": "de",
-      "purpose": "Nachforderung vollständig",
-      "subject": "Nachforderung vollständig (Dossier-Nr. {{DOSSIER_NR}})",
-      "body": "Guten Tag\r\n\r\nIm eBau wurde eine Nachforderung im Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) abgeschlossen.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}/additional-demand\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\neBau"
+      "purpose": "Nachforderung akzeptiert",
+      "subject": "Nachforderung akzeptiert (Dossier-Nr. {{ DOSSIER_NR }})",
+      "body": "Guten Tag\r\n\r\nIm eBau wurde die Nachforderung angeschlossen im Dossier-Nr. {{ DOSSIER_NR }}.\r\n\r\n{{ INTERNAL_DOSSIER_LINK }}/additional-demand\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\neBau"
     }
   },
   {
@@ -136,11 +244,119 @@
     "pk": 6,
     "fields": {
       "template": 6,
-      "template_slug": "additional-demand-decision-reject",
+      "template_slug": "nachforderung-abgelehnt",
       "language": "de",
-      "purpose": "Nachforderung unvollständig",
-      "subject": "Nachforderung unvollständig (Dossier-Nr. {{DOSSIER_NR}})",
-      "body": "Guten Tag\r\n\r\nIhre Nachforderung zum Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde als unvollständig beurteilt.\r\n\r\n{{PUBLIC_DOSSIER_LINK}}/additional-demand\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\neBau"
+      "purpose": "Nachforderung abgelehnt",
+      "subject": "Nachforderung abgelehnt (Dossier-Nr. {{ DOSSIER_NR }})",
+      "body": "Guten Tag\r\n\r\nIm eBau wurde ihre Nachforderung abgelehnt im Dossier-Nr. {{ DOSSIER_NR }}.\r\n\r\n{{ PUBLIC_DOSSIER_LINK }}/additional-demand\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\neBau"
+    }
+  },
+  {
+    "model": "notification.notificationtemplatet",
+    "pk": 7,
+    "fields": {
+      "template": 7,
+      "template_slug": "nachforderung-neu",
+      "language": "de",
+      "purpose": "Nachforderung neu",
+      "subject": "Neue Nachforderung (Dossier-Nr. {{ DOSSIER_NR }})",
+      "body": "Guten Tag\r\n\r\nIm eBau gibt es eine neue Nachforderung im Dossier-Nr. {{ DOSSIER_NR }}.\r\n\r\n{{ PUBLIC_DOSSIER_LINK }}/additional-demand\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\neBau"
+    }
+  },
+  {
+    "model": "notification.notificationtemplatet",
+    "pk": 8,
+    "fields": {
+      "template": 8,
+      "template_slug": "nachforderung-beantwortet",
+      "language": "de",
+      "purpose": "Nachforderung beantwortet",
+      "subject": "Nachforderung beantwortet (Dossier-Nr. {{ DOSSIER_NR }})",
+      "body": "Guten Tag\r\n\r\nIm eBau wurde die Nachforderung beantwortet im Dossier-Nr. {{ DOSSIER_NR }}.\r\n\r\n{{ INTERNAL_DOSSIER_LINK }}/additional-demand\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\neBau"
+    }
+  },
+  {
+    "model": "notification.notificationtemplatet",
+    "pk": 9,
+    "fields": {
+      "template": 9,
+      "template_slug": "stellungnahme-angefordert",
+      "language": "de",
+      "purpose": "Stellungnahme angefordert",
+      "subject": "Stellungnahme angefordert (Dossier-Nr. {{ DOSSIER_NR }})",
+      "body": "Guten Tag\r\n\r\nSie erhalten das Dossier mit der Dossier-Nr. {{ DOSSIER_NR }} ({{ MUNICIPALITY_DE }}) zur Ausarbeitung einer Stellungnahme, eines Amts-/ Fachberichtes oder einer Verfügung.\r\n\r\nBemerkung: {{ INQUIRY_REMARK }}\r\n\r\n{{ INQUIRY_LINK }}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{ CURRENT_SERVICE_DE }}"
+    }
+  },
+  {
+    "model": "notification.notificationtemplatet",
+    "pk": 10,
+    "fields": {
+      "template": 10,
+      "template_slug": "stellungnahme-beantwortet",
+      "language": "de",
+      "purpose": "Stellungnahme beantwortet",
+      "subject": "Stellungnahme beantwortet (Dossier-Nr. {{ DOSSIER_NR }})",
+      "body": "Guten Tag\r\n\r\nFür das Dossier mit der Dossier-Nr. {{ DOSSIER_NR }} ({{ MUNICIPALITY_DE }}) wurden die gemäss Leitverfahren eingeforderten Stellungnahmen, Amts- und Fachberichte und Verfügungen erstellt: {{ INQUIRY_ANSWER_DE }}.\r\n\r\n{{ INQUIRY_LINK }}\r\n\r\n{{ DISTRIBUTION_STATUS_DE }}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{ CURRENT_SERVICE_DE }}"
+    }
+  },
+  {
+    "model": "notification.notificationtemplatet",
+    "pk": 11,
+    "fields": {
+      "template": 11,
+      "template_slug": "entscheid-bauherrschaft",
+      "language": "de",
+      "purpose": "Entscheid (Bauherrschaft)",
+      "subject": "Information über Entscheid (Dossier-Nr. {{ DOSSIER_NR }})",
+      "body": "Guten Tag\r\n\r\nDer Bauentscheid ({{ DECISION_DE }}) zum Dossier mit der Dossier-Nr. {{ DOSSIER_NR }} wurde gefällt. Den Entscheid mit den Rechtsmitteln finden Sie in den eBau-Dokumenten:\r\n\r\n{{ PUBLIC_DOSSIER_LINK }}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{ LEITBEHOERDE_NAME_DE }}"
+    }
+  },
+  {
+    "model": "notification.notificationtemplatet",
+    "pk": 12,
+    "fields": {
+      "template": 12,
+      "template_slug": "entscheid-behoerden",
+      "language": "de",
+      "purpose": "Entscheid (Behörden)",
+      "subject": "Information über Entscheid (Dossier-Nr. {{ DOSSIER_NR }})",
+      "body": "Guten Tag\r\n\r\nDer Bauentscheid zum Dossier mit der Dossier-Nr. {{ DOSSIER_NR }} wurde gefällt. Den Entscheid mit den Rechtsmitteln finden Sie in den eBau-Dokumenten:\r\n\r\n{{ INTERNAL_DOSSIER_LINK }}/documents\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\neBau"
+    }
+  },
+  {
+    "model": "notification.notificationtemplatet",
+    "pk": 13,
+    "fields": {
+      "template": 13,
+      "template_slug": "dossierkorrektur",
+      "language": "de",
+      "purpose": "Dossierkorrektur",
+      "subject": "Dossierkorrektur (Dossier-Nr. {{ DOSSIER_NR }})",
+      "body": "Guten Tag\r\n\r\nZu dem von Ihnen eingereichten Dossier mit der Nr. {{ DOSSIER_NR }} wurden von der Gemeinde Korrekturen erfasst. Sie können das korrigierte Dossier unter folgendem Link einsehen:\r\n\r\n{{ PUBLIC_DOSSIER_LINK }}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{ LEITBEHOERDE_NAME_DE }}"
+    }
+  },
+  {
+    "model": "notification.notificationtemplatet",
+    "pk": 14,
+    "fields": {
+      "template": 14,
+      "template_slug": "rueckweisung",
+      "language": "de",
+      "purpose": "Rückweisung",
+      "subject": "Dossier aufgrund von Mängeln abgewiesen oder nicht darauf eingetreten (Dossier-Nr. {{ DOSSIER_NR }})",
+      "body": "Guten Tag\r\n\r\nDie Baubewilligungsbehörde ({{ LEITBEHOERDE_NAME_DE }}) hat das Dossier mit der Dossier-Nr. {{ DOSSIER_NR }} zurückgewiesen. Das Dossier kann nun angepasst und erneut eingereicht werden.\r\n\r\n{{ PUBLIC_DOSSIER_LINK }}\r\n\r\nMitteilung der Baubewilligungsbehörde:\r\n\r\n{{ REJECTION_FEEDBACK }}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{ LEITBEHOERDE_NAME_DE }}"
+    }
+  },
+  {
+    "model": "notification.notificationtemplatet",
+    "pk": 15,
+    "fields": {
+      "template": 15,
+      "template_slug": "rueckzug",
+      "language": "de",
+      "purpose": "Rückzug",
+      "subject": "Dossier zurückgezogen (Dossier-Nr. {{ DOSSIER_NR }})",
+      "body": "Guten Tag\r\n\r\nIm eBau wurde das Dossier mit der Dossier-Nr. {{ DOSSIER_NR }} zurückgezogen.\r\n\r\n{{ INTERNAL_DOSSIER_LINK }}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\neBau"
     }
   }
 ]

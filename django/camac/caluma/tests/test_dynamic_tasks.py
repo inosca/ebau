@@ -277,30 +277,26 @@ def test_dynamic_task_after_ebau_number(
 
 
 @pytest.mark.parametrize(
-    "answer_value,expected_tasks",
+    "decision,expected_tasks",
     [
-        ("additional-demand-decision-accept", set()),
-        ("additional-demand-decision-reject", {"fill-additional-demand"}),
+        ("ACCEPTED", set()),
+        ("REJECTED", {"fill-additional-demand"}),
     ],
 )
 def test_dynamic_task_after_check_additional_demand(
     db,
     additional_demand_settings,
-    work_item_factory,
-    question_factory,
-    document_factory,
     answer_factory,
-    answer_value,
+    decision,
     expected_tasks,
+    work_item_factory,
 ):
-    question = question_factory(slug="additional-demand-decision")
-    document = document_factory()
-    answer = answer_factory(document=document, question=question, value=answer_value)
+    answer = answer_factory(
+        question__slug=additional_demand_settings["QUESTIONS"]["DECISION"],
+        value=additional_demand_settings["ANSWERS"]["DECISION"][decision],
+    )
 
-    document.answers.add(answer)
-    document.save()
-    work_item = work_item_factory(document=document)
-    print(additional_demand_settings)
+    work_item = work_item_factory(document=answer.document)
 
     tasks = set(
         CustomDynamicTasks().resolve_after_check_additional_demand(

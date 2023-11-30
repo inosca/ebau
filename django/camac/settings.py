@@ -3490,6 +3490,18 @@ APPLICATIONS = {
                 "complete-distribution": {
                     "next_instance_state": "decision",
                 },
+                "send-additional-demand": {
+                    "notification": {
+                        "template_slug": "nachforderung-neu",
+                        "recipient_types": ["applicant"],
+                    },
+                },
+                "fill-additional-demand": {
+                    "notification": {
+                        "template_slug": "nachforderung-beantwortet",
+                        "recipient_types": ["applicant"],
+                    },
+                },
             },
             "PRE_COMPLETE": {
                 # Cancel init-additional-demand after material-exam as it will
@@ -3534,18 +3546,34 @@ APPLICATIONS = {
         "NOTIFICATIONS": {
             "SUBMIT": [
                 {
-                    "template_slug": "eingang-dossier-gesuchsteller",
+                    "template_slug": "empfang-baugesuch-bauherrschaft",
                     "recipient_types": ["applicant"],
                 },
                 {
-                    "template_slug": "eingang-dossier-leitbehoerde",
-                    "recipient_types": ["municipality"],
+                    "template_slug": "empfang-baugesuch-gemeinde",
+                    "recipient_types": ["leitbehoerde"],
                 },
             ],
             "APPLICANT": {
                 "NEW": "gesuchsbearbeitungs-einladung-neu",
                 "EXISTING": "gesuchsbearbeitungs-einladung-bestehend",
             },
+            "DECISION": [
+                {
+                    "template_slug": "entscheid-bauherrschaft",
+                    "recipient_types": ["applicant"],
+                },
+                {
+                    "template_slug": "entscheid-behoerden",
+                    "recipient_types": ["involved_in_distribution"],
+                },
+            ],
+            "DOSSIERKORREKTUR": [
+                {
+                    "template_slug": "dossierkorrektur",
+                    "recipient_types": ["applicant"],
+                },
+            ],
         },
         "SUBSERVICE_ROLES": ["subservice"],
         "DUMP_CONFIG_GROUPS": {
