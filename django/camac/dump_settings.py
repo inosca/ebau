@@ -196,6 +196,7 @@ DUMP_CONFIG_MODELS_REFERENCING_DATA = [
     "caluma_workflow.Workflow",
     "caluma_workflow.Task",
     "alexandria_core.Category",
+    "alexandria_core.Mark",
 ]
 
 # Exclude models which are managed by the customer alone from sync - instead it
