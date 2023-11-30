@@ -26,7 +26,7 @@
   >
     {{t "dms.merge"}}
   </UkButton>
-  {{#if (macroCondition (macroGetOwnConfig "showMergeAndSaveButton"))}}
+  {{#if (has-feature "dms.mergeAndSave")}}
     <UkButton
       @color="default"
       @disabled={{or this.merge.isRunning this.placeholders.isLoading (not this.template)}}
