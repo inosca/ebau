@@ -12,6 +12,7 @@ from camac.user.admin.inlines import (
     RoleTInline,
     ServiceGroupInline,
     ServiceGroupTInline,
+    ServiceRelationInline,
     ServiceTInline,
     UserGroupInline,
 )
@@ -106,7 +107,7 @@ class ServiceAdmin(EbauAdminMixin, MultilingualAdminMixin, ModelAdmin):
     exclude_ml = ["sort", "name", "description", "city"]
     form = ServiceForm
     inlines = [ServiceGroupInline]
-    inlines_ml = [ServiceTInline, ServiceGroupInline]
+    inlines_ml = [ServiceTInline, ServiceGroupInline, ServiceRelationInline]
     list_display = [
         "service_id",
         "get_name",

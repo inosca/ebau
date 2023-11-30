@@ -521,6 +521,33 @@ def next_service_sort():
     return last_service.sort + 1 if last_service else 0
 
 
+class ServiceRelation(models.Model):
+    FUNCTION_GEOMETER = "geometer"
+
+    FUNCTION_CHOICES = (
+        # No further relationships... for now
+        (FUNCTION_GEOMETER, _("Geometer")),
+    )
+
+    receiver = models.ForeignKey("Service", on_delete=models.CASCADE, related_name="+")
+    provider = models.ForeignKey(
+        "Service",
+        on_delete=models.CASCADE,
+        related_name="+",
+        verbose_name=_("Service providing the given function"),
+    )
+    function = models.CharField(
+        max_length=100,
+        choices=FUNCTION_CHOICES,
+        verbose_name=_("Function the service provides"),
+    )
+
+    class Meta:
+        # For now: Only one Geometer per service allowed.
+        # Might need changing once we have other relationships as well
+        unique_together = ("receiver", "function")
+
+
 class Service(core_models.MultilingualModel, models.Model):
     """Represents an organisational entity which can be hierarchically structured.
 
@@ -605,6 +632,16 @@ class Service(core_models.MultilingualModel, models.Model):
     )
     responsibility_construction_control = models.BooleanField(
         default=False, verbose_name=_("Apply responsibility in construction control?")
+    )
+
+    functional_services = models.ManyToManyField(
+        # We make it asymmetrical, to denote the direction of the relationship.
+        "self",
+        through=ServiceRelation,
+        through_fields=("receiver", "provider"),
+        symmetrical=False,
+        related_name="has_function_in",
+        verbose_name=_("Services that perform a specific function"),
     )
 
     class Meta:
