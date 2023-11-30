@@ -13,6 +13,7 @@ r.register(r"documents", views.PatchedDocumentViewSet)
 r.register(r"files", views.PatchedFileViewSet)
 r.register(r"tags", views.PatchedTagViewSet)
 r.register(r"tagsynonymgroups", views.PatchedTagSynonymGroupViewSet)
+r.register(r"marks", views.PatchedMarkViewSet)
 
 urlpatterns = r.urls
 

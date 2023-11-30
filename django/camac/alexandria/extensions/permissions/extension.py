@@ -33,14 +33,7 @@ class CustomPermission(BasePermission):
         if request.method == "POST":
             used_permissions = {MODE_CREATE}
             for key, value in request.data.items():
-                # TODO temporary case for marks, while they are tags
-                if key == "tags" and len(
-                    set([v["id"] for v in value]).intersection(
-                        set(settings.ALEXANDRIA["MARKS"]["ALL"])
-                    )
-                ):
-                    used_permissions.add(f"{MODE_CREATE}-marks")
-                elif (
+                if (
                     key in settings.ALEXANDRIA["RESTRICTED_FIELDS"]
                     and value not in EMPTY_VALUES
                 ):
@@ -57,45 +50,28 @@ class CustomPermission(BasePermission):
     def get_needed_patch_permissions(self, request, document) -> set:  # noqa: C901
         used_permissions = {MODE_UPDATE}
         for key in settings.ALEXANDRIA["RESTRICTED_FIELDS"]:
-            # TODO temporary case for marks, while they are tags
-            if key not in request.data and not (
-                key == "marks" and "tags" in request.data
-            ):
+            if key not in request.data:
                 continue
-
-            was_marks = False
-            if key == "marks":
-                was_marks = True
-                key = "tags"
 
             old_value = getattr(document, key)
             new_value = request.data.get(key)
 
+            # LocalizedTextField
             if isinstance(old_value, LocalizedStringValue):
                 new_value = LocalizedStringValue(new_value)
+            # DateField
             elif isinstance(old_value, datetime.date):
                 new_value = datetime.datetime.fromisoformat(new_value).date()
+            # ForeignKey
             elif isinstance(old_value, Category):
                 old_value = old_value.pk
                 new_value = new_value["id"]
+            # ManyToManyField
             elif hasattr(old_value, "values_list"):
                 old_value = [str(v) for v in old_value.values_list("pk", flat=True)]
                 new_value = [item["id"] for item in new_value]
 
-                # TODO temporary case for marks, while they are tags
-                if key == "tags":
-                    filter_list = settings.ALEXANDRIA["MARKS"]["ALL"]
-                    filter_func = (
-                        (lambda v: v in filter_list)
-                        if was_marks
-                        else (lambda v: v not in filter_list)
-                    )
-                    old_value = list(filter(filter_func, old_value))
-                    new_value = list(filter(filter_func, new_value))
-
             if old_value != new_value:
-                if was_marks:
-                    key = "marks"
                 used_permissions.add(f"{MODE_UPDATE}-{key}")
 
         return used_permissions

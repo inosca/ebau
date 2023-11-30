@@ -1,9 +1,14 @@
 import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 import ConfigService from "ember-alexandria/services/config";
-import mainConfig from "ember-ebau-core/config/main";
 
 export default class AlexandriaConfigService extends ConfigService {
+  markIcons = {
+    decision: "stamp",
+    publication: "bullhorn",
+    void: "ban",
+  };
+
   @service store;
   @service session;
   @service intl;
@@ -35,28 +40,6 @@ export default class AlexandriaConfigService extends ConfigService {
 
   get accessToken() {
     return this.session.data.authenticated.access_token;
-  }
-
-  get marks() {
-    return [
-      {
-        type: "decision",
-        tooltip: this.intl.t("documents.mark.decision"),
-        icon: "stamp",
-      },
-      {
-        type: "publication",
-        tooltip: this.intl.t("documents.mark.publication"),
-        icon: "bullhorn",
-      },
-      {
-        type: "void",
-        tooltip: this.intl.t("documents.mark.void"),
-        icon: "ban",
-      },
-    ].filter(({ type }) =>
-      (mainConfig.alexandria?.enabledMarks ?? []).includes(type),
-    );
   }
 
   resolveUser(id) {

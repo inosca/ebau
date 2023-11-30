@@ -81,9 +81,6 @@ export default {
       "decision-decision-retreat": "uk-alert-warning",
     },
   },
-  alexandria: {
-    enabledMarks: ["decision", "publication", "void"],
-  },
   rejection: {
     instanceState: "rejected",
     allowedInstanceStates: [
