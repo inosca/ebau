@@ -9,24 +9,55 @@ ADDITIONAL_DEMAND = {
         "FILL_TASK": "fill-additional-demand",
         "CHECK_TASK": "check-additional-demand",
         "SEND_TASK": "send-additional-demand",
-        "DECISION_QUESTION": "additional-demand-decision",
-        "DECISION_REJECT": "additional-demand-decision-reject",
-        "CHECK_NOTIFICATON": {
-            "additional-demand-decision-reject": {
-                "notification_recipients": ["applicant"],
-                "history_text": _("Additional demand rejected"),
-            },
-            "additional-demand-decision-accept": {
-                "notification_recipients": ["additional_demand_inviter"],
-                "history_text": _("Additional demand accepted"),
-            },
+        "QUESTIONS": {
+            "DECISION": "additional-demand-decision",
         },
+        "ANSWERS": {
+            "DECISION": {
+                "REJECTED": "additional-demand-decision-reject",
+                "ACCEPTED": "additional-demand-decision-accept",
+            }
+        },
+        "HISTORY_ENTRIES": {},
+        "NOTIFICATIONS": {"ACCEPTED": [], "REJECTED": []},
     },
     "kt_gr": {
         "ENABLED": True,
+        "HISTORY_ENTRIES": {
+            "ACCEPTED": _("Additional demand accepted"),
+            "REJECTED": _("Additional demand rejected"),
+        },
+        "NOTIFICATIONS": {
+            "ACCEPTED": [
+                {
+                    "recipient_types": ["additional_demand_inviter"],
+                    "template_slug": "additional-demand-decision-accept",
+                }
+            ],
+            "REJECTED": [
+                {
+                    "recipient_types": ["applicant"],
+                    "template_slug": "additional-demand-decision-reject",
+                }
+            ],
+        },
     },
     "kt_so": {
         "ENABLED": True,
         "ALLOW_SUBSERVICES": True,
+        "NOTIFICATIONS": {
+            "ACCEPTED": [
+                {
+                    "recipient_types": ["applicant"],
+                    "template_slug": "nachforderung-akzeptiert",
+                }
+            ],
+            "REJECTED": [
+                {
+                    "recipient_types": ["applicant"],
+                    "template_slug": "nachforderung-abgelehnt",
+                }
+            ],
+        },
     },
 }

@@ -31,6 +31,12 @@ WITHDRAWAL = {
             ("fill-publication", "cancel"),
             ("publication", "cancel"),
         ],
+        "NOTIFICATIONS": [
+            {
+                "template_slug": "rueckzug",
+                "recipient_types": ["leitbehoerde", "involved_in_distribution"],
+            }
+        ],
     },
     "test": {
         "ENABLED": True,
