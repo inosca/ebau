@@ -78,7 +78,7 @@ export default class InstanceAclModel extends Model {
     }
   }
 
-  get entityMail() {
+  get entityEmail() {
     const placeholder = this.intl.t("permissions.placeholder.email");
     switch (this.grantType) {
       case "USER":

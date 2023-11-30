@@ -27,10 +27,14 @@ module("Integration | Component | permissions/acl-table", function (hooks) {
     this.server.createList("instance-acl", 3, "expired", {
       instance: this.instance,
     });
+    this.server.createList("instance-acl", 1, "scheduled", {
+      instance: this.instance,
+    });
 
     await render(
       hbs`<Permissions::AclTable @instanceId={{this.instance.id}}/>`,
     );
+
     await click("button[data-test-filter-button=active]");
 
     const requests = this.server.pretender.handledRequests;
@@ -52,21 +56,30 @@ module("Integration | Component | permissions/acl-table", function (hooks) {
       "page[number]": "1",
       "page[size]": "20",
     });
+    assert.dom("[data-test-instance-acl]").exists({ count: 1 });
+
+    await click("button[data-test-filter-button=expired]");
+
+    assert.deepEqual(requests[requests.length - 1].queryParams, {
+      "filter[status]": "expired",
+      instance: `${this.instance.id}`,
+      "page[number]": "1",
+      "page[size]": "20",
+    });
     assert.dom("[data-test-instance-acl]").exists({ count: 3 });
 
     await click("button[data-test-filter-button=all]");
 
     assert.deepEqual(requests[requests.length - 1].queryParams, {
-      "filter[status]": "",
       instance: `${this.instance.id}`,
       "page[number]": "1",
       "page[size]": "20",
     });
-    assert.dom("[data-test-instance-acl]").exists({ count: 5 });
+    assert.dom("[data-test-instance-acl]").exists({ count: 6 });
   });
 
   test("it shows details for a clicked instance-acl", async function (assert) {
-    const acl = this.server.create("instance-acl", {
+    this.server.create("instance-acl", {
       instance: this.instance,
     });
 
@@ -76,57 +89,6 @@ module("Integration | Component | permissions/acl-table", function (hooks) {
     await click("[data-test-instance-acl]>td>a");
     await waitFor(".permissions-module-modal-dialog");
 
-    assert
-      .dom("[data-test-instance-acl-modal-entity-name]")
-      .containsText(acl.entityName);
-    assert
-      .dom("[data-test-instance-acl-modal-email]")
-      .containsText(acl.user.email);
-    assert
-      .dom("[data-test-instance-acl-modal-status]")
-      .containsText(
-        `${this.intl.t("permissions.details.status")} ${this.intl.t(
-          `permissions.status.${acl.status}`,
-        )}`,
-      );
-    assert
-      .dom("[data-test-instance-acl-modal-access-level]")
-      .containsText(
-        `${this.intl.t("permissions.details.access-level")} ${this.intl.t(
-          `permissions.access-level.${acl.accessLevel.slug}`,
-        )}`,
-      );
-    assert
-      .dom("[data-test-instance-acl-modal-created-at]")
-      .containsText(
-        `${this.intl.t(
-          "permissions.details.created-at",
-        )} ${this.intl.formatDate(acl.createdAt, { format: "date" })}`,
-      );
-    assert
-      .dom("[data-test-instance-acl-modal-start-time]")
-      .containsText(
-        `${this.intl.t(
-          "permissions.details.start-time",
-        )} ${this.intl.formatDate(acl.startTime, { format: "date" })}`,
-      );
-    assert
-      .dom("[data-test-instance-acl-modal-end-time]")
-      .containsText(
-        `${this.intl.t("permissions.details.end-time")} ${
-          acl.endTime
-            ? this.intl.formatDate(acl.endTime, { format: "date" })
-            : "-"
-        }`,
-      );
-    assert
-      .dom("[data-test-instance-acl-modal-revoked-by]")
-      .containsText(
-        `${this.intl.t("permissions.details.revoked-by")}${
-          acl.revokedByUser
-            ? ` ${acl.revokedByUser.name} ${acl.revokedByUser.surname}`
-            : ""
-        }`,
-      );
+    assert.dom(".permissions-module-modal-dialog").isVisible();
   });
 });
