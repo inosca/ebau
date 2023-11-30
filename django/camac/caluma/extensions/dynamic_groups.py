@@ -101,10 +101,11 @@ class CustomDynamicGroups(BaseDynamicGroups):
                 )
             )
 
-            services = Service.objects.filter(
-                pk__in=target_ids - existing_ids,
-                service_parent__isnull=True,  # Subservices can't create any additional demands
-            )
+            services = Service.objects.filter(pk__in=target_ids - existing_ids)
+
+            if not settings.ADDITIONAL_DEMAND["ALLOW_SUBSERVICES"]:
+                # Subservices can't create any additional demands
+                services = services.filter(service_parent__isnull=True)
 
             return [str(pk) for pk in services.values_list("pk", flat=True)]
 
