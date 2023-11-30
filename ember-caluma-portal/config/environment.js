@@ -432,7 +432,7 @@ module.exports = function (environment) {
       documents: {
         backend: "alexandria",
         excludeFromDocuments: [],
-        feedbackSections: ["alle-beteiligten", "einsprachen"],
+        feedbackSections: ["einsprachen"],
         decisionTag: "decision",
       },
       instanceStates: instanceStatesSo,
