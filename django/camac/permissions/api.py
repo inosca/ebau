@@ -109,7 +109,7 @@ class PermissionManager:
                     )
                     if condition(**kwargs):
                         granted_permissions.append(perm)
-                elif condition == "*" or condition == instance.instance_state:
+                elif condition == "*" or condition == instance.instance_state.name:
                     granted_permissions.append(perm)
                 # else: condition didn't match - permission not granted
 
