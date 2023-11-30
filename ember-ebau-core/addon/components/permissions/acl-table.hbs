@@ -1,0 +1,137 @@
+<div class="permission-table">
+  <div class="uk-flex uk-margin-small-bottom">
+    <Filters::RadioButtons
+      @name="status"
+      @buttonGroupClass="uk-margin-remove-top"
+      @label={{t "permissions.details.status"}}
+      @selected={{this.statusFilter}}
+      @options={{this.statusFilterOptions}}
+      @onChange={{this.updateStatusFilter}}
+    />
+    <div class="uk-width-1-3 uk-margin-small-left uk-margin-small-top">
+      <label class="uk-form-label uk-text-bold" for="access-level">{{t
+          "permissions.details.access-level"
+        }}</label>
+      <div class="uk-form-controls">
+        <PowerSelect
+          @triggerId="access-level"
+          @options={{this.availableAccessLevels.records}}
+          @selected={{this.accessLevelFilter}}
+          @placeholder={{t "permissions.access-level.all-levels"}}
+          @onChange={{this.updateAccessLevelFilter}}
+          @allowClear={{true}}
+          @renderInPlace={{true}}
+          class="uk-select"
+          as |level|
+        >
+          {{level.name}}
+        </PowerSelect>
+      </div>
+    </div>
+  </div>
+
+  {{#let
+    (can "create acl for instance" this.instance.record)
+    as |canCreateAcl|
+  }}
+    {{#if canCreateAcl}}
+      <div class="uk-text-center">
+        <IconButton
+          @icon="plus"
+          @onClick={{fn (mut this.creatingAcl) true}}
+          @disabled={{this.creatingAcl}}
+          @loading={{this.creatingAcl}}
+          title={{t "permissions.new"}}
+        />
+      </div>
+    {{/if}}
+
+  {{/let}}
+
+  <table
+    class="uk-table uk-table-hover uk-table-small uk-table-striped uk-table-middle"
+  >
+    <thead>
+      <tr>
+        <th>{{t "permissions.details.entity-name"}}</th>
+        <th>{{t "permissions.details.access-level"}}</th>
+        <th>{{t "permissions.details.start-time"}}</th>
+        <th>{{t "permissions.details.end-time"}}</th>
+        <th>{{t "permissions.details.status"}}</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#unless this.acls.isResetting}}
+        {{#each this.acls.records as |acl|}}
+          <tr data-test-instance-acl>
+            <td class="uk-table-link">
+              <a
+                class="uk-link-reset"
+                href="#"
+                {{on "click" (fn (mut this.detailViewAcl) acl)}}
+              >{{acl.entityName}}</a>
+            </td>
+            <td>{{acl.accessLevel.name}}</td>
+            <td>{{or (format-date acl.startTime format="date") "-"}}</td>
+            <td>{{or (format-date acl.endTime format="date") "-"}}</td>
+            <td><span
+                class={{(concat
+                  "uk-label "
+                  (if (eq acl.status "active") "uk-label-success")
+                  (if (eq acl.status "scheduled") "uk-label-warning")
+                  (if (eq acl.status "expired") "background-expired ")
+                )}}
+              >{{t (concat "permissions.status." acl.status)}}</span></td>
+            <td>
+              {{#let
+                (can "create acl for instance" this.instance.record)
+                as |canCreateAcl|
+              }}
+                {{#if (and acl.revokeable canCreateAcl)}}
+                  <UkButton
+                    class="uk-margin-small-right"
+                    @title={{t "permissions.revoke"}}
+                    @size="small"
+                    @color="link"
+                    {{on "click" (fn this.revokeAcl acl)}}
+                  ><UkIcon @icon="ban" /></UkButton>
+                {{/if}}
+              {{/let}}
+            </td>
+          </tr>
+        {{else}}
+          {{#unless this.acls.isLoading}}
+            <tr>
+              <td colspan="99" class="uk-text-center">
+                {{t "permissions.empty"}}
+              </td>
+            </tr>
+          {{/unless}}
+        {{/each}}
+      {{/unless}}
+      {{#if this.acls.isLoading}}
+        <tr>
+          <td colspan="99" class="uk-text-center">
+            <UkSpinner />
+          </td>
+        </tr>
+      {{else if this.acls.hasMore}}
+        <tr {{in-viewport onEnter=this.updatePage}}></tr>
+      {{/if}}
+
+    </tbody>
+  </table>
+
+  <Permissions::AclDetails
+    @instanceAcl={{this.detailViewAcl}}
+    @onHide={{fn (mut this.detailViewAcl) false}}
+  />
+
+  <Permissions::CreateAclModal
+    @visible={{this.creatingAcl}}
+    @onHide={{fn (mut this.creatingAcl) false}}
+    @afterCreate={{this.reload}}
+    @instanceId={{@instanceId}}
+  />
+</div>

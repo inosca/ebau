@@ -194,7 +194,7 @@ class InstanceView(
         serializer_config = SERIALIZER_CLASS[backend].get(
             self.action, SERIALIZER_CLASS[backend]["default"]
         )
-        if type(serializer_config) == dict:
+        if isinstance(serializer_config, dict):
             return serializer_config.get(settings.APPLICATION_NAME, "default")
 
         return serializer_config

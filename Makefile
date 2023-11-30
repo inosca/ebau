@@ -183,6 +183,10 @@ sequencenamespace:  ## Set the Sequence namespace for a given user. GIT_USER is 
 test: ## Run backend tests
 	@docker compose exec django make test
 
+.PHONY: integration-tests
+integration-tests: ## Run BDD integration tests
+	@docker-compose run --rm bdd poetry run behave
+
 .PHONY: kt_uri
 kt_uri: ## Set APPLICATION to kt_uri
 	$(call set_app,kt_uri)

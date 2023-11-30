@@ -1,0 +1,21 @@
+@use 'sass:color';
+
+.permissions-module-modal-dialog {
+  width: fit-content;
+}
+
+.permission-table {
+  .uk-button-group .uk-button {
+    line-height: $form-line-height;
+  }
+
+  .uk-label.background-expired {
+    background: color.adjust($global-muted-background, $lightness: -15%);
+  }
+}
+
+.permissions-module-create-acl-modal-dialog{
+  .uk-form-stacked .uk-form-label {
+    margin-top: 10px;
+  }
+}

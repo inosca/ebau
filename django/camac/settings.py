@@ -120,6 +120,7 @@ INSTALLED_APPS = [
     "camac.dossier_import.apps.DossierImportConfig",
     "camac.gisbern.apps.GisbernConfig",
     "camac.communications.apps.CommunicationsConfig",
+    "camac.permissions.apps.PermissionsConfig",
     "camac.gis.apps.GisConfig",
     "camac.billing.apps.BillingConfig",
     "sorl.thumbnail",
@@ -4218,6 +4219,7 @@ CORRECTION = load_module_settings("correction")
 DMS = load_module_settings("dms")
 REJECTION = load_module_settings("rejection")
 WITHDRAWAL = load_module_settings("withdrawal")
+PERMISSIONS = load_module_settings("permissions")
 
 # Alexandria
 ALEXANDRIA = load_module_settings("alexandria")
