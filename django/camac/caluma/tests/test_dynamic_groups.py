@@ -83,6 +83,7 @@ def test_dynamic_group_distribution_create_inquiry(
         )
 
 
+@pytest.mark.parametrize("allow_subservices", [True, False])
 def test_dynamic_create_additional_demand(
     db,
     work_item_factory,
@@ -92,10 +93,13 @@ def test_dynamic_create_additional_demand(
     caluma_admin_user,
     be_instance,
     application_settings,
+    allow_subservices,
 ):
     target_service = service_factory()
     target_subservice = service_factory(service_parent=service_factory())
     target_existing = service_factory()
+
+    additional_demand_settings["ALLOW_SUBSERVICES"] = allow_subservices
 
     # create already existing "init-additional-demand" work item
     work_item_factory(
@@ -170,8 +174,7 @@ def test_dynamic_create_additional_demand(
     # of previous work item exluding services that already have a ready
     # "init-additional-demand" work items and subservices
     assert str(target_service.pk) in groups_additional_demand
-    assert str(target_subservice.pk) not in groups_additional_demand
-    assert str(target_subservice.pk) not in groups_additional_demand
+    assert (str(target_subservice.pk) in groups_additional_demand) == allow_subservices
 
     groups_inquiry = set(
         CustomDynamicGroups().resolve("create_init_additional_demand")(
@@ -189,5 +192,4 @@ def test_dynamic_create_additional_demand(
     # context exluding services that already have a ready
     # "init-additional-demand" work items and subservices
     assert str(target_service.pk) in groups_inquiry
-    assert str(target_subservice.pk) not in groups_inquiry
-    assert str(target_subservice.pk) not in groups_inquiry
+    assert (str(target_subservice.pk) in groups_inquiry) == allow_subservices

@@ -2,6 +2,7 @@ from django.utils.translation import gettext_lazy as _
 
 ADDITIONAL_DEMAND = {
     "default": {
+        "ALLOW_SUBSERVICES": False,
         "WORKFLOW": "additional-demand",
         "TASK": "additional-demand",
         "CREATE_TASK": "init-additional-demand",
@@ -26,5 +27,6 @@ ADDITIONAL_DEMAND = {
     },
     "kt_so": {
         "ENABLED": True,
+        "ALLOW_SUBSERVICES": True,
     },
 }
