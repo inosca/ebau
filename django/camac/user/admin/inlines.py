@@ -7,6 +7,7 @@ from camac.user.admin.forms import (
     GroupTForm,
     RoleTForm,
     ServiceGroupTForm,
+    ServiceRelationForm,
     ServiceTForm,
     UserGroupForm,
 )
@@ -16,6 +17,7 @@ from camac.user.models import (
     GroupT,
     RoleT,
     ServiceGroupT,
+    ServiceRelation,
     ServiceT,
     UserGroup,
 )
@@ -64,6 +66,16 @@ class ServiceGroupInline(TabularInline):
 
     def has_add_permission(self, request, obj):
         return False
+
+
+class ServiceRelationInline(TabularInline):
+    fields = ["provider", "function"]
+    form = ServiceRelationForm
+    fk_name = "receiver"
+    model = ServiceRelation
+    show_change_link = True
+    verbose_name = _("Service relationship")
+    verbose_name_plural = _("Service relationships")
 
 
 class ServiceTInline(TabularInline):
