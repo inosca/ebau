@@ -19,7 +19,8 @@
         },
         "service_code": "of_society01_de_ms_wfs"
       },
-      "disabled": false
+      "disabled": false,
+      "sort": 0
     }
   },
   {
@@ -42,7 +43,8 @@
         },
         "service_code": "of_geoscientificinformation01_de_ms_wfs"
       },
-      "disabled": false
+      "disabled": false,
+      "sort": 1
     }
   },
   {
@@ -65,7 +67,8 @@
         },
         "service_code": "of_environment01_de_ms_wfs"
       },
-      "disabled": false
+      "disabled": false,
+      "sort": 2
     }
   },
   {
@@ -88,7 +91,8 @@
         },
         "service_code": "of_environment02_de_ms_wfs"
       },
-      "disabled": false
+      "disabled": false,
+      "sort": 3
     }
   },
   {
@@ -115,7 +119,8 @@
         },
         "service_code": "of_inlandwaters01_de_ms_wfs"
       },
-      "disabled": false
+      "disabled": false,
+      "sort": 4
     }
   },
   {
@@ -138,7 +143,8 @@
         },
         "service_code": "of_structure01_de_ms_wfs"
       },
-      "disabled": false
+      "disabled": false,
+      "sort": 5
     }
   },
   {
@@ -179,7 +185,8 @@
         },
         "service_code": "of_planningcadastre01_de_ms_wfs"
       },
-      "disabled": false
+      "disabled": false,
+      "sort": 6
     }
   }
 ]

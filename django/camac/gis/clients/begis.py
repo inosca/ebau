@@ -64,7 +64,7 @@ class BeGisClient(GISBaseClient):
             # TODO: Translation
             raise ValueError("No polygon found")
 
-    def process_data_source(self, config) -> dict:
+    def process_data_source(self, config, _intermediate_data) -> dict:
         service_code = config.get("service_code")
         layers_dict = config.get("layers", {})
         boolean_layers, special_layers = self.get_config_layers(layers_dict)
