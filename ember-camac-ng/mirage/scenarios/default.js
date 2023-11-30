@@ -11,5 +11,32 @@ export default function (server) {
 
   server.createList("notification-template", 3);
 
-  server.createList("user-group", 10);
+  server.create("access-level", {
+    slug: "service",
+    requiredGrantType: "SERVICE",
+  });
+  server.create("access-level", {
+    slug: "controlling",
+    requiredGrantType: "USER",
+  });
+  server.create("access-level", {
+    slug: "token",
+    requiredGrantType: "TOKEN",
+  });
+  server.create("access-level", {
+    slug: "registered-user",
+    requiredGrantType: "AUTHENTICATED-PUBLIC",
+  });
+  server.create("access-level", {
+    slug: "public-access",
+    requiredGrantType: "ANONYMOUS-PUBLIC",
+  });
+
+  server.createList("user-group", 5).forEach((userGroup) => {
+    server
+      .createList("user", 2, { defaultGroup: userGroup })
+      .forEach((user) => {
+        server.create("instance-acl", { user });
+      });
+  });
 }

@@ -175,3 +175,43 @@ def clean_join(*parts: Any, separator: Optional[str] = " ") -> str:
     """
 
     return separator.join([str(part).strip() for part in parts if part]).strip()
+
+
+class _SENTINEL:
+    # a standalone sentinel is better than `None`, as `None` could be a
+    # useful default passed by the caller. Nobody will accidentally call
+    # `get_dict_item()` with a default that is identical to this
+    pass
+
+
+def get_dict_item(obj, item, sep=".", default=_SENTINEL):
+    """Return an item from a nested dict structure.
+
+    Example:
+    >>> some_dict = {
+    >>>     "foo": {
+    >>>         "bar": { "baz": 3}
+    >>>     }
+    >>> }
+    >>> get_dict_item(some_dict, 'foo.bar.baz')
+    3
+
+    >>> # If your keys contain dots, you can use another separator:
+    >>> get_dict_item(some_dict, 'foo!bar!baz', sep="!")
+    3
+
+    If a key is not found at any stage, a KeyError is raised. If
+    you pass a default value, it is returned instead
+    """
+    path = item.split(sep)
+    prefix = []
+    for key in path:
+        prefix.append(key)
+        try:
+            obj = obj[key]
+        except (KeyError, TypeError) as exc:
+            if default is _SENTINEL:
+                err = sep.join(prefix)
+                raise KeyError(err) from exc
+            return default
+    return obj

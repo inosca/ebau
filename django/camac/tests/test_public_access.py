@@ -41,12 +41,14 @@ def public_data(
     communications_attachment_factory,
     attachment_version_factory,
     billing_v2_entry_factory,
+    instance_acl_factory,
 ):
     attachment = attachment_factory(instance=be_instance, context={"isPublished": True})
     attachment_version_factory(attachment=attachment)
     issue_factory(instance=be_instance)
     history_entry_factory(instance=be_instance)
     journal_entry_factory(instance=be_instance)
+    instance_acl_factory(instance=be_instance)
     instance_responsibility_factory(instance=be_instance)
     form_field_factory(instance=be_instance, name="kategorie-des-vorhabens")
     workflow_entry_factory(instance=be_instance)
@@ -62,6 +64,12 @@ def public_data(
 
 
 def test_public_urls(db, public_urls, public_data, admin_client):
+    """Test public URLs to see that no data is leaked unintentionally.
+
+    All URLs of views using the InstanceQuerysetMixin are collected and fetched
+    to ensure they don't leak information even though the user may see the
+    instance itelf (due to it being public).
+    """
     allowed_urls = [
         # Public caluma instances
         "/api/v1/public-caluma-instances",
@@ -82,6 +90,11 @@ def test_public_urls(db, public_urls, public_data, admin_client):
     ]
 
     for model, url_config in public_urls:
+        # Background information: If you run into the below assertion, we
+        # need a DB entry for the model mentioned, to ensure this doesn't
+        # leak unintentionally. Pull in the corresponding factory in the
+        # `public_data` fixture above and instantiate it with a link to
+        # `be_instance` so this test can do it's magic.
         assert (
             model.objects.exists()
         ), f"No object found for model {model.__name__} - please create one"

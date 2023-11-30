@@ -1,0 +1,107 @@
+<UkModal
+  @visible={{@visible}}
+  @onHide={{@onHide}}
+  @dialogClass="permissions-module-create-acl-modal-dialog"
+  data-test-modal-create-instance-acl
+  as |modal|
+>
+  <modal.header>
+    <h2 class="uk-modal-title uk-margin-right">{{t "permissions.new"}}</h2>
+  </modal.header>
+  <ValidatedForm
+    @model={{(changeset (hash service=null accessLevel=null) this.validations)}}
+    @on-submit={{perform this.createAcl}}
+    class="uk-form-stacked"
+    as |f|
+  >
+    <modal.body class="uk-margin-left">
+      {{#if @visible}}
+        <f.input
+          @name="service"
+          @label={{t "permissions.details.organisation"}}
+          @errorComponent={{(component "input-error")}}
+          as |fi|
+        >
+          <PowerSelect
+            @triggerId="service"
+            data-test-acl-service-select
+            @options={{this.availableServices}}
+            @selected={{fi.value}}
+            @placeholder={{t "permissions.details.entity-name"}}
+            @onChange={{fi.update}}
+            @allowClear={{true}}
+            @renderInPlace={{true}}
+            @searchEnabled={{true}}
+            @searchField="name"
+            class="uk-select"
+            as |service|
+          >
+            {{service.name}}
+          </PowerSelect>
+        </f.input>
+        <f.input
+          @name="accessLevel"
+          @label={{t "permissions.details.access-level"}}
+          @errorComponent={{(component "input-error")}}
+          as |fi|
+        >
+          <PowerSelect
+            @triggerId="access-level"
+            data-test-acl-access-level-select
+            @options={{this.availableAccessLevels}}
+            @selected={{fi.value}}
+            @placeholder={{t "permissions.access-level.all-levels"}}
+            @onChange={{fi.update}}
+            @allowClear={{true}}
+            @renderInPlace={{true}}
+            class="uk-select"
+            as |level|
+          >
+            {{level.name}}
+          </PowerSelect>
+        </f.input>
+        <f.input
+          @label={{t "permissions.details.start-time"}}
+          @name="startTime"
+          @errorComponent={{(component "input-error")}}
+          as |fi|
+        >
+          <div data-test-acl-start-time-input>
+            <Datepicker
+              @value={{fi.value}}
+              @minDate={{this.today}}
+              @onChange={{fi.update}}
+              @defaultHour={{0}}
+            />
+          </div>
+        </f.input>
+        <f.input
+          @label={{t "permissions.details.end-time"}}
+          @name="endTime"
+          @errorComponent={{(component "input-error")}}
+          as |fi|
+        >
+          <div data-test-acl-end-time-input>
+            <Datepicker
+              @value={{fi.value}}
+              @minDate={{(or f.model.startTime this.today)}}
+              @onChange={{fi.update}}
+            />
+          </div>
+        </f.input>
+      {{/if}}
+    </modal.body>
+    <modal.footer class="uk-text-right">
+      <f.submit
+        @label={{t "permissions.create"}}
+        @disabled={{f.loading}}
+        data-test-acl-submit
+      />
+      <f.button
+        @label={{t "global.cancel"}}
+        @disabled={{f.loading}}
+        {{on "click" @onHide}}
+      />
+    </modal.footer>
+  </ValidatedForm>
+</UkModal>

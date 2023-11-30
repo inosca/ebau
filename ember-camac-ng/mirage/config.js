@@ -1,5 +1,6 @@
 import graphqlHandler from "@projectcaluma/ember-testing/mirage-graphql";
 import { discoverEmberDataModels } from "ember-cli-mirage";
+import applyTestQueryParamsFilter from "ember-ebau-core/utils/apply-test-query-params-filter";
 import { createServer } from "miragejs";
 
 export default function makeServer(config) {
@@ -11,8 +12,9 @@ export default function makeServer(config) {
       this.timing = 400;
       this.logging = true;
 
+      this.resource("access-levels", { only: ["index"] });
       this.resource("instances", { only: ["index", "show"] });
-      this.resource("users", { only: ["index"] });
+      this.resource("users", { only: ["index", "show"] });
       this.resource("public-users");
       this.resource("services", { except: ["create"] });
       this.resource("history-entries", { only: ["index"] });
@@ -25,6 +27,15 @@ export default function makeServer(config) {
       // Ignore uploaded zip file
       this.post("dossier-imports", function ({ dossierImports, users }) {
         return dossierImports.create({ user: users.first() });
+      });
+
+      this.resource("instance-acls", { only: ["index", "show"] });
+      this.get("instance-acls", (schema, { queryParams }) => {
+        const filtered = applyTestQueryParamsFilter(
+          schema.instanceAcls.all(),
+          queryParams,
+        );
+        return filtered;
       });
 
       this.namespace = ""; // reset namespace
