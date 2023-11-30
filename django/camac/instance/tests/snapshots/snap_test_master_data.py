@@ -4,7 +4,6 @@ from __future__ import unicode_literals
 
 from snapshottest import GenericRepr, Snapshot
 
-
 snapshots = Snapshot()
 
 snapshots['test_master_data[kt_bern-de-be_master_data_case-select_related0-prefetch_related0-9] 1'] = {
@@ -36,8 +35,22 @@ snapshots['test_master_data[kt_bern-de-be_master_data_case-select_related0-prefe
     ],
     'city': 'Musterhausen',
     'completion_date': None,
+    'conservable': {
+        'label': 'Nein',
+        'slug': 'erhaltenswert-nein'
+    },
     'construction_costs': 199000,
+    'construction_group': {
+        'label': 'Ja',
+        'slug': 'baugruppe-bauinventar-ja'
+    },
+    'construction_group_designation': 'Test Baugruppe',
     'construction_start_date': None,
+    'contract': {
+        'label': 'Ja',
+        'slug': 'vertrag-ja'
+    },
+    'contract_start': GenericRepr('datetime.date(2022, 2, 1)'),
     'decision_date': None,
     'description_modification': 'Doch eher kleines Haus',
     'development_regulations': 'Überbauung XY',
@@ -52,6 +65,10 @@ snapshots['test_master_data[kt_bern-de-be_master_data_case-select_related0-prefe
         }
     ],
     'is_paper': False,
+    'k_object': {
+        'label': 'Ja',
+        'slug': 'k-objekt-ja'
+    },
     'landowners': [
         {
             'first_name': 'Sandra',
@@ -117,6 +134,10 @@ snapshots['test_master_data[kt_bern-de-be_master_data_case-select_related0-prefe
         }
     ],
     'proposal': 'Grosses Haus',
+    'protected': {
+        'label': 'Ja',
+        'slug': 'schuetzenswert-ja'
+    },
     'protection_area': [
         {
             'label': 'S1',
@@ -129,6 +150,11 @@ snapshots['test_master_data[kt_bern-de-be_master_data_case-select_related0-prefe
     },
     'publication_date': None,
     'remark': None,
+    'rrb': {
+        'label': 'Ja',
+        'slug': 'rrb-ja'
+    },
+    'rrb_start': GenericRepr('datetime.date(2022, 1, 1)'),
     'situation': 'Sachverhalt Test',
     'street': 'Musterstrasse',
     'street_number': 4,
@@ -178,8 +204,22 @@ snapshots['test_master_data[kt_bern-fr-be_master_data_case-select_related1-prefe
     ],
     'city': 'Musterhausen',
     'completion_date': None,
+    'conservable': {
+        'label': 'Nein',
+        'slug': 'erhaltenswert-nein'
+    },
     'construction_costs': 199000,
+    'construction_group': {
+        'label': 'Ja',
+        'slug': 'baugruppe-bauinventar-ja'
+    },
+    'construction_group_designation': 'Test Baugruppe',
     'construction_start_date': None,
+    'contract': {
+        'label': 'Ja',
+        'slug': 'vertrag-ja'
+    },
+    'contract_start': GenericRepr('datetime.date(2022, 2, 1)'),
     'decision_date': None,
     'description_modification': 'Doch eher kleines Haus',
     'development_regulations': 'Überbauung XY',
@@ -194,6 +234,10 @@ snapshots['test_master_data[kt_bern-fr-be_master_data_case-select_related1-prefe
         }
     ],
     'is_paper': False,
+    'k_object': {
+        'label': 'Ja',
+        'slug': 'k-objekt-ja'
+    },
     'landowners': [
         {
             'first_name': 'Sandra',
@@ -259,6 +303,10 @@ snapshots['test_master_data[kt_bern-fr-be_master_data_case-select_related1-prefe
         }
     ],
     'proposal': 'Grosses Haus',
+    'protected': {
+        'label': 'Ja',
+        'slug': 'schuetzenswert-ja'
+    },
     'protection_area': [
         {
             'label': 'S1',
@@ -271,6 +319,11 @@ snapshots['test_master_data[kt_bern-fr-be_master_data_case-select_related1-prefe
     },
     'publication_date': None,
     'remark': None,
+    'rrb': {
+        'label': 'Ja',
+        'slug': 'rrb-ja'
+    },
+    'rrb_start': GenericRepr('datetime.date(2022, 1, 1)'),
     'situation': 'Sachverhalt Test',
     'street': 'Musterstrasse',
     'street_number': 4,

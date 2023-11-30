@@ -877,6 +877,37 @@ class BeDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         aliases=[_("DECISION")],
         description=_("Decision"),
     )
+    construction_group = fields.MasterDataField(
+        aliases=[_("CONSTRUCTION_GROUP")],
+        description=_("Boolean placeholder for the 'construction_group' form field."),
+        parser=get_option_label,
+    )
+    construction_group_designation = fields.MasterDataField(
+        aliases=[_("CONSTRUCTION_GROUP_DESIGNATION")],
+        description=_(
+            "Placeholder for the 'construction_group_designation' form field."
+        ),
+    )
+    contract = fields.MasterDataField(
+        aliases=[_("CONTRACT")],
+        description=_("Boolean placeholder for the 'contract' form field."),
+        parser=get_option_label,
+    )
+    contract_start = fields.MasterDataField(
+        parser=human_readable_date,
+        aliases=[_("CONTRACT_START")],
+        description=_("Date placeholder for the 'contract_start' form field"),
+    )
+    conservable = fields.MasterDataField(
+        aliases=[_("CONSERVABLE")],
+        description=_("Boolean placeholder for the 'conservable' form field."),
+        parser=get_option_label,
+    )
+    k_object = fields.MasterDataField(
+        aliases=[_("K_OBJECT")],
+        description=_("Boolean placeholder for the 'k_object' form field."),
+        parser=get_option_label,
+    )
     decision_type = fields.DecisionField(
         source="decision-approval-type",
         use_identifier=True,
@@ -1013,6 +1044,11 @@ class BeDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         aliases=[_("USAGE_ZONE")],
         description=_("Usage zone"),
     )
+    protected = fields.MasterDataField(
+        aliases=[_("PROTECTED")],
+        description=_("Boolean placeholder for the 'protected' form field."),
+        parser=get_option_label,
+    )
     protection_area = fields.MasterDataField(
         parser=get_option_label,
         join_by=", ",
@@ -1068,6 +1104,16 @@ class BeDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         type="legal-submission-type-legal-custody",
         aliases=[_("LEGAL_CUSTODIES")],
         description=_('All legal submissions of the type "legal custody"'),
+    )
+    rrb = fields.MasterDataField(
+        aliases=[_("RRB")],
+        description=_("Boolean placeholder for the 'rrb' form field."),
+        parser=get_option_label,
+    )
+    rrb_start = fields.MasterDataField(
+        parser=human_readable_date,
+        aliases=[_("RRB_START")],
+        description=_("Date placeholder for the 'rrb_start' form field"),
     )
     sachverhalt = fields.MasterDataField(
         source="situation",
