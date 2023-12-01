@@ -1,3 +1,4 @@
+import datetime
 from typing import Union
 
 from alexandria.core.models import BaseModel, Category, Document, File, Tag
@@ -53,7 +54,7 @@ class CustomPermission(BasePermission):
 
         return set()  # pragma: no cover
 
-    def get_needed_patch_permissions(self, request, document) -> set:
+    def get_needed_patch_permissions(self, request, document) -> set:  # noqa: C901
         used_permissions = {MODE_UPDATE}
         for key in settings.ALEXANDRIA["RESTRICTED_FIELDS"]:
             # TODO temporary case for marks, while they are tags
@@ -72,6 +73,8 @@ class CustomPermission(BasePermission):
 
             if isinstance(old_value, LocalizedStringValue):
                 new_value = LocalizedStringValue(new_value)
+            elif isinstance(old_value, datetime.date):
+                new_value = datetime.datetime.fromisoformat(new_value).date()
             elif isinstance(old_value, Category):
                 old_value = old_value.pk
                 new_value = new_value["id"]

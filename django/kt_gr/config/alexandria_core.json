@@ -18,6 +18,7 @@
                 "fields": [
                   "title",
                   "description",
+                  "date",
                   "metainfo",
                   "category",
                   "tags",
@@ -31,6 +32,7 @@
                 "fields": [
                   "title",
                   "description",
+                  "date",
                   "metainfo",
                   "category",
                   "files"
@@ -74,6 +76,7 @@
                 "fields": [
                   "title",
                   "description",
+                  "date",
                   "metainfo",
                   "category",
                   "tags",
@@ -86,6 +89,7 @@
                 "fields": [
                   "title",
                   "description",
+                  "date",
                   "metainfo",
                   "category",
                   "files"
@@ -110,6 +114,7 @@
                 "fields": [
                   "title",
                   "description",
+                  "date",
                   "metainfo",
                   "category",
                   "tags",
@@ -122,6 +127,7 @@
                 "fields": [
                   "title",
                   "description",
+                  "date",
                   "metainfo",
                   "category",
                   "files"
@@ -187,6 +193,7 @@
                 "fields": [
                   "title",
                   "description",
+                  "date",
                   "metainfo",
                   "category",
                   "tags",
@@ -200,6 +207,7 @@
                 "fields": [
                   "title",
                   "description",
+                  "date",
                   "metainfo",
                   "category",
                   "files"
@@ -241,6 +249,7 @@
                 "fields": [
                   "title",
                   "description",
+                  "date",
                   "metainfo",
                   "category",
                   "tags",
@@ -253,6 +262,7 @@
                 "fields": [
                   "title",
                   "description",
+                  "date",
                   "metainfo",
                   "category",
                   "files"
@@ -376,7 +386,7 @@
               },
               {
                 "scope": "All",
-                "fields": ["title", "description", "tags", "marks"],
+                "fields": ["title", "description", "date", "tags", "marks"],
                 "permission": "update"
               },
               {
@@ -484,6 +494,7 @@
                 "fields": [
                   "title",
                   "description",
+                  "date",
                   "metainfo",
                   "category",
                   "tags",
@@ -497,6 +508,7 @@
                 "fields": [
                   "title",
                   "description",
+                  "date",
                   "metainfo",
                   "category",
                   "files"
@@ -537,6 +549,7 @@
                 "fields": [
                   "title",
                   "description",
+                  "date",
                   "metainfo",
                   "category",
                   "tags",
@@ -549,6 +562,7 @@
                 "fields": [
                   "title",
                   "description",
+                  "date",
                   "metainfo",
                   "category",
                   "files"
@@ -573,6 +587,7 @@
                 "fields": [
                   "title",
                   "description",
+                  "date",
                   "metainfo",
                   "category",
                   "tags",
@@ -585,6 +600,7 @@
                 "fields": [
                   "title",
                   "description",
+                  "date",
                   "metainfo",
                   "category",
                   "files"
@@ -650,6 +666,7 @@
                 "fields": [
                   "title",
                   "description",
+                  "date",
                   "metainfo",
                   "category",
                   "tags",
@@ -663,6 +680,7 @@
                 "fields": [
                   "title",
                   "description",
+                  "date",
                   "metainfo",
                   "category",
                   "tags",
@@ -683,6 +701,7 @@
                 "fields": [
                   "title",
                   "description",
+                  "date",
                   "metainfo",
                   "category",
                   "tags",
@@ -695,6 +714,7 @@
                 "fields": [
                   "title",
                   "description",
+                  "date",
                   "metainfo",
                   "category",
                   "tags",
@@ -731,6 +751,7 @@
                 "fields": [
                   "title",
                   "description",
+                  "date",
                   "metainfo",
                   "category",
                   "tags",
@@ -743,6 +764,7 @@
                 "fields": [
                   "title",
                   "description",
+                  "date",
                   "metainfo",
                   "category",
                   "tags",
@@ -763,6 +785,7 @@
                 "fields": [
                   "title",
                   "description",
+                  "date",
                   "metainfo",
                   "category",
                   "tags",
@@ -775,6 +798,7 @@
                 "fields": [
                   "title",
                   "description",
+                  "date",
                   "metainfo",
                   "category",
                   "tags",
@@ -795,6 +819,7 @@
                 "fields": [
                   "title",
                   "description",
+                  "date",
                   "metainfo",
                   "category",
                   "tags",
@@ -807,6 +832,7 @@
                 "fields": [
                   "title",
                   "description",
+                  "date",
                   "metainfo",
                   "category",
                   "tags",
@@ -942,6 +968,7 @@
                 "fields": [
                   "title",
                   "description",
+                  "date",
                   "metainfo",
                   "category",
                   "tags",
@@ -954,6 +981,7 @@
                 "fields": [
                   "title",
                   "description",
+                  "date",
                   "metainfo",
                   "category",
                   "files"
@@ -997,6 +1025,7 @@
                 "fields": [
                   "title",
                   "description",
+                  "date",
                   "metainfo",
                   "category",
                   "tags",
@@ -1009,6 +1038,7 @@
                 "fields": [
                   "title",
                   "description",
+                  "date",
                   "metainfo",
                   "category",
                   "files"
@@ -1056,6 +1086,7 @@
                 "fields": [
                   "title",
                   "description",
+                  "date",
                   "metainfo",
                   "category",
                   "tags",
@@ -1069,6 +1100,7 @@
                 "fields": [
                   "title",
                   "description",
+                  "date",
                   "metainfo",
                   "category",
                   "files"
