@@ -1,3 +1,5 @@
+import datetime
+
 import pytest
 from alexandria.core.factories import (
     CategoryFactory,
@@ -520,7 +522,9 @@ def test_nested_permission(db, role, applicant_factory, admin_client, instance):
 
 @pytest.mark.parametrize("role__name", ["applicant"])
 @pytest.mark.parametrize("expected_status", [HTTP_403_FORBIDDEN, HTTP_200_OK])
-@pytest.mark.parametrize("changes", [["metainfo"], ["category"], ["tags"], ["files"]])
+@pytest.mark.parametrize(
+    "changes", [["metainfo"], ["category"], ["tags"], ["files"], ["date"]]
+)
 def test_patch_fields(
     db,
     role,
@@ -550,12 +554,14 @@ def test_patch_fields(
         }
     )
     metainfo = {"camac-instance-id": instance.pk}
+    date = datetime.date(2023, 11, 30)
     document = DocumentFactory(
         title="Important",
         description="Important",
         category=category,
         metainfo=metainfo,
         created_by_group=caluma_admin_user.group,
+        date=date,
     )
     tag = TagFactory()
     document.tags.add(tag)
@@ -570,6 +576,8 @@ def test_patch_fields(
         tag = TagFactory()
     if "files" in changes:
         file = FileFactory()
+    if "date" in changes:
+        date = datetime.date(2023, 12, 1)
 
     data = {
         "data": {
@@ -579,6 +587,7 @@ def test_patch_fields(
                 "title": {"de": "Important"},
                 "description": {"de": "Important"},
                 "metainfo": metainfo,
+                "date": date.isoformat(),
             },
             "relationships": {
                 "category": {
