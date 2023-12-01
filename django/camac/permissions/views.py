@@ -58,7 +58,9 @@ class InstanceACLViewset(InstanceQuerysetMixin, ModelViewSet):
 
     def revoke_for_municipality(self, request, pk):
         acl: models.InstanceACL = self.get_object()
-        responsible_service_id = acl.instance.responsible_service().pk
+        responsible_service_id = acl.instance.responsible_service(
+            filter_type="municipality"
+        ).pk
         request_service_id = request.group.service.pk
         if responsible_service_id != request_service_id:  # pragma: no cover
             # This is primarily already handled via visibility, but this will

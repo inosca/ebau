@@ -128,7 +128,7 @@ class InstanceQuerysetMixin(object):
     def get_queryset_for_geometer(self, group=None):
         queryset = self.get_base_queryset()
         manager = PermissionManager.from_request(self._get_request())
-        return manager.filter_queryset(queryset, instance_prefix=None)
+        return manager.filter_queryset(queryset, self.instance_field)
 
     def get_queryset_for_coordination(self, group=None):
         group = self._get_group(group)
