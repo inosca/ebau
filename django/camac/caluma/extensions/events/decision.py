@@ -16,6 +16,7 @@ from camac.stats.cycle_time import compute_cycle_time
 from camac.user.models import User
 
 from .general import get_caluma_setting, get_instance
+from camac.permissions import events as permissions_events
 
 
 def get_notification_config(instance):
@@ -92,6 +93,8 @@ def post_complete_decision(sender, work_item, user, context, **kwargs):
             skip_work_item(ebau_work_item, user, context)
     else:
         instance.set_instance_state("finished", camac_user)
+
+    permissions_events.Trigger.decision_decreed(None, instance)
 
     # trigger ech message for status change
     ruling.send(
