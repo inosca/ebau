@@ -92,10 +92,14 @@ export default class DmsGenerateComponent extends Component {
             },
           ]
         : []),
-      {
-        groupName: this.intl.t("dms.system"),
-        options: systemTemplates,
-      },
+      ...(systemTemplates.length
+        ? [
+            {
+              groupName: this.intl.t("dms.system"),
+              options: systemTemplates,
+            },
+          ]
+        : []),
     ];
   }
 

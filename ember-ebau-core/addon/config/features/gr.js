@@ -9,4 +9,7 @@ export default {
     useLegacyClaims: false,
     snippets: false,
   },
+  dms: {
+    mergeAndSave: false,
+  },
 };

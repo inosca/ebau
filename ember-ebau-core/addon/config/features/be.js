@@ -16,4 +16,7 @@ export default {
     useLegacyClaims: true,
     snippets: true,
   },
+  dms: {
+    mergeAndSave: true,
+  },
 };
