@@ -168,6 +168,17 @@ class AttachmentQuerysetMixin:
             )
         ).distinct()
 
+    def get_base_queryset_for_geometer(self):
+        af = self._get_attachment_field()
+        qs = super().get_base_queryset()
+
+        # Geometers can only see documents specifically marked for them by the
+        # responsible service, and documents they have uploaded themselves.
+        return qs.filter(
+            Q(**{f"{af}context__for_geometer": True})
+            | Q(**{f"{af}service": self.request.group.service})
+        )
+
 
 class AttachmentView(
     AttachmentQuerysetMixin,
