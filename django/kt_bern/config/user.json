@@ -153,6 +153,42 @@
     }
   },
   {
+    "model": "user.role",
+    "pk": 20010,
+    "fields": {
+      "role_parent": null,
+      "name": "geometer-lead",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 20011,
+    "fields": {
+      "role_parent": null,
+      "name": "geometer-readonly",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 20012,
+    "fields": {
+      "role_parent": null,
+      "name": "geometer-admin",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 20013,
+    "fields": {
+      "role_parent": 20010,
+      "name": "geometer-clerk",
+      "group_prefix": null
+    }
+  },
+  {
     "model": "user.rolet",
     "pk": 1,
     "fields": {
@@ -513,6 +549,86 @@
     }
   },
   {
+    "model": "user.rolet",
+    "pk": 20027,
+    "fields": {
+      "role": 20010,
+      "language": "de",
+      "name": "Leitung Nachführungsgeometer",
+      "group_prefix": "Leitung"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20028,
+    "fields": {
+      "role": 20011,
+      "language": "de",
+      "name": "Einsichtsberechtigte Nachführungsgeometer",
+      "group_prefix": "Einsichtsberechtigte"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20029,
+    "fields": {
+      "role": 20012,
+      "language": "de",
+      "name": "Administration Nachführungsgeometer",
+      "group_prefix": "Administration"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20030,
+    "fields": {
+      "role": 20013,
+      "language": "de",
+      "name": "Sachbearbeiter Nachführungsgeometer",
+      "group_prefix": "Sachbearbeiter"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20031,
+    "fields": {
+      "role": 20010,
+      "language": "fr",
+      "name": "Responsable: géomètre conservateur",
+      "group_prefix": "Responsable:"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20032,
+    "fields": {
+      "role": 20011,
+      "language": "fr",
+      "name": "Droit de consulter le dossier: géomètre conservateur",
+      "group_prefix": "Droit de consulter le dossier:"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20033,
+    "fields": {
+      "role": 20012,
+      "language": "fr",
+      "name": "Administration: géomètre conservateur",
+      "group_prefix": "Administration:"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20034,
+    "fields": {
+      "role": 20013,
+      "language": "fr",
+      "name": "Collaborateur/collaboratrice du géomètre conservateur",
+      "group_prefix": "Collaborateur/collaboratrice:"
+    }
+  },
+  {
     "model": "user.servicegroup",
     "pk": 1,
     "fields": {
@@ -620,7 +736,7 @@
     "fields": {
       "service_group": 20003,
       "language": "fr",
-      "name": "Géomètre de suivi"
+      "name": "Géomètre conservateur"
     }
   }
 ]
