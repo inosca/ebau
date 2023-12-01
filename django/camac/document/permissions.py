@@ -265,6 +265,15 @@ PERMISSIONS = {
             AdminPermission: [1, 2, 3, 4, 5, 6, 7, 10, 11, 12, 13, 14],
             ReadPermission: [8],
         },
+        "geometer": {
+            # Geometer has access to all sections, but the documents
+            # are explicitly marked for them
+            ReadPermission: [1, 2, 3, 4, 5, 6, 7, 10, 11, 12, 13, 14],
+            # Write only on "Beilagen SB1 (Papier und Nachrichten)". The
+            # AdminServicePermission also allows deleting own (and only own)
+            # files
+            AdminServicePermission: [10],
+        },
     },
     "kt_schwyz": {
         "municipality": {

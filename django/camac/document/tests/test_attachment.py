@@ -17,6 +17,32 @@ from camac.utils import build_url
 from .data import django_file
 
 
+def _configure_geometer_access(
+    att, instance_acl_factory, service, permissions_settings, access_level
+):
+    """Configure documents access for Geometer users.
+
+    Geometer users use the new permissions system, so we need a few things
+    for their access to work:
+
+    * Setup an appropriate access level
+    * Grant access to the instance via an ACL
+    * Mark the attachment as "for_geometer" in the context
+    """
+    att.context["for_geometer"] = True
+    att.save()
+    instance_acl_factory(
+        instance=att.instance,
+        grant_type="SERVICE",
+        service=service,
+    )
+    permissions_settings["ACCESS_LEVELS"] = {
+        access_level.pk: [
+            ("documents-read", "*"),
+        ]
+    }
+
+
 @pytest.mark.parametrize(
     "role__name,instance__user,num_queries",
     [
@@ -25,6 +51,7 @@ from .data import django_file
         ("Canton", LazyFixture("user"), 14),
         ("Municipality", LazyFixture("user"), 13),
         ("Service", LazyFixture("user"), 13),
+        ("Geometer", LazyFixture("user"), 14),
     ],
 )
 @pytest.mark.parametrize(
@@ -49,12 +76,25 @@ def test_attachment_list(
     num_queries,
     activation,
     django_assert_num_queries,
+    instance_acl_factory,
+    permissions_settings,
+    service,
+    access_level,
     role,
     mocker,
     is_docx,
     mode,
 ):
     url = reverse("attachment-list")
+
+    if role.name == "Geometer":
+        _configure_geometer_access(
+            att=attachment_attachment_sections.attachment,
+            instance_acl_factory=instance_acl_factory,
+            service=service,
+            permissions_settings=permissions_settings,
+            access_level=access_level,
+        )
 
     # fix permissions
     mocker.patch(
@@ -83,7 +123,7 @@ def test_attachment_list(
     data = json["data"]
     assert len(data) == 1
     assert data[0]["id"] == str(attachment_attachment_sections.attachment.pk)
-    can_write = role.name not in ("Applicant", "Reader") and (
+    can_write = role.name not in ("Applicant", "Reader", "Geometer") and (
         mode == permissions.AdminPermission
         or (
             mode == permissions.AdminInternalPermission
@@ -1100,7 +1140,6 @@ def test_attachment_delete(
     case_factory,
     application_settings,
 ):
-
     application_settings["ATTACHMENT_INTERNAL_STATES"] = ["internal"]
     application_settings["ATTACHMENT_DELETEABLE_STATES"] = ["new"]
 
