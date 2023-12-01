@@ -3,7 +3,7 @@
     "model": "api.template",
     "pk": "form",
     "fields": {
-      "description": "Formular",
+      "description": "",
       "template": "form.docx",
       "engine": "docx-template",
       "meta": {}
@@ -13,7 +13,7 @@
     "model": "api.template",
     "pk": "signatures",
     "fields": {
-      "description": "Unterschriftenblatt",
+      "description": "",
       "template": "signatures.docx",
       "engine": "docx-template",
       "meta": {}

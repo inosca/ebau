@@ -16,7 +16,7 @@ export default class CasesDetailIndexRoute extends Route {
     )[0];
 
     if (first) {
-      this.router.transitionTo(`/cases/${instanceId}/${first.link}`);
+      this.router.replaceWith(`/cases/${instanceId}/${first.link}`);
     }
   }
 }
