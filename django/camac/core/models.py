@@ -2188,6 +2188,9 @@ class InstanceResource(MultilingualModel, models.Model):
         default=get_first_form_group,
     )
 
+    # Name of the permission module permission that's required to see this IR
+    require_permission = models.CharField(max_length=100, blank=True, null=True)
+
     class Meta:
         managed = True
         db_table = "INSTANCE_RESOURCE"

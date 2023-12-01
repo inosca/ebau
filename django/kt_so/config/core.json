@@ -403,7 +403,8 @@
       "class_field": "menu-category-meta",
       "hidden": 0,
       "sort": 1,
-      "form_group": 1
+      "form_group": 1,
+      "require_permission": null
     }
   },
   {
@@ -418,7 +419,8 @@
       "class_field": "menu-category-primary",
       "hidden": 0,
       "sort": 3,
-      "form_group": 1
+      "form_group": 1,
+      "require_permission": null
     }
   },
   {
@@ -433,7 +435,8 @@
       "class_field": "menu-category-primary",
       "hidden": 0,
       "sort": 2,
-      "form_group": 1
+      "form_group": 1,
+      "require_permission": null
     }
   },
   {
@@ -448,7 +451,8 @@
       "class_field": "menu-category-process",
       "hidden": 0,
       "sort": 6,
-      "form_group": 1
+      "form_group": 1,
+      "require_permission": null
     }
   },
   {
@@ -463,7 +467,8 @@
       "class_field": "menu-category-process",
       "hidden": 0,
       "sort": 7,
-      "form_group": 1
+      "form_group": 1,
+      "require_permission": null
     }
   },
   {
@@ -478,7 +483,8 @@
       "class_field": "menu-category-process",
       "hidden": 0,
       "sort": 9,
-      "form_group": 1
+      "form_group": 1,
+      "require_permission": null
     }
   },
   {
@@ -493,7 +499,8 @@
       "class_field": "menu-category-analysis",
       "hidden": 0,
       "sort": 13,
-      "form_group": 1
+      "form_group": 1,
+      "require_permission": null
     }
   },
   {
@@ -508,7 +515,8 @@
       "class_field": "menu-category-analysis",
       "hidden": 0,
       "sort": 14,
-      "form_group": 1
+      "form_group": 1,
+      "require_permission": null
     }
   },
   {
@@ -523,7 +531,8 @@
       "class_field": "menu-category-primary",
       "hidden": 0,
       "sort": 5,
-      "form_group": 1
+      "form_group": 1,
+      "require_permission": null
     }
   },
   {
@@ -538,7 +547,8 @@
       "class_field": "menu-category-process",
       "hidden": 0,
       "sort": 8,
-      "form_group": 1
+      "form_group": 1,
+      "require_permission": null
     }
   },
   {
@@ -553,7 +563,8 @@
       "class_field": "menu-category-extraordinary",
       "hidden": 0,
       "sort": 11,
-      "form_group": 1
+      "form_group": 1,
+      "require_permission": null
     }
   },
   {
@@ -568,7 +579,8 @@
       "class_field": "menu-category-analysis",
       "hidden": 0,
       "sort": 15,
-      "form_group": 1
+      "form_group": 1,
+      "require_permission": null
     }
   },
   {
@@ -583,7 +595,8 @@
       "class_field": "menu-category-process",
       "hidden": 0,
       "sort": 10,
-      "form_group": 1
+      "form_group": 1,
+      "require_permission": null
     }
   },
   {
@@ -598,7 +611,8 @@
       "class_field": "menu-category-primary",
       "hidden": 0,
       "sort": 4,
-      "form_group": 1
+      "form_group": 1,
+      "require_permission": null
     }
   },
   {
@@ -613,7 +627,8 @@
       "class_field": "menu-category-analysis",
       "hidden": 0,
       "sort": 12,
-      "form_group": 1
+      "form_group": 1,
+      "require_permission": null
     }
   },
   {
@@ -628,7 +643,8 @@
       "class_field": "menu-category-extraordinary",
       "hidden": 0,
       "sort": 11,
-      "form_group": 1
+      "form_group": 1,
+      "require_permission": null
     }
   },
   {
@@ -643,7 +659,8 @@
       "class_field": "menu-category-extraordinary",
       "hidden": 0,
       "sort": 11,
-      "form_group": 1
+      "form_group": 1,
+      "require_permission": null
     }
   },
   {

@@ -1330,7 +1330,10 @@ APPLICATIONS = {
             "construction-control-readonly": "municipality",
             "construction-control-admin": "municipality",
             "support": "support",
-            "Geometer": "geometer",
+            "geometer-lead": "geometer",
+            "geometer-clerk": "geometer",
+            "geometer-readonly": "geometer",
+            "geometer-admin": "geometer",
         },
         "INSTANCE_PERMISSIONS": {"MUNICIPALITY_WRITE": ["correction"]},
         "CUSTOM_NOTIFICATION_TYPES": [
