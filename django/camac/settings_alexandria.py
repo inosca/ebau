@@ -9,6 +9,7 @@ ALEXANDRIA = {
         "RESTRICTED_FIELDS": {
             "title",
             "description",
+            "date",
             "metainfo",
             "category",
             "tags",
