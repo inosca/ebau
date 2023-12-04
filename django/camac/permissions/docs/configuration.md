@@ -48,19 +48,16 @@ PERMISSIONS = {
         "ACCESS_LEVELS": {
             "applicant": [
                 # editing only in new and in "nachforderung"
-                ("form-edit", "new"),
-                ("form-edit", "nfd"),
-
+                ("form-edit", ["new", "nfd"]),
                 # viewing is always allowed for applicants
-                ("form-read", "*"),
+                ("form-read", ["*"]),
             ],
             "service": [
-                # view form in submitted state
-                ("form-read", "subm"),
+                # view form in submitted and "correcting" state
+                ("form-read", ["subm", "corr"]),
 
-                # editing and viewing the form in correction state
-                ("form-edit", "corr"),
-                ("form-read", "corr"),
+                # editing the form only in correction state
+                ("form-edit", ["corr"]),
 
                 # Be lucky: Only allowed if a coin toss says so 
                 ("be-lucky", toss_a_coin)
@@ -76,6 +73,10 @@ PERMISSIONS = {
 
 Each canton needs to implement it's own `PermissionEventHandler` subclass, and
 implement the required methods to grant / revoke permissions as needed.
+
+Note: The actual available event handlers are still work-in-progress, so take
+the following as a *structural* example, not a blueprint for something that will
+actually work. (The parameters passed to the handlers are as-documented however)
 
 A simple handler may look like this:
 
