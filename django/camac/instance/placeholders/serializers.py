@@ -690,6 +690,10 @@ class GrDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         aliases=[_("COORDINATES")],
         description=_("Coordinates of the parcel"),
     )
+    gebaeudeversicherungsnummer = fields.AliasedMethodField(
+        aliases=[_("BUILDING_INSURANCE_NUMBER")],
+        description=_("Building insurance number"),
+    )
 
     def get_zonenplan(self, instance):
         answer = Answer.objects.filter(
@@ -734,6 +738,13 @@ class GrDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
             y = f"{round(coordinate['y']):_}".replace("_", "’")
             data.append(f"{x} / {y}")
         return "; ".join(data)
+
+    def get_gebaeudeversicherungsnummer(self, instance):
+        values = Answer.objects.filter(
+            document__family_id=instance.case.document.pk,
+            question_id="amtliche-gebaeudenummer",
+        ).values_list("value", flat=True)
+        return ", ".join([str(v) for v in values])
 
     class Meta:
         exclude = [
