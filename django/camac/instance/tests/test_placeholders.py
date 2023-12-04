@@ -9,7 +9,12 @@ from alexandria.core.factories import (
     FileFactory,
     TagFactory,
 )
-from caluma.caluma_form.factories import AnswerFactory, DocumentFactory
+from caluma.caluma_form.factories import (
+    AnswerFactory,
+    DocumentFactory,
+    FormFactory,
+    QuestionFactory,
+)
 from caluma.caluma_form.models import Option, Question
 from caluma.caluma_workflow.factories import WorkItemFactory
 from caluma.caluma_workflow.models import WorkItem
@@ -163,6 +168,32 @@ def test_dms_placeholders_gr(
         document=document,
         meta={"is-published": True},
     )
+
+    # gwr
+    FormFactory(
+        slug="gebaeude-tabelle",
+    )
+    QuestionFactory(
+        slug="amtliche-gebaeudenummer",
+        type=Question.TYPE_INTEGER,
+    )
+    QuestionFactory(
+        slug="gebaeude-und-anlagen",
+        type=Question.TYPE_TABLE,
+    )
+    table_question = gr_instance.case.document.answers.create(
+        question_id="gebaeude-und-anlagen"
+    )
+    row1 = DocumentFactory(
+        form_id="gebaeude-tabelle", family_id=gr_instance.case.document.family_id
+    )
+    row2 = DocumentFactory(
+        form_id="gebaeude-tabelle", family_id=gr_instance.case.document.family_id
+    )
+    row1.answers.create(question_id="amtliche-gebaeudenummer", value=123456789)
+    row2.answers.create(question_id="amtliche-gebaeudenummer", value=987654321)
+    table_question.documents.add(row1)
+    table_question.documents.add(row2)
 
     # zones
     add_answer(gr_instance.case.document, "zonenplan", "Rebwirtschaftszone")
