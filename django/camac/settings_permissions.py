@@ -89,7 +89,7 @@ PERMISSIONS: PermissionsConfig = {
                 ("documents-write-sb1-paper", ["sb1", "sb2"]),
             ],
         },
-        "EVENT_HANDLER": "camac.permissions.events.EmptyEventHandler",
+        "EVENT_HANDLER": "camac.permissions.config.kt_bern.PermissionEventHandlerBE",
         "ENABLED": True,
     },
 }

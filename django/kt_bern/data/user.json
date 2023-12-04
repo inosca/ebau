@@ -51352,6 +51352,70 @@
     }
   },
   {
+    "model": "user.group",
+    "pk": 23273,
+    "fields": {
+      "role": 20010,
+      "service": 20991,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.com",
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 23274,
+    "fields": {
+      "role": 20012,
+      "service": 20991,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.com",
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 23275,
+    "fields": {
+      "role": 20013,
+      "service": 20991,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.com",
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 23276,
+    "fields": {
+      "role": 20011,
+      "service": 20991,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.com",
+      "website": null
+    }
+  },
+  {
     "model": "user.groupt",
     "pk": 1,
     "fields": {
@@ -115502,6 +115566,86 @@
     }
   },
   {
+    "model": "user.groupt",
+    "pk": 26533,
+    "fields": {
+      "group": 23273,
+      "language": "de",
+      "name": "Leitung Nachführungsgeometer Test",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 26534,
+    "fields": {
+      "group": 23274,
+      "language": "de",
+      "name": "Administration Nachführungsgeometer Test",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 26535,
+    "fields": {
+      "group": 23275,
+      "language": "de",
+      "name": "Sachbearbeiter Nachführungsgeometer Test",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 26536,
+    "fields": {
+      "group": 23276,
+      "language": "de",
+      "name": "Einsichtsberechtigte Nachführungsgeometer Test",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 26537,
+    "fields": {
+      "group": 23273,
+      "language": "fr",
+      "name": "Responsable géomètre conservateur Test",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 26538,
+    "fields": {
+      "group": 23274,
+      "language": "fr",
+      "name": "Administration géomètre conservateur Test",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 26539,
+    "fields": {
+      "group": 23275,
+      "language": "fr",
+      "name": "Collaborateur géomètre conservateur Test",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 26540,
+    "fields": {
+      "group": 23276,
+      "language": "fr",
+      "name": "Personne autorisée à consulter géomètre conservateur Test",
+      "city": null
+    }
+  },
+  {
     "model": "user.usergroup",
     "pk": 1,
     "fields": {
@@ -115518,7 +115662,7 @@
     "fields": {
       "user": 2,
       "group": 2,
-      "default_group": 1,
+      "default_group": 0,
       "created_at": "2023-05-25T12:19:18.225Z",
       "created_by": 1
     }
@@ -115628,7 +115772,7 @@
     "fields": {
       "user": 2,
       "group": 20003,
-      "default_group": 1,
+      "default_group": 0,
       "created_at": "2023-05-25T12:19:18.225Z",
       "created_by": 1
     }
@@ -115650,7 +115794,7 @@
     "fields": {
       "user": 2,
       "group": 1,
-      "default_group": 0,
+      "default_group": 1,
       "created_at": "2023-05-25T12:19:18.225Z",
       "created_by": 1
     }
@@ -115741,6 +115885,59 @@
       "default_group": 0,
       "created_at": "2023-05-25T12:19:18.225Z",
       "created_by": 1
+    }
+  },
+  {
+    "model": "user.usergroup",
+    "pk": 20130,
+    "fields": {
+      "user": 2,
+      "group": 23273,
+      "default_group": 0,
+      "created_at": "2023-12-04T12:18:09.476Z",
+      "created_by": 2
+    }
+  },
+  {
+    "model": "user.usergroup",
+    "pk": 20131,
+    "fields": {
+      "user": 2,
+      "group": 23274,
+      "default_group": 0,
+      "created_at": "2023-12-04T12:27:07.864Z",
+      "created_by": 2
+    }
+  },
+  {
+    "model": "user.usergroup",
+    "pk": 20132,
+    "fields": {
+      "user": 2,
+      "group": 23275,
+      "default_group": 0,
+      "created_at": "2023-12-04T12:27:07.865Z",
+      "created_by": 2
+    }
+  },
+  {
+    "model": "user.usergroup",
+    "pk": 20133,
+    "fields": {
+      "user": 2,
+      "group": 23276,
+      "default_group": 0,
+      "created_at": "2023-12-04T12:27:07.866Z",
+      "created_by": 2
+    }
+  },
+  {
+    "model": "user.servicerelation",
+    "pk": 1,
+    "fields": {
+      "receiver": 2,
+      "provider": 20991,
+      "function": "geometer"
     }
   },
   {
@@ -134152,6 +134349,26 @@
       "name": null,
       "description": null,
       "sort": 0,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.com",
+      "website": null,
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 20991,
+    "fields": {
+      "service_group": 20003,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 759,
       "phone": null,
       "zip": null,
       "city": null,
@@ -154445,6 +154662,28 @@
       "name": "Leitbehörde AGR Orts- und Raumplanung",
       "description": "Leitbehörde AGR Orts- und Raumplanung",
       "city": "Bern"
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 21964,
+    "fields": {
+      "service": 20991,
+      "language": "de",
+      "name": "Nachführungsgeometer Test",
+      "description": "Nachführungsgeometer Test",
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 21965,
+    "fields": {
+      "service": 20991,
+      "language": "fr",
+      "name": "Géomètre conservateur Test",
+      "description": "Géomètre conservateur Test",
+      "city": null
     }
   }
 ]

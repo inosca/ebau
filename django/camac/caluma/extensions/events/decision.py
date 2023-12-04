@@ -12,6 +12,7 @@ from camac.core.utils import create_history_entry
 from camac.ech0211.signals import ruling
 from camac.instance import domain_logic
 from camac.notification.utils import send_mail_without_request
+from camac.permissions import events as permissions_events
 from camac.stats.cycle_time import compute_cycle_time
 from camac.user.models import User
 
@@ -92,6 +93,8 @@ def post_complete_decision(sender, work_item, user, context, **kwargs):
             skip_work_item(ebau_work_item, user, context)
     else:
         instance.set_instance_state("finished", camac_user)
+
+    permissions_events.Trigger.decision_decreed(None, instance)
 
     # trigger ech message for status change
     ruling.send(
