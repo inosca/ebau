@@ -31,7 +31,7 @@ def test_import_geometer(
         trans__name="Sachbearbeiter Nachführungsgeometer",
     )
 
-    service_group_factory(name="Nachführungsgeometer")
+    service_group_factory(name="geometer")
 
     import_header = [
         "bfs",

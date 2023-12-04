@@ -48,7 +48,7 @@ class Command(BaseCommand):
 
     def _build_geometer(self, geometer):
         zipcode, city = geometer["FirmaPlzOrt"].split(" ", 1)
-        geometer_service_group = ServiceGroup.objects.get(name="Nachführungsgeometer")
+        geometer_service_group = ServiceGroup.objects.get(name="geometer")
         geom_service, _ = Service.objects.update_or_create(
             name=geometer["Name eBAU"],
             defaults={
