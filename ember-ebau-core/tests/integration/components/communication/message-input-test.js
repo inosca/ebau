@@ -1,6 +1,7 @@
 import { getOwner } from "@ember/application";
 import { render, fillIn, click } from "@ember/test-helpers";
 import { hbs } from "ember-cli-htmlbars";
+import { setupMirage } from "ember-cli-mirage/test-support";
 import { setupRenderingTest } from "ember-qunit";
 import { module, test, skip } from "qunit";
 
@@ -8,6 +9,7 @@ module(
   "Integration | Component | communication/message-input",
   function (hooks) {
     setupRenderingTest(hooks);
+    setupMirage(hooks);
 
     hooks.beforeEach(function () {
       this.owner.lookup("service:ebauModules").resolveModuleRoute = (

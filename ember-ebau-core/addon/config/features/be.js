@@ -19,4 +19,7 @@ export default {
   dms: {
     mergeAndSave: true,
   },
+  communication: {
+    snippets: true,
+  },
 };
