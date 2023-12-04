@@ -43,7 +43,12 @@ REJECTION = {
     },
     "kt_gr": {
         "ENABLED": True,
-        "ALLOWED_INSTANCE_STATES": ["subm", "init-distribution"],
+        "ALLOWED_INSTANCE_STATES": [
+            "subm",
+            "init-distribution",
+            "circulation",
+            "decision",
+        ],
         "NOTIFICATIONS": {
             "REJECTED": [
                 {
