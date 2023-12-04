@@ -19,6 +19,7 @@
         <f.input
           @name="service"
           @label={{t "permissions.details.organisation"}}
+          @required={{true}}
           @errorComponent={{(component "input-error")}}
           as |fi|
         >
@@ -43,6 +44,7 @@
           @name="accessLevel"
           @label={{t "permissions.details.access-level"}}
           @errorComponent={{(component "input-error")}}
+          @required={{true}}
           as |fi|
         >
           <PowerSelect

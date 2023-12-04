@@ -94,6 +94,10 @@
   </modal.body>
   <modal.footer class="uk-text-right">
     <UkButton
+      @label={{t "permissions.revoke"}}
+      @onClick={{fn this.revokeAcl @instanceAcl}}
+    />
+    <UkButton
       @color="primary"
       @label={{t "global.close"}}
       @onClick={{@onHide}}

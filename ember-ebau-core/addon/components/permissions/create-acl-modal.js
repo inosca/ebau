@@ -32,8 +32,15 @@ export default class CreateAclModalComponent extends Component {
         "service",
         changeset.service.id,
       );
+      // set end time to last hour of the day
+      const endTime = DateTime.fromJSDate(changeset.pendingData.endTime).set({
+        hour: 23,
+        minute: 59,
+        second: 59,
+      });
       const acl = this.store.createRecord("instance-acl", {
         ...changeset.pendingData,
+        endTime,
         // TODO: hardcoded until further grant types are allowed for manual creation
         grantType: "SERVICE",
         instance,

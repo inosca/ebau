@@ -64,13 +64,14 @@
     <tbody>
       {{#unless this.acls.isResetting}}
         {{#each this.acls.records as |acl|}}
-          <tr
-            data-test-instance-acl
-            role="link"
-            class="pointer"
-            {{on "click" (fn (mut this.detailViewAcl) acl)}}
-          >
-            <td>{{acl.entityName}}</td>
+          <tr class="uk-table-link" data-test-instance-acl>
+            <td>
+              <a
+                class="uk-link"
+                href="#"
+                {{on "click" (fn (mut this.detailViewAcl) acl)}}
+              >{{acl.entityName}}</a>
+            </td>
             <td>{{acl.accessLevel.name}}</td>
             <td>{{or (format-date acl.startTime format="date") "-"}}</td>
             <td>{{or (format-date acl.endTime format="date") "-"}}</td>
