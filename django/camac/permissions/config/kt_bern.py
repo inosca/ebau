@@ -1,9 +1,9 @@
 from caluma.caluma_workflow.models import WorkItem
 
-from camac.permissions import api as permissions_api, models as permissions_models
-from camac.user.models import ServiceRelation
 from camac.instance.models import Instance
+from camac.permissions import api as permissions_api, models as permissions_models
 from camac.permissions.events import EmptyEventHandler
+from camac.user.models import ServiceRelation
 
 
 class PermissionEventHandlerBE(EmptyEventHandler):
