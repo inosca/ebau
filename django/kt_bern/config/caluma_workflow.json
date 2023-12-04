@@ -157,6 +157,19 @@
   },
   {
     "model": "caluma_workflow.flow",
+    "pk": "6594e4ca-64c0-4437-827a-95d13e5b8854",
+    "fields": {
+      "created_at": "2023-12-04T17:33:30.097Z",
+      "modified_at": "2023-12-04T17:33:30.097Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "next": "'after-geometer'|task"
+    }
+  },
+  {
+    "model": "caluma_workflow.flow",
     "pk": "71e4db71-f7ad-42ce-b94e-0471ddff8d42",
     "fields": {
       "created_at": "2022-01-28T15:41:08.519Z",
@@ -244,6 +257,19 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "next": "['decision']|tasks"
+    }
+  },
+  {
+    "model": "caluma_workflow.flow",
+    "pk": "c37e686d-24b1-49ba-96ed-3640c4be57b7",
+    "fields": {
+      "created_at": "2023-12-04T17:48:01.410Z",
+      "modified_at": "2023-12-04T17:48:01.410Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "next": "'after-geometer'|task"
     }
   },
   {
@@ -339,6 +365,31 @@
       "control_groups": "['municipality']|groups",
       "is_archived": false,
       "form": "dossierpruefung",
+      "lead_time": 864000,
+      "is_multiple_instance": false,
+      "continue_async": false
+    }
+  },
+  {
+    "model": "caluma_workflow.task",
+    "pk": "cadastral-survey",
+    "fields": {
+      "created_at": "2023-12-04T17:33:27.845Z",
+      "modified_at": "2023-12-04T17:33:27.845Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Nachf\\u00fchrung amtliche Vermessung\", \"fr\": \"Mise \\u00e0 jour de la mensuration officielle\", \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "type": "simple",
+      "meta": {
+        "is-manually-completable": true
+      },
+      "address_groups": "['geometer']|groups",
+      "control_groups": "['geometer']|groups",
+      "is_archived": false,
+      "form": null,
       "lead_time": 864000,
       "is_multiple_instance": false,
       "continue_async": false
@@ -553,6 +604,29 @@
       "is_archived": false,
       "form": "publikation",
       "lead_time": null,
+      "is_multiple_instance": false,
+      "continue_async": false
+    }
+  },
+  {
+    "model": "caluma_workflow.task",
+    "pk": "geometer",
+    "fields": {
+      "created_at": "2023-12-04T17:33:25.813Z",
+      "modified_at": "2023-12-04T17:33:25.813Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Beurteilung Notwendigkeit Vermessung\", \"fr\": \"\\u00c9valuation n\\u00e9cessit\\u00e9 de l'arpentage\", \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "type": "complete_task_form",
+      "meta": {},
+      "address_groups": "['geometer']|groups",
+      "control_groups": null,
+      "is_archived": false,
+      "form": "geometer",
+      "lead_time": 864000,
       "is_multiple_instance": false,
       "continue_async": false
     }
@@ -978,6 +1052,22 @@
   },
   {
     "model": "caluma_workflow.taskflow",
+    "pk": "9b9524d6-0206-4683-9738-8c5936d76ed6",
+    "fields": {
+      "created_at": "2023-12-04T17:48:01.412Z",
+      "modified_at": "2023-12-04T17:48:01.412Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "workflow": "preliminary-clarification",
+      "task": "geometer",
+      "flow": "c37e686d-24b1-49ba-96ed-3640c4be57b7",
+      "redoable": null
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
     "pk": "9bc4477e-91d8-4209-bddf-b1be9c6f414a",
     "fields": {
       "created_at": "2022-08-25T07:35:41.063Z",
@@ -1037,6 +1127,22 @@
       "workflow": "building-permit",
       "task": "ebau-number",
       "flow": "4daff7a4-f031-47bf-8fef-445d5ca88278",
+      "redoable": null
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
+    "pk": "c8e7b418-933f-4f44-afca-741f7b01b7b3",
+    "fields": {
+      "created_at": "2023-12-04T17:33:30.099Z",
+      "modified_at": "2023-12-04T17:33:30.099Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "workflow": "building-permit",
+      "task": "geometer",
+      "flow": "6594e4ca-64c0-4437-827a-95d13e5b8854",
       "redoable": null
     }
   },

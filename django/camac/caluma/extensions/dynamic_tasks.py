@@ -10,15 +10,25 @@ from camac.instance import domain_logic
 class CustomDynamicTasks(BaseDynamicTasks):
     @register_dynamic_task("after-decision")
     def resolve_after_decision(self, case, user, prev_work_item, context):
-        if (
-            case.workflow_id == "building-permit"
-            and domain_logic.DecisionLogic.should_continue_after_decision(
-                case.instance, prev_work_item
-            )
+        if not domain_logic.DecisionLogic.should_continue_after_decision(
+            case.instance, prev_work_item
         ):
-            return settings.DECISION["TASKS_AFTER_BUILDING_PERMIT_DECISION"]
+            return []
 
-        return []
+        tasks = []
+        if case.workflow_id == "building-permit":
+            tasks = settings.DECISION["TASKS_AFTER_BUILDING_PERMIT_DECISION"]
+
+        involve_geometer = (
+            prev_work_item.document.answers.filter(question_id="decision-geometer")
+            .values_list("value", flat=True)
+            .first()
+        )
+
+        if involve_geometer == "decision-geometer-yes":
+            tasks = [*tasks, "geometer"]
+
+        return tasks
 
     @register_dynamic_task("after-inquiries-completed")
     def resolve_after_inquiries_completed(self, case, user, prev_work_item, context):
@@ -141,3 +151,21 @@ class CustomDynamicTasks(BaseDynamicTasks):
             return ["distribution", "publication", "fill-publication", "objections"]
 
         return []  # pragma: no cover
+
+    @register_dynamic_task("after-geometer")
+    def resolve_after_geometer(self, case, user, prev_work_item, context):
+        perform_cadastral_survey = (
+            prev_work_item.document.answers.filter(
+                question_id="geometer-beurteilung-notwendigkeit-vermessung"
+            )
+            .values_list("value", flat=True)
+            .first()
+        )
+
+        if (
+            perform_cadastral_survey
+            == "geometer-beurteilung-notwendigkeit-vermessung-notwendig"
+        ):
+            return ["cadastral-survey"]
+
+        return []
