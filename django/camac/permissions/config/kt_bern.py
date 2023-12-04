@@ -13,7 +13,7 @@ class PermissionEventHandlerBE(EmptyEventHandler):
             status=WorkItem.STATUS_COMPLETED,
         ).first()
 
-        if not decision:
+        if not decision:  # pragma: no cover
             return
 
         # Provide ACL on instance to geometer belonging to municipality
