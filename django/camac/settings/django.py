@@ -2397,3 +2397,21 @@ GENERIC_PERMISSIONS_VISIBILITY_CLASSES = [
 GENERIC_PERMISSIONS_PERMISSION_CLASSES = [
     "camac.alexandria.extensions.permissions.CustomPermission"
 ]
+
+
+is_s3_storage = DEFAULT_FILE_STORAGE == "storages.backends.s3.S3Storage"
+
+AWS_S3_ACCESS_KEY_ID = env.str(
+    "AWS_S3_ACCESS_KEY_ID",
+    default=default("minio", require_if(is_s3_storage)),
+)
+AWS_S3_SECRET_ACCESS_KEY = env.str(
+    "AWS_S3_SECRET_ACCESS_KEY",
+    default=default("minio123", require_if(is_s3_storage)),
+)
+AWS_S3_ENDPOINT_URL = env.str(
+    "AWS_S3_ENDPOINT_URL",
+    default=default("http://ember-ebau.local", require_if(is_s3_storage)),
+)
+AWS_S3_SIGNATURE_VERSION = "s3v4"
+AWS_STORAGE_BUCKET_NAME = env.str("AWS_STORAGE_BUCKET_NAME", default="ebau-media")

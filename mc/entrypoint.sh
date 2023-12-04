@@ -7,6 +7,7 @@ if [ "$1" != "-u" ]; then
   # Create buckets for DMS and alexandria
   mc mb -p dc-minio/dms-media;
   mc mb -p dc-minio/alexandria-media;
+  mc mb -p dc-minio/ebau-media;
 fi
 # Copy DMS default templates to dms-media bucket
 mc cp /tmp/dms-media/* dc-minio/dms-media/;

@@ -173,6 +173,7 @@ index:
 
 instances:
   title: "Mes dossiers"
+  logo: "Logo {service}"
   instance-id: "Numéro de dossier"
   special-id: "Numéro eBau"
   type: "Type de demande"

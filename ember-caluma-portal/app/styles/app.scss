@@ -31,3 +31,7 @@ $badge-in-tab-ratio: 0.85;
 .white-space-pre-line {
   white-space: pre-line;
 }
+
+.active-service-logo {
+  height: calc($base-h2-font-size-m + $base-margin-vertical);
+}

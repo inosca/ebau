@@ -31,4 +31,5 @@ export default {
     municipalityBeforeSubmission: true,
   },
   watermark: true,
+  municipalityLogo: true,
 };
