@@ -1177,6 +1177,116 @@ class BeDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         aliases=[_("RESPONSIBLE_PHONE")],
         description=_("Phone of the responsible employee"),
     )
+    number_of_accomodated_persons = fields.MasterDataField(
+        aliases=[_("NUMBER_OF_ACCOMODATED_PERSONS")],
+        description=_("Number of accomodated persons"),
+    )
+    lifts = fields.MasterDataField(
+        aliases=[_("LIFTS")],
+        description=_("Lifts"),
+        nested_aliases={
+            "system_type": [_("SYSTEM_TYPE")],
+            "new_or_existing": [_("NEW_OR_EXISTING")],
+        },
+    )
+    dimension_height = fields.MasterDataField(
+        parser=get_option_label,
+        join_by=", ",
+        aliases=[_("DIMENSION_HEIGHT")],
+        description=_("Height"),
+    )
+    building_distances = fields.MasterDataField(
+        aliases=[_("BUILDING_DISTANCES")],
+        description=_("Distances between adjacent buildings"),
+        nested_aliases={"side": [_("SIDE")], "distance": [_("DISTANCE")]},
+    )
+    hazardous_substances = fields.MasterDataField(
+        aliases=[_("HAZARDOUS_SUBSTANCES")],
+        description=_("Hazardous substances"),
+        nested_aliases={
+            "material": [_("MATERIAL")],
+            "material_group": [_("MATERIAL_GROUP")],
+            "amount": [_("AMOUNT")],
+        },
+    )
+    ventilation_systems = fields.MasterDataField(
+        aliases=[_("VENTILATION_SYSTEMS")],
+        description=_("Ventilation systems"),
+        nested_aliases={
+            "system_type": [_("TYPE")],
+            "air_volume": [_("AIR_VOLUME")],
+            "new_or_existing": [_("NEW_OR_EXISTING")],
+        },
+    )
+    rooms_with_more_than_50_persons = fields.MasterDataField(
+        aliases=[_("ROOMS_WITH_MORE_THAN_50_PERSONS")],
+        description=_("List of rooms with more than 50 persons"),
+        nested_aliases={
+            "room": [_("ROOM")],
+            "number_of_persons": [_("NUMBER_OF_PERSONS")],
+        },
+    )
+    room_occupancy_rooms_more_than_50_persons = fields.MasterDataField(
+        aliases=[_("ROOM_OCCUPANCY_ROOMS_MORE_THAN_50_PERSONS")],
+        description=_("Room occupancy rooms more than 50 persons"),
+    )
+    solar_panels = fields.MasterDataField(
+        aliases=[_("SOLAR_PANELS")],
+        description=_("Solar panels"),
+        nested_aliases={
+            "type": [_("TYPE")],
+            "energy_storage": [_("ENERGY_STORAGE")],
+            "energy_storage_capacity": [_("ENERGY_STORAGE_CAPACITY")],
+            "new_or_existing": [_("NEW_OR_EXISTING")],
+        },
+    )
+    stfv_short_report_date = fields.MasterDataField(
+        aliases=[_("STFV_SHORT_REPORT_DATE")],
+        description=_("STFV short report date"),
+        parser=human_readable_date,
+    )
+    stfv_critial_value_exceeded = fields.MasterDataField(
+        aliases=[_("STFV_CRITIAL_VALUE_EXCEEDED")],
+        description=_("StfV critial value exceeded"),
+        parser=get_option_label,
+        join_by=", ",
+    )
+    stfv_short_report_date = fields.MasterDataField(
+        aliases=[_("STFV_SHORT_REPORT_DATE")],
+        description=_("STFV short report date"),
+        parser=human_readable_date,
+    )
+    fire_protection_systems = fields.MasterDataField(
+        aliases=[_("FIRE_PROTECTION_SYSTEMS")],
+        description=_("Fire protection systems"),
+        nested_aliases={
+            "type": [_("TYPE")],
+            "new_or_existing": [_("NEW_OR_EXISTING")],
+        },
+    )
+    heating_systems = fields.MasterDataField(
+        aliases=[_("HEATING_SYSTEMS")],
+        description=_("Heating systems"),
+        nested_aliases={
+            "type": [_("TYPE")],
+            "power": [_("POWER")],
+            "combusitble_storage": [_("COMBUSITBLE_STORAGE")],
+            "storage_amount": [_("STORAGE_AMOUNT")],
+            "new_or_existing": [_("NEW_OR_EXISTING")],
+        },
+    )
+    construction_costs = fields.MasterDataField(
+        aliases=[_("CONSTRUCTION_COSTS")],
+        description=_("Construction costs"),
+    )
+    floor_area = fields.MasterDataField(
+        aliases=[_("FLOOR_AREA")],
+        description=_("Floor area"),
+    )
+    qs_responsible = fields.MasterDataPersonField(
+        aliases=[_("QS_RESPONSIBLE")],
+        description=_("Name of the person responsible for QS"),
+    )
 
     def get_administrative_district(self, instance):
         sheet = settings.APPLICATION.get("MUNICIPALITY_DATA_SHEET")
