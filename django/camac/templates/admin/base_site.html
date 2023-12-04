@@ -1,0 +1,8 @@
+{% extends 'admin/base_site.html' %}
+{% load app_version %}
+
+{% block branding %}
+  {{ block.super }}
+  {% app_version as VERSION %}
+  {% if VERSION %}{{ VERSION }}{% endif %}
+{% endblock %}
