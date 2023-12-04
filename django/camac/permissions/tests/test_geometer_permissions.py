@@ -40,8 +40,8 @@ def test_geometer_instance_access(
     # Geometer access
     permissions_settings["ACCESS_LEVELS"] = {
         access_level.pk: [
-            ("geometer", "*"),
-            ("read-form", "*"),
+            ("geometer", ["*"]),
+            ("read-form", ["*"]),
         ]
     }
 

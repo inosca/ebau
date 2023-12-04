@@ -2,7 +2,7 @@ from dataclasses import dataclass
 from datetime import datetime, timedelta
 from typing import List, Optional, Union
 
-from django.conf import settings
+from django.conf import ImproperlyConfigured, settings
 from django.core.cache import cache
 from django.utils import timezone
 
@@ -109,8 +109,18 @@ class PermissionManager:
                     )
                     if condition(**kwargs):
                         granted_permissions.append(perm)
-                elif condition == "*" or condition == instance.instance_state.name:
-                    granted_permissions.append(perm)
+                    continue
+
+                elif not isinstance(condition, list):  # pragma: no cover
+                    raise ImproperlyConfigured(
+                        f"Permission config for access level {access_level.slug} contains "
+                        f"an invalid entry: The condition for permission {perm!r} is neither "
+                        f"a list or a callable: {condition}"
+                    )
+                # Now we know it's a list. Check the instance state for match
+                for cond in condition:
+                    if cond == "*" or cond == instance.instance_state.name:
+                        granted_permissions.append(perm)
                 # else: condition didn't match - permission not granted
 
         cache_duration = expiry - timezone.now()
