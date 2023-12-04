@@ -670,6 +670,16 @@
     }
   },
   {
+    "model": "instance.form",
+    "pk": 306,
+    "fields": {
+      "form_state": 1,
+      "name": "Internes Mitberichtsverfahren AfG",
+      "description": "KOOR-AfG;Koordinationsstelle AfG",
+      "family": null
+    }
+  },
+  {
     "model": "instance.formstate",
     "pk": 1,
     "fields": {

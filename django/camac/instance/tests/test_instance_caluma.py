@@ -1110,6 +1110,60 @@ def test_instance_submit_mitbericht_kanton_doesnt_send_mail(
     assert len(mail.outbox) == 0
 
 
+@pytest.mark.parametrize("instance_state__name", ["new"])
+@pytest.mark.parametrize("instance__user", [LazyFixture("admin_user")])
+@pytest.mark.parametrize(
+    "role__name,service_group__name", [("Applicant", "coordination")]
+)
+def test_instance_authority_by_submission_for_koor_afg(
+    mocker,
+    admin_client,
+    settings,
+    ur_instance,
+    application_settings,
+    location_factory,
+    group_factory,
+    instance_state_factory,
+    service_factory,
+    authority_location_factory,
+):
+    settings.APPLICATION_NAME = "kt_uri"
+    application_settings["STORE_PDF"] = False
+    application_settings["SET_SUBMIT_DATE_CAMAC_ANSWER"] = False
+
+    bgbb_form = caluma_form_factories.FormFactory(slug="bgbb")
+    ur_instance.case.document.form = bgbb_form
+    ur_instance.case.document.save()
+
+    koor_service = service_factory(email="KOOR_AFG@example.com")
+    mocker.patch("camac.constants.kt_uri.KOOR_AFG_SERVICE_ID", koor_service.pk)
+    koor_group = group_factory(service=koor_service)
+    mocker.patch("camac.constants.kt_uri.KOOR_AFG_GROUP_ID", koor_group.pk)
+    ur_instance.group = koor_group
+    ur_instance.save()
+
+    location = location_factory()
+
+    authority_location_factory(location=location)
+
+    ur_instance.case.document.answers.create(
+        value=str(location.communal_federal_number), question_id="municipality"
+    )
+
+    instance_state_factory(name="ext")
+    instance_state_factory(name="subm")
+
+    response = admin_client.post(reverse("instance-submit", args=[ur_instance.pk]))
+
+    ur_instance.refresh_from_db()
+
+    assert response.status_code == status.HTTP_200_OK
+
+    assert ur_instance.case.document.answers.get(
+        question_id="leitbehoerde"
+    ).value == str(uri_constants.KOOR_AFG_AUTHORITY_ID)
+
+
 @pytest.mark.parametrize("form_slug", ["oereb", "oereb-verfahren-gemeinde"])
 @pytest.mark.parametrize("service_group__name", [("municipality", "coordination")])
 @pytest.mark.parametrize("instance_state__name", ["new"])

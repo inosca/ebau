@@ -76,6 +76,7 @@ export default {
         1127, // KOOR AfE
         1128, // KOOR AFJ
         1129, // KOOR SD
+        1133, // KOOR AfG
         1130, // Bundesstelle
         1131, // Support
       ],
@@ -125,5 +126,5 @@ export default {
     "beschreibung-reklame",
     "beschrieb-verfahren",
   ],
-  coordinationServices: [1, 87, 302, 590, 546, 545], // kantonale KOORs
+  coordinationServices: [1, 87, 302, 590, 546, 545, 636], // kantonale KOORs
 };
