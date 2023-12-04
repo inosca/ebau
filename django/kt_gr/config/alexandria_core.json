@@ -1202,5 +1202,20 @@
       "name": "{\"de\": \"Publikation\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}"
     }
+  },
+  {
+    "model": "alexandria_core.mark",
+    "pk": "void",
+    "fields": {
+      "created_at": "2023-12-01T09:11:54.349Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2023-12-01T09:11:54.349Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {},
+      "name": "{\"de\": \"Ersetzt\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}"
+    }
   }
 ]
