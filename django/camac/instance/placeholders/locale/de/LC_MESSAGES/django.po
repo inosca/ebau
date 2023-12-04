@@ -827,7 +827,15 @@ msgstr "ZUSTAENDIG_NAME"
 msgid "Name of the responsible employee"
 msgstr "Name des/r zuständigen/r Mitarbeiter/in"
 
-#: camac/instance/placeholders/serializers.py:756
+#: camac/instance/placeholders/serializers.py:674
+msgid "BUILDING_INSURANCE_NUMBER"
+msgstr "GEBAEUDEVERSICHERUNGSNUMMER"
+
+#: camac/instance/placeholders/serializers.py:675
+msgid "Building insurance number"
+msgstr "Gebäudeversicherungsnummer"
+
+#: camac/instance/placeholders/serializers.py:755
 msgid "PROJECT"
 msgstr "BAUVORHABEN"
 
