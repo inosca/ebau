@@ -44,7 +44,7 @@
       "modified_by_group": null,
       "form": "decision",
       "question": "decision-approval-type",
-      "sort": 8
+      "sort": 10
     }
   },
   {
@@ -59,7 +59,7 @@
       "modified_by_group": null,
       "form": "decision",
       "question": "decision-date",
-      "sort": 6
+      "sort": 8
     }
   },
   {
@@ -74,7 +74,22 @@
       "modified_by_group": null,
       "form": "decision",
       "question": "decision-decision-assessment",
-      "sort": 10
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "decision.decision-geometer",
+    "fields": {
+      "created_at": "2023-12-01T18:46:15.860Z",
+      "modified_at": "2023-12-01T18:46:15.860Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "decision",
+      "question": "decision-geometer",
+      "sort": 6
     }
   },
   {
@@ -89,7 +104,7 @@
       "modified_by_group": null,
       "form": "decision",
       "question": "decision-info-appeal",
-      "sort": 9
+      "sort": 11
     }
   },
   {
@@ -105,6 +120,21 @@
       "form": "decision",
       "question": "decision-info-appeal-submit",
       "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "decision.decision-info-geometer",
+    "fields": {
+      "created_at": "2023-12-01T19:03:57.209Z",
+      "modified_at": "2023-12-01T19:03:57.209Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "decision",
+      "question": "decision-info-geometer",
+      "sort": 5
     }
   },
   {
@@ -134,7 +164,7 @@
       "modified_by_group": null,
       "form": "decision",
       "question": "decision-other-description",
-      "sort": 7
+      "sort": 9
     }
   },
   {
@@ -149,7 +179,7 @@
       "modified_by_group": null,
       "form": "decision",
       "question": "decision-remarks",
-      "sort": 5
+      "sort": 7
     }
   },
   {
@@ -179,7 +209,7 @@
       "modified_by_group": null,
       "form": "decision",
       "question": "decision-workflow",
-      "sort": 11
+      "sort": 13
     }
   },
   {
@@ -663,6 +693,38 @@
     }
   },
   {
+    "model": "caluma_form.option",
+    "pk": "decision-geometer-no",
+    "fields": {
+      "created_at": "2023-12-01T18:46:15.751Z",
+      "modified_at": "2023-12-01T18:46:15.751Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "decision-geometer-yes",
+    "fields": {
+      "created_at": "2023-12-01T18:46:15.754Z",
+      "modified_at": "2023-12-01T18:46:15.754Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
     "model": "caluma_form.question",
     "pk": "decision-appeal",
     "fields": {
@@ -791,6 +853,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "decision-geometer",
+    "fields": {
+      "created_at": "2023-12-01T18:46:15.805Z",
+      "modified_at": "2023-12-01T19:08:03.033Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nachf\\u00fchrungsgeometer\", \"fr\": \"G\\u00e9om\\u00e8tre conservateur\", \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "true",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "decision-info-appeal",
     "fields": {
       "created_at": "2023-03-14T13:12:35.450Z",
@@ -843,6 +936,39 @@
       "static_content": "{\"de\": \"<div class=\\\"uk-alert uk-alert-default uk-margin-remove\\\"><strong>Achtung:</strong> Der Entscheid kann in eBau erst best\\u00e4tigt werden, wenn das Rechtsverfahren definitiv abgeschlossen ist.</div>\", \"fr\": \"<div class=\\\"uk-alert uk-alert-default uk-margin-remove\\\"><strong>Attention :</strong> la d\\u00e9cision ne peut \\u00eatre confirm\\u00e9e dans eBau que lorsque la proc\\u00e9dure juridique est d\\u00e9finitivement close.</div>\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "decision-info-geometer",
+    "fields": {
+      "created_at": "2023-12-01T19:03:57.161Z",
+      "modified_at": "2023-12-01T19:03:57.161Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hilfetext Nachf\\u00fchrungsgeometer\", \"fr\": \"Texte d'aide g\\u00e9om\\u00e8tre conservateur\", \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "!('decision-geometer'|answer == 'decision-geometer-no')",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"<div class=\\\"uk-alert uk-alert-default uk-margin-remove\\\">Sind Sie sicher, dass kein Nachf\\u00fchrungsgeometer ben\\u00f6tigt wird? Einsichtsberechtigungen f\\u00fcr den Nachf\\u00fchrungsgeometer k\\u00f6nnen nachtr\\u00e4glich \\u00fcber das Berechtigungsmodul vergeben werden.</div>\", \"fr\": \"<div class=\\\"uk-alert uk-alert-default uk-margin-remove\\\">Etes-vous s\\u00fbr qu'un g\\u00e9om\\u00e8tre conservateur n'est pas n\\u00e9cessaire ? Les autorisations de consultation pour le g\\u00e9om\\u00e8tre conservateur peuvent \\u00eatre attribu\\u00e9es ult\\u00e9rieurement via le module d'autorisation.</div>\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -1431,6 +1557,36 @@
       "question": "decision-decision-assessment",
       "option": "decision-decision-assessment-retreat",
       "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "decision-geometer.decision-geometer-no",
+    "fields": {
+      "created_at": "2023-12-01T19:08:03.036Z",
+      "modified_at": "2023-12-01T19:08:03.036Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "decision-geometer",
+      "option": "decision-geometer-no",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "decision-geometer.decision-geometer-yes",
+    "fields": {
+      "created_at": "2023-12-01T19:08:03.037Z",
+      "modified_at": "2023-12-01T19:08:03.037Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "decision-geometer",
+      "option": "decision-geometer-yes",
+      "sort": 2
     }
   }
 ]

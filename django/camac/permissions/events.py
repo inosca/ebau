@@ -85,7 +85,7 @@ class EventTrigger:
 class Trigger:
     """Contains any event that may cause a permissions change."""
 
-    instance_post_state_transition = EventTrigger()
+    decision_decreed = EventTrigger()
 
 
 class PermissionEventHandler(metaclass=ABCMeta):
@@ -122,7 +122,7 @@ class PermissionEventHandler(metaclass=ABCMeta):
         return cls(manager=PermissionManager.from_request(request))
 
     @abstractmethod
-    def instance_post_state_transition(self, instance: Instance):
+    def decision_decreed(self, instance: Instance):
         ...  # pragma: no cover
 
 
@@ -136,7 +136,7 @@ class EmptyEventHandler(PermissionEventHandler):
     effects.
     """
 
-    def instance_post_state_transition(self, instance: Instance):
+    def decision_decreed(self, instance: Instance):
         return  # pragma: no cover
 
 
