@@ -10,8 +10,9 @@ export default class AclDetails extends Component {
   @action
   async revokeAcl(acl) {
     try {
-      await confirm(this.intl.t("permissions.confirmRevoke"));
-      await acl.revoke();
+      if (await confirm(this.intl.t("permissions.confirmRevoke"))) {
+        await acl.revoke();
+      }
     } catch (error) {
       console.error(error);
       this.notification.danger(this.intl.t("permissions.revokeError"));
