@@ -1,4 +1,4 @@
-from abc import ABCMeta, abstractmethod
+from abc import ABCMeta
 from functools import wraps
 from typing import Callable, Type
 
@@ -88,7 +88,6 @@ class EventTrigger:
 class Trigger:
     """Contains any event that may cause a permissions change."""
 
-    instance_post_state_transition = EventTrigger()
     decision_decreed = EventTrigger()
 
 
@@ -125,10 +124,6 @@ class PermissionEventHandler(metaclass=ABCMeta):
         """Initialize the event handler from a (REST) request."""
         return cls(manager=PermissionManager.from_request(request))
 
-    @abstractmethod
-    def instance_post_state_transition(self, instance: Instance):
-        ...  # pragma: no cover
-
 
 class EmptyEventHandler(PermissionEventHandler):
     """An empty permissions event handler.
@@ -139,9 +134,6 @@ class EmptyEventHandler(PermissionEventHandler):
     It implements every relevant event handler, but with no actual
     effects.
     """
-
-    def instance_post_state_transition(self, instance: Instance):
-        return  # pragma: no cover
 
     def decision_decreed(self, instance: Instance):
         return  # pragma: no cover
