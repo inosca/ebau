@@ -56,16 +56,18 @@ module("Integration | Component | permissions/acl-details", function (hooks) {
     assert
       .dom("[data-test-instance-acl-modal-created-at]")
       .containsText(
-        `${this.intl.t(
-          "permissions.details.createdAt",
-        )} ${this.intl.formatDate(this.acl.createdAt, { format: "date" })}`,
+        `${this.intl.t("permissions.details.createdAt")} ${this.intl.formatDate(
+          this.acl.createdAt,
+          { format: "date" },
+        )}`,
       );
     assert
       .dom("[data-test-instance-acl-modal-start-time]")
       .containsText(
-        `${this.intl.t(
-          "permissions.details.startTime",
-        )} ${this.intl.formatDate(this.acl.startTime, { format: "date" })}`,
+        `${this.intl.t("permissions.details.startTime")} ${this.intl.formatDate(
+          this.acl.startTime,
+          { format: "date" },
+        )}`,
       );
     assert
       .dom("[data-test-instance-acl-modal-end-time]")

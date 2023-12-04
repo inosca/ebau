@@ -3,8 +3,8 @@ import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { findRecord, findAll } from "ember-data-resources";
-import { dedupeTracked } from "tracked-toolbox";
 import { confirm } from "ember-uikit";
+import { dedupeTracked } from "tracked-toolbox";
 
 import paginatedQuery from "ember-ebau-core/resources/paginated";
 

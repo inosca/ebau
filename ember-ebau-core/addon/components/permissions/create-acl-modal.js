@@ -13,6 +13,13 @@ export default class CreateAclModalComponent extends Component {
   validations = InstanceAclValidations;
   today = DateTime.now().toISODate();
 
+  constructor(...args) {
+    super(...args);
+
+    // pre-fetch the available services to mend the laggy behavior of emper power select
+    this.availableServices;
+  }
+
   get availableServices() {
     return this.store.findAll("public-service");
   }
