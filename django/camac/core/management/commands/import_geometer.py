@@ -4,7 +4,14 @@ import pyexcel
 from django.core.management.base import BaseCommand
 from django.db.models import Q
 
-from camac.user.models import Service, ServiceGroup, ServiceRelation
+from camac.user.models import (
+    Group,
+    GroupT,
+    Role,
+    Service,
+    ServiceGroup,
+    ServiceRelation,
+)
 
 
 class Command(BaseCommand):
@@ -33,64 +40,93 @@ class Command(BaseCommand):
         # mentioned multiple times. We assume same name = same geometer.
         # The municipality is also by-name.
 
-        # Build up import structure.
-        geometer_service_group = ServiceGroup.objects.get(name="Nachführungsgeometer")
-
-        geometers_by_municipality = {}
         for geometer in row_dicts:
-            municipality = geometer["Gemeinde"]
-
-            zipcode, city = geometer["FirmaPlzOrt"].split(" ", 1)
             # This is not really efficient - we do update_or_create multiple
             # times per geometer. But it's an one-off script and not performance-
             # sensitive, so...
-            service, _ = Service.objects.update_or_create(
-                name=geometer["Name eBAU"],
-                defaults={
-                    "service_group": geometer_service_group,
-                    "address": geometer["FirmaStrasse"],
-                    "zip": zipcode,
-                    "city": city,
-                    "phone": geometer["FirmaTelefon"],
-                    "email": geometer["FirmaEmail"],
-                },
-            )
-            geometer["geometer_service"] = service
+            self._build_geometer(geometer)
 
-            geometers_by_municipality[municipality] = service
+    def _build_geometer(self, geometer):
+        zipcode, city = geometer["FirmaPlzOrt"].split(" ", 1)
+        geometer_service_group = ServiceGroup.objects.get(name="Nachführungsgeometer")
+        geom_service, _ = Service.objects.update_or_create(
+            name=geometer["Name eBAU"],
+            defaults={
+                "service_group": geometer_service_group,
+                "address": geometer["FirmaStrasse"],
+                "zip": zipcode,
+                "city": city,
+                "phone": geometer["FirmaTelefon"],
+                "email": geometer["FirmaEmail"],
+                "notification": 1,  # yeah it's not a bool
+            },
+        )
 
+        self._build_groups_for_service(geometer["Name eBAU"], geom_service)
+        self._build_service_relations(geometer["Gemeinde"], geom_service)
+
+    def _build_service_relations(self, municipality_name: str, geom_service: Service):
         municipality_service_group = ServiceGroup.objects.get(
             trans__name="Leitbehörde Gemeinde", trans__language="de"
         )
-
-        for municipality_name, geometer in geometers_by_municipality.items():
-            municipality_service = Service.objects.filter(
-                (
-                    # City name match is ok
-                    Q(trans__city__iexact=municipality_name)
-                    # Exact service name match is best match
-                    | Q(trans__name__iexact=f"Leitbehörde {municipality_name}")
-                    # Startswith, but with trailing space, so we can match
-                    # "Gsteig" to "Gsteig bei gstaad" but not "Gsteigwiler"
-                    | Q(trans__city__istartswith=f"{municipality_name} ")
-                )
-                & Q(service_group=municipality_service_group),
-            ).first()
-
-            if not municipality_service:
-                print(
-                    f"Could not find municipality {municipality_name}, skipping Geometer import"
-                )
-                continue
-            print(
-                f"Leitbehörde found for {municipality_name}, updating/creating Geometer service"
+        municipality_service = Service.objects.filter(
+            (
+                # City name match is ok
+                Q(trans__city__iexact=municipality_name)
+                # Exact service name match is best match
+                | Q(trans__name__iexact=f"Leitbehörde {municipality_name}")
+                # Startswith, but with trailing space, so we can match
+                # "Gsteig" to "Gsteig bei gstaad" but not "Gsteigwiler"
+                | Q(trans__city__istartswith=f"{municipality_name} ")
             )
+            & Q(service_group=municipality_service_group),
+        ).first()
 
-            # Overwrite if exists, otherwise create new
-            ServiceRelation.objects.update_or_create(
-                function=ServiceRelation.FUNCTION_GEOMETER,
-                receiver=municipality_service,
-                defaults={
-                    "provider": geometer,
-                },
+        if not municipality_service:
+            print(
+                f"Municipality {municipality_name} not found. Service '{geom_service.name}' created but not assigned"
+            )
+            return
+        print(
+            f"Leitbehörde found for {municipality_name}, updating/creating Geometer service"
+        )
+
+        # Overwrite if exists, otherwise create new
+        ServiceRelation.objects.update_or_create(
+            function=ServiceRelation.FUNCTION_GEOMETER,
+            receiver=municipality_service,
+            defaults={
+                "provider": geom_service,
+            },
+        )
+
+    def _build_groups_for_service(self, geometer_name: str, geom_service: Service):
+        """Build the required groups and associate them with the corresponding roles.
+
+        The geometer name should be the full name as it appears in the "Name eBAU"
+        field (example: "Nachführungsgeometer Foo Bar").
+
+        The geom_service is the service representing the Geometer company.
+        """
+        role_names = [
+            "geometer-lead",
+            "geometer-clerk",
+            "geometer-readonly",
+            "geometer-admin",
+        ]
+        roles = Role.objects.filter(name__in=role_names)
+        assert len(roles) == 4, "Something's wrong with the Geometer roles"
+
+        for role in roles:
+            name_de = f"{role.get_trans_attr('group_prefix', 'de')} {geometer_name}"
+            name_fr = f"{role.get_trans_attr('group_prefix', 'fr')} {geometer_name}"
+
+            grp, _ = Group.objects.update_or_create(
+                role=role, service=geom_service, defaults={"name": name_de}
+            )
+            GroupT.objects.update_or_create(
+                group=grp, language="de", defaults={"name": name_de}
+            )
+            GroupT.objects.update_or_create(
+                group=grp, language="fr", defaults={"name": name_fr}
             )
