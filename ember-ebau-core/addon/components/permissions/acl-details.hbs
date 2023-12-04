@@ -81,13 +81,13 @@
           <p class="uk-text-bold uk-margin-remove">{{t
               "permissions.details.start-time"
             }}</p>
-          {{or (format-date @instanceAcl.startTime format="date") "-"}}
+          {{or (format-date @instanceAcl.startTime format="datetime") "-"}}
         </div>
         <div class="uk-margin-small-top" data-test-instance-acl-modal-end-time>
           <p class="uk-text-bold uk-margin-remove">{{t
               "permissions.details.end-time"
             }}</p>
-          {{or (format-date @instanceAcl.endTime format="date") "-"}}
+          {{or (format-date @instanceAcl.endTime format="datetime") "-"}}
         </div>
       </div>
     </div>
