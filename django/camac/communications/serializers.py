@@ -6,7 +6,7 @@ from django.urls import reverse
 from django.utils import timezone
 from django.utils.translation import gettext
 from rest_framework.exceptions import ValidationError
-from rest_framework_json_api import serializers
+from rest_framework_json_api import relations, serializers
 
 from camac.document import models as document_models
 from camac.instance.models import Instance
@@ -106,9 +106,23 @@ class TopicSerializer(serializers.ModelSerializer):
     dossier_number = serializers.SerializerMethodField()
     initiated_by_entity = EntityField(required=False)
 
+    responsible_service_users = relations.SerializerMethodResourceRelatedField(
+        source="get_responsible_service_users",
+        model=user_models.User,
+        many=True,
+        read_only=True,
+    )
+
     def get_dossier_number(self, topic):
         lookup = settings.COMMUNICATIONS["NOTIFICATIONS"]["DOSSIER_NUMBER_LOOKUP"]
         return lookup(topic.instance)
+
+    def get_responsible_service_users(self, topic):
+        return user_models.User.objects.filter(
+            pk__in=topic.instance.responsible_services.filter(
+                service=self.context["request"].group.service
+            ).values("responsible_user")
+        )
 
     def _validate_entity(self, value):
         if value.isnumeric() and user_models.Service.objects.filter(pk=value).exists():
@@ -210,8 +224,9 @@ class TopicSerializer(serializers.ModelSerializer):
             "has_unread",
             "dossier_number",
             "initiated_by_entity",
+            "responsible_service_users",
         ]
-        read_only_fields = ["has_unread", "dossier_number"]
+        read_only_fields = ["has_unread", "dossier_number", "responsible_service_users"]
 
 
 class MessageSerializer(serializers.ModelSerializer):
