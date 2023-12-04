@@ -49,7 +49,7 @@ module("Integration | Component | permissions/acl-details", function (hooks) {
     assert
       .dom("[data-test-instance-acl-modal-access-level]")
       .containsText(
-        `${this.intl.t("permissions.details.access-level")} ${
+        `${this.intl.t("permissions.details.accessLevel")} ${
           this.acl.accessLevel.name
         }`,
       );
@@ -57,20 +57,20 @@ module("Integration | Component | permissions/acl-details", function (hooks) {
       .dom("[data-test-instance-acl-modal-created-at]")
       .containsText(
         `${this.intl.t(
-          "permissions.details.created-at",
+          "permissions.details.createdAt",
         )} ${this.intl.formatDate(this.acl.createdAt, { format: "date" })}`,
       );
     assert
       .dom("[data-test-instance-acl-modal-start-time]")
       .containsText(
         `${this.intl.t(
-          "permissions.details.start-time",
+          "permissions.details.startTime",
         )} ${this.intl.formatDate(this.acl.startTime, { format: "date" })}`,
       );
     assert
       .dom("[data-test-instance-acl-modal-end-time]")
       .containsText(
-        `${this.intl.t("permissions.details.end-time")} ${
+        `${this.intl.t("permissions.details.endTime")} ${
           this.acl.endTime
             ? this.intl.formatDate(this.acl.endTime, { format: "date" })
             : "-"
@@ -79,7 +79,7 @@ module("Integration | Component | permissions/acl-details", function (hooks) {
     assert
       .dom("[data-test-instance-acl-modal-revoked-by]")
       .containsText(
-        `${this.intl.t("permissions.details.revoked-by")}${
+        `${this.intl.t("permissions.details.revokedBy")}${
           this.acl.revokedByUser
             ? ` ${this.acl.revokedByUser.name} ${this.acl.revokedByUser.surname}`
             : ""

@@ -28,7 +28,7 @@
             data-test-acl-service-select
             @options={{this.availableServices}}
             @selected={{fi.value}}
-            @placeholder={{t "permissions.details.entity-name"}}
+            @placeholder={{t "permissions.details.entityName"}}
             @onChange={{fi.update}}
             @allowClear={{true}}
             @renderInPlace={{true}}
@@ -42,7 +42,7 @@
         </f.input>
         <f.input
           @name="accessLevel"
-          @label={{t "permissions.details.access-level"}}
+          @label={{t "permissions.details.accessLevel"}}
           @errorComponent={{(component "input-error")}}
           @required={{true}}
           as |fi|
@@ -63,7 +63,7 @@
           </PowerSelect>
         </f.input>
         <f.input
-          @label={{t "permissions.details.start-time"}}
+          @label={{t "permissions.details.startTime"}}
           @name="startTime"
           @errorComponent={{(component "input-error")}}
           as |fi|
@@ -78,7 +78,7 @@
           </div>
         </f.input>
         <f.input
-          @label={{t "permissions.details.end-time"}}
+          @label={{t "permissions.details.endTime"}}
           @name="endTime"
           @errorComponent={{(component "input-error")}}
           as |fi|
