@@ -4090,6 +4090,18 @@ snapshots['test_dms_placeholders_docs[gr_dms_config] 1'] = {
         'nested_aliases': {
         }
     },
+    'GEBAEUDEVERSICHERUNGSNUMMER': {
+        'aliases': [
+            {
+                'de': 'GEBAEUDEVERSICHERUNGSNUMMER'
+            }
+        ],
+        'description': {
+            'de': 'Gebäudeversicherungsnummer'
+        },
+        'nested_aliases': {
+        }
+    },
     'GEMEINDE_EMAIL': {
         'aliases': [
             {
@@ -6556,6 +6568,7 @@ snapshots['test_dms_placeholders_docs_available_placeholders[gr_dms_config] 1'] 
     'FACHSTELLEN_KANTONAL[].NAME',
     'FOLGEPLANUNG',
     'FORM_NAME',
+    'GEBAEUDEVERSICHERUNGSNUMMER',
     'GEMEINDE',
     'GEMEINDE_ADRESSE',
     'GEMEINDE_EMAIL',
@@ -7270,46 +7283,47 @@ snapshots['test_dms_placeholders_gr[Municipality] 1'] = {
         {
             'BEANTWORTET': '',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '23.01.1977',
-            'NAME': 'Jorge Olson'
+            'FRIST': '26.01.2015',
+            'NAME': 'Dillon Peterson'
         },
         {
             'BEANTWORTET': '',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '14.01.1982',
-            'NAME': 'Jason Ward'
+            'FRIST': '19.12.1991',
+            'NAME': 'Christopher Gonzalez'
         },
         {
             'BEANTWORTET': '',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '24.11.2020',
-            'NAME': 'Tammy Jordan'
+            'FRIST': '25.07.1995',
+            'NAME': 'Susan Gonzalez'
         },
         {
             'BEANTWORTET': '',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '15.05.2002',
-            'NAME': 'David Leach'
+            'FRIST': '23.03.1972',
+            'NAME': 'Steven Davis'
         },
         {
-            'BEANTWORTET': '07.03.2001',
+            'BEANTWORTET': '26.04.2001',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '08.03.1985',
-            'NAME': 'Rachel Nguyen'
+            'FRIST': '08.01.2016',
+            'NAME': 'Gloria Jenkins'
         },
         {
-            'BEANTWORTET': '16.10.1971',
+            'BEANTWORTET': '04.03.2000',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '09.12.1989',
-            'NAME': 'Dr. Kimberly Ali'
+            'FRIST': '07.02.2012',
+            'NAME': 'Jessica Hutchinson'
         }
     ],
     'FOLGEPLANUNG': 'Baulinie allgemein',
     'FORM_NAME': 'Baugesuch',
-    'GEMEINDE': 'Tammie Reeves',
+    'GEBAEUDEVERSICHERUNGSNUMMER': '123456789, 987654321',
+    'GEMEINDE': 'Robert Li',
     'GEMEINDE_ADRESSE': '',
-    'GEMEINDE_EMAIL': 'david61@example.com',
-    'GEMEINDE_NAME_ADRESSE': 'Gemeinde Tammie Reeves',
+    'GEMEINDE_EMAIL': 'froach@example.com',
+    'GEMEINDE_NAME_ADRESSE': 'Gemeinde Robert Li',
     'GEMEINDE_ORT': '',
     'GEMEINDE_TELEFON': '',
     'GENERELLER_ERSCHLIESSUNGSPLAN': 'Fuss- / Spazierweg, Parkierung Gebiete D',
@@ -7354,7 +7368,7 @@ snapshots['test_dms_placeholders_gr[Municipality] 1'] = {
     'MEINE_ORGANISATION_NAME_KURZ': 'Alex Smith',
     'MEINE_ORGANISATION_ORT': 'Testdorf',
     'MEINE_ORGANISATION_TELEFON': '032163546546',
-    'MUNICIPALITY': 'Tammie Reeves',
+    'MUNICIPALITY': 'Robert Li',
     'MUNICIPALITY_ADDRESS': '',
     'NAME': '',
     'NEBENBESTIMMUNGEN': '',
@@ -7380,66 +7394,66 @@ snapshots['test_dms_placeholders_gr[Municipality] 1'] = {
         {
             'BEANTWORTET': '',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '23.01.1977',
-            'NAME': 'Jorge Olson'
+            'FRIST': '26.01.2015',
+            'NAME': 'Dillon Peterson'
         },
         {
             'BEANTWORTET': '',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '14.01.1982',
-            'NAME': 'Jason Ward'
+            'FRIST': '19.12.1991',
+            'NAME': 'Christopher Gonzalez'
         },
         {
             'BEANTWORTET': '',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '24.11.2020',
-            'NAME': 'Tammy Jordan'
+            'FRIST': '25.07.1995',
+            'NAME': 'Susan Gonzalez'
         },
         {
             'BEANTWORTET': '',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '15.05.2002',
-            'NAME': 'David Leach'
+            'FRIST': '23.03.1972',
+            'NAME': 'Steven Davis'
         },
         {
-            'BEANTWORTET': '07.03.2001',
+            'BEANTWORTET': '26.04.2001',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '08.03.1985',
-            'NAME': 'Rachel Nguyen'
+            'FRIST': '08.01.2016',
+            'NAME': 'Gloria Jenkins'
         },
         {
-            'BEANTWORTET': '16.10.1971',
+            'BEANTWORTET': '04.03.2000',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '09.12.1989',
-            'NAME': 'Dr. Kimberly Ali'
+            'FRIST': '07.02.2012',
+            'NAME': 'Jessica Hutchinson'
         }
     ],
     'ZIRKULATION_FACHSTELLEN': [
         {
-            'BEANTWORTET': '07.03.2001',
+            'BEANTWORTET': '26.04.2001',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '08.03.1985',
-            'NAME': 'Rachel Nguyen'
+            'FRIST': '08.01.2016',
+            'NAME': 'Gloria Jenkins'
         },
         {
-            'BEANTWORTET': '16.10.1971',
+            'BEANTWORTET': '04.03.2000',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '09.12.1989',
-            'NAME': 'Dr. Kimberly Ali'
+            'FRIST': '07.02.2012',
+            'NAME': 'Jessica Hutchinson'
         }
     ],
     'ZIRKULATION_GEMEINDEN': [
         {
             'BEANTWORTET': '',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '24.11.2020',
-            'NAME': 'Tammy Jordan'
+            'FRIST': '25.07.1995',
+            'NAME': 'Susan Gonzalez'
         },
         {
             'BEANTWORTET': '',
             'ERSTELLT': '30.08.2021',
-            'FRIST': '15.05.2002',
-            'NAME': 'David Leach'
+            'FRIST': '23.03.1972',
+            'NAME': 'Steven Davis'
         }
     ],
     'ZIRKULATION_RUECKMELDUNGEN': [
@@ -7447,13 +7461,13 @@ snapshots['test_dms_placeholders_gr[Municipality] 1'] = {
             'ANTWORT': '',
             'NEBENBESTIMMUNGEN': 'Nebenbestimmungen 5',
             'STELLUNGNAHME': 'Stellungnahme 5',
-            'VON': 'Rachel Nguyen'
+            'VON': 'Gloria Jenkins'
         },
         {
             'ANTWORT': '',
             'NEBENBESTIMMUNGEN': 'Nebenbestimmungen 6',
             'STELLUNGNAHME': 'Stellungnahme 6',
-            'VON': 'Dr. Kimberly Ali'
+            'VON': 'Jessica Hutchinson'
         }
     ],
     'ZONENPLAN': 'Rebwirtschaftszone',
