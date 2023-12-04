@@ -2,13 +2,10 @@ from abc import ABCMeta
 from functools import wraps
 from typing import Callable, Type
 
-from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 from django.utils.module_loading import import_string
 
 from camac.instance.models import Instance
-from camac.permissions import api as permissions_api, models as permissions_models
-from camac.user.models import ServiceRelation
 
 from .api import PermissionManager
 from .exceptions import MissingEventHandler
@@ -151,40 +148,3 @@ def get_event_handler_class() -> Type[PermissionEventHandler]:
 
     # Fallback to the empty event handler if none has been configured
     return import_string(handler_name) if handler_name else EmptyEventHandler
-
-
-class PermissionEventHandlerBE(EmptyEventHandler):
-    def decision_decreed(self, instance: Instance):
-        decision = instance.case.work_items.filter(
-            task_id="decision",
-            status=WorkItem.STATUS_COMPLETED,
-        ).first()
-
-        if not decision:
-            return
-
-        # Provide ACL on instance to geometer belonging to municipality
-        # if the geometer question was answered with yes on decision
-        answer = (
-            decision.document.answers.filter(question_id="decision-geometer")
-            .values_list("value", flat=True)
-            .first()
-        )
-
-        if answer == "decision-geometer-yes":
-            responsible_service = instance.responsible_service()
-            geometer_service_relation = ServiceRelation.objects.filter(
-                function=ServiceRelation.FUNCTION_GEOMETER,
-                receiver=responsible_service,
-            ).first()
-
-            # No geometer connected to muncipality
-            if not geometer_service_relation:
-                return
-
-            self.manager.grant(
-                instance,
-                grant_type=permissions_api.GRANT_CHOICES.SERVICE.value,
-                access_level=permissions_models.AccessLevel.objects.get(pk="geometer"),
-                service=geometer_service_relation.provider,
-            )
