@@ -1,0 +1,47 @@
+permissions:
+  empty: aucune entrée trouvée.
+  new: Créer une nouvelle autorisation
+  create: Créer
+  saveError: une erreur est survenue lors de l'enregistrement, veuillez réessayer.
+  fetchError: erreur lors du chargement de la LCA.
+  revokeError: une erreur est survenue lors de la révocation de l'autorisation.
+  revoke: Retirer l'autorisation
+  confirmRevoke: Êtes-vous sûr de vouloir révoquer l'autorisation ?
+
+  entities:
+    public-registered: Accès public (enregistré)
+    public-anonymous: Accès public (non enregistré)
+    token: Via le code d'accès
+   
+  placeholder :
+    name: "-"
+    email: "-"
+ 
+  details:
+    heading: Informations sur l'autorisation
+    entityName: Entité autorisée
+    entityEmail: E-mail
+    organisation: Organisation
+    accessLevel: Niveau d'accès
+    startTime: Valable du
+    endTime: Valable jusqu'au
+    status: État
+    createdAt: Créé le
+    createdBy: Créé par
+    revokedBy: Retiré par
+
+  status:
+    active: Actif
+    scheduled: Planifié
+    expired: Expiré
+    all: Tous
+
+   # those must be added manually according to the configured acls 
+  access-level:
+    all-levels: Tous les niveaux d'accès
+    public-access: Public
+    registered-user: demandeur
+    service: autorité
+    controlling: employé
+    token: Code d'accès
+
