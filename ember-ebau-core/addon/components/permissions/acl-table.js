@@ -3,6 +3,7 @@ import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { findRecord, findAll } from "ember-data-resources";
+import { confirm } from "ember-uikit";
 import { dedupeTracked } from "tracked-toolbox";
 
 import paginatedQuery from "ember-ebau-core/resources/paginated";
@@ -78,6 +79,7 @@ export default class AclTable extends Component {
   @action
   async revokeAcl(acl) {
     try {
+      await confirm(this.intl.t("permissions.confirmRevoke"));
       await acl.revoke();
     } catch (error) {
       console.error(error);
