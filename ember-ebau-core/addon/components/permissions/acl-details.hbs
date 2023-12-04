@@ -20,7 +20,7 @@
           data-test-instance-acl-modal-access-level
         >
           <p class="uk-text-bold uk-margin-remove">{{t
-              "permissions.details.access-level"
+              "permissions.details.accessLevel"
             }}</p>
           {{@instanceAcl.accessLevel.name}}
         </div>
@@ -29,13 +29,13 @@
           data-test-instance-acl-modal-entity-name
         >
           <p class="uk-text-bold uk-margin-remove">{{t
-              "permissions.details.entity-name"
+              "permissions.details.entityName"
             }}</p>
           {{@instanceAcl.entityName}}
         </div>
         <div class="uk-margin-small-top" data-test-instance-acl-modal-email>
           <p class="uk-text-bold uk-margin-remove">{{t
-              "permissions.details.entity-email"
+              "permissions.details.entityEmail"
             }}</p>
           {{@instanceAcl.entityEmail}}
         </div>
@@ -52,7 +52,7 @@
           data-test-instance-acl-modal-created-at
         >
           <p class="uk-text-bold uk-margin-remove">{{t
-              "permissions.details.created-at"
+              "permissions.details.createdAt"
             }}</p>
           {{or (format-date @instanceAcl.createdAt format="date") "-"}}
         </div>
@@ -61,7 +61,7 @@
           data-test-instance-acl-modal-created-by
         >
           <p class="uk-text-bold uk-margin-remove">{{t
-              "permissions.details.created-by"
+              "permissions.details.createdBy"
             }}</p>
           {{or @instanceAcl.createdByName "-"}}
         </div>
@@ -70,7 +70,7 @@
           data-test-instance-acl-modal-revoked-by
         >
           <p class="uk-text-bold uk-margin-remove">{{t
-              "permissions.details.revoked-by"
+              "permissions.details.revokedBy"
             }}</p>
           {{or @instanceAcl.revokedByName "-"}}
         </div>
@@ -79,13 +79,13 @@
           data-test-instance-acl-modal-start-time
         >
           <p class="uk-text-bold uk-margin-remove">{{t
-              "permissions.details.start-time"
+              "permissions.details.startTime"
             }}</p>
           {{or (format-date @instanceAcl.startTime format="datetime") "-"}}
         </div>
         <div class="uk-margin-small-top" data-test-instance-acl-modal-end-time>
           <p class="uk-text-bold uk-margin-remove">{{t
-              "permissions.details.end-time"
+              "permissions.details.endTime"
             }}</p>
           {{or (format-date @instanceAcl.endTime format="datetime") "-"}}
         </div>

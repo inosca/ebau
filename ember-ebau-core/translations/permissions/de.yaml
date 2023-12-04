@@ -19,16 +19,16 @@ permissions:
  
   details:
     heading: Informationen zur Berechtigung
-    entity-name: Berechtigte Entität
-    entity-email: E-Mail
+    entityName: Berechtigte Entität
+    entityEmail: E-Mail
     organisation: Organisation
-    access-level: Zugangsstufe
-    start-time: Gültig von
-    end-time: Gültig bis
+    accessLevel: Zugangsstufe
+    startTime: Gültig von
+    endTime: Gültig bis
     status: Status
-    created-at: Erstellt am
-    created-by: Erstellt von
-    revoked-by: Entzogen von
+    createdAt: Erstellt am
+    createdBy: Erstellt von
+    revokedBy: Entzogen von
 
   status:
     active: Aktiv
@@ -36,7 +36,7 @@ permissions:
     expired: Abgelaufen
     all: Alle
 
-   # those have to be added manually according to the configured acls 
+  # those must be added manually according to the configured acls 
   access-level:
     all-levels: Alle Zugangsstufen
     public-access: Öffentlich
