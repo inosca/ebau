@@ -25,15 +25,18 @@ is more than the instance's state.
 """
 
 # (permission, condition)
-PermissionLine = Tuple[str, Union[str, PermissionCallback]]
+PermissionLine = Tuple[str, Union[List[str], PermissionCallback]]
 PermissionLine.__doc__ = """
 A tuple that maps a given permission (str) to a condition.
 
-The condition may be either a string, in which case it refers
-to an instance state's name, or "*" if the permission shall
-be granted in all instance states.
+The condition may be either a list of strings that refer to
+to an instance state's name
 Alternatively, it may be a callback to dynamically make
 the decision.
+
+As a shortcut, you can also set an instance state name to "*"
+if a permission shall apply always, independent of an instance's
+actual state. It still needs to be in a list though.
 """
 
 PermissionConfigEntry = TypedDict(
@@ -55,12 +58,14 @@ PERMISSIONS: PermissionsConfig = {
     "demo": {
         "ACCESS_LEVELS": {
             "service": [
-                # (permission, instance-state or "*" for any)
+                # (permission, list-of[instance-state or "*" for any])
                 # (permission, (lambda instance -> True/False))
-                ("foo", "*"),
-                ("edit-form", "new"),
+                ("foo", ["*"]),
+                ("edit-form", ["new"]),
             ]
         },
+        # Event handler that defines callbacks, which can grant/revoke
+        # ACLs.
         "EVENT_HANDLER": "camac.permissions.events.EmptyEventHandler",
         "ENABLED": True,
     },
@@ -68,30 +73,20 @@ PERMISSIONS: PermissionsConfig = {
         "ACCESS_LEVELS": {
             # Admin access level config: this is just a suggestion for now...
             # "admin": [
-            #    ("permissions-read", "*"),
-            #    ("permissions-grant-geometer", "*"),
-            #    ("permissions-grant-admin", "*"),
+            #    ("permissions-read", ["*"]),
+            #    ("permissions-grant-geometer", ["*"]),
+            #    ("permissions-grant-admin", ["*"]),
             # ],
             "geometer": [
-                # TODO: It seems that it would be useful to allow a list for the
-                # matching instance states, to simplify the list here
-                ("form-read", "sb1"),
-                ("form-read", "sb2"),
-                ("workitems-read", "sb1"),
-                ("workitems-read", "sb2"),
-                ("communications-read", "sb1"),
-                ("communications-read", "sb2"),
+                ("form-read", ["sb1", "sb2"]),
+                ("workitems-read", ["sb1", "sb2"]),
+                ("communications-read", ["sb1", "sb2"]),
                 # all documents can be read, but only a specific category can be written
-                ("responsible-service-read", "sb1"),
-                ("responsible-service-read", "sb2"),
-                ("documents-read", "sb1"),
-                ("documents-read", "sb2"),
-                ("journal-read", "sb1"),
-                ("journal-read", "sb2"),
-                ("history-read", "sb1"),
-                ("history-read", "sb2"),
-                ("documents-write-sb1-paper", "sb1"),
-                ("documents-write-sb1-paper", "sb2"),
+                ("responsible-service-read", ["sb1", "sb2"]),
+                ("documents-read", ["sb1", "sb2"]),
+                ("journal-read", ["sb1", "sb2"]),
+                ("history-read", ["sb1", "sb2"]),
+                ("documents-write-sb1-paper", ["sb1", "sb2"]),
             ],
         },
         "EVENT_HANDLER": "camac.permissions.events.EmptyEventHandler",
