@@ -1,4 +1,4 @@
-from abc import ABCMeta
+from abc import ABCMeta, abstractmethod
 from functools import wraps
 from typing import Callable, Type
 
@@ -120,6 +120,10 @@ class PermissionEventHandler(metaclass=ABCMeta):
     def from_request(cls, request):
         """Initialize the event handler from a (REST) request."""
         return cls(manager=PermissionManager.from_request(request))
+
+    @abstractmethod
+    def decision_decreed(self, instance: Instance):
+        ...  # pragma: no cover
 
 
 class EmptyEventHandler(PermissionEventHandler):
