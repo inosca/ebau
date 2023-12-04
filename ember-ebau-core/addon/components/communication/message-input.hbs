@@ -5,17 +5,24 @@
     @removeAttachment={{fn this.remove "documentAttachmentsToSave"}}
   />
 
-  <textarea
-    value={{this.body}}
-    aria-label={{t "communications.message.messageInputLabel"}}
-    class="uk-textarea uk-margin"
-    placeholder={{t "communications.message.messageInputPlaceholder"}}
-    disabled={{this.disabled}}
-    rows="5"
-    {{on "input" this.updateMessage}}
-    {{on "keypress" this.handleKeypress}}
-    {{autoresize this.body mode="height"}}
-  />
+  <Snippets
+    @disabled={{or
+      (this.disabled)
+      (not (has-feature "communication.snippets"))
+    }}
+  >
+    <textarea
+      value={{this.body}}
+      aria-label={{t "communications.message.messageInputLabel"}}
+      class="uk-textarea uk-margin"
+      placeholder={{t "communications.message.messageInputPlaceholder"}}
+      disabled={{this.disabled}}
+      rows="5"
+      {{on "input" this.updateMessage}}
+      {{on "keypress" this.handleKeypress}}
+      {{autoresize this.body mode="height"}}
+    />
+  </Snippets>
 
   {{#unless this.disabled}}
     <Dropzone @multiple={{true}} @onFileAdded={{this.addFiles}}>
@@ -23,7 +30,9 @@
         {{#if (can "link attachments on message")}}
           <p>
             {{t "communications.new.linkFile"}}
-            <a href="" data-test-select-files>{{t "communications.new.linkFileAction"}}</a>
+            <a href="" data-test-select-files>{{t
+                "communications.new.linkFileAction"
+              }}</a>
             <Communication::AttachmentSectionDropdown
               @instanceId={{this.ebauModules.instanceId}}
               @selectSection={{fn (mut this.attachmentSection)}}
