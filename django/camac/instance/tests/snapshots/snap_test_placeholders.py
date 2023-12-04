@@ -4,6 +4,7 @@ from __future__ import unicode_literals
 
 from snapshottest import Snapshot
 
+
 snapshots = Snapshot()
 
 snapshots['test_dms_placeholders[Municipality] 1'] = {
@@ -40,7 +41,12 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'ALLE_VERTRETER': 'Mustermann und Söhne AG',
     'ALLE_VERTRETER_NAME_ADDRESS': 'Mustermann und Söhne AG, Juristenweg 99, 3008 Bern',
     'ALLE_VERTRETER_NAME_ADRESSE': 'Mustermann und Söhne AG, Juristenweg 99, 3008 Bern',
+    'ANZAHL_BEHERBERGTE_PERSONEN': '',
     'ARRONDISSEMENT_ADMINISTRATIF': 'Emmental',
+    'ASCENSEURS': [
+    ],
+    'AUFZUGSANLAGEN': [
+    ],
     'AUJOURD_HUI': '30. August 2021',
     'AUTEUR_PROJET': 'Hans Müller',
     'AUTEUR_PROJET_ADRESSE_1': 'Einweg 9',
@@ -75,10 +81,15 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'BAUENTSCHEID_TYPE': 'GESAMT',
     'BAUGRUPPE': 'Ja',
     'BAUGRUPPE_BEZEICHNUNG': 'Test Baugruppe',
+    'BAUKOSTEN': 199000,
     'BAUVORHABEN': 'Neubau, Grosses Haus',
     'BESCHREIBUNG_BAUVORHABEN': 'Grosses Haus',
     'BESCHREIBUNG_PROJEKTAENDERUNG': 'Doch eher kleines Haus',
     'BOISSONS_ALCOOLIQUES': 'mit',
+    'BUILDING_DISTANCES': [
+    ],
+    'CHAMBRES_AVEC_PLUS_DE_50_PERSONNES': [
+    ],
     'CIRCULATION_COMMUNES': [
         {
             'BEANTWORTET': '',
@@ -168,6 +179,7 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'COMMUNICATION_AUX_VOISINS_CODE_QR': 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZoAAAGaAQAAAAAefbjOAAADLElEQVR4nO2bQW7jOBBFX40EeEkBfQAfhbrBHCnom1lHyQEaEJcGSPxZkFSU9Cym4YztRMWFIFp6MAsgqoq/Sib+eCx//TkDDjnkkEMOOeTQ94SsjREWG7E5jUBqU0j9hfkhy3PojhCSJKIkaR3qHTCoPoBBxLVPoyRdntwmhz4DSt0BLGamS7iazRSDkOsL1YM8ankOPQ6K6yB7WakBQ5f/758cekpo/DDXcr6alukXgjIS1zKK9KjlOXR3qO+IICAB8XWEuCKDoV4A2CtZT26TQ58ALWZmNoHNDKpnjbhSLzZT6lHjUctz6N4+Yu8AwtVEKibI9Lv3WveT2+TQ7ZDNQBcgTjKbgGUqzSksVahwH3EEqOoR0gq6hIwuQSKusPtNyrBpFK5HfGtop1DVxAGAqLxtlU2cWvv28R1xCKgYhG1bpHYGsRlawFimRy7PoXtBzUds0mQLHWzhZOcesvuIw0BNmgwS8fUkm4GmbKeeTy7TloF+CZscuuX0aXCSkcZs8XLtRwqGbATBcs6jxbX0Q+iT2+TQLdAugWxlzyARldnVQwF0YfDa5wGgzUdgIk1omZuL0DKt/a3wazTCNn1ymxz6FGio7sFmANKIvbxaK4nH15N0SV4NPxAUlbE5je2s8XOiXgB+L4l/DZscur2uETLVPRBWLKqMtSi6/H01oJhnloeBatEimdlLVayLtY6Zt1gRMjY/ZnkOPUDFzjVg0BorAUKuxY3qPLZmSz9rfGto8wCDDE6C9AMt5zwKattMBhDL+epR42BQVBOn7GUdBMlM0tVamSOd9C/Q/Zbn0F2gra7RS+J6L061Zn36bx41jgH1dEHvShoU08+pWNsWaaQ9/RI2OXSrZgkwZMEglglaL10NGD9qadTziMNAsTdS9ea5rf1WmV4rL95VdyBo+6arjWK9z3JQ65g5yzPLQ0JVe2i9M60/Ikj7TfPlbHLov4+P33S1Q2bII3EtqPXSlXfvPblNDt0C/f5Nl3qsALC41qTyTau66/IcujvU9Yg6BjXtuvdevnXM7PqzXY/4ztDHb7q0zdpdyNvTwTNLhxxyyCGHHHJoN/4BMBD7kv22h4gAAAAASUVORK5CYII=',
     'COMMUNICATION_AUX_VOISINS_LIEN': 'http://ebau-portal.local/public-instances/1/form?key=5a49823',
     'CONSERVABLE': 'Nein',
+    'CONSTRUCTION_COSTS': 199000,
     'CONSTRUCTION_GROUP': 'Ja',
     'CONSTRUCTION_GROUP_DESIGNATION': 'Test Baugruppe',
     'CONTRACT': 'Ja',
@@ -175,6 +187,7 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'CONTRAT': 'Ja',
     'CONTRAT_DATE': '1. Februar 2022',
     'COORDONEE': '2’599’941 / 1’198’923; 2’601’995 / 1’201’340',
+    'COUTS_DE_CONSTRUCTION': 199000,
     'DECISION': 'accepted',
     'DECISION_CATEGORIE': 'GESAMT',
     'DECISION_DATE': '30. August 2021',
@@ -210,8 +223,13 @@ Test LAB 2''',
     ],
     'DEPOT_DEMANDE_DATE': '31. März 2021',
     'DESCRIPTION_MODIFICATION': 'Doch eher kleines Haus',
+    'DIMENSIONEN_HOEHE': '',
+    'DIMENSION_HAUTEUR': '',
+    'DIMENSION_HEIGHT': '',
     'DISPOSITIONS_ACCESSOIRES': 'Nebenbestimmungen 1',
     'DISPOSITIONS_ANNEXES': 'Nebenbestimmungen 1',
+    'DISTANCES_ENTRE_LES_BATIMENTS': [
+    ],
     'DOSSIER_LINK': 'http://ebau.local/index/redirect-to-instance-resource/instance-id/1',
     'DOSSIER_NR': 1,
     'DOSSIER_NUMERO': 1,
@@ -374,7 +392,12 @@ Test E 2''',
 - Dale Summers
 - Robert Cowan
 - Matthew Bowen''',
+    'FIRE_PROTECTION_SYSTEMS': [
+    ],
+    'FLOOR_AREA': '',
     'FORM_NAME': 'Baugesuch',
+    'GEBAEUDEABSTAENDE': [
+    ],
     'GEBAEUDEEIGENTUEMER': 'Peter Meier',
     'GEBAEUDEEIGENTUEMER_ADDRESS_1': 'Thunstrasse 88',
     'GEBAEUDEEIGENTUEMER_ADDRESS_2': '3002 Bern',
@@ -405,6 +428,8 @@ Test E 2''',
         }
     ],
     'GEBUEHREN_TOTAL': '710.08',
+    'GEFAEHRLICHE_STOFFE': [
+    ],
     'GEMEINDE': 'Burgdorf',
     'GEMEINDE_ADRESSE': 'Jacobmouth',
     'GEMEINDE_ADRESSE_1': '',
@@ -413,6 +438,7 @@ Test E 2''',
     'GEMEINDE_NAME_ADRESSE': 'Gemeinde Burgdorf, Jacobmouth',
     'GEMEINDE_ORT': 'Jacobmouth',
     'GEMEINDE_TELEFON': '',
+    'GESCHOSSFLAECHE': '',
     'GESUCHSTELLER': 'ACME AG, Max Mustermann',
     'GESUCHSTELLER_ADDRESS_1': 'Teststrasse 123',
     'GESUCHSTELLER_ADDRESS_2': '1234 Testhausen',
@@ -428,9 +454,17 @@ Test E 2''',
     'GRUNDEIGENTUEMER_ADRESSE_2': '3002 Bern',
     'GRUNDEIGENTUEMER_NAME_ADDRESS': 'Sandra Holzer, Bernweg 12, 3002 Bern',
     'GRUNDEIGENTUEMER_NAME_ADRESSE': 'Sandra Holzer, Bernweg 12, 3002 Bern',
+    'HAZARDOUS_SUBSTANCES': [
+    ],
+    'HEATING_SYSTEMS': [
+    ],
     'HEUTE': '30. August 2021',
     'INFORMATION_OF_NEIGHBORS_LINK': 'http://ebau-portal.local/public-instances/1/form?key=5a49823',
     'INFORMATION_OF_NEIGHBORS_QR_CODE': 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZoAAAGaAQAAAAAefbjOAAADLElEQVR4nO2bQW7jOBBFX40EeEkBfQAfhbrBHCnom1lHyQEaEJcGSPxZkFSU9Cym4YztRMWFIFp6MAsgqoq/Sib+eCx//TkDDjnkkEMOOeTQ94SsjREWG7E5jUBqU0j9hfkhy3PojhCSJKIkaR3qHTCoPoBBxLVPoyRdntwmhz4DSt0BLGamS7iazRSDkOsL1YM8ankOPQ6K6yB7WakBQ5f/758cekpo/DDXcr6alukXgjIS1zKK9KjlOXR3qO+IICAB8XWEuCKDoV4A2CtZT26TQ58ALWZmNoHNDKpnjbhSLzZT6lHjUctz6N4+Yu8AwtVEKibI9Lv3WveT2+TQ7ZDNQBcgTjKbgGUqzSksVahwH3EEqOoR0gq6hIwuQSKusPtNyrBpFK5HfGtop1DVxAGAqLxtlU2cWvv28R1xCKgYhG1bpHYGsRlawFimRy7PoXtBzUds0mQLHWzhZOcesvuIw0BNmgwS8fUkm4GmbKeeTy7TloF+CZscuuX0aXCSkcZs8XLtRwqGbATBcs6jxbX0Q+iT2+TQLdAugWxlzyARldnVQwF0YfDa5wGgzUdgIk1omZuL0DKt/a3wazTCNn1ymxz6FGio7sFmANKIvbxaK4nH15N0SV4NPxAUlbE5je2s8XOiXgB+L4l/DZscur2uETLVPRBWLKqMtSi6/H01oJhnloeBatEimdlLVayLtY6Zt1gRMjY/ZnkOPUDFzjVg0BorAUKuxY3qPLZmSz9rfGto8wCDDE6C9AMt5zwKattMBhDL+epR42BQVBOn7GUdBMlM0tVamSOd9C/Q/Zbn0F2gra7RS+J6L061Zn36bx41jgH1dEHvShoU08+pWNsWaaQ9/RI2OXSrZgkwZMEglglaL10NGD9qadTziMNAsTdS9ea5rf1WmV4rL95VdyBo+6arjWK9z3JQ65g5yzPLQ0JVe2i9M60/Ikj7TfPlbHLov4+P33S1Q2bII3EtqPXSlXfvPblNDt0C/f5Nl3qsALC41qTyTau66/IcujvU9Yg6BjXtuvdevnXM7PqzXY/4ztDHb7q0zdpdyNvTwTNLhxxyyCGHHHJoN/4BMBD7kv22h4gAAAAASUVORK5CYII=',
+    'INSTALLATIONS_AERAULIQUES': [
+    ],
+    'INSTALLATIONS_TECH_LINCENDIE': [
+    ],
     'INSTANCE_ID': 1,
     'INTERIOR_SEATING': 35,
     'INVENTAR': 'Schützenswert, K-Objekt, Baugruppe Bauinventar: Test Baugruppe, RRB vom 1. Januar 2022, Vertrag vom 1. Februar 2022',
@@ -508,6 +542,8 @@ Test LAB 2''',
     'LEITBEHOERDE_TELEFON': '',
     'LEITPERSON': 'Thomas Morgan',
     'LIEN_PUBLICATION': 'http://ebau-portal.local/public-instances/1',
+    'LIFTS': [
+    ],
     'LOAD_COMPENSATION_REQUESTING': [
         {
             'ADDRESS': 'Beispielstrasse 3, 4321 Beispieldorf',
@@ -515,6 +551,10 @@ Test LAB 2''',
             'NAME': 'Lastenausgleichsbegehren4you AG',
             'NOM': 'Lastenausgleichsbegehren4you AG'
         }
+    ],
+    'LUEFTUNGSANLAGEN': [
+    ],
+    'MATIERES_DANGEREUSES': [
     ],
     'MEINE_ORGANISATION_ADRESSE_1': '',
     'MEINE_ORGANISATION_ADRESSE_2': 'Jeffreyfort',
@@ -572,7 +612,9 @@ Test LAB 2''',
             'NOM': 'Karl Nachbarsson'
         }
     ],
+    'NOMBRE_DE_PERSONNES_ACCOMPAGNEES': '',
     'NOM_LEGAL': 'ACME AG',
+    'NUMBER_OF_ACCOMODATED_PERSONS': '',
     'NUTZUNG': 'Wohnen',
     'NUTZUNGSZONE': 'Wohnzone W2',
     'OBJECTIONS': [
@@ -592,6 +634,7 @@ Test E 2''',
         }
     ],
     'OBJECT_C': 'Ja',
+    'OCCUPATION_CHAMBRES_PLUS_50_PERSONNES': '',
     'OEFFENTLICHKEIT': 'Öffentlich',
     'OFFICES_CANTONAUX': [
         {
@@ -706,6 +749,8 @@ Test E 2''',
     ],
     'OUTSIDE_SEATING': 20,
     'OUVERTURE_PUBLIC': 'Öffentlich',
+    'PANNEAUX_SOLAIRES': [
+    ],
     'PARCELLE': '473, 2592',
     'PARZELLE': '473, 2592',
     'PLACES_ASSISES_EXT': 20,
@@ -753,6 +798,11 @@ Test E 2''',
     'PUBLIKATION_LINK': 'http://ebau-portal.local/public-instances/1',
     'PUBLIKATION_START': '1. September 2021',
     'PUBLIKATION_TEXT': 'Text',
+    'QS_RESPONSIBLE': '',
+    'QS_VERANTWORTLICHER': '',
+    'RAEUME_MEHR_50_PERSONEN': [
+    ],
+    'RAUM_BELEGUNG_MEHR_50_PERSONEN': '',
     'RECENSEMENT': 'Schützenswert, K-Objekt, Baugruppe Bauinventar: Test Baugruppe, RRB vom 1. Januar 2022, Vertrag vom 1. Februar 2022',
     'RECHTSBEGEHRENDE': [
         {
@@ -870,6 +920,9 @@ Test RV 2''',
     'RESPONSABLE_EMAIL': 'tammy30@example.net',
     'RESPONSABLE_NOM': 'Thomas Morgan',
     'RESPONSABLE_TELEPHONE': '',
+    'ROOMS_WITH_MORE_THAN_50_PERSONS': [
+    ],
+    'ROOM_OCCUPANCY_ROOMS_MORE_THAN_50_PERSONS': '',
     'RRB': 'Ja',
     'RRB_DATE': '1. Januar 2022',
     'RRB_DATUM': '1. Januar 2022',
@@ -881,13 +934,30 @@ Test RV 2''',
     'SITUATION': 'Sachverhalt Test',
     'SITZPLAETZE_AUSSEN': 20,
     'SITZPLAETZE_INNEN': 35,
+    'SOLARANLAGEN': [
+    ],
+    'SOLAR_PANELS': [
+    ],
     'SPRACHE': 'de',
     'STATUS': 'Pamela Horton',
     'STELLUNGNAHME': 'Stellungnahme 1',
+    'STFV_CRITIAL_VALUE_EXCEEDED': '',
+    'STFV_DATE_DU_RAPPORT_COURT': '',
+    'STFV_KRITISCHER_WERT_UEBERSCHRITTEN': '',
+    'STFV_KURZ_BERICHT_DATUM': '',
+    'STFV_SHORT_REPORT_DATE': '',
+    'STFV_VALEUR_CRITIQUE_DEPASSEE': '',
     'STICHWORTE': 'Andrew Berg MD, Alex Scott, Jacqueline Herrera, Kaitlyn Mendoza, Mary Mooney',
+    'SURFACE_DE_PLANCHER': '',
+    'SYSTEMES_DE_VENTILATION': [
+    ],
+    'TECHNISCHE_BRANDSCHUTZANLAGEN': [
+    ],
     'TODAY': '30. August 2021',
     'UEBERBAUUNGSORDNUNG': 'Überbauung XY',
     'UVP_JA_NEIN': False,
+    'VENTILATION_SYSTEMS': [
+    ],
     'VERTRAG': 'Ja',
     'VERTRAG_DATUM': '1. Februar 2022',
     'VERTRETER': 'Mustermann und Söhne AG',
@@ -907,6 +977,8 @@ Test RV 2''',
             'NAME': 'Karl Nachbarsson',
             'NOM': 'Karl Nachbarsson'
         }
+    ],
+    'WAERMETECHNISCHE_ANLAGEN': [
     ],
     'ZIRKULATION_ALLE': [
         {
@@ -1464,6 +1536,32 @@ snapshots['test_dms_placeholders_docs[be_dms_config] 1'] = {
         'nested_aliases': {
         }
     },
+    'BUILDING_DISTANCES': {
+        'aliases': [
+            {
+                'de': 'GEBAEUDEABSTAENDE',
+                'fr': 'DISTANCES_ENTRE_LES_BATIMENTS'
+            }
+        ],
+        'description': {
+            'de': 'Abstände zwischen benachbarten Gebäuden',
+            'fr': 'Distances entre les bâtiments adjacents'
+        },
+        'nested_aliases': {
+            'distance': [
+                {
+                    'de': 'ABSTAND_M',
+                    'fr': 'DISTANCE'
+                }
+            ],
+            'side': [
+                {
+                    'de': 'SEITE',
+                    'fr': 'COTE'
+                }
+            ]
+        }
+    },
     'CONSERVABLE': {
         'aliases': [
             {
@@ -1474,6 +1572,20 @@ snapshots['test_dms_placeholders_docs[be_dms_config] 1'] = {
         'description': {
             'de': 'Boolesch-Platzhalter für das Formular-Feld «Erhaltenswert».',
             'fr': 'Boolesch-Platzhalter für das Formular-Feld «Erhaltenswert».'
+        },
+        'nested_aliases': {
+        }
+    },
+    'CONSTRUCTION_COSTS': {
+        'aliases': [
+            {
+                'de': 'BAUKOSTEN',
+                'fr': 'COUTS_DE_CONSTRUCTION'
+            }
+        ],
+        'description': {
+            'de': 'Baukosten',
+            'fr': 'Coûts de construction'
         },
         'nested_aliases': {
         }
@@ -1572,6 +1684,20 @@ snapshots['test_dms_placeholders_docs[be_dms_config] 1'] = {
         'description': {
             'de': 'Projektänderung',
             'fr': 'Modification du projet'
+        },
+        'nested_aliases': {
+        }
+    },
+    'DIMENSION_HEIGHT': {
+        'aliases': [
+            {
+                'de': 'DIMENSIONEN_HOEHE',
+                'fr': 'DIMENSION_HAUTEUR'
+            }
+        ],
+        'description': {
+            'de': 'Höhe',
+            'fr': 'Hauteur'
         },
         'nested_aliases': {
         }
@@ -1696,6 +1822,46 @@ snapshots['test_dms_placeholders_docs[be_dms_config] 1'] = {
         'description': {
             'de': 'Namen aller involvierten kantonalen Fachstellen als Aufzählung',
             'fr': 'Noms de tous les offices cantonaux concernés sous forme de liste'
+        },
+        'nested_aliases': {
+        }
+    },
+    'FIRE_PROTECTION_SYSTEMS': {
+        'aliases': [
+            {
+                'de': 'TECHNISCHE_BRANDSCHUTZANLAGEN',
+                'fr': 'INSTALLATIONS_TECH_LINCENDIE'
+            }
+        ],
+        'description': {
+            'de': 'Technische Brandschutzanlagen',
+            'fr': "Installations techniques de protection contre l'incendie"
+        },
+        'nested_aliases': {
+            'new_or_existing': [
+                {
+                    'de': 'NEU_BESTEHEND',
+                    'fr': 'NOUVEAU_OU_EXISTANT'
+                }
+            ],
+            'type': [
+                {
+                    'de': 'TYP',
+                    'fr': 'TYPE'
+                }
+            ]
+        }
+    },
+    'FLOOR_AREA': {
+        'aliases': [
+            {
+                'de': 'GESCHOSSFLAECHE',
+                'fr': 'SURFACE_DE_PLANCHER'
+            }
+        ],
+        'description': {
+            'de': 'Geschossfläche',
+            'fr': 'Surface de plancher'
         },
         'nested_aliases': {
         }
@@ -2018,6 +2184,82 @@ snapshots['test_dms_placeholders_docs[be_dms_config] 1'] = {
             'fr': 'Nom et adresse propriétaire foncier/foncière'
         },
         'nested_aliases': {
+        }
+    },
+    'HAZARDOUS_SUBSTANCES': {
+        'aliases': [
+            {
+                'de': 'GEFAEHRLICHE_STOFFE',
+                'fr': 'MATIERES_DANGEREUSES'
+            }
+        ],
+        'description': {
+            'de': 'Gefährliche Stoffe',
+            'fr': 'Matières dangereuses'
+        },
+        'nested_aliases': {
+            'amount': [
+                {
+                    'de': 'BETRAG',
+                    'fr': 'FORFAIT'
+                }
+            ],
+            'material': [
+                {
+                    'de': 'MATERIAL',
+                    'fr': 'MATERIAU'
+                }
+            ],
+            'material_group': [
+                {
+                    'de': 'STOFFGRUPPE',
+                    'fr': 'GROUPE_DE_MATIERES'
+                }
+            ]
+        }
+    },
+    'HEATING_SYSTEMS': {
+        'aliases': [
+            {
+                'de': 'WAERMETECHNISCHE_ANLAGEN',
+                'fr': 'INSTALLATIONS_AERAULIQUES'
+            }
+        ],
+        'description': {
+            'de': 'Wärmetechnische Anlagen',
+            'fr': 'Installations aerauliques'
+        },
+        'nested_aliases': {
+            'combusitble_storage': [
+                {
+                    'de': 'BRENNSTOFFLAGERUNG',
+                    'fr': 'STOCKAGE_COMBUSTIBLE'
+                }
+            ],
+            'new_or_existing': [
+                {
+                    'de': 'NEU_BESTEHEND',
+                    'fr': 'NOUVEAU_OU_EXISTANT'
+                }
+            ],
+            'power': [
+                {
+                    'de': 'LEISTUNG',
+                    'fr': 'PUISSANCE'
+                }
+            ],
+            'storage_amount': [
+                {
+                    'de': 'LAGERMENGE',
+                    'fr': 'QUANTITE_STOCKEE'
+                }
+            ],
+            'type': [
+                {
+                    'de': 'TYP',
+                    'fr': 'TYPE'
+                }
+            ]
         }
     },
     'INFORMATION_OF_NEIGHBORS_LINK': {
@@ -2352,6 +2594,32 @@ snapshots['test_dms_placeholders_docs[be_dms_config] 1'] = {
         'nested_aliases': {
         }
     },
+    'LIFTS': {
+        'aliases': [
+            {
+                'de': 'AUFZUGSANLAGEN',
+                'fr': 'ASCENSEURS'
+            }
+        ],
+        'description': {
+            'de': 'Aufzugsanlagen',
+            'fr': 'Ascenseurs'
+        },
+        'nested_aliases': {
+            'new_or_existing': [
+                {
+                    'de': 'NEU_BESTEHEND',
+                    'fr': 'NOUVEAU_OU_EXISTANT'
+                }
+            ],
+            'system_type': [
+                {
+                    'de': 'ANLAGENTYP',
+                    'fr': 'TYPE_INSTALLATION'
+                }
+            ]
+        }
+    },
     'LOAD_COMPENSATION_REQUESTING': {
         'aliases': [
             {
@@ -2607,6 +2875,20 @@ snapshots['test_dms_placeholders_docs[be_dms_config] 1'] = {
                     'fr': 'NOM'
                 }
             ]
+        }
+    },
+    'NUMBER_OF_ACCOMODATED_PERSONS': {
+        'aliases': [
+            {
+                'de': 'ANZAHL_BEHERBERGTE_PERSONEN',
+                'fr': 'NOMBRE_DE_PERSONNES_ACCOMPAGNEES'
+            }
+        ],
+        'description': {
+            'de': 'Anzahl beherbergte Personen',
+            'fr': 'Nombre de personnes hébergées'
+        },
+        'nested_aliases': {
         }
     },
     'NUTZUNG': {
@@ -2945,6 +3227,20 @@ snapshots['test_dms_placeholders_docs[be_dms_config] 1'] = {
         'nested_aliases': {
         }
     },
+    'QS_RESPONSIBLE': {
+        'aliases': [
+            {
+                'de': 'QS_VERANTWORTLICHER',
+                'fr': 'QS_RESPONSIBLE'
+            }
+        ],
+        'description': {
+            'de': 'Angaben des QS Verantwortlichen',
+            'fr': 'Nom de la personne responsable du QS'
+        },
+        'nested_aliases': {
+        }
+    },
     'RECHTSVERWAHRUNGEN': {
         'aliases': [
             {
@@ -2993,6 +3289,46 @@ snapshots['test_dms_placeholders_docs[be_dms_config] 1'] = {
             ]
         }
     },
+    'ROOMS_WITH_MORE_THAN_50_PERSONS': {
+        'aliases': [
+            {
+                'de': 'RAEUME_MEHR_50_PERSONEN',
+                'fr': 'CHAMBRES_AVEC_PLUS_DE_50_PERSONNES'
+            }
+        ],
+        'description': {
+            'de': 'Liste der Räume mit mehr als 50 Personen',
+            'fr': 'Liste des salles de plus de 50 personnes'
+        },
+        'nested_aliases': {
+            'number_of_persons': [
+                {
+                    'de': 'ANZAHL_BEHERBERGTE_PERSONEN',
+                    'fr': 'NOMBRE_DE_PERSONNES'
+                }
+            ],
+            'room': [
+                {
+                    'de': 'RAUM',
+                    'fr': 'CHAMBRE'
+                }
+            ]
+        }
+    },
+    'ROOM_OCCUPANCY_ROOMS_MORE_THAN_50_PERSONS': {
+        'aliases': [
+            {
+                'de': 'RAUM_BELEGUNG_MEHR_50_PERSONEN',
+                'fr': 'OCCUPATION_CHAMBRES_PLUS_50_PERSONNES'
+            }
+        ],
+        'description': {
+            'de': 'Belegung der Räume mit mehr als 50 Personen',
+            'fr': 'Occupation des chambres plus de 50 personnes'
+        },
+        'nested_aliases': {
+        }
+    },
     'RRB': {
         'aliases': [
             {
@@ -3035,6 +3371,44 @@ snapshots['test_dms_placeholders_docs[be_dms_config] 1'] = {
         'nested_aliases': {
         }
     },
+    'SOLAR_PANELS': {
+        'aliases': [
+            {
+                'de': 'SOLARANLAGEN',
+                'fr': 'PANNEAUX_SOLAIRES'
+            }
+        ],
+        'description': {
+            'de': 'Solaranlagen',
+            'fr': 'Panneaux solaires'
+        },
+        'nested_aliases': {
+            'energy_storage': [
+                {
+                    'de': 'ENERGIE_SPEICHER',
+                    'fr': 'STOCKAGE_D_ENERGIE'
+                }
+            ],
+            'energy_storage_capacity': [
+                {
+                    'de': 'ENERGIE_SPEICHER_KAPAZITAET',
+                    'fr': 'CAPACITE_DE_STOCKAGE_D_ENERGIE'
+                }
+            ],
+            'new_or_existing': [
+                {
+                    'de': 'NEU_BESTEHEND',
+                    'fr': 'NOUVEAU_OU_EXISTANT'
+                }
+            ],
+            'type': [
+                {
+                    'de': 'TYP',
+                    'fr': 'TYPE'
+                }
+            ]
+        }
+    },
     'STATUS': {
         'aliases': [
             {
@@ -3063,6 +3437,34 @@ snapshots['test_dms_placeholders_docs[be_dms_config] 1'] = {
         'description': {
             'de': 'Eigene Stellungnahmen',
             'fr': 'Prises de position propres'
+        },
+        'nested_aliases': {
+        }
+    },
+    'STFV_CRITIAL_VALUE_EXCEEDED': {
+        'aliases': [
+            {
+                'de': 'STFV_KRITISCHER_WERT_UEBERSCHRITTEN',
+                'fr': 'STFV_VALEUR_CRITIQUE_DEPASSEE'
+            }
+        ],
+        'description': {
+            'de': 'StfV kritischer Wert überschritten',
+            'fr': 'Dépassement de la valeur critique StfV'
+        },
+        'nested_aliases': {
+        }
+    },
+    'STFV_SHORT_REPORT_DATE': {
+        'aliases': [
+            {
+                'de': 'STFV_KURZ_BERICHT_DATUM',
+                'fr': 'STFV_DATE_DU_RAPPORT_COURT'
+            }
+        ],
+        'description': {
+            'de': 'StfV Kurzbericht Datum',
+            'fr': 'StfV date du rapport court'
         },
         'nested_aliases': {
         }
@@ -3114,6 +3516,38 @@ snapshots['test_dms_placeholders_docs[be_dms_config] 1'] = {
         ],
         'description': None,
         'nested_aliases': {
+        }
+    },
+    'VENTILATION_SYSTEMS': {
+        'aliases': [
+            {
+                'de': 'LUEFTUNGSANLAGEN',
+                'fr': 'SYSTEMES_DE_VENTILATION'
+            }
+        ],
+        'description': {
+            'de': 'Lüftungsanlagen',
+            'fr': 'Systèmes de ventilation'
+        },
+        'nested_aliases': {
+            'air_volume': [
+                {
+                    'de': 'VOLUMENSTROM',
+                    'fr': 'VOLUME_D_AIR'
+                }
+            ],
+            'new_or_existing': [
+                {
+                    'de': 'NEU_BESTEHEND',
+                    'fr': 'NOUVEAU_OU_EXISTANT'
+                }
+            ],
+            'system_type': [
+                {
+                    'de': 'TYP',
+                    'fr': 'TYPE'
+                }
+            ]
         }
     },
     'VERTRETER': {
@@ -5204,7 +5638,24 @@ snapshots['test_dms_placeholders_docs_available_placeholders[be_dms_config] 1'] 
     'ALLE_VERTRETER',
     'ALLE_VERTRETER_NAME_ADDRESS',
     'ALLE_VERTRETER_NAME_ADRESSE',
+    'ANZAHL_BEHERBERGTE_PERSONEN',
     'ARRONDISSEMENT_ADMINISTRATIF',
+    'ASCENSEURS',
+    'ASCENSEURS[]',
+    'ASCENSEURS[].ANLAGENTYP',
+    'ASCENSEURS[].NEU_BESTEHEND',
+    'ASCENSEURS[].NOUVEAU_OU_EXISTANT',
+    'ASCENSEURS[].TYPE_INSTALLATION',
+    'ASCENSEURS[].new_or_existing',
+    'ASCENSEURS[].system_type',
+    'AUFZUGSANLAGEN',
+    'AUFZUGSANLAGEN[]',
+    'AUFZUGSANLAGEN[].ANLAGENTYP',
+    'AUFZUGSANLAGEN[].NEU_BESTEHEND',
+    'AUFZUGSANLAGEN[].NOUVEAU_OU_EXISTANT',
+    'AUFZUGSANLAGEN[].TYPE_INSTALLATION',
+    'AUFZUGSANLAGEN[].new_or_existing',
+    'AUFZUGSANLAGEN[].system_type',
     'AUJOURD_HUI',
     'AUTEUR_PROJET',
     'AUTEUR_PROJET_ADRESSE_1',
@@ -5239,10 +5690,27 @@ snapshots['test_dms_placeholders_docs_available_placeholders[be_dms_config] 1'] 
     'BAUENTSCHEID_TYPE',
     'BAUGRUPPE',
     'BAUGRUPPE_BEZEICHNUNG',
+    'BAUKOSTEN',
     'BAUVORHABEN',
     'BESCHREIBUNG_BAUVORHABEN',
     'BESCHREIBUNG_PROJEKTAENDERUNG',
     'BOISSONS_ALCOOLIQUES',
+    'BUILDING_DISTANCES',
+    'BUILDING_DISTANCES[]',
+    'BUILDING_DISTANCES[].ABSTAND_M',
+    'BUILDING_DISTANCES[].COTE',
+    'BUILDING_DISTANCES[].DISTANCE',
+    'BUILDING_DISTANCES[].SEITE',
+    'BUILDING_DISTANCES[].distance',
+    'BUILDING_DISTANCES[].side',
+    'CHAMBRES_AVEC_PLUS_DE_50_PERSONNES',
+    'CHAMBRES_AVEC_PLUS_DE_50_PERSONNES[]',
+    'CHAMBRES_AVEC_PLUS_DE_50_PERSONNES[].ANZAHL_BEHERBERGTE_PERSONEN',
+    'CHAMBRES_AVEC_PLUS_DE_50_PERSONNES[].CHAMBRE',
+    'CHAMBRES_AVEC_PLUS_DE_50_PERSONNES[].NOMBRE_DE_PERSONNES',
+    'CHAMBRES_AVEC_PLUS_DE_50_PERSONNES[].RAUM',
+    'CHAMBRES_AVEC_PLUS_DE_50_PERSONNES[].number_of_persons',
+    'CHAMBRES_AVEC_PLUS_DE_50_PERSONNES[].room',
     'CIRCULATION_COMMUNES',
     'CIRCULATION_COMMUNES[]',
     'CIRCULATION_COMMUNES[].BEANTWORTET',
@@ -5294,6 +5762,7 @@ snapshots['test_dms_placeholders_docs_available_placeholders[be_dms_config] 1'] 
     'COMMUNICATION_AUX_VOISINS_CODE_QR',
     'COMMUNICATION_AUX_VOISINS_LIEN',
     'CONSERVABLE',
+    'CONSTRUCTION_COSTS',
     'CONSTRUCTION_GROUP',
     'CONSTRUCTION_GROUP_DESIGNATION',
     'CONTRACT',
@@ -5301,6 +5770,7 @@ snapshots['test_dms_placeholders_docs_available_placeholders[be_dms_config] 1'] 
     'CONTRAT',
     'CONTRAT_DATE',
     'COORDONEE',
+    'COUTS_DE_CONSTRUCTION',
     'DECISION',
     'DECISION_CATEGORIE',
     'DECISION_DATE',
@@ -5331,8 +5801,19 @@ snapshots['test_dms_placeholders_docs_available_placeholders[be_dms_config] 1'] 
     'DEMANDES_EN_COMPENSATION_DES_CHARGES[].TITRE',
     'DEPOT_DEMANDE_DATE',
     'DESCRIPTION_MODIFICATION',
+    'DIMENSIONEN_HOEHE',
+    'DIMENSION_HAUTEUR',
+    'DIMENSION_HEIGHT',
     'DISPOSITIONS_ACCESSOIRES',
     'DISPOSITIONS_ANNEXES',
+    'DISTANCES_ENTRE_LES_BATIMENTS',
+    'DISTANCES_ENTRE_LES_BATIMENTS[]',
+    'DISTANCES_ENTRE_LES_BATIMENTS[].ABSTAND_M',
+    'DISTANCES_ENTRE_LES_BATIMENTS[].COTE',
+    'DISTANCES_ENTRE_LES_BATIMENTS[].DISTANCE',
+    'DISTANCES_ENTRE_LES_BATIMENTS[].SEITE',
+    'DISTANCES_ENTRE_LES_BATIMENTS[].distance',
+    'DISTANCES_ENTRE_LES_BATIMENTS[].side',
     'DOSSIER_LINK',
     'DOSSIER_NR',
     'DOSSIER_NUMERO',
@@ -5391,7 +5872,24 @@ snapshots['test_dms_placeholders_docs_available_placeholders[be_dms_config] 1'] 
     'FACHSTELLEN_KANTONAL[].REPONDU',
     'FACHSTELLEN_KANTONAL_LIST',
     'FACHSTELLEN_KANTONAL_LISTE',
+    'FIRE_PROTECTION_SYSTEMS',
+    'FIRE_PROTECTION_SYSTEMS[]',
+    'FIRE_PROTECTION_SYSTEMS[].NEU_BESTEHEND',
+    'FIRE_PROTECTION_SYSTEMS[].NOUVEAU_OU_EXISTANT',
+    'FIRE_PROTECTION_SYSTEMS[].TYP',
+    'FIRE_PROTECTION_SYSTEMS[].TYPE',
+    'FIRE_PROTECTION_SYSTEMS[].new_or_existing',
+    'FIRE_PROTECTION_SYSTEMS[].type',
+    'FLOOR_AREA',
     'FORM_NAME',
+    'GEBAEUDEABSTAENDE',
+    'GEBAEUDEABSTAENDE[]',
+    'GEBAEUDEABSTAENDE[].ABSTAND_M',
+    'GEBAEUDEABSTAENDE[].COTE',
+    'GEBAEUDEABSTAENDE[].DISTANCE',
+    'GEBAEUDEABSTAENDE[].SEITE',
+    'GEBAEUDEABSTAENDE[].distance',
+    'GEBAEUDEABSTAENDE[].side',
     'GEBAEUDEEIGENTUEMER',
     'GEBAEUDEEIGENTUEMER_ADDRESS_1',
     'GEBAEUDEEIGENTUEMER_ADDRESS_2',
@@ -5405,6 +5903,17 @@ snapshots['test_dms_placeholders_docs_available_placeholders[be_dms_config] 1'] 
     'GEBUEHREN[].FORFAIT',
     'GEBUEHREN[].POSITION',
     'GEBUEHREN_TOTAL',
+    'GEFAEHRLICHE_STOFFE',
+    'GEFAEHRLICHE_STOFFE[]',
+    'GEFAEHRLICHE_STOFFE[].BETRAG',
+    'GEFAEHRLICHE_STOFFE[].FORFAIT',
+    'GEFAEHRLICHE_STOFFE[].GROUPE_DE_MATIERES',
+    'GEFAEHRLICHE_STOFFE[].MATERIAL',
+    'GEFAEHRLICHE_STOFFE[].MATERIAU',
+    'GEFAEHRLICHE_STOFFE[].STOFFGRUPPE',
+    'GEFAEHRLICHE_STOFFE[].amount',
+    'GEFAEHRLICHE_STOFFE[].material',
+    'GEFAEHRLICHE_STOFFE[].material_group',
     'GEMEINDE',
     'GEMEINDE_ADRESSE',
     'GEMEINDE_ADRESSE_1',
@@ -5413,6 +5922,7 @@ snapshots['test_dms_placeholders_docs_available_placeholders[be_dms_config] 1'] 
     'GEMEINDE_NAME_ADRESSE',
     'GEMEINDE_ORT',
     'GEMEINDE_TELEFON',
+    'GESCHOSSFLAECHE',
     'GESUCHSTELLER',
     'GESUCHSTELLER_ADDRESS_1',
     'GESUCHSTELLER_ADDRESS_2',
@@ -5428,9 +5938,62 @@ snapshots['test_dms_placeholders_docs_available_placeholders[be_dms_config] 1'] 
     'GRUNDEIGENTUEMER_ADRESSE_2',
     'GRUNDEIGENTUEMER_NAME_ADDRESS',
     'GRUNDEIGENTUEMER_NAME_ADRESSE',
+    'HAZARDOUS_SUBSTANCES',
+    'HAZARDOUS_SUBSTANCES[]',
+    'HAZARDOUS_SUBSTANCES[].BETRAG',
+    'HAZARDOUS_SUBSTANCES[].FORFAIT',
+    'HAZARDOUS_SUBSTANCES[].GROUPE_DE_MATIERES',
+    'HAZARDOUS_SUBSTANCES[].MATERIAL',
+    'HAZARDOUS_SUBSTANCES[].MATERIAU',
+    'HAZARDOUS_SUBSTANCES[].STOFFGRUPPE',
+    'HAZARDOUS_SUBSTANCES[].amount',
+    'HAZARDOUS_SUBSTANCES[].material',
+    'HAZARDOUS_SUBSTANCES[].material_group',
+    'HEATING_SYSTEMS',
+    'HEATING_SYSTEMS[]',
+    'HEATING_SYSTEMS[].BRENNSTOFFLAGERUNG',
+    'HEATING_SYSTEMS[].LAGERMENGE',
+    'HEATING_SYSTEMS[].LEISTUNG',
+    'HEATING_SYSTEMS[].NEU_BESTEHEND',
+    'HEATING_SYSTEMS[].NOUVEAU_OU_EXISTANT',
+    'HEATING_SYSTEMS[].PUISSANCE',
+    'HEATING_SYSTEMS[].QUANTITE_STOCKEE',
+    'HEATING_SYSTEMS[].STOCKAGE_COMBUSTIBLE',
+    'HEATING_SYSTEMS[].TYP',
+    'HEATING_SYSTEMS[].TYPE',
+    'HEATING_SYSTEMS[].combusitble_storage',
+    'HEATING_SYSTEMS[].new_or_existing',
+    'HEATING_SYSTEMS[].power',
+    'HEATING_SYSTEMS[].storage_amount',
+    'HEATING_SYSTEMS[].type',
     'HEUTE',
     'INFORMATION_OF_NEIGHBORS_LINK',
     'INFORMATION_OF_NEIGHBORS_QR_CODE',
+    'INSTALLATIONS_AERAULIQUES',
+    'INSTALLATIONS_AERAULIQUES[]',
+    'INSTALLATIONS_AERAULIQUES[].BRENNSTOFFLAGERUNG',
+    'INSTALLATIONS_AERAULIQUES[].LAGERMENGE',
+    'INSTALLATIONS_AERAULIQUES[].LEISTUNG',
+    'INSTALLATIONS_AERAULIQUES[].NEU_BESTEHEND',
+    'INSTALLATIONS_AERAULIQUES[].NOUVEAU_OU_EXISTANT',
+    'INSTALLATIONS_AERAULIQUES[].PUISSANCE',
+    'INSTALLATIONS_AERAULIQUES[].QUANTITE_STOCKEE',
+    'INSTALLATIONS_AERAULIQUES[].STOCKAGE_COMBUSTIBLE',
+    'INSTALLATIONS_AERAULIQUES[].TYP',
+    'INSTALLATIONS_AERAULIQUES[].TYPE',
+    'INSTALLATIONS_AERAULIQUES[].combusitble_storage',
+    'INSTALLATIONS_AERAULIQUES[].new_or_existing',
+    'INSTALLATIONS_AERAULIQUES[].power',
+    'INSTALLATIONS_AERAULIQUES[].storage_amount',
+    'INSTALLATIONS_AERAULIQUES[].type',
+    'INSTALLATIONS_TECH_LINCENDIE',
+    'INSTALLATIONS_TECH_LINCENDIE[]',
+    'INSTALLATIONS_TECH_LINCENDIE[].NEU_BESTEHEND',
+    'INSTALLATIONS_TECH_LINCENDIE[].NOUVEAU_OU_EXISTANT',
+    'INSTALLATIONS_TECH_LINCENDIE[].TYP',
+    'INSTALLATIONS_TECH_LINCENDIE[].TYPE',
+    'INSTALLATIONS_TECH_LINCENDIE[].new_or_existing',
+    'INSTALLATIONS_TECH_LINCENDIE[].type',
     'INSTANCE_ID',
     'INTERIOR_SEATING',
     'INVENTAR',
@@ -5485,12 +6048,42 @@ snapshots['test_dms_placeholders_docs_available_placeholders[be_dms_config] 1'] 
     'LEITBEHOERDE_TELEFON',
     'LEITPERSON',
     'LIEN_PUBLICATION',
+    'LIFTS',
+    'LIFTS[]',
+    'LIFTS[].ANLAGENTYP',
+    'LIFTS[].NEU_BESTEHEND',
+    'LIFTS[].NOUVEAU_OU_EXISTANT',
+    'LIFTS[].TYPE_INSTALLATION',
+    'LIFTS[].new_or_existing',
+    'LIFTS[].system_type',
     'LOAD_COMPENSATION_REQUESTING',
     'LOAD_COMPENSATION_REQUESTING[]',
     'LOAD_COMPENSATION_REQUESTING[].ADDRESS',
     'LOAD_COMPENSATION_REQUESTING[].ADRESSE',
     'LOAD_COMPENSATION_REQUESTING[].NAME',
     'LOAD_COMPENSATION_REQUESTING[].NOM',
+    'LUEFTUNGSANLAGEN',
+    'LUEFTUNGSANLAGEN[]',
+    'LUEFTUNGSANLAGEN[].NEU_BESTEHEND',
+    'LUEFTUNGSANLAGEN[].NOUVEAU_OU_EXISTANT',
+    'LUEFTUNGSANLAGEN[].TYP',
+    'LUEFTUNGSANLAGEN[].TYPE',
+    'LUEFTUNGSANLAGEN[].VOLUMENSTROM',
+    'LUEFTUNGSANLAGEN[].VOLUME_D_AIR',
+    'LUEFTUNGSANLAGEN[].air_volume',
+    'LUEFTUNGSANLAGEN[].new_or_existing',
+    'LUEFTUNGSANLAGEN[].system_type',
+    'MATIERES_DANGEREUSES',
+    'MATIERES_DANGEREUSES[]',
+    'MATIERES_DANGEREUSES[].BETRAG',
+    'MATIERES_DANGEREUSES[].FORFAIT',
+    'MATIERES_DANGEREUSES[].GROUPE_DE_MATIERES',
+    'MATIERES_DANGEREUSES[].MATERIAL',
+    'MATIERES_DANGEREUSES[].MATERIAU',
+    'MATIERES_DANGEREUSES[].STOFFGRUPPE',
+    'MATIERES_DANGEREUSES[].amount',
+    'MATIERES_DANGEREUSES[].material',
+    'MATIERES_DANGEREUSES[].material_group',
     'MEINE_ORGANISATION_ADRESSE_1',
     'MEINE_ORGANISATION_ADRESSE_2',
     'MEINE_ORGANISATION_EMAIL',
@@ -5536,7 +6129,9 @@ snapshots['test_dms_placeholders_docs_available_placeholders[be_dms_config] 1'] 
     'NEIGHBORS[].ADRESSE_2',
     'NEIGHBORS[].NAME',
     'NEIGHBORS[].NOM',
+    'NOMBRE_DE_PERSONNES_ACCOMPAGNEES',
     'NOM_LEGAL',
+    'NUMBER_OF_ACCOMODATED_PERSONS',
     'NUTZUNG',
     'NUTZUNGSZONE',
     'OBJECTIONS',
@@ -5552,6 +6147,7 @@ snapshots['test_dms_placeholders_docs_available_placeholders[be_dms_config] 1'] 
     'OBJECTIONS[].TITEL',
     'OBJECTIONS[].TITRE',
     'OBJECT_C',
+    'OCCUPATION_CHAMBRES_PLUS_50_PERSONNES',
     'OEFFENTLICHKEIT',
     'OFFICES_CANTONAUX',
     'OFFICES_CANTONAUX[]',
@@ -5590,6 +6186,20 @@ snapshots['test_dms_placeholders_docs_available_placeholders[be_dms_config] 1'] 
     'OPPOSITIONS[].TITRE',
     'OUTSIDE_SEATING',
     'OUVERTURE_PUBLIC',
+    'PANNEAUX_SOLAIRES',
+    'PANNEAUX_SOLAIRES[]',
+    'PANNEAUX_SOLAIRES[].CAPACITE_DE_STOCKAGE_D_ENERGIE',
+    'PANNEAUX_SOLAIRES[].ENERGIE_SPEICHER',
+    'PANNEAUX_SOLAIRES[].ENERGIE_SPEICHER_KAPAZITAET',
+    'PANNEAUX_SOLAIRES[].NEU_BESTEHEND',
+    'PANNEAUX_SOLAIRES[].NOUVEAU_OU_EXISTANT',
+    'PANNEAUX_SOLAIRES[].STOCKAGE_D_ENERGIE',
+    'PANNEAUX_SOLAIRES[].TYP',
+    'PANNEAUX_SOLAIRES[].TYPE',
+    'PANNEAUX_SOLAIRES[].energy_storage',
+    'PANNEAUX_SOLAIRES[].energy_storage_capacity',
+    'PANNEAUX_SOLAIRES[].new_or_existing',
+    'PANNEAUX_SOLAIRES[].type',
     'PARCELLE',
     'PARZELLE',
     'PLACES_ASSISES_EXT',
@@ -5637,6 +6247,17 @@ snapshots['test_dms_placeholders_docs_available_placeholders[be_dms_config] 1'] 
     'PUBLIKATION_LINK',
     'PUBLIKATION_START',
     'PUBLIKATION_TEXT',
+    'QS_RESPONSIBLE',
+    'QS_VERANTWORTLICHER',
+    'RAEUME_MEHR_50_PERSONEN',
+    'RAEUME_MEHR_50_PERSONEN[]',
+    'RAEUME_MEHR_50_PERSONEN[].ANZAHL_BEHERBERGTE_PERSONEN',
+    'RAEUME_MEHR_50_PERSONEN[].CHAMBRE',
+    'RAEUME_MEHR_50_PERSONEN[].NOMBRE_DE_PERSONNES',
+    'RAEUME_MEHR_50_PERSONEN[].RAUM',
+    'RAEUME_MEHR_50_PERSONEN[].number_of_persons',
+    'RAEUME_MEHR_50_PERSONEN[].room',
+    'RAUM_BELEGUNG_MEHR_50_PERSONEN',
     'RECENSEMENT',
     'RECHTSBEGEHRENDE',
     'RECHTSBEGEHRENDE[]',
@@ -5710,6 +6331,15 @@ snapshots['test_dms_placeholders_docs_available_placeholders[be_dms_config] 1'] 
     'RESPONSABLE_EMAIL',
     'RESPONSABLE_NOM',
     'RESPONSABLE_TELEPHONE',
+    'ROOMS_WITH_MORE_THAN_50_PERSONS',
+    'ROOMS_WITH_MORE_THAN_50_PERSONS[]',
+    'ROOMS_WITH_MORE_THAN_50_PERSONS[].ANZAHL_BEHERBERGTE_PERSONEN',
+    'ROOMS_WITH_MORE_THAN_50_PERSONS[].CHAMBRE',
+    'ROOMS_WITH_MORE_THAN_50_PERSONS[].NOMBRE_DE_PERSONNES',
+    'ROOMS_WITH_MORE_THAN_50_PERSONS[].RAUM',
+    'ROOMS_WITH_MORE_THAN_50_PERSONS[].number_of_persons',
+    'ROOMS_WITH_MORE_THAN_50_PERSONS[].room',
+    'ROOM_OCCUPANCY_ROOMS_MORE_THAN_50_PERSONS',
     'RRB',
     'RRB_DATE',
     'RRB_DATUM',
@@ -5721,13 +6351,78 @@ snapshots['test_dms_placeholders_docs_available_placeholders[be_dms_config] 1'] 
     'SITUATION',
     'SITZPLAETZE_AUSSEN',
     'SITZPLAETZE_INNEN',
+    'SOLARANLAGEN',
+    'SOLARANLAGEN[]',
+    'SOLARANLAGEN[].CAPACITE_DE_STOCKAGE_D_ENERGIE',
+    'SOLARANLAGEN[].ENERGIE_SPEICHER',
+    'SOLARANLAGEN[].ENERGIE_SPEICHER_KAPAZITAET',
+    'SOLARANLAGEN[].NEU_BESTEHEND',
+    'SOLARANLAGEN[].NOUVEAU_OU_EXISTANT',
+    'SOLARANLAGEN[].STOCKAGE_D_ENERGIE',
+    'SOLARANLAGEN[].TYP',
+    'SOLARANLAGEN[].TYPE',
+    'SOLARANLAGEN[].energy_storage',
+    'SOLARANLAGEN[].energy_storage_capacity',
+    'SOLARANLAGEN[].new_or_existing',
+    'SOLARANLAGEN[].type',
+    'SOLAR_PANELS',
+    'SOLAR_PANELS[]',
+    'SOLAR_PANELS[].CAPACITE_DE_STOCKAGE_D_ENERGIE',
+    'SOLAR_PANELS[].ENERGIE_SPEICHER',
+    'SOLAR_PANELS[].ENERGIE_SPEICHER_KAPAZITAET',
+    'SOLAR_PANELS[].NEU_BESTEHEND',
+    'SOLAR_PANELS[].NOUVEAU_OU_EXISTANT',
+    'SOLAR_PANELS[].STOCKAGE_D_ENERGIE',
+    'SOLAR_PANELS[].TYP',
+    'SOLAR_PANELS[].TYPE',
+    'SOLAR_PANELS[].energy_storage',
+    'SOLAR_PANELS[].energy_storage_capacity',
+    'SOLAR_PANELS[].new_or_existing',
+    'SOLAR_PANELS[].type',
     'SPRACHE',
     'STATUS',
     'STELLUNGNAHME',
+    'STFV_CRITIAL_VALUE_EXCEEDED',
+    'STFV_DATE_DU_RAPPORT_COURT',
+    'STFV_KRITISCHER_WERT_UEBERSCHRITTEN',
+    'STFV_KURZ_BERICHT_DATUM',
+    'STFV_SHORT_REPORT_DATE',
+    'STFV_VALEUR_CRITIQUE_DEPASSEE',
     'STICHWORTE',
+    'SURFACE_DE_PLANCHER',
+    'SYSTEMES_DE_VENTILATION',
+    'SYSTEMES_DE_VENTILATION[]',
+    'SYSTEMES_DE_VENTILATION[].NEU_BESTEHEND',
+    'SYSTEMES_DE_VENTILATION[].NOUVEAU_OU_EXISTANT',
+    'SYSTEMES_DE_VENTILATION[].TYP',
+    'SYSTEMES_DE_VENTILATION[].TYPE',
+    'SYSTEMES_DE_VENTILATION[].VOLUMENSTROM',
+    'SYSTEMES_DE_VENTILATION[].VOLUME_D_AIR',
+    'SYSTEMES_DE_VENTILATION[].air_volume',
+    'SYSTEMES_DE_VENTILATION[].new_or_existing',
+    'SYSTEMES_DE_VENTILATION[].system_type',
+    'TECHNISCHE_BRANDSCHUTZANLAGEN',
+    'TECHNISCHE_BRANDSCHUTZANLAGEN[]',
+    'TECHNISCHE_BRANDSCHUTZANLAGEN[].NEU_BESTEHEND',
+    'TECHNISCHE_BRANDSCHUTZANLAGEN[].NOUVEAU_OU_EXISTANT',
+    'TECHNISCHE_BRANDSCHUTZANLAGEN[].TYP',
+    'TECHNISCHE_BRANDSCHUTZANLAGEN[].TYPE',
+    'TECHNISCHE_BRANDSCHUTZANLAGEN[].new_or_existing',
+    'TECHNISCHE_BRANDSCHUTZANLAGEN[].type',
     'TODAY',
     'UEBERBAUUNGSORDNUNG',
     'UVP_JA_NEIN',
+    'VENTILATION_SYSTEMS',
+    'VENTILATION_SYSTEMS[]',
+    'VENTILATION_SYSTEMS[].NEU_BESTEHEND',
+    'VENTILATION_SYSTEMS[].NOUVEAU_OU_EXISTANT',
+    'VENTILATION_SYSTEMS[].TYP',
+    'VENTILATION_SYSTEMS[].TYPE',
+    'VENTILATION_SYSTEMS[].VOLUMENSTROM',
+    'VENTILATION_SYSTEMS[].VOLUME_D_AIR',
+    'VENTILATION_SYSTEMS[].air_volume',
+    'VENTILATION_SYSTEMS[].new_or_existing',
+    'VENTILATION_SYSTEMS[].system_type',
     'VERTRAG',
     'VERTRAG_DATUM',
     'VERTRETER',
@@ -5746,6 +6441,23 @@ snapshots['test_dms_placeholders_docs_available_placeholders[be_dms_config] 1'] 
     'VOISINS_TOUS[].ADRESSE_2',
     'VOISINS_TOUS[].NAME',
     'VOISINS_TOUS[].NOM',
+    'WAERMETECHNISCHE_ANLAGEN',
+    'WAERMETECHNISCHE_ANLAGEN[]',
+    'WAERMETECHNISCHE_ANLAGEN[].BRENNSTOFFLAGERUNG',
+    'WAERMETECHNISCHE_ANLAGEN[].LAGERMENGE',
+    'WAERMETECHNISCHE_ANLAGEN[].LEISTUNG',
+    'WAERMETECHNISCHE_ANLAGEN[].NEU_BESTEHEND',
+    'WAERMETECHNISCHE_ANLAGEN[].NOUVEAU_OU_EXISTANT',
+    'WAERMETECHNISCHE_ANLAGEN[].PUISSANCE',
+    'WAERMETECHNISCHE_ANLAGEN[].QUANTITE_STOCKEE',
+    'WAERMETECHNISCHE_ANLAGEN[].STOCKAGE_COMBUSTIBLE',
+    'WAERMETECHNISCHE_ANLAGEN[].TYP',
+    'WAERMETECHNISCHE_ANLAGEN[].TYPE',
+    'WAERMETECHNISCHE_ANLAGEN[].combusitble_storage',
+    'WAERMETECHNISCHE_ANLAGEN[].new_or_existing',
+    'WAERMETECHNISCHE_ANLAGEN[].power',
+    'WAERMETECHNISCHE_ANLAGEN[].storage_amount',
+    'WAERMETECHNISCHE_ANLAGEN[].type',
     'ZIRKULATION_ALLE',
     'ZIRKULATION_ALLE[]',
     'ZIRKULATION_ALLE[].BEANTWORTET',
@@ -6089,7 +6801,12 @@ snapshots['test_dms_placeholders_empty[Municipality] 1'] = {
     'ALLE_VERTRETER': '',
     'ALLE_VERTRETER_NAME_ADDRESS': '',
     'ALLE_VERTRETER_NAME_ADRESSE': '',
+    'ANZAHL_BEHERBERGTE_PERSONEN': '',
     'ARRONDISSEMENT_ADMINISTRATIF': '',
+    'ASCENSEURS': [
+    ],
+    'AUFZUGSANLAGEN': [
+    ],
     'AUJOURD_HUI': '30. August 2021',
     'AUTEUR_PROJET': '',
     'AUTEUR_PROJET_ADRESSE_1': '',
@@ -6124,10 +6841,15 @@ snapshots['test_dms_placeholders_empty[Municipality] 1'] = {
     'BAUENTSCHEID_TYPE': '',
     'BAUGRUPPE': '',
     'BAUGRUPPE_BEZEICHNUNG': '',
+    'BAUKOSTEN': '',
     'BAUVORHABEN': '',
     'BESCHREIBUNG_BAUVORHABEN': '',
     'BESCHREIBUNG_PROJEKTAENDERUNG': '',
     'BOISSONS_ALCOOLIQUES': '',
+    'BUILDING_DISTANCES': [
+    ],
+    'CHAMBRES_AVEC_PLUS_DE_50_PERSONNES': [
+    ],
     'CIRCULATION_COMMUNES': [
     ],
     'CIRCULATION_PREAVIS': [
@@ -6147,6 +6869,7 @@ snapshots['test_dms_placeholders_empty[Municipality] 1'] = {
     'COMMUNICATION_AUX_VOISINS_CODE_QR': '',
     'COMMUNICATION_AUX_VOISINS_LIEN': '',
     'CONSERVABLE': '',
+    'CONSTRUCTION_COSTS': '',
     'CONSTRUCTION_GROUP': '',
     'CONSTRUCTION_GROUP_DESIGNATION': '',
     'CONTRACT': '',
@@ -6154,6 +6877,7 @@ snapshots['test_dms_placeholders_empty[Municipality] 1'] = {
     'CONTRAT': '',
     'CONTRAT_DATE': '',
     'COORDONEE': '',
+    'COUTS_DE_CONSTRUCTION': '',
     'DECISION': '',
     'DECISION_CATEGORIE': '',
     'DECISION_DATE': '',
@@ -6173,8 +6897,13 @@ snapshots['test_dms_placeholders_empty[Municipality] 1'] = {
     ],
     'DEPOT_DEMANDE_DATE': '30. August 2021',
     'DESCRIPTION_MODIFICATION': '',
+    'DIMENSIONEN_HOEHE': '',
+    'DIMENSION_HAUTEUR': '',
+    'DIMENSION_HEIGHT': '',
     'DISPOSITIONS_ACCESSOIRES': '',
     'DISPOSITIONS_ANNEXES': '',
+    'DISTANCES_ENTRE_LES_BATIMENTS': [
+    ],
     'DOSSIER_LINK': 'http://ebau.local/index/redirect-to-instance-resource/instance-id/1',
     'DOSSIER_NR': 1,
     'DOSSIER_NUMERO': 1,
@@ -6205,7 +6934,12 @@ snapshots['test_dms_placeholders_empty[Municipality] 1'] = {
     ],
     'FACHSTELLEN_KANTONAL_LIST': '',
     'FACHSTELLEN_KANTONAL_LISTE': '',
+    'FIRE_PROTECTION_SYSTEMS': [
+    ],
+    'FLOOR_AREA': '',
     'FORM_NAME': 'Baugesuch',
+    'GEBAEUDEABSTAENDE': [
+    ],
     'GEBAEUDEEIGENTUEMER': '',
     'GEBAEUDEEIGENTUEMER_ADDRESS_1': '',
     'GEBAEUDEEIGENTUEMER_ADDRESS_2': '',
@@ -6216,6 +6950,8 @@ snapshots['test_dms_placeholders_empty[Municipality] 1'] = {
     'GEBUEHREN': [
     ],
     'GEBUEHREN_TOTAL': '0.00',
+    'GEFAEHRLICHE_STOFFE': [
+    ],
     'GEMEINDE': '',
     'GEMEINDE_ADRESSE': '',
     'GEMEINDE_ADRESSE_1': '',
@@ -6224,6 +6960,7 @@ snapshots['test_dms_placeholders_empty[Municipality] 1'] = {
     'GEMEINDE_NAME_ADRESSE': '',
     'GEMEINDE_ORT': '',
     'GEMEINDE_TELEFON': '',
+    'GESCHOSSFLAECHE': '',
     'GESUCHSTELLER': '',
     'GESUCHSTELLER_ADDRESS_1': '',
     'GESUCHSTELLER_ADDRESS_2': '',
@@ -6239,9 +6976,17 @@ snapshots['test_dms_placeholders_empty[Municipality] 1'] = {
     'GRUNDEIGENTUEMER_ADRESSE_2': '',
     'GRUNDEIGENTUEMER_NAME_ADDRESS': '',
     'GRUNDEIGENTUEMER_NAME_ADRESSE': '',
+    'HAZARDOUS_SUBSTANCES': [
+    ],
+    'HEATING_SYSTEMS': [
+    ],
     'HEUTE': '30. August 2021',
     'INFORMATION_OF_NEIGHBORS_LINK': '',
     'INFORMATION_OF_NEIGHBORS_QR_CODE': '',
+    'INSTALLATIONS_AERAULIQUES': [
+    ],
+    'INSTALLATIONS_TECH_LINCENDIE': [
+    ],
     'INSTANCE_ID': 1,
     'INTERIOR_SEATING': '',
     'INVENTAR': '',
@@ -6273,7 +7018,13 @@ snapshots['test_dms_placeholders_empty[Municipality] 1'] = {
     'LEITBEHOERDE_TELEFON': '',
     'LEITPERSON': '',
     'LIEN_PUBLICATION': 'http://ebau-portal.local/public-instances/1',
+    'LIFTS': [
+    ],
     'LOAD_COMPENSATION_REQUESTING': [
+    ],
+    'LUEFTUNGSANLAGEN': [
+    ],
+    'MATIERES_DANGEREUSES': [
     ],
     'MEINE_ORGANISATION_ADRESSE_1': '',
     'MEINE_ORGANISATION_ADRESSE_2': '',
@@ -6307,12 +7058,15 @@ snapshots['test_dms_placeholders_empty[Municipality] 1'] = {
     ],
     'NEIGHBORS': [
     ],
+    'NOMBRE_DE_PERSONNES_ACCOMPAGNEES': '',
     'NOM_LEGAL': '',
+    'NUMBER_OF_ACCOMODATED_PERSONS': '',
     'NUTZUNG': '',
     'NUTZUNGSZONE': '',
     'OBJECTIONS': [
     ],
     'OBJECT_C': '',
+    'OCCUPATION_CHAMBRES_PLUS_50_PERSONNES': '',
     'OEFFENTLICHKEIT': '',
     'OFFICES_CANTONAUX': [
     ],
@@ -6325,6 +7079,8 @@ snapshots['test_dms_placeholders_empty[Municipality] 1'] = {
     ],
     'OUTSIDE_SEATING': '',
     'OUVERTURE_PUBLIC': '',
+    'PANNEAUX_SOLAIRES': [
+    ],
     'PARCELLE': '',
     'PARZELLE': '',
     'PLACES_ASSISES_EXT': '',
@@ -6372,6 +7128,11 @@ snapshots['test_dms_placeholders_empty[Municipality] 1'] = {
     'PUBLIKATION_LINK': 'http://ebau-portal.local/public-instances/1',
     'PUBLIKATION_START': '',
     'PUBLIKATION_TEXT': '',
+    'QS_RESPONSIBLE': '',
+    'QS_VERANTWORTLICHER': '',
+    'RAEUME_MEHR_50_PERSONEN': [
+    ],
+    'RAUM_BELEGUNG_MEHR_50_PERSONEN': '',
     'RECENSEMENT': '',
     'RECHTSBEGEHRENDE': [
     ],
@@ -6403,6 +7164,9 @@ snapshots['test_dms_placeholders_empty[Municipality] 1'] = {
     'RESPONSABLE_EMAIL': '',
     'RESPONSABLE_NOM': '',
     'RESPONSABLE_TELEPHONE': '',
+    'ROOMS_WITH_MORE_THAN_50_PERSONS': [
+    ],
+    'ROOM_OCCUPANCY_ROOMS_MORE_THAN_50_PERSONS': '',
     'RRB': '',
     'RRB_DATE': '',
     'RRB_DATUM': '',
@@ -6414,13 +7178,30 @@ snapshots['test_dms_placeholders_empty[Municipality] 1'] = {
     'SITUATION': '',
     'SITZPLAETZE_AUSSEN': '',
     'SITZPLAETZE_INNEN': '',
+    'SOLARANLAGEN': [
+    ],
+    'SOLAR_PANELS': [
+    ],
     'SPRACHE': 'de',
     'STATUS': 'David Rangel',
     'STELLUNGNAHME': '',
+    'STFV_CRITIAL_VALUE_EXCEEDED': '',
+    'STFV_DATE_DU_RAPPORT_COURT': '',
+    'STFV_KRITISCHER_WERT_UEBERSCHRITTEN': '',
+    'STFV_KURZ_BERICHT_DATUM': '',
+    'STFV_SHORT_REPORT_DATE': '',
+    'STFV_VALEUR_CRITIQUE_DEPASSEE': '',
     'STICHWORTE': '',
+    'SURFACE_DE_PLANCHER': '',
+    'SYSTEMES_DE_VENTILATION': [
+    ],
+    'TECHNISCHE_BRANDSCHUTZANLAGEN': [
+    ],
     'TODAY': '30. August 2021',
     'UEBERBAUUNGSORDNUNG': '',
     'UVP_JA_NEIN': False,
+    'VENTILATION_SYSTEMS': [
+    ],
     'VERTRAG': '',
     'VERTRAG_DATUM': '',
     'VERTRETER': '',
@@ -6432,6 +7213,8 @@ snapshots['test_dms_placeholders_empty[Municipality] 1'] = {
     'VERTRETER_NAME_ADRESSE': '',
     'VERWALTUNGSKREIS': '',
     'VOISINS_TOUS': [
+    ],
+    'WAERMETECHNISCHE_ANLAGEN': [
     ],
     'ZIRKULATION_ALLE': [
     ],

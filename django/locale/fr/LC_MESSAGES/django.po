@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-30 15:48+0100\n"
+"POT-Creation-Date: 2023-12-04 10:32+0100\n"
 "PO-Revision-Date: 2023-08-07 17:32+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -268,7 +268,7 @@ msgid "Invalid mime type for template. Allowed types are: docx"
 msgstr ""
 "Type de mime non valide pour le modèle. Les types autorisés sont : docx"
 
-#: camac/document/views.py:345
+#: camac/document/views.py:356
 msgid "Specifying an \"attachments\" filter is mandatory!"
 msgstr "La spécification d'un filtre \"attachments\" est obligatoire !"
 
@@ -289,8 +289,8 @@ msgstr "Charger et transformer le coordinates E: %(e)i et N: %(n)i a échoué"
 #: camac/dossier_import/loaders.py:300
 #, python-format
 msgid ""
-"Failed to load plot with numbers `%(plot_numbers)s` and egrid values "
-"`%(egrids)s`"
+"Failed to load plot with numbers `%(plot_numbers)s` and egrid values `"
+"%(egrids)s`"
 msgstr ""
 "Échec du chargement du graphe avec les numéros `%(plot_numbers)s` et les "
 "valeurs des egrides `%(egrids)s`"
@@ -310,8 +310,8 @@ msgid ""
 "have an invalid value in date field. Please use the format \"DD.MM.YYYY\" (e."
 "g. \"13.04.2021\")"
 msgstr ""
-"n'ont pas de valeur date valable. Veuillez utilizer le format \"DD.MM."
-"YYYY\" (e.g. \"13.04.2021\")"
+"n'ont pas de valeur date valable. Veuillez utilizer le format \"DD.MM.YYYY"
+"\" (e.g. \"13.04.2021\")"
 
 #: camac/dossier_import/messages.py:160
 msgid "have an invalid status"
@@ -683,7 +683,7 @@ msgstr ""
 msgid "Decision Date Cantonal"
 msgstr ""
 
-#: camac/instance/mixins.py:477 camac/instance/mixins.py:514
+#: camac/instance/mixins.py:483 camac/instance/mixins.py:520
 #, python-format
 msgid "Not allowed to add data to instance %(instance)s"
 msgstr "Pas autorisé à ajouter des données à l'instance %(instance)s"
@@ -978,49 +978,49 @@ msgstr "delete_by_purpose n'a pas été fourni avec le paramètre requis"
 msgid "Objection %(objection) already has a representative"
 msgstr "Objection %(objection) a déjà un représentant"
 
-#: camac/settings.py:1474 camac/settings.py:3080 camac/settings.py:3501
+#: camac/settings.py:1479 camac/settings.py:3278 camac/settings.py:3699
 msgid "Circulation started"
 msgstr "Procédure de circulation lancée"
 
-#: camac/settings.py:1491
+#: camac/settings.py:1496
 msgid "Procedure completed"
 msgstr "Procédure de demande de permis de construire complétée"
 
-#: camac/settings.py:3076
+#: camac/settings.py:3274
 msgid "Preliminary exam performed"
 msgstr ""
 
-#: camac/settings.py:3086
+#: camac/settings.py:3284
 msgid "Additional demand sent"
 msgstr ""
 
-#: camac/settings.py:3093
+#: camac/settings.py:3291
 msgid "Additional demand was answered"
 msgstr ""
 
-#: camac/settings.py:3101
+#: camac/settings.py:3299
 #, fuzzy
 #| msgid "Construction control"
 msgid "Construction monitoring performed"
 msgstr "Contrôle construction"
 
-#: camac/settings.py:3493
+#: camac/settings.py:3691
 msgid "Formal exam performed"
 msgstr ""
 
-#: camac/settings.py:3497
+#: camac/settings.py:3695
 msgid "Material exam performed"
 msgstr ""
 
-#: camac/settings.py:3909
+#: camac/settings.py:4107
 msgid "German"
 msgstr "Allemand"
 
-#: camac/settings.py:3910
+#: camac/settings.py:4108
 msgid "French"
 msgstr "Français"
 
-#: camac/settings.py:3911
+#: camac/settings.py:4109
 msgid "Italian"
 msgstr "L'italien"
 
@@ -1036,18 +1036,18 @@ msgstr ""
 msgid "Dossier corrected"
 msgstr "Dossier corrigé"
 
-#: camac/settings_distribution.py:70 camac/settings_distribution.py:563
-#: camac/settings_distribution.py:590
+#: camac/settings_distribution.py:70 camac/settings_distribution.py:575
+#: camac/settings_distribution.py:602
 msgid "Circulation completed"
 msgstr "Procédure de circulation close"
 
-#: camac/settings_distribution.py:71 camac/settings_distribution.py:564
-#: camac/settings_distribution.py:591
+#: camac/settings_distribution.py:71 camac/settings_distribution.py:576
+#: camac/settings_distribution.py:603
 msgid "Circulation skipped"
 msgstr "Sans procédure de circulation"
 
-#: camac/settings_distribution.py:72 camac/settings_distribution.py:565
-#: camac/settings_distribution.py:592
+#: camac/settings_distribution.py:72 camac/settings_distribution.py:577
+#: camac/settings_distribution.py:604
 msgid "Circulation reopened"
 msgstr "Réouverture de la circulation"
 
