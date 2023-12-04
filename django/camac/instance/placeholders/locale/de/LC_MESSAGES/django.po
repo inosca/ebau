@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-30 15:48+0100\n"
-"PO-Revision-Date: 2023-10-27 14:07+0200\n"
+"POT-Creation-Date: 2023-12-04 10:32+0100\n"
+"PO-Revision-Date: 2023-12-04 10:32+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.4.1\n"
 
 #: camac/instance/placeholders/fields.py:76
 msgid "Authority"
@@ -36,6 +36,7 @@ msgid "POSITION"
 msgstr "POSITION"
 
 #: camac/instance/placeholders/fields.py:137
+#: camac/instance/placeholders/serializers.py:1209
 msgid "AMOUNT"
 msgstr "BETRAG"
 
@@ -660,12 +661,12 @@ msgid "Current date"
 msgstr "Das heutige Datum"
 
 #: camac/instance/placeholders/serializers.py:532
-#: camac/instance/placeholders/serializers.py:1259
+#: camac/instance/placeholders/serializers.py:1372
 msgid "CIRCULATION_SERVICES"
 msgstr "ZIRKULATION_FACHSTELLEN"
 
 #: camac/instance/placeholders/serializers.py:533
-#: camac/instance/placeholders/serializers.py:1260
+#: camac/instance/placeholders/serializers.py:1373
 msgid "Involved services of the instance"
 msgstr "In Dossier involvierte Fachstellen"
 
@@ -717,21 +718,21 @@ msgstr "GEBUEHREN"
 msgid "Billing entries of the instance"
 msgstr "Gebühren des Dossiers"
 
-#: camac/instance/placeholders/serializers.py:619
-msgid "ID"
-msgstr ""
-
-#: camac/instance/placeholders/serializers.py:620
-#: camac/instance/placeholders/serializers.py:767
-msgid "ID of the instance"
-msgstr "Die Nummer des Dossiers"
-
-#: camac/instance/placeholders/serializers.py:623
+#: camac/instance/placeholders/serializers.py:572
 msgid "DOSSIER_NUMBER"
 msgstr "DOSSIER_NUMMER"
 
-#: camac/instance/placeholders/serializers.py:624
+#: camac/instance/placeholders/serializers.py:573
 msgid "Dossier number of the instance"
+msgstr "Die Nummer des Dossiers"
+
+#: camac/instance/placeholders/serializers.py:623
+msgid "ID"
+msgstr "ID"
+
+#: camac/instance/placeholders/serializers.py:624
+#: camac/instance/placeholders/serializers.py:767
+msgid "ID of the instance"
 msgstr "Die Nummer des Dossiers"
 
 #: camac/instance/placeholders/serializers.py:628
@@ -749,8 +750,7 @@ msgid "START_PUBLICATION_MUNICIPALITY"
 msgstr "START_PUBLIKATION_GEMEINDE"
 
 #: camac/instance/placeholders/serializers.py:637
-msgid ""
-"Start date of the publication in the publication organ of the municipality"
+msgid "Start date of the publication in the publication organ of the municipality"
 msgstr "Startdatum der Publikation im Publikationsorgan der Gemeinde"
 
 #: camac/instance/placeholders/serializers.py:644
@@ -758,8 +758,7 @@ msgid "END_PUBLICATION_MUNICIPALITY"
 msgstr "ENDE_PUBLIKATION_GEMEINDE"
 
 #: camac/instance/placeholders/serializers.py:646
-msgid ""
-"End date of the publication in the publication organ of the municipality"
+msgid "End date of the publication in the publication organ of the municipality"
 msgstr "Enddatum der Publikation im Publikationsorgan der Gemeinde"
 
 #: camac/instance/placeholders/serializers.py:653
@@ -1344,11 +1343,205 @@ msgstr "ZUSTAENDIG_TELEFON"
 msgid "Phone of the responsible employee"
 msgstr "Telefonnummer des/r zuständigen/r Mitarbeiter/in"
 
-#~ msgid "Name of the municipality"
-#~ msgstr "Die ausgewählte Gemeinde des/der Gesuchsteller/in"
+#: camac/instance/placeholders/serializers.py:1181
+msgid "NUMBER_OF_ACCOMODATED_PERSONS"
+msgstr "ANZAHL_BEHERBERGTE_PERSONEN"
 
-#~ msgid "APPLICANT_ADDRESS_NAME_ADDRESS"
-#~ msgstr "GESUCHSTELLER_NAME_ADRESSE"
+#: camac/instance/placeholders/serializers.py:1182
+msgid "Number of accomodated persons"
+msgstr "Anzahl beherbergte Personen"
+
+#: camac/instance/placeholders/serializers.py:1185
+msgid "LIFTS"
+msgstr "AUFZUGSANLAGEN"
+
+#: camac/instance/placeholders/serializers.py:1186
+msgid "Lifts"
+msgstr "Aufzugsanlagen"
+
+#: camac/instance/placeholders/serializers.py:1188
+msgid "SYSTEM_TYPE"
+msgstr "ANLAGENTYP"
+
+#: camac/instance/placeholders/serializers.py:1189
+#: camac/instance/placeholders/serializers.py:1218
+#: camac/instance/placeholders/serializers.py:1240
+#: camac/instance/placeholders/serializers.py:1264
+#: camac/instance/placeholders/serializers.py:1275
+msgid "NEW_OR_EXISTING"
+msgstr "NEU_BESTEHEND"
+
+#: camac/instance/placeholders/serializers.py:1195
+msgid "DIMENSION_HEIGHT"
+msgstr "DIMENSIONEN_HOEHE"
+
+#: camac/instance/placeholders/serializers.py:1196
+msgid "Height"
+msgstr "Höhe"
+
+#: camac/instance/placeholders/serializers.py:1199
+msgid "BUILDING_DISTANCES"
+msgstr "GEBAEUDEABSTAENDE"
+
+#: camac/instance/placeholders/serializers.py:1200
+msgid "Distances between adjacent buildings"
+msgstr "Abstände zwischen benachbarten Gebäuden"
+
+#: camac/instance/placeholders/serializers.py:1201
+msgid "SIDE"
+msgstr "SEITE"
+
+#: camac/instance/placeholders/serializers.py:1201
+msgid "DISTANCE"
+msgstr "ABSTAND_M"
+
+#: camac/instance/placeholders/serializers.py:1204
+msgid "HAZARDOUS_SUBSTANCES"
+msgstr "GEFAEHRLICHE_STOFFE"
+
+#: camac/instance/placeholders/serializers.py:1205
+msgid "Hazardous substances"
+msgstr "Gefährliche Stoffe"
+
+#: camac/instance/placeholders/serializers.py:1207
+msgid "MATERIAL"
+msgstr "MATERIAL"
+
+#: camac/instance/placeholders/serializers.py:1208
+msgid "MATERIAL_GROUP"
+msgstr "STOFFGRUPPE"
+
+#: camac/instance/placeholders/serializers.py:1213
+msgid "VENTILATION_SYSTEMS"
+msgstr "LUEFTUNGSANLAGEN"
+
+#: camac/instance/placeholders/serializers.py:1214
+msgid "Ventilation systems"
+msgstr "Lüftungsanlagen"
+
+#: camac/instance/placeholders/serializers.py:1216
+#: camac/instance/placeholders/serializers.py:1237
+#: camac/instance/placeholders/serializers.py:1263
+#: camac/instance/placeholders/serializers.py:1271
+msgid "TYPE"
+msgstr "TYP"
+
+#: camac/instance/placeholders/serializers.py:1217
+msgid "AIR_VOLUME"
+msgstr "VOLUMENSTROM"
+
+#: camac/instance/placeholders/serializers.py:1222
+msgid "ROOMS_WITH_MORE_THAN_50_PERSONS"
+msgstr "RAEUME_MEHR_50_PERSONEN"
+
+#: camac/instance/placeholders/serializers.py:1223
+msgid "List of rooms with more than 50 persons"
+msgstr "Liste der Räume mit mehr als 50 Personen"
+
+#: camac/instance/placeholders/serializers.py:1225
+msgid "ROOM"
+msgstr "RAUM"
+
+#: camac/instance/placeholders/serializers.py:1226
+msgid "NUMBER_OF_PERSONS"
+msgstr "ANZAHL_BEHERBERGTE_PERSONEN"
+
+#: camac/instance/placeholders/serializers.py:1230
+msgid "ROOM_OCCUPANCY_ROOMS_MORE_THAN_50_PERSONS"
+msgstr "RAUM_BELEGUNG_MEHR_50_PERSONEN"
+
+#: camac/instance/placeholders/serializers.py:1231
+msgid "Room occupancy rooms more than 50 persons"
+msgstr "Belegung der Räume mit mehr als 50 Personen"
+
+#: camac/instance/placeholders/serializers.py:1234
+msgid "SOLAR_PANELS"
+msgstr "SOLARANLAGEN"
+
+#: camac/instance/placeholders/serializers.py:1235
+msgid "Solar panels"
+msgstr "Solaranlagen"
+
+#: camac/instance/placeholders/serializers.py:1238
+msgid "ENERGY_STORAGE"
+msgstr "ENERGIE_SPEICHER"
+
+#: camac/instance/placeholders/serializers.py:1239
+msgid "ENERGY_STORAGE_CAPACITY"
+msgstr "ENERGIE_SPEICHER_KAPAZITAET"
+
+#: camac/instance/placeholders/serializers.py:1244
+#: camac/instance/placeholders/serializers.py:1255
+msgid "STFV_SHORT_REPORT_DATE"
+msgstr "STFV_KURZ_BERICHT_DATUM"
+
+#: camac/instance/placeholders/serializers.py:1245
+#: camac/instance/placeholders/serializers.py:1256
+msgid "STFV short report date"
+msgstr "StfV Kurzbericht Datum"
+
+#: camac/instance/placeholders/serializers.py:1249
+msgid "STFV_CRITIAL_VALUE_EXCEEDED"
+msgstr "STFV_KRITISCHER_WERT_UEBERSCHRITTEN"
+
+#: camac/instance/placeholders/serializers.py:1250
+msgid "StfV critial value exceeded"
+msgstr "StfV kritischer Wert überschritten"
+
+#: camac/instance/placeholders/serializers.py:1260
+msgid "FIRE_PROTECTION_SYSTEMS"
+msgstr "TECHNISCHE_BRANDSCHUTZANLAGEN"
+
+#: camac/instance/placeholders/serializers.py:1261
+msgid "Fire protection systems"
+msgstr "Technische Brandschutzanlagen"
+
+#: camac/instance/placeholders/serializers.py:1268
+msgid "HEATING_SYSTEMS"
+msgstr "WAERMETECHNISCHE_ANLAGEN"
+
+#: camac/instance/placeholders/serializers.py:1269
+msgid "Heating systems"
+msgstr "Wärmetechnische Anlagen"
+
+#: camac/instance/placeholders/serializers.py:1272
+msgid "POWER"
+msgstr "LEISTUNG"
+
+#: camac/instance/placeholders/serializers.py:1273
+msgid "COMBUSITBLE_STORAGE"
+msgstr "BRENNSTOFFLAGERUNG"
+
+#: camac/instance/placeholders/serializers.py:1274
+msgid "STORAGE_AMOUNT"
+msgstr "LAGERMENGE"
+
+#: camac/instance/placeholders/serializers.py:1279
+msgid "CONSTRUCTION_COSTS"
+msgstr "BAUKOSTEN"
+
+#: camac/instance/placeholders/serializers.py:1280
+msgid "Construction costs"
+msgstr "Baukosten"
+
+#: camac/instance/placeholders/serializers.py:1283
+msgid "FLOOR_AREA"
+msgstr "GESCHOSSFLAECHE"
+
+#: camac/instance/placeholders/serializers.py:1284
+msgid "Floor area"
+msgstr "Geschossfläche"
+
+#: camac/instance/placeholders/serializers.py:1287
+msgid "QS_RESPONSIBLE"
+msgstr "QS_VERANTWORTLICHER"
+
+#: camac/instance/placeholders/serializers.py:1288
+msgid "Name of the person responsible for QS"
+msgstr "Angaben des QS Verantwortlichen"
+
+#~ msgid "INSTALLATION"
+#~ msgstr "BESTEHEND"
 
 #~ msgid "DECISION_DEPRECATION_ORDER_RETREAT"
 #~ msgstr "BAUENTSCHEID_ABSCHREIBUNGSVERFUEGUNG"

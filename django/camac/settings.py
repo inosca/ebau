@@ -2057,6 +2057,199 @@ APPLICATIONS = {
                     )
                 },
             ),
+            "number_of_accomodated_persons": (
+                "answer",
+                "bs-beherbergte-personen-mehr-50-v3",
+            ),
+            "lifts": (
+                "table",
+                "bs-aufzugsanlagen-v3",
+                {
+                    "column_mapping": {
+                        "system_type": (
+                            "bs-aufzugsanlage-typ-v3",
+                            {"value_parser": "option"},
+                        ),
+                        "new_or_existing": (
+                            "bs-aufzugsanlage-zustand-v3",
+                            {"value_parser": "option"},
+                        ),
+                    }
+                },
+            ),
+            "dimension_height": ("answer", "hoehe", {"value_parser": "option"}),
+            "building_distances": (
+                "table",
+                "brandschutz-gebaeudeabstaende-v3",
+                {
+                    "column_mapping": {
+                        "side": "bg-gebaeudeseite-v3",
+                        "distance": "bg-abstand-v3",
+                    }
+                },
+            ),
+            "hazardous_substances": (
+                "table",
+                "bs-gefaehrliche-stoffe-v3",
+                {
+                    "column_mapping": {
+                        "material": "bs-gefaehrlicher-stoff-lagerstoff-v3",
+                        "material_group": (
+                            "bs-gefaehrlicher-stoff-stoffgruppe-v3",
+                            {"value_parser": "option"},
+                        ),
+                        "amount": "bs-gefaehrlicher-stoff-menge-v3",
+                    }
+                },
+            ),
+            "ventilation_systems": (
+                "table",
+                "bs-lufttechnische-anlagen-v3",
+                {
+                    "column_mapping": {
+                        "system_type": (
+                            "bs-lufttechnische-anlagen-typ-v3",
+                            {"value_parser": "option"},
+                        ),
+                        "air_volume": "bs-lufttechnische-anlage-luftvolumenstrom-v3",
+                        "new_or_existing": (
+                            "bs-lufttechnische-anlage-zustand-v3",
+                            {"value_parser": "option"},
+                        ),
+                    }
+                },
+            ),
+            "rooms_with_more_than_50_persons": (
+                "table",
+                "bs-raeume-mehr-50-v3",
+                {
+                    "column_mapping": {
+                        "room": "bs-raum-v3",
+                        "number_of_persons": "bs-anzahl-personen-v3",
+                    }
+                },
+            ),
+            "room_occupancy_rooms_more_than_50_persons": (
+                "answer",
+                "bs-raumbelegung-mehr-50-v3",
+            ),
+            "solar_panels": (
+                "table",
+                "solaranlagen-v3",
+                {
+                    "column_mapping": {
+                        "type": ("solaranlage-typ-v3", {"value_parser": "option"}),
+                        "energy_storage": (
+                            "solaranlage-elektrische-energiespeicherung-v3",
+                            {"value_parser": "option"},
+                        ),
+                        "energy_storage_capacity": "solaranlage-energiespeicherkapazitaet-v3",
+                        "new_or_existing": (
+                            "solaranlage-zustand-v3",
+                            {"value_parser": "option"},
+                        ),
+                    }
+                },
+            ),
+            "stfv_short_report_date": (
+                "answer",
+                "sv-vollzug-kurzbericht-v3",
+                {"value_key": "date"},
+            ),
+            "stfv_critial_value_exceeded": (
+                "answer",
+                "triagefrage-stoerfallvorsorge-v3",
+                {"value_parser": "option"},
+            ),
+            "stfv_risk_assessment": (
+                "answer",
+                "sv-vollzug-risikoermittlung-v3",
+                {"value_key": "date"},
+            ),
+            "fire_protection_systems": (
+                "table",
+                "bs-brandschutzanlagen-v3",
+                {
+                    "column_mapping": {
+                        "type": (
+                            "bs-brandschutzanlage-typ-v3",
+                            {"value_parser": "option"},
+                        ),
+                        "new_or_existing": (
+                            "bs-brandschutzanlage-zustand-v3",
+                            {"value_parser": "option"},
+                        ),
+                    }
+                },
+            ),
+            "heating_systems": (
+                "table",
+                "bs-waermetechnische-anlagen-v3",
+                {
+                    "column_mapping": {
+                        "type": (
+                            "bs-waermetechnische-anlagen-typ-v3",
+                            {"value_parser": "option"},
+                        ),
+                        "power": "bs-waermetechnische-anlage-leistung-v3",
+                        "combusitble_storage": (
+                            "bs-waermetechnische-anlage-brennstofflagerung-v3",
+                            {"value_parser": "option"},
+                        ),
+                        "storage_amount": "bs-waermetechnische-anlage-lagermenge-v3",
+                        "new_or_existing": (
+                            "bs-waermetechnische-anlage-zustand-v3",
+                            {"value_parser": "option"},
+                        ),
+                    }
+                },
+            ),
+            "floor_area": ("answer", "geschossflaeche-in-quadratmeter"),
+            "qs_responsible": (
+                "table",
+                "qs-verantwortlicher-v3",
+                {
+                    "column_mapping": {
+                        "is_juristic_person": (
+                            "juristische-person-gesuchstellerin",
+                            {
+                                "value_parser": (
+                                    "value_mapping",
+                                    {
+                                        "mapping": {
+                                            "juristische-person-gesuchstellerin-ja": True,
+                                            "juristische-person-gesuchstellerin-nein": False,
+                                        }
+                                    },
+                                )
+                            },
+                        ),
+                        "juristic_name": "name-juristische-person-gesuchstellerin",
+                        "last_name": "name-gesuchstellerin",
+                        "first_name": "vorname-gesuchstellerin",
+                        "street": "strasse-gesuchstellerin",
+                        "street_number": "nummer-gesuchstellerin",
+                        "zip": "plz-gesuchstellerin",
+                        "town": "ort-gesuchstellerin",
+                        "phone": "telefon-oder-mobile-gesuchstellerin",
+                        "email": "e-mail-gesuchstellerin",
+                        "stand_in": (
+                            "vertreterin",
+                            {
+                                "value_parser": (
+                                    "value_mapping",
+                                    {
+                                        "mapping": {
+                                            "vertreterin-ja": True,
+                                            "vertreterin-nein": False,
+                                        }
+                                    },
+                                )
+                            },
+                        ),
+                    }
+                },
+            ),
         },
         "MUNICIPALITY_DATA_SHEET": APPLICATION_DIR(
             "Verwaltungskreise und -regionen der Gemeinden.csv"

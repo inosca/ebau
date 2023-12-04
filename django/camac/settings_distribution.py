@@ -217,10 +217,6 @@ DISTRIBUTION = {
                     "gefaehrliche-stoffe-ja",
                 ): [20055],
                 (
-                    "gentechnisch-veraenderte-organismen",
-                    "gentechnisch-veraenderte-organismen-ja",
-                ): [20060],
-                (
                     "geplante-anlagen",
                     "geplante-anlagen-solar-oder-photovoltaik-anlage",
                 ): [20054],
@@ -439,7 +435,7 @@ DISTRIBUTION = {
                 (
                     "wassergefaehrdende-explosive-stoffe",
                     "wassergefaehrdende-explosive-stoffe-ja",
-                ): [20050, 20060],
+                ): [20050],
                 (
                     "welche-art-vorhaben",
                     "welche-art-vorhaben-erstellung-aussenraum",
@@ -484,6 +480,22 @@ DISTRIBUTION = {
                     "handelt-es-sich-um-ein-sensibles-objekt",
                     "handelt-es-sich-um-ein-sensibles-objekt-ja",
                 ): [20075, 20076, 20077, 20078],
+                (
+                    "sv-betrieb-neu-oder-bestehend-v3",
+                    "sv-betrieb-neu-oder-bestehend-v3-neu",
+                ): [20060],
+                (
+                    "sv-kurzbericht-risikoermittlung-v3",
+                    "sv-kurzbericht-risikoermittlung-v3-nein",
+                ): [20060],
+                (
+                    "sv-relevanz-gueltigkeit-v3",
+                    "sv-relevanz-gueltigkeit-v3-trifft-nicht-zu",
+                ): [20060],
+                (
+                    "triagefrage-biologische-sicherheit-v3",
+                    "triagefrage-biologische-sicherheit-v3-ja",
+                ): [20060],
             },
         },
         "PERMISSIONS": {

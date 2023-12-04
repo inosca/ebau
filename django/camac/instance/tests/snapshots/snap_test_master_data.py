@@ -21,6 +21,8 @@ snapshots['test_master_data[kt_bern-de-be_master_data_case-select_related0-prefe
         }
     ],
     'application_type': None,
+    'building_distances': [
+    ],
     'building_owners': [
         {
             'first_name': 'Peter',
@@ -54,8 +56,16 @@ snapshots['test_master_data[kt_bern-de-be_master_data_case-select_related0-prefe
     'decision_date': None,
     'description_modification': 'Doch eher kleines Haus',
     'development_regulations': 'Überbauung XY',
+    'dimension_height': None,
     'dossier_number': '2021-1',
     'final_approval_date': None,
+    'fire_protection_systems': [
+    ],
+    'floor_area': None,
+    'hazardous_substances': [
+    ],
+    'heating_systems': [
+    ],
     'interior_seating': [
         {
             'total_seats': 20
@@ -93,12 +103,15 @@ snapshots['test_master_data[kt_bern-de-be_master_data_case-select_related0-prefe
             'zip': 3008
         }
     ],
+    'lifts': [
+    ],
     'municipality': {
         'label': 'Bern',
         'slug': '1'
     },
     'nature_risk_type': [
     ],
+    'number_of_accomodated_persons': None,
     'organisation_category': 'ebaube',
     'outside_seating': 20,
     'paper_submit_date': GenericRepr('datetime.datetime(2021, 3, 20, 13, 17, 8, tzinfo=tzutc())'),
@@ -149,13 +162,23 @@ snapshots['test_master_data[kt_bern-de-be_master_data_case-select_related0-prefe
         'slug': 'oeffentlichkeit-oeffentlich'
     },
     'publication_date': None,
+    'qs_responsible': [
+    ],
     'remark': None,
     'rrb': {
         'label': 'Ja',
         'slug': 'rrb-ja'
     },
     'rrb_start': GenericRepr('datetime.date(2022, 1, 1)'),
+    'room_occupancy_rooms_more_than_50_persons': None,
+    'rooms_with_more_than_50_persons': [
+    ],
     'situation': 'Sachverhalt Test',
+    'solar_panels': [
+    ],
+    'stfv_critial_value_exceeded': None,
+    'stfv_risk_assessment': None,
+    'stfv_short_report_date': None,
     'street': 'Musterstrasse',
     'street_number': 4,
     'submit_date': GenericRepr('datetime.datetime(2021, 3, 31, 13, 17, 8, tzinfo=tzutc())'),
@@ -166,6 +189,8 @@ snapshots['test_master_data[kt_bern-de-be_master_data_case-select_related0-prefe
         }
     ],
     'usage_zone': 'Wohnzone W2',
+    'ventilation_systems': [
+    ],
     'water_protection_area': [
         {
             'label': 'Aᵤ',
@@ -190,6 +215,8 @@ snapshots['test_master_data[kt_bern-fr-be_master_data_case-select_related1-prefe
         }
     ],
     'application_type': None,
+    'building_distances': [
+    ],
     'building_owners': [
         {
             'first_name': 'Peter',
@@ -223,8 +250,16 @@ snapshots['test_master_data[kt_bern-fr-be_master_data_case-select_related1-prefe
     'decision_date': None,
     'description_modification': 'Doch eher kleines Haus',
     'development_regulations': 'Überbauung XY',
+    'dimension_height': None,
     'dossier_number': '2021-1',
     'final_approval_date': None,
+    'fire_protection_systems': [
+    ],
+    'floor_area': None,
+    'hazardous_substances': [
+    ],
+    'heating_systems': [
+    ],
     'interior_seating': [
         {
             'total_seats': 20
@@ -262,12 +297,15 @@ snapshots['test_master_data[kt_bern-fr-be_master_data_case-select_related1-prefe
             'zip': 3008
         }
     ],
+    'lifts': [
+    ],
     'municipality': {
         'label': 'Berne',
         'slug': '1'
     },
     'nature_risk_type': [
     ],
+    'number_of_accomodated_persons': None,
     'organisation_category': 'ebaube',
     'outside_seating': 20,
     'paper_submit_date': GenericRepr('datetime.datetime(2021, 3, 20, 13, 17, 8, tzinfo=tzutc())'),
@@ -318,13 +356,23 @@ snapshots['test_master_data[kt_bern-fr-be_master_data_case-select_related1-prefe
         'slug': 'oeffentlichkeit-oeffentlich'
     },
     'publication_date': None,
+    'qs_responsible': [
+    ],
     'remark': None,
+    'room_occupancy_rooms_more_than_50_persons': None,
+    'rooms_with_more_than_50_persons': [
+    ],
     'rrb': {
         'label': 'Ja',
         'slug': 'rrb-ja'
     },
     'rrb_start': GenericRepr('datetime.date(2022, 1, 1)'),
     'situation': 'Sachverhalt Test',
+    'solar_panels': [
+    ],
+    'stfv_critial_value_exceeded': None,
+    'stfv_risk_assessment': None,
+    'stfv_short_report_date': None,
     'street': 'Musterstrasse',
     'street_number': 4,
     'submit_date': GenericRepr('datetime.datetime(2021, 3, 31, 13, 17, 8, tzinfo=tzutc())'),
@@ -335,6 +383,8 @@ snapshots['test_master_data[kt_bern-fr-be_master_data_case-select_related1-prefe
         }
     ],
     'usage_zone': 'Wohnzone W2',
+    'ventilation_systems': [
+    ],
     'water_protection_area': [
         {
             'label': 'Aᵤ',

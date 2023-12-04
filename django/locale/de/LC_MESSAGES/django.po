@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-30 15:48+0100\n"
+"POT-Creation-Date: 2023-12-04 10:32+0100\n"
 "PO-Revision-Date: 2023-11-30 15:05+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -270,7 +270,7 @@ msgstr ""
 "Der aktuelle Dateityp kann nicht als Vorlage hochgeladen werden. Erlaubte "
 "Dateitypen sind: docx"
 
-#: camac/document/views.py:345
+#: camac/document/views.py:356
 msgid "Specifying an \"attachments\" filter is mandatory!"
 msgstr "Der \"attachments\" Filter ist obligatorisch!"
 
@@ -293,8 +293,8 @@ msgstr ""
 #: camac/dossier_import/loaders.py:300
 #, python-format
 msgid ""
-"Failed to load plot with numbers `%(plot_numbers)s` and egrid values "
-"`%(egrids)s`"
+"Failed to load plot with numbers `%(plot_numbers)s` and egrid values `"
+"%(egrids)s`"
 msgstr ""
 "Parzellendaten konnten nicht geladen werden. Nummer(n): `%(plot_numbers)s`. "
 "Egrid: `%(egrids)s`"
@@ -684,7 +684,7 @@ msgstr "Datum Bauentscheid"
 msgid "Decision Date Cantonal"
 msgstr "Datum Gesamtentscheid"
 
-#: camac/instance/mixins.py:477 camac/instance/mixins.py:514
+#: camac/instance/mixins.py:483 camac/instance/mixins.py:520
 #, python-format
 msgid "Not allowed to add data to instance %(instance)s"
 msgstr "Keine Berechtigung um Daten zum Dossier %(instance)s hinzuzufügen"
@@ -974,47 +974,47 @@ msgstr ""
 msgid "Objection %(objection) already has a representative"
 msgstr "Einsprache %(objection) hat bereits einen Vertreter"
 
-#: camac/settings.py:1474 camac/settings.py:3080 camac/settings.py:3501
+#: camac/settings.py:1479 camac/settings.py:3278 camac/settings.py:3699
 msgid "Circulation started"
 msgstr "Zirkulation gestartet"
 
-#: camac/settings.py:1491
+#: camac/settings.py:1496
 msgid "Procedure completed"
 msgstr "Baugesuchsverfahren abgeschlossen"
 
-#: camac/settings.py:3076
+#: camac/settings.py:3274
 msgid "Preliminary exam performed"
 msgstr "Vorläufige Prüfung durchgeführt"
 
-#: camac/settings.py:3086
+#: camac/settings.py:3284
 msgid "Additional demand sent"
 msgstr "Nachforderung begonnen"
 
-#: camac/settings.py:3093
+#: camac/settings.py:3291
 msgid "Additional demand was answered"
 msgstr "Nachforderung wurde beantwortet"
 
-#: camac/settings.py:3101
+#: camac/settings.py:3299
 msgid "Construction monitoring performed"
 msgstr "Baubegleitung durchgeführt"
 
-#: camac/settings.py:3493
+#: camac/settings.py:3691
 msgid "Formal exam performed"
 msgstr "Formelle Prüfung durchgeführt"
 
-#: camac/settings.py:3497
+#: camac/settings.py:3695
 msgid "Material exam performed"
 msgstr "Materielle Prüfung durchgeführt"
 
-#: camac/settings.py:3909
+#: camac/settings.py:4107
 msgid "German"
 msgstr "Deutsch"
 
-#: camac/settings.py:3910
+#: camac/settings.py:4108
 msgid "French"
 msgstr "Französisch"
 
-#: camac/settings.py:3911
+#: camac/settings.py:4109
 msgid "Italian"
 msgstr "Italienisch"
 
@@ -1030,18 +1030,18 @@ msgstr "Nachforderung unvollständig"
 msgid "Dossier corrected"
 msgstr "Dossier korrigiert"
 
-#: camac/settings_distribution.py:70 camac/settings_distribution.py:563
-#: camac/settings_distribution.py:590
+#: camac/settings_distribution.py:70 camac/settings_distribution.py:575
+#: camac/settings_distribution.py:602
 msgid "Circulation completed"
 msgstr "Zirkulation abgeschlossen"
 
-#: camac/settings_distribution.py:71 camac/settings_distribution.py:564
-#: camac/settings_distribution.py:591
+#: camac/settings_distribution.py:71 camac/settings_distribution.py:576
+#: camac/settings_distribution.py:603
 msgid "Circulation skipped"
 msgstr "Zirkulation übersprungen"
 
-#: camac/settings_distribution.py:72 camac/settings_distribution.py:565
-#: camac/settings_distribution.py:592
+#: camac/settings_distribution.py:72 camac/settings_distribution.py:577
+#: camac/settings_distribution.py:604
 msgid "Circulation reopened"
 msgstr "Zirkulation wiedereröffnet"
 
