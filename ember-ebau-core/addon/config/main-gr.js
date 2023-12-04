@@ -11,6 +11,7 @@ export default {
     new: 1,
     subm: 120004,
     circulation: 120005,
+    decision: 120007,
     correction: 120008,
     "init-distribution": 120009,
     rejected: 120011,
@@ -85,6 +86,11 @@ export default {
   },
   rejection: {
     instanceState: "rejected",
-    allowedInstanceStates: ["subm", "init-distribution"],
+    allowedInstanceStates: [
+      "subm",
+      "init-distribution",
+      "circulation",
+      "decision",
+    ],
   },
 };
