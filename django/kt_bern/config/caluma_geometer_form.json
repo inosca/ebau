@@ -1,0 +1,179 @@
+[
+  {
+    "model": "caluma_form.form",
+    "pk": "geometer",
+    "fields": {
+      "created_at": "2023-12-04T17:22:02.714Z",
+      "modified_at": "2023-12-04T17:22:02.714Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Geometer\", \"fr\": \"G\\u00e9om\\u00e8tre\", \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "geometer.geometer-abschliessen",
+    "fields": {
+      "created_at": "2023-12-04T17:31:00.763Z",
+      "modified_at": "2023-12-04T17:31:00.763Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "geometer",
+      "question": "geometer-abschliessen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "geometer.geometer-beurteilung-notwendigkeit-vermessung",
+    "fields": {
+      "created_at": "2023-12-04T17:23:41.402Z",
+      "modified_at": "2023-12-04T17:23:41.402Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "geometer",
+      "question": "geometer-beurteilung-notwendigkeit-vermessung",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "geometer-beurteilung-notwendigkeit-vermessung-nicht-notwendig",
+    "fields": {
+      "created_at": "2023-12-04T17:23:41.262Z",
+      "modified_at": "2023-12-04T17:23:41.262Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nicht notwendig\", \"fr\": \"Pas n\\u00e9cessaire\", \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "geometer-beurteilung-notwendigkeit-vermessung-notwendig",
+    "fields": {
+      "created_at": "2023-12-04T17:23:41.265Z",
+      "modified_at": "2023-12-04T17:23:41.265Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Notwendig\", \"fr\": \"N\\u00e9cessaire\", \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "geometer-abschliessen",
+    "fields": {
+      "created_at": "2023-12-04T17:31:00.720Z",
+      "modified_at": "2023-12-04T17:31:00.720Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abschliessen\", \"fr\": \"Terminer\", \"it\": null}",
+      "type": "action_button",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "color": "primary",
+        "action": "complete",
+        "show_validation": false,
+        "validate_on_enter": false
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "geometer-beurteilung-notwendigkeit-vermessung",
+    "fields": {
+      "created_at": "2023-12-04T17:23:41.337Z",
+      "modified_at": "2023-12-04T17:23:41.337Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beurteilung Notwendigkeit Vermessung\", \"fr\": \"\\u00c9valuation n\\u00e9cessit\\u00e9 de l'arpentage\", \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "geometer-beurteilung-notwendigkeit-vermessung.geometer-beurteilung-notwendigkeit-vermessung-nicht-notwendig",
+    "fields": {
+      "created_at": "2023-12-04T17:23:41.343Z",
+      "modified_at": "2023-12-04T17:23:41.343Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "geometer-beurteilung-notwendigkeit-vermessung",
+      "option": "geometer-beurteilung-notwendigkeit-vermessung-nicht-notwendig",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "geometer-beurteilung-notwendigkeit-vermessung.geometer-beurteilung-notwendigkeit-vermessung-notwendig",
+    "fields": {
+      "created_at": "2023-12-04T17:23:41.346Z",
+      "modified_at": "2023-12-04T17:23:41.346Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "geometer-beurteilung-notwendigkeit-vermessung",
+      "option": "geometer-beurteilung-notwendigkeit-vermessung-notwendig",
+      "sort": 2
+    }
+  }
+]

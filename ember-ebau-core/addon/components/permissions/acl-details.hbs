@@ -93,10 +93,13 @@
     </div>
   </modal.body>
   <modal.footer class="uk-text-right">
-    <UkButton
-      @label={{t "permissions.revoke"}}
-      @onClick={{fn this.revokeAcl @instanceAcl}}
-    />
+    {{!-- TODO: and can create acl on instance --}}
+    {{#if @instanceAcl.revokeable}}
+      <UkButton
+        @label={{t "permissions.revoke"}}
+        @onClick={{fn this.revokeAcl @instanceAcl}}
+      />
+    {{/if}}
     <UkButton
       @color="primary"
       @label={{t "global.close"}}

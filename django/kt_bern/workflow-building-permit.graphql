@@ -142,3 +142,15 @@ mutation CreateFlow10 {
     clientMutationId
   }
 }
+
+mutation CreateFlow11 {
+  addWorkflowFlow(
+    input: {
+      workflow: "building-permit"
+      tasks: ["geometer"]
+      next: "'after-geometer'|task"
+    }
+  ) {
+    clientMutationId
+  }
+}

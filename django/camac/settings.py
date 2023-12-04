@@ -1467,6 +1467,7 @@ APPLICATIONS = {
                 "decision",
                 "inquiry",
                 "inquiry-answer",
+                "geometer",
             ],
             "SUBMIT_TASKS": ["submit"],
             "REPORT_TASK": "sb1",
@@ -1740,6 +1741,7 @@ APPLICATIONS = {
                 r"^legal-submission"
             ),
             "caluma_appeal_form": generate_form_dump_config(r"^appeal"),
+            "caluma_geometer_form": generate_form_dump_config(r"^geometer"),
             # Distribution
             **DISTRIBUTION_DUMP_CONFIG,
         },
