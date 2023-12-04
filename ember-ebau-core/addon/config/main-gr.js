@@ -81,7 +81,7 @@ export default {
     },
   },
   alexandria: {
-    enabledMarks: ["decision", "publication"],
+    enabledMarks: ["decision", "publication", "void"],
   },
   rejection: {
     instanceState: "rejected",
