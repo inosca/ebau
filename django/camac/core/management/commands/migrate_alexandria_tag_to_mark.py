@@ -29,9 +29,7 @@ class Command(BaseCommand):
         for tag in tags:
             print(f"Migrate tag {tag.slug} to mark")
             changed_documents = []
-            mark = Mark.objects.create(
-                slug=tag.slug, name=tag.name, description=tag.description
-            )
+            mark = Mark.objects.get(slug=tag.slug)
 
             for document in tqdm(tag.documents.all()):
                 document.marks.add(mark)
