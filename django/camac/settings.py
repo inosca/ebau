@@ -1304,6 +1304,7 @@ APPLICATIONS = {
     "kt_bern": {
         "SHORT_NAME": "be",
         "INTERNAL_FRONTEND": "camac",
+        "TAGGED_RELEASES": True,
         "ECH0211": {
             "API_ACTIVE": env.bool("ECH0211_API_ACTIVE", default=True),
             "API_LEVEL": "full",
@@ -3634,6 +3635,7 @@ APPLICATIONS = {
     "kt_so": {
         "SHORT_NAME": "so",
         "INTERNAL_FRONTEND": "ebau",
+        "TAGGED_RELEASES": True,
         "ECH0211": {
             "API_ACTIVE": env.bool("ECH0211_API_ACTIVE", default=False),
         },
