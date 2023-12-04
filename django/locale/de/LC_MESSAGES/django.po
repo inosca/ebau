@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-30 15:12+0100\n"
+"POT-Creation-Date: 2023-11-30 15:48+0100\n"
 "PO-Revision-Date: 2023-11-30 15:05+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -35,14 +35,14 @@ msgstr ""
 
 #: camac/caluma/extensions/data_sources.py:23
 #: camac/instance/document_merge_service.py:91
-#: camac/notification/serializers.py:71
+#: camac/notification/serializers.py:73
 msgid "Authority"
 msgstr "Leitbehörde"
 
 #: camac/caluma/extensions/data_sources.py:23
 #: camac/caluma/extensions/data_sources.py:25
 #: camac/instance/document_merge_service.py:90
-#: camac/instance/export/serializers.py:96 camac/notification/serializers.py:72
+#: camac/instance/export/serializers.py:96 camac/notification/serializers.py:74
 msgid "Municipality"
 msgstr "Gemeinde"
 
@@ -89,7 +89,7 @@ msgstr "Stellungnahme zu Beschwerde abgeben"
 #: camac/communications/serializers.py:28
 #: camac/communications/tests/test_behaviour.py:61
 #: camac/instance/document_merge_service.py:86
-#: camac/instance/export/serializers.py:95 camac/notification/serializers.py:62
+#: camac/instance/export/serializers.py:95 camac/notification/serializers.py:64
 msgid "Applicant"
 msgstr "Gesuchsteller/in"
 
@@ -664,6 +664,7 @@ msgid "Lead authority"
 msgstr "Leitbehörde"
 
 #: camac/instance/export/serializers.py:174
+#: camac/notification/serializers.py:62
 msgid "Builder"
 msgstr "Bauherrschaft"
 
@@ -892,61 +893,61 @@ msgstr "Vorlagen für Benachrichtigungen"
 msgid "Body"
 msgstr "Mail-Inhalt"
 
-#: camac/notification/serializers.py:63
+#: camac/notification/serializers.py:65
 msgid "Municipality (from Caluma)"
 msgstr "Gemeinde (aus dem Formular)"
 
-#: camac/notification/serializers.py:64
+#: camac/notification/serializers.py:66
 msgid "Construction control"
 msgstr "Baukontrolle"
 
-#: camac/notification/serializers.py:66
+#: camac/notification/serializers.py:68
 msgid "Municipality (if district active)"
 msgstr "Gemeinde (falls RSTA aktiv)"
 
-#: camac/notification/serializers.py:68
+#: camac/notification/serializers.py:70
 msgid "Addressed service of inquiry"
 msgstr "Eingeladene Stelle der Stellungnahme"
 
-#: camac/notification/serializers.py:69
+#: camac/notification/serializers.py:71
 msgid "Controlling service of inquiry"
 msgstr "Auslösende Stelle der Stellungnahme"
 
-#: camac/notification/serializers.py:70
+#: camac/notification/serializers.py:72
 msgid "Involved services"
 msgstr "Involvierte Stellen"
 
-#: camac/notification/serializers.py:74
+#: camac/notification/serializers.py:76
 msgid "Services with unanswered inquiries"
 msgstr "Stellen mit unbeantworteten Stellungnahmen"
 
-#: camac/notification/serializers.py:76
+#: camac/notification/serializers.py:78
 msgid "Addressed service of work item"
 msgstr "Zuständige Stelle der Aufgabe"
 
-#: camac/notification/serializers.py:78
+#: camac/notification/serializers.py:80
 msgid "Controlling service of work item"
 msgstr "Auslösende Stelle der Aufgabe"
 
-#: camac/notification/serializers.py:81
+#: camac/notification/serializers.py:83
 msgid "Inviter of additional demand creator"
 msgstr "Einladende Stelle"
 
-#: camac/notification/serializers.py:436
+#: camac/notification/serializers.py:438
 #, python-format
 msgid "%(pending)d of %(total)d inquries are still pending."
 msgstr "%(pending)d von %(total)d Stellungnahmen stehen noch aus."
 
-#: camac/notification/serializers.py:439
+#: camac/notification/serializers.py:441
 #, python-format
 msgid "All %(total)d inquries were received."
 msgstr "Alle %(total)d Stellungnahmen sind nun eingegangen."
 
-#: camac/notification/serializers.py:1409
+#: camac/notification/serializers.py:1411
 msgid "Unknown recipient type"
 msgstr "Unbekannter Empfängertyp"
 
-#: camac/notification/serializers.py:1510
+#: camac/notification/serializers.py:1512
 #, python-format
 msgid ""
 "Notification sent to %(receiver_emails)s (%(receiver_type)s) (%(subject)s)"
@@ -954,7 +955,7 @@ msgstr ""
 "Notifikation gesendet an %(receiver_emails)s (%(receiver_type)s) "
 "(%(subject)s)"
 
-#: camac/notification/serializers.py:1514
+#: camac/notification/serializers.py:1516
 #, python-format
 msgid "Notification sent to %(receiver_type)s (no receivers) (%(subject)s)"
 msgstr ""
@@ -973,7 +974,7 @@ msgstr ""
 msgid "Objection %(objection) already has a representative"
 msgstr "Einsprache %(objection) hat bereits einen Vertreter"
 
-#: camac/settings.py:1474 camac/settings.py:3067 camac/settings.py:3488
+#: camac/settings.py:1474 camac/settings.py:3080 camac/settings.py:3501
 msgid "Circulation started"
 msgstr "Zirkulation gestartet"
 
@@ -981,49 +982,49 @@ msgstr "Zirkulation gestartet"
 msgid "Procedure completed"
 msgstr "Baugesuchsverfahren abgeschlossen"
 
-#: camac/settings.py:3063
+#: camac/settings.py:3076
 msgid "Preliminary exam performed"
 msgstr "Vorläufige Prüfung durchgeführt"
 
-#: camac/settings.py:3073
+#: camac/settings.py:3086
 msgid "Additional demand sent"
 msgstr "Nachforderung begonnen"
 
-#: camac/settings.py:3080
+#: camac/settings.py:3093
 msgid "Additional demand was answered"
 msgstr "Nachforderung wurde beantwortet"
 
-#: camac/settings.py:3088
+#: camac/settings.py:3101
 msgid "Construction monitoring performed"
 msgstr "Baubegleitung durchgeführt"
 
-#: camac/settings.py:3480
+#: camac/settings.py:3493
 msgid "Formal exam performed"
 msgstr "Formelle Prüfung durchgeführt"
 
-#: camac/settings.py:3484
+#: camac/settings.py:3497
 msgid "Material exam performed"
 msgstr "Materielle Prüfung durchgeführt"
 
-#: camac/settings.py:3868
+#: camac/settings.py:3909
 msgid "German"
 msgstr "Deutsch"
 
-#: camac/settings.py:3869
+#: camac/settings.py:3910
 msgid "French"
 msgstr "Französisch"
 
-#: camac/settings.py:3870
+#: camac/settings.py:3911
 msgid "Italian"
 msgstr "Italienisch"
 
-#: camac/settings_additional_demand.py:16
-msgid "Additional demand rejected"
-msgstr "Nachforderung unvollständig"
-
-#: camac/settings_additional_demand.py:20
+#: camac/settings_additional_demand.py:27
 msgid "Additional demand accepted"
 msgstr "Nachforderung abgeschlossen"
+
+#: camac/settings_additional_demand.py:28
+msgid "Additional demand rejected"
+msgstr "Nachforderung unvollständig"
 
 #: camac/settings_correction.py:7
 msgid "Dossier corrected"

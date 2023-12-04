@@ -289,6 +289,46 @@ def be_master_data_case(db, be_instance, group, master_data_is_visible_mock):
         document, "oeffentlichkeit", "oeffentlichkeit-oeffentlich", label="Öffentlich"
     )
     add_answer(document, "alkoholausschank", "alkoholausschank-ja", label="Ja")
+    add_answer(
+        document,
+        "schuetzenswert",
+        "schuetzenswert-ja",
+        question_label="Schützenswert",
+        label="Ja",
+    )
+    add_answer(
+        document,
+        "erhaltenswert",
+        "erhaltenswert-nein",
+        question_label="Erhaltenswert",
+        label="Nein",
+    )
+    add_answer(
+        document, "k-objekt", "k-objekt-ja", question_label="K-Objekt", label="Ja"
+    )
+    add_answer(
+        document,
+        "baugruppe-bauinventar",
+        "baugruppe-bauinventar-ja",
+        question_label="Baugruppe Bauinventar",
+        label="Ja",
+    )
+    add_answer(document, "bezeichnung-baugruppe", "Test Baugruppe")
+    add_answer(document, "rrb", "rrb-ja", label="Ja")
+    add_answer(
+        document,
+        "rrb-vom",
+        date(2022, 1, 1),
+        question_label="RRB vom",
+    )
+    add_answer(document, "vertrag", "vertrag-ja", label="Ja")
+
+    add_answer(
+        document,
+        "vertrag-vom",
+        date(2022, 2, 1),
+        question_label="Vertrag vom",
+    )
     add_answer(document, "sitzplaetze-garten", 20)
 
     # Municipality

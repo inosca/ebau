@@ -4,10 +4,10 @@ from __future__ import unicode_literals
 
 from snapshottest import Snapshot
 
-
 snapshots = Snapshot()
 
 snapshots['test_dms_placeholders[Municipality] 1'] = {
+    'ACE': 'Ja',
     'ADDRESS': 'Musterstrasse 4, 3000 Musterhausen',
     'ADMINISTRATIVE_DISTRICT': 'Emmental',
     'ADRESSE': 'Musterstrasse 4, 3000 Musterhausen',
@@ -73,6 +73,8 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'BAUENTSCHEID_TEILBAUBEWILLIGUNG': False,
     'BAUENTSCHEID_TYP': 'GESAMT',
     'BAUENTSCHEID_TYPE': 'GESAMT',
+    'BAUGRUPPE': 'Ja',
+    'BAUGRUPPE_BEZEICHNUNG': 'Test Baugruppe',
     'BAUVORHABEN': 'Neubau, Grosses Haus',
     'BESCHREIBUNG_BAUVORHABEN': 'Grosses Haus',
     'BESCHREIBUNG_PROJEKTAENDERUNG': 'Doch eher kleines Haus',
@@ -165,6 +167,13 @@ snapshots['test_dms_placeholders[Municipality] 1'] = {
     'COMMUNE_TELEPHONE': '',
     'COMMUNICATION_AUX_VOISINS_CODE_QR': 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZoAAAGaAQAAAAAefbjOAAADLElEQVR4nO2bQW7jOBBFX40EeEkBfQAfhbrBHCnom1lHyQEaEJcGSPxZkFSU9Cym4YztRMWFIFp6MAsgqoq/Sib+eCx//TkDDjnkkEMOOeTQ94SsjREWG7E5jUBqU0j9hfkhy3PojhCSJKIkaR3qHTCoPoBBxLVPoyRdntwmhz4DSt0BLGamS7iazRSDkOsL1YM8ankOPQ6K6yB7WakBQ5f/758cekpo/DDXcr6alukXgjIS1zKK9KjlOXR3qO+IICAB8XWEuCKDoV4A2CtZT26TQ58ALWZmNoHNDKpnjbhSLzZT6lHjUctz6N4+Yu8AwtVEKibI9Lv3WveT2+TQ7ZDNQBcgTjKbgGUqzSksVahwH3EEqOoR0gq6hIwuQSKusPtNyrBpFK5HfGtop1DVxAGAqLxtlU2cWvv28R1xCKgYhG1bpHYGsRlawFimRy7PoXtBzUds0mQLHWzhZOcesvuIw0BNmgwS8fUkm4GmbKeeTy7TloF+CZscuuX0aXCSkcZs8XLtRwqGbATBcs6jxbX0Q+iT2+TQLdAugWxlzyARldnVQwF0YfDa5wGgzUdgIk1omZuL0DKt/a3wazTCNn1ymxz6FGio7sFmANKIvbxaK4nH15N0SV4NPxAUlbE5je2s8XOiXgB+L4l/DZscur2uETLVPRBWLKqMtSi6/H01oJhnloeBatEimdlLVayLtY6Zt1gRMjY/ZnkOPUDFzjVg0BorAUKuxY3qPLZmSz9rfGto8wCDDE6C9AMt5zwKattMBhDL+epR42BQVBOn7GUdBMlM0tVamSOd9C/Q/Zbn0F2gra7RS+J6L061Zn36bx41jgH1dEHvShoU08+pWNsWaaQ9/RI2OXSrZgkwZMEglglaL10NGD9qadTziMNAsTdS9ea5rf1WmV4rL95VdyBo+6arjWK9z3JQ65g5yzPLQ0JVe2i9M60/Ikj7TfPlbHLov4+P33S1Q2bII3EtqPXSlXfvPblNDt0C/f5Nl3qsALC41qTyTau66/IcujvU9Yg6BjXtuvdevnXM7PqzXY/4ztDHb7q0zdpdyNvTwTNLhxxyyCGHHHJoN/4BMBD7kv22h4gAAAAASUVORK5CYII=',
     'COMMUNICATION_AUX_VOISINS_LIEN': 'http://ebau-portal.local/public-instances/1/form?key=5a49823',
+    'CONSERVABLE': 'Nein',
+    'CONSTRUCTION_GROUP': 'Ja',
+    'CONSTRUCTION_GROUP_DESIGNATION': 'Test Baugruppe',
+    'CONTRACT': 'Ja',
+    'CONTRACT_START': '1. Februar 2022',
+    'CONTRAT': 'Ja',
+    'CONTRAT_DATE': '1. Februar 2022',
     'COORDONEE': '2’599’941 / 1’198’923; 2’601’995 / 1’201’340',
     'DECISION': 'accepted',
     'DECISION_CATEGORIE': 'GESAMT',
@@ -275,6 +284,9 @@ Test E 2''',
         }
     ],
     'EMOLUMENTS_TOTAL': '710.08',
+    'ENSEMBLE_BÂTI': 'Ja',
+    'ENSEMBLE_BÂTI_DÉNOMINATION': 'Test Baugruppe',
+    'ERHALTENSWERT': 'Nein',
     'ETAT': 'Pamela Horton',
     'FACHSTELLEN_KANTONAL': [
         {
@@ -425,6 +437,8 @@ Test E 2''',
     'JURISTIC_NAME': 'ACME AG',
     'JURISTISCHER_NAME': 'ACME AG',
     'KOORDINATEN': '2’599’941 / 1’198’923; 2’601’995 / 1’201’340',
+    'K_OBJECT': 'Ja',
+    'K_OBJEKT': 'Ja',
     'LANGUAGE': 'de',
     'LANGUE': 'de',
     'LASTENAUSGLEICHSBEGEHREN': [
@@ -577,6 +591,7 @@ Test E 2''',
             'TITRE': 'Test Einsprache'
         }
     ],
+    'OBJECT_C': 'Ja',
     'OEFFENTLICHKEIT': 'Öffentlich',
     'OFFICES_CANTONAUX': [
         {
@@ -719,7 +734,9 @@ Test E 2''',
     'PROPRIETAIRE_IMMOB_NOM_ADRESSE': 'Peter Meier, Thunstrasse 88, 3002 Bern',
     'PROPRIETAIRE_IMMOB_TOUS': 'Peter Meier',
     'PROPRIETAIRE_IMMOB_TOUS_NOM_ADRESSE': 'Peter Meier, Thunstrasse 88, 3002 Bern',
+    'PROTECTED': 'Ja',
     'PROTECTION_AREA': 'S1',
+    'PROTÉGÉ': 'Ja',
     'PUBLIC': 'Öffentlich',
     'PUBLICATION_1_FEUILLE_AVIS': '30. August 2021',
     'PUBLICATION_2_FEUILLE_AVIS': '20. August 2021',
@@ -853,8 +870,13 @@ Test RV 2''',
     'RESPONSABLE_EMAIL': 'tammy30@example.net',
     'RESPONSABLE_NOM': 'Thomas Morgan',
     'RESPONSABLE_TELEPHONE': '',
+    'RRB': 'Ja',
+    'RRB_DATE': '1. Januar 2022',
+    'RRB_DATUM': '1. Januar 2022',
+    'RRB_START': '1. Januar 2022',
     'SACHVERHALT': 'Sachverhalt Test',
     'SCHUTZZONE': 'S1',
+    'SCHÜTZENSWERT': 'Ja',
     'SECTEUR_PROTECTION_EAUX': 'Aᵤ',
     'SITUATION': 'Sachverhalt Test',
     'SITZPLAETZE_AUSSEN': 20,
@@ -866,6 +888,8 @@ Test RV 2''',
     'TODAY': '30. August 2021',
     'UEBERBAUUNGSORDNUNG': 'Überbauung XY',
     'UVP_JA_NEIN': False,
+    'VERTRAG': 'Ja',
+    'VERTRAG_DATUM': '1. Februar 2022',
     'VERTRETER': 'Mustermann und Söhne AG',
     'VERTRETER_ADDRESS_1': 'Juristenweg 99',
     'VERTRETER_ADDRESS_2': '3008 Bern',
@@ -1436,6 +1460,76 @@ snapshots['test_dms_placeholders_docs[be_dms_config] 1'] = {
         'description': {
             'de': 'Beschreibung des Bauvorhabens',
             'fr': 'Description du projet de construction'
+        },
+        'nested_aliases': {
+        }
+    },
+    'CONSERVABLE': {
+        'aliases': [
+            {
+                'de': 'ERHALTENSWERT',
+                'fr': 'CONSERVABLE'
+            }
+        ],
+        'description': {
+            'de': 'Boolesch-Platzhalter für das Formular-Feld «Erhaltenswert».',
+            'fr': 'Boolesch-Platzhalter für das Formular-Feld «Erhaltenswert».'
+        },
+        'nested_aliases': {
+        }
+    },
+    'CONSTRUCTION_GROUP': {
+        'aliases': [
+            {
+                'de': 'BAUGRUPPE',
+                'fr': 'ENSEMBLE_BÂTI'
+            }
+        ],
+        'description': {
+            'de': 'Boolesch-Platzhalter für das Formular-Feld «Baugruppe Bauinventar».',
+            'fr': 'Boolesch-Platzhalter für das Formular-Feld «Baugruppe Bauinventar».'
+        },
+        'nested_aliases': {
+        }
+    },
+    'CONSTRUCTION_GROUP_DESIGNATION': {
+        'aliases': [
+            {
+                'de': 'BAUGRUPPE_BEZEICHNUNG',
+                'fr': 'ENSEMBLE_BÂTI_DÉNOMINATION'
+            }
+        ],
+        'description': {
+            'de': 'Platzhalter für das Formular-Feld «Bezeichnung Baugruppe».',
+            'fr': 'Platzhalter für das Formular-Feld «Bezeichnung Baugruppe».'
+        },
+        'nested_aliases': {
+        }
+    },
+    'CONTRACT': {
+        'aliases': [
+            {
+                'de': 'VERTRAG',
+                'fr': 'CONTRAT'
+            }
+        ],
+        'description': {
+            'de': 'Boolesch-Platzhalter für das Formular-Feld «Vertrag».',
+            'fr': 'Boolesch-Platzhalter für das Formular-Feld «Vertrag».'
+        },
+        'nested_aliases': {
+        }
+    },
+    'CONTRACT_START': {
+        'aliases': [
+            {
+                'de': 'VERTRAG_DATUM',
+                'fr': 'CONTRAT_DATE'
+            }
+        ],
+        'description': {
+            'de': 'Datum-Platzhalter für das Formular-Feld «Vertrag vom».',
+            'fr': 'Datum-Platzhalter für das Formular-Feld «Vertrag vom».'
         },
         'nested_aliases': {
         }
@@ -2014,6 +2108,20 @@ snapshots['test_dms_placeholders_docs[be_dms_config] 1'] = {
         'description': {
             'de': 'Lagekoordinaten der Parzelle(n)',
             'fr': 'Coordonnées planimétriques de/des parcelle(s) selectionnée(s)'
+        },
+        'nested_aliases': {
+        }
+    },
+    'K_OBJECT': {
+        'aliases': [
+            {
+                'de': 'K_OBJEKT',
+                'fr': 'OBJECT_C'
+            }
+        ],
+        'description': {
+            'de': 'Boolesch-Platzhalter für das Formular-Feld «K-Objekt».',
+            'fr': 'Boolesch-Platzhalter für das Formular-Feld «K-Objekt».'
         },
         'nested_aliases': {
         }
@@ -2683,6 +2791,20 @@ snapshots['test_dms_placeholders_docs[be_dms_config] 1'] = {
         'nested_aliases': {
         }
     },
+    'PROTECTED': {
+        'aliases': [
+            {
+                'de': 'SCHÜTZENSWERT',
+                'fr': 'PROTÉGÉ'
+            }
+        ],
+        'description': {
+            'de': 'Boolesch-Platzhalter für das Formular-Feld «Schützenswert».',
+            'fr': 'Boolesch-Platzhalter für das Formular-Feld «Schützenswert».'
+        },
+        'nested_aliases': {
+        }
+    },
     'PROTECTION_AREA': {
         'aliases': [
             {
@@ -2869,6 +2991,34 @@ snapshots['test_dms_placeholders_docs[be_dms_config] 1'] = {
                     'fr': 'TITRE'
                 }
             ]
+        }
+    },
+    'RRB': {
+        'aliases': [
+            {
+                'de': 'RRB',
+                'fr': 'ACE'
+            }
+        ],
+        'description': {
+            'de': 'Boolesch-Platzhalter für das Formular-Feld «RRB».',
+            'fr': 'Boolesch-Platzhalter für das Formular-Feld «RRB».'
+        },
+        'nested_aliases': {
+        }
+    },
+    'RRB_START': {
+        'aliases': [
+            {
+                'de': 'RRB_DATUM',
+                'fr': 'RRB_DATE'
+            }
+        ],
+        'description': {
+            'de': 'Datum-Platzhalter für das Formular-Feld «RRB vom».',
+            'fr': 'Datum-Platzhalter für das Formular-Feld «RRB vom».'
+        },
+        'nested_aliases': {
         }
     },
     'SACHVERHALT': {
@@ -5023,6 +5173,7 @@ snapshots['test_dms_placeholders_docs[so_dms_config] 1'] = {
 }
 
 snapshots['test_dms_placeholders_docs_available_placeholders[be_dms_config] 1'] = [
+    'ACE',
     'ADDRESS',
     'ADMINISTRATIVE_DISTRICT',
     'ADRESSE',
@@ -5086,6 +5237,8 @@ snapshots['test_dms_placeholders_docs_available_placeholders[be_dms_config] 1'] 
     'BAUENTSCHEID_TEILBAUBEWILLIGUNG',
     'BAUENTSCHEID_TYP',
     'BAUENTSCHEID_TYPE',
+    'BAUGRUPPE',
+    'BAUGRUPPE_BEZEICHNUNG',
     'BAUVORHABEN',
     'BESCHREIBUNG_BAUVORHABEN',
     'BESCHREIBUNG_PROJEKTAENDERUNG',
@@ -5140,6 +5293,13 @@ snapshots['test_dms_placeholders_docs_available_placeholders[be_dms_config] 1'] 
     'COMMUNE_TELEPHONE',
     'COMMUNICATION_AUX_VOISINS_CODE_QR',
     'COMMUNICATION_AUX_VOISINS_LIEN',
+    'CONSERVABLE',
+    'CONSTRUCTION_GROUP',
+    'CONSTRUCTION_GROUP_DESIGNATION',
+    'CONTRACT',
+    'CONTRACT_START',
+    'CONTRAT',
+    'CONTRAT_DATE',
     'COORDONEE',
     'DECISION',
     'DECISION_CATEGORIE',
@@ -5215,6 +5375,9 @@ snapshots['test_dms_placeholders_docs_available_placeholders[be_dms_config] 1'] 
     'EMOLUMENTS[].FORFAIT',
     'EMOLUMENTS[].POSITION',
     'EMOLUMENTS_TOTAL',
+    'ENSEMBLE_BÂTI',
+    'ENSEMBLE_BÂTI_DÉNOMINATION',
+    'ERHALTENSWERT',
     'ETAT',
     'FACHSTELLEN_KANTONAL',
     'FACHSTELLEN_KANTONAL[]',
@@ -5274,6 +5437,8 @@ snapshots['test_dms_placeholders_docs_available_placeholders[be_dms_config] 1'] 
     'JURISTIC_NAME',
     'JURISTISCHER_NAME',
     'KOORDINATEN',
+    'K_OBJECT',
+    'K_OBJEKT',
     'LANGUAGE',
     'LANGUE',
     'LASTENAUSGLEICHSBEGEHREN',
@@ -5386,6 +5551,7 @@ snapshots['test_dms_placeholders_docs_available_placeholders[be_dms_config] 1'] 
     'OBJECTIONS[].RUEGEPUNKTE',
     'OBJECTIONS[].TITEL',
     'OBJECTIONS[].TITRE',
+    'OBJECT_C',
     'OEFFENTLICHKEIT',
     'OFFICES_CANTONAUX',
     'OFFICES_CANTONAUX[]',
@@ -5452,7 +5618,9 @@ snapshots['test_dms_placeholders_docs_available_placeholders[be_dms_config] 1'] 
     'PROPRIETAIRE_IMMOB_NOM_ADRESSE',
     'PROPRIETAIRE_IMMOB_TOUS',
     'PROPRIETAIRE_IMMOB_TOUS_NOM_ADRESSE',
+    'PROTECTED',
     'PROTECTION_AREA',
+    'PROTÉGÉ',
     'PUBLIC',
     'PUBLICATION_1_FEUILLE_AVIS',
     'PUBLICATION_2_FEUILLE_AVIS',
@@ -5542,8 +5710,13 @@ snapshots['test_dms_placeholders_docs_available_placeholders[be_dms_config] 1'] 
     'RESPONSABLE_EMAIL',
     'RESPONSABLE_NOM',
     'RESPONSABLE_TELEPHONE',
+    'RRB',
+    'RRB_DATE',
+    'RRB_DATUM',
+    'RRB_START',
     'SACHVERHALT',
     'SCHUTZZONE',
+    'SCHÜTZENSWERT',
     'SECTEUR_PROTECTION_EAUX',
     'SITUATION',
     'SITZPLAETZE_AUSSEN',
@@ -5555,6 +5728,8 @@ snapshots['test_dms_placeholders_docs_available_placeholders[be_dms_config] 1'] 
     'TODAY',
     'UEBERBAUUNGSORDNUNG',
     'UVP_JA_NEIN',
+    'VERTRAG',
+    'VERTRAG_DATUM',
     'VERTRETER',
     'VERTRETER_ADDRESS_1',
     'VERTRETER_ADDRESS_2',
@@ -5889,6 +6064,7 @@ snapshots['test_dms_placeholders_docs_available_placeholders[so_dms_config] 1'] 
 ]
 
 snapshots['test_dms_placeholders_empty[Municipality] 1'] = {
+    'ACE': '',
     'ADDRESS': '',
     'ADMINISTRATIVE_DISTRICT': '',
     'ADRESSE': '',
@@ -5946,6 +6122,8 @@ snapshots['test_dms_placeholders_empty[Municipality] 1'] = {
     'BAUENTSCHEID_TEILBAUBEWILLIGUNG': '',
     'BAUENTSCHEID_TYP': '',
     'BAUENTSCHEID_TYPE': '',
+    'BAUGRUPPE': '',
+    'BAUGRUPPE_BEZEICHNUNG': '',
     'BAUVORHABEN': '',
     'BESCHREIBUNG_BAUVORHABEN': '',
     'BESCHREIBUNG_PROJEKTAENDERUNG': '',
@@ -5968,6 +6146,13 @@ snapshots['test_dms_placeholders_empty[Municipality] 1'] = {
     'COMMUNE_TELEPHONE': '',
     'COMMUNICATION_AUX_VOISINS_CODE_QR': '',
     'COMMUNICATION_AUX_VOISINS_LIEN': '',
+    'CONSERVABLE': '',
+    'CONSTRUCTION_GROUP': '',
+    'CONSTRUCTION_GROUP_DESIGNATION': '',
+    'CONTRACT': '',
+    'CONTRACT_START': '',
+    'CONTRAT': '',
+    'CONTRAT_DATE': '',
     'COORDONEE': '',
     'DECISION': '',
     'DECISION_CATEGORIE': '',
@@ -6012,6 +6197,9 @@ snapshots['test_dms_placeholders_empty[Municipality] 1'] = {
     'EMOLUMENTS': [
     ],
     'EMOLUMENTS_TOTAL': '0.00',
+    'ENSEMBLE_BÂTI': '',
+    'ENSEMBLE_BÂTI_DÉNOMINATION': '',
+    'ERHALTENSWERT': '',
     'ETAT': 'David Rangel',
     'FACHSTELLEN_KANTONAL': [
     ],
@@ -6060,6 +6248,8 @@ snapshots['test_dms_placeholders_empty[Municipality] 1'] = {
     'JURISTIC_NAME': '',
     'JURISTISCHER_NAME': '',
     'KOORDINATEN': '',
+    'K_OBJECT': '',
+    'K_OBJEKT': '',
     'LANGUAGE': 'de',
     'LANGUE': 'de',
     'LASTENAUSGLEICHSBEGEHREN': [
@@ -6122,6 +6312,7 @@ snapshots['test_dms_placeholders_empty[Municipality] 1'] = {
     'NUTZUNGSZONE': '',
     'OBJECTIONS': [
     ],
+    'OBJECT_C': '',
     'OEFFENTLICHKEIT': '',
     'OFFICES_CANTONAUX': [
     ],
@@ -6162,7 +6353,9 @@ snapshots['test_dms_placeholders_empty[Municipality] 1'] = {
     'PROPRIETAIRE_IMMOB_NOM_ADRESSE': '',
     'PROPRIETAIRE_IMMOB_TOUS': '',
     'PROPRIETAIRE_IMMOB_TOUS_NOM_ADRESSE': '',
+    'PROTECTED': '',
     'PROTECTION_AREA': '',
+    'PROTÉGÉ': '',
     'PUBLIC': '',
     'PUBLICATION_1_FEUILLE_AVIS': '',
     'PUBLICATION_2_FEUILLE_AVIS': '',
@@ -6210,8 +6403,13 @@ snapshots['test_dms_placeholders_empty[Municipality] 1'] = {
     'RESPONSABLE_EMAIL': '',
     'RESPONSABLE_NOM': '',
     'RESPONSABLE_TELEPHONE': '',
+    'RRB': '',
+    'RRB_DATE': '',
+    'RRB_DATUM': '',
+    'RRB_START': '',
     'SACHVERHALT': '',
     'SCHUTZZONE': '',
+    'SCHÜTZENSWERT': '',
     'SECTEUR_PROTECTION_EAUX': '',
     'SITUATION': '',
     'SITZPLAETZE_AUSSEN': '',
@@ -6223,6 +6421,8 @@ snapshots['test_dms_placeholders_empty[Municipality] 1'] = {
     'TODAY': '30. August 2021',
     'UEBERBAUUNGSORDNUNG': '',
     'UVP_JA_NEIN': False,
+    'VERTRAG': '',
+    'VERTRAG_DATUM': '',
     'VERTRETER': '',
     'VERTRETER_ADDRESS_1': '',
     'VERTRETER_ADDRESS_2': '',
