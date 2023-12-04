@@ -334,5 +334,17 @@
       "service": null,
       "type": "email"
     }
+  },
+  {
+    "model": "notification.notificationtemplate",
+    "pk": 1460,
+    "fields": {
+      "slug": "zirkulation-gestartet-koor-afg",
+      "purpose": "9 Info an Fachstelle - Zirkulation gestartet von KOOR AfG",
+      "subject": "URec Dossier Nr. {{DOSSIER_NR}} Zirkulation von KOOR AfG gestartet",
+      "body": "URec Info (automatisch generierte E-Mail von URec, bitte nicht darauf antworten)\r\n\r\nNEUE PENDENZ\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nIm URec wurde das Dossier Nr. {{DOSSIER_NR}} Ihrer Fachstelle als Pendenz zugewiesen. Wir bitten Sie, das Dossier zu prüfen und die entsprechende Rückmeldung (Stellungnahme / Verfügung / Planvisum usw.) innert Frist zurückzuschicken.\r\n\r\nINFORMATIONEN ZUM DOSSIER:\r\n- Gesuchsteller: {{GESUCHSTELLER}}\r\n- Vorhaben: {{VORHABEN}}\r\n- Parzelle: {{PARZELLE}}, {{STREET}}\r\n\r\nSie können das Dossier mit folgendem Link direkt öffnen:\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nBEARBEITUNG IM URec\r\n- DokumentE (bitte inkl. Unterschrift) hochladen.\r\n- Kurzantwort auswählen.\r\n- Art der Sachbearbeitung auswählen.\r\n- Kurzkommentare für die Koordinationsstelle oder für die Gemeindebaubehörde erfassen.\r\n- Gebühren erfassen.\r\n- Senden\r\n\r\nAKTENNACHFORDERUNG\r\nSofern Sie weitere Unterlagen benötigen, bitten wir Sie, diese direkt beim Gesuchsteller anzufordern. Dazu setzen Sie das Dossier in den Status NFD (Button «Nachforderung»). Im dafür vorgesehenen Feld bitte eintragen, bei wem, welche Unterlagen nachgefordert wurden. Dossier im Status NFD (Pendenz beim Gesuchsteller) werden blau hinterlegt.\r\n\r\nBei Fragen stehen wir Ihnen gerne zur Verfügung.\r\n\r\n{{CURRENT_SERVICE_DESCRIPTION}}",
+      "service": null,
+      "type": "email"
+    }
   }
 ]

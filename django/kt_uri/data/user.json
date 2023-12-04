@@ -8,13 +8,13 @@
       "name": "Ad",
       "surname": "min",
       "email": "admin@example.com",
-      "phone": "",
+      "phone": null,
       "disabled": 0,
       "language": "de",
-      "last_login": "2023-02-20T10:46:58.457Z",
-      "address": "",
-      "city": "",
-      "zip": ""
+      "last_login": "2023-12-06T13:24:21.883Z",
+      "address": null,
+      "city": null,
+      "zip": null
     }
   },
   {
@@ -3312,6 +3312,22 @@
     }
   },
   {
+    "model": "user.group",
+    "pk": 1072,
+    "fields": {
+      "role": 1133,
+      "service": 636,
+      "disabled": 0,
+      "name": "KOOR - AfG Koordinationsstelle Amt für das Grundbuch",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
     "model": "user.grouplocation",
     "pk": 1,
     "fields": {
@@ -4971,6 +4987,17 @@
       "group": 1071,
       "default_group": 0,
       "created_at": "2023-05-25T12:19:18.225Z",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "user.usergroup",
+    "pk": 15,
+    "fields": {
+      "user": 1,
+      "group": 1072,
+      "default_group": 0,
+      "created_at": "2023-12-06T13:24:50.471Z",
       "created_by": 1
     }
   },
@@ -8243,6 +8270,26 @@
       "name": "Fachstelle IKSS (Dossierzuweisung nur via Fachstelle, Rubrik Dossier freischalten)",
       "description": "Fachstelle IKSS (Überprüfung von Dossiers bei Seilbahnen und Skiliften)",
       "sort": 37,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.com",
+      "website": null,
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 636,
+    "fields": {
+      "service_group": 1,
+      "service_parent": null,
+      "name": "KOOR AfG",
+      "description": "Koordinationsstelle Amt für das Grundbuch",
+      "sort": 184,
       "phone": null,
       "zip": null,
       "city": null,

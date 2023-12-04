@@ -1509,6 +1509,11 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             "bohrbewilligung-waermeentnahme",
         ]:
             return str(uri_constants.AMT_FUER_ENERGIE_AUTHORITY_ID)
+        if (
+            instance.case.document.form.slug == "bgbb"
+            and instance.group.pk == uri_constants.KOOR_AFG_GROUP_ID
+        ):
+            return str(uri_constants.KOOR_AFG_AUTHORITY_ID)
         if internal_authority := self.get_master_data(
             instance.case
         ).leitbehoerde_internal_form:
