@@ -14,8 +14,8 @@ def configure_access_levels(permissions_settings, instance, access_level):
 
         permissions_settings["ACCESS_LEVELS"] = {
             access_level.pk: [
-                ("foo", instance.instance_state.name),
-                ("bar", instance.instance_state.name),
+                ("foo", [instance.instance_state.name]),
+                ("bar", [instance.instance_state.name]),
                 ("func", check_functional_permission),
             ]
         }

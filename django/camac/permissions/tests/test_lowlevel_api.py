@@ -205,7 +205,7 @@ def test_cache_eviction(db, user, permissions_settings, access_level, instance):
         return True
 
     permissions_settings["ACCESS_LEVELS"] = {
-        access_level.pk: [("foo", "*"), ("bar", "*"), ("func", funkytown)]
+        access_level.pk: [("foo", ["*"]), ("bar", ["*"]), ("func", funkytown)]
     }
 
     the_acl = api.grant(
@@ -304,7 +304,7 @@ def test_grant_validations(
     accesslevel_as_pk,
 ):
     permissions_settings["ACCESS_LEVELS"] = {
-        access_level.pk: [("foo", "*"), ("bar", "*")]
+        access_level.pk: [("foo", ["*"]), ("bar", ["*"])]
     }
 
     def _make_acl():
