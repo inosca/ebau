@@ -75,9 +75,6 @@ const config = {
       "entscheid-entscheid-rueckzug": "uk-alert-warning",
     },
   },
-  alexandria: {
-    enabledMarks: ["decision", "publication", "void"],
-  },
   legalSubmission: {
     task: "objections",
     tableForm: "einsprache",

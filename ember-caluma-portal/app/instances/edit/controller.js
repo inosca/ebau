@@ -78,7 +78,7 @@ export default class InstancesEditController extends Controller {
       }))
     : query(this, "document", () => ({
         filter: {
-          tags: config.APPLICATION.documents.decisionTag,
+          marks: config.APPLICATION.documents.decisionMark,
           metainfo: JSON.stringify([
             { key: "camac-instance-id", value: String(this.model) },
           ]),
