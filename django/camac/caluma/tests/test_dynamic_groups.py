@@ -2,6 +2,7 @@ import pytest
 from caluma.caluma_workflow.models import WorkItem
 
 from camac.caluma.extensions.dynamic_groups import CustomDynamicGroups
+from camac.user.models import ServiceRelation
 
 
 def test_dynamic_group_municipality_be(db, be_instance):
@@ -193,3 +194,46 @@ def test_dynamic_create_additional_demand(
     # "init-additional-demand" work items and subservices
     assert str(target_service.pk) in groups_inquiry
     assert (str(target_subservice.pk) in groups_inquiry) == allow_subservices
+
+
+def test_dynamic_group_geometer_be(
+    db,
+    be_instance,
+    service_factory,
+    instance_service_factory,
+    use_instance_service,
+    application_settings,
+):
+    geometer_service = service_factory(
+        service_group__name="geometer",
+    )
+
+    municipality_service = service_factory(
+        service_group__name="municipality",
+    )
+
+    instance_service_factory(
+        instance=be_instance, service=municipality_service, active=1
+    )
+
+    ServiceRelation.objects.create(
+        function=ServiceRelation.FUNCTION_GEOMETER,
+        receiver=be_instance.responsible_service(filter_type="municipality"),
+        provider=geometer_service,
+    )
+
+    application_settings["ACTIVE_SERVICES"]["MUNICIPALITY"]["FILTERS"] = {
+        "service__service_group__name__in": [
+            "municipality",
+        ]
+    }
+
+    assert CustomDynamicGroups().resolve("geometer")(
+        None, be_instance.case, None, None, None
+    ) == [
+        str(
+            be_instance.responsible_service(filter_type="municipality")
+            .functional_services.values_list("pk", flat=True)
+            .first()
+        )
+    ]

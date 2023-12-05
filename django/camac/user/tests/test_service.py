@@ -14,6 +14,7 @@ from camac.user.models import Service
         ("Municipality", 1),
         ("Coordination", 1),
         ("Reader", 1),
+        ("Geometer", 1),
     ],
 )
 def test_service_list(admin_client, service, size):
