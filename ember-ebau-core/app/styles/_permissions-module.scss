@@ -9,6 +9,12 @@
     line-height: $form-line-height;
   }
 
+  /* Algins table rows with disabled/invisible revoke button to the same height, 
+  /* as the ones with a visible button. */
+  table tr td {
+    height: $form-line-height;
+  }
+
   .uk-label.background-expired {
     background: color.adjust($global-muted-background, $lightness: -15%);
   }
