@@ -5,24 +5,26 @@
     @removeAttachment={{fn this.remove "documentAttachmentsToSave"}}
   />
 
-  <Snippets
-    @disabled={{or
-      (this.disabled)
-      (not (has-feature "communication.snippets"))
-    }}
-  >
-    <textarea
-      value={{this.body}}
-      aria-label={{t "communications.message.messageInputLabel"}}
-      class="uk-textarea uk-margin"
-      placeholder={{t "communications.message.messageInputPlaceholder"}}
-      disabled={{this.disabled}}
-      rows="5"
-      {{on "input" this.updateMessage}}
-      {{on "keypress" this.handleKeypress}}
-      {{autoresize this.body mode="height"}}
-    />
-  </Snippets>
+  <div class="uk-margin">
+    <Snippets
+      @disabled={{or
+        (this.disabled)
+        (not (has-feature "communication.snippets"))
+      }}
+    >
+      <textarea
+        value={{this.body}}
+        aria-label={{t "communications.message.messageInputLabel"}}
+        class="uk-textarea"
+        placeholder={{t "communications.message.messageInputPlaceholder"}}
+        disabled={{this.disabled}}
+        rows="5"
+        {{on "input" this.updateMessage}}
+        {{on "keypress" this.handleKeypress}}
+        {{autoresize this.body mode="height"}}
+      />
+    </Snippets>
+  </div>
 
   {{#unless this.disabled}}
     <Dropzone @multiple={{true}} @onFileAdded={{this.addFiles}}>
