@@ -672,7 +672,7 @@
     "model": "user.servicegroup",
     "pk": 20003,
     "fields": {
-      "name": "Nachführungsgeometer",
+      "name": "geometer",
       "sort": null
     }
   },
