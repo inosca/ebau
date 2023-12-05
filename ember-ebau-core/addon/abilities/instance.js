@@ -109,7 +109,8 @@ export default class InstanceAbility extends Ability {
   }
 
   // instance acls
-  get canCreateAcl() {
+  // TODO: if complexity increases or more use cases arise, please move to instance-acl ability.
+  get canEditAcl() {
     return this.model && isAuthority(this.model, this.ebauModules.serviceId);
   }
 }
