@@ -46034,7 +46034,7 @@
       "hidden": 0,
       "sort": 5,
       "form_group": 40000,
-      "require_permission": null
+      "require_permission": "responsible-service-read"
     }
   },
   {
@@ -46114,7 +46114,7 @@
       "hidden": 0,
       "sort": 3,
       "form_group": 40000,
-      "require_permission": null
+      "require_permission": "documents-read"
     }
   },
   {
@@ -46146,7 +46146,7 @@
       "hidden": 0,
       "sort": 2,
       "form_group": 40000,
-      "require_permission": "form-read"
+      "require_permission": null
     }
   },
   {
@@ -46162,7 +46162,7 @@
       "hidden": 0,
       "sort": 3,
       "form_group": 40000,
-      "require_permission": "documents-read"
+      "require_permission": null
     }
   },
   {
@@ -46178,7 +46178,7 @@
       "hidden": 0,
       "sort": 2,
       "form_group": 40000,
-      "require_permission": null
+      "require_permission": "form-read"
     }
   },
   {
@@ -46226,7 +46226,7 @@
       "hidden": 0,
       "sort": 5,
       "form_group": 40000,
-      "require_permission": "responsible-service-read"
+      "require_permission": null
     }
   },
   {
@@ -46258,7 +46258,7 @@
       "hidden": 0,
       "sort": 0,
       "form_group": 40000,
-      "require_permission": null
+      "require_permission": "workitems-read"
     }
   },
   {
@@ -46274,7 +46274,7 @@
       "hidden": 0,
       "sort": 0,
       "form_group": 40000,
-      "require_permission": "workitems-read"
+      "require_permission": null
     }
   },
   {
@@ -46304,9 +46304,9 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 22,
+      "sort": 23,
       "form_group": 40000,
-      "require_permission": null
+      "require_permission": "history-read"
     }
   },
   {
@@ -46320,9 +46320,9 @@
       "template": "/ember-camac-ng/journal.phtml",
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 20,
+      "sort": 21,
       "form_group": 40000,
-      "require_permission": null
+      "require_permission": "journal-read"
     }
   },
   {
@@ -46338,7 +46338,7 @@
       "hidden": 0,
       "sort": 8,
       "form_group": 40000,
-      "require_permission": "journal-read"
+      "require_permission": null
     }
   },
   {
@@ -46354,7 +46354,7 @@
       "hidden": 0,
       "sort": 10,
       "form_group": 40000,
-      "require_permission": "history-read"
+      "require_permission": null
     }
   },
   {
@@ -46464,7 +46464,7 @@
       "template": null,
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 21,
+      "sort": 22,
       "form_group": 40000,
       "require_permission": null
     }
@@ -46576,7 +46576,7 @@
       "template": "/ember-camac-ng/support.phtml",
       "class_field": "menu-category-primary active_leitung_leitbehoerde_only",
       "hidden": 0,
-      "sort": 23,
+      "sort": 24,
       "form_group": 40000,
       "require_permission": null
     }
@@ -46830,7 +46830,7 @@
       "name": null,
       "description": null,
       "template": "/ember-camac-ng/communications.phtml",
-      "class_field": "communications",
+      "class_field": null,
       "hidden": 0,
       "sort": 1,
       "form_group": 40000,
@@ -46850,7 +46850,7 @@
       "hidden": 0,
       "sort": 1,
       "form_group": 40000,
-      "require_permission": null
+      "require_permission": "communications-read"
     }
   },
   {
@@ -46880,9 +46880,25 @@
       "template": "/ember-camac-ng/permissions.phtml",
       "class_field": null,
       "hidden": 1,
-      "sort": 24,
+      "sort": 25,
       "form_group": 40000,
       "require_permission": null
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 18000004,
+    "fields": {
+      "available_instance_resource": "taskform",
+      "resource": 20006,
+      "name": null,
+      "description": null,
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 20,
+      "form_group": 40000,
+      "require_permission": "geometer-read"
     }
   },
   {
@@ -48328,6 +48344,26 @@
       "instance_resource": 18000003,
       "language": "fr",
       "name": "Autorisations",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 18000005,
+    "fields": {
+      "instance_resource": 18000004,
+      "language": "de",
+      "name": "Geometer",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 18000006,
+    "fields": {
+      "instance_resource": 18000004,
+      "language": "fr",
+      "name": "Géomètre",
       "description": null
     }
   },
@@ -58022,6 +58058,13 @@
     "pk": 15000008,
     "fields": {
       "task": "appeal"
+    }
+  },
+  {
+    "model": "core.irtaskform",
+    "pk": 18000004,
+    "fields": {
+      "task": "geometer"
     }
   },
   {
@@ -109635,22 +109678,6 @@
   },
   {
     "model": "core.rroleacl",
-    "pk": 18000009,
-    "fields": {
-      "resource": 20008,
-      "role": 20011
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 18000011,
-    "fields": {
-      "resource": 20008,
-      "role": 20010
-    }
-  },
-  {
-    "model": "core.rroleacl",
     "pk": 18000012,
     "fields": {
       "resource": 18000000,
@@ -109735,6 +109762,22 @@
     "fields": {
       "resource": 150003,
       "role": 20012
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 18000023,
+    "fields": {
+      "resource": 20006,
+      "role": 20011
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 18000024,
+    "fields": {
+      "resource": 20006,
+      "role": 20010
     }
   },
   {
