@@ -5,6 +5,7 @@ from alexandria.core.factories import (
     CategoryFactory,
     DocumentFactory,
     FileFactory,
+    MarkFactory,
     TagFactory,
 )
 from caluma.caluma_workflow.models import WorkItem
@@ -801,14 +802,15 @@ def test_marks(
     alexandria_category = CategoryFactory(metainfo={"access": access})
     url = reverse("document-list")
     tag = TagFactory()
-    mark = TagFactory(slug="decision")
+    mark = MarkFactory(slug="decision")
 
     tag_data = []
+    mark_data = []
     if "marks" in include_fields:
-        tag_data.append(
+        mark_data.append(
             {
                 "id": mark.pk,
-                "type": "tags",
+                "type": "marks",
             }
         )
     if "tags" in include_fields:
@@ -835,6 +837,9 @@ def test_marks(
                 },
                 "tags": {
                     "data": tag_data,
+                },
+                "marks": {
+                    "data": mark_data,
                 },
             },
         },

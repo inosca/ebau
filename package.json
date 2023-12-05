@@ -11,14 +11,12 @@
     "ember-data: pending update in ember-ebau-gwr",
     "@fortawesome/ember-fontawesome: pending update in ember-ebau-gwr",
     "@ember/legacy-built-in-components: pending updates in ember-caluma and ember-alexandria",
-    "ember-validated-form: pending updates in ember-caluma and ember-ebau-gwr",
-    "ember-simple-auth-oidc: pending update in ember-alexandria"
+    "ember-validated-form: pending updates in ember-caluma and ember-ebau-gwr"
   ],
   "resolutions": {
     "ember-data": "4.12.3",
     "@fortawesome/ember-fontawesome": "2.0.0",
     "@ember/legacy-built-in-components": "0.5.0",
-    "ember-validated-form": "7.0.0",
-    "ember-simple-auth-oidc": "6.0.0"
+    "ember-validated-form": "7.0.0"
   }
 }

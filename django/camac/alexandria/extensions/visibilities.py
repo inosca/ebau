@@ -151,7 +151,6 @@ class CustomVisibility(BaseVisibility, InstanceQuerysetMixin):
                     .annotate(id_string=Cast("pk", CharField()))
                     .values_list("id_string", flat=True)
                 )
-                | Q(pk__in=settings.ALEXANDRIA["MARKS"]["ALL"])
             )
         else:  # pragma: no cover
             raise ValueError("Unknown tag visibility setting")

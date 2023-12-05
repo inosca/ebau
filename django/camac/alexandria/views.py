@@ -44,3 +44,7 @@ class PatchedCategoryViewSet(views.CategoryViewSet):
 
 class PatchedTagSynonymGroupViewSet(views.TagSynonymGroupViewSet):
     swagger_schema = None
+
+
+class PatchedMarkViewSet(views.MarkViewSet):
+    swagger_schema = None
