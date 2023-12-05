@@ -109,6 +109,9 @@ class ServiceView(MultilangMixin, ModelViewSet):
     def get_queryset_for_reader(self):
         return super().get_queryset()
 
+    def get_queryset_for_geometer(self):
+        return super().get_queryset()
+
 
 class PublicServiceView(MultilangMixin, ReadOnlyModelViewSet):
     swagger_schema = None

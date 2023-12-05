@@ -116,3 +116,15 @@ mutation CreateFlow8 {
     clientMutationId
   }
 }
+
+mutation CreateFlow9 {
+  addWorkflowFlow(
+    input: {
+      workflow: "preliminary-clarification"
+      tasks: ["geometer"]
+      next: "'after-geometer'|task"
+    }
+  ) {
+    clientMutationId
+  }
+}

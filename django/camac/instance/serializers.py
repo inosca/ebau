@@ -165,6 +165,9 @@ class InstanceSerializer(InstanceEditableMixin, serializers.ModelSerializer):
         )
 
     def get_involved_services(self, obj):
+        # TODO: Involved services should be extended to allow manual
+        # work-items to be assigned to services involved through the
+        # permissions module
         if not settings.DISTRIBUTION:
             return Service.objects.none()
 
@@ -899,6 +902,14 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
 
     @permission_aware
     def _get_inquiry_answer_form_permissions(self, instance):
+        return set(["read", "write"])
+
+    @permission_aware
+    def _get_geometer_form_permissions(self, instance):
+        return set()
+
+    def _get_geometer_form_permissions_for_geometer(self, instance):
+        # TODO: Are the form permissions too lenient?
         return set(["read", "write"])
 
     def get_permissions(self, instance):

@@ -96,6 +96,8 @@ def test_decision_event_handler_be(
     service_factory,
     instance_service_factory,
     caluma_admin_user,
+    be_decision_settings,
+    use_instance_service,
 ):
     settings.APPLICATION_NAME = "kt_bern"
     application_settings["SHORT_NAME"] = "be"
@@ -104,12 +106,24 @@ def test_decision_event_handler_be(
         "EVENT_HANDLER"
     ] = "camac.permissions.config.kt_bern.PermissionEventHandlerBE"
 
+    be_instance.case.document.answers.create(
+        question_id="is-paper", value="is-paper-no"
+    )
+
     municipality_service = service_factory(
         service_group__name="municipality",
+        trans__name="Leitbehörde Burgdorf",
+        trans__language="de",
+    )
+
+    service_factory(
+        service_group__name="construction-control",
+        trans__name="Baukontrolle Burgdorf",
+        trans__language="de",
     )
 
     geometer_service = service_factory(
-        service_group__name="geometer",
+        service_group__name="Nachführungsgeometer",
     )
 
     if geometer_relation_exists:
@@ -123,6 +137,12 @@ def test_decision_event_handler_be(
         instance=be_instance, service=municipality_service, active=1
     )
 
+    application_settings["ACTIVE_SERVICES"]["MUNICIPALITY"]["FILTERS"] = {
+        "service__service_group__name__in": [
+            "municipality",
+        ]
+    }
+
     for task_id in [
         "submit",
         "ebau-number",
@@ -134,7 +154,9 @@ def test_decision_event_handler_be(
         )
 
     instance_state_factory(name="finished")
-    decision = decision_factory()
+    decision = decision_factory(
+        decision=be_decision_settings["ANSWERS"]["DECISION"]["APPROVED"]
+    )
     AccessLevel.objects.create(slug="geometer")
 
     decision.document.answers.create(

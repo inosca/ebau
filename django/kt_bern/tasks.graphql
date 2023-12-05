@@ -237,3 +237,31 @@ mutation CreateAppealTask {
     clientMutationId
   }
 }
+
+mutation CreateGeometerTask {
+  saveCompleteTaskFormTask(
+    input: {
+      slug: "geometer"
+      name: "Beurteilung Notwendigkeit Vermessung"
+      form: "geometer"
+      addressGroups: "['geometer']|groups"
+      leadTime: 864000 # 10 days
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateCadastralSurveyTask {
+  saveSimpleTask(
+    input: {
+      slug: "cadastral-survey"
+      name: "Nachführung amtliche Vermessung"
+      addressGroups: "['geometer']|groups"
+      controlGroups: "['geometer']|groups"
+      leadTime: 864000 # 10 days
+    }
+  ) {
+    clientMutationId
+  }
+}

@@ -1,5 +1,6 @@
 from caluma.caluma_workflow.models import WorkItem
 
+from camac.instance import domain_logic
 from camac.instance.models import Instance
 from camac.permissions import api as permissions_api, models as permissions_models
 from camac.permissions.events import EmptyEventHandler
@@ -13,7 +14,13 @@ class PermissionEventHandlerBE(EmptyEventHandler):
             status=WorkItem.STATUS_COMPLETED,
         ).first()
 
-        if not decision:  # pragma: no cover
+        # TODO: Do we only grant an ACL to the geometer if the process continues?
+        if (
+            not decision
+            or not domain_logic.DecisionLogic.should_continue_after_decision(
+                instance, decision
+            )
+        ):  # pragma: no cover
             return
 
         # Provide ACL on instance to geometer belonging to municipality
@@ -25,7 +32,9 @@ class PermissionEventHandlerBE(EmptyEventHandler):
         )
 
         if answer == "decision-geometer-yes":
-            responsible_service = instance.responsible_service()
+            responsible_service = instance.responsible_service(
+                filter_type="municipality"
+            )
             geometer_service_relation = ServiceRelation.objects.filter(
                 function=ServiceRelation.FUNCTION_GEOMETER,
                 receiver=responsible_service,

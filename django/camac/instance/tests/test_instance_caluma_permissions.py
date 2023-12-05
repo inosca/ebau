@@ -9,6 +9,8 @@ from django.urls import reverse
 from pytest_factoryboy import LazyFixture
 from rest_framework import status
 
+from camac.permissions import api, models
+
 R = ["read"]
 W = ["write"]
 RW = R + W
@@ -63,6 +65,8 @@ def sort_permissions(permissions):
         ("construction-control-readonly", "construction-control"),
         ("service-lead", "service"),
         ("service-readonly", "service"),
+        ("geometer-lead", "geometer"),
+        ("geometer-readonly", "geometer"),
         ("support", None),
     ],
 )
@@ -86,6 +90,14 @@ def test_instance_permissions_be(
     ]
 
     active_inquiry_factory(be_instance)
+    user_active_service = admin_client.user.groups.get().service
+    manager = api.PermissionManager.for_anonymous()
+    manager.grant(
+        be_instance,
+        "SERVICE",
+        models.AccessLevel.objects.create(pk="geometer"),
+        service=user_active_service,
+    )
 
     response = admin_client.get(reverse("instance-detail", args=[be_instance.pk]))
 
