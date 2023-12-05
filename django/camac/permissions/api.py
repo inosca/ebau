@@ -226,6 +226,20 @@ class PermissionManager:
         )
         return filter
 
+    def involved_services(self, instance: Instance) -> QuerySet:
+        """Return a queryset of involved services for the given instance.
+
+        Note: Only active ACLs are taken into account. Future or expired ACLs
+        are considered as "not involved"
+        """
+        acls = (
+            models.InstanceACL.for_current_user(**self.userinfo.to_kwargs())
+            .filter(instance=instance)
+            .filter(grant_type=GRANT_CHOICES.SERVICE.value)
+        )
+        services = Service.objects.filter(pk__in=Subquery(acls.values("service")))
+        return services
+
 
 def grant(instance, **kwargs):
     """Shortcut grant for "anonymous" users (ie system, testing).

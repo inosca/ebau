@@ -44,6 +44,7 @@ from camac.instance.master_data import MasterData
 from camac.instance.mixins import InstanceEditableMixin, InstanceQuerysetMixin
 from camac.instance.utils import copy_instance, fill_ebau_number
 from camac.notification.utils import send_mail, send_mail_without_request
+from camac.permissions import api as permissions_api
 from camac.user.models import Group, Location, Service
 from camac.user.permissions import permission_aware
 from camac.user.relations import (
@@ -184,6 +185,14 @@ class InstanceSerializer(InstanceEditableMixin, serializers.ModelSerializer):
                     .values_list("addressed_groups", flat=True)
                 )
             )
+        )
+
+        # If permission module has ACLs for some services, they are
+        # considered as "involved" as well
+        filters |= Q(
+            pk__in=permissions_api.PermissionManager.from_request(
+                self.context["request"]
+            ).involved_services(obj)
         )
 
         if settings.APPLICATION.get("USE_INSTANCE_SERVICE"):
