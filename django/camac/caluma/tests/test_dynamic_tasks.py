@@ -13,72 +13,83 @@ from camac.caluma.tests.test_distribution_workflow import (  # noqa: F401
 
 
 @pytest.mark.parametrize(
-    "workflow_id,decision,decision_type,expected_case_status",
+    "workflow_id,decision,decision_type,involve_geometer,expected_case_status",
     [
         (
             "building-permit",
             "REJECTED",
             "BUILDING_PERMIT",
+            True,
             Case.STATUS_COMPLETED,
         ),
         (
             "building-permit",
             "DEPRECIATED",
             "BUILDING_PERMIT",
+            True,
             Case.STATUS_COMPLETED,
         ),
         (
             "building-permit",
             "APPROVED",
             "BUILDING_PERMIT",
+            True,
             Case.STATUS_RUNNING,
         ),
         (
             "preliminary-clarification",
             "POSITIVE",
             None,
+            True,
             Case.STATUS_COMPLETED,
         ),
         (
             "preliminary-clarification",
             "POSITIVE_WITH_RESERVATION",
             None,
+            False,
             Case.STATUS_COMPLETED,
         ),
         (
             "preliminary-clarification",
             "NEGATIVE",
             None,
+            True,
             Case.STATUS_COMPLETED,
         ),
         (
             "building-permit",
             "REJECTED",
             "CONSTRUCTION_TEE_WITH_RESTORATION",
+            False,
             Case.STATUS_RUNNING,
         ),
         (
             "building-permit",
             "DEPRECIATED",
             "CONSTRUCTION_TEE_WITH_RESTORATION",
+            True,
             Case.STATUS_RUNNING,
         ),
         (
             "building-permit",
             "APPROVED",
             "BUILDING_PERMIT_FREE",
+            True,
             Case.STATUS_COMPLETED,
         ),
         (
             "building-permit",
             "REJECTED",
             "PARTIAL_PERMIT_WITH_PARTIAL_CONSTRUCTION_TEE_AND_PARTIAL_RESTORATION",
+            False,
             Case.STATUS_RUNNING,
         ),
         (
             "building-permit",
             "DEPRECIATED",
             "PARTIAL_PERMIT_WITH_PARTIAL_CONSTRUCTION_TEE_AND_PARTIAL_RESTORATION",
+            True,
             Case.STATUS_RUNNING,
         ),
     ],
@@ -89,6 +100,7 @@ def test_dynamic_task_after_decision(
     decision_factory,
     decision_type,
     decision,
+    involve_geometer,
     expected_case_status,
     instance_state_factory,
     instance_with_case,
@@ -133,13 +145,20 @@ def test_dynamic_task_after_decision(
         ("decision", complete_work_item),
     ]:
         if task_id == "decision":
-            decision_factory(
+            decision = decision_factory(
                 decision=be_decision_settings["ANSWERS"]["DECISION"][decision],
                 decision_type=be_decision_settings["ANSWERS"]["APPROVAL_TYPE"][
                     decision_type
                 ]
                 if decision_type
                 else None,
+            )
+
+            decision.document.answers.create(
+                question_id="decision-geometer",
+                value="decision-geometer-yes"
+                if involve_geometer
+                else "decision-geometer-no",
             )
 
         fn(case.work_items.get(task_id=task_id), caluma_admin_user)
@@ -151,6 +170,13 @@ def test_dynamic_task_after_decision(
     if case.status == Case.STATUS_RUNNING:
         assert case.work_items.filter(task_id="sb1").exists()
         assert case.instance.instance_state.name == "sb1"
+
+    geometer_work_item_exists = case.work_items.filter(task_id="geometer").exists()
+    assert (
+        geometer_work_item_exists
+        if involve_geometer and case.status == Case.STATUS_RUNNING
+        else not geometer_work_item_exists
+    )
 
 
 @pytest.mark.parametrize(
@@ -386,5 +412,38 @@ def test_dynamic_task_after_exam(
 
     assert (
         CustomDynamicTasks().resolve_after_exam(so_instance.case, None, work_item, None)
+        == expected_tasks
+    )
+
+
+@pytest.mark.parametrize(
+    "perform_cadastral_survey,expected_tasks",
+    [
+        (True, ["cadastral-survey"]),
+        (False, []),
+    ],
+)
+def test_dynamic_task_after_geometer(
+    db,
+    answer_factory,
+    expected_tasks,
+    perform_cadastral_survey,
+    be_instance,
+    work_item_factory,
+):
+    work_item = work_item_factory(task_id="geometer", case=be_instance.case)
+
+    answer_factory(
+        document=work_item.document,
+        question__slug="geometer-beurteilung-notwendigkeit-vermessung",
+        value="geometer-beurteilung-notwendigkeit-vermessung-notwendig"
+        if perform_cadastral_survey
+        else "geometer-beurteilung-notwendigkeit-vermessung-nicht-notwendig",
+    )
+
+    assert (
+        CustomDynamicTasks().resolve_after_geometer(
+            be_instance.case, None, work_item, None
+        )
         == expected_tasks
     )

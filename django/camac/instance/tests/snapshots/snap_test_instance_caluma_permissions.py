@@ -17,6 +17,8 @@ snapshots['test_instance_permissions_be[applicant-None-circulation-instance__use
     ],
     'ebau-number': [
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
     ],
     'inquiry': [
@@ -50,6 +52,8 @@ snapshots['test_instance_permissions_be[applicant-None-circulation_init-instance
     ],
     'ebau-number': [
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
     ],
     'inquiry': [
@@ -82,6 +86,8 @@ snapshots['test_instance_permissions_be[applicant-None-conclusion-instance__user
     'dossierpruefung': [
     ],
     'ebau-number': [
+    ],
+    'geometer': [
     ],
     'information-of-neighbors': [
     ],
@@ -118,6 +124,8 @@ snapshots['test_instance_permissions_be[applicant-None-coordination-instance__us
     ],
     'ebau-number': [
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
     ],
     'inquiry': [
@@ -150,6 +158,8 @@ snapshots['test_instance_permissions_be[applicant-None-correction-instance__user
     'dossierpruefung': [
     ],
     'ebau-number': [
+    ],
+    'geometer': [
     ],
     'information-of-neighbors': [
     ],
@@ -184,6 +194,8 @@ snapshots['test_instance_permissions_be[applicant-None-evaluated-instance__user0
     ],
     'ebau-number': [
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
     ],
     'inquiry': [
@@ -216,6 +228,8 @@ snapshots['test_instance_permissions_be[applicant-None-finished-instance__user0]
     'dossierpruefung': [
     ],
     'ebau-number': [
+    ],
+    'geometer': [
     ],
     'information-of-neighbors': [
     ],
@@ -250,6 +264,8 @@ snapshots['test_instance_permissions_be[applicant-None-finished_internal-instanc
     ],
     'ebau-number': [
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
     ],
     'inquiry': [
@@ -282,6 +298,8 @@ snapshots['test_instance_permissions_be[applicant-None-in_progress-instance__use
     'dossierpruefung': [
     ],
     'ebau-number': [
+    ],
+    'geometer': [
     ],
     'information-of-neighbors': [
     ],
@@ -316,6 +334,8 @@ snapshots['test_instance_permissions_be[applicant-None-in_progress_internal-inst
     ],
     'ebau-number': [
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
     ],
     'inquiry': [
@@ -348,6 +368,8 @@ snapshots['test_instance_permissions_be[applicant-None-new-instance__user0] 1'] 
     'dossierpruefung': [
     ],
     'ebau-number': [
+    ],
+    'geometer': [
     ],
     'information-of-neighbors': [
     ],
@@ -383,6 +405,8 @@ snapshots['test_instance_permissions_be[applicant-None-rejected-instance__user0]
     ],
     'ebau-number': [
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
     ],
     'inquiry': [
@@ -415,6 +439,8 @@ snapshots['test_instance_permissions_be[applicant-None-sb1-instance__user0] 1'] 
     'dossierpruefung': [
     ],
     'ebau-number': [
+    ],
+    'geometer': [
     ],
     'information-of-neighbors': [
     ],
@@ -450,6 +476,8 @@ snapshots['test_instance_permissions_be[applicant-None-sb2-instance__user0] 1'] 
     'dossierpruefung': [
     ],
     'ebau-number': [
+    ],
+    'geometer': [
     ],
     'information-of-neighbors': [
     ],
@@ -487,6 +515,8 @@ snapshots['test_instance_permissions_be[applicant-None-subm-instance__user0] 1']
     ],
     'ebau-number': [
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
     ],
     'inquiry': [
@@ -519,6 +549,8 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
     'dossierpruefung': [
     ],
     'ebau-number': [
+    ],
+    'geometer': [
     ],
     'information-of-neighbors': [
     ],
@@ -553,6 +585,8 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
     ],
     'ebau-number': [
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
     ],
     'inquiry': [
@@ -585,6 +619,8 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
     'dossierpruefung': [
     ],
     'ebau-number': [
+    ],
+    'geometer': [
     ],
     'information-of-neighbors': [
     ],
@@ -621,6 +657,8 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
     ],
     'ebau-number': [
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
     ],
     'inquiry': [
@@ -653,6 +691,8 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
     'dossierpruefung': [
     ],
     'ebau-number': [
+    ],
+    'geometer': [
     ],
     'information-of-neighbors': [
     ],
@@ -687,6 +727,8 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
     ],
     'ebau-number': [
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
     ],
     'inquiry': [
@@ -719,6 +761,8 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
     'dossierpruefung': [
     ],
     'ebau-number': [
+    ],
+    'geometer': [
     ],
     'information-of-neighbors': [
     ],
@@ -753,6 +797,8 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
     ],
     'ebau-number': [
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
     ],
     'inquiry': [
@@ -785,6 +831,8 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
     'dossierpruefung': [
     ],
     'ebau-number': [
+    ],
+    'geometer': [
     ],
     'information-of-neighbors': [
     ],
@@ -819,6 +867,8 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
     ],
     'ebau-number': [
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
     ],
     'inquiry': [
@@ -851,6 +901,8 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
     'dossierpruefung': [
     ],
     'ebau-number': [
+    ],
+    'geometer': [
     ],
     'information-of-neighbors': [
     ],
@@ -886,6 +938,8 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
     ],
     'ebau-number': [
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
     ],
     'inquiry': [
@@ -918,6 +972,8 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
     'dossierpruefung': [
     ],
     'ebau-number': [
+    ],
+    'geometer': [
     ],
     'information-of-neighbors': [
     ],
@@ -953,6 +1009,8 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
     'dossierpruefung': [
     ],
     'ebau-number': [
+    ],
+    'geometer': [
     ],
     'information-of-neighbors': [
     ],
@@ -990,6 +1048,8 @@ snapshots['test_instance_permissions_be[construction-control-construction-contro
     ],
     'ebau-number': [
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
     ],
     'inquiry': [
@@ -1025,6 +1085,8 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
     ],
     'ebau-number': [
         'read'
+    ],
+    'geometer': [
     ],
     'information-of-neighbors': [
         'read'
@@ -1065,6 +1127,8 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
     'ebau-number': [
         'read'
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
         'read'
     ],
@@ -1103,6 +1167,8 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
     ],
     'ebau-number': [
         'read'
+    ],
+    'geometer': [
     ],
     'information-of-neighbors': [
         'read'
@@ -1145,6 +1211,8 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
     'ebau-number': [
         'read'
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
         'read'
     ],
@@ -1184,6 +1252,8 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
     'ebau-number': [
         'read'
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
     ],
     'inquiry': [
@@ -1220,6 +1290,8 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
     ],
     'ebau-number': [
         'read'
+    ],
+    'geometer': [
     ],
     'information-of-neighbors': [
         'read'
@@ -1260,6 +1332,8 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
     'ebau-number': [
         'read'
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
         'read'
     ],
@@ -1299,6 +1373,8 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
     'ebau-number': [
         'read'
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
         'read'
     ],
@@ -1337,6 +1413,8 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
     ],
     'ebau-number': [
         'read'
+    ],
+    'geometer': [
     ],
     'information-of-neighbors': [
         'read'
@@ -1378,6 +1456,8 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
         'read',
         'write'
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
         'read'
     ],
@@ -1417,6 +1497,8 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
     'ebau-number': [
         'read'
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
     ],
     'inquiry': [
@@ -1452,6 +1534,8 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
     ],
     'ebau-number': [
         'read'
+    ],
+    'geometer': [
     ],
     'information-of-neighbors': [
         'read'
@@ -1492,6 +1576,8 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
     'ebau-number': [
         'read'
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
         'read'
     ],
@@ -1531,6 +1617,8 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
     ],
     'ebau-number': [
         'read'
+    ],
+    'geometer': [
     ],
     'information-of-neighbors': [
         'read'
@@ -1574,6 +1662,8 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
         'read',
         'write'
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
     ],
     'inquiry': [
@@ -1598,6 +1688,80 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
     ]
 }
 
+snapshots['test_instance_permissions_be[geometer-lead-geometer-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'decision': [
+    ],
+    'dossierpruefung': [
+    ],
+    'ebau-number': [
+    ],
+    'geometer': [
+        'read',
+        'write'
+    ],
+    'information-of-neighbors': [
+    ],
+    'inquiry': [
+        'read',
+        'write'
+    ],
+    'inquiry-answer': [
+        'read',
+        'write'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+    ],
+    'publikation': [
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[geometer-readonly-geometer-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'decision': [
+    ],
+    'dossierpruefung': [
+    ],
+    'ebau-number': [
+    ],
+    'geometer': [
+        'read',
+        'write'
+    ],
+    'information-of-neighbors': [
+    ],
+    'inquiry': [
+        'read',
+        'write'
+    ],
+    'inquiry-answer': [
+        'read',
+        'write'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+    ],
+    'publikation': [
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
 snapshots['test_instance_permissions_be[municipality-lead-district-circulation-instance__user0] 1'] = {
     'case-meta': [
         'read',
@@ -1612,6 +1776,8 @@ snapshots['test_instance_permissions_be[municipality-lead-district-circulation-i
     ],
     'ebau-number': [
         'read'
+    ],
+    'geometer': [
     ],
     'information-of-neighbors': [
         'read',
@@ -1657,6 +1823,8 @@ snapshots['test_instance_permissions_be[municipality-lead-district-circulation_i
     'ebau-number': [
         'read'
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
         'read',
         'write'
@@ -1699,6 +1867,8 @@ snapshots['test_instance_permissions_be[municipality-lead-district-conclusion-in
     ],
     'ebau-number': [
         'read'
+    ],
+    'geometer': [
     ],
     'information-of-neighbors': [
         'read',
@@ -1746,6 +1916,8 @@ snapshots['test_instance_permissions_be[municipality-lead-district-coordination-
     'ebau-number': [
         'read'
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
         'read',
         'write'
@@ -1789,6 +1961,8 @@ snapshots['test_instance_permissions_be[municipality-lead-district-correction-in
     'ebau-number': [
         'read'
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
     ],
     'inquiry': [
@@ -1827,6 +2001,8 @@ snapshots['test_instance_permissions_be[municipality-lead-district-evaluated-ins
     ],
     'ebau-number': [
         'read'
+    ],
+    'geometer': [
     ],
     'information-of-neighbors': [
         'read'
@@ -1868,6 +2044,8 @@ snapshots['test_instance_permissions_be[municipality-lead-district-finished-inst
     'ebau-number': [
         'read'
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
         'read'
     ],
@@ -1907,6 +2085,8 @@ snapshots['test_instance_permissions_be[municipality-lead-district-finished_inte
     ],
     'ebau-number': [
         'read'
+    ],
+    'geometer': [
     ],
     'information-of-neighbors': [
         'read'
@@ -1948,6 +2128,8 @@ snapshots['test_instance_permissions_be[municipality-lead-district-in_progress-i
     ],
     'ebau-number': [
         'read'
+    ],
+    'geometer': [
     ],
     'information-of-neighbors': [
         'read',
@@ -1994,6 +2176,8 @@ snapshots['test_instance_permissions_be[municipality-lead-district-in_progress_i
         'read',
         'write'
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
         'read',
         'write'
@@ -2036,6 +2220,8 @@ snapshots['test_instance_permissions_be[municipality-lead-district-new-instance_
     'ebau-number': [
         'read'
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
     ],
     'inquiry': [
@@ -2072,6 +2258,8 @@ snapshots['test_instance_permissions_be[municipality-lead-district-rejected-inst
     ],
     'ebau-number': [
         'read'
+    ],
+    'geometer': [
     ],
     'information-of-neighbors': [
         'read',
@@ -2115,6 +2303,8 @@ snapshots['test_instance_permissions_be[municipality-lead-district-sb1-instance_
     'ebau-number': [
         'read'
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
         'read',
         'write'
@@ -2157,6 +2347,8 @@ snapshots['test_instance_permissions_be[municipality-lead-district-sb2-instance_
     ],
     'ebau-number': [
         'read'
+    ],
+    'geometer': [
     ],
     'information-of-neighbors': [
         'read',
@@ -2203,6 +2395,8 @@ snapshots['test_instance_permissions_be[municipality-lead-district-subm-instance
         'read',
         'write'
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
     ],
     'inquiry': [
@@ -2242,6 +2436,8 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-circulati
     ],
     'ebau-number': [
         'read'
+    ],
+    'geometer': [
     ],
     'information-of-neighbors': [
         'read',
@@ -2287,6 +2483,8 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-circulati
     'ebau-number': [
         'read'
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
         'read',
         'write'
@@ -2329,6 +2527,8 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-conclusio
     ],
     'ebau-number': [
         'read'
+    ],
+    'geometer': [
     ],
     'information-of-neighbors': [
         'read',
@@ -2376,6 +2576,8 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-coordinat
     'ebau-number': [
         'read'
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
         'read',
         'write'
@@ -2419,6 +2621,8 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-correctio
     'ebau-number': [
         'read'
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
     ],
     'inquiry': [
@@ -2457,6 +2661,8 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-evaluated
     ],
     'ebau-number': [
         'read'
+    ],
+    'geometer': [
     ],
     'information-of-neighbors': [
         'read'
@@ -2498,6 +2704,8 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-finished-
     'ebau-number': [
         'read'
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
         'read'
     ],
@@ -2537,6 +2745,8 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-finished_
     ],
     'ebau-number': [
         'read'
+    ],
+    'geometer': [
     ],
     'information-of-neighbors': [
         'read'
@@ -2578,6 +2788,8 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-in_progre
     ],
     'ebau-number': [
         'read'
+    ],
+    'geometer': [
     ],
     'information-of-neighbors': [
         'read',
@@ -2624,6 +2836,8 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-in_progre
         'read',
         'write'
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
         'read',
         'write'
@@ -2666,6 +2880,8 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-new-insta
     'ebau-number': [
         'read'
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
     ],
     'inquiry': [
@@ -2702,6 +2918,8 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-rejected-
     ],
     'ebau-number': [
         'read'
+    ],
+    'geometer': [
     ],
     'information-of-neighbors': [
         'read',
@@ -2745,6 +2963,8 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-sb1-insta
     'ebau-number': [
         'read'
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
         'read',
         'write'
@@ -2787,6 +3007,8 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-sb2-insta
     ],
     'ebau-number': [
         'read'
+    ],
+    'geometer': [
     ],
     'information-of-neighbors': [
         'read',
@@ -2833,6 +3055,8 @@ snapshots['test_instance_permissions_be[municipality-lead-municipality-subm-inst
         'read',
         'write'
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
     ],
     'inquiry': [
@@ -2870,6 +3094,8 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-circulati
     ],
     'ebau-number': [
         'read'
+    ],
+    'geometer': [
     ],
     'information-of-neighbors': [
         'read'
@@ -2910,6 +3136,8 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-circulati
     'ebau-number': [
         'read'
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
         'read'
     ],
@@ -2948,6 +3176,8 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-conclusio
     ],
     'ebau-number': [
         'read'
+    ],
+    'geometer': [
     ],
     'information-of-neighbors': [
         'read'
@@ -2990,6 +3220,8 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-coordinat
     'ebau-number': [
         'read'
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
         'read'
     ],
@@ -3029,6 +3261,8 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-correctio
     'ebau-number': [
         'read'
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
     ],
     'inquiry': [
@@ -3065,6 +3299,8 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-evaluated
     ],
     'ebau-number': [
         'read'
+    ],
+    'geometer': [
     ],
     'information-of-neighbors': [
         'read'
@@ -3105,6 +3341,8 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-finished-
     'ebau-number': [
         'read'
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
         'read'
     ],
@@ -3144,6 +3382,8 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-finished_
     'ebau-number': [
         'read'
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
         'read'
     ],
@@ -3182,6 +3422,8 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-in_progre
     ],
     'ebau-number': [
         'read'
+    ],
+    'geometer': [
     ],
     'information-of-neighbors': [
         'read'
@@ -3223,6 +3465,8 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-in_progre
         'read',
         'write'
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
         'read'
     ],
@@ -3262,6 +3506,8 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-new-insta
     'ebau-number': [
         'read'
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
     ],
     'inquiry': [
@@ -3297,6 +3543,8 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-rejected-
     ],
     'ebau-number': [
         'read'
+    ],
+    'geometer': [
     ],
     'information-of-neighbors': [
         'read'
@@ -3337,6 +3585,8 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-sb1-insta
     'ebau-number': [
         'read'
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
         'read'
     ],
@@ -3376,6 +3626,8 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-sb2-insta
     ],
     'ebau-number': [
         'read'
+    ],
+    'geometer': [
     ],
     'information-of-neighbors': [
         'read'
@@ -3419,6 +3671,8 @@ snapshots['test_instance_permissions_be[municipality-readonly-district-subm-inst
         'read',
         'write'
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
     ],
     'inquiry': [
@@ -3455,6 +3709,8 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-circu
     ],
     'ebau-number': [
         'read'
+    ],
+    'geometer': [
     ],
     'information-of-neighbors': [
         'read'
@@ -3495,6 +3751,8 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-circu
     'ebau-number': [
         'read'
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
         'read'
     ],
@@ -3533,6 +3791,8 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-concl
     ],
     'ebau-number': [
         'read'
+    ],
+    'geometer': [
     ],
     'information-of-neighbors': [
         'read'
@@ -3575,6 +3835,8 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-coord
     'ebau-number': [
         'read'
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
         'read'
     ],
@@ -3614,6 +3876,8 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-corre
     'ebau-number': [
         'read'
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
     ],
     'inquiry': [
@@ -3650,6 +3914,8 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-evalu
     ],
     'ebau-number': [
         'read'
+    ],
+    'geometer': [
     ],
     'information-of-neighbors': [
         'read'
@@ -3690,6 +3956,8 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-finis
     'ebau-number': [
         'read'
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
         'read'
     ],
@@ -3729,6 +3997,8 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-finis
     'ebau-number': [
         'read'
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
         'read'
     ],
@@ -3767,6 +4037,8 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-in_pr
     ],
     'ebau-number': [
         'read'
+    ],
+    'geometer': [
     ],
     'information-of-neighbors': [
         'read'
@@ -3808,6 +4080,8 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-in_pr
         'read',
         'write'
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
         'read'
     ],
@@ -3847,6 +4121,8 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-new-i
     'ebau-number': [
         'read'
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
     ],
     'inquiry': [
@@ -3882,6 +4158,8 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-rejec
     ],
     'ebau-number': [
         'read'
+    ],
+    'geometer': [
     ],
     'information-of-neighbors': [
         'read'
@@ -3922,6 +4200,8 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-sb1-i
     'ebau-number': [
         'read'
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
         'read'
     ],
@@ -3961,6 +4241,8 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-sb2-i
     ],
     'ebau-number': [
         'read'
+    ],
+    'geometer': [
     ],
     'information-of-neighbors': [
         'read'
@@ -4004,6 +4286,8 @@ snapshots['test_instance_permissions_be[municipality-readonly-municipality-subm-
         'read',
         'write'
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
     ],
     'inquiry': [
@@ -4038,6 +4322,8 @@ snapshots['test_instance_permissions_be[service-lead-service-circulation-instanc
         'read'
     ],
     'ebau-number': [
+    ],
+    'geometer': [
     ],
     'information-of-neighbors': [
         'read'
@@ -4075,6 +4361,8 @@ snapshots['test_instance_permissions_be[service-lead-service-circulation_init-in
     ],
     'ebau-number': [
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
         'read'
     ],
@@ -4110,6 +4398,8 @@ snapshots['test_instance_permissions_be[service-lead-service-conclusion-instance
         'read'
     ],
     'ebau-number': [
+    ],
+    'geometer': [
     ],
     'information-of-neighbors': [
         'read'
@@ -4149,6 +4439,8 @@ snapshots['test_instance_permissions_be[service-lead-service-coordination-instan
     ],
     'ebau-number': [
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
         'read'
     ],
@@ -4184,6 +4476,8 @@ snapshots['test_instance_permissions_be[service-lead-service-correction-instance
     ],
     'ebau-number': [
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
     ],
     'inquiry': [
@@ -4217,6 +4511,8 @@ snapshots['test_instance_permissions_be[service-lead-service-evaluated-instance_
         'read'
     ],
     'ebau-number': [
+    ],
+    'geometer': [
     ],
     'information-of-neighbors': [
         'read'
@@ -4254,6 +4550,8 @@ snapshots['test_instance_permissions_be[service-lead-service-finished-instance__
     ],
     'ebau-number': [
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
         'read'
     ],
@@ -4289,6 +4587,8 @@ snapshots['test_instance_permissions_be[service-lead-service-finished_internal-i
         'read'
     ],
     'ebau-number': [
+    ],
+    'geometer': [
     ],
     'information-of-neighbors': [
         'read'
@@ -4326,6 +4626,8 @@ snapshots['test_instance_permissions_be[service-lead-service-in_progress-instanc
     ],
     'ebau-number': [
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
         'read'
     ],
@@ -4362,6 +4664,8 @@ snapshots['test_instance_permissions_be[service-lead-service-in_progress_interna
     ],
     'ebau-number': [
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
         'read'
     ],
@@ -4397,6 +4701,8 @@ snapshots['test_instance_permissions_be[service-lead-service-new-instance__user0
     ],
     'ebau-number': [
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
     ],
     'inquiry': [
@@ -4429,6 +4735,8 @@ snapshots['test_instance_permissions_be[service-lead-service-rejected-instance__
         'read'
     ],
     'ebau-number': [
+    ],
+    'geometer': [
     ],
     'information-of-neighbors': [
         'read'
@@ -4466,6 +4774,8 @@ snapshots['test_instance_permissions_be[service-lead-service-sb1-instance__user0
     ],
     'ebau-number': [
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
         'read'
     ],
@@ -4501,6 +4811,8 @@ snapshots['test_instance_permissions_be[service-lead-service-sb2-instance__user0
         'read'
     ],
     'ebau-number': [
+    ],
+    'geometer': [
     ],
     'information-of-neighbors': [
         'read'
@@ -4538,6 +4850,8 @@ snapshots['test_instance_permissions_be[service-lead-service-subm-instance__user
     ],
     'ebau-number': [
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
     ],
     'inquiry': [
@@ -4571,6 +4885,8 @@ snapshots['test_instance_permissions_be[service-readonly-service-circulation-ins
         'read'
     ],
     'ebau-number': [
+    ],
+    'geometer': [
     ],
     'information-of-neighbors': [
         'read'
@@ -4608,6 +4924,8 @@ snapshots['test_instance_permissions_be[service-readonly-service-circulation_ini
     ],
     'ebau-number': [
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
         'read'
     ],
@@ -4643,6 +4961,8 @@ snapshots['test_instance_permissions_be[service-readonly-service-conclusion-inst
         'read'
     ],
     'ebau-number': [
+    ],
+    'geometer': [
     ],
     'information-of-neighbors': [
         'read'
@@ -4682,6 +5002,8 @@ snapshots['test_instance_permissions_be[service-readonly-service-coordination-in
     ],
     'ebau-number': [
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
         'read'
     ],
@@ -4717,6 +5039,8 @@ snapshots['test_instance_permissions_be[service-readonly-service-correction-inst
     ],
     'ebau-number': [
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
     ],
     'inquiry': [
@@ -4750,6 +5074,8 @@ snapshots['test_instance_permissions_be[service-readonly-service-evaluated-insta
         'read'
     ],
     'ebau-number': [
+    ],
+    'geometer': [
     ],
     'information-of-neighbors': [
         'read'
@@ -4787,6 +5113,8 @@ snapshots['test_instance_permissions_be[service-readonly-service-finished-instan
     ],
     'ebau-number': [
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
         'read'
     ],
@@ -4822,6 +5150,8 @@ snapshots['test_instance_permissions_be[service-readonly-service-finished_intern
         'read'
     ],
     'ebau-number': [
+    ],
+    'geometer': [
     ],
     'information-of-neighbors': [
         'read'
@@ -4859,6 +5189,8 @@ snapshots['test_instance_permissions_be[service-readonly-service-in_progress-ins
     ],
     'ebau-number': [
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
         'read'
     ],
@@ -4895,6 +5227,8 @@ snapshots['test_instance_permissions_be[service-readonly-service-in_progress_int
     ],
     'ebau-number': [
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
         'read'
     ],
@@ -4930,6 +5264,8 @@ snapshots['test_instance_permissions_be[service-readonly-service-new-instance__u
     ],
     'ebau-number': [
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
     ],
     'inquiry': [
@@ -4962,6 +5298,8 @@ snapshots['test_instance_permissions_be[service-readonly-service-rejected-instan
         'read'
     ],
     'ebau-number': [
+    ],
+    'geometer': [
     ],
     'information-of-neighbors': [
         'read'
@@ -4999,6 +5337,8 @@ snapshots['test_instance_permissions_be[service-readonly-service-sb1-instance__u
     ],
     'ebau-number': [
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
         'read'
     ],
@@ -5034,6 +5374,8 @@ snapshots['test_instance_permissions_be[service-readonly-service-sb2-instance__u
         'read'
     ],
     'ebau-number': [
+    ],
+    'geometer': [
     ],
     'information-of-neighbors': [
         'read'
@@ -5071,6 +5413,8 @@ snapshots['test_instance_permissions_be[service-readonly-service-subm-instance__
     ],
     'ebau-number': [
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
     ],
     'inquiry': [
@@ -5106,6 +5450,8 @@ snapshots['test_instance_permissions_be[support-None-circulation-instance__user0
         'write'
     ],
     'ebau-number': [
+    ],
+    'geometer': [
     ],
     'information-of-neighbors': [
         'read',
@@ -5154,6 +5500,8 @@ snapshots['test_instance_permissions_be[support-None-circulation_init-instance__
     ],
     'ebau-number': [
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
         'read',
         'write'
@@ -5200,6 +5548,8 @@ snapshots['test_instance_permissions_be[support-None-conclusion-instance__user0]
         'write'
     ],
     'ebau-number': [
+    ],
+    'geometer': [
     ],
     'information-of-neighbors': [
         'read',
@@ -5248,6 +5598,8 @@ snapshots['test_instance_permissions_be[support-None-coordination-instance__user
     ],
     'ebau-number': [
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
         'read',
         'write'
@@ -5294,6 +5646,8 @@ snapshots['test_instance_permissions_be[support-None-correction-instance__user0]
         'write'
     ],
     'ebau-number': [
+    ],
+    'geometer': [
     ],
     'information-of-neighbors': [
         'read',
@@ -5342,6 +5696,8 @@ snapshots['test_instance_permissions_be[support-None-evaluated-instance__user0] 
     ],
     'ebau-number': [
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
         'read',
         'write'
@@ -5388,6 +5744,8 @@ snapshots['test_instance_permissions_be[support-None-finished-instance__user0] 1
         'write'
     ],
     'ebau-number': [
+    ],
+    'geometer': [
     ],
     'information-of-neighbors': [
         'read',
@@ -5436,6 +5794,8 @@ snapshots['test_instance_permissions_be[support-None-finished_internal-instance_
     ],
     'ebau-number': [
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
         'read',
         'write'
@@ -5482,6 +5842,8 @@ snapshots['test_instance_permissions_be[support-None-in_progress-instance__user0
         'write'
     ],
     'ebau-number': [
+    ],
+    'geometer': [
     ],
     'information-of-neighbors': [
         'read',
@@ -5530,6 +5892,8 @@ snapshots['test_instance_permissions_be[support-None-in_progress_internal-instan
     ],
     'ebau-number': [
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
         'read',
         'write'
@@ -5576,6 +5940,8 @@ snapshots['test_instance_permissions_be[support-None-new-instance__user0] 1'] = 
         'write'
     ],
     'ebau-number': [
+    ],
+    'geometer': [
     ],
     'information-of-neighbors': [
         'read',
@@ -5624,6 +5990,8 @@ snapshots['test_instance_permissions_be[support-None-rejected-instance__user0] 1
     ],
     'ebau-number': [
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
         'read',
         'write'
@@ -5670,6 +6038,8 @@ snapshots['test_instance_permissions_be[support-None-sb1-instance__user0] 1'] = 
         'write'
     ],
     'ebau-number': [
+    ],
+    'geometer': [
     ],
     'information-of-neighbors': [
         'read',
@@ -5718,6 +6088,8 @@ snapshots['test_instance_permissions_be[support-None-sb2-instance__user0] 1'] = 
     ],
     'ebau-number': [
     ],
+    'geometer': [
+    ],
     'information-of-neighbors': [
         'read',
         'write'
@@ -5764,6 +6136,8 @@ snapshots['test_instance_permissions_be[support-None-subm-instance__user0] 1'] =
         'write'
     ],
     'ebau-number': [
+    ],
+    'geometer': [
     ],
     'information-of-neighbors': [
         'read',
