@@ -121,12 +121,14 @@ class CustomDynamicGroups(BaseDynamicGroups):
         responsible_service = self._get_responsible_service(
             case, "municipality", context
         )
-        geometer_service_relation = ServiceRelation.objects.filter(
+        geometer_service_relations = ServiceRelation.objects.filter(
             function=ServiceRelation.FUNCTION_GEOMETER,
-            receiver=int(responsible_service[0]),
-        ).first()
+            receiver__in=responsible_service,
+        )
 
-        if geometer_service_relation and geometer_service_relation.provider:
-            return [str(geometer_service_relation.provider.pk)]
-
-        return []
+        return [
+            str(provider_id)
+            for provider_id in geometer_service_relations.values_list(
+                "provider_id", flat=True
+            )
+        ]

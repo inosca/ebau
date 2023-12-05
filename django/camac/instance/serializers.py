@@ -906,6 +906,9 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
 
     @permission_aware
     def _get_geometer_form_permissions(self, instance):
+        return set()
+
+    def _get_geometer_form_permissions_for_geometer(self, instance):
         # TODO: Are the form permissions too lenient?
         return set(["read", "write"])
 

@@ -750,6 +750,7 @@ def caluma_forms_be(settings):
     caluma_form_models.Form.objects.create(slug="information-of-neighbors")
     caluma_form_models.Form.objects.create(slug="ebau-number")
     caluma_form_models.Form.objects.create(slug="decision")
+    caluma_form_models.Form.objects.create(slug="geometer")
 
     # dynamic choice options get cached, so we clear them
     # to ensure the new "gemeinde" options will be valid

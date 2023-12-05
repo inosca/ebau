@@ -26,7 +26,7 @@ class CustomDynamicTasks(BaseDynamicTasks):
         )
 
         if involve_geometer == "decision-geometer-yes":
-            tasks = [*tasks, "geometer"]
+            tasks.append("geometer")
 
         return tasks
 
