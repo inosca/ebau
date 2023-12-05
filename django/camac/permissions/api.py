@@ -4,6 +4,7 @@ from typing import List, Optional, Union
 
 from django.conf import settings
 from django.core.cache import cache
+from django.db.models import QuerySet, Subquery
 from django.utils import timezone
 
 from camac.instance.models import Instance
@@ -201,11 +202,29 @@ class PermissionManager:
         _clear_cache_for_acl(acl)
 
     def filter_queryset(self, queryset, instance_prefix):
+        """Filter a given queryset to only show the entries with active ACL.
+
+        The queryset is limited to those entries where the current user has
+        an active InstanceACL.
+        """
+        return queryset.filter(self.get_q_object(instance_prefix))
+
+    def get_q_object(self, instance_prefix):
+        """Return a Q object to only show the entries with active ACL.
+
+        The Q object will filter a queryset such that only entries are returned
+        where the current user has an active InstanceACL.
+
+        In contrast to the `filter_queryset()` method above, this is useful if
+        you need to invert the filtering mechanism, or combine it with other
+        expressions (combine using OR to extend visibilities for example)
+        """
+
         acl_prefix = f"{instance_prefix}__acls" if instance_prefix else "acls"
         filter = InstanceACL.filter_for_current_user(
             **self.userinfo.to_kwargs(), acl_prefix=acl_prefix
         )
-        return queryset.filter(filter)
+        return filter
 
 
 def grant(instance, **kwargs):
