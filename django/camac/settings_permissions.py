@@ -78,15 +78,81 @@ PERMISSIONS: PermissionsConfig = {
             #    ("permissions-grant-admin", ["*"]),
             # ],
             "geometer": [
-                ("form-read", ["sb1", "sb2"]),
-                ("workitems-read", ["sb1", "sb2"]),
-                ("communications-read", ["sb1", "sb2"]),
+                # TODO: For ACLs that can be manually granted, read-permissions
+                # for the relevant modules should be available at any time the
+                # ACL can be granted. System-managed ACLs and write permissions
+                # should be more restrictive, since we know when they are created.
+                ("form-read", ["*"]),
                 # all documents can be read, but only a specific category can be written
-                ("responsible-service-read", ["sb1", "sb2"]),
-                ("documents-read", ["sb1", "sb2"]),
-                ("journal-read", ["sb1", "sb2"]),
-                ("history-read", ["sb1", "sb2"]),
-                ("documents-write-sb1-paper", ["sb1", "sb2"]),
+                ("documents-read", ["*"]),
+                # TODO: Handle attachment section permissions through permissions module?
+                # ("documents-write-sb1-paper", ["sb1", "sb2"]),
+                (
+                    "workitems-read",
+                    [
+                        "sb1",
+                        "sb2",
+                        "conclusion",
+                        "finished",
+                        "finished_internal",
+                        "evaluated",
+                    ],
+                ),
+                (
+                    "communications-read",
+                    [
+                        "sb1",
+                        "sb2",
+                        "conclusion",
+                        "finished",
+                        "finished_internal",
+                        "evaluated",
+                    ],
+                ),
+                (
+                    "geometer-read",
+                    [
+                        "sb1",
+                        "sb2",
+                        "conclusion",
+                        "finished",
+                        "finished_internal",
+                        "evaluated",
+                    ],
+                ),
+                (
+                    "responsible-service-read",
+                    [
+                        "sb1",
+                        "sb2",
+                        "conclusion",
+                        "finished",
+                        "finished_internal",
+                        "evaluated",
+                    ],
+                ),
+                (
+                    "journal-read",
+                    [
+                        "sb1",
+                        "sb2",
+                        "conclusion",
+                        "finished",
+                        "finished_internal",
+                        "evaluated",
+                    ],
+                ),
+                (
+                    "history-read",
+                    [
+                        "sb1",
+                        "sb2",
+                        "conclusion",
+                        "finished",
+                        "finished_internal",
+                        "evaluated",
+                    ],
+                ),
             ],
         },
         "EVENT_HANDLER": "camac.permissions.config.kt_bern.PermissionEventHandlerBE",
