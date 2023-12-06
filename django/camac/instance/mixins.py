@@ -467,6 +467,10 @@ class InstanceEditableMixin(AttributeMixin):
     def get_editable_for_commission(self, instance):
         return set()
 
+    def get_editable_for_geometer(self, instance):
+        manager = PermissionManager.from_request(get_request(self))
+        return manager.get_permissions(instance)
+
     def get_editable_for_support(self, instance):
         return {"instance", "form", "document"}
 
@@ -536,6 +540,9 @@ class InstanceEditableMixin(AttributeMixin):
         )
 
     def validate_instance_for_canton(self, instance):
+        return self._validate_instance_editablity(instance)
+
+    def validate_instance_for_geometer(self, instance):
         return self._validate_instance_editablity(instance)
 
     def validate_instance_for_support(self, instance):

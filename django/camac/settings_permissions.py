@@ -52,6 +52,14 @@ PermissionConfigEntry = TypedDict(
 
 PermissionsConfig = Dict[str, PermissionConfigEntry]
 
+BE_GEOMETER_DEFAULT_ACCESSIBLE_STATES = [
+    "sb1",
+    "sb2",
+    "conclusion",
+    "finished",
+    "finished_internal",
+    "evaluated",
+]
 
 PERMISSIONS: PermissionsConfig = {
     "default": {},
@@ -87,83 +95,17 @@ PERMISSIONS: PermissionsConfig = {
                 ("documents-read", ["*"]),
                 # TODO: Handle attachment section permissions through permissions module?
                 # ("documents-write-sb1-paper", ["sb1", "sb2"]),
-                (
-                    "workitems-read",
-                    [
-                        "sb1",
-                        "sb2",
-                        "conclusion",
-                        "finished",
-                        "finished_internal",
-                        "evaluated",
-                    ],
-                ),
-                (
-                    "communications-read",
-                    [
-                        "sb1",
-                        "sb2",
-                        "conclusion",
-                        "finished",
-                        "finished_internal",
-                        "evaluated",
-                    ],
-                ),
-                (
-                    "templates-read",
-                    [
-                        "sb1",
-                        "sb2",
-                        "conclusion",
-                        "finished",
-                        "finished_internal",
-                        "evaluated",
-                    ],
-                ),
-                (
-                    "geometer-read",
-                    [
-                        "sb1",
-                        "sb2",
-                        "conclusion",
-                        "finished",
-                        "finished_internal",
-                        "evaluated",
-                    ],
-                ),
-                (
-                    "responsible-service-read",
-                    [
-                        "sb1",
-                        "sb2",
-                        "conclusion",
-                        "finished",
-                        "finished_internal",
-                        "evaluated",
-                    ],
-                ),
-                (
-                    "journal-read",
-                    [
-                        "sb1",
-                        "sb2",
-                        "conclusion",
-                        "finished",
-                        "finished_internal",
-                        "evaluated",
-                    ],
-                ),
-                (
-                    "history-read",
-                    [
-                        "sb1",
-                        "sb2",
-                        "conclusion",
-                        "finished",
-                        "finished_internal",
-                        "evaluated",
-                    ],
-                ),
+                # TODO: permission "document" corresponds to editable permission, should be changed
+                # to permissions module naming convention once the InstanceEditableMixin
+                # is refactored / removed
+                ("document", BE_GEOMETER_DEFAULT_ACCESSIBLE_STATES),
+                ("workitems-read", BE_GEOMETER_DEFAULT_ACCESSIBLE_STATES),
+                ("communications-read", BE_GEOMETER_DEFAULT_ACCESSIBLE_STATES),
+                ("templates-read", BE_GEOMETER_DEFAULT_ACCESSIBLE_STATES),
+                ("geometer-read", BE_GEOMETER_DEFAULT_ACCESSIBLE_STATES),
+                ("responsible-service-read", BE_GEOMETER_DEFAULT_ACCESSIBLE_STATES),
+                ("journal-read", BE_GEOMETER_DEFAULT_ACCESSIBLE_STATES),
+                ("history-read", BE_GEOMETER_DEFAULT_ACCESSIBLE_STATES),
             ],
         },
         "EVENT_HANDLER": "camac.permissions.config.kt_bern.PermissionEventHandlerBE",
