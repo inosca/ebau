@@ -12,6 +12,7 @@ from camac.permissions import models
 from camac.permissions.models import AccessLevel, InstanceACL
 from camac.user import models as user_models
 from camac.user.models import Service, User
+from camac.utils import call_with_accepted_kwargs
 
 from . import exceptions
 
@@ -105,10 +106,10 @@ class PermissionManager:
             for perm, condition in permissions:
                 if callable(condition):
                     # This is a dynamic permission
-                    kwargs = _get_callback_kwargs(
-                        condition, {"userinfo": self.userinfo, "instance": instance}
+                    has_perm = call_with_accepted_kwargs(
+                        condition, userinfo=self.userinfo, instance=instance
                     )
-                    if condition(**kwargs):
+                    if has_perm:
                         granted_permissions.append(perm)
                     continue
 
@@ -342,12 +343,3 @@ def _clear_cache_for_acl(acl):
         # prefix, so we just evict all. This should only happen in testing,
         # as we normally do have a Memcache instance connected
         cache.clear()
-
-
-def _get_callback_kwargs(callback, possible_kwargs):
-    """Return only the kwargs that the given callback accepts."""
-    new_kwargs = {}
-    for k, v in possible_kwargs.items():
-        if k in callback.__code__.co_varnames:
-            new_kwargs[k] = v
-    return new_kwargs

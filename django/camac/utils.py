@@ -215,3 +215,40 @@ def get_dict_item(obj, item, sep=".", default=_SENTINEL):
                 raise KeyError(err) from exc
             return default
     return obj
+
+
+def get_function_kwargs(callback, possible_kwargs):
+    """Return only the kwargs that the given callable accepts.
+
+    This is useful if different callbacks can be configured, and
+    you don't want every implementation to take every possible argument.
+
+    Example:
+    >>> def foo(x, y):
+    >>>     pass
+    >>> possible_args = {"x": 1, "y": 2, "z": 3, "a": 99}
+    >>> get_function_kwargs(foo, possible_args)
+    {"x": 1, "y": 2}
+    """
+    new_kwargs = {}
+    for k, v in possible_kwargs.items():
+        if k in callback.__code__.co_varnames:
+            new_kwargs[k] = v
+    return new_kwargs
+
+
+def call_with_accepted_kwargs(func, **kwargs):
+    """Call the given function, but pass on only the kwargs that it accepts.
+
+    You can pass in as many kwargs as are available, but the called function
+    does not need to accept them all if it doesn't need them. This simplifies
+    generic callback interface design.
+
+    Example:
+    >>> def foo(x, y):
+    >>>     print(f"x={x}, y={y}")
+    >>> call_with_accepted_kwargs(foo, x=3, y=5, z=99, a=1)
+    x=3, y=5
+    """
+    accepted_kwargs = get_function_kwargs(func, kwargs)
+    return func(**accepted_kwargs)
