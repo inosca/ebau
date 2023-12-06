@@ -1690,6 +1690,7 @@ APPLICATIONS = {
             "municipality-admin",
             "service-admin",
             "construction-control-admin",
+            "geometer-admin",
         ],
         # please also update django/Makefile command when changing apps here
         "SEQUENCE_NAMESPACE_APPS": ["core", "responsible", "document"],
