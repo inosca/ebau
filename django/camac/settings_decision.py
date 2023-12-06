@@ -78,6 +78,19 @@ DECISION = {
     },
     "kt_gr": {
         "ENABLED": True,
+        "ANSWERS": {
+            "DECISION": {
+                "APPROVED": "decision-decision-approved",
+                "REJECTED": "decision-decision-rejected",
+                "WRITTEN_OFF": "decision-decision-written-off",
+                "POSITIVE": "decision-decision-positive",
+                "NEGATIVE": "decision-decision-negative",
+                "POSITIVE_WITH_RESERVATION": "decision-decision-positive-with-reservation",
+                "RETREAT": "decision-decision-reatread",
+                "OTHER": "decision-decision-other",
+                "OTHER_PRELIMINARY": "decision-decision-other-preliminary",
+            },
+        },
     },
     "test": {
         "ENABLED": True,

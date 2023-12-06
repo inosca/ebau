@@ -394,6 +394,9 @@ APPLICATIONS = {
             "koor_sd_users",
             "koor_afe_users",
             "responsible_koor",
+            # GR
+            "aib",
+            "gvg",
         ],
         "ATTACHMENT_SECTION_INTERNAL": 4,
         "DOCUMENT_BACKEND": "camac-ng",
@@ -3247,7 +3250,6 @@ APPLICATIONS = {
         "CALUMA": {
             "MANUAL_WORK_ITEM_TASK": "create-manual-workitems",
             "SUBMIT_TASKS": ["submit"],
-            "CONSTRUCTION_MONITORING_TASK": "construction-monitoring",
             "FORM_PERMISSIONS": ["main", "inquiry", "inquiry-answer"],
             "HAS_PROJECT_CHANGE": True,
             "CREATE_IN_PROCESS": False,
@@ -3302,7 +3304,10 @@ APPLICATIONS = {
                     "history_text": _("Construction monitoring performed"),
                     "notification": {
                         "template_slug": "bauabnahme",
-                        "recipient_types": ["construction_monitoring"],
+                        "recipient_types": ["aib"],
+                        "conditions": {
+                            "forms": ["baugesuch", "bauanzeige", "solaranlage"]
+                        },
                     },
                 },
             },
@@ -3337,7 +3342,7 @@ APPLICATIONS = {
             "document_downloaded": "camac.document.side_effects.create_workflow_entry",
         },
         "DOSSIER_IMPORT": {},
-        "CUSTOM_NOTIFICATION_TYPES": [],
+        "CUSTOM_NOTIFICATION_TYPES": ["gvg", "aib"],
         "NOTIFICATIONS": {
             "SUBMIT": [
                 {
@@ -3361,6 +3366,10 @@ APPLICATIONS = {
                 {
                     "template_slug": "entscheid-behoerden",
                     "recipient_types": ["leitbehoerde"],
+                },
+                {
+                    "template_slug": "entscheid-behoerden",
+                    "recipient_types": ["gvg"],
                 },
             ],
             "DOSSIERKORREKTUR": [
