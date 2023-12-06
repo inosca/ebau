@@ -37,6 +37,7 @@ from camac.notification.serializers import (
         ("Municipality", 2, 1, "email", None),
         ("Canton", 2, 1, "textcomponent", None),
         ("Service", 2, 1, "textcomponent", LazyFixture("service")),
+        ("Geometer", 2, 1, "textcomponent", LazyFixture("service")),
     ],
 )
 def test_notification_template_list(
@@ -59,6 +60,7 @@ def test_notification_template_list(
         ("Municipality", status.HTTP_200_OK),
         ("Canton", status.HTTP_200_OK),
         ("Service", status.HTTP_200_OK),
+        ("Geometer", status.HTTP_200_OK),
     ],
 )
 def test_notification_template_update(admin_client, notification_template, status_code):
@@ -74,6 +76,7 @@ def test_notification_template_update(admin_client, notification_template, statu
         ("Canton", status.HTTP_201_CREATED),
         ("Service", status.HTTP_201_CREATED),
         ("Municipality", status.HTTP_201_CREATED),
+        ("Geometer", status.HTTP_201_CREATED),
     ],
 )
 def test_notification_template_create(admin_client, notification_template, status_code):
@@ -107,6 +110,7 @@ def test_notification_template_create(admin_client, notification_template, statu
         ("Municipality", status.HTTP_204_NO_CONTENT),
         ("Canton", status.HTTP_204_NO_CONTENT),
         ("Service", status.HTTP_204_NO_CONTENT),
+        ("Geometer", status.HTTP_204_NO_CONTENT),
     ],
 )
 def test_notification_template_destroy(
