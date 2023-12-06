@@ -140,8 +140,14 @@ INSTALLED_APPS = [
     "django_json_widget",
 ]
 
-if DEBUG:
-    INSTALLED_APPS.append("django_extensions")
+if DEBUG:  # pragma: no cover
+    try:
+        __import__("django_extensions")
+        INSTALLED_APPS.append("django_extensions")
+    except ImportError:
+        # Nothing bad, just won't have django-extensions niceties installed
+        # (Most likely the container was built without dev dependencies)
+        pass
 
 MIDDLEWARE = [
     "django.contrib.sessions.middleware.SessionMiddleware",
