@@ -29,7 +29,7 @@ export default class InstanceAclModel extends Model {
   @belongsTo("service", { inverse: null, async: true }) service;
   @belongsTo("user", { inverse: null, async: true }) user;
 
-  @belongsTo("instance", { inverse: null, async: true }) instance;
+  @belongsTo("instance", { inverse: null, async: false }) instance;
   @belongsTo("user", { inverse: null, async: true }) createdByUser;
   @belongsTo("user", { inverse: null, async: true }) revokedByUser;
   @belongsTo("service", { inverse: null, async: true }) createdByService;
