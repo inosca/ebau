@@ -3,12 +3,16 @@ from functools import wraps
 from typing import Callable, Type
 
 from django.conf import settings
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 from django.utils.module_loading import import_string
 
 from camac.instance.models import Instance
+from camac.notification import utils as notification_utils
 
 from .api import PermissionManager
 from .exceptions import MissingEventHandler
+from .models import InstanceACL
 
 
 def decision_dispatch_method(fn: Callable) -> Callable:
@@ -152,3 +156,34 @@ def get_event_handler_class() -> Type[PermissionEventHandler]:
 
     # Fallback to the empty event handler if none has been configured
     return import_string(handler_name) if handler_name else EmptyEventHandler
+
+
+@receiver(post_save, sender=InstanceACL)
+def acl_created(sender, instance, created, **kwargs):
+    acl = instance
+    del instance  # just to avoid confusion
+
+    if not created:
+        return
+
+    if not acl.is_active():
+        # The ACL is inactive - we do not notify the affected users
+        # as they don't "profit" from the new ACL yet
+        return
+
+    for notification_config in settings.APPLICATION["NOTIFICATIONS"].get(
+        "PERMISSION_ACL_GRANTED", []
+    ):
+        notification_utils.send_mail_without_request(
+            notification_config["template_slug"],
+            username=None,
+            group_id=None,
+            instance={
+                "id": acl.instance.pk,
+                "type": "instances",
+            },
+            recipient_types=notification_config["recipient_types"],
+            metainfo={
+                "acl": acl,
+            },
+        )

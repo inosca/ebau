@@ -7,17 +7,25 @@ from camac.notification.serializers import (
 )
 from camac.user.models import Group, User
 
+Request = namedtuple("Request", ["user", "group", "query_params"])
 
-def send_mail_without_request(slug, username, group_id, **kwargs):
-    Request = namedtuple("Request", ["user", "group", "query_params"])
 
-    context = {
-        "request": Request(
-            user=User.objects.get(username=username),
-            group=Group.objects.get(pk=group_id),
-            query_params=[],
-        )
-    }
+def send_mail_without_request(slug, username=None, group_id=None, **kwargs):
+    """Send notification email if you don't have a HTTP request.
+
+    Note: You can leave out username and group_id. In that case, the emails
+    will be sent from the system / support account.
+    """
+    if not username or not group_id:
+        context = {}
+    else:
+        context = {
+            "request": Request(
+                user=User.objects.get(username=username),
+                group=Group.objects.get(pk=group_id),
+                query_params=[],
+            )
+        }
 
     return send_mail(
         slug,

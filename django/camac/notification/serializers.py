@@ -1024,6 +1024,10 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
         queryset=Circulation.objects.all(), required=False
     )
 
+    # Used for passing in additional information to the recipient
+    # functions
+    metainfo = serializers.DictField(required=False, default=None)
+
     SUBMITTER_TYPE_APPLICANT = "0"
     SUBMITTER_TYPE_PROJECT_AUTHOR = "1"
     SUBMITTER_LIST_CQI_BY_TYPE = {
@@ -1051,6 +1055,7 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             "work_item_addressed",
             "work_item_controlling",
             "additional_demand_inviter",
+            "acl_authorized",
             *settings.APPLICATION.get("CUSTOM_NOTIFICATION_TYPES", []),
         )
     )
@@ -1169,6 +1174,22 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             for applicant in instance.involved_applicants.all()
             if applicant.invitee
         ]
+
+    def _get_recipients_acl_authorized(self, instance):
+        recipients = []
+
+        acl = self.data["metainfo"]["acl"]
+        if not acl or not acl.is_active():
+            # TODO: Log? This should never happen: "ACL created"
+            # event, but no ACL exists or is active?
+            return []  # pragma: no cover
+
+        if acl.user:
+            recipients.append({"to": acl.user.email})
+        elif acl.service:
+            recipients.append({"to": acl.service.email})
+
+        return recipients
 
     def _get_responsible(self, instance, service, work_item=None):
         if not service or not service.notification:

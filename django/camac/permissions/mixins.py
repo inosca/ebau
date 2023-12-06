@@ -25,4 +25,6 @@ class PermissionVisibilityMixin:
         manager = PermissionManager.from_request(self.request)
 
         qs = manager.filter_queryset(qs, self.instance_prefix)
-        return qs
+        # Need to be distinct() because multiple ACLs could be effective
+        # for the same user/instance combo
+        return qs.distinct()
