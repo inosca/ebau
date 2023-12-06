@@ -51,7 +51,7 @@ def _configure_geometer_access(
         ("Canton", LazyFixture("user"), 14),
         ("Municipality", LazyFixture("user"), 13),
         ("Service", LazyFixture("user"), 13),
-        ("Geometer", LazyFixture("user"), 14),
+        ("Geometer", LazyFixture("user"), 16),
     ],
 )
 @pytest.mark.parametrize(
