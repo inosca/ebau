@@ -70,6 +70,7 @@ def test_me_service_municipality(
         ("Canton", 1),
         ("Municipality", 1),
         ("Coordination", 1),
+        ("Geometer", 1),
     ],
 )
 def test_user_list(admin_client, size):

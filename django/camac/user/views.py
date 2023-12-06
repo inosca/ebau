@@ -57,6 +57,10 @@ class UserView(ReadOnlyModelViewSet):
         queryset = super().get_queryset()
         return queryset.filter(groups__service=self.request.group.service).distinct()
 
+    def get_queryset_for_geometer(self):
+        queryset = super().get_queryset()
+        return queryset.filter(groups__service=self.request.group.service).distinct()
+
 
 class PublicUserView(ReadOnlyModelViewSet):
     swagger_schema = None
