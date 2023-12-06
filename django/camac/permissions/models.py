@@ -203,3 +203,10 @@ class InstanceACL(models.Model):
         if self.end_time is not None and self.end_time < ends_at:
             raise exceptions.RevocationRejected("Cannot extend ACL's lifetime")
         self.end_time = ends_at
+
+    def is_active(self):
+        now = timezone.now()
+        has_started = self.start_time <= now
+        has_ended = self.end_time and self.end_time < now
+
+        return has_started and not has_ended
