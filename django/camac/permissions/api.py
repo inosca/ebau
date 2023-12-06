@@ -98,7 +98,9 @@ class PermissionManager:
 
         for acl in acls:
             access_level = acl.access_level
-            permissions = settings.PERMISSIONS["ACCESS_LEVELS"][access_level.slug]
+            permissions = settings.PERMISSIONS["ACCESS_LEVELS"].get(
+                access_level.slug, []
+            )
             if acl.end_time:
                 # shorten expiry for the cache
                 expiry = min(expiry, acl.end_time)

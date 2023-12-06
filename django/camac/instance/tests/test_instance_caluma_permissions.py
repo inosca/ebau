@@ -78,6 +78,8 @@ def test_instance_permissions_be(
     use_caluma_form,
     snapshot,
     application_settings,
+    permissions_settings,
+    access_level,
 ):
     application_settings["ROLE_PERMISSIONS"] = settings.APPLICATIONS["kt_bern"][
         "ROLE_PERMISSIONS"
@@ -88,6 +90,10 @@ def test_instance_permissions_be(
     application_settings["INSTANCE_PERMISSIONS"] = settings.APPLICATIONS["kt_bern"][
         "INSTANCE_PERMISSIONS"
     ]
+
+    permissions_settings["ACCESS_LEVELS"] = {
+        access_level.pk: [("foo", "*"), ("bar", "*")]
+    }
 
     active_inquiry_factory(be_instance)
     user_active_service = admin_client.user.groups.get().service
