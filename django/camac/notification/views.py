@@ -38,6 +38,9 @@ class NotificationTemplateView(ModelViewSet):
     def get_queryset_for_municipality(self):
         return self.get_queryset_for_canton()
 
+    def get_queryset_for_geometer(self):
+        return self.get_queryset_for_canton()
+
     @permission_aware
     def has_create_permission(self):
         return False
@@ -49,6 +52,9 @@ class NotificationTemplateView(ModelViewSet):
         return True
 
     def has_create_permission_for_municipality(self):
+        return True
+
+    def has_create_permission_for_geometer(self):
         return True
 
     @permission_aware
@@ -67,6 +73,9 @@ class NotificationTemplateView(ModelViewSet):
     def has_object_update_permission_for_municipality(self, obj):
         return self.has_object_update_permission_for_canton(obj)
 
+    def has_object_update_permission_for_geometer(self, obj):
+        return self.has_object_update_permission_for_canton(obj)
+
     @permission_aware
     def has_object_destroy_permission(self, obj):  # pragma: no cover
         # see comment has_object_update_permission
@@ -79,6 +88,9 @@ class NotificationTemplateView(ModelViewSet):
         return self.has_object_update_permission_for_canton(obj)
 
     def has_object_destroy_permission_for_municipality(self, obj):
+        return self.has_object_update_permission_for_canton(obj)
+
+    def has_object_destroy_permission_for_geometer(self, obj):
         return self.has_object_update_permission_for_canton(obj)
 
     @action(
