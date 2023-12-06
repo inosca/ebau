@@ -10,7 +10,12 @@ const shouldResetPage = ([oldModel, oldQuery] = [], [newModel, newQuery]) =>
   // Compare all keys in the old and new query to see if we have changes which would require a fresh data array.
   Array.from(new Set([...Object.keys(newQuery), ...Object.keys(oldQuery)]))
     .filter((key) => key !== "page")
-    .some((key) => newQuery[key] !== oldQuery[key]);
+    .some((key) => {
+      if (typeof newQuery[key] === "object") {
+        return JSON.stringify(newQuery[key]) !== JSON.stringify(oldQuery[key]);
+      }
+      return newQuery[key] !== oldQuery[key];
+    });
 
 export class PaginatedQuery extends Resource {
   @service store;

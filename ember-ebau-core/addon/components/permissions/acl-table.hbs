@@ -30,11 +30,8 @@
     </div>
   </div>
 
-  {{#let
-    (can "create acl for instance" this.instance.record)
-    as |canCreateAcl|
-  }}
-    {{#if canCreateAcl}}
+  {{#let (can "edit acl for instance" this.instance.record) as |canEditAcl|}}
+    {{#if canEditAcl}}
       <div class="uk-text-center">
         <IconButton
           @icon="plus"
@@ -46,49 +43,43 @@
       </div>
     {{/if}}
 
-  {{/let}}
-
-  <table
-    class="uk-table uk-table-hover uk-table-small uk-table-striped uk-table-middle"
-  >
-    <thead>
-      <tr>
-        <th>{{t "permissions.details.entityName"}}</th>
-        <th>{{t "permissions.details.accessLevel"}}</th>
-        <th>{{t "permissions.details.startTime"}}</th>
-        <th>{{t "permissions.details.endTime"}}</th>
-        <th>{{t "permissions.details.status"}}</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      {{#unless this.acls.isResetting}}
-        {{#each this.acls.records as |acl|}}
-          <tr class="uk-table-link" data-test-instance-acl>
-            <td>
-              <a
-                class="uk-link"
-                href="#"
-                {{on "click" (fn (mut this.detailViewAcl) acl)}}
-              >{{acl.entityName}}</a>
-            </td>
-            <td>{{acl.accessLevel.name}}</td>
-            <td>{{or (format-date acl.startTime format="date") "-"}}</td>
-            <td>{{or (format-date acl.endTime format="date") "-"}}</td>
-            <td><span
-                class={{(concat
-                  "uk-label "
-                  (if (eq acl.status "active") "uk-label-success")
-                  (if (eq acl.status "scheduled") "uk-label-warning")
-                  (if (eq acl.status "expired") "background-expired ")
-                )}}
-              >{{t (concat "permissions.status." acl.status)}}</span></td>
-            <td>
-              {{#let
-                (can "create acl for instance" this.instance.record)
-                as |canCreateAcl|
-              }}
-                {{#if (and acl.revokeable canCreateAcl)}}
+    <table
+      class="uk-table uk-table-hover uk-table-small uk-table-striped uk-table-middle"
+    >
+      <thead>
+        <tr>
+          <th>{{t "permissions.details.entityName"}}</th>
+          <th>{{t "permissions.details.accessLevel"}}</th>
+          <th>{{t "permissions.details.startTime"}}</th>
+          <th>{{t "permissions.details.endTime"}}</th>
+          <th>{{t "permissions.details.status"}}</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#unless this.acls.isResetting}}
+          {{#each this.acls.records as |acl|}}
+            <tr class="uk-table-link" data-test-instance-acl>
+              <td>
+                <a
+                  class="uk-link"
+                  href="#"
+                  {{on "click" (fn (mut this.detailViewAcl) acl)}}
+                >{{acl.entityName}}</a>
+              </td>
+              <td>{{acl.accessLevel.name}}</td>
+              <td>{{or (format-date acl.startTime format="date") "-"}}</td>
+              <td>{{or (format-date acl.endTime format="date") "-"}}</td>
+              <td><span
+                  class={{(concat
+                    "uk-label "
+                    (if (eq acl.status "active") "uk-label-success")
+                    (if (eq acl.status "scheduled") "uk-label-warning")
+                    (if (eq acl.status "expired") "background-expired ")
+                  )}}
+                >{{t (concat "permissions.status." acl.status)}}</span></td>
+              <td>
+                {{#if (and acl.revokeable canEditAcl)}}
                   <UkButton
                     class="uk-icon-button uk-margin-small-right"
                     @title={{t "permissions.revoke"}}
@@ -97,31 +88,30 @@
                     {{on "click" (fn this.revokeAcl acl)}}
                   ><UkIcon @icon="ban" /></UkButton>
                 {{/if}}
-              {{/let}}
-            </td>
-          </tr>
-        {{else}}
-          {{#unless this.acls.isLoading}}
-            <tr>
-              <td colspan="99" class="uk-text-center">
-                {{t "permissions.empty"}}
               </td>
             </tr>
-          {{/unless}}
-        {{/each}}
-      {{/unless}}
-      {{#if this.acls.isLoading}}
-        <tr>
-          <td colspan="99" class="uk-text-center">
-            <UkSpinner />
-          </td>
-        </tr>
-      {{else if this.acls.hasMore}}
-        <tr {{in-viewport onEnter=this.updatePage}}></tr>
-      {{/if}}
-
-    </tbody>
-  </table>
+          {{else}}
+            {{#unless this.acls.isLoading}}
+              <tr>
+                <td colspan="99" class="uk-text-center">
+                  {{t "permissions.empty"}}
+                </td>
+              </tr>
+            {{/unless}}
+          {{/each}}
+        {{/unless}}
+        {{#if this.acls.isLoading}}
+          <tr>
+            <td colspan="99" class="uk-text-center">
+              <UkSpinner />
+            </td>
+          </tr>
+        {{else if this.acls.hasMore}}
+          <tr {{in-viewport onEnter=this.updatePage}}></tr>
+        {{/if}}
+      </tbody>
+    </table>
+  {{/let}}
 
   <Permissions::AclDetails
     @instanceAcl={{this.detailViewAcl}}
