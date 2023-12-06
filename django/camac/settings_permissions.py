@@ -110,6 +110,17 @@ PERMISSIONS: PermissionsConfig = {
                     ],
                 ),
                 (
+                    "templates-read",
+                    [
+                        "sb1",
+                        "sb2",
+                        "conclusion",
+                        "finished",
+                        "finished_internal",
+                        "evaluated",
+                    ],
+                ),
+                (
                     "geometer-read",
                     [
                         "sb1",
