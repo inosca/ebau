@@ -159,6 +159,11 @@ class InstanceACL(models.Model):
 
         user_filter = reduce(operator.or_, user_filter_parts)
 
+        return user_filter & cls.filter_active(acl_prefix=acl_prefix)
+
+    @classmethod
+    def filter_active(cls, acl_prefix):
+        prefix = f"{acl_prefix}__" if acl_prefix else ""
         now = timezone.now()
 
         # ACL is valid if start time is in the past (or right now)
@@ -167,8 +172,11 @@ class InstanceACL(models.Model):
             models.Q(**{f"{prefix}end_time__gt": now})
             | models.Q(**{f"{prefix}end_time__isnull": True})
         )
+        return time_filter
 
-        return user_filter & time_filter
+    @classmethod
+    def currently_active(cls):
+        return cls.objects.filter(cls.filter_active(acl_prefix=None))
 
     def revoke(self, ends_at=None):
         """Revoke this ACL.
