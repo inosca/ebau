@@ -61,10 +61,11 @@ def gr_data_sources(
         type = config[1]
         q = question_factory(slug=slug, type=type, label=slug)
         if len(config) == 3:
-            for option in config[2]:
+            for index, option in enumerate(config[2]):
                 question_option_factory(
                     question=q,
                     option=option_factory(slug=f"{slug}-{option}", label=option),
+                    sort=len(config[2]) - index,
                 )
 
     return GISDataSource.objects.all()
