@@ -35,6 +35,7 @@ export default class AclTable extends Component {
   availableAccessLevels = findAll(this, "access-level", () => [
     this.args.instanceId,
   ]);
+
   instance = findRecord(this, "instance", () => [this.args.instanceId]);
 
   acls = paginatedQuery(this, "instance-acl", () => ({
