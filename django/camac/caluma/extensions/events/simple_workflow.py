@@ -46,6 +46,15 @@ def post_complete_simple_workflow(sender, work_item, user, context, **kwargs):
             create_history_entry(instance, camac_user, history_text)
 
         if notification and (not context or not context.get("no-notification")):
+            # check conditions
+            if "conditions" in notification:
+                for type, config in notification["conditions"].items():
+                    if type == "forms":
+                        if instance.case.document.form.slug not in config:
+                            return
+                    else:  # pragma: no cover
+                        raise RuntimeError(f"unknown condition type: {type}")
+
             additional_data = (
                 {"body": context.get("notification-body")}
                 if context and context.get("notification-body")

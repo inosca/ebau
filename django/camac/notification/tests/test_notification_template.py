@@ -7,7 +7,9 @@ from caluma.caluma_form import (
     factories as caluma_form_factories,
     models as caluma_form_models,
 )
+from caluma.caluma_form.factories import QuestionFactory
 from caluma.caluma_workflow import (
+    api as workflow_api,
     factories as caluma_workflow_factories,
     models as caluma_workflow_models,
 )
@@ -424,10 +426,64 @@ def test_notification_template_sendmail(
 @pytest.mark.parametrize(
     "form_name,expected_recipients",
     [
-        ("baugesuch", ["info@gvg.gr.ch"]),
-        ("solaranlage", ["info@gvg.gr.ch", "info@aev.gr.ch"]),
+        ("baugesuch", ["info@aib.gr.ch"]),
+        ("solaranlage", ["info@aib.gr.ch"]),
+        ("bauanzeige", ["info@aib.gr.ch"]),
+        ("vorlaeufige-beurteilung", []),
     ],
 )
+@pytest.mark.parametrize(
+    "role__name",
+    ["Municipality"],
+)
+def test_notification_template_construction_monitoring(
+    caluma_admin_user,
+    gr_instance,
+    form_name,
+    mailoutbox,
+    expected_recipients,
+    application_settings,
+    instance_state_factory,
+    notification_template_factory,
+):
+    application_settings["CALUMA"]["SIMPLE_WORKFLOW"]["construction-monitoring"][
+        "notification"
+    ]["conditions"] = {"forms": ["baugesuch", "bauanzeige", "solaranlage"]}
+    instance_state_factory(name="finished")
+    notification_template_factory(slug="bauabnahme")
+
+    gr_instance.case.document.form = caluma_form_models.Form.objects.create(
+        pk=form_name
+    )
+    gr_instance.case.document.save()
+
+    for task_id in [
+        "submit",
+        "formal-exam",
+        "distribution",
+        "decision",
+    ]:
+        if task_id == "decision":
+            QuestionFactory(slug="decision-decision")
+            gr_instance.case.work_items.get(task_id=task_id).document.answers.create(
+                question_id="decision-decision", value="decision-decision-approved"
+            )
+        workflow_api.skip_work_item(
+            work_item=gr_instance.case.work_items.get(task_id=task_id),
+            user=caluma_admin_user,
+        )
+
+    workflow_api.complete_work_item(
+        work_item=gr_instance.case.work_items.get(task_id="construction-monitoring"),
+        user=caluma_admin_user,
+    )
+
+    assert len(mailoutbox) == len(expected_recipients)
+
+    if form_name != "vorlaeufige-beurteilung":
+        assert mailoutbox[0].recipients() == expected_recipients
+
+
 @pytest.mark.parametrize(
     "notification_template__subject,instance__identifier",
     [("{{identifier}}", "identifer")],
@@ -438,20 +494,15 @@ def test_notification_template_sendmail(
         ("Municipality", status.HTTP_204_NO_CONTENT),
     ],
 )
-def test_notification_template_construction_monitoring(
+def test_notification_template_gvg(
     admin_client,
     notification_template,
     gr_instance,
     status_code,
-    form_name,
     mailoutbox,
-    expected_recipients,
 ):
     url = reverse("notificationtemplate-sendmail")
 
-    gr_instance.case.document.form = caluma_form_models.Form.objects.create(
-        pk=form_name
-    )
     gr_instance.case.document.save()
 
     data = {
@@ -462,7 +513,7 @@ def test_notification_template_construction_monitoring(
                 "template-slug": notification_template.slug,
                 "body": "Test body",
                 "recipient-types": [
-                    "construction_monitoring",
+                    "gvg",
                 ],
             },
             "relationships": {
@@ -473,7 +524,7 @@ def test_notification_template_construction_monitoring(
     response = admin_client.post(url, data=data)
     assert response.status_code == status_code
     assert len(mailoutbox) == 1
-    assert mailoutbox[0].recipients() == expected_recipients
+    assert mailoutbox[0].recipients() == ["versicherung@gvg.gr.ch"]
 
 
 @pytest.mark.parametrize(
