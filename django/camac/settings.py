@@ -1445,6 +1445,12 @@ APPLICATIONS = {
                     "recipient_types": ["work_item_addressed"],
                 }
             ],
+            "PERMISSION_ACL_GRANTED": [
+                {
+                    "template_slug": "invited-via-permission-acl",
+                    "recipient_types": ["acl_authorized"],
+                }
+            ],
         },
         "IS_MULTILINGUAL": True,
         "FORM_BACKEND": "caluma",

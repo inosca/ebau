@@ -37,7 +37,7 @@ def test_notification_of_new_acl(
     application_settings["NOTIFICATIONS"]["PERMISSION_ACL_GRANTED"] = [
         {
             "template_slug": notification_template.slug,
-            "recipient_types": ["newest_acl"],
+            "recipient_types": ["acl_authorized"],
         }
     ]
 
