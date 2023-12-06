@@ -22,6 +22,7 @@ def test_responsible_service_list(admin_client, responsible_service):
         ("Municipality", LazyFixture("admin_user"), status.HTTP_201_CREATED),
         ("Coordination", LazyFixture("admin_user"), status.HTTP_201_CREATED),
         ("Applicant", LazyFixture("admin_user"), status.HTTP_403_FORBIDDEN),
+        ("Geometer", LazyFixture("admin_user"), status.HTTP_201_CREATED),
     ],
 )
 def test_responsible_service_create(
@@ -74,6 +75,7 @@ def test_responsible_service_create(
         ("Municipality", LazyFixture("admin_user"), status.HTTP_200_OK),
         ("Coordination", LazyFixture("admin_user"), status.HTTP_200_OK),
         ("Applicant", LazyFixture("admin_user"), status.HTTP_403_FORBIDDEN),
+        ("Geometer", LazyFixture("admin_user"), status.HTTP_200_OK),
     ],
 )
 def test_responsible_service_update(
