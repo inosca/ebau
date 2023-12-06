@@ -243,7 +243,7 @@ class PermissionManager:
         are considered as "not involved"
         """
         acls = (
-            models.InstanceACL.for_current_user(**self.userinfo.to_kwargs())
+            models.InstanceACL.currently_active()
             .filter(instance=instance)
             .filter(grant_type=GRANT_CHOICES.SERVICE.value)
         )
