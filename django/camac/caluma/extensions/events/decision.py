@@ -25,7 +25,6 @@ def get_notification_config(instance):
         )
     elif instance.case.document.form.slug in [
         "bauanzeige",
-        "solaranlage",
         "vorlaeufige-beurteilung",
     ]:  # pragma: no cover
         return settings.APPLICATION["NOTIFICATIONS"].get(

@@ -1047,8 +1047,6 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             "unanswered_inquiries",
             "inquiry_addressed",
             "inquiry_controlling",
-            # Construction monitoring (GR)
-            "construction_monitoring",
             # Work items
             "work_item_addressed",
             "work_item_controlling",
@@ -1384,13 +1382,11 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             ]
         )
 
-    def _get_recipients_construction_monitoring(self, instance):
-        recipients = (
-            ["info@gvg.gr.ch"]
-            if instance.case.document.form.slug == "baugesuch"
-            else ["info@gvg.gr.ch", "info@aev.gr.ch"]
-        )
-        return [{"to": ",".join(recipients)}]
+    def _get_recipients_aib(self, instance):
+        return [{"to": "info@aib.gr.ch"}]
+
+    def _get_recipients_gvg(self, instance):
+        return [{"to": "versicherung@gvg.gr.ch"}]
 
     def _recipient_log(self, recipients):
         return ", ".join(

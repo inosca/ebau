@@ -60,13 +60,9 @@ def test_complete_decision(
     expected_instance_state,
     expected_text,
     settings,
-    application_settings,
 ):
     instance_state_factory(name=expected_instance_state)
 
-    application_settings["CALUMA"][
-        "CONSTRUCTION_MONITORING_TASK"
-    ] = "construction-monitoring"
     settings.APPLICATION["NOTIFICATIONS"] = {}
 
     gr_instance.case.workflow = Workflow.objects.get(pk="building-permit")
