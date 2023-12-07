@@ -1,5 +1,8 @@
 import pytest
 
+from camac.notification.serializers import (
+    PermissionlessNotificationTemplateSendmailSerializer,
+)
 from camac.permissions import api as permissions_api
 
 
@@ -56,3 +59,35 @@ def test_notification_of_new_acl(
         assert len(mailoutbox) == 1
         expected_subj = notification_template.get_trans_attr("subject", "de")
         assert mailoutbox[0].subject == f"[eBau Test]: {expected_subj}"
+
+
+@pytest.mark.parametrize("instance_acl__grant_type", ["SERVICE"])
+@pytest.mark.parametrize("access_level__slug", ["geometer"])
+@pytest.mark.parametrize("notification", [1, 0])
+def test_get_recipients_acl_by_accesslevel(
+    db,
+    access_level,
+    instance_acl,
+    be_instance,
+    notification_template,
+    application_settings,
+    notification,
+):
+    # I'd love to just call the serializer "as normal", but the
+    # `recipient_types` field is initialized long before this test runs
+    # and it's a bit tricky (or at least ugly) to extend it's valid choices
+    # after-the-fact. So we're just calling the getter for the corresponding
+    # recipient type.
+    serializer = PermissionlessNotificationTemplateSendmailSerializer()
+
+    instance_acl.service.notification = notification
+    instance_acl.service.save()
+
+    recipient_type = f"{access_level.slug}_acl_services"
+
+    getter = getattr(serializer, f"_get_recipients_{recipient_type}")
+
+    if notification:
+        assert getter(be_instance) == [{"to": instance_acl.service.email}]
+    else:
+        assert getter(be_instance) == []

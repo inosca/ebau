@@ -43,9 +43,9 @@ class InstanceACLFactory(DjangoModelFactory):
     access_level = SubFactory(AccessLevelFactory)
 
     class Params:
-        is_user_acl = LazyAttribute(lambda acl: acl.grant_type == "user")
-        is_service_acl = LazyAttribute(lambda acl: acl.grant_type == "service")
-        is_token_acl = LazyAttribute(lambda acl: acl.grant_type == "token")
+        is_user_acl = LazyAttribute(lambda acl: acl.grant_type == "USER")
+        is_service_acl = LazyAttribute(lambda acl: acl.grant_type == "SERVICE")
+        is_token_acl = LazyAttribute(lambda acl: acl.grant_type == "TOKEN")
 
     class Meta:
         model = models.InstanceACL
