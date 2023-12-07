@@ -1348,6 +1348,7 @@ APPLICATIONS = {
         "INSTANCE_PERMISSIONS": {"MUNICIPALITY_WRITE": ["correction"]},
         "CUSTOM_NOTIFICATION_TYPES": [
             "inactive_municipality",
+            "geometer_acl_services",
         ],
         "CIRCULATION_STATE_END": "DONE",
         "CIRCULATION_ANSWER_UNINVOLVED": "not_concerned",
@@ -1400,6 +1401,10 @@ APPLICATIONS = {
                         "construction_control",
                         "involved_in_distribution",
                     ],
+                },
+                {
+                    "template_slug": "11-meldung-selbstdeklaration-geometer",
+                    "recipient_types": ["geometer_acl_services"],
                 },
             ],
             "FINALIZE": [
