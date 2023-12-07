@@ -48,6 +48,7 @@ from camac.instance.mixins import InstanceEditableMixin
 from camac.instance.models import Instance
 from camac.instance.placeholders import fields
 from camac.instance.validators import transform_coordinates
+from camac.permissions.models import InstanceACL
 from camac.user.models import Group, Role, Service, User
 from camac.user.utils import unpack_service_emails
 from camac.utils import build_url, clean_join, flatten, get_responsible_koor_service_id
@@ -1141,6 +1142,21 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
 
     def _get_recipients_responsible_koor(self, instance):
         return self._notify_service(get_responsible_koor_service_id(instance.form.pk))
+
+    def _get_recipients_geometer_acl_services(self, instance):
+        geometer_acls = (
+            InstanceACL.currently_active()
+            .filter(instance=instance)
+            .filter(access_level_id="geometer")
+        )
+        return [
+            {"to": email}
+            for email in unpack_service_emails(
+                Service.objects.filter(
+                    pk__in=geometer_acls.values("service"), notification=1
+                )
+            )
+        ]
 
     def _get_recipients_lisag(self, instance):
         groups = Group.objects.filter(name="Lisag")

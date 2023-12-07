@@ -480,6 +480,18 @@
     }
   },
   {
+    "model": "notification.notificationtemplate",
+    "pk": 46,
+    "fields": {
+      "slug": "11-meldung-selbstdeklaration-geometer",
+      "purpose": null,
+      "subject": null,
+      "body": null,
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
     "model": "notification.notificationtemplatet",
     "pk": 1,
     "fields": {
@@ -957,6 +969,18 @@
       "purpose": "Benachrichtigung über Zugang via Berechtigung",
       "subject": "Zugriff auf Dossier / Accès au dossier",
       "body": "Guten Tag\r\n\r\nIhnen wurde Zugriff auf das Dossier mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}, {{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) erteilt.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n*** version française ***\r\n\r\nBonjour,\r\n\r\nVous avez  reçu l'accès au dossier dans le dossier portant le numéro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}, {{FORM_NAME_FR}}, {{MUNICIPALITY_FR}}).\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre."
+    }
+  },
+  {
+    "model": "notification.notificationtemplatet",
+    "pk": 83,
+    "fields": {
+      "template": 46,
+      "template_slug": "11-meldung-selbstdeklaration-geometer",
+      "language": "de",
+      "purpose": "11 Meldung Selbstdeklaration (Geometer)",
+      "subject": "Meldung Selbstdeklaration (eBau Nr. {{EBAU_NUMBER}}) / Avis concernant la déclaration spontanée (n° eBau {{EBAU_NUMBER}})",
+      "body": "Guten Tag\n\nDie Meldung der Selbstdeklariation Baukontrolle 1 (SB1) wurde erfolgreich eingereicht.\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse \n\n{{LEITBEHOERDE_NAME_DE}}\n\n*** version française ***\n\nMadame, Monsieur,\n\nLa notification de l'auto-déclaration du contrôle des constructions 1 (SB1) a été envoyée avec succès.\n\nVeuillez agréer, Madame, Monsieur, nos salutations les meilleures. \n\n{{LEITBEHOERDE_NAME_FR}}\n\n"
     }
   }
 ]
