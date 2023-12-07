@@ -37,3 +37,4 @@ requests-mock==1.10.0
 snapshottest==0.6.0
 web-pdb==1.5.7
 Werkzeug==2.2.2
+psutil==5.9.6
