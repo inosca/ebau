@@ -1,0 +1,18 @@
+<div class="uk-margin-small-left saving-indicator uk-flex uk-flex-none uk-flex-left">
+    {{#if @save.isRunning}}
+        <UkSpinner class="uk-animation-fade" />
+    {{else if @save.last.isError}}
+        <UkIcon
+            data-test-saving-indicator-warning
+            @icon="warning"
+            title={{t "saving-indicator.save-error"}}
+            class="uk-animation-fade uk-text-danger"
+        />
+    {{else if @save.last.isSuccessful}}
+        <UkIcon
+            data-test-saving-indicator-success
+            @icon="check"
+            class="uk-animation-fade uk-text-success"
+        />
+    {{/if}}
+</div>
