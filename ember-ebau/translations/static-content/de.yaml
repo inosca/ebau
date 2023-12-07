@@ -1,3 +1,7 @@
 static-content:
   edit: "Bearbeiten"
   content: "Inhalt"
+  not-found:
+    case:
+      title: "Das gewünschte Dossier wurde nicht gefunden, oder Sie haben keinen Zugriff darauf."
+      action: "Zurück zur Dossierliste"
