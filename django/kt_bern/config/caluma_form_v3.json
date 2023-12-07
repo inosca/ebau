@@ -68,7 +68,7 @@
     "pk": "baugesuch-v3",
     "fields": {
       "created_at": "2023-08-10T13:35:29.139Z",
-      "modified_at": "2023-11-23T08:25:02.335Z",
+      "modified_at": "2023-12-07T09:02:38.983Z",
       "created_by_user": null,
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -7205,7 +7205,7 @@
     "pk": "bs-beherbergte-personen-mehr-50-v3",
     "fields": {
       "created_at": "2023-08-11T13:19:27.241Z",
-      "modified_at": "2023-11-24T09:24:58.794Z",
+      "modified_at": "2023-12-07T09:05:27.367Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -7213,7 +7213,7 @@
       "label": "{\"de\": \"Anzahl beherbergte Personen\", \"fr\": \"Nombre de personnes h\\u00e9berg\\u00e9es\", \"it\": null}",
       "type": "integer",
       "is_required": "false",
-      "is_hidden": "!(\n\t\"was-fuer-ein-vorhaben-spitaeler\" in \"welche-art-vorhaben\"|answer || \"was-fuer-ein-vorhaben-beherbergungsbetriebe\" in \"welche-art-vorhaben\"|answer\n)",
+      "is_hidden": "!(\n\t\"was-fuer-ein-vorhaben-spitaeler\" in \"was-fuer-ein-vorhaben\"|answer || \"was-fuer-ein-vorhaben-beherbergungsbetriebe\" in \"was-fuer-ein-vorhaben\"|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
