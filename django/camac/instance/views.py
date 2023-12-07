@@ -756,9 +756,17 @@ class InstanceView(
     def correction(self, request, pk=None):
         return self._custom_serializer_action(request, pk)
 
-    @swagger_auto_schema(auto_schema=None)
-    @action(methods=["post"], detail=True)
+    @swagger_auto_schema(auto_schema=None, methods=["post", "patch"])
+    @action(methods=["post", "patch"], detail=True)
     def rejection(self, request, pk=None):
+        if request.method == "PATCH":
+            instance = self.get_object()
+            RejectionLogic.save_rejection_feedback(
+                instance,
+                request.data.get("rejection_feedback"),
+            )
+            return response.Response(status=status.HTTP_204_NO_CONTENT)
+
         return self._custom_serializer_action(request, pk)
 
     @swagger_auto_schema(auto_schema=None)
