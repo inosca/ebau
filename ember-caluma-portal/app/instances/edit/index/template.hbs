@@ -58,11 +58,13 @@
       </h2>
     </div>
     <div class="uk-width-3-4 uk-width-2-3@m">
-      <div class="uk-alert-danger" uk-alert>
-        <p class="white-space-pre-line">
-          {{~this.editController.instance.rejectionFeedback~}}
-        </p>
-      </div>
+      {{#unless (is-application "ur") }}
+        <div class="uk-alert-danger" uk-alert>
+          <p class="white-space-pre-line">
+            {{~this.editController.instance.rejectionFeedback~}}
+          </p>
+        </div>
+      {{/unless}}
       <div uk-alert
         class="uk-margin-remove-top border-highlight uk-width-1-1 uk-padding-small"
       >
