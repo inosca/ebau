@@ -72,6 +72,7 @@ Router.map(function () {
         registerRejection(this);
       });
       this.route("new");
+      this.route("not-found");
     });
     registerDMSAdmin(this, { resetNamespace });
     registerServicePermissions(this, { resetNamespace });
