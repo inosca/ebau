@@ -178,6 +178,13 @@ db_restore:  _db_snapshots_dir ## Restore latest DB snapshot created with `make 
 sequencenamespace:  ## Set the Sequence namespace for a given user. GIT_USER is detected from your git repository.
 	@docker compose exec django make sequencenamespace GIT_USER=$(GIT_USER)
 
+.PHONY: db_snapshot
+db_snapshot: ## Snapshot the current database (DB-internal snapshot)
+	@docker-compose exec django ./manage.py snapdb --create
+.PHONY: db_restore
+db_restore: ## Restore the current database from latest DB-internal snapshot
+	@docker-compose exec django ./manage.py snapdb --restore --latest
+
 
 .PHONY: test
 test: ## Run backend tests
