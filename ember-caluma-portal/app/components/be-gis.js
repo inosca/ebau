@@ -385,48 +385,48 @@ export default class BeGisComponent extends Component {
     const rows = [];
 
     // Create, populate, and add a new row for each parcel.
-    yield Promise.all(
-      parcels.map(async (parcel) => {
-        const newDocumentRaw = await this.apollo.mutate(
-          mutation,
-          "saveDocument.document",
-        );
+    // Requests are performed sequentially parcel by parcel.
+    // The requests necessary for an individual parcel
+    // (row document answers) are performed in parallel.
+    for (const parcel of parcels) {
+      const newDocumentRaw = yield this.apollo.mutate(
+        mutation,
+        "saveDocument.document",
+      );
 
-        const owner = getOwner(this);
-        const Document = owner.factoryFor("caluma-model:document").class;
+      const owner = getOwner(this);
+      const Document = owner.factoryFor("caluma-model:document").class;
 
-        const newDocument = this.calumaStore.push(
-          new Document({
-            raw: parseDocument(newDocumentRaw),
-            parentDocument: this.args.field.document,
-            owner,
-          }),
-        );
+      const newDocument = this.calumaStore.push(
+        new Document({
+          raw: parseDocument(newDocumentRaw),
+          parentDocument: this.args.field.document,
+          owner,
+        }),
+      );
 
-        const fields = newDocument.fields.filter((field) =>
-          KEYS_TABLE.includes(field.question.slug),
-        );
+      const fields = newDocument.fields.filter((field) =>
+        KEYS_TABLE.includes(field.question.slug),
+      );
 
-        await Promise.all(
-          fields.map(async (field) => {
-            const value = parcel[field.question.slug];
+      yield Promise.all(
+        fields.map(async (field) => {
+          const value = parcel[field.question.slug];
 
-            if (![null, undefined, NaN].includes(value)) {
-              field.answer.value = value;
+          if (![null, undefined, NaN].includes(value)) {
+            field.answer.value = value;
 
-              await field.save.perform();
-              await field.validate.perform();
-            }
-          }),
-        );
+            await field.save.perform();
+            await field.validate.perform();
+          }
+        }),
+      );
 
-        rows.push(newDocument);
-      }),
-    );
+      rows.push(newDocument);
+      table.answer.value = rows;
+      yield table.save.perform();
+    }
 
-    table.answer.value = rows;
-
-    yield table.save.perform();
     yield table.validate.perform();
   }
 
