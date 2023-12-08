@@ -2,6 +2,7 @@ corrections:
   document:
     title: "Dossier korrigieren"
     description: "Diese Funktion erlaubt es, kleine Korrekturen am Gesuchsformular vorzunehmen (z.B. Präzisierung des Baubeschriebs)."
+    not-available: "Diese Funktion ist im aktuellen Zustand nicht verfügbar."
     button: "Dossier korrigieren"
     description-finish: "Sie können die Dossierkorrektur jetzt im Menü <a href={link}>Formular</a> vornehmen. Bitte vergessen sie nicht die Korrektur anschliessend abzuschliessen."
     button-finish: "Korrektur abschliessen"
