@@ -1570,8 +1570,8 @@ snapshots['test_dms_placeholders_docs[be_dms_config] 1'] = {
             }
         ],
         'description': {
-            'de': 'Boolesch-Platzhalter für das Formular-Feld «Erhaltenswert».',
-            'fr': 'Boolesch-Platzhalter für das Formular-Feld «Erhaltenswert».'
+            'de': 'Einstufung «erhaltenswert»',
+            'fr': 'Classement «digne de conservation»'
         },
         'nested_aliases': {
         }
@@ -1598,8 +1598,8 @@ snapshots['test_dms_placeholders_docs[be_dms_config] 1'] = {
             }
         ],
         'description': {
-            'de': 'Boolesch-Platzhalter für das Formular-Feld «Baugruppe Bauinventar».',
-            'fr': 'Boolesch-Platzhalter für das Formular-Feld «Baugruppe Bauinventar».'
+            'de': 'Zugehörigkeit zu einer Baugruppe',
+            'fr': 'Appartenance à un ensemble bâti'
         },
         'nested_aliases': {
         }
@@ -1612,8 +1612,8 @@ snapshots['test_dms_placeholders_docs[be_dms_config] 1'] = {
             }
         ],
         'description': {
-            'de': 'Platzhalter für das Formular-Feld «Bezeichnung Baugruppe».',
-            'fr': 'Platzhalter für das Formular-Feld «Bezeichnung Baugruppe».'
+            'de': 'Bezeichnung der Baugruppe',
+            'fr': "Désignation de l'ensemble bâti"
         },
         'nested_aliases': {
         }
@@ -1626,8 +1626,8 @@ snapshots['test_dms_placeholders_docs[be_dms_config] 1'] = {
             }
         ],
         'description': {
-            'de': 'Boolesch-Platzhalter für das Formular-Feld «Vertrag».',
-            'fr': 'Boolesch-Platzhalter für das Formular-Feld «Vertrag».'
+            'de': 'Unterschutzstellungsvertrag',
+            'fr': 'Contrat de mise sous protection'
         },
         'nested_aliases': {
         }
@@ -1640,8 +1640,8 @@ snapshots['test_dms_placeholders_docs[be_dms_config] 1'] = {
             }
         ],
         'description': {
-            'de': 'Datum-Platzhalter für das Formular-Feld «Vertrag vom».',
-            'fr': 'Datum-Platzhalter für das Formular-Feld «Vertrag vom».'
+            'de': 'Datum der Unterschutzstellung',
+            'fr': 'Date du contrat de mise sous protection'
         },
         'nested_aliases': {
         }
@@ -2362,8 +2362,8 @@ snapshots['test_dms_placeholders_docs[be_dms_config] 1'] = {
             }
         ],
         'description': {
-            'de': 'Boolesch-Platzhalter für das Formular-Feld «K-Objekt».',
-            'fr': 'Boolesch-Platzhalter für das Formular-Feld «K-Objekt».'
+            'de': 'K-Objekt',
+            'fr': 'Objet-C'
         },
         'nested_aliases': {
         }
@@ -3081,8 +3081,8 @@ snapshots['test_dms_placeholders_docs[be_dms_config] 1'] = {
             }
         ],
         'description': {
-            'de': 'Boolesch-Platzhalter für das Formular-Feld «Schützenswert».',
-            'fr': 'Boolesch-Platzhalter für das Formular-Feld «Schützenswert».'
+            'de': 'Einstufung «schützenswert»',
+            'fr': 'Classement «digne de protection»'
         },
         'nested_aliases': {
         }
@@ -3337,8 +3337,8 @@ snapshots['test_dms_placeholders_docs[be_dms_config] 1'] = {
             }
         ],
         'description': {
-            'de': 'Boolesch-Platzhalter für das Formular-Feld «RRB».',
-            'fr': 'Boolesch-Platzhalter für das Formular-Feld «RRB».'
+            'de': 'Unterschutzstellung RRB',
+            'fr': 'Mise sous protection ACE'
         },
         'nested_aliases': {
         }
@@ -3351,8 +3351,8 @@ snapshots['test_dms_placeholders_docs[be_dms_config] 1'] = {
             }
         ],
         'description': {
-            'de': 'Datum-Platzhalter für das Formular-Feld «RRB vom».',
-            'fr': 'Datum-Platzhalter für das Formular-Feld «RRB vom».'
+            'de': 'Datum der Unterschutzstellung RRB',
+            'fr': 'Date de mise sous protection ACE'
         },
         'nested_aliases': {
         }
