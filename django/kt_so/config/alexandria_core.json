@@ -841,6 +841,16 @@
               }
             ]
           },
+          "subservice": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
+          },
           "service-lead": {
             "visibility": "all",
             "permissions": [
