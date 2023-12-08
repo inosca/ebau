@@ -1,6 +1,7 @@
 import json
 from uuid import uuid4
 
+from alexandria.core.models import Document
 from caluma.caluma_form import api as form_api, models as form_models
 from caluma.caluma_workflow import api as workflow_api, models as workflow_models
 from django.conf import settings
@@ -392,35 +393,54 @@ class CreateInstanceLogic:
 
     @staticmethod
     def copy_attachments(source, target, skip_exported_form_attachment=False):
-        attachments = source.attachments.all()
-
-        if skip_exported_form_attachment:
-            form_attachment_name = (
-                slugify(f"{source.pk}-{source.case.document.form.name}") + ".pdf"
+        if settings.APPLICATION["DOCUMENT_BACKEND"] == "alexandria":
+            alexandria_documents = Document.objects.filter(
+                **{"metainfo__camac-instance-id": str(source.pk)},
             )
-            attachments = source.attachments.filter(~Q(name=form_attachment_name))
+            if skip_exported_form_attachment:
+                alexandria_documents = alexandria_documents.exclude(
+                    metainfo__has_key="system-generated"
+                )
 
-        for attachment in attachments:
-            try:
-                new_file = ContentFile(attachment.path.read())
-            except FileNotFoundError:  # pragma: no cover
-                # file does not exist so use the old file
-                new_file = attachment.path
+            for document in alexandria_documents:
+                new_document = document.clone()
+                new_document.metainfo["camac-instance-id"] = target.pk
+                if new_document.metainfo.get("caluma-document-id"):
+                    new_document.metainfo["caluma-document-id"] = str(
+                        target.case.document.pk
+                    )
+                new_document.save()
 
-            # store sections first
-            sections = attachment.attachment_sections.all()
+        else:
+            attachments = source.attachments.all()
 
-            # copy the file
-            new_file.name = attachment.path.name
-            attachment.path = new_file
+            if skip_exported_form_attachment:
+                form_attachment_name = (
+                    slugify(f"{source.pk}-{source.case.document.form.name}") + ".pdf"
+                )
+                attachments = source.attachments.filter(~Q(name=form_attachment_name))
 
-            attachment.attachment_id = None
-            attachment.instance = target
-            attachment.uuid = uuid4()
-            attachment.save()
+            for attachment in attachments:
+                try:
+                    new_file = ContentFile(attachment.path.read())
+                except FileNotFoundError:  # pragma: no cover
+                    # file does not exist so use the old file
+                    new_file = attachment.path
 
-            attachment.attachment_sections.set(sections)
-            attachment.save()
+                # store sections first
+                sections = attachment.attachment_sections.all()
+
+                # copy the file
+                new_file.name = attachment.path.name
+                attachment.path = new_file
+
+                attachment.attachment_id = None
+                attachment.instance = target
+                attachment.uuid = uuid4()
+                attachment.save()
+
+                attachment.attachment_sections.set(sections)
+                attachment.save()
 
     @staticmethod
     def copy_ebau_number(source_instance, target_instance, case):
