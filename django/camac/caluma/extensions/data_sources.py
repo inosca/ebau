@@ -196,6 +196,9 @@ form_mapping_by_koor = {
         [252, "Internes Mitberichtsverfahren nach Artikel 30 BG Umweltschutz"],
         [253, "Internes Mitberichtsverfahren / Bewilligungsverfahren gemäss UVP"],
     ],
+    "Koordinationsstelle Amt für das Grundbuch AfG": [
+        [306, "Internes Mitberichtsverfahren AfG"],
+    ],
 }
 
 
