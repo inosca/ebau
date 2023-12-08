@@ -4698,28 +4698,28 @@
     "model": "core.remberlist",
     "pk": 20006,
     "fields": {
-      "instance_states": "120004,120005,120006,120007,120009"
+      "instance_states": "120004,120005,120006,120007,120009,120011"
     }
   },
   {
     "model": "core.remberlist",
     "pk": 20007,
     "fields": {
-      "instance_states": "120004,120005,120006,120007,120009"
+      "instance_states": "120004,120005,120006,120007,120009,120011"
     }
   },
   {
     "model": "core.remberlist",
     "pk": 150000,
     "fields": {
-      "instance_states": "120004,120005,120006,120007,120009"
+      "instance_states": "120004,120005,120006,120007,120009,120011"
     }
   },
   {
     "model": "core.remberlist",
     "pk": 14000002,
     "fields": {
-      "instance_states": "120005,120006,120007"
+      "instance_states": "120005,120006,120007,120011"
     }
   },
   {
