@@ -96,7 +96,11 @@ export default class InstanceAbility extends Ability {
       (config.APPLICATION?.modification?.allowForms || []).includes(form) &&
       !(config.APPLICATION?.modification?.disallowStates || []).includes(
         this.instanceStateId,
-      )
+      ) &&
+      (!this.session.group ||
+        (this.session.group?.role.get("name") ===
+          "Sachbearbeitung Leitbehörde" &&
+          this.model.isPaper))
     );
   }
 
