@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-12-04 10:32+0100\n"
-"PO-Revision-Date: 2023-12-04 10:32+0100\n"
+"PO-Revision-Date: 2023-12-08 09:25+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -979,7 +979,7 @@ msgstr "ENSEMBLE_BÂTI"
 
 #: camac/instance/placeholders/serializers.py:882
 msgid "Boolean placeholder for the 'construction_group' form field."
-msgstr ""
+msgstr "Appartenance à un ensemble bâti"
 
 #: camac/instance/placeholders/serializers.py:886
 msgid "CONSTRUCTION_GROUP_DESIGNATION"
@@ -987,7 +987,7 @@ msgstr "ENSEMBLE_BÂTI_DÉNOMINATION"
 
 #: camac/instance/placeholders/serializers.py:888
 msgid "Placeholder for the 'construction_group_designation' form field."
-msgstr ""
+msgstr "Désignation de l'ensemble bâti"
 
 #: camac/instance/placeholders/serializers.py:892
 msgid "CONTRACT"
@@ -995,7 +995,7 @@ msgstr "CONTRAT"
 
 #: camac/instance/placeholders/serializers.py:893
 msgid "Boolean placeholder for the 'contract' form field."
-msgstr ""
+msgstr "Contrat de mise sous protection"
 
 #: camac/instance/placeholders/serializers.py:898
 msgid "CONTRACT_START"
@@ -1003,7 +1003,7 @@ msgstr "CONTRAT_DATE"
 
 #: camac/instance/placeholders/serializers.py:899
 msgid "Date placeholder for the 'contract_start' form field"
-msgstr ""
+msgstr "Date du contrat de mise sous protection"
 
 #: camac/instance/placeholders/serializers.py:902
 msgid "CONSERVABLE"
@@ -1011,7 +1011,7 @@ msgstr "CONSERVABLE"
 
 #: camac/instance/placeholders/serializers.py:903
 msgid "Boolean placeholder for the 'conservable' form field."
-msgstr ""
+msgstr "Classement «digne de conservation»"
 
 #: camac/instance/placeholders/serializers.py:907
 msgid "K_OBJECT"
@@ -1019,7 +1019,7 @@ msgstr "OBJECT_C"
 
 #: camac/instance/placeholders/serializers.py:908
 msgid "Boolean placeholder for the 'k_object' form field."
-msgstr ""
+msgstr "Objet-C"
 
 #: camac/instance/placeholders/serializers.py:924
 msgid "SERVICES_CANTONAL_LIST"
@@ -1195,7 +1195,7 @@ msgstr "PROTÉGÉ"
 
 #: camac/instance/placeholders/serializers.py:1049
 msgid "Boolean placeholder for the 'protected' form field."
-msgstr ""
+msgstr "Classement «digne de protection»"
 
 #: camac/instance/placeholders/serializers.py:1055
 msgid "PROTECTION_AREA"
@@ -1275,7 +1275,7 @@ msgstr "ACE"
 
 #: camac/instance/placeholders/serializers.py:1110
 msgid "Boolean placeholder for the 'rrb' form field."
-msgstr ""
+msgstr "Mise sous protection ACE"
 
 #: camac/instance/placeholders/serializers.py:1115
 msgid "RRB_START"
@@ -1283,7 +1283,7 @@ msgstr "RRB_DATE"
 
 #: camac/instance/placeholders/serializers.py:1116
 msgid "Date placeholder for the 'rrb_start' form field"
-msgstr ""
+msgstr "Date de mise sous protection ACE"
 
 #: camac/instance/placeholders/serializers.py:1120
 msgid "SITUATION"
