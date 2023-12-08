@@ -2354,6 +2354,7 @@ APPLICATIONS = {
                     1127,  # KOOR AfE
                     1128,  # KOOR AFJ
                     1129,  # KOOR SD
+                    1133,  # KOOR AfG
                     1130,  # Bundesstelle
                 ]
             },
@@ -2376,6 +2377,7 @@ APPLICATIONS = {
             "Koordinationsstelle Landwirtschaft ALA": "coordination",
             "Koordinationsstelle Sicherheitsdirektion SD": "coordination",
             "Koordinationsstelle Umwelt AfU": "coordination",
+            "Koordinationsstelle Amt für das Grundbuch AfG": "coordination",
             "Mitglied der Gemeindebaubehörde": "municipality",  # TODO Maybe we should introduce a municipality_readonly role?
             "Mitglied einer Kommission oder Fachgruppe": "commission",
             "Organisation mit Leseberechtigung": "organization_readonly",

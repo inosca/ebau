@@ -214,6 +214,7 @@ module.exports = function (environment) {
           1127, // KOOR AfE
           1128, // KOOR AFJ
           1129, // KOOR SD
+          1133, // KOOR AfG
           1130, // Bundesstelle
           1131, // Support
         ],
@@ -341,6 +342,11 @@ module.exports = function (environment) {
           // KOOR SD
           roles: [1129],
           forms: ["mitbericht-kanton", "cantonal-territory-usage"],
+        },
+        {
+          // KOOR AfG
+          roles: [1133],
+          forms: ["mitbericht-kanton", "bgbb"],
         },
         {
           // Bundesstelle

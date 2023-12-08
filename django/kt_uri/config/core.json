@@ -576,6 +576,54 @@
     }
   },
   {
+    "model": "core.aformtransition",
+    "pk": 12000071,
+    "fields": {
+      "current_instance_state": null,
+      "next_instance_state": 27
+    }
+  },
+  {
+    "model": "core.aformtransition",
+    "pk": 12000072,
+    "fields": {
+      "current_instance_state": 24,
+      "next_instance_state": 26
+    }
+  },
+  {
+    "model": "core.aformtransition",
+    "pk": 12000074,
+    "fields": {
+      "current_instance_state": 26,
+      "next_instance_state": 22
+    }
+  },
+  {
+    "model": "core.aformtransition",
+    "pk": 12000075,
+    "fields": {
+      "current_instance_state": null,
+      "next_instance_state": 34
+    }
+  },
+  {
+    "model": "core.aformtransition",
+    "pk": 12000080,
+    "fields": {
+      "current_instance_state": null,
+      "next_instance_state": 23
+    }
+  },
+  {
+    "model": "core.aformtransition",
+    "pk": 12000093,
+    "fields": {
+      "current_instance_state": null,
+      "next_instance_state": 24
+    }
+  },
+  {
     "model": "core.alocation",
     "pk": 1009,
     "fields": {}
@@ -923,6 +971,33 @@
     }
   },
   {
+    "model": "core.anotification",
+    "pk": 12000076,
+    "fields": {
+      "template": "7-bau-und-einsprache-entscheid-bentzung-kantonsgebiet-versand-durch-dashboard",
+      "recipient_type": "Notification_Manager_Applicant",
+      "processor": "Notification_Processor_SendEmailAPI"
+    }
+  },
+  {
+    "model": "core.anotification",
+    "pk": 12000082,
+    "fields": {
+      "template": "zirkulation-gestartet-koor-afg",
+      "recipient_type": "Custom_Plugin_Notification_Recipient_UnnotifiedServiceUsers",
+      "processor": "Notification_Processor_SendEmailAPI"
+    }
+  },
+  {
+    "model": "core.anotification",
+    "pk": 12000087,
+    "fields": {
+      "template": "zirkulation-gestartet-koor-afg",
+      "recipient_type": "Custom_Plugin_Notification_Recipient_UnnotifiedServiceUsers",
+      "processor": "Notification_Processor_SendEmailAPI"
+    }
+  },
+  {
     "model": "core.apageredirect",
     "pk": 711,
     "fields": {
@@ -1099,6 +1174,24 @@
     "fields": {
       "resource": 289,
       "instance_resource": 702,
+      "air_action_name": "edit"
+    }
+  },
+  {
+    "model": "core.apageredirect",
+    "pk": 12000085,
+    "fields": {
+      "resource": 12000003,
+      "instance_resource": null,
+      "air_action_name": null
+    }
+  },
+  {
+    "model": "core.apageredirect",
+    "pk": 12000096,
+    "fields": {
+      "resource": 12000003,
+      "instance_resource": 12000033,
       "air_action_name": "edit"
     }
   },
@@ -1590,6 +1683,48 @@
     "pk": 12000070,
     "fields": {
       "php_class": "ChangeDossierName"
+    }
+  },
+  {
+    "model": "core.aphp",
+    "pk": 12000078,
+    "fields": {
+      "php_class": "SetCircService"
+    }
+  },
+  {
+    "model": "core.aphp",
+    "pk": 12000083,
+    "fields": {
+      "php_class": "CircStart"
+    }
+  },
+  {
+    "model": "core.aphp",
+    "pk": 12000084,
+    "fields": {
+      "php_class": "SetCircService"
+    }
+  },
+  {
+    "model": "core.aphp",
+    "pk": 12000088,
+    "fields": {
+      "php_class": "CircStart"
+    }
+  },
+  {
+    "model": "core.aphp",
+    "pk": 12000091,
+    "fields": {
+      "php_class": "ReopenCirculation"
+    }
+  },
+  {
+    "model": "core.aphp",
+    "pk": 12000095,
+    "fields": {
+      "php_class": "EndCirculation"
     }
   },
   {
@@ -6213,6 +6348,398 @@
     }
   },
   {
+    "model": "core.action",
+    "pk": 12000071,
+    "fields": {
+      "available_action": "formtransition",
+      "button": 12000023,
+      "name": "Löschen",
+      "description": "Löschen eines Dossiers der Koord AfG",
+      "success_message": "Dossier gelöscht.",
+      "error_message": "Das Dossier konnte nicht gelöscht werden, da ein Fehler aufgetreten ist!",
+      "execute_always": 0,
+      "sort": 0
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 12000072,
+    "fields": {
+      "available_action": "formtransition",
+      "button": 12000024,
+      "name": "Archivieren",
+      "description": "REDAC zu ARCH",
+      "success_message": "Das Dossier wurde erfolgreich archiviert.",
+      "error_message": "Das Dossier konnte nicht archiviert werden, da ein Fehler aufgetreten ist!",
+      "execute_always": 0,
+      "sort": 0
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 12000073,
+    "fields": {
+      "available_action": "workflow",
+      "button": 12000024,
+      "name": "Archivieren",
+      "description": "REDAC zu ARCH",
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 1
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 12000074,
+    "fields": {
+      "available_action": "formtransition",
+      "button": 12000025,
+      "name": "Wiedereröffnen ARCH - EXT",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 0
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 12000075,
+    "fields": {
+      "available_action": "formtransition",
+      "button": 12000026,
+      "name": "Transition control",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 0
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 12000076,
+    "fields": {
+      "available_action": "notification",
+      "button": 12000026,
+      "name": "E-Mail an Gesuchsteller",
+      "description": null,
+      "success_message": "E-Mail wurde erfolgreich verschickt.",
+      "error_message": "Beim Verschicken der E-Mail ist ein Fehler aufgetreten.",
+      "execute_always": 0,
+      "sort": 1
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 12000077,
+    "fields": {
+      "available_action": "save",
+      "button": 12000027,
+      "name": "Speichern",
+      "description": null,
+      "success_message": "Speichern erfolgreich.",
+      "error_message": "Speichern fehlgeschlagen!",
+      "execute_always": 0,
+      "sort": 0
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 12000078,
+    "fields": {
+      "available_action": "php",
+      "button": 12000027,
+      "name": "SetCircService",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 1
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 12000079,
+    "fields": {
+      "available_action": "save",
+      "button": 12000028,
+      "name": "Speichern",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 0
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 12000080,
+    "fields": {
+      "available_action": "formtransition",
+      "button": 12000028,
+      "name": "Zirkulation starten",
+      "description": null,
+      "success_message": "Zirkulation erfolgreich gestartet.",
+      "error_message": "Zirkulation konnte nicht gestartet werden!",
+      "execute_always": 0,
+      "sort": 1
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 12000081,
+    "fields": {
+      "available_action": "workflow",
+      "button": 12000028,
+      "name": "Zirkulation starten",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 2
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 12000082,
+    "fields": {
+      "available_action": "notification",
+      "button": 12000028,
+      "name": "Zirkulation starten E-Mail",
+      "description": "Versendet eine E-Mail an alle zum Start der Zirkulation involvierten Stellen.",
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 3
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 12000083,
+    "fields": {
+      "available_action": "php",
+      "button": 12000028,
+      "name": "IDLE auf RUN setzen",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 1,
+      "sort": 4
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 12000084,
+    "fields": {
+      "available_action": "php",
+      "button": 12000028,
+      "name": "Service setzen",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 5
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 12000085,
+    "fields": {
+      "available_action": "pageredirect",
+      "button": 12000028,
+      "name": "Auf Zirkulation bleiben",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 6
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 12000086,
+    "fields": {
+      "available_action": "save",
+      "button": 12000029,
+      "name": "Speichern",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 0
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 12000087,
+    "fields": {
+      "available_action": "notification",
+      "button": 12000029,
+      "name": "E-Mail an hinzugefügte Fachstellen versenden",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 1
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 12000088,
+    "fields": {
+      "available_action": "php",
+      "button": 12000029,
+      "name": "IDLE auf RUN setzen",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 2
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 12000089,
+    "fields": {
+      "available_action": "activation",
+      "button": 12000030,
+      "name": "Laufzettelkommentar speichern",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 0
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 12000090,
+    "fields": {
+      "available_action": "pdf",
+      "button": 12000030,
+      "name": "Laufzettel generieren",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 1
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 12000091,
+    "fields": {
+      "available_action": "php",
+      "button": 12000031,
+      "name": "Zirkulation wiederöffnen",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 0
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 12000092,
+    "fields": {
+      "available_action": "save",
+      "button": 12000032,
+      "name": "Speichern",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 0
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 12000093,
+    "fields": {
+      "available_action": "formtransition",
+      "button": 12000032,
+      "name": "Zirkulation abschliessen",
+      "description": null,
+      "success_message": "Die Zirkulationen wurden erfolgreich abgeschlossen",
+      "error_message": "Die Zirkulationen konnten nicht abgeschlossen werden!",
+      "execute_always": 0,
+      "sort": 1
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 12000094,
+    "fields": {
+      "available_action": "workflow",
+      "button": 12000032,
+      "name": "Zirkulation abschliessen",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 2
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 12000095,
+    "fields": {
+      "available_action": "php",
+      "button": 12000032,
+      "name": "RUN auf OK setzen",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 3
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 12000096,
+    "fields": {
+      "available_action": "pageredirect",
+      "button": 12000032,
+      "name": "Auf Zirkulation bleiben",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 1,
+      "sort": 4
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 12000097,
+    "fields": {
+      "available_action": "docx",
+      "button": 12000033,
+      "name": "Rechnung generieren",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 0
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 12000098,
+    "fields": {
+      "available_action": "docx",
+      "button": 12000034,
+      "name": "Rechnung generieren",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 0
+    }
+  },
+  {
     "model": "core.airaction",
     "pk": 1,
     "fields": {
@@ -10694,6 +11221,13 @@
     }
   },
   {
+    "model": "core.authority",
+    "pk": 92,
+    "fields": {
+      "name": "Amt für das Grundbuch"
+    }
+  },
+  {
     "model": "core.authorityauthoritytype",
     "pk": 1,
     "fields": {
@@ -11250,6 +11784,14 @@
     "pk": 70,
     "fields": {
       "authority": 91,
+      "authority_type": 1
+    }
+  },
+  {
+    "model": "core.authorityauthoritytype",
+    "pk": 71,
+    "fields": {
+      "authority": 92,
       "authority_type": 1
     }
   },
@@ -17216,6 +17758,267 @@
     }
   },
   {
+    "model": "core.broleacl",
+    "pk": 12000114,
+    "fields": {
+      "button": 12000023,
+      "role": 1133,
+      "instance_state": 22
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000115,
+    "fields": {
+      "button": 12000024,
+      "role": 1133,
+      "instance_state": 24
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000116,
+    "fields": {
+      "button": 12000025,
+      "role": 1133,
+      "instance_state": 26
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000117,
+    "fields": {
+      "button": 12000026,
+      "role": 1133,
+      "instance_state": 24
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000118,
+    "fields": {
+      "button": 12000027,
+      "role": 1133,
+      "instance_state": 22
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000119,
+    "fields": {
+      "button": 12000027,
+      "role": 1133,
+      "instance_state": 23
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000120,
+    "fields": {
+      "button": 12000027,
+      "role": 1133,
+      "instance_state": 24
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000121,
+    "fields": {
+      "button": 12000028,
+      "role": 1133,
+      "instance_state": 22
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000122,
+    "fields": {
+      "button": 12000028,
+      "role": 1133,
+      "instance_state": 24
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000123,
+    "fields": {
+      "button": 12000029,
+      "role": 1133,
+      "instance_state": 23
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000124,
+    "fields": {
+      "button": 12000030,
+      "role": 1133,
+      "instance_state": 22
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000125,
+    "fields": {
+      "button": 12000030,
+      "role": 1133,
+      "instance_state": 23
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000126,
+    "fields": {
+      "button": 12000030,
+      "role": 1133,
+      "instance_state": 24
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000127,
+    "fields": {
+      "button": 12000030,
+      "role": 1133,
+      "instance_state": 25
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000128,
+    "fields": {
+      "button": 12000030,
+      "role": 1133,
+      "instance_state": 34
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000129,
+    "fields": {
+      "button": 12000030,
+      "role": 1133,
+      "instance_state": 26
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000130,
+    "fields": {
+      "button": 12000031,
+      "role": 1133,
+      "instance_state": 23
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000131,
+    "fields": {
+      "button": 12000031,
+      "role": 1133,
+      "instance_state": 24
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000132,
+    "fields": {
+      "button": 12000032,
+      "role": 1133,
+      "instance_state": 23
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000133,
+    "fields": {
+      "button": 12000033,
+      "role": 1133,
+      "instance_state": 22
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000134,
+    "fields": {
+      "button": 12000033,
+      "role": 1133,
+      "instance_state": 23
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000135,
+    "fields": {
+      "button": 12000033,
+      "role": 1133,
+      "instance_state": 24
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000136,
+    "fields": {
+      "button": 12000033,
+      "role": 1133,
+      "instance_state": 25
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000137,
+    "fields": {
+      "button": 12000033,
+      "role": 1133,
+      "instance_state": 34
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000138,
+    "fields": {
+      "button": 12000033,
+      "role": 1133,
+      "instance_state": 26
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000139,
+    "fields": {
+      "button": 12000033,
+      "role": 1133,
+      "instance_state": 27
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000140,
+    "fields": {
+      "button": 12000034,
+      "role": 1133,
+      "instance_state": 25
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000141,
+    "fields": {
+      "button": 12000034,
+      "role": 1133,
+      "instance_state": 34
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000142,
+    "fields": {
+      "button": 12000034,
+      "role": 1133,
+      "instance_state": 26
+    }
+  },
+  {
     "model": "core.billingconfig",
     "pk": 1,
     "fields": {
@@ -19387,6 +20190,150 @@
     }
   },
   {
+    "model": "core.button",
+    "pk": 12000023,
+    "fields": {
+      "instance_resource": 12000024,
+      "name": "Löschen",
+      "description": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 0
+    }
+  },
+  {
+    "model": "core.button",
+    "pk": 12000024,
+    "fields": {
+      "instance_resource": 12000024,
+      "name": "Archivieren",
+      "description": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 1
+    }
+  },
+  {
+    "model": "core.button",
+    "pk": 12000025,
+    "fields": {
+      "instance_resource": 12000024,
+      "name": "Wiedereröffnen (EXT)",
+      "description": "Von Arch zurück zu Redac",
+      "class_field": null,
+      "hidden": 0,
+      "sort": 2
+    }
+  },
+  {
+    "model": "core.button",
+    "pk": 12000026,
+    "fields": {
+      "instance_resource": 12000024,
+      "name": "Entscheid zustellen",
+      "description": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 3
+    }
+  },
+  {
+    "model": "core.button",
+    "pk": 12000027,
+    "fields": {
+      "instance_resource": 12000033,
+      "name": "Speichern",
+      "description": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 0
+    }
+  },
+  {
+    "model": "core.button",
+    "pk": 12000028,
+    "fields": {
+      "instance_resource": 12000033,
+      "name": "Zirkulation starten",
+      "description": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 1
+    }
+  },
+  {
+    "model": "core.button",
+    "pk": 12000029,
+    "fields": {
+      "instance_resource": 12000033,
+      "name": "Zur Zirkulation hinzufügen",
+      "description": null,
+      "class_field": "add_to_circ",
+      "hidden": 0,
+      "sort": 2
+    }
+  },
+  {
+    "model": "core.button",
+    "pk": 12000030,
+    "fields": {
+      "instance_resource": 12000033,
+      "name": "Laufzettel generieren",
+      "description": null,
+      "class_field": "tracerbutton",
+      "hidden": 0,
+      "sort": 3
+    }
+  },
+  {
+    "model": "core.button",
+    "pk": 12000031,
+    "fields": {
+      "instance_resource": 12000033,
+      "name": "Wiedereröffnen",
+      "description": null,
+      "class_field": "reopen_button",
+      "hidden": 0,
+      "sort": 4
+    }
+  },
+  {
+    "model": "core.button",
+    "pk": 12000032,
+    "fields": {
+      "instance_resource": 12000033,
+      "name": "Zirkulation abschliessen",
+      "description": "KOOR AfG",
+      "class_field": null,
+      "hidden": 0,
+      "sort": 5
+    }
+  },
+  {
+    "model": "core.button",
+    "pk": 12000033,
+    "fields": {
+      "instance_resource": 12000036,
+      "name": "Rechnung / Gebühren",
+      "description": null,
+      "class_field": "downloady",
+      "hidden": 0,
+      "sort": 0
+    }
+  },
+  {
+    "model": "core.button",
+    "pk": 12000034,
+    "fields": {
+      "instance_resource": 12000036,
+      "name": "Rechnung Baubegleitung",
+      "description": null,
+      "class_field": "downloady",
+      "hidden": 0,
+      "sort": 1
+    }
+  },
+  {
     "model": "core.chapter",
     "pk": 1,
     "fields": {
@@ -20107,6 +21054,14 @@
     }
   },
   {
+    "model": "core.docgenactivationactionaction",
+    "pk": 12000000,
+    "fields": {
+      "docgen_activation_action": 1,
+      "action": 12000089
+    }
+  },
+  {
     "model": "core.docgendocxaction",
     "pk": 1293,
     "fields": {
@@ -20260,6 +21215,24 @@
     }
   },
   {
+    "model": "core.docgendocxaction",
+    "pk": 12000000,
+    "fields": {
+      "docgen_template": 233,
+      "docgen_template_class": 208,
+      "action": 12000097
+    }
+  },
+  {
+    "model": "core.docgendocxaction",
+    "pk": 12000001,
+    "fields": {
+      "docgen_template": 233,
+      "docgen_template_class": 225,
+      "action": 12000098
+    }
+  },
+  {
     "model": "core.docgenpdfaction",
     "pk": 1,
     "fields": {
@@ -20338,6 +21311,15 @@
       "docgen_template": 81,
       "docgen_template_class": 82,
       "action": 1289
+    }
+  },
+  {
+    "model": "core.docgenpdfaction",
+    "pk": 12000000,
+    "fields": {
+      "docgen_template": 81,
+      "docgen_template_class": 82,
+      "action": 12000090
     }
   },
   {
@@ -20701,6 +21683,15 @@
     }
   },
   {
+    "model": "core.docgentemplate",
+    "pk": 233,
+    "fields": {
+      "name": "Rechnung AfG",
+      "path": "billKOORAFG_ps.docx",
+      "type": 1.0
+    }
+  },
+  {
     "model": "core.docgentemplateclass",
     "pk": 42,
     "fields": {
@@ -21028,6 +22019,14 @@
     "fields": {
       "name": "Solar, Gebäudetechnik und Reklame Dossiers von der Gemeinde die in Baugesuch umgewandelt werden können",
       "description": "Solar, Gebäudetechnik und Reklame Dossiers von der Gemeinde die in Baugesuch umgewandelt werden können"
+    }
+  },
+  {
+    "model": "core.formgroup",
+    "pk": 12000003,
+    "fields": {
+      "name": "Alle Dossiers von der Koordinationsstelle AfG",
+      "description": null
     }
   },
   {
@@ -23441,6 +24440,38 @@
   {
     "model": "core.formgroupform",
     "pk": 12000088,
+    "fields": {
+      "form_group": 12000003,
+      "form": 300
+    }
+  },
+  {
+    "model": "core.formgroupform",
+    "pk": 12000089,
+    "fields": {
+      "form_group": 12000003,
+      "form": 41
+    }
+  },
+  {
+    "model": "core.formgroupform",
+    "pk": 12000090,
+    "fields": {
+      "form_group": 161,
+      "form": 306
+    }
+  },
+  {
+    "model": "core.formgroupform",
+    "pk": 12000091,
+    "fields": {
+      "form_group": 12000003,
+      "form": 306
+    }
+  },
+  {
+    "model": "core.formgroupform",
+    "pk": 12000092,
     "fields": {
       "form_group": 241,
       "form": 304
@@ -25952,6 +26983,182 @@
   },
   {
     "model": "core.instanceresource",
+    "pk": 12000024,
+    "fields": {
+      "available_instance_resource": "dashboard",
+      "resource": 12000003,
+      "name": "Dashboard",
+      "description": null,
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 0,
+      "form_group": 161,
+      "require_permission": null
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 12000025,
+    "fields": {
+      "available_instance_resource": "page",
+      "resource": 12000003,
+      "name": "Formular",
+      "description": "Personen- und Projektdaten von der Koordinationsstelle AfG",
+      "template": "/ember/instance.phtml",
+      "class_field": null,
+      "hidden": 0,
+      "sort": 1,
+      "form_group": 12000003,
+      "require_permission": null
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 12000026,
+    "fields": {
+      "available_instance_resource": "apidocuments",
+      "resource": 12000003,
+      "name": "Dokumente",
+      "description": "Dokumente fur Baubewilligungsverfahren",
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 2,
+      "form_group": 161,
+      "require_permission": null
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 12000027,
+    "fields": {
+      "available_instance_resource": "page",
+      "resource": 12000003,
+      "name": "Journal",
+      "description": null,
+      "template": "/ember-camac-ng/journal.phtml",
+      "class_field": null,
+      "hidden": 0,
+      "sort": 3,
+      "form_group": 161,
+      "require_permission": null
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 12000033,
+    "fields": {
+      "available_instance_resource": "editcirculation",
+      "resource": 12000003,
+      "name": "Zirkulation",
+      "description": "Zirkulation Dossiers von der Koordinationsstelle AfG",
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 4,
+      "form_group": 12000003,
+      "require_permission": null
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 12000034,
+    "fields": {
+      "available_instance_resource": "publication",
+      "resource": 12000003,
+      "name": "Publikation",
+      "description": null,
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 5,
+      "form_group": 161,
+      "require_permission": null
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 12000035,
+    "fields": {
+      "available_instance_resource": "billing",
+      "resource": 12000003,
+      "name": "Gebühren verwalten",
+      "description": "Gebühren verwalten Koor AfG",
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 6,
+      "form_group": 12000003,
+      "require_permission": null
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 12000036,
+    "fields": {
+      "available_instance_resource": "circulation",
+      "resource": 12000003,
+      "name": "Dossier abschliessen",
+      "description": "Zirkulation Koor AfG",
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 7,
+      "form_group": 12000003,
+      "require_permission": null
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 12000037,
+    "fields": {
+      "available_instance_resource": "workflow",
+      "resource": 12000003,
+      "name": "Workflow",
+      "description": null,
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 8,
+      "form_group": 12000003,
+      "require_permission": null
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 12000038,
+    "fields": {
+      "available_instance_resource": "sanction",
+      "resource": 12000003,
+      "name": "Erfasste Auflagen bewirtschaften",
+      "description": "Erfasste Auflagen bewirtschaften für KOOR AfG",
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 9,
+      "form_group": 12000003,
+      "require_permission": null
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 12000039,
+    "fields": {
+      "available_instance_resource": "page",
+      "resource": 12000003,
+      "name": "Zuständigkeit",
+      "description": null,
+      "template": "/ember-camac-ng/responsible.phtml",
+      "class_field": "menu-category-primary",
+      "hidden": 0,
+      "sort": 10,
+      "form_group": 161,
+      "require_permission": null
+    }
+  },
+  {
+    "model": "core.instanceresource",
     "pk": 14000000,
     "fields": {
       "available_instance_resource": "page",
@@ -28117,6 +29324,21 @@
     }
   },
   {
+    "model": "core.ircirculation",
+    "pk": 12000036,
+    "fields": {
+      "circulation_type": 41,
+      "service": 636,
+      "draft_circulation_answer": null,
+      "show_notice": 2,
+      "show_history": 0,
+      "show_all_children": 1,
+      "read_notice_template": null,
+      "pdf_class": null,
+      "service_to_be_interpreted": null
+    }
+  },
+  {
     "model": "core.ireditcirculation",
     "pk": 315,
     "fields": {
@@ -28289,6 +29511,24 @@
       "add_activation_template": null,
       "read_notice_template": null,
       "pdf_class": null,
+      "default_circulation_name": "Erste Zirkulation",
+      "single_circulation": 1,
+      "inherit_notices": 0,
+      "display_first_circulation": 1,
+      "circulation_email_action_id": null
+    }
+  },
+  {
+    "model": "core.ireditcirculation",
+    "pk": 12000033,
+    "fields": {
+      "circulation_type": 41,
+      "draft_circulation_answer": null,
+      "show_notice": 1,
+      "add_template": "",
+      "add_activation_template": "",
+      "read_notice_template": "",
+      "pdf_class": "",
       "default_circulation_name": "Erste Zirkulation",
       "single_circulation": 1,
       "inherit_notices": 0,
@@ -29035,6 +30275,105 @@
     }
   },
   {
+    "model": "core.ireditcirculationsg",
+    "pk": 12000001,
+    "fields": {
+      "instance_resource": 12000033,
+      "service_group": 21,
+      "localized": 0
+    }
+  },
+  {
+    "model": "core.ireditcirculationsg",
+    "pk": 12000002,
+    "fields": {
+      "instance_resource": 12000033,
+      "service_group": 70,
+      "localized": 0
+    }
+  },
+  {
+    "model": "core.ireditcirculationsg",
+    "pk": 12000003,
+    "fields": {
+      "instance_resource": 12000033,
+      "service_group": 2,
+      "localized": 0
+    }
+  },
+  {
+    "model": "core.ireditcirculationsg",
+    "pk": 12000004,
+    "fields": {
+      "instance_resource": 12000033,
+      "service_group": 65,
+      "localized": 0
+    }
+  },
+  {
+    "model": "core.ireditcirculationsg",
+    "pk": 12000005,
+    "fields": {
+      "instance_resource": 12000033,
+      "service_group": 66,
+      "localized": 0
+    }
+  },
+  {
+    "model": "core.ireditcirculationsg",
+    "pk": 12000006,
+    "fields": {
+      "instance_resource": 12000033,
+      "service_group": 62,
+      "localized": 0
+    }
+  },
+  {
+    "model": "core.ireditcirculationsg",
+    "pk": 12000007,
+    "fields": {
+      "instance_resource": 12000033,
+      "service_group": 61,
+      "localized": 0
+    }
+  },
+  {
+    "model": "core.ireditcirculationsg",
+    "pk": 12000008,
+    "fields": {
+      "instance_resource": 12000033,
+      "service_group": 63,
+      "localized": 0
+    }
+  },
+  {
+    "model": "core.ireditcirculationsg",
+    "pk": 12000009,
+    "fields": {
+      "instance_resource": 12000033,
+      "service_group": 64,
+      "localized": 0
+    }
+  },
+  {
+    "model": "core.ireditcirculationsg",
+    "pk": 12000010,
+    "fields": {
+      "instance_resource": 12000033,
+      "service_group": 41,
+      "localized": 0
+    }
+  },
+  {
+    "model": "core.ireditcirculationsg",
+    "pk": 12000011,
+    "fields": {
+      "instance_resource": 12000033,
+      "service_group": 71,
+      "localized": 0
+    }
+  },
+  {
     "model": "core.ireditformpage",
     "pk": 12000000,
     "fields": {
@@ -29453,6 +30792,27 @@
   {
     "model": "core.irpage",
     "pk": 12000021,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
+    "model": "core.irpage",
+    "pk": 12000025,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
+    "model": "core.irpage",
+    "pk": 12000027,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
+    "model": "core.irpage",
+    "pk": 12000039,
     "fields": {
       "pdf_class": null
     }
@@ -41687,6 +43047,870 @@
     }
   },
   {
+    "model": "core.irroleacl",
+    "pk": 12000402,
+    "fields": {
+      "instance_resource": 12000024,
+      "role": 1133,
+      "instance_state": 21
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000403,
+    "fields": {
+      "instance_resource": 12000024,
+      "role": 1133,
+      "instance_state": 22
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000404,
+    "fields": {
+      "instance_resource": 12000024,
+      "role": 1133,
+      "instance_state": 23
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000405,
+    "fields": {
+      "instance_resource": 12000024,
+      "role": 1133,
+      "instance_state": 24
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000406,
+    "fields": {
+      "instance_resource": 12000024,
+      "role": 1133,
+      "instance_state": 25
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000407,
+    "fields": {
+      "instance_resource": 12000024,
+      "role": 1133,
+      "instance_state": 34
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000408,
+    "fields": {
+      "instance_resource": 12000024,
+      "role": 1133,
+      "instance_state": 26
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000409,
+    "fields": {
+      "instance_resource": 12000024,
+      "role": 1133,
+      "instance_state": 27
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000410,
+    "fields": {
+      "instance_resource": 12000024,
+      "role": 1133,
+      "instance_state": 33
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000411,
+    "fields": {
+      "instance_resource": 12000025,
+      "role": 1133,
+      "instance_state": 21
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000412,
+    "fields": {
+      "instance_resource": 12000025,
+      "role": 1133,
+      "instance_state": 22
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000413,
+    "fields": {
+      "instance_resource": 12000025,
+      "role": 1133,
+      "instance_state": 23
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000414,
+    "fields": {
+      "instance_resource": 12000025,
+      "role": 1133,
+      "instance_state": 24
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000415,
+    "fields": {
+      "instance_resource": 12000025,
+      "role": 1133,
+      "instance_state": 25
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000416,
+    "fields": {
+      "instance_resource": 12000025,
+      "role": 1133,
+      "instance_state": 34
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000417,
+    "fields": {
+      "instance_resource": 12000025,
+      "role": 1133,
+      "instance_state": 26
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000418,
+    "fields": {
+      "instance_resource": 12000025,
+      "role": 1133,
+      "instance_state": 27
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000419,
+    "fields": {
+      "instance_resource": 12000025,
+      "role": 1133,
+      "instance_state": 33
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000420,
+    "fields": {
+      "instance_resource": 12000026,
+      "role": 1133,
+      "instance_state": 21
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000421,
+    "fields": {
+      "instance_resource": 12000026,
+      "role": 1133,
+      "instance_state": 22
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000422,
+    "fields": {
+      "instance_resource": 12000026,
+      "role": 1133,
+      "instance_state": 23
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000423,
+    "fields": {
+      "instance_resource": 12000026,
+      "role": 1133,
+      "instance_state": 24
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000424,
+    "fields": {
+      "instance_resource": 12000026,
+      "role": 1133,
+      "instance_state": 25
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000425,
+    "fields": {
+      "instance_resource": 12000026,
+      "role": 1133,
+      "instance_state": 34
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000426,
+    "fields": {
+      "instance_resource": 12000026,
+      "role": 1133,
+      "instance_state": 26
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000427,
+    "fields": {
+      "instance_resource": 12000026,
+      "role": 1133,
+      "instance_state": 27
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000428,
+    "fields": {
+      "instance_resource": 12000026,
+      "role": 1133,
+      "instance_state": 33
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000429,
+    "fields": {
+      "instance_resource": 12000027,
+      "role": 1133,
+      "instance_state": 1
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000430,
+    "fields": {
+      "instance_resource": 12000027,
+      "role": 1133,
+      "instance_state": 21
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000431,
+    "fields": {
+      "instance_resource": 12000027,
+      "role": 1133,
+      "instance_state": 22
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000432,
+    "fields": {
+      "instance_resource": 12000027,
+      "role": 1133,
+      "instance_state": 32
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000433,
+    "fields": {
+      "instance_resource": 12000027,
+      "role": 1133,
+      "instance_state": 23
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000434,
+    "fields": {
+      "instance_resource": 12000027,
+      "role": 1133,
+      "instance_state": 24
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000435,
+    "fields": {
+      "instance_resource": 12000027,
+      "role": 1133,
+      "instance_state": 25
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000436,
+    "fields": {
+      "instance_resource": 12000027,
+      "role": 1133,
+      "instance_state": 34
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000437,
+    "fields": {
+      "instance_resource": 12000027,
+      "role": 1133,
+      "instance_state": 26
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000438,
+    "fields": {
+      "instance_resource": 12000027,
+      "role": 1133,
+      "instance_state": 27
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000439,
+    "fields": {
+      "instance_resource": 12000027,
+      "role": 1133,
+      "instance_state": 28
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000440,
+    "fields": {
+      "instance_resource": 12000027,
+      "role": 1133,
+      "instance_state": 29
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000441,
+    "fields": {
+      "instance_resource": 12000027,
+      "role": 1133,
+      "instance_state": 30
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000442,
+    "fields": {
+      "instance_resource": 12000027,
+      "role": 1133,
+      "instance_state": 31
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000443,
+    "fields": {
+      "instance_resource": 12000027,
+      "role": 1133,
+      "instance_state": 33
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000444,
+    "fields": {
+      "instance_resource": 12000033,
+      "role": 1133,
+      "instance_state": 22
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000445,
+    "fields": {
+      "instance_resource": 12000033,
+      "role": 1133,
+      "instance_state": 23
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000446,
+    "fields": {
+      "instance_resource": 12000033,
+      "role": 1133,
+      "instance_state": 24
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000447,
+    "fields": {
+      "instance_resource": 12000033,
+      "role": 1133,
+      "instance_state": 25
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000448,
+    "fields": {
+      "instance_resource": 12000033,
+      "role": 1133,
+      "instance_state": 34
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000449,
+    "fields": {
+      "instance_resource": 12000033,
+      "role": 1133,
+      "instance_state": 26
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000450,
+    "fields": {
+      "instance_resource": 12000033,
+      "role": 1133,
+      "instance_state": 27
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000451,
+    "fields": {
+      "instance_resource": 12000034,
+      "role": 1133,
+      "instance_state": 21
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000452,
+    "fields": {
+      "instance_resource": 12000034,
+      "role": 1133,
+      "instance_state": 22
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000453,
+    "fields": {
+      "instance_resource": 12000034,
+      "role": 1133,
+      "instance_state": 32
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000454,
+    "fields": {
+      "instance_resource": 12000034,
+      "role": 1133,
+      "instance_state": 23
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000455,
+    "fields": {
+      "instance_resource": 12000034,
+      "role": 1133,
+      "instance_state": 24
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000456,
+    "fields": {
+      "instance_resource": 12000034,
+      "role": 1133,
+      "instance_state": 25
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000457,
+    "fields": {
+      "instance_resource": 12000034,
+      "role": 1133,
+      "instance_state": 34
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000458,
+    "fields": {
+      "instance_resource": 12000034,
+      "role": 1133,
+      "instance_state": 26
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000459,
+    "fields": {
+      "instance_resource": 12000035,
+      "role": 1133,
+      "instance_state": 22
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000460,
+    "fields": {
+      "instance_resource": 12000035,
+      "role": 1133,
+      "instance_state": 23
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000461,
+    "fields": {
+      "instance_resource": 12000035,
+      "role": 1133,
+      "instance_state": 24
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000462,
+    "fields": {
+      "instance_resource": 12000035,
+      "role": 1133,
+      "instance_state": 25
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000463,
+    "fields": {
+      "instance_resource": 12000035,
+      "role": 1133,
+      "instance_state": 34
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000464,
+    "fields": {
+      "instance_resource": 12000035,
+      "role": 1133,
+      "instance_state": 26
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000465,
+    "fields": {
+      "instance_resource": 12000036,
+      "role": 1133,
+      "instance_state": 22
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000466,
+    "fields": {
+      "instance_resource": 12000036,
+      "role": 1133,
+      "instance_state": 23
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000467,
+    "fields": {
+      "instance_resource": 12000036,
+      "role": 1133,
+      "instance_state": 24
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000468,
+    "fields": {
+      "instance_resource": 12000036,
+      "role": 1133,
+      "instance_state": 25
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000469,
+    "fields": {
+      "instance_resource": 12000036,
+      "role": 1133,
+      "instance_state": 34
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000470,
+    "fields": {
+      "instance_resource": 12000036,
+      "role": 1133,
+      "instance_state": 26
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000471,
+    "fields": {
+      "instance_resource": 12000036,
+      "role": 1133,
+      "instance_state": 27
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000472,
+    "fields": {
+      "instance_resource": 12000037,
+      "role": 1133,
+      "instance_state": 21
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000473,
+    "fields": {
+      "instance_resource": 12000037,
+      "role": 1133,
+      "instance_state": 22
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000474,
+    "fields": {
+      "instance_resource": 12000037,
+      "role": 1133,
+      "instance_state": 23
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000475,
+    "fields": {
+      "instance_resource": 12000037,
+      "role": 1133,
+      "instance_state": 24
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000476,
+    "fields": {
+      "instance_resource": 12000037,
+      "role": 1133,
+      "instance_state": 25
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000477,
+    "fields": {
+      "instance_resource": 12000037,
+      "role": 1133,
+      "instance_state": 34
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000478,
+    "fields": {
+      "instance_resource": 12000037,
+      "role": 1133,
+      "instance_state": 26
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000479,
+    "fields": {
+      "instance_resource": 12000037,
+      "role": 1133,
+      "instance_state": 27
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000480,
+    "fields": {
+      "instance_resource": 12000038,
+      "role": 1133,
+      "instance_state": 1
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000481,
+    "fields": {
+      "instance_resource": 12000038,
+      "role": 1133,
+      "instance_state": 21
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000482,
+    "fields": {
+      "instance_resource": 12000038,
+      "role": 1133,
+      "instance_state": 22
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000483,
+    "fields": {
+      "instance_resource": 12000038,
+      "role": 1133,
+      "instance_state": 23
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000484,
+    "fields": {
+      "instance_resource": 12000038,
+      "role": 1133,
+      "instance_state": 24
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000485,
+    "fields": {
+      "instance_resource": 12000038,
+      "role": 1133,
+      "instance_state": 25
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000486,
+    "fields": {
+      "instance_resource": 12000038,
+      "role": 1133,
+      "instance_state": 34
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000487,
+    "fields": {
+      "instance_resource": 12000038,
+      "role": 1133,
+      "instance_state": 26
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000488,
+    "fields": {
+      "instance_resource": 12000038,
+      "role": 1133,
+      "instance_state": 27
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000489,
+    "fields": {
+      "instance_resource": 12000039,
+      "role": 1133,
+      "instance_state": 21
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000490,
+    "fields": {
+      "instance_resource": 12000039,
+      "role": 1133,
+      "instance_state": 22
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000491,
+    "fields": {
+      "instance_resource": 12000039,
+      "role": 1133,
+      "instance_state": 23
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000492,
+    "fields": {
+      "instance_resource": 12000039,
+      "role": 1133,
+      "instance_state": 24
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000493,
+    "fields": {
+      "instance_resource": 12000039,
+      "role": 1133,
+      "instance_state": 25
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000494,
+    "fields": {
+      "instance_resource": 12000039,
+      "role": 1133,
+      "instance_state": 34
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000495,
+    "fields": {
+      "instance_resource": 12000039,
+      "role": 1133,
+      "instance_state": 26
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000496,
+    "fields": {
+      "instance_resource": 12000039,
+      "role": 1133,
+      "instance_state": 27
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000497,
+    "fields": {
+      "instance_resource": 12000039,
+      "role": 1133,
+      "instance_state": 33
+    }
+  },
+  {
     "model": "core.irserviceacl",
     "pk": 1,
     "fields": {
@@ -43697,6 +45921,28 @@
       "page_form_mode": 1,
       "page_form_group": 1,
       "sort": 2
+    }
+  },
+  {
+    "model": "core.pageform",
+    "pk": 12000041,
+    "fields": {
+      "page": 1,
+      "form": 306,
+      "page_form_mode": 1,
+      "page_form_group": 1,
+      "sort": 0
+    }
+  },
+  {
+    "model": "core.pageform",
+    "pk": 12000042,
+    "fields": {
+      "page": 41,
+      "form": 306,
+      "page_form_mode": 1,
+      "page_form_group": 1,
+      "sort": 1
     }
   },
   {
@@ -47342,6 +49588,13 @@
     }
   },
   {
+    "model": "core.remberlist",
+    "pk": 12000003,
+    "fields": {
+      "instance_states": "22"
+    }
+  },
+  {
     "model": "core.rlist",
     "pk": 122,
     "fields": {
@@ -48283,6 +50536,70 @@
     }
   },
   {
+    "model": "core.rroleacl",
+    "pk": 12000013,
+    "fields": {
+      "resource": 12000003,
+      "role": 1133
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 12000014,
+    "fields": {
+      "resource": 266,
+      "role": 1133
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 12000015,
+    "fields": {
+      "resource": 287,
+      "role": 1133
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 12000016,
+    "fields": {
+      "resource": 295,
+      "role": 1133
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 12000017,
+    "fields": {
+      "resource": 318,
+      "role": 1133
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 12000018,
+    "fields": {
+      "resource": 42,
+      "role": 1133
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 12000019,
+    "fields": {
+      "resource": 312,
+      "role": 1133
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 12000020,
+    "fields": {
+      "resource": 12000001,
+      "role": 1133
+    }
+  },
+  {
     "model": "core.rsearch",
     "pk": 42,
     "fields": {
@@ -49189,6 +51506,19 @@
     }
   },
   {
+    "model": "core.resource",
+    "pk": 12000003,
+    "fields": {
+      "available_resource": "emberlist",
+      "name": "Dossierzirkulation starten",
+      "description": "Dossierzirkulation starten für Koord AfG",
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 19
+    }
+  },
+  {
     "model": "core.workflowaction",
     "pk": 171,
     "fields": {
@@ -49535,6 +51865,30 @@
   {
     "model": "core.workflowaction",
     "pk": 12000058,
+    "fields": {
+      "workflow_item": 45,
+      "multi_value": 0
+    }
+  },
+  {
+    "model": "core.workflowaction",
+    "pk": 12000073,
+    "fields": {
+      "workflow_item": 62,
+      "multi_value": 0
+    }
+  },
+  {
+    "model": "core.workflowaction",
+    "pk": 12000081,
+    "fields": {
+      "workflow_item": 44,
+      "multi_value": 0
+    }
+  },
+  {
+    "model": "core.workflowaction",
+    "pk": 12000094,
     "fields": {
       "workflow_item": 45,
       "multi_value": 0
