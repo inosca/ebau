@@ -23,6 +23,9 @@
             (cannot "correct instance" this.instance.record)
           }}
         />
+        {{#if (cannot "correct instance" this.instance.record)}}
+          <p class="uk-text-muted">{{t "corrections.document.not-available"}}</p>
+        {{/if}}
       {{/if}}
     </div>
   </div>
