@@ -56,7 +56,7 @@ class GISDataView(ListAPIView):
             if question and question.type == Question.TYPE_MULTIPLE_CHOICE:
                 options = question.options.filter(
                     slug__in=[f"{question.slug}-{v}" for v in value]
-                )
+                ).order_by("-questionoption__sort")
                 labeled_data[question_slug]["value"] = [
                     {"value": o.slug, "displayValue": o.label.translate()}
                     for o in options
