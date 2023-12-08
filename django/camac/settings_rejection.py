@@ -59,7 +59,7 @@ REJECTION = {
         },
     },
     "kt_uri": {
-        "ENABLED": True,
+        "ENABLED": False,
     },
     "kt_so": {
         "ENABLED": True,

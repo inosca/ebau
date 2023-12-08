@@ -16,6 +16,8 @@ instances:
   parcel: "Parzellen"
   building-specification: "Vorhaben"
   onlyPaperDossiers: "Nur intern erfasste Dossiers anzeigen"
+  rejectionText: "Sie können das ursprünglich eingereichte Dossier bearbeiten und erneut einreichen.
+  Für die Korrektur wird eine neue Dossiernummer erstellt."
 
   new:
     building-permit:
