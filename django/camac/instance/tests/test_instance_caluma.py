@@ -2266,6 +2266,115 @@ def test_rejection(
     assert source_instance.instance_state == finished_state
 
 
+@pytest.mark.parametrize("service_group__name", ["municipality"])
+def test_be_copy_responsible_user_on_submit(
+    db,
+    admin_client,
+    instance_state_factory,
+    form,
+    service,
+    mock_nfd_permissions,
+    caluma_workflow_config_be,
+    mock_generate_and_store_pdf,
+    application_settings,
+    ech_mandatory_answers_einfache_vorabklaerung,
+    mocker,
+    submit_date_question,
+    rejection_settings,
+    work_item_factory,
+    user_factory,
+):
+    application_settings["NOTIFICATIONS"]["SUBMIT"] = []
+    application_settings["COPY_RESPONSIBLE_PERSON_ON_SUBMIT"] = True
+
+    new_state = instance_state_factory(name="new")
+    subm_state = instance_state_factory(name="subm")
+    rejected_state = instance_state_factory(name="rejected")
+    instance_state_factory(name=rejection_settings["INSTANCE_STATE_REJECTION_COMPLETE"])
+
+    create_response = admin_client.post(
+        reverse("instance-list"),
+        {"data": {"type": "instances", "attributes": {"caluma-form": "main-form"}}},
+    )
+
+    assert (
+        create_response.status_code == status.HTTP_201_CREATED
+    ), create_response.content
+
+    source_instance_id = int(create_response.json()["data"]["id"])
+    source_instance = Instance.objects.get(pk=source_instance_id)
+
+    # Create active and responsible service for source instance
+    source_instance.instance_services.create(service=service, active=1)
+    source_instance.responsible_services.create(
+        service=service,
+        responsible_user=user_factory(name="testuser"),
+    )
+
+    # Create Work Item
+    work_item_factory(case=source_instance.case, addressed_groups=[service.pk])
+
+    # Assign state
+    source_instance.instance_state = rejected_state
+    source_instance.save()
+
+    copy_response = admin_client.post(
+        reverse("instance-list"),
+        {
+            "data": {
+                "type": "instances",
+                "attributes": {
+                    "copy-source": str(source_instance_id),
+                    "is-modification": False,
+                },
+            }
+        },
+    )
+    assert copy_response.status_code == status.HTTP_201_CREATED, copy_response.content
+
+    new_instance_id = int(copy_response.json()["data"]["id"])
+    new_instance = Instance.objects.get(pk=new_instance_id)
+
+    assert new_instance.instance_state == new_state
+
+    case = new_instance.case
+    case.document.answers.create(value=str(service.pk), question_id="gemeinde")
+    mocker.patch.object(
+        DocumentParser,
+        "parse_answers",
+        return_value=ech_mandatory_answers_einfache_vorabklaerung,
+    )
+    mocker.patch.object(event_handlers, "get_document", return_value=baugesuch_data)
+
+    submit_response = admin_client.post(
+        reverse("instance-submit", args=[new_instance.pk])
+    )
+
+    assert submit_response.status_code == status.HTTP_200_OK
+
+    new_instance.refresh_from_db()
+
+    assert new_instance.instance_state == subm_state
+
+    # Check responsible user was assigned to new_instance
+    assert (
+        new_instance.responsible_services.first().responsible_user.pk
+        == source_instance.responsible_services.first().responsible_user.pk
+    )
+
+    # Check work item of new_instance addresed to same service was assigned to responsible_user
+    new_work_item = caluma_workflow_models.WorkItem.objects.filter(
+        case__family__instance__pk=new_instance.pk,
+        addressed_groups=[new_instance.responsible_services.first().service.pk],
+        status=caluma_workflow_models.WorkItem.STATUS_READY,
+    ).first()
+
+    assert (
+        new_work_item.assigned_users[0]
+        == source_instance.responsible_services.first().responsible_user.username
+    )
+
+
 @pytest.mark.parametrize("role__name", ["Municipality"])
 @pytest.mark.parametrize("is_paper", [True, False])
 @pytest.mark.parametrize("is_modification", [True, False])
