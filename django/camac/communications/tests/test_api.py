@@ -92,9 +92,14 @@ def test_create_message(
     with_file_attachments,
     attachment_factory,
     notification_template,
-    application_settings,
+    communications_settings,
 ):
-    application_settings["COMMUNICATIONS"]["template_slug"] = notification_template.slug
+    communications_settings["NOTIFICATIONS"]["APPLICANT"][
+        "template_slug"
+    ] = notification_template.slug
+    communications_settings["NOTIFICATIONS"]["INTERNAL_INVOLVED_ENTITIES"][
+        "template_slug"
+    ] = notification_template.slug
 
     attachments = []
     if with_file_attachments:
@@ -324,26 +329,32 @@ def test_included_dossier_number(
     )
 
 
-@pytest.mark.parametrize(
-    "role__name,should_send_notification",
-    [("Municipality", True), ("Applicant", False)],
-)
-def test_notification(
+@pytest.mark.parametrize("role__name", ["Municipality", "Applicant"])
+@pytest.mark.parametrize("notifications_enabled", [1, 0])
+def test_notification_email(
     db,
     admin_client,
     communications_topic,
     be_instance,
     admin_user,
     mailoutbox,
-    should_send_notification,
     notification_template,
-    application_settings,
+    communications_settings,
+    service_factory,
     role,
+    notifications_enabled,
 ):
-    application_settings["COMMUNICATIONS"]["template_slug"] = notification_template.slug
+    communications_settings["NOTIFICATIONS"]["APPLICANT"][
+        "template_slug"
+    ] = notification_template.slug
+    communications_settings["NOTIFICATIONS"]["INTERNAL_INVOLVED_ENTITIES"][
+        "template_slug"
+    ] = notification_template.slug
 
+    other_service = service_factory(notification=notifications_enabled)
     communications_topic.involved_entities = [
         admin_user.get_default_group().service_id,
+        other_service.pk,
         "APPLICANT",
     ]
     communications_topic.save()
@@ -369,9 +380,14 @@ def test_notification(
         format="multipart",
     )
     assert resp.status_code == status.HTTP_201_CREATED
-
-    if should_send_notification:
-        assert len(mailoutbox) == 1
+    if notifications_enabled:
+        assert len(mailoutbox) == 2
+        recipient_emails = [email.recipients()[0] for email in mailoutbox]
+        assert other_service.email in recipient_emails
         assert notification_template.subject in mailoutbox[0].subject
+        assert notification_template.subject in mailoutbox[1].subject
     else:
-        assert len(mailoutbox) == 0
+        assert len(mailoutbox) == 1
+        recipient_emails = [email.recipients()[0] for email in mailoutbox]
+        assert other_service.email not in recipient_emails
+        assert notification_template.subject in mailoutbox[0].subject
