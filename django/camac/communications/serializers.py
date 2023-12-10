@@ -12,6 +12,7 @@ from camac.document import models as document_models
 from camac.instance.models import Instance
 from camac.instance.views import InstanceView
 from camac.user import models as user_models
+from camac.user.permissions import get_role_name
 from camac.user.relations import CurrentUserResourceRelatedField
 from camac.user.serializers import UserSerializer
 
@@ -118,9 +119,19 @@ class TopicSerializer(serializers.ModelSerializer):
         return lookup(topic.instance)
 
     def get_responsible_service_users(self, topic):
+        group = self.context["request"].group
+        role = get_role_name(group)
+
+        # Only allow access to responsible service users for internal roles, even
+        # though public users usually won't be associated to a service and therefore
+        # won't find any responsible_services
+        if not role or role in ["public", "applicant"]:
+            print("public-facing", flush=True)
+            return user_models.User.objects.none()
+
         return user_models.User.objects.filter(
             pk__in=topic.instance.responsible_services.filter(
-                service=self.context["request"].group.service
+                service=group.service
             ).values("responsible_user")
         )
 
