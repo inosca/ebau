@@ -1,4 +1,4 @@
-import Model, { attr, belongsTo } from "@ember-data/model";
+import Model, { attr, belongsTo, hasMany } from "@ember-data/model";
 
 export default class CommunicationTopicModel extends Model {
   @attr subject;
@@ -11,4 +11,5 @@ export default class CommunicationTopicModel extends Model {
 
   @belongsTo("instance", { inverse: null, async: true }) instance;
   @belongsTo("user", { inverse: null, async: true }) initiatedBy;
+  @hasMany("user", { inverse: null, async: true }) responsibleServiceUsers;
 }
