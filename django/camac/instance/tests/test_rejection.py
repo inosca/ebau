@@ -186,3 +186,37 @@ def test_revert_instance_rejection(
     assert Message.objects.count() == 1
     assert len(mailoutbox) == 1
     assert notification_template.subject in mailoutbox[0].subject
+
+
+@pytest.mark.parametrize("role__name", ["Municipality"])
+def test_save_rejection_feedback(
+    db,
+    be_instance,
+    admin_client,
+    rejection_settings,
+):
+    rejection_settings["ALLOWED_INSTANCE_STATES"] = [be_instance.instance_state.name]
+
+    before_instance_state = be_instance.instance_state.name
+    rejection_feedback = "My rejection feedback"
+
+    assert be_instance.rejection_feedback is None
+
+    response = admin_client.patch(
+        reverse("instance-rejection", args=[be_instance.pk]),
+        data={
+            "data": {
+                "id": be_instance.pk,
+                "type": "instance-rejections",
+                "attributes": {"rejection-feedback": rejection_feedback},
+            }
+        },
+    )
+
+    assert response.status_code == status.HTTP_204_NO_CONTENT
+
+    be_instance.refresh_from_db()
+
+    assert be_instance.instance_state.name == before_instance_state
+    assert be_instance.case.status == Case.STATUS_RUNNING
+    assert be_instance.rejection_feedback == rejection_feedback

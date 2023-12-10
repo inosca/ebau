@@ -61,6 +61,19 @@ class RejectionLogic:
 
     @classmethod
     @transaction.atomic
+    def save_rejection_feedback(
+        cls,
+        instance: Instance,
+        rejection_feedback: str,
+    ) -> Instance:
+
+        instance.rejection_feedback = rejection_feedback
+        instance.save(update_fields=["rejection_feedback"])
+
+        return instance
+
+    @classmethod
+    @transaction.atomic
     def reject_instance(
         cls,
         instance: Instance,

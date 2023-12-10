@@ -101,6 +101,8 @@ export default function makeServer(config) {
         200,
       );
 
+      this.patch("/instances/:id/rejection", () => {}, 204);
+
       this.post("/communications-messages", function (schema, request) {
         const topicId = JSON.parse(request.requestBody.get("topic")).id;
 

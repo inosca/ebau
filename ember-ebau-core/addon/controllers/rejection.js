@@ -1,7 +1,7 @@
 import Controller from "@ember/controller";
 import { inject as service } from "@ember/service";
 import { queryManager } from "ember-apollo-client";
-import { dropTask } from "ember-concurrency";
+import { dropTask, restartableTask, timeout } from "ember-concurrency";
 import { findRecord } from "ember-data-resources";
 import { localCopy } from "tracked-toolbox";
 
@@ -47,6 +47,26 @@ export default class RejectionController extends Controller {
       };
     },
   );
+
+  @restartableTask
+  *save() {
+    yield timeout(500);
+    yield this.fetch.fetch(
+      `/api/v1/instances/${this.ebauModules.instanceId}/rejection`,
+      {
+        method: "PATCH",
+        body: JSON.stringify({
+          data: {
+            id: this.ebauModules.instanceId,
+            type: "instance-rejections",
+            attributes: {
+              "rejection-feedback": this.feedback,
+            },
+          },
+        }),
+      },
+    );
+  }
 
   reject = dropTask(async (e) => {
     e.preventDefault();
