@@ -11,6 +11,12 @@ export default class extends Ability {
     );
   }
 
+  get isInstanceService() {
+    let instanceServices = this.model?.get("instance.services") ?? [];
+    instanceServices = instanceServices.map((service) => parseInt(service.id));
+    return instanceServices.includes(parseInt(this.ebauModules.serviceId));
+  }
+
   get canCreate() {
     return !this.ebauModules.isReadOnlyRole;
   }
@@ -24,6 +30,6 @@ export default class extends Ability {
   }
 
   get canInvolveApplicant() {
-    return !this.ebauModules.isReadOnlyRole && this.isActiveInstanceService;
+    return !this.ebauModules.isReadOnlyRole && this.isInstanceService;
   }
 }
