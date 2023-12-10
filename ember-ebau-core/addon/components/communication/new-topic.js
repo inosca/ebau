@@ -37,12 +37,13 @@ export default class CommunicationNewTopicComponent extends Component {
       )
       .map((service) => ({ id: service.get("id"), name: service.name }));
 
-    // Any involved authority can add applicant to the list
-    services.push({
-      id: "APPLICANT",
-      name: this.intl.t("communications.new.applicant"),
-    });
-
+    // Allow only instance-services to add applicant to the list
+    if (this.abilities.can("involve applicant on topic", this.topic)) {
+      services.push({
+        id: "APPLICANT",
+        name: this.intl.t("communications.new.applicant"),
+      });
+    }
     return services;
   }
 
@@ -59,11 +60,14 @@ export default class CommunicationNewTopicComponent extends Component {
       const instance = await this.store.findRecord(
         "instance",
         this.args.instanceId,
-        { include: "involved_services,active_service", reload: true },
+        { include: "involved_services,active_service,services", reload: true },
       );
+
       const topic = this.store.createRecord("communications-topic", {
         instance,
       });
+
+      topic.instance.services = await instance.get("services");
 
       // Applicant can only select instance active service
       if (this.abilities.cannot("involve entities on topic")) {
