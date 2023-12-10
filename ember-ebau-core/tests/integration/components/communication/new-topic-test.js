@@ -111,6 +111,16 @@ module("Integration | Component | communication/new-topic", function (hooks) {
 
     assert.dom("[data-test-allow-answers]").doesNotExist();
 
+    try {
+      // Check applicant is not selectable
+      await selectChoose(
+        "[data-test-involved-entities]",
+        this.intl.t("communications.new.applicant"),
+      );
+    } catch (error) {
+      assert.ok(error);
+    }
+
     await selectChoose(
       "[data-test-involved-entities]",
       involvedServices[0].name,
@@ -172,6 +182,13 @@ module("Integration | Component | communication/new-topic", function (hooks) {
     this.ebauModules.serviceId = group.service.id;
     this.instance = this.server.create("instance", {
       activeService: group.service,
+    });
+
+    const services = this.server.createList("service", 1, {
+      id: group.service.id,
+    });
+    this.instance.update({
+      services,
     });
 
     await render(
