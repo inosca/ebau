@@ -1,13 +1,43 @@
 import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
+import { tracked } from "@glimmer/tracking";
+import { trackedFunction } from "ember-resources/util/function";
 import { dedupeTracked } from "tracked-toolbox";
 
 import paginatedQuery from "ember-ebau-core/resources/paginated";
 
 export default class CommunicationTopicListComponent extends Component {
   @service router;
+  @service store;
+  @service intl;
   @service ebauModules;
+
+  get showResponsibleServiceUsers() {
+    return !this.args.instanceId && !this.ebauModules.isApplicant;
+  }
+
+  @tracked responsiblePerson;
+
+  responsibleServiceUsers = trackedFunction(this, async () => {
+    await Promise.resolve();
+    if (!this.showResponsibleServiceUsers) {
+      return [];
+    }
+
+    const users = await this.store.query("user", {
+      responsible_for_instances: true,
+      sort: "name",
+    });
+
+    return [
+      ...users,
+      {
+        id: "nobody",
+        fullName: this.intl.t("cases.filters.responsibleServiceUser-nobody"),
+      },
+    ];
+  });
 
   @dedupeTracked topicsFilter = "all";
   @dedupeTracked page = 1;
@@ -27,13 +57,18 @@ export default class CommunicationTopicListComponent extends Component {
   }
 
   get colspan() {
-    return this.args.instanceId ? 4 : 5;
+    if (this.args.instanceId) {
+      return 4;
+    }
+
+    return this.ebauModules.isApplicant ? 5 : 6;
   }
 
   topics = paginatedQuery(this, "communications-topic", () => ({
     has_unread: this.showOnlyUnread,
     instance: this.args.instanceId,
     include: "instance",
+    responsible_service_user: this.responsiblePerson?.id,
     page: {
       number: this.page,
       size: 20,
