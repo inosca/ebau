@@ -1,13 +1,37 @@
-<div class="uk-flex uk-flex-between">
-  <div class="uk-button-group">
-    {{#each (array "all" "unread" "read") as |type|}}
-      <UkButton
-        @color={{if (eq this.topicsFilter type) "primary" "default"}}
-        @label={{t (concat "communications.list." type)}}
-        @onClick={{fn this.updateFilter type}}
-        data-test-type={{type}}
-      />
-    {{/each}}
+<div class="uk-flex uk-flex-between uk-flex-middle">
+  <div class="uk-flex communications-filters">
+    <div class="uk-flex">
+      <div class="uk-button-group uk-flex uk-flex-bottom">
+        {{#each (array "all" "unread" "read") as |type|}}
+          <UkButton
+            @color={{if (eq this.topicsFilter type) "primary" "default"}}
+            @label={{t (concat "communications.list." type)}}
+            @onClick={{fn this.updateFilter type}}
+            data-test-type={{type}}
+          />
+        {{/each}}
+      </div>
+    </div>
+    {{#if this.showResponsibleServiceUsers}}
+      <div class="select-responsible-service-user uk-margin-small-left">
+        <label class="uk-form-label" for="type">{{t "responsible.responsiblePerson"}}</label>
+        <div class="uk-form-controls">
+          <PowerSelect
+            @searchEnabled={{true}}
+            @allowClear={{true}}
+            @selected={{this.responsiblePerson}}
+            @options={{this.responsibleServiceUsers.value}}
+            @valueField="id"
+            @labelField="fullName"
+            @searchField="fullName"
+            @onChange={{fn (mut this.responsiblePerson)}}
+            as |option|
+          >
+            {{option.fullName}}
+        </PowerSelect>
+        </div>
+      </div>
+    {{/if}}
   </div>
   {{#if (and @instanceId (can "create topic"))}}
     <LinkTo
@@ -19,7 +43,6 @@
     </LinkTo>
   {{/if}}
 </div>
-
 <table class="uk-table uk-table-striped uk-table-hover">
   <thead>
     <tr>
@@ -30,6 +53,9 @@
       <th>{{t "communications.topic"}}</th>
       <th>{{t "communications.participants"}}</th>
       <th>{{t "communications.date"}}</th>
+      {{#if this.showResponsibleServiceUsers}}
+      <th>{{t "responsible.responsiblePerson"}}</th>
+      {{/if}}
     </tr>
   </thead>
   <tbody>
@@ -56,10 +82,18 @@
         <td data-test-subject>{{topic.subject}}</td>
         <td data-test-involved-entities>
           {{#each topic.involvedEntities as |entity|}}
-            {{entity.name}}<br />
+            {{entity.name}}
+            <br>
           {{/each}}
         </td>
         <td class="uk-text-nowrap">{{format-date topic.created format="datetime"}}</td>
+        {{#if this.showResponsibleServiceUsers}}
+        <td class="uk-text-nowrap">
+          {{#each topic.responsibleServiceUsers as |user index|}}
+            {{~concat (if index ", " "") user.fullName~}}
+          {{/each}}
+        </td>
+        {{/if}}
       </tr>
     {{else}}
       {{#unless this.topics.isLoading}}
