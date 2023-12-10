@@ -41,3 +41,13 @@
 .communications-status-cell {
   width: 15px;
 }
+
+.communications-filters {
+  .select-responsible-service-user {
+    min-width: 300px;
+  }
+
+  .uk-button-group .uk-button {
+    line-height: $form-line-height;
+  }
+}
