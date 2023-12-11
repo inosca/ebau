@@ -39,7 +39,7 @@
     "pk": "baugesuch-generell-v2",
     "fields": {
       "created_at": "2021-02-12T13:04:49.186Z",
-      "modified_at": "2021-03-08T13:45:43.668Z",
+      "modified_at": "2023-12-11T13:35:27.352Z",
       "created_by_user": null,
       "created_by_group": null,
       "modified_by_user": null,
@@ -52,7 +52,7 @@
         "is-creatable": true,
         "is-main-form": true
       },
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": "baugesuch-generell"
     }
@@ -62,7 +62,7 @@
     "pk": "baugesuch-mit-uvp-v2",
     "fields": {
       "created_at": "2021-02-12T13:04:10.966Z",
-      "modified_at": "2021-03-08T13:44:58.009Z",
+      "modified_at": "2023-12-11T13:34:43.998Z",
       "created_by_user": null,
       "created_by_group": null,
       "modified_by_user": null,
@@ -75,7 +75,7 @@
         "is-creatable": true,
         "is-main-form": true
       },
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": "baugesuch-mit-uvp"
     }
@@ -85,7 +85,7 @@
     "pk": "baugesuch-v2",
     "fields": {
       "created_at": "2021-02-12T13:03:45.382Z",
-      "modified_at": "2021-03-08T13:45:52.178Z",
+      "modified_at": "2023-12-11T13:35:46.880Z",
       "created_by_user": null,
       "created_by_group": null,
       "modified_by_user": null,
@@ -98,7 +98,7 @@
         "is-creatable": true,
         "is-main-form": true
       },
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": "baugesuch"
     }
@@ -306,7 +306,7 @@
     "pk": "vorabklaerung-vollstaendig-v2",
     "fields": {
       "created_at": "2021-02-12T13:05:44.124Z",
-      "modified_at": "2021-03-08T13:58:38.880Z",
+      "modified_at": "2023-12-11T13:36:06.089Z",
       "created_by_user": null,
       "created_by_group": null,
       "modified_by_user": null,
@@ -319,7 +319,7 @@
         "is-creatable": true,
         "is-main-form": true
       },
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": "vorabklaerung-vollstaendig"
     }
