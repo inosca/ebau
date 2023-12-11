@@ -97,15 +97,17 @@ export default class InstanceAbility extends Ability {
       !(config.APPLICATION?.modification?.disallowStates || []).includes(
         this.instanceStateId,
       ) &&
-      (!this.session.group ||
-        (this.session.group?.role.get("name") ===
-          "Sachbearbeitung Leitbehörde" &&
-          this.model.isPaper))
+      (!this.session.isInternal ||
+        (this.session.isInternal && this.model.isPaper))
     );
   }
 
   get canCreateCopy() {
-    return this.instanceStateId === config.APPLICATION.instanceStates.rejected;
+    return (
+      this.instanceStateId === config.APPLICATION.instanceStates.rejected &&
+      (!this.session.isInternal ||
+        (this.session.isInternal && this.model.isPaper))
+    );
   }
 
   get canConvertToBuildingPermit() {

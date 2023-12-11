@@ -48,9 +48,8 @@
   </div>
 </div>
 
-<hr />
-
 {{#if this.isRejection}}
+  <hr />
   <div class="uk-grid-collapse" uk-grid>
     <div class="uk-width-1-4 uk-width-1-3@m">
       <h2 class="instance-overview__title">
@@ -72,11 +71,10 @@
       </div>
     </div>
   </div>
-
-  <hr />
 {{/if}}
 
 {{#if this.editController.case.decision}}
+  <hr />
   <div class="uk-grid-collapse" uk-grid>
     <div class="uk-width-1-4 uk-width-1-3@m">
       <h2 class="instance-overview__title">
@@ -94,202 +92,217 @@
       </div>
     </div>
   </div>
-
-  <hr />
 {{/if}}
 
-<div class="uk-grid-collapse" uk-grid>
-  <div class="uk-width-1-4 uk-width-1-3@m">
-    <h2 class="instance-overview__title">
-      {{t "instances.actions"}}
-    </h2>
-  </div>
-  <div class="uk-width-3-4 uk-width-2-3@m">
-    {{#if (can "create copy of instance" this.editController.instance)}}
-      <div class="border-highlight uk-padding-small uk-padding-remove-right uk-padding-remove-vertical">
+{{#if (or
+  (can "create copy of instance" this.editController.instance)
+  (can "create modification of instance" this.editController.instance)
+  (can "write form of instance" this.editController.instance form=(hash slug="main"))
+  (can "write form of instance" this.editController.instance form=(hash slug="sb1"))
+  (can "write form of instance" this.editController.instance form=(hash slug="sb2"))
+  (can "extend validity of instance" this.editController.instance)
+  (can "delete instance" this.editController.instance)
+  (can "withdraw instance" this.editController.instance)
+  (can "convert to building permit instance" this.editController.instance)
+  this.showSubmitTechnischeBewilligung
+)}}
+  <hr />
+  <div class="uk-grid-collapse" uk-grid>
+    <div class="uk-width-1-4 uk-width-1-3@m">
+      <h2 class="instance-overview__title">
+        {{t "instances.actions"}}
+      </h2>
+    </div>
+
+    <div class="uk-width-3-4 uk-width-2-3@m">
+      {{#if (can "create copy of instance" this.editController.instance)}}
+        <div class="border-highlight uk-padding-small uk-padding-remove-right uk-padding-remove-vertical">
+          <h3 class="instance-overview__action-title">
+            {{t "instances.rejectionTitle"}}
+            {{t "instances.rejectionTitleSuffix"}}
+          </h3>
+          <p>
+            {{t "instances.rejectionText"}}
+          </p>
+          <UkButton
+            @onClick={{perform this.createCopy}}
+            @disabled={{this.createCopy.isRunning}}
+            @loading={{this.createCopy.isRunning}}
+            @color="primary"
+          >
+            {{t "instances.rejectionTitle"}}
+          </UkButton>
+        </div>
+      {{/if}}
+
+      {{#if (can "create modification of instance" this.editController.instance)}}
         <h3 class="instance-overview__action-title">
-          {{t "instances.rejectionTitle"}}
-          {{t "instances.rejectionTitleSuffix"}}
+          {{t "instances.modificationTitle"}}
         </h3>
         <p>
-          {{t "instances.rejectionText"}}
+          {{t "instances.modificationText"}}
         </p>
         <UkButton
-          @onClick={{perform this.createCopy}}
-          @disabled={{this.createCopy.isRunning}}
-          @loading={{this.createCopy.isRunning}}
-          @color="primary"
+          @onClick={{perform this.createModification}}
+          @disabled={{this.createModification.isRunning}}
+          @loading={{this.createModification.isRunning}}
         >
-          {{t "instances.rejectionTitle"}}
+          {{t "instances.modificationTitle"}}
         </UkButton>
-      </div>
-    {{/if}}
-
-    {{#if (can "create modification of instance" this.editController.instance)}}
-      <h3 class="instance-overview__action-title">
-        {{t "instances.modificationTitle"}}
-      </h3>
-      <p>
-        {{t "instances.modificationText"}}
-      </p>
-      <UkButton
-        @onClick={{perform this.createModification}}
-        @disabled={{this.createModification.isRunning}}
-        @loading={{this.createModification.isRunning}}
-      >
-        {{t "instances.modificationTitle"}}
-      </UkButton>
-    {{/if}}
-
-    {{#if
-      (can "write form of instance" this.editController.instance form=(hash slug="main"))
-    }}
-      <h3 class="instance-overview__action-title">
-        {{t "instances.furtherProcessingOfForm"}}
-      </h3>
-      {{#if (macroCondition (macroGetOwnConfig "enableInstanceActionDescription"))}}
-        <p>
-          {{t "instances.furtherProcessingOfFormText"}}
-        </p>
       {{/if}}
-      <LinkTo
-        @route="instances.edit.form"
-        @model={{this.editController.instance.calumaForm}}
-        class="uk-button uk-button-default"
-      >
-        {{t "instances.processingOfForm"}}
-      </LinkTo>
-    {{/if}}
 
-    {{#if
-      (can "write form of instance" this.editController.instance form=(hash slug="sb1"))
-    }}
-      <h3 class="instance-overview__action-title">
-        {{t "instances.processingOfFormSb1"}}
-      </h3>
-      <p>
-        {{t "instances.processingOfFormSb1Text"}}
-      </p>
-      <LinkTo
-        @route="instances.edit.form"
-        @model="sb1"
-        class="uk-button uk-button-default"
-      >
-        {{t "instances.processingOfFormSb1"}}
-      </LinkTo>
-    {{/if}}
-
-    {{#if
-      (can "write form of instance" this.editController.instance form=(hash slug="sb2"))
-    }}
-      <h3 class="instance-overview__action-title">
-        {{t "instances.processingOfFormSb2"}}
-      </h3>
-      <p>
-        {{t "instances.processingOfFormSb2Text"}}
-      </p>
-      <LinkTo
-        @route="instances.edit.form"
-        @model="sb2"
-        class="uk-button uk-button-default"
-      >
-        {{t "instances.processingOfFormSb2"}}
-      </LinkTo>
-    {{/if}}
-
-    {{#if (can "extend validity of instance" this.editController.instance)}}
-      <h3 class="instance-overview__action-title">
-        {{t "instances.extensionPeriodOfValidityTitle"}}
-      </h3>
-      <p>
-        {{t "instances.extensionPeriodOfValidityText"}}
-      </p>
-      <UkButton
-        @label={{t "instances.extensionPeriodOfValidityButton"}}
-        @onClick={{perform this.createNewFormExtensionPeriodOfValidity}}
-      />
-    {{/if}}
-
-    <h3 class="instance-overview__action-title">
-      {{t "instances.activateFurtherPersons"}}
-    </h3>
-    {{#if (macroCondition (macroGetOwnConfig "enableInstanceActionDescription"))}}
-      <p>
-        {{t "instances.activateFurtherPersonsText"}}
-      </p>
-    {{/if}}
-    <LinkTo
-      @route="instances.edit.applicants"
-      class="uk-button uk-button-default"
-    >
-      {{t "instances.managePermissions"}}
-    </LinkTo>
-
-    {{#if (can "delete instance" this.editController.instance)}}
-      <h3 class="instance-overview__action-title">
-        {{t "instances.deleteInstance"}}
-      </h3>
-      {{#if (macroCondition (macroGetOwnConfig "enableInstanceActionDescription"))}}
-        <p>
-          {{t "instances.deleteInstanceText"}}
-        </p>
+      {{#if
+        (can "write form of instance" this.editController.instance form=(hash slug="main"))
+      }}
+        <h3 class="instance-overview__action-title">
+          {{t "instances.furtherProcessingOfForm"}}
+        </h3>
+        {{#if (macroCondition (macroGetOwnConfig "enableInstanceActionDescription"))}}
+          <p>
+            {{t "instances.furtherProcessingOfFormText"}}
+          </p>
+        {{/if}}
+        <LinkTo
+          @route="instances.edit.form"
+          @model={{this.editController.instance.calumaForm}}
+          class="uk-button uk-button-default"
+        >
+          {{t "instances.processingOfForm"}}
+        </LinkTo>
       {{/if}}
-      <UkButton
-        @onClick={{perform this.deleteInstance}}
-        @disabled={{this.deleteInstance.isRunning}}
-        @loading={{this.deleteInstance.isRunning}}
-      >
-        {{t "instances.deleteInstance"}}
-      </UkButton>
-    {{/if}}
 
-    {{#if (can "withdraw instance" this.editController.instance)}}
-      <h3 class="instance-overview__action-title">
-        {{t "instances.withdrawInstance"}}
-      </h3>
-      <UkButton
-        @onClick={{perform this.withdrawInstance}}
-        @disabled={{this.withdrawInstance.isRunning}}
-        @loading={{this.withdrawInstance.isRunning}}
-      >
-        {{t "instances.withdrawInstance"}}
-      </UkButton>
-    {{/if}}
+      {{#if
+        (can "write form of instance" this.editController.instance form=(hash slug="sb1"))
+      }}
+        <h3 class="instance-overview__action-title">
+          {{t "instances.processingOfFormSb1"}}
+        </h3>
+        <p>
+          {{t "instances.processingOfFormSb1Text"}}
+        </p>
+        <LinkTo
+          @route="instances.edit.form"
+          @model="sb1"
+          class="uk-button uk-button-default"
+        >
+          {{t "instances.processingOfFormSb1"}}
+        </LinkTo>
+      {{/if}}
 
-    {{#if (can "convert to building permit instance" this.editController.instance)}}
-      <h3 class="instance-overview__action-title">
-        {{t "instances.createBuildingPermitTitle"}}
-      </h3>
-      <p>
-        {{t "instances.createBuildingPermitText"}}
-      </p>
-      <LinkTo
-        @route="instances.new"
-        @query={{hash convertFrom=this.editController.model}}
-        class="uk-button uk-button-default"
-      >
-        {{t "instances.createBuildingPermitButton"}}
-      </LinkTo>
-    {{/if}}
+      {{#if
+        (can "write form of instance" this.editController.instance form=(hash slug="sb2"))
+      }}
+        <h3 class="instance-overview__action-title">
+          {{t "instances.processingOfFormSb2"}}
+        </h3>
+        <p>
+          {{t "instances.processingOfFormSb2Text"}}
+        </p>
+        <LinkTo
+          @route="instances.edit.form"
+          @model="sb2"
+          class="uk-button uk-button-default"
+        >
+          {{t "instances.processingOfFormSb2"}}
+        </LinkTo>
+      {{/if}}
 
-    {{#if this.showSubmitTechnischeBewilligung}}
-      <h3 class="instance-overview__action-title">
-        {{t "instances.messageBuildingServicesTitle"}}
-      </h3>
-      <p>
-        {{t "instances.messageBuildingServicesText"}}
-      </p>
-      <UkButton
-        @onClick={{perform this.createNewFormMessageBuildingServices}}
-        @disabled={{this.createNewMessageFormBuildingServices.isRunning}}
-        @loading={{this.createNewMessageFormBuildingServices.isrunning}}
-      >
-        {{t "instances.messageBuildingServicesButton"}}
-      </UkButton>
-    {{/if}}
+      {{#if (can "extend validity of instance" this.editController.instance)}}
+        <h3 class="instance-overview__action-title">
+          {{t "instances.extensionPeriodOfValidityTitle"}}
+        </h3>
+        <p>
+          {{t "instances.extensionPeriodOfValidityText"}}
+        </p>
+        <UkButton
+          @label={{t "instances.extensionPeriodOfValidityButton"}}
+          @onClick={{perform this.createNewFormExtensionPeriodOfValidity}}
+        />
+      {{/if}}
 
+      {{#if (can "manage applicants of instance" this.editController.instance)}}
+        <h3 class="instance-overview__action-title">
+          {{t "instances.activateFurtherPersons"}}
+        </h3>
+        {{#if (macroCondition (macroGetOwnConfig "enableInstanceActionDescription"))}}
+          <p>
+            {{t "instances.activateFurtherPersonsText"}}
+          </p>
+        {{/if}}
+        <LinkTo
+          @route="instances.edit.applicants"
+          class="uk-button uk-button-default"
+        >
+          {{t "instances.managePermissions"}}
+        </LinkTo>
+      {{/if}}
+
+      {{#if (can "delete instance" this.editController.instance)}}
+        <h3 class="instance-overview__action-title">
+          {{t "instances.deleteInstance"}}
+        </h3>
+        {{#if (macroCondition (macroGetOwnConfig "enableInstanceActionDescription"))}}
+          <p>
+            {{t "instances.deleteInstanceText"}}
+          </p>
+        {{/if}}
+        <UkButton
+          @onClick={{perform this.deleteInstance}}
+          @disabled={{this.deleteInstance.isRunning}}
+          @loading={{this.deleteInstance.isRunning}}
+        >
+          {{t "instances.deleteInstance"}}
+        </UkButton>
+      {{/if}}
+
+      {{#if (can "withdraw instance" this.editController.instance)}}
+        <h3 class="instance-overview__action-title">
+          {{t "instances.withdrawInstance"}}
+        </h3>
+        <UkButton
+          @onClick={{perform this.withdrawInstance}}
+          @disabled={{this.withdrawInstance.isRunning}}
+          @loading={{this.withdrawInstance.isRunning}}
+        >
+          {{t "instances.withdrawInstance"}}
+        </UkButton>
+      {{/if}}
+
+      {{#if (can "convert to building permit instance" this.editController.instance)}}
+        <h3 class="instance-overview__action-title">
+          {{t "instances.createBuildingPermitTitle"}}
+        </h3>
+        <p>
+          {{t "instances.createBuildingPermitText"}}
+        </p>
+        <LinkTo
+          @route="instances.new"
+          @query={{hash convertFrom=this.editController.model}}
+          class="uk-button uk-button-default"
+        >
+          {{t "instances.createBuildingPermitButton"}}
+        </LinkTo>
+      {{/if}}
+
+      {{#if this.showSubmitTechnischeBewilligung}}
+        <h3 class="instance-overview__action-title">
+          {{t "instances.messageBuildingServicesTitle"}}
+        </h3>
+        <p>
+          {{t "instances.messageBuildingServicesText"}}
+        </p>
+        <UkButton
+          @onClick={{perform this.createNewFormMessageBuildingServices}}
+          @disabled={{this.createNewMessageFormBuildingServices.isRunning}}
+          @loading={{this.createNewMessageFormBuildingServices.isrunning}}
+        >
+          {{t "instances.messageBuildingServicesButton"}}
+        </UkButton>
+      {{/if}}
+
+    </div>
   </div>
-</div>
+{{/if}}
 
 {{#if this.editController.hasFeedbackSection}}
   <hr />
