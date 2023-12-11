@@ -10,7 +10,11 @@ def notify_receivers(message, context):
         and message.created_by != "APPLICANT"
     ):
         _notify_applicants(message, context)
-    _notify_internal_involved_entities(message, context)
+
+    # Only notify internal services, if there is at least one other service
+    # involved, that isn't the sender of the message
+    if set(["APPLICANT", message.created_by]) != set(message.topic.involved_entities):
+        _notify_internal_involved_entities(message, context)
 
 
 def _notify_internal_involved_entities(message, context):
