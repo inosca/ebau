@@ -907,7 +907,7 @@ msgstr "Gemeinde (falls RSTA aktiv)"
 
 #: camac/notification/serializers.py:73
 msgid "Internal Message Recipients"
-msgstr ""
+msgstr "Involvierte Parteien"
 
 #: camac/notification/serializers.py:75
 msgid "Addressed service of inquiry"
