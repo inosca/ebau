@@ -1182,8 +1182,8 @@
     "pk": 12000085,
     "fields": {
       "resource": 12000003,
-      "instance_resource": null,
-      "air_action_name": null
+      "instance_resource": 12000033,
+      "air_action_name": "edit"
     }
   },
   {
@@ -6553,7 +6553,7 @@
       "description": null,
       "success_message": null,
       "error_message": null,
-      "execute_always": 0,
+      "execute_always": 1,
       "sort": 6
     }
   },
