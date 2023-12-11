@@ -1588,6 +1588,7 @@ APPLICATIONS = {
             "EXTEND_VALIDITY_FORM": "verlaengerung-geltungsdauer",
             "EXTEND_VALIDITY_COPY_QUESTIONS": [
                 "weitere-personen",
+                "verantwortliche-person-sb-identisch",
                 "strasse-flurname",
                 "nr",
                 "plz-grundstueck-v3",
