@@ -94,6 +94,22 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "entscheid-bauabschlag-mit-wiederherstellung",
+    "fields": {
+      "created_at": "2023-10-24T11:23:39.186Z",
+      "modified_at": "2023-10-24T11:23:39.186Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Mit Wiederherstellung\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "entscheid-bauabschlag-ohne-wiederherstellung",
     "fields": {
       "created_at": "2023-10-24T11:23:39.206Z",
@@ -103,22 +119,6 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Ohne Wiederherstellung\", \"fr\": null, \"it\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "entscheid-bauabschlag-with-wiederherstellung",
-    "fields": {
-      "created_at": "2023-10-24T11:23:39.186Z",
-      "modified_at": "2023-10-24T11:23:39.186Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Mit Wiederherstellung\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -353,6 +353,21 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "entscheid-bauabschlag.entscheid-bauabschlag-mit-wiederherstellung",
+    "fields": {
+      "created_at": "2023-10-24T11:24:56.295Z",
+      "modified_at": "2023-10-24T11:24:56.295Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "entscheid-bauabschlag",
+      "option": "entscheid-bauabschlag-mit-wiederherstellung",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "entscheid-bauabschlag.entscheid-bauabschlag-ohne-wiederherstellung",
     "fields": {
       "created_at": "2023-10-24T11:24:56.301Z",
@@ -364,21 +379,6 @@
       "question": "entscheid-bauabschlag",
       "option": "entscheid-bauabschlag-ohne-wiederherstellung",
       "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "entscheid-bauabschlag.entscheid-bauabschlag-with-wiederherstellung",
-    "fields": {
-      "created_at": "2023-10-24T11:24:56.295Z",
-      "modified_at": "2023-10-24T11:24:56.295Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "entscheid-bauabschlag",
-      "option": "entscheid-bauabschlag-with-wiederherstellung",
-      "sort": 1
     }
   },
   {
