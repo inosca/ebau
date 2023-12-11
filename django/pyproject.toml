@@ -94,6 +94,7 @@ omit = [
     "camac/wsgi.py",
     # TODO: write tests for the following"
     "camac/core/dataimport.py",
+    "camac/core/management/commands/snapdb.py",
     "camac/core/management/commands/clean_caluma_config.py",
     "camac/core/management/commands/cleanup_sz_thumbnail_tempfiles.py",
     "camac/core/management/commands/importmunis.py",

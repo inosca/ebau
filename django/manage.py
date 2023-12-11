@@ -3,7 +3,24 @@
 from __future__ import absolute_import, unicode_literals
 
 import os
+import signal
 import sys
+
+
+def _reconnect_db(_signum, _frame):
+    # late import for avoiding circular imports
+    # See management command `snapdb` for details
+    from django import db
+
+    print("Received external request to re-connect DB")
+
+    for conn in db.connections.all():
+        conn.connect()
+
+
+# This allows other processes to tell us to reconnect
+# to the DB.
+signal.signal(signal.SIGUSR2, _reconnect_db)
 
 if __name__ == "__main__":
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "camac.settings")
