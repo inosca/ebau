@@ -20,8 +20,7 @@
     "start": "ember serve",
     "test": "npm-run-all --print-name \"lint\" \"test:*\"",
     "test:ember": "ember test",
-    "start-proxy": "ember serve --proxy http://ebau.local",
-    "deploy": "ember deploy"
+    "start-proxy": "ember serve --proxy http://ebau.local"
   },
   "devDependencies": {
     "@adfinis/eslint-config": "2.1.0",

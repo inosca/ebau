@@ -39,20 +39,24 @@ services:
   ember-caluma-portal:
     build:
       context: ../
-      dockerfile: ./ember-caluma-portal/Dockerfile
+      dockerfile: ./Dockerfile.ember
       cache_from:
         - acr.run/camac-ng/camac-ng/ember-caluma-portal:master
       args:
         - APPLICATION=${APPLICATION}
+        - WORKSPACE=ember-caluma-portal
+      target: prod
 
   ember-ebau:
     build:
       context: ../
-      dockerfile: ./ember-ebau/Dockerfile
+      dockerfile: ./Dockerfile.ember
       cache_from:
         - acr.run/camac-ng/camac-ng/ember-ebau:master
       args:
         - APPLICATION=${APPLICATION}
+        - WORKSPACE=ember-ebau
+      target: prod
 
   mailhog:
     image: mailhog/mailhog
