@@ -9,6 +9,7 @@ include .env
 GIT_USER=$(shell git config user.email)
 DB_CONTAINER=$(shell docker compose ps -q db)
 APPLICATION_ENV=$(shell docker compose exec django bash -c 'echo $$APPLICATION_ENV')
+APPLICATION_NAME=$(shell docker compose exec django bash -c 'echo $$APPLICATION')
 
 define set_app
 	sed 's/^\(APPLICATION=\).*$//\1$(1)/' -i .env django/.env
@@ -160,19 +161,17 @@ makemigrations: ## Create schema migrations
 flush:
 	@docker compose exec django /app/manage.py flush --no-input
 
-# Directory for DB snapshots
-.PHONY: _db_snapshots_dir
-_db_snapshots_dir:
-	@mkdir -p db_snapshots
 
-.PHONY: db_snapshot
-db_snapshot: _db_snapshots_dir  ## Make a snapshot of the current state of the database
-	@docker compose exec db  pg_dump -Ucamac -c > db_snapshots/$(shell date -Iseconds).sql
+.PHONY: db_dump
+db_dump: ## Dump the databse into an SQL dump file. Needs SNAPSHOT=xyz parameter
+	@[ -z "$(SNAPSHOT)" ] && echo "Need SNAPSHOT=... make parameter to dump the DB" || true
+	@[ -n "$(SNAPSHOT)" ] && docker compose exec db pg_dump $(APPLICATION_NAME) -Ucamac -c > $(SNAPSHOT)
 
-.PHONY: db_restore
-db_restore:  _db_snapshots_dir ## Restore latest DB snapshot created with `make db_snapshot`
-	@echo "restoring from $(SNAPSHOT)"
-	@docker compose exec -T db psql -Ucamac < $(SNAPSHOT) > /dev/null
+.PHONY: db_load
+db_load: ## Load an SQL dump file into the DB. Needs SNAPSHOT=xyz parameter
+	@[ ! -f "$(SNAPSHOT)" ] && echo "No snapshot given, Need SNAPSHOT=... make parameter to load" || true
+	@[   -f "$(SNAPSHOT)" ] && echo "restoring from $(SNAPSHOT)" || true
+	@[   -f "$(SNAPSHOT)" ] && docker compose exec -T db psql -Ucamac  $(APPLICATION_NAME) < "$(SNAPSHOT)" > /dev/null ||  true
 
 .PHONY: sequencenamespace
 sequencenamespace:  ## Set the Sequence namespace for a given user. GIT_USER is detected from your git repository.
