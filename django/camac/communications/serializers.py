@@ -126,7 +126,6 @@ class TopicSerializer(serializers.ModelSerializer):
         # though public users usually won't be associated to a service and therefore
         # won't find any responsible_services
         if not role or role in ["public", "applicant"]:
-            print("public-facing", flush=True)
             return user_models.User.objects.none()
 
         return user_models.User.objects.filter(
