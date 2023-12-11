@@ -913,7 +913,7 @@ msgstr "Municipalité (si préfecture active)"
 
 #: camac/notification/serializers.py:73
 msgid "Internal Message Recipients"
-msgstr ""
+msgstr "Parties impliquées"
 
 #: camac/notification/serializers.py:75
 msgid "Addressed service of inquiry"
