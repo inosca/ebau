@@ -125,10 +125,11 @@ def test_message_read_flags_and_filter(
                 assert msg_obj["id"] in expected_sets["unread"]
 
 
-@pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.parametrize("role__name", ["Municipality", "Applicant"])
 @pytest.mark.parametrize("with_responsible", [True, False])
 def test_topic_filter_responsible_service_user(
     admin_client,
+    role,
     user,
     instance_with_case,
     service,
@@ -141,7 +142,11 @@ def test_topic_filter_responsible_service_user(
 ):
     url = reverse("communications-topic-list")
     main_service = admin_client.user.groups.first()
+
     users_entity = str(main_service.service.pk)
+
+    if role.name == "Applicant":
+        users_entity = "APPLICANT"
 
     topic_with_resposible_user = communications_topic_factory(
         instance=be_instance, involved_entities=[users_entity]
@@ -163,10 +168,17 @@ def test_topic_filter_responsible_service_user(
     if with_responsible:
         response = admin_client.get(url, {"responsible_service_user": user.pk})
         data = response.json()["data"]
-        assert len(data) == 1
-        assert data[0]["id"] == str(topic_with_resposible_user.pk)
+        if role.name == "Applicant":
+            assert len(data) == 0
+        else:
+            assert len(data) == 1
+            assert data[0]["id"] == str(topic_with_resposible_user.pk)
+
     else:
         response = admin_client.get(url, {"responsible_service_user": "nobody"})
         data = response.json()["data"]
-        assert len(data) == 1
-        assert data[0]["id"] == str(topic_no_responsible_user.pk)
+        if role.name == "Applicant":
+            assert len(data) == 0
+        else:
+            assert len(data) == 1
+            assert data[0]["id"] == str(topic_no_responsible_user.pk)
