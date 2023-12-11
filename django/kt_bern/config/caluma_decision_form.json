@@ -768,7 +768,7 @@
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Bewilligungstyp\", \"fr\": \"Cat\\u00e9gorie d'autorisation\", \"it\": null}",
+      "label": "{\"de\": \"Entscheidtyp\", \"fr\": \"Type de d\\u00e9cision\", \"it\": null}",
       "type": "choice",
       "is_required": "true",
       "is_hidden": "'decision-workflow'|answer != 'building-permit' || 'decision-decision-assessment'|answer(null) in [null, 'decision-decision-assessment-appeal-confirmed', 'decision-decision-assessment-appeal-changed', 'decision-decision-assessment-appeal-rejected']",
