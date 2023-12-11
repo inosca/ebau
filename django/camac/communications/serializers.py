@@ -163,6 +163,19 @@ class TopicSerializer(serializers.ModelSerializer):
                         "(Municipality) to the involved entities."
                     )
                 )
+        elif "APPLICANT" in validated_entities:
+            instance_services = (
+                Instance.objects.get(pk=self.initial_data["instance"]["id"])
+                .services.all()
+                .values_list("pk", flat=True)
+            )
+            if my_entity not in list(map(str, list(instance_services))):
+                raise ValidationError(
+                    gettext(
+                        "You are not allowed to add the applicant "
+                        "to the involved entities."
+                    )
+                )
 
         return validated_entities
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-09 19:15+0100\n"
+"POT-Creation-Date: 2023-12-11 17:58+0100\n"
 "PO-Revision-Date: 2023-08-07 17:32+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -92,37 +92,41 @@ msgstr "Prendre position sur le recours"
 msgid "Applicant"
 msgstr "Requérant/e"
 
-#: camac/communications/serializers.py:120
+#: camac/communications/serializers.py:134
 msgid "Involved entity must be either 'APPLICANT' or a valid service ID"
 msgstr ""
 
-#: camac/communications/serializers.py:148
+#: camac/communications/serializers.py:162
 msgid ""
 "As Applicant, you can only add the active service (Municipality) to the "
 "involved entities."
 msgstr ""
 
-#: camac/communications/serializers.py:163
+#: camac/communications/serializers.py:177
+msgid "You are not allowed to add the applicant to the involved entities."
+msgstr ""
+
+#: camac/communications/serializers.py:192
 msgid "Invisible instance, cannot create or update topic"
 msgstr ""
 
-#: camac/communications/serializers.py:253
+#: camac/communications/serializers.py:283
 msgid "Invisible topic, cannot create or update message"
 msgstr ""
 
-#: camac/communications/serializers.py:281
+#: camac/communications/serializers.py:311
 msgid "You are not allowed to create messages on this topic"
 msgstr ""
 
-#: camac/communications/serializers.py:334
+#: camac/communications/serializers.py:364
 msgid "Invisible message, cannot create or update attachment"
 msgstr ""
 
-#: camac/communications/serializers.py:341
+#: camac/communications/serializers.py:371
 msgid "Message has already been sent, cannot modify attachments"
 msgstr ""
 
-#: camac/communications/serializers.py:346
+#: camac/communications/serializers.py:376
 msgid "You can only add/update attachments on your own messges"
 msgstr ""
 
