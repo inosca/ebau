@@ -149,7 +149,7 @@ class TopicSerializer(serializers.ModelSerializer):
             # The LB is the active service on the instance
             active_service = (
                 Instance.objects.get(pk=self.initial_data["instance"]["id"])
-                .responsible_service()
+                .responsible_service(filter_type="municipality")
                 .pk
             )
 
