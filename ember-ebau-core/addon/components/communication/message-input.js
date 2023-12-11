@@ -17,6 +17,10 @@ export default class CommunicationMessageInputComponent extends Component {
     return this.args.loading || this.args.disabled;
   }
 
+  get showSnippets() {
+    return !this.ebauModules.isApplicant;
+  }
+
   get sendDisabled() {
     return this.disabled || !this.body;
   }

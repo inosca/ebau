@@ -9,6 +9,7 @@
     <Snippets
       @disabled={{or
         (this.disabled)
+        (not this.showSnippets)
         (not (has-feature "communication.snippets"))
       }}
     >
