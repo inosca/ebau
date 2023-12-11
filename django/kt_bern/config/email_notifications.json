@@ -1004,7 +1004,7 @@
       "language": "de",
       "purpose": "00 Neue Nachricht (Behörden)",
       "subject": "Neue Nachricht (eBau Nr. {{EBAU_NUMBER}}) / Nouveau message (n° eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nSie haben eine neue Nachricht auf dem Dossier mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}, {{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) erhalten.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}/communications\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur, \r\n\r\nVous avez reçu un nouveau message sur le dossier avec le eBau N° {{EBAU_NUMBER}}. ({{INSTANCE_ID}}, {{FORM_NAME_FR}}, {{MUNICIPALITY_FR}}).\r\n\r\n{{INTERNAL_DOSSIER_LINK}}/communications\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre."
+      "body": "Guten Tag\r\n\r\nSie haben eine neue Nachricht auf dem Dossier mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}, {{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) erhalten.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}?instance-resource-name=communication\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur, \r\n\r\nVous avez reçu un nouveau message sur le dossier avec le eBau N° {{EBAU_NUMBER}}. ({{INSTANCE_ID}}, {{FORM_NAME_FR}}, {{MUNICIPALITY_FR}}).\r\n\r\n{{INTERNAL_DOSSIER_LINK}}?instance-resource-name=communication\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre."
     }
   }
 ]
