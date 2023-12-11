@@ -164,6 +164,61 @@ def test_validate_entities(
         assert sorted(returned_entities) == sorted(entity_ids)
 
 
+@pytest.mark.parametrize(
+    "entities, has_involved_service, expect_status",
+    [
+        (["APPLICANT"], False, status.HTTP_201_CREATED),
+        (["APPLICANT"], True, status.HTTP_201_CREATED),
+    ],
+)
+@pytest.mark.parametrize(
+    "role__name,can_add_applicant", [("Municipality", True), ("Municipality", False)]
+)
+def test_validate_entities_can_add_applicant(
+    db,
+    role,
+    can_add_applicant,
+    has_involved_service,
+    be_instance,
+    instance_service,
+    service_factory,
+    admin_client,
+    entities,
+    expect_status,
+):
+    if has_involved_service:
+        entities.append(str(service_factory().pk))
+
+    entities = [{"id": e} for e in entities]  # No need to write the name here
+
+    if not can_add_applicant:
+        instance_service.delete()
+
+    resp = admin_client.post(
+        reverse("communications-topic-list"),
+        {
+            "data": {
+                "type": "communications-topics",
+                "id": None,
+                "attributes": {
+                    "subject": "bar",
+                    "involved-entities": entities,
+                },
+                "relationships": {
+                    "instance": {
+                        "data": {"id": str(be_instance.pk), "type": "instances"}
+                    },
+                },
+            }
+        },
+    )
+
+    if can_add_applicant:
+        assert resp.status_code == expect_status
+    else:
+        assert resp.status_code == status.HTTP_400_BAD_REQUEST
+
+
 @pytest.mark.parametrize("role__name", ["Municipality", "Applicant"])
 def test_set_initial_entity(db, be_instance, admin_client, role):
     if role.name == "Applicant":
