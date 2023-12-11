@@ -22,7 +22,7 @@
     "pk": "baugesuch-generell-v3",
     "fields": {
       "created_at": "2023-08-14T14:39:06.450Z",
-      "modified_at": "2023-10-10T01:21:31.174Z",
+      "modified_at": "2023-12-11T13:35:32.385Z",
       "created_by_user": null,
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -35,7 +35,7 @@
         "is-creatable": true,
         "is-main-form": true
       },
-      "is_published": false,
+      "is_published": true,
       "is_archived": false,
       "source": "baugesuch-generell-v2"
     }
@@ -45,7 +45,7 @@
     "pk": "baugesuch-mit-uvp-v3",
     "fields": {
       "created_at": "2023-08-14T14:33:18.272Z",
-      "modified_at": "2023-10-24T09:36:17.751Z",
+      "modified_at": "2023-12-11T13:34:48.863Z",
       "created_by_user": null,
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -58,7 +58,7 @@
         "is-creatable": true,
         "is-main-form": true
       },
-      "is_published": false,
+      "is_published": true,
       "is_archived": false,
       "source": "baugesuch-mit-uvp-v2"
     }
@@ -68,7 +68,7 @@
     "pk": "baugesuch-v3",
     "fields": {
       "created_at": "2023-08-10T13:35:29.139Z",
-      "modified_at": "2023-12-11T08:26:14.550Z",
+      "modified_at": "2023-12-11T13:35:52.181Z",
       "created_by_user": null,
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -81,7 +81,7 @@
         "is-creatable": true,
         "is-main-form": true
       },
-      "is_published": false,
+      "is_published": true,
       "is_archived": false,
       "source": "baugesuch-v2"
     }
@@ -415,7 +415,7 @@
     "pk": "vorabklaerung-vollstaendig-v3",
     "fields": {
       "created_at": "2023-08-14T14:41:24.917Z",
-      "modified_at": "2023-10-17T01:21:51.433Z",
+      "modified_at": "2023-12-11T13:36:10.481Z",
       "created_by_user": null,
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -428,7 +428,7 @@
         "is-creatable": true,
         "is-main-form": true
       },
-      "is_published": false,
+      "is_published": true,
       "is_archived": false,
       "source": "vorabklaerung-vollstaendig-v2"
     }
