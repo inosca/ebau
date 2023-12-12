@@ -47,17 +47,14 @@ class InstanceACLViewset(InstanceQuerysetMixin, ModelViewSet):
 
         return models.InstanceACL.objects.none()
 
-    @action(
-        methods=["post"],
-        detail=True,
-        serializer_class=serializers.InstanceACLSerializer,
-    )
+    @action(methods=["post"], detail=True)
     @permission_aware
     def revoke(self, request, pk):
         raise ValidationError("You do not have permission to revoke ACLs here")
 
     def revoke_for_municipality(self, request, pk):
         acl: models.InstanceACL = self.get_object()
+
         responsible_service_id = acl.instance.responsible_service(
             filter_type="municipality"
         ).pk
@@ -67,24 +64,12 @@ class InstanceACLViewset(InstanceQuerysetMixin, ModelViewSet):
             # change and then we'll need this check here as well
             raise ValidationError("Only responsible service may revoke InstanceACLs")
 
-        serializer = self.get_serializer(acl, data=request.data)
-        serializer.is_valid(raise_exception=True)
-
-        # We really only look ad the end_time field, everything else
-        # gets ignored (ACLs' attributes cannot be modified after all)
-        end_time = serializer.validated_data.get("end_time")
-
-        # We don't allow past revocations. Immediate revocations can be done
-        # by setting no end time. The revoke() method will then set it to
-        # the current datetime before saving the ACL
         api.PermissionManager.from_request(request).revoke(
             acl,
-            ends_at=end_time,
             event_name="manual-revocation",
         )
-        # Reload the serializer, so updated data is rendered
-        serializer = self.get_serializer(acl)
 
+        serializer = self.get_serializer(acl)
         return response.Response(serializer.data, status=status.HTTP_200_OK)
 
     def destroy(self, *_args, **_kwargs):
