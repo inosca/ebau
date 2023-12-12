@@ -226,6 +226,24 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "koordinaten",
+    "fields": {
+      "created_at": "2023-12-11T17:10:44.496Z",
+      "modified_at": "2023-12-11T17:10:44.496Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Koordinaten\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "voranfrage",
     "fields": {
       "created_at": "2022-01-20T18:19:46.226Z",
@@ -266,7 +284,8 @@
         "visibility": {
           "type": "specific",
           "visibleFor": {
-            "roles": [3, 12]
+            "roles": [3, 12],
+            "services": [7]
           }
         }
       },
@@ -288,6 +307,21 @@
       "form": "are-geschaeft",
       "question": "are-geschaeft-assekuranznummer",
       "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "are-geschaeft.are-geschaeft-aufgabe-themen",
+    "fields": {
+      "created_at": "2023-12-11T18:57:31.022Z",
+      "modified_at": "2023-12-11T18:57:31.022Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "are-geschaeft",
+      "question": "are-geschaeft-aufgabe-themen",
+      "sort": 15
     }
   },
   {
@@ -322,16 +356,16 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "are-geschaeft.are-geschaeft-einordnung",
+    "pk": "are-geschaeft.are-geschaeft-geschaeft-verfahren",
     "fields": {
-      "created_at": "2023-10-05T12:06:23.373Z",
-      "modified_at": "2023-10-05T12:06:23.373Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_at": "2023-12-11T19:05:14.952Z",
+      "modified_at": "2023-12-11T19:05:14.952Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "are-geschaeft",
-      "question": "are-geschaeft-einordnung",
+      "question": "are-geschaeft-geschaeft-verfahren",
       "sort": 14
     }
   },
@@ -352,16 +386,16 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "are-geschaeft.are-geschaeft-koordinaten",
+    "pk": "are-geschaeft.are-geschaeft-koordinaten-tabelle",
     "fields": {
-      "created_at": "2023-10-05T12:19:52.280Z",
-      "modified_at": "2023-10-05T12:19:52.280Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_at": "2023-12-11T17:44:38.663Z",
+      "modified_at": "2023-12-11T17:44:38.664Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "are-geschaeft",
-      "question": "are-geschaeft-koordinaten",
+      "question": "are-geschaeft-koordinaten-tabelle",
       "sort": 3
     }
   },
@@ -442,6 +476,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "are-geschaeft.are-geschaeft-sachgebiet",
+    "fields": {
+      "created_at": "2023-12-11T18:54:11.381Z",
+      "modified_at": "2023-12-11T18:54:11.381Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "are-geschaeft",
+      "question": "are-geschaeft-sachgebiet",
+      "sort": 16
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "are-geschaeft.are-geschaeft-strasse-nr",
     "fields": {
       "created_at": "2023-10-05T12:18:11.061Z",
@@ -467,7 +516,7 @@
       "modified_by_group": null,
       "form": "are-geschaeft",
       "question": "are-geschaeft-titel",
-      "sort": 15
+      "sort": 18
     }
   },
   {
@@ -1432,6 +1481,36 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "koordinaten.lv95-x",
+    "fields": {
+      "created_at": "2023-12-11T17:13:24.238Z",
+      "modified_at": "2023-12-11T17:13:24.238Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "koordinaten",
+      "question": "lv95-x",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "koordinaten.lv95-y",
+    "fields": {
+      "created_at": "2023-12-11T17:14:21.766Z",
+      "modified_at": "2023-12-11T17:14:21.766Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "koordinaten",
+      "question": "lv95-y",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "voranfrage-personalien.voranfrage-personalien-anrede",
     "fields": {
       "created_at": "2022-01-26T13:49:02.280Z",
@@ -1762,11 +1841,875 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "are-geschaeft-einordnung-baugesuche",
+    "pk": "are-geschaeft-aufgabe-themen-assistenz-der-gl",
     "fields": {
-      "created_at": "2023-10-05T12:06:23.274Z",
-      "modified_at": "2023-10-05T12:06:23.274Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_at": "2023-12-11T18:57:30.810Z",
+      "modified_at": "2023-12-11T18:57:30.810Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Assistenz der GL\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "are-geschaeft-aufgabe-themen-bauberatung",
+    "fields": {
+      "created_at": "2023-12-11T18:57:30.776Z",
+      "modified_at": "2023-12-11T18:57:30.776Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bauberatung\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "are-geschaeft-aufgabe-themen-berichterstattung-gemaess-art-9-rpv",
+    "fields": {
+      "created_at": "2023-12-11T18:57:30.765Z",
+      "modified_at": "2023-12-11T18:57:30.765Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Berichterstattung gem\\u00e4ss Art. 9 RPV\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "are-geschaeft-aufgabe-themen-beschaffungen",
+    "fields": {
+      "created_at": "2023-12-11T18:57:30.885Z",
+      "modified_at": "2023-12-11T18:57:30.885Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschaffungen\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "are-geschaeft-aufgabe-themen-dritte",
+    "fields": {
+      "created_at": "2023-12-11T18:57:30.889Z",
+      "modified_at": "2023-12-11T18:57:30.889Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dritte\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "are-geschaeft-aufgabe-themen-einmalige-auftraege-projektebauherrschaft",
+    "fields": {
+      "created_at": "2023-12-11T18:57:30.878Z",
+      "modified_at": "2023-12-11T18:57:30.878Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Einmalige Auftr\\u00e4ge / ProjekteBauherrschaft\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "are-geschaeft-aufgabe-themen-facility-management",
+    "fields": {
+      "created_at": "2023-12-11T18:57:30.909Z",
+      "modified_at": "2023-12-11T18:57:30.909Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Facility Management\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "are-geschaeft-aufgabe-themen-finanzen",
+    "fields": {
+      "created_at": "2023-12-11T18:57:30.807Z",
+      "modified_at": "2023-12-11T18:57:30.808Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Finanzen\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "are-geschaeft-aufgabe-themen-gesetzgebung",
+    "fields": {
+      "created_at": "2023-12-11T18:57:30.775Z",
+      "modified_at": "2023-12-11T18:57:30.775Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gesetzgebung\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "are-geschaeft-aufgabe-themen-informatik",
+    "fields": {
+      "created_at": "2023-12-11T18:57:30.856Z",
+      "modified_at": "2023-12-11T18:57:30.856Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Informatik\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "are-geschaeft-aufgabe-themen-personal",
+    "fields": {
+      "created_at": "2023-12-11T18:57:30.780Z",
+      "modified_at": "2023-12-11T18:57:30.780Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Personal\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "are-geschaeft-aufgabe-themen-planungshilfen-und-leitfaeden",
+    "fields": {
+      "created_at": "2023-12-11T18:57:30.822Z",
+      "modified_at": "2023-12-11T18:57:30.822Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Planungshilfen und Leitf\\u00e4den\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "are-geschaeft-aufgabe-themen-projektverfasser",
+    "fields": {
+      "created_at": "2023-12-11T18:57:30.909Z",
+      "modified_at": "2023-12-11T18:57:30.909Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Projektverfasser\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "are-geschaeft-aufgabe-themen-raum-und-siedlungsflaechenpotentiale",
+    "fields": {
+      "created_at": "2023-12-11T18:57:30.777Z",
+      "modified_at": "2023-12-11T18:57:30.777Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Raum+ und Siedlungsfl\\u00e4chenpotentiale\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "are-geschaeft-aufgabe-themen-tagungen-anlaesse",
+    "fields": {
+      "created_at": "2023-12-11T18:57:30.914Z",
+      "modified_at": "2023-12-11T18:57:30.914Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Tagungen / Anl\\u00e4sse\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "are-geschaeft-aufgabe-themen-vollzug",
+    "fields": {
+      "created_at": "2023-12-11T18:57:30.784Z",
+      "modified_at": "2023-12-11T18:57:30.784Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Vollzug\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "are-geschaeft-geschaeft-verfahren-akteneinsicht",
+    "fields": {
+      "created_at": "2023-12-11T19:05:14.370Z",
+      "modified_at": "2023-12-11T19:05:14.370Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Akteneinsicht\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "are-geschaeft-geschaeft-verfahren-anforderungsspezifikation-geschaeftskontrolle",
+    "fields": {
+      "created_at": "2023-12-11T19:05:14.385Z",
+      "modified_at": "2023-12-11T19:05:14.385Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anforderungsspezifikation Gesch\\u00e4ftskontrolle\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "are-geschaeft-geschaeft-verfahren-anhoerung-gemaess-art-19-rpv",
+    "fields": {
+      "created_at": "2023-12-11T19:05:14.393Z",
+      "modified_at": "2023-12-11T19:05:14.393Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anh\\u00f6rung gem\\u00e4ss Art. 19 RPV\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "are-geschaeft-geschaeft-verfahren-anlass-verkehrsbewilligung",
+    "fields": {
+      "created_at": "2023-12-11T19:05:14.387Z",
+      "modified_at": "2023-12-11T19:05:14.387Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anlass- / Verkehrsbewilligung\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "are-geschaeft-geschaeft-verfahren-baugesuch",
+    "fields": {
+      "created_at": "2023-12-11T19:05:14.427Z",
+      "modified_at": "2023-12-11T19:05:14.427Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Baugesuch\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "are-geschaeft-geschaeft-verfahren-baumeldung",
+    "fields": {
+      "created_at": "2023-12-11T19:05:14.351Z",
+      "modified_at": "2023-12-11T19:05:14.351Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Baumeldung\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "are-geschaeft-geschaeft-verfahren-behoerdliche-mitwirkung",
+    "fields": {
+      "created_at": "2023-12-11T19:05:14.382Z",
+      "modified_at": "2023-12-11T19:05:14.382Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beh\\u00f6rdliche Mitwirkung\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "are-geschaeft-geschaeft-verfahren-beratungen",
+    "fields": {
+      "created_at": "2023-12-11T19:05:14.435Z",
+      "modified_at": "2023-12-11T19:05:14.435Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beratungen\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "are-geschaeft-geschaeft-verfahren-beratungen-zb-startgespraech",
+    "fields": {
+      "created_at": "2023-12-11T19:05:14.376Z",
+      "modified_at": "2023-12-11T19:05:14.376Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beratungen (z.B. Startgespr\\u00e4ch)\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "are-geschaeft-geschaeft-verfahren-bereinigung-gemaess-art-20-rpv",
+    "fields": {
+      "created_at": "2023-12-11T19:05:14.520Z",
+      "modified_at": "2023-12-11T19:05:14.520Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bereinigung gem\\u00e4ss Art. 20 RPV\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "are-geschaeft-geschaeft-verfahren-beschwerdevernehmlassung",
+    "fields": {
+      "created_at": "2023-12-11T19:05:14.502Z",
+      "modified_at": "2023-12-11T19:05:14.502Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschwerdevernehmlassung\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "are-geschaeft-geschaeft-verfahren-daueraufgaben-jeweils-fuer-eine-bestimmte-periode",
+    "fields": {
+      "created_at": "2023-12-11T19:05:14.483Z",
+      "modified_at": "2023-12-11T19:05:14.483Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Daueraufgaben (jeweils f\\u00fcr eine bestimmte Periode)\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "are-geschaeft-geschaeft-verfahren-einmalige-auftraege-projekte",
+    "fields": {
+      "created_at": "2023-12-11T19:05:14.543Z",
+      "modified_at": "2023-12-11T19:05:14.543Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Einmalige Auftr\\u00e4ge / Projekte\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "are-geschaeft-geschaeft-verfahren-fachgruppen-und-fachliche-mitwirkung",
+    "fields": {
+      "created_at": "2023-12-11T19:05:14.567Z",
+      "modified_at": "2023-12-11T19:05:14.567Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Fachgruppen und fachliche Mitwirkung\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "are-geschaeft-geschaeft-verfahren-genehmigung",
+    "fields": {
+      "created_at": "2023-12-11T19:05:14.598Z",
+      "modified_at": "2023-12-11T19:05:14.598Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Genehmigung\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "are-geschaeft-geschaeft-verfahren-kommissionsarbeit",
+    "fields": {
+      "created_at": "2023-12-11T19:05:14.639Z",
+      "modified_at": "2023-12-11T19:05:14.639Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Kommissionsarbeit\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "are-geschaeft-geschaeft-verfahren-konzession-wasserentnahme",
+    "fields": {
+      "created_at": "2023-12-11T19:05:14.634Z",
+      "modified_at": "2023-12-11T19:05:14.634Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Konzession Wasserentnahme\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "are-geschaeft-geschaeft-verfahren-mitwirkung",
+    "fields": {
+      "created_at": "2023-12-11T19:05:14.705Z",
+      "modified_at": "2023-12-11T19:05:14.705Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Mitwirkung\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "are-geschaeft-geschaeft-verfahren-mitwirkung-gesetzgebung",
+    "fields": {
+      "created_at": "2023-12-11T19:05:14.730Z",
+      "modified_at": "2023-12-11T19:05:14.730Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Mitwirkung Gesetzgebung\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "are-geschaeft-geschaeft-verfahren-oeffentliche-mitwirkung",
+    "fields": {
+      "created_at": "2023-12-11T19:05:14.793Z",
+      "modified_at": "2023-12-11T19:05:14.793Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"\\u00d6ffentliche Mitwirkung\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "are-geschaeft-geschaeft-verfahren-oereb",
+    "fields": {
+      "created_at": "2023-12-11T19:05:14.779Z",
+      "modified_at": "2023-12-11T19:05:49.555Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "modified_by_group": null,
+      "label": "{\"de\": \"\\u00d6REB (Anmerkung Grundbuch, zeitverz\\u00f6gerte Folgeaufgabe mit Frist in Zukunft)\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "are-geschaeft-geschaeft-verfahren-pbg",
+    "fields": {
+      "created_at": "2023-12-11T19:05:14.796Z",
+      "modified_at": "2023-12-11T19:05:14.796Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"PBG\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "are-geschaeft-geschaeft-verfahren-pbv",
+    "fields": {
+      "created_at": "2023-12-11T19:05:14.797Z",
+      "modified_at": "2023-12-11T19:05:14.797Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"PBV\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "are-geschaeft-geschaeft-verfahren-plangenehmigungsgesuch",
+    "fields": {
+      "created_at": "2023-12-11T19:05:14.771Z",
+      "modified_at": "2023-12-11T19:05:14.771Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Plangenehmigungsgesuch\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "are-geschaeft-geschaeft-verfahren-politische-vorstoesse",
+    "fields": {
+      "created_at": "2023-12-11T19:05:14.783Z",
+      "modified_at": "2023-12-11T19:05:14.783Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Politische Vorst\\u00f6sse\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "are-geschaeft-geschaeft-verfahren-projektaenderung",
+    "fields": {
+      "created_at": "2023-12-11T19:05:14.723Z",
+      "modified_at": "2023-12-11T19:05:14.723Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Projekt\\u00e4nderung\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "are-geschaeft-geschaeft-verfahren-projektgenehmigung-gem-15-strag",
+    "fields": {
+      "created_at": "2023-12-11T19:05:14.658Z",
+      "modified_at": "2023-12-11T19:05:14.658Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Projektgenehmigung gem. \\u00a715 StraG\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "are-geschaeft-geschaeft-verfahren-technische-bewilligung",
+    "fields": {
+      "created_at": "2023-12-11T19:05:14.687Z",
+      "modified_at": "2023-12-11T19:05:14.687Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Technische Bewilligung\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "are-geschaeft-geschaeft-verfahren-umweltvertraeglichkeitspruefung",
+    "fields": {
+      "created_at": "2023-12-11T19:05:14.689Z",
+      "modified_at": "2023-12-11T19:05:14.689Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Umweltvertr\\u00e4glichkeitspr\\u00fcfung\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "are-geschaeft-geschaeft-verfahren-vollzugsaufgaben",
+    "fields": {
+      "created_at": "2023-12-11T19:05:14.547Z",
+      "modified_at": "2023-12-11T19:05:14.547Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Vollzugsaufgaben\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "are-geschaeft-geschaeft-verfahren-vollzug-und-umsetzung",
+    "fields": {
+      "created_at": "2023-12-11T19:05:14.620Z",
+      "modified_at": "2023-12-11T19:05:14.620Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Vollzug und Umsetzung\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "are-geschaeft-geschaeft-verfahren-vorabklaerung",
+    "fields": {
+      "created_at": "2023-12-11T19:05:14.503Z",
+      "modified_at": "2023-12-11T19:05:14.503Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Vorabkl\\u00e4rung\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "are-geschaeft-geschaeft-verfahren-vorentscheid-gem-84-pbg",
+    "fields": {
+      "created_at": "2023-12-11T19:05:14.524Z",
+      "modified_at": "2023-12-11T19:05:14.524Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Vorentscheid gem. \\u00a784 PBG\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "are-geschaeft-geschaeft-verfahren-vorpruefung",
+    "fields": {
+      "created_at": "2023-12-11T19:05:14.471Z",
+      "modified_at": "2023-12-11T19:05:14.471Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Vorpr\\u00fcfung\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "are-geschaeft-sachgebiet-administration",
+    "fields": {
+      "created_at": "2023-12-11T18:54:11.036Z",
+      "modified_at": "2023-12-11T18:54:11.036Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Administration\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "are-geschaeft-sachgebiet-aggloprogramme",
+    "fields": {
+      "created_at": "2023-12-11T18:54:10.991Z",
+      "modified_at": "2023-12-11T18:54:10.991Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Aggloprogramme\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "are-geschaeft-sachgebiet-arbeitsgruppen",
+    "fields": {
+      "created_at": "2023-12-11T18:54:11.229Z",
+      "modified_at": "2023-12-11T18:54:11.229Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Arbeitsgruppen\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "are-geschaeft-sachgebiet-bauen-ausserhalb-bauzone",
+    "fields": {
+      "created_at": "2023-12-11T18:54:11.159Z",
+      "modified_at": "2023-12-11T18:54:11.159Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bauen ausserhalb Bauzone\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "are-geschaeft-sachgebiet-baugesuche",
+    "fields": {
+      "created_at": "2023-12-11T18:54:11.202Z",
+      "modified_at": "2023-12-11T18:54:11.202Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
@@ -1778,11 +2721,91 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "are-geschaeft-einordnung-kantonale-richtplanung",
+    "pk": "are-geschaeft-sachgebiet-bundessachplaene-und-konzepte",
     "fields": {
-      "created_at": "2023-10-05T12:06:23.278Z",
-      "modified_at": "2023-10-05T12:06:23.278Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_at": "2023-12-11T18:54:11.065Z",
+      "modified_at": "2023-12-11T18:54:11.065Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bundessachpl\\u00e4ne und Konzepte\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "are-geschaeft-sachgebiet-esp-koordination",
+    "fields": {
+      "created_at": "2023-12-11T18:54:11.258Z",
+      "modified_at": "2023-12-11T18:54:11.258Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"ESP Koordination\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "are-geschaeft-sachgebiet-gemeindeaufsicht",
+    "fields": {
+      "created_at": "2023-12-11T18:54:11.089Z",
+      "modified_at": "2023-12-11T18:54:11.089Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gemeindeaufsicht\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "are-geschaeft-sachgebiet-geschaeftsleitung",
+    "fields": {
+      "created_at": "2023-12-11T18:54:11.175Z",
+      "modified_at": "2023-12-11T18:54:11.175Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gesch\\u00e4ftsleitung\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "are-geschaeft-sachgebiet-gestaltungsplan",
+    "fields": {
+      "created_at": "2023-12-11T18:54:11.217Z",
+      "modified_at": "2023-12-11T18:54:11.217Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gestaltungsplan\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "are-geschaeft-sachgebiet-kantonale-richtplanung",
+    "fields": {
+      "created_at": "2023-12-11T18:54:11.084Z",
+      "modified_at": "2023-12-11T18:54:11.084Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
@@ -1794,15 +2817,127 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "are-geschaeft-einordnung-raumbeobachtung",
+    "pk": "are-geschaeft-sachgebiet-kommunale-richtplanung",
     "fields": {
-      "created_at": "2023-10-05T12:06:23.277Z",
-      "modified_at": "2023-10-05T12:06:23.277Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_at": "2023-12-11T18:54:11.239Z",
+      "modified_at": "2023-12-11T18:54:11.240Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Kommunale Richtplanung\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "are-geschaeft-sachgebiet-nutzungsplan",
+    "fields": {
+      "created_at": "2023-12-11T18:54:11.160Z",
+      "modified_at": "2023-12-11T18:54:11.160Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nutzungsplan\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "are-geschaeft-sachgebiet-oeffentlichkeitsgesetz",
+    "fields": {
+      "created_at": "2023-12-11T18:54:11.016Z",
+      "modified_at": "2023-12-11T18:54:11.016Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"\\u00d6ffentlichkeitsgesetz\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "are-geschaeft-sachgebiet-oereb",
+    "fields": {
+      "created_at": "2023-12-11T18:54:11.126Z",
+      "modified_at": "2023-12-11T18:54:11.126Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"\\u00d6REB\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "are-geschaeft-sachgebiet-planungs-und-baugesetz",
+    "fields": {
+      "created_at": "2023-12-11T18:54:11.260Z",
+      "modified_at": "2023-12-11T18:54:11.260Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Planungs- und Baugesetz\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "are-geschaeft-sachgebiet-politik",
+    "fields": {
+      "created_at": "2023-12-11T18:54:11.268Z",
+      "modified_at": "2023-12-11T18:54:11.268Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Politik\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "are-geschaeft-sachgebiet-raumbeobachtung",
+    "fields": {
+      "created_at": "2023-12-11T18:54:11.118Z",
+      "modified_at": "2023-12-11T18:54:11.118Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Raumbeobachtung\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "are-geschaeft-sachgebiet-rechtsfragen",
+    "fields": {
+      "created_at": "2023-12-11T18:54:10.975Z",
+      "modified_at": "2023-12-11T18:54:10.975Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Rechtsfragen\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -2085,25 +3220,58 @@
     "pk": "are-geschaeft-assekuranznummer",
     "fields": {
       "created_at": "2023-10-05T12:19:35.813Z",
-      "modified_at": "2023-10-05T12:19:35.813Z",
+      "modified_at": "2023-12-11T16:14:26.954Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
       "modified_by_group": null,
-      "label": "{\"de\": \"Assekuranznummer\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Geb\\u00e4udenummer\", \"fr\": null, \"it\": null}",
       "type": "text",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
         "min_length": null
       },
       "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[\"integer-list\"]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "are-geschaeft-aufgabe-themen",
+    "fields": {
+      "created_at": "2023-12-11T18:57:30.960Z",
+      "modified_at": "2023-12-11T19:07:15.476Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Aufgabe / Themen\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/powerselect"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -2184,15 +3352,15 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "are-geschaeft-einordnung",
+    "pk": "are-geschaeft-geschaeft-verfahren",
     "fields": {
-      "created_at": "2023-10-05T12:06:23.327Z",
-      "modified_at": "2023-10-05T12:51:43.668Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_at": "2023-12-11T19:05:14.861Z",
+      "modified_at": "2023-12-11T19:07:23.697Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
       "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
       "modified_by_group": null,
-      "label": "{\"de\": \"Einordnung\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Gesch\\u00e4ft / Verfahren\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "true",
       "is_hidden": "false",
@@ -2220,19 +3388,19 @@
     "pk": "are-geschaeft-grundstuecknummer",
     "fields": {
       "created_at": "2023-10-05T12:19:10.168Z",
-      "modified_at": "2023-10-05T12:19:10.168Z",
+      "modified_at": "2023-12-11T16:13:51.532Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
       "modified_by_group": null,
       "label": "{\"de\": \"Grundst\\u00fccknummer\", \"fr\": null, \"it\": null}",
       "type": "text",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -2243,7 +3411,7 @@
       "row_form": null,
       "sub_form": null,
       "source": null,
-      "format_validators": "[]",
+      "format_validators": "[\"integer-list\"]",
       "default_answer": null,
       "calc_expression": null,
       "calc_dependents": "[]"
@@ -2285,13 +3453,44 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "are-geschaeft-koordinaten-tabelle",
+    "fields": {
+      "created_at": "2023-12-11T17:44:38.625Z",
+      "modified_at": "2023-12-11T17:44:38.625Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Koordinaten\", \"fr\": null, \"it\": null}",
+      "type": "table",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": "koordinaten",
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "are-geschaeft-lokalisierung",
     "fields": {
       "created_at": "2023-10-05T12:17:22.877Z",
-      "modified_at": "2023-10-05T12:52:03.732Z",
+      "modified_at": "2023-12-11T15:13:19.030Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
       "modified_by_group": null,
       "label": "{\"de\": \"Lokalisierung\", \"fr\": null, \"it\": null}",
       "type": "static",
@@ -2301,7 +3500,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"### Lokalisierung\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"## Lokalisierung\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
         "hideLabel": true
@@ -2399,10 +3598,10 @@
     "pk": "are-geschaeft-personalien",
     "fields": {
       "created_at": "2023-10-05T12:16:38.793Z",
-      "modified_at": "2023-10-05T12:51:57.936Z",
+      "modified_at": "2023-12-11T15:12:49.017Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
       "modified_by_group": null,
       "label": "{\"de\": \"Personalien\", \"fr\": null, \"it\": null}",
       "type": "static",
@@ -2412,7 +3611,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"### Personalien\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"## Personalien\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
         "hideLabel": true
@@ -2463,6 +3662,39 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "are-geschaeft-sachgebiet",
+    "fields": {
+      "created_at": "2023-12-11T18:54:11.322Z",
+      "modified_at": "2023-12-11T19:07:07.885Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Sachgebiet\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/powerselect"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "are-geschaeft-strasse-nr",
     "fields": {
       "created_at": "2023-10-05T12:18:11.013Z",
@@ -2500,10 +3732,10 @@
     "pk": "are-geschaeft-titel",
     "fields": {
       "created_at": "2023-10-05T11:58:53.597Z",
-      "modified_at": "2023-10-05T12:51:03.453Z",
+      "modified_at": "2023-12-11T15:12:30.997Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
       "modified_by_group": null,
       "label": "{\"de\": \"ARE Gesch\\u00e4ft\", \"fr\": null, \"it\": null}",
       "type": "static",
@@ -2513,7 +3745,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"# ARE-Gesch\\u00e4ft\\n\\n### Allgemeine Informationen\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"# ARE-Gesch\\u00e4ft\\n\\n## Allgemeine Informationen\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
         "hideLabel": true
@@ -4258,6 +5490,74 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "lv95-x",
+    "fields": {
+      "created_at": "2023-12-11T17:13:24.199Z",
+      "modified_at": "2023-12-11T17:13:24.199Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"X-Achse\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"Format LV95\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": 2718731,
+        "min_value": 2672167
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "lv95-y",
+    "fields": {
+      "created_at": "2023-12-11T17:14:21.722Z",
+      "modified_at": "2023-12-11T17:14:21.722Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Y-Achse\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"Format LV95\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": 1231070,
+        "min_value": 1193656
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "rechtsmittelverfahren-1-instanz-regierungsrat",
     "fields": {
       "created_at": "2021-10-29T10:13:47.324Z",
@@ -5136,46 +6436,1036 @@
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "are-geschaeft-einordnung.are-geschaeft-einordnung-baugesuche",
+    "pk": "are-geschaeft-aufgabe-themen.are-geschaeft-aufgabe-themen-assistenz-der-gl",
     "fields": {
-      "created_at": "2023-10-05T12:51:43.672Z",
-      "modified_at": "2023-10-05T12:51:43.672Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_at": "2023-12-11T19:07:15.486Z",
+      "modified_at": "2023-12-11T19:07:15.486Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
       "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
       "modified_by_group": null,
-      "question": "are-geschaeft-einordnung",
-      "option": "are-geschaeft-einordnung-baugesuche",
-      "sort": 3
+      "question": "are-geschaeft-aufgabe-themen",
+      "option": "are-geschaeft-aufgabe-themen-assistenz-der-gl",
+      "sort": 10
     }
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "are-geschaeft-einordnung.are-geschaeft-einordnung-kantonale-richtplanung",
+    "pk": "are-geschaeft-aufgabe-themen.are-geschaeft-aufgabe-themen-bauberatung",
     "fields": {
-      "created_at": "2023-10-05T12:51:43.671Z",
-      "modified_at": "2023-10-05T12:51:43.671Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_at": "2023-12-11T19:07:15.489Z",
+      "modified_at": "2023-12-11T19:07:15.489Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
       "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
       "modified_by_group": null,
-      "question": "are-geschaeft-einordnung",
-      "option": "are-geschaeft-einordnung-kantonale-richtplanung",
+      "question": "are-geschaeft-aufgabe-themen",
+      "option": "are-geschaeft-aufgabe-themen-bauberatung",
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "are-geschaeft-aufgabe-themen.are-geschaeft-aufgabe-themen-berichterstattung-gemaess-art-9-rpv",
+    "fields": {
+      "created_at": "2023-12-11T19:07:15.491Z",
+      "modified_at": "2023-12-11T19:07:15.491Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "modified_by_group": null,
+      "question": "are-geschaeft-aufgabe-themen",
+      "option": "are-geschaeft-aufgabe-themen-berichterstattung-gemaess-art-9-rpv",
+      "sort": 16
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "are-geschaeft-aufgabe-themen.are-geschaeft-aufgabe-themen-beschaffungen",
+    "fields": {
+      "created_at": "2023-12-11T19:07:15.481Z",
+      "modified_at": "2023-12-11T19:07:15.481Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "modified_by_group": null,
+      "question": "are-geschaeft-aufgabe-themen",
+      "option": "are-geschaeft-aufgabe-themen-beschaffungen",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "are-geschaeft-aufgabe-themen.are-geschaeft-aufgabe-themen-dritte",
+    "fields": {
+      "created_at": "2023-12-11T19:07:15.478Z",
+      "modified_at": "2023-12-11T19:07:15.478Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "modified_by_group": null,
+      "question": "are-geschaeft-aufgabe-themen",
+      "option": "are-geschaeft-aufgabe-themen-dritte",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "are-geschaeft-aufgabe-themen.are-geschaeft-aufgabe-themen-einmalige-auftraege-projektebauherrschaft",
+    "fields": {
+      "created_at": "2023-12-11T19:07:15.478Z",
+      "modified_at": "2023-12-11T19:07:15.478Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "modified_by_group": null,
+      "question": "are-geschaeft-aufgabe-themen",
+      "option": "are-geschaeft-aufgabe-themen-einmalige-auftraege-projektebauherrschaft",
       "sort": 2
     }
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "are-geschaeft-einordnung.are-geschaeft-einordnung-raumbeobachtung",
+    "pk": "are-geschaeft-aufgabe-themen.are-geschaeft-aufgabe-themen-facility-management",
     "fields": {
-      "created_at": "2023-10-05T12:51:43.671Z",
-      "modified_at": "2023-10-05T12:51:43.671Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_at": "2023-12-11T19:07:15.480Z",
+      "modified_at": "2023-12-11T19:07:15.480Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
       "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
       "modified_by_group": null,
-      "question": "are-geschaeft-einordnung",
-      "option": "are-geschaeft-einordnung-raumbeobachtung",
+      "question": "are-geschaeft-aufgabe-themen",
+      "option": "are-geschaeft-aufgabe-themen-facility-management",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "are-geschaeft-aufgabe-themen.are-geschaeft-aufgabe-themen-finanzen",
+    "fields": {
+      "created_at": "2023-12-11T19:07:15.483Z",
+      "modified_at": "2023-12-11T19:07:15.483Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "modified_by_group": null,
+      "question": "are-geschaeft-aufgabe-themen",
+      "option": "are-geschaeft-aufgabe-themen-finanzen",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "are-geschaeft-aufgabe-themen.are-geschaeft-aufgabe-themen-gesetzgebung",
+    "fields": {
+      "created_at": "2023-12-11T19:07:15.488Z",
+      "modified_at": "2023-12-11T19:07:15.488Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "modified_by_group": null,
+      "question": "are-geschaeft-aufgabe-themen",
+      "option": "are-geschaeft-aufgabe-themen-gesetzgebung",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "are-geschaeft-aufgabe-themen.are-geschaeft-aufgabe-themen-informatik",
+    "fields": {
+      "created_at": "2023-12-11T19:07:15.483Z",
+      "modified_at": "2023-12-11T19:07:15.483Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "modified_by_group": null,
+      "question": "are-geschaeft-aufgabe-themen",
+      "option": "are-geschaeft-aufgabe-themen-informatik",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "are-geschaeft-aufgabe-themen.are-geschaeft-aufgabe-themen-personal",
+    "fields": {
+      "created_at": "2023-12-11T19:07:15.485Z",
+      "modified_at": "2023-12-11T19:07:15.485Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "modified_by_group": null,
+      "question": "are-geschaeft-aufgabe-themen",
+      "option": "are-geschaeft-aufgabe-themen-personal",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "are-geschaeft-aufgabe-themen.are-geschaeft-aufgabe-themen-planungshilfen-und-leitfaeden",
+    "fields": {
+      "created_at": "2023-12-11T19:07:15.487Z",
+      "modified_at": "2023-12-11T19:07:15.487Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "modified_by_group": null,
+      "question": "are-geschaeft-aufgabe-themen",
+      "option": "are-geschaeft-aufgabe-themen-planungshilfen-und-leitfaeden",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "are-geschaeft-aufgabe-themen.are-geschaeft-aufgabe-themen-projektverfasser",
+    "fields": {
+      "created_at": "2023-12-11T19:07:15.479Z",
+      "modified_at": "2023-12-11T19:07:15.479Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "modified_by_group": null,
+      "question": "are-geschaeft-aufgabe-themen",
+      "option": "are-geschaeft-aufgabe-themen-projektverfasser",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "are-geschaeft-aufgabe-themen.are-geschaeft-aufgabe-themen-raum-und-siedlungsflaechenpotentiale",
+    "fields": {
+      "created_at": "2023-12-11T19:07:15.490Z",
+      "modified_at": "2023-12-11T19:07:15.490Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "modified_by_group": null,
+      "question": "are-geschaeft-aufgabe-themen",
+      "option": "are-geschaeft-aufgabe-themen-raum-und-siedlungsflaechenpotentiale",
+      "sort": 15
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "are-geschaeft-aufgabe-themen.are-geschaeft-aufgabe-themen-tagungen-anlaesse",
+    "fields": {
+      "created_at": "2023-12-11T19:07:15.482Z",
+      "modified_at": "2023-12-11T19:07:15.482Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "modified_by_group": null,
+      "question": "are-geschaeft-aufgabe-themen",
+      "option": "are-geschaeft-aufgabe-themen-tagungen-anlaesse",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "are-geschaeft-aufgabe-themen.are-geschaeft-aufgabe-themen-vollzug",
+    "fields": {
+      "created_at": "2023-12-11T19:07:15.490Z",
+      "modified_at": "2023-12-11T19:07:15.490Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "modified_by_group": null,
+      "question": "are-geschaeft-aufgabe-themen",
+      "option": "are-geschaeft-aufgabe-themen-vollzug",
+      "sort": 14
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "are-geschaeft-geschaeft-verfahren.are-geschaeft-geschaeft-verfahren-akteneinsicht",
+    "fields": {
+      "created_at": "2023-12-11T19:07:23.743Z",
+      "modified_at": "2023-12-11T19:07:23.743Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "modified_by_group": null,
+      "question": "are-geschaeft-geschaeft-verfahren",
+      "option": "are-geschaeft-geschaeft-verfahren-akteneinsicht",
+      "sort": 34
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "are-geschaeft-geschaeft-verfahren.are-geschaeft-geschaeft-verfahren-anforderungsspezifikation-geschaeftskontrolle",
+    "fields": {
+      "created_at": "2023-12-11T19:07:23.742Z",
+      "modified_at": "2023-12-11T19:07:23.742Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "modified_by_group": null,
+      "question": "are-geschaeft-geschaeft-verfahren",
+      "option": "are-geschaeft-geschaeft-verfahren-anforderungsspezifikation-geschaeftskontrolle",
+      "sort": 33
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "are-geschaeft-geschaeft-verfahren.are-geschaeft-geschaeft-verfahren-anhoerung-gemaess-art-19-rpv",
+    "fields": {
+      "created_at": "2023-12-11T19:07:23.741Z",
+      "modified_at": "2023-12-11T19:07:23.741Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "modified_by_group": null,
+      "question": "are-geschaeft-geschaeft-verfahren",
+      "option": "are-geschaeft-geschaeft-verfahren-anhoerung-gemaess-art-19-rpv",
+      "sort": 32
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "are-geschaeft-geschaeft-verfahren.are-geschaeft-geschaeft-verfahren-anlass-verkehrsbewilligung",
+    "fields": {
+      "created_at": "2023-12-11T19:07:23.740Z",
+      "modified_at": "2023-12-11T19:07:23.740Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "modified_by_group": null,
+      "question": "are-geschaeft-geschaeft-verfahren",
+      "option": "are-geschaeft-geschaeft-verfahren-anlass-verkehrsbewilligung",
+      "sort": 31
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "are-geschaeft-geschaeft-verfahren.are-geschaeft-geschaeft-verfahren-baugesuch",
+    "fields": {
+      "created_at": "2023-12-11T19:07:23.738Z",
+      "modified_at": "2023-12-11T19:07:23.738Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "modified_by_group": null,
+      "question": "are-geschaeft-geschaeft-verfahren",
+      "option": "are-geschaeft-geschaeft-verfahren-baugesuch",
+      "sort": 30
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "are-geschaeft-geschaeft-verfahren.are-geschaeft-geschaeft-verfahren-baumeldung",
+    "fields": {
+      "created_at": "2023-12-11T19:07:23.737Z",
+      "modified_at": "2023-12-11T19:07:23.737Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "modified_by_group": null,
+      "question": "are-geschaeft-geschaeft-verfahren",
+      "option": "are-geschaeft-geschaeft-verfahren-baumeldung",
+      "sort": 29
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "are-geschaeft-geschaeft-verfahren.are-geschaeft-geschaeft-verfahren-behoerdliche-mitwirkung",
+    "fields": {
+      "created_at": "2023-12-11T19:07:23.735Z",
+      "modified_at": "2023-12-11T19:07:23.735Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "modified_by_group": null,
+      "question": "are-geschaeft-geschaeft-verfahren",
+      "option": "are-geschaeft-geschaeft-verfahren-behoerdliche-mitwirkung",
+      "sort": 28
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "are-geschaeft-geschaeft-verfahren.are-geschaeft-geschaeft-verfahren-beratungen",
+    "fields": {
+      "created_at": "2023-12-11T19:07:23.734Z",
+      "modified_at": "2023-12-11T19:07:23.734Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "modified_by_group": null,
+      "question": "are-geschaeft-geschaeft-verfahren",
+      "option": "are-geschaeft-geschaeft-verfahren-beratungen",
+      "sort": 27
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "are-geschaeft-geschaeft-verfahren.are-geschaeft-geschaeft-verfahren-beratungen-zb-startgespraech",
+    "fields": {
+      "created_at": "2023-12-11T19:07:23.732Z",
+      "modified_at": "2023-12-11T19:07:23.732Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "modified_by_group": null,
+      "question": "are-geschaeft-geschaeft-verfahren",
+      "option": "are-geschaeft-geschaeft-verfahren-beratungen-zb-startgespraech",
+      "sort": 26
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "are-geschaeft-geschaeft-verfahren.are-geschaeft-geschaeft-verfahren-bereinigung-gemaess-art-20-rpv",
+    "fields": {
+      "created_at": "2023-12-11T19:07:23.730Z",
+      "modified_at": "2023-12-11T19:07:23.730Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "modified_by_group": null,
+      "question": "are-geschaeft-geschaeft-verfahren",
+      "option": "are-geschaeft-geschaeft-verfahren-bereinigung-gemaess-art-20-rpv",
+      "sort": 25
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "are-geschaeft-geschaeft-verfahren.are-geschaeft-geschaeft-verfahren-beschwerdevernehmlassung",
+    "fields": {
+      "created_at": "2023-12-11T19:07:23.728Z",
+      "modified_at": "2023-12-11T19:07:23.728Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "modified_by_group": null,
+      "question": "are-geschaeft-geschaeft-verfahren",
+      "option": "are-geschaeft-geschaeft-verfahren-beschwerdevernehmlassung",
+      "sort": 24
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "are-geschaeft-geschaeft-verfahren.are-geschaeft-geschaeft-verfahren-daueraufgaben-jeweils-fuer-eine-bestimmte-periode",
+    "fields": {
+      "created_at": "2023-12-11T19:07:23.726Z",
+      "modified_at": "2023-12-11T19:07:23.727Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "modified_by_group": null,
+      "question": "are-geschaeft-geschaeft-verfahren",
+      "option": "are-geschaeft-geschaeft-verfahren-daueraufgaben-jeweils-fuer-eine-bestimmte-periode",
+      "sort": 23
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "are-geschaeft-geschaeft-verfahren.are-geschaeft-geschaeft-verfahren-einmalige-auftraege-projekte",
+    "fields": {
+      "created_at": "2023-12-11T19:07:23.724Z",
+      "modified_at": "2023-12-11T19:07:23.724Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "modified_by_group": null,
+      "question": "are-geschaeft-geschaeft-verfahren",
+      "option": "are-geschaeft-geschaeft-verfahren-einmalige-auftraege-projekte",
+      "sort": 22
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "are-geschaeft-geschaeft-verfahren.are-geschaeft-geschaeft-verfahren-fachgruppen-und-fachliche-mitwirkung",
+    "fields": {
+      "created_at": "2023-12-11T19:07:23.723Z",
+      "modified_at": "2023-12-11T19:07:23.723Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "modified_by_group": null,
+      "question": "are-geschaeft-geschaeft-verfahren",
+      "option": "are-geschaeft-geschaeft-verfahren-fachgruppen-und-fachliche-mitwirkung",
+      "sort": 21
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "are-geschaeft-geschaeft-verfahren.are-geschaeft-geschaeft-verfahren-genehmigung",
+    "fields": {
+      "created_at": "2023-12-11T19:07:23.721Z",
+      "modified_at": "2023-12-11T19:07:23.721Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "modified_by_group": null,
+      "question": "are-geschaeft-geschaeft-verfahren",
+      "option": "are-geschaeft-geschaeft-verfahren-genehmigung",
+      "sort": 20
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "are-geschaeft-geschaeft-verfahren.are-geschaeft-geschaeft-verfahren-kommissionsarbeit",
+    "fields": {
+      "created_at": "2023-12-11T19:07:23.719Z",
+      "modified_at": "2023-12-11T19:07:23.719Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "modified_by_group": null,
+      "question": "are-geschaeft-geschaeft-verfahren",
+      "option": "are-geschaeft-geschaeft-verfahren-kommissionsarbeit",
+      "sort": 19
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "are-geschaeft-geschaeft-verfahren.are-geschaeft-geschaeft-verfahren-konzession-wasserentnahme",
+    "fields": {
+      "created_at": "2023-12-11T19:07:23.717Z",
+      "modified_at": "2023-12-11T19:07:23.717Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "modified_by_group": null,
+      "question": "are-geschaeft-geschaeft-verfahren",
+      "option": "are-geschaeft-geschaeft-verfahren-konzession-wasserentnahme",
+      "sort": 18
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "are-geschaeft-geschaeft-verfahren.are-geschaeft-geschaeft-verfahren-mitwirkung",
+    "fields": {
+      "created_at": "2023-12-11T19:07:23.716Z",
+      "modified_at": "2023-12-11T19:07:23.716Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "modified_by_group": null,
+      "question": "are-geschaeft-geschaeft-verfahren",
+      "option": "are-geschaeft-geschaeft-verfahren-mitwirkung",
+      "sort": 17
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "are-geschaeft-geschaeft-verfahren.are-geschaeft-geschaeft-verfahren-mitwirkung-gesetzgebung",
+    "fields": {
+      "created_at": "2023-12-11T19:07:23.715Z",
+      "modified_at": "2023-12-11T19:07:23.715Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "modified_by_group": null,
+      "question": "are-geschaeft-geschaeft-verfahren",
+      "option": "are-geschaeft-geschaeft-verfahren-mitwirkung-gesetzgebung",
+      "sort": 16
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "are-geschaeft-geschaeft-verfahren.are-geschaeft-geschaeft-verfahren-oeffentliche-mitwirkung",
+    "fields": {
+      "created_at": "2023-12-11T19:07:23.714Z",
+      "modified_at": "2023-12-11T19:07:23.714Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "modified_by_group": null,
+      "question": "are-geschaeft-geschaeft-verfahren",
+      "option": "are-geschaeft-geschaeft-verfahren-oeffentliche-mitwirkung",
+      "sort": 15
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "are-geschaeft-geschaeft-verfahren.are-geschaeft-geschaeft-verfahren-oereb",
+    "fields": {
+      "created_at": "2023-12-11T19:07:23.713Z",
+      "modified_at": "2023-12-11T19:07:23.713Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "modified_by_group": null,
+      "question": "are-geschaeft-geschaeft-verfahren",
+      "option": "are-geschaeft-geschaeft-verfahren-oereb",
+      "sort": 14
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "are-geschaeft-geschaeft-verfahren.are-geschaeft-geschaeft-verfahren-pbg",
+    "fields": {
+      "created_at": "2023-12-11T19:07:23.712Z",
+      "modified_at": "2023-12-11T19:07:23.712Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "modified_by_group": null,
+      "question": "are-geschaeft-geschaeft-verfahren",
+      "option": "are-geschaeft-geschaeft-verfahren-pbg",
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "are-geschaeft-geschaeft-verfahren.are-geschaeft-geschaeft-verfahren-pbv",
+    "fields": {
+      "created_at": "2023-12-11T19:07:23.712Z",
+      "modified_at": "2023-12-11T19:07:23.712Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "modified_by_group": null,
+      "question": "are-geschaeft-geschaeft-verfahren",
+      "option": "are-geschaeft-geschaeft-verfahren-pbv",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "are-geschaeft-geschaeft-verfahren.are-geschaeft-geschaeft-verfahren-plangenehmigungsgesuch",
+    "fields": {
+      "created_at": "2023-12-11T19:07:23.711Z",
+      "modified_at": "2023-12-11T19:07:23.711Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "modified_by_group": null,
+      "question": "are-geschaeft-geschaeft-verfahren",
+      "option": "are-geschaeft-geschaeft-verfahren-plangenehmigungsgesuch",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "are-geschaeft-geschaeft-verfahren.are-geschaeft-geschaeft-verfahren-politische-vorstoesse",
+    "fields": {
+      "created_at": "2023-12-11T19:07:23.710Z",
+      "modified_at": "2023-12-11T19:07:23.710Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "modified_by_group": null,
+      "question": "are-geschaeft-geschaeft-verfahren",
+      "option": "are-geschaeft-geschaeft-verfahren-politische-vorstoesse",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "are-geschaeft-geschaeft-verfahren.are-geschaeft-geschaeft-verfahren-projektaenderung",
+    "fields": {
+      "created_at": "2023-12-11T19:07:23.709Z",
+      "modified_at": "2023-12-11T19:07:23.709Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "modified_by_group": null,
+      "question": "are-geschaeft-geschaeft-verfahren",
+      "option": "are-geschaeft-geschaeft-verfahren-projektaenderung",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "are-geschaeft-geschaeft-verfahren.are-geschaeft-geschaeft-verfahren-projektgenehmigung-gem-15-strag",
+    "fields": {
+      "created_at": "2023-12-11T19:07:23.709Z",
+      "modified_at": "2023-12-11T19:07:23.709Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "modified_by_group": null,
+      "question": "are-geschaeft-geschaeft-verfahren",
+      "option": "are-geschaeft-geschaeft-verfahren-projektgenehmigung-gem-15-strag",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "are-geschaeft-geschaeft-verfahren.are-geschaeft-geschaeft-verfahren-technische-bewilligung",
+    "fields": {
+      "created_at": "2023-12-11T19:07:23.708Z",
+      "modified_at": "2023-12-11T19:07:23.708Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "modified_by_group": null,
+      "question": "are-geschaeft-geschaeft-verfahren",
+      "option": "are-geschaeft-geschaeft-verfahren-technische-bewilligung",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "are-geschaeft-geschaeft-verfahren.are-geschaeft-geschaeft-verfahren-umweltvertraeglichkeitspruefung",
+    "fields": {
+      "created_at": "2023-12-11T19:07:23.707Z",
+      "modified_at": "2023-12-11T19:07:23.707Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "modified_by_group": null,
+      "question": "are-geschaeft-geschaeft-verfahren",
+      "option": "are-geschaeft-geschaeft-verfahren-umweltvertraeglichkeitspruefung",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "are-geschaeft-geschaeft-verfahren.are-geschaeft-geschaeft-verfahren-vollzugsaufgaben",
+    "fields": {
+      "created_at": "2023-12-11T19:07:23.705Z",
+      "modified_at": "2023-12-11T19:07:23.705Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "modified_by_group": null,
+      "question": "are-geschaeft-geschaeft-verfahren",
+      "option": "are-geschaeft-geschaeft-verfahren-vollzugsaufgaben",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "are-geschaeft-geschaeft-verfahren.are-geschaeft-geschaeft-verfahren-vollzug-und-umsetzung",
+    "fields": {
+      "created_at": "2023-12-11T19:07:23.706Z",
+      "modified_at": "2023-12-11T19:07:23.706Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "modified_by_group": null,
+      "question": "are-geschaeft-geschaeft-verfahren",
+      "option": "are-geschaeft-geschaeft-verfahren-vollzug-und-umsetzung",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "are-geschaeft-geschaeft-verfahren.are-geschaeft-geschaeft-verfahren-vorabklaerung",
+    "fields": {
+      "created_at": "2023-12-11T19:07:23.704Z",
+      "modified_at": "2023-12-11T19:07:23.704Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "modified_by_group": null,
+      "question": "are-geschaeft-geschaeft-verfahren",
+      "option": "are-geschaeft-geschaeft-verfahren-vorabklaerung",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "are-geschaeft-geschaeft-verfahren.are-geschaeft-geschaeft-verfahren-vorentscheid-gem-84-pbg",
+    "fields": {
+      "created_at": "2023-12-11T19:07:23.702Z",
+      "modified_at": "2023-12-11T19:07:23.702Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "modified_by_group": null,
+      "question": "are-geschaeft-geschaeft-verfahren",
+      "option": "are-geschaeft-geschaeft-verfahren-vorentscheid-gem-84-pbg",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "are-geschaeft-geschaeft-verfahren.are-geschaeft-geschaeft-verfahren-vorpruefung",
+    "fields": {
+      "created_at": "2023-12-11T19:07:23.700Z",
+      "modified_at": "2023-12-11T19:07:23.700Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "modified_by_group": null,
+      "question": "are-geschaeft-geschaeft-verfahren",
+      "option": "are-geschaeft-geschaeft-verfahren-vorpruefung",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "are-geschaeft-sachgebiet.are-geschaeft-sachgebiet-administration",
+    "fields": {
+      "created_at": "2023-12-11T19:07:07.900Z",
+      "modified_at": "2023-12-11T19:07:07.901Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "modified_by_group": null,
+      "question": "are-geschaeft-sachgebiet",
+      "option": "are-geschaeft-sachgebiet-administration",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "are-geschaeft-sachgebiet.are-geschaeft-sachgebiet-aggloprogramme",
+    "fields": {
+      "created_at": "2023-12-11T19:07:07.902Z",
+      "modified_at": "2023-12-11T19:07:07.902Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "modified_by_group": null,
+      "question": "are-geschaeft-sachgebiet",
+      "option": "are-geschaeft-sachgebiet-aggloprogramme",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "are-geschaeft-sachgebiet.are-geschaeft-sachgebiet-arbeitsgruppen",
+    "fields": {
+      "created_at": "2023-12-11T19:07:07.898Z",
+      "modified_at": "2023-12-11T19:07:07.898Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "modified_by_group": null,
+      "question": "are-geschaeft-sachgebiet",
+      "option": "are-geschaeft-sachgebiet-arbeitsgruppen",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "are-geschaeft-sachgebiet.are-geschaeft-sachgebiet-bauen-ausserhalb-bauzone",
+    "fields": {
+      "created_at": "2023-12-11T19:07:07.909Z",
+      "modified_at": "2023-12-11T19:07:07.909Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "modified_by_group": null,
+      "question": "are-geschaeft-sachgebiet",
+      "option": "are-geschaeft-sachgebiet-bauen-ausserhalb-bauzone",
+      "sort": 15
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "are-geschaeft-sachgebiet.are-geschaeft-sachgebiet-baugesuche",
+    "fields": {
+      "created_at": "2023-12-11T19:07:07.913Z",
+      "modified_at": "2023-12-11T19:07:07.913Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "modified_by_group": null,
+      "question": "are-geschaeft-sachgebiet",
+      "option": "are-geschaeft-sachgebiet-baugesuche",
+      "sort": 19
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "are-geschaeft-sachgebiet.are-geschaeft-sachgebiet-bundessachplaene-und-konzepte",
+    "fields": {
+      "created_at": "2023-12-11T19:07:07.910Z",
+      "modified_at": "2023-12-11T19:07:07.910Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "modified_by_group": null,
+      "question": "are-geschaeft-sachgebiet",
+      "option": "are-geschaeft-sachgebiet-bundessachplaene-und-konzepte",
+      "sort": 16
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "are-geschaeft-sachgebiet.are-geschaeft-sachgebiet-esp-koordination",
+    "fields": {
+      "created_at": "2023-12-11T19:07:07.905Z",
+      "modified_at": "2023-12-11T19:07:07.905Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "modified_by_group": null,
+      "question": "are-geschaeft-sachgebiet",
+      "option": "are-geschaeft-sachgebiet-esp-koordination",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "are-geschaeft-sachgebiet.are-geschaeft-sachgebiet-gemeindeaufsicht",
+    "fields": {
+      "created_at": "2023-12-11T19:07:07.893Z",
+      "modified_at": "2023-12-11T19:07:07.893Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "modified_by_group": null,
+      "question": "are-geschaeft-sachgebiet",
+      "option": "are-geschaeft-sachgebiet-gemeindeaufsicht",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "are-geschaeft-sachgebiet.are-geschaeft-sachgebiet-geschaeftsleitung",
+    "fields": {
+      "created_at": "2023-12-11T19:07:07.895Z",
+      "modified_at": "2023-12-11T19:07:07.895Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "modified_by_group": null,
+      "question": "are-geschaeft-sachgebiet",
+      "option": "are-geschaeft-sachgebiet-geschaeftsleitung",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "are-geschaeft-sachgebiet.are-geschaeft-sachgebiet-gestaltungsplan",
+    "fields": {
+      "created_at": "2023-12-11T19:07:07.907Z",
+      "modified_at": "2023-12-11T19:07:07.907Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "modified_by_group": null,
+      "question": "are-geschaeft-sachgebiet",
+      "option": "are-geschaeft-sachgebiet-gestaltungsplan",
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "are-geschaeft-sachgebiet.are-geschaeft-sachgebiet-kantonale-richtplanung",
+    "fields": {
+      "created_at": "2023-12-11T19:07:07.912Z",
+      "modified_at": "2023-12-11T19:07:07.912Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "modified_by_group": null,
+      "question": "are-geschaeft-sachgebiet",
+      "option": "are-geschaeft-sachgebiet-kantonale-richtplanung",
+      "sort": 18
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "are-geschaeft-sachgebiet.are-geschaeft-sachgebiet-kommunale-richtplanung",
+    "fields": {
+      "created_at": "2023-12-11T19:07:07.906Z",
+      "modified_at": "2023-12-11T19:07:07.906Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "modified_by_group": null,
+      "question": "are-geschaeft-sachgebiet",
+      "option": "are-geschaeft-sachgebiet-kommunale-richtplanung",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "are-geschaeft-sachgebiet.are-geschaeft-sachgebiet-nutzungsplan",
+    "fields": {
+      "created_at": "2023-12-11T19:07:07.909Z",
+      "modified_at": "2023-12-11T19:07:07.909Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "modified_by_group": null,
+      "question": "are-geschaeft-sachgebiet",
+      "option": "are-geschaeft-sachgebiet-nutzungsplan",
+      "sort": 14
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "are-geschaeft-sachgebiet.are-geschaeft-sachgebiet-oeffentlichkeitsgesetz",
+    "fields": {
+      "created_at": "2023-12-11T19:07:07.891Z",
+      "modified_at": "2023-12-11T19:07:07.891Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "modified_by_group": null,
+      "question": "are-geschaeft-sachgebiet",
+      "option": "are-geschaeft-sachgebiet-oeffentlichkeitsgesetz",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "are-geschaeft-sachgebiet.are-geschaeft-sachgebiet-oereb",
+    "fields": {
+      "created_at": "2023-12-11T19:07:07.899Z",
+      "modified_at": "2023-12-11T19:07:07.899Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "modified_by_group": null,
+      "question": "are-geschaeft-sachgebiet",
+      "option": "are-geschaeft-sachgebiet-oereb",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "are-geschaeft-sachgebiet.are-geschaeft-sachgebiet-planungs-und-baugesetz",
+    "fields": {
+      "created_at": "2023-12-11T19:07:07.904Z",
+      "modified_at": "2023-12-11T19:07:07.904Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "modified_by_group": null,
+      "question": "are-geschaeft-sachgebiet",
+      "option": "are-geschaeft-sachgebiet-planungs-und-baugesetz",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "are-geschaeft-sachgebiet.are-geschaeft-sachgebiet-politik",
+    "fields": {
+      "created_at": "2023-12-11T19:07:07.896Z",
+      "modified_at": "2023-12-11T19:07:07.896Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "modified_by_group": null,
+      "question": "are-geschaeft-sachgebiet",
+      "option": "are-geschaeft-sachgebiet-politik",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "are-geschaeft-sachgebiet.are-geschaeft-sachgebiet-raumbeobachtung",
+    "fields": {
+      "created_at": "2023-12-11T19:07:07.911Z",
+      "modified_at": "2023-12-11T19:07:07.911Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "modified_by_group": null,
+      "question": "are-geschaeft-sachgebiet",
+      "option": "are-geschaeft-sachgebiet-raumbeobachtung",
+      "sort": 17
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "are-geschaeft-sachgebiet.are-geschaeft-sachgebiet-rechtsfragen",
+    "fields": {
+      "created_at": "2023-12-11T19:07:07.889Z",
+      "modified_at": "2023-12-11T19:07:07.889Z",
+      "created_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "created_by_group": null,
+      "modified_by_user": "730d1d16-e3ab-4c30-b6d0-d8ea93e73982",
+      "modified_by_group": null,
+      "question": "are-geschaeft-sachgebiet",
+      "option": "are-geschaeft-sachgebiet-rechtsfragen",
       "sort": 1
     }
   },
