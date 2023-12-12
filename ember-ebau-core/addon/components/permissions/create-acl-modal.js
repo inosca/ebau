@@ -39,6 +39,16 @@ export default class CreateAclModalComponent extends Component {
         "service",
         changeset.service.id,
       );
+      // set start time for the same day to now instead of 00:00
+      let startTime = DateTime.fromJSDate(changeset.pendingData.startTime);
+      // Diffs smaller than 0 mean, the start-time is earlier than 'now'
+      // and dates earlier than today are not allowed anyways so we can
+      // assume the start date is manually set to today. Everything above
+      // zero is a date in the future and will start at 00:00.
+      if (startTime.diffNow("days").days < 0) {
+        startTime = DateTime.now();
+      }
+
       // set end time to last hour of the day
       const endTime = DateTime.fromJSDate(changeset.pendingData.endTime).set({
         hour: 23,
@@ -47,6 +57,7 @@ export default class CreateAclModalComponent extends Component {
       });
       const acl = this.store.createRecord("instance-acl", {
         ...changeset.pendingData,
+        startTime,
         endTime,
         // TODO: hardcoded until further grant types are allowed for manual creation
         grantType: "SERVICE",

@@ -95,7 +95,7 @@ module(
         JSON.parse(requests[requests.length - 1].requestBody).data.attributes[
           "start-time"
         ],
-        soon.toUTC().toISO(),
+        soon.toISO(),
       );
       // verify steps
       assert.verifySteps(["afterCreate", "hide"]);
