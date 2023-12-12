@@ -226,7 +226,9 @@ class AttachmentSection(core_models.MultilingualModel, models.Model):
             group, attachment.instance if attachment else instance
         )
         return (
-            permission_class.can_write(attachment, group, instance)
+            permission_class.can_write(
+                attachment, group, instance or attachment.instance
+            )
             if permission_class
             else False
         )

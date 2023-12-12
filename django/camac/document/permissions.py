@@ -5,6 +5,12 @@ from django.db.models import Q
 from camac.constants import kt_uri as uri_constants
 from camac.instance.models import Instance
 
+# Note: The permissions declared here must also be replicated (functionally and
+# by name) in the corresponding Vue app, here:
+#    --> (camac-ng)/php/public/public-shared/js/src/apidocuments-permissions.js
+# And don't forget to register it at the bottom of the file (dasherized class
+# name here must be mapped to JS permission class)
+
 
 class Permission:
     write = False
@@ -83,6 +89,39 @@ class AdminBeforeDecisionPermission(AdminPermission):
     @classmethod
     def can_destroy(cls, attachment, group) -> bool:
         return cls.is_before_decision(attachment, group) and super().can_destroy(
+            attachment,
+            group,
+        )
+
+
+class ReadWriteAfterDecisionPermission(AdminServicePermission):
+    """Read and write permission, but only after the decision."""
+
+    @classmethod
+    def is_after_decision(cls, instance, group) -> bool:
+        # can't defer to AdminBeforeDecisionPermission.is_before_decision()
+        # because it's checking for presence of an attachment and may return
+        # `False`, which we'd need to interpret as `True`, which is incorrect
+        instance_state = instance.instance_state.name
+        after_decision_states = settings.APPLICATION.get(
+            "ATTACHMENT_AFTER_DECISION_STATES", []
+        )
+        return instance_state in after_decision_states
+
+    @classmethod
+    def can_destroy(cls, attachment, group) -> bool:
+        return (
+            attachment
+            and cls.is_after_decision(attachment.instance, group)
+            and super().can_destroy(
+                attachment,
+                group,
+            )
+        )
+
+    @classmethod
+    def can_write(cls, attachment, group, instance=None) -> bool:
+        return cls.is_after_decision(instance, group) and super().can_write(
             attachment,
             group,
         )
@@ -270,20 +309,18 @@ PERMISSIONS = {
             # are explicitly marked for them
             ReadPermission: [1, 2, 3, 5, 6, 7, 11, 12, 13, 14],
             AdminInternalPermission: [4],
-            # Write only on "Beilagen SB1 (Papier und Nachrichten)". The
-            # AdminServicePermission also allows deleting own (and only own)
-            # files
-            AdminServicePermission: [10],
+            # Write only on "Beilagen SB1 (Papier und Nachrichten)".  This is
+            # like AdminServicePermission, but limits it to after decision.
+            ReadWriteAfterDecisionPermission: [10],
         },
         "geometer-clerk": {
             # Geometer has access to all sections, but the documents
             # are explicitly marked for them
             ReadPermission: [1, 2, 3, 5, 6, 7, 11, 12, 13, 14],
             AdminInternalPermission: [4],
-            # Write only on "Beilagen SB1 (Papier und Nachrichten)". The
-            # AdminServicePermission also allows deleting own (and only own)
-            # files
-            AdminServicePermission: [10],
+            # Write only on "Beilagen SB1 (Papier und Nachrichten)".  This is
+            # like AdminServicePermission, but limits it to after decision.
+            ReadWriteAfterDecisionPermission: [10],
         },
         "geometer-readonly": {
             # Geometer has access to all sections, but the documents
