@@ -10,7 +10,6 @@ import {
 } from "@ember/test-helpers";
 import { hbs } from "ember-cli-htmlbars";
 import { setupMirage } from "ember-cli-mirage/test-support";
-import { setupIntl } from "ember-intl/test-support";
 import { selectChoose } from "ember-power-select/test-support";
 import { DateTime } from "luxon";
 import { module, test } from "qunit";
@@ -22,7 +21,6 @@ module(
   function (hooks) {
     setupRenderingTest(hooks);
     setupMirage(hooks);
-    setupIntl(hooks, "de");
 
     hooks.beforeEach(function () {
       // mock needed mirage data
@@ -42,10 +40,10 @@ module(
       this.set("afterCreate", () => assert.step("afterCreate"));
 
       await render(
-        hbs`<Permissions::CreateAclModal 
-          @visible={{this.visible}} 
-          @instanceId={{this.instance.id}} 
-          @onHide={{this.onHide}} 
+        hbs`<Permissions::CreateAclModal
+          @visible={{this.visible}}
+          @instanceId={{this.instance.id}}
+          @onHide={{this.onHide}}
           @afterCreate={{this.afterCreate}}
         />`,
       );

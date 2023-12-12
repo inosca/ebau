@@ -203,97 +203,97 @@ export default class CaseTableComponent extends Component {
             },
           }
         : macroCondition(getOwnConfig().application === "gr")
-        ? {
-            personalDetails: {
-              searchAnswers: [
-                {
-                  questions: [
-                    "name-juristische-person-gesuchstellerin",
-                    "name-gesuchstellerin",
-                    "vorname-gesuchstellerin",
-                  ],
-                  value: filter.personalDetails,
+          ? {
+              personalDetails: {
+                searchAnswers: [
+                  {
+                    questions: [
+                      "name-juristische-person-gesuchstellerin",
+                      "name-gesuchstellerin",
+                      "vorname-gesuchstellerin",
+                    ],
+                    value: filter.personalDetails,
+                  },
+                ],
+              },
+              municipality: {
+                hasAnswer: [
+                  {
+                    question: "gemeinde",
+                    value: filter.municipality,
+                    lookup: "EXACT",
+                  },
+                ],
+              },
+              form: {
+                documentForms: filter.form?.split(","),
+              },
+            }
+          : macroCondition(getOwnConfig().application === "sz")
+            ? {
+                caseStatus: {
+                  status: filter.caseStatus,
                 },
-              ],
-            },
-            municipality: {
-              hasAnswer: [
-                {
-                  question: "gemeinde",
-                  value: filter.municipality,
-                  lookup: "EXACT",
+                caseDocumentFormName: {
+                  documentForm: filter.form,
                 },
-              ],
-            },
-            form: {
-              documentForms: filter.form?.split(","),
-            },
-          }
-        : macroCondition(getOwnConfig().application === "sz")
-        ? {
-            caseStatus: {
-              status: filter.caseStatus,
-            },
-            caseDocumentFormName: {
-              documentForm: filter.form,
-            },
-            submitDateBefore: undefined,
-            submitDateAfter: undefined,
-            address: undefined,
-            parcel: undefined,
-            ...(this.args.casesBackend === "camac-ng"
-              ? { intent: undefined }
+                submitDateBefore: undefined,
+                submitDateAfter: undefined,
+                address: undefined,
+                parcel: undefined,
+                ...(this.args.casesBackend === "camac-ng"
+                  ? { intent: undefined }
+                  : {}),
+              }
+            : macroCondition(getOwnConfig().application === "be")
+              ? {
+                  dossierNumber: {
+                    metaValue: [
+                      {
+                        key: "ebau-number",
+                        value: filter.dossierNumber,
+                      },
+                    ],
+                  },
+                  form: {
+                    documentForms: filter.form?.split(","),
+                  },
+                  municipality: {
+                    hasAnswer: [
+                      {
+                        question: "gemeinde",
+                        value: filter.municipality,
+                        lookup: "EXACT",
+                      },
+                    ],
+                  },
+                  personalDetails: {
+                    searchAnswers: [
+                      {
+                        questions: [
+                          // Personalien - Gesuchsteller/in
+                          "name-gesuchstellerin",
+                          "vorname-gesuchstellerin",
+                          "name-juristische-person-gesuchstellerin",
+                          // Personalien - Vertreter/in mit Vollmacht
+                          "name-juristische-person-vertreterin",
+                          "name-vertreterin",
+                          "vorname-vertreterin",
+                          // Personalien - Gebäudeeigentümer/in
+                          "name-juristische-person-grundeigentuemerin",
+                          "name-grundeigentuemerin",
+                          "vorname-grundeigentuemerin",
+                          // Personalien - Projektverfasser/in
+                          "name-juristische-person-projektverfasserin",
+                          "name-projektverfasserin",
+                          "vorname-projektverfasserin",
+                        ],
+                        value: filter.personalDetails,
+                      },
+                    ],
+                  },
+                }
               : {}),
-          }
-        : macroCondition(getOwnConfig().application === "be")
-        ? {
-            dossierNumber: {
-              metaValue: [
-                {
-                  key: "ebau-number",
-                  value: filter.dossierNumber,
-                },
-              ],
-            },
-            form: {
-              documentForms: filter.form?.split(","),
-            },
-            municipality: {
-              hasAnswer: [
-                {
-                  question: "gemeinde",
-                  value: filter.municipality,
-                  lookup: "EXACT",
-                },
-              ],
-            },
-            personalDetails: {
-              searchAnswers: [
-                {
-                  questions: [
-                    // Personalien - Gesuchsteller/in
-                    "name-gesuchstellerin",
-                    "vorname-gesuchstellerin",
-                    "name-juristische-person-gesuchstellerin",
-                    // Personalien - Vertreter/in mit Vollmacht
-                    "name-juristische-person-vertreterin",
-                    "name-vertreterin",
-                    "vorname-vertreterin",
-                    // Personalien - Gebäudeeigentümer/in
-                    "name-juristische-person-grundeigentuemerin",
-                    "name-grundeigentuemerin",
-                    "vorname-grundeigentuemerin",
-                    // Personalien - Projektverfasser/in
-                    "name-juristische-person-projektverfasserin",
-                    "name-projektverfasserin",
-                    "vorname-projektverfasserin",
-                  ],
-                  value: filter.personalDetails,
-                },
-              ],
-            },
-          }
-        : {}),
     };
 
     const searchFilters = Object.entries(filter)
@@ -340,43 +340,44 @@ export default class CaseTableComponent extends Component {
             keyword_search: this.args.filter.keywordSearch,
           }
         : macroCondition(getOwnConfig().application === "ur")
-        ? {
-            circulation_state: this.args.hasActivation
-              ? caseTableConfig.activeCirculationStates
-              : null,
-            has_pending_billing_entry: this.args.hasPendingBillingEntry,
-            has_pending_sanction: this.args.hasPendingSanction,
-            pending_sanctions_control_instance:
-              this.args.filter.pendingSanctionsControlInstance,
-            with_cantonal_participation:
-              this.args.filter.withCantonalParticipation,
-            is_paper: this.args.filter.paper,
-            oereb_legal_state: this.args.filter.legalStateOereb,
-          }
-        : macroCondition(getOwnConfig().application === "be")
-        ? {
-            location: undefined,
-            tags: this.args.filter.tags,
-            is_paper: this.args.filter.paper,
-            is_modification: this.args.filter.modification,
-            inquiry_state: this.args.filter.inquiryState,
-            decision_date_before: this.args.filter.decisionDateBefore,
-            decision_date_after: this.args.filter.decisionDateAfter,
-            decision: this.args.filter.decision,
-            inquiry_created_before: this.args.filter.inquiryCreatedBefore,
-            inquiry_created_after: this.args.filter.inquiryCreatedAfter,
-            inquiry_completed_before: this.args.filter.inquiryCompletedBefore,
-            inquiry_completed_after: this.args.filter.inquiryCompletedAfter,
-            inquiry_answer: this.args.filter.inquiryAnswer,
-          }
-        : macroCondition(getOwnConfig().application === "gr")
-        ? {
-            location: undefined,
-            tags: this.args.filter.tags,
-            decision: this.args.filter.decision,
-            is_paper: this.args.filter.paper,
-          }
-        : {}),
+          ? {
+              circulation_state: this.args.hasActivation
+                ? caseTableConfig.activeCirculationStates
+                : null,
+              has_pending_billing_entry: this.args.hasPendingBillingEntry,
+              has_pending_sanction: this.args.hasPendingSanction,
+              pending_sanctions_control_instance:
+                this.args.filter.pendingSanctionsControlInstance,
+              with_cantonal_participation:
+                this.args.filter.withCantonalParticipation,
+              is_paper: this.args.filter.paper,
+              oereb_legal_state: this.args.filter.legalStateOereb,
+            }
+          : macroCondition(getOwnConfig().application === "be")
+            ? {
+                location: undefined,
+                tags: this.args.filter.tags,
+                is_paper: this.args.filter.paper,
+                is_modification: this.args.filter.modification,
+                inquiry_state: this.args.filter.inquiryState,
+                decision_date_before: this.args.filter.decisionDateBefore,
+                decision_date_after: this.args.filter.decisionDateAfter,
+                decision: this.args.filter.decision,
+                inquiry_created_before: this.args.filter.inquiryCreatedBefore,
+                inquiry_created_after: this.args.filter.inquiryCreatedAfter,
+                inquiry_completed_before:
+                  this.args.filter.inquiryCompletedBefore,
+                inquiry_completed_after: this.args.filter.inquiryCompletedAfter,
+                inquiry_answer: this.args.filter.inquiryAnswer,
+              }
+            : macroCondition(getOwnConfig().application === "gr")
+              ? {
+                  location: undefined,
+                  tags: this.args.filter.tags,
+                  decision: this.args.filter.decision,
+                  is_paper: this.args.filter.paper,
+                }
+              : {}),
     };
 
     return {

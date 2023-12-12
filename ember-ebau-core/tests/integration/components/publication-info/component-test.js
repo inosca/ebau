@@ -2,7 +2,7 @@ import { render } from "@ember/test-helpers";
 import { faker } from "@faker-js/faker";
 import { hbs } from "ember-cli-htmlbars";
 import { setupMirage } from "ember-cli-mirage/test-support";
-import { setupIntl } from "ember-intl/test-support";
+import { t } from "ember-intl/test-support";
 import { module, test } from "qunit";
 
 import { setupRenderingTest } from "dummy/tests/helpers";
@@ -10,7 +10,6 @@ import { setupRenderingTest } from "dummy/tests/helpers";
 module("Integration | Component | publication-info", function (hooks) {
   setupRenderingTest(hooks);
   setupMirage(hooks);
-  setupIntl(hooks);
 
   test("it renders info for published publication", async function (assert) {
     this.server.post("/graphql/", {
@@ -53,7 +52,9 @@ module("Integration | Component | publication-info", function (hooks) {
     assert
       .dom(this.element)
       .hasText(
-        "t:publication.info.note:() t:publication.info.published.public:() http://ebau-portal.local/public-instances?municipality=1",
+        `${t("publication.info.note")} ${t(
+          "publication.info.published.public",
+        )} http://ebau-portal.local/public-instances?municipality=1`,
       );
   });
 
@@ -70,7 +71,9 @@ module("Integration | Component | publication-info", function (hooks) {
     assert
       .dom(this.element)
       .includesText(
-        "t:publication.info.attention:() t:publication.info.unpublished.public:()",
+        `${t("publication.info.attention")} ${t(
+          "publication.info.unpublished.public",
+        )}`,
       );
   });
 
@@ -87,7 +90,9 @@ module("Integration | Component | publication-info", function (hooks) {
     assert
       .dom(this.element)
       .hasText(
-        "t:publication.info.note:() t:publication.info.canceled.public:()",
+        `${t("publication.info.note")} ${t(
+          "publication.info.canceled.public",
+        )}`,
       );
   });
 
@@ -104,7 +109,9 @@ module("Integration | Component | publication-info", function (hooks) {
     assert
       .dom(this.element)
       .includesText(
-        "t:publication.info.attention:() t:publication.info.unpublished.neighbors:()",
+        `${t("publication.info.attention")} ${t(
+          "publication.info.unpublished.neighbors",
+        )}`,
       );
   });
 
@@ -121,7 +128,9 @@ module("Integration | Component | publication-info", function (hooks) {
     assert
       .dom(this.element)
       .hasText(
-        "t:publication.info.note:() t:publication.info.canceled.neighbors:()",
+        `${t("publication.info.note")} ${t(
+          "publication.info.canceled.neighbors",
+        )}`,
       );
   });
 });

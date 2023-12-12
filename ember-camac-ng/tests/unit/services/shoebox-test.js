@@ -1,23 +1,23 @@
-import Service from "@ember/service";
 import { module, test } from "qunit";
 
 import { setupTest } from "camac-ng/tests/helpers";
 
 const SHOEBOX_CONTENT = { foo: "bar" };
 
-class StubDocumentService extends Service {
-  querySelector() {
-    return {
-      innerHTML: JSON.stringify(SHOEBOX_CONTENT),
-    };
-  }
-}
-
 module("Unit | Service | shoebox", function (hooks) {
   setupTest(hooks);
 
   hooks.beforeEach(function () {
-    this.owner.register("service:-document", StubDocumentService);
+    const doc = this.owner.lookup("service:-document");
+
+    this._originalQuerySelector = doc.querySelector;
+
+    doc.querySelector = () => ({ innerHTML: JSON.stringify(SHOEBOX_CONTENT) });
+  });
+
+  hooks.afterEach(function () {
+    this.owner.lookup("service:-document").querySelector =
+      this._originalQuerySelector;
   });
 
   test("it parses the shoebox", function (assert) {

@@ -211,8 +211,8 @@ export default class DossierImportDetailController extends Controller {
     return this.isValidated
       ? messages?.validation.summary
       : this.isImported
-      ? messages?.import.summary
-      : null;
+        ? messages?.import.summary
+        : null;
   }
 
   get progress() {

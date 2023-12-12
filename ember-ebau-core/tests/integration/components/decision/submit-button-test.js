@@ -2,7 +2,7 @@ import { render, click } from "@ember/test-helpers";
 import { faker } from "@faker-js/faker";
 import { hbs } from "ember-cli-htmlbars";
 import { setupMirage } from "ember-cli-mirage/test-support";
-import { setupIntl } from "ember-intl/test-support";
+import { t } from "ember-intl/test-support";
 import { module, test } from "qunit";
 
 import { setupRenderingTest } from "dummy/tests/helpers";
@@ -11,7 +11,6 @@ import id from "dummy/tests/helpers/graphql-id";
 module("Integration | Component | decision/submit-button", function (hooks) {
   setupRenderingTest(hooks);
   setupMirage(hooks);
-  setupIntl(hooks);
 
   hooks.beforeEach(function (assert) {
     this.isAppeal = false;
@@ -128,8 +127,8 @@ module("Integration | Component | decision/submit-button", function (hooks) {
     "it renders the correct label",
     [
       [false, false, "Entscheid verfügen"],
-      [true, false, "t:decision.submit.appeal:()"],
-      [false, true, "t:decision.submit.preliminary-clarification:()"],
+      [true, false, "decision.submit.appeal"],
+      [false, true, "decision.submit.preliminary-clarification"],
     ],
     async function (
       assert,
@@ -141,6 +140,10 @@ module("Integration | Component | decision/submit-button", function (hooks) {
       await render(
         hbs`<Decision::SubmitButton @field={{this.field}} @context={{hash instanceId=1}} />`,
       );
+
+      expectedLabel = this.owner.lookup("service:intl").exists(expectedLabel)
+        ? t(expectedLabel)
+        : expectedLabel;
 
       assert.dom("button").hasText(expectedLabel);
     },

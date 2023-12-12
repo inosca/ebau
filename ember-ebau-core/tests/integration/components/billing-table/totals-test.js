@@ -1,6 +1,6 @@
 import { render } from "@ember/test-helpers";
 import { hbs } from "ember-cli-htmlbars";
-import { setupIntl } from "ember-intl/test-support";
+import { t } from "ember-intl/test-support";
 import { module, test } from "qunit";
 
 import { setupRenderingTest } from "dummy/tests/helpers";
@@ -9,7 +9,6 @@ import setupFeatures from "dummy/tests/helpers/features";
 module("Integration | Component | billing-table/totals", function (hooks) {
   setupRenderingTest(hooks);
   setupFeatures(hooks);
-  setupIntl(hooks);
 
   hooks.beforeEach(function () {
     this.totals = {
@@ -28,24 +27,24 @@ module("Integration | Component | billing-table/totals", function (hooks) {
     assert.dom("tr:nth-of-type(1) hr").exists();
     assert
       .dom("tr:nth-of-type(2)")
-      .hasText("t:billing.totals.cantonal.uncharged:() 1.00");
+      .hasText(`${t("billing.totals.cantonal.uncharged")} 1.00`);
     assert
       .dom("tr:nth-of-type(3)")
-      .hasText("t:billing.totals.cantonal.total:() 2.00");
+      .hasText(`${t("billing.totals.cantonal.total")} 2.00`);
     assert.dom("tr:nth-of-type(4) hr").exists();
     assert
       .dom("tr:nth-of-type(5)")
-      .hasText("t:billing.totals.municipal.uncharged:() 3.00");
+      .hasText(`${t("billing.totals.municipal.uncharged")} 3.00`);
     assert
       .dom("tr:nth-of-type(6)")
-      .hasText("t:billing.totals.municipal.total:() 4.00");
+      .hasText(`${t("billing.totals.municipal.total")} 4.00`);
     assert.dom("tr:nth-of-type(7) hr").exists();
     assert
       .dom("tr:nth-of-type(8)")
-      .hasText("t:billing.totals.all.uncharged:() 5.00");
+      .hasText(`${t("billing.totals.all.uncharged")} 5.00`);
     assert
       .dom("tr:nth-of-type(9)")
-      .hasText("t:billing.totals.all.total:() 6.00");
+      .hasText(`${t("billing.totals.all.total")} 6.00`);
   });
 
   test("it renders all features disabled", async function (assert) {
@@ -57,7 +56,7 @@ module("Integration | Component | billing-table/totals", function (hooks) {
     assert.dom("tr:nth-of-type(1) hr").exists();
     assert
       .dom("tr:nth-of-type(2)")
-      .hasText("t:billing.totals.all.total:() 6.00");
+      .hasText(`${t("billing.totals.all.total")} 6.00`);
   });
 
   test("it renders with organization feature enabled and charge feature disabled", async function (assert) {
@@ -70,15 +69,15 @@ module("Integration | Component | billing-table/totals", function (hooks) {
     assert.dom("tr:nth-of-type(1) hr").exists();
     assert
       .dom("tr:nth-of-type(2)")
-      .hasText("t:billing.totals.cantonal.total:() 2.00");
+      .hasText(`${t("billing.totals.cantonal.total")} 2.00`);
     assert.dom("tr:nth-of-type(3) hr").exists();
     assert
       .dom("tr:nth-of-type(4)")
-      .hasText("t:billing.totals.municipal.total:() 4.00");
+      .hasText(`${t("billing.totals.municipal.total")} 4.00`);
     assert.dom("tr:nth-of-type(5) hr").exists();
     assert
       .dom("tr:nth-of-type(6)")
-      .hasText("t:billing.totals.all.total:() 6.00");
+      .hasText(`${t("billing.totals.all.total")} 6.00`);
   });
 
   test("it renders with organization feature disabled and charge feature enabled", async function (assert) {
@@ -91,10 +90,10 @@ module("Integration | Component | billing-table/totals", function (hooks) {
     assert.dom("tr:nth-of-type(1) hr").exists();
     assert
       .dom("tr:nth-of-type(2)")
-      .hasText("t:billing.totals.all.uncharged:() 5.00");
+      .hasText(`${t("billing.totals.all.uncharged")} 5.00`);
     assert
       .dom("tr:nth-of-type(3)")
-      .hasText("t:billing.totals.all.total:() 6.00");
+      .hasText(`${t("billing.totals.all.total")} 6.00`);
   });
 
   test("it removes organization totals if empty", async function (assert) {
@@ -113,16 +112,16 @@ module("Integration | Component | billing-table/totals", function (hooks) {
     assert.dom("tr:nth-of-type(1) hr").exists();
     assert
       .dom("tr:nth-of-type(2)")
-      .hasText("t:billing.totals.municipal.uncharged:() 1.00");
+      .hasText(`${t("billing.totals.municipal.uncharged")} 1.00`);
     assert
       .dom("tr:nth-of-type(3)")
-      .hasText("t:billing.totals.municipal.total:() 2.00");
+      .hasText(`${t("billing.totals.municipal.total")} 2.00`);
     assert.dom("tr:nth-of-type(4) hr").exists();
     assert
       .dom("tr:nth-of-type(5)")
-      .hasText("t:billing.totals.all.uncharged:() 3.00");
+      .hasText(`${t("billing.totals.all.uncharged")} 3.00`);
     assert
       .dom("tr:nth-of-type(6)")
-      .hasText("t:billing.totals.all.total:() 4.00");
+      .hasText(`${t("billing.totals.all.total")} 4.00`);
   });
 });

@@ -1,11 +1,10 @@
-import { setLocale, setupIntl } from "ember-intl/test-support";
+import { setLocale } from "ember-intl/test-support";
 import { module, test } from "qunit";
 
 import { setupTest } from "dummy/tests/helpers";
 
 module("Unit | Model | billing-v2-entry", function (hooks) {
   setupTest(hooks);
-  setupIntl(hooks, ["de-ch", "de"]);
 
   test.each(
     "it computes the amount text",

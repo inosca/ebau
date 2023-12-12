@@ -1,14 +1,13 @@
 import { render, settled } from "@ember/test-helpers";
 import { tracked } from "@glimmer/tracking";
 import { hbs } from "ember-cli-htmlbars";
-import { setupIntl } from "ember-intl/test-support";
+import { t } from "ember-intl/test-support";
 import { module, test } from "qunit";
 
 import { setupRenderingTest } from "camac-ng/tests/helpers";
 
 module("Integration | Component | pagination-info", function (hooks) {
   setupRenderingTest(hooks);
-  setupIntl(hooks);
 
   test("it renders", async function (assert) {
     this.query = new (class {
@@ -20,7 +19,12 @@ module("Integration | Component | pagination-info", function (hooks) {
 
     assert
       .dom(".uk-text-right")
-      .hasText('t:global.paginationInfo:("count":10,"total":20)');
+      .hasText(
+        t("global.paginationInfo", { count: 10, total: 20 }).replace(
+          /<(\/)?strong>/g,
+          "",
+        ),
+      );
 
     this.query.value = [];
     await settled();

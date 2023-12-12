@@ -19,7 +19,7 @@ export default class LoadingOrNotfoundComponent extends Component {
     this.state = this.args.loading
       ? "loading"
       : !this.args.hasPermission
-      ? "no-permission"
-      : null;
+        ? "no-permission"
+        : null;
   }
 }

@@ -1,7 +1,7 @@
 import { render } from "@ember/test-helpers";
 import { hbs } from "ember-cli-htmlbars";
 import { setupMirage } from "ember-cli-mirage/test-support";
-import { setupIntl } from "ember-intl/test-support";
+import { t } from "ember-intl/test-support";
 import { module, test } from "qunit";
 
 import { setupRenderingTest } from "dummy/tests/helpers";
@@ -11,7 +11,6 @@ import mainConfig from "ember-ebau-core/config/main";
 module("Integration | Component | decision/info-appeal", function (hooks) {
   setupRenderingTest(hooks);
   setupMirage(hooks);
-  setupIntl(hooks);
 
   hooks.beforeEach(function () {
     this.instanceStates = {
@@ -93,9 +92,11 @@ module("Integration | Component | decision/info-appeal", function (hooks) {
       assert.dom(".uk-alert").hasClass(`uk-alert-${expectedColor}`);
 
       const expectedName = this.instanceStates[expectedInstanceState].name;
-      assert
-        .dom(".uk-alert")
-        .hasText(`t:decision.appeal.${decision}:("status":"${expectedName}")`);
+      assert.dom(".uk-alert").hasText(
+        t(`decision.appeal.${decision}`, {
+          status: expectedName,
+        }).replace(/<(\/)?b>/g, ""),
+      );
     },
   );
 });

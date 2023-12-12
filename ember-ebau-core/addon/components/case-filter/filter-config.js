@@ -38,19 +38,19 @@ export default {
         labelField: "name",
       }
     : macroCondition(getOwnConfig().application === "sz")
-    ? {
-        type: "select",
-        options: "municipalities",
-        valueField: "id",
-        labelField: "name",
-      }
-    : {
-        type: "select",
-        options: "municipalitiesFromCaluma",
-        valueField: "slug",
-        labelField: "label",
-        showWithoutOptions: true,
-      },
+      ? {
+          type: "select",
+          options: "municipalities",
+          valueField: "id",
+          labelField: "name",
+        }
+      : {
+          type: "select",
+          options: "municipalitiesFromCaluma",
+          valueField: "slug",
+          labelField: "label",
+          showWithoutOptions: true,
+        },
   instanceState: {
     type: "select-multiple",
     options: "instanceStates",
@@ -58,8 +58,8 @@ export default {
     labelField: macroCondition(getOwnConfig().application === "ur")
       ? "uppercaseName"
       : macroCondition(getOwnConfig().application === "sz")
-      ? "description"
-      : "name",
+        ? "description"
+        : "name",
     showWithoutOptions: macroCondition(getOwnConfig().application === "sz")
       ? false
       : true,

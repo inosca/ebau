@@ -8,7 +8,7 @@ import {
   currentURL,
 } from "@ember/test-helpers";
 import { setupMirage } from "ember-cli-mirage/test-support";
-import { setupIntl } from "ember-intl/test-support";
+import { t } from "ember-intl/test-support";
 import { authenticateSession } from "ember-simple-auth/test-support";
 import { module, test } from "qunit";
 
@@ -26,7 +26,6 @@ class FakeShoebox extends Service {
 module("Acceptance | dossier-import", function (hooks) {
   setupApplicationTest(hooks);
   setupMirage(hooks);
-  setupIntl(hooks);
 
   hooks.beforeEach(async function () {
     await authenticateSession({ token: "sometoken" });
@@ -49,7 +48,7 @@ module("Acceptance | dossier-import", function (hooks) {
       .includesText(dossierImport.user.surname);
     assert
       .dom(`[data-test-imports-row='${dossierImport.id}']`)
-      .includesText(`status.${dossierImport.status}`);
+      .includesText(t(`dossierImport.imports.status.${dossierImport.status}`));
 
     await click(`[data-test-imports-row='${dossierImport.id}'] a`);
     assert.strictEqual(currentURL(), `/dossier-import/${dossierImport.id}`);

@@ -1,7 +1,7 @@
 import Service from "@ember/service";
 import { visit, click } from "@ember/test-helpers";
 import { setupMirage } from "ember-cli-mirage/test-support";
-import { setupIntl } from "ember-intl/test-support";
+import { t } from "ember-intl/test-support";
 import { selectChoose } from "ember-power-select/test-support";
 import { authenticateSession } from "ember-simple-auth/test-support";
 import { module, test } from "qunit";
@@ -13,7 +13,6 @@ const SERVICE_ID = 1;
 module("Acceptance | responsible", function (hooks) {
   setupApplicationTest(hooks);
   setupMirage(hooks);
-  setupIntl(hooks);
 
   hooks.beforeEach(async function () {
     await authenticateSession({ token: "sometoken" });
@@ -47,7 +46,7 @@ module("Acceptance | responsible", function (hooks) {
     await visit(`/responsible`);
 
     assert.dom("tbody > tr").exists({ count: 1 });
-    assert.dom("tbody > tr > td").hasText("t:global.empty:()");
+    assert.dom("tbody > tr > td").hasText(t("global.empty"));
   });
 
   test("it can save a responsible user", async function (assert) {
