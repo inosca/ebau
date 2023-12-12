@@ -6,7 +6,7 @@
           <UkButton
             @color={{if (eq this.topicsFilter type) "primary" "default"}}
             @label={{t (concat "communications.list." type)}}
-            @onClick={{fn this.updateFilter type}}
+            @onClick={{fn this.updateTopicsFilter type}}
             data-test-type={{type}}
           />
         {{/each}}
@@ -24,7 +24,7 @@
             @valueField="id"
             @labelField="fullName"
             @searchField="fullName"
-            @onChange={{fn (mut this.responsiblePerson)}}
+            @onChange={{this.updateResponsibleUserFilter}}
             as |option|
           >
             {{option.fullName}}
