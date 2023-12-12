@@ -113,8 +113,14 @@ export default class CommunicationTopicListComponent extends Component {
   }
 
   @action
-  updateFilter(value) {
+  updateTopicsFilter(value) {
     this.topicsFilter = value;
+    this.page = 1;
+  }
+
+  @action
+  updateResponsibleUserFilter(value) {
+    this.responsiblePerson = value;
     this.page = 1;
   }
 
