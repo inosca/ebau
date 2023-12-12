@@ -1,6 +1,7 @@
 import pytest
 from caluma.caluma_workflow.models import WorkItem
 from django.urls import reverse
+from pytest_factoryboy import LazyFixture
 from rest_framework import status
 
 from camac.document import permissions
@@ -339,3 +340,50 @@ def test_attachment_modification_by_activation_involvement(
         reverse("attachment-list"), data=create_data, format="multipart"
     )
     assert create_res.status_code == status.HTTP_400_BAD_REQUEST
+
+
+_admin_service = LazyFixture(lambda admin_user: admin_user.get_default_group().service)
+_other_service = LazyFixture(lambda service_factory: service_factory())
+
+
+@pytest.mark.parametrize(
+    "instance_state__name, attachment__service, expect_can_write, expect_can_destroy",
+    [
+        # before decision: nothing allowed at all
+        ["new", _admin_service, False, False],
+        ["done", _admin_service, False, False],
+        ["old", _admin_service, False, False],
+        # after decision: destroy own (but not others)
+        ["rejected", _admin_service, True, True],
+        ["rejected", _other_service, True, False],
+        ["correction", _admin_service, True, True],
+        ["sb1", _admin_service, True, True],
+        ["sb1", _other_service, True, False],
+        ["sb2", _admin_service, True, True],
+        ["conclusion", _admin_service, True, True],
+        ["finished", _admin_service, True, True],
+        ["finished_internal", _admin_service, True, True],
+        ["evaluated", _admin_service, True, True],
+    ],
+)
+def test_read_after_decision_permission(
+    db,
+    attachment,
+    be_instance,
+    set_application_be,
+    admin_user,
+    expect_can_write,
+    expect_can_destroy,
+):
+    group = admin_user.get_default_group()
+
+    can_write = permissions.ReadWriteAfterDecisionPermission.can_write(
+        attachment, group, be_instance
+    )
+
+    can_destroy = permissions.ReadWriteAfterDecisionPermission.can_destroy(
+        attachment, group
+    )
+
+    assert can_write == expect_can_write
+    assert can_destroy == expect_can_destroy
