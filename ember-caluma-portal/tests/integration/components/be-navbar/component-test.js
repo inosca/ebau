@@ -1,7 +1,7 @@
 import { render, settled, click } from "@ember/test-helpers";
 import { getOwnConfig } from "@embroider/macros";
 import { setupMirage } from "ember-cli-mirage/test-support";
-import { setupIntl } from "ember-intl/test-support";
+import { t } from "ember-intl/test-support";
 import { authenticateSession } from "ember-simple-auth/test-support";
 import hbs from "htmlbars-inline-precompile";
 import { module, test } from "qunit";
@@ -12,7 +12,6 @@ import testIf from "caluma-portal/tests/helpers/test-if";
 module("Integration | Component | be-navbar", function (hooks) {
   setupRenderingTest(hooks);
   setupMirage(hooks);
-  setupIntl(hooks);
 
   hooks.before(function () {
     this.setLanguage = async function (language) {
@@ -52,12 +51,10 @@ module("Integration | Component | be-navbar", function (hooks) {
 
   test("it renders the static navigation", async function (assert) {
     const navItems = [
-      "t:nav.index:()",
-      "t:nav.instances:()",
-      ...(getOwnConfig().enableCommunications
-        ? ["t:nav.communications:()"]
-        : []),
-      "t:nav.support:()",
+      t("nav.index"),
+      t("nav.instances"),
+      ...(getOwnConfig().enableCommunications ? [t("nav.communications")] : []),
+      t("nav.support"),
     ];
 
     await authenticateSession();

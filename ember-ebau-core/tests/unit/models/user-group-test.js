@@ -1,5 +1,6 @@
-import { setupTest } from "ember-qunit";
 import { module, test } from "qunit";
+
+import { setupTest } from "dummy/tests/helpers";
 
 module("Unit | Model | user group", function (hooks) {
   setupTest(hooks);

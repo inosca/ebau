@@ -1,3 +1,4 @@
+import { setupIntl } from "ember-intl/test-support";
 import {
   setupApplicationTest as upstreamSetupApplicationTest,
   setupRenderingTest as upstreamSetupRenderingTest,
@@ -10,6 +11,7 @@ import {
 
 function setupApplicationTest(hooks, options) {
   upstreamSetupApplicationTest(hooks, options);
+  setupIntl(hooks, ["de-ch", "de"]);
 
   // Additional setup for application tests can be done here.
   //
@@ -29,12 +31,14 @@ function setupApplicationTest(hooks, options) {
 
 function setupRenderingTest(hooks, options) {
   upstreamSetupRenderingTest(hooks, options);
+  setupIntl(hooks, ["de-ch", "de"]);
 
   // Additional setup for rendering tests can be done here.
 }
 
 function setupTest(hooks, options) {
   upstreamSetupTest(hooks, options);
+  setupIntl(hooks, ["de-ch", "de"]);
 
   // Additional setup for unit tests can be done here.
 }

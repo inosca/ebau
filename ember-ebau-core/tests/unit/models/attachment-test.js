@@ -1,11 +1,10 @@
-import { setupIntl } from "ember-intl/test-support";
+import { t } from "ember-intl/test-support";
 import { module, test } from "qunit";
 
 import { setupTest } from "dummy/tests/helpers";
 
 module("Unit | Model | attachment", function (hooks) {
   setupTest(hooks);
-  setupIntl(hooks);
 
   // Replace this with your real tests.
   test("it exists", function (assert) {
@@ -25,7 +24,7 @@ module("Unit | Model | attachment", function (hooks) {
     model.context.isReplaced = true;
     assert.strictEqual(
       model.displayNameOrReplaced.toString(),
-      "<del>test.pdf</del> t:link-attachments.replaced:()",
+      `<del>test.pdf</del> ${t("link-attachments.replaced")}`,
     );
   });
 });

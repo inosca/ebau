@@ -44,14 +44,14 @@ export default class AdditionalDemandItemComponent extends Component {
     const status = isCanceled
       ? "canceled"
       : isCompleted
-      ? "completed"
-      : isDraft
-      ? "draft"
-      : isCheck
-      ? "needs-interaction"
-      : isFill
-      ? "sent"
-      : null;
+        ? "completed"
+        : isDraft
+          ? "draft"
+          : isCheck
+            ? "needs-interaction"
+            : isFill
+              ? "sent"
+              : null;
 
     return {
       icon: STATUS_ICON_MAP[isInternal][status],

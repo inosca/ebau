@@ -10,8 +10,8 @@ export default class DateFromNowHelper extends Helper {
       date instanceof Date
         ? DateTime.fromJSDate(date)
         : typeof date === "string"
-        ? DateTime.fromISO(date)
-        : null;
+          ? DateTime.fromISO(date)
+          : null;
 
     if (!parsed) {
       return "";

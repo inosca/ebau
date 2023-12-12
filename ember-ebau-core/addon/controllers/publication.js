@@ -58,10 +58,10 @@ export default class PublicationController extends Controller {
     const status = interval.contains(now)
       ? "active"
       : interval.isAfter(now)
-      ? "future"
-      : interval.isBefore(now)
-      ? "past"
-      : null;
+        ? "future"
+        : interval.isBefore(now)
+          ? "past"
+          : null;
 
     return status ? this.intl.t(`publication.${status}`) : null;
   };

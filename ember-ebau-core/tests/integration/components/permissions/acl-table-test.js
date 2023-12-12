@@ -1,7 +1,6 @@
 import { click, render, waitFor } from "@ember/test-helpers";
 import { hbs } from "ember-cli-htmlbars";
 import { setupMirage } from "ember-cli-mirage/test-support";
-import { setupIntl } from "ember-intl/test-support";
 import { module, test } from "qunit";
 
 import { setupRenderingTest } from "dummy/tests/helpers";
@@ -9,7 +8,6 @@ import { setupRenderingTest } from "dummy/tests/helpers";
 module("Integration | Component | permissions/acl-table", function (hooks) {
   setupRenderingTest(hooks);
   setupMirage(hooks);
-  setupIntl(hooks, "de");
 
   hooks.beforeEach(function () {
     this.server.create("access-level", {
