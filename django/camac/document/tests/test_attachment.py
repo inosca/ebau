@@ -35,10 +35,11 @@ def _configure_geometer_access(
         instance=att.instance,
         grant_type="SERVICE",
         service=service,
+        access_level=access_level,
     )
     permissions_settings["ACCESS_LEVELS"] = {
         access_level.pk: [
-            ("documents-read", "*"),
+            ("documents-read", ["*"]),
         ]
     }
 
@@ -51,7 +52,7 @@ def _configure_geometer_access(
         ("Canton", LazyFixture("user"), 14),
         ("Municipality", LazyFixture("user"), 13),
         ("Service", LazyFixture("user"), 13),
-        ("Geometer", LazyFixture("user"), 16),
+        ("Geometer", LazyFixture("user"), 15),
     ],
 )
 @pytest.mark.parametrize(

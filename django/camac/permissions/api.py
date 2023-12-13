@@ -98,14 +98,11 @@ class PermissionManager:
 
         for acl in acls:
             access_level = acl.access_level
-            permissions = settings.PERMISSIONS["ACCESS_LEVELS"].get(
-                access_level.slug, []
-            )
             if acl.end_time:
                 # shorten expiry for the cache
                 expiry = min(expiry, acl.end_time)
 
-            for perm, condition in permissions:
+            for perm, condition in self._access_level_config(access_level.slug):
                 if callable(condition):
                     # This is a dynamic permission
                     has_perm = call_with_accepted_kwargs(
@@ -130,6 +127,20 @@ class PermissionManager:
         cache_duration = expiry - timezone.now()
         cache.set(cache_key, granted_permissions, cache_duration.total_seconds())
         return granted_permissions
+
+    def _access_level_config(self, access_level_slug):
+        """Return the config for the given access level.
+
+        The result is a list of (permission, condition) tuples (see the
+        `camac.settings_permissions` module, or the permission module
+        documentation for details)
+        """
+        try:
+            return settings.PERMISSIONS["ACCESS_LEVELS"][access_level_slug]
+        except KeyError:  # pragma: no cover
+            raise ImproperlyConfigured(
+                f"Permissions config is missing an entry for access level {access_level_slug}"
+            )
 
     def grant(
         self,
