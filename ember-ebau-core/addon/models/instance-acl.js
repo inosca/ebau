@@ -101,12 +101,11 @@ export default class InstanceAclModel extends Model {
     const adapter = this.store.adapterFor(modelName);
 
     const url = adapter.buildURL(modelName, this.id);
-    const body = JSON.stringify(adapter.serialize(this));
 
     const response = await this.fetch.fetch(`${url}/revoke`, {
       method: "POST",
-      body,
     });
+
     const json = await response.json();
     this.store.pushPayload(json);
   }
