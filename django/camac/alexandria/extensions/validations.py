@@ -1,5 +1,2 @@
-from alexandria.core.validation import BaseValidator
-
-
-class Validator(BaseValidator):
+class Validator:
     pass

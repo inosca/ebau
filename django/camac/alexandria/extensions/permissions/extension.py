@@ -2,13 +2,9 @@ import datetime
 from typing import Union
 
 from alexandria.core.models import BaseModel, Category, Document, File, Tag
-from alexandria.core.permissions import (
-    BasePermission,
-    object_permission_for,
-    permission_for,
-)
 from django.conf import settings
 from django.core.validators import EMPTY_VALUES
+from generic_permissions.permissions import object_permission_for, permission_for
 from localized_fields.value import LocalizedStringValue
 
 from camac.alexandria.extensions.common import get_role
@@ -29,7 +25,7 @@ MODE_UPDATE = "update"
 MODE_DELETE = "delete"
 
 
-class CustomPermission(BasePermission):
+class CustomPermission:
     def get_needed_permissions(self, request, document=None) -> set:
         if request.method == "POST":
             used_permissions = {MODE_CREATE}
@@ -124,7 +120,8 @@ class CustomPermission(BasePermission):
         return available_permissions
 
     @permission_for(BaseModel)
-    def has_permission_default(self, request):  # pragma: no cover
+    @object_permission_for(BaseModel)
+    def has_permission_default(self, request, document=None):  # pragma: no cover
         return get_role(request.caluma_info.context.user) == "support"
 
     @permission_for(Document)
