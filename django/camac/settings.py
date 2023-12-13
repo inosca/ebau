@@ -1390,12 +1390,10 @@ APPLICATIONS = {
                         "involved_in_distribution",
                     ],
                 },
-                # TODO: Should only be sent if Nachführungsgeometer question is
-                # answered with yes in decision module.
-                # {
-                #     "template_slug": "11-meldung-selbstdeklaration-geometer",
-                #     "recipient_types": ["geometer_acl_services"],
-                # },
+                {
+                    "template_slug": "11-meldung-selbstdeklaration-geometer",
+                    "recipient_types": ["geometer_acl_services"],
+                },
             ],
             "FINALIZE": [
                 {
