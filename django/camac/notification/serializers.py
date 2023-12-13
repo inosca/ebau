@@ -87,6 +87,9 @@ RECIPIENT_TYPE_NAMES = {
     "additional_demand_inviter": translation.gettext_noop(
         "Inviter of additional demand creator"
     ),
+    "geometer_acl_services": translation.gettext_noop(
+        "Geometer (via Permissions module)"
+    ),
 }
 
 
