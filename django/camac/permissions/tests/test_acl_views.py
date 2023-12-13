@@ -6,6 +6,7 @@ from django.utils import timezone
 from rest_framework import status
 
 from camac.permissions import api
+from camac.permissions.models import InstanceACL
 from camac.utils import get_dict_item
 
 
@@ -177,11 +178,17 @@ def test_create_acl(
 @pytest.mark.parametrize(
     "role__name, end_time, is_responsible_service, expect_success",
     [
+        # responsible service can revoke
         ("Municipality", None, True, True),
+        # non-responsible service cannot revoke
         ("Municipality", None, False, False),
+        # non-municipality user cannot revoke
         ("Support", None, True, False),
+        # just expired acl cannot be revoked again
         ("Municipality", timezone.now(), True, False),
+        # shortening = ok
         ("Municipality", timezone.now() + timedelta(days=5), True, True),
+        # extending expired acl = not ok
         ("Municipality", timezone.now() - timedelta(days=5), True, False),
     ],
 )
@@ -197,11 +204,13 @@ def test_revoke_acl(
     is_responsible_service,
     expect_success,
 ):
-    the_acl = api.grant(
-        instance,
+    the_acl = InstanceACL.objects.create(
+        instance=instance,
         grant_type=api.GRANT_CHOICES.USER.value,
         access_level=access_level,
         user=admin_client.user,
+        end_time=end_time,
+        start_time=timezone.now() - timedelta(days=50),
     )
 
     if not is_responsible_service:
@@ -211,50 +220,27 @@ def test_revoke_acl(
         instance.save()
 
     url = reverse("instance-acls-revoke", args=[the_acl.pk])
-    post_data = {
-        "data": {
-            "attributes": {
-                "grant-type": the_acl.grant_type,
-            },
-            "relationships": {
-                "" "instance": {"data": {"id": instance.pk, "type": "instances"}},
-                "service": {"data": {"id": service.pk, "type": "services"}},
-                "access-level": {
-                    "data": {"id": access_level.pk, "type": "access-levels"}
-                },
-            },
-            "id": the_acl.pk,
-            "type": "instance-acls",
-        },
-    }
-    if end_time:
-        post_data["data"]["attributes"]["end-time"] = end_time.isoformat()
 
-    result = admin_client.post(
-        url,
-        post_data,
-    )
+    time_before_request = timezone.now()
+
+    result = admin_client.post(url)
 
     result_data = result.json()
+
+    the_acl.refresh_from_db()
 
     if expect_success:
         assert result.status_code == status.HTTP_200_OK, result_data
 
-        revoked_by = get_dict_item(
-            result_data, "data.relationships.revoked-by-user.data.id"
-        )
-        event = get_dict_item(result_data, "data.attributes.revoked-by-event")
-        ends_at = get_dict_item(result_data, "data.attributes.end-time")
-        assert revoked_by == str(admin_client.user.id)
-        assert event == "manual-revocation"
+        assert the_acl.revoked_by_user == admin_client.user
+        assert the_acl.revoked_by_event == "manual-revocation"
 
-        # end time of the ACL should be within a few seconds of the requested
-        # end time (if we send it), or within a few seconds of *now* if we
-        # didn't. We allow for a few seconds due to processing time
-        expected_end_time = end_time or timezone.now()
-        actual_end_time = datetime.fromisoformat(ends_at)
-        time_diff = abs(actual_end_time - expected_end_time)
-        assert time_diff < timedelta(seconds=5)
+        time_after_request = timezone.now()
+
+        # The end time must be *at* the time of request, which must be
+        # between now and just before the request
+        assert time_before_request <= the_acl.end_time <= time_after_request
+
     else:
         # 404 allowed as well because not being responsible service makes the
         # ACLs invisible to the user, so we won't even get to the permission
