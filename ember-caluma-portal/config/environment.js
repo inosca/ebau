@@ -386,7 +386,6 @@ module.exports = function (environment) {
         backend: "alexandria",
         excludeFromDocuments: [],
         feedbackSections: ["alle-beteiligten"], // Alle Beteiligten
-        decisionMark: "decision",
       },
       instanceStates: instanceStatesGr,
       modification: {
@@ -438,8 +437,6 @@ module.exports = function (environment) {
       documents: {
         backend: "alexandria",
         excludeFromDocuments: [],
-        feedbackSections: ["einsprachen"],
-        decisionMark: "decision",
       },
       instanceStates: instanceStatesSo,
       modification: {

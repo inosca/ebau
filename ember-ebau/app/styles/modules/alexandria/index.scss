@@ -1,4 +1,4 @@
-table.document-list tbody tr:has(svg[data-icon="ban"]) {
+tr.document-list-item--mark-void {
   text-decoration: line-through;
   color: $global-muted-color;
 }

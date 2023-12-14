@@ -1,4 +1,4 @@
-from alexandria.core.models import BaseModel, Category, Document, File, Tag
+from alexandria.core.models import BaseModel, Category, Document, File, Mark, Tag
 from alexandria.core.visibilities import BaseVisibility, filter_queryset_for
 from django.conf import settings
 from django.db.models import CharField, Q
@@ -72,7 +72,11 @@ class CustomVisibility(BaseVisibility, InstanceQuerysetMixin):
 
         if role == "public":
             return visible_instances_filter & Q(
-                **{f"{prefix}tags__pk": settings.ALEXANDRIA["MARKS"]["PUBLICATION"]}
+                **{
+                    f"{prefix}marks__pk__in": settings.ALEXANDRIA[
+                        "MARK_VISIBILITY"
+                    ].get("PUBLIC", [])
+                }
             )
 
         aggregated_filter = Q()
@@ -99,7 +103,11 @@ class CustomVisibility(BaseVisibility, InstanceQuerysetMixin):
         if role == "applicant":
             # decision document available for applicants
             aggregated_filter |= Q(
-                **{f"{prefix}tags__pk": settings.ALEXANDRIA["MARKS"]["DECISION"]}
+                **{
+                    f"{prefix}marks__pk__in": settings.ALEXANDRIA[
+                        "MARK_VISIBILITY"
+                    ].get("APPLICANT", [])
+                }
             )
 
         return visible_instances_filter & aggregated_filter
@@ -154,3 +162,7 @@ class CustomVisibility(BaseVisibility, InstanceQuerysetMixin):
             )
         else:  # pragma: no cover
             raise ValueError("Unknown tag visibility setting")
+
+    @filter_queryset_for(Mark)
+    def filter_queryset_for_mark(self, queryset, request):
+        return queryset.order_by("metainfo__sort")
