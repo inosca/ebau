@@ -2,9 +2,10 @@ import { getOwner } from "@ember/application";
 import { render } from "@ember/test-helpers";
 import { hbs } from "ember-cli-htmlbars";
 import { setupMirage } from "ember-cli-mirage/test-support";
-import { setupRenderingTest } from "ember-qunit";
 import { module, skip } from "qunit";
 import { fake, replace } from "sinon";
+
+import { setupRenderingTest } from "dummy/tests/helpers";
 
 module(
   "Integration | Component | communication/message-list",

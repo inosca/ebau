@@ -51,10 +51,10 @@ export default class GwrConfigService extends Service {
       identifier: macroCondition(getOwnConfig().application === "be")
         ? ebauNumber
         : macroCondition(getOwnConfig().application === "sz")
-        ? identifier
-        : macroCondition(getOwnConfig().application === "ur")
-        ? dossierNumber
-        : "-",
+          ? identifier
+          : macroCondition(getOwnConfig().application === "ur")
+            ? dossierNumber
+            : "-",
       hostLink: `/index/redirect-to-instance-resource/instance-id/${id}?instance-resource-name=gwr&ember-hash=/gwr/${id}`,
     }));
   }

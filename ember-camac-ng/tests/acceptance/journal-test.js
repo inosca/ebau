@@ -1,7 +1,7 @@
 import Service from "@ember/service";
 import { visit, click, fillIn } from "@ember/test-helpers";
 import { setupMirage } from "ember-cli-mirage/test-support";
-import { setupIntl } from "ember-intl/test-support";
+import { t } from "ember-intl/test-support";
 import { authenticateSession } from "ember-simple-auth/test-support";
 import { module, test } from "qunit";
 
@@ -18,7 +18,6 @@ class FakeShoebox extends Service {
 module("Acceptance | journal", function (hooks) {
   setupApplicationTest(hooks);
   setupMirage(hooks);
-  setupIntl(hooks);
 
   hooks.beforeEach(async function () {
     await authenticateSession({ token: "sometoken" });
@@ -39,7 +38,7 @@ module("Acceptance | journal", function (hooks) {
   test("it handles empty state", async function (assert) {
     await visit(`/instances/${this.instance.id}/journal`);
 
-    assert.dom("[data-test-journal-list]").hasText("t:global.empty:()");
+    assert.dom("[data-test-journal-list]").hasText(t("global.empty"));
   });
 
   test("it can create a journal entry", async function (assert) {

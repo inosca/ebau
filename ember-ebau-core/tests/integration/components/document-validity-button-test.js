@@ -2,7 +2,6 @@ import { click, render, settled } from "@ember/test-helpers";
 import { tracked } from "@glimmer/tracking";
 import { hbs } from "ember-cli-htmlbars";
 import { task } from "ember-concurrency";
-import { setupIntl } from "ember-intl/test-support";
 import { module, test } from "qunit";
 
 import { setupRenderingTest } from "dummy/tests/helpers";
@@ -32,7 +31,6 @@ class MockField {
 
 module("Integration | Component | document-validity-button", function (hooks) {
   setupRenderingTest(hooks);
-  setupIntl(hooks);
 
   hooks.beforeEach(function () {
     const fields = [

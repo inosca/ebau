@@ -207,8 +207,8 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
         type === "subservice"
           ? { service_parent: this.ebauModules.serviceId }
           : type === "suggestions"
-          ? { suggestion_for_instance: this.currentInstanceId }
-          : { service_group_name: type, has_parent: false };
+            ? { suggestion_for_instance: this.currentInstanceId }
+            : { service_group_name: type, has_parent: false };
 
       const result = await this.store.query("public-service", {
         search,

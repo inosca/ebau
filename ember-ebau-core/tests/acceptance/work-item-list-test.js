@@ -1,15 +1,13 @@
 import { visit, click } from "@ember/test-helpers";
 import { setupMirage } from "ember-cli-mirage/test-support";
-import { setupIntl } from "ember-intl/test-support";
-import { setupApplicationTest } from "ember-qunit";
 import { module } from "qunit";
 
+import { setupApplicationTest } from "dummy/tests/helpers";
 import { test } from "dummy/tests/helpers/scenarios";
 
 module("Acceptance | workitem-list", function (hooks) {
   setupApplicationTest(hooks);
   setupMirage(hooks);
-  setupIntl(hooks);
 
   hooks.beforeEach(async function () {
     this.workItemsTask1 = this.server.createList("workItem", 3, {

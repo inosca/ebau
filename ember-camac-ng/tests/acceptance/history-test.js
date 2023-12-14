@@ -1,6 +1,6 @@
 import { visit, click } from "@ember/test-helpers";
 import { setupMirage } from "ember-cli-mirage/test-support";
-import { setupIntl } from "ember-intl/test-support";
+import { t } from "ember-intl/test-support";
 import { authenticateSession } from "ember-simple-auth/test-support";
 import { module, test } from "qunit";
 
@@ -9,7 +9,6 @@ import { setupApplicationTest } from "camac-ng/tests/helpers";
 module("Acceptance | history", function (hooks) {
   setupApplicationTest(hooks);
   setupMirage(hooks);
-  setupIntl(hooks);
 
   hooks.beforeEach(async function () {
     await authenticateSession({ token: "sometoken" });
@@ -31,7 +30,7 @@ module("Acceptance | history", function (hooks) {
     await visit(`/instances/${this.instance.id}/history`);
 
     assert.dom("tbody > tr").exists({ count: 1 });
-    assert.dom("tbody > tr > td").hasText("t:global.empty:()");
+    assert.dom("tbody > tr > td").hasText(t("global.empty"));
   });
 
   test("it can expand and collapse rows", async function (assert) {

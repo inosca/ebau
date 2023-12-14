@@ -1,13 +1,12 @@
 import { click, render } from "@ember/test-helpers";
 import { hbs } from "ember-cli-htmlbars";
-import { setupIntl } from "ember-intl/test-support";
+import { t } from "ember-intl/test-support";
 import { module, test } from "qunit";
 
 import { setupRenderingTest } from "camac-ng/tests/helpers";
 
 module("Integration | Component | case-table/header", function (hooks) {
   setupRenderingTest(hooks);
-  setupIntl(hooks);
 
   test("it renders", async function (assert) {
     this.column = { name: "test" };
@@ -21,12 +20,12 @@ module("Integration | Component | case-table/header", function (hooks) {
       />
     `);
 
-    assert.dom("th").hasText("t:cases.tableHeaders.test:()");
+    assert.dom("th").hasText(t("cases.tableHeaders.test"));
     assert.dom("th > a").doesNotExist();
 
     this.set("column.order", "test");
 
-    assert.dom("th").hasText("t:cases.tableHeaders.test:()");
+    assert.dom("th").hasText(t("cases.tableHeaders.test"));
     assert.dom("th > a").exists();
     assert.dom("th > a").doesNotHaveClass("uk-text-bold");
     assert.dom("th > a > span").hasAttribute("icon", "arrow-down");

@@ -105,8 +105,8 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
         type === "subservice"
           ? { service_parent: this.shoebox.content.serviceId }
           : type === "suggestions"
-          ? { suggestion_for_instance: this.currentInstanceId }
-          : { service_group_name: type, has_parent: false };
+            ? { suggestion_for_instance: this.currentInstanceId }
+            : { service_group_name: type, has_parent: false };
 
       if (macroCondition(getOwnConfig().application === "sz")) {
         filters = { ...filters, available_in_distribution: true };
