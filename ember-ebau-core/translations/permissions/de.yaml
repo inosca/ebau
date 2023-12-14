@@ -29,6 +29,7 @@ permissions:
     createdAt: Erstellt am
     createdBy: Erstellt von
     revokedBy: Entzogen von
+    managedBySystem: Automatische Systemverwaltung
 
   status:
     active: Aktiv

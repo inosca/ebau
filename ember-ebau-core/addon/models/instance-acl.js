@@ -37,12 +37,18 @@ export default class InstanceAclModel extends Model {
   @belongsTo("access-level", { inverse: null, async: true }) accessLevel;
 
   get createdByName() {
+    if (!this.createdByService && !this.createdByUser) {
+      return this.intl.t("permissions.details.managedBySystem");
+    }
     return this.createdByUser
       ? this.createdByUser.get("fullName")
       : this.createdByService.get("name");
   }
 
   get revokedByName() {
+    if (!this.revokedByService && !this.revokedByUser) {
+      return this.intl.t("permissions.details.managedBySystem");
+    }
     return this.revokedByUser
       ? this.revokedByUser.get("fullName")
       : this.revokedByService.get("name");
