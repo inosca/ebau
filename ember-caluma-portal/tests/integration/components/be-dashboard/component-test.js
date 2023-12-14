@@ -3,7 +3,6 @@ import { render, click, fillIn } from "@ember/test-helpers";
 import { tracked } from "@glimmer/tracking";
 import { setupMirage } from "ember-cli-mirage/test-support";
 import { task } from "ember-concurrency";
-import { setupIntl } from "ember-intl/test-support";
 import hbs from "htmlbars-inline-precompile";
 import { module, test } from "qunit";
 
@@ -12,7 +11,6 @@ import { setupRenderingTest } from "caluma-portal/tests/helpers";
 module("Integration | Component | be-dashboard", function (hooks) {
   setupRenderingTest(hooks);
   setupMirage(hooks);
-  setupIntl(hooks);
 
   hooks.beforeEach(async function () {
     const question = this.server.create("question", {

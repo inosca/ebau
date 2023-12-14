@@ -1,7 +1,7 @@
 import { render } from "@ember/test-helpers";
 import { hbs } from "ember-cli-htmlbars";
 import { setupMirage } from "ember-cli-mirage/test-support";
-import { setupIntl } from "ember-intl/test-support";
+import { t } from "ember-intl/test-support";
 import { authenticateSession } from "ember-simple-auth/test-support";
 import { module, test } from "qunit";
 
@@ -9,7 +9,6 @@ import { setupRenderingTest } from "caluma-portal/tests/helpers";
 
 module("Integration | Component | so-navbar", function (hooks) {
   setupRenderingTest(hooks);
-  setupIntl(hooks);
   setupMirage(hooks);
 
   hooks.beforeEach(async function () {
@@ -26,7 +25,7 @@ module("Integration | Component | so-navbar", function (hooks) {
     // nav right
     assert
       .dom("nav div:nth-of-type(2) ul li:nth-of-type(1)")
-      .hasText("t:so-footer.leave:()");
+      .hasText(t("so-footer.leave"));
     assert
       .dom("nav div:nth-of-type(2) ul li:nth-of-type(2) svg.fa-circle-question")
       .exists();

@@ -10,7 +10,8 @@ import applyTestQueryParamsFilter from "ember-ebau-core/utils/apply-test-query-p
 export default function makeServer(config) {
   return createServer({
     ...config,
-    models: { ...discoverEmberDataModels(), ...config.models },
+    trackRequests: true,
+    models: { ...discoverEmberDataModels(config.store), ...config.models },
     routes() {
       this.namespace = "/api/v1";
       this.timing = 400;

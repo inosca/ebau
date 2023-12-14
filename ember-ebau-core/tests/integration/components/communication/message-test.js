@@ -3,16 +3,15 @@ import { render, click } from "@ember/test-helpers";
 import { faker } from "@faker-js/faker";
 import { hbs } from "ember-cli-htmlbars";
 import { setupMirage } from "ember-cli-mirage/test-support";
-import { setupIntl } from "ember-intl/test-support";
-import { setupRenderingTest } from "ember-qunit";
 import { DateTime } from "luxon";
 import { module, test } from "qunit";
 import { fake } from "sinon";
 
+import { setupRenderingTest } from "dummy/tests/helpers";
+
 module("Integration | Component | communication/message", function (hooks) {
   setupRenderingTest(hooks);
   setupMirage(hooks);
-  setupIntl(hooks, "de");
 
   hooks.beforeEach(async function () {
     this.mirageMessage = this.server.create("communications-message", {

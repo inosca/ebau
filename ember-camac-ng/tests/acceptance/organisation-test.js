@@ -1,7 +1,7 @@
 import Service from "@ember/service";
 import { visit, fillIn, click } from "@ember/test-helpers";
 import { setupMirage } from "ember-cli-mirage/test-support";
-import { setupIntl } from "ember-intl/test-support";
+import { t } from "ember-intl/test-support";
 import { authenticateSession } from "ember-simple-auth/test-support";
 import { module, test } from "qunit";
 
@@ -38,7 +38,6 @@ class FakeShoebox extends Service {
 module("Acceptance | organisation", function (hooks) {
   setupApplicationTest(hooks);
   setupMirage(hooks);
-  setupIntl(hooks);
 
   hooks.beforeEach(async function () {
     this.owner.register("service:shoebox", FakeShoebox);
@@ -71,6 +70,6 @@ module("Acceptance | organisation", function (hooks) {
     assert.dom(".uk-alert.uk-alert-success").exists({ count: 1 });
     assert
       .dom(".uk-alert.uk-alert-success")
-      .containsText("t:service-permissions.organisation-save-success:()");
+      .containsText(t("service-permissions.organisation-save-success"));
   });
 });

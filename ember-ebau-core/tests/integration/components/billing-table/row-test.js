@@ -1,7 +1,6 @@
 import { click, settled, waitFor, render } from "@ember/test-helpers";
 import { hbs } from "ember-cli-htmlbars";
 import { setupMirage } from "ember-cli-mirage/test-support";
-import { setupIntl } from "ember-intl/test-support";
 import { module, test } from "qunit";
 import { stub } from "sinon";
 
@@ -13,7 +12,6 @@ module("Integration | Component | billing-table/row", function (hooks) {
   setupRenderingTest(hooks);
   setupFeatures(hooks);
   setupMirage(hooks);
-  setupIntl(hooks, ["de-ch", "de"]);
 
   hooks.beforeEach(async function () {
     stub(BillingV2EntryAbility.prototype, "canCharge").get(() => true);

@@ -2,7 +2,7 @@ import { click, render } from "@ember/test-helpers";
 import { hbs } from "ember-cli-htmlbars";
 import { setupMirage } from "ember-cli-mirage/test-support";
 import { query } from "ember-data-resources";
-import { setupIntl } from "ember-intl/test-support";
+import { t } from "ember-intl/test-support";
 import { module, test } from "qunit";
 import { stub } from "sinon";
 
@@ -14,7 +14,6 @@ module("Integration | Component | billing-table", function (hooks) {
   setupRenderingTest(hooks);
   setupFeatures(hooks);
   setupMirage(hooks);
-  setupIntl(hooks);
 
   hooks.beforeEach(function () {
     stub(BillingV2EntryAbility.prototype, "canCharge").get(() => true);
@@ -47,22 +46,18 @@ module("Integration | Component | billing-table", function (hooks) {
         "thead tr th[data-test-charge] input[data-test-toggle-all][type=checkbox]",
       )
       .exists();
-    assert.dom("thead tr th[data-test-text]").hasText("t:billing.position:()");
-    assert.dom("thead tr th[data-test-user]").hasText("t:billing.user:()");
-    assert.dom("thead tr th[data-test-group]").hasText("t:billing.group:()");
-    assert.dom("thead tr th[data-test-amount]").hasText("t:billing.amount:()");
-    assert
-      .dom("thead tr th[data-test-final-rate]")
-      .hasText("t:billing.total:()");
-    assert
-      .dom("thead tr th[data-test-added]")
-      .hasText("t:billing.created-at:()");
+    assert.dom("thead tr th[data-test-text]").hasText(t("billing.position"));
+    assert.dom("thead tr th[data-test-user]").hasText(t("billing.user"));
+    assert.dom("thead tr th[data-test-group]").hasText(t("billing.group"));
+    assert.dom("thead tr th[data-test-amount]").hasText(t("billing.amount"));
+    assert.dom("thead tr th[data-test-final-rate]").hasText(t("billing.total"));
+    assert.dom("thead tr th[data-test-added]").hasText(t("billing.created-at"));
     assert
       .dom("thead tr th[data-test-charged]")
-      .hasText("t:billing.charged-at:()");
+      .hasText(t("billing.charged-at"));
     assert
       .dom("thead tr th[data-test-organization]")
-      .hasText("t:billing.organization:()");
+      .hasText(t("billing.organization"));
     assert.dom("thead tr th[data-test-delete]").exists();
 
     assert.dom("tbody tr").exists({ count: 5 });
@@ -80,7 +75,7 @@ module("Integration | Component | billing-table", function (hooks) {
     />`);
 
     assert.dom("th[data-test-group]").doesNotExist();
-    assert.dom("th[data-test-service]").hasText("t:billing.service:()");
+    assert.dom("th[data-test-service]").hasText(t("billing.service"));
   });
 
   test("it can hide charged entries", async function (assert) {

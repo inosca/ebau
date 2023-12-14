@@ -1,7 +1,7 @@
 import { click, render, waitFor } from "@ember/test-helpers";
 import { hbs } from "ember-cli-htmlbars";
 import { setupMirage } from "ember-cli-mirage/test-support";
-import { setupIntl } from "ember-intl/test-support";
+import { t } from "ember-intl/test-support";
 import { module, test } from "qunit";
 
 import { setupRenderingTest } from "dummy/tests/helpers";
@@ -9,7 +9,6 @@ import { setupRenderingTest } from "dummy/tests/helpers";
 module("Integration | Component | gis-apply-button", function (hooks) {
   setupRenderingTest(hooks);
   setupMirage(hooks);
-  setupIntl(hooks);
 
   test("it disables the button", async function (assert) {
     await render(hbs`<GisApplyButton @disabled={{true}} />`);
@@ -91,7 +90,7 @@ module("Integration | Component | gis-apply-button", function (hooks) {
     // Table row 1
     assert
       .dom("[data-test-gis-data-row]:nth-of-type(2) [data-test-gis-data-label]")
-      .hasText('Some Table t:so-gis.row-count:("count":1)');
+      .hasText(`Some Table ${t("so-gis.row-count", { count: 1 })}`);
     assert
       .dom(
         "[data-test-gis-data-row]:nth-of-type(2) [data-test-gis-data-table-label]",
@@ -106,7 +105,7 @@ module("Integration | Component | gis-apply-button", function (hooks) {
     // Table row 2
     assert
       .dom("[data-test-gis-data-row]:nth-of-type(3) [data-test-gis-data-label]")
-      .hasText('Some Table t:so-gis.row-count:("count":2)');
+      .hasText(`Some Table ${t("so-gis.row-count", { count: 2 })}`);
     assert
       .dom(
         "[data-test-gis-data-row]:nth-of-type(3) [data-test-gis-data-table-label]",
