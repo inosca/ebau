@@ -53,15 +53,32 @@ class Command(BaseCommand):
         zipcode, city = geometer["FirmaPlzOrt"].split(" ", 1)
         geometer_service_group = ServiceGroup.objects.get(name="geometer")
         geom_service, _ = Service.objects.update_or_create(
+            # we set the name here in the untranslated object to be able
+            # to find it again using update_or_create.
             name=geometer["Name eBAU"],
             defaults={
                 "service_group": geometer_service_group,
                 "address": geometer["FirmaStrasse"],
                 "zip": zipcode,
-                "city": city,
                 "phone": geometer["FirmaTelefon"],
                 "email": geometer["FirmaEmail"],
                 "notification": 1,  # yeah it's not a bool
+            },
+        )
+
+        # TODO: shall we do FR translations too?
+        geom_service.trans.update_or_create(
+            language="de",
+            defaults={
+                "name": geometer["Name eBAU"],
+                "city": city,
+            },
+        )
+        geom_service.trans.update_or_create(
+            language="fr",
+            defaults={
+                "name": geometer["Name eBAU"],
+                "city": city,
             },
         )
 
