@@ -48,7 +48,7 @@ ADDITIONAL_DEMAND = {
         "NOTIFICATIONS": {
             "ACCEPTED": [
                 {
-                    "recipient_types": ["applicant"],
+                    "recipient_types": ["applicant", "leitbehoerde"],
                     "template_slug": "nachforderung-akzeptiert",
                 }
             ],
