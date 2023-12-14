@@ -4,91 +4,66 @@
   @dialogClass="permissions-module-modal-dialog"
   as |modal|
 >
-  <modal.header>
-    <h2 class="uk-modal-title uk-margin-right">{{t
-        "permissions.details.heading"
-      }}</h2>
-  </modal.header>
-  <modal.body class="uk-margin-left">
-    <div
-      class="uk-grid-large uk-child-width-1-2 uk-text-large uk-text-break"
-      uk-grid
-    >
-      <div class="uk-flex uk-flex-start uk-flex-column uk-width-auto">
-        <div
-          class="uk-margin-small-top"
-          data-test-instance-acl-modal-access-level
-        >
-          <p class="uk-text-bold uk-margin-remove">{{t
-              "permissions.details.accessLevel"
-            }}</p>
-          {{@instanceAcl.accessLevel.name}}
-        </div>
-        <div
-          class="uk-margin-small-top"
-          data-test-instance-acl-modal-entity-name
-        >
-          <p class="uk-text-bold uk-margin-remove">{{t
-              "permissions.details.entityName"
-            }}</p>
-          {{@instanceAcl.entityName}}
-        </div>
-        <div class="uk-margin-small-top" data-test-instance-acl-modal-email>
-          <p class="uk-text-bold uk-margin-remove">{{t
-              "permissions.details.entityEmail"
-            }}</p>
-          {{@instanceAcl.entityEmail}}
-        </div>
-        <div class="uk-margin-small-top" data-test-instance-acl-modal-status>
-          <p class="uk-text-bold uk-margin-remove">{{t
-              "permissions.details.status"
-            }}</p>
-          {{t (concat "permissions.status." @instanceAcl.status)}}
-        </div>
+  <modal.body>
+    <div class="uk-flex uk-flex-start uk-flex-column uk-text-break">
+      <div
+        class="uk-margin-small-top"
+        data-test-instance-acl-modal-access-level
+      >
+        <p class="uk-text-bold uk-margin-remove">{{t
+            "permissions.details.accessLevel"
+          }}</p>
+        {{@instanceAcl.accessLevel.name}}
       </div>
-      <div class="uk-flex uk-flex-start uk-flex-column uk-width-auto">
-        <div
-          class="uk-margin-small-top"
-          data-test-instance-acl-modal-created-at
-        >
-          <p class="uk-text-bold uk-margin-remove">{{t
-              "permissions.details.createdAt"
-            }}</p>
-          {{or (format-date @instanceAcl.createdAt format="date") "-"}}
-        </div>
-        <div
-          class="uk-margin-small-top"
-          data-test-instance-acl-modal-created-by
-        >
-          <p class="uk-text-bold uk-margin-remove">{{t
-              "permissions.details.createdBy"
-            }}</p>
-          {{or @instanceAcl.createdByName "-"}}
-        </div>
-        <div
-          class="uk-margin-small-top"
-          data-test-instance-acl-modal-revoked-by
-        >
-          <p class="uk-text-bold uk-margin-remove">{{t
-              "permissions.details.revokedBy"
-            }}</p>
-          {{or @instanceAcl.revokedByName "-"}}
-        </div>
-        <div
-          class="uk-margin-small-top"
-          data-test-instance-acl-modal-start-time
-        >
-          <p class="uk-text-bold uk-margin-remove">{{t
-              "permissions.details.startTime"
-            }}</p>
-          {{or (format-date @instanceAcl.startTime format="datetime") "-"}}
-        </div>
-        <div class="uk-margin-small-top" data-test-instance-acl-modal-end-time>
-          <p class="uk-text-bold uk-margin-remove">{{t
-              "permissions.details.endTime"
-            }}</p>
-          {{or (format-date @instanceAcl.endTime format="datetime") "-"}}
-        </div>
+      <div class="uk-margin-small-top" data-test-instance-acl-modal-entity-name>
+        <p class="uk-text-bold uk-margin-remove">{{t
+            "permissions.details.entityName"
+          }}</p>
+        {{@instanceAcl.entityName}}
+      </div>
+      <div class="uk-margin-small-top" data-test-instance-acl-modal-email>
+        <p class="uk-text-bold uk-margin-remove">{{t
+            "permissions.details.entityEmail"
+          }}</p>
+        {{@instanceAcl.entityEmail}}
+      </div>
+      <hr class="uk-margin-small-top uk-margin-small-bottom" />
+      <div data-test-instance-acl-modal-status>
+        <p class="uk-text-bold uk-margin-remove">{{t
+            "permissions.details.status"
+          }}</p>
+        {{t (concat "permissions.status." @instanceAcl.status)}}
+      </div>
+      <div class="uk-margin-small-top" data-test-instance-acl-modal-start-time>
+        <p class="uk-text-bold uk-margin-remove">{{t
+            "permissions.details.startTime"
+          }}</p>
+        {{or (format-date @instanceAcl.startTime format="datetime") "-"}}
+      </div>
+      <div class="uk-margin-small-top" data-test-instance-acl-modal-end-time>
+        <p class="uk-text-bold uk-margin-remove">{{t
+            "permissions.details.endTime"
+          }}</p>
+        {{or (format-date @instanceAcl.endTime format="datetime") "-"}}
+      </div>
+      <hr class="uk-margin-small-top uk-margin-small-bottom" />
+      <div data-test-instance-acl-modal-created-at>
+        <p class="uk-text-bold uk-margin-remove">{{t
+            "permissions.details.createdAt"
+          }}</p>
+        {{or (format-date @instanceAcl.createdAt format="date") "-"}}
+      </div>
+      <div class="uk-margin-small-top" data-test-instance-acl-modal-created-by>
+        <p class="uk-text-bold uk-margin-remove">{{t
+            "permissions.details.createdBy"
+          }}</p>
+        {{or @instanceAcl.createdByName "-"}}
+      </div>
+      <div class="uk-margin-small-top" data-test-instance-acl-modal-revoked-by>
+        <p class="uk-text-bold uk-margin-remove">{{t
+            "permissions.details.revokedBy"
+          }}</p>
+        {{or @instanceAcl.revokedByName "-"}}
       </div>
     </div>
   </modal.body>
