@@ -29,6 +29,7 @@ permissions:
     createdAt: Créé le
     createdBy: Créé par
     revokedBy: Retiré par
+    managedBySystem: Système administré
 
   status:
     active: Actif
