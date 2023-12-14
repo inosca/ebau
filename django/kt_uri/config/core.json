@@ -723,7 +723,7 @@
     "pk": 1067,
     "fields": {
       "template": "dossier-weitergeleitet-an-koordinationsstelle",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_SubmitterList",
+      "recipient_type": "Notification_Manager_Applicant",
       "processor": "Notification_Processor_SendEmailAPI"
     }
   },
@@ -732,7 +732,7 @@
     "pk": 1068,
     "fields": {
       "template": "dossier-von-koordinationsstelle-fur-baueingaben-an-die-gemeinde-zuruckgeschickt",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_SubmitterList",
+      "recipient_type": "Notification_Manager_Applicant",
       "processor": "Notification_Processor_SendEmailAPI"
     }
   },
@@ -759,7 +759,7 @@
     "pk": 1130,
     "fields": {
       "template": "dossier-von-koordinationsstelle-fur-baueingaben-an-die-gemeinde-zuruckgeschickt1",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_SubmitterList",
+      "recipient_type": "Notification_Manager_Applicant",
       "processor": "Notification_Processor_SendEmailAPI"
     }
   },
@@ -876,7 +876,7 @@
     "pk": 1369,
     "fields": {
       "template": "zirkulation-abgeschlossen",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_SubmitterList",
+      "recipient_type": "Notification_Manager_Applicant",
       "processor": "Notification_Processor_SendEmailAPI"
     }
   },
@@ -3302,9 +3302,9 @@
       "available_action": "notification",
       "button": 124,
       "name": "E-Mail an den Gesuchsteller",
-      "description": "",
-      "success_message": "",
-      "error_message": "",
+      "description": null,
+      "success_message": null,
+      "error_message": null,
       "execute_always": 0,
       "sort": 3
     }

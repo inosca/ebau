@@ -383,7 +383,6 @@ APPLICATIONS = {
             # BE
             "inactive_municipality",
             # UR
-            "submitter_list",
             "municipality_users",
             "unnotified_service_users",
             "lisag",
@@ -2291,7 +2290,6 @@ APPLICATIONS = {
         "THUMBNAIL_SIZE": "x600",
         "ATTACHMENT_SECTION_INTERNAL": None,
         "CUSTOM_NOTIFICATION_TYPES": [
-            "submitter_list",
             "municipality_users",
             "unnotified_service_users",
             "lisag",
