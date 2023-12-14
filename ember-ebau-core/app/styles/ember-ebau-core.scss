@@ -11,6 +11,11 @@ tr[role="link"] {
   cursor: pointer;
 }
 
+.uk-table .uk-icon {
+  min-height: 20px;
+  min-width: 20px;
+}
+
 @import "components/additional-demand";
 @import "components/billing-table";
 @import "components/dropzone";

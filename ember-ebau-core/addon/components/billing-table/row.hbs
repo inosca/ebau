@@ -31,6 +31,9 @@
   {{#if (has-feature "billing.organization")}}
     <td data-test-entry-organization>{{if @entry.organization (t (concat "billing.organizations." @entry.organization))}}</td>
   {{/if}}
+  {{#if (has-feature "billing.billingType")}}
+    <td data-test-entry-billing-type>{{if @entry.billingType (t (concat "billing.billing-types." @entry.billingType))}}</td>
+  {{/if}}
   {{#if (can "edit billing-v2-entries")}}
     <td data-test-entry-delete>
       {{#if (can "delete billing-v2-entry" @entry)}}
