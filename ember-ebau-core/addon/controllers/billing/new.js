@@ -1,6 +1,7 @@
 import Controller from "@ember/controller";
 import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
+import { camelize } from "@ember/string";
 import { tracked } from "@glimmer/tracking";
 import { dropTask } from "ember-concurrency";
 import { DateTime } from "luxon";
@@ -54,9 +55,12 @@ export default class BillingNewController extends Controller {
 
     this.newEntry = this.store.createRecord("billing-v2-entry", {
       calculation: this.calculations[0],
+      billingType: hasFeature("billing.billingType") ? "by_authority" : null,
     });
 
-    this.updateTaxMode({ target: { value: this.taxModeOptions[0].value } });
+    this.update({
+      target: { name: "tax-mode", value: this.taxModeOptions[0].value },
+    });
   }
 
   get taxModeOptions() {
@@ -83,19 +87,13 @@ export default class BillingNewController extends Controller {
   }
 
   @action
-  updateCalculation({ target: { value } }) {
-    this.newEntry.calculation = value;
-  }
-
-  @action
-  updateTaxMode({ target: { value } }) {
-    this.newEntry.taxMode = getMode(value);
-    this.newEntry.taxRate = getRate(value);
-  }
-
-  @action
-  updateOrganization({ target: { value } }) {
-    this.newEntry.organization = value ? value : null;
+  update({ target: { value, name } }) {
+    if (name === "tax-mode") {
+      this.newEntry.taxMode = getMode(value);
+      this.newEntry.taxRate = getRate(value);
+    } else {
+      this.newEntry[camelize(name)] = value ? value : null;
+    }
   }
 
   save = dropTask(this, async (e) => {
@@ -125,7 +123,9 @@ export default class BillingNewController extends Controller {
         calculation: this.calculations[0],
       });
 
-      this.updateTaxMode({ target: { value: this.taxModeOptions[0].value } });
+      this.update({
+        target: { name: "tax-mode", value: this.taxModeOptions[0].value },
+      });
 
       this.notification.success(this.intl.t("billing.add-success"));
 

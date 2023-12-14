@@ -8,9 +8,10 @@ export default {
   billing: {
     charge: false,
     organization: true,
-    reducedTaxRate: false,
+    reducedTaxRate: true,
     orderTaxByRate: false,
     displayService: true,
+    billingType: true,
   },
   rejection: {
     useLegacyClaims: false,

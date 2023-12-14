@@ -67,7 +67,7 @@ export default function makeServer(config) {
         ({ billingV2Entries }, request) => {
           const entry = billingV2Entries.find(request.params.id);
           entry.update({ dateCharged: DateTime.now().toISO() });
-          return null;
+          return;
         },
         204,
       );
