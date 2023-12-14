@@ -61,9 +61,7 @@ logger = getLogger(__name__)
 
 
 RECIPIENT_TYPE_NAMES = {
-    "applicant": translation.gettext_noop("Builder")
-    if settings.APPLICATION_NAME == "kt_so"
-    else translation.gettext_noop("Applicant"),
+    "applicant": translation.gettext_noop("Applicant"),
     "caluma_municipality": translation.gettext_noop("Municipality (from Caluma)"),
     "construction_control": translation.gettext_noop("Construction control"),
     "inactive_municipality": translation.gettext_noop(
