@@ -38,7 +38,6 @@ from camac.communications.models import CommunicationsMessage
 from camac.constants import kt_uri as uri_constants
 from camac.core.models import (
     Activation,
-    Answer,
     Circulation,
     HistoryActionConfig,
     WorkflowEntry,
@@ -185,7 +184,6 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     internal_dossier_link = serializers.SerializerMethodField()
     registration_link = serializers.SerializerMethodField()
     dossier_nr = serializers.SerializerMethodField()
-    portal_submission = serializers.SerializerMethodField()
     leitbehoerde_name_de = serializers.SerializerMethodField()
     leitbehoerde_name_fr = serializers.SerializerMethodField()
     municipality_de = serializers.SerializerMethodField()
@@ -513,18 +511,6 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
             return "-"
 
         return CalumaApi().get_ebau_number(instance) or "-"
-
-    def get_portal_submission(self, instance):
-        """Return `True` if the given instance is a portal submission."""
-        try:
-            Answer.get_value_by_cqi(
-                instance,
-                *NotificationTemplateSendmailSerializer.SUBMITTER_TYPE_CQI,
-                fail_on_not_found=True,
-            )
-            return True
-        except Answer.DoesNotExist:
-            return False
 
     def get_dossier_nr(self, instance):
         """Dossier number - Kanton Uri."""
@@ -1037,13 +1023,6 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
     # functions
     metainfo = serializers.DictField(required=False, default=None)
 
-    SUBMITTER_TYPE_APPLICANT = "0"
-    SUBMITTER_TYPE_PROJECT_AUTHOR = "1"
-    SUBMITTER_LIST_CQI_BY_TYPE = {
-        SUBMITTER_TYPE_APPLICANT: (1, 66, 1),
-        SUBMITTER_TYPE_PROJECT_AUTHOR: (1, 77, 1),
-    }
-    SUBMITTER_TYPE_CQI = (103, 257, 1)
     recipient_types = serializers.MultipleChoiceField(
         choices=(
             "applicant",
@@ -1070,29 +1049,6 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
         )
     )
     email_list = serializers.CharField(required=False)
-
-    def _get_recipients_submitter_list(self, instance):
-        if instance.form.pk not in uri_constants.PORTAL_FORMS:
-            return []
-
-        submitter_type = str(
-            Answer.get_value_by_cqi(
-                instance,
-                *self.SUBMITTER_TYPE_CQI,
-                # TODO needs to be confirmed with customer
-                default=self.SUBMITTER_TYPE_APPLICANT,
-            )
-        )
-
-        ans_cqi = self.SUBMITTER_LIST_CQI_BY_TYPE.get(submitter_type)
-        ans = Answer.get_value_by_cqi(instance, *ans_cqi, fail_on_not_found=False)
-        if not ans:
-            raise exceptions.ValidationError(
-                f"Instance {instance.pk}: Answer for submitter/applicant "
-                f"email not found. Cannot send notification email"
-            )
-
-        return [{"to": ans}]
 
     def _group_service_recipients(self, groups):
         return [
