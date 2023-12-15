@@ -13,7 +13,7 @@
     "model": "api.template",
     "pk": "anleitung-platzhalter",
     "fields": {
-      "description": "Anleitung Platzhalter",
+      "description": "",
       "template": "anleitung-platzhalter.docx",
       "engine": "docx-template",
       "meta": {}
@@ -23,7 +23,7 @@
     "model": "api.template",
     "pk": "form",
     "fields": {
-      "description": "Formular",
+      "description": "",
       "template": "form.docx",
       "engine": "docx-template",
       "meta": {}
@@ -33,7 +33,7 @@
     "model": "api.template",
     "pk": "bab-bewilligung",
     "fields": {
-      "description": "BAB Bewilligung",
+      "description": "",
       "template": "BAB_Bewilligung.docx",
       "engine": "docx-template",
       "meta": {}
