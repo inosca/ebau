@@ -8,6 +8,7 @@ index:
 instances:
   instance-id: "ID"
   special-id: "Dossier-Nr."
+  rejectionText: "Bitte beachten Sie die Rückmeldung der Leitbehörde (siehe Text «Begründung Rückweisung»). Sollten Sie das Dossier überarbeiten und erneut einreichen wollen, haben Sie hier die Möglichkeit dazu. Beachten Sie dabei, dass eine Kopie dieses Dossiers erstellt wird."
   new:
     building-permit:
       title: "Baubewilligungsverfahren"
