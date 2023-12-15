@@ -3,6 +3,7 @@ from os import path
 
 import requests
 from django.conf import settings
+from django.core.cache import cache
 from lxml import etree
 
 from camac.gis.clients.base import GISBaseClient
@@ -18,7 +19,6 @@ class BeGisClient(GISBaseClient):
         super().__init__(*args, **kwargs)
 
         self.session: requests.Session = requests.Session()
-        self.polygons = {}
 
     def get_root(self, response):
         return etree.fromstring(response.content)
@@ -33,7 +33,7 @@ class BeGisClient(GISBaseClient):
             )
             response.raise_for_status()
         except requests.exceptions.HTTPError as e:  # pragma: no cover
-            logger.error(f"Polygon: {e}")
+            logger.error(f"Polygon({egrid}): {e}")
             # TODO: Translation
             raise RuntimeError(
                 f"Error {e.response.status_code} while fetching polygon data from the API"
@@ -42,7 +42,7 @@ class BeGisClient(GISBaseClient):
             requests.exceptions.Timeout,
             requests.exceptions.ConnectionError,
         ) as e:  # pragma: no cover
-            logger.error(f"Polygon: {e}")
+            logger.error(f"Polygon({egrid}): {e}")
             # TODO: Translation
             raise RuntimeError(
                 "Connection error while fetching polygon data from the API"
@@ -57,7 +57,7 @@ class BeGisClient(GISBaseClient):
         try:
             polygon = root.find(".//gml:Polygon", root.nsmap)
             polygon_to_string = etree.tostring(polygon, encoding="unicode")
-            self.polygons[egrid] = polygon_to_string
+            cache.set(egrid, polygon_to_string, 60)
             return polygon_to_string
 
         except (SyntaxError, TypeError):
@@ -75,9 +75,9 @@ class BeGisClient(GISBaseClient):
         egrids = self.params.get("egrids").split(",")
 
         for egrid in egrids:
-            polygon = self.polygons.get(egrid) or self.get_polygon(
+            polygon = cache.get(egrid) or self.get_polygon(
                 egrid
-            )  # checking if polygon already retrieved
+            )  # checking if polygon is already in cache
             query = self.get_query(
                 service_code, boolean_layers, special_layers, polygon
             )
@@ -92,7 +92,7 @@ class BeGisClient(GISBaseClient):
                 )
                 response.raise_for_status()
             except requests.exceptions.HTTPError as e:  # pragma: no cover
-                logger.error(f"{service_code}: {e}")
+                logger.error(f"{service_code}({egrid}): {e}")
                 # TODO: Translation
                 raise RuntimeError(
                     f"Error {e.response.status_code} while fetching layer data from the API"
@@ -101,7 +101,7 @@ class BeGisClient(GISBaseClient):
                 requests.exceptions.Timeout,
                 requests.exceptions.ConnectionError,
             ) as e:  # pragma: no cover
-                logger.error(f"{service_code}: {e}")
+                logger.error(f"{service_code}({egrid}): {e}")
                 # TODO: Translation
                 raise RuntimeError(
                     "Connection error while fetching layer data from the API"
