@@ -1,10 +1,8 @@
 ALEXANDRIA = {
     "default": {
-        "MARKS": {
-            "ALL": ["publication", "decision", "void"],
-            "PUBLICATION": "publication",
-            "DECISION": "decision",
-            "VOID": "void",
+        "MARK_VISIBILITY": {
+            "APPLICANT": ["decision"],
+            "PUBLIC": ["publication"],
         },
         "RESTRICTED_FIELDS": {
             "title",
@@ -24,6 +22,9 @@ ALEXANDRIA = {
     "kt_so": {
         "ENABLED": True,
         "TAG_VISIBILITY": "service-subservice",
+        "MARK_VISIBILITY": {
+            "APPLICANT": ["objection"],
+        },
     },
     "test": {
         "ENABLED": True,
