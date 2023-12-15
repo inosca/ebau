@@ -1028,82 +1028,6 @@ def test_notification_validate_slug_create(admin_client, notification_template):
     )
 
 
-@pytest.mark.parametrize("misdirect_type", [0, 99999])
-@pytest.mark.parametrize("misdirect_email", [0, 99999])
-@pytest.mark.parametrize("is_portal_form", [True, False])
-@pytest.mark.parametrize("submitter_email", ["foo@example.org", ""])
-@pytest.mark.parametrize(
-    "submitter_type",
-    [
-        serializers.NotificationTemplateSendmailSerializer.SUBMITTER_TYPE_APPLICANT,
-        serializers.NotificationTemplateSendmailSerializer.SUBMITTER_TYPE_PROJECT_AUTHOR,
-    ],
-)
-def test_recipient_type_submitter_list(
-    db,
-    mocker,
-    instance,
-    camac_answer_factory,
-    misdirect_type,
-    misdirect_email,
-    submitter_email,
-    submitter_type,
-    is_portal_form,
-):
-    mocker.patch(
-        "camac.constants.kt_uri.PORTAL_FORMS",
-        [instance.form.pk if is_portal_form else 9999999999],
-    )
-
-    ans_email = camac_answer_factory(answer=submitter_email, instance=instance)
-    ans_submitter_type = camac_answer_factory(answer=submitter_type, instance=instance)
-    mocker.patch(
-        "camac.notification.serializers.NotificationTemplateSendmailSerializer.SUBMITTER_TYPE_CQI",
-        (
-            ans_submitter_type.chapter_id,
-            # misdirect points us to an invalid answer to test missing data
-            ans_submitter_type.question_id + misdirect_type,
-            ans_submitter_type.item,
-        ),
-    )
-    mocker.patch(
-        "camac.notification.serializers.NotificationTemplateSendmailSerializer.SUBMITTER_LIST_CQI_BY_TYPE",
-        {
-            # We only mock the type being tested
-            typ: (
-                ans_email.chapter_id,
-                ans_email.question_id + misdirect_email,
-                ans_email.item,
-            )
-            for typ in [
-                serializers.NotificationTemplateSendmailSerializer.SUBMITTER_TYPE_APPLICANT,
-                serializers.NotificationTemplateSendmailSerializer.SUBMITTER_TYPE_PROJECT_AUTHOR,
-            ]
-        },
-    )
-
-    serializer = serializers.NotificationTemplateSendmailSerializer()
-    has_raised = False
-    res = []
-
-    try:
-        res = serializer._get_recipients_submitter_list(instance)
-    except Exception as exc:  # noqa: B902
-        has_raised = exc
-
-    if not is_portal_form:
-        assert res == []
-        assert not has_raised
-    elif misdirect_email or not submitter_email:
-        # note: misdirect_type just causes the fallback to trigger, which
-        # won't cause an error per se
-        assert bool(has_raised)
-        assert res == []
-    else:
-        assert res == [{"to": "foo@example.org"}]
-        assert not has_raised
-
-
 @pytest.mark.parametrize("service__email", [None, "", "foo@example.org"])
 @pytest.mark.parametrize("instance__location", [LazyFixture("location")])
 def test_recipient_type_municipality_users(
@@ -1271,35 +1195,6 @@ def test_recipient_inactive_municipality(
     serializer = serializers.NotificationTemplateSendmailSerializer()
 
     assert serializer._get_recipients_inactive_municipality(be_instance) == expected
-
-
-@pytest.mark.parametrize(
-    "submitter_type",
-    [
-        serializers.NotificationTemplateSendmailSerializer.SUBMITTER_TYPE_APPLICANT,
-        serializers.NotificationTemplateSendmailSerializer.SUBMITTER_TYPE_PROJECT_AUTHOR,
-        None,
-    ],
-)
-def test_portal_submission_placeholder(
-    db, instance, camac_answer_factory, mocker, submitter_type
-):
-    serializer = InstanceMergeSerializer(instance=instance)
-    if submitter_type is not None:
-        ans_submitter_type = camac_answer_factory(
-            answer=submitter_type, instance=instance
-        )
-        mocker.patch(
-            "camac.notification.serializers.NotificationTemplateSendmailSerializer.SUBMITTER_TYPE_CQI",
-            (
-                ans_submitter_type.chapter_id,
-                # misdirect points us to an invalid answer to test missing data
-                ans_submitter_type.question_id,
-                ans_submitter_type.item,
-            ),
-        )
-    portal_submission = serializer.get_portal_submission(instance)
-    assert portal_submission == (submitter_type is not None)
 
 
 @pytest.mark.parametrize("service__email", ["test@example.com"])

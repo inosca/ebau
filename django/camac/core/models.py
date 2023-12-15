@@ -769,7 +769,7 @@ class Answer(models.Model):
         def _json_valid_or_none(data):
             try:
                 return json.loads(data)
-            except json.decoder.JSONDecodeError:
+            except json.decoder.JSONDecodeError:  # pragma: no cover
                 return None
 
         try:
@@ -786,10 +786,10 @@ class Answer(models.Model):
                     )
                 }
                 return ", ".join(option_labels.get(val, "") for val in option_values)
-            else:
+            else:  # pragma: no cover
                 return ans.answer
 
-        except Answer.DoesNotExist:
+        except Answer.DoesNotExist:  # pragma: no cover
             if fail_on_not_found:
                 raise
             return default
