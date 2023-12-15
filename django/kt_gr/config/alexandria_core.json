@@ -1183,8 +1183,10 @@
       "modified_at": "2023-12-01T09:11:54.349Z",
       "modified_by_user": null,
       "modified_by_group": null,
-      "metainfo": {},
-      "name": "{\"de\": \"Entscheid\", \"fr\": \"\", \"it\": \"\"}",
+      "metainfo": {
+        "sort": 1
+      },
+      "name": "{\"de\": \"Entscheiddokument\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}"
     }
   },
@@ -1198,8 +1200,10 @@
       "modified_at": "2023-12-01T09:11:54.349Z",
       "modified_by_user": null,
       "modified_by_group": null,
-      "metainfo": {},
-      "name": "{\"de\": \"Publikation\", \"fr\": \"\", \"it\": \"\"}",
+      "metainfo": {
+        "sort": 2
+      },
+      "name": "{\"de\": \"Publikationsdokument\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}"
     }
   },
@@ -1213,7 +1217,9 @@
       "modified_at": "2023-12-01T09:11:54.349Z",
       "modified_by_user": null,
       "modified_by_group": null,
-      "metainfo": {},
+      "metainfo": {
+        "sort": 3
+      },
       "name": "{\"de\": \"Ersetzt\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}"
     }

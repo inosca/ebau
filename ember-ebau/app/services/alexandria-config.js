@@ -7,6 +7,7 @@ export default class AlexandriaConfigService extends ConfigService {
     decision: "stamp",
     publication: "bullhorn",
     void: "ban",
+    objection: "hand-point-up",
   };
 
   @service store;

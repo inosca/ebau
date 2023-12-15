@@ -5,6 +5,7 @@ import { useCalumaQuery } from "@projectcaluma/ember-core/caluma-query";
 import { allCases } from "@projectcaluma/ember-core/caluma-query/queries";
 import { queryManager } from "ember-apollo-client";
 import { query, findRecord } from "ember-data-resources";
+import mainConfig from "ember-ebau-core/config/main";
 import apolloQuery from "ember-ebau-core/resources/apollo";
 
 import config from "caluma-portal/config/environment";
@@ -78,13 +79,23 @@ export default class InstancesEditController extends Controller {
       }))
     : query(this, "document", () => ({
         filter: {
-          marks: config.APPLICATION.documents.decisionMark,
+          marks: mainConfig.alexandria?.marks.decision,
           metainfo: JSON.stringify([
             { key: "camac-instance-id", value: String(this.model) },
           ]),
         },
         sort: "title",
       }));
+
+  #objectionAttachments = query(this, "document", () => ({
+    filter: {
+      marks: mainConfig.alexandria?.marks.objection,
+      metainfo: JSON.stringify([
+        { key: "camac-instance-id", value: String(this.model) },
+      ]),
+    },
+    sort: "title",
+  }));
 
   get hasFeedbackSection() {
     return Boolean(config.APPLICATION.documents.feedbackSections);
@@ -108,6 +119,14 @@ export default class InstancesEditController extends Controller {
 
   get decision() {
     return this.#decisionAttachments.records;
+  }
+
+  get objection() {
+    if (!mainConfig.alexandria?.marks.objection) {
+      return [];
+    }
+
+    return this.#objectionAttachments.records;
   }
 
   get isLoading() {

@@ -90,4 +90,10 @@ export default {
       "decision",
     ],
   },
+  alexandria: {
+    marks: {
+      decision: "decision",
+      void: "void",
+    },
+  },
 };

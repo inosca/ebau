@@ -99,6 +99,13 @@ const config = {
       "decision",
     ],
   },
+  alexandria: {
+    marks: {
+      decision: "decision",
+      objection: "objection",
+      void: "void",
+    },
+  },
 };
 
 config.intentSlugs = [config.answerSlugs.description];

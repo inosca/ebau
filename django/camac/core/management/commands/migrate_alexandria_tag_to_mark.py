@@ -1,5 +1,4 @@
 from alexandria.core.models import Mark, Tag
-from django.conf import settings
 from django.core.management.base import BaseCommand
 from django.db import transaction
 from tqdm import tqdm
@@ -24,7 +23,7 @@ class Command(BaseCommand):
 
     def migrate(self):
         print("Starting migration alexandria tag to mark")
-        tags = Tag.objects.filter(pk__in=settings.ALEXANDRIA["MARKS"]["ALL"])
+        tags = Tag.objects.filter(pk__in=["decision", "publication", "void"])
 
         for tag in tags:
             print(f"Migrate tag {tag.slug} to mark")
