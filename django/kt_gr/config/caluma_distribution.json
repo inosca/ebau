@@ -65,7 +65,7 @@
       "modified_by_group": null,
       "form": "inquiry-answer",
       "question": "inquiry-answer-ancillary-clauses",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -80,7 +80,7 @@
       "modified_by_group": null,
       "form": "inquiry-answer",
       "question": "inquiry-answer-assessment",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -95,7 +95,7 @@
       "modified_by_group": null,
       "form": "inquiry-answer",
       "question": "inquiry-answer-considerations",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -110,7 +110,7 @@
       "modified_by_group": null,
       "form": "inquiry-answer",
       "question": "inquiry-answer-situation",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -125,7 +125,22 @@
       "modified_by_group": null,
       "form": "inquiry-answer",
       "question": "inquiry-answer-status",
-      "sort": 6
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "inquiry-answer.stellungnahme-bemerkungen",
+    "fields": {
+      "created_at": "2023-12-15T12:02:36.579Z",
+      "modified_at": "2023-12-15T12:02:36.579Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "inquiry-answer",
+      "question": "stellungnahme-bemerkungen",
+      "sort": 2
     }
   },
   {
@@ -518,6 +533,40 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": \"\", \"it\": null}",
       "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "stellungnahme-bemerkungen",
+    "fields": {
+      "created_at": "2023-12-15T12:02:36.426Z",
+      "modified_at": "2023-12-15T12:02:36.426Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkungen\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
