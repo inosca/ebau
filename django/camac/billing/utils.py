@@ -45,7 +45,8 @@ def calculate_final_rate(
     elif calculation == BillingV2Entry.CALCULATION_HOURLY:
         final_rate = hours * hourly_rate
 
-    return round_decimal(final_rate) if final_rate else None
+    # Don't ignore final_rate when value is 0
+    return round_decimal(final_rate) if final_rate is not None else None
 
 
 def add_taxes_to_final_rate(
@@ -57,7 +58,8 @@ def add_taxes_to_final_rate(
     "exclusive".
     """
 
-    if not final_rate:
+    # Don't ignore final_rate when value is 0
+    if final_rate is None:
         return None
 
     if tax_mode != BillingV2Entry.TAX_MODE_EXCLUSIVE:
@@ -103,6 +105,8 @@ def get_totals_for_organization(
                             Decimal(entry["final_rate"])
                             for entry in filtered_entries
                             if entry["date_charged"] is None
+                            and entry["final_rate"]
+                            is not None  # Don't ignore entry when final_rate is 0
                         ]
                     )
                 )
@@ -111,7 +115,14 @@ def get_totals_for_organization(
         "total": str(
             round_decimal(
                 Decimal(
-                    sum([Decimal(entry["final_rate"]) for entry in filtered_entries])
+                    sum(
+                        [
+                            Decimal(entry["final_rate"])
+                            for entry in filtered_entries
+                            if entry["final_rate"]
+                            is not None  # Don't ignore entry when final_rate is 0
+                        ]
+                    )
                 )
             )
         ),
