@@ -55050,7 +55050,7 @@
     "pk": "gebaeude-und-anlagen",
     "fields": {
       "created_at": "2023-05-19T09:00:43.844Z",
-      "modified_at": "2023-10-27T14:14:07.525Z",
+      "modified_at": "2023-12-15T12:03:24.642Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -55066,20 +55066,7 @@
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
-        "columnsToDisplay": [
-          "gebaeudenummer-bezeichnung",
-          "typ-des-bauwerks",
-          "proposal",
-          "gebaeudekategorie",
-          "fundationsart",
-          "gebaeudevolumen-m",
-          "gebaeudevolumen-nach-norm",
-          "amtliche-gebaeudenummer",
-          "gwr-gebaeudevolumen",
-          "energiebezugsflaeche",
-          "waermeerzeuger-heizung",
-          "waermeerzeuger-warmwasser"
-        ]
+        "columnsToDisplay": ["egid-nr", "amtliche-gebaeudenummer"]
       },
       "data_source": null,
       "row_form": "gebaeude-tabelle",
@@ -58052,7 +58039,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"Bauvorhaben an Kantons- oder Nationalstrassen sind vorabkl\\u00e4rungspflichtig (vgl. Art. 52 Abs. 2 der kantonalen Raumplanungsverordnung [KRVO]). Die Vorabkl\\u00e4rung hat vor der Baueingabe zu erfolgen. Bitte informieren Sie sich auf der Homepage des Tiefbauamtes:\\n\\n* [Strassenreklamen - Bauen in Strassenn\\u00e4he (gr.ch)](https://www.gr.ch/DE/institutionen/verwaltung/diem/tba/Strassennetz/Bauen-in-Strassennaehe/Seiten/Strassenreklamen.aspx)\\n* [N\\u00e4herbauten und Zufahrten (gr.ch)](https://www.gr.ch/DE/institutionen/verwaltung/diem/tba/Strassennetz/Bauen-in-Strassennaehe/Seiten/N%C3%A4herbauten-und-Zufahrten.aspx)\\n* [Leitungen - Leitungen (gr.ch)](https://www.gr.ch/DE/institutionen/verwaltung/diem/tba/Strassennetz/Bauen-in-Strassennaehe/Leitungen/Seiten/Leitungen.aspx)\\n\\nBitte beachten Sie, dass der Vorabkl\\u00e4rungsbericht des Tiefbauamtes bei der Einreichung des Baugesuches vorliegen muss.\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"Bauvorhaben an Kantons- oder Nationalstrassen sind vorabkl\\u00e4rungspflichtig (vgl. Art. 52 Abs. 2 der kantonalen Raumplanungsverordnung [KRVO]). Die Vorabkl\\u00e4rung hat vor der Baueingabe zu erfolgen. Bitte informieren Sie sich auf der Homepage des Tiefbauamtes:\\n\\n* [Strassenreklamen - Bauen in Strassenn\\u00e4he (gr.ch)](https://www.gr.ch/DE/institutionen/verwaltung/diem/tba/Strassennetz/Bauen-in-Strassennaehe/Seiten/Strassenreklamen.aspx)\\n* [N\\u00e4herbauten und Zufahrten (gr.ch)](https://www.gr.ch/DE/institutionen/verwaltung/diem/tba/Strassennetz/Bauen-in-Strassennaehe/Seiten/N%C3%A4herbauten-und-Zufahrten.aspx)\\n* [Leitungen (gr.ch)](https://www.gr.ch/DE/institutionen/verwaltung/diem/tba/Strassennetz/Bauen-in-Strassennaehe/Leitungen/Seiten/Leitungen.aspx)\\n\\nBitte beachten Sie, dass der Vorabkl\\u00e4rungsbericht des Tiefbauamtes bei der Einreichung des Baugesuches vorliegen muss.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -71399,7 +71386,7 @@
       "is_hidden": "!(\"beschreibung-kantonsstrassen-leitungen\" in \"beschreibung-kantonsstrassen\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"Bauvorhaben an Kantons- oder Nationalstrassen sind Vorabkl\\u00e4rungspflichtig (Art. 52 Abs. 2 KRVO). Die Vorabkl\\u00e4rung hat vor der Baueingabe zu erfolgen. Bitte informieren Sie sich auf der Homepage des Tiefbauamtes: [Leitungen - Leitungen (gr.ch)](https://www.gr.ch/DE/institutionen/verwaltung/diem/tba/Strassennetz/Bauen-in-Strassennaehe/Leitungen/Seiten/Leitungen.aspx)\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Bauvorhaben an Kantons- oder Nationalstrassen sind Vorabkl\\u00e4rungspflichtig (Art. 52 Abs. 2 KRVO). Die Vorabkl\\u00e4rung hat vor der Baueingabe zu erfolgen. Bitte informieren Sie sich auf der Homepage des Tiefbauamtes: [Leitungen (gr.ch)](https://www.gr.ch/DE/institutionen/verwaltung/diem/tba/Strassennetz/Bauen-in-Strassennaehe/Leitungen/Seiten/Leitungen.aspx)\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
