@@ -3938,6 +3938,22 @@
     }
   },
   {
+    "model": "user.group",
+    "pk": 10327,
+    "fields": {
+      "role": 20001,
+      "service": 164,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
     "model": "user.groupt",
     "pk": 24852,
     "fields": {
@@ -6408,12 +6424,22 @@
     }
   },
   {
+    "model": "user.groupt",
+    "pk": 26861,
+    "fields": {
+      "group": 10327,
+      "language": "de",
+      "name": "Pro Natura",
+      "city": null
+    }
+  },
+  {
     "model": "user.usergroup",
     "pk": 1,
     "fields": {
       "user": 1,
       "group": 1,
-      "default_group": 1,
+      "default_group": 0,
       "created_at": "2023-05-25T12:19:18.225Z",
       "created_by": 1
     }
@@ -6492,6 +6518,17 @@
       "group": 10208,
       "default_group": 0,
       "created_at": "2023-06-08T14:49:31.017Z",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "user.usergroup",
+    "pk": 9,
+    "fields": {
+      "user": 1,
+      "group": 10327,
+      "default_group": 1,
+      "created_at": "2023-12-01T08:52:15.455Z",
       "created_by": 1
     }
   },
@@ -8936,6 +8973,26 @@
     }
   },
   {
+    "model": "user.service",
+    "pk": 164,
+    "fields": {
+      "service_group": 1,
+      "service_parent": 1,
+      "name": null,
+      "description": null,
+      "sort": 0,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "pro.natura@example.com",
+      "website": null,
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false
+    }
+  },
+  {
     "model": "user.servicet",
     "pk": 1,
     "fields": {
@@ -10274,6 +10331,17 @@
       "language": "de",
       "name": "Tiefbauamt GR",
       "description": "Tiefbauamt GR",
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 164,
+    "fields": {
+      "service": 164,
+      "language": "de",
+      "name": "Pro Natura",
+      "description": "Pro Natura",
       "city": null
     }
   }

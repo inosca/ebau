@@ -213,6 +213,18 @@ class InstanceQuerysetMixin(object):
             | Q(**{instance_field: instances_for_activation})
         )
 
+    def get_queryset_for_uso(self, group=None):
+        # Ecology groups (USOs) have the same visibilities as services,
+        # but loose their access when their deadline expires.
+        group = self._get_group(group)
+        queryset = self.get_base_queryset()
+        instance_field = self._get_instance_filter_expr("pk", "in")
+        instances_for_activation = self._instances_with_activation(
+            group, {"deadline__date__gte": timezone.localdate()}
+        )
+
+        return queryset.filter(**{instance_field: instances_for_activation})
+
     def get_queryset_for_trusted_service(self, group=None):
         # "Trusted" services see all submitted instances (Kt. UR)
         return self.get_base_queryset()
@@ -351,7 +363,7 @@ class InstanceQuerysetMixin(object):
             )
         )
 
-    def _instances_with_activation(self, group):
+    def _instances_with_activation(self, group, extra_filters={}):
         if settings.DISTRIBUTION:
             # WARNING: if this logic changes, `hasInquiry` in
             # php/library/Custom/CalumaDistribution.php needs to be updated as
@@ -360,6 +372,7 @@ class InstanceQuerysetMixin(object):
                 WorkItem.objects.filter(
                     task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
                     addressed_groups=[str(group.service.pk)],
+                    **extra_filters,
                 )
                 .exclude(
                     status__in=[

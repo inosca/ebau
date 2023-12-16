@@ -85,7 +85,7 @@
     "pk": 20001,
     "fields": {
       "role_parent": null,
-      "name": null,
+      "name": "uso",
       "group_prefix": null
     }
   },

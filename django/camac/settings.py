@@ -315,6 +315,7 @@ APPLICATIONS = {
             "service-clerk": "service",
             "subservice": "service",
             "Geometer": "geometer",
+            "uso": "uso",
         },
         "ADMIN_GROUP": 1,
         "ROLE_INHERITANCE": {"trusted_service": "service"},

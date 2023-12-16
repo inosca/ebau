@@ -82,7 +82,9 @@ export default class CustomSession extends Session {
 
   get isLeadRole() {
     return (
-      this.role?.slug.endsWith("-lead") || this.role?.slug === "subservice"
+      this.role?.slug.endsWith("-lead") ||
+      this.role?.slug === "subservice" ||
+      this.role?.slug === "uso"
     );
   }
 
