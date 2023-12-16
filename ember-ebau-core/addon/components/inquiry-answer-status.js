@@ -51,24 +51,32 @@ export default class InquiryAnswerStatusComponent extends Component {
             .peekRecord("service", this.calumaOptions.currentGroupId)
             ?.get("serviceGroup.id"),
         ) === mainConfig.serviceGroups?.authorityBaB;
+      const isUso = this.calumaOptions.ebauModules.baseRole === "uso";
+
+      const option_type = isAuthorityBaB ? "bab" : isUso ? "uso" : "default";
+
+      const inquiry_answer_status_options = {
+        bab: [
+          "inquiry-answer-status-approved",
+          "inquiry-answer-status-rejected",
+          "inquiry-answer-status-written-off",
+          "inquiry-answer-status-negative",
+          "inquiry-answer-status-not-involved",
+        ],
+        uso: [
+          "inquiry-answer-status-following",
+          "inquiry-answer-status-renounced",
+        ],
+        default: [
+          "inquiry-answer-status-positive",
+          "inquiry-answer-status-negative",
+          "inquiry-answer-status-claim",
+          "inquiry-answer-status-not-involved",
+        ],
+      };
 
       return this.args.field.options.filter((option) => {
-        return (
-          isAuthorityBaB
-            ? [
-                "inquiry-answer-status-approved",
-                "inquiry-answer-status-rejected",
-                "inquiry-answer-status-written-off",
-                "inquiry-answer-status-negative",
-                "inquiry-answer-status-not-involved",
-              ]
-            : [
-                "inquiry-answer-status-positive",
-                "inquiry-answer-status-negative",
-                "inquiry-answer-status-claim",
-                "inquiry-answer-status-not-involved",
-              ]
-        ).includes(option.slug);
+        return inquiry_answer_status_options[option_type].includes(option.slug);
       });
     }
 

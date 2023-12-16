@@ -26,6 +26,7 @@ from rest_framework_json_api import views
 from rest_framework_json_api.views import ReadOnlyModelViewSet
 
 from camac.caluma.api import CalumaApi
+from camac.caluma.utils import sync_inquiry_deadline
 from camac.constants import kt_uri as ur_constants
 from camac.core.models import InstanceService, PublicationEntry, WorkflowEntry
 from camac.core.views import SendfileHttpResponse
@@ -380,7 +381,32 @@ class InstanceView(
         )
 
     @swagger_auto_schema(auto_schema=None)
-    def retrieve(self, request, *args, **kwargs):  # pragma: no cover
+    @permission_aware
+    def retrieve(self, request, *args, **kwargs):
+        return super().retrieve(request, *args, **kwargs)
+
+    def retrieve_for_uso(self, request, *args, **kwargs):
+        # Special case for Kt. GR: Ecology groups ("USOs") loose access to instances 7 days
+        # after they **first accessed** them.
+        instance = self.get_object()
+        work_items = workflow_models.WorkItem.objects.filter(
+            case__family_id=instance.case.pk,
+            task_id="inquiry",
+            addressed_groups=[request.group.service.pk],
+        ).exclude(meta__has_key="retrieved_by_uso")
+
+        for work_item in work_items:
+            work_item.meta["retrieved_by_uso"] = timezone.now().isoformat()
+            work_item.save()
+
+            deadline_answer = work_item.document.answers.filter(
+                question_id=settings.DISTRIBUTION["QUESTIONS"]["DEADLINE"]
+            )
+            new_deadline = deadline_answer.first().date + timedelta(days=7)
+            deadline_answer.update(date=new_deadline)
+
+            sync_inquiry_deadline(work_item)
+
         return super().retrieve(request, *args, **kwargs)
 
     @swagger_auto_schema(auto_schema=None)
