@@ -200,6 +200,7 @@ def visible_inquiries_expression(group: Group) -> Expression:
             # Subservices can see "adjecent" subservices inquiries
             additional_inquiries_filter = work_item_by_addressed_service_condition(
                 Q(service_parent_id=service.service_parent_id)
+                & ~Q(groups__role__name="uso")
             )
         else:
             # Services only see their own inquiries

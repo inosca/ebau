@@ -1,14 +1,17 @@
 import datetime
 import functools
 import json
+from datetime import timedelta
 
 import pyexcel
 import pytest
 import pytz
 from caluma.caluma_form import models as caluma_form_models
+from caluma.caluma_form.factories import AnswerFactory
 from caluma.caluma_workflow import api as workflow_api, models as caluma_workflow_models
 from django.urls import reverse
-from django.utils.timezone import make_aware
+from django.utils.timezone import make_aware, now
+from freezegun import freeze_time
 from pytest_factoryboy import LazyFixture
 from rest_framework import status
 
@@ -123,6 +126,87 @@ def test_instance_list_for_coordination_ur(
 
     assert response.status_code == status.HTTP_200_OK
     assert len(response.json()["data"]) == expected_count
+
+
+@pytest.mark.freeze_time("2023-12-01")
+@pytest.mark.parametrize(
+    "deadline_date,expected_count",
+    [("2023-12-02 00:00:00+00", 1), ("2023-11-30 00:00:00+00", 0)],
+)
+@pytest.mark.parametrize("role__name,instance__user", [("uso", LazyFixture("user"))])
+def test_instance_list_for_uso_gr(
+    admin_client,
+    gr_instance,
+    group_factory,
+    service_factory,
+    case_factory,
+    work_item_factory,
+    role,
+    deadline_date,
+    expected_count,
+    distribution_settings,
+):
+    gr_instance.case = case_factory(workflow_id="inquiry")
+    gr_instance.case.work_items.add(
+        work_item_factory(
+            task_id="inquiry",
+            addressed_groups=[gr_instance.group.service.pk],
+            deadline=deadline_date,
+        )
+    )
+    gr_instance.group = group_factory(service=service_factory(), role=role)
+    gr_instance.save()
+    url = reverse("instance-list")
+
+    response = admin_client.get(url)
+
+    assert response.status_code == status.HTTP_200_OK
+    assert len(response.json()["data"]) == expected_count
+
+
+@pytest.mark.freeze_time("2023-12-01")
+@pytest.mark.parametrize(
+    "role__name,instance__user", [("uso", LazyFixture("admin_user"))]
+)
+@pytest.mark.parametrize("deadline_date", ["2023-12-02 23:00:00+00"])
+def test_instance_detail_uso(
+    admin_client,
+    instance,
+    gr_instance,
+    case_factory,
+    work_item_factory,
+    deadline_date,
+    distribution_settings,
+    settings,
+):
+    settings.APPLICATION_NAME = "kt_gr"
+    distribution_case = case_factory(workflow_id="inquiry", family=gr_instance.case)
+    work_item = work_item_factory(
+        task_id="inquiry",
+        addressed_groups=[gr_instance.group.service.pk],
+        deadline=deadline_date,
+    )
+    distribution_case.work_items.add(work_item)
+
+    AnswerFactory(
+        question_id="inquiry-deadline", document=work_item.document, date=now()
+    )
+
+    url = reverse("instance-detail", args=[instance.pk])
+    response = admin_client.get(url)
+    assert response.status_code == status.HTTP_200_OK
+    work_item.refresh_from_db()
+    first_fetch = now()
+    # when USOs fetch for the first time, deadline and meta are updated
+    assert work_item.meta.get("retrieved_by_uso") == first_fetch.isoformat()
+    assert work_item.deadline == now() + timedelta(days=7)
+
+    # when fetching again later, deadline does not change anymore
+    with freeze_time("2023-12-01"):
+        admin_client.get(url)
+        work_item.refresh_from_db()
+        assert work_item.meta.get("retrieved_by_uso") == first_fetch.isoformat()
+        assert work_item.deadline == first_fetch + timedelta(days=7)
 
 
 @pytest.mark.parametrize(
