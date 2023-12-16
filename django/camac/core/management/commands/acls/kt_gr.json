@@ -380,5 +380,39 @@
     "acls": {
       "support": ["circulation", "finished", "new", "rejected", "subm"]
     }
+  },
+  "12000012": {
+    "label": "Aufgaben > USO",
+    "acls": {
+      "uso": [
+        "new",
+        "circulation",
+        "subm",
+        "finished",
+        "rejected",
+        "decision",
+        "init-distribution",
+        "correction",
+        "construction-monitoring"
+      ]
+    }
+  },
+  "12000013": {
+    "label": "Meine Dossiers (Dossier list for USO > Formular)",
+    "acls": {
+      "uso": ["circulation", "decision", "finished", "subm"]
+    }
+  },
+  "12000014": {
+    "label": "Meine Dossiers (Dossier list for USO > Dokumente)",
+    "acls": {
+      "uso": ["circulation", "decision", "finished"]
+    }
+  },
+  "12000015": {
+    "label": "Meine Dossiers (Dossier list for USO > Zirkulation)",
+    "acls": {
+      "uso": ["circulation", "decision", "finished", "subm"]
+    }
   }
 }
