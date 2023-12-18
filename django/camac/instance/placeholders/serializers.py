@@ -469,6 +469,11 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
         aliases=[_("OWN_ANCILLARY_CLAUSES"), _("ANCILLARY_CLAUSES")],
         description=_("Own ancillary clauses"),
     )
+    ort = fields.MasterDataField(
+        source="city",
+        aliases=[_("LOCATION")],
+        description=_("The location of the building site"),
+    )
     parzelle = fields.AliasedMethodField(
         aliases=[_("PARCEL")],
         description={
@@ -522,6 +527,11 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
         join_by="\n\n",
         aliases=[_("OWN_OPINIONS"), _("OPINIONS")],
         description=_("Own opinions"),
+    )
+    strasse = fields.MasterDataField(
+        source="street",
+        aliases=[_("STREET")],
+        description=_("The street of the building site"),
     )
     today = fields.AliasedMethodField(
         aliases=[_("TODAY")],
@@ -1374,7 +1384,7 @@ class BeDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         return "mit-uvp" in instance.case.document.form_id
 
     class Meta:
-        exclude = ["dossier_number"]
+        exclude = ["dossier_number", "strasse", "ort"]
 
 
 class SoDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
@@ -1393,4 +1403,6 @@ class SoDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
             "publikation_text",
             "language",
             "zirkulation_rueckmeldungen",
+            "strasse",
+            "ort",
         ]
