@@ -4,11 +4,12 @@ REJECTION = {
     "default": {
         "INSTANCE_STATE": "rejected",
         "ALLOWED_INSTANCE_STATES": [],
+        "ALLOW_REVERT": True,
         "INSTANCE_STATE_REJECTION_COMPLETE": "finished",
         "HISTORY_ENTRIES": {
             "REJECTED": _("Instance rejected"),
             "REVERTED": _("Instance rejection reverted"),
-            "COMPLETE": _("Instance completed by resubmission"),
+            "COMPLETE": _("Instance resubmitted (instance %(dossier_number)s)"),
         },
         "NOTIFICATIONS": {
             "REJECTED": [],
@@ -18,6 +19,9 @@ REJECTION = {
     "kt_bern": {
         "ENABLED": True,
         "ALLOWED_INSTANCE_STATES": ["circulation", "circulation_init"],
+        "HISTORY_ENTRIES": {
+            "COMPLETE": _("Instance completed by resubmission"),
+        },
         "NOTIFICATIONS": {
             "REJECTED": [
                 {
@@ -59,12 +63,11 @@ REJECTION = {
             ]
         },
     },
-    "kt_uri": {
-        "ENABLED": False,
-    },
     "kt_so": {
         "ENABLED": True,
         "ALLOWED_INSTANCE_STATES": ["reject"],
+        "ALLOW_REVERT": False,
+        "INSTANCE_STATE_REJECTION_COMPLETE": None,
         "WORK_ITEM": {
             "TASK": "reject",
             "INSTANCE_STATE": "reject",

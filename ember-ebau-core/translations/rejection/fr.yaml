@@ -11,6 +11,7 @@ rejection:
   feedback: Préavis
 
   reject: Renvoyer le dossier
+  reject-confirm:
   reject-success: Le dossier a été renvoyé avec succès
   reject-error: Erreur lors du renvoi du dossier
 
