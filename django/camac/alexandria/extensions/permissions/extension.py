@@ -106,7 +106,7 @@ class CustomPermission(BasePermission):
                     result = getattr(conditions, condition.lstrip("~"))(
                         value, instance, request, document
                     ).evaluate()
-                    all_checks_met &= not result if negated else result
+                    all_checks_met = not result if negated else result
 
                     if not all_checks_met:
                         break

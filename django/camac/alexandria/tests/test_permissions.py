@@ -1204,6 +1204,24 @@ def test_condition_ready_work_item_additional_demand(
         ),
         (
             "service",
+            "post",
+            HTTP_201_CREATED,
+            {
+                "service": {
+                    "visibility": "all",
+                    "permissions": [
+                        {
+                            "permission": "create",
+                            "condition": {
+                                "~InstanceState": "done",
+                            },
+                        },
+                    ],
+                },
+            },
+        ),
+        (
+            "service",
             "patch",
             HTTP_200_OK,
             {
@@ -1252,6 +1270,24 @@ def test_condition_ready_work_item_additional_demand(
                             "permission": "create",
                             "condition": {
                                 "InstanceState": "done",
+                            },
+                        },
+                    ],
+                },
+            },
+        ),
+        (
+            "service",
+            "post",
+            HTTP_403_FORBIDDEN,
+            {
+                "service": {
+                    "visibility": "all",
+                    "permissions": [
+                        {
+                            "permission": "create",
+                            "condition": {
+                                "~InstanceState": "new",
                             },
                         },
                     ],
@@ -1312,176 +1348,6 @@ def test_condition_instance_state(
 ):
     state = instance_state_factory(name="new")
     gr_instance.instance_state = state
-    gr_instance.save()
-    applicant_factory(invitee=admin_client.user, instance=gr_instance)
-    alexandria_category = CategoryFactory(metainfo={"access": access})
-    url = reverse("document-list")
-
-    data = {
-        "data": {
-            "type": "documents",
-            "attributes": {
-                "title": {"de": "Important"},
-                "metainfo": {"camac-instance-id": gr_instance.pk},
-            },
-            "relationships": {
-                "category": {
-                    "data": {
-                        "id": alexandria_category.pk,
-                        "type": "categories",
-                    },
-                },
-            },
-        },
-    }
-
-    if method in ["patch", "delete"]:
-        doc = DocumentFactory(
-            title="Foo",
-            category=alexandria_category,
-            metainfo={"camac-instance-id": gr_instance.pk},
-        )
-        url = reverse("document-detail", args=[doc.pk])
-        data["data"]["id"] = str(doc.pk)
-
-    response = getattr(admin_client, method)(url, data)
-
-    assert response.status_code == status_code
-
-
-@pytest.mark.parametrize(
-    "role__name,method,status_code,inst_state,access",
-    [
-        (
-            "service",
-            "post",
-            HTTP_403_FORBIDDEN,
-            "rejected",
-            {
-                "service": {
-                    "visibility": "all",
-                    "permissions": [
-                        {
-                            "permission": "create",
-                            "condition": {
-                                "~InstanceState": "rejected",
-                            },
-                        },
-                    ],
-                },
-            },
-        ),
-        (
-            "service",
-            "patch",
-            HTTP_403_FORBIDDEN,
-            "rejected",
-            {
-                "service": {
-                    "visibility": "all",
-                    "permissions": [
-                        {
-                            "permission": "create",
-                            "condition": {
-                                "~InstanceState": "rejected",
-                            },
-                        },
-                    ],
-                },
-            },
-        ),
-        (
-            "service",
-            "delete",
-            HTTP_403_FORBIDDEN,
-            "rejected",
-            {
-                "service": {
-                    "visibility": "all",
-                    "permissions": [
-                        {
-                            "permission": "create",
-                            "condition": {
-                                "~InstanceState": "rejected",
-                            },
-                        },
-                    ],
-                },
-            },
-        ),
-        (
-            "service",
-            "post",
-            HTTP_403_FORBIDDEN,
-            "finished",
-            {
-                "service": {
-                    "visibility": "all",
-                    "permissions": [
-                        {
-                            "permission": "create",
-                            "condition": {
-                                "~InstanceState": "finished",
-                            },
-                        },
-                    ],
-                },
-            },
-        ),
-        (
-            "service",
-            "patch",
-            HTTP_403_FORBIDDEN,
-            "finished",
-            {
-                "service": {
-                    "visibility": "all",
-                    "permissions": [
-                        {
-                            "permission": "create",
-                            "condition": {
-                                "~InstanceState": "finished",
-                            },
-                        },
-                    ],
-                },
-            },
-        ),
-        (
-            "service",
-            "delete",
-            HTTP_403_FORBIDDEN,
-            "finished",
-            {
-                "service": {
-                    "visibility": "all",
-                    "permissions": [
-                        {
-                            "permission": "create",
-                            "condition": {
-                                "~InstanceState": "finished",
-                            },
-                        },
-                    ],
-                },
-            },
-        ),
-    ],
-)
-def test_condition_negated_instance_state(
-    db,
-    role,
-    applicant_factory,
-    admin_client,
-    caluma_admin_user,
-    instance_state_factory,
-    gr_instance,
-    access,
-    method,
-    status_code,
-    inst_state,
-):
-    gr_instance.instance_state = instance_state_factory(name=inst_state)
     gr_instance.save()
     applicant_factory(invitee=admin_client.user, instance=gr_instance)
     alexandria_category = CategoryFactory(metainfo={"access": access})
