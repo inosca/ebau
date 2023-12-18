@@ -24,6 +24,10 @@ export default class BillingTableComponent extends Component {
       colspan += 1;
     }
 
+    if (hasFeature("billing.billingType")) {
+      colspan += 1;
+    }
+
     if (this.abilities.can("edit billing-v2-entries")) {
       colspan += 1;
     }

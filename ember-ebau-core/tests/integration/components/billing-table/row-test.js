@@ -25,6 +25,7 @@ module("Integration | Component | billing-table/row", function (hooks) {
       totalCost: "1210.13",
       finalRate: "1210.13",
       organization: "municipal",
+      billingType: "direct",
       dateAdded: "2023-11-01",
       dateCharged: "2023-11-08",
       group: this.server.create("group", { service }),
@@ -40,12 +41,16 @@ module("Integration | Component | billing-table/row", function (hooks) {
   });
 
   test("it renders", async function (assert) {
-    this.features.enable("billing.charge", "billing.organization");
+    this.features.enable(
+      "billing.charge",
+      "billing.organization",
+      "billing.billingType",
+    );
     this.features.disable("billing.displayService");
     await render(hbs`<BillingTable::Row @entry={{this.entry}} />`);
 
     assert.dom("tr").exists({ count: 1 });
-    assert.dom("td").exists({ count: 10 });
+    assert.dom("td").exists({ count: 11 });
 
     assert
       .dom("td[data-test-entry-charge] input[data-test-toggle][type=checkbox]")
@@ -64,6 +69,7 @@ module("Integration | Component | billing-table/row", function (hooks) {
     assert.dom("td[data-test-entry-added]").hasText("01.11.2023");
     assert.dom("td[data-test-entry-charged]").hasText("08.11.2023");
     assert.dom("td[data-test-entry-organization]").hasText("Kommunal");
+    assert.dom("td[data-test-entry-billing-type]").hasText("Direkt verrechnet");
     assert.dom("td[data-test-entry-delete] button[data-test-delete]").exists();
 
     this.features.disable("billing.charge");
@@ -96,7 +102,7 @@ module("Integration | Component | billing-table/row", function (hooks) {
       "/api/v1/billing-v2-entries/:id",
       () => {
         assert.step("delete");
-        return null;
+        return;
       },
       204,
     );

@@ -69,3 +69,20 @@ class BillingV2Entry(models.Model):
     organization = models.CharField(
         choices=ORGANIZATION_CHOICES, max_length=20, null=True
     )
+
+    # The billing entry must be added to the invoice of the authority
+    BILLING_TYPE_BY_AUTHORITY = "by_authority"
+    # The creator of the entry sent an invoice to be forwarded by the authority
+    BILLING_TYPE_FORWARDED = "forwarded"
+    # The creator of the entry sent an invoice directly to the applicant
+    BILLING_TYPE_DIRECT = "direct"
+    BILLING_TYPE_CHOICES = (
+        (BILLING_TYPE_BY_AUTHORITY, "By authority"),
+        (BILLING_TYPE_FORWARDED, "Forwarded"),
+        (BILLING_TYPE_DIRECT, "Direct"),
+    )
+
+    # Billing type: determine how the entry is being billed (e.g directly, or by the authority)
+    billing_type = models.CharField(
+        choices=BILLING_TYPE_CHOICES, max_length=20, null=True
+    )

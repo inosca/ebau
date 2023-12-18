@@ -30,7 +30,11 @@ module("Integration | Component | billing-table", function (hooks) {
   });
 
   test("it renders", async function (assert) {
-    this.features.enable("billing.charge", "billing.organization");
+    this.features.enable(
+      "billing.charge",
+      "billing.organization",
+      "billing.billingType",
+    );
     this.features.disable("billing.displayService");
 
     await render(hbs`<BillingTable
@@ -40,7 +44,7 @@ module("Integration | Component | billing-table", function (hooks) {
       @onRefresh={{this.noop}}
     />`);
 
-    assert.dom("thead tr th").exists({ count: 10 });
+    assert.dom("thead tr th").exists({ count: 11 });
     assert
       .dom(
         "thead tr th[data-test-charge] input[data-test-toggle-all][type=checkbox]",
@@ -58,6 +62,9 @@ module("Integration | Component | billing-table", function (hooks) {
     assert
       .dom("thead tr th[data-test-organization]")
       .hasText(t("billing.organization"));
+    assert
+      .dom("thead tr th[data-test-billing-type]")
+      .hasText(t("billing.billing-type"));
     assert.dom("thead tr th[data-test-delete]").exists();
 
     assert.dom("tbody tr").exists({ count: 5 });

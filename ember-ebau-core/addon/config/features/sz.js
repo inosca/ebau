@@ -5,5 +5,6 @@ export default {
     reducedTaxRate: true,
     orderTaxByRate: true,
     displayService: false,
+    billingType: false,
   },
 };

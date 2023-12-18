@@ -62,3 +62,27 @@ billing:
     all:
       uncharged: Total (nicht verrechnet)
       total: Total
+
+  billing-type: Verrechnung
+  billing-type-info: |-
+    <ul>
+      <li>
+        <strong>Weiter zu verrechnen:</strong>
+        Fachstelle informiert über Gebühr, die die Gemeinde berücksichtigen
+        muss.
+      </li>
+      <li>
+        <strong>Rechnung zu eröffnen:</strong>
+        Fachstelle erstellt Rechnung und schickt diese an die Gemeinde zur
+        weiteren Bearbeitung.
+      </li>
+      <li>
+        <strong>Direkt verrechnet:</strong>
+        Fachstelle hat ihre Gebührenrechnung direkt an den Gesuchstellenden
+        versendet. Inkasso durch Fachstelle.
+      </li>
+    </ul>
+  billing-types:
+    by_authority: Weiter zu verrechnen
+    forwarded: Rechunung zu eröffnen
+    direct: Direkt verrechnet

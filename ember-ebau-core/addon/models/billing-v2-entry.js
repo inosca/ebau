@@ -16,6 +16,7 @@ export default class BillingV2EntryModel extends Model {
   @attr totalCost;
   @attr finalRate;
   @attr organization;
+  @attr billingType;
 
   @belongsTo("group", { inverse: null, async: true }) group;
   @belongsTo("user", { inverse: null, async: true }) user;
