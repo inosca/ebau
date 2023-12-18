@@ -4,6 +4,7 @@ from __future__ import unicode_literals
 
 from snapshottest import Snapshot
 
+
 snapshots = Snapshot()
 
 snapshots['test_dms_placeholders[Municipality] 1'] = {
@@ -4563,6 +4564,18 @@ snapshots['test_dms_placeholders_docs[gr_dms_config] 1'] = {
             ]
         }
     },
+    'ORT': {
+        'aliases': [
+            {
+                'de': 'ORT'
+            }
+        ],
+        'description': {
+            'de': 'Der Ort des Bauvorhabens'
+        },
+        'nested_aliases': {
+        }
+    },
     'PARZELLE': {
         'aliases': [
             {
@@ -4670,6 +4683,18 @@ snapshots['test_dms_placeholders_docs[gr_dms_config] 1'] = {
         ],
         'description': {
             'de': 'Eigene Stellungnahmen'
+        },
+        'nested_aliases': {
+        }
+    },
+    'STRASSE': {
+        'aliases': [
+            {
+                'de': 'STRASSE'
+            }
+        ],
+        'description': {
+            'de': 'Die Strasse des Bauvorhabens'
         },
         'nested_aliases': {
         }
@@ -6624,6 +6649,7 @@ snapshots['test_dms_placeholders_docs_available_placeholders[gr_dms_config] 1'] 
     'NEBENBESTIMMUNGEN_MAPPED[]',
     'NEBENBESTIMMUNGEN_MAPPED[].FACHSTELLE',
     'NEBENBESTIMMUNGEN_MAPPED[].TEXT',
+    'ORT',
     'PARZELLE',
     'PROJEKTVERFASSER',
     'PROJEKTVERFASSER_ADDRESS_1',
@@ -6639,6 +6665,7 @@ snapshots['test_dms_placeholders_docs_available_placeholders[gr_dms_config] 1'] 
     'START_PUBLIKATION_KANTON',
     'STATUS',
     'STELLUNGNAHME',
+    'STRASSE',
     'TODAY',
     'ZIRKULATION_ALLE',
     'ZIRKULATION_ALLE[]',
@@ -7373,6 +7400,7 @@ snapshots['test_dms_placeholders_gr[Municipality] 1'] = {
     'NEBENBESTIMMUNGEN': '',
     'NEBENBESTIMMUNGEN_MAPPED': [
     ],
+    'ORT': 'Testhausen',
     'PARZELLE': '123465, 789876',
     'PROJEKTVERFASSER': 'Hans Muster',
     'PROJEKTVERFASSER_ADDRESS_1': 'Bahnhofstrasse 3',
@@ -7388,6 +7416,7 @@ snapshots['test_dms_placeholders_gr[Municipality] 1'] = {
     'START_PUBLIKATION_KANTON': '22. August 2021',
     'STATUS': 'David Rangel',
     'STELLUNGNAHME': '',
+    'STRASSE': 'Teststrasse 12',
     'TODAY': '30. August 2021',
     'ZIRKULATION_ALLE': [
         {
