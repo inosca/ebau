@@ -68,7 +68,7 @@ class WithdrawalLogic:
         create_history_entry(
             instance,
             camac_user,
-            settings.WITHDRAWAL["HISTORY_ENTRY"],
+            settings.WITHDRAWAL["HISTORY_ENTRIES"]["REQUESTED"],
         )
 
         # send notifications

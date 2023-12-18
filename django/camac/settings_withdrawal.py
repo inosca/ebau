@@ -2,10 +2,14 @@ from django.utils.translation import gettext_lazy as _
 
 WITHDRAWAL = {
     "default": {
-        "INSTANCE_STATE": "withdrawn",
+        "INSTANCE_STATE": "withdrawal",
+        "INSTANCE_STATE_CONFIRMED": "withdrawn",
         "ALLOWED_INSTANCE_STATES": [],
         "PROCESS_WORK_ITEMS": [],
-        "HISTORY_ENTRY": _("Instance withdrawn"),
+        "HISTORY_ENTRIES": {
+            "REQUESTED": _("Instance withdrawn"),
+            "CONFIRMED": _("Withdrawal confirmed"),
+        },
         "NOTIFICATIONS": [],
     },
     "kt_so": {

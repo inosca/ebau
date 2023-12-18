@@ -3766,6 +3766,7 @@ APPLICATIONS = {
                     "finished": "done",
                     "reject": "inProcedure",
                     "rejected": "rejected",
+                    "withdrawal": "withdrawn",
                     "withdrawn": "withdrawn",
                 },
                 "DEFAULT": "inProcedure",

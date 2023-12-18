@@ -135,6 +135,15 @@
     }
   },
   {
+    "model": "instance.instancestate",
+    "pk": 13,
+    "fields": {
+      "name": "withdrawal",
+      "sort": 0,
+      "description": null
+    }
+  },
+  {
     "model": "instance.instancestatet",
     "pk": 1,
     "fields": {
@@ -251,6 +260,16 @@
       "instance_state": 12,
       "language": "de",
       "name": "Zurückgezogen",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 13,
+    "fields": {
+      "instance_state": 13,
+      "language": "de",
+      "name": "Zum Rückzug",
       "description": null
     }
   }
