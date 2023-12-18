@@ -91,7 +91,7 @@ def nebenbestimmungen_question(be_distribution_settings):
 
 
 @pytest.mark.freeze_time("2021-08-30", tick=True)
-@pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.parametrize("role__name", ["municipality-lead"])
 @pytest.mark.django_db(
     transaction=True, reset_sequences=True
 )  # always reset instance id
@@ -140,13 +140,16 @@ def test_dms_placeholders_gr(
 
     # alexandria document
     TagFactory(slug="decision")
-    alexandria_category = CategoryFactory()
+    alexandria_category = CategoryFactory(
+        metainfo={"access": {"municipality-lead": {"visibility": "all"}}}
+    )
     alexandria_document = AlexandriaDocumentFactory(
         title="Grundriss",
         category=alexandria_category,
         metainfo={"camac-instance-id": str(gr_instance.pk)},
         tags=["decision"],
-        created_by_user=admin_client.user.username,
+        created_by_user=admin_client.user.pk,
+        modified_by_user=admin_client.user.pk,
     )
     FileFactory(name="Situationsplan", document=alexandria_document, variant="original")
 
