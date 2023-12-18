@@ -55,6 +55,9 @@ from camac.gis import factories as gis_factories
 from camac.instance import factories as instance_factories
 from camac.instance.serializers import SUBMIT_DATE_FORMAT
 from camac.notification import factories as notification_factories
+from camac.notification.serializers import (
+    PermissionlessNotificationTemplateSendmailSerializer,
+)
 from camac.objection import factories as objection_factories
 from camac.permissions import factories as permissions_factories
 from camac.responsible import factories as responsible_factories
@@ -1391,3 +1394,68 @@ def minio_mock(mocker):
 def enable_ech(application_settings):
     application_settings["ECH0211"]["API_ACTIVE"] = True
     application_settings["DOSSIER_IMPORT"]["PROD_URL"] = "ebau.local"
+
+
+@pytest.fixture
+def notification_add_recipient_type():
+    """Add notification module recipient type.
+
+    The notification module allows configuring custom (canton-specific) recipient
+    types. As those are setup at startup, we need a way to add the canton-specific
+    ones for testing. This is the tool to do that.
+    """
+
+    # Hocus Pocus...
+
+    rt_field = PermissionlessNotificationTemplateSendmailSerializer._declared_fields[
+        "recipient_types"
+    ]
+    original_kwargs_choices = rt_field._kwargs["choices"]
+    original_choices = rt_field.choices
+
+    def do_the_magic(name):
+        # don't extend, we need to call the setter
+        rt_field._set_choices({**rt_field.choices, name: name})
+        # some parts of the field use the `kwargs` as it was stored during
+        # construction time, not the actual "choices" field that you could
+        # even "officially" set...
+        rt_field._kwargs["choices"] = rt_field._kwargs["choices"] + (name,)
+
+    yield do_the_magic
+
+    rt_field._set_choices(original_choices)
+    rt_field._kwargs["choices"] = original_kwargs_choices
+
+
+@pytest.fixture
+def configure_custom_notification_types(notification_add_recipient_type, settings):
+    """Configure custom notification types in the notification serializer.
+
+    The notification module allows configuring custom (canton-specific) recipient
+    types. As those are setup at startup, we need a way to add the canton-specific
+    ones for testing. This is the tool to do that. You need to call this fixture
+    *inside* the test function, to ensure the notification module's serializer
+    is properly configured.
+
+    Example:
+    >>> test_foo(configure_custom_notification_types, settings):
+    >>>    settings.APPLICATION = { ... }
+    >>>    # need to configure the notification types
+    >>>    configure_custom_notification_types()
+    """
+
+    callstate = {}
+
+    def do_it():
+        callstate["x"] = 1
+        for notification_type in settings.APPLICATION["CUSTOM_NOTIFICATION_TYPES"]:
+            notification_add_recipient_type(notification_type)
+
+    yield do_it
+
+    if not callstate:  # pragma: no cover
+        raise RuntimeError(
+            "configure_custom_notification_types fixture used but not called. "
+            "You need to call configure_custom_notification_types inside your "
+            "test to make it work"
+        )

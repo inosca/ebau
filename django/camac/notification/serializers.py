@@ -1115,14 +1115,10 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             .filter(instance=instance)
             .filter(access_level_id="geometer")
         )
-        return [
-            {"to": email}
-            for email in unpack_service_emails(
-                Service.objects.filter(
-                    pk__in=geometer_acls.values("service"), notification=1
-                )
-            )
-        ]
+
+        return flatten(
+            [self._get_responsible(instance, acl.service) for acl in geometer_acls]
+        )
 
     def _get_recipients_lisag(self, instance):
         groups = Group.objects.filter(name="Lisag")

@@ -382,6 +382,7 @@ def test_close_dossier_send_handler(
     caluma_admin_user,
     ech_snapshot,
     be_decision_settings,
+    application_settings,
 ):
     instance_state_factory(name="finished")
 
@@ -395,6 +396,9 @@ def test_close_dossier_send_handler(
     circulation_factory(instance=ech_instance_be)
 
     case = ech_instance_case()
+
+    # Geometer notification is tested elsewhere
+    del application_settings["CALUMA"]["SIMPLE_WORKFLOW"]["complete"]["notification"]
 
     for task_id in [
         "submit",
