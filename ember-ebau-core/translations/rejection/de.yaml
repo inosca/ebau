@@ -11,6 +11,11 @@ rejection:
   feedback: Rückmeldung
 
   reject: Dossier zurückweisen
+  reject-confirm: |-
+    Wollen Sie das Dossier wirklich zurückweisen?
+    <br>
+    <br>
+    <strong>Achtung:</strong> Diese Aktion kann nicht mehr rückgängig gemacht werden!
   reject-success: Das Dossier wurde erfolgreich zurückgewiesen
   reject-error: Fehler beim Zurückweisen des Dossiers
 

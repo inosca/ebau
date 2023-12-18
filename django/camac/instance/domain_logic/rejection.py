@@ -20,12 +20,18 @@ class RejectionLogic:
         if not settings.REJECTION:  # pragma: no cover
             return False
 
-        return instance.instance_state.name in [
-            settings.REJECTION["INSTANCE_STATE"],
-            *settings.REJECTION["ALLOWED_INSTANCE_STATES"],
-        ] and (
+        if (
             instance.responsible_service(filter_type="municipality")
-            == camac_group.service
+            != camac_group.service
+        ):
+            return False
+
+        if instance.instance_state.name == settings.REJECTION["INSTANCE_STATE"]:
+            return settings.REJECTION["ALLOW_REVERT"]
+
+        return (
+            instance.instance_state.name
+            in settings.REJECTION["ALLOWED_INSTANCE_STATES"]
         )
 
     @classmethod
@@ -66,7 +72,6 @@ class RejectionLogic:
         instance: Instance,
         rejection_feedback: str,
     ) -> Instance:
-
         instance.rejection_feedback = rejection_feedback
         instance.save(update_fields=["rejection_feedback"])
 
@@ -83,8 +88,7 @@ class RejectionLogic:
         rejection_feedback: str,
     ) -> Instance:
         # write text
-        instance.rejection_feedback = rejection_feedback
-        instance.save(update_fields=["rejection_feedback"])
+        cls.save_rejection_feedback(instance, rejection_feedback)
 
         # suspend case
         suspend_case(instance.case, caluma_user)
