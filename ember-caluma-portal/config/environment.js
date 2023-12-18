@@ -370,10 +370,9 @@ module.exports = function (environment) {
           instanceStatesGr.circ,
           instanceStatesGr.inCorrection,
           instanceStatesGr.decision,
-          instanceStatesGr.rejected,
         ],
         constructionMonitoring: [instanceStatesGr.constructionMonitoring],
-        done: [instanceStatesGr.finished],
+        done: [instanceStatesGr.finished, instanceStatesGr.rejected],
       },
       completePreliminaryClarificationSlugs: [],
       selectableGroups: {
