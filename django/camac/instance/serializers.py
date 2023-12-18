@@ -1236,14 +1236,16 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             == settings.REJECTION["INSTANCE_STATE"]
             and not caluma_api.is_modification(instance)
         ):
-            source_instance.previous_instance_state = source_instance.instance_state
-            source_instance.instance_state = models.InstanceState.objects.get(
-                name=settings.REJECTION["INSTANCE_STATE_REJECTION_COMPLETE"]
-            )
-            source_instance.save()
+            if settings.REJECTION["INSTANCE_STATE_REJECTION_COMPLETE"]:
+                source_instance.previous_instance_state = source_instance.instance_state
+                source_instance.instance_state = models.InstanceState.objects.get(
+                    name=settings.REJECTION["INSTANCE_STATE_REJECTION_COMPLETE"]
+                )
+                source_instance.save()
 
             workflow_api.cancel_case(
-                case=source_case, user=self.context["request"].caluma_info.context.user
+                case=source_case,
+                user=self.context["request"].caluma_info.context.user,
             )
             create_history_entry(
                 source_instance,
