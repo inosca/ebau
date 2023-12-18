@@ -63,3 +63,10 @@ billing:
     all:
       uncharged: Total (non facturé)
       total: Total
+
+  billing-type:
+  billing-type-info:
+  billing-types:
+    by_authority:
+    forwarded:
+    direct:

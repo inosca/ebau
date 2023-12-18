@@ -72,6 +72,7 @@ class BillingV2EntrySerializer(serializers.ModelSerializer):
             "text",
             "total_cost",
             "user",
+            "billing_type",
         )
         read_only_fields = (
             "date_added",

@@ -43,6 +43,9 @@
       {{#if (has-feature "billing.organization")}}
         <th data-test-organization>{{t "billing.organization"}}</th>
       {{/if}}
+      {{#if (has-feature "billing.billingType")}}
+        <th data-test-billing-type>{{t "billing.billing-type"}}</th>
+      {{/if}}
       {{#if (can "edit billing-v2-entries")}}
         <th data-test-delete></th>
       {{/if}}

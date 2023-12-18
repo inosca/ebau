@@ -100,6 +100,8 @@ module("Acceptance | billing", function (hooks) {
   });
 
   test("it can add billing entries", async function (assert) {
+    this.features.enable("billing.organization", "billing.billingType");
+
     await visit("/billing");
 
     assert
@@ -115,6 +117,8 @@ module("Acceptance | billing", function (hooks) {
     await fillIn("select[name=calculation]", "flat");
     await fillIn("input[name=total-cost]", 1000.5);
     await fillIn("select[name=tax-mode]", "inclusive:7.7");
+    await fillIn("select[name=organization]", "cantonal");
+    await fillIn("select[name=billing-type]", "by_authority");
     await click("button[data-test-submit]");
 
     assert.strictEqual(currentURL(), "/billing");
@@ -128,6 +132,8 @@ module("Acceptance | billing", function (hooks) {
     await fillIn("input[name=percentage]", 10.5);
     await fillIn("input[name=total-cost]", 1000.5);
     await fillIn("select[name=tax-mode]", "exclusive:7.7");
+    await fillIn("select[name=organization]", "municipal");
+    await fillIn("select[name=billing-type]", "direct");
     await click("button[data-test-submit]");
     assert.dom("table[data-test-billing-table] tbody tr").exists({ count: 2 });
 
@@ -138,6 +144,8 @@ module("Acceptance | billing", function (hooks) {
     await fillIn("input[name=hours]", 1.5);
     await fillIn("input[name=hourly-rate]", 150.5);
     await fillIn("select[name=tax-mode]", "exempt:0");
+    await fillIn("select[name=organization]", "");
+    await fillIn("select[name=billing-type]", "forwarded");
     await click("button[data-test-submit]");
     assert.dom("table[data-test-billing-table] tbody tr").exists({ count: 3 });
   });

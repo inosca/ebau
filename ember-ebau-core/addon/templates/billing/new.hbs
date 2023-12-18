@@ -27,7 +27,7 @@
         name="calculation"
         id="calculation"
         required
-        {{on "change" this.updateCalculation}}
+        {{on "change" this.update}}
       >
         {{#each this.calculations as |calculation|}}
           <option value={{calculation}}>
@@ -133,7 +133,7 @@
         name="tax-mode"
         id="tax-mode"
         required
-        {{on "change" this.updateTaxMode}}
+        {{on "change" this.update}}
       >
         {{#each this.taxModeOptions as |taxMode|}}
           <option value={{taxMode.value}}>{{taxMode.label}}</option>
@@ -152,12 +152,35 @@
           class="uk-select"
           name="organization"
           id="organization"
-          {{on "change" this.updateOrganization}}
+          {{on "change" this.update}}
         >
           <option value=""></option>
           <option value="cantonal">{{t "billing.organizations.cantonal"}}</option>
           <option value="municipal">{{t "billing.organizations.municipal"}}</option>
         </select>
+      </div>
+    </div>
+  {{/if}}
+
+  {{#if (has-feature "billing.billingType")}}
+    <div class="uk-margin">
+      <label class="uk-form-label uk-text-bold" for="organization">
+        {{t "billing.billing-type"}}
+        <span class="uk-text-danger">*</span>
+      </label>
+      <div class="uk-form-controls uk-flex">
+        <select
+          class="uk-select uk-width-expand"
+          name="billing-type"
+          id="billing-type"
+          required
+          {{on "change" this.update}}
+        >
+          {{#each (array "by_authority" "forwarded" "direct") as |type|}}
+            <option value={{type}}>{{t (concat "billing.billing-types." type)}}</option>
+          {{/each}}
+        </select>
+        <CfField::Info @text={{t "billing.billing-type-info"}} />
       </div>
     </div>
   {{/if}}
