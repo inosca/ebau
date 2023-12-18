@@ -7,6 +7,7 @@ export default class PublicInstancesIndexRoute extends Route {
       controller.municipality = null;
       controller.dossierNr = null;
       controller.excludeInstance = null;
+      controller.page = 1;
     }
   }
 }
