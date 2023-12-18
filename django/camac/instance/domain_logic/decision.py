@@ -32,7 +32,13 @@ class DecisionLogic:
                     settings.DECISION["INSTANCE_STATE_AFTER_DECISION"],
                     camac_user,
                 )
-
+        elif (
+            settings.WITHDRAWAL
+            and instance.instance_state.name == settings.WITHDRAWAL["INSTANCE_STATE"]
+        ):
+            instance.set_instance_state(
+                settings.WITHDRAWAL["INSTANCE_STATE_CONFIRMED"], camac_user
+            )
         else:
             instance.set_instance_state("finished", camac_user)
 
@@ -60,6 +66,9 @@ class DecisionLogic:
     def should_continue_after_decision_so(
         cls, instance: Instance, work_item: workflow_models.WorkItem
     ) -> bool:
+        if instance.instance_state.name == settings.WITHDRAWAL["INSTANCE_STATE"]:
+            return False
+
         decision = (
             work_item.document.answers.filter(
                 question_id=settings.DECISION["QUESTIONS"]["DECISION"]

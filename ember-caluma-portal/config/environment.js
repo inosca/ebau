@@ -64,6 +64,7 @@ module.exports = function (environment) {
     reject: 10,
     rejected: 11,
     withdrawn: 12,
+    withdrawal: 13,
   };
   const appConfig = {
     demo: {
@@ -421,11 +422,14 @@ module.exports = function (environment) {
           instanceStatesSo.correction,
           instanceStatesSo.decision,
           instanceStatesSo.reject,
-          instanceStatesSo.rejected,
-          instanceStatesSo.withdrawn,
         ],
         constructionMonitoring: [instanceStatesSo["construction-monitoring"]],
-        done: [instanceStatesSo.finished],
+        done: [
+          instanceStatesSo.finished,
+          instanceStatesSo.rejected,
+          instanceStatesSo.withdrawal,
+          instanceStatesSo.withdrawn,
+        ],
       },
       completePreliminaryClarificationSlugs: [],
       selectableGroups: {
