@@ -4,7 +4,6 @@ from __future__ import unicode_literals
 
 from snapshottest import Snapshot
 
-
 snapshots = Snapshot()
 
 snapshots['test_instance_permissions_be[applicant-None-circulation-instance__user0] 1'] = {
@@ -1688,6 +1687,378 @@ snapshots['test_instance_permissions_be[construction-control-readonly-constructi
     ]
 }
 
+snapshots['test_instance_permissions_be[geometer-lead-geometer-circulation-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'decision': [
+    ],
+    'dossierpruefung': [
+    ],
+    'ebau-number': [
+    ],
+    'geometer': [
+        'read',
+        'write'
+    ],
+    'information-of-neighbors': [
+    ],
+    'inquiry': [
+        'read',
+        'write'
+    ],
+    'inquiry-answer': [
+        'read',
+        'write'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+    ],
+    'publikation': [
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[geometer-lead-geometer-circulation_init-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'decision': [
+    ],
+    'dossierpruefung': [
+    ],
+    'ebau-number': [
+    ],
+    'geometer': [
+        'read',
+        'write'
+    ],
+    'information-of-neighbors': [
+    ],
+    'inquiry': [
+        'read',
+        'write'
+    ],
+    'inquiry-answer': [
+        'read',
+        'write'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+    ],
+    'publikation': [
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[geometer-lead-geometer-conclusion-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'decision': [
+    ],
+    'dossierpruefung': [
+    ],
+    'ebau-number': [
+    ],
+    'geometer': [
+        'read',
+        'write'
+    ],
+    'information-of-neighbors': [
+    ],
+    'inquiry': [
+        'read',
+        'write'
+    ],
+    'inquiry-answer': [
+        'read',
+        'write'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+    ],
+    'publikation': [
+    ],
+    'sb1': [
+        'read'
+    ],
+    'sb2': [
+        'read'
+    ]
+}
+
+snapshots['test_instance_permissions_be[geometer-lead-geometer-coordination-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'decision': [
+    ],
+    'dossierpruefung': [
+    ],
+    'ebau-number': [
+    ],
+    'geometer': [
+        'read',
+        'write'
+    ],
+    'information-of-neighbors': [
+    ],
+    'inquiry': [
+        'read',
+        'write'
+    ],
+    'inquiry-answer': [
+        'read',
+        'write'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+    ],
+    'publikation': [
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[geometer-lead-geometer-correction-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'decision': [
+    ],
+    'dossierpruefung': [
+    ],
+    'ebau-number': [
+    ],
+    'geometer': [
+        'read',
+        'write'
+    ],
+    'information-of-neighbors': [
+    ],
+    'inquiry': [
+        'read',
+        'write'
+    ],
+    'inquiry-answer': [
+        'read',
+        'write'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+    ],
+    'publikation': [
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[geometer-lead-geometer-evaluated-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'decision': [
+    ],
+    'dossierpruefung': [
+    ],
+    'ebau-number': [
+    ],
+    'geometer': [
+        'read',
+        'write'
+    ],
+    'information-of-neighbors': [
+    ],
+    'inquiry': [
+        'read',
+        'write'
+    ],
+    'inquiry-answer': [
+        'read',
+        'write'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+    ],
+    'publikation': [
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[geometer-lead-geometer-finished-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'decision': [
+    ],
+    'dossierpruefung': [
+    ],
+    'ebau-number': [
+    ],
+    'geometer': [
+        'read',
+        'write'
+    ],
+    'information-of-neighbors': [
+    ],
+    'inquiry': [
+        'read',
+        'write'
+    ],
+    'inquiry-answer': [
+        'read',
+        'write'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+    ],
+    'publikation': [
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[geometer-lead-geometer-finished_internal-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'decision': [
+    ],
+    'dossierpruefung': [
+    ],
+    'ebau-number': [
+    ],
+    'geometer': [
+        'read',
+        'write'
+    ],
+    'information-of-neighbors': [
+    ],
+    'inquiry': [
+        'read',
+        'write'
+    ],
+    'inquiry-answer': [
+        'read',
+        'write'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+    ],
+    'publikation': [
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[geometer-lead-geometer-in_progress-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'decision': [
+    ],
+    'dossierpruefung': [
+    ],
+    'ebau-number': [
+    ],
+    'geometer': [
+        'read',
+        'write'
+    ],
+    'information-of-neighbors': [
+    ],
+    'inquiry': [
+        'read',
+        'write'
+    ],
+    'inquiry-answer': [
+        'read',
+        'write'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+    ],
+    'publikation': [
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[geometer-lead-geometer-in_progress_internal-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'decision': [
+    ],
+    'dossierpruefung': [
+    ],
+    'ebau-number': [
+    ],
+    'geometer': [
+        'read',
+        'write'
+    ],
+    'information-of-neighbors': [
+    ],
+    'inquiry': [
+        'read',
+        'write'
+    ],
+    'inquiry-answer': [
+        'read',
+        'write'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+    ],
+    'publikation': [
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
 snapshots['test_instance_permissions_be[geometer-lead-geometer-instance__user0] 1'] = {
     'case-meta': [
         'read'
@@ -1725,7 +2096,761 @@ snapshots['test_instance_permissions_be[geometer-lead-geometer-instance__user0] 
     ]
 }
 
+snapshots['test_instance_permissions_be[geometer-lead-geometer-new-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'decision': [
+    ],
+    'dossierpruefung': [
+    ],
+    'ebau-number': [
+    ],
+    'geometer': [
+        'read',
+        'write'
+    ],
+    'information-of-neighbors': [
+    ],
+    'inquiry': [
+        'read',
+        'write'
+    ],
+    'inquiry-answer': [
+        'read',
+        'write'
+    ],
+    'main': [
+        'read',
+        'write'
+    ],
+    'nfd': [
+    ],
+    'publikation': [
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[geometer-lead-geometer-rejected-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'decision': [
+    ],
+    'dossierpruefung': [
+    ],
+    'ebau-number': [
+    ],
+    'geometer': [
+        'read',
+        'write'
+    ],
+    'information-of-neighbors': [
+    ],
+    'inquiry': [
+        'read',
+        'write'
+    ],
+    'inquiry-answer': [
+        'read',
+        'write'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+    ],
+    'publikation': [
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[geometer-lead-geometer-sb1-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'decision': [
+    ],
+    'dossierpruefung': [
+    ],
+    'ebau-number': [
+    ],
+    'geometer': [
+        'read',
+        'write'
+    ],
+    'information-of-neighbors': [
+    ],
+    'inquiry': [
+        'read',
+        'write'
+    ],
+    'inquiry-answer': [
+        'read',
+        'write'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+    ],
+    'publikation': [
+    ],
+    'sb1': [
+        'read',
+        'write'
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[geometer-lead-geometer-sb2-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'decision': [
+    ],
+    'dossierpruefung': [
+    ],
+    'ebau-number': [
+    ],
+    'geometer': [
+        'read',
+        'write'
+    ],
+    'information-of-neighbors': [
+    ],
+    'inquiry': [
+        'read',
+        'write'
+    ],
+    'inquiry-answer': [
+        'read',
+        'write'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+    ],
+    'publikation': [
+    ],
+    'sb1': [
+        'read'
+    ],
+    'sb2': [
+        'read',
+        'write'
+    ]
+}
+
+snapshots['test_instance_permissions_be[geometer-lead-geometer-subm-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'decision': [
+    ],
+    'dossierpruefung': [
+    ],
+    'ebau-number': [
+    ],
+    'geometer': [
+        'read',
+        'write'
+    ],
+    'information-of-neighbors': [
+    ],
+    'inquiry': [
+        'read',
+        'write'
+    ],
+    'inquiry-answer': [
+        'read',
+        'write'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+    ],
+    'publikation': [
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[geometer-readonly-geometer-circulation-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'decision': [
+    ],
+    'dossierpruefung': [
+    ],
+    'ebau-number': [
+    ],
+    'geometer': [
+        'read',
+        'write'
+    ],
+    'information-of-neighbors': [
+    ],
+    'inquiry': [
+        'read',
+        'write'
+    ],
+    'inquiry-answer': [
+        'read',
+        'write'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+    ],
+    'publikation': [
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[geometer-readonly-geometer-circulation_init-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'decision': [
+    ],
+    'dossierpruefung': [
+    ],
+    'ebau-number': [
+    ],
+    'geometer': [
+        'read',
+        'write'
+    ],
+    'information-of-neighbors': [
+    ],
+    'inquiry': [
+        'read',
+        'write'
+    ],
+    'inquiry-answer': [
+        'read',
+        'write'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+    ],
+    'publikation': [
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[geometer-readonly-geometer-conclusion-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'decision': [
+    ],
+    'dossierpruefung': [
+    ],
+    'ebau-number': [
+    ],
+    'geometer': [
+        'read',
+        'write'
+    ],
+    'information-of-neighbors': [
+    ],
+    'inquiry': [
+        'read',
+        'write'
+    ],
+    'inquiry-answer': [
+        'read',
+        'write'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+    ],
+    'publikation': [
+    ],
+    'sb1': [
+        'read'
+    ],
+    'sb2': [
+        'read'
+    ]
+}
+
+snapshots['test_instance_permissions_be[geometer-readonly-geometer-coordination-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'decision': [
+    ],
+    'dossierpruefung': [
+    ],
+    'ebau-number': [
+    ],
+    'geometer': [
+        'read',
+        'write'
+    ],
+    'information-of-neighbors': [
+    ],
+    'inquiry': [
+        'read',
+        'write'
+    ],
+    'inquiry-answer': [
+        'read',
+        'write'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+    ],
+    'publikation': [
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[geometer-readonly-geometer-correction-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'decision': [
+    ],
+    'dossierpruefung': [
+    ],
+    'ebau-number': [
+    ],
+    'geometer': [
+        'read',
+        'write'
+    ],
+    'information-of-neighbors': [
+    ],
+    'inquiry': [
+        'read',
+        'write'
+    ],
+    'inquiry-answer': [
+        'read',
+        'write'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+    ],
+    'publikation': [
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[geometer-readonly-geometer-evaluated-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'decision': [
+    ],
+    'dossierpruefung': [
+    ],
+    'ebau-number': [
+    ],
+    'geometer': [
+        'read',
+        'write'
+    ],
+    'information-of-neighbors': [
+    ],
+    'inquiry': [
+        'read',
+        'write'
+    ],
+    'inquiry-answer': [
+        'read',
+        'write'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+    ],
+    'publikation': [
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[geometer-readonly-geometer-finished-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'decision': [
+    ],
+    'dossierpruefung': [
+    ],
+    'ebau-number': [
+    ],
+    'geometer': [
+        'read',
+        'write'
+    ],
+    'information-of-neighbors': [
+    ],
+    'inquiry': [
+        'read',
+        'write'
+    ],
+    'inquiry-answer': [
+        'read',
+        'write'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+    ],
+    'publikation': [
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[geometer-readonly-geometer-finished_internal-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'decision': [
+    ],
+    'dossierpruefung': [
+    ],
+    'ebau-number': [
+    ],
+    'geometer': [
+        'read',
+        'write'
+    ],
+    'information-of-neighbors': [
+    ],
+    'inquiry': [
+        'read',
+        'write'
+    ],
+    'inquiry-answer': [
+        'read',
+        'write'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+    ],
+    'publikation': [
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[geometer-readonly-geometer-in_progress-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'decision': [
+    ],
+    'dossierpruefung': [
+    ],
+    'ebau-number': [
+    ],
+    'geometer': [
+        'read',
+        'write'
+    ],
+    'information-of-neighbors': [
+    ],
+    'inquiry': [
+        'read',
+        'write'
+    ],
+    'inquiry-answer': [
+        'read',
+        'write'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+    ],
+    'publikation': [
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[geometer-readonly-geometer-in_progress_internal-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'decision': [
+    ],
+    'dossierpruefung': [
+    ],
+    'ebau-number': [
+    ],
+    'geometer': [
+        'read',
+        'write'
+    ],
+    'information-of-neighbors': [
+    ],
+    'inquiry': [
+        'read',
+        'write'
+    ],
+    'inquiry-answer': [
+        'read',
+        'write'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+    ],
+    'publikation': [
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
 snapshots['test_instance_permissions_be[geometer-readonly-geometer-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'decision': [
+    ],
+    'dossierpruefung': [
+    ],
+    'ebau-number': [
+    ],
+    'geometer': [
+        'read',
+        'write'
+    ],
+    'information-of-neighbors': [
+    ],
+    'inquiry': [
+        'read',
+        'write'
+    ],
+    'inquiry-answer': [
+        'read',
+        'write'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+    ],
+    'publikation': [
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[geometer-readonly-geometer-new-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'decision': [
+    ],
+    'dossierpruefung': [
+    ],
+    'ebau-number': [
+    ],
+    'geometer': [
+        'read',
+        'write'
+    ],
+    'information-of-neighbors': [
+    ],
+    'inquiry': [
+        'read',
+        'write'
+    ],
+    'inquiry-answer': [
+        'read',
+        'write'
+    ],
+    'main': [
+        'read',
+        'write'
+    ],
+    'nfd': [
+    ],
+    'publikation': [
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[geometer-readonly-geometer-rejected-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'decision': [
+    ],
+    'dossierpruefung': [
+    ],
+    'ebau-number': [
+    ],
+    'geometer': [
+        'read',
+        'write'
+    ],
+    'information-of-neighbors': [
+    ],
+    'inquiry': [
+        'read',
+        'write'
+    ],
+    'inquiry-answer': [
+        'read',
+        'write'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+    ],
+    'publikation': [
+    ],
+    'sb1': [
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[geometer-readonly-geometer-sb1-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'decision': [
+    ],
+    'dossierpruefung': [
+    ],
+    'ebau-number': [
+    ],
+    'geometer': [
+        'read',
+        'write'
+    ],
+    'information-of-neighbors': [
+    ],
+    'inquiry': [
+        'read',
+        'write'
+    ],
+    'inquiry-answer': [
+        'read',
+        'write'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+    ],
+    'publikation': [
+    ],
+    'sb1': [
+        'read',
+        'write'
+    ],
+    'sb2': [
+    ]
+}
+
+snapshots['test_instance_permissions_be[geometer-readonly-geometer-sb2-instance__user0] 1'] = {
+    'case-meta': [
+        'read'
+    ],
+    'decision': [
+    ],
+    'dossierpruefung': [
+    ],
+    'ebau-number': [
+    ],
+    'geometer': [
+        'read',
+        'write'
+    ],
+    'information-of-neighbors': [
+    ],
+    'inquiry': [
+        'read',
+        'write'
+    ],
+    'inquiry-answer': [
+        'read',
+        'write'
+    ],
+    'main': [
+        'read'
+    ],
+    'nfd': [
+    ],
+    'publikation': [
+    ],
+    'sb1': [
+        'read'
+    ],
+    'sb2': [
+        'read',
+        'write'
+    ]
+}
+
+snapshots['test_instance_permissions_be[geometer-readonly-geometer-subm-instance__user0] 1'] = {
     'case-meta': [
         'read'
     ],

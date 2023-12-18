@@ -92,7 +92,8 @@ def test_instance_permissions_be(
     ]
 
     permissions_settings["ACCESS_LEVELS"] = {
-        access_level.pk: [("foo", "*"), ("bar", "*")]
+        access_level.pk: [("foo", ["*"]), ("bar", ["*"])],
+        "geometer": [("foo", ["*"]), ("bar", ["*"])],
     }
 
     active_inquiry_factory(be_instance)
@@ -166,7 +167,6 @@ def test_instance_permissions_sz(
     snapshot,
     application_settings,
 ):
-
     application_settings["ROLE_PERMISSIONS"] = settings.APPLICATIONS["kt_schwyz"][
         "ROLE_PERMISSIONS"
     ]
