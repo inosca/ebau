@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-18 15:44+0100\n"
+"POT-Creation-Date: 2023-12-18 16:26+0100\n"
 "PO-Revision-Date: 2023-12-13 14:32+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -64,13 +64,13 @@ msgstr "Dossierprüfung übersprungen"
 msgid "Exam completed"
 msgstr "Dossierprüfung abgeschlossen"
 
-#: camac/caluma/extensions/events/decision.py:119
-msgid "Decision decreed"
-msgstr "Bauentscheid verfügt"
-
-#: camac/caluma/extensions/events/decision.py:121
+#: camac/caluma/extensions/events/decision.py:116
 msgid "Evaluation completed"
 msgstr "Beurteilung abgeschlossen"
+
+#: camac/caluma/extensions/events/decision.py:124
+msgid "Decision decreed"
+msgstr "Bauentscheid verfügt"
 
 #: camac/caluma/extensions/events/ebau_number.py:35
 msgid "Assigned ebau number"
@@ -1019,15 +1019,15 @@ msgstr "Formelle Prüfung durchgeführt"
 msgid "Material exam performed"
 msgstr "Materielle Prüfung durchgeführt"
 
-#: camac/settings.py:4128
+#: camac/settings.py:4129
 msgid "German"
 msgstr "Deutsch"
 
-#: camac/settings.py:4129
+#: camac/settings.py:4130
 msgid "French"
 msgstr "Französisch"
 
-#: camac/settings.py:4130
+#: camac/settings.py:4131
 msgid "Italian"
 msgstr "Italienisch"
 
@@ -1075,9 +1075,13 @@ msgstr "Dossier neu eingereicht (Dossier Nr. %(dossier_number)s)"
 msgid "Instance completed by resubmission"
 msgstr "Dossier durch Neueinreichung abgeschlossen"
 
-#: camac/settings_withdrawal.py:8
+#: camac/settings_withdrawal.py:10
 msgid "Instance withdrawn"
 msgstr "Dossier zurückgezogen"
+
+#: camac/settings_withdrawal.py:11
+msgid "Withdrawal confirmed"
+msgstr "Rückzug bestätigt"
 
 #: camac/templates/admin/base.html:25
 msgid "Back to CAMAC admin"

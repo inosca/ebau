@@ -113,11 +113,16 @@ def post_complete_decision(sender, work_item, user, context, **kwargs):
                 recipient_types=config["recipient_types"],
             )
 
+    history_text = gettext_noop("Evaluation completed")
+    if (
+        settings.WITHDRAWAL
+        and instance.instance_state.name
+        == settings.WITHDRAWAL["INSTANCE_STATE_CONFIRMED"]
+    ):
+        history_text = settings.WITHDRAWAL["HISTORY_ENTRIES"]["CONFIRMED"]
+    elif workflow == "building-permit":
+        history_text = gettext_noop("Decision decreed")
+
     # create history entry
     if not context or not context.get("no-history"):
-        history_text = (
-            gettext_noop("Decision decreed")
-            if workflow == "building-permit"
-            else gettext_noop("Evaluation completed")
-        )
         create_history_entry(instance, camac_user, history_text)
