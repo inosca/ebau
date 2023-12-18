@@ -8,6 +8,7 @@ export default {
   rejection: {
     useLegacyClaims: false,
     snippets: false,
+    revert: true,
   },
   dms: {
     mergeAndSave: false,
