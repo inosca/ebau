@@ -69,6 +69,7 @@ class ServiceGroupInline(TabularInline):
 
 
 class ServiceRelationInline(TabularInline):
+    autocomplete_fields = ["provider"]
     fields = ["provider", "function"]
     form = ServiceRelationForm
     fk_name = "receiver"
