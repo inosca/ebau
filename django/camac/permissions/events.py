@@ -163,6 +163,10 @@ def acl_created(sender, instance, created, **kwargs):
     acl = instance
     del instance  # just to avoid confusion
 
+    if acl.metainfo and acl.metainfo.get("disable-notification-on-creation"):
+        # useful for setting up test acls
+        return
+
     if not created:
         return
 

@@ -1504,6 +1504,12 @@ APPLICATIONS = {
                     "next_instance_state": "finished",
                     "ech_event": "camac.ech0211.signals.finished",
                     "history_text": _("Procedure completed"),
+                    "notification": {
+                        "template_slug": "notify-geometer-case-completed",
+                        "recipient_types": [
+                            "geometer_acl_services",
+                        ],
+                    },
                 },
             },
             "INTERNAL_FORMS": [

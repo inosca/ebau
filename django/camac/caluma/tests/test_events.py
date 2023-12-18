@@ -3,7 +3,11 @@ from datetime import date
 import pytest
 from caluma.caluma_core.events import send_event
 from caluma.caluma_form import models as caluma_form_models
-from caluma.caluma_workflow import api as workflow_api, models as caluma_workflow_models
+from caluma.caluma_workflow import (
+    api as workflow_api,
+    events as workflow_events,
+    models as caluma_workflow_models,
+)
 from caluma.caluma_workflow.events import (
     post_complete_work_item,
     post_create_work_item,
@@ -849,3 +853,59 @@ def test_post_create_reject_work_item(
         so_instance.instance_state.name
         == so_rejection_settings["WORK_ITEM"]["INSTANCE_STATE"]
     )
+
+
+@pytest.mark.parametrize(
+    "notification_template__slug", ["notify-geometer-case-completed"]
+)
+@pytest.mark.parametrize("has_geometer", [True, False])
+def test_complete_building_permit(
+    db,
+    set_application_be,
+    caluma_workflow_config_be,
+    be_instance,
+    work_item_factory,
+    notification_template,
+    application_settings,
+    caluma_admin_user,
+    instance_state_factory,
+    mailoutbox,
+    instance_acl_factory,
+    access_level_factory,
+    permissions_settings,
+    service_factory,
+    has_geometer,
+    configure_custom_notification_types,
+):
+    complete_state = instance_state_factory(name="complete")
+    instance_state_factory(name="finished")
+    be_instance.instance_state = complete_state
+    be_instance.save()
+
+    configure_custom_notification_types()
+
+    work_item = work_item_factory(task_id="complete", case=be_instance.case)
+
+    if has_geometer:
+        geometer_service = service_factory()
+        instance_acl_factory(
+            instance=be_instance,
+            access_level=access_level_factory(slug="geometer"),
+            service=geometer_service,
+            metainfo={"disable-notification-on-creation": True},
+        )
+        permissions_settings["geometer"] = [("foo", ["*"])]
+
+    # We don't play though the whole workflow, but just trigger the
+    # corresponding event directly
+    send_event(
+        workflow_events.post_complete_work_item,
+        sender="test",
+        work_item=work_item,
+        user=caluma_admin_user,
+        context={},
+    )
+
+    assert len(mailoutbox) == (1 if has_geometer else 0)
+    if has_geometer:
+        assert notification_template.subject in mailoutbox[0].subject

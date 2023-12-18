@@ -20,7 +20,7 @@ class AccessLevelFactory(DjangoModelFactory):
 
 class InstanceACLFactory(DjangoModelFactory):
     instance = SubFactory(InstanceFactory)
-    metainfo = Faker("json")
+    metainfo = {}
 
     grant_type = fuzzy.FuzzyChoice([c for c, _l in models.GRANT_CHOICES.choices])
     user = Maybe(
