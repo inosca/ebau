@@ -66,7 +66,6 @@ class Command(BaseCommand):
             },
         )
 
-        # TODO: shall we do FR translations too?
         geom_service.trans.update_or_create(
             language="de",
             defaults={
