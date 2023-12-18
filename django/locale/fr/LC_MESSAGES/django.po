@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-18 15:44+0100\n"
+"POT-Creation-Date: 2023-12-18 16:26+0100\n"
 "PO-Revision-Date: 2023-12-13 14:33+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -61,13 +61,13 @@ msgstr "Examen sauté"
 msgid "Exam completed"
 msgstr "Dossier examiné"
 
-#: camac/caluma/extensions/events/decision.py:119
-msgid "Decision decreed"
-msgstr "Décision relative à la demande de permis de construire rendue"
-
-#: camac/caluma/extensions/events/decision.py:121
+#: camac/caluma/extensions/events/decision.py:116
 msgid "Evaluation completed"
 msgstr "Evaluation close"
+
+#: camac/caluma/extensions/events/decision.py:124
+msgid "Decision decreed"
+msgstr "Décision relative à la demande de permis de construire rendue"
 
 #: camac/caluma/extensions/events/ebau_number.py:35
 msgid "Assigned ebau number"
@@ -1023,15 +1023,15 @@ msgstr ""
 msgid "Material exam performed"
 msgstr ""
 
-#: camac/settings.py:4128
+#: camac/settings.py:4129
 msgid "German"
 msgstr "Allemand"
 
-#: camac/settings.py:4129
+#: camac/settings.py:4130
 msgid "French"
 msgstr "Français"
 
-#: camac/settings.py:4130
+#: camac/settings.py:4131
 msgid "Italian"
 msgstr "L'italien"
 
@@ -1079,8 +1079,12 @@ msgstr ""
 msgid "Instance completed by resubmission"
 msgstr "Dossier complété par une nouvelle soumission"
 
-#: camac/settings_withdrawal.py:8
+#: camac/settings_withdrawal.py:10
 msgid "Instance withdrawn"
+msgstr ""
+
+#: camac/settings_withdrawal.py:11
+msgid "Withdrawal confirmed"
 msgstr ""
 
 #: camac/templates/admin/base.html:25

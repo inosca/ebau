@@ -16,6 +16,7 @@ const config = {
     reject: 10,
     rejected: 11,
     withdrawn: 12,
+    withdrawal: 13,
   },
   answerSlugs: {
     objectStreet: "strasse-flurname",

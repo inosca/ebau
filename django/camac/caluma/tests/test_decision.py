@@ -6,6 +6,7 @@ from caluma.caluma_workflow.events import post_complete_work_item
 from caluma.caluma_workflow.models import Workflow, WorkItem
 from django.core.management import call_command
 
+from camac.core.models import HistoryActionConfig
 from camac.instance.domain_logic import DecisionLogic
 from camac.instance.models import HistoryEntryT, Instance
 from camac.instance.utils import copy_instance
@@ -326,14 +327,17 @@ def test_complete_decision_appeal(
 
 
 @pytest.mark.parametrize(
-    "decision,bauabschlag,expected",
+    "instance_state__name,decision,bauabschlag,expected",
     [
-        ("APPROVED", None, True),
-        ("PARTIALLY_APPROVED", "MIT_WIEDERHERSTELLUNG", True),
-        ("PARTIALLY_APPROVED", "OHNE_WIEDERHERSTELLUNG", True),
-        ("REJECTED", "MIT_WIEDERHERSTELLUNG", True),
-        ("REJECTED", "OHNE_WIEDERHERSTELLUNG", False),
-        ("WITHDRAWAL", None, False),
+        ("decision", "APPROVED", None, True),
+        ("decision", "PARTIALLY_APPROVED", "MIT_WIEDERHERSTELLUNG", True),
+        ("decision", "PARTIALLY_APPROVED", "OHNE_WIEDERHERSTELLUNG", True),
+        ("decision", "REJECTED", "MIT_WIEDERHERSTELLUNG", True),
+        ("decision", "REJECTED", "OHNE_WIEDERHERSTELLUNG", False),
+        ("decision", "WITHDRAWAL", None, False),
+        # If instance state is withdrawn, never continue
+        ("withdrawal", "WITHDRAWAL", None, False),
+        ("withdrawal", "APPROVED", None, False),
     ],
 )
 def test_should_continue_after_decision_so(
@@ -346,6 +350,7 @@ def test_should_continue_after_decision_so(
     decision,
     bauabschlag,
     expected,
+    instance,
 ):
     work_item = work_item_factory(
         task=task_factory(slug=so_decision_settings["TASK"]),
@@ -366,4 +371,50 @@ def test_should_continue_after_decision_so(
             value=so_decision_settings["ANSWERS"]["BAUABSCHLAG"][bauabschlag],
         )
 
-    DecisionLogic.should_continue_after_decision_so(None, work_item) == expected
+    DecisionLogic.should_continue_after_decision_so(instance, work_item) == expected
+
+
+@pytest.mark.parametrize("instance_state__name", ["withdrawal"])
+def test_complete_decision_withdrawn(
+    db,
+    caluma_admin_user,
+    document_factory,
+    instance_state_factory,
+    question_factory,
+    so_decision_settings,
+    so_instance,
+    withdrawal_settings,
+    work_item_factory,
+):
+    instance_state_factory(name=withdrawal_settings["INSTANCE_STATE_CONFIRMED"])
+
+    work_item = work_item_factory(
+        case=so_instance.case,
+        task_id=so_decision_settings["TASK"],
+        status=WorkItem.STATUS_COMPLETED,
+        document=document_factory(form=FormFactory(slug="decision")),
+    )
+
+    work_item.document.answers.create(
+        question=question_factory(slug=so_decision_settings["QUESTIONS"]["DECISION"]),
+        value=so_decision_settings["ANSWERS"]["DECISION"]["WITHDRAWAL"],
+    )
+
+    send_event(
+        post_complete_work_item,
+        sender="post_complete_work_item",
+        work_item=work_item,
+        user=caluma_admin_user,
+        context={},
+    )
+
+    so_instance.refresh_from_db()
+
+    assert so_instance.instance_state.name == "withdrawn"
+
+    assert (
+        so_instance.history.filter(history_type=HistoryActionConfig.HISTORY_TYPE_STATUS)
+        .latest("created_at")
+        .get_trans_attr("title")
+        == "Rückzug bestätigt"
+    )
