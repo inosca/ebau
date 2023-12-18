@@ -49,6 +49,7 @@ REJECTION = {
             "circulation",
             "decision",
         ],
+        "INSTANCE_STATE_REJECTION_COMPLETE": None,
         "NOTIFICATIONS": {
             "REJECTED": [
                 {
