@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-11 17:58+0100\n"
-"PO-Revision-Date: 2023-11-30 15:05+0100\n"
+"POT-Creation-Date: 2023-12-13 14:31+0100\n"
+"PO-Revision-Date: 2023-12-13 14:32+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
@@ -17,6 +17,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.4.1\n"
+"X-Poedit-Basepath: ../../..\n"
+"X-Poedit-SearchPath-0: .\n"
 
 #: camac/admin.py:16 camac/admin.py:17
 msgid "eBau"
@@ -86,48 +88,48 @@ msgstr "Lastenausgleichstellende informieren"
 msgid "Issue statement on appeal"
 msgstr "Stellungnahme zu Beschwerde abgeben"
 
-#: camac/communications/serializers.py:28
+#: camac/communications/serializers.py:29
 #: camac/communications/tests/test_behaviour.py:61
 #: camac/instance/document_merge_service.py:86
 #: camac/instance/export/serializers.py:95 camac/notification/serializers.py:66
 msgid "Applicant"
 msgstr "Gesuchsteller/in"
 
-#: camac/communications/serializers.py:134
+#: camac/communications/serializers.py:144
 msgid "Involved entity must be either 'APPLICANT' or a valid service ID"
 msgstr ""
 
-#: camac/communications/serializers.py:162
+#: camac/communications/serializers.py:172
 msgid ""
 "As Applicant, you can only add the active service (Municipality) to the "
 "involved entities."
 msgstr ""
 
-#: camac/communications/serializers.py:177
+#: camac/communications/serializers.py:185
 msgid "You are not allowed to add the applicant to the involved entities."
 msgstr ""
 
-#: camac/communications/serializers.py:192
+#: camac/communications/serializers.py:200
 msgid "Invisible instance, cannot create or update topic"
 msgstr ""
 
-#: camac/communications/serializers.py:283
+#: camac/communications/serializers.py:291
 msgid "Invisible topic, cannot create or update message"
 msgstr ""
 
-#: camac/communications/serializers.py:311
+#: camac/communications/serializers.py:319
 msgid "You are not allowed to create messages on this topic"
 msgstr ""
 
-#: camac/communications/serializers.py:364
+#: camac/communications/serializers.py:372
 msgid "Invisible message, cannot create or update attachment"
 msgstr ""
 
-#: camac/communications/serializers.py:371
+#: camac/communications/serializers.py:379
 msgid "Message has already been sent, cannot modify attachments"
 msgstr ""
 
-#: camac/communications/serializers.py:376
+#: camac/communications/serializers.py:384
 msgid "You can only add/update attachments on your own messges"
 msgstr ""
 
@@ -941,21 +943,25 @@ msgstr "Auslösende Stelle der Aufgabe"
 msgid "Inviter of additional demand creator"
 msgstr "Einladende Stelle"
 
-#: camac/notification/serializers.py:443
+#: camac/notification/serializers.py:91
+msgid "Geometer (via Permissions module)"
+msgstr "Geometer (via Berechtigungsmodul)"
+
+#: camac/notification/serializers.py:446
 #, python-format
 msgid "%(pending)d of %(total)d inquries are still pending."
 msgstr "%(pending)d von %(total)d Stellungnahmen stehen noch aus."
 
-#: camac/notification/serializers.py:446
+#: camac/notification/serializers.py:449
 #, python-format
 msgid "All %(total)d inquries were received."
 msgstr "Alle %(total)d Stellungnahmen sind nun eingegangen."
 
-#: camac/notification/serializers.py:1472
+#: camac/notification/serializers.py:1475
 msgid "Unknown recipient type"
 msgstr "Unbekannter Empfängertyp"
 
-#: camac/notification/serializers.py:1573
+#: camac/notification/serializers.py:1576
 #, python-format
 msgid ""
 "Notification sent to %(receiver_emails)s (%(receiver_type)s) (%(subject)s)"
@@ -963,7 +969,7 @@ msgstr ""
 "Notifikation gesendet an %(receiver_emails)s (%(receiver_type)s) "
 "(%(subject)s)"
 
-#: camac/notification/serializers.py:1577
+#: camac/notification/serializers.py:1580
 #, python-format
 msgid "Notification sent to %(receiver_type)s (no receivers) (%(subject)s)"
 msgstr ""
@@ -982,7 +988,7 @@ msgstr ""
 msgid "Objection %(objection) already has a representative"
 msgstr "Einsprache %(objection) hat bereits einen Vertreter"
 
-#: camac/settings.py:1489 camac/settings.py:3285 camac/settings.py:3714
+#: camac/settings.py:1489 camac/settings.py:3286 camac/settings.py:3715
 msgid "Circulation started"
 msgstr "Zirkulation gestartet"
 
@@ -990,39 +996,39 @@ msgstr "Zirkulation gestartet"
 msgid "Procedure completed"
 msgstr "Baugesuchsverfahren abgeschlossen"
 
-#: camac/settings.py:3281
+#: camac/settings.py:3282
 msgid "Preliminary exam performed"
 msgstr "Vorläufige Prüfung durchgeführt"
 
-#: camac/settings.py:3291
+#: camac/settings.py:3292
 msgid "Additional demand sent"
 msgstr "Nachforderung begonnen"
 
-#: camac/settings.py:3298
+#: camac/settings.py:3299
 msgid "Additional demand was answered"
 msgstr "Nachforderung wurde beantwortet"
 
-#: camac/settings.py:3306
+#: camac/settings.py:3307
 msgid "Construction monitoring performed"
 msgstr "Baubegleitung durchgeführt"
 
-#: camac/settings.py:3706
+#: camac/settings.py:3707
 msgid "Formal exam performed"
 msgstr "Formelle Prüfung durchgeführt"
 
-#: camac/settings.py:3710
+#: camac/settings.py:3711
 msgid "Material exam performed"
 msgstr "Materielle Prüfung durchgeführt"
 
-#: camac/settings.py:4122
+#: camac/settings.py:4123
 msgid "German"
 msgstr "Deutsch"
 
-#: camac/settings.py:4123
+#: camac/settings.py:4124
 msgid "French"
 msgstr "Französisch"
 
-#: camac/settings.py:4124
+#: camac/settings.py:4125
 msgid "Italian"
 msgstr "Italienisch"
 
