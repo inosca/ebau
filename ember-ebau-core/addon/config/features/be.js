@@ -15,6 +15,7 @@ export default {
   rejection: {
     useLegacyClaims: true,
     snippets: true,
+    revert: true,
   },
   dms: {
     mergeAndSave: true,

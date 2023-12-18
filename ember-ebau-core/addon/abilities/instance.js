@@ -3,6 +3,7 @@ import { macroCondition, getOwnConfig } from "@embroider/macros";
 import { Ability } from "ember-can";
 
 import mainConfig from "ember-ebau-core/config/main";
+import { hasFeature } from "ember-ebau-core/helpers/has-feature";
 
 export function hasInstanceState(instance, instanceState) {
   const instanceStates = Array.isArray(instanceState)
@@ -103,6 +104,7 @@ export default class InstanceAbility extends Ability {
 
   get canRevertRejection() {
     return (
+      hasFeature("rejection.revert") &&
       isAuthority(this.model, this.ebauModules.serviceId) &&
       hasInstanceState(this.model, mainConfig.rejection?.instanceState)
     );

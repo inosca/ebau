@@ -3,6 +3,7 @@ import { inject as service } from "@ember/service";
 import { queryManager } from "ember-apollo-client";
 import { dropTask, restartableTask, timeout } from "ember-concurrency";
 import { findRecord } from "ember-data-resources";
+import { confirm } from "ember-uikit";
 import { localCopy } from "tracked-toolbox";
 
 import validationsQuery from "ember-ebau-core/gql/queries/rejection/validations.graphql";
@@ -70,6 +71,13 @@ export default class RejectionController extends Controller {
 
   reject = dropTask(async (e) => {
     e.preventDefault();
+
+    if (
+      !hasFeature("rejection.revert") &&
+      !(await confirm(this.intl.t("rejection.reject-confirm")))
+    ) {
+      return;
+    }
 
     try {
       await this.fetch.fetch(
