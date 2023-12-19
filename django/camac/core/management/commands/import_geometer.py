@@ -110,7 +110,7 @@ class Command(BaseCommand):
             )
             return
         print(
-            f"Leitbehörde found for {municipality_name}, updating/creating Geometer service"
+            f"Leitbehörde found for {municipality_name}, assigning Geometer service: {geom_service.name}"
         )
 
         # Overwrite if exists, otherwise create new
