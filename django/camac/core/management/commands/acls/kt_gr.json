@@ -262,7 +262,8 @@
         "decision",
         "init-distribution",
         "new",
-        "rejected"
+        "rejected",
+        "finished"
       ]
     }
   },
