@@ -130,7 +130,7 @@ documents:
     nachweise: "Justificatif"
     weitere-unterlagen: "Autres documents"
 
-freigabequittung:
+dms:
   downloadError: "Un problème est survenu lors de l'exportation. Veuillez réessayer."
 
 gis:
@@ -200,6 +200,8 @@ instances:
   actions: "Actions"
   activateFurtherPersons: "Activer d'autres personnes"
   activateFurtherPersonsText: "Dans le menu Autorisations, vous pouvez permettre à d'autres personnes de modifier ce dossier."
+  downloadReceipt: ""
+  downloadReceiptText: ""
   managePermissions: "Gérer les autorisations"
   furtherProcessingOfForm: "Modifier le formulaire"
   furtherProcessingOfFormText: "Votre formulaire peut être modifié et envoyé ici."

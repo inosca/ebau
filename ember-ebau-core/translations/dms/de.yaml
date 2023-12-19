@@ -19,6 +19,7 @@ dms:
 
   delete-error: "Fehler beim Löschen der Vorlage"
   download-error: "Fehler beim Herunterladen der Vorlage"
+  download-export-error: "Beim Export ist ein Problem aufgetreten. Bitte versuchen Sie es erneut."
   merge-and-save-success: 'Die Vorlage wurde erfolgreich in der Kategorie "Intern" abgelegt.'
   merge-error: "Beim Generieren der Vorlage ist ein Fehler aufgetreten"
   save-error-placeholder: "{count, plural, one {Der Platzhalzer {placeholders} existiert} other {Die Platzhalter {placeholders} existieren}} nicht."
