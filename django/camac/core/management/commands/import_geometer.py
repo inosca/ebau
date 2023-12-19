@@ -98,7 +98,10 @@ class Command(BaseCommand):
                 # "Gsteig" to "Gsteig bei gstaad" but not "Gsteigwiler"
                 | Q(trans__city__istartswith=f"{municipality_name} ")
             )
-            & Q(service_group=municipality_service_group),
+            & Q(service_group=municipality_service_group)
+            # need to find the "root" service, not a subservice that may match
+            # by name, as the name matching sadly needs to ba a bit fuzzy
+            & Q(service_parent__isnull=True)
         ).first()
 
         if not municipality_service:
