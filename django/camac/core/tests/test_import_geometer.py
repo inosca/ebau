@@ -1,11 +1,19 @@
 import pyexcel
+import pytest
 from django.core.management import call_command
 
 from camac.user.models import ServiceRelation
 
 
+@pytest.mark.parametrize("do_clear", [True, False])
 def test_import_geometer(
-    db, service_factory, service_group_factory, tmpdir, capsys, role_factory
+    db,
+    service_factory,
+    service_group_factory,
+    tmpdir,
+    capsys,
+    role_factory,
+    do_clear,
 ):
     # load data including test data
     some_municipality = service_factory(
@@ -32,6 +40,9 @@ def test_import_geometer(
     )
 
     service_group_factory(name="geometer")
+    old_rel = ServiceRelation.objects.create(
+        function="geometer", receiver=service_factory(), provider=service_factory()
+    )
 
     import_header = [
         "bfs",
@@ -85,7 +96,15 @@ def test_import_geometer(
         array=[import_header, import_line, fail_import_line], dest_file_name=filename
     )
 
-    call_command("import_geometer", filename)
+    args = [filename]
+    if do_clear:
+        args.append("--clear")
+
+    call_command("import_geometer", *args)
+
+    # If we clear all relations, the "old" one should be gone, othrewise
+    # we should have kept it
+    assert ServiceRelation.objects.filter(pk=old_rel.pk).exists() != do_clear
 
     out, err = capsys.readouterr()
 

@@ -25,8 +25,19 @@ class Command(BaseCommand):
             help="Path to directory or XLSX file",
         )
 
+        parser.add_argument(
+            "--clear",
+            action="store_true",
+            help="Clear all service relations before importing",
+        )
+
     def handle(self, *args, **options):
         path = options["path"].resolve()
+
+        if options.get("clear"):
+            ServiceRelation.objects.filter(
+                function=ServiceRelation.FUNCTION_GEOMETER
+            ).delete()
 
         # we just open the default book
         book = pyexcel.get_book(file_name=str(path))
