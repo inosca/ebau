@@ -25,10 +25,10 @@
                   "marks",
                   "files"
                 ],
-                "permission": "create",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "create"
               },
               {
                 "scope": "Service",
@@ -40,25 +40,25 @@
                   "category",
                   "files"
                 ],
-                "permission": "update",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "update"
               },
               {
                 "scope": "All",
                 "fields": ["tags"],
-                "permission": "update",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "update"
               },
               {
                 "scope": "Service",
-                "permission": "delete",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "delete"
               }
             ]
           },
@@ -66,24 +66,24 @@
             "visibility": "all",
             "permissions": [
               {
-                "permission": "create",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "create"
               },
               {
                 "scope": "All",
-                "permission": "update",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "update"
               },
               {
                 "scope": "All",
-                "permission": "delete",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "delete"
               }
             ]
           },
@@ -91,10 +91,10 @@
             "visibility": "all",
             "permissions": [
               {
-                "permission": "update",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "update"
               }
             ]
           },
@@ -111,10 +111,10 @@
                   "tags",
                   "files"
                 ],
-                "permission": "create",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "create"
               },
               {
                 "scope": "Service",
@@ -126,25 +126,25 @@
                   "category",
                   "files"
                 ],
-                "permission": "update",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "update"
               },
               {
                 "scope": "All",
                 "fields": ["tags"],
-                "permission": "update",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "update"
               },
               {
                 "scope": "Service",
-                "permission": "delete",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "delete"
               }
             ]
           },
@@ -161,10 +161,10 @@
                   "tags",
                   "files"
                 ],
-                "permission": "create",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "create"
               },
               {
                 "scope": "Service",
@@ -176,25 +176,25 @@
                   "category",
                   "files"
                 ],
-                "permission": "update",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "update"
               },
               {
                 "scope": "All",
                 "fields": ["tags"],
-                "permission": "update",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "update"
               },
               {
                 "scope": "Service",
-                "permission": "delete",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "delete"
               }
             ]
           },
@@ -202,32 +202,32 @@
             "visibility": "all",
             "permissions": [
               {
-                "permission": "create",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "create"
               },
               {
                 "scope": "Service",
-                "permission": "update",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "update"
               },
               {
                 "scope": "All",
                 "fields": ["tags"],
-                "permission": "update",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "update"
               },
               {
                 "scope": "Service",
-                "permission": "delete",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "delete"
               }
             ]
           }
@@ -265,10 +265,10 @@
                   "marks",
                   "files"
                 ],
-                "permission": "create",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "create"
               },
               {
                 "scope": "Service",
@@ -280,25 +280,25 @@
                   "category",
                   "files"
                 ],
-                "permission": "update",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "update"
               },
               {
                 "scope": "All",
                 "fields": ["tags"],
-                "permission": "update",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "update"
               },
               {
                 "scope": "Service",
-                "permission": "delete",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "delete"
               }
             ]
           },
@@ -306,24 +306,24 @@
             "visibility": "all",
             "permissions": [
               {
-                "permission": "create",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "create"
               },
               {
                 "scope": "All",
-                "permission": "update",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "update"
               },
               {
                 "scope": "All",
-                "permission": "delete",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "delete"
               }
             ]
           },
@@ -341,10 +341,10 @@
                   "tags",
                   "files"
                 ],
-                "permission": "create",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "create"
               },
               {
                 "scope": "Service",
@@ -356,25 +356,25 @@
                   "category",
                   "files"
                 ],
-                "permission": "update",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "update"
               },
               {
                 "scope": "All",
                 "fields": ["tags"],
-                "permission": "update",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "update"
               },
               {
                 "scope": "Service",
-                "permission": "delete",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "delete"
               }
             ]
           }
@@ -404,10 +404,10 @@
               {
                 "scope": "All",
                 "fields": ["tags", "marks"],
-                "permission": "update",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "update"
               }
             ]
           },
@@ -417,10 +417,10 @@
               {
                 "scope": "All",
                 "fields": ["tags"],
-                "permission": "update",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "update"
               }
             ]
           },
@@ -428,24 +428,24 @@
             "visibility": "all",
             "permissions": [
               {
-                "permission": "create",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "create"
               },
               {
                 "scope": "All",
-                "permission": "update",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "update"
               },
               {
                 "scope": "All",
-                "permission": "delete",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "delete"
               }
             ]
           },
@@ -454,17 +454,17 @@
             "permissions": [
               {
                 "fields": ["metainfo", "title", "category", "files"],
-                "permission": "create",
                 "condition": {
                   "InstanceState": "new"
-                }
+                },
+                "permission": "create"
               },
               {
                 "scope": "All",
-                "permission": "delete",
                 "condition": {
                   "InstanceState": "new"
-                }
+                },
+                "permission": "delete"
               }
             ]
           },
@@ -474,10 +474,10 @@
               {
                 "scope": "All",
                 "fields": ["tags"],
-                "permission": "update",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "update"
               }
             ]
           },
@@ -487,10 +487,10 @@
               {
                 "scope": "All",
                 "fields": ["tags"],
-                "permission": "update",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "update"
               }
             ]
           },
@@ -498,27 +498,27 @@
             "visibility": "all",
             "permissions": [
               {
-                "permission": "create",
                 "condition": {
-                  "~InstanceState": ["rejected", "finished"],
-                  "PaperInstance": true
-                }
+                  "PaperInstance": true,
+                  "~InstanceState": ["rejected", "finished"]
+                },
+                "permission": "create"
               },
               {
                 "scope": "All",
                 "fields": ["title", "description", "date", "tags", "marks"],
-                "permission": "update",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "update"
               },
               {
                 "scope": "All",
-                "permission": "delete",
                 "condition": {
                   "InstanceState": "new",
                   "PaperInstance": true
-                }
+                },
+                "permission": "delete"
               }
             ]
           }
@@ -624,10 +624,10 @@
                   "marks",
                   "files"
                 ],
-                "permission": "create",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "create"
               },
               {
                 "scope": "Service",
@@ -639,25 +639,25 @@
                   "category",
                   "files"
                 ],
-                "permission": "update",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "update"
               },
               {
                 "scope": "All",
                 "fields": ["tags"],
-                "permission": "update",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "update"
               },
               {
                 "scope": "Service",
-                "permission": "delete",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "delete"
               }
             ]
           },
@@ -665,24 +665,24 @@
             "visibility": "all",
             "permissions": [
               {
-                "permission": "create",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "create"
               },
               {
                 "scope": "All",
-                "permission": "update",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "update"
               },
               {
                 "scope": "All",
-                "permission": "delete",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "delete"
               }
             ]
           },
@@ -699,10 +699,10 @@
                   "tags",
                   "files"
                 ],
-                "permission": "create",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "create"
               },
               {
                 "scope": "Service",
@@ -714,25 +714,25 @@
                   "category",
                   "files"
                 ],
-                "permission": "update",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "update"
               },
               {
                 "scope": "All",
                 "fields": ["tags"],
-                "permission": "update",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "update"
               },
               {
                 "scope": "Service",
-                "permission": "delete",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "delete"
               }
             ]
           },
@@ -749,10 +749,10 @@
                   "tags",
                   "files"
                 ],
-                "permission": "create",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "create"
               },
               {
                 "scope": "Service",
@@ -764,25 +764,25 @@
                   "category",
                   "files"
                 ],
-                "permission": "update",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "update"
               },
               {
                 "scope": "All",
                 "fields": ["tags"],
-                "permission": "update",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "update"
               },
               {
                 "scope": "Service",
-                "permission": "delete",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "delete"
               }
             ]
           },
@@ -790,32 +790,32 @@
             "visibility": "all",
             "permissions": [
               {
-                "permission": "create",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "create"
               },
               {
                 "scope": "Service",
-                "permission": "update",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "update"
               },
               {
                 "scope": "All",
                 "fields": ["tags"],
-                "permission": "update",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "update"
               },
               {
                 "scope": "Service",
-                "permission": "delete",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "delete"
               }
             ]
           }
@@ -853,10 +853,10 @@
                   "marks",
                   "files"
                 ],
-                "permission": "create",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "create"
               },
               {
                 "scope": "Service",
@@ -869,17 +869,17 @@
                   "tags",
                   "files"
                 ],
-                "permission": "update",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "update"
               },
               {
                 "scope": "Service",
-                "permission": "delete",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "delete"
               }
             ]
           },
@@ -896,10 +896,10 @@
                   "tags",
                   "files"
                 ],
-                "permission": "create",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "create"
               },
               {
                 "scope": "Service",
@@ -912,17 +912,17 @@
                   "tags",
                   "files"
                 ],
-                "permission": "update",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "update"
               },
               {
                 "scope": "Service",
-                "permission": "delete",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "delete"
               }
             ]
           },
@@ -930,24 +930,24 @@
             "visibility": "all",
             "permissions": [
               {
-                "permission": "create",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "create"
               },
               {
                 "scope": "All",
-                "permission": "update",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "update"
               },
               {
                 "scope": "All",
-                "permission": "delete",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "delete"
               }
             ]
           },
@@ -964,10 +964,10 @@
                   "tags",
                   "files"
                 ],
-                "permission": "create",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "create"
               },
               {
                 "scope": "Service",
@@ -980,17 +980,17 @@
                   "tags",
                   "files"
                 ],
-                "permission": "update",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "update"
               },
               {
                 "scope": "Service",
-                "permission": "delete",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "delete"
               }
             ]
           },
@@ -1007,10 +1007,10 @@
                   "tags",
                   "files"
                 ],
-                "permission": "create",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "create"
               },
               {
                 "scope": "Service",
@@ -1023,17 +1023,17 @@
                   "tags",
                   "files"
                 ],
-                "permission": "update",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "update"
               },
               {
                 "scope": "Service",
-                "permission": "delete",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "delete"
               }
             ]
           },
@@ -1050,10 +1050,10 @@
                   "tags",
                   "files"
                 ],
-                "permission": "create",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "create"
               },
               {
                 "scope": "Service",
@@ -1066,17 +1066,17 @@
                   "tags",
                   "files"
                 ],
-                "permission": "update",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "update"
               },
               {
                 "scope": "Service",
-                "permission": "delete",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "delete"
               }
             ]
           }
@@ -1106,10 +1106,10 @@
               {
                 "scope": "All",
                 "fields": ["tags", "marks"],
-                "permission": "update",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "update"
               }
             ]
           },
@@ -1117,24 +1117,24 @@
             "visibility": "all",
             "permissions": [
               {
-                "permission": "create",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "create"
               },
               {
                 "scope": "All",
-                "permission": "update",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "update"
               },
               {
                 "scope": "All",
-                "permission": "delete",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "delete"
               }
             ]
           },
@@ -1143,19 +1143,19 @@
             "permissions": [
               {
                 "fields": ["metainfo", "title", "category", "files"],
-                "permission": "create",
                 "condition": {
-                  "~InstanceState": ["rejected", "finished"],
-                  "ReadyWorkItem": "fill-additional-demand"
-                }
+                  "ReadyWorkItem": "fill-additional-demand",
+                  "~InstanceState": ["rejected", "finished"]
+                },
+                "permission": "create"
               },
               {
                 "scope": "All",
-                "permission": "delete",
                 "condition": {
-                  "~InstanceState": ["rejected", "finished"],
-                  "ReadyWorkItem": "fill-additional-demand"
-                }
+                  "ReadyWorkItem": "fill-additional-demand",
+                  "~InstanceState": ["rejected", "finished"]
+                },
+                "permission": "delete"
               }
             ]
           },
@@ -1165,10 +1165,10 @@
               {
                 "scope": "All",
                 "fields": ["tags"],
-                "permission": "update",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "update"
               }
             ]
           },
@@ -1178,10 +1178,10 @@
               {
                 "scope": "All",
                 "fields": ["tags"],
-                "permission": "update",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "update"
               }
             ]
           }
@@ -1211,10 +1211,10 @@
               {
                 "scope": "All",
                 "fields": ["tags", "marks"],
-                "permission": "update",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "update"
               }
             ]
           },
@@ -1231,10 +1231,10 @@
                   "tags",
                   "files"
                 ],
-                "permission": "create",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "create"
               },
               {
                 "scope": "Service",
@@ -1246,25 +1246,25 @@
                   "category",
                   "files"
                 ],
-                "permission": "update",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "update"
               },
               {
                 "scope": "All",
                 "fields": ["tags"],
-                "permission": "update",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "update"
               },
               {
                 "scope": "Service",
-                "permission": "delete",
                 "condition": {
                   "InstanceState": "circulation"
-                }
+                },
+                "permission": "delete"
               }
             ]
           },
@@ -1272,24 +1272,24 @@
             "visibility": "all",
             "permissions": [
               {
-                "permission": "create",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "create"
               },
               {
                 "scope": "All",
-                "permission": "update",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "update"
               },
               {
                 "scope": "All",
-                "permission": "delete",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "delete"
               }
             ]
           },
@@ -1306,10 +1306,10 @@
                   "tags",
                   "files"
                 ],
-                "permission": "create",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "create"
               },
               {
                 "scope": "Service",
@@ -1321,25 +1321,25 @@
                   "category",
                   "files"
                 ],
-                "permission": "update",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "update"
               },
               {
                 "scope": "All",
                 "fields": ["tags"],
-                "permission": "update",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "update"
               },
               {
                 "scope": "Service",
-                "permission": "delete",
                 "condition": {
                   "InstanceState": "circulation"
-                }
+                },
+                "permission": "delete"
               }
             ]
           }
@@ -1377,10 +1377,10 @@
                   "marks",
                   "files"
                 ],
-                "permission": "create",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "create"
               },
               {
                 "scope": "Service",
@@ -1392,25 +1392,25 @@
                   "category",
                   "files"
                 ],
-                "permission": "update",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "update"
               },
               {
                 "scope": "All",
                 "fields": ["tags"],
-                "permission": "update",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "update"
               },
               {
                 "scope": "Service",
-                "permission": "delete",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "delete"
               }
             ]
           },
@@ -1420,10 +1420,10 @@
               {
                 "scope": "All",
                 "fields": ["tags"],
-                "permission": "update",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "update"
               }
             ]
           },
@@ -1431,24 +1431,24 @@
             "visibility": "all",
             "permissions": [
               {
-                "permission": "create",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "create"
               },
               {
                 "scope": "All",
-                "permission": "update",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "update"
               },
               {
                 "scope": "All",
-                "permission": "delete",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "delete"
               }
             ]
           },
@@ -1456,32 +1456,32 @@
             "visibility": "all",
             "permissions": [
               {
-                "permission": "create",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "create"
               },
               {
                 "scope": "Service",
-                "permission": "update",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "update"
               },
               {
                 "scope": "All",
                 "fields": ["tags"],
-                "permission": "update",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "update"
               },
               {
                 "scope": "Service",
-                "permission": "delete",
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
-                }
+                },
+                "permission": "delete"
               }
             ]
           }

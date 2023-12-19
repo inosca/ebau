@@ -195,6 +195,40 @@
       ]
     }
   },
+  "12000012": {
+    "label": "Meine Dossiers (Dossier list for USO (Caluma)) > Aufgaben",
+    "acls": {
+      "uso": [
+        "circulation",
+        "construction-monitoring",
+        "correction",
+        "decision",
+        "finished",
+        "init-distribution",
+        "new",
+        "rejected",
+        "subm"
+      ]
+    }
+  },
+  "12000013": {
+    "label": "Meine Dossiers (Dossier list for USO (Caluma)) > Formular",
+    "acls": {
+      "uso": ["circulation", "decision", "finished", "subm"]
+    }
+  },
+  "12000014": {
+    "label": "Meine Dossiers (Dossier list for USO (Caluma)) > Dokumente",
+    "acls": {
+      "uso": ["circulation", "decision", "finished"]
+    }
+  },
+  "12000015": {
+    "label": "Meine Dossiers (Dossier list for USO (Caluma)) > Zirkulation",
+    "acls": {
+      "uso": ["circulation", "decision", "finished", "subm"]
+    }
+  },
   "14000001": {
     "label": "Meine Dossiers (Dossier list for Services (Caluma)) > Formular",
     "acls": {
@@ -336,7 +370,13 @@
   "15000001": {
     "label": "Meine Dossiers (Dossier list for Leitbehörde (Caluma)) > Dossier zurückweisen",
     "acls": {
-      "municipality-lead": ["init-distribution", "rejected", "subm"]
+      "municipality-lead": [
+        "circulation",
+        "decision",
+        "init-distribution",
+        "rejected",
+        "subm"
+      ]
     }
   },
   "18000000": {
@@ -379,40 +419,6 @@
     "label": "Alle Dossiers (Admin-Liste für Support) > History",
     "acls": {
       "support": ["circulation", "finished", "new", "rejected", "subm"]
-    }
-  },
-  "12000012": {
-    "label": "Aufgaben > USO",
-    "acls": {
-      "uso": [
-        "new",
-        "circulation",
-        "subm",
-        "finished",
-        "rejected",
-        "decision",
-        "init-distribution",
-        "correction",
-        "construction-monitoring"
-      ]
-    }
-  },
-  "12000013": {
-    "label": "Meine Dossiers (Dossier list for USO > Formular)",
-    "acls": {
-      "uso": ["circulation", "decision", "finished", "subm"]
-    }
-  },
-  "12000014": {
-    "label": "Meine Dossiers (Dossier list for USO > Dokumente)",
-    "acls": {
-      "uso": ["circulation", "decision", "finished"]
-    }
-  },
-  "12000015": {
-    "label": "Meine Dossiers (Dossier list for USO > Zirkulation)",
-    "acls": {
-      "uso": ["circulation", "decision", "finished", "subm"]
     }
   }
 }
