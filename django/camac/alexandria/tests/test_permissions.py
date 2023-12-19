@@ -1204,6 +1204,24 @@ def test_condition_ready_work_item_additional_demand(
         ),
         (
             "service",
+            "post",
+            HTTP_201_CREATED,
+            {
+                "service": {
+                    "visibility": "all",
+                    "permissions": [
+                        {
+                            "permission": "create",
+                            "condition": {
+                                "~InstanceState": "done",
+                            },
+                        },
+                    ],
+                },
+            },
+        ),
+        (
+            "service",
             "patch",
             HTTP_200_OK,
             {
@@ -1252,6 +1270,24 @@ def test_condition_ready_work_item_additional_demand(
                             "permission": "create",
                             "condition": {
                                 "InstanceState": "done",
+                            },
+                        },
+                    ],
+                },
+            },
+        ),
+        (
+            "service",
+            "post",
+            HTTP_403_FORBIDDEN,
+            {
+                "service": {
+                    "visibility": "all",
+                    "permissions": [
+                        {
+                            "permission": "create",
+                            "condition": {
+                                "~InstanceState": "new",
                             },
                         },
                     ],

@@ -103,13 +103,12 @@ class CustomPermission(BasePermission):
             if required_conditions and all_checks_met:
                 for condition, value in required_conditions.items():
                     negated = condition.startswith("~")
-                    result = getattr(conditions, condition)(
+                    result = getattr(conditions, condition.lstrip("~"))(
                         value, instance, request, document
                     ).evaluate()
                     all_checks_met = not result if negated else result
 
-                    if not result:
-                        all_checks_met = False
+                    if not all_checks_met:
                         break
 
             if all_checks_met:
