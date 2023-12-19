@@ -90,7 +90,7 @@ def test_import_geometer(
     out, err = capsys.readouterr()
 
     expected_lines = [
-        "Leitbehörde found for Testiswil, updating/creating Geometer service",
+        "Leitbehörde found for Testiswil, assigning Geometer service: Nachführungsgeometer Peter Tester",
         "Municipality Fehlersberg not found. Service 'Nachführungsgeometer Anderer Tester' created but not assigned",
     ]
     assert expected_lines == out.strip().splitlines()
