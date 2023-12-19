@@ -2,14 +2,14 @@ import { assert } from "@ember/debug";
 import { inject as service } from "@ember/service";
 import { dropTask } from "ember-concurrency";
 import DocumentValidityButtonComponent from "ember-ebau-core/components/document-validity-button";
-import { saveAs } from "file-saver";
 
-export default class BeSubmitInstanceComponent extends DocumentValidityButtonComponent {
+export default class GrSubmitInstanceComponent extends DocumentValidityButtonComponent {
   @service intl;
   @service notification;
   @service router;
   @service fetch;
   @service store;
+  @service dms;
 
   validateOnEnter = true;
   showLoadingHint = true;
@@ -64,18 +64,11 @@ export default class BeSubmitInstanceComponent extends DocumentValidityButtonCom
   @dropTask
   *export() {
     try {
-      // generate document in CAMAC
-      const response = yield this.fetch.fetch(
-        `/api/v1/instances/${this.args.context.instanceId}/generate-pdf?template=eingabequittung`,
-      );
-
-      const filename = response.headers
-        .get("content-disposition")
-        .match(/filename="(.*)"/)[1];
-
-      saveAs(yield response.blob(), filename);
+      yield this.dms.generatePdf(this.args.context.instanceId, {
+        template: "eingabequittung",
+      });
     } catch (error) {
-      this.notification.danger(this.intl.t("freigabequittung.downloadError"));
+      this.notification.danger(this.intl.t("dms.downloadError"));
     }
   }
 }

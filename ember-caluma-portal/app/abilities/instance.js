@@ -116,6 +116,13 @@ export default class InstanceAbility extends Ability {
     );
   }
 
+  get canDownloadReceipt() {
+    return (
+      mainConfig.showDownloadReceiptAction &&
+      this.instanceStateId !== config.APPLICATION.instanceStates.new
+    );
+  }
+
   get canDelete() {
     return this.instanceStateId === config.APPLICATION.instanceStates.new;
   }
