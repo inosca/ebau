@@ -12,6 +12,7 @@ export default class InstancesEditIndexController extends Controller {
   @service notification;
   @service intl;
   @service router;
+  @service dms;
 
   @controller("instances.edit") editController;
 
@@ -114,6 +115,18 @@ export default class InstancesEditIndexController extends Controller {
       instanceId,
       "verlaengerung-geltungsdauer",
     );
+  }
+
+  @dropTask
+  *downloadReceipt() {
+    try {
+      yield this.dms.generatePdf(this.editController.instance.id, {
+        template: "eingabequittung",
+      });
+    } catch (e) {
+      console.error(e);
+      this.notification.danger(this.intl.t("dms.downloadError"));
+    }
   }
 
   @dropTask

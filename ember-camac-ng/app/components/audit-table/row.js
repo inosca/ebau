@@ -6,7 +6,6 @@ import { dropTask } from "ember-concurrency";
 import { confirmTask } from "ember-ebau-core/decorators";
 import deleteDocument from "ember-ebau-core/gql/mutations/delete-document.graphql";
 import linkDocument from "ember-ebau-core/gql/mutations/link-document.graphql";
-import { saveAs } from "file-saver";
 
 import copyDocument from "camac-ng/gql/mutations/copy-document.graphql";
 
@@ -15,24 +14,16 @@ export default class AuditTableRowComponent extends Component {
   @service notification;
   @service intl;
   @service router;
+  @service dms;
 
   @queryManager apollo;
 
   @dropTask
   *pdf() {
     try {
-      const response = yield this.fetch.fetch(
-        `/api/v1/instances/${this.args.audit.instanceId}/generate-pdf?document-id=${this.args.audit.id}`,
-      );
-      if (!response.ok) {
-        throw new Error(`${response.status}: ${response.statusText}`);
-      }
-
-      const filename = response.headers
-        .get("content-disposition")
-        .match(/filename="(.*)"/)[1];
-
-      saveAs(yield response.blob(), filename);
+      yield this.dms.generatePdf(this.args.audit.instanceId, {
+        "document-id": this.args.audit.id,
+      });
     } catch (error) {
       this.notification.danger(this.intl.t("audit.createPdfError"));
     }

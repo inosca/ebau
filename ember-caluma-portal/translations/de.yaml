@@ -128,7 +128,7 @@ documents:
     weitere-unterlagen: "Weitere Unterlagen"
     brandschutzdokumente: "Brandschutzdokumente"
 
-freigabequittung:
+dms:
   downloadError: "Beim Export ist ein Problem aufgetreten. Bitte versuchen Sie es erneut."
 
 gis:
@@ -195,6 +195,8 @@ instances:
   actions: "Aktionen"
   activateFurtherPersons: "Weitere Personen freischalten"
   activateFurtherPersonsText: "Im Menü Berechtigungen können weitere Personen für die Bearbeitung dieses Dossiers freigeschalten werden."
+  downloadReceipt: "Eingabequittung herunterladen"
+  downloadReceiptText: "Hier können Sie die Eingabequittung erneut herunterladen."
   managePermissions: "Berechtigungen verwalten"
   furtherProcessingOfForm: "Formular weiterbearbeiten"
   furtherProcessingOfFormText: "Hier kann ihr Formular weiter bearbeitet und eingereicht werden."
