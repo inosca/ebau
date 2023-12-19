@@ -96,4 +96,5 @@ export default {
       void: "void",
     },
   },
+  showDownloadReceiptAction: true,
 };

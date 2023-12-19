@@ -237,6 +237,23 @@
         </LinkTo>
       {{/if}}
 
+      {{#if (can "download receipt of instance" this.editController.instance)}}
+        <h3 class="instance-overview__action-title">
+          {{t "instances.downloadReceipt"}}
+        </h3>
+        {{#if (macroCondition (macroGetOwnConfig "enableInstanceActionDescription"))}}
+          <p>
+            {{t "instances.downloadReceiptText"}}
+          </p>
+        {{/if}}
+        <UkButton
+          @label={{t "instances.downloadReceipt"}}
+          @disabled={{this.downloadReceipt.isRunning}}
+          @loading={{this.downloadReceipt.isRunning}}
+          @onClick={{perform this.downloadReceipt}}
+        />
+      {{/if}}
+
       {{#if (can "delete instance" this.editController.instance)}}
         <h3 class="instance-overview__action-title">
           {{t "instances.deleteInstance"}}

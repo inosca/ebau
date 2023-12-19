@@ -19,6 +19,7 @@ dms:
 
   delete-error: "Erreur de suppression du modèle"
   download-error: "Erreur lors du téléchargement du modèle"
+  download-export-error: "Un problème est survenu lors de l'exportation. Veuillez réessayer."
   merge-and-save-success: 'Le modèle a été classé avec succès dans la catégorie "Interne".'
   merge-error: "Une erreur s'est produite lors de la génération du modèle"
   save-error-placeholder: "{count, plural, one {L'espace réservé {placeholders} n'exsiste} other {L'espaces réservés {placeholders} n'existent}} pas."
