@@ -33,10 +33,10 @@ class Command(BaseCommand):
         sheet: pyexcel.Sheet = book.sheet_by_index(0)
 
         index_row, *data_rows = sheet.rows()
-        index_row = [val.strip() for val in index_row]  # just to be sure
+        index_row = [str(val).strip() for val in index_row]  # just to be sure
 
         row_dicts = [
-            dict(zip(index_row, [val.strip() for val in row])) for row in data_rows
+            dict(zip(index_row, [str(val).strip() for val in row])) for row in data_rows
         ]
 
         # The table is fully redundant, so each geometer may be

@@ -49,7 +49,7 @@ def test_import_geometer(
         "FirmaEmail",
     ]
     import_line = [
-        "841",
+        841,
         "Testiswil",
         "Nachführungsgeometer Peter Tester",
         "Nachführungsgeometer",
@@ -64,7 +64,7 @@ def test_import_geometer(
         "info@example.ch",
     ]
     fail_import_line = [
-        "999",
+        999,
         "Fehlersberg",
         "Nachführungsgeometer Anderer Tester",
         "Nachführungsgeometer",
