@@ -31,15 +31,15 @@ from camac.instance.models import HistoryEntryT
         (
             "Applicant",
             LazyFixture("admin_user"),
-            18,
+            19,
             1,
             {"instance", "form", "document"},
         ),
         # reader should see instances from other users but has no editables
-        ("Reader", LazyFixture("user"), 18, 1, set()),
-        ("Canton", LazyFixture("user"), 18, 1, {"form", "document"}),
-        ("Municipality", LazyFixture("user"), 17, 1, {"form", "document"}),
-        ("Service", LazyFixture("user"), 17, 1, {"form", "document"}),
+        ("Reader", LazyFixture("user"), 19, 1, set()),
+        ("Canton", LazyFixture("user"), 19, 1, {"form", "document"}),
+        ("Municipality", LazyFixture("user"), 18, 1, {"form", "document"}),
+        ("Service", LazyFixture("user"), 18, 1, {"form", "document"}),
         ("Public", LazyFixture("user"), 2, 0, {}),
     ],
 )
@@ -1175,15 +1175,13 @@ def test_instance_group_unlink(
         assert other_instance.instance_group is None
 
 
-@pytest.mark.parametrize(
-    "instance_state__name,instance__identifier", [("new", "00-00-000")]
-)
+@pytest.mark.parametrize("instance_state__name", ["new"])
 @pytest.mark.parametrize(
     "role__name,instance__user,status_code",
     [
         # applicant/reader can't update their own Instance,
         # but might update FormField etc.
-        ("Applicant", LazyFixture("admin_user"), status.HTTP_400_BAD_REQUEST),
+        ("Applicant", LazyFixture("admin_user"), status.HTTP_200_OK),
         ("Reader", LazyFixture("user"), status.HTTP_403_FORBIDDEN),
         ("Canton", LazyFixture("user"), status.HTTP_403_FORBIDDEN),
         ("Municipality", LazyFixture("user"), status.HTTP_403_FORBIDDEN),
@@ -1207,15 +1205,13 @@ def test_instance_update(
 
     url = reverse("instance-detail", args=[instance.pk])
 
+    new_location = location_factory()
     data = {
         "data": {
             "type": "instances",
             "id": instance.pk,
             "relationships": {
-                "form": {"data": {"type": "forms", "id": form_factory().pk}},
-                "location": {
-                    "data": {"type": "locations", "id": location_factory().pk}
-                },
+                "location": {"data": {"type": "locations", "id": new_location.pk}},
             },
         }
     }
@@ -1223,32 +1219,10 @@ def test_instance_update(
     response = admin_client.patch(url, data=data)
     assert response.status_code == status_code
 
-
-@pytest.mark.parametrize(
-    "role__name,instance__user,instance_state__name",
-    [("Applicant", LazyFixture("admin_user"), "new")],
-)
-def test_instance_update_location(admin_client, instance, location_factory):
-    url = reverse("instance-detail", args=[instance.pk])
-
-    new_location = location_factory()
-
-    data = {
-        "data": {
-            "type": "instances",
-            "id": instance.pk,
-            "relationships": {
-                "location": {"data": {"type": "locations", "id": new_location.pk}}
-            },
-        }
-    }
-
-    response = admin_client.patch(url, data=data)
-    assert response.status_code == status.HTTP_200_OK
-
-    assert InstanceLocation.objects.filter(
-        instance=instance, location=new_location
-    ).exists()
+    if status_code == status.HTTP_200_OK:
+        assert InstanceLocation.objects.filter(
+            instance=instance, location=new_location
+        ).exists()
 
 
 @pytest.mark.parametrize(

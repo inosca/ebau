@@ -71,6 +71,7 @@
     "ember-math-helpers": "4.0.0",
     "ember-page-title": "8.1.0",
     "ember-power-select": "7.2.0",
+    "ember-power-select-with-create": "2.0.0",
     "ember-qunit": "8.0.2",
     "ember-resolver": "11.0.1",
     "ember-resources": "6.4.2",

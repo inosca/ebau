@@ -27,6 +27,7 @@ export default {
         "intent",
         "submitDateAfter",
         "submitDateBefore",
+        "keywords",
         "instanceState",
       ],
     },

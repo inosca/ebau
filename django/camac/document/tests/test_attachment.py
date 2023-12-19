@@ -47,12 +47,12 @@ def _configure_geometer_access(
 @pytest.mark.parametrize(
     "role__name,instance__user,num_queries",
     [
-        ("Applicant", LazyFixture("admin_user"), 14),
-        ("Reader", LazyFixture("user"), 14),
-        ("Canton", LazyFixture("user"), 14),
-        ("Municipality", LazyFixture("user"), 13),
-        ("Service", LazyFixture("user"), 13),
-        ("Geometer", LazyFixture("user"), 15),
+        ("Applicant", LazyFixture("admin_user"), 15),
+        ("Reader", LazyFixture("user"), 15),
+        ("Canton", LazyFixture("user"), 15),
+        ("Municipality", LazyFixture("user"), 14),
+        ("Service", LazyFixture("user"), 14),
+        ("Geometer", LazyFixture("user"), 16),
     ],
 )
 @pytest.mark.parametrize(

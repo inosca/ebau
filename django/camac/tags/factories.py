@@ -14,3 +14,11 @@ class TagFactory(DjangoModelFactory):
 
     class Meta:
         model = models.Tags
+
+
+class KeywordFactory(DjangoModelFactory):
+    name = Faker("name")
+    service = SubFactory(ServiceFactory)
+
+    class Meta:
+        model = models.Keyword
