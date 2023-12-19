@@ -49,5 +49,5 @@ cases:
     submitDateBefore-placeholder: "01.01.2001"
     caseCreatedDateAfter-placeholder: "01.01.2001"
     caseCreatedDateBefore-placeholder: "01.01.2001"
-    tags-placeholder: "Musterstichwort"
+    keywords-placeholder: "Musterstichwort"
     type-placeholder: "Alle Gesuchstypen"

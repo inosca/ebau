@@ -319,7 +319,6 @@ export default class CaseTableComponent extends Component {
       service: this.args.filter.service || this.args.filter.serviceSZ,
       responsible_service_user: this.args.filter.responsibleServiceUser,
       responsible_service: this.args.filter.responsibleMunicipality,
-      location: this.args.filter.municipality,
       ...(macroCondition(getOwnConfig().application === "sz")
         ? {
             address_sz: this.args.filter.address,
@@ -338,6 +337,7 @@ export default class CaseTableComponent extends Component {
               ? { intent_sz: this.args.filter.intent }
               : {}),
             keyword_search: this.args.filter.keywordSearch,
+            location: this.args.filter.municipality,
           }
         : macroCondition(getOwnConfig().application === "ur")
           ? {
@@ -352,10 +352,10 @@ export default class CaseTableComponent extends Component {
                 this.args.filter.withCantonalParticipation,
               is_paper: this.args.filter.paper,
               oereb_legal_state: this.args.filter.legalStateOereb,
+              location: this.args.filter.municipality,
             }
           : macroCondition(getOwnConfig().application === "be")
             ? {
-                location: undefined,
                 tags: this.args.filter.tags,
                 is_paper: this.args.filter.paper,
                 is_modification: this.args.filter.modification,
@@ -372,12 +372,15 @@ export default class CaseTableComponent extends Component {
               }
             : macroCondition(getOwnConfig().application === "gr")
               ? {
-                  location: undefined,
-                  tags: this.args.filter.tags,
+                  keywords: this.args.filter.keywords,
                   decision: this.args.filter.decision,
                   is_paper: this.args.filter.paper,
                 }
-              : {}),
+              : macroCondition(getOwnConfig().application === "so")
+                ? {
+                    keywords: this.args.filter.keywords,
+                  }
+                : {}),
     };
 
     return {
