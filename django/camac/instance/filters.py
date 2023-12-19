@@ -593,6 +593,7 @@ class InstanceFilterSet(FilterSet):
         field_name="creation_date__date", lookup_expr="gte"
     )
     tags = CharMultiValueFilter(field_name="tags__name", lookup_expr="all")
+    keywords = CharMultiValueFilter(field_name="keywords__name", lookup_expr="all")
     creation_date_before = DateFilter(
         field_name="creation_date__date", lookup_expr="lte"
     )

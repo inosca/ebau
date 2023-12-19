@@ -47,6 +47,7 @@ from camac.notification.utils import send_mail, send_mail_without_request
 from camac.permissions import api as permissions_api
 from camac.responsible.models import ResponsibleService
 from camac.responsible.serializers import reassign_work_items
+from camac.tags.models import Keyword
 from camac.user.models import Group, Location, Service
 from camac.user.permissions import permission_aware
 from camac.user.relations import (
@@ -109,6 +110,10 @@ class InstanceSerializer(InstanceEditableMixin, serializers.ModelSerializer):
     previous_instance_state = serializers.ResourceRelatedField(
         queryset=models.InstanceState.objects.filter(name="new"),
         default=NewInstanceStateDefault(),
+    )
+
+    keywords = serializers.ResourceRelatedField(
+        queryset=Keyword.objects, required=False, many=True
     )
 
     involved_services = relations.SerializerMethodResourceRelatedField(
@@ -223,21 +228,8 @@ class InstanceSerializer(InstanceEditableMixin, serializers.ModelSerializer):
         "linked_instances": "camac.instance.serializers.InstanceSerializer",
         "circulation_initializer_services": "camac.user.serializers.ServiceSerializer",
         "active_service": "camac.user.serializers.PublicServiceSerializer",
+        "keywords": "camac.tags.serializers.KeywordSerializer",
     }
-
-    def validate_location(self, location):
-        if self.instance and self.instance.identifier:
-            if self.instance.location != location:
-                raise exceptions.ValidationError(_("Location may not be changed."))
-
-        return location
-
-    def validate_form(self, form):
-        if self.instance and self.instance.identifier:
-            if self.instance.form != form:
-                raise exceptions.ValidationError(_("Form may not be changed."))
-
-        return form
 
     @transaction.atomic
     def create(self, validated_data):
@@ -300,6 +292,7 @@ class InstanceSerializer(InstanceEditableMixin, serializers.ModelSerializer):
             "linked_instances",
             "circulation_initializer_services",
             "active_service",
+            "keywords",
         )
         read_only_fields = (
             "circulations",

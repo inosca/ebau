@@ -408,6 +408,7 @@ APPLICATIONS = {
         "USE_CAMAC_ADMIN": True,
         "LOG_NOTIFICATIONS": True,
         "ROLE_PERMISSIONS": {
+            "Portal": "applicant",
             "Gemeinde": "municipality",
             "Gemeinde Sachbearbeiter": "municipality",
             "Fachstelle": "service",

@@ -12,10 +12,6 @@
       <div class="uk-text-bold">{{t "cases.tableHeaders.applicants"}}</div>
       {{or @case.applicants "-"}}
     </div>
-    {{!-- <div>
-      <div class="uk-text-bold">{{t "cases.header.tags"}}</div>
-      <input aria-label={{t "cases.header.tags"}}>
-    </div> --}}
     <div>
       <div class="uk-text-bold">{{t "cases.tableHeaders.municipality"}}</div>
       {{or @case.municipality "-"}}
@@ -42,6 +38,14 @@
     <div>
       <div class="uk-text-bold">{{t "cases.tableHeaders.intent"}}</div>
       {{or @case.intent "-"}}
+    </div>
+    <div class="uk-width-1-2">
+      <div class="uk-text-bold">{{t "cases.header.keywords"}}</div>
+      {{#if @case.instance}}
+        <CaseHeader::Keywords @instance={{@case.instance}} />
+      {{else}}
+        -
+      {{/if}}
     </div>
   </div>
 </div>

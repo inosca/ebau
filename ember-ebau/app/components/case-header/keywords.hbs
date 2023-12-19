@@ -1,0 +1,13 @@
+<PowerSelectMultipleWithCreate
+  @searchEnabled={{true}}
+  @searchField="name"
+  @searchMessage={{t "cases.header.searchKeyword"}}
+  @options={{this.available}}
+  @selected={{this.selected}}
+  @onCreate={{perform this.create}}
+  @buildSuggestion={{this.customSuggestion}}
+  @onChange={{this.onChange}}
+  as |keyword|
+>
+  {{keyword.name}}
+</PowerSelectMultipleWithCreate>

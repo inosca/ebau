@@ -1,5 +1,8 @@
 cases:
   header:
-    tags: "Stichworte"
+    keywords: "Stichworte"
     printPreview: "Druckansicht"
     form: "Formular"
+    searchKeyword: "Stichwort suchen"
+    addKeyword: '"{term}" hinzufügen'
+    keywordSaveFailed: "Beim Speichern des Stichwortes ist ein Fehler aufgetreten"

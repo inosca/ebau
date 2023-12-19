@@ -97,9 +97,13 @@ export default class CaseFilterComponent extends Component {
 
   municipalities = findAll(this, "location", () => ({}));
 
-  selectedTags = trackedFunction(this, async () => {
+  get keywordModel() {
+    return caseTableConfig.useLegacyTags ? "tag" : "keyword";
+  }
+
+  selectedKeywords = trackedFunction(this, async () => {
     const key = Object.entries(this.caseFilters).find(
-      ([, config]) => config.options === "selectedTags",
+      ([, config]) => config.options === "selectedKeywords",
     )?.[0];
 
     const selected = this._filter[key];
@@ -110,11 +114,13 @@ export default class CaseFilterComponent extends Component {
 
     await Promise.resolve();
 
-    return await this.store.query("tag", { name: String(selected) });
+    return await this.store.query(this.keywordModel, {
+      name: String(selected),
+    });
   });
 
   @restartableTask
-  *searchTags(search) {
+  *searchKeywords(search) {
     if (!search) return [];
 
     if (macroCondition(isTesting())) {
@@ -125,7 +131,7 @@ export default class CaseFilterComponent extends Component {
 
     yield Promise.resolve();
 
-    return yield this.store.query("tag", {
+    return yield this.store.query(this.keywordModel, {
       search,
       "page[size]": 50,
       "page[number]": 1,
