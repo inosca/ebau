@@ -2,3 +2,4 @@ global:
   delete: "Löschen"
   yes: "Ja"
   no: "Nein"
+  loadingPrompt: "Lädt..."

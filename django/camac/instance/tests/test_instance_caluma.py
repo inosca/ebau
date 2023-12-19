@@ -2113,6 +2113,44 @@ def test_generate_pdf_action(
             assert fh.read() == content.decode("utf-8")
 
 
+@pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.parametrize(
+    "patch_data,expected",
+    [
+        ({"relationships": {"keywords": {"data": []}}}, status.HTTP_200_OK),
+        ({"attributes": {"name": "foo"}}, status.HTTP_403_FORBIDDEN),
+    ],
+)
+def test_instance_update(
+    db,
+    admin_client,
+    admin_user,
+    be_instance,
+    keyword_factory,
+    patch_data,
+    expected,
+):
+    kw = keyword_factory(service=admin_user.groups.first().service)
+    kw.instances.set([be_instance])
+    kw.save()
+
+    request_json = {
+        "data": {
+            "id": str(be_instance.pk),
+            "type": "instances",
+            **patch_data,
+        }
+    }
+    url = reverse("instance-detail", args=[be_instance.pk])
+    response = admin_client.patch(url, request_json)
+    assert response.status_code == expected
+    if expected == status.HTTP_200_OK:
+        assert response.json()["data"]["relationships"]["keywords"] == {
+            "data": [],
+            "meta": {"count": 0},
+        }
+
+
 @pytest.mark.freeze_time("2020-03-19")
 @pytest.mark.parametrize(
     "role__name,paper", [("Applicant", False), ("Municipality", True)]

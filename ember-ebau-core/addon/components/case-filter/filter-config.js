@@ -123,10 +123,10 @@ export default {
     labelField: "name",
     showWithoutOptions: true,
   },
-  tags: {
+  keywords: {
     type: "async-select-multiple",
-    options: "selectedTags",
-    search: "searchTags",
+    options: "selectedKeywords",
+    search: "searchKeywords",
     valueField: "name",
     labelField: "name",
     showWithoutOptions: true,

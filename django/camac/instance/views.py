@@ -218,6 +218,26 @@ class InstanceView(
             ).exists()
         )
 
+    def _has_instance_update_permission(self, allowed_keys):
+        missing = set(self.request.data.keys()) - {"id", "type"} - allowed_keys
+        return len(missing) == 0
+
+    @permission_aware
+    def has_object_update_permission(self, instance):
+        return False
+
+    def has_object_update_permission_for_applicant(self, instance):
+        return (
+            instance.instance_state.name == "new"
+            and self._has_instance_update_permission({"location"})
+        )
+
+    def has_object_update_permission_for_municipality(self, instance):
+        return self._has_instance_update_permission({"keywords"})
+
+    def has_object_update_permission_for_service(self, instance):
+        return self._has_instance_update_permission({"keywords"})  # pragma: no cover
+
     def has_base_permission_for_coordination(self, instance):
         return self.has_base_permission_for_municipality(instance)
 
