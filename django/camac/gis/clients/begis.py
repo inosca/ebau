@@ -1,3 +1,4 @@
+import concurrent.futures
 import logging
 from os import path
 
@@ -14,6 +15,7 @@ logger = logging.getLogger(__name__)
 
 class BeGisClient(GISBaseClient):
     required_params = ["egrids"]
+    is_queue_enabled = True
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -64,6 +66,67 @@ class BeGisClient(GISBaseClient):
             # TODO: Translation
             raise ValueError("No polygon found")
 
+    def get_url_data(self, egrid, service_code, boolean_layers, special_layers):
+        polygon = cache.get(egrid) or self.get_polygon(
+            egrid
+        )  # checking if polygon already retrieved
+        #  polygon = self.get_polygon(egrid)
+        query = self.get_query(service_code, boolean_layers, special_layers, polygon)
+        payload = self.get_feature_xml(service_code, query)
+        try:
+            response = self.session.post(
+                "{0}/geoservice3/services/a42geo/{1}/MapServer/WFSServer".format(
+                    settings.GIS_BASE_URL, service_code
+                ),
+                data=payload,
+            )
+            response.raise_for_status()
+            return response
+        except requests.exceptions.HTTPError as e:  # pragma: no cover
+            logger.error(f"{service_code}({egrid}): {e}")
+            # TODO: Translation
+            raise RuntimeError(
+                f"Error {e.response.status_code} while fetching layer data from the API"
+            )
+        except (
+            requests.exceptions.Timeout,
+            requests.exceptions.ConnectionError,
+        ) as e:  # pragma: no cover
+            logger.error(f"{service_code}({egrid}): {e}")
+            # TODO: Translation
+            raise RuntimeError(
+                "Connection error while fetching layer data from the API"
+            )
+
+    def send_requests_in_batches(
+        self, data, egrids, batch_size, service_code, boolean_layers, special_layers
+    ):
+        for i in range(0, len(egrids), batch_size):
+            batch = egrids[i : i + batch_size]
+            futures = []
+            with concurrent.futures.ThreadPoolExecutor(
+                max_workers=batch_size
+            ) as executor:
+                for egrid in batch:
+                    futures.append(
+                        executor.submit(
+                            self.get_url_data,
+                            egrid=egrid,
+                            service_code=service_code,
+                            boolean_layers=boolean_layers,
+                            special_layers=special_layers,
+                        )
+                    )
+                for future in concurrent.futures.as_completed(futures):
+                    response = future.result()
+                    xml_data, et = self.get_xml_data(response)
+                    new_data = self.get_data_from_xml(
+                        service_code, boolean_layers, xml_data, et
+                    )
+                    self.merge_data_dict(data, new_data, special_layers)
+
+        return data
+
     def process_data_source(self, config, _intermediate_data) -> dict:
         service_code = config.get("service_code")
         layers_dict = config.get("layers", {})
@@ -74,44 +137,9 @@ class BeGisClient(GISBaseClient):
 
         egrids = self.params.get("egrids").split(",")
 
-        for egrid in egrids:
-            polygon = cache.get(egrid) or self.get_polygon(
-                egrid
-            )  # checking if polygon is already in cache
-            query = self.get_query(
-                service_code, boolean_layers, special_layers, polygon
-            )
-            payload = self.get_feature_xml(service_code, query)
-
-            try:
-                response = self.session.post(
-                    "{0}/geoservice3/services/a42geo/{1}/MapServer/WFSServer".format(
-                        settings.GIS_BASE_URL, service_code
-                    ),
-                    data=payload,
-                )
-                response.raise_for_status()
-            except requests.exceptions.HTTPError as e:  # pragma: no cover
-                logger.error(f"{service_code}({egrid}): {e}")
-                # TODO: Translation
-                raise RuntimeError(
-                    f"Error {e.response.status_code} while fetching layer data from the API"
-                )
-            except (
-                requests.exceptions.Timeout,
-                requests.exceptions.ConnectionError,
-            ) as e:  # pragma: no cover
-                logger.error(f"{service_code}({egrid}): {e}")
-                # TODO: Translation
-                raise RuntimeError(
-                    "Connection error while fetching layer data from the API"
-                )
-
-            xml_data, et = self.get_xml_data(response)
-            new_data = self.get_data_from_xml(
-                service_code, boolean_layers, xml_data, et
-            )
-            self.merge_data_dict(data, new_data, special_layers)
+        data = self.send_requests_in_batches(
+            data, egrids, 4, service_code, boolean_layers, special_layers
+        )
 
         for layer_id in special_layers:
             layer = layers_dict.get(layer_id, {})
