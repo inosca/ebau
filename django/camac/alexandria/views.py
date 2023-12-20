@@ -48,3 +48,4 @@ class PatchedTagSynonymGroupViewSet(views.TagSynonymGroupViewSet):
 
 class PatchedMarkViewSet(views.MarkViewSet):
     swagger_schema = None
+    permission_classes = [DefaultPermission | PublicationPermission]

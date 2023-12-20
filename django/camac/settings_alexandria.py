@@ -4,6 +4,7 @@ ALEXANDRIA = {
             "APPLICANT": ["decision"],
             "PUBLIC": ["publication"],
         },
+        "PUBLIC_MARKS": ["publication", "void"],
         "RESTRICTED_FIELDS": {
             "title",
             "description",
