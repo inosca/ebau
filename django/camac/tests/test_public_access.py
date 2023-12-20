@@ -90,6 +90,7 @@ def test_public_urls(db, public_urls, public_data, admin_client):
         # alexandria
         "/api/v1/documents",
         "/api/v1/files",
+        "/api/v1/marks",
     ]
 
     for model, url_config in public_urls:

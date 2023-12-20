@@ -290,17 +290,22 @@ def test_tag_visibility_service_subservice(
     assert len(json["data"]) == expected_count
 
 
-def test_mark_visibility(db, admin_client):
-    MarkFactory(metainfo={"sort": 3})
-    MarkFactory(metainfo={"sort": 1})
-    MarkFactory(metainfo={"sort": 2})
+@pytest.mark.parametrize(
+    "role__name,visible_marks",
+    [
+        ("public", {"publication", "void"}),
+        ("municipality", {"decision", "publication", "void"}),
+    ],
+)
+def test_mark_visibility(db, admin_client, visible_marks):
+    MarkFactory(pk="void", metainfo={"sort": 3})
+    MarkFactory(pk="decision", metainfo={"sort": 1})
+    MarkFactory(pk="publication", metainfo={"sort": 2})
 
     response = admin_client.get(reverse("mark-list"))
 
     assert response.status_code == HTTP_200_OK
 
-    assert [i["attributes"]["metainfo"]["sort"] for i in response.json()["data"]] == [
-        1,
-        2,
-        3,
-    ]
+    marks = set([mark["id"] for mark in response.json()["data"]])
+
+    assert marks == visible_marks
