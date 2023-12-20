@@ -1026,9 +1026,9 @@
       "template": 57,
       "template_slug": "notify-geometer-sb2-complete",
       "language": "de",
-      "purpose": "Benachrichtigung Geometer bei Abschluss Baugesuch",
-      "subject": "Baugesuch abgeschlossen (eBau-Nr. {{EBAU_NUMBER}}) / demande de permis de construire complétée (n° eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\n\nDas Baugesuch mit der eBau Nr. {{EBAU_NUMBER}} wurde durch\n {{CURRENT_USER_NAME}} ({{CURRENT_SERVICE_DE}}) abgeschlossen.\n\n{{INTERNAL_DOSSIER_LINK}}\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\n*** version française ***\n\nBonjour\n\nLa demande de permis de construire portant le n° eBau {{NUMÉRO_BATTRE}} a été déposée par\n {{NOM_UTILISATEUR_COURANT}} ({{CURRENT_SERVICE_FR}}) a été achevé.\n\n{{INTERNAL_DOSSIER_LINK}}\n\nCet e-mail a été généré automatiquement, veuillez ne pas y répondre."
+      "purpose": "Benachrichtigung Geometer bei Abschluss SB2",
+      "subject": "Meldung Selbstdeklaration 2 (eBau Nr. {{EBAU_NUMBER}}) / Avis concernant la déclaration spontanée DC2 (n° eBau {{EBAU_NUMBER}})",
+      "body": "Guten Tag\r\n\r\nDie Meldung zur Selbstdeklaration Baukontrolle 2 (SB2) vom Dossier mit der eBau-Nummer {{EBAU_NUMBER}} ({{INSTANCE_ID}}, {{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) ist eingetroffen.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\neBau\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur,\r\n\r\nL'avis faisant suite à l'autodéclaration en matière de contrôle des constructions DC2 avec le numéro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}, {{FORM_NAME_FR}}, {{MUNICIPALITY_FR}}) a été envoyé.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\neBau"
     }
   }
 ]
