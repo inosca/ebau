@@ -507,7 +507,7 @@
     "model": "notification.notificationtemplate",
     "pk": 57,
     "fields": {
-      "slug": "notify-geometer-case-completed",
+      "slug": "notify-geometer-sb2-complete",
       "purpose": null,
       "subject": null,
       "body": null,
@@ -1024,7 +1024,7 @@
     "pk": 89,
     "fields": {
       "template": 57,
-      "template_slug": "notify-geometer-case-completed",
+      "template_slug": "notify-geometer-sb2-complete",
       "language": "de",
       "purpose": "Benachrichtigung Geometer bei Abschluss Baugesuch",
       "subject": "Baugesuch abgeschlossen (eBau-Nr. {{EBAU_NUMBER}}) / demande de permis de construire complétée (n° eBau {{EBAU_NUMBER}})",

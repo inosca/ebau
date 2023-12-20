@@ -1611,6 +1611,9 @@ def test_instance_finalize(
         }
     ]
 
+    # Geometer notification is tested elsewhere
+    del application_settings["CALUMA"]["SIMPLE_WORKFLOW"]["sb2"]["notification"]
+
     be_instance.case.meta.update(
         {
             "submit-date": be_instance.creation_date.strftime(SUBMIT_DATE_FORMAT),
