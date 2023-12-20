@@ -64,7 +64,7 @@ export default class InstancesEditController extends Controller {
             { key: "camac-instance-id", value: String(this.model) },
           ]),
         },
-        include: "category,files",
+        include: "files,marks",
         sort: "title",
       }));
 
@@ -85,6 +85,7 @@ export default class InstancesEditController extends Controller {
           ]),
         },
         sort: "title",
+        include: "files,marks",
       }));
 
   #objectionAttachments = query(this, "document", () => ({
@@ -95,6 +96,7 @@ export default class InstancesEditController extends Controller {
       ]),
     },
     sort: "title",
+    include: "files,marks",
   }));
 
   get hasFeedbackSection() {

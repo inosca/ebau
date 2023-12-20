@@ -165,4 +165,7 @@ class CustomVisibility(BaseVisibility, InstanceQuerysetMixin):
 
     @filter_queryset_for(Mark)
     def filter_queryset_for_mark(self, queryset, request):
+        if get_role(request.caluma_info.context.user) == "public":
+            return queryset.filter(pk__in=settings.ALEXANDRIA["PUBLIC_MARKS"])
+
         return queryset.order_by("metainfo__sort")

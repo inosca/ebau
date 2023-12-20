@@ -149,7 +149,7 @@ export default class AlexandriaDocumentsFormComponent extends Component {
         category: this.category,
         metainfo: JSON.stringify(metainfoFilter),
       },
-      include: "category,files",
+      include: "category,files,marks",
       sort: "title",
     });
   });

@@ -219,7 +219,7 @@ PublicationPermission = IsPublicAccess & (
     )
     | (
         # Alexandria
-        IsView("PatchedDocumentViewSet", "PatchedFileViewSet")
+        IsView("PatchedDocumentViewSet", "PatchedFileViewSet", "PatchedMarkViewSet")
         & (PublicationGR | PublicationSO | PublicationTest)
     )
     | (

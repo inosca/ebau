@@ -34,6 +34,7 @@ export default class PublicInstancesDetailDocumentsController extends Controller
           ]),
         },
         sort: "title",
+        include: "files,marks",
       });
     } catch (e) {
       this.notification.danger(this.intl.t("publicInstancesDetail.loadError"));
