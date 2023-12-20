@@ -220,7 +220,7 @@ class InstanceQuerysetMixin(object):
         queryset = self.get_base_queryset()
         instance_field = self._get_instance_filter_expr("pk", "in")
         instances_for_activation = self._instances_with_activation(
-            group, {"deadline__date__gte": timezone.localdate()}
+            group, Q(deadline__date__gte=timezone.localdate()) | Q(status="completed")
         )
 
         return queryset.filter(**{instance_field: instances_for_activation})
@@ -363,25 +363,23 @@ class InstanceQuerysetMixin(object):
             )
         )
 
-    def _instances_with_activation(self, group, extra_filters={}):
+    def _instances_with_activation(self, group, extra_filters=None):
         if settings.DISTRIBUTION:
             # WARNING: if this logic changes, `hasInquiry` in
             # php/library/Custom/CalumaDistribution.php needs to be updated as
             # well
-            return list(
-                WorkItem.objects.filter(
-                    task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
-                    addressed_groups=[str(group.service.pk)],
-                    **extra_filters,
-                )
-                .exclude(
-                    status__in=[
-                        WorkItem.STATUS_SUSPENDED,
-                        WorkItem.STATUS_CANCELED,
-                    ],
-                )
-                .values_list("case__family__instance__pk", flat=True)
+            work_items = WorkItem.objects.filter(
+                task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
+                addressed_groups=[str(group.service.pk)],
+            ).exclude(
+                status__in=[
+                    WorkItem.STATUS_SUSPENDED,
+                    WorkItem.STATUS_CANCELED,
+                ],
             )
+            if extra_filters:
+                work_items = work_items.filter(extra_filters)
+            return list(work_items.values_list("case__family__instance__pk", flat=True))
 
         return Circulation.objects.filter(activations__service=group.service).values(
             "instance_id"
