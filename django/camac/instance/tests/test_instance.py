@@ -130,8 +130,12 @@ def test_instance_list_for_coordination_ur(
 
 @pytest.mark.freeze_time("2023-12-01")
 @pytest.mark.parametrize(
-    "deadline_date,expected_count",
-    [("2023-12-02 00:00:00+00", 1), ("2023-11-30 00:00:00+00", 0)],
+    "deadline_date,workitem_status,expected_count",
+    [
+        ("2023-12-02 00:00:00+00", "completed", 1),
+        ("2023-11-30 00:00:00+00", "completed", 1),
+        ("2023-11-30 00:00:00+00", "ready", 0),
+    ],
 )
 @pytest.mark.parametrize("role__name,instance__user", [("uso", LazyFixture("user"))])
 def test_instance_list_for_uso_gr(
@@ -141,6 +145,7 @@ def test_instance_list_for_uso_gr(
     service_factory,
     case_factory,
     work_item_factory,
+    workitem_status,
     role,
     deadline_date,
     expected_count,
@@ -152,6 +157,7 @@ def test_instance_list_for_uso_gr(
             task_id="inquiry",
             addressed_groups=[gr_instance.group.service.pk],
             deadline=deadline_date,
+            status=workitem_status,
         )
     )
     gr_instance.group = group_factory(service=service_factory(), role=role)
