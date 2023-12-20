@@ -240,17 +240,17 @@
     'EBAU_URL': 'http://ebau.local',
     'EIGENE_GEBUEHREN': list([
       dict({
-        'BETRAG': '103.04',
-        'FORFAIT': '103.04',
-        'POSITION': '',
+        'BETRAG': '681.74',
+        'FORFAIT': '681.74',
+        'POSITION': 'step',
       }),
       dict({
-        'BETRAG': '31.59',
-        'FORFAIT': '31.59',
-        'POSITION': '',
+        'BETRAG': '951.16',
+        'FORFAIT': '951.16',
+        'POSITION': 'experience',
       }),
     ]),
-    'EIGENE_GEBUEHREN_TOTAL': '134.63',
+    'EIGENE_GEBUEHREN_TOTAL': '1’632.90',
     'EIGENE_NEBENBESTIMMUNGEN': 'Nebenbestimmungen 1',
     'EIGENE_STELLUNGNAHMEN': 'Stellungnahme 1',
     'EINSPRACHEN': list([
@@ -284,27 +284,27 @@
     'EMAIL': '',
     'EMOLUMENTS': list([
       dict({
-        'BETRAG': '553.85',
-        'FORFAIT': '553.85',
-        'POSITION': '',
+        'BETRAG': '258.21',
+        'FORFAIT': '258.21',
+        'POSITION': 'hope',
       }),
       dict({
-        'BETRAG': '21.60',
-        'FORFAIT': '21.60',
-        'POSITION': '',
+        'BETRAG': '204.37',
+        'FORFAIT': '204.37',
+        'POSITION': 'short',
       }),
       dict({
-        'BETRAG': '103.04',
-        'FORFAIT': '103.04',
-        'POSITION': '',
+        'BETRAG': '681.74',
+        'FORFAIT': '681.74',
+        'POSITION': 'step',
       }),
       dict({
-        'BETRAG': '31.59',
-        'FORFAIT': '31.59',
-        'POSITION': '',
+        'BETRAG': '951.16',
+        'FORFAIT': '951.16',
+        'POSITION': 'experience',
       }),
     ]),
-    'EMOLUMENTS_TOTAL': '710.08',
+    'EMOLUMENTS_TOTAL': '2’095.48',
     'ENSEMBLE_BÂTI': 'Ja',
     'ENSEMBLE_BÂTI_DÉNOMINATION': 'Test Baugruppe',
     'ERHALTENSWERT': 'Nein',
@@ -414,27 +414,27 @@
     'GEBAEUDEEIGENTUEMER_NAME_ADRESSE': 'Peter Meier, Thunstrasse 88, 3002 Bern',
     'GEBUEHREN': list([
       dict({
-        'BETRAG': '553.85',
-        'FORFAIT': '553.85',
-        'POSITION': '',
+        'BETRAG': '258.21',
+        'FORFAIT': '258.21',
+        'POSITION': 'hope',
       }),
       dict({
-        'BETRAG': '21.60',
-        'FORFAIT': '21.60',
-        'POSITION': '',
+        'BETRAG': '204.37',
+        'FORFAIT': '204.37',
+        'POSITION': 'short',
       }),
       dict({
-        'BETRAG': '103.04',
-        'FORFAIT': '103.04',
-        'POSITION': '',
+        'BETRAG': '681.74',
+        'FORFAIT': '681.74',
+        'POSITION': 'step',
       }),
       dict({
-        'BETRAG': '31.59',
-        'FORFAIT': '31.59',
-        'POSITION': '',
+        'BETRAG': '951.16',
+        'FORFAIT': '951.16',
+        'POSITION': 'experience',
       }),
     ]),
-    'GEBUEHREN_TOTAL': '710.08',
+    'GEBUEHREN_TOTAL': '2’095.48',
     'GEFAEHRLICHE_STOFFE': list([
     ]),
     'GEMEINDE': 'Burgdorf',
@@ -579,17 +579,17 @@
     'MEINE_ORGANISATION_TELEFON': '',
     'MES_EMOLUMENTS': list([
       dict({
-        'BETRAG': '103.04',
-        'FORFAIT': '103.04',
-        'POSITION': '',
+        'BETRAG': '681.74',
+        'FORFAIT': '681.74',
+        'POSITION': 'step',
       }),
       dict({
-        'BETRAG': '31.59',
-        'FORFAIT': '31.59',
-        'POSITION': '',
+        'BETRAG': '951.16',
+        'FORFAIT': '951.16',
+        'POSITION': 'experience',
       }),
     ]),
-    'MES_EMOLUMENTS_TOTAL': '134.63',
+    'MES_EMOLUMENTS_TOTAL': '1’632.90',
     'MODIFICATION_DATE': '',
     'MODIFICATION_TIME': '',
     'MON_ORGANISATION_ADRESSE_1': '',
@@ -5019,9 +5019,19 @@
             'de': 'BETRAG',
           }),
         ]),
+        'KOSTENSTELLE': list([
+          dict({
+            'de': 'KOSTENSTELLE',
+          }),
+        ]),
         'POSITION': list([
           dict({
             'de': 'POSITION',
+          }),
+        ]),
+        'RECHTSGRUNDLAGE': list([
+          dict({
+            'de': 'RECHTSGRUNDLAGE',
           }),
         ]),
       }),
@@ -5100,9 +5110,19 @@
             'de': 'BETRAG',
           }),
         ]),
+        'KOSTENSTELLE': list([
+          dict({
+            'de': 'KOSTENSTELLE',
+          }),
+        ]),
         'POSITION': list([
           dict({
             'de': 'POSITION',
+          }),
+        ]),
+        'RECHTSGRUNDLAGE': list([
+          dict({
+            'de': 'RECHTSGRUNDLAGE',
           }),
         ]),
       }),
@@ -6763,7 +6783,9 @@
     'EIGENE_GEBUEHREN',
     'EIGENE_GEBUEHREN[]',
     'EIGENE_GEBUEHREN[].BETRAG',
+    'EIGENE_GEBUEHREN[].KOSTENSTELLE',
     'EIGENE_GEBUEHREN[].POSITION',
+    'EIGENE_GEBUEHREN[].RECHTSGRUNDLAGE',
     'EIGENE_GEBUEHREN_TOTAL',
     'FACHSTELLEN_KANTONAL',
     'FACHSTELLEN_KANTONAL[]',
@@ -6775,7 +6797,9 @@
     'GEBUEHREN',
     'GEBUEHREN[]',
     'GEBUEHREN[].BETRAG',
+    'GEBUEHREN[].KOSTENSTELLE',
     'GEBUEHREN[].POSITION',
+    'GEBUEHREN[].RECHTSGRUNDLAGE',
     'GEBUEHREN_TOTAL',
     'GEMEINDE',
     'GEMEINDE_ADRESSE',
@@ -7543,5 +7567,51 @@
     ]),
     'ZONENPLAN': 'Rebwirtschaftszone',
     'ZUSTAENDIG_NAME': 'Rebecca Gonzalez',
+  })
+# ---
+# name: test_dms_placeholders_so[Municipality]
+  dict({
+    'EIGENE_GEBUEHREN': list([
+      dict({
+        'BETRAG': '505.54',
+        'KOSTENSTELLE': '127342955',
+        'POSITION': 'loss',
+        'RECHTSGRUNDLAGE': 'learn',
+      }),
+      dict({
+        'BETRAG': '120.65',
+        'KOSTENSTELLE': '113609408',
+        'POSITION': 'provide',
+        'RECHTSGRUNDLAGE': 'somebody',
+      }),
+    ]),
+    'EIGENE_GEBUEHREN_TOTAL': '626.19',
+    'GEBUEHREN': list([
+      dict({
+        'BETRAG': '505.54',
+        'KOSTENSTELLE': '127342955',
+        'POSITION': 'loss',
+        'RECHTSGRUNDLAGE': 'learn',
+      }),
+      dict({
+        'BETRAG': '120.65',
+        'KOSTENSTELLE': '113609408',
+        'POSITION': 'provide',
+        'RECHTSGRUNDLAGE': 'somebody',
+      }),
+      dict({
+        'BETRAG': '4’938.05',
+        'KOSTENSTELLE': '',
+        'POSITION': 'lot',
+        'RECHTSGRUNDLAGE': '',
+      }),
+      dict({
+        'BETRAG': '679.42',
+        'KOSTENSTELLE': '',
+        'POSITION': 'foot',
+        'RECHTSGRUNDLAGE': '',
+      }),
+    ]),
+    'GEBUEHREN_TOTAL': '6’243.66',
   })
 # ---

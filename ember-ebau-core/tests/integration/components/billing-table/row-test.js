@@ -45,6 +45,8 @@ module("Integration | Component | billing-table/row", function (hooks) {
       "billing.charge",
       "billing.organization",
       "billing.billingType",
+      "billing.legalBasis",
+      "billing.costCenter",
     );
     this.features.disable("billing.displayService");
     await render(hbs`<BillingTable::Row @entry={{this.entry}} />`);
@@ -55,7 +57,9 @@ module("Integration | Component | billing-table/row", function (hooks) {
     assert
       .dom("td[data-test-entry-charge] input[data-test-toggle][type=checkbox]")
       .exists();
-    assert.dom("td[data-test-entry-text]").hasText(this.entry.text);
+    assert
+      .dom("td[data-test-entry-text]")
+      .hasText(`${this.entry.text} (${this.entry.legalBasis})`);
     assert
       .dom("td[data-test-entry-group]")
       .hasText(this.entry.get("group.name"));
@@ -69,7 +73,9 @@ module("Integration | Component | billing-table/row", function (hooks) {
     assert.dom("td[data-test-entry-added]").hasText("01.11.2023");
     assert.dom("td[data-test-entry-charged]").hasText("08.11.2023");
     assert.dom("td[data-test-entry-organization]").hasText("Kommunal");
-    assert.dom("td[data-test-entry-billing-type]").hasText("Direkt verrechnet");
+    assert
+      .dom("td[data-test-entry-billing-type]")
+      .hasText(`Direkt verrechnet (KST ${this.entry.costCenter})`);
     assert.dom("td[data-test-entry-delete] button[data-test-delete]").exists();
 
     this.features.disable("billing.charge");

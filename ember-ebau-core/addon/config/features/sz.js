@@ -6,5 +6,7 @@ export default {
     orderTaxByRate: true,
     displayService: false,
     billingType: false,
+    legalBasis: false,
+    costCenter: false,
   },
 };

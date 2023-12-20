@@ -13,7 +13,12 @@
       >
     </td>
   {{/if}}
-  <td data-test-entry-text>{{@entry.text}}</td>
+  <td data-test-entry-text>
+    {{@entry.text}}
+    {{#if (and (has-feature "billing.legalBasis") @entry.legalBasis)}}
+      <span class="uk-text-italic">({{@entry.legalBasis}})</span>
+    {{/if}}
+  </td>
   {{#if (has-feature "billing.displayService")}}
     <td data-test-entry-service>{{@entry.group.service.name}}</td>
   {{else}}
@@ -32,7 +37,15 @@
     <td data-test-entry-organization>{{if @entry.organization (t (concat "billing.organizations." @entry.organization))}}</td>
   {{/if}}
   {{#if (has-feature "billing.billingType")}}
-    <td data-test-entry-billing-type>{{if @entry.billingType (t (concat "billing.billing-types." @entry.billingType))}}</td>
+    <td data-test-entry-billing-type>
+      {{#if @entry.billingType}}
+        {{t (concat "billing.billing-types." @entry.billingType)}}
+        {{#if (and (has-feature "billing.costCenter") @entry.costCenter)}}
+          <br>
+          <span class="uk-text-italic">({{t "billing.cost-center-short"}} {{@entry.costCenter}})</span>
+        {{/if}}
+      {{/if}}
+    </td>
   {{/if}}
   {{#if (can "edit billing-v2-entries")}}
     <td data-test-entry-delete>
