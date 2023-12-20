@@ -24,6 +24,7 @@ from camac.caluma.api import CalumaApi
 from camac.constants import kt_uri as uri_constants
 from camac.core.models import (
     Answer,
+    Answer as CamacAnswer,
     AuthorityLocation,
     HistoryActionConfig,
     InstanceLocation,
@@ -515,6 +516,19 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
     decision = serializers.SerializerMethodField()
     involved_at = serializers.SerializerMethodField()
     is_after_decision = serializers.SerializerMethodField()
+    rejection_feedback = serializers.SerializerMethodField()
+
+    def get_rejection_feedback(self, instance):
+        if settings.APPLICATION_NAME == "kt_uri":
+            rejection = CamacAnswer.objects.filter(
+                instance=instance,
+                chapter_id=uri_constants.REJECTION_FEEDBACK_CHAPTER_ID,
+                question_id=uri_constants.REJECTION_FEEDBACK_QUESTION_ID,
+            ).first()
+
+            return rejection.answer if rejection else None
+
+        return instance.rejection_feedback
 
     def get_is_paper(self, instance):
         return CalumaApi().is_paper(instance)
