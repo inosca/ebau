@@ -515,6 +515,14 @@
               {
                 "scope": "All",
                 "condition": {
+                  "PaperInstance": true,
+                  "~InstanceState": ["rejected", "finished"]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "condition": {
                   "InstanceState": "new",
                   "PaperInstance": true
                 },
@@ -1182,6 +1190,19 @@
                   "~InstanceState": ["rejected", "finished"]
                 },
                 "permission": "update"
+              },
+              {
+                "scope": "All",
+                "condition": {
+                  "PaperInstance": true
+                },
+                "permission": "update"
+              },
+              {
+                "condition": {
+                  "PaperInstance": true
+                },
+                "permission": "create"
               }
             ]
           }
