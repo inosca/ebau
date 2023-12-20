@@ -297,6 +297,45 @@ def test_dms_placeholders_gr(
     snapshot.assert_match(response.json())
 
 
+@pytest.mark.parametrize("role__name", ["Municipality"])
+def test_dms_placeholders_so(
+    db,
+    admin_client,
+    billing_v2_entry_factory,
+    group_factory,
+    group,
+    snapshot,
+    so_distribution_settings,
+    so_dms_config,
+    so_instance,
+):
+    billing_v2_entry_factory.create_batch(2, group=group, instance=so_instance)
+    billing_v2_entry_factory.create_batch(
+        2,
+        group=group_factory(),
+        instance=so_instance,
+        legal_basis=None,
+        cost_center=None,
+    )
+
+    url = reverse("instance-dms-placeholders", args=[so_instance.pk])
+
+    response = admin_client.get(url)
+
+    assert response.status_code == status.HTTP_200_OK
+
+    checked_keys = [
+        "EIGENE_GEBUEHREN_TOTAL",
+        "EIGENE_GEBUEHREN",
+        "GEBUEHREN_TOTAL",
+        "GEBUEHREN",
+    ]
+
+    assert {
+        key: value for key, value in response.json().items() if key in checked_keys
+    } == snapshot
+
+
 @pytest.mark.freeze_time("2021-08-30", tick=True)
 @pytest.mark.parametrize("role__name", ["Municipality"])
 @pytest.mark.django_db(

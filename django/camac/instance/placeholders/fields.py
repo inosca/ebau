@@ -30,8 +30,12 @@ class AliasedMixin(object):
         super().__init__(*args, **kwargs)
 
         self.aliases = aliases
-        self.nested_aliases = nested_aliases
+        self._nested_aliases = nested_aliases
         self.description = description
+
+    @property
+    def nested_aliases(self):
+        return self._nested_aliases
 
 
 class AliasedIntegerField(AliasedMixin, serializers.IntegerField):
@@ -133,14 +137,30 @@ class ResponsibleUserField(AliasedMixin, serializers.ReadOnlyField):
 
 class BillingEntriesField(AliasedMixin, serializers.ReadOnlyField):
     def __init__(self, own=False, total=False, **kwargs):
-        nested_aliases = (
-            {"POSITION": [_("POSITION")], "BETRAG": [_("AMOUNT")]} if not total else {}
-        )
-
-        super().__init__(nested_aliases=nested_aliases, **kwargs)
+        super().__init__(**kwargs)
 
         self.own = own
         self.total = total
+
+    @property
+    def nested_aliases(self):
+        if self.total:
+            return {}
+
+        nested_aliases = {
+            "POSITION": [_("POSITION")],
+            "BETRAG": [_("AMOUNT")],
+        }
+
+        if settings.APPLICATION_NAME == "kt_so":
+            nested_aliases.update(
+                {
+                    "RECHTSGRUNDLAGE": [_("LEGAL_BASIS")],
+                    "KOSTENSTELLE": [_("COST_CENTER")],
+                }
+            )
+
+        return nested_aliases
 
     def format_rate(self, value):
         return f"{value:,.2f}".replace(",", "’")
@@ -153,10 +173,25 @@ class BillingEntriesField(AliasedMixin, serializers.ReadOnlyField):
                 else 0
             )
 
-        return [
-            {"POSITION": entry.text, "BETRAG": self.format_rate(entry.final_rate)}
-            for entry in value
-        ]
+        data = []
+
+        for entry in value:
+            row = {
+                "POSITION": entry.text,
+                "BETRAG": self.format_rate(entry.final_rate),
+            }
+
+            if settings.APPLICATION_NAME == "kt_so":
+                row.update(
+                    {
+                        "RECHTSGRUNDLAGE": entry.legal_basis,
+                        "KOSTENSTELLE": entry.cost_center,
+                    }
+                )
+
+            data.append(row)
+
+        return data
 
     def get_attribute(self, instance):
         own_filters = (

@@ -40,6 +40,8 @@ class BillingV2Entry(models.Model):
 
     # Billing text
     text = models.TextField()
+    cost_center = models.TextField(blank=True, null=True)
+    legal_basis = models.TextField(blank=True, null=True)
     date_added = models.DateField(auto_now_add=True)
     date_charged = models.DateField(null=True, blank=True)
 

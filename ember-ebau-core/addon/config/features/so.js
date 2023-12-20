@@ -12,6 +12,8 @@ export default {
     orderTaxByRate: false,
     displayService: true,
     billingType: true,
+    legalBasis: true,
+    costCenter: true,
   },
   rejection: {
     useLegacyClaims: false,

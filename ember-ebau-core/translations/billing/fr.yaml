@@ -6,6 +6,9 @@ billing:
     organisation. La facturation doit être effectuée par chaque organisation
     participante comme auparavant.
   position: Position
+  legal-basis:
+  cost-center:
+  cost-center-short:
   service: Organisation
   group: Groupe
   user: Utilisateur

@@ -100,7 +100,12 @@ module("Acceptance | billing", function (hooks) {
   });
 
   test("it can add billing entries", async function (assert) {
-    this.features.enable("billing.organization", "billing.billingType");
+    this.features.enable(
+      "billing.organization",
+      "billing.billingType",
+      "billing.legalBasis",
+      "billing.costCenter",
+    );
 
     await visit("/billing");
 
@@ -114,6 +119,8 @@ module("Acceptance | billing", function (hooks) {
     await click("a[data-test-add]");
     assert.strictEqual(currentURL(), "/billing/new");
     await fillIn("input[name=text]", "Test 1");
+    await fillIn("input[name=legal-basis]", "Test §§101");
+    await fillIn("input[name=cost-center]", "1000121");
     await fillIn("select[name=calculation]", "flat");
     await fillIn("input[name=total-cost]", 1000.5);
     await fillIn("select[name=tax-mode]", "inclusive:7.7");
@@ -128,6 +135,8 @@ module("Acceptance | billing", function (hooks) {
     // second entry
     await click("a[data-test-add]");
     await fillIn("input[name=text]", "Test 2");
+    await fillIn("input[name=legal-basis]", "Test §§102");
+    await fillIn("input[name=cost-center]", "1000122");
     await fillIn("select[name=calculation]", "percentage");
     await fillIn("input[name=percentage]", 10.5);
     await fillIn("input[name=total-cost]", 1000.5);
@@ -140,6 +149,8 @@ module("Acceptance | billing", function (hooks) {
     // third entry
     await click("a[data-test-add]");
     await fillIn("input[name=text]", "Test 3");
+    await fillIn("input[name=legal-basis]", "Test §§103");
+    await fillIn("input[name=cost-center]", "1000123");
     await fillIn("select[name=calculation]", "hourly");
     await fillIn("input[name=hours]", 1.5);
     await fillIn("input[name=hourly-rate]", 150.5);
