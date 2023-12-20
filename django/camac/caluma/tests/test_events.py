@@ -856,10 +856,10 @@ def test_post_create_reject_work_item(
 
 
 @pytest.mark.parametrize(
-    "notification_template__slug", ["notify-geometer-case-completed"]
+    "notification_template__slug", ["notify-geometer-sb2-complete"]
 )
 @pytest.mark.parametrize("has_geometer", [True, False])
-def test_complete_building_permit(
+def test_geometer_complete_sb2(
     db,
     set_application_be,
     caluma_workflow_config_be,
@@ -884,7 +884,7 @@ def test_complete_building_permit(
 
     configure_custom_notification_types()
 
-    work_item = work_item_factory(task_id="complete", case=be_instance.case)
+    work_item = work_item_factory(task_id="sb2", case=be_instance.case)
 
     if has_geometer:
         geometer_service = service_factory()
@@ -897,7 +897,8 @@ def test_complete_building_permit(
         permissions_settings["geometer"] = [("foo", ["*"])]
 
     # We don't play though the whole workflow, but just trigger the
-    # corresponding event directly
+    # corresponding event directly. We can get away with this as
+    # the notification doesn't need any specific information
     send_event(
         workflow_events.post_complete_work_item,
         sender="test",
