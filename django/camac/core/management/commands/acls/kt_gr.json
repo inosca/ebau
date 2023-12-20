@@ -47,7 +47,7 @@
   "2000003": {
     "label": "Meine Dossiers (Dossier list for Services (Caluma)) > Dokumente",
     "acls": {
-      "service-lead": ["circulation", "decision", "finished"]
+      "service-lead": ["circulation", "decision", "finished", "rejected"]
     }
   },
   "2000004": {
@@ -163,7 +163,8 @@
         "construction-monitoring",
         "decision",
         "finished",
-        "init-distribution"
+        "init-distribution",
+        "rejected"
       ]
     }
   },
@@ -232,13 +233,25 @@
   "14000001": {
     "label": "Meine Dossiers (Dossier list for Services (Caluma)) > Formular",
     "acls": {
-      "service-lead": ["circulation", "decision", "finished", "subm"]
+      "service-lead": [
+        "circulation",
+        "decision",
+        "finished",
+        "subm",
+        "rejected"
+      ]
     }
   },
   "14000002": {
     "label": "Meine Dossiers (Dossier list for Services (Caluma)) > Aufgaben",
     "acls": {
-      "service-lead": ["circulation", "decision", "finished", "subm"]
+      "service-lead": [
+        "circulation",
+        "decision",
+        "finished",
+        "subm",
+        "rejected"
+      ]
     }
   },
   "14000003": {
@@ -270,7 +283,13 @@
   "14000006": {
     "label": "Meine Dossiers (Dossier list for Services (Caluma)) > Zirkulation",
     "acls": {
-      "service-lead": ["circulation", "decision", "finished", "subm"]
+      "service-lead": [
+        "circulation",
+        "decision",
+        "finished",
+        "subm",
+        "rejected"
+      ]
     }
   },
   "14000007": {
@@ -298,7 +317,14 @@
   "14000009": {
     "label": "Meine Dossiers (Dossier list for Services (Caluma)) > Journal",
     "acls": {
-      "service-lead": ["circulation", "decision", "finished", "new", "subm"]
+      "service-lead": [
+        "circulation",
+        "decision",
+        "finished",
+        "new",
+        "subm",
+        "rejected"
+      ]
     }
   },
   "14000010": {
@@ -326,7 +352,13 @@
   "14000012": {
     "label": "Meine Dossiers (Dossier list for Services (Caluma)) > Vorlagen",
     "acls": {
-      "service-lead": ["circulation", "decision", "finished", "subm"]
+      "service-lead": [
+        "circulation",
+        "decision",
+        "finished",
+        "subm",
+        "rejected"
+      ]
     }
   },
   "14000013": {
@@ -413,7 +445,13 @@
   "18000002": {
     "label": "Meine Dossiers (Dossier list for Services (Caluma)) > History",
     "acls": {
-      "service-lead": ["circulation", "decision", "finished", "subm"]
+      "service-lead": [
+        "circulation",
+        "decision",
+        "finished",
+        "subm",
+        "rejected"
+      ]
     }
   },
   "18000003": {
