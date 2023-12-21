@@ -87,18 +87,6 @@ services:
     networks:
       - ebau.local
 
-  ember-ebau:
-    image: acr.run/camac-ng/camac-ng/ember-ebau:master
-    build:
-      context: ../
-      dockerfile: ./ember-ebau/Dockerfile
-      cache_from:
-        - acr.run/camac-ng/camac-ng/ember-ebau:master
-      args:
-        - APPLICATION=${APPLICATION}
-    networks:
-      - ebau.local
-
 
   mailhog:
     image: mailhog/mailhog
