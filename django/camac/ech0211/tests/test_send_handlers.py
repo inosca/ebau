@@ -397,9 +397,6 @@ def test_close_dossier_send_handler(
 
     case = ech_instance_case()
 
-    # Geometer notification is tested elsewhere
-    del application_settings["CALUMA"]["SIMPLE_WORKFLOW"]["complete"]["notification"]
-
     for task_id in [
         "submit",
         "ebau-number",
