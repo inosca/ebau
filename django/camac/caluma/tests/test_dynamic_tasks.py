@@ -152,11 +152,7 @@ def test_dynamic_task_after_decision(
                 ]
                 if decision_type
                 else None,
-            )
-
-            decision.document.answers.create(
-                question_id="decision-geometer",
-                value="decision-geometer-yes"
+                decision_geometer="decision-geometer-yes"
                 if involve_geometer
                 else "decision-geometer-no",
             )
@@ -423,26 +419,31 @@ def test_dynamic_task_after_exam(
         (False, []),
     ],
 )
-def test_dynamic_task_after_geometer(
+def test_dynamic_task_after_check_sb2(
     db,
     answer_factory,
     expected_tasks,
     perform_cadastral_survey,
     be_instance,
     work_item_factory,
+    caluma_admin_user,
 ):
-    work_item = work_item_factory(task_id="geometer", case=be_instance.case)
-
+    geometer_work_item = work_item_factory(
+        task_id="geometer", case=be_instance.case, child_case=None
+    )
     answer_factory(
-        document=work_item.document,
+        document=geometer_work_item.document,
         question__slug="geometer-beurteilung-notwendigkeit-vermessung",
         value="geometer-beurteilung-notwendigkeit-vermessung-notwendig"
         if perform_cadastral_survey
         else "geometer-beurteilung-notwendigkeit-vermessung-nicht-notwendig",
     )
 
+    complete_work_item(geometer_work_item, user=caluma_admin_user)
+    work_item = work_item_factory(task_id="check-sb2", case=be_instance.case)
+
     assert (
-        CustomDynamicTasks().resolve_after_geometer(
+        CustomDynamicTasks().resolve_after_check_sb2(
             be_instance.case, None, work_item, None
         )
         == expected_tasks

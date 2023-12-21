@@ -233,6 +233,7 @@ DUMP_DATA_APPS = [
     "caluma_workflow",
     "alexandria_core",
     "gis",
+    "permissions",
 ]
 
 DUMP_DATA_EXCLUDED_MODELS = [

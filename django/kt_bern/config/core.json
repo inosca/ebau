@@ -81,6 +81,13 @@
     }
   },
   {
+    "model": "core.aphp",
+    "pk": 15000003,
+    "fields": {
+      "php_class": "CheckHasOpenCadastralSurvey"
+    }
+  },
+  {
     "model": "core.action",
     "pk": 20022,
     "fields": {
@@ -189,7 +196,7 @@
       "success_message": null,
       "error_message": null,
       "execute_always": 0,
-      "sort": 0
+      "sort": 1
     }
   },
   {
@@ -259,7 +266,7 @@
       "success_message": null,
       "error_message": null,
       "execute_always": 0,
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -450,6 +457,20 @@
     "fields": {
       "available_action": "php",
       "button": 20047,
+      "name": null,
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 0
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 15000003,
+    "fields": {
+      "available_action": "php",
+      "button": 20048,
       "name": null,
       "description": null,
       "success_message": null,
@@ -866,6 +887,18 @@
       "description": null,
       "success_message": null,
       "error_message": "Le formulaire n'a pas été rempli complètement. Veuillez vérifier vos entrées et essayer à nouveau de clore la correction du dossier. Pour vérifier si le dossier est complet, naviguez vers la rubrique « Envoyer » du formulaire."
+    }
+  },
+  {
+    "model": "core.actiont",
+    "pk": 15000005,
+    "fields": {
+      "action": 15000003,
+      "language": "de",
+      "name": "Validation",
+      "description": null,
+      "success_message": null,
+      "error_message": "Das Verfahren kann nicht abgeschlossen werden, wenn die Nachführung amtliche Vermessung noch ausstehend ist."
     }
   },
   {
@@ -38451,7 +38484,7 @@
       "instance_resource": 20070,
       "name": null,
       "description": null,
-      "class_field": "active_baukontrolle_only leitung_only",
+      "class_field": "active_baukontrolle_only leitung_only no_open_cadastral_survey",
       "hidden": 0,
       "sort": 2
     }
@@ -46879,7 +46912,7 @@
       "description": null,
       "template": "/ember-camac-ng/permissions.phtml",
       "class_field": null,
-      "hidden": 1,
+      "hidden": 0,
       "sort": 25,
       "form_group": 40000,
       "require_permission": null
