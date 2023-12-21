@@ -1,0 +1,24 @@
+# serializer version: 1
+# name: test_param_client
+  dict({
+    'data': dict({
+      'parzellen': dict({
+        'form': 'owner-car-kitchen',
+        'hidden': False,
+        'label': 'Suse Junk',
+        'value': list([
+          dict({
+            'lagekoordinaten-nord': dict({
+              'label': 'Mechtild Kobelt MBA.',
+              'value': 1228434.884375,
+            }),
+            'lagekoordinaten-ost': dict({
+              'label': 'Frau Isolde Zimmer MBA.',
+              'value': 2607160.642708333,
+            }),
+          }),
+        ]),
+      }),
+    }),
+  })
+# ---

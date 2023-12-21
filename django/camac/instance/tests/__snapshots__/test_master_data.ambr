@@ -1,0 +1,727 @@
+# serializer version: 1
+# name: test_master_data[kt_bern-de-be_master_data_case-select_related0-prefetch_related0-9]
+  dict({
+    'alcohol_serving': 'mit',
+    'applicants': list([
+      dict({
+        'first_name': 'Max',
+        'is_juristic_person': True,
+        'juristic_name': 'ACME AG',
+        'last_name': 'Mustermann',
+        'street': 'Teststrasse',
+        'street_number': 123,
+        'town': 'Testhausen',
+        'zip': 1234,
+      }),
+    ]),
+    'application_type': None,
+    'building_distances': list([
+    ]),
+    'building_owners': list([
+      dict({
+        'first_name': 'Peter',
+        'is_juristic_person': None,
+        'juristic_name': None,
+        'last_name': 'Meier',
+        'street': 'Thunstrasse',
+        'street_number': 88,
+        'town': 'Bern',
+        'zip': 3002,
+      }),
+    ]),
+    'city': 'Musterhausen',
+    'completion_date': None,
+    'conservable': dict({
+      'label': 'Nein',
+      'slug': 'erhaltenswert-nein',
+    }),
+    'construction_costs': 199000,
+    'construction_group': dict({
+      'label': 'Ja',
+      'slug': 'baugruppe-bauinventar-ja',
+    }),
+    'construction_group_designation': 'Test Baugruppe',
+    'construction_start_date': None,
+    'contract': dict({
+      'label': 'Ja',
+      'slug': 'vertrag-ja',
+    }),
+    'contract_start': datetime.date(2022, 2, 1),
+    'decision_date': None,
+    'description_modification': 'Doch eher kleines Haus',
+    'development_regulations': 'Überbauung XY',
+    'dimension_height': None,
+    'dossier_number': '2021-1',
+    'final_approval_date': None,
+    'fire_protection_systems': list([
+    ]),
+    'floor_area': None,
+    'hazardous_substances': list([
+    ]),
+    'heating_systems': list([
+    ]),
+    'interior_seating': list([
+      dict({
+        'total_seats': 20,
+      }),
+      dict({
+        'total_seats': 15,
+      }),
+    ]),
+    'is_paper': False,
+    'k_object': dict({
+      'label': 'Ja',
+      'slug': 'k-objekt-ja',
+    }),
+    'landowners': list([
+      dict({
+        'first_name': 'Sandra',
+        'is_juristic_person': None,
+        'juristic_name': None,
+        'last_name': 'Holzer',
+        'street': 'Bernweg',
+        'street_number': 12,
+        'town': 'Bern',
+        'zip': 3002,
+      }),
+    ]),
+    'legal_representatives': list([
+      dict({
+        'first_name': None,
+        'is_juristic_person': True,
+        'juristic_name': 'Mustermann und Söhne AG',
+        'last_name': None,
+        'street': 'Juristenweg',
+        'street_number': 99,
+        'town': 'Bern',
+        'zip': 3008,
+      }),
+    ]),
+    'lifts': list([
+    ]),
+    'municipality': dict({
+      'label': 'Bern',
+      'slug': '1',
+    }),
+    'nature_risk_type': list([
+    ]),
+    'number_of_accomodated_persons': None,
+    'organisation_category': 'ebaube',
+    'outside_seating': 20,
+    'paper_submit_date': datetime.datetime(2021, 3, 20, 13, 17, 8, tzinfo=tzutc()),
+    'plot_data': list([
+      dict({
+        'coord_east': 2599941,
+        'coord_north': 1198923,
+        'egrid_number': 'CH334687350542',
+        'plot_number': 473,
+      }),
+      dict({
+        'coord_east': 2601995,
+        'coord_north': 1201340,
+        'egrid_number': 'CH913553467614',
+        'plot_number': 2592,
+      }),
+    ]),
+    'profile_approval_date': None,
+    'project': dict({
+      'label': 'Neubau',
+      'slug': 'baubeschrieb-neubau',
+    }),
+    'project_authors': list([
+      dict({
+        'first_name': 'Hans',
+        'is_juristic_person': None,
+        'juristic_name': None,
+        'last_name': 'Müller',
+        'street': 'Einweg',
+        'street_number': 9,
+        'town': 'Bern',
+        'zip': 3000,
+      }),
+    ]),
+    'proposal': 'Grosses Haus',
+    'protected': dict({
+      'label': 'Ja',
+      'slug': 'schuetzenswert-ja',
+    }),
+    'protection_area': list([
+      dict({
+        'label': 'S1',
+        'slug': 'grundwasserschutzzonen-s1',
+      }),
+    ]),
+    'public': dict({
+      'label': 'Öffentlich',
+      'slug': 'oeffentlichkeit-oeffentlich',
+    }),
+    'publication_date': None,
+    'qs_responsible': list([
+    ]),
+    'remark': None,
+    'room_occupancy_rooms_more_than_50_persons': None,
+    'rooms_with_more_than_50_persons': list([
+    ]),
+    'rrb': dict({
+      'label': 'Ja',
+      'slug': 'rrb-ja',
+    }),
+    'rrb_start': datetime.date(2022, 1, 1),
+    'situation': 'Sachverhalt Test',
+    'solar_panels': list([
+    ]),
+    'stfv_critial_value_exceeded': None,
+    'stfv_risk_assessment': None,
+    'stfv_short_report_date': None,
+    'street': 'Musterstrasse',
+    'street_number': 4,
+    'submit_date': datetime.datetime(2021, 3, 31, 13, 17, 8, tzinfo=tzutc()),
+    'usage_type': list([
+      dict({
+        'label': 'Wohnen',
+        'slug': 'nutzungsart-wohnen',
+      }),
+    ]),
+    'usage_zone': 'Wohnzone W2',
+    'ventilation_systems': list([
+    ]),
+    'water_protection_area': list([
+      dict({
+        'label': 'Aᵤ',
+        'slug': 'gewaesserschutzbereich-v2-au',
+      }),
+    ]),
+    'zip': 3000,
+  })
+# ---
+# name: test_master_data[kt_bern-fr-be_master_data_case-select_related1-prefetch_related1-9]
+  dict({
+    'alcohol_serving': 'mit',
+    'applicants': list([
+      dict({
+        'first_name': 'Max',
+        'is_juristic_person': True,
+        'juristic_name': 'ACME AG',
+        'last_name': 'Mustermann',
+        'street': 'Teststrasse',
+        'street_number': 123,
+        'town': 'Testhausen',
+        'zip': 1234,
+      }),
+    ]),
+    'application_type': None,
+    'building_distances': list([
+    ]),
+    'building_owners': list([
+      dict({
+        'first_name': 'Peter',
+        'is_juristic_person': None,
+        'juristic_name': None,
+        'last_name': 'Meier',
+        'street': 'Thunstrasse',
+        'street_number': 88,
+        'town': 'Bern',
+        'zip': 3002,
+      }),
+    ]),
+    'city': 'Musterhausen',
+    'completion_date': None,
+    'conservable': dict({
+      'label': 'Nein',
+      'slug': 'erhaltenswert-nein',
+    }),
+    'construction_costs': 199000,
+    'construction_group': dict({
+      'label': 'Ja',
+      'slug': 'baugruppe-bauinventar-ja',
+    }),
+    'construction_group_designation': 'Test Baugruppe',
+    'construction_start_date': None,
+    'contract': dict({
+      'label': 'Ja',
+      'slug': 'vertrag-ja',
+    }),
+    'contract_start': datetime.date(2022, 2, 1),
+    'decision_date': None,
+    'description_modification': 'Doch eher kleines Haus',
+    'development_regulations': 'Überbauung XY',
+    'dimension_height': None,
+    'dossier_number': '2021-1',
+    'final_approval_date': None,
+    'fire_protection_systems': list([
+    ]),
+    'floor_area': None,
+    'hazardous_substances': list([
+    ]),
+    'heating_systems': list([
+    ]),
+    'interior_seating': list([
+      dict({
+        'total_seats': 20,
+      }),
+      dict({
+        'total_seats': 15,
+      }),
+    ]),
+    'is_paper': False,
+    'k_object': dict({
+      'label': 'Ja',
+      'slug': 'k-objekt-ja',
+    }),
+    'landowners': list([
+      dict({
+        'first_name': 'Sandra',
+        'is_juristic_person': None,
+        'juristic_name': None,
+        'last_name': 'Holzer',
+        'street': 'Bernweg',
+        'street_number': 12,
+        'town': 'Bern',
+        'zip': 3002,
+      }),
+    ]),
+    'legal_representatives': list([
+      dict({
+        'first_name': None,
+        'is_juristic_person': True,
+        'juristic_name': 'Mustermann und Söhne AG',
+        'last_name': None,
+        'street': 'Juristenweg',
+        'street_number': 99,
+        'town': 'Bern',
+        'zip': 3008,
+      }),
+    ]),
+    'lifts': list([
+    ]),
+    'municipality': dict({
+      'label': 'Berne',
+      'slug': '1',
+    }),
+    'nature_risk_type': list([
+    ]),
+    'number_of_accomodated_persons': None,
+    'organisation_category': 'ebaube',
+    'outside_seating': 20,
+    'paper_submit_date': datetime.datetime(2021, 3, 20, 13, 17, 8, tzinfo=tzutc()),
+    'plot_data': list([
+      dict({
+        'coord_east': 2599941,
+        'coord_north': 1198923,
+        'egrid_number': 'CH334687350542',
+        'plot_number': 473,
+      }),
+      dict({
+        'coord_east': 2601995,
+        'coord_north': 1201340,
+        'egrid_number': 'CH913553467614',
+        'plot_number': 2592,
+      }),
+    ]),
+    'profile_approval_date': None,
+    'project': dict({
+      'label': 'Neubau',
+      'slug': 'baubeschrieb-neubau',
+    }),
+    'project_authors': list([
+      dict({
+        'first_name': 'Hans',
+        'is_juristic_person': None,
+        'juristic_name': None,
+        'last_name': 'Müller',
+        'street': 'Einweg',
+        'street_number': 9,
+        'town': 'Bern',
+        'zip': 3000,
+      }),
+    ]),
+    'proposal': 'Grosses Haus',
+    'protected': dict({
+      'label': 'Ja',
+      'slug': 'schuetzenswert-ja',
+    }),
+    'protection_area': list([
+      dict({
+        'label': 'S1',
+        'slug': 'grundwasserschutzzonen-s1',
+      }),
+    ]),
+    'public': dict({
+      'label': 'Öffentlich',
+      'slug': 'oeffentlichkeit-oeffentlich',
+    }),
+    'publication_date': None,
+    'qs_responsible': list([
+    ]),
+    'remark': None,
+    'room_occupancy_rooms_more_than_50_persons': None,
+    'rooms_with_more_than_50_persons': list([
+    ]),
+    'rrb': dict({
+      'label': 'Ja',
+      'slug': 'rrb-ja',
+    }),
+    'rrb_start': datetime.date(2022, 1, 1),
+    'situation': 'Sachverhalt Test',
+    'solar_panels': list([
+    ]),
+    'stfv_critial_value_exceeded': None,
+    'stfv_risk_assessment': None,
+    'stfv_short_report_date': None,
+    'street': 'Musterstrasse',
+    'street_number': 4,
+    'submit_date': datetime.datetime(2021, 3, 31, 13, 17, 8, tzinfo=tzutc()),
+    'usage_type': list([
+      dict({
+        'label': 'Vivre',
+        'slug': 'nutzungsart-wohnen',
+      }),
+    ]),
+    'usage_zone': 'Wohnzone W2',
+    'ventilation_systems': list([
+    ]),
+    'water_protection_area': list([
+      dict({
+        'label': 'Aᵤ',
+        'slug': 'gewaesserschutzbereich-v2-au',
+      }),
+    ]),
+    'zip': 3000,
+  })
+# ---
+# name: test_master_data[kt_schwyz-de-sz_master_data_case_gwr-select_related3-prefetch_related3-5]
+  dict({
+    'applicants': list([
+      dict({
+        'company': 'ACME AG',
+        'country': 'Schweiz',
+        'email': None,
+        'first_name': 'Max',
+        'is_juristic_person': False,
+        'juristic_name': 'ACME AG',
+        'last_name': 'Mustermann',
+        'phone': None,
+        'street': 'Teststrasse 3',
+        'town': 'Musterdorf',
+        'zip': 5678,
+      }),
+    ]),
+    'application_type': 'Elizabeth Garcia',
+    'application_type_migrated': None,
+    'building_owners': list([
+      dict({
+        'company': 'ACME AG',
+        'country': 'Schweiz',
+        'email': None,
+        'first_name': 'Max',
+        'is_juristic_person': False,
+        'juristic_name': 'ACME AG',
+        'last_name': 'Mustermann',
+        'phone': None,
+        'street': 'Teststrasse 3',
+        'town': 'Musterdorf',
+        'zip': 5678,
+      }),
+    ]),
+    'buildings': list([
+      dict({
+        'building_category': 1060,
+        'civil_defense_shelter': None,
+        'dwellings': list([
+          dict({
+            'area': 42,
+            'has_kitchen_facilities': True,
+            'kitchen_facilities': 'Kochnische (unter 4m²)',
+            'location_on_floor': 'Nord',
+            'multiple_floors': True,
+            'number_of_rooms': 4,
+          }),
+        ]),
+        'heating_energy_source': 7540,
+        'heating_heat_generator': 7436,
+        'name': None,
+        'number_of_floors': 2,
+        'number_of_rooms': None,
+        'warmwater_energy_source': 7560,
+        'warmwater_heat_generator': None,
+      }),
+    ]),
+    'city': None,
+    'completion_date': list([
+    ]),
+    'construction_costs': 129000,
+    'construction_start_date': list([
+    ]),
+    'coordinates': list([
+    ]),
+    'decision_date': None,
+    'dossier_number': None,
+    'final_approval_date': list([
+    ]),
+    'landowners': list([
+    ]),
+    'legal_representatives': list([
+    ]),
+    'municipality': 'Duncanchester',
+    'organization_category': 'ebausz',
+    'plot_data': list([
+      dict({
+        'egrid_number': 'CH1234567890',
+        'plot_number': 1234,
+      }),
+    ]),
+    'proceeding_type': None,
+    'profile_approval_date': list([
+    ]),
+    'project_authors': list([
+    ]),
+    'proposal': 'Grosses Haus',
+    'publication_date': None,
+    'remark': None,
+    'street': None,
+    'street_addition': None,
+    'submit_date': None,
+    'usage_type': None,
+    'usage_zone': None,
+  })
+# ---
+# name: test_master_data[kt_schwyz-de-sz_master_data_case_gwr_v2-select_related4-prefetch_related4-5]
+  dict({
+    'applicants': list([
+      dict({
+        'company': 'ACME AG',
+        'country': 'Schweiz',
+        'email': None,
+        'first_name': 'Max',
+        'is_juristic_person': False,
+        'juristic_name': 'ACME AG',
+        'last_name': 'Mustermann',
+        'phone': None,
+        'street': 'Teststrasse 3',
+        'town': 'Musterdorf',
+        'zip': 5678,
+      }),
+    ]),
+    'application_type': 'Elizabeth Garcia',
+    'application_type_migrated': None,
+    'building_owners': list([
+      dict({
+        'company': 'ACME AG',
+        'country': 'Schweiz',
+        'email': None,
+        'first_name': 'Max',
+        'is_juristic_person': False,
+        'juristic_name': 'ACME AG',
+        'last_name': 'Mustermann',
+        'phone': None,
+        'street': 'Teststrasse 3',
+        'town': 'Musterdorf',
+        'zip': 5678,
+      }),
+    ]),
+    'buildings': list([
+      dict({
+        'building_category': 1020,
+        'civil_defense_shelter': True,
+        'dwellings': list([
+          dict({
+            'area': 70,
+            'has_kitchen_facilities': True,
+            'kitchen_facilities': None,
+            'location_on_floor': 'West',
+            'multiple_floors': False,
+            'number_of_rooms': 2,
+          }),
+          dict({
+            'area': 24,
+            'has_kitchen_facilities': False,
+            'kitchen_facilities': None,
+            'location_on_floor': 'Ost',
+            'multiple_floors': False,
+            'number_of_rooms': 3,
+          }),
+        ]),
+        'heating_energy_source': 7510,
+        'heating_heat_generator': 7411,
+        'name': 'Grosses Haus',
+        'number_of_floors': 4,
+        'number_of_rooms': 24,
+        'warmwater_energy_source': 7570,
+        'warmwater_heat_generator': 7650,
+      }),
+    ]),
+    'city': None,
+    'completion_date': list([
+    ]),
+    'construction_costs': 129000,
+    'construction_start_date': list([
+    ]),
+    'coordinates': list([
+    ]),
+    'decision_date': None,
+    'dossier_number': None,
+    'final_approval_date': list([
+    ]),
+    'landowners': list([
+    ]),
+    'legal_representatives': list([
+    ]),
+    'municipality': 'Duncanchester',
+    'organization_category': 'ebausz',
+    'plot_data': list([
+      dict({
+        'egrid_number': 'CH1234567890',
+        'plot_number': 1234,
+      }),
+    ]),
+    'proceeding_type': None,
+    'profile_approval_date': list([
+    ]),
+    'project_authors': list([
+    ]),
+    'proposal': 'Grosses Haus',
+    'publication_date': None,
+    'remark': None,
+    'street': None,
+    'street_addition': None,
+    'submit_date': None,
+    'usage_type': None,
+    'usage_zone': None,
+  })
+# ---
+# name: test_master_data[kt_uri-de-ur_master_data_case-select_related2-prefetch_related2-8]
+  dict({
+    'applicants': list([
+      dict({
+        'country': 'Schweiz',
+        'first_name': 'Max',
+        'is_juristic_person': True,
+        'juristic_name': 'ACME AG',
+        'last_name': 'Mustermann',
+        'street': 'Teststrasse',
+        'street_number': 123,
+        'town': 'Musterdorf',
+        'zip': 1233,
+      }),
+    ]),
+    'approval_reason': '5031',
+    'authority': dict({
+      'label': 'Altdorf',
+      'slug': '1',
+    }),
+    'buildings': list([
+      dict({
+        'building_category': 1060,
+        'name': 'Villa',
+        'proposal': list([
+          6001,
+        ]),
+      }),
+    ]),
+    'category': list([
+      6011,
+      6010,
+    ]),
+    'city': 'Musterdorf',
+    'construction_costs': 129000,
+    'construction_end_date': datetime.datetime(2021, 7, 30, 8, 0, 6, tzinfo=<UTC>),
+    'construction_start_date': datetime.datetime(2021, 7, 25, 8, 0, 6, tzinfo=<UTC>),
+    'decision_date': datetime.datetime(2021, 7, 20, 8, 0, 6, tzinfo=<UTC>),
+    'dossier_number': '1201-21-003',
+    'dwellings': list([
+      dict({
+        'area': '420',
+        'floor_number': '2',
+        'floor_type': 3101,
+        'has_kitchen_facilities': True,
+        'kitchen_facilities': 'kocheinrichtung-kochnische-greater-4-m2',
+        'location_on_floor': 'Süd',
+        'multiple_floors': True,
+        'name_of_building': 'Villa',
+        'number_of_rooms': '20',
+        'usage_limitation': 3401,
+      }),
+      dict({
+        'area': '72',
+        'floor_number': None,
+        'floor_type': 3100,
+        'has_kitchen_facilities': False,
+        'kitchen_facilities': 'kocheinrichtung-keine-kocheinrichtung',
+        'location_on_floor': 'Nord',
+        'multiple_floors': False,
+        'name_of_building': 'Villa',
+        'number_of_rooms': '10',
+        'usage_limitation': 3402,
+      }),
+    ]),
+    'energy_devices': list([
+      dict({
+        'energy_source': 7570,
+        'information_source': 869,
+        'is_heating': True,
+        'is_main_heating': True,
+        'is_warm_water': False,
+        'name_of_building': 'Villa',
+        'type': 'anlagetyp-hauptheizung',
+      }),
+    ]),
+    'form_type': list([
+      'form-type-oereb',
+    ]),
+    'legal_state': list([
+      'typ-des-verfahrens-genehmigung',
+    ]),
+    'leitbehoerde_internal_form': None,
+    'municipality': dict({
+      'label': 'Altdorf',
+      'slug': '1',
+    }),
+    'oereb_topic': list([
+      'oereb-thema-knp',
+    ]),
+    'plot_data': list([
+      dict({
+        'coordinates_east': 2690970.9,
+        'coordinates_north': 1192891.9,
+        'egrid_number': 'CH123456789',
+        'origin_of_coordinates': 901,
+        'plot_number': 123456789,
+      }),
+    ]),
+    'proposal': 'Grosses Haus',
+    'street': 'Musterstrasse',
+    'street_number': 4,
+    'submit_date': datetime.datetime(2021, 7, 16, 8, 0, 6, tzinfo=<UTC>),
+    'type_of_applicant': '6141',
+    'type_of_construction': list([
+      dict({
+        'art_der_hochbaute': 6235,
+      }),
+    ]),
+    'veranstaltung_art': list([
+      'veranstaltung-art-umbau',
+    ]),
+  })
+# ---
+# name: test_master_data_parsers
+  dict({
+    'date': datetime.date(2021, 8, 18),
+    'datetime': datetime.datetime(2021, 8, 18, 6, 58, 8, 397000, tzinfo=tzutc()),
+    'my_values': list([
+      dict({
+        'my_list': list([
+          dict({
+            'my_list_value': 11,
+          }),
+          dict({
+            'my_list_value': 12,
+          }),
+        ]),
+        'my_static_value': 3.14,
+        'my_value': 10,
+      }),
+    ]),
+    'static_value': 'some-value',
+    'success': True,
+  })
+# ---

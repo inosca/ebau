@@ -1,0 +1,262 @@
+# serializer version: 1
+# name: test_record_loading_be[dossier_row_patch0-dossier_number-kt_bern]
+  None
+# ---
+# name: test_record_loading_be[dossier_row_patch1-dossier_number-kt_bern]
+  '2017-1'
+# ---
+# name: test_record_loading_be[dossier_row_patch10-publication_date-kt_bern]
+  datetime.date(2021, 12, 12)
+# ---
+# name: test_record_loading_be[dossier_row_patch11-construction_start_date-kt_bern]
+  datetime.date(2021, 12, 12)
+# ---
+# name: test_record_loading_be[dossier_row_patch12-profile_approval_date-kt_bern]
+  datetime.date(2021, 12, 12)
+# ---
+# name: test_record_loading_be[dossier_row_patch13-decision_date-kt_bern]
+  datetime.date(2021, 12, 12)
+# ---
+# name: test_record_loading_be[dossier_row_patch14-final_approval_date-kt_bern]
+  datetime.date(2021, 12, 12)
+# ---
+# name: test_record_loading_be[dossier_row_patch15-completion_date-kt_bern]
+  datetime.date(2021, 12, 12)
+# ---
+# name: test_record_loading_be[dossier_row_patch16-application_type-kt_bern]
+  None
+# ---
+# name: test_record_loading_be[dossier_row_patch17-applicants-kt_bern]
+  list([
+    dict({
+      'first_name': 'Willy',
+      'is_juristic_person': None,
+      'juristic_name': 'Chocolate Factory',
+      'last_name': 'Wonka',
+      'street': 'Candy Lane',
+      'street_number': '13',
+      'town': 'Wonderland',
+      'zip': 1234,
+    }),
+  ])
+# ---
+# name: test_record_loading_be[dossier_row_patch18-landowners-kt_bern]
+  list([
+    dict({
+      'first_name': 'Willy',
+      'is_juristic_person': None,
+      'juristic_name': 'Chocolate Factory',
+      'last_name': 'Wonka',
+      'street': 'Candy Lane',
+      'street_number': '13',
+      'town': 'Wonderland',
+      'zip': None,
+    }),
+  ])
+# ---
+# name: test_record_loading_be[dossier_row_patch19-project_authors-kt_bern]
+  list([
+    dict({
+      'first_name': 'Willy',
+      'is_juristic_person': None,
+      'juristic_name': 'Chocolate Factory',
+      'last_name': 'Wonka',
+      'street': 'Candy Lane',
+      'street_number': None,
+      'town': 'Wonderland',
+      'zip': None,
+    }),
+  ])
+# ---
+# name: test_record_loading_be[dossier_row_patch2-dossier_number-kt_bern]
+  '2017-1'
+# ---
+# name: test_record_loading_be[dossier_row_patch20-project_authors-kt_bern]
+  list([
+  ])
+# ---
+# name: test_record_loading_be[dossier_row_patch3-dossier_number-kt_bern]
+  '2020-1'
+# ---
+# name: test_record_loading_be[dossier_row_patch4-dossier_number-kt_bern]
+  '2017-1'
+# ---
+# name: test_record_loading_be[dossier_row_patch5-street-kt_bern]
+  '100000000020000000003000000000400000000050000000006000000...'
+# ---
+# name: test_record_loading_be[dossier_row_patch6-plot_data-kt_bern]
+  list([
+    dict({
+      'coord_east': 2710662.0,
+      'coord_north': 1225997.0,
+      'egrid_number': 'HK207838123456',
+      'plot_number': '`123`',
+    }),
+    dict({
+      'coord_east': None,
+      'coord_north': None,
+      'egrid_number': 'EGRIDDELLEY',
+      'plot_number': '2BA',
+    }),
+  ])
+# ---
+# name: test_record_loading_be[dossier_row_patch7-plot_data-kt_bern]
+  list([
+    dict({
+      'coord_east': None,
+      'coord_north': None,
+      'egrid_number': 'HK207838123456',
+      'plot_number': '`123`',
+    }),
+    dict({
+      'coord_east': None,
+      'coord_north': None,
+      'egrid_number': 'EGRIDDELLEY',
+      'plot_number': '2BA',
+    }),
+  ])
+# ---
+# name: test_record_loading_be[dossier_row_patch8-plot_data-kt_bern]
+  list([
+    dict({
+      'coord_east': 2710662.0,
+      'coord_north': 1225997.0,
+      'egrid_number': 'HK207838123456',
+      'plot_number': '`123`',
+    }),
+    dict({
+      'coord_east': None,
+      'coord_north': None,
+      'egrid_number': 'None',
+      'plot_number': '2BA',
+    }),
+  ])
+# ---
+# name: test_record_loading_be[dossier_row_patch9-submit_date-kt_bern]
+  datetime.datetime(2021, 12, 12, 0, 0)
+# ---
+# name: test_record_loading_sz[dossier_row_patch0-coordinates-kt_schwyz-sz_instance]
+  list([
+    dict({
+      'lat': 47.175669937318816,
+      'lng': 8.8984885140077,
+    }),
+  ])
+# ---
+# name: test_record_loading_sz[dossier_row_patch1-street-kt_schwyz-sz_instance]
+  'Musterstrasse 3a'
+# ---
+# name: test_record_loading_sz[dossier_row_patch10-completion_date-kt_schwyz-sz_instance]
+  list([
+    dict({
+      'value': datetime.date(2021, 12, 12),
+    }),
+  ])
+# ---
+# name: test_record_loading_sz[dossier_row_patch11-application_type_migrated-kt_schwyz-sz_instance]
+  'Baugesuch'
+# ---
+# name: test_record_loading_sz[dossier_row_patch12-applicants-kt_schwyz-sz_instance]
+  list([
+    dict({
+      'company': 'Chocolate Factory',
+      'country': 'Schweiz',
+      'email': 'candy@example.com',
+      'first_name': 'Willy',
+      'is_juristic_person': None,
+      'juristic_name': 'Chocolate Factory',
+      'last_name': 'Wonka',
+      'phone': '+1 101 10 01 101',
+      'street': 'Candy Lane 13',
+      'town': 'Wonderland',
+      'zip': 1234,
+    }),
+  ])
+# ---
+# name: test_record_loading_sz[dossier_row_patch13-landowners-kt_schwyz-sz_instance]
+  list([
+    dict({
+      'company': 'Chocolate Factory',
+      'country': 'Schweiz',
+      'email': 'candy@example.com',
+      'first_name': 'Willy',
+      'is_juristic_person': None,
+      'juristic_name': 'Chocolate Factory',
+      'last_name': 'Wonka',
+      'phone': '+1 101 10 01 101',
+      'street': 'Candy Lane 13',
+      'town': 'Wonderland',
+      'zip': '2345',
+    }),
+  ])
+# ---
+# name: test_record_loading_sz[dossier_row_patch14-project_authors-kt_schwyz-sz_instance]
+  list([
+    dict({
+      'company': 'Chocolate Factory',
+      'country': 'Schweiz',
+      'email': 'candy@example.com',
+      'first_name': 'Willy',
+      'is_juristic_person': None,
+      'juristic_name': 'Chocolate Factory',
+      'last_name': 'Wonka',
+      'phone': '+1 101 10 01 101',
+      'street': 'Candy Lane',
+      'town': 'Wonderland',
+      'zip': '3456',
+    }),
+  ])
+# ---
+# name: test_record_loading_sz[dossier_row_patch15-project_authors-kt_schwyz-sz_instance]
+  list([
+  ])
+# ---
+# name: test_record_loading_sz[dossier_row_patch2-plot_data-kt_schwyz-sz_instance]
+  list([
+    dict({
+      'egrid_number': 'HK207838123456',
+      'plot_number': '123',
+    }),
+    dict({
+      'egrid_number': 'EGRIDDELLEY',
+      'plot_number': '2BA',
+    }),
+  ])
+# ---
+# name: test_record_loading_sz[dossier_row_patch3-submit_date-kt_schwyz-sz_instance]
+  datetime.datetime(2021, 12, 12, 11, 0, tzinfo=<UTC>)
+# ---
+# name: test_record_loading_sz[dossier_row_patch4-publication_date-kt_schwyz-sz_instance]
+  datetime.datetime(2021, 12, 12, 11, 0, tzinfo=<UTC>)
+# ---
+# name: test_record_loading_sz[dossier_row_patch5-construction_start_date-kt_schwyz-sz_instance]
+  list([
+    dict({
+      'value': datetime.date(2021, 12, 12),
+    }),
+  ])
+# ---
+# name: test_record_loading_sz[dossier_row_patch6-profile_approval_date-kt_schwyz-sz_instance]
+  list([
+    dict({
+      'value': datetime.date(2021, 12, 12),
+    }),
+  ])
+# ---
+# name: test_record_loading_sz[dossier_row_patch7-decision_date-kt_schwyz-sz_instance]
+  datetime.date(2021, 12, 12)
+# ---
+# name: test_record_loading_sz[dossier_row_patch8-final_approval_date-kt_schwyz-sz_instance]
+  list([
+    dict({
+      'value': datetime.date(2021, 12, 12),
+    }),
+  ])
+# ---
+# name: test_record_loading_sz[dossier_row_patch9-completion_date-kt_schwyz-sz_instance]
+  list([
+    dict({
+      'value': datetime.date(2021, 12, 12),
+    }),
+  ])
+# ---
