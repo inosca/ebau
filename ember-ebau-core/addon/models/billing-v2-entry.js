@@ -5,6 +5,8 @@ export default class BillingV2EntryModel extends Model {
   @service intl;
 
   @attr text;
+  @attr legalBasis;
+  @attr costCenter;
   @attr dateAdded;
   @attr dateCharged;
   @attr taxMode;

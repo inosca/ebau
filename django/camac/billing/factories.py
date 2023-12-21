@@ -21,6 +21,10 @@ class BillingV2EntryFactory(DjangoModelFactory):
     date_added = Faker("past_datetime", tzinfo=pytz.UTC)
     date_charged = None
     organization = fuzzy.FuzzyChoice(choice_keys(BillingV2Entry.ORGANIZATION_CHOICES))
+    billing_type = fuzzy.FuzzyChoice(choice_keys(BillingV2Entry.BILLING_TYPE_CHOICES))
+    text = Faker("word")
+    legal_basis = Faker("word")
+    cost_center = Faker("aba")
 
     tax_mode = fuzzy.FuzzyChoice(choice_keys(BillingV2Entry.TAX_MODE_CHOICES))
     tax_rate = Maybe(

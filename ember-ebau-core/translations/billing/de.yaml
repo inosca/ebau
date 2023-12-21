@@ -5,6 +5,9 @@ billing:
     automatisch an die Verrechnungsstellen der Organisation weitergleitet. Die
     Rechnungsstellung muss jede beteiligte Organisation wie bisher vornehmen.
   position: Position
+  legal-basis: Rechtsgrundlage
+  cost-center: Kostenstelle
+  cost-center-short: KST
   service: Organisation
   group: Gruppe
   user: Benutzer
@@ -74,7 +77,7 @@ billing:
       <li>
         <strong>Rechnung zu eröffnen:</strong>
         Fachstelle erstellt Rechnung und schickt diese an die Gemeinde zur
-        weiteren Bearbeitung.
+        weiteren Bearbeitung. Inkasso durch Fachstelle.
       </li>
       <li>
         <strong>Direkt verrechnet:</strong>
