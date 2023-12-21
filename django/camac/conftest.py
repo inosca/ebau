@@ -1220,6 +1220,7 @@ def decision_factory(be_instance, document_factory, work_item_factory):
         decision="decision-decision-assessment-accepted",
         decision_type="decision-approval-type-building-permit",
         decision_date=date.today(),
+        decision_geometer="decision-geometer-no",
     ):
         work_item = instance.case.work_items.filter(task_id="decision").first()
 
@@ -1242,6 +1243,12 @@ def decision_factory(be_instance, document_factory, work_item_factory):
         if decision_date:
             work_item.document.answers.create(
                 question_id="decision-date", date=decision_date
+            )
+
+        if decision_geometer:
+            work_item.document.answers.create(
+                question_id="decision-geometer",
+                value=decision_geometer,
             )
 
         return work_item

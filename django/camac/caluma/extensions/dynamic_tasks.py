@@ -152,20 +152,27 @@ class CustomDynamicTasks(BaseDynamicTasks):
 
         return []  # pragma: no cover
 
-    @register_dynamic_task("after-geometer")
-    def resolve_after_geometer(self, case, user, prev_work_item, context):
-        perform_cadastral_survey = (
-            prev_work_item.document.answers.filter(
-                question_id="geometer-beurteilung-notwendigkeit-vermessung"
-            )
-            .values_list("value", flat=True)
-            .first()
-        )
+    @register_dynamic_task("after-check-sb2")
+    def resolve_after_check_sb2(self, case, user, prev_work_item, context):
+        geometer_work_item = WorkItem.objects.filter(
+            case=case,
+            task_id="geometer",
+            status=WorkItem.STATUS_COMPLETED,
+        ).first()
 
-        if (
-            perform_cadastral_survey
-            == "geometer-beurteilung-notwendigkeit-vermessung-notwendig"
-        ):
-            return ["cadastral-survey"]
+        if geometer_work_item:
+            perform_cadastral_survey = (
+                geometer_work_item.document.answers.filter(
+                    question_id="geometer-beurteilung-notwendigkeit-vermessung"
+                )
+                .values_list("value", flat=True)
+                .first()
+            )
+
+            if (
+                perform_cadastral_survey
+                == "geometer-beurteilung-notwendigkeit-vermessung-notwendig"
+            ):
+                return ["cadastral-survey"]
 
         return []

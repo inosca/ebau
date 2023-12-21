@@ -186,6 +186,13 @@ class NoticeRulingSendHandler(DocumentAccessibilityMixin, BaseSendHandler):
                     ),
                     value=settings.DECISION["ANSWERS"]["APPROVAL_TYPE"]["UNKNOWN"],
                 )
+                # TODO: Needs to be defined what the expected behavior is for
+                # services working through eCH-0211 and geometer involvment
+                save_answer(
+                    document=decision_document,
+                    question=Question.objects.get(slug="decision-geometer"),
+                    value="decision-geometer-no",
+                )
 
             # this handle status changes and assignment of the construction control
             # for "normal" judgements
