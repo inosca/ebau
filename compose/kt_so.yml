@@ -24,7 +24,7 @@ services:
         SO_GIS_URL: $$SO_GIS_URL
         INTERNAL_URL: $$INTERNAL_URL
         EGOV_PORTAL_URL: $$EGOV_PORTAL_URL
-        REPLACE_ENVS: \$${KEYCLOAK_HOST},\$${BE_GIS_URL},\$${SO_GIS_URL},\$${INTERNAL_URL},\$${EGOV_PORTAL_URL}
+        REPLACE_ENV: \$${KEYCLOAK_HOST},\$${BE_GIS_URL},\$${SO_GIS_URL},\$${INTERNAL_URL},\$${EGOV_PORTAL_URL}
         WORKSPACE: ember-caluma-portal
 
   ember-ebau:
@@ -40,7 +40,7 @@ services:
         KEYCLOAK_HOST: $$KEYCLOAK_HOST
         PORTAL_URL: $$PORTAL_URL
         SO_GIS_URL: $$SO_GIS_URL
-        REPLACE_ENVS: \$${KEYCLOAK_HOST},\$${PORTAL_URL},\$${SO_GIS_URL}
+        REPLACE_ENV: \$${KEYCLOAK_HOST},\$${PORTAL_URL},\$${SO_GIS_URL}
         WORKSPACE: ember-ebau
 
   keycloak:
