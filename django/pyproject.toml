@@ -52,6 +52,7 @@ filterwarnings = [
     "error::DeprecationWarning",
     "error::PendingDeprecationWarning",
     "error::RuntimeWarning",
+    "ignore:the imp module is deprecated:DeprecationWarning",                          # Deprecation in future
     "ignore:defusedxml.lxml:DeprecationWarning",                                       # Deprecation in wsgidav
     "ignore:The 'arrayconnection' module is deprecated:DeprecationWarning",            # Deprecation in graphene
     "ignore:No fixture data:RuntimeWarning",                                           # Caused by automatically generated empty fixtures
