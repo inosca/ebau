@@ -522,7 +522,7 @@
     "pk": "inquiry-deadline",
     "fields": {
       "created_at": "2021-11-29T16:08:45.844Z",
-      "modified_at": "2023-05-30T11:11:14.234Z",
+      "modified_at": "2023-12-22T09:13:05.206Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -537,7 +537,9 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": {
+        "widgetOverride": "inquiry-deadline-input"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,

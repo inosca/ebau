@@ -98,4 +98,8 @@ export default {
     },
   },
   showDownloadReceiptAction: true,
+  customDeadlineServiceGroupSlugs: [
+    "authority-bab", // Ausserhalb Bauzone
+    "uso", // Umweltschutzorganisationen
+  ],
 };

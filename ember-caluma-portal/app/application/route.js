@@ -11,6 +11,7 @@ import DocumentValidityButtonComponent from "ember-ebau-core/components/document
 import DynamicMaxDateInputComponent from "ember-ebau-core/components/dynamic-max-date-input";
 import GrGisComponent from "ember-ebau-core/components/gr-gis";
 import InquiryAnswerStatus from "ember-ebau-core/components/inquiry-answer-status";
+import InquiryDeadlineInputComponent from "ember-ebau-core/components/inquiry-deadline-input";
 import LinkAttachmentsComponent from "ember-ebau-core/components/link-attachments";
 import PublicationDateKantonsamtsblattComponent from "ember-ebau-core/components/publication-date-kantonsamtsblatt";
 import PublicationStartDateComponent from "ember-ebau-core/components/publication-start-date";
@@ -188,6 +189,11 @@ export default class ApplicationRoute extends Route {
       label: "Start Auflage (Kt. SO)",
       component: "publication-start-date",
       componentClass: PublicationStartDateComponent,
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "Stellungnahme Frist",
+      component: "inquiry-deadline-input",
+      componentClass: InquiryDeadlineInputComponent,
     });
   }
 }

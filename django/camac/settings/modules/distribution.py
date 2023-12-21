@@ -582,6 +582,7 @@ DISTRIBUTION = {
         "QUESTIONS": {
             "STATEMENT": "inquiry-answer-assessment",
             "ANCILLARY_CLAUSES": "inquiry-answer-ancillary-clauses",
+            "DEADLINE": "inquiry-deadline",
         },
         "NOTIFICATIONS": {
             "INQUIRY_SENT": {
@@ -598,6 +599,10 @@ DISTRIBUTION = {
             },
         },
         "INQUIRY_TASK": "inquiry",
+        "DEADLINE_LEAD_TIME_FOR_ADDRESSED_SERVICES": {
+            "uso": 7,
+            "authority-bab": 60,
+        },
     },
     "kt_so": {
         "ENABLED": True,
