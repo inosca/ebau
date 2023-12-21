@@ -142,22 +142,6 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "decision-decision-other-preliminary",
-    "fields": {
-      "created_at": "2023-06-21T12:03:04.870Z",
-      "modified_at": "2023-06-21T12:03:04.870Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Anderweitiger Gesch\\u00e4ftsabschluss\", \"fr\": null, \"it\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
     "pk": "decision-decision-positive",
     "fields": {
       "created_at": "2023-06-21T11:17:40.932Z",
@@ -272,7 +256,7 @@
     "pk": "decision-decision",
     "fields": {
       "created_at": "2023-05-30T12:22:30.470Z",
-      "modified_at": "2023-06-21T12:03:05.082Z",
+      "modified_at": "2023-12-21T10:13:51.609Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -311,7 +295,7 @@
       "label": "{\"de\": \"Beschreibung\", \"fr\": null, \"it\": null}",
       "type": "text",
       "is_required": "false",
-      "is_hidden": "!(\"decision-decision-other\" == \"decision-decision\"|answer || \"decision-decision-other-preliminary\" == \"decision-decision\"|answer)",
+      "is_hidden": "!(\"decision-decision-other\" == \"decision-decision\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -345,7 +329,7 @@
       "label": "{\"de\": \"Bemerkungen\", \"fr\": null, \"it\": null}",
       "type": "textarea",
       "is_required": "false",
-      "is_hidden": "!(\"decision-decision-positive\" == \"decision-decision\"|answer || \"decision-decision-negative\" == \"decision-decision\"|answer || \"decision-decision-positive-with-reservation\" == \"decision-decision\"|answer || \"decision-decision-retreat\" == \"decision-decision\"|answer || \"decision-decision-other-preliminary\" == \"decision-decision\"|answer)",
+      "is_hidden": "!(\"decision-decision-positive\" == \"decision-decision\"|answer || \"decision-decision-negative\" == \"decision-decision\"|answer || \"decision-decision-positive-with-reservation\" == \"decision-decision\"|answer || \"decision-decision-retreat\" == \"decision-decision\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -408,8 +392,8 @@
     "model": "caluma_form.questionoption",
     "pk": "decision-decision.decision-decision-approved",
     "fields": {
-      "created_at": "2023-06-21T12:03:05.120Z",
-      "modified_at": "2023-06-21T12:03:05.120Z",
+      "created_at": "2023-12-21T10:13:51.666Z",
+      "modified_at": "2023-12-21T10:13:51.666Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -423,8 +407,8 @@
     "model": "caluma_form.questionoption",
     "pk": "decision-decision.decision-decision-negative",
     "fields": {
-      "created_at": "2023-06-21T12:03:05.106Z",
-      "modified_at": "2023-06-21T12:03:05.106Z",
+      "created_at": "2023-12-21T10:13:51.644Z",
+      "modified_at": "2023-12-21T10:13:51.644Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -438,8 +422,8 @@
     "model": "caluma_form.questionoption",
     "pk": "decision-decision.decision-decision-other",
     "fields": {
-      "created_at": "2023-06-21T12:03:05.094Z",
-      "modified_at": "2023-06-21T12:03:05.094Z",
+      "created_at": "2023-12-21T10:13:51.628Z",
+      "modified_at": "2023-12-21T10:13:51.628Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -451,25 +435,10 @@
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "decision-decision.decision-decision-other-preliminary",
-    "fields": {
-      "created_at": "2023-06-21T12:03:05.090Z",
-      "modified_at": "2023-06-21T12:03:05.090Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "decision-decision",
-      "option": "decision-decision-other-preliminary",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
     "pk": "decision-decision.decision-decision-positive",
     "fields": {
-      "created_at": "2023-06-21T12:03:05.109Z",
-      "modified_at": "2023-06-21T12:03:05.109Z",
+      "created_at": "2023-12-21T10:13:51.649Z",
+      "modified_at": "2023-12-21T10:13:51.649Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -483,8 +452,8 @@
     "model": "caluma_form.questionoption",
     "pk": "decision-decision.decision-decision-positive-with-reservation",
     "fields": {
-      "created_at": "2023-06-21T12:03:05.102Z",
-      "modified_at": "2023-06-21T12:03:05.102Z",
+      "created_at": "2023-12-21T10:13:51.639Z",
+      "modified_at": "2023-12-21T10:13:51.639Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -498,8 +467,8 @@
     "model": "caluma_form.questionoption",
     "pk": "decision-decision.decision-decision-rejected",
     "fields": {
-      "created_at": "2023-06-21T12:03:05.117Z",
-      "modified_at": "2023-06-21T12:03:05.117Z",
+      "created_at": "2023-12-21T10:13:51.660Z",
+      "modified_at": "2023-12-21T10:13:51.660Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -513,8 +482,8 @@
     "model": "caluma_form.questionoption",
     "pk": "decision-decision.decision-decision-retreat",
     "fields": {
-      "created_at": "2023-06-21T12:03:05.098Z",
-      "modified_at": "2023-06-21T12:03:05.098Z",
+      "created_at": "2023-12-21T10:13:51.633Z",
+      "modified_at": "2023-12-21T10:13:51.634Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -528,8 +497,8 @@
     "model": "caluma_form.questionoption",
     "pk": "decision-decision.decision-decision-written-off",
     "fields": {
-      "created_at": "2023-06-21T12:03:05.113Z",
-      "modified_at": "2023-06-21T12:03:05.113Z",
+      "created_at": "2023-12-21T10:13:51.655Z",
+      "modified_at": "2023-12-21T10:13:51.655Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
