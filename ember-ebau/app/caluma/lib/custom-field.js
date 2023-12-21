@@ -50,7 +50,7 @@ export default class CustomField extends Field {
           "decision-decision-negative",
           "decision-decision-positive-with-reservation",
           "decision-decision-retreat",
-          "decision-decision-other-preliminary",
+          "decision-decision-other",
         ];
       }
     }
