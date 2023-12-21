@@ -231,7 +231,9 @@ class PermissionManager:
         The queryset is limited to those entries where the current user has
         an active InstanceACL.
         """
-        return queryset.filter(self.get_q_object(instance_prefix))
+        # Need to make the QS distinct, as users may have multiple active
+        # ACLs, and we don't want to return a cartesian product
+        return queryset.filter(self.get_q_object(instance_prefix)).distinct()
 
     def get_q_object(self, instance_prefix):
         """Return a Q object to only show the entries with active ACL.
