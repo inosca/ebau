@@ -1,0 +1,8 @@
+# serializer version: 1
+# name: test_inquiry_and_decision_data[Municipality]
+  dict({
+    'decision': 'Bewilligt',
+    'decision-date': '2022-11-16',
+    'involved-at': '2022-08-31T22:00:00Z',
+  })
+# ---
