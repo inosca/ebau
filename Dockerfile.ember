@@ -50,6 +50,7 @@ COPY nginx/ember.conf /etc/nginx/conf.d/default.conf
 FROM nginxinc/nginx-unprivileged:1.25-alpine as prod-env
 ARG WORKSPACE
 ARG REPLACE_ENV
+ENV REPLACE_ENV_RUNTIME=$REPLACE_ENV
 USER root
 RUN chown -R nginx:nginx /usr/share/nginx/html
 USER nginx
@@ -57,4 +58,4 @@ COPY --from=build --chown=nginx:nginx /myapp/$WORKSPACE/build /usr/share/nginx/h
 COPY nginx/ember.conf /etc/nginx/conf.d/default.conf
 COPY nginx/replace-env-vars.sh /usr/local/bin/replace-env-vars
 RUN find /usr/share/nginx/html -iname "*.gz" -o -iname "*.br" | xargs rm -rf
-CMD /bin/sh -c "replace-env-vars $REPLACE_ENV /usr/share/nginx/html && nginx -g 'daemon off;'"
+CMD /bin/sh -c "replace-env-vars '$REPLACE_ENV_RUNTIME' /usr/share/nginx/html && nginx -g 'daemon off;'"
