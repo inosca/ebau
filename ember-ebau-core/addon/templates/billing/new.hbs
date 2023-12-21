@@ -16,6 +16,40 @@
     </div>
   </div>
 
+  {{#if (has-feature "billing.legalBasis")}}
+    <div class="uk-margin">
+      <label class="uk-form-label uk-text-bold" for="legal-basis">
+        {{t "billing.legal-basis"}}
+      </label>
+      <div class="uk-form-controls">
+        <Input
+          @type="text"
+          @value={{this.newEntry.legalBasis}}
+          id="legal-basis"
+          name="legal-basis"
+          class="uk-input"
+        />
+      </div>
+    </div>
+  {{/if}}
+
+  {{#if (has-feature "billing.costCenter")}}
+    <div class="uk-margin">
+      <label class="uk-form-label uk-text-bold" for="cost-center">
+        {{t "billing.cost-center"}}
+      </label>
+      <div class="uk-form-controls">
+        <Input
+          @type="text"
+          @value={{this.newEntry.costCenter}}
+          id="cost-center"
+          name="cost-center"
+          class="uk-input"
+        />
+      </div>
+    </div>
+  {{/if}}
+
   <div class="uk-margin">
     <label class="uk-form-label uk-text-bold" for="calculation">
       {{t "billing.calculation"}}

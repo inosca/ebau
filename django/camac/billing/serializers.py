@@ -73,6 +73,8 @@ class BillingV2EntrySerializer(serializers.ModelSerializer):
             "total_cost",
             "user",
             "billing_type",
+            "cost_center",
+            "legal_basis",
         )
         read_only_fields = (
             "date_added",

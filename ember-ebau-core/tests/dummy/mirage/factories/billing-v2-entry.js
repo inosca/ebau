@@ -4,6 +4,9 @@ import { Factory, association, trait } from "miragejs";
 
 export default Factory.extend({
   text: () => faker.lorem.word(),
+  legalBasis: () =>
+    `${faker.lorem.word()} §§${faker.number.int({ min: 1, max: 200 })}`,
+  costCenter: () => faker.finance.accountNumber(),
   organization: () =>
     faker.helpers.arrayElement(["cantonal", "municipal", null]),
   calculation: () =>
