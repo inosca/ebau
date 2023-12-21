@@ -154,15 +154,13 @@ def test_decision_event_handler_be(
         )
 
     instance_state_factory(name="finished")
-    decision = decision_factory(
-        decision=be_decision_settings["ANSWERS"]["DECISION"]["APPROVED"]
+    decision_factory(
+        decision=be_decision_settings["ANSWERS"]["DECISION"]["APPROVED"],
+        decision_geometer="decision-geometer-yes"
+        if involve_geometer
+        else "decision-geometer-no",
     )
     AccessLevel.objects.create(slug="geometer")
-
-    decision.document.answers.create(
-        question_id="decision-geometer",
-        value="decision-geometer-yes" if involve_geometer else "decision-geometer-no",
-    )
 
     assert InstanceACL.objects.filter(instance=be_instance).count() == 0
 

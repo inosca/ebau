@@ -45,7 +45,7 @@ export default class CreateAclModalComponent extends Component {
       // and dates earlier than today are not allowed anyways so we can
       // assume the start date is manually set to today. Everything above
       // zero is a date in the future and will start at 00:00.
-      if (startTime.diffNow("days").days < 0) {
+      if (isNaN(startTime) || startTime.diffNow("days").days < 0) {
         startTime = DateTime.now();
       }
 

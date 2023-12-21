@@ -12,6 +12,7 @@ mutation CreatePreliminaryClarificationWorkflow {
         "vorabklaerung-einfach"
         "vorabklaerung-vollstaendig"
         "vorabklaerung-vollstaendig-v2"
+        "vorabklaerung-vollstaendig-v3"
       ]
       isPublished: true
     }
@@ -111,18 +112,6 @@ mutation CreateFlow8 {
       tasks: ["decision"]
       next: "[]|tasks"
       redoable: "'distribution'|task"
-    }
-  ) {
-    clientMutationId
-  }
-}
-
-mutation CreateFlow9 {
-  addWorkflowFlow(
-    input: {
-      workflow: "preliminary-clarification"
-      tasks: ["geometer"]
-      next: "'after-geometer'|task"
     }
   ) {
     clientMutationId
