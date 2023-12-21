@@ -165,7 +165,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "'after-geometer'|task"
+      "next": "[]|tasks"
     }
   },
   {
@@ -248,6 +248,19 @@
   },
   {
     "model": "caluma_workflow.flow",
+    "pk": "b5d91b17-c17d-4a80-bb19-8190c523bc53",
+    "fields": {
+      "created_at": "2023-12-20T12:45:40.181Z",
+      "modified_at": "2023-12-20T12:45:40.181Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "next": "'after-check-sb2'|task"
+    }
+  },
+  {
+    "model": "caluma_workflow.flow",
     "pk": "bb5c5cb2-934d-466b-8f5a-1bbded407ecc",
     "fields": {
       "created_at": "2022-02-11T08:10:54.933Z",
@@ -257,19 +270,6 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "next": "['decision']|tasks"
-    }
-  },
-  {
-    "model": "caluma_workflow.flow",
-    "pk": "c37e686d-24b1-49ba-96ed-3640c4be57b7",
-    "fields": {
-      "created_at": "2023-12-04T17:48:01.410Z",
-      "modified_at": "2023-12-04T17:48:01.410Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "next": "'after-geometer'|task"
     }
   },
   {
@@ -387,10 +387,10 @@
         "is-manually-completable": true
       },
       "address_groups": "['geometer']|groups",
-      "control_groups": "['geometer']|groups",
+      "control_groups": "['construction_control']|groups",
       "is_archived": false,
       "form": null,
-      "lead_time": 864000,
+      "lead_time": 15780000,
       "is_multiple_instance": false,
       "continue_async": false
     }
@@ -463,7 +463,7 @@
       "control_groups": "['construction_control']|groups",
       "is_archived": false,
       "form": null,
-      "lead_time": 864000,
+      "lead_time": 16632000,
       "is_multiple_instance": false,
       "continue_async": false
     }
@@ -1052,22 +1052,6 @@
   },
   {
     "model": "caluma_workflow.taskflow",
-    "pk": "9b9524d6-0206-4683-9738-8c5936d76ed6",
-    "fields": {
-      "created_at": "2023-12-04T17:48:01.412Z",
-      "modified_at": "2023-12-04T17:48:01.412Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "workflow": "preliminary-clarification",
-      "task": "geometer",
-      "flow": "c37e686d-24b1-49ba-96ed-3640c4be57b7",
-      "redoable": null
-    }
-  },
-  {
-    "model": "caluma_workflow.taskflow",
     "pk": "9bc4477e-91d8-4209-bddf-b1be9c6f414a",
     "fields": {
       "created_at": "2022-08-25T07:35:41.063Z",
@@ -1159,6 +1143,22 @@
       "workflow": "migrated",
       "task": "fill-publication",
       "flow": "3e4d93ce-32e2-4f39-bea6-d666e82980e6",
+      "redoable": null
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
+    "pk": "dfdd5fe9-37bb-44f2-a1c9-6580de30151e",
+    "fields": {
+      "created_at": "2023-12-20T12:45:40.183Z",
+      "modified_at": "2023-12-20T12:45:40.183Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "workflow": "building-permit",
+      "task": "check-sb2",
+      "flow": "b5d91b17-c17d-4a80-bb19-8190c523bc53",
       "redoable": null
     }
   },
