@@ -1,0 +1,91 @@
+# serializer version: 1
+# name: test_gis_canton[CH643546955207]
+  dict({
+    'data': dict({
+      'ARCHINV_FUNDST': False,
+      'BALISKBS_KBS': True,
+      'BAUINV_BAUINV_VW': True,
+      'GK5_SY': False,
+      'GSK25_GSK_VW': True,
+      'GSKT_BEZEICH_DE': list([
+        'Gewässerschutzbereich Ao',
+        'übriger Bereich üB',
+      ]),
+      'NSG_NSGP': True,
+      'UZP_BAU_VW': list([
+      ]),
+      'UZP_LSG_VW': False,
+      'UZP_UEO_VW': list([
+      ]),
+    }),
+  })
+# ---
+# name: test_gis_canton[CH673533354667]
+  dict({
+    'data': dict({
+      'ARCHINV_FUNDST': True,
+      'BALISKBS_KBS': True,
+      'BAUINV_BAUINV_VW': False,
+      'GK5_SY': True,
+      'GSK25_GSK_VW': True,
+      'GSKT_BEZEICH_DE': list([
+        'Gewässerschutzbereich Au',
+      ]),
+      'NSG_NSGP': False,
+      'UZP_BAU_VW': list([
+        'Gewerbezone_G2',
+        'Grünzone_GrZ',
+        'Zone_für_öffentliche_Nutzung',
+        'Zone_für_öffentliche_Nutzung_B',
+        'Zone_für_öffentliche_Nutzung_C',
+        'Zone_für_öffentliche_Nutzung_D',
+      ]),
+      'UZP_LSG_VW': False,
+      'UZP_UEO_VW': list([
+        'ZPP_2_"Aarolina"',
+        'ZPP_5_"Chräjeninsel"',
+        'ÜO_"Arolina"',
+        'ÜO_"Chräjeninsel"',
+      ]),
+    }),
+  })
+# ---
+# name: test_gis_canton[CH851446093521]
+  dict({
+    'data': dict({
+      'ARCHINV_FUNDST': True,
+      'BALISKBS_KBS': False,
+      'BAUINV_BAUINV_VW': True,
+      'GK5_SY': False,
+      'GSK25_GSK_VW': True,
+      'GSKT_BEZEICH_DE': list([
+        'Gewässerschutzbereich Ao',
+        'Gewässerschutzbereich Au',
+      ]),
+      'NSG_NSGP': False,
+      'UZP_BAU_VW': list([
+        'Wohnzone 1 E1',
+        'Wohnzone 2 E2',
+        'Zone für öffentliche Nutzung ZöN 7',
+      ]),
+      'UZP_LSG_VW': False,
+      'UZP_UEO_VW': list([
+      ]),
+    }),
+  })
+# ---
+# name: test_gis_canton[doesntexist]
+  dict({
+    'errors': 'No polygon found',
+  })
+# ---
+# name: test_gis_canton[emptygis]
+  dict({
+    'errors': 'No polygon found',
+  })
+# ---
+# name: test_gis_canton[emptypolygon]
+  dict({
+    'errors': 'No polygon found',
+  })
+# ---

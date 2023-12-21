@@ -1,0 +1,524 @@
+# serializer version: 1
+# name: test_accompanying_report_send_handler[True-True]
+  '''
+  <?xml version="1.0" ?>
+  <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5" xmlns:ns4="http://www.ech.ch/xmlns/eCH-0147/T0/1" xmlns:ns5="http://www.ech.ch/xmlns/eCH-0039/2">
+  	<ns1:deliveryHeader>
+  		<ns2:senderId>https://ebau.apps.be.ch/</ns2:senderId>
+  		<ns2:messageId><!-- MESSAGE_ID --></ns2:messageId>
+  		<ns2:messageType>5100004</ns2:messageType>
+  		<ns2:sendingApplication>
+  			<ns2:manufacturer>Adfinis AG</ns2:manufacturer>
+  			<ns2:product>camac</ns2:product>
+  			<ns2:productVersion><!-- VERSION --></ns2:productVersion>
+  		</ns2:sendingApplication>
+  		<ns2:subject>accompanying report</ns2:subject>
+  		<ns2:messageDate>2022-06-03T00:00:00Z</ns2:messageDate>
+  		<ns2:action>1</ns2:action>
+  		<ns2:testDeliveryFlag>true</ns2:testDeliveryFlag>
+  	</ns1:deliveryHeader>
+  	<ns1:eventAccompanyingReport>
+  		<ns1:eventType>accompanying report</ns1:eventType>
+  		<ns1:planningPermissionApplicationIdentification>
+  			<ns1:localID>
+  				<ns3:IdCategory>eBauNr</ns3:IdCategory>
+  				<ns3:Id>unknown</ns3:Id>
+  			</ns1:localID>
+  			<ns1:otherID>
+  				<ns3:IdCategory>eBauNr</ns3:IdCategory>
+  				<ns3:Id>unknown</ns3:Id>
+  			</ns1:otherID>
+  			<ns1:dossierIdentification><!-- INSTANCE_ID --></ns1:dossierIdentification>
+  		</ns1:planningPermissionApplicationIdentification>
+  		<ns1:document>
+  			<ns4:uuid>00000000-0000-0000-0000-000000000000</ns4:uuid>
+  			<ns4:titles>
+  				<ns5:title>MyFile</ns5:title>
+  			</ns4:titles>
+  			<ns4:status>signed</ns4:status>
+  			<ns4:files>
+  				<ns4:file>
+  					<ns4:pathFileName>http://ebau.local/api/v1/attachments/files/?attachments=<!-- ATTACHMENT_ID --></ns4:pathFileName>
+  					<ns4:mimeType>image/svg+xml</ns4:mimeType>
+  				</ns4:file>
+  			</ns4:files>
+  			<ns4:documentKind>Zachary Williams</ns4:documentKind>
+  		</ns1:document>
+  		<ns1:remark>Wird in das Feld &quot;Stellungnahme&quot; übernommen.</ns1:remark>
+  		<ns1:ancillaryClauses>Wird in das Feld &quot;Nebenbestimmungen&quot; übernommen.; Wird in das Feld &quot;Nebenbestimmungen&quot; übernommen.</ns1:ancillaryClauses>
+  	</ns1:eventAccompanyingReport>
+  </ns1:delivery>
+  
+  '''
+# ---
+# name: test_change_responsibility_send_handler[True-circulation_init-True-True]
+  '''
+  <?xml version="1.0" ?>
+  <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5" xmlns:ns4="http://www.ech.ch/xmlns/eCH-0097/2" xmlns:ns5="http://www.ech.ch/xmlns/eCH-0007/6" xmlns:ns6="http://www.ech.ch/xmlns/eCH-0010/6">
+  	<ns1:deliveryHeader>
+  		<ns2:senderId>https://ebau.apps.be.ch/</ns2:senderId>
+  		<ns2:messageId><!-- MESSAGE_ID --></ns2:messageId>
+  		<ns2:messageType>5200005</ns2:messageType>
+  		<ns2:sendingApplication>
+  			<ns2:manufacturer>Adfinis AG</ns2:manufacturer>
+  			<ns2:product>camac</ns2:product>
+  			<ns2:productVersion><!-- VERSION --></ns2:productVersion>
+  		</ns2:sendingApplication>
+  		<ns2:subject>change responsibility</ns2:subject>
+  		<ns2:messageDate>2022-06-03T00:00:00Z</ns2:messageDate>
+  		<ns2:action>1</ns2:action>
+  		<ns2:testDeliveryFlag>true</ns2:testDeliveryFlag>
+  	</ns1:deliveryHeader>
+  	<ns1:eventChangeResponsibility>
+  		<ns1:eventType>change responsibility</ns1:eventType>
+  		<ns1:planningPermissionApplicationIdentification>
+  			<ns1:localID>
+  				<ns3:IdCategory>eBauNr</ns3:IdCategory>
+  				<ns3:Id>unknown</ns3:Id>
+  			</ns1:localID>
+  			<ns1:otherID>
+  				<ns3:IdCategory>eBauNr</ns3:IdCategory>
+  				<ns3:Id>unknown</ns3:Id>
+  			</ns1:otherID>
+  			<ns1:dossierIdentification><!-- INSTANCE_ID --></ns1:dossierIdentification>
+  		</ns1:planningPermissionApplicationIdentification>
+  		<ns1:entryOffice>
+  			<ns1:entryOfficeIdentification>
+  				<ns4:uid>
+  					<ns4:uidOrganisationIdCategorie>CHE</ns4:uidOrganisationIdCategorie>
+  					<ns4:uidOrganisationId>123123123</ns4:uidOrganisationId>
+  				</ns4:uid>
+  				<ns4:localOrganisationId>
+  					<ns4:organisationIdCategory>ebaube</ns4:organisationIdCategory>
+  					<ns4:organisationId><!-- ORGANISATION_ID --></ns4:organisationId>
+  				</ns4:localOrganisationId>
+  				<ns4:organisationName>Leitbehörde Burgdorf</ns4:organisationName>
+  				<ns4:legalForm>0223</ns4:legalForm>
+  			</ns1:entryOfficeIdentification>
+  			<ns1:municipality>
+  				<ns5:municipalityName>Burgdorf</ns5:municipalityName>
+  				<ns5:cantonAbbreviation>BE</ns5:cantonAbbreviation>
+  			</ns1:municipality>
+  		</ns1:entryOffice>
+  		<ns1:responsibleDecisionAuthority>
+  			<ns1:decisionAuthority>
+  				<ns3:buildingAuthorityIdentificationType>
+  					<ns4:uid>
+  						<ns4:uidOrganisationIdCategorie>CHE</ns4:uidOrganisationIdCategorie>
+  						<ns4:uidOrganisationId>123123123</ns4:uidOrganisationId>
+  					</ns4:uid>
+  					<ns4:localOrganisationId>
+  						<ns4:organisationIdCategory>ebaube</ns4:organisationIdCategory>
+  						<ns4:organisationId><!-- ORGANISATION_ID --></ns4:organisationId>
+  					</ns4:localOrganisationId>
+  					<ns4:organisationName>Eduardo Collins</ns4:organisationName>
+  					<ns4:legalForm>0223</ns4:legalForm>
+  				</ns3:buildingAuthorityIdentificationType>
+  				<ns3:address>
+  					<ns6:street>None</ns6:street>
+  					<ns6:town>South Brian</ns6:town>
+  					<ns6:country>
+  						<ns6:countryNameShort>CH</ns6:countryNameShort>
+  					</ns6:country>
+  				</ns3:address>
+  			</ns1:decisionAuthority>
+  		</ns1:responsibleDecisionAuthority>
+  	</ns1:eventChangeResponsibility>
+  </ns1:delivery>
+  
+  '''
+# ---
+# name: test_close_dossier_send_handler[baukontrolle-conclusion-True]
+  '''
+  <?xml version="1.0" ?>
+  <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5">
+  	<ns1:deliveryHeader>
+  		<ns2:senderId>https://ebau.apps.be.ch/</ns2:senderId>
+  		<ns2:messageId><!-- MESSAGE_ID --></ns2:messageId>
+  		<ns2:messageType>5200036</ns2:messageType>
+  		<ns2:sendingApplication>
+  			<ns2:manufacturer>Adfinis AG</ns2:manufacturer>
+  			<ns2:product>camac</ns2:product>
+  			<ns2:productVersion><!-- VERSION --></ns2:productVersion>
+  		</ns2:sendingApplication>
+  		<ns2:subject>status notification</ns2:subject>
+  		<ns2:messageDate>2022-06-03T00:00:00Z</ns2:messageDate>
+  		<ns2:action>1</ns2:action>
+  		<ns2:testDeliveryFlag>true</ns2:testDeliveryFlag>
+  	</ns1:deliveryHeader>
+  	<ns1:eventStatusNotification>
+  		<ns1:eventType>status notification</ns1:eventType>
+  		<ns1:planningPermissionApplicationIdentification>
+  			<ns1:localID>
+  				<ns3:IdCategory>eBauNr</ns3:IdCategory>
+  				<ns3:Id>unknown</ns3:Id>
+  			</ns1:localID>
+  			<ns1:otherID>
+  				<ns3:IdCategory>eBauNr</ns3:IdCategory>
+  				<ns3:Id>unknown</ns3:Id>
+  			</ns1:otherID>
+  			<ns1:dossierIdentification><!-- INSTANCE_ID --></ns1:dossierIdentification>
+  		</ns1:planningPermissionApplicationIdentification>
+  		<ns1:status>in progress</ns1:status>
+  		<ns1:remark>finished</ns1:remark>
+  	</ns1:eventStatusNotification>
+  </ns1:delivery>
+  
+  '''
+# ---
+# name: test_close_dossier_send_handler[leitbehoerde-sb1-True]
+  '''
+  <?xml version="1.0" ?>
+  <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5">
+  	<ns1:deliveryHeader>
+  		<ns2:senderId>https://ebau.apps.be.ch/</ns2:senderId>
+  		<ns2:messageId><!-- MESSAGE_ID --></ns2:messageId>
+  		<ns2:messageType>5200036</ns2:messageType>
+  		<ns2:sendingApplication>
+  			<ns2:manufacturer>Adfinis AG</ns2:manufacturer>
+  			<ns2:product>camac</ns2:product>
+  			<ns2:productVersion><!-- VERSION --></ns2:productVersion>
+  		</ns2:sendingApplication>
+  		<ns2:subject>status notification</ns2:subject>
+  		<ns2:messageDate>2022-06-03T00:00:00Z</ns2:messageDate>
+  		<ns2:action>1</ns2:action>
+  		<ns2:testDeliveryFlag>true</ns2:testDeliveryFlag>
+  	</ns1:deliveryHeader>
+  	<ns1:eventStatusNotification>
+  		<ns1:eventType>status notification</ns1:eventType>
+  		<ns1:planningPermissionApplicationIdentification>
+  			<ns1:localID>
+  				<ns3:IdCategory>eBauNr</ns3:IdCategory>
+  				<ns3:Id>unknown</ns3:Id>
+  			</ns1:localID>
+  			<ns1:otherID>
+  				<ns3:IdCategory>eBauNr</ns3:IdCategory>
+  				<ns3:Id>unknown</ns3:Id>
+  			</ns1:otherID>
+  			<ns1:dossierIdentification><!-- INSTANCE_ID --></ns1:dossierIdentification>
+  		</ns1:planningPermissionApplicationIdentification>
+  		<ns1:status>in progress</ns1:status>
+  		<ns1:remark>finished</ns1:remark>
+  	</ns1:eventStatusNotification>
+  </ns1:delivery>
+  
+  '''
+# ---
+# name: test_kind_of_proceedings_send_handler[True]
+  '''
+  <?xml version="1.0" ?>
+  <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5">
+  	<ns1:deliveryHeader>
+  		<ns2:senderId>https://ebau.apps.be.ch/</ns2:senderId>
+  		<ns2:messageId><!-- MESSAGE_ID --></ns2:messageId>
+  		<ns2:messageType>5200032</ns2:messageType>
+  		<ns2:sendingApplication>
+  			<ns2:manufacturer>Adfinis AG</ns2:manufacturer>
+  			<ns2:product>camac</ns2:product>
+  			<ns2:productVersion><!-- VERSION --></ns2:productVersion>
+  		</ns2:sendingApplication>
+  		<ns2:subject>status notification</ns2:subject>
+  		<ns2:messageDate>2022-06-03T00:00:00Z</ns2:messageDate>
+  		<ns2:action>1</ns2:action>
+  		<ns2:testDeliveryFlag>true</ns2:testDeliveryFlag>
+  	</ns1:deliveryHeader>
+  	<ns1:eventStatusNotification>
+  		<ns1:eventType>status notification</ns1:eventType>
+  		<ns1:planningPermissionApplicationIdentification>
+  			<ns1:localID>
+  				<ns3:IdCategory>eBauNr</ns3:IdCategory>
+  				<ns3:Id>unknown</ns3:Id>
+  			</ns1:localID>
+  			<ns1:otherID>
+  				<ns3:IdCategory>eBauNr</ns3:IdCategory>
+  				<ns3:Id>unknown</ns3:Id>
+  			</ns1:otherID>
+  			<ns1:dossierIdentification><!-- INSTANCE_ID --></ns1:dossierIdentification>
+  		</ns1:planningPermissionApplicationIdentification>
+  		<ns1:status>in progress</ns1:status>
+  		<ns1:remark>circulation</ns1:remark>
+  	</ns1:eventStatusNotification>
+  </ns1:delivery>
+  
+  '''
+# ---
+# name: test_notice_ruling_send_handler[1-circulation-True-False-leitbehoerde-sb1-municipality]
+  '''
+  <?xml version="1.0" ?>
+  <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5">
+  	<ns1:deliveryHeader>
+  		<ns2:senderId>https://ebau.apps.be.ch/</ns2:senderId>
+  		<ns2:messageId><!-- MESSAGE_ID --></ns2:messageId>
+  		<ns2:messageType>5200033</ns2:messageType>
+  		<ns2:sendingApplication>
+  			<ns2:manufacturer>Adfinis AG</ns2:manufacturer>
+  			<ns2:product>camac</ns2:product>
+  			<ns2:productVersion><!-- VERSION --></ns2:productVersion>
+  		</ns2:sendingApplication>
+  		<ns2:subject>status notification</ns2:subject>
+  		<ns2:messageDate>2022-06-03T00:00:00Z</ns2:messageDate>
+  		<ns2:action>1</ns2:action>
+  		<ns2:testDeliveryFlag>true</ns2:testDeliveryFlag>
+  	</ns1:deliveryHeader>
+  	<ns1:eventStatusNotification>
+  		<ns1:eventType>status notification</ns1:eventType>
+  		<ns1:planningPermissionApplicationIdentification>
+  			<ns1:localID>
+  				<ns3:IdCategory>eBauNr</ns3:IdCategory>
+  				<ns3:Id>unknown</ns3:Id>
+  			</ns1:localID>
+  			<ns1:otherID>
+  				<ns3:IdCategory>eBauNr</ns3:IdCategory>
+  				<ns3:Id>unknown</ns3:Id>
+  			</ns1:otherID>
+  			<ns1:dossierIdentification><!-- INSTANCE_ID --></ns1:dossierIdentification>
+  		</ns1:planningPermissionApplicationIdentification>
+  		<ns1:status>in progress</ns1:status>
+  		<ns1:remark>sb1</ns1:remark>
+  	</ns1:eventStatusNotification>
+  </ns1:delivery>
+  
+  '''
+# ---
+# name: test_notice_ruling_send_handler[1-circulation-True-False-rsta-sb1-municipality]
+  '''
+  <?xml version="1.0" ?>
+  <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5">
+  	<ns1:deliveryHeader>
+  		<ns2:senderId>https://ebau.apps.be.ch/</ns2:senderId>
+  		<ns2:messageId><!-- MESSAGE_ID --></ns2:messageId>
+  		<ns2:messageType>5200033</ns2:messageType>
+  		<ns2:sendingApplication>
+  			<ns2:manufacturer>Adfinis AG</ns2:manufacturer>
+  			<ns2:product>camac</ns2:product>
+  			<ns2:productVersion><!-- VERSION --></ns2:productVersion>
+  		</ns2:sendingApplication>
+  		<ns2:subject>status notification</ns2:subject>
+  		<ns2:messageDate>2022-06-03T00:00:00Z</ns2:messageDate>
+  		<ns2:action>1</ns2:action>
+  		<ns2:testDeliveryFlag>true</ns2:testDeliveryFlag>
+  	</ns1:deliveryHeader>
+  	<ns1:eventStatusNotification>
+  		<ns1:eventType>status notification</ns1:eventType>
+  		<ns1:planningPermissionApplicationIdentification>
+  			<ns1:localID>
+  				<ns3:IdCategory>eBauNr</ns3:IdCategory>
+  				<ns3:Id>unknown</ns3:Id>
+  			</ns1:localID>
+  			<ns1:otherID>
+  				<ns3:IdCategory>eBauNr</ns3:IdCategory>
+  				<ns3:Id>unknown</ns3:Id>
+  			</ns1:otherID>
+  			<ns1:dossierIdentification><!-- INSTANCE_ID --></ns1:dossierIdentification>
+  		</ns1:planningPermissionApplicationIdentification>
+  		<ns1:status>in progress</ns1:status>
+  		<ns1:remark>sb1</ns1:remark>
+  	</ns1:eventStatusNotification>
+  </ns1:delivery>
+  
+  '''
+# ---
+# name: test_notice_ruling_send_handler[1-circulation-True-True-leitbehoerde-evaluated-municipality]
+  '''
+  <?xml version="1.0" ?>
+  <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5">
+  	<ns1:deliveryHeader>
+  		<ns2:senderId>https://ebau.apps.be.ch/</ns2:senderId>
+  		<ns2:messageId><!-- MESSAGE_ID --></ns2:messageId>
+  		<ns2:messageType>5200036</ns2:messageType>
+  		<ns2:sendingApplication>
+  			<ns2:manufacturer>Adfinis AG</ns2:manufacturer>
+  			<ns2:product>camac</ns2:product>
+  			<ns2:productVersion><!-- VERSION --></ns2:productVersion>
+  		</ns2:sendingApplication>
+  		<ns2:subject>status notification</ns2:subject>
+  		<ns2:messageDate>2022-06-03T00:00:00Z</ns2:messageDate>
+  		<ns2:action>1</ns2:action>
+  		<ns2:testDeliveryFlag>true</ns2:testDeliveryFlag>
+  	</ns1:deliveryHeader>
+  	<ns1:eventStatusNotification>
+  		<ns1:eventType>status notification</ns1:eventType>
+  		<ns1:planningPermissionApplicationIdentification>
+  			<ns1:localID>
+  				<ns3:IdCategory>eBauNr</ns3:IdCategory>
+  				<ns3:Id>unknown</ns3:Id>
+  			</ns1:localID>
+  			<ns1:otherID>
+  				<ns3:IdCategory>eBauNr</ns3:IdCategory>
+  				<ns3:Id>unknown</ns3:Id>
+  			</ns1:otherID>
+  			<ns1:dossierIdentification><!-- INSTANCE_ID --></ns1:dossierIdentification>
+  		</ns1:planningPermissionApplicationIdentification>
+  		<ns1:status>in progress</ns1:status>
+  		<ns1:remark>evaluated</ns1:remark>
+  	</ns1:eventStatusNotification>
+  </ns1:delivery>
+  
+  '''
+# ---
+# name: test_notice_ruling_send_handler[1-coordination-True-False-leitbehoerde-sb1-municipality]
+  '''
+  <?xml version="1.0" ?>
+  <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5">
+  	<ns1:deliveryHeader>
+  		<ns2:senderId>https://ebau.apps.be.ch/</ns2:senderId>
+  		<ns2:messageId><!-- MESSAGE_ID --></ns2:messageId>
+  		<ns2:messageType>5200033</ns2:messageType>
+  		<ns2:sendingApplication>
+  			<ns2:manufacturer>Adfinis AG</ns2:manufacturer>
+  			<ns2:product>camac</ns2:product>
+  			<ns2:productVersion><!-- VERSION --></ns2:productVersion>
+  		</ns2:sendingApplication>
+  		<ns2:subject>status notification</ns2:subject>
+  		<ns2:messageDate>2022-06-03T00:00:00Z</ns2:messageDate>
+  		<ns2:action>1</ns2:action>
+  		<ns2:testDeliveryFlag>true</ns2:testDeliveryFlag>
+  	</ns1:deliveryHeader>
+  	<ns1:eventStatusNotification>
+  		<ns1:eventType>status notification</ns1:eventType>
+  		<ns1:planningPermissionApplicationIdentification>
+  			<ns1:localID>
+  				<ns3:IdCategory>eBauNr</ns3:IdCategory>
+  				<ns3:Id>unknown</ns3:Id>
+  			</ns1:localID>
+  			<ns1:otherID>
+  				<ns3:IdCategory>eBauNr</ns3:IdCategory>
+  				<ns3:Id>unknown</ns3:Id>
+  			</ns1:otherID>
+  			<ns1:dossierIdentification><!-- INSTANCE_ID --></ns1:dossierIdentification>
+  		</ns1:planningPermissionApplicationIdentification>
+  		<ns1:status>in progress</ns1:status>
+  		<ns1:remark>sb1</ns1:remark>
+  	</ns1:eventStatusNotification>
+  </ns1:delivery>
+  
+  '''
+# ---
+# name: test_notice_ruling_send_handler[4-circulation_init-True-False-leitbehoerde-rejected-municipality]
+  '''
+  <?xml version="1.0" ?>
+  <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5">
+  	<ns1:deliveryHeader>
+  		<ns2:senderId>https://ebau.apps.be.ch/</ns2:senderId>
+  		<ns2:messageId><!-- MESSAGE_ID --></ns2:messageId>
+  		<ns2:messageType>5200037</ns2:messageType>
+  		<ns2:sendingApplication>
+  			<ns2:manufacturer>Adfinis AG</ns2:manufacturer>
+  			<ns2:product>camac</ns2:product>
+  			<ns2:productVersion><!-- VERSION --></ns2:productVersion>
+  		</ns2:sendingApplication>
+  		<ns2:subject>status notification</ns2:subject>
+  		<ns2:messageDate>2022-06-03T00:00:00Z</ns2:messageDate>
+  		<ns2:action>1</ns2:action>
+  		<ns2:testDeliveryFlag>true</ns2:testDeliveryFlag>
+  	</ns1:deliveryHeader>
+  	<ns1:eventStatusNotification>
+  		<ns1:eventType>status notification</ns1:eventType>
+  		<ns1:planningPermissionApplicationIdentification>
+  			<ns1:localID>
+  				<ns3:IdCategory>eBauNr</ns3:IdCategory>
+  				<ns3:Id>unknown</ns3:Id>
+  			</ns1:localID>
+  			<ns1:otherID>
+  				<ns3:IdCategory>eBauNr</ns3:IdCategory>
+  				<ns3:Id>unknown</ns3:Id>
+  			</ns1:otherID>
+  			<ns1:dossierIdentification><!-- INSTANCE_ID --></ns1:dossierIdentification>
+  		</ns1:planningPermissionApplicationIdentification>
+  		<ns1:status>in progress</ns1:status>
+  		<ns1:remark>rejected</ns1:remark>
+  	</ns1:eventStatusNotification>
+  </ns1:delivery>
+  
+  '''
+# ---
+# name: test_task_send_handler[None-True]
+  '''
+  <?xml version="1.0" ?>
+  <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5" xmlns:ns4="http://www.ech.ch/xmlns/eCH-0039/2">
+  	<ns1:deliveryHeader>
+  		<ns2:senderId>https://ebau.apps.be.ch/</ns2:senderId>
+  		<ns2:messageId><!-- MESSAGE_ID --></ns2:messageId>
+  		<ns2:messageType>5200007</ns2:messageType>
+  		<ns2:sendingApplication>
+  			<ns2:manufacturer>Adfinis AG</ns2:manufacturer>
+  			<ns2:product>camac</ns2:product>
+  			<ns2:productVersion><!-- VERSION --></ns2:productVersion>
+  		</ns2:sendingApplication>
+  		<ns2:subject>task</ns2:subject>
+  		<ns2:messageDate>2020-02-23T00:00:00Z</ns2:messageDate>
+  		<ns2:action>1</ns2:action>
+  		<ns2:testDeliveryFlag>true</ns2:testDeliveryFlag>
+  	</ns1:deliveryHeader>
+  	<ns1:eventRequest>
+  		<ns1:eventType>task</ns1:eventType>
+  		<ns1:planningPermissionApplicationIdentification>
+  			<ns1:localID>
+  				<ns3:IdCategory>eBauNr</ns3:IdCategory>
+  				<ns3:Id>unknown</ns3:Id>
+  			</ns1:localID>
+  			<ns1:otherID>
+  				<ns3:IdCategory>eBauNr</ns3:IdCategory>
+  				<ns3:Id>unknown</ns3:Id>
+  			</ns1:otherID>
+  			<ns1:dossierIdentification><!-- INSTANCE_ID --></ns1:dossierIdentification>
+  		</ns1:planningPermissionApplicationIdentification>
+  		<ns1:directive>
+  			<uuid>00000000-0000-0000-0000-000000000000</uuid>
+  			<instruction>process</instruction>
+  			<priority>undefined</priority>
+  			<deadline>2020-03-15</deadline>
+  			<comments>
+  				<ns4:comment>Anforderung einer Stellungnahme</ns4:comment>
+  			</comments>
+  		</ns1:directive>
+  	</ns1:eventRequest>
+  </ns1:delivery>
+  
+  '''
+# ---
+# name: test_task_send_handler[no_deadline-True]
+  '''
+  <?xml version="1.0" ?>
+  <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5" xmlns:ns4="http://www.ech.ch/xmlns/eCH-0039/2">
+  	<ns1:deliveryHeader>
+  		<ns2:senderId>https://ebau.apps.be.ch/</ns2:senderId>
+  		<ns2:messageId><!-- MESSAGE_ID --></ns2:messageId>
+  		<ns2:messageType>5200007</ns2:messageType>
+  		<ns2:sendingApplication>
+  			<ns2:manufacturer>Adfinis AG</ns2:manufacturer>
+  			<ns2:product>camac</ns2:product>
+  			<ns2:productVersion><!-- VERSION --></ns2:productVersion>
+  		</ns2:sendingApplication>
+  		<ns2:subject>task</ns2:subject>
+  		<ns2:messageDate>2020-02-23T00:00:00Z</ns2:messageDate>
+  		<ns2:action>1</ns2:action>
+  		<ns2:testDeliveryFlag>true</ns2:testDeliveryFlag>
+  	</ns1:deliveryHeader>
+  	<ns1:eventRequest>
+  		<ns1:eventType>task</ns1:eventType>
+  		<ns1:planningPermissionApplicationIdentification>
+  			<ns1:localID>
+  				<ns3:IdCategory>eBauNr</ns3:IdCategory>
+  				<ns3:Id>unknown</ns3:Id>
+  			</ns1:localID>
+  			<ns1:otherID>
+  				<ns3:IdCategory>eBauNr</ns3:IdCategory>
+  				<ns3:Id>unknown</ns3:Id>
+  			</ns1:otherID>
+  			<ns1:dossierIdentification><!-- INSTANCE_ID --></ns1:dossierIdentification>
+  		</ns1:planningPermissionApplicationIdentification>
+  		<ns1:directive>
+  			<uuid>00000000-0000-0000-0000-000000000000</uuid>
+  			<instruction>process</instruction>
+  			<priority>undefined</priority>
+  			<deadline>2020-03-24</deadline>
+  			<comments>
+  				<ns4:comment>Anforderung einer Stellungnahme</ns4:comment>
+  			</comments>
+  		</ns1:directive>
+  	</ns1:eventRequest>
+  </ns1:delivery>
+  
+  '''
+# ---

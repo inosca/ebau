@@ -1,0 +1,66 @@
+# serializer version: 1
+# name: test_instance_list[Applicant-instance__user0-19-1-editable0-new]
+  list([
+    'circulations',
+    'forms',
+    'groups',
+    'instance-states',
+    'locations',
+    'public-services',
+    'services',
+    'services',
+    'users',
+  ])
+# ---
+# name: test_instance_list[Canton-instance__user2-19-1-editable2-new]
+  list([
+    'circulations',
+    'forms',
+    'groups',
+    'instance-states',
+    'locations',
+    'public-services',
+    'services',
+    'services',
+    'users',
+  ])
+# ---
+# name: test_instance_list[Municipality-instance__user3-18-1-editable3-new]
+  list([
+    'circulations',
+    'forms',
+    'groups',
+    'instance-states',
+    'locations',
+    'public-services',
+    'services',
+    'services',
+    'users',
+  ])
+# ---
+# name: test_instance_list[Reader-instance__user1-19-1-editable1-new]
+  list([
+    'circulations',
+    'forms',
+    'groups',
+    'instance-states',
+    'locations',
+    'public-services',
+    'services',
+    'services',
+    'users',
+  ])
+# ---
+# name: test_instance_list[Service-instance__user4-18-1-editable4-new]
+  list([
+    'circulations',
+    'forms',
+    'groups',
+    'instance-states',
+    'locations',
+    'public-services',
+    'services',
+    'services',
+    'users',
+  ])
+# ---

@@ -68,39 +68,22 @@ def test_document_merge_service_snapshot(
         "MASTER_DATA"
     ]
 
-    for snapshot_name, kwargs, expected_queries in [
-        (
-            "baugesuch",
-            {"instance_id": 1},
-            21,
-        ),
-        (
-            "sb1",
-            {"instance_id": 3, "form_slug": "sb1"},
-            27,
-        ),
-        (
-            "sb2",
-            {"instance_id": 3, "form_slug": "sb2"},
-            27,
-        ),
-        (
-            "mp-form",
-            {"instance_id": 3, "document_id": "da618b68-b4a8-414f-9d5e-50e0fda43cde"},
-            25,
-        ),
+    for kwargs, expected_queries in [
+        ({"instance_id": 1}, 21),
+        ({"instance_id": 3, "form_slug": "sb1"}, 27),
+        ({"instance_id": 3, "form_slug": "sb2"}, 27),
+        ({"instance_id": 3, "document_id": "da618b68-b4a8-414f-9d5e-50e0fda43cde"}, 25),
     ]:
         with django_assert_num_queries(expected_queries):
             handler = DMSHandler()
             instance, root_document = handler.get_instance_and_document(**kwargs)
 
             snapshot.assert_match(
-                handler.get_meta_data(instance, root_document, service),
-                f"{snapshot_name}_header",
+                handler.get_meta_data(instance, root_document, service)
             )
 
             visitor = DMSVisitor(root_document, instance, BaseUser())
-            snapshot.assert_match(visitor.visit(root_document), snapshot_name)
+            snapshot.assert_match(visitor.visit(root_document))
 
 
 def test_document_merge_service_is_valid(db, caluma_form_fixture, be_dms_settings):
