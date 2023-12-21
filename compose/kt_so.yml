@@ -14,30 +14,34 @@ services:
     image: acr.run/camac-ng/camac-ng/ember-caluma-portal:${CI_COMMIT_TAG:-master}
     build:
       context: ../
-      dockerfile: ./ember-caluma-portal/Dockerfile
+      dockerfile: ./Dockerfile.ember
       cache_from:
         - acr.run/camac-ng/camac-ng/ember-caluma-portal:${CI_COMMIT_TAG:-master}
-      target: env-prod
+      target: prod-env
       args:
         APPLICATION: ${APPLICATION}
         KEYCLOAK_HOST: $$KEYCLOAK_HOST
         SO_GIS_URL: $$SO_GIS_URL
         INTERNAL_URL: $$INTERNAL_URL
         EGOV_PORTAL_URL: $$EGOV_PORTAL_URL
+        REPLACE_ENVS: \$${KEYCLOAK_HOST},\$${BE_GIS_URL},\$${SO_GIS_URL},\$${INTERNAL_URL},\$${EGOV_PORTAL_URL}
+        WORKSPACE: ember-caluma-portal
 
   ember-ebau:
     image: acr.run/camac-ng/camac-ng/ember-ebau:${CI_COMMIT_TAG:-master}
     build:
       context: ../
-      dockerfile: ./ember-ebau/Dockerfile
+      dockerfile: ./Dockerfile.ember
       cache_from:
         - acr.run/camac-ng/camac-ng/ember-ebau:${CI_COMMIT_TAG:-master}
-      target: env-prod
+      target: prod-env
       args:
         APPLICATION: ${APPLICATION}
         KEYCLOAK_HOST: $$KEYCLOAK_HOST
         PORTAL_URL: $$PORTAL_URL
         SO_GIS_URL: $$SO_GIS_URL
+        REPLACE_ENVS: \$${KEYCLOAK_HOST},\$${PORTAL_URL},\$${SO_GIS_URL}
+        WORKSPACE: ember-ebau
 
   keycloak:
     image: acr.run/camac-ng/camac-ng/keycloak:${CI_COMMIT_TAG:-master}
