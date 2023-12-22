@@ -3,6 +3,7 @@ import itertools
 import json
 from collections import OrderedDict
 
+from alexandria.core.models import Document
 from caluma.caluma_form.models import Answer
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
@@ -10,9 +11,10 @@ from django.utils.timezone import now
 from django.utils.translation import get_language, gettext_noop as _
 from rest_framework import serializers
 
+from camac.alexandria.extensions.visibilities import CustomVisibility
 from camac.caluma.api import CalumaApi
 from camac.core.translations import get_translations_canton_aware
-from camac.user.models import Service
+from camac.user.models import Service, User
 from camac.utils import build_url, clean_join
 
 from ..master_data import MasterData
@@ -704,6 +706,21 @@ class GrDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         aliases=[_("BUILDING_INSURANCE_NUMBER")],
         description=_("Building insurance number"),
     )
+    documents = fields.AliasedMethodField(
+        aliases=[_("DOCUMENTS")],
+        nested_aliases={
+            "name": [_("NAME")],
+            "description": [_("DESCRIPTION")],
+            "created_at": [_("CREATED_AT")],
+            "created_by": [_("CREATED_BY")],
+            "modified_at": [_("MODIFIED_AT")],
+            "modified_by": [_("MODIFIED_BY")],
+            "category": [_("CATEGORY")],
+            "marks": [_("MARKS")],
+            "tags": [_("TAGS")],
+        },
+        description=_("Documents with metadata"),
+    )
 
     def get_zonenplan(self, instance):
         answer = Answer.objects.filter(
@@ -755,6 +772,39 @@ class GrDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
             question_id="amtliche-gebaeudenummer",
         ).values_list("value", flat=True)
         return ", ".join([str(v) for v in values])
+
+    def get_documents(self, instance):
+        queryset = Document.objects.filter(instance_document__instance=instance)
+        Document.objects.filter(instance_document__instance=instance)
+
+        visible_documents = CustomVisibility().filter_queryset_for_document(
+            queryset, self.context["request"]
+        )
+        data = []
+        for document in visible_documents:
+            system_generated = "system-generated" in document.metainfo
+            created_by = ""
+            modified_by = ""
+            if not system_generated:
+                created_by = User.objects.get(
+                    pk=int(document.created_by_user)
+                ).get_full_name()
+                modified_by = User.objects.get(
+                    pk=int(document.modified_by_user)
+                ).get_full_name()
+            document_data = {
+                "name": document.title.de,
+                "description": document.description.de,
+                "created_at": document.created_at.strftime("%d.%m.%Y %H:%M"),
+                "created_by": created_by,
+                "modified_at": document.modified_at.strftime("%d.%m.%Y %H:%M"),
+                "modified_by": modified_by,
+                "category": document.category.slug,
+                "marks": list(document.marks.all().values_list("slug", flat=True)),
+                "tags": list(document.tags.all().values_list("name", flat=True)),
+            }
+            data.append(document_data)
+        return data
 
     class Meta:
         exclude = [
