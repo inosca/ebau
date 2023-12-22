@@ -4020,6 +4020,63 @@
       'nested_aliases': dict({
       }),
     }),
+    'DOCUMENTS': dict({
+      'aliases': list([
+        dict({
+          'de': 'DOKUMENTE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Dokumente mit Metadaten',
+      }),
+      'nested_aliases': dict({
+        'category': list([
+          dict({
+            'de': 'KATEGORIE',
+          }),
+        ]),
+        'created_at': list([
+          dict({
+            'de': 'ERSTELLT_AM',
+          }),
+        ]),
+        'created_by': list([
+          dict({
+            'de': 'ERSTELLT_VON',
+          }),
+        ]),
+        'description': list([
+          dict({
+            'de': 'BESCHREIBUNG',
+          }),
+        ]),
+        'marks': list([
+          dict({
+            'de': 'MARKIERUNGEN',
+          }),
+        ]),
+        'modified_at': list([
+          dict({
+            'de': 'GEAENDERT_AM',
+          }),
+        ]),
+        'modified_by': list([
+          dict({
+            'de': 'GEAENDERT_VON',
+          }),
+        ]),
+        'name': list([
+          dict({
+            'de': 'NAME',
+          }),
+        ]),
+        'tags': list([
+          dict({
+            'de': 'STICHWORTE',
+          }),
+        ]),
+      }),
+    }),
     'DOSSIER_NUMBER': dict({
       'aliases': list([
         dict({
@@ -6633,6 +6690,46 @@
     'BESCHREIBUNG_PROJEKTAENDERUNG',
     'DECISION_DATE',
     'DESCRIPTION_MODIFICATION',
+    'DOCUMENTS',
+    'DOCUMENTS[]',
+    'DOCUMENTS[].BESCHREIBUNG',
+    'DOCUMENTS[].ERSTELLT_AM',
+    'DOCUMENTS[].ERSTELLT_VON',
+    'DOCUMENTS[].GEAENDERT_AM',
+    'DOCUMENTS[].GEAENDERT_VON',
+    'DOCUMENTS[].KATEGORIE',
+    'DOCUMENTS[].MARKIERUNGEN',
+    'DOCUMENTS[].NAME',
+    'DOCUMENTS[].STICHWORTE',
+    'DOCUMENTS[].category',
+    'DOCUMENTS[].created_at',
+    'DOCUMENTS[].created_by',
+    'DOCUMENTS[].description',
+    'DOCUMENTS[].marks',
+    'DOCUMENTS[].modified_at',
+    'DOCUMENTS[].modified_by',
+    'DOCUMENTS[].name',
+    'DOCUMENTS[].tags',
+    'DOKUMENTE',
+    'DOKUMENTE[]',
+    'DOKUMENTE[].BESCHREIBUNG',
+    'DOKUMENTE[].ERSTELLT_AM',
+    'DOKUMENTE[].ERSTELLT_VON',
+    'DOKUMENTE[].GEAENDERT_AM',
+    'DOKUMENTE[].GEAENDERT_VON',
+    'DOKUMENTE[].KATEGORIE',
+    'DOKUMENTE[].MARKIERUNGEN',
+    'DOKUMENTE[].NAME',
+    'DOKUMENTE[].STICHWORTE',
+    'DOKUMENTE[].category',
+    'DOKUMENTE[].created_at',
+    'DOKUMENTE[].created_by',
+    'DOKUMENTE[].description',
+    'DOKUMENTE[].marks',
+    'DOKUMENTE[].modified_at',
+    'DOKUMENTE[].modified_by',
+    'DOKUMENTE[].name',
+    'DOKUMENTE[].tags',
     'DOSSIER_NUMBER',
     'DOSSIER_NUMMER',
     'DOSSIER_TYP',
@@ -7338,7 +7435,7 @@
     'ZUSTAENDIG_TELEFON': '',
   })
 # ---
-# name: test_dms_placeholders_gr[Municipality]
+# name: test_dms_placeholders_gr[municipality-lead]
   dict({
     'ADDRESS': 'Teststrasse 12, Testhausen',
     'ADRESSE': 'Teststrasse 12, Testhausen',
@@ -7361,6 +7458,62 @@
     'BESCHREIBUNG_PROJEKTAENDERUNG': 'Projektänderung',
     'DECISION_DATE': '30. August 2021',
     'DESCRIPTION_MODIFICATION': 'Projektänderung',
+    'DOCUMENTS': list([
+      dict({
+        'BESCHREIBUNG': 'Line religious cold will cell series star. Agency season worry take value eye sell.',
+        'ERSTELLT_AM': '30.08.2021 00:00',
+        'ERSTELLT_VON': 'Admin User',
+        'GEAENDERT_AM': '30.08.2021 00:00',
+        'GEAENDERT_VON': 'Admin User',
+        'KATEGORIE': 'put-right-professor',
+        'MARKIERUNGEN': list([
+        ]),
+        'NAME': 'Grundriss',
+        'STICHWORTE': list([
+          'Jeffrey Zhang',
+        ]),
+        'category': 'put-right-professor',
+        'created_at': '30.08.2021 00:00',
+        'created_by': 'Admin User',
+        'description': 'Line religious cold will cell series star. Agency season worry take value eye sell.',
+        'marks': list([
+        ]),
+        'modified_at': '30.08.2021 00:00',
+        'modified_by': 'Admin User',
+        'name': 'Grundriss',
+        'tags': list([
+          'Jeffrey Zhang',
+        ]),
+      }),
+    ]),
+    'DOKUMENTE': list([
+      dict({
+        'BESCHREIBUNG': 'Line religious cold will cell series star. Agency season worry take value eye sell.',
+        'ERSTELLT_AM': '30.08.2021 00:00',
+        'ERSTELLT_VON': 'Admin User',
+        'GEAENDERT_AM': '30.08.2021 00:00',
+        'GEAENDERT_VON': 'Admin User',
+        'KATEGORIE': 'put-right-professor',
+        'MARKIERUNGEN': list([
+        ]),
+        'NAME': 'Grundriss',
+        'STICHWORTE': list([
+          'Jeffrey Zhang',
+        ]),
+        'category': 'put-right-professor',
+        'created_at': '30.08.2021 00:00',
+        'created_by': 'Admin User',
+        'description': 'Line religious cold will cell series star. Agency season worry take value eye sell.',
+        'marks': list([
+        ]),
+        'modified_at': '30.08.2021 00:00',
+        'modified_by': 'Admin User',
+        'name': 'Grundriss',
+        'tags': list([
+          'Jeffrey Zhang',
+        ]),
+      }),
+    ]),
     'DOSSIER_NUMBER': '2023-1',
     'DOSSIER_NUMMER': '2023-1',
     'DOSSIER_TYP': 'Baugesuch',
