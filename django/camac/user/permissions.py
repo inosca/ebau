@@ -194,8 +194,8 @@ def IsView(*views):
 PublicationBE = IsApplication("kt_bern") & permissions.IsAuthenticated & ReadOnly
 PublicationSZ = IsApplication("kt_schwyz") & permissions.IsAuthenticated & ReadOnly
 PublicationGR = IsApplication("kt_gr") & permissions.IsAuthenticated & ReadOnly
+PublicationSO = IsApplication("kt_so") & permissions.IsAuthenticated & ReadOnly
 PublicationUR = IsApplication("kt_uri") & ReadOnly
-PublicationSO = IsApplication("kt_so") & ReadOnly
 PublicationTest = IsApplication("test") & ReadOnly
 
 # If the application is not explicitly configured here, we don't allow any public access
