@@ -4929,6 +4929,18 @@
 # ---
 # name: test_dms_placeholders_docs[so_dms_config]
   dict({
+    'ADDRESS': dict({
+      'aliases': list([
+        dict({
+          'de': 'ADRESSE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Adresse des betroffenen Grundstückes',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
     'ALLE_GESUCHSTELLER': dict({
       'aliases': list([
         dict({
@@ -5105,6 +5117,28 @@
       'nested_aliases': dict({
       }),
     }),
+    'EINSPRECHENDE': dict({
+      'aliases': list([
+        dict({
+          'de': 'EINSPRECHENDE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Einsprechende mit Adresse',
+      }),
+      'nested_aliases': dict({
+        'ADDRESS': list([
+          dict({
+            'de': 'ADRESSE',
+          }),
+        ]),
+        'NAME': list([
+          dict({
+            'de': 'NAME',
+          }),
+        ]),
+      }),
+    }),
     'FACHSTELLEN_KANTONAL': dict({
       'aliases': list([
         dict({
@@ -5240,6 +5274,18 @@
       ]),
       'description': dict({
         'de': 'Telefonnummer der Gemeinde',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'GEMEINDE_WEBSEITE': dict({
+      'aliases': list([
+        dict({
+          'de': 'GEMEINDE_WEBSEITE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Webseite der Gemeinde',
       }),
       'nested_aliases': dict({
       }),
@@ -5424,6 +5470,18 @@
       'nested_aliases': dict({
       }),
     }),
+    'LEITBEHOERDE_NAME_ADRESSE': dict({
+      'aliases': list([
+        dict({
+          'de': 'LEITBEHOERDE_NAME_ADRESSE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Name und Adresse der zuständigen Leitbehörde',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
     'LEITBEHOERDE_NAME_KURZ': dict({
       'aliases': list([
         dict({
@@ -5444,6 +5502,18 @@
       ]),
       'description': dict({
         'de': 'Telefonnummer der zuständigen Leitbehörde',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'LEITBEHOERDE_WEBSEITE': dict({
+      'aliases': list([
+        dict({
+          'de': 'LEITBEHOERDE_WEBSEITE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Webseite der zuständigen Leitbehörde',
       }),
       'nested_aliases': dict({
       }),
@@ -5540,6 +5610,18 @@
       ]),
       'description': dict({
         'de': 'Telefonnummer der momentan ausgewählten Organisation',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'MEINE_ORGANISATION_WEBSEITE': dict({
+      'aliases': list([
+        dict({
+          'de': 'MEINE_ORGANISATION_WEBSEITE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Webseite der momentan ausgewählten Organisation',
       }),
       'nested_aliases': dict({
       }),
@@ -5655,6 +5737,42 @@
       'nested_aliases': dict({
       }),
     }),
+    'PUBLIKATION_AMTSBLATT': dict({
+      'aliases': list([
+        dict({
+          'de': 'PUBLIKATION_AMTSBLATT',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Datum der Publikation im Amtsblatt',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'PUBLIKATION_ANZEIGER': dict({
+      'aliases': list([
+        dict({
+          'de': 'PUBLIKATION_ANZEIGER',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Datum der Publikation im Anzeiger',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'PUBLIKATION_ENDE': dict({
+      'aliases': list([
+        dict({
+          'de': 'PUBLIKATION_ENDE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Enddatum der Publikation des Dossiers',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
     'PUBLIKATION_LINK': dict({
       'aliases': list([
         dict({
@@ -5663,6 +5781,18 @@
       ]),
       'description': dict({
         'de': 'Link zur öffentlichen Auflage',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'PUBLIKATION_START': dict({
+      'aliases': list([
+        dict({
+          'de': 'PUBLIKATION_START',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Startdatum der Publikation des Dossiers',
       }),
       'nested_aliases': dict({
       }),
@@ -5753,6 +5883,42 @@
             'de': 'NAME',
           }),
         ]),
+      }),
+    }),
+    'ZUSTAENDIG_EMAIL': dict({
+      'aliases': list([
+        dict({
+          'de': 'ZUSTAENDIG_EMAIL',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Email-Adresse des/r zuständigen/r Mitarbeiter/in',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'ZUSTAENDIG_NAME': dict({
+      'aliases': list([
+        dict({
+          'de': 'ZUSTAENDIG_NAME',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Name des/r zuständigen/r Mitarbeiter/in',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'ZUSTAENDIG_PHONE': dict({
+      'aliases': list([
+        dict({
+          'de': 'ZUSTAENDIG_TELEFON',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Telefonnummer des/r zuständigen/r Mitarbeiter/in',
+      }),
+      'nested_aliases': dict({
       }),
     }),
   })
@@ -6854,6 +7020,8 @@
 # ---
 # name: test_dms_placeholders_docs_available_placeholders[so_dms_config]
   list([
+    'ADDRESS',
+    'ADRESSE',
     'ALLE_BAUHERREN',
     'ALLE_BAUHERREN_NAME_ADRESSE',
     'ALLE_GESUCHSTELLER',
@@ -6884,6 +7052,11 @@
     'EIGENE_GEBUEHREN[].POSITION',
     'EIGENE_GEBUEHREN[].RECHTSGRUNDLAGE',
     'EIGENE_GEBUEHREN_TOTAL',
+    'EINSPRECHENDE',
+    'EINSPRECHENDE[]',
+    'EINSPRECHENDE[].ADDRESS',
+    'EINSPRECHENDE[].ADRESSE',
+    'EINSPRECHENDE[].NAME',
     'FACHSTELLEN_KANTONAL',
     'FACHSTELLEN_KANTONAL[]',
     'FACHSTELLEN_KANTONAL[].BEANTWORTET',
@@ -6904,6 +7077,7 @@
     'GEMEINDE_NAME_ADRESSE',
     'GEMEINDE_ORT',
     'GEMEINDE_TELEFON',
+    'GEMEINDE_WEBSEITE',
     'GESUCHSTELLER',
     'GESUCHSTELLER_ADDRESS_1',
     'GESUCHSTELLER_ADDRESS_2',
@@ -6926,10 +7100,12 @@
     'LEITBEHOERDE_CITY',
     'LEITBEHOERDE_EMAIL',
     'LEITBEHOERDE_NAME',
+    'LEITBEHOERDE_NAME_ADRESSE',
     'LEITBEHOERDE_NAME_KURZ',
     'LEITBEHOERDE_PHONE',
     'LEITBEHOERDE_STADT',
     'LEITBEHOERDE_TELEFON',
+    'LEITBEHOERDE_WEBSEITE',
     'MEINE_ORGANISATION_ADRESSE_1',
     'MEINE_ORGANISATION_ADRESSE_2',
     'MEINE_ORGANISATION_EMAIL',
@@ -6938,6 +7114,7 @@
     'MEINE_ORGANISATION_NAME_KURZ',
     'MEINE_ORGANISATION_ORT',
     'MEINE_ORGANISATION_TELEFON',
+    'MEINE_ORGANISATION_WEBSEITE',
     'MUNICIPALITY',
     'MUNICIPALITY_ADDRESS',
     'NAME',
@@ -6953,7 +7130,11 @@
     'PROJEKTVERFASSER_ADRESSE_2',
     'PROJEKTVERFASSER_NAME_ADDRESS',
     'PROJEKTVERFASSER_NAME_ADRESSE',
+    'PUBLIKATION_AMTSBLATT',
+    'PUBLIKATION_ANZEIGER',
+    'PUBLIKATION_ENDE',
     'PUBLIKATION_LINK',
+    'PUBLIKATION_START',
     'STATUS',
     'TODAY',
     'ZIRKULATION_ALLE',
@@ -6974,6 +7155,10 @@
     'ZIRKULATION_GEMEINDEN[].ERSTELLT',
     'ZIRKULATION_GEMEINDEN[].FRIST',
     'ZIRKULATION_GEMEINDEN[].NAME',
+    'ZUSTAENDIG_EMAIL',
+    'ZUSTAENDIG_NAME',
+    'ZUSTAENDIG_PHONE',
+    'ZUSTAENDIG_TELEFON',
   ])
 # ---
 # name: test_dms_placeholders_empty[Municipality]
@@ -7726,45 +7911,65 @@
   dict({
     'EIGENE_GEBUEHREN': list([
       dict({
-        'BETRAG': '505.54',
-        'KOSTENSTELLE': '127342955',
-        'POSITION': 'loss',
-        'RECHTSGRUNDLAGE': 'learn',
+        'BETRAG': '1’004.10',
+        'KOSTENSTELLE': '056229822',
+        'POSITION': 'relationship',
+        'RECHTSGRUNDLAGE': 'thus',
       }),
       dict({
-        'BETRAG': '120.65',
-        'KOSTENSTELLE': '113609408',
-        'POSITION': 'provide',
-        'RECHTSGRUNDLAGE': 'somebody',
+        'BETRAG': '352.81',
+        'KOSTENSTELLE': '054842269',
+        'POSITION': 'argue',
+        'RECHTSGRUNDLAGE': 'strong',
       }),
     ]),
-    'EIGENE_GEBUEHREN_TOTAL': '626.19',
+    'EIGENE_GEBUEHREN_TOTAL': '1’356.91',
+    'EINSPRECHENDE': list([
+      dict({
+        'ADDRESS': 'Beispielstrasse 1, 4321 Beispieldorf',
+        'ADRESSE': 'Beispielstrasse 1, 4321 Beispieldorf',
+        'NAME': 'Heinz Einsprachenmann',
+      }),
+      dict({
+        'ADDRESS': 'Beispielstrasse 3, 4321 Beispieldorf',
+        'ADRESSE': 'Beispielstrasse 3, 4321 Beispieldorf',
+        'NAME': 'Einsprache AG, Sandra Anwältin',
+      }),
+    ]),
     'GEBUEHREN': list([
       dict({
-        'BETRAG': '505.54',
-        'KOSTENSTELLE': '127342955',
-        'POSITION': 'loss',
-        'RECHTSGRUNDLAGE': 'learn',
+        'BETRAG': '1’004.10',
+        'KOSTENSTELLE': '056229822',
+        'POSITION': 'relationship',
+        'RECHTSGRUNDLAGE': 'thus',
       }),
       dict({
-        'BETRAG': '120.65',
-        'KOSTENSTELLE': '113609408',
-        'POSITION': 'provide',
-        'RECHTSGRUNDLAGE': 'somebody',
+        'BETRAG': '352.81',
+        'KOSTENSTELLE': '054842269',
+        'POSITION': 'argue',
+        'RECHTSGRUNDLAGE': 'strong',
       }),
       dict({
-        'BETRAG': '4’938.05',
+        'BETRAG': '1’542.26',
         'KOSTENSTELLE': '',
-        'POSITION': 'lot',
+        'POSITION': 'financial',
         'RECHTSGRUNDLAGE': '',
       }),
       dict({
-        'BETRAG': '679.42',
+        'BETRAG': '808.66',
         'KOSTENSTELLE': '',
-        'POSITION': 'foot',
+        'POSITION': 'rock',
         'RECHTSGRUNDLAGE': '',
       }),
     ]),
-    'GEBUEHREN_TOTAL': '6’243.66',
+    'GEBUEHREN_TOTAL': '3’707.83',
+    'GEMEINDE_WEBSEITE': 'https://gemeinde.ch',
+    'LEITBEHOERDE_NAME_ADRESSE': 'Test Leitbehörde, Teststrasse 13, 3000 Musterhausen',
+    'LEITBEHOERDE_WEBSEITE': 'https://leitbehoerde.ch',
+    'MEINE_ORGANISATION_WEBSEITE': 'https://meine-organisation.ch',
+    'PUBLIKATION_AMTSBLATT': '29. November 2023',
+    'PUBLIKATION_ANZEIGER': '28. November 2023',
+    'PUBLIKATION_ENDE': '15. Dezember 2023',
+    'PUBLIKATION_START': '1. Dezember 2023',
   })
 # ---

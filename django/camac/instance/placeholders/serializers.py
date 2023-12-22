@@ -226,6 +226,11 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
         aliases=[_("MUNICIPALITY_PHONE")],
         description=_("Phone of the municipality"),
     )
+    gemeinde_webseite = fields.MunicipalityField(
+        source="website",
+        aliases=[_("MUNICIPALITY_WEBSITE")],
+        description=_("Website of the municipality"),
+    )
     gesuchsteller_address_1 = fields.MasterDataPersonField(
         source="applicants",
         only_first=True,
@@ -346,6 +351,23 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
         aliases=[_("AUTHORITY_ADDRESS_2")],
         description=_("Address line 2 of the authority"),
     )
+    leitbehoerde_name_adresse = fields.JointField(
+        fields=[
+            fields.ResponsibleServiceField(source="get_name"),
+            fields.ResponsibleServiceField(source="address"),
+            fields.JointField(
+                fields=[
+                    fields.ResponsibleServiceField(source="zip"),
+                    fields.ResponsibleServiceField(
+                        source="get_trans_attr", source_args=["city"]
+                    ),
+                ]
+            ),
+        ],
+        separator=", ",
+        aliases=[_("AUTHORITY_NAME_ADDRESS")],
+        description=_("Name and address of the authority"),
+    )
     leitbehoerde_city = fields.ResponsibleServiceField(
         source="get_trans_attr",
         source_args=["city"],
@@ -372,6 +394,11 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
         source="phone",
         aliases=[_("AUTHORITY_PHONE")],
         description=_("Phone of the authority"),
+    )
+    leitbehoerde_webseite = fields.ResponsibleServiceField(
+        source="website",
+        aliases=[_("AUTHORITY_WEBSITE")],
+        description=_("Website of the authority"),
     )
     meine_organisation_adresse_1 = fields.CurrentServiceField(
         source="address",
@@ -429,6 +456,11 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
         source="phone",
         aliases=[_("CURRENT_SERVICE_PHONE")],
         description=_("Phone of the current service"),
+    )
+    meine_organisation_webseite = fields.CurrentServiceField(
+        source="website",
+        aliases=[_("CURRENT_SERVICE_WEBSITE")],
+        description=_("Website of the current service"),
     )
     municipality_address = fields.JointField(
         fields=[
@@ -584,6 +616,21 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
         aliases=[_("DOSSIER_NUMBER")],
         description=_("Dossier number of the instance"),
     )
+    zustaendig_email = fields.ResponsibleUserField(
+        source="email",
+        aliases=[_("RESPONSIBLE_EMAIL")],
+        description=_("Email address of the responsible employee"),
+    )
+    zustaendig_name = fields.ResponsibleUserField(
+        source="full_name",
+        aliases=[_("RESPONSIBLE_NAME")],
+        description=_("Name of the responsible employee"),
+    )
+    zustaendig_phone = fields.ResponsibleUserField(
+        source="phone",
+        aliases=[_("RESPONSIBLE_PHONE")],
+        description=_("Phone of the responsible employee"),
+    )
 
     def get_base_url(self, instance):
         return settings.INTERNAL_BASE_URL
@@ -692,11 +739,6 @@ class GrDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
     folgeplanung = fields.AliasedMethodField(
         aliases=[_("FOLLOWUP_PLANNING")],
         description=_("Follow-up planning"),
-    )
-    zustaendig_name = fields.ResponsibleUserField(
-        source="full_name",
-        aliases=[_("RESPONSIBLE_NAME")],
-        description=_("Name of the responsible employee"),
     )
     koordinaten = fields.AliasedMethodField(
         aliases=[_("COORDINATES")],
@@ -812,6 +854,12 @@ class GrDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
             "eigene_gebuehren",
             "gebuehren_total",
             "gebuehren",
+            "gemeinde_webseite",
+            "leitbehoerde_name_adresse",
+            "leitbehoerde_webseite",
+            "meine_organisation_webseite",
+            "zustaendig_email",
+            "zustaendig_phone",
         ]
 
 
@@ -1233,21 +1281,6 @@ class BeDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         aliases=[_("CIRCULATION_DISTRICT")],
         description=_("Involved districts of the instance"),
     )
-    zustaendig_email = fields.ResponsibleUserField(
-        source="email",
-        aliases=[_("RESPONSIBLE_EMAIL")],
-        description=_("Email address of the responsible employee"),
-    )
-    zustaendig_name = fields.ResponsibleUserField(
-        source="full_name",
-        aliases=[_("RESPONSIBLE_NAME")],
-        description=_("Name of the responsible employee"),
-    )
-    zustaendig_phone = fields.ResponsibleUserField(
-        source="phone",
-        aliases=[_("RESPONSIBLE_PHONE")],
-        description=_("Phone of the responsible employee"),
-    )
     number_of_accomodated_persons = fields.MasterDataField(
         aliases=[_("NUMBER_OF_ACCOMODATED_PERSONS")],
         description=_("Number of accomodated persons"),
@@ -1434,7 +1467,15 @@ class BeDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         return "mit-uvp" in instance.case.document.form_id
 
     class Meta:
-        exclude = ["dossier_number", "strasse", "ort"]
+        exclude = [
+            "dossier_number",
+            "gemeinde_webseite",
+            "leitbehoerde_name_adresse",
+            "leitbehoerde_webseite",
+            "meine_organisation_webseite",
+            "ort",
+            "strasse",
+        ]
 
 
 class SoDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
@@ -1443,11 +1484,42 @@ class SoDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         aliases=[_("CIRCULATION_SERVICES")],
         description=_("Involved services of the instance"),
     )
+    publikation_start = fields.PublicationField(
+        source="publikation-start",
+        value_key="date",
+        parser=human_readable_date,
+        aliases=[_("PUBLICATION_START")],
+        description=_("Start date of the publication of the instance"),
+    )
+    publikation_ende = fields.PublicationField(
+        source="publikation-ende",
+        value_key="date",
+        parser=human_readable_date,
+        aliases=[_("PUBLICATION_END")],
+        description=_("End date of the publication of the instance"),
+    )
+    publikation_anzeiger = fields.PublicationField(
+        source="publikation-anzeiger",
+        value_key="date",
+        parser=human_readable_date,
+        aliases=[_("PUBLICATION_DATE_GAZETTE")],
+        description=_("Date of the publication in the gazette"),
+    )
+    publikation_amtsblatt = fields.PublicationField(
+        source="publikation-amtsblatt",
+        value_key="date",
+        parser=human_readable_date,
+        aliases=[_("PUBLICATION_DATE_OFFICIAL_GAZETTE")],
+        description=_("Date of the publication in the official gazette"),
+    )
+    einsprechende = fields.LegalClaimantsField(
+        aliases=[_("OPPOSING")],
+        description=_("Opposing with address"),
+    )
 
     class Meta:
         exclude = [
             "description_modification",
-            "address",
             "nebenbestimmungen",
             "stellungnahme",
             "publikation_text",

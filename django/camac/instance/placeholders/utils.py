@@ -2,8 +2,11 @@ from datetime import date, datetime
 from typing import Union
 
 from babel.dates import format_date
+from caluma.caluma_form.models import Document
+from django.conf import settings
 from django.utils.translation import get_language
 
+from camac.caluma.utils import find_answer
 from camac.utils import clean_join
 
 
@@ -57,7 +60,7 @@ def get_person_name(
         "first_name": "John",
         "last_name": "Smith",
         "is_juristic_person": True,
-        "juristic_person_name": "ACME Inc.",
+        "juristic_name": "ACME Inc.",
     })
     "ACME Inc., John Smith"
     """
@@ -99,3 +102,24 @@ def human_readable_date(value: Union[datetime, date, None]) -> str:
         return None
 
     return format_date(value, "long", locale=get_language())
+
+
+def row_to_person(document: Document) -> dict:
+    if not settings.PLACEHOLDERS:  # pragma: no cover
+        return None
+
+    mapping = settings.PLACEHOLDERS["PERSON_MAPPING"]
+
+    return {
+        "first_name": find_answer(document, mapping["FIRST_NAME"]),
+        "last_name": find_answer(document, mapping["LAST_NAME"]),
+        "juristic_name": find_answer(document, mapping["JURISTIC_NAME"]),
+        "is_juristic_person": find_answer(
+            document, mapping["IS_JURISTIC"], raw_value=True
+        )
+        == mapping["IS_JURISTIC_YES"],
+        "street": find_answer(document, mapping["STREET"]),
+        "street_number": find_answer(document, mapping["STREET_NUMBER"]),
+        "zip": find_answer(document, mapping["ZIP"]),
+        "town": find_answer(document, mapping["TOWN"]),
+    }
