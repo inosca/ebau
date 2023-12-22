@@ -3,7 +3,7 @@ export default {
     form: true,
     endDate: false,
     related: false,
-    disableAuthentication: true,
+    disableAuthentication: false,
   },
   billing: {
     charge: false,
