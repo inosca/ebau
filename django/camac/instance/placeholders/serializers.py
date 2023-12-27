@@ -46,7 +46,10 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
 
     def get_aliased_field(self, key, value):
         field = self.fields[key]
-        keys = {key.upper()}
+        keys = set()
+
+        if settings.PLACEHOLDERS["KEEP_TECHNICAL_KEY"]:
+            keys.add(key.upper())
 
         for alias_config in field.aliases:
             for alias in get_translations_canton_aware(alias_config).values():
@@ -73,11 +76,16 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
         return [self.get_aliased_value_item(item, parsed_aliases) for item in value]
 
     def get_aliased_value_item(self, item, aliases):
-        parsed_item = item.copy()
+        parsed_item = {}
 
         for key, value in item.items():
+            value = sanitize_value(value)
+
+            if key not in aliases[key] and settings.PLACEHOLDERS["KEEP_TECHNICAL_KEY"]:
+                parsed_item[key] = value
+
             for alias in aliases[key]:
-                parsed_item[alias] = sanitize_value(value)
+                parsed_item[alias] = value
 
         return parsed_item
 
