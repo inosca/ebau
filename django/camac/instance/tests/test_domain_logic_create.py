@@ -60,7 +60,8 @@ def test_copy_attachments(
     new_file = new_document.files.first()
     old_file = files[0]
 
-    assert new_document.metainfo["camac-instance-id"] == target_instance.pk
+    assert new_document.metainfo["camac-instance-id"] == str(target_instance.pk)
+    assert new_document.instance_document.instance_id == target_instance.pk
     assert new_document.metainfo["caluma-document-id"] == str(
         target_instance.case.document.pk
     )
