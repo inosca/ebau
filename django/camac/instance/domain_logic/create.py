@@ -404,7 +404,9 @@ class CreateInstanceLogic:
 
             for document in alexandria_documents:
                 new_document = document.clone()
-                new_document.metainfo["camac-instance-id"] = target.pk
+                new_document.metainfo["camac-instance-id"] = str(target.pk)
+                new_document.instance_document.instance_id = target.pk
+                new_document.instance_document.save()
                 if new_document.metainfo.get("caluma-document-id"):
                     new_document.metainfo["caluma-document-id"] = str(
                         target.case.document.pk
