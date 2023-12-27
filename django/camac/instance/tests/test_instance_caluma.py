@@ -2240,6 +2240,7 @@ def test_rejection(
     mocker,
     submit_date_question,
     rejection_settings,
+    caluma_admin_user,
 ):
     application_settings["NOTIFICATIONS"]["SUBMIT"] = []
 
@@ -2263,6 +2264,7 @@ def test_rejection(
     source_instance = Instance.objects.get(pk=source_instance_id)
     source_instance.instance_state = rejected_state
     source_instance.save()
+    workflow_api.suspend_case(source_instance.case, caluma_admin_user)
 
     copy_response = admin_client.post(
         reverse("instance-list"),

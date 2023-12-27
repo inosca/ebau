@@ -1249,21 +1249,22 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
                     self.context["request"].user,
                 )
 
-            workflow_api.cancel_case(
-                case=source_case,
-                user=self.context["request"].caluma_info.context.user,
-            )
+            if source_case.status == workflow_models.Case.STATUS_SUSPENDED:
+                workflow_api.cancel_case(
+                    case=source_case,
+                    user=self.context["request"].caluma_info.context.user,
+                )
 
-            history_text_data = {
-                "dossier_number": MasterData(instance.case).dossier_number
-            }
+                history_text_data = {
+                    "dossier_number": MasterData(instance.case).dossier_number
+                }
 
-            create_history_entry(
-                source_instance,
-                self.context["request"].user,
-                settings.REJECTION["HISTORY_ENTRIES"]["COMPLETE"],
-                lambda _: history_text_data,
-            )
+                create_history_entry(
+                    source_instance,
+                    self.context["request"].user,
+                    settings.REJECTION["HISTORY_ENTRIES"]["COMPLETE"],
+                    lambda _: history_text_data,
+                )
 
     def _be_copy_responsible_person(self, instance):
         try:
