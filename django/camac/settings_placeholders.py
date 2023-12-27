@@ -1,5 +1,6 @@
 PLACEHOLDERS = {
     "default": {
+        "KEEP_TECHNICAL_KEY": True,
         "LEGAL_SUBMISSIONS": {
             "FORM": "legal-submission-form",
             "LEGAL_CLAIMANTS_TABLE_QUESTION": "legal-submission-legal-claimants-table-question",
@@ -18,6 +19,7 @@ PLACEHOLDERS = {
     },
     "kt_so": {
         "ENABLED": True,
+        "KEEP_TECHNICAL_KEY": False,
         "LEGAL_SUBMISSIONS": {
             "FORM": "einsprache",
             "LEGAL_CLAIMANTS_TABLE_QUESTION": "einsprache-einsprechende",
