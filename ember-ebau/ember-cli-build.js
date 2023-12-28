@@ -32,6 +32,7 @@ module.exports = function (defaults) {
       },
       setOwnConfig: {
         application: ENV,
+        enableHeaderWatermark: [ENV_MAP.kt_gr].includes(ENV),
       },
     },
     fingerprint: {

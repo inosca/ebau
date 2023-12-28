@@ -1,9 +1,16 @@
 <nav class="main-navigation uk-navbar-container">
   <div class="uk-padding-small uk-padding-remove-vertical">
-    <div class="uk-navbar">
+    <div class="main-navigation__header uk-navbar">
       <div class="uk-navbar-left uk-flex-nowrap">
         <LinkTo @route="index" class="uk-navbar-item uk-logo">
           <img alt={{t "nav.logo"}} src={{this.logoPath}} />
+          {{#if (macroCondition (macroGetOwnConfig "enableHeaderWatermark"))}}
+            {{#if this.watermark}}
+              <div
+                class="main-navigation__header__watermark"
+              >{{this.watermark}}</div>
+            {{/if}}
+          {{/if}}
         </LinkTo>
         <ul class="uk-navbar-nav uk-margin-right">
           {{#each this.resources.records as |resource|}}
@@ -20,7 +27,9 @@
             <a href="#">
               <div>
                 <span class="uk-text-bold">{{this.session.user.fullName}}</span>
-                <div class="uk-navbar-subtitle">{{this.session.groupModel.name}}</div>
+                <div
+                  class="uk-navbar-subtitle"
+                >{{this.session.groupModel.name}}</div>
               </div>
               <span uk-drop-parent-icon></span>
             </a>
@@ -52,7 +61,9 @@
           </li>
           {{#if (gt this.languages.length 1)}}
             <li>
-              <a href="#">{{get this.languageNames this.session.language}}<span uk-drop-parent-icon></span></a>
+              <a href="#">{{get this.languageNames this.session.language}}<span
+                  uk-drop-parent-icon
+                ></span></a>
               <div
                 uk-dropdown
                 animation="uk-animation-slide-top-small"
@@ -65,10 +76,7 @@
                 <ul class="uk-nav uk-dropdown-nav">
                   {{#each this.languages as |lang|}}
                     <li>
-                      <a
-                        href="#"
-                        {{on "click" (fn this.setLanguage lang)}}
-                      >
+                      <a href="#" {{on "click" (fn this.setLanguage lang)}}>
                         {{get this.languageNames lang}}
                       </a>
                     </li>
