@@ -1,34 +1,54 @@
-.main-navigation.uk-navbar-container {
-  position: fixed;
-  left: 0;
-  top: 0;
-  right: 0;
-  z-index: $global-z-index + 5; // modal uses +10
-  background-color: $main-navigation-background;
-  box-shadow: $global-small-box-shadow;
+.main-navigation {
+  
+  &.uk-navbar-container {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    z-index: $global-z-index + 5; // modal uses +10
+    background-color: $main-navigation-background;
+    box-shadow: $global-small-box-shadow;
 
-  .uk-navbar-nav {
-    > li > a {
-      color: white;
+    .uk-navbar-nav {
+      > li > a {
+        color: white;
+      }
+
+      > li.uk-active > a {
+        text-decoration: underline;
+        text-underline-offset: 5px;
+      }
     }
 
-    > li.uk-active > a {
-      text-decoration: underline;
-      text-underline-offset: 5px;
+    .uk-navbar-right li > a {
+      text-transform: initial;
+    }
+
+    #locale-dropdown {
+      min-width: 100px;
+    }
+
+    .uk-logo > img {
+      width: 100%;
+      max-width: $sidebar-width - ($padding-small-padding * 2);
+      max-height: 50px;
     }
   }
 
-  .uk-navbar-right li > a {
-    text-transform: initial;
-  }
-
-  #locale-dropdown {
-    min-width: 100px;
-  }
-
-  .uk-logo > img {
-    width: 100%;
-    max-width: $sidebar-width - ($padding-small-padding * 2);
-    max-height: 50px;
+  &__header__watermark {
+    width: 150px;
+    position: fixed;
+    top: 15px;
+    left: -45px;
+    font-size: 1.2rem;
+    text-align: center;
+    line-height: 30px;
+    letter-spacing: 1px;
+    color: #fff;
+    transform: rotate(-45deg);
+    background-color: #a9a9a9;
+    text-transform: uppercase;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
   }
 }
+
