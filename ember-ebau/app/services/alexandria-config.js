@@ -59,16 +59,25 @@ export default class AlexandriaConfigService extends ConfigService {
     return [...new Set(documents.map((d) => d[key]).filter((id) => id))];
   }
 
-  documentsPostProcess(documents) {
+  async documentsPostProcess(documents) {
     const users = this.extractCreatedBy(documents, "createdByUser");
     const groups = this.extractCreatedBy(documents, "createdByGroup");
 
+    const requests = [];
     if (users.length) {
-      this.store.query("user", { filter: { id: users.join(",") } });
+      requests.push(
+        this.store.query("user", { filter: { id: users.join(",") } }),
+      );
     }
     if (groups.length) {
-      this.store.query("service", { filter: { service_id: groups.join(",") } });
+      requests.push(
+        await this.store.query("service", {
+          filter: { service_id: groups.join(",") },
+        }),
+      );
     }
+
+    await Promise.all(requests);
 
     return documents;
   }
