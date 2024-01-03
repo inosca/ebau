@@ -14,7 +14,7 @@ export default class AlexandriaDocumentsFormComponent extends Component {
   @service fetch;
   @service notification;
   @service store;
-  @service config;
+  @service alexandriaConfig;
   @service alexandriaDocuments;
 
   @tracked uploadedAttachmentIds = [];
@@ -157,7 +157,7 @@ export default class AlexandriaDocumentsFormComponent extends Component {
   @task
   *upload({ file, bucket }) {
     try {
-      this.config.documentId = this.documentId;
+      this.alexandriaConfig.documentId = this.documentId;
 
       const documentModel = yield this.alexandriaDocuments.upload(
         bucket,

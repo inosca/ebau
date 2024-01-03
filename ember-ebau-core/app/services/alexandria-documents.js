@@ -1,1 +1,1 @@
-export { default } from "ember-ebau-core/services/alexandria-documents";
+export { default } from "ember-alexandria/services/alexandria-documents";

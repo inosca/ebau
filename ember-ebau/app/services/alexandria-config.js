@@ -1,8 +1,8 @@
 import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
-import ConfigService from "ember-alexandria/services/config";
+import AlexandriaConfigService from "ember-alexandria/services/alexandria-config";
 
-export default class AlexandriaConfigService extends ConfigService {
+export default class CustomAlexandriaConfigService extends AlexandriaConfigService {
   markIcons = {
     decision: "stamp",
     publication: "bullhorn",
