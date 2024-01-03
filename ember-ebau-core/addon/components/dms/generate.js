@@ -6,6 +6,7 @@ import { findAll } from "ember-data-resources";
 import { trackedFunction } from "ember-resources/util/function";
 import { saveAs } from "file-saver";
 
+import mainConfig from "ember-ebau-core/config/main";
 import {
   MIME_TYPE_TO_EXTENSION,
   sortByDescription,
@@ -18,6 +19,7 @@ function extractCategories(templates) {
 }
 
 export default class DmsGenerateComponent extends Component {
+  @service alexandriaDocuments;
   @service notification;
   @service ebauModules;
   @service fetch;
@@ -137,17 +139,11 @@ export default class DmsGenerateComponent extends Component {
       const filename = `${this.template.description}${extension}`;
 
       if (saveToDocuments) {
-        const attachmentBody = new FormData();
-
-        attachmentBody.append("attachment_sections", 4);
-        attachmentBody.append("instance", this.args.instanceId);
-        attachmentBody.append("path", blob, filename);
-
-        yield this.fetch.fetch(`/api/v1/attachments`, {
-          method: "POST",
-          headers: { "content-type": undefined },
-          body: attachmentBody,
-        });
+        if (mainConfig.documentBackend === "camac") {
+          yield this.saveToDocumentsCamac(blob, filename);
+        } else {
+          yield this.saveToDocumentsAlexandria(blob, filename);
+        }
 
         this.notification.success(this.intl.t("dms.merge-and-save-success"));
       } else {
@@ -156,5 +152,25 @@ export default class DmsGenerateComponent extends Component {
     } catch (error) {
       this.notification.danger(this.intl.t("dms.merge-error"));
     }
+  }
+
+  async saveToDocumentsCamac(blob, filename) {
+    const attachmentBody = new FormData();
+
+    attachmentBody.append("attachment_sections", 4);
+    attachmentBody.append("instance", this.args.instanceId);
+    attachmentBody.append("path", blob, filename);
+
+    await this.fetch.fetch(`/api/v1/attachments`, {
+      method: "POST",
+      headers: { "content-type": undefined },
+      body: attachmentBody,
+    });
+  }
+
+  async saveToDocumentsAlexandria(blob, filename) {
+    const file = new File([blob], filename);
+
+    await this.alexandriaDocuments.upload("intern", [file]);
   }
 }

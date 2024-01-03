@@ -4,6 +4,7 @@ export default {
   fallbackLanguage: "de",
   prodUrl: "urec.ur.ch",
   showInstanceIdAfterSubmission: true,
+  documentBackend: "camac",
   gwr: {
     cantonAbbreviation: "UR",
     importModels: ["project", "building", "dwelling"],

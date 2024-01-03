@@ -336,7 +336,7 @@
     </div>
     <div class="uk-width-3-4 uk-width-2-3@m">
       {{#if this.editController.feedback}}
-        {{#if (macroCondition (macroGetOwnConfig "documentBackendCamac"))}}
+        {{#if (eq (get-main-config "documentBackend") "camac")}}
           <BeAttachmentList @attachments={{this.editController.feedback}} />
         {{else}}
           <AlexandriaAttachmentList @attachments={{this.editController.feedback}} />
@@ -364,7 +364,7 @@
       </h2>
     </div>
     <div class="uk-width-3-4 uk-width-2-3@m">
-      {{#if (macroCondition (macroGetOwnConfig "documentBackendCamac"))}}
+      {{#if (eq (get-main-config "documentBackend") "camac")}}
         <BeAttachmentList @attachments={{this.editController.decision}} />
       {{else}}
         <AlexandriaAttachmentList @attachments={{this.editController.decision}} />

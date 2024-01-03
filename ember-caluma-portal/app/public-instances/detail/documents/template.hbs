@@ -2,7 +2,7 @@
   <h1>{{t "publicInstancesDetail.documents"}}</h1>
 {{/if}}
 
-{{#if (macroCondition (macroGetOwnConfig "documentBackendCamac"))}}
+{{#if (eq (get-main-config "documentBackend") "camac")}}
   <table class="uk-table uk-table-striped uk-table-hover uk-table-responsive">
     <thead>
       <tr>

@@ -5,7 +5,7 @@
   }}
 >
   {{#if this.editController.feedback}}
-    {{#if (macroCondition (macroGetOwnConfig "documentBackendCamac"))}}
+    {{#if (eq (get-main-config "documentBackend") "camac")}}
       <BeAttachmentList @attachments={{this.editController.feedback}} />
     {{else}}
       <AlexandriaAttachmentList @attachments={{this.editController.feedback}} />

@@ -21,6 +21,6 @@ export default {
     revert: false,
   },
   dms: {
-    mergeAndSave: false,
+    mergeAndSave: true,
   },
 };
