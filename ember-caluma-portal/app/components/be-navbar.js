@@ -61,18 +61,6 @@ export default class BeNavbarComponent extends Component {
     return internalURL;
   }
 
-  get watermark() {
-    if (isDevelopingApp() || location.host === "ebau-portal.local") {
-      return "dev";
-    } else if (
-      /([-.]+test)|(test[-.]+)|(-t\.)|(\.sycloud)/.test(location.host)
-    ) {
-      return "test";
-    }
-
-    return null;
-  }
-
   @action
   async setGroup(groupId, event) {
     event?.preventDefault();
