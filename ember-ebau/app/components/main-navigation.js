@@ -1,6 +1,6 @@
 import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
-import { isDevelopingApp, isTesting, macroCondition } from "@embroider/macros";
+import { isTesting, macroCondition } from "@embroider/macros";
 import Component from "@glimmer/component";
 import { findAll } from "ember-data-resources";
 import mainConfig from "ember-ebau-core/config/main";
@@ -30,18 +30,6 @@ export default class MainNavigationComponent extends Component {
     }
 
     return "/ebau-inosca-logo.svg";
-  }
-
-  get watermark() {
-    if (isDevelopingApp() || location.host === "ember-ebau.local") {
-      return "dev";
-    } else if (
-      /([-.]+test)|(test[-.]+)|(-t\.)|(\.sycloud)/.test(location.host)
-    ) {
-      return "test";
-    }
-
-    return null;
   }
 
   resources = findAll(this, "resource");

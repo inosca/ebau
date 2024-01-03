@@ -1,7 +1,7 @@
 {{#if (not (is-embedded))}}
   <nav class="be-navbar">
     <div class="uk-container uk-container-large">
-      <div class="be-navbar__header uk-width-1-1 uk-position-relative">
+      <div class="uk-width-1-1 uk-position-relative">
         <div class="uk-flex uk-flex-middle uk-flex-between uk-height-1-1">
           <LinkTo
             @route="index"
@@ -34,13 +34,7 @@
                 alt={{t "global.title"}}
               />
             {{/if}}
-            {{#if (macroCondition (macroGetOwnConfig "enableHeaderWatermark"))}}
-              {{#if this.watermark}}
-                <div
-                  class="be-navbar__header__watermark"
-                >{{this.watermark}}</div>
-              {{/if}}
-            {{/if}}
+            <Watermark @isPortal={{true}} />
           </LinkTo>
           <div class="uk-text-right">
             {{#if (is-application "ur")}}

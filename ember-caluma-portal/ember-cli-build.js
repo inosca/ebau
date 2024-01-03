@@ -28,7 +28,6 @@ module.exports = function (defaults) {
         enableModificationConfirm: ENV === "be",
         enableCommunications: ["be", "so"].includes(ENV),
         enableAdditionalDemand: ["gr", "so"].includes(ENV),
-        enableHeaderWatermark: ["gr"].includes(ENV),
         enableInstanceActionDescription: ENV !== "so",
         instancePaperFilterDefault: ENV === "ur",
         showProfileLink: ENV === "gr",

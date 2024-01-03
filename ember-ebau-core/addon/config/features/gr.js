@@ -14,4 +14,5 @@ export default {
     createPaper: true,
     exportExcel: false,
   },
+  watermark: true,
 };
