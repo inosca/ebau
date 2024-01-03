@@ -5,7 +5,7 @@ import { tracked } from "@glimmer/tracking";
 import saveDocumentMutation from "@projectcaluma/ember-form/gql/mutations/save-document.graphql";
 import { parseDocument } from "@projectcaluma/ember-form/lib/parsers";
 import { queryManager } from "ember-apollo-client";
-import { dropTask } from "ember-concurrency";
+import { dropTask, task, timeout } from "ember-concurrency";
 
 function countAnswers(data) {
   const rootCount = Object.keys(data).length;
@@ -46,7 +46,7 @@ export default class GisApplyButtonComponent extends Component {
         headers: { accept: "application/json" },
       });
 
-      const { data, errors = [] } = await response.json();
+      const { task_id, errors = [] } = await response.json();
 
       if (errors.length) {
         errors.forEach(({ detail }) => {
@@ -54,12 +54,36 @@ export default class GisApplyButtonComponent extends Component {
         });
       }
 
+      const { data } = await this.pollData.perform(task_id);
+
       this.data = data;
       this.showModal = true;
     } catch (e) {
       console.error(e);
       this.notification.danger(this.intl.t("so-gis.apply-error"));
     }
+  });
+
+  pollData = task(async (taskId) => {
+    this.notification.warning(this.intl.t("gis.loadingHint"));
+
+    let response;
+
+    while (!response || response.status === 202) {
+      /* eslint-disable no-await-in-loop */
+      response = await this.fetch.fetch(`/api/v1/gis/data/${taskId}`, {
+        headers: { accept: "application/json" },
+      });
+
+      if (!response.ok) {
+        throw new Error("Error while polling GIS task results.");
+      }
+
+      await timeout(1000);
+      /* eslint-enable no-await-in-loop */
+    }
+
+    return await response.json();
   });
 
   applyData = dropTask(async () => {
