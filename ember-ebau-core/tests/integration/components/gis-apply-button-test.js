@@ -43,6 +43,12 @@ module("Integration | Component | gis-apply-button", function (hooks) {
         Object.keys(this.params),
       );
 
+      return { task_id: "1234" };
+    });
+
+    this.server.get("/api/v1/gis/data/:id", (_, request) => {
+      assert.deepEqual(Object.keys(request.params.id), Object.keys("1234"));
+
       return {
         data: {
           "some-question": { label: "Some Question", value: "My value" },
