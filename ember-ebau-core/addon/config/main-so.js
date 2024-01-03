@@ -3,6 +3,7 @@ const config = {
   languages: ["de"],
   fallbackLanguage: "de",
   allowApplicantManualWorkItem: false,
+  documentBackend: "alexandria",
   instanceStates: {
     new: 1,
     subm: 2,

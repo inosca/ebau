@@ -4,6 +4,7 @@ export default {
   fallbackLanguage: "de",
   prodUrl: "ebau.admin.gr.ch",
   allowApplicantManualWorkItem: false,
+  documentBackend: "alexandria",
   serviceGroups: {
     authorityBaB: 3,
   },

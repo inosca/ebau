@@ -31,7 +31,6 @@ module.exports = function (defaults) {
         enableInstanceActionDescription: ENV !== "so",
         instancePaperFilterDefault: ENV === "ur",
         showProfileLink: ENV === "gr",
-        documentBackendCamac: !["gr", "so"].includes(ENV),
         eGovPortalURL: process.env.EGOV_PORTAL_URL ?? "https://my-t.so.ch",
       },
       setConfig: {

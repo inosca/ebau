@@ -1,7 +1,7 @@
 import Controller, { inject as controller } from "@ember/controller";
 import { inject as service } from "@ember/service";
-import { macroCondition, getOwnConfig } from "@embroider/macros";
 import { dropTask } from "ember-concurrency";
+import mainConfig from "ember-ebau-core/config/main";
 import { trackedTask } from "ember-resources/util/ember-concurrency";
 
 export default class PublicInstancesDetailDocumentsController extends Controller {
@@ -22,7 +22,7 @@ export default class PublicInstancesDetailDocumentsController extends Controller
     yield Promise.resolve();
 
     try {
-      if (macroCondition(getOwnConfig().documentBackendCamac)) {
+      if (mainConfig.documentBackend === "camac") {
         return yield this.store.query("attachment", {
           instance: this.model,
         });

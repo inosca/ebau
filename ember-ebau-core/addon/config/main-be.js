@@ -4,6 +4,7 @@ export default {
   fallbackLanguage: "de",
   prodUrl: "www.ebau.apps.be.ch",
   showInstanceIdAfterSubmission: true,
+  documentBackend: "camac",
   gwr: {
     cantonAbbreviation: "BE",
     importModels: ["project"],

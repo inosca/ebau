@@ -1,6 +1,5 @@
 import Controller from "@ember/controller";
 import { inject as service } from "@ember/service";
-import { macroCondition, getOwnConfig } from "@embroider/macros";
 import { useCalumaQuery } from "@projectcaluma/ember-core/caluma-query";
 import { allCases } from "@projectcaluma/ember-core/caluma-query/queries";
 import { queryManager } from "ember-apollo-client";
@@ -50,43 +49,45 @@ export default class InstancesEditController extends Controller {
     ],
   }));
 
-  #feedbackAttachments = macroCondition(getOwnConfig().documentBackendCamac)
-    ? query(this, "attachment", () => ({
-        instance: this.model,
-        attachment_sections:
-          config.APPLICATION.documents.feedbackSections.join(","),
-        include: "attachment_sections",
-      }))
-    : query(this, "document", () => ({
-        filter: {
-          category: config.APPLICATION.documents.feedbackSections.join(","),
-          metainfo: JSON.stringify([
-            { key: "camac-instance-id", value: String(this.model) },
-          ]),
-        },
-        include: "files,marks",
-        sort: "title",
-      }));
+  #feedbackAttachments =
+    mainConfig.documentBackend === "camac"
+      ? query(this, "attachment", () => ({
+          instance: this.model,
+          attachment_sections:
+            config.APPLICATION.documents.feedbackSections.join(","),
+          include: "attachment_sections",
+        }))
+      : query(this, "document", () => ({
+          filter: {
+            category: config.APPLICATION.documents.feedbackSections.join(","),
+            metainfo: JSON.stringify([
+              { key: "camac-instance-id", value: String(this.model) },
+            ]),
+          },
+          include: "files,marks",
+          sort: "title",
+        }));
 
-  #decisionAttachments = macroCondition(getOwnConfig().documentBackendCamac)
-    ? query(this, "attachment", () => ({
-        instance: this.model,
-        context: JSON.stringify({
-          key: "isDecision",
-          value: true,
-        }),
-        include: "attachment_sections",
-      }))
-    : query(this, "document", () => ({
-        filter: {
-          marks: mainConfig.alexandria?.marks.decision,
-          metainfo: JSON.stringify([
-            { key: "camac-instance-id", value: String(this.model) },
-          ]),
-        },
-        sort: "title",
-        include: "files,marks",
-      }));
+  #decisionAttachments =
+    mainConfig.documentBackend === "camac"
+      ? query(this, "attachment", () => ({
+          instance: this.model,
+          context: JSON.stringify({
+            key: "isDecision",
+            value: true,
+          }),
+          include: "attachment_sections",
+        }))
+      : query(this, "document", () => ({
+          filter: {
+            marks: mainConfig.alexandria?.marks.decision,
+            metainfo: JSON.stringify([
+              { key: "camac-instance-id", value: String(this.model) },
+            ]),
+          },
+          sort: "title",
+          include: "files,marks",
+        }));
 
   #objectionAttachments = query(this, "document", () => ({
     filter: {
