@@ -5,6 +5,7 @@ from django.conf import settings
 from django.utils import timezone
 from rest_framework import serializers
 
+from camac.core.utils import canton_aware
 from camac.instance.master_data import MasterData
 
 logger = getLogger(__name__)
@@ -185,47 +186,46 @@ class GwrSerializer(serializers.Serializer):
         return end_date.date().isoformat() if end_date else None
 
     @catch_and_log()
+    @canton_aware
     def get_energy_device(self, building, is_heating, is_main_heating):
+        if settings.APPLICATION_NAME == "kt_schwyz" and not is_main_heating:
+            return None
 
-        if settings.APPLICATION_NAME == "kt_schwyz" and is_main_heating:
-            heat_generator = (
-                building.get("heating_heat_generator")
-                if is_heating
-                else building.get("warmwater_heat_generator")
-            )
-            energy_source = (
-                building.get("heating_energy_source")
-                if is_heating
-                else building.get("warmwater_energy_source")
-            )
+        generator_key = "warmwater_heat_generator"
+        source_key = "warmwater_energy_source"
 
-            heat_generator_key = "heatGenerator" + (
-                "Heating" if is_heating else "HotWater"
-            )
-            return {
-                heat_generator_key: heat_generator,
-                "energySourceHeating": energy_source,
-            }
+        if is_heating:
+            generator_key = "heating_heat_generator"
+            source_key = "heating_energy_source"
 
-        if settings.APPLICATION_NAME == "kt_uri":
-            heating_type = "is_heating" if is_heating else "is_warm_water"
-            building_name = building.get("name")
-            return next(
-                (
-                    {
-                        "energySourceHeating": device.get("energy_source"),
-                        "informationSourceHeating": device.get("information_source"),
-                        "revisionDate": timezone.now().date(),
-                    }
-                    for device in self.master_data.energy_devices
-                    if device.get(heating_type)
-                    and device.get("name_of_building") == building_name
-                    and device.get("is_main_heating") == is_main_heating
-                ),
-                None,
-            )
+        if not is_main_heating:
+            generator_key = f"additional_{generator_key}"
+            source_key = f"additional_{source_key}"
 
-        return None
+        heat_generator_key = "heatGenerator" + ("Heating" if is_heating else "HotWater")
+
+        return {
+            heat_generator_key: building.get(generator_key),
+            "energySourceHeating": building.get(source_key),
+        }
+
+    def get_energy_device_ur(self, building, is_heating, is_main_heating):
+        heating_type = "is_heating" if is_heating else "is_warm_water"
+        building_name = building.get("name")
+        return next(
+            (
+                {
+                    "energySourceHeating": device.get("energy_source"),
+                    "informationSourceHeating": device.get("information_source"),
+                    "revisionDate": timezone.now().date(),
+                }
+                for device in self.master_data.energy_devices
+                if device.get(heating_type)
+                and device.get("name_of_building") == building_name
+                and device.get("is_main_heating") == is_main_heating
+            ),
+            None,
+        )
 
     @catch_and_log(fallback=[])
     def get_dwellings(self, building):

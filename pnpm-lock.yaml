@@ -722,8 +722,8 @@ importers:
         specifier: workspace:*
         version: link:../ember-ebau-core
       ember-ebau-gwr:
-        specifier: 7.4.4
-        version: 7.4.4(@ember/string@3.1.1)(@glint/template@1.2.1)(ember-engines@0.9.0)(ember-source@4.12.3)(webpack@5.89.0)
+        specifier: 7.4.5
+        version: 7.4.5(@ember/string@3.1.1)(@glint/template@1.2.1)(ember-engines@0.9.0)(ember-source@4.12.3)(webpack@5.89.0)
       ember-engines:
         specifier: 0.9.0
         version: 0.9.0(@glint/template@1.2.1)(ember-source@4.12.3)
@@ -988,6 +988,9 @@ importers:
       ember-ebau-core:
         specifier: workspace:*
         version: link:../ember-ebau-core
+      ember-ebau-gwr:
+        specifier: 7.4.5
+        version: 7.4.5(@ember/string@3.1.1)(@glint/template@1.2.1)(ember-engines@0.9.0)(ember-source@4.12.3)(webpack@5.89.0)
       ember-engines:
         specifier: 0.9.0
         version: 0.9.0(@glint/template@1.2.1)(ember-source@4.12.3)
@@ -9496,8 +9499,8 @@ packages:
       - '@babel/core'
       - supports-color
 
-  /ember-ebau-gwr@7.4.4(@ember/string@3.1.1)(@glint/template@1.2.1)(ember-engines@0.9.0)(ember-source@4.12.3)(webpack@5.89.0):
-    resolution: {integrity: sha512-acrgXw6l6K5mh9LBUxArFOswxC/s+Zo3q8UBHlGIe7Wq+HVHfxrFKeepIs4wgonUBdhYXjuTjhilFB1GwxxCsw==}
+  /ember-ebau-gwr@7.4.5(@ember/string@3.1.1)(@glint/template@1.2.1)(ember-engines@0.9.0)(ember-source@4.12.3)(webpack@5.89.0):
+    resolution: {integrity: sha512-nfW2qpRKoW1awcJdu3x53Rl1bpwo7vi2hITZGONPf/xTFQZzLMTT1ojSpFJFdBkEO/a47kKubONUpdK3rosDDQ==}
     engines: {node: '>= 18'}
     peerDependencies:
       ember-engines: ^0.9.0

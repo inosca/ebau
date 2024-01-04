@@ -140,6 +140,7 @@ class ResourceSerializer(serializers.ModelSerializer, MultilingualSerializer):
                 "/dashboard/news.phtml": "/static-content/news",
                 "/ember-camac-ng/dms-admin.phtml": "/dms-admin",
                 "/ember-camac-ng/service-permissions.phtml": "/service-permissions",
+                "/ember-camac-ng/gwr-global.phtml": "/gwr",
             }
             return type_mapping.get(obj.template)
 
@@ -202,6 +203,7 @@ class InstanceResourceSerializer(serializers.ModelSerializer, MultilingualSerial
                 "/ember-camac-ng/billing.phtml": "billing",
                 "/ember-camac-ng/rejection.phtml": "rejection",
                 "/ember-camac-ng/permissions.phtml": "permissions",
+                "/ember-camac-ng/gwr.phtml": "gwr/projects",
             }
             return type_mapping.get(obj.template)
 
