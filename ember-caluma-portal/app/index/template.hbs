@@ -37,5 +37,19 @@
         {{t "instances.edit"}}
       </LinkTo>
     </div>
+
+    {{#if (has-feature "index.publicInstances")}}
+      <div
+        class="uk-flex uk-flex-middle uk-margin-small-left uk-margin-small-right uk-margin-bottom"
+      >
+        <LinkTo
+          @route="public-instances"
+          class="uk-button uk-button-default uk-width-medium uk-height-medium uk-flex uk-flex-middle uk-flex-center uk-flex-column"
+        >
+          <UkIcon @icon="file-text" @ratio="3" class="uk-margin" />
+          {{t "nav.public-instance"}}
+        </LinkTo>
+      </div>
+    {{/if}}
   </div>
 </div>
