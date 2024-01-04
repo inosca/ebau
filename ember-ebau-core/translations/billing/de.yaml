@@ -87,5 +87,5 @@ billing:
     </ul>
   billing-types:
     by_authority: Weiter zu verrechnen
-    forwarded: Rechunung zu eröffnen
+    forwarded: Rechnung zu eröffnen
     direct: Direkt verrechnet
