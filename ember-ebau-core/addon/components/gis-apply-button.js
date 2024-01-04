@@ -7,6 +7,8 @@ import { parseDocument } from "@projectcaluma/ember-form/lib/parsers";
 import { queryManager } from "ember-apollo-client";
 import { dropTask, task, timeout } from "ember-concurrency";
 
+import { hasFeature } from "ember-ebau-core/helpers/has-feature";
+
 function countAnswers(data) {
   const rootCount = Object.keys(data).length;
 
@@ -46,16 +48,21 @@ export default class GisApplyButtonComponent extends Component {
         headers: { accept: "application/json" },
       });
 
-      const { task_id, errors = [] } = await response.json();
+      let data;
+      let errors;
+
+      if (hasFeature("gis.v3")) {
+        const { task_id } = await response.json();
+        ({ data, errors = [] } = await this.pollData.perform(task_id));
+      } else {
+        ({ data, errors = [] } = await response.json());
+      }
 
       if (errors.length) {
         errors.forEach(({ detail }) => {
           this.notification.danger(detail);
         });
       }
-
-      const { data } = await this.pollData.perform(task_id);
-
       this.data = data;
       this.showModal = true;
     } catch (e) {
