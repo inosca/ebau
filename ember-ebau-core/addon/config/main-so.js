@@ -44,8 +44,8 @@ const config = {
   },
   paperInstances: {
     allowedGroups: {
-      roles: [],
-      serviceGroups: [],
+      roles: [5],
+      serviceGroups: [1],
     },
   },
   correction: {
