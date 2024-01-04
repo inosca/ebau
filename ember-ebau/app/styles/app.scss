@@ -24,6 +24,7 @@ $main-navigation-background: $global-primary-background !default;
 
 @import "@projectcaluma/ember-form";
 @import "@projectcaluma/ember-distribution";
+@import "ember-ebau-gwr";
 
 .main-content {
   margin-top: $main-nav-height;

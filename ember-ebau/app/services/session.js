@@ -171,6 +171,10 @@ export default class CustomSession extends Session {
     };
   }
 
+  async getAuthorizationHeader() {
+    return this.authHeaders.authorization;
+  }
+
   get languageHeaders() {
     if (!this.language) return {};
 

@@ -33,6 +33,18 @@ export default class App extends Application {
         ],
       },
     },
+    "ember-ebau-gwr": {
+      dependencies: {
+        services: [
+          "notification",
+          "intl",
+          { config: "gwr-config" },
+          { dataImport: "gwrDataImport" },
+          "store",
+          "session",
+        ],
+      },
+    },
   };
 }
 
