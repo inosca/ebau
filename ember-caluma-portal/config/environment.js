@@ -435,6 +435,7 @@ module.exports = function (environment) {
       selectableGroups: {
         roles: [
           3, // Support
+          5, // Municipality lead
         ],
       },
       documents: {
