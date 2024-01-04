@@ -411,23 +411,27 @@ msgstr ""
 msgid "Error %(code)s while fetching data from the geo.so.ch API"
 msgstr ""
 
-#: camac/gis/models.py:24
+#: camac/gis/models.py:25
 msgid "GIS Canton Solothurn"
 msgstr ""
 
-#: camac/gis/models.py:25
+#: camac/gis/models.py:26
 msgid "GIS Canton GR"
 msgstr ""
 
-#: camac/gis/models.py:26
-msgid "Parameter"
-msgstr ""
-
 #: camac/gis/models.py:27
-msgid "Ech0206"
+msgid "GIS Canton Bern"
 msgstr ""
 
 #: camac/gis/models.py:28
+msgid "Parameter"
+msgstr ""
+
+#: camac/gis/models.py:29
+msgid "Ech0206"
+msgstr ""
+
+#: camac/gis/models.py:30
 msgid "Federal GIS Switzerland"
 msgstr ""
 
@@ -435,7 +439,7 @@ msgstr ""
 msgid "Coordinates must be floats"
 msgstr ""
 
-#: camac/gis/views.py:96
+#: camac/gis/views.py:98
 #, python-format
 msgid "Required parameter %(parameter)s was not passed"
 msgstr ""

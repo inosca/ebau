@@ -463,23 +463,27 @@ msgstr ""
 msgid "Error %(code)s while fetching data from the geo.so.ch API"
 msgstr "Fehler %(code)s beim Abrufen der Daten von der geo.so.ch Schnittstelle"
 
-#: camac/gis/models.py:24
+#: camac/gis/models.py:25
 msgid "GIS Canton Solothurn"
 msgstr "Geoportal des Kanton Solothurn"
 
-#: camac/gis/models.py:25
+#: camac/gis/models.py:26
 msgid "GIS Canton GR"
 msgstr "Geoportal des Kanton Graubünden"
 
-#: camac/gis/models.py:26
+#: camac/gis/models.py:27
+msgid "GIS Canton Bern"
+msgstr "Geoportal des Kanton Bern"
+
+#: camac/gis/models.py:28
 msgid "Parameter"
 msgstr "Parameter"
 
-#: camac/gis/models.py:27
+#: camac/gis/models.py:29
 msgid "Ech0206"
 msgstr ""
 
-#: camac/gis/models.py:28
+#: camac/gis/models.py:30
 msgid "Federal GIS Switzerland"
 msgstr "Geoportal des Bundes"
 
@@ -487,7 +491,7 @@ msgstr "Geoportal des Bundes"
 msgid "Coordinates must be floats"
 msgstr "Koordinaten müssen Gleitkommazahlen sein"
 
-#: camac/gis/views.py:96
+#: camac/gis/views.py:98
 #, python-format
 msgid "Required parameter %(parameter)s was not passed"
 msgstr "Erforderlicher Parameter %(parameter)s wurde nicht übergeben"
@@ -1342,3 +1346,9 @@ msgstr "Es existieren mehrere Benutzer mit dieser E-Mail-Adresse"
 #: camac/user/serializers.py:476
 msgid "User is already in group"
 msgstr "Der Benutzer ist bereits in dieser Gruppe"
+
+#~ msgid "Location may not be changed."
+#~ msgstr "Standort darf nicht geändert werden."
+
+#~ msgid "Form may not be changed."
+#~ msgstr "Formular darf nicht geändert werden."

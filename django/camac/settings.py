@@ -4297,6 +4297,9 @@ GIS_BASE_URL = build_url(
         ),
     )
 )
+BE_GIS_ENABLE_QUEUE = env.bool("BE_GIS_ENABLE_QUEUE", default=True)
+
+GIS_REQUESTS_BATCH_SIZE = env.int("GIS_REQUESTS_BATCH_SIZE", default=4)
 
 # GIS API (KT. GR)
 GR_GIS_BASE_URL = env.str("GR_GIS_BASE_URL", default="https://wps.geo.gr.ch")
@@ -4426,7 +4429,7 @@ DJANGO_Q_TASK_TIMEOUT_HOURS = env.int("DJANGO_Q_TASK_TIMEOUT_HOURS", default=6)
 # - ack_failures option keeps a clean queue and allows to identify timed out imports
 Q_CLUSTER = {
     "name": "DjangORM",
-    "workers": 2,
+    "workers": 4,
     "queue_limit": 50,
     "timeout": DJANGO_Q_TASK_TIMEOUT_HOURS * 60 * 60,
     "retry": DJANGO_Q_TASK_TIMEOUT_HOURS * 60 * 60 * 2,

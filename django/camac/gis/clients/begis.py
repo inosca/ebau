@@ -15,7 +15,7 @@ logger = logging.getLogger(__name__)
 
 class BeGisClient(GISBaseClient):
     required_params = ["egrids"]
-    is_queue_enabled = True
+    is_queue_enabled = settings.BE_GIS_ENABLE_QUEUE
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -36,7 +36,6 @@ class BeGisClient(GISBaseClient):
             response.raise_for_status()
         except requests.exceptions.HTTPError as e:  # pragma: no cover
             logger.error(f"Polygon({egrid}): {e}")
-            # TODO: Translation
             raise RuntimeError(
                 f"Error {e.response.status_code} while fetching polygon data from the API"
             )
@@ -45,7 +44,6 @@ class BeGisClient(GISBaseClient):
             requests.exceptions.ConnectionError,
         ) as e:  # pragma: no cover
             logger.error(f"Polygon({egrid}): {e}")
-            # TODO: Translation
             raise RuntimeError(
                 "Connection error while fetching polygon data from the API"
             )
@@ -53,7 +51,6 @@ class BeGisClient(GISBaseClient):
         try:
             root = self.get_root(response)
         except etree.XMLSyntaxError:  # pragma: no cover
-            # TODO: Translation
             raise ValueError("Can't parse document")
 
         try:
@@ -63,14 +60,12 @@ class BeGisClient(GISBaseClient):
             return polygon_to_string
 
         except (SyntaxError, TypeError):
-            # TODO: Translation
             raise ValueError("No polygon found")
 
     def get_url_data(self, egrid, service_code, boolean_layers, special_layers):
         polygon = cache.get(egrid) or self.get_polygon(
             egrid
         )  # checking if polygon already retrieved
-        #  polygon = self.get_polygon(egrid)
         query = self.get_query(service_code, boolean_layers, special_layers, polygon)
         payload = self.get_feature_xml(service_code, query)
         try:
@@ -84,7 +79,6 @@ class BeGisClient(GISBaseClient):
             return response
         except requests.exceptions.HTTPError as e:  # pragma: no cover
             logger.error(f"{service_code}({egrid}): {e}")
-            # TODO: Translation
             raise RuntimeError(
                 f"Error {e.response.status_code} while fetching layer data from the API"
             )
@@ -93,7 +87,6 @@ class BeGisClient(GISBaseClient):
             requests.exceptions.ConnectionError,
         ) as e:  # pragma: no cover
             logger.error(f"{service_code}({egrid}): {e}")
-            # TODO: Translation
             raise RuntimeError(
                 "Connection error while fetching layer data from the API"
             )
@@ -136,9 +129,9 @@ class BeGisClient(GISBaseClient):
         result = {}
 
         egrids = self.params.get("egrids").split(",")
-
+        batch_size = settings.GIS_REQUESTS_BATCH_SIZE
         data = self.send_requests_in_batches(
-            data, egrids, 4, service_code, boolean_layers, special_layers
+            data, egrids, batch_size, service_code, boolean_layers, special_layers
         )
 
         for layer_id in special_layers:
@@ -158,7 +151,6 @@ class BeGisClient(GISBaseClient):
         try:
             et = self.get_root(response)
         except etree.XMLSyntaxError:  # pragma: no cover
-            #  TODO: Translation
             raise ValueError("Can't parse document")
         xml_data = et.findall("./gml:featureMember/", et.nsmap)
         return xml_data, et
