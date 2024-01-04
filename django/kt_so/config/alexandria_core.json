@@ -221,7 +221,7 @@
               },
               {
                 "scope": "Service",
-                "fields": ["title", "description", "date", "files"],
+                "fields": ["title", "description", "category", "date", "files"],
                 "permission": "update"
               },
               {
@@ -251,7 +251,7 @@
               },
               {
                 "scope": "Service",
-                "fields": ["title", "description", "date", "files"],
+                "fields": ["title", "description", "date", "files", "category"],
                 "permission": "update"
               },
               {
@@ -281,7 +281,7 @@
               },
               {
                 "scope": "Service",
-                "fields": ["title", "description", "date", "files"],
+                "fields": ["title", "description", "date", "files", "category"],
                 "permission": "update"
               },
               {
@@ -505,7 +505,14 @@
               },
               {
                 "scope": "Service",
-                "fields": ["title", "description", "date", "tags", "files"],
+                "fields": [
+                  "title",
+                  "description",
+                  "category",
+                  "date",
+                  "tags",
+                  "files"
+                ],
                 "permission": "update"
               },
               {
@@ -530,7 +537,14 @@
               },
               {
                 "scope": "Service",
-                "fields": ["title", "description", "date", "tags", "files"],
+                "fields": [
+                  "title",
+                  "description",
+                  "category",
+                  "date",
+                  "tags",
+                  "files"
+                ],
                 "permission": "update"
               },
               {
@@ -555,7 +569,14 @@
               },
               {
                 "scope": "Service",
-                "fields": ["title", "description", "date", "tags", "files"],
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "category",
+                  "tags",
+                  "files"
+                ],
                 "permission": "update"
               },
               {
@@ -580,7 +601,14 @@
               },
               {
                 "scope": "Service",
-                "fields": ["title", "description", "date", "tags", "files"],
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "category",
+                  "tags",
+                  "files"
+                ],
                 "permission": "update"
               },
               {
@@ -608,7 +636,14 @@
               },
               {
                 "scope": "Service",
-                "fields": ["title", "description", "date", "tags", "files"],
+                "fields": [
+                  "title",
+                  "description",
+                  "category",
+                  "date",
+                  "tags",
+                  "files"
+                ],
                 "permission": "update"
               },
               {
@@ -670,7 +705,14 @@
               },
               {
                 "scope": "ServiceAndSubservice",
-                "fields": ["title", "description", "date", "tags", "files"],
+                "fields": [
+                  "title",
+                  "description",
+                  "category",
+                  "date",
+                  "tags",
+                  "files"
+                ],
                 "permission": "update"
               },
               {
@@ -695,7 +737,14 @@
               },
               {
                 "scope": "ServiceAndSubservice",
-                "fields": ["title", "description", "date", "tags", "files"],
+                "fields": [
+                  "title",
+                  "description",
+                  "category",
+                  "date",
+                  "tags",
+                  "files"
+                ],
                 "permission": "update"
               },
               {
@@ -720,7 +769,14 @@
               },
               {
                 "scope": "ServiceAndSubservice",
-                "fields": ["title", "description", "date", "tags", "files"],
+                "fields": [
+                  "title",
+                  "description",
+                  "category",
+                  "date",
+                  "tags",
+                  "files"
+                ],
                 "permission": "update"
               },
               {
@@ -745,7 +801,14 @@
               },
               {
                 "scope": "ServiceAndSubservice",
-                "fields": ["title", "description", "date", "tags", "files"],
+                "fields": [
+                  "title",
+                  "description",
+                  "category",
+                  "date",
+                  "tags",
+                  "files"
+                ],
                 "permission": "update"
               },
               {
@@ -773,7 +836,14 @@
               },
               {
                 "scope": "ServiceAndSubservice",
-                "fields": ["title", "description", "date", "tags", "files"],
+                "fields": [
+                  "title",
+                  "description",
+                  "category",
+                  "date",
+                  "tags",
+                  "files"
+                ],
                 "permission": "update"
               },
               {
