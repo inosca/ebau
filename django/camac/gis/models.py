@@ -24,7 +24,7 @@ class GISDataSource(models.Model):
     CLIENT_CHOICES = [
         (CLIENT_SOGIS, _("GIS Canton Solothurn")),
         (CLIENT_KT_GR, _("GIS Canton GR")),
-        (CLIENT_BEGIS, _("GIS Canton Bern")),  # TODO Translation for admin
+        (CLIENT_BEGIS, _("GIS Canton Bern")),
         (CLIENT_PARAM, _("Parameter")),
         (CLIENT_ECH_0206, _("Ech0206")),
         (CLIENT_ADMIN, _("Federal GIS Switzerland")),

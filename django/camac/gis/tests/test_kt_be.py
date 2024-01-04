@@ -58,7 +58,6 @@ def be_data_sources(
     return GISDataSource.objects.all()
 
 
-# TODO: Figure out queued and concurrent testing, django_q sync=True is still broken.
 @pytest.mark.parametrize(
     "egrids",
     [
@@ -80,7 +79,12 @@ def test_be_client(
     vcr_config,
     egrids,
     be_data_sources,
+    settings,
 ):
+    # TODO: Update testing when sync=True works for testing, django_q sync=True is still broken.
+    settings.BE_GIS_ENABLE_QUEUE = False
+    settings.GIS_REQUESTS_BATCH_SIZE = 1
+
     response = admin_client.get(
         reverse("gis-data"),
         data={
@@ -108,7 +112,9 @@ def test_be_client_error(
     vcr_config,
     egrids,
     be_data_sources,
+    settings,
 ):
+    settings.BE_GIS_ENABLE_QUEUE = False
     response = admin_client.get(
         reverse("gis-data"),
         data={

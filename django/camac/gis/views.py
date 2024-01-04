@@ -123,19 +123,20 @@ class GISDataView(ListAPIView):
 
         return Response(response)
 
-    def start_task(self, queryset, query_params, data, errors):
+    def start_task(self, queryset, query_params, data, errors):  # pragma: no cover
+        # this is not covered as long as the sync=True mode of django-q is not fixed for testing
         task_id = async_task(
             self.process_data_sources,
             queryset,
             query_params,
             data,
             errors,
-            group="gis",
+            group="be_gis",
         )
         return Response({"task_id": task_id})
 
-    def get_status_or_result(self, task_id):
-        # TODO: Figure out status tracking and proper error handling.
+    def get_status_or_result(self, task_id):  # pragma: no cover
+        # this is not covered as long as the sync=True mode of django-q is not fixed for testing
         task = fetch(task_id)
         task_result = result(task_id)
 
@@ -147,8 +148,8 @@ class GISDataView(ListAPIView):
             return self._process_response(data, errors)
 
         else:
-            logger.error(task.result)
-            # TODO: Figure out how to handle error before as this is stack trace str
+            logger.error(f"Task {task_id} Error: {task_result}")
+            return Response(status=status.HTTP_400_BAD_REQUEST)
 
     def list(self, request, *args, **kwargs):
         queryset = self.get_queryset()
@@ -159,7 +160,9 @@ class GISDataView(ListAPIView):
         data = {}
         errors = []
         task_id = kwargs.get("task_id")
-        if is_queue_enabled:
+
+        if is_queue_enabled:  # pragma: no cover
+            # this is not covered as long as the sync=True mode of django-q is not fixed for testing
             if task_id:
                 return self.get_status_or_result(task_id)
             else:

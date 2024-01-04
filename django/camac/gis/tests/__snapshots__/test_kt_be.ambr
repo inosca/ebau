@@ -1,0 +1,522 @@
+# serializer version: 1
+# name: test_be_client[CH643546955207,CH843546955632]
+  dict({
+    'data': dict({
+      'belasteter-standort': dict({
+        'displayValue': 'ja',
+        'hidden': False,
+        'label': 'belasteter-standort',
+        'value': 'belasteter-standort-ja',
+      }),
+      'gebiet-mit-archaeologischen-objekten': dict({
+        'displayValue': 'nein',
+        'hidden': False,
+        'label': 'gebiet-mit-archaeologischen-objekten',
+        'value': 'gebiet-mit-archaeologischen-objekten-nein',
+      }),
+      'gebiet-mit-naturgefahren': dict({
+        'displayValue': 'nein',
+        'hidden': False,
+        'label': 'gebiet-mit-naturgefahren',
+        'value': 'gebiet-mit-naturgefahren-nein',
+      }),
+      'gewaesserschutzbereich-v2': dict({
+        'hidden': False,
+        'label': 'gewaesserschutzbereich-v2',
+        'value': list([
+          dict({
+            'displayValue': 'ueb',
+            'value': 'gewaesserschutzbereich-v2-ueb',
+          }),
+          dict({
+            'displayValue': 'ao',
+            'value': 'gewaesserschutzbereich-v2-ao',
+          }),
+        ]),
+      }),
+      'handelt-es-sich-um-ein-baudenkmal': dict({
+        'displayValue': 'ja',
+        'hidden': False,
+        'label': 'handelt-es-sich-um-ein-baudenkmal',
+        'value': 'handelt-es-sich-um-ein-baudenkmal-ja',
+      }),
+      'naturschutz': dict({
+        'displayValue': 'ja',
+        'hidden': False,
+        'label': 'naturschutz',
+        'value': 'naturschutz-ja',
+      }),
+      'objekt-des-besonderen-landschaftsschutzes': dict({
+        'displayValue': 'nein',
+        'hidden': False,
+        'label': 'objekt-des-besonderen-landschaftsschutzes',
+        'value': 'objekt-des-besonderen-landschaftsschutzes-nein',
+      }),
+    }),
+  })
+# ---
+# name: test_be_client[CH643546955207,CH851446093521,CH673533354667]
+  dict({
+    'data': dict({
+      'belasteter-standort': dict({
+        'displayValue': 'ja',
+        'hidden': False,
+        'label': 'belasteter-standort',
+        'value': 'belasteter-standort-ja',
+      }),
+      'gebiet-mit-archaeologischen-objekten': dict({
+        'displayValue': 'ja',
+        'hidden': False,
+        'label': 'gebiet-mit-archaeologischen-objekten',
+        'value': 'gebiet-mit-archaeologischen-objekten-ja',
+      }),
+      'gebiet-mit-naturgefahren': dict({
+        'displayValue': 'ja',
+        'hidden': False,
+        'label': 'gebiet-mit-naturgefahren',
+        'value': 'gebiet-mit-naturgefahren-ja',
+      }),
+      'gewaesserschutzbereich-v2': dict({
+        'hidden': False,
+        'label': 'gewaesserschutzbereich-v2',
+        'value': list([
+          dict({
+            'displayValue': 'ueb',
+            'value': 'gewaesserschutzbereich-v2-ueb',
+          }),
+          dict({
+            'displayValue': 'ao',
+            'value': 'gewaesserschutzbereich-v2-ao',
+          }),
+          dict({
+            'displayValue': 'au',
+            'value': 'gewaesserschutzbereich-v2-au',
+          }),
+        ]),
+      }),
+      'handelt-es-sich-um-ein-baudenkmal': dict({
+        'displayValue': 'ja',
+        'hidden': False,
+        'label': 'handelt-es-sich-um-ein-baudenkmal',
+        'value': 'handelt-es-sich-um-ein-baudenkmal-ja',
+      }),
+      'naturschutz': dict({
+        'displayValue': 'ja',
+        'hidden': False,
+        'label': 'naturschutz',
+        'value': 'naturschutz-ja',
+      }),
+      'nutzungszone': dict({
+        'hidden': False,
+        'label': 'nutzungszone',
+        'value': 'Gewerbezone_G2, Grünzone_GrZ, Wohnzone 1 E1, Wohnzone 2 E2, Zone für öffentliche Nutzung ZöN 7, Zone_für_öffentliche_Nutzung, Zone_für_öffentliche_Nutzung_B, Zone_für_öffentliche_Nutzung_C, Zone_für_öffentliche_Nutzung_D',
+      }),
+      'objekt-des-besonderen-landschaftsschutzes': dict({
+        'displayValue': 'nein',
+        'hidden': False,
+        'label': 'objekt-des-besonderen-landschaftsschutzes',
+        'value': 'objekt-des-besonderen-landschaftsschutzes-nein',
+      }),
+      'ueberbauungsordnung': dict({
+        'hidden': False,
+        'label': 'ueberbauungsordnung',
+        'value': 'ZPP_2_"Aarolina", ZPP_5_"Chräjeninsel", ÜO_"Arolina", ÜO_"Chräjeninsel"',
+      }),
+    }),
+  })
+# ---
+# name: test_be_client[CH643546955207,CH851446093521]
+  dict({
+    'data': dict({
+      'belasteter-standort': dict({
+        'displayValue': 'ja',
+        'hidden': False,
+        'label': 'belasteter-standort',
+        'value': 'belasteter-standort-ja',
+      }),
+      'gebiet-mit-archaeologischen-objekten': dict({
+        'displayValue': 'ja',
+        'hidden': False,
+        'label': 'gebiet-mit-archaeologischen-objekten',
+        'value': 'gebiet-mit-archaeologischen-objekten-ja',
+      }),
+      'gebiet-mit-naturgefahren': dict({
+        'displayValue': 'nein',
+        'hidden': False,
+        'label': 'gebiet-mit-naturgefahren',
+        'value': 'gebiet-mit-naturgefahren-nein',
+      }),
+      'gewaesserschutzbereich-v2': dict({
+        'hidden': False,
+        'label': 'gewaesserschutzbereich-v2',
+        'value': list([
+          dict({
+            'displayValue': 'ueb',
+            'value': 'gewaesserschutzbereich-v2-ueb',
+          }),
+          dict({
+            'displayValue': 'ao',
+            'value': 'gewaesserschutzbereich-v2-ao',
+          }),
+          dict({
+            'displayValue': 'au',
+            'value': 'gewaesserschutzbereich-v2-au',
+          }),
+        ]),
+      }),
+      'handelt-es-sich-um-ein-baudenkmal': dict({
+        'displayValue': 'ja',
+        'hidden': False,
+        'label': 'handelt-es-sich-um-ein-baudenkmal',
+        'value': 'handelt-es-sich-um-ein-baudenkmal-ja',
+      }),
+      'naturschutz': dict({
+        'displayValue': 'ja',
+        'hidden': False,
+        'label': 'naturschutz',
+        'value': 'naturschutz-ja',
+      }),
+      'nutzungszone': dict({
+        'hidden': False,
+        'label': 'nutzungszone',
+        'value': 'Wohnzone 1 E1, Wohnzone 2 E2, Zone für öffentliche Nutzung ZöN 7',
+      }),
+      'objekt-des-besonderen-landschaftsschutzes': dict({
+        'displayValue': 'nein',
+        'hidden': False,
+        'label': 'objekt-des-besonderen-landschaftsschutzes',
+        'value': 'objekt-des-besonderen-landschaftsschutzes-nein',
+      }),
+    }),
+  })
+# ---
+# name: test_be_client[CH643546955207]
+  dict({
+    'data': dict({
+      'belasteter-standort': dict({
+        'displayValue': 'ja',
+        'hidden': False,
+        'label': 'belasteter-standort',
+        'value': 'belasteter-standort-ja',
+      }),
+      'gebiet-mit-archaeologischen-objekten': dict({
+        'displayValue': 'nein',
+        'hidden': False,
+        'label': 'gebiet-mit-archaeologischen-objekten',
+        'value': 'gebiet-mit-archaeologischen-objekten-nein',
+      }),
+      'gebiet-mit-naturgefahren': dict({
+        'displayValue': 'nein',
+        'hidden': False,
+        'label': 'gebiet-mit-naturgefahren',
+        'value': 'gebiet-mit-naturgefahren-nein',
+      }),
+      'gewaesserschutzbereich-v2': dict({
+        'hidden': False,
+        'label': 'gewaesserschutzbereich-v2',
+        'value': list([
+          dict({
+            'displayValue': 'ueb',
+            'value': 'gewaesserschutzbereich-v2-ueb',
+          }),
+          dict({
+            'displayValue': 'ao',
+            'value': 'gewaesserschutzbereich-v2-ao',
+          }),
+        ]),
+      }),
+      'handelt-es-sich-um-ein-baudenkmal': dict({
+        'displayValue': 'ja',
+        'hidden': False,
+        'label': 'handelt-es-sich-um-ein-baudenkmal',
+        'value': 'handelt-es-sich-um-ein-baudenkmal-ja',
+      }),
+      'naturschutz': dict({
+        'displayValue': 'ja',
+        'hidden': False,
+        'label': 'naturschutz',
+        'value': 'naturschutz-ja',
+      }),
+      'objekt-des-besonderen-landschaftsschutzes': dict({
+        'displayValue': 'nein',
+        'hidden': False,
+        'label': 'objekt-des-besonderen-landschaftsschutzes',
+        'value': 'objekt-des-besonderen-landschaftsschutzes-nein',
+      }),
+    }),
+  })
+# ---
+# name: test_be_client[CH673533354667,CH643546955207]
+  dict({
+    'data': dict({
+      'belasteter-standort': dict({
+        'displayValue': 'ja',
+        'hidden': False,
+        'label': 'belasteter-standort',
+        'value': 'belasteter-standort-ja',
+      }),
+      'gebiet-mit-archaeologischen-objekten': dict({
+        'displayValue': 'ja',
+        'hidden': False,
+        'label': 'gebiet-mit-archaeologischen-objekten',
+        'value': 'gebiet-mit-archaeologischen-objekten-ja',
+      }),
+      'gebiet-mit-naturgefahren': dict({
+        'displayValue': 'ja',
+        'hidden': False,
+        'label': 'gebiet-mit-naturgefahren',
+        'value': 'gebiet-mit-naturgefahren-ja',
+      }),
+      'gewaesserschutzbereich-v2': dict({
+        'hidden': False,
+        'label': 'gewaesserschutzbereich-v2',
+        'value': list([
+          dict({
+            'displayValue': 'ueb',
+            'value': 'gewaesserschutzbereich-v2-ueb',
+          }),
+          dict({
+            'displayValue': 'ao',
+            'value': 'gewaesserschutzbereich-v2-ao',
+          }),
+          dict({
+            'displayValue': 'au',
+            'value': 'gewaesserschutzbereich-v2-au',
+          }),
+        ]),
+      }),
+      'handelt-es-sich-um-ein-baudenkmal': dict({
+        'displayValue': 'ja',
+        'hidden': False,
+        'label': 'handelt-es-sich-um-ein-baudenkmal',
+        'value': 'handelt-es-sich-um-ein-baudenkmal-ja',
+      }),
+      'naturschutz': dict({
+        'displayValue': 'ja',
+        'hidden': False,
+        'label': 'naturschutz',
+        'value': 'naturschutz-ja',
+      }),
+      'nutzungszone': dict({
+        'hidden': False,
+        'label': 'nutzungszone',
+        'value': 'Gewerbezone_G2, Grünzone_GrZ, Zone_für_öffentliche_Nutzung, Zone_für_öffentliche_Nutzung_B, Zone_für_öffentliche_Nutzung_C, Zone_für_öffentliche_Nutzung_D',
+      }),
+      'objekt-des-besonderen-landschaftsschutzes': dict({
+        'displayValue': 'nein',
+        'hidden': False,
+        'label': 'objekt-des-besonderen-landschaftsschutzes',
+        'value': 'objekt-des-besonderen-landschaftsschutzes-nein',
+      }),
+      'ueberbauungsordnung': dict({
+        'hidden': False,
+        'label': 'ueberbauungsordnung',
+        'value': 'ZPP_2_"Aarolina", ZPP_5_"Chräjeninsel", ÜO_"Arolina", ÜO_"Chräjeninsel"',
+      }),
+    }),
+  })
+# ---
+# name: test_be_client[CH673533354667,CH851446093521]
+  dict({
+    'data': dict({
+      'belasteter-standort': dict({
+        'displayValue': 'ja',
+        'hidden': False,
+        'label': 'belasteter-standort',
+        'value': 'belasteter-standort-ja',
+      }),
+      'gebiet-mit-archaeologischen-objekten': dict({
+        'displayValue': 'ja',
+        'hidden': False,
+        'label': 'gebiet-mit-archaeologischen-objekten',
+        'value': 'gebiet-mit-archaeologischen-objekten-ja',
+      }),
+      'gebiet-mit-naturgefahren': dict({
+        'displayValue': 'ja',
+        'hidden': False,
+        'label': 'gebiet-mit-naturgefahren',
+        'value': 'gebiet-mit-naturgefahren-ja',
+      }),
+      'gewaesserschutzbereich-v2': dict({
+        'hidden': False,
+        'label': 'gewaesserschutzbereich-v2',
+        'value': list([
+          dict({
+            'displayValue': 'ao',
+            'value': 'gewaesserschutzbereich-v2-ao',
+          }),
+          dict({
+            'displayValue': 'au',
+            'value': 'gewaesserschutzbereich-v2-au',
+          }),
+        ]),
+      }),
+      'handelt-es-sich-um-ein-baudenkmal': dict({
+        'displayValue': 'ja',
+        'hidden': False,
+        'label': 'handelt-es-sich-um-ein-baudenkmal',
+        'value': 'handelt-es-sich-um-ein-baudenkmal-ja',
+      }),
+      'naturschutz': dict({
+        'displayValue': 'nein',
+        'hidden': False,
+        'label': 'naturschutz',
+        'value': 'naturschutz-nein',
+      }),
+      'nutzungszone': dict({
+        'hidden': False,
+        'label': 'nutzungszone',
+        'value': 'Gewerbezone_G2, Grünzone_GrZ, Wohnzone 1 E1, Wohnzone 2 E2, Zone für öffentliche Nutzung ZöN 7, Zone_für_öffentliche_Nutzung, Zone_für_öffentliche_Nutzung_B, Zone_für_öffentliche_Nutzung_C, Zone_für_öffentliche_Nutzung_D',
+      }),
+      'objekt-des-besonderen-landschaftsschutzes': dict({
+        'displayValue': 'nein',
+        'hidden': False,
+        'label': 'objekt-des-besonderen-landschaftsschutzes',
+        'value': 'objekt-des-besonderen-landschaftsschutzes-nein',
+      }),
+      'ueberbauungsordnung': dict({
+        'hidden': False,
+        'label': 'ueberbauungsordnung',
+        'value': 'ZPP_2_"Aarolina", ZPP_5_"Chräjeninsel", ÜO_"Arolina", ÜO_"Chräjeninsel"',
+      }),
+    }),
+  })
+# ---
+# name: test_be_client[CH673533354667]
+  dict({
+    'data': dict({
+      'belasteter-standort': dict({
+        'displayValue': 'ja',
+        'hidden': False,
+        'label': 'belasteter-standort',
+        'value': 'belasteter-standort-ja',
+      }),
+      'gebiet-mit-archaeologischen-objekten': dict({
+        'displayValue': 'ja',
+        'hidden': False,
+        'label': 'gebiet-mit-archaeologischen-objekten',
+        'value': 'gebiet-mit-archaeologischen-objekten-ja',
+      }),
+      'gebiet-mit-naturgefahren': dict({
+        'displayValue': 'ja',
+        'hidden': False,
+        'label': 'gebiet-mit-naturgefahren',
+        'value': 'gebiet-mit-naturgefahren-ja',
+      }),
+      'gewaesserschutzbereich-v2': dict({
+        'hidden': False,
+        'label': 'gewaesserschutzbereich-v2',
+        'value': list([
+          dict({
+            'displayValue': 'au',
+            'value': 'gewaesserschutzbereich-v2-au',
+          }),
+        ]),
+      }),
+      'handelt-es-sich-um-ein-baudenkmal': dict({
+        'displayValue': 'nein',
+        'hidden': False,
+        'label': 'handelt-es-sich-um-ein-baudenkmal',
+        'value': 'handelt-es-sich-um-ein-baudenkmal-nein',
+      }),
+      'naturschutz': dict({
+        'displayValue': 'nein',
+        'hidden': False,
+        'label': 'naturschutz',
+        'value': 'naturschutz-nein',
+      }),
+      'nutzungszone': dict({
+        'hidden': False,
+        'label': 'nutzungszone',
+        'value': 'Gewerbezone_G2, Grünzone_GrZ, Zone_für_öffentliche_Nutzung, Zone_für_öffentliche_Nutzung_B, Zone_für_öffentliche_Nutzung_C, Zone_für_öffentliche_Nutzung_D',
+      }),
+      'objekt-des-besonderen-landschaftsschutzes': dict({
+        'displayValue': 'nein',
+        'hidden': False,
+        'label': 'objekt-des-besonderen-landschaftsschutzes',
+        'value': 'objekt-des-besonderen-landschaftsschutzes-nein',
+      }),
+      'ueberbauungsordnung': dict({
+        'hidden': False,
+        'label': 'ueberbauungsordnung',
+        'value': 'ZPP_2_"Aarolina", ZPP_5_"Chräjeninsel", ÜO_"Arolina", ÜO_"Chräjeninsel"',
+      }),
+    }),
+  })
+# ---
+# name: test_be_client[CH851446093521]
+  dict({
+    'data': dict({
+      'belasteter-standort': dict({
+        'displayValue': 'nein',
+        'hidden': False,
+        'label': 'belasteter-standort',
+        'value': 'belasteter-standort-nein',
+      }),
+      'gebiet-mit-archaeologischen-objekten': dict({
+        'displayValue': 'ja',
+        'hidden': False,
+        'label': 'gebiet-mit-archaeologischen-objekten',
+        'value': 'gebiet-mit-archaeologischen-objekten-ja',
+      }),
+      'gebiet-mit-naturgefahren': dict({
+        'displayValue': 'nein',
+        'hidden': False,
+        'label': 'gebiet-mit-naturgefahren',
+        'value': 'gebiet-mit-naturgefahren-nein',
+      }),
+      'gewaesserschutzbereich-v2': dict({
+        'hidden': False,
+        'label': 'gewaesserschutzbereich-v2',
+        'value': list([
+          dict({
+            'displayValue': 'ao',
+            'value': 'gewaesserschutzbereich-v2-ao',
+          }),
+          dict({
+            'displayValue': 'au',
+            'value': 'gewaesserschutzbereich-v2-au',
+          }),
+        ]),
+      }),
+      'handelt-es-sich-um-ein-baudenkmal': dict({
+        'displayValue': 'ja',
+        'hidden': False,
+        'label': 'handelt-es-sich-um-ein-baudenkmal',
+        'value': 'handelt-es-sich-um-ein-baudenkmal-ja',
+      }),
+      'naturschutz': dict({
+        'displayValue': 'nein',
+        'hidden': False,
+        'label': 'naturschutz',
+        'value': 'naturschutz-nein',
+      }),
+      'nutzungszone': dict({
+        'hidden': False,
+        'label': 'nutzungszone',
+        'value': 'Wohnzone 1 E1, Wohnzone 2 E2, Zone für öffentliche Nutzung ZöN 7',
+      }),
+      'objekt-des-besonderen-landschaftsschutzes': dict({
+        'displayValue': 'nein',
+        'hidden': False,
+        'label': 'objekt-des-besonderen-landschaftsschutzes',
+        'value': 'objekt-des-besonderen-landschaftsschutzes-nein',
+      }),
+    }),
+  })
+# ---
+# name: test_be_client_error[doesntexist]
+  list([
+    'No polygon found',
+  ])
+# ---
+# name: test_be_client_error[emptygis]
+  list([
+    'No polygon found',
+  ])
+# ---
+# name: test_be_client_error[emptypolygon]
+  list([
+    'No polygon found',
+  ])
+# ---
