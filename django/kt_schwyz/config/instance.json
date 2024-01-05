@@ -630,6 +630,16 @@
     }
   },
   {
+    "model": "instance.form",
+    "pk": 64,
+    "fields": {
+      "form_state": 1,
+      "name": "konzession-fur-wasserentnahme-v5",
+      "description": "Gesuch für Wasserentnahme",
+      "family": null
+    }
+  },
+  {
     "model": "instance.formstate",
     "pk": 1,
     "fields": {
