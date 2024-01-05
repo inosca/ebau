@@ -1,8 +1,8 @@
 -r requirements.txt
 black==22.8.0
 debugpy==1.6.3
-django-extensions==3.2.1
-django-silk==5.0.1
+django-extensions==3.2.3
+django-silk==5.0.4
 Faker==14.2.0
 flake8==5.0.4
 flake8-blind-except==0.2.1
