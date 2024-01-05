@@ -46,6 +46,10 @@ class InstanceACLViewset(InstanceQuerysetMixin, ModelViewSet):
                 )
                 | Q(instance__group__service=group.service)
             )
+        elif role_name == "applicant":
+            qs = super().get_queryset(self)
+
+            return qs.filter(access_level_id="municipality-before-submission")
 
         return models.InstanceACL.objects.none()
 

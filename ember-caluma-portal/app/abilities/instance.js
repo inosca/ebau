@@ -2,6 +2,7 @@ import { inject as service } from "@ember/service";
 import { Ability } from "ember-can";
 import { hasInstanceState } from "ember-ebau-core/abilities/instance";
 import mainConfig from "ember-ebau-core/config/main";
+import { hasFeature } from "ember-ebau-core/helpers/has-feature";
 
 import config from "caluma-portal/config/environment";
 
@@ -27,6 +28,15 @@ export default class InstanceAbility extends Ability {
   }
 
   get canReadForm() {
+    if (
+      hasFeature("permissions.municipalityBeforeSubmission") &&
+      this.session.isInternal &&
+      this.formName === "main" &&
+      hasInstanceState(this.model, "new")
+    ) {
+      return this.permissions?.includes("form-read");
+    }
+
     return this.formPermissions.includes("read");
   }
 
@@ -125,7 +135,10 @@ export default class InstanceAbility extends Ability {
   }
 
   get canDelete() {
-    return this.instanceStateId === config.APPLICATION.instanceStates.new;
+    return (
+      this.instanceStateId === config.APPLICATION.instanceStates.new &&
+      (!this.session.isInternal || this.session.isSupport || this.model.isPaper)
+    );
   }
 
   get canExtendValidity() {
@@ -143,9 +156,15 @@ export default class InstanceAbility extends Ability {
   }
 
   get canWithdraw() {
-    return hasInstanceState(
-      this.model,
-      mainConfig.withdrawal?.allowedInstanceStates ?? [],
+    return (
+      hasInstanceState(
+        this.model,
+        mainConfig.withdrawal?.allowedInstanceStates ?? [],
+      ) && !this.session.isInternal
     );
+  }
+
+  get canManageMunicipalityAccessBeforeSubmission() {
+    return hasInstanceState(this.model, "new") && this.canManageApplicants;
   }
 }

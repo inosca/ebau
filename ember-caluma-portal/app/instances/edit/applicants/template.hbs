@@ -76,4 +76,57 @@
       </div>
     </form>
   {{/if}}
+
+  {{#if (has-feature "permissions.municipalityBeforeSubmission")}}
+    <h4>{{t "instances.applicants.municipality-access"}}</h4>
+    <p>{{t "instances.applicants.municipality-info"}}</p>
+
+    {{#if this.municipalityPermissions.records.length}}
+      <table class="uk-table uk-table-striped">
+        <thead>
+          <tr>
+            <th>{{t "instances.applicants.municipality"}}</th>
+            <th>{{t "instances.applicants.period"}}</th>
+            <th>{{t "instances.applicants.user"}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each this.municipalityPermissions.records as |permission|}}
+            <tr>
+              <td>{{permission.entityName}}</td>
+              <td>
+                {{format-date permission.createdAt format="datetime"}}
+                -
+                {{#if permission.revokedAt}}
+                  {{format-date permission.revokedAt format="datetime"}}
+                {{else}}
+                  {{t "instances.applicants.now"}}
+                {{/if}}
+              </td>
+              <td>{{permission.createdByName}}</td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    {{/if}}
+
+    {{#if (can "manage municipality access before submission of instance" this.editController.instance)}}
+      {{#if (and (not this.currentMunicipality.value) (not this.currentMunicipality.isLoading))}}
+        <div class="uk-alert uk-alert-danger">{{t "instances.applicants.municipality-info-empty"}}</div>
+      {{/if}}
+
+      <UkButton
+        @onClick={{perform this.toggleMunicipalityAccess}}
+        @disabled={{or
+          this.toggleMunicipalityAccess.isRunning
+          (and
+            (not this.municipalityHasPermission)
+            (not this.currentMunicipality.value)
+          )
+        }}
+        @loading={{this.toggleMunicipalityAccess.isRunning}}
+        @label={{t (concat "instances.applicants." (if this.municipalityHasPermission "revoke" "authorize"))}}
+      />
+    {{/if}}
+  {{/if}}
 </LoadingOrNotfound>

@@ -16,10 +16,12 @@ class InstanceACLSerializer(serializers.ModelSerializer):
     )
     included_serializers = {
         "instance": "camac.instance.serializers.InstanceSerializer",
-        "service": "camac.user.serializers.ServiceSerializer",
-        "user": "camac.user.serializers.UserSerializer",
-        "created_by_user": "camac.user.serializers.UserSerializer",
-        "revoked_by_user": "camac.user.serializers.UserSerializer",
+        "service": "camac.user.serializers.PublicServiceSerializer",
+        "user": "camac.user.serializers.PublicUserSerializer",
+        "created_by_user": "camac.user.serializers.PublicUserSerializer",
+        "created_by_service": "camac.user.serializers.PublicServiceSerializer",
+        "revoked_by_user": "camac.user.serializers.PublicUserSerializer",
+        "revoked_by_service": "camac.user.serializers.PublicServiceSerializer",
     }
 
     class Meta:

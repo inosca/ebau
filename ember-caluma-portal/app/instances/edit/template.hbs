@@ -26,23 +26,35 @@
           </AriaHeading>
         </Tab.item>
       {{/if}}
-      <Tab.item
-        @href={{concat
-          "/instances/"
-          @model
-          "/"
-          this.instance.calumaForm
-        }}
-        as |active|
-      >
-        <AriaHeading @enabled={{active}}>
-          {{this.case.document.form.name}}
-        </AriaHeading>
-      </Tab.item>
+      {{#if
+        (can
+          "read form of instance"
+          this.instance
+          form=(hash slug="main")
+          permissions=this.permissions
+        )
+      }}
+        <Tab.item
+          @href={{concat
+            "/instances/"
+            @model
+            "/"
+            this.instance.calumaForm
+          }}
+          as |active|
+        >
+          <AriaHeading @enabled={{active}}>
+            {{this.case.document.form.name}}
+          </AriaHeading>
+        </Tab.item>
+      {{/if}}
       {{#each (array "nfd" "sb1" "sb2") as |form|}}
         {{#if
           (can
-            "read form of instance" this.instance form=(hash slug=form)
+            "read form of instance"
+            this.instance
+            form=(hash slug=form)
+            permissions=this.permissions
           )
         }}
           <Tab.item @href={{concat "/instances/" @model "/" form}} as |active|>

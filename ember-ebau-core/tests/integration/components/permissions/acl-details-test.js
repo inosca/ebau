@@ -18,14 +18,17 @@ module("Integration | Component | permissions/acl-details", function (hooks) {
   });
 
   test("it shows details of a instance-acl", async function (assert) {
-    this.set(
-      "acl",
-      this.server.create("instance-acl", {
-        instance: this.instance,
-      }),
-    );
+    const aclId = this.server.create("instance-acl", {
+      instance: this.instance,
+    }).id;
 
-    this.set("onHide", () => (this.acl = undefined));
+    this.acl = await this.owner
+      .lookup("service:store")
+      .findRecord("instance-acl", aclId, {
+        include: "access_level",
+      });
+
+    this.onHide = () => (this.acl = undefined);
 
     await render(
       hbs`<Permissions::AclDetails @instanceAcl={{this.acl}} @onHide={{this.onHide}}/>`,
@@ -47,9 +50,9 @@ module("Integration | Component | permissions/acl-details", function (hooks) {
     assert
       .dom("[data-test-instance-acl-modal-access-level]")
       .containsText(
-        `${this.intl.t("permissions.details.accessLevel")} ${
-          this.acl.accessLevel.name
-        }`,
+        `${this.intl.t("permissions.details.accessLevel")} ${this.acl.get(
+          "accessLevel.name",
+        )}`,
       );
     assert
       .dom("[data-test-instance-acl-modal-created-at]")
@@ -79,9 +82,9 @@ module("Integration | Component | permissions/acl-details", function (hooks) {
     assert
       .dom("[data-test-instance-acl-modal-revoked-by]")
       .containsText(
-        `${this.intl.t("permissions.details.revokedBy")}${
-          this.acl.revokedByUser
-            ? ` ${this.acl.revokedByUser.name} ${this.acl.revokedByUser.surname}`
+        `${this.intl.t("permissions.details.revokedBy")} ${
+          this.acl.get("revokedByUser.id")
+            ? this.acl.get("revokedByUser.fullName")
             : ""
         }`,
       );

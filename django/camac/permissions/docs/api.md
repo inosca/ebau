@@ -32,12 +32,12 @@ tons of arguments.
 ### Filtering querysets
 
 ```python
-from camac.permissions import api as permission_api
+from camac.permissions import api as permissions_api
 
 # context of a viewset for example
 def get_queryset(self):
     qs = super().get_queryset()
-    manager = permission_api.PermissionManager.for_request(self.context['request'])
+    manager = permissions_api.PermissionManager.from_request(self.context['request'])
     return manager.filter_queryset(
         qs,
         # Pass instance prefix, so the query can be filtered corectly.
@@ -53,7 +53,7 @@ def get_queryset(self):
 @action(...)
 def do_stuff(self, request):
     instance = self.get_object().instance
-    manager = permission_api.PermissionManager.for_request(request)
+    manager = permissions_api.PermissionManager.from_request(request)
 
     if 'do-stuff' not in manager.get_permissions(instance):
         raise Error("You are not allowed to do stuff")
@@ -65,7 +65,7 @@ def do_stuff(self, request):
 ```python
 # during a "significant" event that updates permissions..
 def deal_with_some_event(request, ...):
-    manager = permission_api.PermissionManager.for_request(request)
+    manager = permissions_api.PermissionManager.from_request(request)
 
     # permission starts *now* and has no end date..
     manager.grant(

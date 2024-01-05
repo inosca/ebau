@@ -17,7 +17,7 @@ export default class CreateAclModalComponent extends Component {
   constructor(...args) {
     super(...args);
 
-    // pre-fetch the available services to mend the laggy behavior of emper power select
+    // pre-fetch the available services to mend the laggy behavior of ember power select
     this.availableServices;
   }
 
@@ -49,8 +49,8 @@ export default class CreateAclModalComponent extends Component {
         "instance",
         this.args.instanceId,
       );
-      const service = await this.store.findRecord(
-        "service",
+      const service = await this.store.peekRecord(
+        "public-service",
         changeset.service.id,
       );
       // set start time for the same day to now instead of 00:00
