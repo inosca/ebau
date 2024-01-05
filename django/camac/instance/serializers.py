@@ -68,6 +68,7 @@ SUBMIT_DATE_FORMAT = "%Y-%m-%dT%H:%M:%S%z"
 COMPLETE_PRELIMINARY_CLARIFICATION_SLUGS_BE = [
     "vorabklaerung-vollstaendig",
     "vorabklaerung-vollstaendig-v2",
+    "vorabklaerung-vollstaendig-v3",
 ]
 
 request_logger = getLogger("django.request")
