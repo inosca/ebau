@@ -23,4 +23,7 @@ export default {
   dms: {
     mergeAndSave: true,
   },
+  index: {
+    publicInstances: true,
+  },
 };
