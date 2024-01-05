@@ -1949,6 +1949,14 @@
     }
   },
   {
+    "model": "core.formgroupform",
+    "pk": 64,
+    "fields": {
+      "form_group": 1,
+      "form": 64
+    }
+  },
+  {
     "model": "core.grouppermission",
     "pk": 1,
     "fields": {
@@ -11031,6 +11039,17 @@
     "fields": {
       "page": 1,
       "form": 63,
+      "page_form_mode": 1,
+      "page_form_group": 1,
+      "sort": 0
+    }
+  },
+  {
+    "model": "core.pageform",
+    "pk": 124,
+    "fields": {
+      "page": 1,
+      "form": 64,
       "page_form_mode": 1,
       "page_form_group": 1,
       "sort": 0

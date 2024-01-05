@@ -1134,6 +1134,16 @@
       "personalien.projektverfasser-planer-v3",
       "gesuchsunterlagen"
     ],
+    "konzession-fur-wasserentnahme-v5": [
+      "konzession-fur-wasserentnahme-v2",
+      "grundinformationen",
+      "grundinformationen.lokalisierung",
+      "personalien",
+      "personalien.grundeigentumerschaft-v2",
+      "personalien.bauherrschaft-v3",
+      "personalien.projektverfasser-planer-v3",
+      "gesuchsunterlagen"
+    ],
     "anlassbewilligungen-verkehrsbewilligungen": [
       "anlassbewilligungen-verkehrsbewilligungen",
       "grundinformationen",
@@ -2183,6 +2193,176 @@
         "kw-1-4-3-entnahmestandort-beschreibung",
         "kw-1-4-3-entnahmegewasser-max",
         "kw-1-4-3-inbetriebnahme"
+      ]
+    },
+    "konzession-fur-wasserentnahme-v2": {
+      "title": "Konzession für Wasserentnahme",
+      "parent": null,
+      "questions": [
+        "kw-ort",
+        "kw-1-1-nutzungsart",
+        "kw-1-1-1-datum-bewilligung",
+        "kw-1-1-1-entnahmestandort-gemeinde",
+        "kw-1-1-1-entnahmestandort-grundstuck",
+        "kw-1-1-1-entnahmestandort-koordinaten",
+        "kw-1-1-1-entnahmestandort-beschreibung",
+        "kw-1-1-1-entnahmestandort-ruckfuhrung",
+        "kw-1-1-1-entnahmegewasser-max",
+        "kw-1-1-1-entnahmegewasser-min-temp",
+        "kw-1-1-1-entnahmegewasser-abkuhlung",
+        "kw-1-1-1-entnahmegewasser-min-austritt-temp",
+        "kw-1-1-1-baute-art-v2",
+        "kw-1-1-1-baute-erstellung-v2",
+        "kw-1-1-1-baute-art-andere-v2",
+        "kw-1-1-1-baute-wohneinheiten",
+        "kw-1-1-1-baute-warmebedarf",
+        "kw-1-1-1-baute-stockwerkeigentumerschaft",
+        "kw-1-1-1-baute-stockwerkeigentumerschaft-bezeichung",
+        "kw-1-1-1-inbetriebnahme",
+        "kw-1-1-1-baute-kaltemittel",
+        "kw-1-1-1-baute-kaltemitteleinfullungen",
+        "kw-1-1-1-baute-leistung-verdampfer",
+        "kw-1-1-1-baute-sicherheitsvorkehrungen",
+        "kw-1-1-1-baute-zwischenkreislauf",
+        "kw-1-1-1-baute-zusatzheizung",
+        "kw-1-1-1-baute-zusatzheizung-art",
+        "kw-1-1-1-baute-zusatzheizung-art-andere",
+        "kw-1-1-2-datum-bewilligung",
+        "kw-1-1-2-entnahmestandort-gemeinde",
+        "kw-1-1-2-entnahmestandort-grundstuck",
+        "kw-1-1-2-entnahmestandort-koordinaten",
+        "kw-1-1-2-entnahmestandort-beschreibung",
+        "kw-1-1-2-entnahmegewasser-max",
+        "kw-1-1-2-inbetriebnahme",
+        "kw-1-1-3-datum-bewilligung",
+        "kw-1-1-3-zweck-brauchwasser",
+        "kw-1-1-3-entnahmestandort-gemeinde",
+        "kw-1-1-3-entnahmestandort-grundstuck",
+        "kw-1-1-3-entnahmestandort-koordinaten",
+        "kw-1-1-3-entnahmestandort-beschreibung",
+        "kw-1-1-3-entnahmegewasser-max",
+        "kw-1-1-3-inbetriebnahme",
+        "info-kw-1-1-grundwasser",
+        "kw-1-2-nutzungsart",
+        "kw-1-2-1-name-gewasser",
+        "kw-1-2-1-bach-fuhrt-wasser",
+        "kw-1-2-1-entnahmestandort-gemeinde",
+        "kw-1-2-1-entnahmestandort-grundstuck",
+        "kw-1-2-1-entnahmestandort-koordinaten",
+        "kw-1-2-1-entnahmestandort-beschreibung",
+        "kw-1-2-1-entnahmestandort-ruckfuhrung",
+        "kw-1-2-1-entnahmegewasser-max",
+        "kw-1-2-1-entnahmegewasser-min-temp",
+        "kw-1-2-1-entnahmegewasser-abkuhlung",
+        "kw-1-2-1-entnahmegewasser-min-austritt-temp",
+        "kw-1-2-1-baute-art",
+        "kw-1-2-1-baute-warmebedarf",
+        "kw-1-2-1-baute-stockwerkeigentumerschaft",
+        "kw-1-2-1-baute-stockwerkeigentumerschaft-bezeichung",
+        "kw-1-2-1-inbetriebnahme",
+        "kw-1-2-1-baute-kaltemittel",
+        "kw-1-2-1-baute-kaltemitteleinfullungen",
+        "kw-1-2-1-baute-leistung-verdampfer",
+        "kw-1-2-1-baute-sicherheitsvorkehrungen",
+        "kw-1-2-1-baute-zwischenkreislauf",
+        "kw-1-2-1-baute-zusatzheizung",
+        "kw-1-2-1-baute-zusatzheizung-art",
+        "kw-1-2-1-baute-zusatzheizung-art-andere",
+        "kw-1-2-2-name-gewasser",
+        "kw-1-2-2-bach-fuhrt-wasser",
+        "kw-1-2-2-zweck-brauchwasser",
+        "kw-1-2-2-entnahmestandort-gemeinde",
+        "kw-1-2-2-entnahmestandort-grundstuck",
+        "kw-1-2-2-entnahmestandort-koordinaten",
+        "kw-1-2-2-entnahmestandort-beschreibung",
+        "kw-1-2-2-entnahmegewasser-max",
+        "kw-1-2-2-inbetriebnahme",
+        "info-kw-1-2-bach-fluss",
+        "kw-1-3-nutzungsart",
+        "kw-1-3-1-name-see",
+        "kw-1-3-1-entnahmestandort-gemeinde",
+        "kw-1-3-1-entnahmestandort-grundstuck",
+        "kw-1-3-1-entnahmestandort-koordinaten",
+        "kw-1-3-1-entnahmestandort-beschreibung",
+        "kw-1-3-1-entnahmestandort-ruckfuhrung",
+        "kw-1-3-1-entnahmestandort-tiefe",
+        "kw-1-3-1-entnahmegewasser-max",
+        "kw-1-3-1-entnahmegewasser-min-temp",
+        "kw-1-3-1-entnahmegewasser-abkuhlung",
+        "kw-1-3-1-entnahmegewasser-ges-austritt-temp",
+        "kw-1-3-1-baute-art-v2",
+        "kw-1-3-1-baute-erstellung-v2",
+        "kw-1-3-1-baute-art-andere-v2",
+        "kw-1-3-1-baute-wohneinheiten",
+        "kw-1-3-1-baute-warmebedarf",
+        "kw-1-3-1-baute-stockwerkeigentumerschaft",
+        "kw-1-3-1-baute-stockwerkeigentumerschaft-bezeichung",
+        "kw-1-3-1-inbetriebnahme",
+        "kw-1-3-1-baute-kaltemittel",
+        "kw-1-3-1-baute-kaltemitteleinfullungen",
+        "kw-1-3-1-baute-leistung-verdampfer",
+        "kw-1-3-1-baute-sicherheitsvorkehrungen",
+        "kw-1-3-1-baute-zwischenkreislauf",
+        "kw-1-3-1-baute-zusatzheizung",
+        "kw-1-3-1-baute-zusatzheizung-art",
+        "kw-1-3-1-baute-zusatzheizung-art-andere",
+        "kw-1-3-2-name-see",
+        "kw-1-3-2-entnahmestandort-gemeinde",
+        "kw-1-3-2-entnahmestandort-grundstuck",
+        "kw-1-3-2-entnahmestandort-koordinaten",
+        "kw-1-3-2-entnahmestandort-beschreibung",
+        "kw-1-3-2-entnahmegewasser-max",
+        "kw-1-3-2-inbetriebnahme",
+        "kw-1-3-3-name-see",
+        "kw-1-3-3-zweck-brauchwasser",
+        "kw-1-3-3-entnahmestandort-gemeinde",
+        "kw-1-3-3-entnahmestandort-grundstuck",
+        "kw-1-3-3-entnahmestandort-koordinaten",
+        "kw-1-3-3-entnahmestandort-beschreibung",
+        "kw-1-3-3-entnahmegewasser-max",
+        "kw-1-3-3-inbetriebnahme",
+        "info-kw-1-3-see",
+        "kw-1-4-privat-offentlich",
+        "kw-1-4-nutzungsart",
+        "kw-1-4-1-entnahmestandort-gemeinde",
+        "kw-1-4-1-entnahmestandort-grundstuck",
+        "kw-1-4-1-entnahmestandort-koordinaten",
+        "kw-1-4-1-entnahmestandort-beschreibung",
+        "kw-1-4-1-entnahmestandort-ruckfuhrung",
+        "kw-1-4-1-entnahmegewasser-max",
+        "kw-1-4-1-entnahmegewasser-min-temp",
+        "kw-1-4-1-entnahmegewasser-abkuhlung",
+        "kw-1-4-1-entnahmegewasser-min-austritt-temp",
+        "kw-1-4-1-baute-art-v2",
+        "kw-1-4-1-baute-erstellung-v2",
+        "kw-1-4-1-baute-art-andere-v2",
+        "kw-1-4-1-baute-wohneinheiten",
+        "kw-1-4-1-baute-warmebedarf",
+        "kw-1-4-1-baute-stockwerkeigentumerschaft",
+        "kw-1-4-1-baute-stockwerkeigentumerschaft-bezeichung",
+        "kw-1-4-1-inbetriebnahme",
+        "kw-1-4-1-baute-kaltemittel",
+        "kw-1-4-1-baute-kaltemitteleinfullungen",
+        "kw-1-4-1-baute-leistung-verdampfer",
+        "kw-1-4-1-baute-sicherheitsvorkehrungen",
+        "kw-1-4-1-baute-zwischenkreislauf",
+        "kw-1-4-1-baute-zusatzheizung",
+        "kw-1-4-1-baute-zusatzheizung-art",
+        "kw-1-4-1-baute-zusatzheizung-art-andere",
+        "kw-1-4-2-entnahmestandort-gemeinde",
+        "kw-1-4-2-entnahmestandort-grundstuck",
+        "kw-1-4-2-entnahmestandort-koordinaten",
+        "kw-1-4-2-entnahmestandort-beschreibung",
+        "kw-1-4-2-entnahmegewasser-max",
+        "kw-1-4-2-inbetriebnahme",
+        "kw-1-4-3-zweck-brauchwasser",
+        "kw-1-4-3-entnahmestandort-gemeinde",
+        "kw-1-4-3-entnahmestandort-grundstuck",
+        "kw-1-4-3-entnahmestandort-koordinaten",
+        "kw-1-4-3-entnahmestandort-beschreibung",
+        "kw-1-4-3-entnahmegewasser-max",
+        "kw-1-4-3-inbetriebnahme",
+        "info-kw-1-4-quelle"
       ]
     },
     "projektanderung": {
@@ -7069,6 +7249,26 @@
         ]
       }
     },
+    "kw-1-1-1-baute-art-v2": {
+      "label": "Um was handelt es sich bei der beheizten Baute?",
+      "hint": "Geben Sie bitte die Art der beheizten Baute an. Falls es kein reines Wohnhaus ist, können Sie mit *Andere* eine spezifische Angabe machen (z. B. Wohn- und Gewerbehaus, Hotel, Fabrikationsbetrieb usw.).",
+      "type": "checkbox",
+      "required": true,
+      "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "config": {
+        "options": ["Einfamilienhaus", "Mehrfamilienhaus", "Andere"]
+      }
+    },
+    "kw-1-1-1-baute-erstellung-v2": {
+      "label": "Erstellung der Baute",
+      "hint": "Geben Sie bitte an, ob es sich um einen Altbau oder Neubau handelt. Neubau meint Bauten, die vor ein paar wenigen Jahren gebaut wurden, erst kürzlich fertiggestellt wurden oder demnächst erstellt werden. Im Gegensatz dazu bestehen Altbauten schon viele Jahre. Im Zweifelsfall wählen Sie bitte Altbau.",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "config": {
+        "options": ["Altbau", "Neubau"]
+      }
+    },
     "kw-1-1-1-baute-art-andere": {
       "label": "Welche?",
       "hint": "Geben Sie bitte mit einer knappen Bezeichnung die Art der beheizten Baute an (z. B. Wohn- und Gewerbehaus, Hotel, Fabrikationsbetrieb usw.).",
@@ -7077,12 +7277,20 @@
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung'] && 'kw-1-1-1-baute-art'|value == 'Andere'",
       "config": {}
     },
+    "kw-1-1-1-baute-art-andere-v2": {
+      "label": "Falls andere, welche?",
+      "hint": "",
+      "type": "text",
+      "required": true,
+      "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung'] && 'Andere' in 'kw-1-1-1-baute-art-v2'|value",
+      "config": {}
+    },
     "kw-1-1-1-baute-wohneinheiten": {
       "label": "Wie viele Wohneinheiten sind vorgesehen?",
       "hint": "Geben Sie bitte die Anzahl der vorhandenen resp. geplanten Wohneinheiten an.",
       "type": "number",
       "required": true,
-      "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung'] && 'kw-1-1-1-baute-art'|value in ['Einfamilienhaus', 'Mehrfamilienhaus']",
+      "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung'] && ('kw-1-1-1-baute-art'|value in ['Einfamilienhaus', 'Mehrfamilienhaus'] || 'Einfamilienhaus' in 'kw-1-1-1-baute-art-v2'|value || 'Mehrfamilienhaus' in 'kw-1-1-1-baute-art-v2'|value)",
       "config": {
         "min": 1
       }
@@ -7150,6 +7358,52 @@
       "config": {
         "min": 1
       }
+    },
+    "kw-1-1-1-baute-sicherheitsvorkehrungen": {
+      "label": "Welche Sicherheitsvorkehrungen werden getroffen, damit keine Kälteflüssigkeit oder Öl aus den Maschinen in das öffentliche Gewässer bzw. in die Kanalisation gelangen?",
+      "hint": "",
+      "type": "text",
+      "required": true,
+      "active-expression": "'kw-ort'|value == 'Grundwasser'",
+      "config": {}
+    },
+    "kw-1-1-1-baute-zwischenkreislauf": {
+      "label": "Ist ein Zwischenkreislauf vorgesehen?",
+      "hint": "",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'kw-ort'|value == 'Grundwasser'",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "kw-1-1-1-baute-zusatzheizung": {
+      "label": "Ist eine Zusatzheizung vorhanden?",
+      "hint": "",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'kw-ort'|value == 'Grundwasser'",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "kw-1-1-1-baute-zusatzheizung-art": {
+      "label": "Art der Zusatzheizung?",
+      "hint": "",
+      "type": "checkbox",
+      "required": true,
+      "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-1-baute-zusatzheizung'|value == 'Ja'",
+      "config": {
+        "options": ["Elektrisch", "Gas", "Öl", "Andere"]
+      }
+    },
+    "kw-1-1-1-baute-zusatzheizung-art-andere": {
+      "label": "Falls andere, welche?",
+      "hint": "",
+      "type": "text",
+      "required": true,
+      "active-expression": "'kw-ort'|value == 'Grundwasser' && 'Andere' in 'kw-1-1-1-baute-zusatzheizung-art'|value",
+      "config": {}
     },
     "kw-1-1-2-datum-bewilligung": {
       "label": "Bitte geben Sie die Nummer und das Datum der Bewilligung für die Sondierbohrung und allfällige bauliche Massnahmen an:",
@@ -7278,6 +7532,16 @@
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Brauchwasser'",
       "config": {}
+    },
+    "info-kw-1-1-grundwasser": {
+      "label": "Mit dem Gesuch sind im Minimum folgende Unterlagen einzureichen:<ul><li>Situationsplan (Kopie Grundbuchplan) mit eingezeichnetem Standort der Entnahme- bzw. Rückgabestellen inkl. Koordinaten</li><li>Hydrogeologischer Bericht</li><li>Grundwasserfassung: Schnitt und Situation</li></ul>",
+      "hint": "",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "'kw-ort'|value == 'Grundwasser'",
+      "config": {
+        "options": ["Vorhanden"]
+      }
     },
     "kw-1-2-nutzungsart": {
       "label": "Welche Nutzungsart liegt vor?",
@@ -7468,6 +7732,52 @@
         "min": 1
       }
     },
+    "kw-1-2-1-baute-sicherheitsvorkehrungen": {
+      "label": "Welche Sicherheitsvorkehrungen werden getroffen, damit keine Kälteflüssigkeit oder Öl aus den Maschinen in das öffentliche Gewässer bzw. in die Kanalisation gelangen?",
+      "hint": "",
+      "type": "text",
+      "required": true,
+      "active-expression": "'kw-ort'|value == 'Bach / Fluss'",
+      "config": {}
+    },
+    "kw-1-2-1-baute-zwischenkreislauf": {
+      "label": "Ist ein Zwischenkreislauf vorgesehen?",
+      "hint": "",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'kw-ort'|value == 'Bach / Fluss'",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "kw-1-2-1-baute-zusatzheizung": {
+      "label": "Ist eine Zusatzheizung vorhanden?",
+      "hint": "",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'kw-ort'|value == 'Bach / Fluss'",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "kw-1-2-1-baute-zusatzheizung-art": {
+      "label": "Art der Zusatzheizung?",
+      "hint": "",
+      "type": "checkbox",
+      "required": true,
+      "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-1-baute-zusatzheizung'|value == 'Ja'",
+      "config": {
+        "options": ["Elektrisch", "Gas", "Öl", "Andere"]
+      }
+    },
+    "kw-1-2-1-baute-zusatzheizung-art-andere": {
+      "label": "Falls andere, welche?",
+      "hint": "",
+      "type": "text",
+      "required": true,
+      "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'Andere' in 'kw-1-2-1-baute-zusatzheizung-art'|value",
+      "config": {}
+    },
     "kw-1-2-2-name-gewasser": {
       "label": "Name des Gewässers:",
       "hint": "Geben Sie bitte den Namen des Fliessgewässers an.",
@@ -7545,6 +7855,16 @@
       "required": true,
       "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value == 'Brauchwasser'",
       "config": {}
+    },
+    "info-kw-1-2-bach-fluss": {
+      "label": "Mit dem Gesuch sind im Minimum folgende Unterlagen einzureichen:<ul><li>Situationsplan (Kopie Grundbuchplan) mit eingezeichnetem Standort der Entnahme- bzw. Rückgabestellen inkl. Koordinaten</li><li>Restwasserbericht (Q347)</li><li>Bei stationären Pumpanlagen: Situation/Schnitte zur Anlage und installationstechnische Unterlagen inkl. Koordinaten</li></ul>",
+      "hint": "",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "'kw-ort'|value == 'Bach / Fluss'",
+      "config": {
+        "options": ["Vorhanden"]
+      }
     },
     "kw-1-3-nutzungsart": {
       "label": "Welche Nutzungsart liegt vor?",
@@ -7678,6 +7998,26 @@
         ]
       }
     },
+    "kw-1-3-1-baute-art-v2": {
+      "label": "Um was handelt es sich bei der beheizten Baute?",
+      "hint": "Geben Sie bitte die Art der beheizten Baute an. Falls es kein reines Wohnhaus ist, können Sie mit *Andere* eine spezifische Angabe machen (z. B. Wohn- und Gewerbehaus, Hotel, Fabrikationsbetrieb usw.).",
+      "type": "checkbox",
+      "required": true,
+      "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "config": {
+        "options": ["Einfamilienhaus", "Mehrfamilienhaus", "Andere"]
+      }
+    },
+    "kw-1-3-1-baute-erstellung-v2": {
+      "label": "Erstellung der Baute",
+      "hint": "Geben Sie bitte an, ob es sich um einen Altbau oder Neubau handelt. Neubau meint Bauten, die vor ein paar wenigen Jahren gebaut wurden, erst kürzlich fertiggestellt wurden oder demnächst erstellt werden. Im Gegensatz dazu bestehen Altbauten schon viele Jahre. Im Zweifelsfall wählen Sie bitte Altbau.",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "config": {
+        "options": ["Altbau", "Neubau"]
+      }
+    },
     "kw-1-3-1-baute-art-andere": {
       "label": "Welche?",
       "hint": "Geben Sie bitte mit einer knappen Bezeichnung die Art der beheizten Baute an (z. B. Wohn- und Gewerbehaus, Hotel, Fabrikationsbetrieb usw.",
@@ -7686,12 +8026,20 @@
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung'] && 'kw-1-3-1-baute-art'|value == 'Andere'",
       "config": {}
     },
+    "kw-1-3-1-baute-art-andere-v2": {
+      "label": "Falls andere, welche?",
+      "hint": "",
+      "type": "text",
+      "required": true,
+      "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung'] && 'Andere' in 'kw-1-3-1-baute-art-v2'|value",
+      "config": {}
+    },
     "kw-1-3-1-baute-wohneinheiten": {
       "label": "Wie viele Wohneinheiten sind vorgesehen?",
       "hint": "Geben Sie bitte die Anzahl der vorhandenen resp. geplanten Wohneinheiten an.",
       "type": "number",
       "required": true,
-      "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung'] && 'kw-1-3-1-baute-art'|value in ['Einfamilienhaus', 'Mehrfamilienhaus']",
+      "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung'] && ('kw-1-3-1-baute-art'|value in ['Einfamilienhaus', 'Mehrfamilienhaus'] || 'Einfamilienhaus' in 'kw-1-3-1-baute-art-v2'|value || 'Mehrfamilienhaus' in 'kw-1-3-1-baute-art-v2'|value)",
       "config": {
         "min": 1
       }
@@ -7759,6 +8107,52 @@
       "config": {
         "min": 1
       }
+    },
+    "kw-1-3-1-baute-sicherheitsvorkehrungen": {
+      "label": "Welche Sicherheitsvorkehrungen werden getroffen, damit keine Kälteflüssigkeit oder Öl aus den Maschinen in das öffentliche Gewässer bzw. in die Kanalisation gelangen?",
+      "hint": "",
+      "type": "text",
+      "required": true,
+      "active-expression": "'kw-ort'|value == 'See'",
+      "config": {}
+    },
+    "kw-1-3-1-baute-zwischenkreislauf": {
+      "label": "Ist ein Zwischenkreislauf vorgesehen?",
+      "hint": "",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'kw-ort'|value == 'See'",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "kw-1-3-1-baute-zusatzheizung": {
+      "label": "Ist eine Zusatzheizung vorhanden?",
+      "hint": "",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'kw-ort'|value == 'See'",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "kw-1-3-1-baute-zusatzheizung-art": {
+      "label": "Art der Zusatzheizung?",
+      "hint": "",
+      "type": "checkbox",
+      "required": true,
+      "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-1-baute-zusatzheizung'|value == 'Ja'",
+      "config": {
+        "options": ["Elektrisch", "Gas", "Öl", "Andere"]
+      }
+    },
+    "kw-1-3-1-baute-zusatzheizung-art-andere": {
+      "label": "Falls andere, welche?",
+      "hint": "",
+      "type": "text",
+      "required": true,
+      "active-expression": "'kw-ort'|value == 'See' && 'Andere' in 'kw-1-3-1-baute-zusatzheizung-art'|value",
+      "config": {}
     },
     "kw-1-3-2-name-see": {
       "label": "Name des Sees:",
@@ -7888,6 +8282,16 @@
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Brauchwasser'",
       "config": {}
     },
+    "info-kw-1-3-see": {
+      "label": "Mit dem Gesuch sind im Minimum folgende Unterlagen einzureichen:<ul><li>Situationsplan (Kopie Grundbuchplan) mit eingezeichnetem Standort der Entnahme- bzw. Rückgabestellen inkl. Koordinaten</li><li>Bei stationären Pumpanlagen: Situation/Schnitte zur Anlage und installationstechnische Unterlagen inkl. Koordinaten</li></ul>",
+      "hint": "",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "'kw-ort'|value == 'See'",
+      "config": {
+        "options": ["Vorhanden"]
+      }
+    },
     "kw-1-4-privat-offentlich": {
       "label": "Handelt es sich um eine private oder öffentliche Quelle?",
       "hint": "Geben Sie bitte an, ob es sich um eine private oder öffentliche Quelle handelt.",
@@ -8012,6 +8416,26 @@
         ]
       }
     },
+    "kw-1-4-1-baute-art-v2": {
+      "label": "Um was handelt es sich bei der beheizten Baute?",
+      "hint": "Geben Sie bitte die Art der beheizten Baute an. Falls es kein reines Wohnhaus ist, können Sie mit *Andere* eine spezifische Angabe machen (z. B. Wohn- und Gewerbehaus, Hotel, Fabrikationsbetrieb usw.).",
+      "type": "checkbox",
+      "required": true,
+      "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "config": {
+        "options": ["Einfamilienhaus", "Mehrfamilienhaus", "Andere"]
+      }
+    },
+    "kw-1-4-1-baute-erstellung-v2": {
+      "label": "Erstellung der Baute",
+      "hint": "Geben Sie bitte an, ob es sich um einen Altbau oder Neubau handelt. Neubau meint Bauten, die vor ein paar wenigen Jahren gebaut wurden, erst kürzlich fertiggestellt wurden oder demnächst erstellt werden. Im Gegensatz dazu bestehen Altbauten schon viele Jahre. Im Zweifelsfall wählen Sie bitte Altbau.",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "config": {
+        "options": ["Altbau", "Neubau"]
+      }
+    },
     "kw-1-4-1-baute-art-andere": {
       "label": "Welche?",
       "hint": "Geben Sie bitte mit einer knappen Bezeichnung die Art der beheizten Baute an (z. B. Wohn- und Gewerbehaus, Hotel, Fabrikationsbetrieb usw.).",
@@ -8020,12 +8444,20 @@
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung'] && 'kw-1-4-1-baute-art'|value == 'Andere'",
       "config": {}
     },
+    "kw-1-4-1-baute-art-andere-v2": {
+      "label": "Falls andere, welche?",
+      "hint": "",
+      "type": "text",
+      "required": true,
+      "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung'] && 'Andere' in 'kw-1-4-1-baute-art-v2'|value",
+      "config": {}
+    },
     "kw-1-4-1-baute-wohneinheiten": {
       "label": "Wie viele Wohneinheiten sind vorgesehen?",
       "hint": "Geben Sie bitte die Anzahl der vorhandenen resp. geplanten Wohneinheiten an.",
       "type": "number",
       "required": true,
-      "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung'] && 'kw-1-4-1-baute-art'|value in ['Einfamilienhaus', 'Mehrfamilienhaus']",
+      "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung'] && ('kw-1-4-1-baute-art'|value in ['Einfamilienhaus', 'Mehrfamilienhaus'] || 'Einfamilienhaus' in 'kw-1-4-1-baute-art-v2'|value || 'Mehrfamilienhaus' in 'kw-1-4-1-baute-art-v2'|value)",
       "config": {
         "min": 1
       }
@@ -8093,6 +8525,52 @@
       "config": {
         "min": 1
       }
+    },
+    "kw-1-4-1-baute-sicherheitsvorkehrungen": {
+      "label": "Welche Sicherheitsvorkehrungen werden getroffen, damit keine Kälteflüssigkeit oder Öl aus den Maschinen in das öffentliche Gewässer bzw. in die Kanalisation gelangen?",
+      "hint": "",
+      "type": "text",
+      "required": true,
+      "active-expression": "'kw-ort'|value == 'Quelle'",
+      "config": {}
+    },
+    "kw-1-4-1-baute-zwischenkreislauf": {
+      "label": "Ist ein Zwischenkreislauf vorgesehen?",
+      "hint": "",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'kw-ort'|value == 'Quelle'",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "kw-1-4-1-baute-zusatzheizung": {
+      "label": "Ist eine Zusatzheizung vorhanden?",
+      "hint": "",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'kw-ort'|value == 'Quelle'",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "kw-1-4-1-baute-zusatzheizung-art": {
+      "label": "Art der Zusatzheizung?",
+      "hint": "",
+      "type": "checkbox",
+      "required": true,
+      "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-1-baute-zusatzheizung'|value == 'Ja'",
+      "config": {
+        "options": ["Elektrisch", "Gas", "Öl", "Andere"]
+      }
+    },
+    "kw-1-4-1-baute-zusatzheizung-art-andere": {
+      "label": "Falls andere, welche?",
+      "hint": "",
+      "type": "text",
+      "required": true,
+      "active-expression": "'kw-ort'|value == 'Quelle' && 'Andere' in 'kw-1-4-1-baute-zusatzheizung-art'|value",
+      "config": {}
     },
     "kw-1-4-2-entnahmestandort-gemeinde": {
       "label": "Gemeinde:",
@@ -8205,6 +8683,16 @@
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value == 'Brauchwasser'",
       "config": {}
+    },
+    "info-kw-1-4-quelle": {
+      "label": "Mit dem Gesuch sind im Minimum folgende Unterlagen einzureichen:<ul><li>Situationsplan (Kopie Grundbuchplan) mit eingezeichnetem Standort der Entnahme- bzw. Rückgabestellen inkl. Koordinaten</li><li>Bei stationären Pumpanlagen: Situation/Schnitte zur Anlage und installationstechnische Unterlagen inkl. Koordinaten</li><li>Angaben Quellschüttung</li><li>Bei Bohrungen: Hydrogeologischer Bericht</li></ul>",
+      "hint": "",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "'kw-ort'|value == 'Quelle'",
+      "config": {
+        "options": ["Vorhanden"]
+      }
     },
     "pa-gesuchsnr": {
       "label": "Gesuchs-Nr. des rechtskräftig bewilligten Projektes:",
