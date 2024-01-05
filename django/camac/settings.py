@@ -4485,6 +4485,7 @@ REJECTION = load_module_settings("rejection")
 WITHDRAWAL = load_module_settings("withdrawal")
 PERMISSIONS = load_module_settings("permissions")
 COMMUNICATIONS = load_module_settings("communications")
+PLACEHOLDERS = load_module_settings("placeholders")
 
 # Alexandria
 ALEXANDRIA = load_module_settings("alexandria")

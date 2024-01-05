@@ -670,6 +670,7 @@ def caluma_workflow_config_so(
         settings.ROOT_DIR("kt_so/config/caluma_workflow.json"),
         settings.ROOT_DIR("kt_so/config/caluma_distribution.json"),
         settings.ROOT_DIR("kt_so/config/caluma_additional_demand.json"),
+        settings.ROOT_DIR("kt_so/config/caluma_objection_form.json"),
     )
 
     workflows = caluma_workflow_models.Workflow.objects.all()
@@ -989,8 +990,8 @@ def caluma_forms_so(settings):
     caluma_form_models.Form.objects.create(slug="materielle-pruefung")
     caluma_form_models.Form.objects.create(slug="entscheid")
     caluma_form_models.Form.objects.create(slug="publikation")
-    caluma_form_models.Form.objects.create(slug="einsprachen")
     caluma_form_models.Form.objects.create(slug="erdwaermesonden")
+    caluma_form_models.Form.objects.create(slug="personalien-tabelle")
 
     # dynamic choice options get cached, so we clear them
     # to ensure the new "gemeinde" options will be valid

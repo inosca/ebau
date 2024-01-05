@@ -16,10 +16,12 @@ from camac.user.models import Service
 from camac.utils import build_url, clean_join
 
 from .utils import (
+    clean_and_add_full_name,
     get_person_address_1,
     get_person_address_2,
     get_person_name,
     human_readable_date,
+    row_to_person,
 )
 
 
@@ -200,7 +202,9 @@ class BillingEntriesField(AliasedMixin, serializers.ReadOnlyField):
             else {}
         )
 
-        return BillingV2Entry.objects.filter(instance=instance, **own_filters)
+        return BillingV2Entry.objects.filter(instance=instance, **own_filters).order_by(
+            "organization", "pk"
+        )
 
 
 class PublicationField(AliasedMixin, serializers.ReadOnlyField):
@@ -524,38 +528,21 @@ class LegalClaimantsField(AliasedMixin, serializers.ReadOnlyField):
         data = []
 
         for claimant in value:
-            is_juristic = (
-                find_answer(
-                    claimant, "juristische-person-gesuchstellerin", raw_value=True
-                )
-                == "juristische-person-gesuchstellerin-ja"
-            )
-            name = (
-                find_answer(claimant, "name-juristische-person-gesuchstellerin")
-                if is_juristic
-                else clean_join(
-                    find_answer(claimant, "vorname-gesuchstellerin"),
-                    find_answer(claimant, "name-gesuchstellerin"),
-                )
-            )
-            street = clean_join(
-                find_answer(claimant, "strasse-gesuchstellerin"),
-                find_answer(claimant, "nummer-gesuchstellerin"),
-            )
-            location = clean_join(
-                find_answer(claimant, "plz-gesuchstellerin"),
-                find_answer(claimant, "ort-gesuchstellerin"),
-            )
+            serialized = clean_and_add_full_name(row_to_person(claimant))
 
             data.append(
-                {"ADDRESS": clean_join(street, location, separator=", "), "NAME": name}
+                {
+                    "ADDRESS": serialized["full_address"],
+                    "NAME": serialized["full_name"],
+                }
             )
 
         return data
 
     def get_attribute(self, instance):
         legal_submissions = Document.objects.filter(
-            form_id="legal-submission-form", family__work_item__case__instance=instance
+            form_id=settings.PLACEHOLDERS["LEGAL_SUBMISSIONS"]["FORM"],
+            family__work_item__case__instance=instance,
         )
 
         if self.type:
@@ -572,7 +559,9 @@ class LegalClaimantsField(AliasedMixin, serializers.ReadOnlyField):
         return Document.objects.filter(
             pk__in=AnswerDocument.objects.filter(
                 answer__document__in=legal_submissions,
-                answer__question_id="legal-submission-legal-claimants-table-question",
+                answer__question_id=settings.PLACEHOLDERS["LEGAL_SUBMISSIONS"][
+                    "LEGAL_CLAIMANTS_TABLE_QUESTION"
+                ],
             ).values("document")
         ).order_by("created_at")
 
