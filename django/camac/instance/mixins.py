@@ -94,7 +94,7 @@ class InstanceQuerysetMixin(object):
             state_field = self._get_instance_filter_expr("instance_state__name", "in")
             return queryset.exclude(**{state_field: hidden_states})
 
-        return queryset
+        return queryset.distinct()
 
     @permission_aware
     def get_queryset(self, group=None):
@@ -179,7 +179,7 @@ class InstanceQuerysetMixin(object):
                 | manager.get_q_object(self.instance_field)
             )
 
-        return queryset.distinct().filter(filter)
+        return queryset.filter(filter)
 
     def get_queryset_for_municipality(self, group=None):
         group = self._get_group(group)
@@ -199,7 +199,7 @@ class InstanceQuerysetMixin(object):
 
         manager = PermissionManager.from_request(self._get_request())
 
-        return queryset.distinct().filter(
+        return queryset.filter(
             Q(**{instance_field: instances_for_location})
             | Q(**{instance_field: instances_for_service})
             | Q(**{instance_field: instances_for_activation})
@@ -220,7 +220,7 @@ class InstanceQuerysetMixin(object):
         manager = PermissionManager.from_request(self._get_request())
 
         # use subquery to avoid duplicates
-        return queryset.distinct().filter(
+        return queryset.filter(
             Q(**{instance_field: instances_for_responsible_service})
             | Q(**{instance_field: instances_for_activation})
             | manager.get_q_object(self.instance_field)
@@ -238,7 +238,7 @@ class InstanceQuerysetMixin(object):
 
         manager = PermissionManager.from_request(self._get_request())
 
-        return queryset.distinct().filter(
+        return queryset.filter(
             Q(**{instance_field: instances_for_activation})
             | manager.get_q_object(self.instance_field)
         )
@@ -271,7 +271,7 @@ class InstanceQuerysetMixin(object):
 
         manager = PermissionManager.from_request(self._get_request())
 
-        return queryset.distinct().filter(
+        return queryset.filter(
             Q(**{instance_field: instances_for_location})
             | manager.get_q_object(self.instance_field)
         )
@@ -286,7 +286,7 @@ class InstanceQuerysetMixin(object):
 
         manager = PermissionManager.from_request(self._get_request())
 
-        return queryset.distinct().filter(
+        return queryset.filter(
             Q(**{instance_field: instances_with_invite})
             | manager.get_q_object(self.instance_field)
         )

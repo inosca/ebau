@@ -374,6 +374,15 @@ instances:
     sb2: "Selbstdeklaration 2"
 
   applicants:
+    municipality-access: "Gemeindezugriff"
+    municipality-info: "Falls Sie Unterstützung beim Ausfüllen des Formulares von der zuständigen Gemeinde benötigen, können Sie hier der Gemeinde einen Lesezugriff bereits vor der Einreichung des Dossiers vergeben."
+    municipality-info-empty: "Sie haben momentan keine Gemeinde ausgewählt. Bitte wählen Sie im Formular eine Gemeinde aus, um diese zu berechtigen."
+    period: "Zeitraum"
+    municipality: "Gemeinde"
+    authorize: "Gemeinde berechtigen"
+    revoke: "Berechtigung entfernen"
+    now: "Jetzt"
+
     invitee: "Benutzer"
     created: "Erfasst am"
     user: "Hinzugefügt von"

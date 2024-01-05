@@ -14,6 +14,7 @@ from django.db.models.fields.json import KeyTextTransform
 from django.db.models.functions import Cast
 from django.http import HttpResponse
 from django.utils import timezone
+from django.utils.translation import gettext as _
 from drf_yasg import openapi
 from drf_yasg.utils import swagger_auto_schema
 from rest_framework import response, status
@@ -32,9 +33,13 @@ from camac.core.models import InstanceService, PublicationEntry, WorkflowEntry
 from camac.core.views import SendfileHttpResponse
 from camac.document.models import Attachment, AttachmentSection
 from camac.instance.domain_logic import RejectionLogic, WithdrawalLogic
+from camac.instance.master_data import MasterData
 from camac.instance.utils import build_document_prefetch_statements
 from camac.notification.utils import send_mail
+from camac.permissions import api as permissions_api
+from camac.permissions.models import InstanceACL
 from camac.swagger.utils import get_operation_description, group_param
+from camac.user.models import Service
 from camac.user.permissions import (
     DefaultPermission,
     IsApplication,
@@ -399,6 +404,13 @@ class InstanceView(
             self.request.user,
             self.request.group,
         )
+
+    @permission_aware
+    def has_object_grant_municipality_access_permission(self, instance):
+        return False
+
+    def has_object_grant_municipality_access_permission_for_applicant(self, instance):
+        return instance.instance_state.name == "new"
 
     @swagger_auto_schema(auto_schema=None)
     @permission_aware
@@ -826,6 +838,37 @@ class InstanceView(
             self.request.group,
             self.request.caluma_info.context.user,
         )
+
+        return response.Response(status=status.HTTP_204_NO_CONTENT)
+
+    @swagger_auto_schema(auto_schema=None, methods=["post", "delete"])
+    @action(
+        methods=["post", "delete"],
+        detail=True,
+        url_path="grant-municipality-access",
+    )
+    def grant_municipality_access(self, request, pk=None):
+        instance = self.get_object()
+
+        manager = permissions_api.PermissionManager.from_request(request)
+
+        if request.method == "POST":
+            municipality = MasterData(instance.case).municipality
+
+            if not municipality:  # pragma: no cover
+                raise ValidationError(_("Municipality must be set to grant access"))
+
+            manager.grant(
+                instance=instance,
+                grant_type="SERVICE",
+                service=Service.objects.get(pk=municipality["slug"]),
+                access_level="municipality-before-submission",
+            )
+        elif request.method == "DELETE":
+            for acl in InstanceACL.currently_active().filter(
+                instance=instance, access_level="municipality-before-submission"
+            ):
+                manager.revoke(acl)
 
         return response.Response(status=status.HTTP_204_NO_CONTENT)
 

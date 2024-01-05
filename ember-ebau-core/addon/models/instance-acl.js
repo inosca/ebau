@@ -31,14 +31,14 @@ export default class InstanceAclModel extends Model {
 
   // only one of those can be set.
   @attr token;
-  @belongsTo("service", { inverse: null, async: true }) service;
-  @belongsTo("user", { inverse: null, async: true }) user;
+  @belongsTo("public-service", { inverse: null, async: true }) service;
+  @belongsTo("public-user", { inverse: null, async: true }) user;
 
   @belongsTo("instance", { inverse: null, async: false }) instance;
-  @belongsTo("user", { inverse: null, async: true }) createdByUser;
-  @belongsTo("user", { inverse: null, async: true }) revokedByUser;
-  @belongsTo("service", { inverse: null, async: true }) createdByService;
-  @belongsTo("service", { inverse: null, async: true }) revokedByService;
+  @belongsTo("public-user", { inverse: null, async: true }) createdByUser;
+  @belongsTo("public-user", { inverse: null, async: true }) revokedByUser;
+  @belongsTo("public-service", { inverse: null, async: true }) createdByService;
+  @belongsTo("public-service", { inverse: null, async: true }) revokedByService;
   @belongsTo("access-level", { inverse: null, async: true }) accessLevel;
 
   get createdByName() {

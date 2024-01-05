@@ -8,6 +8,7 @@ from rest_framework import status
 
 from camac.ech0211.models import Message
 from camac.instance.models import HistoryEntry
+from camac.permissions.models import InstanceACL
 
 
 @pytest.mark.freeze_time("2020-12-03")
@@ -807,3 +808,54 @@ def test_correction(
 
         assert response.status_code == expected_status
         assert be_instance.instance_state.name == "subm"
+
+
+@pytest.mark.parametrize(
+    "role__name,instance_state__name,expected_status",
+    [
+        ("Applicant", "new", status.HTTP_204_NO_CONTENT),
+        ("Municipality", "new", status.HTTP_403_FORBIDDEN),
+        ("Applicant", "subm", status.HTTP_403_FORBIDDEN),
+    ],
+)
+def test_grant_municipality_access(
+    db,
+    instance,
+    admin_client,
+    access_level_factory,
+    expected_status,
+    mocker,
+    service,
+    admin_user,
+    applicant_factory,
+):
+    applicant_factory(instance=instance, invitee=admin_user)
+
+    mocker.patch(
+        "camac.instance.master_data.MasterData.__getattr__",
+        return_value={"slug": service.pk, "label": service.get_name()},
+    )
+
+    access_level = access_level_factory(slug="municipality-before-submission")
+
+    url = reverse("instance-grant-municipality-access", args=[instance.pk])
+
+    grant_response = admin_client.post(url)
+    assert grant_response.status_code == expected_status
+
+    if expected_status == status.HTTP_204_NO_CONTENT:
+        assert (
+            InstanceACL.currently_active()
+            .filter(instance=instance, access_level=access_level, service=service)
+            .exists()
+        )
+
+    revoke_response = admin_client.delete(url)
+    assert revoke_response.status_code == expected_status
+
+    if expected_status == status.HTTP_204_NO_CONTENT:
+        assert (
+            not InstanceACL.currently_active()
+            .filter(instance=instance, access_level=access_level, service=service)
+            .exists()
+        )

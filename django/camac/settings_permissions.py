@@ -128,4 +128,13 @@ PERMISSIONS: PermissionsConfig = {
         "EVENT_HANDLER": "camac.permissions.config.kt_gr.PermissionEventHandlerGR",
         "ENABLED": True,
     },
+    "kt_so": {
+        "ENABLED": True,
+        "ACCESS_LEVELS": {
+            "municipality-before-submission": [
+                ("form-read", InstanceState(["new"])),
+            ]
+        },
+        "EVENT_HANDLER": "camac.permissions.config.kt_so.PermissionEventHandlerSO",
+    },
 }
