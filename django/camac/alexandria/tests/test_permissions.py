@@ -523,9 +523,7 @@ def test_nested_permission(db, role, applicant_factory, admin_client, instance):
 
 @pytest.mark.parametrize("role__name", ["applicant"])
 @pytest.mark.parametrize("expected_status", [HTTP_403_FORBIDDEN, HTTP_200_OK])
-@pytest.mark.parametrize(
-    "changes", [["metainfo"], ["category"], ["tags"], ["files"], ["date"]]
-)
+@pytest.mark.parametrize("changes", [["metainfo"], ["tags"], ["files"], ["date"]])
 def test_patch_fields(
     db,
     role,
@@ -571,8 +569,6 @@ def test_patch_fields(
 
     if "metainfo" in changes:
         metainfo = {}
-    if "category" in changes:
-        category = CategoryFactory()
     if "tags" in changes:
         tag = TagFactory()
     if "files" in changes:
@@ -591,12 +587,6 @@ def test_patch_fields(
                 "date": date.isoformat(),
             },
             "relationships": {
-                "category": {
-                    "data": {
-                        "id": category.pk,
-                        "type": "categories",
-                    },
-                },
                 "tags": {
                     "data": [
                         {
@@ -1549,5 +1539,144 @@ def test_condition_paper_instance(
         data["data"]["id"] = str(doc.pk)
 
     response = getattr(admin_client, method)(url, data)
+
+    assert response.status_code == status_code
+
+
+@pytest.mark.parametrize("role__name", ["municipality"])
+@pytest.mark.parametrize(
+    "has_marks,source_category,target_category,status_code",
+    [
+        (False, "source-category-1", "target-category-1", HTTP_200_OK),
+        (False, "source-category-2", "target-category-1", HTTP_403_FORBIDDEN),
+        (False, "source-category-1", "target-category-2", HTTP_403_FORBIDDEN),
+        (False, "source-category-1", "target-category-3", HTTP_200_OK),
+        (True, "source-category-1", "target-category-1", HTTP_403_FORBIDDEN),
+        (True, "source-category-1", "target-category-3", HTTP_200_OK),
+    ],
+)
+def test_move_document(
+    db,
+    admin_client,
+    has_marks,
+    instance,
+    mocker,
+    source_category,
+    status_code,
+    target_category,
+):
+    mocker.patch(
+        "camac.alexandria.extensions.visibilities.CustomVisibility._all_visible_instances",
+        return_value=[instance.pk],
+    )
+
+    # source-category-1: allowed to update category
+    CategoryFactory(
+        slug="source-category-1",
+        metainfo={
+            "access": {
+                "municipality": {
+                    "visibility": "all",
+                    "permissions": [
+                        {
+                            "permission": "update",
+                            "scope": "All",
+                            "fields": ["category"],
+                        },
+                    ],
+                },
+            }
+        },
+    )
+
+    # source-category-1: only allowed to update tags
+    CategoryFactory(
+        slug="source-category-2",
+        metainfo={
+            "access": {
+                "municipality": {
+                    "visibility": "all",
+                    "permissions": [
+                        {"permission": "update", "scope": "All", "fields": ["tags"]},
+                    ],
+                },
+            }
+        },
+    )
+
+    # target-category-1: allowed to create
+    CategoryFactory(
+        slug="target-category-1",
+        metainfo={
+            "access": {
+                "municipality": {
+                    "visibility": "all",
+                    "permissions": [
+                        {"permission": "create", "scope": "All"},
+                    ],
+                },
+            }
+        },
+    )
+
+    # target-category-2: not allowed to create
+    CategoryFactory(
+        slug="target-category-2",
+        metainfo={
+            "access": {
+                "municipality": {
+                    "visibility": "all",
+                    "permissions": [],
+                },
+            }
+        },
+    )
+
+    # target-category-3: allowed to create and update marks
+    CategoryFactory(
+        slug="target-category-3",
+        metainfo={
+            "access": {
+                "municipality": {
+                    "visibility": "all",
+                    "permissions": [
+                        {"permission": "create", "scope": "All"},
+                        {"permission": "update", "scope": "All", "fields": ["marks"]},
+                    ],
+                },
+            }
+        },
+    )
+
+    document = DocumentFactory(
+        category_id=source_category,
+        metainfo={"camac-instance-id": instance.pk},
+    )
+
+    if has_marks:
+        document.marks.add(MarkFactory())
+
+    data = {
+        "data": {
+            "type": "documents",
+            "id": document.pk,
+            "relationships": {
+                "category": {
+                    "data": {
+                        "id": target_category,
+                        "type": "categories",
+                    },
+                },
+                "marks": {
+                    "data": [
+                        {"id": mark.pk, "type": "marks"}
+                        for mark in document.marks.all()
+                    ]
+                },
+            },
+        },
+    }
+
+    response = admin_client.patch(reverse("document-detail", args=[document.pk]), data)
 
     assert response.status_code == status_code
