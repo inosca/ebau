@@ -136,6 +136,7 @@ module.exports = function (environment) {
       completePreliminaryClarificationSlugs: [
         "vorabklaerung-vollstaendig",
         "vorabklaerung-vollstaendig-v2",
+        "vorabklaerung-vollstaendig-v3",
       ],
       selectableGroups: {
         roles: [
