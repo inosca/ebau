@@ -35,7 +35,7 @@ from .test_master_data import (  # noqa
 
 
 @pytest.fixture
-def be_dms_config(settings):
+def be_dms_config(settings, be_placeholders_settings):
     original_languages = settings.LANGUAGES
     settings.LANGUAGES = [
         (code, name) for code, name in settings.LANGUAGES if code in ["de", "fr"]
@@ -61,7 +61,7 @@ def gr_dms_config(settings):
 
 
 @pytest.fixture
-def so_dms_config(settings, application_settings):
+def so_dms_config(settings, application_settings, so_placeholders_settings):
     original_languages = settings.LANGUAGES
     settings.LANGUAGES = [
         (code, name) for code, name in settings.LANGUAGES if code in ["de"]
@@ -311,7 +311,42 @@ def test_dms_placeholders_so(
     so_distribution_settings,
     so_dms_config,
     so_instance,
+    service_factory,
+    work_item_factory,
+    dynamic_option_factory,
+    mocker,
+    multilang,
 ):
+    # Authority
+    authority = service_factory(
+        trans__name="Test Leitbehörde",
+        address="Teststrasse 13",
+        zip="3000",
+        website="https://leitbehoerde.ch",
+        trans__city="Musterhausen",
+        service_group__name="municipality",
+    )
+    mocker.patch(
+        "camac.instance.models.Instance.responsible_service", return_value=authority
+    )
+
+    # Current service
+    group.service.website = "https://meine-organisation.ch"
+    group.service.save()
+
+    # Municipality
+    municipality = service_factory(website="https://gemeinde.ch")
+    add_answer(so_instance.case.document, "gemeinde", str(municipality.pk))
+    dynamic_option_factory(
+        slug=str(municipality.pk),
+        question_id="gemeinde",
+        document=so_instance.case.document,
+    )
+    mocker.patch(
+        "camac.instance.master_data.MasterData._answer_is_visible", return_value=True
+    )
+
+    # Billing
     billing_v2_entry_factory.create_batch(2, group=group, instance=so_instance)
     billing_v2_entry_factory.create_batch(
         2,
@@ -319,6 +354,79 @@ def test_dms_placeholders_so(
         instance=so_instance,
         legal_basis=None,
         cost_center=None,
+    )
+
+    # Objection
+    objections_work_item = work_item_factory(
+        task_id="einsprachen",
+        document__form_id="einsprachen",
+        case=so_instance.case,
+    )
+
+    table_answer = add_table_answer(
+        objections_work_item.document,
+        "einsprachen",
+        [
+            {"einsprache-datum": date(2023, 12, 12)},
+            {"einsprache-datum": date(2023, 12, 22)},
+        ],
+        row_form_id="einsprache",
+    )
+
+    objection1 = table_answer.documents.first()
+    objection2 = table_answer.documents.last()
+
+    add_table_answer(
+        objection1,
+        "einsprache-einsprechende",
+        [
+            {
+                "juristische-person": "juristische-person-nein",
+                "vorname": "Heinz",
+                "nachname": "Einsprachenmann",
+                "strasse": "Beispielstrasse",
+                "strasse-nummer": 1,
+                "plz": 4321,
+                "ort": "Beispieldorf",
+            }
+        ],
+        row_form_id="personalien-tabelle",
+    )
+
+    add_table_answer(
+        objection2,
+        "einsprache-einsprechende",
+        [
+            {
+                "juristische-person": "juristische-person-ja",
+                "juristische-person-name": "Einsprache AG",
+                "vorname": "Sandra",
+                "nachname": "Anwältin",
+                "strasse": "Beispielstrasse",
+                "strasse-nummer": 3,
+                "plz": 4321,
+                "ort": "Beispieldorf",
+            }
+        ],
+        row_form_id="personalien-tabelle",
+    )
+
+    # Publication
+    publication_work_item = work_item_factory(
+        case=so_instance.case,
+        task_id="fill-publication",
+        status=WorkItem.STATUS_COMPLETED,
+        addressed_groups=[str(group.service_id)],
+        meta={"is-published": True},
+    )
+
+    add_answer(publication_work_item.document, "publikation-start", date(2023, 12, 1))
+    add_answer(publication_work_item.document, "publikation-ende", date(2023, 12, 15))
+    add_answer(
+        publication_work_item.document, "publikation-anzeiger", date(2023, 11, 28)
+    )
+    add_answer(
+        publication_work_item.document, "publikation-amtsblatt", date(2023, 11, 29)
     )
 
     url = reverse("instance-dms-placeholders", args=[so_instance.pk])
@@ -330,8 +438,17 @@ def test_dms_placeholders_so(
     checked_keys = [
         "EIGENE_GEBUEHREN_TOTAL",
         "EIGENE_GEBUEHREN",
+        "EINSPRECHENDE",
         "GEBUEHREN_TOTAL",
         "GEBUEHREN",
+        "GEMEINDE_WEBSEITE",
+        "LEITBEHOERDE_NAME_ADRESSE",
+        "LEITBEHOERDE_WEBSEITE",
+        "MEINE_ORGANISATION_WEBSEITE",
+        "PUBLIKATION_AMTSBLATT",
+        "PUBLIKATION_ANZEIGER",
+        "PUBLIKATION_ENDE",
+        "PUBLIKATION_START",
     ]
 
     assert {
