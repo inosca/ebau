@@ -14,13 +14,14 @@ from localized_fields.value import LocalizedStringValue
 from camac.alexandria.extensions.common import get_role
 from camac.alexandria.extensions.permissions import conditions, scopes
 from camac.instance.models import Instance
+from camac.utils import get_dict_item
 
 
 def resolve_permissions(category, user):
     if category.parent:
         return resolve_permissions(category.parent, user)
 
-    return category.metainfo["access"].get(get_role(user))
+    return get_dict_item(category.metainfo, f"access.{get_role(user)}", default=None)
 
 
 MODE_CREATE = "create"
@@ -157,6 +158,27 @@ class CustomPermission(BasePermission):
 
         # analyze request to figure out needed permissions
         needed_permissions = self.get_needed_permissions(request, document)
+
+        # if the category changed, we need to check whether we are allowed to
+        # create a document in the new category as well
+        new_category_id = get_dict_item(request.data, "category.id", default=None)
+        if new_category_id and category.pk != new_category_id:
+            new_category = Category.objects.get(pk=new_category_id)
+
+            available_permissions_new_category = self.get_available_permissions(
+                request, instance, new_category, document
+            )
+            needed_permissions_new_category = {MODE_CREATE}
+
+            # if the document already has marks, we need to make sure that the
+            # new category allows marks
+            if document.marks.exists():
+                needed_permissions_new_category.add(f"{MODE_UPDATE}-marks")
+
+            if not needed_permissions_new_category.issubset(
+                available_permissions_new_category
+            ):
+                return False
 
         # check if needed permissions are subset of available permissions
         return needed_permissions.issubset(available_permissions)
