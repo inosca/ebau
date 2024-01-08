@@ -383,6 +383,7 @@ APPLICATIONS = {
         "CUSTOM_NOTIFICATION_TYPES": [
             # BE
             "inactive_municipality",
+            "geometer_acl_services",
             # UR
             "municipality_users",
             "unnotified_service_users",
@@ -1403,7 +1404,13 @@ APPLICATIONS = {
                         "construction_control",
                         "involved_in_distribution",
                     ],
-                }
+                },
+                {
+                    "template_slug": "notify-geometer-sb2-complete",
+                    "recipient_types": [
+                        "geometer_acl_services",
+                    ],
+                },
             ],
             "APPLICANT": {
                 "NEW": "gesuchsbearbeitungs-einladung-neu",
@@ -1505,14 +1512,6 @@ APPLICATIONS = {
                     "next_instance_state": "finished",
                     "ech_event": "camac.ech0211.signals.finished",
                     "history_text": _("Procedure completed"),
-                },
-                "sb2": {
-                    "notification": {
-                        "template_slug": "notify-geometer-sb2-complete",
-                        "recipient_types": [
-                            "geometer_acl_services",
-                        ],
-                    },
                 },
             },
             "INTERNAL_FORMS": [
