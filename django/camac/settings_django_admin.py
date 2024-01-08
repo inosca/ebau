@@ -41,6 +41,9 @@ DJANGO_ADMIN = {
         "ENABLED": True,
         "ENABLED_MODELS": [
             "gis.GISDataSource",
+            "django_q.Success",
+            "django_q.Failure",
+            "django_q.OrmQ",
         ],
     },
     "kt_schwyz": {"ENABLED": True},

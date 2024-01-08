@@ -11,16 +11,16 @@ interactions:
       User-Agent:
       - python-requests/2.31.0
     method: GET
-    uri: https://www.geoservice2-test.apps.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer?service=WFS&version=2.0.0&Request=GetFeature&typename=of_planningcadastre01_de_ms_wfs:DIPANU_DIPANUF_VW_13541&count=10&Filter=%3Cogc:Filter%3E%3Cogc:PropertyIsEqualTo%20matchCase=%22true%22%3E%3Cogc:PropertyName%3EEGRID%3C/ogc:PropertyName%3E%3Cogc:Literal%3Eemptypolygon%3C/ogc:Literal%3E%3C/ogc:PropertyIsEqualTo%3E%3C/ogc:Filter%3E
+    uri: https://www.geoservice2-test.apps.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer?service=WFS&version=2.0.0&Request=GetFeature&typename=of_planningcadastre01_de_ms_wfs%3ADIPANU_DIPANUF_VW_13541&count=10&Filter=%3Cogc%3AFilter%3E%3Cogc%3APropertyIsEqualTo+matchCase%3D%22true%22%3E%3Cogc%3APropertyName%3EEGRID%3C%2Fogc%3APropertyName%3E%3Cogc%3ALiteral%3Eemptypolygon%3C%2Fogc%3ALiteral%3E%3C%2Fogc%3APropertyIsEqualTo%3E%3C%2Fogc%3AFilter%3E
   response:
     body:
       string: <?xml version="1.0" encoding="utf-8" ?><wfs:FeatureCollection xmlns:xs="http://www.w3.org/2001/XMLSchema"
         xmlns:wfs="http://www.opengis.net/wfs/2.0" xmlns:gml="http://www.opengis.net/gml/3.2"
-        xmlns:of_planningcadastre01_de_ms_wfs="https://a4pa-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer"
+        xmlns:of_planningcadastre01_de_ms_wfs="https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer"
         xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        timeStamp="2023-10-31T17:52:17Z" numberMatched="0" numberReturned="0" xsi:schemaLocation="http://www.opengis.net/wfs/2.0
+        timeStamp="2024-01-09T20:32:38Z" numberMatched="0" numberReturned="0" xsi:schemaLocation="http://www.opengis.net/wfs/2.0
         http://schemas.opengis.net/wfs/2.0/wfs.xsd http://www.opengis.net/gml/3.2
-        http://schemas.opengis.net/gml/3.2.1/gml.xsd https://a4pa-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer
+        http://schemas.opengis.net/gml/3.2.1/gml.xsd https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer
         https://www.geoservice2-test.apps.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer?service=wfs%26version=2.0.0%26request=DescribeFeatureType"></wfs:FeatureCollection>
     headers:
       Cache-Control:
@@ -28,11 +28,11 @@ interactions:
       Connection:
       - Keep-Alive
       Content-Length:
-      - '998'
+      - '1004'
       Content-Type:
       - application/xml;charset=UTF-8
       Date:
-      - Tue, 31 Oct 2023 17:52:18 GMT
+      - Tue, 09 Jan 2024 20:32:39 GMT
       Expires:
       - '-1'
       Keep-Alive:
@@ -52,11 +52,437 @@ interactions:
       accept:
       - text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
       host:
-      - x3012app1012.infra.be.ch:6443
+      - x3012app994.infra.be.ch:6443
       referer:
-      - cf4e5004-4a77-410c-b2a3-4f6bd397a54d
+      - 9f8437b5-128d-4973-8bc0-57c79ab31c93
       referrer:
-      - cf4e5004-4a77-410c-b2a3-4f6bd397a54d
+      - 9f8437b5-128d-4973-8bc0-57c79ab31c93
+      response_buffer_size:
+      - '8192'
+      response_character_encoding:
+      - UTF-8
+      response_content_type:
+      - application/xml
+      response_status_code:
+      - '200'
+      user-agent:
+      - Java/11.0.11
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: https://www.geoservice2-test.apps.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer?service=WFS&version=2.0.0&Request=GetFeature&typename=of_planningcadastre01_de_ms_wfs%3ADIPANU_DIPANUF_VW_13541&count=10&Filter=%3Cogc%3AFilter%3E%3Cogc%3APropertyIsEqualTo+matchCase%3D%22true%22%3E%3Cogc%3APropertyName%3EEGRID%3C%2Fogc%3APropertyName%3E%3Cogc%3ALiteral%3Eemptypolygon%3C%2Fogc%3ALiteral%3E%3C%2Fogc%3APropertyIsEqualTo%3E%3C%2Fogc%3AFilter%3E
+  response:
+    body:
+      string: <?xml version="1.0" encoding="utf-8" ?><wfs:FeatureCollection xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        xmlns:wfs="http://www.opengis.net/wfs/2.0" xmlns:gml="http://www.opengis.net/gml/3.2"
+        xmlns:of_planningcadastre01_de_ms_wfs="https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer"
+        xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        timeStamp="2024-01-09T20:32:40Z" numberMatched="0" numberReturned="0" xsi:schemaLocation="http://www.opengis.net/wfs/2.0
+        http://schemas.opengis.net/wfs/2.0/wfs.xsd http://www.opengis.net/gml/3.2
+        http://schemas.opengis.net/gml/3.2.1/gml.xsd https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer
+        https://www.geoservice2-test.apps.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer?service=wfs%26version=2.0.0%26request=DescribeFeatureType"></wfs:FeatureCollection>
+    headers:
+      Cache-Control:
+      - no-cache
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '1004'
+      Content-Type:
+      - application/xml;charset=UTF-8
+      Date:
+      - Tue, 09 Jan 2024 20:32:40 GMT
+      Expires:
+      - '-1'
+      Keep-Alive:
+      - timeout=5, max=100
+      Pragma:
+      - no-cache
+      Server:
+      - Microsoft-IIS/10.0
+      X-AspNet-Version:
+      - 4.0.30319
+      X-Content-Type-Options:
+      - nosniff
+      X-Powered-By:
+      - ASP.NET
+      X-XSS-Protection:
+      - 1; mode=block
+      accept:
+      - text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+      host:
+      - x3012app994.infra.be.ch:6443
+      referer:
+      - 433772e7-54ec-44c3-a134-a9cba67c43ec
+      referrer:
+      - 433772e7-54ec-44c3-a134-a9cba67c43ec
+      response_buffer_size:
+      - '8192'
+      response_character_encoding:
+      - UTF-8
+      response_content_type:
+      - application/xml
+      response_status_code:
+      - '200'
+      user-agent:
+      - Java/11.0.11
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: https://www.geoservice2-test.apps.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer?service=WFS&version=2.0.0&Request=GetFeature&typename=of_planningcadastre01_de_ms_wfs%3ADIPANU_DIPANUF_VW_13541&count=10&Filter=%3Cogc%3AFilter%3E%3Cogc%3APropertyIsEqualTo+matchCase%3D%22true%22%3E%3Cogc%3APropertyName%3EEGRID%3C%2Fogc%3APropertyName%3E%3Cogc%3ALiteral%3Eemptypolygon%3C%2Fogc%3ALiteral%3E%3C%2Fogc%3APropertyIsEqualTo%3E%3C%2Fogc%3AFilter%3E
+  response:
+    body:
+      string: <?xml version="1.0" encoding="utf-8" ?><wfs:FeatureCollection xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        xmlns:wfs="http://www.opengis.net/wfs/2.0" xmlns:gml="http://www.opengis.net/gml/3.2"
+        xmlns:of_planningcadastre01_de_ms_wfs="https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer"
+        xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        timeStamp="2024-01-09T20:32:41Z" numberMatched="0" numberReturned="0" xsi:schemaLocation="http://www.opengis.net/wfs/2.0
+        http://schemas.opengis.net/wfs/2.0/wfs.xsd http://www.opengis.net/gml/3.2
+        http://schemas.opengis.net/gml/3.2.1/gml.xsd https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer
+        https://www.geoservice2-test.apps.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer?service=wfs%26version=2.0.0%26request=DescribeFeatureType"></wfs:FeatureCollection>
+    headers:
+      Cache-Control:
+      - no-cache
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '1004'
+      Content-Type:
+      - application/xml;charset=UTF-8
+      Date:
+      - Tue, 09 Jan 2024 20:32:41 GMT
+      Expires:
+      - '-1'
+      Keep-Alive:
+      - timeout=5, max=100
+      Pragma:
+      - no-cache
+      Server:
+      - Microsoft-IIS/10.0
+      X-AspNet-Version:
+      - 4.0.30319
+      X-Content-Type-Options:
+      - nosniff
+      X-Powered-By:
+      - ASP.NET
+      X-XSS-Protection:
+      - 1; mode=block
+      accept:
+      - text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+      host:
+      - x3012app994.infra.be.ch:6443
+      referer:
+      - ec001dca-5728-4742-be89-303bf75a8724
+      referrer:
+      - ec001dca-5728-4742-be89-303bf75a8724
+      response_buffer_size:
+      - '8192'
+      response_character_encoding:
+      - UTF-8
+      response_content_type:
+      - application/xml
+      response_status_code:
+      - '200'
+      user-agent:
+      - Java/11.0.11
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: https://www.geoservice2-test.apps.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer?service=WFS&version=2.0.0&Request=GetFeature&typename=of_planningcadastre01_de_ms_wfs%3ADIPANU_DIPANUF_VW_13541&count=10&Filter=%3Cogc%3AFilter%3E%3Cogc%3APropertyIsEqualTo+matchCase%3D%22true%22%3E%3Cogc%3APropertyName%3EEGRID%3C%2Fogc%3APropertyName%3E%3Cogc%3ALiteral%3Eemptypolygon%3C%2Fogc%3ALiteral%3E%3C%2Fogc%3APropertyIsEqualTo%3E%3C%2Fogc%3AFilter%3E
+  response:
+    body:
+      string: <?xml version="1.0" encoding="utf-8" ?><wfs:FeatureCollection xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        xmlns:wfs="http://www.opengis.net/wfs/2.0" xmlns:gml="http://www.opengis.net/gml/3.2"
+        xmlns:of_planningcadastre01_de_ms_wfs="https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer"
+        xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        timeStamp="2024-01-09T20:32:42Z" numberMatched="0" numberReturned="0" xsi:schemaLocation="http://www.opengis.net/wfs/2.0
+        http://schemas.opengis.net/wfs/2.0/wfs.xsd http://www.opengis.net/gml/3.2
+        http://schemas.opengis.net/gml/3.2.1/gml.xsd https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer
+        https://www.geoservice2-test.apps.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer?service=wfs%26version=2.0.0%26request=DescribeFeatureType"></wfs:FeatureCollection>
+    headers:
+      Cache-Control:
+      - no-cache
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '1004'
+      Content-Type:
+      - application/xml;charset=UTF-8
+      Date:
+      - Tue, 09 Jan 2024 20:32:42 GMT
+      Expires:
+      - '-1'
+      Keep-Alive:
+      - timeout=5, max=100
+      Pragma:
+      - no-cache
+      Server:
+      - Microsoft-IIS/10.0
+      X-AspNet-Version:
+      - 4.0.30319
+      X-Content-Type-Options:
+      - nosniff
+      X-Powered-By:
+      - ASP.NET
+      X-XSS-Protection:
+      - 1; mode=block
+      accept:
+      - text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+      host:
+      - x3012app994.infra.be.ch:6443
+      referer:
+      - e9f11188-2416-4254-b6a6-60c5efe63a76
+      referrer:
+      - e9f11188-2416-4254-b6a6-60c5efe63a76
+      response_buffer_size:
+      - '8192'
+      response_character_encoding:
+      - UTF-8
+      response_content_type:
+      - application/xml
+      response_status_code:
+      - '200'
+      user-agent:
+      - Java/11.0.11
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: https://www.geoservice2-test.apps.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer?service=WFS&version=2.0.0&Request=GetFeature&typename=of_planningcadastre01_de_ms_wfs%3ADIPANU_DIPANUF_VW_13541&count=10&Filter=%3Cogc%3AFilter%3E%3Cogc%3APropertyIsEqualTo+matchCase%3D%22true%22%3E%3Cogc%3APropertyName%3EEGRID%3C%2Fogc%3APropertyName%3E%3Cogc%3ALiteral%3Eemptypolygon%3C%2Fogc%3ALiteral%3E%3C%2Fogc%3APropertyIsEqualTo%3E%3C%2Fogc%3AFilter%3E
+  response:
+    body:
+      string: <?xml version="1.0" encoding="utf-8" ?><wfs:FeatureCollection xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        xmlns:wfs="http://www.opengis.net/wfs/2.0" xmlns:gml="http://www.opengis.net/gml/3.2"
+        xmlns:of_planningcadastre01_de_ms_wfs="https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer"
+        xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        timeStamp="2024-01-09T20:32:43Z" numberMatched="0" numberReturned="0" xsi:schemaLocation="http://www.opengis.net/wfs/2.0
+        http://schemas.opengis.net/wfs/2.0/wfs.xsd http://www.opengis.net/gml/3.2
+        http://schemas.opengis.net/gml/3.2.1/gml.xsd https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer
+        https://www.geoservice2-test.apps.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer?service=wfs%26version=2.0.0%26request=DescribeFeatureType"></wfs:FeatureCollection>
+    headers:
+      Cache-Control:
+      - no-cache
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '1004'
+      Content-Type:
+      - application/xml;charset=UTF-8
+      Date:
+      - Tue, 09 Jan 2024 20:32:43 GMT
+      Expires:
+      - '-1'
+      Keep-Alive:
+      - timeout=5, max=100
+      Pragma:
+      - no-cache
+      Server:
+      - Microsoft-IIS/10.0
+      X-AspNet-Version:
+      - 4.0.30319
+      X-Content-Type-Options:
+      - nosniff
+      X-Powered-By:
+      - ASP.NET
+      X-XSS-Protection:
+      - 1; mode=block
+      accept:
+      - text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+      host:
+      - x3012app994.infra.be.ch:6443
+      referer:
+      - 86487eaf-e650-4c0b-b572-3599e3c1ee79
+      referrer:
+      - 86487eaf-e650-4c0b-b572-3599e3c1ee79
+      response_buffer_size:
+      - '8192'
+      response_character_encoding:
+      - UTF-8
+      response_content_type:
+      - application/xml
+      response_status_code:
+      - '200'
+      user-agent:
+      - Java/11.0.11
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: https://www.geoservice2-test.apps.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer?service=WFS&version=2.0.0&Request=GetFeature&typename=of_planningcadastre01_de_ms_wfs%3ADIPANU_DIPANUF_VW_13541&count=10&Filter=%3Cogc%3AFilter%3E%3Cogc%3APropertyIsEqualTo+matchCase%3D%22true%22%3E%3Cogc%3APropertyName%3EEGRID%3C%2Fogc%3APropertyName%3E%3Cogc%3ALiteral%3Eemptypolygon%3C%2Fogc%3ALiteral%3E%3C%2Fogc%3APropertyIsEqualTo%3E%3C%2Fogc%3AFilter%3E
+  response:
+    body:
+      string: <?xml version="1.0" encoding="utf-8" ?><wfs:FeatureCollection xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        xmlns:wfs="http://www.opengis.net/wfs/2.0" xmlns:gml="http://www.opengis.net/gml/3.2"
+        xmlns:of_planningcadastre01_de_ms_wfs="https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer"
+        xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        timeStamp="2024-01-09T20:32:44Z" numberMatched="0" numberReturned="0" xsi:schemaLocation="http://www.opengis.net/wfs/2.0
+        http://schemas.opengis.net/wfs/2.0/wfs.xsd http://www.opengis.net/gml/3.2
+        http://schemas.opengis.net/gml/3.2.1/gml.xsd https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer
+        https://www.geoservice2-test.apps.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer?service=wfs%26version=2.0.0%26request=DescribeFeatureType"></wfs:FeatureCollection>
+    headers:
+      Cache-Control:
+      - no-cache
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '1004'
+      Content-Type:
+      - application/xml;charset=UTF-8
+      Date:
+      - Tue, 09 Jan 2024 20:32:44 GMT
+      Expires:
+      - '-1'
+      Keep-Alive:
+      - timeout=5, max=100
+      Pragma:
+      - no-cache
+      Server:
+      - Microsoft-IIS/10.0
+      X-AspNet-Version:
+      - 4.0.30319
+      X-Content-Type-Options:
+      - nosniff
+      X-Powered-By:
+      - ASP.NET
+      X-XSS-Protection:
+      - 1; mode=block
+      accept:
+      - text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+      host:
+      - x3012app994.infra.be.ch:6443
+      referer:
+      - 60ecc72b-d1fc-4adf-bece-a4f1cfce3733
+      referrer:
+      - 60ecc72b-d1fc-4adf-bece-a4f1cfce3733
+      response_buffer_size:
+      - '8192'
+      response_character_encoding:
+      - UTF-8
+      response_content_type:
+      - application/xml
+      response_status_code:
+      - '200'
+      user-agent:
+      - Java/11.0.11
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: https://www.geoservice2-test.apps.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer?service=WFS&version=2.0.0&Request=GetFeature&typename=of_planningcadastre01_de_ms_wfs%3ADIPANU_DIPANUF_VW_13541&count=10&Filter=%3Cogc%3AFilter%3E%3Cogc%3APropertyIsEqualTo+matchCase%3D%22true%22%3E%3Cogc%3APropertyName%3EEGRID%3C%2Fogc%3APropertyName%3E%3Cogc%3ALiteral%3Eemptypolygon%3C%2Fogc%3ALiteral%3E%3C%2Fogc%3APropertyIsEqualTo%3E%3C%2Fogc%3AFilter%3E
+  response:
+    body:
+      string: <?xml version="1.0" encoding="utf-8" ?><wfs:FeatureCollection xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        xmlns:wfs="http://www.opengis.net/wfs/2.0" xmlns:gml="http://www.opengis.net/gml/3.2"
+        xmlns:of_planningcadastre01_de_ms_wfs="https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer"
+        xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        timeStamp="2024-01-09T20:32:45Z" numberMatched="0" numberReturned="0" xsi:schemaLocation="http://www.opengis.net/wfs/2.0
+        http://schemas.opengis.net/wfs/2.0/wfs.xsd http://www.opengis.net/gml/3.2
+        http://schemas.opengis.net/gml/3.2.1/gml.xsd https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer
+        https://www.geoservice2-test.apps.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer?service=wfs%26version=2.0.0%26request=DescribeFeatureType"></wfs:FeatureCollection>
+    headers:
+      Cache-Control:
+      - no-cache
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '1004'
+      Content-Type:
+      - application/xml;charset=UTF-8
+      Date:
+      - Tue, 09 Jan 2024 20:32:45 GMT
+      Expires:
+      - '-1'
+      Keep-Alive:
+      - timeout=5, max=100
+      Pragma:
+      - no-cache
+      Server:
+      - Microsoft-IIS/10.0
+      X-AspNet-Version:
+      - 4.0.30319
+      X-Content-Type-Options:
+      - nosniff
+      X-Powered-By:
+      - ASP.NET
+      X-XSS-Protection:
+      - 1; mode=block
+      accept:
+      - text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+      host:
+      - x3012app994.infra.be.ch:6443
+      referer:
+      - 8aa016cf-6b38-4222-b832-cc04de3e2eab
+      referrer:
+      - 8aa016cf-6b38-4222-b832-cc04de3e2eab
       response_buffer_size:
       - '8192'
       response_character_encoding:
