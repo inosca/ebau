@@ -436,20 +436,24 @@ def test_notification_template_sendmail(
     "role__name",
     ["Municipality"],
 )
-def test_notification_template_construction_monitoring(
+def test_notification_template_construction_acceptance(
     caluma_admin_user,
     gr_instance,
+    caluma_workflow_config_gr,
+    settings,
     form_name,
     mailoutbox,
     expected_recipients,
     application_settings,
     instance_state_factory,
     notification_template_factory,
+    gr_decision_settings,
 ):
-    application_settings["CALUMA"]["SIMPLE_WORKFLOW"]["construction-monitoring"][
+    application_settings["CALUMA"]["SIMPLE_WORKFLOW"]["construction-acceptance"][
         "notification"
     ]["conditions"] = {"forms": ["baugesuch", "bauanzeige", "solaranlage"]}
     instance_state_factory(name="finished")
+    instance_state_factory(name="construction-acceptance")
     notification_template_factory(slug="bauabnahme")
 
     gr_instance.case.document.form = caluma_form_models.Form.objects.create(
@@ -474,7 +478,7 @@ def test_notification_template_construction_monitoring(
         )
 
     workflow_api.complete_work_item(
-        work_item=gr_instance.case.work_items.get(task_id="construction-monitoring"),
+        work_item=gr_instance.case.work_items.get(task_id="construction-acceptance"),
         user=caluma_admin_user,
     )
 

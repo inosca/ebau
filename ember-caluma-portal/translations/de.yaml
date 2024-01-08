@@ -252,7 +252,7 @@ instances:
   categories:
     pending: "Offen"
     sb: "Selbstdeklaration"
-    constructionMonitoring: "Entschieden"
+    constructionAcceptance: "Entschieden"
     done: "Abgeschlossen"
     notSubmitted: "Neu"
     submitted: "Eingereicht"
@@ -359,7 +359,7 @@ instances:
     circulation: "In Zirkulation"
     inProcedure: "Im Verfahren"
     submitted: "Eingereicht"
-    constructionMonitoring: "Baubegleitung"
+    constructionAcceptance: "Baubegleitung"
 
     # SO
     withdrawn: "Zurückgezogen"

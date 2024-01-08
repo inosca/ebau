@@ -100,7 +100,7 @@
     "model": "instance.instancestate",
     "pk": 120010,
     "fields": {
-      "name": "construction-monitoring",
+      "name": "construction-acceptance",
       "sort": 6,
       "description": ""
     }

@@ -30,7 +30,7 @@ export default class TaskFormController extends Controller {
         "decision",
         "formal-exam",
         "material-exam",
-        "construction-monitoring",
+        "construction-acceptance",
         "geometer",
       ].includes(this.model)
     ) {
