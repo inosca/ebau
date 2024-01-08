@@ -131,7 +131,7 @@ class GISDataView(ListAPIView):
             query_params,
             data,
             errors,
-            group="be_gis",
+            group="GIS",
         )
         return Response({"task_id": task_id})
 

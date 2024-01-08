@@ -53,7 +53,4 @@ class GISDataSource(models.Model):
         return client.get_required_params(self)
 
     def get_is_queue_enabled(self):
-        client = self.get_client_cls()
-        if hasattr(client, "is_queue_enabled"):
-            return client.is_queue_enabled
-        return False
+        return getattr(self.get_client_cls(), "is_queue_enabled", False)
