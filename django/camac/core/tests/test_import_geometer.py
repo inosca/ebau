@@ -5,7 +5,8 @@ from django.core.management import call_command
 from camac.user.models import ServiceRelation
 
 
-@pytest.mark.parametrize("do_clear", [True, False])
+@pytest.mark.parametrize("do_clear_relations", [True, False])
+@pytest.mark.parametrize("do_clear_geometers", [True, False])
 def test_import_geometer(
     db,
     service_factory,
@@ -13,8 +14,13 @@ def test_import_geometer(
     tmpdir,
     capsys,
     role_factory,
-    do_clear,
+    do_clear_relations,
+    do_clear_geometers,
+    application_settings,
 ):
+    # for logging/printing to use the right values.
+    application_settings["IS_MULTILINGUAL"] = True
+
     # load data including test data
     some_municipality = service_factory(
         trans__name="Leitbehörde Testiswil",
@@ -39,9 +45,11 @@ def test_import_geometer(
         trans__name="Sachbearbeiter Nachführungsgeometer",
     )
 
-    service_group_factory(name="geometer")
+    geometer_sg = service_group_factory(name="geometer")
     old_rel = ServiceRelation.objects.create(
-        function="geometer", receiver=service_factory(), provider=service_factory()
+        function="geometer",
+        receiver=service_factory(),
+        provider=service_factory(service_group=geometer_sg),
     )
 
     import_header = [
@@ -97,19 +105,24 @@ def test_import_geometer(
     )
 
     args = [filename]
-    if do_clear:
-        args.append("--clear")
+    if do_clear_relations:
+        args.append("--clear-relations")
+    if do_clear_geometers:
+        args.append("--clear-geometers")
 
     call_command("import_geometer", *args)
 
-    # If we clear all relations, the "old" one should be gone, othrewise
-    # we should have kept it
-    assert ServiceRelation.objects.filter(pk=old_rel.pk).exists() != do_clear
+    # If we clear all relations, the "old" one should be gone, otherwise
+    # we should have kept it. Note if we clear the geometers, the relations
+    # will be dropped implicitly as well
+    assert ServiceRelation.objects.filter(pk=old_rel.pk).exists() != (
+        do_clear_relations or do_clear_geometers
+    )
 
     out, err = capsys.readouterr()
 
     expect_success = (
-        "Leitbehörde found for 'Rebecca Gonzalez', assigning "
+        "Leitbehörde 'Leitbehörde Testiswil' found for 'Testiswil', assigning "
         "Geometer service: Nachführungsgeometer Peter Tester"
     )
     expect_fail = (
