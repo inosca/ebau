@@ -173,6 +173,20 @@ class InstanceExportFilterBackendBE(InstanceExportFilterBackend):
             document__work_item__case__instance=OuterRef("pk"),
         ).values("date")[:1]
 
+        sb1_date = WorkItem.objects.filter(
+            task_id="sb1",
+            status=WorkItem.STATUS_COMPLETED,
+            case__instance=OuterRef("pk"),
+            closed_at__isnull=False,
+        ).values("closed_at__date")[:1]
+
+        sb2_date = WorkItem.objects.filter(
+            task_id="sb2",
+            status=WorkItem.STATUS_COMPLETED,
+            case__instance=OuterRef("pk"),
+            closed_at__isnull=False,
+        ).values("closed_at__date")[:1]
+
         municipality = (
             DynamicOption.objects.filter(
                 question_id="gemeinde", document_id=OuterRef("case__document_id")
@@ -230,6 +244,31 @@ class InstanceExportFilterBackendBE(InstanceExportFilterBackend):
             ),
         )
 
+        parcels = StringAggSubquery(
+            Answer.objects.filter(
+                question_id="parzellennummer",
+                document__family=OuterRef("case__document_id"),
+                value__isnull=False,
+            )
+            .annotate(
+                # Return NULL if the answer is empty so this function returns
+                # the same on empty answers as on no answer at all.
+                string_value=NullIf(
+                    Trim(
+                        Replace(
+                            Cast("value", output_field=CharField()),
+                            Value('"'),
+                            Value(""),
+                        )
+                    ),
+                    Value(""),
+                ),
+            )
+            .values("string_value"),
+            column_name="string_value",
+            delimiter=", ",
+        )
+
         building_project = answer("beschreibung-bauvorhaben")
 
         applicants = StringAggSubquery(
@@ -282,8 +321,11 @@ class InstanceExportFilterBackendBE(InstanceExportFilterBackend):
             queryset.annotate(
                 in_rsta_date=in_rsta_date,
                 decision_date=decision_date,
+                sb1_date=sb1_date,
+                sb2_date=sb2_date,
                 municipality=municipality,
                 address=address,
+                parcels=parcels,
                 tag_names=tag_names,
                 instance_state_name=instance_state_name,
                 applicants=applicants,
