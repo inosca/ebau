@@ -1607,12 +1607,13 @@ def test_instance_finalize(
     application_settings["NOTIFICATIONS"]["FINALIZE"] = [
         {
             "template_slug": notification_template.slug,
-            "recipient_types": ["applicant", "construction_control"],
+            "recipient_types": [
+                "applicant",
+                "construction_control",
+                "geometer_acl_services",
+            ],
         }
     ]
-
-    # Geometer notification is tested elsewhere
-    del application_settings["CALUMA"]["SIMPLE_WORKFLOW"]["sb2"]["notification"]
 
     be_instance.case.meta.update(
         {
