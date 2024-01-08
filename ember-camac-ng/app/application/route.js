@@ -2,6 +2,7 @@ import Route from "@ember/routing/route";
 import { inject as service } from "@ember/service";
 import DecisionAppealButtonComponent from "ember-ebau-core/components/decision/appeal-button";
 import DecisionInfoAppealComponent from "ember-ebau-core/components/decision/info-appeal";
+import DecisionInfoGeometerComponent from "ember-ebau-core/components/decision/info-geometer";
 import DecisionSubmitButtonComponent from "ember-ebau-core/components/decision/submit-button";
 import DocumentValidityButtonComponent from "ember-ebau-core/components/document-validity-button";
 import InquiryAnswerStatus from "ember-ebau-core/components/inquiry-answer-status";
@@ -127,6 +128,12 @@ export default class ApplicationRoute extends Route {
       label: "Hilfetext Beschwerdeverfahren",
       component: "decision/info-appeal",
       componentClass: DecisionInfoAppealComponent,
+    });
+
+    this.calumaOptions.registerComponentOverride({
+      label: "Hilfetext Nachführungsgeometer",
+      component: "decision/info-geometer",
+      componentClass: DecisionInfoGeometerComponent,
     });
 
     this.calumaOptions.registerComponentOverride({

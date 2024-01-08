@@ -1,4 +1,7 @@
 decision:
+  info: 
+    geometer: Le géomètre conservateur <b>{geometer}</b> est rattaché à cette commune.
+
   submit:
     preliminary-clarification: "Clôturer l'évaluation"
     appeal: "Confirmer la décision"

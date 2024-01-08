@@ -1,4 +1,7 @@
 decision:
+  info: 
+    geometer: Dieser Gemeinde ist der Nachführungsgeometer <b>{geometer}</b> zugeordnet.
+
   submit:
     preliminary-clarification: "Beurteilung abschliessen"
     appeal: "Entscheid bestätigen"

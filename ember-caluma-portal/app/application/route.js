@@ -5,6 +5,7 @@ import AlexandriaDocumentsFormComponent from "ember-ebau-core/components/alexand
 import CalculatedPublicationDateComponent from "ember-ebau-core/components/calculated-publication-date";
 import DecisionAppealButtonComponent from "ember-ebau-core/components/decision/appeal-button";
 import DecisionInfoAppealComponent from "ember-ebau-core/components/decision/info-appeal";
+import DecisionInfoGeometerComponent from "ember-ebau-core/components/decision/info-geometer";
 import DecisionSubmitButtonComponent from "ember-ebau-core/components/decision/submit-button";
 import DocumentValidityButtonComponent from "ember-ebau-core/components/document-validity-button";
 import DynamicMaxDateInputComponent from "ember-ebau-core/components/dynamic-max-date-input";
@@ -147,6 +148,11 @@ export default class ApplicationRoute extends Route {
       label: "Hilfetext Beschwerdeverfahren",
       component: "decision/info-appeal",
       componentClass: DecisionInfoAppealComponent,
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "Hilfetext Nachforderungsgeometer",
+      component: "decision/info-geometer",
+      componentClass: DecisionInfoGeometerComponent,
     });
     this.calumaOptions.registerComponentOverride({
       label: "Entscheid verfügen",
