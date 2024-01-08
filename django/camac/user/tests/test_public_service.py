@@ -2,6 +2,8 @@ import pytest
 from django.urls import reverse
 from rest_framework import status
 
+from camac.user.models import ServiceRelation
+
 
 def test_public_service_list(admin_client, service, service_factory):
     service_factory()
@@ -120,3 +122,37 @@ def test_public_service_multilingual_search(
 
     assert response.status_code == status.HTTP_200_OK
     assert len(response.json()["data"]) == expected
+
+
+@pytest.mark.parametrize(
+    "function,use_other_service, expect_result",
+    [
+        ("geometer", False, 1),
+        ("geometer", True, 0),
+        ("dummy_function", True, 0),
+        ("dummy_function", False, 0),
+    ],
+)
+def test_public_service_filter_provider_for(
+    admin_client, service_factory, service, function, use_other_service, expect_result
+):
+    geometer_service = service_factory()
+    dummy_service = service_factory()
+    ServiceRelation.objects.create(
+        provider=geometer_service, receiver=service, function="geometer"
+    )
+
+    response = admin_client.get(
+        reverse("publicservice-list"),
+        data={
+            "provider_for": f"{function};{dummy_service.pk if use_other_service else service.pk}"
+        },
+    )
+
+    assert response.status_code == status.HTTP_200_OK
+    assert len(response.json()["data"]) == expect_result
+    if expect_result:
+        assert (
+            response.json()["data"][0]["attributes"]["name"]
+            == geometer_service.get_name()
+        )
