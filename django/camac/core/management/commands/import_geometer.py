@@ -117,11 +117,13 @@ class Command(BaseCommand):
 
         if not municipality_service:
             print(
-                f"Municipality {municipality_name} not found. Service '{geom_service.name}' created but not assigned"
+                f"Municipality service for '{municipality_name}' not found. "
+                f"Service '{geom_service.name}' created but not assigned"
             )
             return
         print(
-            f"Leitbehörde found for {municipality_name}, assigning Geometer service: {geom_service.name}"
+            f"Leitbehörde found for '{municipality_service.get_trans_attr('name')}', "
+            f"assigning Geometer service: {geom_service.name}"
         )
 
         # Overwrite if exists, otherwise create new
