@@ -82,7 +82,21 @@
             "permissions": [
               {
                 "scope": "All",
+                "condition": {
+                  "PaperInstance": true
+                },
+                "permission": "create"
+              },
+              {
+                "scope": "All",
                 "fields": ["title", "description", "date", "tags", "marks"],
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "condition": {
+                  "PaperInstance": true
+                },
                 "permission": "update"
               }
             ]
@@ -945,6 +959,19 @@
                 "scope": "All",
                 "fields": ["title", "description", "date", "tags", "marks"],
                 "permission": "update"
+              },
+              {
+                "scope": "All",
+                "condition": {
+                  "PaperInstance": true
+                },
+                "permission": "update"
+              },
+              {
+                "condition": {
+                  "PaperInstance": true
+                },
+                "permission": "create"
               }
             ]
           },

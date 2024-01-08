@@ -3698,6 +3698,18 @@ APPLICATIONS = {
             "name",
             "surname",
         ],
+        "PAPER": {
+            "ALLOWED_ROLES": {
+                "DEFAULT": [
+                    5,  # municipality-lead
+                ]
+            },
+            "ALLOWED_SERVICE_GROUPS": {
+                "DEFAULT": [
+                    1,  # municipality
+                ]
+            },
+        },
         "PORTAL_GROUP": 2,
         "CALUMA": {
             "MANUAL_WORK_ITEM_TASK": "create-manual-workitems",
