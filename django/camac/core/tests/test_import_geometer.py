@@ -108,11 +108,16 @@ def test_import_geometer(
 
     out, err = capsys.readouterr()
 
-    expected_lines = [
-        "Leitbehörde found for Testiswil, assigning Geometer service: Nachführungsgeometer Peter Tester",
-        "Municipality Fehlersberg not found. Service 'Nachführungsgeometer Anderer Tester' created but not assigned",
-    ]
-    assert expected_lines == out.strip().splitlines()
+    expect_success = (
+        "Leitbehörde found for 'Rebecca Gonzalez', assigning "
+        "Geometer service: Nachführungsgeometer Peter Tester"
+    )
+    expect_fail = (
+        "Municipality service for 'Fehlersberg' not found. Service "
+        "'Nachführungsgeometer Anderer Tester' created but not assigned"
+    )
+
+    assert out.strip().splitlines() == [expect_success, expect_fail]
 
     qs = ServiceRelation.objects.filter(receiver=some_municipality, function="geometer")
     relation = qs.get()
