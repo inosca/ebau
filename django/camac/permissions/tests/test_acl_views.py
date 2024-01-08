@@ -271,7 +271,7 @@ def test_revoke_acl(
 
     if is_responsible_service:
         instance.instance_services.create(
-            service=admin_client.user.get_default_group().service
+            service=admin_client.user.get_default_group().service, active=1
         )
     else:
         # The instance's responsible group (and therefore it's responsible
@@ -443,6 +443,7 @@ def test_get_access_levels(
         ("be", False, "geometer", "OFF", "Geometer", 0),
         ("so", True, "geometer", "OFF", "Municipality", "ALL_EXCEPT_ONE"),
         ("sz", True, "read", "OFF", "Municipality", 1),
+        ("ur", True, "read", "OFF", "Municipality", 1),
     ],
 )
 def test_assignable_filter(

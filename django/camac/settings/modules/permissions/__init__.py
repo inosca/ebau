@@ -7,6 +7,7 @@ from .kt_bern import BE_PERMISSIONS_SETTINGS
 from .kt_gr import GR_PERMISSIONS_SETTINGS
 from .kt_schwyz import SZ_PERMISSIONS_SETTINGS
 from .kt_so import SO_PERMISSIONS_SETTINGS
+from .kt_uri import UR_PERMISSIONS_SETTINGS
 from .typing import PermissionsConfig
 
 """
@@ -53,4 +54,5 @@ PERMISSIONS: PermissionsConfig = {
     "kt_so": SO_PERMISSIONS_SETTINGS,
     "kt_schwyz": SZ_PERMISSIONS_SETTINGS,
     "kt_ag": AG_PERMISSIONS_SETTINGS,
+    "kt_uri": UR_PERMISSIONS_SETTINGS,
 }

@@ -476,6 +476,22 @@ PERMISSIONS_BY_ACCESSLEVEL = {
             ReadPermission: (_allow_always, [1, 4, 5, 6, 8, 10, 11]),
         },
     },
+    "kt_uri": {
+        "read": {
+            # TODO proper definition of permissions
+            # Same sections included as for service excluding
+            # internal section
+            ReadPermission: (
+                _allow_always,
+                [
+                    12000000,
+                    12000002,
+                    12000003,
+                    12000004,
+                ],
+            ),
+        }
+    },
 }
 
 

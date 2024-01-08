@@ -63,6 +63,11 @@ class AccessLevelFilterset(FilterSet):
         qs = qs.filter(pk="read")
         return qs
 
+    def filter_assignable_in_instance_rbac_for_municipality_ur(self, qs, name, value):
+        # Uri currently only allows "read" to be assigned by a municipality
+        qs = qs.filter(pk="read")
+        return qs
+
 
 class InstanceACLFilterSet(FilterSet):
     is_active = BooleanFilter(method="filter_is_active")

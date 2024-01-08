@@ -3,6 +3,7 @@ from datetime import timedelta
 import pytest
 from django.urls import reverse
 from django.utils import timezone
+from django.utils.translation import gettext
 from pytest_lazy_fixtures import lf
 
 from camac.instance import models as instance_models
@@ -462,6 +463,8 @@ def test_require_functions(
     if expect_error:
         with pytest.raises(Exception) as excinfo:
             getattr(manager, method)(instance, require)
-        assert excinfo.match("You do not have the required permission to do this")
+        assert excinfo.match(
+            gettext("You do not have the required permission to do this")
+        )
     else:
         assert getattr(manager, method)(instance, require) == expect_result

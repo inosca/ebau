@@ -1579,6 +1579,18 @@ def ag_permissions_settings(settings, request):
 
 
 @pytest.fixture
+def ur_permissions_settings(settings, request):
+    """Module-specific settings for permissions (canton UR)."""
+    return generate_module_settings(
+        settings=settings,
+        request=request,
+        module_name="permissions",
+        canton="kt_uri",
+        disable=False,
+    )
+
+
+@pytest.fixture
 def placeholders_settings(settings, request):
     """Module-specific settings for placeholders (default)."""
     return generate_module_settings(
