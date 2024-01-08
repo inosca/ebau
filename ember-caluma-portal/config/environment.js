@@ -47,7 +47,7 @@ module.exports = function (environment) {
     decision: 120007,
     inCorrection: 120008,
     circulationInit: 120009,
-    constructionMonitoring: 120010,
+    constructionAcceptance: 120010,
     finished: 120006,
     rejected: 120011,
   };
@@ -372,7 +372,7 @@ module.exports = function (environment) {
           instanceStatesGr.inCorrection,
           instanceStatesGr.decision,
         ],
-        constructionMonitoring: [instanceStatesGr.constructionMonitoring],
+        constructionAcceptance: [instanceStatesGr.constructionAcceptance],
         done: [instanceStatesGr.finished, instanceStatesGr.rejected],
       },
       completePreliminaryClarificationSlugs: [],

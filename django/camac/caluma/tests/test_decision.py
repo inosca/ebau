@@ -36,7 +36,7 @@ def construction_control(instance_service_factory, be_instance, service_factory)
     [
         (
             "APPROVED",
-            "construction-monitoring",
+            "construction-acceptance",
             "Bauentscheid verfügt",
         ),
         (
@@ -61,6 +61,7 @@ def test_complete_decision(
     expected_instance_state,
     expected_text,
     settings,
+    gr_decision_settings,
 ):
     instance_state_factory(name=expected_instance_state)
 
