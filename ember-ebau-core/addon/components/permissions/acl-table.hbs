@@ -1,5 +1,10 @@
+{{#if this.instance.isLoading}}
+  <div class="uk-text-center">
+    <UkSpinner @ratio={{2}} />
+  </div>
+{{else}}
 <div class="permission-table">
-  <div class="uk-flex uk-margin-bottom">
+  <div class="uk-flex uk-margin-medium-bottom">
     <Filters::RadioButtons
       @name="status"
       @label={{t "permissions.details.status"}}
@@ -79,10 +84,10 @@
                     (if (eq acl.status "expired") "background-expired ")
                   )}}
                 >{{t (concat "permissions.status." acl.status)}}</span></td>
-              <td>
+              <td class="uk-table-shrink uk-text-center">
                 {{#if (and acl.revokeable canEditAcl)}}
                   <UkButton
-                    class="uk-icon-button uk-margin-small-right"
+                    class="uk-icon-button"
                     @title={{t "permissions.revoke"}}
                     @size="small"
                     @color="link"
@@ -126,3 +131,4 @@
     @instanceId={{@instanceId}}
   />
 </div>
+{{/if}}
