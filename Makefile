@@ -100,8 +100,12 @@ loadconfig: loadconfig-camac loadconfig-dms loadconfig-keycloak ## Load all conf
 	@echo "\e[32mConfiguration has been loaded successfully. Go ahead and login.🚀\e[0m"
 
 .PHONY: dbshell
-dbshell: ## Start a psql shell
+dbshell: ## Start an interactive psql shell
 	@docker compose exec db psql -Ucamac ${APPLICATION}
+
+.PHONY: dbshell-script
+dbshell-script: ## Non-interactive psql shell for scripting (useful for piping in sql scripts / dumps)
+	@docker compose exec -T db psql -Ucamac ${APPLICATION}
 
 .PHONY: ember-dev
 ember-dev: ## Set up .env and application.ini for local ember development
