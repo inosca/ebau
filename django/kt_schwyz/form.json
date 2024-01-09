@@ -2196,7 +2196,7 @@
       ]
     },
     "konzession-fur-wasserentnahme-v2": {
-      "title": "Konzession für Wasserentnahme",
+      "title": "Gesuch für Wasserentnahme",
       "parent": null,
       "questions": [
         "kw-ort",
