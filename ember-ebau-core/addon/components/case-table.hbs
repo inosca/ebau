@@ -77,7 +77,7 @@
 
 {{#if (and this.showEntries this.casesQuery.value.length)}}
   <div class="uk-margin" uk-grid>
-    {{#if (macroCondition (macroGetOwnConfig "excelExportEnabled"))}}
+    {{#if (has-feature "cases.exportExcel")}}
       <div>
         <a href="" class="uk-link-text uk-margin-small-right" {{on "click" (perform this.export)}}>
           {{#if this.export.isRunning}}

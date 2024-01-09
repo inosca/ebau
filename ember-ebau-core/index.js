@@ -40,8 +40,6 @@ module.exports = {
         soGisUrl: process.env.SO_GIS_URL || "https://geo-i.so.ch",
         // feature flags
         hasBuildingControl: ENV === "be",
-        excelExportEnabled: ["be", "sz"].includes(ENV),
-        showCreatePaperButton: ["be", "gr"].includes(ENV),
       },
     },
   },

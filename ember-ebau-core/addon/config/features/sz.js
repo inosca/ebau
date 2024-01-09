@@ -9,4 +9,8 @@ export default {
     legalBasis: false,
     costCenter: false,
   },
+  cases: {
+    createPaper: false,
+    exportExcel: true,
+  },
 };
