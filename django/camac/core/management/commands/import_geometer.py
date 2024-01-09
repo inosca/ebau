@@ -93,6 +93,9 @@ class Command(BaseCommand):
                 geometer["FirmaName"],
             ]
         )
+        validated_email = self._email_or_none(geometer["FirmaEmail"])
+        if not validated_email:  # pragma: no cover
+            print(f"Geometer {name} has an invalid email: {geometer['FirmaEmail']}")
 
         geom_service, _ = Service.objects.update_or_create(
             # we set the name here in the untranslated object to be able
@@ -103,7 +106,7 @@ class Command(BaseCommand):
                 "address": geometer["FirmaStrasse"],
                 "zip": zipcode,
                 "phone": geometer["FirmaTelefon"],
-                "email": geometer["FirmaEmail"],
+                "email": validated_email,
                 "notification": 1,  # yeah it's not a bool
             },
         )
@@ -208,3 +211,18 @@ class Command(BaseCommand):
             GroupT.objects.update_or_create(
                 group=grp, language="fr", defaults={"name": name_fr}
             )
+
+    def _email_or_none(self, email: str):
+        email = str(email)  # just in case it's coming in as None already.
+
+        if any(
+            [
+                " " in email,
+                "/" in email,
+                not email,
+                "@" not in email,
+            ]
+        ):
+            # Invalid email - drop it
+            return None
+        return email
