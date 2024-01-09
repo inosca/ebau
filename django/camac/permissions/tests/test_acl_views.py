@@ -203,6 +203,7 @@ def test_revoke_acl(
     end_time,
     is_responsible_service,
     expect_success,
+    use_instance_service,
 ):
     the_acl = InstanceACL.objects.create(
         instance=instance,
@@ -213,7 +214,11 @@ def test_revoke_acl(
         start_time=timezone.now() - timedelta(days=50),
     )
 
-    if not is_responsible_service:
+    if is_responsible_service:
+        instance.instance_services.create(
+            service=admin_client.user.get_default_group().service
+        )
+    else:
         # The instance's responsible group (and therefore it's responsible
         # service) should be someone else - don't care, just not *us*
         instance.group = group_factory()

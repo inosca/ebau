@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.db.models import Exists, OuterRef, Q
 from rest_framework import response, status
 from rest_framework.decorators import action
@@ -8,6 +9,7 @@ from camac.core import models as core_models
 from camac.instance import filters as instance_filters, models as instance_models
 from camac.instance.mixins import InstanceQuerysetMixin
 from camac.user.permissions import get_group, get_role_name, permission_aware
+from camac.utils import get_dict_item
 
 from . import api, filters, mixins, models, serializers
 
@@ -48,22 +50,9 @@ class InstanceACLViewset(InstanceQuerysetMixin, ModelViewSet):
         return models.InstanceACL.objects.none()
 
     @action(methods=["post"], detail=True)
-    @permission_aware
     def revoke(self, request, pk):
-        raise ValidationError("You do not have permission to revoke ACLs here")
-
-    def revoke_for_municipality(self, request, pk):
         acl: models.InstanceACL = self.get_object()
-
-        responsible_service_id = acl.instance.responsible_service(
-            filter_type="municipality"
-        ).pk
-        request_service_id = request.group.service.pk
-        if responsible_service_id != request_service_id:  # pragma: no cover
-            # This is primarily already handled via visibility, but this will
-            # change and then we'll need this check here as well
-            raise ValidationError("Only responsible service may revoke InstanceACLs")
-
+        self.enforce_change_permission(acl.instance)
         api.PermissionManager.from_request(request).revoke(
             acl,
             event_name="manual-revocation",
@@ -71,6 +60,41 @@ class InstanceACLViewset(InstanceQuerysetMixin, ModelViewSet):
 
         serializer = self.get_serializer(acl)
         return response.Response(serializer.data, status=status.HTTP_200_OK)
+
+    def enforce_change_permission(self, instance: instance_models.Instance):
+        """Enforce change permission for ACLs on this instance.
+
+        Checks whether the user is allowed, and raises an exception
+        if not.
+
+        NOTE: This is currently only looking at the instance's responsible
+        services and matches them against the user's group's service (de facto
+        only allowing "Leitbehörde" and other responsible services to grant/
+        revoke permissions).
+
+        This will need to be changed when other user groups
+        start granting permissions, and needs to be fully rewritten once the
+        permissions module becomes the sole "source-of-truth" for access rights
+        """
+        # Currently, create/revoke have the same permissions
+        request_service_id = self.request.group.service.pk
+
+        if settings.APPLICATION.get("USE_INSTANCE_SERVICE"):
+            active_service_filters = get_dict_item(
+                settings.APPLICATION, "ACTIVE_SERVICES.MUNICIPALITY.FILTERS"
+            )
+            has_permission = instance.instance_services.filter(
+                **active_service_filters, service_id=request_service_id
+            ).exists()
+        else:
+            has_permission = request_service_id == instance.group.service_id
+
+        if not has_permission:
+            # This is primarily already handled via visibility, but this will
+            # change and then we'll need this check here as well
+            raise ValidationError(
+                "Only responsible service may manage ACLs on this instance"
+            )
 
     def destroy(self, *_args, **_kwargs):
         raise ValidationError(

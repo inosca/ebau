@@ -61,11 +61,7 @@ class InstanceACLSerializer(serializers.ModelSerializer):
     def create_for_municipality(self, validated_data):
         inst = validated_data["instance"]
 
-        if (
-            not inst.responsible_service(filter_type="municipality")
-            == self.context["request"].group.service
-        ):
-            raise ValidationError("Only responsible service may create InstanceACLs")
+        self.context["view"].enforce_change_permission(inst)
 
         validated_data["created_by_user"] = self.context["request"].user
         validated_data["created_by_service"] = self.context["request"].group.service
