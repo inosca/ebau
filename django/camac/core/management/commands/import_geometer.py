@@ -1,3 +1,5 @@
+import re
+from collections import defaultdict
 from pathlib import Path
 
 import pyexcel
@@ -73,15 +75,19 @@ class Command(BaseCommand):
         # The table is fully redundant, so each geometer may be
         # mentioned multiple times. We assume same name = same geometer.
         # The municipality is also by-name.
+        unique_geometer = defaultdict(set)
+        for geometer in row_dicts:
+            unique_geometer[geometer["Geometer"]].add(geometer["FirmaPlzOrt"])
 
         for geometer in row_dicts:
             # This is not really efficient - we do update_or_create multiple
             # times per geometer. But it's an one-off script and not performance-
             # sensitive, so...
-            self._build_geometer(geometer)
+            key = geometer["Geometer"]
+            self._build_geometer(geometer, is_unique=len(unique_geometer[key]) == 1)
 
-    def _build_geometer(self, geometer):
-        zipcode, city = geometer["FirmaPlzOrt"].split(" ", 1)
+    def _build_geometer(self, geometer, is_unique):
+        zipcode, city = re.split(r"\s+", geometer["FirmaPlzOrt"], maxsplit=1)
         geometer_service_group = ServiceGroup.objects.get(name="geometer")
 
         # We use "name, company" as an "identifier", so it remains unique.
@@ -90,7 +96,7 @@ class Command(BaseCommand):
         name = ", ".join(
             [
                 geometer["Geometer"],
-                geometer["FirmaName"],
+                geometer["FirmaPlzOrt"],
             ]
         )
         validated_email = self._email_or_none(geometer["FirmaEmail"])
@@ -111,25 +117,28 @@ class Command(BaseCommand):
             },
         )
 
-        # Same logic as in the Excel sheet.
-        prefix_fr = "géomètre conservateur"
-        prefix_de = "Nachführungsgeometer"
-        display_name = geometer["Geometer"]
+        name_templates = {
+            "fr": {
+                False: "géomètre conservateur {name} (Site {city})",
+                True: "Nachführungsgeometer {name}",
+            },
+            "de": {
+                False: "Nachführungsgeometer {name} (Standort {city})",
+                True: "Nachführungsgeometer {name}",
+            },
+        }
 
-        geom_service.trans.update_or_create(
-            language="de",
-            defaults={
-                "name": f"{prefix_de} {display_name}",
-                "city": city,
-            },
-        )
-        geom_service.trans.update_or_create(
-            language="fr",
-            defaults={
-                "name": f"{prefix_fr} {display_name}",
-                "city": city,
-            },
-        )
+        for lang in ["de", "fr"]:
+            template = name_templates[lang][is_unique]
+
+            name = geometer["Geometer"]
+            geom_service.trans.update_or_create(
+                language=lang,
+                defaults={
+                    "name": template.format(name=name, city=city),
+                    "city": city,
+                },
+            )
 
         self._build_groups_for_service(geom_service)
         self._build_service_relations(geometer["Gemeinde"], geom_service)
