@@ -26,4 +26,8 @@ export default {
   index: {
     publicInstances: true,
   },
+  cases: {
+    createPaper: true,
+    exportExcel: false,
+  },
 };

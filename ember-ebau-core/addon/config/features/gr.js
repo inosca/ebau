@@ -13,4 +13,8 @@ export default {
   dms: {
     mergeAndSave: false,
   },
+  cases: {
+    createPaper: true,
+    exportExcel: false,
+  },
 };

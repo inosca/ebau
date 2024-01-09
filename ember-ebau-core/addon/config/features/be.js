@@ -26,4 +26,11 @@ export default {
   communication: {
     snippets: true,
   },
+  cases: {
+    createPaper: true,
+    exportExcel: true,
+  },
+  servicePermissions: {
+    hasConstructionControl: true,
+  },
 };
