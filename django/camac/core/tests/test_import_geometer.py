@@ -1,6 +1,6 @@
 import pyexcel
 import pytest
-from django.core.management import call_command
+from django.core.management import call_command, load_command_class
 
 from camac.user.models import ServiceRelation
 
@@ -143,3 +143,17 @@ def test_import_geometer(
     assert relation.provider.groups.filter(role=role_e).count() == 1
     assert relation.provider.groups.filter(role=role_a).count() == 1
     assert relation.provider.groups.filter(role=role_s).count() == 1
+
+
+@pytest.mark.parametrize(
+    "example_address, expected",
+    [
+        ("foo@example.org", "foo@example.org"),
+        ("foo@example.org (with comment)", None),
+        ("eitherthis@example.net/orthat@example.org", None),
+    ],
+)
+def test_validate_email(example_address, expected):
+    command = load_command_class("camac.core", "import_geometer")
+    res = command._email_or_none(example_address)
+    assert res == expected
