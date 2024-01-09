@@ -628,7 +628,7 @@
         'code': 'invalid',
         'detail': 'Kein Standort gesetzt.',
         'source': dict({
-          'pointer': '/data/attributes/non-field-errors',
+          'pointer': '/data',
         }),
         'status': '400',
       }),
@@ -642,7 +642,7 @@
         'code': 'invalid',
         'detail': 'Kein Standort gesetzt.',
         'source': dict({
-          'pointer': '/data/attributes/non-field-errors',
+          'pointer': '/data',
         }),
         'status': '400',
       }),

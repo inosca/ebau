@@ -756,10 +756,10 @@ class DecisionField(AliasedMixin, serializers.ReadOnlyField):
 
 
 class AlexandriaDocumentField(AliasedMixin, serializers.ReadOnlyField):
-    def __init__(self, tag_id=None, *args, **kwargs):
+    def __init__(self, mark_id=None, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-        self.tag_id = tag_id
+        self.mark_id = mark_id
 
     def get_attribute(self, instance):
         filter = {
@@ -767,8 +767,8 @@ class AlexandriaDocumentField(AliasedMixin, serializers.ReadOnlyField):
             "variant": "original",
         }
 
-        if self.tag_id:
-            filter["document__tags__slug"] = self.tag_id
+        if self.mark_id:
+            filter["document__marks__pk"] = self.mark_id
 
         return alexandria_models.File.objects.filter(**filter)
 
