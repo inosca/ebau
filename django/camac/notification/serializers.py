@@ -85,7 +85,10 @@ RECIPIENT_TYPE_NAMES = {
         "Inviter of additional demand creator"
     ),
     "geometer_acl_services": translation.gettext_noop(
-        "Geometer (via Permissions module)"
+        "Geometer (via permissions module)"
+    ),
+    "acl_authorized": translation.gettext_noop(
+        "Authorized entity (via permissions module)"
     ),
 }
 
