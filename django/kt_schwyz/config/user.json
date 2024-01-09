@@ -645,6 +645,21 @@
     }
   },
   {
+    "model": "user.location",
+    "pk": 44,
+    "fields": {
+      "communal_cantonal_number": null,
+      "communal_federal_number": "KW",
+      "district_number": null,
+      "section_number": null,
+      "name": "Amt für Umwelt und Energie",
+      "commune_name": "Amt für Umwelt und Energie",
+      "district_name": null,
+      "section_name": null,
+      "zip": null
+    }
+  },
+  {
     "model": "user.role",
     "pk": 1,
     "fields": {
