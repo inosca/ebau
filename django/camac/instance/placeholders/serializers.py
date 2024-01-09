@@ -725,7 +725,7 @@ class GrDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         description=_("End date of the publication in the cantonal Gazette"),
     )
     entscheiddokumente = fields.AlexandriaDocumentField(
-        tag_id="decision",
+        mark_id="decision",
         aliases=[_("DECISION_DOCUMENTS")],
         description=_("All documents marked as decision documents"),
     )

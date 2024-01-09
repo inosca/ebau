@@ -4503,10 +4503,9 @@ PLACEHOLDERS = load_module_settings("placeholders")
 ALEXANDRIA = load_module_settings("alexandria")
 ALEXANDRIA_CREATED_BY_USER_PROPERTY = "alexandria_user"
 ALEXANDRIA_CREATED_BY_GROUP_PROPERTY = "alexandria_group"
-ALEXANDRIA_VISIBILITY_CLASSES = [
+GENERIC_PERMISSIONS_VISIBILITY_CLASSES = [
     "camac.alexandria.extensions.visibilities.CustomVisibility"
 ]
-ALEXANDRIA_PERMISSION_CLASSES = [
+GENERIC_PERMISSIONS_PERMISSION_CLASSES = [
     "camac.alexandria.extensions.permissions.CustomPermission"
 ]
-ALEXANDRIA_VALIDATION_CLASSES = ["camac.alexandria.extensions.validations.Validator"]

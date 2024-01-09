@@ -8,11 +8,11 @@ module("Unit | Utility | parse-error", function () {
     const error = new AdapterError([
       {
         detail: "Some error",
-        source: { pointer: "/foo/bar/non-field-errors" },
+        source: { pointer: "/data" },
       },
       {
         detail: "Some other error",
-        source: { pointer: "/foo/bar/non-field-errors" },
+        source: { pointer: "/data" },
       },
       {
         detail: "Some field error",

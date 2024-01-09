@@ -1,8 +1,8 @@
 from alexandria.core.models import BaseModel, Category, Document, File, Mark, Tag
-from alexandria.core.visibilities import BaseVisibility, filter_queryset_for
 from django.conf import settings
 from django.db.models import CharField, Q
 from django.db.models.functions import Cast
+from generic_permissions.visibilities import filter_queryset_for
 
 from camac.instance.filters import CalumaInstanceFilterSet
 from camac.instance.mixins import InstanceQuerysetMixin
@@ -24,7 +24,7 @@ def get_category_access_rule(prefix, value, role=None):
     )
 
 
-class CustomVisibility(BaseVisibility, InstanceQuerysetMixin):
+class CustomVisibility(InstanceQuerysetMixin):
     instance_field = None
 
     def _all_visible_instances(self, request):
