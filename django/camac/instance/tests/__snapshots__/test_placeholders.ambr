@@ -5909,18 +5909,6 @@
       'nested_aliases': dict({
       }),
     }),
-    'ZUSTAENDIG_PHONE': dict({
-      'aliases': list([
-        dict({
-          'de': 'ZUSTAENDIG_TELEFON',
-        }),
-      ]),
-      'description': dict({
-        'de': 'Telefonnummer des/r zuständigen/r Mitarbeiter/in',
-      }),
-      'nested_aliases': dict({
-      }),
-    }),
   })
 # ---
 # name: test_dms_placeholders_docs_available_placeholders[be_dms_config]
@@ -7157,8 +7145,6 @@
     'ZIRKULATION_GEMEINDEN[].NAME',
     'ZUSTAENDIG_EMAIL',
     'ZUSTAENDIG_NAME',
-    'ZUSTAENDIG_PHONE',
-    'ZUSTAENDIG_TELEFON',
   ])
 # ---
 # name: test_dms_placeholders_empty[Municipality]
@@ -7926,10 +7912,12 @@
     'EIGENE_GEBUEHREN_TOTAL': '1’356.91',
     'EINSPRECHENDE': list([
       dict({
+        'ADDRESS': 'Beispielstrasse 1, 4321 Beispieldorf',
         'ADRESSE': 'Beispielstrasse 1, 4321 Beispieldorf',
         'NAME': 'Heinz Einsprachenmann',
       }),
       dict({
+        'ADDRESS': 'Beispielstrasse 3, 4321 Beispieldorf',
         'ADRESSE': 'Beispielstrasse 3, 4321 Beispieldorf',
         'NAME': 'Einsprache AG, Sandra Anwältin',
       }),

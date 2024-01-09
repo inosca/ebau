@@ -46,10 +46,7 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
 
     def get_aliased_field(self, key, value):
         field = self.fields[key]
-        keys = set()
-
-        if settings.PLACEHOLDERS["KEEP_TECHNICAL_KEY"]:
-            keys.add(key.upper())
+        keys = {key.upper()}
 
         for alias_config in field.aliases:
             for alias in get_translations_canton_aware(alias_config).values():
@@ -81,7 +78,7 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
         for key, value in item.items():
             value = sanitize_value(value)
 
-            if key not in aliases[key] and settings.PLACEHOLDERS["KEEP_TECHNICAL_KEY"]:
+            if key not in aliases[key]:
                 parsed_item[key] = value
 
             for alias in aliases[key]:
@@ -1535,4 +1532,7 @@ class SoDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
             "zirkulation_rueckmeldungen",
             "strasse",
             "ort",
+            # TODO: Remove this if all authentication mechanisms provide a phone
+            # number for the user
+            "zustaendig_phone",
         ]
