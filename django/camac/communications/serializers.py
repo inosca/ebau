@@ -361,7 +361,7 @@ class CommunicationsAttachmentSerializer(serializers.ModelSerializer):
         if self.context["request"].content_type.startswith("multipart/"):
             # need to cleanup the data
             self._prepare_multipart()
-        return super().is_valid(raise_exception)
+        return super().is_valid(raise_exception=raise_exception)
 
     def validate_message(self, value):
         # lazy import required

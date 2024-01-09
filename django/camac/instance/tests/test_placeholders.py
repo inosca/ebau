@@ -7,6 +7,7 @@ from alexandria.core.factories import (
     CategoryFactory,
     DocumentFactory as AlexandriaDocumentFactory,
     FileFactory,
+    MarkFactory,
     TagFactory,
 )
 from caluma.caluma_form.factories import (
@@ -139,7 +140,8 @@ def test_dms_placeholders_gr(
     )
 
     # alexandria document
-    TagFactory(slug="decision")
+    MarkFactory(slug="decision")
+    tag = TagFactory(name="Secret")
     alexandria_category = CategoryFactory(
         metainfo={"access": {"municipality-lead": {"visibility": "all"}}}
     )
@@ -147,7 +149,8 @@ def test_dms_placeholders_gr(
         title="Grundriss",
         category=alexandria_category,
         metainfo={"camac-instance-id": str(gr_instance.pk)},
-        tags=["decision"],
+        marks=["decision"],
+        tags=[tag],
         created_by_user=admin_client.user.pk,
         modified_by_user=admin_client.user.pk,
     )

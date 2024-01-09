@@ -1,6 +1,6 @@
 Babel==2.10.3
 caluma==9.3.1
-git+https://github.com/projectcaluma/alexandria.git@a7dac472f46e9085a1abaa7295159671186fa74c
+caluma-alexandria==3.0.0-beta.1
 dataclasses-json==0.5.7
 deepmerge==1.0.1
 Django==3.2.23

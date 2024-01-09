@@ -15,6 +15,7 @@ from rest_framework.status import (
     HTTP_201_CREATED,
     HTTP_204_NO_CONTENT,
     HTTP_403_FORBIDDEN,
+    HTTP_404_NOT_FOUND,
     HTTP_405_METHOD_NOT_ALLOWED,
 )
 
@@ -313,7 +314,7 @@ def test_document_permission(
         (
             "applicant",
             "delete",
-            HTTP_405_METHOD_NOT_ALLOWED,
+            HTTP_403_FORBIDDEN,
             {
                 "applicant": {
                     "visibility": "all",
@@ -421,8 +422,8 @@ def test_tag_permission(
         alexandria_tag = TagFactory(
             name="Alexandria", created_by_group=caluma_admin_user.group
         )
-        url = reverse("tag-detail", args=[alexandria_tag.slug])
-        data["data"]["id"] = str(alexandria_tag.slug)
+        url = reverse("tag-detail", args=[alexandria_tag.pk])
+        data["data"]["id"] = str(alexandria_tag.pk)
 
     response = getattr(admin_client, method)(url, data)
 
@@ -433,11 +434,10 @@ def test_tag_permission(
 
 
 @pytest.mark.parametrize(
-    "role__name,method",
+    "role__name,method,result",
     [
-        ("support", "patch"),
-        ("support", "post"),
-        ("support", "delete"),
+        ("support", "patch", HTTP_405_METHOD_NOT_ALLOWED),
+        ("support", "delete", HTTP_404_NOT_FOUND),
     ],
 )
 def test_category_permission(
@@ -445,6 +445,7 @@ def test_category_permission(
     role,
     admin_client,
     method,
+    result,
 ):
     alexandria_category = CategoryFactory()
     url = reverse("category-list")
@@ -464,7 +465,7 @@ def test_category_permission(
 
     response = getattr(admin_client, method)(url, data)
 
-    assert response.status_code == HTTP_405_METHOD_NOT_ALLOWED
+    assert response.status_code == result
 
 
 @pytest.mark.parametrize("role__name", ["applicant"])
@@ -1050,7 +1051,7 @@ def test_condition_ready_work_item(
 
     if work_item_status:
         work_item_factory(
-            task__slug="some-work-item", case=gr_instance.case, status=work_item_status
+            task__pk="some-work-item", case=gr_instance.case, status=work_item_status
         )
 
     document = DocumentFactory(
@@ -1111,7 +1112,7 @@ def test_condition_ready_work_item_additional_demand(
     )
 
     work_item = work_item_factory(
-        task__slug="fill-additional-demand",
+        task__pk="fill-additional-demand",
         case=gr_instance.case,
         status=work_item_status,
     )
