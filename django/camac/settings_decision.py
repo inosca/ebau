@@ -91,6 +91,8 @@ DECISION = {
                 "OTHER_PRELIMINARY": "decision-decision-other-preliminary",
             },
         },
+        "INSTANCE_STATE_AFTER_DECISION": "construction-acceptance",
+        "TASKS_AFTER_BUILDING_PERMIT_DECISION": ["construction-acceptance"],
     },
     "test": {
         "ENABLED": True,
