@@ -1012,7 +1012,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"<div class=\\\"uk-alert uk-alert-default uk-margin-remove\\\">Haben Sie die f\\u00fcr den Nachf\\u00fchrungsgeometer erforderlichen Dokumente freigegeben?\\n\\nAnsonsten k\\u00f6nnen Sie unter \\\"Dokumente\\\" dem Nachf\\u00fchrungsgeometer die Freigabe die erteilen.</div>\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"<div class=\\\"uk-alert uk-alert-default uk-margin-remove\\\">Haben Sie die f\\u00fcr den Nachf\\u00fchrungsgeometer erforderlichen Dokumente freigegeben?\\n\\nAnsonsten k\\u00f6nnen Sie unter \\\"Dokumente\\\" dem Nachf\\u00fchrungsgeometer die Freigabe erteilen.</div>\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
         "hideLabel": true
