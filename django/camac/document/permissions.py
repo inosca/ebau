@@ -265,14 +265,31 @@ PERMISSIONS = {
             AdminPermission: [1, 2, 3, 4, 5, 6, 7, 10, 11, 12, 13, 14],
             ReadPermission: [8],
         },
-        "geometer": {
+        "geometer-lead": {
             # Geometer has access to all sections, but the documents
             # are explicitly marked for them
-            ReadPermission: [1, 2, 3, 4, 5, 6, 7, 10, 11, 12, 13, 14],
+            ReadPermission: [1, 2, 3, 5, 6, 7, 11, 12, 13, 14],
+            AdminInternalPermission: [4],
             # Write only on "Beilagen SB1 (Papier und Nachrichten)". The
             # AdminServicePermission also allows deleting own (and only own)
             # files
             AdminServicePermission: [10],
+        },
+        "geometer-clerk": {
+            # Geometer has access to all sections, but the documents
+            # are explicitly marked for them
+            ReadPermission: [1, 2, 3, 5, 6, 7, 11, 12, 13, 14],
+            AdminInternalPermission: [4],
+            # Write only on "Beilagen SB1 (Papier und Nachrichten)". The
+            # AdminServicePermission also allows deleting own (and only own)
+            # files
+            AdminServicePermission: [10],
+        },
+        "geometer-readonly": {
+            # Geometer has access to all sections, but the documents
+            # are explicitly marked for them
+            ReadPermission: [1, 2, 3, 5, 6, 7, 10, 11, 12, 13, 14],
+            ReadInternalPermission: [4],
         },
     },
     "kt_schwyz": {
