@@ -47,6 +47,49 @@ def test_public_service_filter_exclude_own_service(
     )
 
 
+@pytest.mark.parametrize(
+    "service_name,expected_count", [("ABC", 1), ("DEF", 1), ("", 3)]
+)
+def test_public_service_filter_service_name(
+    admin_client, service_factory, service_name, expected_count
+):
+    service_factory(name="Test ABC")
+    service_factory(name="Test DEF")
+
+    response = admin_client.get(
+        reverse("publicservice-list"), data={"service_name": service_name}
+    )
+
+    assert response.status_code == status.HTTP_200_OK
+
+    data = response.json()["data"]
+
+    assert len(data) == expected_count
+
+
+@pytest.mark.parametrize(
+    "service_name,language, expected_count",
+    [("ABC", "de", 1), ("DEF", "de", 1), ("", "de", 3)],
+)
+def test_public_service_filter_service_name_multlang(
+    admin_client, service_t_factory, multilang, service_name, language, expected_count
+):
+    service_t_factory(language=language, name="Test ABC")
+    service_t_factory(language=language, name="Test DEF")
+
+    response = admin_client.get(
+        reverse("publicservice-list"),
+        HTTP_ACCEPT_LANGUAGE=language,
+        data={"service_name": service_name},
+    )
+
+    assert response.status_code == status.HTTP_200_OK
+
+    data = response.json()["data"]
+
+    assert len(data) == expected_count
+
+
 @pytest.mark.parametrize("service__name", [""])
 @pytest.mark.parametrize(
     "language,search,expected",

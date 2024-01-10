@@ -38,6 +38,7 @@ class PublicServiceFilterSet(FilterSet):
     service_group_name = CharMultiValueFilter(field_name="service_group__name")
     suggestion_for_instance = NumberFilter(method="filter_suggestion_for_instance")
     exclude_own_service = BooleanFilter(method="filter_exclude_own_service")
+    service_name = CharFilter(method="filter_service_name")
 
     @permission_aware
     def _available_in_distribution(self, queryset, name, value):
@@ -101,6 +102,15 @@ class PublicServiceFilterSet(FilterSet):
 
         return queryset
 
+    def filter_service_name(self, queryset, name, value):
+        if not value:
+            return queryset  # pragma: no cover
+
+        if settings.APPLICATION.get("IS_MULTILINGUAL"):
+            return queryset.filter(trans__name__icontains=value).distinct()
+
+        return queryset.filter(name__icontains=value).distinct()
+
     class Meta:
         model = models.Service
         fields = (
@@ -111,6 +121,7 @@ class PublicServiceFilterSet(FilterSet):
             "service_parent",
             "suggestion_for_instance",
             "exclude_own_service",
+            "service_name",
         )
 
 

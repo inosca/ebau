@@ -1,6 +1,7 @@
 import { inject as service } from "@ember/service";
+import { isTesting, macroCondition } from "@embroider/macros";
 import Component from "@glimmer/component";
-import { task } from "ember-concurrency";
+import { restartableTask, task, timeout } from "ember-concurrency";
 import { DateTime } from "luxon";
 
 import InstanceAclValidations from "../../validations/instance-acl-form";
@@ -27,6 +28,19 @@ export default class CreateAclModalComponent extends Component {
   get availableAccessLevels() {
     // TODO: restrict to manually configurable access-levels
     return this.store.findAll("access-level");
+  }
+
+  @restartableTask
+  *searchServices(search) {
+    if (!search) return [];
+
+    if (macroCondition(isTesting())) {
+      // no timeout
+    } else {
+      yield timeout(500);
+    }
+
+    return yield this.store.query("public-service", { service_name: search });
   }
 
   createAcl = task({ drop: true }, async (changeset) => {
