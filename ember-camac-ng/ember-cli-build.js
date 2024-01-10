@@ -27,7 +27,6 @@ module.exports = function (defaults) {
         isBE: ENV === "be",
         isSZ: ENV === "sz",
         isUR: ENV === "ur",
-        excelExportEnabled: ["be", "sz"].includes(ENV),
       },
       setConfig: {
         "@ember-data/store": {
