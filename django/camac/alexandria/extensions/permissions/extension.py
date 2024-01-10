@@ -181,8 +181,13 @@ class CustomPermission:
         return needed_permissions.issubset(available_permissions)
 
     @permission_for(File)
-    def has_permission_for_file(self, request):
-        document = Document.objects.get(pk=request.data["document"]["id"])
+    @object_permission_for(File)
+    def has_permission_for_file(self, request, file=None):
+        if file is None:
+            document = Document.objects.get(pk=request.data["document"]["id"])
+        else:
+            document = file.document
+
         available_permissions = self.get_available_permissions(
             request, document.instance_document.instance, document.category, document
         )
