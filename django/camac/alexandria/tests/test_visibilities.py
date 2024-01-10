@@ -184,43 +184,6 @@ def test_document_and_file_visibility(
     ) == set(expected)
 
 
-@pytest.mark.parametrize("role__name", ["municipality"])
-def test_file_visibility(
-    db,
-    instance,
-    minio_mock,
-    admin_client,
-    mocker,
-):
-    mocker.patch(
-        "camac.alexandria.extensions.visibilities.CustomVisibility._all_visible_instances",
-        return_value=[instance.pk],
-    )
-    municipality_category = CategoryFactory(
-        metainfo={
-            "access": {
-                "municipality": {
-                    "visibility": "all",
-                    "permissions": [
-                        {"permission": "create", "scope": "All"},
-                    ],
-                }
-            }
-        }
-    )
-    document = DocumentFactory(
-        category=municipality_category,
-        metainfo={"camac-instance-id": instance.pk},
-        title="decision",
-    )
-    document.instance_document.instance = instance
-    document.instance_document.save()
-    file = FileFactory(document=document)
-
-    response = admin_client.get(reverse("file-detail", args=[file.pk]))
-    assert response.status_code == HTTP_200_OK
-
-
 @pytest.mark.parametrize(
     "role__name,expected",
     [
@@ -346,3 +309,48 @@ def test_mark_visibility(db, admin_client, visible_marks):
     marks = set([mark["id"] for mark in response.json()["data"]])
 
     assert marks == visible_marks
+
+
+@pytest.mark.parametrize("role__name", ["municipality"])
+def test_detail_visibility(
+    db,
+    instance,
+    minio_mock,
+    admin_client,
+    mocker,
+    caluma_admin_user,
+):
+    mocker.patch(
+        "camac.alexandria.extensions.visibilities.CustomVisibility._all_visible_instances",
+        return_value=[instance.pk],
+    )
+    category = CategoryFactory(
+        metainfo={
+            "access": {
+                "municipality": {
+                    "visibility": "all",
+                    "permissions": [
+                        {"permission": "create", "scope": "All"},
+                    ],
+                }
+            }
+        }
+    )
+    document = DocumentFactory(
+        category=category,
+        metainfo={"camac-instance-id": instance.pk},
+        title="decision",
+    )
+    document.instance_document.instance = instance
+    document.instance_document.save()
+    tag = TagFactory(created_by_group=caluma_admin_user.group)
+    file = FileFactory(document=document)
+
+    response = admin_client.get(reverse("category-detail", args=[category.pk]))
+    assert response.status_code == HTTP_200_OK
+    response = admin_client.get(reverse("document-detail", args=[document.pk]))
+    assert response.status_code == HTTP_200_OK
+    response = admin_client.get(reverse("file-detail", args=[file.pk]))
+    assert response.status_code == HTTP_200_OK
+    response = admin_client.get(reverse("tag-detail", args=[tag.pk]))
+    assert response.status_code == HTTP_200_OK
