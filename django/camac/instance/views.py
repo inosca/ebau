@@ -1273,6 +1273,7 @@ class PublicCalumaInstanceView(mixins.InstanceQuerysetMixin, ListAPIView):
             tags=["Public caluma instances"],
             operation_summary="Get list of public caluma instances",
             operation_description="Public view for published instances",
+            manual_parameters=[group_param],
         )
         def get(self, request, *args, **kwargs):
             return super().list(request, *args, **kwargs)

@@ -1,8 +1,8 @@
 from drf_yasg import openapi
 
 group_param = openapi.Parameter(
-    "group",
-    openapi.IN_QUERY,
+    "x-camac-group",
+    openapi.IN_HEADER,
     description="Group ID the request should be made for.",
     type=openapi.TYPE_INTEGER,
 )
