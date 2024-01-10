@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-08 14:03+0100\n"
+"POT-Creation-Date: 2024-01-10 19:26+0100\n"
 "PO-Revision-Date: 2023-12-13 14:32+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -44,7 +44,7 @@ msgstr "Leitbehörde"
 #: camac/caluma/extensions/data_sources.py:23
 #: camac/caluma/extensions/data_sources.py:25
 #: camac/instance/document_merge_service.py:90
-#: camac/instance/export/serializers.py:96 camac/notification/serializers.py:76
+#: camac/instance/export/serializers.py:97 camac/notification/serializers.py:76
 msgid "Municipality"
 msgstr "Gemeinde"
 
@@ -91,7 +91,7 @@ msgstr "Stellungnahme zu Beschwerde abgeben"
 #: camac/communications/serializers.py:29
 #: camac/communications/tests/test_behaviour.py:61
 #: camac/instance/document_merge_service.py:86
-#: camac/instance/export/serializers.py:95 camac/notification/serializers.py:63
+#: camac/instance/export/serializers.py:96 camac/notification/serializers.py:63
 msgid "Applicant"
 msgstr "Gesuchsteller/in"
 
@@ -494,7 +494,7 @@ msgstr "Erforderlicher Parameter %(parameter)s wurde nicht übergeben"
 
 #: camac/instance/document_merge_service.py:82
 #: camac/instance/export/serializers.py:87
-#: camac/instance/export/serializers.py:176 camac/user/models.py:78
+#: camac/instance/export/serializers.py:188 camac/user/models.py:78
 #: camac/user/models.py:238 camac/user/models.py:611
 msgid "Address"
 msgstr "Adresse"
@@ -619,7 +619,7 @@ msgid "eBau number"
 msgstr "eBau-Nr."
 
 #: camac/instance/export/serializers.py:82
-#: camac/instance/export/serializers.py:165
+#: camac/instance/export/serializers.py:177
 msgid "Instance number"
 msgstr "Dossier-Nr."
 
@@ -627,65 +627,77 @@ msgstr "Dossier-Nr."
 msgid "Application Type"
 msgstr "Gesuchstyp"
 
-#: camac/instance/export/serializers.py:92
-#: camac/instance/export/serializers.py:183
+#: camac/instance/export/serializers.py:88
+msgid "Parcels"
+msgstr "Parzellen"
+
+#: camac/instance/export/serializers.py:93
+#: camac/instance/export/serializers.py:195
 msgid "Submission Date"
 msgstr "Eingabedatum"
 
-#: camac/instance/export/serializers.py:94
-#: camac/instance/export/serializers.py:178
+#: camac/instance/export/serializers.py:95
+#: camac/instance/export/serializers.py:190
 msgid "Status"
 msgstr "Status"
 
-#: camac/instance/export/serializers.py:97
+#: camac/instance/export/serializers.py:98
 msgid "Administrative District"
 msgstr "Verwaltungskreis"
 
-#: camac/instance/export/serializers.py:98
+#: camac/instance/export/serializers.py:99
 msgid "Administrative Region"
 msgstr "Verwaltungsregion"
 
-#: camac/instance/export/serializers.py:101
+#: camac/instance/export/serializers.py:102
 msgid "Arrival RSTA"
 msgstr "Eingang RSTA"
 
-#: camac/instance/export/serializers.py:105
+#: camac/instance/export/serializers.py:106
 msgid "Decision"
 msgstr "Bauentscheid"
 
-#: camac/instance/export/serializers.py:107
+#: camac/instance/export/serializers.py:110
+msgid "SB1 submission date"
+msgstr "SB1 Eingabedatum"
+
+#: camac/instance/export/serializers.py:114
+msgid "SB2 submission date"
+msgstr "SB2 Eingabedatum"
+
+#: camac/instance/export/serializers.py:116
 msgid "Tags"
 msgstr "Schlagworte"
 
-#: camac/instance/export/serializers.py:108
+#: camac/instance/export/serializers.py:117
 msgid "Building project"
 msgstr "Bauvorhaben"
 
-#: camac/instance/export/serializers.py:169
+#: camac/instance/export/serializers.py:181
 msgid "Building permit type"
 msgstr "Verfahren"
 
-#: camac/instance/export/serializers.py:172
+#: camac/instance/export/serializers.py:184
 msgid "Lead authority"
 msgstr "Leitbehörde"
 
-#: camac/instance/export/serializers.py:174
+#: camac/instance/export/serializers.py:186
 msgid "Builder"
 msgstr "Bauherrschaft"
 
-#: camac/instance/export/serializers.py:175
+#: camac/instance/export/serializers.py:187
 msgid "Intent"
 msgstr "Vorhaben"
 
-#: camac/instance/export/serializers.py:185
+#: camac/instance/export/serializers.py:197
 msgid "Inquiry Assessment"
 msgstr "Stellungnahme Kurzantwort"
 
-#: camac/instance/export/serializers.py:188
+#: camac/instance/export/serializers.py:200
 msgid "Decision Date Communal"
 msgstr "Datum Bauentscheid"
 
-#: camac/instance/export/serializers.py:192
+#: camac/instance/export/serializers.py:204
 msgid "Decision Date Cantonal"
 msgstr "Datum Gesamtentscheid"
 
