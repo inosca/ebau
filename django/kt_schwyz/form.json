@@ -7364,7 +7364,7 @@
       "hint": "",
       "type": "text",
       "required": true,
-      "active-expression": "'kw-ort'|value == 'Grundwasser'",
+      "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {}
     },
     "kw-1-1-1-baute-zwischenkreislauf": {
@@ -7372,7 +7372,7 @@
       "hint": "",
       "type": "radio",
       "required": true,
-      "active-expression": "'kw-ort'|value == 'Grundwasser'",
+      "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -7382,7 +7382,7 @@
       "hint": "",
       "type": "radio",
       "required": true,
-      "active-expression": "'kw-ort'|value == 'Grundwasser'",
+      "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -7392,7 +7392,7 @@
       "hint": "",
       "type": "checkbox",
       "required": true,
-      "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-1-baute-zusatzheizung'|value == 'Ja'",
+      "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung'] && 'kw-1-1-1-baute-zusatzheizung'|value == 'Ja'",
       "config": {
         "options": ["Elektrisch", "Gas", "Öl", "Andere"]
       }
@@ -7402,7 +7402,7 @@
       "hint": "",
       "type": "text",
       "required": true,
-      "active-expression": "'kw-ort'|value == 'Grundwasser' && 'Andere' in 'kw-1-1-1-baute-zusatzheizung-art'|value",
+      "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung'] && 'Andere' in 'kw-1-1-1-baute-zusatzheizung-art'|value",
       "config": {}
     },
     "kw-1-1-2-datum-bewilligung": {
@@ -7737,7 +7737,7 @@
       "hint": "",
       "type": "text",
       "required": true,
-      "active-expression": "'kw-ort'|value == 'Bach / Fluss'",
+      "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {}
     },
     "kw-1-2-1-baute-zwischenkreislauf": {
@@ -7745,7 +7745,7 @@
       "hint": "",
       "type": "radio",
       "required": true,
-      "active-expression": "'kw-ort'|value == 'Bach / Fluss'",
+      "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -7755,7 +7755,7 @@
       "hint": "",
       "type": "radio",
       "required": true,
-      "active-expression": "'kw-ort'|value == 'Bach / Fluss'",
+      "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -7765,7 +7765,7 @@
       "hint": "",
       "type": "checkbox",
       "required": true,
-      "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-1-baute-zusatzheizung'|value == 'Ja'",
+      "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung'] && 'kw-1-2-1-baute-zusatzheizung'|value == 'Ja'",
       "config": {
         "options": ["Elektrisch", "Gas", "Öl", "Andere"]
       }
@@ -7775,7 +7775,7 @@
       "hint": "",
       "type": "text",
       "required": true,
-      "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'Andere' in 'kw-1-2-1-baute-zusatzheizung-art'|value",
+      "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung'] && 'Andere' in 'kw-1-2-1-baute-zusatzheizung-art'|value",
       "config": {}
     },
     "kw-1-2-2-name-gewasser": {
@@ -8113,7 +8113,7 @@
       "hint": "",
       "type": "text",
       "required": true,
-      "active-expression": "'kw-ort'|value == 'See'",
+      "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {}
     },
     "kw-1-3-1-baute-zwischenkreislauf": {
@@ -8121,7 +8121,7 @@
       "hint": "",
       "type": "radio",
       "required": true,
-      "active-expression": "'kw-ort'|value == 'See'",
+      "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -8131,7 +8131,7 @@
       "hint": "",
       "type": "radio",
       "required": true,
-      "active-expression": "'kw-ort'|value == 'See'",
+      "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -8141,7 +8141,7 @@
       "hint": "",
       "type": "checkbox",
       "required": true,
-      "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-1-baute-zusatzheizung'|value == 'Ja'",
+      "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung'] && 'kw-1-3-1-baute-zusatzheizung'|value == 'Ja'",
       "config": {
         "options": ["Elektrisch", "Gas", "Öl", "Andere"]
       }
@@ -8151,7 +8151,7 @@
       "hint": "",
       "type": "text",
       "required": true,
-      "active-expression": "'kw-ort'|value == 'See' && 'Andere' in 'kw-1-3-1-baute-zusatzheizung-art'|value",
+      "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung'] && 'Andere' in 'kw-1-3-1-baute-zusatzheizung-art'|value",
       "config": {}
     },
     "kw-1-3-2-name-see": {
@@ -8531,7 +8531,7 @@
       "hint": "",
       "type": "text",
       "required": true,
-      "active-expression": "'kw-ort'|value == 'Quelle'",
+      "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {}
     },
     "kw-1-4-1-baute-zwischenkreislauf": {
@@ -8539,7 +8539,7 @@
       "hint": "",
       "type": "radio",
       "required": true,
-      "active-expression": "'kw-ort'|value == 'Quelle'",
+      "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -8549,7 +8549,7 @@
       "hint": "",
       "type": "radio",
       "required": true,
-      "active-expression": "'kw-ort'|value == 'Quelle'",
+      "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -8559,7 +8559,7 @@
       "hint": "",
       "type": "checkbox",
       "required": true,
-      "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-1-baute-zusatzheizung'|value == 'Ja'",
+      "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung'] && 'kw-1-4-1-baute-zusatzheizung'|value == 'Ja'",
       "config": {
         "options": ["Elektrisch", "Gas", "Öl", "Andere"]
       }
@@ -8569,7 +8569,7 @@
       "hint": "",
       "type": "text",
       "required": true,
-      "active-expression": "'kw-ort'|value == 'Quelle' && 'Andere' in 'kw-1-4-1-baute-zusatzheizung-art'|value",
+      "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung'] && 'Andere' in 'kw-1-4-1-baute-zusatzheizung-art'|value",
       "config": {}
     },
     "kw-1-4-2-entnahmestandort-gemeinde": {
