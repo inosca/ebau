@@ -85,6 +85,7 @@ class InstanceExportSerializerBE(InstanceExportSerializer):
         label=_("Application Type"),
     )
     address = serializers.CharField(label=_("Address"))
+    parcels = serializers.CharField(label=_("Parcels"))
     submit_date = SubmitDateField(
         source="case.meta.submit-date",
         default=None,
@@ -103,6 +104,14 @@ class InstanceExportSerializerBE(InstanceExportSerializer):
     decision_date = serializers.DateField(
         format=settings.SHORT_DATE_FORMAT,
         label=_("Decision"),
+    )
+    sb1_date = serializers.DateField(
+        format=settings.SHORT_DATE_FORMAT,
+        label=_("SB1 submission date"),
+    )
+    sb2_date = serializers.DateField(
+        format=settings.SHORT_DATE_FORMAT,
+        label=_("SB2 submission date"),
     )
     tags = serializers.CharField(source="tag_names", label=_("Tags"))
     building_project = serializers.CharField(label=_("Building project"))
@@ -142,6 +151,7 @@ class InstanceExportSerializerBE(InstanceExportSerializer):
             "dossier_number",
             "form_name",
             "address",
+            "parcels",
             "building_project",
             "submit_date",
             "instance_state_name",
@@ -154,6 +164,8 @@ class InstanceExportSerializerBE(InstanceExportSerializer):
             "inquiry_in_date",
             "inquiry_out_date",
             "decision_date",
+            "sb1_date",
+            "sb2_date",
             "inquiry_answer",
             "involved_services",
             "tags",
