@@ -1405,7 +1405,7 @@ def enable_ech(application_settings):
 
 
 @pytest.fixture
-def notification_add_recipient_type():
+def notification_add_recipient_type():  # pragma: todo cover
     """Add notification module recipient type.
 
     The notification module allows configuring custom (canton-specific) recipient
@@ -1436,7 +1436,9 @@ def notification_add_recipient_type():
 
 
 @pytest.fixture
-def configure_custom_notification_types(notification_add_recipient_type, settings):
+def configure_custom_notification_types(
+    notification_add_recipient_type, settings
+):  # pragma: todo cover
     """Configure custom notification types in the notification serializer.
 
     The notification module allows configuring custom (canton-specific) recipient

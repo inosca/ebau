@@ -1201,6 +1201,35 @@ def test_recipient_inactive_municipality(
     assert serializer._get_recipients_inactive_municipality(be_instance) == expected
 
 
+@pytest.mark.parametrize(
+    "has_geometer,expected",
+    [(True, [{"to": "geometer@example.ch"}]), (False, [])],
+)
+def test_recipient_geometer_acl_services(
+    db,
+    be_instance,
+    has_geometer,
+    expected,
+    service_factory,
+    instance_acl_factory,
+    access_level_factory,
+    permissions_settings,
+):
+    if has_geometer:
+        geometer_service = service_factory(email="geometer@example.ch")
+        instance_acl_factory(
+            instance=be_instance,
+            access_level=access_level_factory(slug="geometer"),
+            service=geometer_service,
+            metainfo={"disable-notification-on-creation": True},
+        )
+        permissions_settings["geometer"] = [("foo", ["*"])]
+
+    serializer = serializers.NotificationTemplateSendmailSerializer()
+
+    assert serializer._get_recipients_geometer_acl_services(be_instance) == expected
+
+
 @pytest.mark.parametrize("service__email", ["test@example.com"])
 @pytest.mark.parametrize("role__name", ["support"])
 @pytest.mark.parametrize("has_parcel_filled", [True, False])
