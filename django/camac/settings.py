@@ -3282,7 +3282,7 @@ APPLICATIONS = {
                     "complete": ["additional-demand"],
                 },
                 "fill-publication": {"complete": ["publication"]},
-                "construction-monitoring": {"cancel": ["create-manual-workitems"]},
+                "construction-acceptance": {"cancel": ["create-manual-workitems"]},
             },
             "SIMPLE_WORKFLOW": {
                 "formal-exam": {
@@ -3310,7 +3310,7 @@ APPLICATIONS = {
                         "recipient_types": ["work_item_controlling"],
                     },
                 },
-                "construction-monitoring": {
+                "construction-acceptance": {
                     "next_instance_state": "finished",
                     "history_text": _("Construction monitoring performed"),
                     "notification": {

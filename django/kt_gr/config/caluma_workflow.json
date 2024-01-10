@@ -79,7 +79,7 @@
   },
   {
     "model": "caluma_workflow.task",
-    "pk": "construction-monitoring",
+    "pk": "construction-acceptance",
     "fields": {
       "created_at": "2020-08-10T14:28:15.491Z",
       "modified_at": "2020-09-15T09:40:34.773Z",

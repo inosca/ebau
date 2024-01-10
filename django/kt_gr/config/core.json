@@ -4393,7 +4393,7 @@
     "model": "core.irtaskform",
     "pk": 2000006,
     "fields": {
-      "task": "construction-monitoring"
+      "task": "construction-acceptance"
     }
   },
   {
