@@ -214,3 +214,9 @@ class CustomPermission:
             return tag.created_by_group == str(request.group.service_id)
 
         return False
+
+    @object_permission_for(Category)
+    def has_permission_for_category(self, request, category):
+        # Needed for detail view, editing over API not allowed.
+        # Therefore no need to check for permissions.
+        return True
