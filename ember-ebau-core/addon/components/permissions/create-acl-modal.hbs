@@ -26,14 +26,16 @@
           <PowerSelect
             @triggerId="service"
             data-test-acl-service-select
-            @options={{this.availableServices}}
             @selected={{fi.value}}
             @placeholder={{t "permissions.details.entityName"}}
             @onChange={{fi.update}}
             @allowClear={{true}}
             @renderInPlace={{true}}
+            @loadingMessage={{t "global.loadingPrompt"}}
             @searchEnabled={{true}}
-            @searchField="name"
+            @search={{perform this.searchServices}}
+            @searchMessage={{t "global.searchPrompt"}}
+            @noMatchesMessage={{t "global.noMatch"}}
             class="uk-select"
             as |service|
           >

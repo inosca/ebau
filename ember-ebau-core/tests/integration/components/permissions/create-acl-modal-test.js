@@ -53,6 +53,8 @@ module(
       await waitFor("[data-test-modal-create-instance-acl]");
 
       // fill in form
+      await click("[data-test-acl-service-select]");
+      await fillIn(".ember-power-select-search-input", this.publicService.name);
       await selectChoose(
         "[data-test-acl-service-select]",
         this.publicService.name,
