@@ -1,10 +1,11 @@
 from datetime import timedelta
 
 import pytest
+from django.urls import reverse
 from django.utils import timezone
 
 from camac.instance import models as instance_models
-from camac.permissions import api, exceptions, models
+from camac.permissions import api, conditions, exceptions, models
 
 
 @pytest.mark.parametrize("grant_type", ["user", "service", "token"])
@@ -205,7 +206,11 @@ def test_cache_eviction(db, user, permissions_settings, access_level, instance):
         return True
 
     permissions_settings["ACCESS_LEVELS"] = {
-        access_level.pk: [("foo", ["*"]), ("bar", ["*"]), ("func", funkytown)]
+        access_level.pk: [
+            ("foo", conditions.Always()),
+            ("bar", conditions.Always()),
+            ("func", funkytown),
+        ]
     }
 
     the_acl = api.grant(
@@ -220,7 +225,7 @@ def test_cache_eviction(db, user, permissions_settings, access_level, instance):
     manager = api.PermissionManager(api.ACLUserInfo(user=user))
 
     permissions = manager.get_permissions(instance)
-    assert permissions == ["foo", "bar", "func"]
+    assert permissions == ["bar", "foo", "func"]
     # Assume one call to the permissions call
     assert perm_check_call_counts[""] == 1
 
@@ -233,7 +238,7 @@ def test_cache_eviction(db, user, permissions_settings, access_level, instance):
     api.revoke(the_acl, ends_at=timezone.now() + timedelta(seconds=30))
 
     permissions = manager.get_permissions(instance)
-    assert permissions == ["foo", "bar", "func"]
+    assert permissions == ["bar", "foo", "func"]
     assert perm_check_call_counts[""] == 2
 
     # Calling again should not increase the permissions check call count
@@ -304,7 +309,7 @@ def test_grant_validations(
     accesslevel_as_pk,
 ):
     permissions_settings["ACCESS_LEVELS"] = {
-        access_level.pk: [("foo", ["*"]), ("bar", ["*"])]
+        access_level.pk: [("foo", conditions.Always()), ("bar", conditions.Always())]
     }
 
     def _make_acl():
@@ -325,3 +330,40 @@ def test_grant_validations(
     else:
         _make_acl()
         assert True
+
+
+@pytest.mark.parametrize("instance_state__name", ["state-foo"])
+@pytest.mark.parametrize("role__name", ["role-bar"])
+def test_condition_objects(
+    db, permissions_settings, access_level, instance, admin_client
+):
+    permissions_settings["ACCESS_LEVELS"] = {
+        access_level.pk: [
+            ("foo", conditions.InstanceState(["state-foo"])),
+            ("bar", conditions.HasRole(["role-bar"])),
+            ("never", conditions.Never()),
+            ("never-or-always", conditions.Always() | conditions.Never()),
+            (
+                "role-bar-and-never",
+                conditions.HasRole(["role-bar"]) & conditions.Never(),
+            ),
+            ("not-bar", ~conditions.HasRole(["role-bar"])),
+        ]
+    }
+
+    api.grant(
+        user=admin_client.user,
+        service=None,
+        token=None,
+        instance=instance,
+        access_level=access_level,
+        grant_type="USER",
+    )
+
+    # We request permissions via API so we can test the full userinfo stuff
+    # that we'd have to (badly) fake if talking directly to the lowlevel api
+    # Check permissions before...
+    resp = admin_client.get(reverse("instance-permissions-detail", args=[instance.pk]))
+
+    result = resp.json()["data"]["attributes"]["permissions"]
+    assert sorted(result) == sorted(["foo", "bar", "never-or-always"])

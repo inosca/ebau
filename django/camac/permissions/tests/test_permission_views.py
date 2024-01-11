@@ -2,6 +2,7 @@ import pytest
 from django.urls import reverse
 
 from camac.permissions import api
+from camac.permissions.conditions import InstanceState
 
 
 @pytest.fixture
@@ -14,8 +15,8 @@ def configure_access_levels(permissions_settings, instance, access_level):
 
         permissions_settings["ACCESS_LEVELS"] = {
             access_level.pk: [
-                ("foo", [instance.instance_state.name]),
-                ("bar", [instance.instance_state.name]),
+                ("foo", InstanceState([instance.instance_state.name])),
+                ("bar", InstanceState([instance.instance_state.name])),
                 ("func", check_functional_permission),
             ]
         }
@@ -54,7 +55,9 @@ def test_permissions_view(
 
     # Expectations depending on functional permissions check...
     expect_permissions = (
-        ["foo", "bar", "func"] if has_functional_permission else ["foo", "bar"]
+        sorted(["foo", "bar", "func"])
+        if has_functional_permission
+        else sorted(["foo", "bar"])
     )
 
     assert result.json() == {
@@ -111,7 +114,7 @@ def test_no_include_instance(
         assert result.json() == {
             "data": [
                 {
-                    "attributes": {"permissions": ["foo", "bar"]},
+                    "attributes": {"permissions": ["bar", "foo"]},
                     "id": str(instance.pk),
                     "relationships": {
                         "instance": {
