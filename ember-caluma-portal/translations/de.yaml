@@ -252,7 +252,7 @@ instances:
   categories:
     pending: "Offen"
     sb: "Selbstdeklaration"
-    constructionMonitoring: "Entschieden"
+    constructionAcceptance: "Entschieden"
     done: "Abgeschlossen"
     notSubmitted: "Neu"
     submitted: "Eingereicht"
