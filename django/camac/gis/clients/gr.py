@@ -180,7 +180,7 @@ class GrGisClient(GISBaseClient):
 
         return result
 
-    def get_plans(self, resonse_content) -> dict:
+    def get_plans(self, response_content) -> dict:
         plan_configs = [
             ("zonenplan", "zp_"),
             ("genereller-gestaltungsplan", "ggp_"),
@@ -191,10 +191,10 @@ class GrGisClient(GISBaseClient):
 
         for question, prefix in plan_configs:
             result[question] = []
-            layers = self.find_layers(resonse_content, prefix)
+            layers = self.find_layers(response_content, prefix)
 
             for layer in layers:
-                for data in self.get_xml(resonse_content, layer):
+                for data in self.get_xml(response_content, layer):
                     if bezeichnung := find(data, "Bezeichnung"):
                         bracket = ""
                         if verbindlichkeit := find(data, "Verbindlichkeit"):

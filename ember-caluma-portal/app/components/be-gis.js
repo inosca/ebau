@@ -29,139 +29,6 @@ const KEYS_TABLE = [
 
 const REGEXP_ORIGIN = /^(https?:\/\/[^/]+)/i;
 
-const FIELD_MAP = {
-  ARCHINV_FUNDST: [
-    {
-      path: "gebiet-mit-archaeologischen-objekten",
-      values: {
-        true: "gebiet-mit-archaeologischen-objekten-ja",
-        false: "gebiet-mit-archaeologischen-objekten-nein",
-      },
-    },
-  ],
-  BALISKBS_KBS: [
-    {
-      path: "belasteter-standort",
-      values: {
-        true: "belasteter-standort-ja",
-        false: "belasteter-standort-nein",
-      },
-    },
-  ],
-  BAUINV_BAUINV_VW: [
-    {
-      path: "handelt-es-sich-um-ein-baudenkmal",
-      values: {
-        true: "handelt-es-sich-um-ein-baudenkmal-ja",
-        false: "handelt-es-sich-um-ein-baudenkmal-nein",
-      },
-    },
-  ],
-  GK5_SY: [
-    {
-      path: "gebiet-mit-naturgefahren",
-      values: {
-        true: "gebiet-mit-naturgefahren-ja",
-        false: "gebiet-mit-naturgefahren-nein",
-      },
-    },
-  ],
-  // The question GSK25_GSK_VW is not present in our form.
-  //GSK25_GSK_VW: {},
-  GSKT_BEZEICH_DE: [
-    {
-      path: "gewaesserschutzbereich",
-      values: {
-        "übriger Bereich üB": "gewaesserschutzbereich-ueb",
-        "Gewässerschutzbereich Ao": "gewaesserschutzbereich-ao",
-        "Gewässerschutzbereich Au": "gewaesserschutzbereich-au",
-        // deprecated: "Provisorischer Zuströmbereich Zu": "gewaesserschutzbereich-zu",
-      },
-    },
-    {
-      path: "gewaesserschutzbereich-v2",
-      values: {
-        "übriger Bereich üB": "gewaesserschutzbereich-v2-ueb",
-        "Gewässerschutzbereich Ao": "gewaesserschutzbereich-v2-ao",
-        "Gewässerschutzbereich Au": "gewaesserschutzbereich-v2-au",
-      },
-    },
-    {
-      path: "grundwasserschutzzonen-v2",
-      values: {
-        "Grundwasserschutzzone S1": "grundwasserschutzzonen-v2-s1",
-        "Grundwasserschutzzone S2": "grundwasserschutzzonen-v2-s2",
-        "Grundwasserschutzzone S3": "grundwasserschutzzonen-v2-s3-s3zu",
-        "Grundwasserschutzzone S3Zu": "grundwasserschutzzonen-v2-s3-s3zu",
-        "Grundwasserschutzzone Sh": "grundwasserschutzzonen-v2-sh",
-        "Grundwasserschutzzone Sm": "grundwasserschutzzonen-v2-sm",
-        "Grundwasserschutzzone SA1": "grundwasserschutzzonen-v2-sa",
-        "Grundwasserschutzzone SA2": "grundwasserschutzzonen-v2-sa",
-        "Grundwasserschutzzone SA3": "grundwasserschutzzonen-v2-sa",
-        "Grundwasserschutzzone SBW": "grundwasserschutzzonen-v2-sbw",
-      },
-    },
-  ],
-  NSG_NSGP: [
-    {
-      path: "naturschutz",
-      values: {
-        true: "naturschutz-ja",
-        false: "naturschutz-nein",
-      },
-    },
-  ],
-  UZP_BAU_VW: [
-    {
-      path: "nutzungszone",
-    },
-  ],
-  UZP_LSG_VW: [
-    {
-      path: "objekt-des-besonderen-landschaftsschutzes",
-      values: {
-        true: "objekt-des-besonderen-landschaftsschutzes-ja",
-        false: "objekt-des-besonderen-landschaftsschutzes-nein",
-      },
-    },
-  ],
-  UZP_UEO_VW: [
-    {
-      path: "ueberbauungsordnung",
-    },
-  ],
-};
-
-/**
- * Combine the values of all parcels to one array by
- * - Boolean: True if at least one parcel is true
- * - String, Array: Concat all unique values
- *
- * There's a test in php/kt_bern/public/js-dev/test/reduce-test.js
- */
-function reduceArrayValues(data) {
-  return data.reduce((result, curr) => {
-    [...new Set([...Object.keys(result), ...Object.keys(curr)])].forEach(
-      (key) => {
-        if (!curr[key]) {
-          curr[key] = result[key];
-        } else if (!result[key]) {
-          result[key] = curr[key];
-        } else if (typeof curr[key] === "string" && result[key]) {
-          result[key] = result[key].includes(curr[key])
-            ? result[key]
-            : `${result[key]}, ${curr[key]}`;
-        } else if (Array.isArray(curr[key])) {
-          result[key] = [...new Set([...result[key], ...curr[key]])];
-        } else {
-          result[key] = Boolean(result[key] || curr[key]);
-        }
-      },
-    );
-    return result;
-  });
-}
-
 export default class BeGisComponent extends Component {
   @service notification;
   @service fetch;
@@ -258,6 +125,10 @@ export default class BeGisComponent extends Component {
     return REGEXP_ORIGIN.test(this.link) && this.link.match(REGEXP_ORIGIN)[1];
   }
 
+  get egrids() {
+    return this.parcels.map((parcel) => parcel[KEY_TABLE_EGRID]).join(",");
+  }
+
   /**
    * The message event handler which invokes
    * the right method with the relevant arguments.
@@ -307,7 +178,6 @@ export default class BeGisComponent extends Component {
     ) {
       return;
     }
-
     // Return if search result doesn't contain parcel information
     if (!features.keyname.includes("EGRID")) {
       return;
@@ -430,73 +300,6 @@ export default class BeGisComponent extends Component {
     yield table.validate.perform();
   }
 
-  @dropTask
-  *fetchAdditionalData(parcels) {
-    if (!this.isBuildingPermitForm) {
-      return;
-    }
-
-    const responses = yield Promise.all(
-      parcels.map(
-        async (parcel) =>
-          await this.fetch.fetch(`/api/v1/egrid/${parcel[KEY_TABLE_EGRID]}`),
-      ),
-    );
-
-    const success = responses.every((response) => response.ok);
-
-    if (success) {
-      const raw = yield Promise.all(
-        responses.map((res) => res.json().then(({ data }) => data)),
-      );
-
-      this.gisData = Object.entries(FIELD_MAP)
-        .flatMap(([key, fields]) => {
-          return fields.map(({ path, values }) => {
-            const field = this.args.field.document.findField(path);
-
-            if (!field) {
-              return null;
-            }
-
-            const type = field.question.raw.__typename;
-            let value = reduceArrayValues(raw)[key];
-            let valuePretty = value;
-
-            if (value === undefined) {
-              return null;
-            }
-
-            if (type === "ChoiceQuestion") {
-              value = values[value];
-              valuePretty = field.options.find(
-                ({ slug }) => slug === value,
-              )?.label;
-            } else if (type === "MultipleChoiceQuestion") {
-              value = Array.isArray(value) ? value : [value];
-              value = value.map((val) => values[val]).filter(Boolean);
-              valuePretty = field.options
-                .filter(({ slug }) => value.includes(slug))
-                .map(({ label }) => label)
-                .join(", ");
-            } else if (Array.isArray(value)) {
-              value = value.join(", ");
-              valuePretty = value;
-            }
-
-            return { field, value, valuePretty };
-          });
-        })
-        .filter(Boolean);
-
-      this.showConfirmation = true;
-    } else {
-      this.notification.danger(
-        this.intl.t("gis.notifications.error-additional"),
-      );
-    }
-  }
-
   @action
   addMessageListener() {
     window.addEventListener("message", (e) => this.receiveMessage(e));
@@ -531,6 +334,5 @@ export default class BeGisComponent extends Component {
     }
 
     this.populateTable.perform(this.parcels);
-    this.fetchAdditionalData.perform(this.parcels);
   }
 }

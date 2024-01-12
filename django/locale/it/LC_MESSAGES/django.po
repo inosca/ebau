@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-10 19:26+0100\n"
+"POT-Creation-Date: 2024-01-12 14:19+0100\n"
 "PO-Revision-Date: 2023-03-21 08:21+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -234,16 +234,16 @@ msgid ""
 "are: %(allowed_mime_types)s"
 msgstr ""
 
-#: camac/document/serializers.py:245
+#: camac/document/serializers.py:244
 msgid ""
 "Changing decision document mark after decision is enacted is not allowed."
 msgstr ""
 
-#: camac/document/serializers.py:314
+#: camac/document/serializers.py:313
 msgid "Path may not be changed."
 msgstr ""
 
-#: camac/document/serializers.py:357
+#: camac/document/serializers.py:356
 msgid "Invalid mime type for template. Allowed types are: docx"
 msgstr ""
 
@@ -411,23 +411,27 @@ msgstr ""
 msgid "Error %(code)s while fetching data from the geo.so.ch API"
 msgstr ""
 
-#: camac/gis/models.py:24
+#: camac/gis/models.py:25
 msgid "GIS Canton Solothurn"
 msgstr ""
 
-#: camac/gis/models.py:25
+#: camac/gis/models.py:26
 msgid "GIS Canton GR"
 msgstr ""
 
-#: camac/gis/models.py:26
-msgid "Parameter"
-msgstr ""
-
 #: camac/gis/models.py:27
-msgid "Ech0206"
+msgid "GIS Canton Bern"
 msgstr ""
 
 #: camac/gis/models.py:28
+msgid "Parameter"
+msgstr ""
+
+#: camac/gis/models.py:29
+msgid "Ech0206"
+msgstr ""
+
+#: camac/gis/models.py:30
 msgid "Federal GIS Switzerland"
 msgstr ""
 
@@ -435,7 +439,7 @@ msgstr ""
 msgid "Coordinates must be floats"
 msgstr ""
 
-#: camac/gis/views.py:96
+#: camac/gis/views.py:98
 #, python-format
 msgid "Required parameter %(parameter)s was not passed"
 msgstr ""
@@ -932,47 +936,47 @@ msgstr ""
 msgid "Objection %(objection) already has a representative"
 msgstr ""
 
-#: camac/settings.py:1490 camac/settings.py:3294 camac/settings.py:3735
+#: camac/settings.py:1497 camac/settings.py:3293 camac/settings.py:3734
 msgid "Circulation started"
 msgstr ""
 
-#: camac/settings.py:1507
+#: camac/settings.py:1514
 msgid "Procedure completed"
 msgstr ""
 
-#: camac/settings.py:3290
+#: camac/settings.py:3289
 msgid "Preliminary exam performed"
 msgstr ""
 
-#: camac/settings.py:3300
+#: camac/settings.py:3299
 msgid "Additional demand sent"
 msgstr ""
 
-#: camac/settings.py:3307
+#: camac/settings.py:3306
 msgid "Additional demand was answered"
 msgstr ""
 
-#: camac/settings.py:3315
+#: camac/settings.py:3314
 msgid "Construction monitoring performed"
 msgstr ""
 
-#: camac/settings.py:3727
+#: camac/settings.py:3726
 msgid "Formal exam performed"
 msgstr ""
 
-#: camac/settings.py:3731
+#: camac/settings.py:3730
 msgid "Material exam performed"
 msgstr ""
 
-#: camac/settings.py:4144
+#: camac/settings.py:4143
 msgid "German"
 msgstr ""
 
-#: camac/settings.py:4145
+#: camac/settings.py:4144
 msgid "French"
 msgstr ""
 
-#: camac/settings.py:4146
+#: camac/settings.py:4145
 msgid "Italian"
 msgstr ""
 

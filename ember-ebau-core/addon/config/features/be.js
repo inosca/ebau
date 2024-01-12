@@ -33,4 +33,7 @@ export default {
   servicePermissions: {
     hasConstructionControl: true,
   },
+  gis: {
+    v3: true,
+  },
 };

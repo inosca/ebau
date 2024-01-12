@@ -3,6 +3,7 @@ from caluma.caluma_workflow.models import Case, WorkItem
 from django.contrib.admin import ModelAdmin, display, register
 from django.db.models import JSONField
 from django_json_widget.widgets import JSONEditorWidget
+from django_q import admin as q_admin, models as q_models
 from localized_fields.admin import LocalizedFieldsAdminMixin
 
 from camac.admin import EbauAdminMixin
@@ -149,3 +150,26 @@ class CaseAdmin(EbauAdminMixin, LocalizedFieldsAdminMixin, ModelAdmin):
 
     def has_add_permission(self, request, obj=None):
         return False
+
+
+@register(q_models.Success)
+class TaskAdmin(EbauAdminMixin, q_admin.TaskAdmin):
+    list_display = ("id", "name", "func", "started", "time_taken", "group")
+
+
+@register(q_models.Failure)
+class FailAdmin(EbauAdminMixin, q_admin.FailAdmin):
+    list_display = (
+        "id",
+        "name",
+        "func",
+        "started",
+        "time_taken",
+        "short_result",
+        "group",
+    )
+
+
+@register(q_models.OrmQ)
+class OrmQAdmin(EbauAdminMixin, q_admin.QueueAdmin):
+    list_display = ("id", "key", "task_id", "name", "func", "lock")

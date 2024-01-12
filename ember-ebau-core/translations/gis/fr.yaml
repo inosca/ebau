@@ -7,4 +7,5 @@ gis:
   noParcelNumber: ""
   technicalError: ""
   loadingError: ""
+  loadingHint: "La demande GIS est en cours de traitement. Cela peut prendre un certain temps."
   info-text-ur: ""

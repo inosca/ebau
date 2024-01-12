@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-10 19:26+0100\n"
+"POT-Creation-Date: 2024-01-12 14:19+0100\n"
 "PO-Revision-Date: 2023-12-13 14:32+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -259,18 +259,18 @@ msgstr ""
 "Der aktuelle Dateityp kann nicht als Dokument hochgeladen werden. Erlaubte "
 "Dateitypen für Abschnitt %(section_name)s sind: %(allowed_mime_types)s"
 
-#: camac/document/serializers.py:245
+#: camac/document/serializers.py:244
 msgid ""
 "Changing decision document mark after decision is enacted is not allowed."
 msgstr ""
 "Nach dem Entscheid dürfen Entscheiddokumente nicht mehr hinzugefügt oder "
 "entfernt werden."
 
-#: camac/document/serializers.py:314
+#: camac/document/serializers.py:313
 msgid "Path may not be changed."
 msgstr "Der Pfad darf nicht geändert werden."
 
-#: camac/document/serializers.py:357
+#: camac/document/serializers.py:356
 msgid "Invalid mime type for template. Allowed types are: docx"
 msgstr ""
 "Der aktuelle Dateityp kann nicht als Vorlage hochgeladen werden. Erlaubte "
@@ -463,23 +463,27 @@ msgstr ""
 msgid "Error %(code)s while fetching data from the geo.so.ch API"
 msgstr "Fehler %(code)s beim Abrufen der Daten von der geo.so.ch Schnittstelle"
 
-#: camac/gis/models.py:24
+#: camac/gis/models.py:25
 msgid "GIS Canton Solothurn"
 msgstr "Geoportal des Kanton Solothurn"
 
-#: camac/gis/models.py:25
+#: camac/gis/models.py:26
 msgid "GIS Canton GR"
 msgstr "Geoportal des Kanton Graubünden"
 
-#: camac/gis/models.py:26
+#: camac/gis/models.py:27
+msgid "GIS Canton Bern"
+msgstr "Geoportal des Kanton Bern"
+
+#: camac/gis/models.py:28
 msgid "Parameter"
 msgstr "Parameter"
 
-#: camac/gis/models.py:27
+#: camac/gis/models.py:29
 msgid "Ech0206"
 msgstr ""
 
-#: camac/gis/models.py:28
+#: camac/gis/models.py:30
 msgid "Federal GIS Switzerland"
 msgstr "Geoportal des Bundes"
 
@@ -487,7 +491,7 @@ msgstr "Geoportal des Bundes"
 msgid "Coordinates must be floats"
 msgstr "Koordinaten müssen Gleitkommazahlen sein"
 
-#: camac/gis/views.py:96
+#: camac/gis/views.py:98
 #, python-format
 msgid "Required parameter %(parameter)s was not passed"
 msgstr "Erforderlicher Parameter %(parameter)s wurde nicht übergeben"
@@ -995,47 +999,47 @@ msgstr ""
 msgid "Objection %(objection) already has a representative"
 msgstr "Einsprache %(objection) hat bereits einen Vertreter"
 
-#: camac/settings.py:1490 camac/settings.py:3294 camac/settings.py:3735
+#: camac/settings.py:1497 camac/settings.py:3293 camac/settings.py:3734
 msgid "Circulation started"
 msgstr "Zirkulation gestartet"
 
-#: camac/settings.py:1507
+#: camac/settings.py:1514
 msgid "Procedure completed"
 msgstr "Baugesuchsverfahren abgeschlossen"
 
-#: camac/settings.py:3290
+#: camac/settings.py:3289
 msgid "Preliminary exam performed"
 msgstr "Vorläufige Prüfung durchgeführt"
 
-#: camac/settings.py:3300
+#: camac/settings.py:3299
 msgid "Additional demand sent"
 msgstr "Nachforderung begonnen"
 
-#: camac/settings.py:3307
+#: camac/settings.py:3306
 msgid "Additional demand was answered"
 msgstr "Nachforderung wurde beantwortet"
 
-#: camac/settings.py:3315
+#: camac/settings.py:3314
 msgid "Construction monitoring performed"
 msgstr "Baubegleitung durchgeführt"
 
-#: camac/settings.py:3727
+#: camac/settings.py:3726
 msgid "Formal exam performed"
 msgstr "Formelle Prüfung durchgeführt"
 
-#: camac/settings.py:3731
+#: camac/settings.py:3730
 msgid "Material exam performed"
 msgstr "Materielle Prüfung durchgeführt"
 
-#: camac/settings.py:4144
+#: camac/settings.py:4143
 msgid "German"
 msgstr "Deutsch"
 
-#: camac/settings.py:4145
+#: camac/settings.py:4144
 msgid "French"
 msgstr "Französisch"
 
-#: camac/settings.py:4146
+#: camac/settings.py:4145
 msgid "Italian"
 msgstr "Italienisch"
 
@@ -1342,3 +1346,9 @@ msgstr "Es existieren mehrere Benutzer mit dieser E-Mail-Adresse"
 #: camac/user/serializers.py:476
 msgid "User is already in group"
 msgstr "Der Benutzer ist bereits in dieser Gruppe"
+
+#~ msgid "Location may not be changed."
+#~ msgstr "Standort darf nicht geändert werden."
+
+#~ msgid "Form may not be changed."
+#~ msgstr "Formular darf nicht geändert werden."

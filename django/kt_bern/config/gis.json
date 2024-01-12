@@ -1,1 +1,192 @@
-[]
+[
+  {
+    "model": "gis.gisdatasource",
+    "pk": "0ae96212-4160-4de7-b091-a8556408bb89",
+    "fields": {
+      "description": "Archäologische Fundstellen",
+      "client": "camac.gis.clients.begis.BeGisClient",
+      "config": {
+        "layers": {
+          "ARCHINV_FUNDST_VW_14657": {
+            "is_boolean": true,
+            "properties": [
+              {
+                "mapper": "boolean",
+                "question": "gebiet-mit-archaeologischen-objekten"
+              }
+            ]
+          }
+        },
+        "service_code": "of_society01_de_ms_wfs"
+      },
+      "disabled": false,
+      "sort": 0
+    }
+  },
+  {
+    "model": "gis.gisdatasource",
+    "pk": "0e226142-457c-4914-9793-351257235e07",
+    "fields": {
+      "description": "Naturgefahren",
+      "client": "camac.gis.clients.begis.BeGisClient",
+      "config": {
+        "layers": {
+          "GK5_SY_VW_21534": {
+            "is_boolean": true,
+            "properties": [
+              {
+                "mapper": "boolean",
+                "question": "gebiet-mit-naturgefahren"
+              }
+            ]
+          }
+        },
+        "service_code": "of_geoscientificinformation01_de_ms_wfs"
+      },
+      "disabled": false,
+      "sort": 1
+    }
+  },
+  {
+    "model": "gis.gisdatasource",
+    "pk": "8291900c-91d3-464c-a111-327038bf4a43",
+    "fields": {
+      "description": "Naturschutzgebiet",
+      "client": "camac.gis.clients.begis.BeGisClient",
+      "config": {
+        "layers": {
+          "NSG_NSGP_VW_13597": {
+            "is_boolean": true,
+            "properties": [
+              {
+                "mapper": "boolean",
+                "question": "naturschutz"
+              }
+            ]
+          }
+        },
+        "service_code": "of_environment01_de_ms_wfs"
+      },
+      "disabled": false,
+      "sort": 2
+    }
+  },
+  {
+    "model": "gis.gisdatasource",
+    "pk": "b53db4b0-28fc-4f78-be23-5d6326d27668",
+    "fields": {
+      "description": "Belasteter Standort",
+      "client": "camac.gis.clients.begis.BeGisClient",
+      "config": {
+        "layers": {
+          "BALISKBS_KBS_VW_1764": {
+            "is_boolean": true,
+            "properties": [
+              {
+                "mapper": "boolean",
+                "question": "belasteter-standort"
+              }
+            ]
+          }
+        },
+        "service_code": "of_environment02_de_ms_wfs"
+      },
+      "disabled": false,
+      "sort": 3
+    }
+  },
+  {
+    "model": "gis.gisdatasource",
+    "pk": "b8f05a10-74e9-4d47-8b5f-289bb217d2b3",
+    "fields": {
+      "description": "Gewässerschutzzonen",
+      "client": "camac.gis.clients.begis.BeGisClient",
+      "config": {
+        "layers": {
+          "GSK25_GSK_VW_3275": {
+            "is_boolean": false,
+            "properties": [
+              {
+                "mapper": "gewaesserschutzbereich_v2",
+                "question": "gewaesserschutzbereich-v2"
+              },
+              {
+                "mapper": "grundwasserschutzzonen_v2",
+                "question": "grundwasserschutzzonen-v2"
+              }
+            ]
+          }
+        },
+        "service_code": "of_inlandwaters01_de_ms_wfs"
+      },
+      "disabled": false,
+      "sort": 4
+    }
+  },
+  {
+    "model": "gis.gisdatasource",
+    "pk": "c3b1b832-aeeb-4e8a-a4ff-4f4afcff4ea0",
+    "fields": {
+      "description": "Bauinventar",
+      "client": "camac.gis.clients.begis.BeGisClient",
+      "config": {
+        "layers": {
+          "BAUINV_BAUINVGB_VW_13644": {
+            "is_boolean": true,
+            "properties": [
+              {
+                "mapper": "boolean",
+                "question": "handelt-es-sich-um-ein-baudenkmal"
+              }
+            ]
+          }
+        },
+        "service_code": "of_structure01_de_ms_wfs"
+      },
+      "disabled": false,
+      "sort": 5
+    }
+  },
+  {
+    "model": "gis.gisdatasource",
+    "pk": "f7d8e8c4-5472-4502-bbdc-0f931a2e3e9a",
+    "fields": {
+      "description": "Planning Cadastre",
+      "client": "camac.gis.clients.begis.BeGisClient",
+      "config": {
+        "layers": {
+          "UZP_BAU_VW_13587": {
+            "is_boolean": false,
+            "properties": [
+              {
+                "mapper": "nutzungszone",
+                "question": "nutzungszone"
+              }
+            ]
+          },
+          "UZP_LSG_VW_13624": {
+            "is_boolean": true,
+            "properties": [
+              {
+                "mapper": "boolean",
+                "question": "objekt-des-besonderen-landschaftsschutzes"
+              }
+            ]
+          },
+          "UZP_UEO_VW_13678": {
+            "is_boolean": false,
+            "properties": [
+              {
+                "mapper": "ueberbauungsordnung",
+                "question": "ueberbauungsordnung"
+              }
+            ]
+          }
+        },
+        "service_code": "of_planningcadastre01_de_ms_wfs"
+      },
+      "disabled": false,
+      "sort": 6
+    }
+  }
+]
