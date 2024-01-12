@@ -113,6 +113,16 @@ export default class InstanceAbility extends Ability {
   // instance acls
   // TODO: if complexity increases or more use cases arise, please move to instance-acl ability.
   get canEditAcl() {
-    return this.model && isAuthority(this.model, this.ebauModules.serviceId);
+    return (
+      this.model &&
+      this.model
+        .hasMany("services")
+        .ids()
+        .map((id) => parseInt(id))
+        .includes(this.ebauModules.serviceId) &&
+      ["municipality-lead", "municipality-clerk"].includes(
+        this.ebauModules.role,
+      )
+    );
   }
 }
