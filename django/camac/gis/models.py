@@ -19,10 +19,12 @@ class GISDataSource(models.Model):
     CLIENT_ADMIN = "camac.gis.clients.admin.AdminGisClient"
     CLIENT_KT_GR = "camac.gis.clients.gr.GrGisClient"
     CLIENT_ECH_0206 = "camac.gis.clients.ech_0206.Ech0206"
+    CLIENT_BEGIS = "camac.gis.clients.begis.BeGisClient"
 
     CLIENT_CHOICES = [
         (CLIENT_SOGIS, _("GIS Canton Solothurn")),
         (CLIENT_KT_GR, _("GIS Canton GR")),
+        (CLIENT_BEGIS, _("GIS Canton Bern")),
         (CLIENT_PARAM, _("Parameter")),
         (CLIENT_ECH_0206, _("Ech0206")),
         (CLIENT_ADMIN, _("Federal GIS Switzerland")),
@@ -49,3 +51,6 @@ class GISDataSource(models.Model):
         if hasattr(client, "required_params"):
             return client.required_params
         return client.get_required_params(self)
+
+    def get_is_queue_enabled(self):
+        return getattr(self.get_client_cls(), "is_queue_enabled", False)
