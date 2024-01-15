@@ -98,7 +98,8 @@ export default class InstanceAbility extends Ability {
         this.instanceStateId,
       ) &&
       (!this.session.isInternal ||
-        (this.session.isInternal && this.model.isPaper))
+        (this.session.isInternal && this.model.isPaper) ||
+        this.session.isSupport)
     );
   }
 
