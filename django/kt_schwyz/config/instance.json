@@ -778,5 +778,23 @@
       "sort": 13,
       "description": "Internes Dossier"
     }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 17,
+    "fields": {
+      "name": "construction-monitoring",
+      "sort": 14,
+      "description": "Im Baubegleitungsprozess"
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 18,
+    "fields": {
+      "name": "instance-completed",
+      "sort": 15,
+      "description": "Verfahren abgeschlossen"
+    }
   }
 ]
