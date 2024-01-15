@@ -176,7 +176,7 @@ def test_create_instance_caluma_be(
         # convert vollstaendige vorabklaerung to building permit
         if convert_to_building_permit:
             instance.case.document.form = caluma_form_models.Form.objects.create(
-                pk="vorabklaerung-vollstaendig-v2"
+                pk="vorabklaerung-vollstaendig-v3"
             )
             instance.case.document.save()
 
