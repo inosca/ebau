@@ -966,10 +966,10 @@
     "pk": "decision-info-geometer",
     "fields": {
       "created_at": "2023-12-01T19:03:57.161Z",
-      "modified_at": "2023-12-01T19:03:57.161Z",
+      "modified_at": "2024-01-05T15:45:14.080Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Hilfetext Nachf\\u00fchrungsgeometer\", \"fr\": \"Texte d'aide g\\u00e9om\\u00e8tre conservateur\", \"it\": null}",
       "type": "static",
@@ -977,7 +977,7 @@
       "is_hidden": "!('decision-geometer'|answer == 'decision-geometer-no')",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"<div class=\\\"uk-alert uk-alert-default uk-margin-remove\\\">Sind Sie sicher, dass kein Nachf\\u00fchrungsgeometer ben\\u00f6tigt wird? Einsichtsberechtigungen f\\u00fcr den Nachf\\u00fchrungsgeometer k\\u00f6nnen nachtr\\u00e4glich \\u00fcber das Berechtigungsmodul vergeben werden.</div>\", \"fr\": \"<div class=\\\"uk-alert uk-alert-default uk-margin-remove\\\">Etes-vous s\\u00fbr qu'un g\\u00e9om\\u00e8tre conservateur n'est pas n\\u00e9cessaire ? Les autorisations de consultation pour le g\\u00e9om\\u00e8tre conservateur peuvent \\u00eatre attribu\\u00e9es ult\\u00e9rieurement via le module d'autorisation.</div>\", \"it\": \"\"}",
       "configuration": {},
@@ -999,7 +999,7 @@
     "pk": "decision-info-geometer-documents",
     "fields": {
       "created_at": "2023-12-20T17:21:09.235Z",
-      "modified_at": "2023-12-20T17:24:29.521Z",
+      "modified_at": "2024-01-05T15:49:17.855Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -1012,10 +1012,11 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"<div class=\\\"uk-alert uk-alert-default uk-margin-remove\\\">Haben Sie die f\\u00fcr den Nachf\\u00fchrungsgeometer erforderlichen Dokumente freigegeben?\\n\\nAnsonsten k\\u00f6nnen Sie unter \\\"Dokumente\\\" dem Nachf\\u00fchrungsgeometer die Freigabe erteilen.</div>\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"Haben Sie die f\\u00fcr den Nachf\\u00fchrungsgeometer erforderlichen Dokumente freigegeben?\\n\\nAnsonsten k\\u00f6nnen Sie unter \\\"Dokumente\\\" dem Nachf\\u00fchrungsgeometer die Freigabe erteilen.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
-        "hideLabel": true
+        "hideLabel": true,
+        "widgetOverride": "decision/info-geometer"
       },
       "data_source": null,
       "row_form": null,
