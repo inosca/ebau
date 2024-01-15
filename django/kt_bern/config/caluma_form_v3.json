@@ -9152,7 +9152,7 @@
       "label": "{\"de\": \"Solaranlagen\", \"fr\": \"Installations solaires\", \"it\": null}",
       "type": "table",
       "is_required": "true",
-      "is_hidden": "false",
+      "is_hidden": "!(\n  'geplante-anlagen-solar-oder-photovoltaik-anlage' in 'geplante-anlagen'|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
