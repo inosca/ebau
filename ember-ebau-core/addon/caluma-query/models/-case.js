@@ -132,14 +132,14 @@ export default class CustomCaseBaseModel extends CaseModel {
 
       return (
         juristicName?.trim() ??
-        [lastName, firstName]
+        [firstName, lastName]
           .filter(Boolean)
           .map((name) => name.trim())
-          .join(", ")
+          .join(" ")
       );
     });
 
-    return applicantNames.filter(Boolean).join("\n");
+    return applicantNames.filter(Boolean).join(", ");
   }
 
   get municipality() {
