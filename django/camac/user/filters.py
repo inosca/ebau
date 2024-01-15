@@ -39,6 +39,7 @@ class PublicServiceFilterSet(FilterSet):
     suggestion_for_instance = NumberFilter(method="filter_suggestion_for_instance")
     exclude_own_service = BooleanFilter(method="filter_exclude_own_service")
     service_name = CharFilter(method="filter_service_name")
+    provider_for = CharFilter(method="filter_provider_for")
 
     @permission_aware
     def _available_in_distribution(self, queryset, name, value):
@@ -111,6 +112,15 @@ class PublicServiceFilterSet(FilterSet):
 
         return queryset.filter(name__icontains=value).distinct()
 
+    def filter_provider_for(self, queryset, name, value):
+        function, receiver = value.split(";")
+
+        return queryset.filter(
+            pk__in=models.ServiceRelation.objects.filter(
+                function=function, receiver=receiver
+            ).values("provider")
+        )
+
     class Meta:
         model = models.Service
         fields = (
@@ -122,6 +132,7 @@ class PublicServiceFilterSet(FilterSet):
             "suggestion_for_instance",
             "exclude_own_service",
             "service_name",
+            "provider_for",
         )
 
 
