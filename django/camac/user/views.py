@@ -61,6 +61,9 @@ class UserView(ReadOnlyModelViewSet):
         queryset = super().get_queryset()
         return queryset.filter(groups__service=self.request.group.service).distinct()
 
+    def get_queryset_for_support(self):
+        return super().get_queryset()
+
 
 class PublicUserView(ReadOnlyModelViewSet):
     swagger_schema = None
