@@ -306,6 +306,10 @@
                   'checked': False,
                   'label': 'Gebäudeeigentümer/in (falls nicht mit Gesuchsteller/in identisch)',
                 }),
+                dict({
+                  'checked': False,
+                  'label': 'Abweichende Rechnungsempfänger/in',
+                }),
               ]),
               'label': 'Sind neben den Gesuchstellenden weitere Personen beteiligt?',
               'slug': 'weitere-personen',
