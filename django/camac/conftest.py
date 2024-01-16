@@ -816,6 +816,8 @@ def caluma_forms_be(settings):
 
     # sb1 and sb2
     applicant_table = caluma_form_models.Form.objects.create(slug="personalien-tabelle")
+    caluma_form_models.Form.objects.create(slug="rechnungsempfaengerin-tabelle")
+
     caluma_form_models.Question.objects.create(
         slug="personalien-sb",
         type=caluma_form_models.Question.TYPE_TABLE,

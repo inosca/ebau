@@ -953,7 +953,7 @@
       "modified_by_group": null,
       "form": "personalien",
       "question": "personalien-gebaudeeigentumerin",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -968,7 +968,7 @@
       "modified_by_group": null,
       "form": "personalien",
       "question": "personalien-gesuchstellerin",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -983,7 +983,7 @@
       "modified_by_group": null,
       "form": "personalien",
       "question": "personalien-grundeigentumerin",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -998,7 +998,22 @@
       "modified_by_group": null,
       "form": "personalien",
       "question": "personalien-projektverfasserin",
-      "sort": 3
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "personalien.personalien-rechnungsempfaengerin",
+    "fields": {
+      "created_at": "2024-01-16T12:38:28.651Z",
+      "modified_at": "2024-01-16T12:38:28.651Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "personalien",
+      "question": "personalien-rechnungsempfaengerin",
+      "sort": 1
     }
   },
   {
@@ -1013,7 +1028,7 @@
       "modified_by_group": null,
       "form": "personalien",
       "question": "personalien-sb",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -1028,7 +1043,7 @@
       "modified_by_group": null,
       "form": "personalien",
       "question": "personalien-vertreterin-mit-vollmacht",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -1223,7 +1238,7 @@
       "modified_by_group": null,
       "form": "personalien",
       "question": "verantwortliche-person-sb-identisch",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -1238,7 +1253,7 @@
       "modified_by_group": null,
       "form": "personalien",
       "question": "weitere-personen",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -1885,6 +1900,22 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Beizulegende Vollmacht mit beschriebenen Handlungsspielraum an Bevollm\\u00e4chtigte\", \"fr\": \"Procuration \\u00e0 joindre, d\\u00e9crivant la marge de man\\u0153uvre du/de la mandataire\", \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "weitere-personen-abweichende-rechnungsempfaengerin",
+    "fields": {
+      "created_at": "2024-01-16T12:33:53.744Z",
+      "modified_at": "2024-01-16T13:10:22.283Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abweichende Rechnungsempf\\u00e4nger/in\", \"fr\": \"Destinataires de factures diff\\u00e9rents\", \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -4049,6 +4080,45 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "personalien-rechnungsempfaengerin",
+    "fields": {
+      "created_at": "2024-01-16T12:38:28.482Z",
+      "modified_at": "2024-01-16T13:02:09.833Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Rechnungsempf\\u00e4nger/in\", \"fr\": \"Destinataires de factures diff\\u00e9rents\", \"it\": null}",
+      "type": "table",
+      "is_required": "false",
+      "is_hidden": "!(\n  'weitere-personen-abweichende-rechnungsempfaengerin' in 'weitere-personen'|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "columnsToDisplay": [
+          "name-rechnungsempfaengerin",
+          "vorname-rechnungsempfaengerin",
+          "telefon-oder-mobile-rechnungsempfaengerin",
+          "e-mail-rechnungsempfaengerin",
+          "name-juristische-person-rechnungsempfaengerin"
+        ]
+      },
+      "data_source": null,
+      "row_form": "rechnungsempfaengerin-tabelle",
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "personalien-sb",
     "fields": {
       "created_at": "2020-02-28T08:38:14.081Z",
@@ -5061,10 +5131,10 @@
     "pk": "weitere-personen",
     "fields": {
       "created_at": "2019-03-14T16:03:49.160Z",
-      "modified_at": "2023-07-04T15:16:57.730Z",
+      "modified_at": "2024-01-16T13:10:22.551Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Sind neben den Gesuchstellenden weitere Personen beteiligt?\", \"fr\": \"Outre les requ\\u00e9rant/e/s, d'autres personnes participent-elles \\u00e0 la proc\\u00e9dure?\", \"it\": null}",
       "type": "multiple_choice",
@@ -5073,7 +5143,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"Mit der Vollmacht handeln Sie in Stellvertretung f\\u00fcr Dritte. Hinweise \\u00fcber die Regelungen der Stellvertretung finden Sie in Art. 32-40 OR.\", \"fr\": \"Une procuration permet de repr\\u00e9senter des tiers. Les articles 32 \\u00e0 40 CO contiennent les dispositions relatives \\u00e0 la repr\\u00e9sentation.\", \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -5389,77 +5459,92 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "weitere-personen.weitere-personen-abweichende-rechnungsempfaengerin",
+    "fields": {
+      "created_at": "2024-01-16T13:10:22.562Z",
+      "modified_at": "2024-01-16T13:10:22.562Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "weitere-personen",
+      "option": "weitere-personen-abweichende-rechnungsempfaengerin",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "weitere-personen.weitere-personen-gebaudeeigentumerin",
     "fields": {
-      "created_at": "2023-07-04T15:16:57.743Z",
-      "modified_at": "2023-07-04T15:16:57.743Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_at": "2024-01-16T13:10:22.572Z",
+      "modified_at": "2024-01-16T13:10:22.572Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "weitere-personen",
       "option": "weitere-personen-gebaudeeigentumerin",
-      "sort": 2
+      "sort": 3
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "weitere-personen.weitere-personen-grundeigentumerin",
     "fields": {
-      "created_at": "2023-07-04T15:16:57.747Z",
-      "modified_at": "2023-07-04T15:16:57.747Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_at": "2024-01-16T13:10:22.576Z",
+      "modified_at": "2024-01-16T13:10:22.576Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "weitere-personen",
       "option": "weitere-personen-grundeigentumerin",
-      "sort": 3
+      "sort": 4
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "weitere-personen.weitere-personen-projektverfasserin",
     "fields": {
-      "created_at": "2023-07-04T15:16:57.751Z",
-      "modified_at": "2023-07-04T15:16:57.751Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_at": "2024-01-16T13:10:22.581Z",
+      "modified_at": "2024-01-16T13:10:22.582Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "weitere-personen",
       "option": "weitere-personen-projektverfasserin",
-      "sort": 4
+      "sort": 5
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "weitere-personen.weitere-personen-verantwortliche-person-sb",
     "fields": {
-      "created_at": "2023-07-04T15:16:57.739Z",
-      "modified_at": "2023-07-04T15:16:57.739Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_at": "2024-01-16T13:10:22.567Z",
+      "modified_at": "2024-01-16T13:10:22.567Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "weitere-personen",
       "option": "weitere-personen-verantwortliche-person-sb",
-      "sort": 1
+      "sort": 2
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "weitere-personen.weitere-personen-vertreterin-mit-vollmacht",
     "fields": {
-      "created_at": "2023-07-04T15:16:57.754Z",
-      "modified_at": "2023-07-04T15:16:57.754Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_at": "2024-01-16T13:10:22.587Z",
+      "modified_at": "2024-01-16T13:10:22.587Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "weitere-personen",
       "option": "weitere-personen-vertreterin-mit-vollmacht",
-      "sort": 5
+      "sort": 6
     }
   }
 ]
