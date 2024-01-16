@@ -44,8 +44,10 @@ class PublicServiceFilterSet(FilterSet):
     # ?provider_for=geometer;999111 (service id)
     provider_for = CharFilter(method="filter_provider_for")
 
-    # ?provider_for_instance=geometer;1234 (instance id)
-    provider_for_instance = CharFilter(method="filter_provider_for_instance")
+    # ?provider_for_instance_municipality=geometer;1234 (instance id)
+    provider_for_instance_municipality = CharFilter(
+        method="filter_provider_for_instance_municipality"
+    )
 
     @permission_aware
     def _available_in_distribution(self, queryset, name, value):
@@ -127,7 +129,7 @@ class PublicServiceFilterSet(FilterSet):
             ).values("provider")
         )
 
-    def filter_provider_for_instance(self, queryset, name, value):
+    def filter_provider_for_instance_municipality(self, queryset, name, value):
         function, receiver_instance = value.split(";")
         providers = instance_utils.get_municipality_provider_services(
             receiver_instance, function

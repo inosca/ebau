@@ -156,3 +156,49 @@ def test_public_service_filter_provider_for(
             response.json()["data"][0]["attributes"]["name"]
             == geometer_service.get_name()
         )
+
+
+@pytest.mark.parametrize(
+    "function, use_other_instance, expect_result",
+    [
+        ("geometer", False, 1),
+        ("geometer", True, 0),
+        ("dummy_function", True, 0),
+        ("dummy_function", False, 0),
+    ],
+)
+def test_public_service_filter_provider_for_instance_municipality(
+    admin_client,
+    service_factory,
+    instance_service_factory,
+    instance_factory,
+    function,
+    use_other_instance,
+    expect_result,
+):
+    service = service_factory(service_group__name="municipality")
+
+    instance = instance_service_factory(service=service).instance
+    other_instance = instance_service_factory(
+        service__service_group=service.service_group
+    ).instance
+
+    geometer_service = service_factory()
+    ServiceRelation.objects.create(
+        provider=geometer_service, receiver=service, function="geometer"
+    )
+
+    filter_by_instance = other_instance.pk if use_other_instance else instance.pk
+
+    response = admin_client.get(
+        reverse("publicservice-list"),
+        data={"provider_for_instance_municipality": f"{function};{filter_by_instance}"},
+    )
+
+    assert response.status_code == status.HTTP_200_OK
+    assert len(response.json()["data"]) == expect_result
+    if expect_result:
+        assert (
+            response.json()["data"][0]["attributes"]["name"]
+            == geometer_service.get_name()
+        )
