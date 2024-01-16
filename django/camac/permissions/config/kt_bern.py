@@ -1,8 +1,8 @@
 from caluma.caluma_workflow.models import WorkItem
 
-from camac.instance import domain_logic
+from camac.instance import domain_logic, utils as instance_utils
 from camac.instance.models import Instance
-from camac.permissions import api as permissions_api, models as permissions_models
+from camac.permissions import api as permissions_api
 from camac.permissions.events import EmptyEventHandler
 from camac.user.models import ServiceRelation
 
@@ -32,21 +32,17 @@ class PermissionEventHandlerBE(EmptyEventHandler):
         )
 
         if answer == "decision-geometer-yes":
-            responsible_service = instance.responsible_service(
-                filter_type="municipality"
-            )
-            geometer_service_relation = ServiceRelation.objects.filter(
-                function=ServiceRelation.FUNCTION_GEOMETER,
-                receiver=responsible_service,
+            geometer_service = instance_utils.get_municipality_provider_services(
+                instance, ServiceRelation.FUNCTION_GEOMETER
             ).first()
 
-            # No geometer connected to muncipality
-            if not geometer_service_relation:
+            if not geometer_service:
+                # No geometer connected to muncipality
                 return
 
             self.manager.grant(
                 instance,
                 grant_type=permissions_api.GRANT_CHOICES.SERVICE.value,
-                access_level=permissions_models.AccessLevel.objects.get(pk="geometer"),
-                service=geometer_service_relation.provider,
+                access_level="geometer",
+                service=geometer_service,
             )

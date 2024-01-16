@@ -8,6 +8,7 @@ from caluma.caluma_workflow.dynamic_groups import (
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 
+from camac.instance import utils as instance_utils
 from camac.instance.models import Instance
 from camac.user.models import Service, ServiceRelation
 
@@ -118,17 +119,7 @@ class CustomDynamicGroups(BaseDynamicGroups):
 
     @register_dynamic_group("geometer")
     def resolve_geometer(self, task, case, user, prev_work_item, context, **kwargs):
-        responsible_service = self._get_responsible_service(
-            case, "municipality", context
+        geometers = instance_utils.get_municipality_provider_services(
+            case.family.instance, ServiceRelation.FUNCTION_GEOMETER
         )
-        geometer_service_relations = ServiceRelation.objects.filter(
-            function=ServiceRelation.FUNCTION_GEOMETER,
-            receiver__in=responsible_service,
-        )
-
-        return [
-            str(provider_id)
-            for provider_id in geometer_service_relations.values_list(
-                "provider_id", flat=True
-            )
-        ]
+        return [str(geometer.pk) for geometer in geometers]
