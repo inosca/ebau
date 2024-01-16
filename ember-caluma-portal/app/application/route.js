@@ -150,7 +150,7 @@ export default class ApplicationRoute extends Route {
       componentClass: DecisionInfoAppealComponent,
     });
     this.calumaOptions.registerComponentOverride({
-      label: "Hilfetext Nachforderungsgeometer",
+      label: "Hilfetext Nachführungsgeometer",
       component: "decision/info-geometer",
       componentClass: DecisionInfoGeometerComponent,
     });
