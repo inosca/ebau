@@ -26,6 +26,16 @@ class WorkflowEntryFilterSet(FilterSet):
 class InstanceResourceFilterSet(FilterSet):
     instance = NumberFilter(method="filter_instance")
 
+    def filter_queryset(self, qs):
+        filtered = super().filter_queryset(qs)
+        # For a "global" list of IRs, we need to filter down using role ACLs
+        # (old style access rules). If we *do* have an instance given, the
+        # filter_instance() call below does this for us.
+        if "instance" not in self.data:
+            return filtered.filter(role_acls__role=self.request.group.role)
+
+        return filtered
+
     def filter_instance(self, qs, name, value):
         permissions_for_instance = PermissionManager.from_request(
             self.request
