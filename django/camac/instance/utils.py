@@ -51,7 +51,14 @@ def get_construction_control(service):
         )
 
 
-def set_construction_control(instance: Instance) -> Service:
+def get_municipality(instance) -> Service:
+    """Return the responsible municipality for the given instance.
+
+    Ideally, the municipality is also the currently active service.
+    However in certain situations, there needs to be a fallback,
+    for example when active service is an RSTA, or when
+    the service is only known in the Caluma form.
+    """
     involved_municipalities = instance.instance_services.filter(
         service__service_group__name="municipality"
     )
@@ -66,7 +73,11 @@ def set_construction_control(instance: Instance) -> Service:
     else:
         # no involved municipality, take fallback from form
         municipality = Service.objects.get(pk=CalumaApi().get_municipality(instance))
+    return municipality
 
+
+def set_construction_control(instance: Instance) -> Service:
+    municipality = get_municipality(instance)
     construction_control = get_construction_control(municipality)
     instance.instance_services.create(service=construction_control, active=1)
 
