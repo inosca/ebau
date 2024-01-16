@@ -1,0 +1,363 @@
+[
+  {
+    "model": "caluma_form.form",
+    "pk": "allgemeine-angaben-kurz-v4",
+    "fields": {
+      "created_at": "2024-01-16T14:56:30.350Z",
+      "modified_at": "2024-01-16T14:58:20.049Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Allgemeine Angaben\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"Allgemeine Angaben (v4)\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": "allgemeine-angaben-kurz"
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "vorabklaerung-einfach-v4",
+    "fields": {
+      "created_at": "2024-01-16T14:52:38.091Z",
+      "modified_at": "2024-01-16T15:07:48.788Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Einfache Vorabkl\\u00e4rung\", \"fr\": \"Demandes pr\\u00e9alables simples\", \"it\": null}",
+      "description": "{\"de\": \"Einfache Vorabkl\\u00e4rung (v4)\", \"fr\": \"Demandes pr\\u00e9alables simples (v4)\", \"it\": null}",
+      "meta": {
+        "order": 1,
+        "category": "preliminary-clarification",
+        "is-creatable": true,
+        "is-main-form": true
+      },
+      "is_published": true,
+      "is_archived": false,
+      "source": "vorabklaerung-einfach"
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz-v4.be-gid",
+    "fields": {
+      "created_at": "2024-01-16T14:56:30.451Z",
+      "modified_at": "2024-01-16T14:56:30.451Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz-v4",
+      "question": "be-gid",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz-v4.beschreibung-bauvorhaben",
+    "fields": {
+      "created_at": "2024-01-16T14:56:30.476Z",
+      "modified_at": "2024-01-16T14:56:30.476Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz-v4",
+      "question": "beschreibung-bauvorhaben",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz-v4.gemeinde",
+    "fields": {
+      "created_at": "2024-01-16T14:56:30.431Z",
+      "modified_at": "2024-01-16T14:56:30.431Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz-v4",
+      "question": "gemeinde",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz-v4.gwr-egid",
+    "fields": {
+      "created_at": "2024-01-16T14:56:30.460Z",
+      "modified_at": "2024-01-16T14:56:30.460Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz-v4",
+      "question": "gwr-egid",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz-v4.is-paper",
+    "fields": {
+      "created_at": "2024-01-16T14:56:30.504Z",
+      "modified_at": "2024-01-16T14:56:30.504Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz-v4",
+      "question": "is-paper",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz-v4.karte",
+    "fields": {
+      "created_at": "2024-01-16T14:56:30.380Z",
+      "modified_at": "2024-01-16T14:56:30.380Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz-v4",
+      "question": "karte",
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz-v4.konkrete-fragen-der-vorabklaerung-anfrage-v4",
+    "fields": {
+      "created_at": "2024-01-16T15:02:56.859Z",
+      "modified_at": "2024-01-16T15:02:56.860Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz-v4",
+      "question": "konkrete-fragen-der-vorabklaerung-anfrage-v4",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz-v4.nr",
+    "fields": {
+      "created_at": "2024-01-16T14:56:30.411Z",
+      "modified_at": "2024-01-16T14:56:30.411Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz-v4",
+      "question": "nr",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz-v4.ort-grundstueck",
+    "fields": {
+      "created_at": "2024-01-16T14:56:30.422Z",
+      "modified_at": "2024-01-16T14:56:30.422Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz-v4",
+      "question": "ort-grundstueck",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz-v4.parzelle",
+    "fields": {
+      "created_at": "2024-01-16T14:56:30.440Z",
+      "modified_at": "2024-01-16T14:56:30.440Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz-v4",
+      "question": "parzelle",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz-v4.sachverhalt",
+    "fields": {
+      "created_at": "2024-01-16T14:56:30.492Z",
+      "modified_at": "2024-01-16T14:56:30.492Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz-v4",
+      "question": "sachverhalt",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz-v4.standort-migriert",
+    "fields": {
+      "created_at": "2024-01-16T14:56:30.468Z",
+      "modified_at": "2024-01-16T14:56:30.468Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz-v4",
+      "question": "standort-migriert",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz-v4.strasse-flurname",
+    "fields": {
+      "created_at": "2024-01-16T14:56:30.399Z",
+      "modified_at": "2024-01-16T14:56:30.399Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz-v4",
+      "question": "strasse-flurname",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vorabklaerung-einfach-v4.8-freigabequittung",
+    "fields": {
+      "created_at": "2024-01-16T14:52:38.172Z",
+      "modified_at": "2024-01-16T14:52:38.172Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "vorabklaerung-einfach-v4",
+      "question": "8-freigabequittung",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vorabklaerung-einfach-v4.allgemeine-angaben-kurz-formular-v4",
+    "fields": {
+      "created_at": "2024-01-16T15:00:29.299Z",
+      "modified_at": "2024-01-16T15:00:29.299Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "vorabklaerung-einfach-v4",
+      "question": "allgemeine-angaben-kurz-formular-v4",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vorabklaerung-einfach-v4.dokumente-vorabklaerung-form",
+    "fields": {
+      "created_at": "2024-01-16T14:52:38.160Z",
+      "modified_at": "2024-01-16T14:52:38.160Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "vorabklaerung-einfach-v4",
+      "question": "dokumente-vorabklaerung-form",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vorabklaerung-einfach-v4.personalien-kurz-formular",
+    "fields": {
+      "created_at": "2024-01-16T14:52:38.129Z",
+      "modified_at": "2024-01-16T14:52:38.129Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "vorabklaerung-einfach-v4",
+      "question": "personalien-kurz-formular",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "allgemeine-angaben-kurz-formular-v4",
+    "fields": {
+      "created_at": "2024-01-16T15:00:29.046Z",
+      "modified_at": "2024-01-16T15:07:29.422Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Allgemeine Angaben\", \"fr\": \"Informations g\\u00e9n\\u00e9rales\", \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "allgemeine-angaben-kurz-v4",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "konkrete-fragen-der-vorabklaerung-anfrage-v4",
+    "fields": {
+      "created_at": "2024-01-16T15:02:56.645Z",
+      "modified_at": "2024-01-16T15:05:14.374Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Konkrete Frage(n) der Vorabkl\\u00e4rung (Anfrage)\", \"fr\": \"Question(s) sp\\u00e9cifique(s) pos\\u00e9e(s) lors de la demande pr\\u00e9alable (requ\\u00eate)\", \"it\": null}",
+      "type": "textarea",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "info_text": "{\"de\": \"M\\u00f6glichst genaue Umschreibung der Frage(n) welche mit der Vorabkl\\u00e4rung gepr\\u00fcft werden sollen.\", \"fr\": \"Description aussi pr\\u00e9cise que possible de la ou des questions \\u00e0 examiner dans le cadre de la demande pr\\u00e9alable.\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": 1000,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  }
+]
