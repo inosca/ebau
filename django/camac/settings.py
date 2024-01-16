@@ -1732,6 +1732,7 @@ APPLICATIONS = {
             },
             "caluma_form_v2": generate_form_dump_config(version=2),
             "caluma_form_v3": generate_form_dump_config(version=3),
+            "caluma_form_v4": generate_form_dump_config(version=4),
             "caluma_dossier_import_form": generate_form_dump_config(
                 regex=r"^migriertes-dossier(-daten)?$"
             ),

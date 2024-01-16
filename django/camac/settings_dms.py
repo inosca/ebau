@@ -109,6 +109,7 @@ DMS = {
             "vorabklaerung": {
                 "forms": [
                     "vorabklaerung-einfach",
+                    "vorabklaerung-einfach-v4",
                     "vorabklaerung-vollstaendig",
                     "vorabklaerung-vollstaendig-v2",
                     "vorabklaerung-vollstaendig-v3",

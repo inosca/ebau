@@ -30,6 +30,7 @@ def caluma_form_fixture(db):
         "config/caluma_form.json",
         "config/caluma_form_v2.json",
         "config/caluma_form_v3.json",
+        "config/caluma_form_v4.json",
         "config/caluma_form_sb2.json",
         "config/caluma_audit_form.json",
         "config/caluma_publication_form.json",

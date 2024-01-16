@@ -166,6 +166,7 @@ CALUMA_FORM_TYPES_SLUGS = [
     "baugesuch-mit-uvp-v2",
     "baugesuch-mit-uvp-v3",
     "vorabklaerung-einfach",
+    "vorabklaerung-einfach-v4",
     "vorabklaerung-vollstaendig",
     "vorabklaerung-vollstaendig-v2",
     "vorabklaerung-vollstaendig-v3",
