@@ -12,6 +12,7 @@ from pytest_factoryboy import LazyFixture
 from rest_framework import status
 
 from camac.document import models, permissions, serializers
+from camac.permissions.conditions import Always
 from camac.utils import build_url
 
 from .data import django_file
@@ -39,7 +40,7 @@ def _configure_geometer_access(
     )
     permissions_settings["ACCESS_LEVELS"] = {
         access_level.pk: [
-            ("documents-read", ["*"]),
+            ("documents-read", Always()),
         ]
     }
 
