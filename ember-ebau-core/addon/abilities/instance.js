@@ -19,7 +19,19 @@ export function hasInstanceState(instance, instanceState) {
 
 export function isAuthority(instance, serviceId) {
   return (
+    instance &&
     parseInt(instance.belongsTo("activeService").id()) === parseInt(serviceId)
+  );
+}
+
+export function isInstanceService(instance, serviceId) {
+  return (
+    instance &&
+    instance
+      .hasMany("services")
+      .ids()
+      .map((id) => parseInt(id))
+      .includes(serviceId)
   );
 }
 
@@ -113,16 +125,14 @@ export default class InstanceAbility extends Ability {
   // instance acls
   // TODO: if complexity increases or more use cases arise, please move to instance-acl ability.
   get canEditAcl() {
-    return (
-      this.model &&
-      this.model
-        .hasMany("services")
-        .ids()
-        .map((id) => parseInt(id))
-        .includes(this.ebauModules.serviceId) &&
-      ["municipality-lead", "municipality-clerk"].includes(
-        this.ebauModules.role,
-      )
-    );
+    if (macroCondition(getOwnConfig().application === "be")) {
+      return (
+        isInstanceService(this.model, this.ebauModules.serviceId) &&
+        ["municipality-lead", "municipality-clerk"].includes(
+          this.ebauModules.role,
+        )
+      );
+    }
+    return isAuthority(this.model, this.ebauModules.serviceId);
   }
 }
