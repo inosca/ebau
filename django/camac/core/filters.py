@@ -1,4 +1,3 @@
-from django.db.models import Q
 from django_filters.rest_framework import FilterSet
 
 from camac.filters import NumberFilter, NumberMultiValueFilter
@@ -41,16 +40,18 @@ class InstanceResourceFilterSet(FilterSet):
             self.request
         ).get_permissions(Instance.objects.get(pk=value))
 
-        return qs.filter(
-            Q(
-                role_acls__instance_state__in=Instance.objects.filter(pk=value).values(
-                    "instance_state"
-                )
-            )
-            | Q(
+        if permissions_for_instance:
+            # If the user has "new" permissions on this instance,
+            # ignore any instance ACLs that may also apply.
+            return qs.filter(
                 require_permission__in=permissions_for_instance,
                 require_permission__isnull=False,
             )
+        return qs.filter(
+            role_acls__instance_state__in=Instance.objects.filter(pk=value).values(
+                "instance_state"
+            ),
+            role_acls__role=self.request.group.role,
         )
 
     class Meta:
