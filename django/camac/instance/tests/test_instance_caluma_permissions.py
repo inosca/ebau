@@ -10,6 +10,7 @@ from pytest_factoryboy import LazyFixture
 from rest_framework import status
 
 from camac.permissions import api, models
+from camac.permissions.conditions import Always
 
 R = ["read"]
 W = ["write"]
@@ -92,8 +93,8 @@ def test_instance_permissions_be(
     ]
 
     permissions_settings["ACCESS_LEVELS"] = {
-        access_level.pk: [("foo", ["*"]), ("bar", ["*"])],
-        "geometer": [("foo", ["*"]), ("bar", ["*"])],
+        access_level.pk: [("foo", Always()), ("bar", Always())],
+        "geometer": [("foo", Always()), ("bar", Always())],
     }
 
     active_inquiry_factory(be_instance)
