@@ -1021,6 +1021,24 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "rechnungsempfaengerin-tabelle",
+    "fields": {
+      "created_at": "2024-01-16T12:40:00.626Z",
+      "modified_at": "2024-01-16T13:19:05.352Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Rechnungsempf\\u00e4nger/in Tabelle\", \"fr\": \"Destinataires de factures diff\\u00e9rents\", \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "meta": {},
+      "is_published": true,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "reklame",
     "fields": {
       "created_at": "2019-04-08T13:43:31.089Z",
@@ -9417,6 +9435,171 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "rechnungsempfaengerin-tabelle.e-mail-rechnungsempfaengerin",
+    "fields": {
+      "created_at": "2024-01-16T12:46:32.491Z",
+      "modified_at": "2024-01-16T12:46:32.491Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "rechnungsempfaengerin-tabelle",
+      "question": "e-mail-rechnungsempfaengerin",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "rechnungsempfaengerin-tabelle.hinweis-personalien",
+    "fields": {
+      "created_at": "2024-01-16T12:47:20.680Z",
+      "modified_at": "2024-01-16T12:47:20.680Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "rechnungsempfaengerin-tabelle",
+      "question": "hinweis-personalien",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "rechnungsempfaengerin-tabelle.juristische-person-rechnungsempfaengerin",
+    "fields": {
+      "created_at": "2024-01-16T12:41:33.851Z",
+      "modified_at": "2024-01-16T12:41:33.851Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "rechnungsempfaengerin-tabelle",
+      "question": "juristische-person-rechnungsempfaengerin",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "rechnungsempfaengerin-tabelle.name-juristische-person-rechnungsempfaengerin",
+    "fields": {
+      "created_at": "2024-01-16T12:42:39.551Z",
+      "modified_at": "2024-01-16T12:42:39.551Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "rechnungsempfaengerin-tabelle",
+      "question": "name-juristische-person-rechnungsempfaengerin",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "rechnungsempfaengerin-tabelle.name-rechnungsempfaengerin",
+    "fields": {
+      "created_at": "2024-01-16T12:43:36.746Z",
+      "modified_at": "2024-01-16T12:43:36.746Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "rechnungsempfaengerin-tabelle",
+      "question": "name-rechnungsempfaengerin",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "rechnungsempfaengerin-tabelle.nummer-rechnungsempfaengerin",
+    "fields": {
+      "created_at": "2024-01-16T12:44:48.362Z",
+      "modified_at": "2024-01-16T12:44:48.362Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "rechnungsempfaengerin-tabelle",
+      "question": "nummer-rechnungsempfaengerin",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "rechnungsempfaengerin-tabelle.ort-rechnungsempfaengerin",
+    "fields": {
+      "created_at": "2024-01-16T12:45:29.067Z",
+      "modified_at": "2024-01-16T12:45:29.067Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "rechnungsempfaengerin-tabelle",
+      "question": "ort-rechnungsempfaengerin",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "rechnungsempfaengerin-tabelle.plz-rechnungsempfaengerin",
+    "fields": {
+      "created_at": "2024-01-16T12:45:07.931Z",
+      "modified_at": "2024-01-16T12:45:07.931Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "rechnungsempfaengerin-tabelle",
+      "question": "plz-rechnungsempfaengerin",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "rechnungsempfaengerin-tabelle.strasse-rechnungsempfaengerin",
+    "fields": {
+      "created_at": "2024-01-16T12:44:29.373Z",
+      "modified_at": "2024-01-16T12:44:29.373Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "rechnungsempfaengerin-tabelle",
+      "question": "strasse-rechnungsempfaengerin",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "rechnungsempfaengerin-tabelle.telefon-oder-mobile-rechnungsempfaengerin",
+    "fields": {
+      "created_at": "2024-01-16T12:46:09.323Z",
+      "modified_at": "2024-01-16T12:46:09.323Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "rechnungsempfaengerin-tabelle",
+      "question": "telefon-oder-mobile-rechnungsempfaengerin",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "rechnungsempfaengerin-tabelle.vorname-rechnungsempfaengerin",
+    "fields": {
+      "created_at": "2024-01-16T12:44:07.204Z",
+      "modified_at": "2024-01-16T12:44:07.204Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "rechnungsempfaengerin-tabelle",
+      "question": "vorname-rechnungsempfaengerin",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "reklame.reklame-tabelle",
     "fields": {
       "created_at": "2019-09-25T10:19:39.413Z",
@@ -17302,6 +17485,38 @@
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "juristische-person-rechnungsempfaengerin-ja",
+    "fields": {
+      "created_at": "2024-01-16T12:41:33.485Z",
+      "modified_at": "2024-01-16T13:06:31.109Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "juristische-person-rechnungsempfaengerin-nein",
+    "fields": {
+      "created_at": "2024-01-16T12:41:33.462Z",
+      "modified_at": "2024-01-16T13:06:31.068Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
       "is_archived": false,
@@ -29710,6 +29925,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "e-mail-rechnungsempfaengerin",
+    "fields": {
+      "created_at": "2024-01-16T12:46:32.312Z",
+      "modified_at": "2024-01-16T13:07:51.385Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"E-Mail\", \"fr\": \"Courriel\", \"it\": null}",
+      "type": "text",
+      "is_required": "'is-paper'|answer != 'is-paper-yes'",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[\"email\"]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "e-mail-sendeanlage",
     "fields": {
       "created_at": "2019-04-04T09:08:14.859Z",
@@ -34103,6 +34352,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "juristische-person-rechnungsempfaengerin",
+    "fields": {
+      "created_at": "2024-01-16T12:41:33.686Z",
+      "modified_at": "2024-01-16T13:06:31.284Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Handelt es sich um eine juristische Person?\", \"fr\": \"S'agit-il d'une personne morale?\", \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "kaelteleistung-boden-untergrund",
     "fields": {
       "created_at": "2019-04-01T13:39:13.085Z",
@@ -36484,6 +36764,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "name-juristische-person-rechnungsempfaengerin",
+    "fields": {
+      "created_at": "2024-01-16T12:42:39.382Z",
+      "modified_at": "2024-01-16T13:06:42.816Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Name juristische Person\", \"fr\": \"Nom de la personne morale\", \"it\": null}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "!(\n  'juristische-person-rechnungsempfaengerin-ja' == 'juristische-person-rechnungsempfaengerin'|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "name-kontaktperson",
     "fields": {
       "created_at": "2019-04-08T15:19:39.702Z",
@@ -36503,6 +36817,40 @@
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "name-rechnungsempfaengerin",
+    "fields": {
+      "created_at": "2024-01-16T12:43:36.531Z",
+      "modified_at": "2024-01-16T13:06:51.529Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Name\", \"fr\": \"Nom\", \"it\": null}",
+      "type": "text",
+      "is_required": "!(\n  'juristische-person-rechnungsempfaengerin-ja' == 'juristische-person-rechnungsempfaengerin'|answer\n)",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
       },
       "meta": {},
       "data_source": null,
@@ -37224,6 +37572,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "nummer-rechnungsempfaengerin",
+    "fields": {
+      "created_at": "2024-01-16T12:44:48.165Z",
+      "modified_at": "2024-01-16T13:07:17.722Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nummer\", \"fr\": \"Num\\u00e9ro\", \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "nummer-sendeanlage",
     "fields": {
       "created_at": "2019-04-04T09:03:04.923Z",
@@ -37758,6 +38140,40 @@
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "ort-rechnungsempfaengerin",
+    "fields": {
+      "created_at": "2024-01-16T12:45:28.876Z",
+      "modified_at": "2024-01-16T13:07:35.363Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ort\", \"fr\": \"Localit\\u00e9\", \"it\": null}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
       },
       "meta": {},
       "data_source": null,
@@ -38442,6 +38858,40 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "plz-rechnungsempfaengerin",
+    "fields": {
+      "created_at": "2024-01-16T12:45:07.729Z",
+      "modified_at": "2024-01-16T13:07:27.310Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"PLZ\", \"fr\": \"NPA\", \"it\": null}",
+      "type": "integer",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_value": null,
@@ -41225,6 +41675,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "strasse-rechnungsempfaengerin",
+    "fields": {
+      "created_at": "2024-01-16T12:44:29.163Z",
+      "modified_at": "2024-01-16T13:07:08.868Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Strasse\", \"fr\": \"Rue\", \"it\": null}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "strasse-sendeanlage",
     "fields": {
       "created_at": "2019-04-04T09:02:15.816Z",
@@ -41857,6 +42341,40 @@
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[\"phone-number\"]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "telefon-oder-mobile-rechnungsempfaengerin",
+    "fields": {
+      "created_at": "2024-01-16T12:46:09.122Z",
+      "modified_at": "2024-01-16T13:14:01.093Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Telefon oder Mobile\", \"fr\": \"T\\u00e9l\\u00e9phone fixe ou mobile\", \"it\": null}",
+      "type": "text",
+      "is_required": "!('is-paper'|answer == 'is-paper-yes')",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": \"Im Format +41 12 123 12 12 (inkl. Vorwahl)\", \"fr\": \"Au format +41 12 123 12 12 (indicatif inclus)\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
       },
       "meta": {},
       "data_source": null,
@@ -43511,6 +44029,40 @@
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "vorname-rechnungsempfaengerin",
+    "fields": {
+      "created_at": "2024-01-16T12:44:07.020Z",
+      "modified_at": "2024-01-16T13:06:59.906Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Vorname\", \"fr\": \"Pr\\u00e9nom\", \"it\": null}",
+      "type": "text",
+      "is_required": "!(\n  'juristische-person-rechnungsempfaengerin-ja' == 'juristische-person-rechnungsempfaengerin'|answer\n)",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
       },
       "meta": {},
       "data_source": null,
@@ -49590,6 +50142,36 @@
       "modified_by_group": null,
       "question": "ist-mit-bauabfaellen-zu-rechnen",
       "option": "ist-mit-bauabfaellen-zu-rechnen-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "juristische-person-rechnungsempfaengerin.juristische-person-rechnungsempfaengerin-ja",
+    "fields": {
+      "created_at": "2024-01-16T13:06:31.300Z",
+      "modified_at": "2024-01-16T13:06:31.300Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "juristische-person-rechnungsempfaengerin",
+      "option": "juristische-person-rechnungsempfaengerin-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "juristische-person-rechnungsempfaengerin.juristische-person-rechnungsempfaengerin-nein",
+    "fields": {
+      "created_at": "2024-01-16T13:06:31.294Z",
+      "modified_at": "2024-01-16T13:06:31.294Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "juristische-person-rechnungsempfaengerin",
+      "option": "juristische-person-rechnungsempfaengerin-nein",
       "sort": 1
     }
   },
