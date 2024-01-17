@@ -170,6 +170,7 @@ CALUMA_FORM_TYPES_SLUGS = [
     "vorabklaerung-vollstaendig",
     "vorabklaerung-vollstaendig-v2",
     "vorabklaerung-vollstaendig-v3",
+    "vorabklaerung-vollstaendig-v4",
     "hecken-feldgehoelze-baeume",
     "baupolizeiliches-verfahren",
     "klaerung-baubewilligungspflicht",
