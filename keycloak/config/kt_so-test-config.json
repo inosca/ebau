@@ -612,9 +612,9 @@
     "otpPolicyPeriod": 30,
     "otpPolicyCodeReusable": false,
     "otpSupportedApplications": [
-      "totpAppFreeOTPName",
+      "totpAppMicrosoftAuthenticatorName",
       "totpAppGoogleName",
-      "totpAppMicrosoftAuthenticatorName"
+      "totpAppFreeOTPName"
     ],
     "webAuthnPolicyRpEntityName": "keycloak",
     "webAuthnPolicySignatureAlgorithms": ["ES256"],
@@ -2037,14 +2037,14 @@
           "subComponents": {},
           "config": {
             "allowed-protocol-mapper-types": [
-              "oidc-full-name-mapper",
+              "saml-user-property-mapper",
+              "oidc-address-mapper",
               "oidc-usermodel-attribute-mapper",
               "oidc-usermodel-property-mapper",
-              "saml-user-attribute-mapper",
-              "oidc-address-mapper",
+              "oidc-full-name-mapper",
               "oidc-sha256-pairwise-sub-mapper",
               "saml-role-list-mapper",
-              "saml-user-property-mapper"
+              "saml-user-attribute-mapper"
             ],
             "consent-required-for-all-mappers": ["true"]
           }
@@ -2068,14 +2068,14 @@
           "subComponents": {},
           "config": {
             "allowed-protocol-mapper-types": [
+              "saml-user-attribute-mapper",
+              "oidc-sha256-pairwise-sub-mapper",
               "oidc-usermodel-property-mapper",
               "oidc-address-mapper",
-              "oidc-usermodel-attribute-mapper",
-              "saml-role-list-mapper",
               "saml-user-property-mapper",
+              "oidc-usermodel-attribute-mapper",
               "oidc-full-name-mapper",
-              "oidc-sha256-pairwise-sub-mapper",
-              "saml-user-attribute-mapper"
+              "saml-role-list-mapper"
             ],
             "consent-required-for-all-mappers": ["true"]
           }
@@ -3200,9 +3200,9 @@
     "otpPolicyPeriod": 30,
     "otpPolicyCodeReusable": false,
     "otpSupportedApplications": [
-      "totpAppFreeOTPName",
+      "totpAppMicrosoftAuthenticatorName",
       "totpAppGoogleName",
-      "totpAppMicrosoftAuthenticatorName"
+      "totpAppFreeOTPName"
     ],
     "webAuthnPolicyRpEntityName": "keycloak",
     "webAuthnPolicySignatureAlgorithms": ["ES256"],
@@ -3250,31 +3250,6 @@
         "clientRoles": {
           "account": ["view-profile", "manage-account"]
         },
-        "notBefore": 0,
-        "groups": []
-      },
-      {
-        "id": "abe947f3-8d2e-4d79-a3c5-148c5812bf53",
-        "createdTimestamp": 1689155910466,
-        "username": "jonasm",
-        "enabled": true,
-        "totp": false,
-        "emailVerified": false,
-        "firstName": "Jonas",
-        "lastName": "Metzener",
-        "email": "jonas.metzener@adfinis.com",
-        "credentials": [
-          {
-            "id": "64613b09-0550-47f5-a026-e51c173739e5",
-            "type": "password",
-            "createdDate": 1689155910537,
-            "secretData": "{\"value\":\"p44IT47GYFbosZszEmXtcs/wKtXBPrqk8F35fytt684=\",\"salt\":\"4ZAn/zGSgHUPOf4rVhsRaA==\",\"additionalParameters\":{}}",
-            "credentialData": "{\"hashIterations\":27500,\"algorithm\":\"pbkdf2-sha256\",\"additionalParameters\":{}}"
-          }
-        ],
-        "disableableCredentialTypes": [],
-        "requiredActions": ["CONFIGURE_TOTP", "VERIFY_EMAIL"],
-        "realmRoles": ["default-roles-ebau"],
         "notBefore": 0,
         "groups": []
       },
@@ -5572,13 +5547,13 @@
           "subComponents": {},
           "config": {
             "allowed-protocol-mapper-types": [
-              "oidc-full-name-mapper",
-              "oidc-address-mapper",
-              "saml-user-property-mapper",
-              "saml-role-list-mapper",
               "saml-user-attribute-mapper",
+              "oidc-address-mapper",
               "oidc-usermodel-attribute-mapper",
+              "saml-user-property-mapper",
+              "oidc-full-name-mapper",
               "oidc-sha256-pairwise-sub-mapper",
+              "saml-role-list-mapper",
               "oidc-usermodel-property-mapper"
             ],
             "consent-required-for-all-mappers": ["true"]
@@ -5610,14 +5585,14 @@
           "subComponents": {},
           "config": {
             "allowed-protocol-mapper-types": [
-              "saml-role-list-mapper",
-              "oidc-usermodel-property-mapper",
-              "oidc-usermodel-attribute-mapper",
               "oidc-full-name-mapper",
+              "oidc-usermodel-attribute-mapper",
               "saml-user-attribute-mapper",
               "saml-user-property-mapper",
+              "saml-role-list-mapper",
+              "oidc-sha256-pairwise-sub-mapper",
               "oidc-address-mapper",
-              "oidc-sha256-pairwise-sub-mapper"
+              "oidc-usermodel-property-mapper"
             ],
             "consent-required-for-all-mappers": ["true"]
           }
