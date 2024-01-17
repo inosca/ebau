@@ -6,7 +6,7 @@ from camac.user.models import ServiceRelation
 
 
 @pytest.mark.parametrize("do_clear_relations", [True, False])
-@pytest.mark.parametrize("do_clear_geometers", [True, False])
+@pytest.mark.parametrize("do_disable_geometers", [True, False])
 def test_import_geometer(
     db,
     service_factory,
@@ -15,7 +15,7 @@ def test_import_geometer(
     capsys,
     role_factory,
     do_clear_relations,
-    do_clear_geometers,
+    do_disable_geometers,
     application_settings,
 ):
     # for logging/printing to use the right values.
@@ -107,8 +107,8 @@ def test_import_geometer(
     args = [filename]
     if do_clear_relations:
         args.append("--clear-relations")
-    if do_clear_geometers:
-        args.append("--clear-geometers")
+    if do_disable_geometers:
+        args.append("--disable-geometers")
 
     call_command("import_geometer", *args)
 
@@ -116,7 +116,7 @@ def test_import_geometer(
     # we should have kept it. Note if we clear the geometers, the relations
     # will be dropped implicitly as well
     assert ServiceRelation.objects.filter(pk=old_rel.pk).exists() != (
-        do_clear_relations or do_clear_geometers
+        do_clear_relations
     )
 
     out, err = capsys.readouterr()
