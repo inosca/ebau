@@ -20,9 +20,6 @@ export default {
     snippets: false,
     revert: false,
   },
-  dms: {
-    mergeAndSave: true,
-  },
   index: {
     publicInstances: true,
   },
