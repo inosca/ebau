@@ -1,5 +1,6 @@
+from caluma.caluma_workflow.models import WorkItem
 from django.core.management.base import BaseCommand
-from django.db.models import Q
+from django.db.models import Exists, OuterRef
 
 from camac.instance.models import Instance
 from camac.stats.cycle_time import compute_cycle_time
@@ -27,9 +28,17 @@ class Command(BaseCommand):
 
         if options.get("instance"):
             instances = instances.filter(pk__in=options["instance"])
-        instances = instances.exclude(
-            Q(decision__isnull=True) | Q(**{"case__meta__submit-date": None})
-        )
+
+        instances = instances.filter(
+            Exists(
+                WorkItem.objects.filter(
+                    case=OuterRef("case"),
+                    task_id="decision",
+                    status=WorkItem.STATUS_COMPLETED,
+                )
+            )
+        ).exclude(**{"case__meta__submit-date": None})
+
         if options.get("no_recompute"):
             instances = instances.exclude(case__meta__has_key="total-cycle-time")
 
