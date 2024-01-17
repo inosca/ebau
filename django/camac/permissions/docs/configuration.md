@@ -38,6 +38,7 @@ current user has the permission.
 ## Example configuration
 
 ```python
+from camac.permissions.conditions import InstanceState
 def toss_a_coin(instance):
     import random
     return random.choice([True, False])
@@ -48,18 +49,18 @@ PERMISSIONS = {
         "ACCESS_LEVELS": {
             "applicant": [
                 # editing only in new and in "nachforderung"
-                ("form-edit", ["new", "nfd"]),
+                ("form-edit", InstanceState(["new", "nfd"])),
                 # viewing is always allowed for applicants
-                ("form-read", ["*"]),
+                ("form-read", InstanceState(["*"])),
             ],
             "service": [
                 # view form in submitted and "correcting" state
-                ("form-read", ["subm", "corr"]),
+                ("form-read", InstanceState(["subm", "corr"])),
 
                 # editing the form only in correction state
-                ("form-edit", ["corr"]),
+                ("form-edit", InstanceState(["corr"])),
 
-                # Be lucky: Only allowed if a coin toss says so 
+                # Be lucky: Only allowed if a coin toss says so
                 ("be-lucky", toss_a_coin)
             ]
         },
@@ -68,6 +69,56 @@ PERMISSIONS = {
         "ENABLED": True,
     },
 ```
+
+### Dynamic permissions
+
+The permissions each have a condition attached, which is a callback, returning
+True or False depending on whether the permission shall be granted.
+
+In the example above, the `"be-lucky"` permission is granted based a random
+event. For serious dynamic permissions, the interface is as such:
+
+```python
+def my_dynamic_permission(userinfo, instance):
+    # instance is the affected instance
+    # userinfo provides the following (all values are optional, keep that in mind!):
+    #  - userinfo.user: the requesting user
+    #  - userinfo.service: currently-active service of the requesting user
+    #  - userinfo.role: currently-active role of the requesting user
+    #  - userinfo.token: token for publicly-accessing users
+    ...
+```
+
+If you don't need a parameter, you don't have to take it (see for example the
+`toss_a_coin()` method above, it doesn't take the `userinfo` parameter)
+
+There are a couple of predefined checks that you can use. They are fully
+composable using the operators `&` (and), `|` (or) and `~` (negation). Some
+examples:
+
+```python
+from camac.permissions.conditions import InstanceState, Always, HasRole
+PERMISSIONS = {
+    "default": {},
+    "demo": {
+        "ACCESS_LEVELS": {
+            "special-service": [
+                ("form-edit", InstanceState(["redacting"])),
+                ("form-read", HasRole(["municipality"]) & InstanceState(["redacting"])),
+                ("workitems-edit", HasRole(["municipality"]))
+            ],
+            ...
+        }
+    }
+}
+```
+
+The currently available checks are:
+
+* `InstanceState`: Require instance state to be one of the given instance state names
+* `HasRole`: Require user to have one of a list of given roles
+* `Always`: Will always grant the permission
+* `Never`: Will never grant the permission. This may be useful for specifying exclusions
 
 ## Permission event handlers
 

@@ -1,4 +1,6 @@
-from typing import Callable, Dict, List, Tuple, TypedDict, Union
+from typing import Callable, Dict, List, Tuple, TypedDict
+
+from camac.permissions.conditions import Always, InstanceState
 
 """
 Configuration for the permissions module.
@@ -25,18 +27,15 @@ is more than the instance's state.
 """
 
 # (permission, condition)
-PermissionLine = Tuple[str, Union[List[str], PermissionCallback]]
+PermissionLine = Tuple[str, PermissionCallback]
 PermissionLine.__doc__ = """
 A tuple that maps a given permission (str) to a condition.
 
-The condition may be either a list of strings that refer to
-to an instance state's name
-Alternatively, it may be a callback to dynamically make
-the decision.
+The condition is a callback that can optionally take the instance,
+or camac.permissions.api.UserInfo object as parameter.
 
-As a shortcut, you can also set an instance state name to "*"
-if a permission shall apply always, independent of an instance's
-actual state. It still needs to be in a list though.
+There are predefined and composable permission checks in
+the module camac.permissions.conditions.
 """
 
 PermissionConfigEntry = TypedDict(
@@ -52,14 +51,16 @@ PermissionConfigEntry = TypedDict(
 
 PermissionsConfig = Dict[str, PermissionConfigEntry]
 
-BE_GEOMETER_DEFAULT_ACCESSIBLE_STATES = [
-    "sb1",
-    "sb2",
-    "conclusion",
-    "finished",
-    "finished_internal",
-    "evaluated",
-]
+BE_GEOMETER_DEFAULT_ACCESSIBLE_STATES = InstanceState(
+    [
+        "sb1",
+        "sb2",
+        "conclusion",
+        "finished",
+        "finished_internal",
+        "evaluated",
+    ]
+)
 
 PERMISSIONS: PermissionsConfig = {
     "default": {},
@@ -68,8 +69,8 @@ PERMISSIONS: PermissionsConfig = {
             "service": [
                 # (permission, list-of[instance-state or "*" for any])
                 # (permission, (lambda instance -> True/False))
-                ("foo", ["*"]),
-                ("edit-form", ["new"]),
+                ("foo", Always()),
+                ("edit-form", InstanceState(["new"])),
             ]
         },
         # Event handler that defines callbacks, which can grant/revoke
@@ -79,20 +80,14 @@ PERMISSIONS: PermissionsConfig = {
     },
     "kt_bern": {
         "ACCESS_LEVELS": {
-            # Admin access level config: this is just a suggestion for now...
-            # "admin": [
-            #    ("permissions-read", ["*"]),
-            #    ("permissions-grant-geometer", ["*"]),
-            #    ("permissions-grant-admin", ["*"]),
-            # ],
             "geometer": [
                 # TODO: For ACLs that can be manually granted, read-permissions
                 # for the relevant modules should be available at any time the
                 # ACL can be granted. System-managed ACLs and write permissions
                 # should be more restrictive, since we know when they are created.
-                ("form-read", ["*"]),
+                ("form-read", Always()),
                 # all documents can be read, but only a specific category can be written
-                ("documents-read", ["*"]),
+                ("documents-read", Always()),
                 # TODO: Handle attachment section permissions through permissions module?
                 # ("documents-write-sb1-paper", ["sb1", "sb2"]),
                 # TODO: permission "document" corresponds to editable permission, should be changed
