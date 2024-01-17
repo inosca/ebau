@@ -62,10 +62,10 @@ def test_mitberichtsverfahren(db, role, location_factory, expected_count):
         (
             Services,
             [
+                ["-1", {"de": "Andere", "fr": "Autres"}],
                 ["1", {"de": "Gemeinde Bern", "fr": "Municipalité Berne"}],
                 ["3", {"de": "service3", "fr": "service3"}],
                 ["4", {"de": "service4", "fr": "service4"}],
-                ["-1", {"de": "Andere", "fr": "Autres"}],
             ],
             False,
         ),
