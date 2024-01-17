@@ -9,6 +9,7 @@ from rest_framework.exceptions import ValidationError
 
 from camac.constants import kt_uri as uri_constants
 from camac.core.models import AuthorityLocation, WorkflowEntry
+from camac.core.utils import generate_sort_key
 from camac.document.models import Attachment, AttachmentSection
 from camac.instance import domain_logic, models
 from camac.user.models import Group, Location, User
@@ -30,6 +31,13 @@ def _get_username(bfs_nr):
 
 
 def _import_dossier(data, bfs_nr):
+    if (
+        "erfassungsjahr" not in data or data["erfassungsjahr"] is None
+    ):  # pragma: no cover
+        print(
+            f"No year found in parashift data for external ID {data['external-id']}. Skipping dossier"
+        )
+        return
     caluma_user = BaseUser()
     camac_user = User.objects.get(username=_get_username(bfs_nr))
     instance_state = models.InstanceState.objects.get(
@@ -56,10 +64,13 @@ def _import_dossier(data, bfs_nr):
         )
         _update_answers(imported_instance, data)
 
-        if "erfassungsjahr" in data:
-            domain_logic.CreateInstanceLogic.generate_identifier(
-                imported_instance, data["erfassungsjahr"]
-            )
+        identifier = domain_logic.CreateInstanceLogic.generate_identifier(
+            imported_instance, data["erfassungsjahr"]
+        )
+        imported_instance.case.meta["dossier-number"] = identifier
+        imported_instance.case.meta["dossier-number-sort"] = generate_sort_key(
+            identifier
+        )
 
         submit_date = now().strftime(SUBMIT_DATE_FORMAT)
         WorkflowEntry.objects.filter(
