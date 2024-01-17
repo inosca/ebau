@@ -69,6 +69,7 @@ COMPLETE_PRELIMINARY_CLARIFICATION_SLUGS_BE = [
     "vorabklaerung-vollstaendig",
     "vorabklaerung-vollstaendig-v2",
     "vorabklaerung-vollstaendig-v3",
+    "vorabklaerung-vollstaendig-v4",
 ]
 
 request_logger = getLogger("django.request")

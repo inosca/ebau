@@ -301,7 +301,11 @@ class CreateInstanceLogic:
             new_document = caluma_api.copy_document(
                 source_instance.case.document.pk,
                 exclude_form_slugs=(
-                    ["7-bestaetigung", "8-freigabequittung"]
+                    [
+                        "7-bestaetigung",
+                        "7-bestaetigung-vorabklaerung-v4",
+                        "8-freigabequittung",
+                    ]
                     if is_modification
                     else ["8-freigabequittung"]
                 ),

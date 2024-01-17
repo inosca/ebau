@@ -1189,10 +1189,10 @@
     "pk": "vorabklaerung-einfach",
     "fields": {
       "created_at": "2019-04-11T07:54:42.065Z",
-      "modified_at": "2019-04-18T07:53:31.841Z",
+      "modified_at": "2024-01-16T14:56:59.630Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": "[]",
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "name": "{\"de\": \"Einfache Vorabkl\\u00e4rung\", \"fr\": \"Demandes pr\\u00e9alables simples\", \"it\": null}",
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -1202,7 +1202,7 @@
         "is-creatable": true,
         "is-main-form": true
       },
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
