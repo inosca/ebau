@@ -27,6 +27,7 @@ class ACLUserInfo:
     user: Optional[user_models.User] = None
     service: Optional[user_models.Service] = None
     token: Optional[str] = None
+    role: Optional[user_models.Role] = None
 
     @classmethod
     def from_request(cls, request):
@@ -37,12 +38,12 @@ class ACLUserInfo:
             service = request.group.service
         except AttributeError:
             service = None
+        try:
+            role = request.group.role
+        except AttributeError:  # pragma: no cover
+            role = None
 
-        return cls(
-            user=user,
-            service=service,
-            token=None,
-        )
+        return cls(user=user, service=service, token=None, role=role)
 
     def to_kwargs(self):
         return {"user": self.user, "service": self.service, "token": self.token}
@@ -92,7 +93,7 @@ class PermissionManager:
             .select_related("access_level")
         )
 
-        granted_permissions = []
+        granted_permissions = set()
         # We try to cache rather long
         expiry = timezone.now() + timedelta(days=10)
 
@@ -109,24 +110,22 @@ class PermissionManager:
                         condition, userinfo=self.userinfo, instance=instance
                     )
                     if has_perm:
-                        granted_permissions.append(perm)
+                        granted_permissions.add(perm)
                     continue
 
-                elif not isinstance(condition, list):  # pragma: no cover
+                else:  # pragma: no cover
                     raise ImproperlyConfigured(
-                        f"Permission config for access level {access_level.slug} contains "
-                        f"an invalid entry: The condition for permission {perm!r} is neither "
-                        f"a list or a callable: {condition}"
+                        "Plain string-based conditionals for permissions are "
+                        "not supported anymore. Use InstanceState(...) from "
+                        "camac.permissions.conditions instead. Problematic "
+                        f"config entry: Access Level {access_level.slug}, "
+                        f"permission {perm}"
                     )
-                # Now we know it's a list. Check the instance state for match
-                for cond in condition:
-                    if cond == "*" or cond == instance.instance_state.name:
-                        granted_permissions.append(perm)
-                # else: condition didn't match - permission not granted
 
         cache_duration = expiry - timezone.now()
-        cache.set(cache_key, granted_permissions, cache_duration.total_seconds())
-        return granted_permissions
+        permissions_sorted = sorted(granted_permissions)
+        cache.set(cache_key, permissions_sorted, cache_duration.total_seconds())
+        return permissions_sorted
 
     def _access_level_config(self, access_level_slug):
         """Return the config for the given access level.
@@ -233,6 +232,7 @@ class PermissionManager:
         """
         # Need to make the QS distinct, as users may have multiple active
         # ACLs, and we don't want to return a cartesian product
+
         return queryset.filter(self.get_q_object(instance_prefix)).distinct()
 
     def get_q_object(self, instance_prefix):

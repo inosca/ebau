@@ -2,6 +2,7 @@ import pytest
 from django.urls import reverse
 
 from camac.permissions import api
+from camac.permissions.conditions import Always
 
 """
 Geometer permissions tests.
@@ -40,8 +41,8 @@ def test_geometer_instance_access(
     # Geometer access
     permissions_settings["ACCESS_LEVELS"] = {
         access_level.pk: [
-            ("geometer", ["*"]),
-            ("read-form", ["*"]),
+            ("geometer", Always()),
+            ("read-form", Always()),
         ]
     }
 

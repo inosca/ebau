@@ -229,11 +229,23 @@ def get_function_kwargs(callback, possible_kwargs):
     >>> possible_args = {"x": 1, "y": 2, "z": 3, "a": 99}
     >>> get_function_kwargs(foo, possible_args)
     {"x": 1, "y": 2}
+
+    NOTE: This does not work with functions that accept **kwargs (or *args for
+    that matter). It *could* be done, but we had no requirements for it, and it
+    would add quite a bit of complexity
     """
+
+    # Figure out which is the *actual* callable - so we can support both
+    # plain functions and objects with a __call__() method.
+    code = getattr(callback, "__code__", None) or callback.__call__.__code__
+
     new_kwargs = {}
     for k, v in possible_kwargs.items():
-        if k in callback.__code__.co_varnames:
+        # we use __call__ so callable objects work as well.
+        # A pure function also has __call__, so we can just always use that
+        if k in code.co_varnames:
             new_kwargs[k] = v
+
     return new_kwargs
 
 
