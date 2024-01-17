@@ -1,3 +1,4 @@
+import gc
 import io
 import math
 
@@ -146,6 +147,11 @@ class ParashiftImporter:
                     "data": bytes_file,
                 }
             )
+            output = None
+            gc.collect()
+
+        pdf = None
+        gc.collect()
         return documents
 
     def run(self, from_id, to_id):
@@ -172,6 +178,8 @@ class ParashiftImporter:
                 record["documents"] = self.crop_pdf(record)
 
             dossiers += import_dossiers(records, self.bfs_nr)
+            records = None
+            gc.collect()
 
         return dossiers
 
