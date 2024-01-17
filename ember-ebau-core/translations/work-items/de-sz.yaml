@@ -1,0 +1,6 @@
+workItems:
+  filters:
+    task:
+      init-distribution: "Zirkulation initialisieren ({count})"
+      complete-check: "vollständige Prüfung ({count})"
+      make-decision: "Entscheid verfügen ({count})"

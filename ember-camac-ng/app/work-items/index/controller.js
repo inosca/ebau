@@ -1,8 +1,12 @@
 import Controller from "@ember/controller";
 import { action } from "@ember/object";
+import { service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 
 export default class WorkItemsIndexController extends Controller {
+  @service intl;
+  @service store;
+
   queryParams = ["order", "responsible", "type", "status", "role", "task"];
 
   // Filters

@@ -1,6 +1,8 @@
+import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
 import { camelize } from "@ember/string";
 import Component from "@glimmer/component";
+import { tracked } from "@glimmer/tracking";
 import { useCalumaQuery } from "@projectcaluma/ember-core/caluma-query";
 import { allWorkItems } from "@projectcaluma/ember-core/caluma-query/queries";
 import { queryManager } from "ember-apollo-client";
@@ -18,6 +20,7 @@ export default class WorkItemListWrapperComponent extends Component {
   @service store;
   @service calumaOptions;
   @service intl;
+  @tracked responsible = "all";
 
   workItemsQuery = useCalumaQuery(this, allWorkItems, () => ({
     options: {
@@ -75,6 +78,9 @@ export default class WorkItemListWrapperComponent extends Component {
         : []),
       ...(this.args.responsible === "own"
         ? [{ assignedUsers: [this.args.username] }]
+        : []),
+      ...(!["own", "all"].includes(this.args.responsible)
+        ? [{ assignedUsers: [this.args.responsible] }]
         : []),
       ...(this.args.type === "unread"
         ? [{ metaValue: [{ key: "not-viewed", value: true }] }]
@@ -168,4 +174,31 @@ export default class WorkItemListWrapperComponent extends Component {
       })), // prepare options for select
     ];
   });
+
+  allResponsibles = trackedFunction(this, async () => {
+    await Promise.resolve();
+    const users = await this.store.query("user", {
+      sort: "name",
+    });
+    return [
+      { value: "all", label: this.intl.t("workItems.filters.all") },
+      { value: "own", label: this.intl.t("workItems.filters.own") },
+      ...users.map((u) => ({
+        label: `${u.name} ${u.surname}`,
+        value: u.username,
+      })),
+    ];
+  });
+
+  get selectedResponsible() {
+    return this.allResponsibles.value?.find(
+      (r) => r.value === this.responsible,
+    );
+  }
+
+  @action
+  setResponsible(person) {
+    this.responsible = person.value;
+    this.args.setFilter("responsible", person.value);
+  }
 }
