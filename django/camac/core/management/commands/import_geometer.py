@@ -33,7 +33,7 @@ class Command(BaseCommand):
             help="Clear all service relations before importing",
         )
         parser.add_argument(
-            "--clear-geometers",
+            "--disable-geometers",
             action="store_true",
             help="Clear all geometer services before importing",
         )
@@ -41,7 +41,7 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         path = options["path"].resolve()
 
-        if options.get("clear_geometers"):
+        if options.get("disable_geometers"):
             geometer_services = Service.objects.filter(service_group__name="geometer")
             geometer_groups = Group.objects.filter(
                 role__name__in=[
@@ -52,8 +52,8 @@ class Command(BaseCommand):
                 ],
                 service__in=geometer_services,
             )
-            geometer_groups.delete()
-            geometer_services.delete()
+            geometer_groups.update(disabled=1)
+            geometer_services.update(disabled=1)
 
         if options.get("clear_relations"):
             geometer_relations = ServiceRelation.objects.filter(
@@ -114,6 +114,7 @@ class Command(BaseCommand):
                 "phone": geometer["FirmaTelefon"],
                 "email": validated_email,
                 "notification": 1,  # yeah it's not a bool
+                "disabled": 0,
             },
         )
 
@@ -212,7 +213,12 @@ class Command(BaseCommand):
             name_fr = f"{prefix_fr} {geom_name_fr}"
 
             grp, _ = Group.objects.update_or_create(
-                role=role, service=geom_service, defaults={"name": name_de}
+                role=role,
+                service=geom_service,
+                defaults={
+                    "name": name_de,
+                    "disabled": 0,
+                },
             )
             GroupT.objects.update_or_create(
                 group=grp, language="de", defaults={"name": name_de}
