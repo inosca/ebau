@@ -1427,7 +1427,11 @@ APPLICATIONS = {
                 },
                 {
                     "template_slug": "08-entscheid-behoerden",
-                    "recipient_types": ["leitbehoerde", "involved_in_distribution"],
+                    "recipient_types": [
+                        "leitbehoerde",
+                        "involved_in_distribution",
+                        "inactive_municipality",
+                    ],
                 },
             ],
             "DECISION_PRELIMINARY_CLARIFICATION": [
@@ -1437,7 +1441,11 @@ APPLICATIONS = {
                 },
                 {
                     "template_slug": "08-beurteilung-zu-voranfrage-behoerden",
-                    "recipient_types": ["leitbehoerde", "involved_in_distribution"],
+                    "recipient_types": [
+                        "leitbehoerde",
+                        "involved_in_distribution",
+                        "inactive_municipality",
+                    ],
                 },
             ],
             "COMPLETE_MANUAL_WORK_ITEM": [
