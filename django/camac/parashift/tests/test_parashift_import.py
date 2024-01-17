@@ -20,6 +20,7 @@ def test_import(
 ):
     expected = {
         "gesuchsteller": "Kanton Uri, v.d. Baudirektion Uri",
+        "gesuchsteller-backup": "Kanton Uri, v.d. Baudirektion Uri",
         "erfassungsjahr": 1992,
         "parzelle-nr": 11,
         "baurecht-nr": None,
@@ -81,11 +82,11 @@ def test_import_validation_error(requests_mock, capsys):
 
 
 @pytest.mark.parametrize(
-    "bfs_nr",
-    (
-        "1214",
-        "KOOR_BG",
-    ),
+    "bfs_nr,run_again",
+    [
+        ("1214", True),
+        ("KOOR_BG", False),
+    ],
 )
 def test_command(
     parashift_data,
@@ -94,6 +95,7 @@ def test_command(
     master_data_is_visible_mock,
     workflow_item_factory,
     bfs_nr,
+    run_again,
 ):
     application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_uri"]["MASTER_DATA"]
     workflow_item_factory(pk=uri_constants.WORKFLOW_ITEM_DOSSIER_ERFASST)
@@ -121,6 +123,30 @@ def test_command(
     assert instance.attachments.count() == 4
     attachment = instance.attachments.first()
     assert attachment.path.size == 91785
+
+    if run_again:
+        instances = client.run("138866", "138867")
+        instance = instances[0]
+        master_data = MasterData(instance.case)
+
+        assert (
+            master_data.applicants[0]["last_name"]
+            == "Kanton Uri, v.d. Baudirektion Uri"
+        )
+        assert master_data.proposal == "Erschliessungsstrasse"
+        assert master_data.plot_data[0]["plot_number"] == "11"
+        assert master_data.street == "Platti, Amsteg"
+
+        answers = instance.case.document.answers.all()
+        assert answers.get(question_id="form-type").value == "form-type-archiv"
+
+        assert answers.get(question_id="municipality").value == str(
+            instance.location.communal_federal_number
+        )
+
+        assert instance.attachments.count() == 4
+        attachment = instance.attachments.first()
+        assert attachment.path.size == 91785
 
 
 def test_command_validation_error(requests_mock, capsys):
