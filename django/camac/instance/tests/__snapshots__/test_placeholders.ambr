@@ -4030,47 +4030,47 @@
         'de': 'Dokumente mit Metadaten',
       }),
       'nested_aliases': dict({
-        'category': list([
+        'CATEGORY': list([
           dict({
             'de': 'KATEGORIE',
           }),
         ]),
-        'created_at': list([
+        'CREATED_AT': list([
           dict({
             'de': 'ERSTELLT_AM',
           }),
         ]),
-        'created_by': list([
+        'CREATED_BY': list([
           dict({
             'de': 'ERSTELLT_VON',
           }),
         ]),
-        'description': list([
+        'DESCRIPTION': list([
           dict({
             'de': 'BESCHREIBUNG',
           }),
         ]),
-        'marks': list([
+        'MARKS': list([
           dict({
             'de': 'MARKIERUNGEN',
           }),
         ]),
-        'modified_at': list([
+        'MODIFIED_AT': list([
           dict({
             'de': 'GEAENDERT_AM',
           }),
         ]),
-        'modified_by': list([
+        'MODIFIED_BY': list([
           dict({
             'de': 'GEAENDERT_VON',
           }),
         ]),
-        'name': list([
+        'NAME': list([
           dict({
             'de': 'NAME',
           }),
         ]),
-        'tags': list([
+        'TAGS': list([
           dict({
             'de': 'STICHWORTE',
           }),
@@ -6847,43 +6847,41 @@
     'DOCUMENTS',
     'DOCUMENTS[]',
     'DOCUMENTS[].BESCHREIBUNG',
+    'DOCUMENTS[].CATEGORY',
+    'DOCUMENTS[].CREATED_AT',
+    'DOCUMENTS[].CREATED_BY',
+    'DOCUMENTS[].DESCRIPTION',
     'DOCUMENTS[].ERSTELLT_AM',
     'DOCUMENTS[].ERSTELLT_VON',
     'DOCUMENTS[].GEAENDERT_AM',
     'DOCUMENTS[].GEAENDERT_VON',
     'DOCUMENTS[].KATEGORIE',
     'DOCUMENTS[].MARKIERUNGEN',
+    'DOCUMENTS[].MARKS',
+    'DOCUMENTS[].MODIFIED_AT',
+    'DOCUMENTS[].MODIFIED_BY',
     'DOCUMENTS[].NAME',
     'DOCUMENTS[].STICHWORTE',
-    'DOCUMENTS[].category',
-    'DOCUMENTS[].created_at',
-    'DOCUMENTS[].created_by',
-    'DOCUMENTS[].description',
-    'DOCUMENTS[].marks',
-    'DOCUMENTS[].modified_at',
-    'DOCUMENTS[].modified_by',
-    'DOCUMENTS[].name',
-    'DOCUMENTS[].tags',
+    'DOCUMENTS[].TAGS',
     'DOKUMENTE',
     'DOKUMENTE[]',
     'DOKUMENTE[].BESCHREIBUNG',
+    'DOKUMENTE[].CATEGORY',
+    'DOKUMENTE[].CREATED_AT',
+    'DOKUMENTE[].CREATED_BY',
+    'DOKUMENTE[].DESCRIPTION',
     'DOKUMENTE[].ERSTELLT_AM',
     'DOKUMENTE[].ERSTELLT_VON',
     'DOKUMENTE[].GEAENDERT_AM',
     'DOKUMENTE[].GEAENDERT_VON',
     'DOKUMENTE[].KATEGORIE',
     'DOKUMENTE[].MARKIERUNGEN',
+    'DOKUMENTE[].MARKS',
+    'DOKUMENTE[].MODIFIED_AT',
+    'DOKUMENTE[].MODIFIED_BY',
     'DOKUMENTE[].NAME',
     'DOKUMENTE[].STICHWORTE',
-    'DOKUMENTE[].category',
-    'DOKUMENTE[].created_at',
-    'DOKUMENTE[].created_by',
-    'DOKUMENTE[].description',
-    'DOKUMENTE[].marks',
-    'DOKUMENTE[].modified_at',
-    'DOKUMENTE[].modified_by',
-    'DOKUMENTE[].name',
-    'DOKUMENTE[].tags',
+    'DOKUMENTE[].TAGS',
     'DOSSIER_NUMBER',
     'DOSSIER_NUMMER',
     'DOSSIER_TYP',
@@ -7632,6 +7630,10 @@
     'DOCUMENTS': list([
       dict({
         'BESCHREIBUNG': 'South which general eight government build PM. Task believe oil unit itself close again affect.',
+        'CATEGORY': 'general-service-buy',
+        'CREATED_AT': '30.08.2021 00:00',
+        'CREATED_BY': 'Admin User',
+        'DESCRIPTION': 'South which general eight government build PM. Task believe oil unit itself close again affect.',
         'ERSTELLT_AM': '30.08.2021 00:00',
         'ERSTELLT_VON': 'Admin User',
         'GEAENDERT_AM': '30.08.2021 00:00',
@@ -7640,21 +7642,16 @@
         'MARKIERUNGEN': list([
           'decision',
         ]),
+        'MARKS': list([
+          'decision',
+        ]),
+        'MODIFIED_AT': '30.08.2021 00:00',
+        'MODIFIED_BY': 'Admin User',
         'NAME': 'Grundriss',
         'STICHWORTE': list([
           'Secret',
         ]),
-        'category': 'general-service-buy',
-        'created_at': '30.08.2021 00:00',
-        'created_by': 'Admin User',
-        'description': 'South which general eight government build PM. Task believe oil unit itself close again affect.',
-        'marks': list([
-          'decision',
-        ]),
-        'modified_at': '30.08.2021 00:00',
-        'modified_by': 'Admin User',
-        'name': 'Grundriss',
-        'tags': list([
+        'TAGS': list([
           'Secret',
         ]),
       }),
@@ -7662,6 +7659,10 @@
     'DOKUMENTE': list([
       dict({
         'BESCHREIBUNG': 'South which general eight government build PM. Task believe oil unit itself close again affect.',
+        'CATEGORY': 'general-service-buy',
+        'CREATED_AT': '30.08.2021 00:00',
+        'CREATED_BY': 'Admin User',
+        'DESCRIPTION': 'South which general eight government build PM. Task believe oil unit itself close again affect.',
         'ERSTELLT_AM': '30.08.2021 00:00',
         'ERSTELLT_VON': 'Admin User',
         'GEAENDERT_AM': '30.08.2021 00:00',
@@ -7670,21 +7671,16 @@
         'MARKIERUNGEN': list([
           'decision',
         ]),
+        'MARKS': list([
+          'decision',
+        ]),
+        'MODIFIED_AT': '30.08.2021 00:00',
+        'MODIFIED_BY': 'Admin User',
         'NAME': 'Grundriss',
         'STICHWORTE': list([
           'Secret',
         ]),
-        'category': 'general-service-buy',
-        'created_at': '30.08.2021 00:00',
-        'created_by': 'Admin User',
-        'description': 'South which general eight government build PM. Task believe oil unit itself close again affect.',
-        'marks': list([
-          'decision',
-        ]),
-        'modified_at': '30.08.2021 00:00',
-        'modified_by': 'Admin User',
-        'name': 'Grundriss',
-        'tags': list([
+        'TAGS': list([
           'Secret',
         ]),
       }),
