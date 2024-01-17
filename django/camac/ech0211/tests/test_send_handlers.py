@@ -361,8 +361,10 @@ def test_change_responsibility_send_handler(
 @pytest.mark.parametrize(
     "requesting_service,instance_state_name,success",
     [
-        ("leitbehoerde", "sb1", True),
+        ("leitbehoerde", "sb1", False),
         ("baukontrolle", "conclusion", True),
+        ("baukontrolle", "coordination", False),
+        ("baukontrolle", "sb1", True),
         ("leitbehoerde", "coordination", False),
         ("nobody", "conclusion", False),
     ],

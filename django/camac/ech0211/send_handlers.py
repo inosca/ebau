@@ -7,7 +7,6 @@ from caluma.caluma_workflow.models import Case, WorkItem
 from django.conf import settings
 
 from camac.constants.kt_bern import ATTACHMENT_SECTION_ALLE_BETEILIGTEN
-from camac.core.models import InstanceService
 from camac.document.models import Attachment, AttachmentSection
 from camac.instance.models import Instance
 from camac.instance.serializers import CalumaInstanceChangeResponsibleServiceSerializer
@@ -329,9 +328,10 @@ class AccompanyingReportSendHandler(BaseSendHandler):
 
 class CloseArchiveDossierSendHandler(BaseSendHandler):
     def has_permission(self):
-        if not InstanceService.objects.filter(
-            instance=self.instance, active=True, service=self.group.service
-        ).exists():
+        if (
+            self.instance.responsible_service(filter_type="construction_control")
+            != self.group.service
+        ):
             return False, None
         if self.instance.instance_state.name in ["sb1", "sb2", "conclusion"]:
             return True, None

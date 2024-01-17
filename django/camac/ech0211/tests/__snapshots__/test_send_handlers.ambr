@@ -166,7 +166,7 @@
   
   '''
 # ---
-# name: test_close_dossier_send_handler[leitbehoerde-sb1-True]
+# name: test_close_dossier_send_handler[baukontrolle-sb1-True]
   '''
   <?xml version="1.0" ?>
   <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5">
