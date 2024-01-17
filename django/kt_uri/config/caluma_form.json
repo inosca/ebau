@@ -42007,7 +42007,8 @@
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
-        "widgetOverride": "be-documents-form"
+        "widgetOverride": "be-documents-form",
+        "attachment-section": "12000000"
       },
       "data_source": null,
       "row_form": null,
@@ -42105,7 +42106,8 @@
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
-        "widgetOverride": "be-documents-form"
+        "widgetOverride": "be-documents-form",
+        "attachment-section": "12000000"
       },
       "data_source": null,
       "row_form": null,
