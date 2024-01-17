@@ -19,6 +19,24 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "7-bestaetigung-vorabklaerung-v4",
+    "fields": {
+      "created_at": "2024-01-17T16:43:14.567Z",
+      "modified_at": "2024-01-17T16:50:31.778Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"7. Best\\u00e4tigung\", \"fr\": \"7. Confirmation\", \"it\": null}",
+      "description": "{\"de\": \"Best\\u00e4tigung Vorabkl\\u00e4rung (v4)\", \"fr\": \"Best\\u00e4tigung Vorabkl\\u00e4rung (v4)\", \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": "7-bestaetigung"
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "allgemeine-angaben-kurz-v4",
     "fields": {
       "created_at": "2024-01-16T14:56:30.350Z",
@@ -142,6 +160,36 @@
       "form": "1-allgemeine-informationen-v4",
       "question": "personalien",
       "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "7-bestaetigung-vorabklaerung-v4.bestaetigung-gis",
+    "fields": {
+      "created_at": "2024-01-17T16:43:14.680Z",
+      "modified_at": "2024-01-17T16:43:14.680Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "7-bestaetigung-vorabklaerung-v4",
+      "question": "bestaetigung-gis",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "7-bestaetigung-vorabklaerung-v4.bestaetigung-kostenuebernahme-v4",
+    "fields": {
+      "created_at": "2024-01-17T16:49:04.008Z",
+      "modified_at": "2024-01-17T16:49:04.008Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "7-bestaetigung-vorabklaerung-v4",
+      "question": "bestaetigung-kostenuebernahme-v4",
+      "sort": 1
     }
   },
   {
@@ -731,6 +779,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "vorabklaerung-einfach-v4.7-bestaetigung-vorabklaerung-v4",
+    "fields": {
+      "created_at": "2024-01-17T17:04:38.792Z",
+      "modified_at": "2024-01-17T17:04:38.792Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "vorabklaerung-einfach-v4",
+      "question": "7-bestaetigung-vorabklaerung-v4",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "vorabklaerung-einfach-v4.8-freigabequittung",
     "fields": {
       "created_at": "2024-01-16T14:52:38.172Z",
@@ -756,7 +819,7 @@
       "modified_by_group": null,
       "form": "vorabklaerung-einfach-v4",
       "question": "allgemeine-angaben-kurz-formular-v4",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -771,7 +834,7 @@
       "modified_by_group": null,
       "form": "vorabklaerung-einfach-v4",
       "question": "dokumente-vorabklaerung-form",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -801,21 +864,21 @@
       "modified_by_group": null,
       "form": "vorabklaerung-vollstaendig-v4",
       "question": "1-allgemeine-informationen-v4",
-      "sort": 8
+      "sort": 9
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "vorabklaerung-vollstaendig-v4.7-bestaetigung",
+    "pk": "vorabklaerung-vollstaendig-v4.7-bestaetigung-vorabklaerung-v4",
     "fields": {
-      "created_at": "2024-01-17T13:53:17.300Z",
-      "modified_at": "2024-01-17T13:53:17.300Z",
-      "created_by_user": null,
+      "created_at": "2024-01-17T16:59:01.901Z",
+      "modified_at": "2024-01-17T16:59:01.901Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "vorabklaerung-vollstaendig-v4",
-      "question": "7-bestaetigung",
+      "question": "7-bestaetigung-vorabklaerung-v4",
       "sort": 2
     }
   },
@@ -846,7 +909,7 @@
       "modified_by_group": null,
       "form": "vorabklaerung-vollstaendig-v4",
       "question": "bauwerk-v3",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -861,7 +924,7 @@
       "modified_by_group": null,
       "form": "vorabklaerung-vollstaendig-v4",
       "question": "dokumente-v3",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -876,7 +939,7 @@
       "modified_by_group": null,
       "form": "vorabklaerung-vollstaendig-v4",
       "question": "grundstueck-v2",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -891,7 +954,7 @@
       "modified_by_group": null,
       "form": "vorabklaerung-vollstaendig-v4",
       "question": "nutzung-bauvorhaben-v3",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -906,7 +969,23 @@
       "modified_by_group": null,
       "form": "vorabklaerung-vollstaendig-v4",
       "question": "spezialformulare-v3",
-      "sort": 4
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bestaetigung-kostenuebernahme-v4-ja",
+    "fields": {
+      "created_at": "2024-01-17T16:49:03.686Z",
+      "modified_at": "2024-01-17T16:49:58.391Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Es wird darauf hingewiesen, dass die Bearbeitung von Vorabkl\\u00e4rungen Kosten (Geb\\u00fchren) verursachen kann. Die anfragende Person best\\u00e4tigt, dass sie f\\u00fcr die Kosten vollumf\\u00e4nglich aufkommt. Wenn die anfragende Person diese Kosten nicht selber \\u00fcbernehmen will, so ist im Feld \\u00abPersonalien\\u00bb unter \\u00abAbweichende Rechnungsempf\\u00e4nger\\u00bb anzugeben, an wen die Kosten verrechnet werden sollen.\", \"fr\": \"Nous attirons votre attention sur le fait que le traitement des demandes pr\\u00e9alables peut entra\\u00eener des frais (\\u00e9moluments). La personne requ\\u00e9rante confirme qu'elle prend en charge l'int\\u00e9gralit\\u00e9 de ces frais. Si la personne requ\\u00e9rante ne souhaite pas assumer elle-m\\u00eame ces frais, elle doit indiquer \\u00e0 qui les frais doivent \\u00eatre factur\\u00e9s dans le champ \\u00ab Donn\\u00e9es personnelles \\u00bb sous \\u00ab Destinataires de factures diff\\u00e9rents \\u00bb.\", \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
     }
   },
   {
@@ -933,6 +1012,37 @@
       "data_source": null,
       "row_form": null,
       "sub_form": "1-allgemeine-informationen-v4",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "7-bestaetigung-vorabklaerung-v4",
+    "fields": {
+      "created_at": "2024-01-17T16:59:01.730Z",
+      "modified_at": "2024-01-17T17:08:45.257Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Best\\u00e4tigung\", \"fr\": \"Attestation\", \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "'is-paper'|answer == 'is-paper-yes'",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "7-bestaetigung-vorabklaerung-v4",
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
@@ -1004,6 +1114,39 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "bestaetigung-kostenuebernahme-v4",
+    "fields": {
+      "created_at": "2024-01-17T16:49:03.834Z",
+      "modified_at": "2024-01-17T16:49:58.554Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Es wird darauf hingewiesen, dass die Bearbeitung von Vorabkl\\u00e4rungen Kosten (Geb\\u00fchren) verursachen kann. Die anfragende Person best\\u00e4tigt, dass sie f\\u00fcr die Kosten vollumf\\u00e4nglich aufkommt. Wenn die anfragende Person diese Kosten nicht selber \\u00fcbernehmen will, so ist im Feld \\u00abPersonalien\\u00bb unter \\u00abAbweichende Rechnungsempf\\u00e4nger\\u00bb anzugeben, an wen die Kosten verrechnet werden sollen.\", \"fr\": \"Nous attirons votre attention sur le fait que le traitement des demandes pr\\u00e9alables peut entra\\u00eener des frais (\\u00e9moluments). La personne requ\\u00e9rante confirme qu'elle prend en charge l'int\\u00e9gralit\\u00e9 de ces frais. Si la personne requ\\u00e9rante ne souhaite pas assumer elle-m\\u00eame ces frais, elle doit indiquer \\u00e0 qui les frais doivent \\u00eatre factur\\u00e9s dans le champ \\u00ab Donn\\u00e9es personnelles \\u00bb sous \\u00ab Destinataires de factures diff\\u00e9rents \\u00bb.\", \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "'is-paper'|answer == 'is-paper-yes'",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "konkrete-fragen-der-vorabklaerung-anfrage-v4",
     "fields": {
       "created_at": "2024-01-16T15:02:56.645Z",
@@ -1034,6 +1177,21 @@
       "default_answer": null,
       "calc_expression": null,
       "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bestaetigung-kostenuebernahme-v4.bestaetigung-kostenuebernahme-v4-ja",
+    "fields": {
+      "created_at": "2024-01-17T16:49:58.563Z",
+      "modified_at": "2024-01-17T16:49:58.563Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "bestaetigung-kostenuebernahme-v4",
+      "option": "bestaetigung-kostenuebernahme-v4-ja",
+      "sort": 1
     }
   }
 ]
