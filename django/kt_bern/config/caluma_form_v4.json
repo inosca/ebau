@@ -1,0 +1,1197 @@
+[
+  {
+    "model": "caluma_form.form",
+    "pk": "1-allgemeine-informationen-v4",
+    "fields": {
+      "created_at": "2024-01-17T14:06:15.275Z",
+      "modified_at": "2024-01-17T14:06:52.789Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"1. Allgemeine Informationen\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"1. Allgemeine Informationen (v4)\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": "1-allgemeine-informationen"
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "7-bestaetigung-vorabklaerung-v4",
+    "fields": {
+      "created_at": "2024-01-17T16:43:14.567Z",
+      "modified_at": "2024-01-17T16:50:31.778Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"7. Best\\u00e4tigung\", \"fr\": \"7. Confirmation\", \"it\": null}",
+      "description": "{\"de\": \"Best\\u00e4tigung Vorabkl\\u00e4rung (v4)\", \"fr\": \"Best\\u00e4tigung Vorabkl\\u00e4rung (v4)\", \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": "7-bestaetigung"
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "allgemeine-angaben-kurz-v4",
+    "fields": {
+      "created_at": "2024-01-16T14:56:30.350Z",
+      "modified_at": "2024-01-16T14:58:20.049Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Allgemeine Angaben\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"Allgemeine Angaben (v4)\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": "allgemeine-angaben-kurz"
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "bauvorhaben-v4",
+    "fields": {
+      "created_at": "2024-01-17T14:11:08.084Z",
+      "modified_at": "2024-01-17T14:11:54.337Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Bauvorhaben\", \"fr\": \"Projet de construction\", \"it\": null}",
+      "description": "{\"de\": \"Bauvorhaben (v4)\", \"fr\": \"Bauvorhaben (v4)\", \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": "bauvorhaben"
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "vorabklaerung-einfach-v4",
+    "fields": {
+      "created_at": "2024-01-16T14:52:38.091Z",
+      "modified_at": "2024-01-16T15:07:48.788Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Einfache Vorabkl\\u00e4rung\", \"fr\": \"Demandes pr\\u00e9alables simples\", \"it\": null}",
+      "description": "{\"de\": \"Einfache Vorabkl\\u00e4rung (v4)\", \"fr\": \"Demandes pr\\u00e9alables simples (v4)\", \"it\": null}",
+      "meta": {
+        "order": 1,
+        "category": "preliminary-clarification",
+        "is-creatable": true,
+        "is-main-form": true
+      },
+      "is_published": true,
+      "is_archived": false,
+      "source": "vorabklaerung-einfach"
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "vorabklaerung-vollstaendig-v4",
+    "fields": {
+      "created_at": "2024-01-17T13:53:17.180Z",
+      "modified_at": "2024-01-17T15:07:21.016Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Vollst\\u00e4ndige Vorabkl\\u00e4rung\", \"fr\": \"Demandes pr\\u00e9alables compl\\u00e8tes\", \"it\": null}",
+      "description": "{\"de\": \"Vollst\\u00e4ndige Vorabkl\\u00e4rung (v4)\", \"fr\": \"Vollst\\u00e4ndige Vorabkl\\u00e4rung (v4)\", \"it\": null}",
+      "meta": {
+        "order": 2,
+        "category": "preliminary-clarification",
+        "is-creatable": true,
+        "is-main-form": true
+      },
+      "is_published": true,
+      "is_archived": false,
+      "source": "vorabklaerung-vollstaendig-v3"
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "1-allgemeine-informationen-v4.bauvorhaben-v4",
+    "fields": {
+      "created_at": "2024-01-17T14:19:30.791Z",
+      "modified_at": "2024-01-17T14:19:30.791Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "1-allgemeine-informationen-v4",
+      "question": "bauvorhaben-v4",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "1-allgemeine-informationen-v4.durchgefuehrte-vorabklaerungen",
+    "fields": {
+      "created_at": "2024-01-17T14:06:15.296Z",
+      "modified_at": "2024-01-17T14:06:15.296Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "1-allgemeine-informationen-v4",
+      "question": "durchgefuehrte-vorabklaerungen",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "1-allgemeine-informationen-v4.personalien",
+    "fields": {
+      "created_at": "2024-01-17T14:06:15.310Z",
+      "modified_at": "2024-01-17T14:06:15.310Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "1-allgemeine-informationen-v4",
+      "question": "personalien",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "7-bestaetigung-vorabklaerung-v4.bestaetigung-gis",
+    "fields": {
+      "created_at": "2024-01-17T16:43:14.680Z",
+      "modified_at": "2024-01-17T16:43:14.680Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "7-bestaetigung-vorabklaerung-v4",
+      "question": "bestaetigung-gis",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "7-bestaetigung-vorabklaerung-v4.bestaetigung-kostenuebernahme-v4",
+    "fields": {
+      "created_at": "2024-01-17T16:49:04.008Z",
+      "modified_at": "2024-01-17T16:49:04.008Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "7-bestaetigung-vorabklaerung-v4",
+      "question": "bestaetigung-kostenuebernahme-v4",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz-v4.be-gid",
+    "fields": {
+      "created_at": "2024-01-16T14:56:30.451Z",
+      "modified_at": "2024-01-16T14:56:30.451Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz-v4",
+      "question": "be-gid",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz-v4.beschreibung-bauvorhaben",
+    "fields": {
+      "created_at": "2024-01-16T14:56:30.476Z",
+      "modified_at": "2024-01-16T14:56:30.476Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz-v4",
+      "question": "beschreibung-bauvorhaben",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz-v4.gemeinde",
+    "fields": {
+      "created_at": "2024-01-16T14:56:30.431Z",
+      "modified_at": "2024-01-16T14:56:30.431Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz-v4",
+      "question": "gemeinde",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz-v4.gwr-egid",
+    "fields": {
+      "created_at": "2024-01-16T14:56:30.460Z",
+      "modified_at": "2024-01-16T14:56:30.460Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz-v4",
+      "question": "gwr-egid",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz-v4.is-paper",
+    "fields": {
+      "created_at": "2024-01-16T14:56:30.504Z",
+      "modified_at": "2024-01-16T14:56:30.504Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz-v4",
+      "question": "is-paper",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz-v4.karte",
+    "fields": {
+      "created_at": "2024-01-16T14:56:30.380Z",
+      "modified_at": "2024-01-16T14:56:30.380Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz-v4",
+      "question": "karte",
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz-v4.konkrete-fragen-der-vorabklaerung-anfrage-v4",
+    "fields": {
+      "created_at": "2024-01-16T15:02:56.859Z",
+      "modified_at": "2024-01-16T15:02:56.860Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz-v4",
+      "question": "konkrete-fragen-der-vorabklaerung-anfrage-v4",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz-v4.nr",
+    "fields": {
+      "created_at": "2024-01-16T14:56:30.411Z",
+      "modified_at": "2024-01-16T14:56:30.411Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz-v4",
+      "question": "nr",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz-v4.ort-grundstueck",
+    "fields": {
+      "created_at": "2024-01-16T14:56:30.422Z",
+      "modified_at": "2024-01-16T14:56:30.422Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz-v4",
+      "question": "ort-grundstueck",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz-v4.parzelle",
+    "fields": {
+      "created_at": "2024-01-16T14:56:30.440Z",
+      "modified_at": "2024-01-16T14:56:30.440Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz-v4",
+      "question": "parzelle",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz-v4.sachverhalt",
+    "fields": {
+      "created_at": "2024-01-16T14:56:30.492Z",
+      "modified_at": "2024-01-16T14:56:30.492Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz-v4",
+      "question": "sachverhalt",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz-v4.standort-migriert",
+    "fields": {
+      "created_at": "2024-01-16T14:56:30.468Z",
+      "modified_at": "2024-01-16T14:56:30.468Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz-v4",
+      "question": "standort-migriert",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz-v4.strasse-flurname",
+    "fields": {
+      "created_at": "2024-01-16T14:56:30.399Z",
+      "modified_at": "2024-01-16T14:56:30.399Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz-v4",
+      "question": "strasse-flurname",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauvorhaben-v4.baubeschrieb",
+    "fields": {
+      "created_at": "2024-01-17T14:11:08.105Z",
+      "modified_at": "2024-01-17T14:11:08.105Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauvorhaben-v4",
+      "question": "baubeschrieb",
+      "sort": 26
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauvorhaben-v4.baukosten-in-chf",
+    "fields": {
+      "created_at": "2024-01-17T14:11:08.282Z",
+      "modified_at": "2024-01-17T14:11:08.282Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauvorhaben-v4",
+      "question": "baukosten-in-chf",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauvorhaben-v4.baukosten-total-chf",
+    "fields": {
+      "created_at": "2024-01-17T14:11:08.291Z",
+      "modified_at": "2024-01-17T14:11:08.291Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauvorhaben-v4",
+      "question": "baukosten-total-chf",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauvorhaben-v4.baukosten-total-pro-m3",
+    "fields": {
+      "created_at": "2024-01-17T14:11:08.308Z",
+      "modified_at": "2024-01-17T14:11:08.308Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauvorhaben-v4",
+      "question": "baukosten-total-pro-m3",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauvorhaben-v4.bauvorhaben-separator",
+    "fields": {
+      "created_at": "2024-01-17T14:11:08.265Z",
+      "modified_at": "2024-01-17T14:11:08.265Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauvorhaben-v4",
+      "question": "bauvorhaben-separator",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauvorhaben-v4.beschreibung-bauvorhaben",
+    "fields": {
+      "created_at": "2024-01-17T14:11:08.117Z",
+      "modified_at": "2024-01-17T14:11:08.117Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauvorhaben-v4",
+      "question": "beschreibung-bauvorhaben",
+      "sort": 25
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauvorhaben-v4.beschreibung-projektaenderung",
+    "fields": {
+      "created_at": "2024-01-17T14:11:08.126Z",
+      "modified_at": "2024-01-17T14:11:08.126Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauvorhaben-v4",
+      "question": "beschreibung-projektaenderung",
+      "sort": 24
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauvorhaben-v4.bisherige-nutzung",
+    "fields": {
+      "created_at": "2024-01-17T14:11:08.135Z",
+      "modified_at": "2024-01-17T14:11:08.135Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauvorhaben-v4",
+      "question": "bisherige-nutzung",
+      "sort": 22
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauvorhaben-v4.dach",
+    "fields": {
+      "created_at": "2024-01-17T14:11:08.222Z",
+      "modified_at": "2024-01-17T14:11:08.222Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauvorhaben-v4",
+      "question": "dach",
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauvorhaben-v4.dach-farbe",
+    "fields": {
+      "created_at": "2024-01-17T14:11:08.257Z",
+      "modified_at": "2024-01-17T14:11:08.257Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauvorhaben-v4",
+      "question": "dach-farbe",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauvorhaben-v4.dach-form",
+    "fields": {
+      "created_at": "2024-01-17T14:11:08.231Z",
+      "modified_at": "2024-01-17T14:11:08.231Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauvorhaben-v4",
+      "question": "dach-form",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauvorhaben-v4.dach-material",
+    "fields": {
+      "created_at": "2024-01-17T14:11:08.248Z",
+      "modified_at": "2024-01-17T14:11:08.248Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauvorhaben-v4",
+      "question": "dach-material",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauvorhaben-v4.dach-neigung",
+    "fields": {
+      "created_at": "2024-01-17T14:11:08.240Z",
+      "modified_at": "2024-01-17T14:11:08.240Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauvorhaben-v4",
+      "question": "dach-neigung",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauvorhaben-v4.dauer-in-monaten",
+    "fields": {
+      "created_at": "2024-01-17T14:11:08.327Z",
+      "modified_at": "2024-01-17T14:11:08.327Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauvorhaben-v4",
+      "question": "dauer-in-monaten",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauvorhaben-v4.fassaden",
+    "fields": {
+      "created_at": "2024-01-17T14:11:08.196Z",
+      "modified_at": "2024-01-17T14:11:08.196Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauvorhaben-v4",
+      "question": "fassaden",
+      "sort": 16
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauvorhaben-v4.fassaden-farbe",
+    "fields": {
+      "created_at": "2024-01-17T14:11:08.214Z",
+      "modified_at": "2024-01-17T14:11:08.214Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauvorhaben-v4",
+      "question": "fassaden-farbe",
+      "sort": 14
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauvorhaben-v4.fassaden-material",
+    "fields": {
+      "created_at": "2024-01-17T14:11:08.205Z",
+      "modified_at": "2024-01-17T14:11:08.205Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauvorhaben-v4",
+      "question": "fassaden-material",
+      "sort": 15
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauvorhaben-v4.fundation-system",
+    "fields": {
+      "created_at": "2024-01-17T14:11:08.160Z",
+      "modified_at": "2024-01-17T14:11:08.160Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauvorhaben-v4",
+      "question": "fundation-system",
+      "sort": 20
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauvorhaben-v4.gebaeudevolumen",
+    "fields": {
+      "created_at": "2024-01-17T14:11:08.299Z",
+      "modified_at": "2024-01-17T14:11:08.299Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauvorhaben-v4",
+      "question": "gebaeudevolumen",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauvorhaben-v4.geplanter-baustart",
+    "fields": {
+      "created_at": "2024-01-17T14:11:08.319Z",
+      "modified_at": "2024-01-17T14:11:08.319Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauvorhaben-v4",
+      "question": "geplanter-baustart",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauvorhaben-v4.konkrete-fragen-der-vorabklaerung-anfrage-v4",
+    "fields": {
+      "created_at": "2024-01-17T14:14:01.878Z",
+      "modified_at": "2024-01-17T14:14:01.878Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauvorhaben-v4",
+      "question": "konkrete-fragen-der-vorabklaerung-anfrage-v4",
+      "sort": 23
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauvorhaben-v4.tragkonstruktion",
+    "fields": {
+      "created_at": "2024-01-17T14:11:08.144Z",
+      "modified_at": "2024-01-17T14:11:08.144Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauvorhaben-v4",
+      "question": "tragkonstruktion",
+      "sort": 21
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauvorhaben-v4.tragkonstruktion-decken",
+    "fields": {
+      "created_at": "2024-01-17T14:11:08.188Z",
+      "modified_at": "2024-01-17T14:11:08.188Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauvorhaben-v4",
+      "question": "tragkonstruktion-decken",
+      "sort": 17
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauvorhaben-v4.tragkonstruktion-stuetzen",
+    "fields": {
+      "created_at": "2024-01-17T14:11:08.170Z",
+      "modified_at": "2024-01-17T14:11:08.170Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauvorhaben-v4",
+      "question": "tragkonstruktion-stuetzen",
+      "sort": 19
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauvorhaben-v4.tragkonstruktion-waende",
+    "fields": {
+      "created_at": "2024-01-17T14:11:08.179Z",
+      "modified_at": "2024-01-17T14:11:08.179Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauvorhaben-v4",
+      "question": "tragkonstruktion-waende",
+      "sort": 18
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauvorhaben-v4.vorbereitende-massnahmen",
+    "fields": {
+      "created_at": "2024-01-17T14:11:08.273Z",
+      "modified_at": "2024-01-17T14:11:08.273Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauvorhaben-v4",
+      "question": "vorbereitende-massnahmen",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vorabklaerung-einfach-v4.7-bestaetigung-vorabklaerung-v4",
+    "fields": {
+      "created_at": "2024-01-17T17:04:38.792Z",
+      "modified_at": "2024-01-17T17:04:38.792Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "vorabklaerung-einfach-v4",
+      "question": "7-bestaetigung-vorabklaerung-v4",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vorabklaerung-einfach-v4.8-freigabequittung",
+    "fields": {
+      "created_at": "2024-01-16T14:52:38.172Z",
+      "modified_at": "2024-01-16T14:52:38.172Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "vorabklaerung-einfach-v4",
+      "question": "8-freigabequittung",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vorabklaerung-einfach-v4.allgemeine-angaben-kurz-formular-v4",
+    "fields": {
+      "created_at": "2024-01-16T15:00:29.299Z",
+      "modified_at": "2024-01-16T15:00:29.299Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "vorabklaerung-einfach-v4",
+      "question": "allgemeine-angaben-kurz-formular-v4",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vorabklaerung-einfach-v4.dokumente-vorabklaerung-form",
+    "fields": {
+      "created_at": "2024-01-16T14:52:38.160Z",
+      "modified_at": "2024-01-16T14:52:38.160Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "vorabklaerung-einfach-v4",
+      "question": "dokumente-vorabklaerung-form",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vorabklaerung-einfach-v4.personalien-kurz-formular",
+    "fields": {
+      "created_at": "2024-01-16T14:52:38.129Z",
+      "modified_at": "2024-01-16T14:52:38.129Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "vorabklaerung-einfach-v4",
+      "question": "personalien-kurz-formular",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vorabklaerung-vollstaendig-v4.1-allgemeine-informationen-v4",
+    "fields": {
+      "created_at": "2024-01-17T14:08:08.533Z",
+      "modified_at": "2024-01-17T14:08:08.533Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "vorabklaerung-vollstaendig-v4",
+      "question": "1-allgemeine-informationen-v4",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vorabklaerung-vollstaendig-v4.7-bestaetigung-vorabklaerung-v4",
+    "fields": {
+      "created_at": "2024-01-17T16:59:01.901Z",
+      "modified_at": "2024-01-17T16:59:01.901Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "vorabklaerung-vollstaendig-v4",
+      "question": "7-bestaetigung-vorabklaerung-v4",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vorabklaerung-vollstaendig-v4.8-freigabequittung",
+    "fields": {
+      "created_at": "2024-01-17T13:53:17.308Z",
+      "modified_at": "2024-01-17T13:53:17.308Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "vorabklaerung-vollstaendig-v4",
+      "question": "8-freigabequittung",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vorabklaerung-vollstaendig-v4.bauwerk-v3",
+    "fields": {
+      "created_at": "2024-01-17T13:53:17.270Z",
+      "modified_at": "2024-01-17T13:53:17.270Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "vorabklaerung-vollstaendig-v4",
+      "question": "bauwerk-v3",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vorabklaerung-vollstaendig-v4.dokumente-v3",
+    "fields": {
+      "created_at": "2024-01-17T13:53:17.289Z",
+      "modified_at": "2024-01-17T13:53:17.289Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "vorabklaerung-vollstaendig-v4",
+      "question": "dokumente-v3",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vorabklaerung-vollstaendig-v4.grundstueck-v2",
+    "fields": {
+      "created_at": "2024-01-17T13:53:17.260Z",
+      "modified_at": "2024-01-17T13:53:17.260Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "vorabklaerung-vollstaendig-v4",
+      "question": "grundstueck-v2",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vorabklaerung-vollstaendig-v4.nutzung-bauvorhaben-v3",
+    "fields": {
+      "created_at": "2024-01-17T13:53:17.247Z",
+      "modified_at": "2024-01-17T13:53:17.247Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "vorabklaerung-vollstaendig-v4",
+      "question": "nutzung-bauvorhaben-v3",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vorabklaerung-vollstaendig-v4.spezialformulare-v3",
+    "fields": {
+      "created_at": "2024-01-17T13:53:17.280Z",
+      "modified_at": "2024-01-17T13:53:17.280Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "vorabklaerung-vollstaendig-v4",
+      "question": "spezialformulare-v3",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bestaetigung-kostenuebernahme-v4-ja",
+    "fields": {
+      "created_at": "2024-01-17T16:49:03.686Z",
+      "modified_at": "2024-01-17T16:49:58.391Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Es wird darauf hingewiesen, dass die Bearbeitung von Vorabkl\\u00e4rungen Kosten (Geb\\u00fchren) verursachen kann. Die anfragende Person best\\u00e4tigt, dass sie f\\u00fcr die Kosten vollumf\\u00e4nglich aufkommt. Wenn die anfragende Person diese Kosten nicht selber \\u00fcbernehmen will, so ist im Feld \\u00abPersonalien\\u00bb unter \\u00abAbweichende Rechnungsempf\\u00e4nger\\u00bb anzugeben, an wen die Kosten verrechnet werden sollen.\", \"fr\": \"Nous attirons votre attention sur le fait que le traitement des demandes pr\\u00e9alables peut entra\\u00eener des frais (\\u00e9moluments). La personne requ\\u00e9rante confirme qu'elle prend en charge l'int\\u00e9gralit\\u00e9 de ces frais. Si la personne requ\\u00e9rante ne souhaite pas assumer elle-m\\u00eame ces frais, elle doit indiquer \\u00e0 qui les frais doivent \\u00eatre factur\\u00e9s dans le champ \\u00ab Donn\\u00e9es personnelles \\u00bb sous \\u00ab Destinataires de factures diff\\u00e9rents \\u00bb.\", \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "1-allgemeine-informationen-v4",
+    "fields": {
+      "created_at": "2024-01-17T14:08:08.364Z",
+      "modified_at": "2024-01-17T14:09:06.272Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Allgemeine Informationen\", \"fr\": \"Informations g\\u00e9n\\u00e9rales\", \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "1-allgemeine-informationen-v4",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "7-bestaetigung-vorabklaerung-v4",
+    "fields": {
+      "created_at": "2024-01-17T16:59:01.730Z",
+      "modified_at": "2024-01-17T17:08:45.257Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Best\\u00e4tigung\", \"fr\": \"Attestation\", \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "'is-paper'|answer == 'is-paper-yes'",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "7-bestaetigung-vorabklaerung-v4",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "allgemeine-angaben-kurz-formular-v4",
+    "fields": {
+      "created_at": "2024-01-16T15:00:29.046Z",
+      "modified_at": "2024-01-16T15:07:29.422Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Allgemeine Angaben\", \"fr\": \"Informations g\\u00e9n\\u00e9rales\", \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "allgemeine-angaben-kurz-v4",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bauvorhaben-v4",
+    "fields": {
+      "created_at": "2024-01-17T14:19:30.636Z",
+      "modified_at": "2024-01-17T14:22:19.120Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bauvorhaben\", \"fr\": \"Projet de construction\", \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "bauvorhaben-v4",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bestaetigung-kostenuebernahme-v4",
+    "fields": {
+      "created_at": "2024-01-17T16:49:03.834Z",
+      "modified_at": "2024-01-17T16:49:58.554Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Es wird darauf hingewiesen, dass die Bearbeitung von Vorabkl\\u00e4rungen Kosten (Geb\\u00fchren) verursachen kann. Die anfragende Person best\\u00e4tigt, dass sie f\\u00fcr die Kosten vollumf\\u00e4nglich aufkommt. Wenn die anfragende Person diese Kosten nicht selber \\u00fcbernehmen will, so ist im Feld \\u00abPersonalien\\u00bb unter \\u00abAbweichende Rechnungsempf\\u00e4nger\\u00bb anzugeben, an wen die Kosten verrechnet werden sollen.\", \"fr\": \"Nous attirons votre attention sur le fait que le traitement des demandes pr\\u00e9alables peut entra\\u00eener des frais (\\u00e9moluments). La personne requ\\u00e9rante confirme qu'elle prend en charge l'int\\u00e9gralit\\u00e9 de ces frais. Si la personne requ\\u00e9rante ne souhaite pas assumer elle-m\\u00eame ces frais, elle doit indiquer \\u00e0 qui les frais doivent \\u00eatre factur\\u00e9s dans le champ \\u00ab Donn\\u00e9es personnelles \\u00bb sous \\u00ab Destinataires de factures diff\\u00e9rents \\u00bb.\", \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "'is-paper'|answer == 'is-paper-yes'",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "konkrete-fragen-der-vorabklaerung-anfrage-v4",
+    "fields": {
+      "created_at": "2024-01-16T15:02:56.645Z",
+      "modified_at": "2024-01-17T15:01:48.339Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Konkrete Frage(n) der Vorabkl\\u00e4rung (Anfrage)\", \"fr\": \"Question(s) sp\\u00e9cifique(s) pos\\u00e9e(s) lors de la demande pr\\u00e9alable (requ\\u00eate)\", \"it\": null}",
+      "type": "textarea",
+      "is_required": "true",
+      "is_hidden": "!(\n\t'vorabklaerung' in form\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "info_text": "{\"de\": \"M\\u00f6glichst genaue Umschreibung der Frage(n) welche mit der Vorabkl\\u00e4rung gepr\\u00fcft werden sollen.\", \"fr\": \"Description aussi pr\\u00e9cise que possible de la ou des questions \\u00e0 examiner dans le cadre de la demande pr\\u00e9alable.\", \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": 1000,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bestaetigung-kostenuebernahme-v4.bestaetigung-kostenuebernahme-v4-ja",
+    "fields": {
+      "created_at": "2024-01-17T16:49:58.563Z",
+      "modified_at": "2024-01-17T16:49:58.563Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "bestaetigung-kostenuebernahme-v4",
+      "option": "bestaetigung-kostenuebernahme-v4-ja",
+      "sort": 1
+    }
+  }
+]

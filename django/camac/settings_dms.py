@@ -109,9 +109,11 @@ DMS = {
             "vorabklaerung": {
                 "forms": [
                     "vorabklaerung-einfach",
+                    "vorabklaerung-einfach-v4",
                     "vorabklaerung-vollstaendig",
                     "vorabklaerung-vollstaendig-v2",
                     "vorabklaerung-vollstaendig-v3",
+                    "vorabklaerung-vollstaendig-v4",
                     "solaranlagen-meldung",
                     "heat-generator",
                 ],

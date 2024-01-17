@@ -1280,9 +1280,11 @@
         "migriertes-dossier",
         "solaranlagen-meldung",
         "vorabklaerung-einfach",
+        "vorabklaerung-einfach-v4",
         "vorabklaerung-vollstaendig",
         "vorabklaerung-vollstaendig-v2",
-        "vorabklaerung-vollstaendig-v3"
+        "vorabklaerung-vollstaendig-v3",
+        "vorabklaerung-vollstaendig-v4"
       ]
     }
   }
