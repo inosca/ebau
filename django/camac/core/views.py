@@ -456,9 +456,7 @@ class InstanceResourceView(ReadOnlyModelViewSet):
 
     def get_queryset(self):
         return (
-            models.InstanceResource.objects.filter(
-                hidden=False, role_acls__role=self.request.group.role
-            )
+            models.InstanceResource.objects.filter(hidden=False)
             .distinct()
             .order_by("sort")
         )
