@@ -52,9 +52,10 @@ class ACLUserInfo:
         user = self.user.pk if self.user else "-"
         service = self.service.pk if self.service else "-"
         token = self.token.pk if self.token else "-"
+        role = self.role.pk if self.role else "-"
 
         # The instance is first, so we can match better when revoking permissions
-        return f"permissions:i={instance.pk},u={user},s={service},t={token}"
+        return f"permissions:i={instance.pk},r={role},u={user},s={service},t={token}"
 
 
 class PermissionManager:
