@@ -1,3 +1,4 @@
+import gc
 import shutil
 from pathlib import Path
 
@@ -71,6 +72,9 @@ def _import_dossier(data, bfs_nr):
         imported_instance.case.meta["submit-date"] = submit_date
         imported_instance.case.save()
 
+        data = None
+        gc.collect()
+
         return imported_instance
 
     creation_data = {
@@ -115,6 +119,8 @@ def _import_dossier(data, bfs_nr):
     _write_answers(instance, data)
     _write_attachments(instance, data, bfs_nr)
 
+    data = None
+    gc.collect()
     return instance
 
 
