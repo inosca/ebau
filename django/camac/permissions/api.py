@@ -9,10 +9,10 @@ from django.utils import timezone
 
 from camac.instance.models import Instance
 from camac.permissions import models
+from camac.permissions.conditions import Callback, Check
 from camac.permissions.models import AccessLevel, InstanceACL
 from camac.user import models as user_models
 from camac.user.models import Service, User
-from camac.utils import call_with_accepted_kwargs
 
 from . import exceptions
 
@@ -98,6 +98,7 @@ class PermissionManager:
         # We try to cache rather long
         expiry = timezone.now() + timedelta(days=10)
 
+        enable_cache = True
         for acl in acls:
             access_level = acl.access_level
             if acl.end_time:
@@ -105,14 +106,17 @@ class PermissionManager:
                 expiry = min(expiry, acl.end_time)
 
             for perm, condition in self._access_level_config(access_level.slug):
+                # Cache gets disabled on the first condition that doesn't
+                # allow caching
+                enable_cache = enable_cache and getattr(
+                    condition, "allow_caching", False
+                )
+
                 if callable(condition):
-                    # This is a dynamic permission
-                    has_perm = call_with_accepted_kwargs(
-                        condition, userinfo=self.userinfo, instance=instance
-                    )
-                    if has_perm:
+                    condition = Callback(condition)
+                if isinstance(condition, Check):
+                    if condition.apply(userinfo=self.userinfo, instance=instance):
                         granted_permissions.add(perm)
-                    continue
 
                 else:  # pragma: no cover
                     raise ImproperlyConfigured(
@@ -123,9 +127,10 @@ class PermissionManager:
                         f"permission {perm}"
                     )
 
-        cache_duration = expiry - timezone.now()
         permissions_sorted = sorted(granted_permissions)
-        cache.set(cache_key, permissions_sorted, cache_duration.total_seconds())
+        if enable_cache:
+            cache_duration = expiry - timezone.now()
+            cache.set(cache_key, permissions_sorted, cache_duration.total_seconds())
         return permissions_sorted
 
     def _access_level_config(self, access_level_slug):

@@ -2,7 +2,7 @@ import pytest
 from django.urls import reverse
 
 from camac.permissions import api
-from camac.permissions.conditions import InstanceState
+from camac.permissions.conditions import Callback, InstanceState
 
 
 @pytest.fixture
@@ -17,7 +17,7 @@ def configure_access_levels(permissions_settings, instance, access_level):
             access_level.pk: [
                 ("foo", InstanceState([instance.instance_state.name])),
                 ("bar", InstanceState([instance.instance_state.name])),
-                ("func", check_functional_permission),
+                ("func", Callback(check_functional_permission)),
             ]
         }
 
