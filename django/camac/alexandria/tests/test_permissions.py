@@ -1,9 +1,11 @@
 import datetime
+import io
 
 import pytest
 from alexandria.core.factories import (
     CategoryFactory,
     DocumentFactory,
+    FileData,
     FileFactory,
     MarkFactory,
     TagFactory,
@@ -364,29 +366,17 @@ def test_file_permission(
     url = reverse("file-list")
 
     data = {
-        "data": {
-            "type": "files",
-            "attributes": {
-                "name": "Old",
-                "variant": "original",
-            },
-            "relationships": {
-                "document": {
-                    "data": {
-                        "id": doc.pk,
-                        "type": "documents",
-                    },
-                },
-            },
-        },
+        "name": "file.png",
+        "document": str(doc.pk),
+        "content": io.BytesIO(FileData.png),
+        "variant": "original",
     }
-
     if method in ["patch", "delete"]:
         file = FileFactory(name="File", document=doc)
         url = reverse("file-detail", args=[file.pk])
-        data["data"]["id"] = str(file.pk)
+        data["id"] = str(file.pk)
 
-    response = getattr(admin_client, method)(url, data)
+    response = getattr(admin_client, method)(url, data=data, format="multipart")
 
     assert response.status_code == status_code
 
@@ -528,6 +518,7 @@ def test_nested_permission(db, role, applicant_factory, admin_client, instance):
 def test_patch_fields(
     db,
     role,
+    minio_mock,
     caluma_admin_user,
     applicant_factory,
     admin_client,

@@ -184,7 +184,7 @@ class CustomPermission:
     @object_permission_for(File)
     def has_permission_for_file(self, request, file=None):
         if file is None:
-            document = Document.objects.get(pk=request.data["document"]["id"])
+            document = Document.objects.get(pk=request.data["document"])
         else:
             document = file.document
 

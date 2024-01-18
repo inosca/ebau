@@ -354,3 +354,12 @@ def test_detail_visibility(
     assert response.status_code == HTTP_200_OK
     response = admin_client.get(reverse("tag-detail", args=[tag.pk]))
     assert response.status_code == HTTP_200_OK
+
+
+@pytest.mark.parametrize("role__name", ["applicant"])
+def test_file_download(db, minio_mock, alexandria_setup, admin_client, client):
+    response = admin_client.get(reverse("file-list"))
+    url = response.json()["data"][0]["attributes"]["download-url"]
+
+    result = client.get(url)
+    assert result.status_code == HTTP_200_OK

@@ -7,8 +7,6 @@ if [ "$1" != "-u" ]; then
   # Create buckets for DMS and alexandria
   mc mb -p dc-minio/dms-media;
   mc mb -p dc-minio/alexandria-media;
-  # Create event for alexandria
-  mc event add dc-minio/alexandria-media arn:minio:sqs::ALEXANDRIA:webhook -p --event put;
 fi
 # Copy DMS default templates to dms-media bucket
 mc cp /tmp/dms-media/* dc-minio/dms-media/;

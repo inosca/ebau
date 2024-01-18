@@ -1,3 +1,5 @@
-import AlexandriaAdapter from "ember-ebau-core/adapters/alexandria";
+import FileAdapter from "ember-alexandria/adapters/file";
 
-export default class AlexandriaFileAdapter extends AlexandriaAdapter {}
+export default class AlexandriaFileAdapter extends FileAdapter {
+  namespace = "alexandria/api/v1";
+}

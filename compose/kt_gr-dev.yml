@@ -78,11 +78,9 @@ services:
       - PYTHONDONTWRITEBYTECODE=1
       - GWR_FERNET_KEY=GUdwT6yKxqfszrnHC7wyKDmtVZdhjSVQEPnpeJYNLf8=
       - DJANGO_INTERNAL_BASE_URL=http://ember-ebau.local
-      # Alexandria
-      - ALEXANDRIA_MINIO_STORAGE_ENDPOINT=ember-ebau.local
-      - ALEXANDRIA_MINIO_STORAGE_ACCESS_KEY=minio
-      - ALEXANDRIA_MINIO_STORAGE_SECRET_KEY=minio123
       - DOCUMENT_MERGE_SERVICE_URL=http://document-merge-service:8000/document-merge-service/api/v1/
+      # Alexandria
+      - DEFAULT_FILE_STORAGE=alexandria.storages.backends.s3.S3Storage
     networks:
       - ebau.local
     command: /bin/sh -c "./wait-for-it.sh db:5432 -- ./manage.py migrate && ./manage.py collectstatic --noinput && ./manage.py runserver 0:80 --pythonpath /app/$APPLICATION"
@@ -169,8 +167,6 @@ services:
       - MINIO_ROOT_USER=minio
       - MINIO_ROOT_PASSWORD=minio123
       - MINIO_BROWSER_REDIRECT_URL=http://ember-ebau.local/minio/ui
-      - MINIO_NOTIFY_WEBHOOK_ENABLE_ALEXANDRIA=on
-      - MINIO_NOTIFY_WEBHOOK_ENDPOINT_ALEXANDRIA=http://django:80/alexandria/api/v1/hook
     command: server data --console-address ":9090"
     networks:
       - ebau.local
