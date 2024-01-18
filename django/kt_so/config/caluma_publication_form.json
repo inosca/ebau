@@ -119,7 +119,7 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Amtsblatt\", \"fr\": null, \"it\": null}",
       "is_archived": false,
-      "meta": {},
+      "meta": { "email": "amtsblatt@sk.so.ch" },
       "source": null
     }
   },
@@ -135,7 +135,7 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Anzeiger Thal G\\u00e4u Olten\", \"fr\": null, \"it\": null}",
       "is_archived": false,
-      "meta": {},
+      "meta": { "email": "info@AnzeigerTGO.ch" },
       "source": null
     }
   },
@@ -151,7 +151,7 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Azeiger\", \"fr\": null, \"it\": null}",
       "is_archived": false,
-      "meta": {},
+      "meta": { "email": "avinserate@chmedia.ch" },
       "source": null
     }
   },
@@ -167,7 +167,7 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Grenchner Stadt Anzeiger\", \"fr\": null, \"it\": null}",
       "is_archived": false,
-      "meta": {},
+      "meta": { "email": "inserate@grenchnerstadtanzeiger.ch" },
       "source": null
     }
   },
@@ -183,7 +183,7 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Nieder\\u00e4mter Anzeiger\", \"fr\": null, \"it\": null}",
       "is_archived": false,
-      "meta": {},
+      "meta": { "email": "admin@niederaemter-anzeiger.ch" },
       "source": null
     }
   },
@@ -199,7 +199,7 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Wochenblatt Birseck / Dorneck\", \"fr\": null, \"it\": null}",
       "is_archived": false,
-      "meta": {},
+      "meta": { "email": "inserate.arlesheim@wochenblatt.ch" },
       "source": null
     }
   },
@@ -215,7 +215,7 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Wochenblatt Schwarzbubenland / Laufenthal\", \"fr\": null, \"it\": null}",
       "is_archived": false,
-      "meta": {},
+      "meta": { "email": "inserate.laufen@wochenblatt.ch" },
       "source": null
     }
   },

@@ -1475,6 +1475,44 @@ class SoDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         aliases=[_("OPPOSING")],
         description=_("Opposing with address"),
     )
+    entscheiddokumente = fields.AlexandriaDocumentField(
+        mark="decision",
+        aliases=[_("DECISION_DOCUMENTS")],
+        description=_("All documents marked as decision documents"),
+    )
+    eingereichte_unterlagen = fields.AlexandriaDocumentField(
+        category="beilagen-zum-gesuch",
+        include_child_categories=True,
+        aliases=[_("SUBMITTED_DOCUMENTS")],
+        description=_("All submitted documents"),
+    )
+    eingereichte_plaene = fields.AlexandriaDocumentField(
+        category="beilagen-zum-gesuch-projektplaene-projektbeschrieb",
+        aliases=[_("SUBMITTED_PLANS")],
+        description=_("All submitted plans"),
+    )
+    nutzungsplanung_grundnutzung = fields.MasterDataField(
+        source="land_use_planning_land_use",
+        aliases=[_("LAND_USE_PLANNING_LAND_USE")],
+        description=_("Land use planning (land use)"),
+    )
+    publikation_organ = fields.PublicationField(
+        source="publikation-organ",
+        value_key="selected_options",
+        parser=lambda options: [
+            {
+                "NAME": str(option.label),
+                "EMAIL": option.meta.get("email"),
+            }
+            for option in options
+        ],
+        aliases=[_("PUBLICATION_ORGAN")],
+        nested_aliases={
+            "NAME": [_("NAME")],
+            "EMAIL": [_("EMAIL")],
+        },
+        description=_("Publication organ of the instance"),
+    )
 
     class Meta:
         exclude = [
