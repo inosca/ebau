@@ -966,7 +966,7 @@
     "pk": "decision-info-geometer",
     "fields": {
       "created_at": "2023-12-01T19:03:57.161Z",
-      "modified_at": "2024-01-05T15:45:14.080Z",
+      "modified_at": "2024-01-17T21:44:31.744Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -977,12 +977,13 @@
       "is_hidden": "!('decision-geometer'|answer == 'decision-geometer-no')",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"<div class=\\\"uk-alert uk-alert-default uk-margin-remove\\\">Sind Sie sicher, dass kein Nachf\\u00fchrungsgeometer ben\\u00f6tigt wird? Einsichtsberechtigungen f\\u00fcr den Nachf\\u00fchrungsgeometer k\\u00f6nnen nachtr\\u00e4glich \\u00fcber das Berechtigungsmodul vergeben werden.</div>\", \"fr\": \"<div class=\\\"uk-alert uk-alert-default uk-margin-remove\\\">Etes-vous s\\u00fbr qu'un g\\u00e9om\\u00e8tre conservateur n'est pas n\\u00e9cessaire ? Les autorisations de consultation pour le g\\u00e9om\\u00e8tre conservateur peuvent \\u00eatre attribu\\u00e9es ult\\u00e9rieurement via le module d'autorisation.</div>\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"Sind Sie sicher, dass kein Nachf\\u00fchrungsgeometer ben\\u00f6tigt wird? Einsichtsberechtigungen f\\u00fcr den Nachf\\u00fchrungsgeometer k\\u00f6nnen nachtr\\u00e4glich \\u00fcber das Berechtigungsmodul vergeben werden.\", \"fr\": \"Etes-vous s\\u00fbr qu'un g\\u00e9om\\u00e8tre conservateur n'est pas n\\u00e9cessaire ? Les autorisations de consultation pour le g\\u00e9om\\u00e8tre conservateur peuvent \\u00eatre attribu\\u00e9es ult\\u00e9rieurement via le module d'autorisation.\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
-        "hideLabel": true
+        "hideLabel": true,
+        "widgetOverride": "decision/info-geometer"
       },
       "data_source": null,
       "row_form": null,
