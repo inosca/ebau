@@ -10,9 +10,6 @@ export default {
     snippets: false,
     revert: true,
   },
-  dms: {
-    mergeAndSave: false,
-  },
   cases: {
     createPaper: true,
     exportExcel: false,

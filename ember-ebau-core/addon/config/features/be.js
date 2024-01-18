@@ -20,9 +20,6 @@ export default {
     snippets: true,
     revert: true,
   },
-  dms: {
-    mergeAndSave: true,
-  },
   communication: {
     snippets: true,
   },
