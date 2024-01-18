@@ -170,7 +170,7 @@ class DocumentParser:
         self.document = document
         self.lang = get_language()
         self.slugs_table = slugs_baugesuch
-        if document.form.slug == "vorabklaerung-einfach":
+        if document.form.slug in ["vorabklaerung-einfach", "vorabklaerung-einfach-v4"]:
             self.slugs_table = slugs_vorabklaerung_einfach
 
         # main slugs are all questions under the "top" key combined with all the other keys
