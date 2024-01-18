@@ -1,12 +1,12 @@
 permissions:
-  empty: aucune entrée trouvée.
-  new: Créer une nouvelle autorisation
-  create: Créer
-  saveError: une erreur est survenue lors de l'enregistrement, veuillez réessayer.
-  fetchError: erreur lors du chargement de la LCA.
-  revokeError: une erreur est survenue lors de la révocation de l'autorisation.
-  revoke: Retirer l'autorisation
-  confirmRevoke: Êtes-vous sûr de vouloir révoquer l'autorisation ?
+  empty: Aucune entrée n'a été trouvée
+  new: Attribuer un nouveau droit d'accès
+  create: Attribuer
+  saveError: Une erreur est survenue lors de l'enregistrement, veuillez réessayer.
+  fetchError: Erreur lors du chargement du droit d'accès.
+  revokeError: Une erreur s'est produite lors de la révocation du droit d'accès.
+  revoke: Révoquer le droit d'accès
+  confirmRevoke: Voulez-vous vraiment révoquer le droit d'accès?
 
   entities:
     public-registered: Accès public (enregistré)
@@ -18,18 +18,18 @@ permissions:
     email: "-"
  
   details:
-    heading: Informations sur l'autorisation
+    heading: Informations sur le droit d'accès
     entityName: Entité autorisée
-    entityEmail: E-mail
+    entityEmail: Courriel
     organisation: Organisation
     accessLevel: Niveau d'accès
     startTime: Valable du
     endTime: Valable jusqu'au
     status: État
-    createdAt: Créé le
-    createdBy: Créé par
-    revokedBy: Retiré par
-    managedBySystem: Système administré
+    createdAt: Attribué le
+    createdBy: Attribué par
+    revokedBy: Révoqué par
+    managedBySystem: Gestion automatique du système
 
   status:
     active: Actif
@@ -37,7 +37,7 @@ permissions:
     expired: Expiré
     all: Tous
 
-   # those must be added manually according to the configured acls 
+  # those must be added manually according to the configured acls 
   access-level:
     all-levels: Tous les niveaux d'accès
     public-access: Public
