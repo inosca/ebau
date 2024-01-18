@@ -3,6 +3,8 @@ from django.urls import reverse
 from pytest_factoryboy import LazyFixture
 from rest_framework import status
 
+from camac.permissions.conditions import Always
+
 
 @pytest.mark.parametrize(
     "role__name,instance__user",
@@ -86,7 +88,7 @@ def test_instance_resource_filter_instance(
     has_role_acl_b,
     expect_results,
 ):
-    permissions_settings["ACCESS_LEVELS"] = {access_level.pk: [("foo", ["*"])]}
+    permissions_settings["ACCESS_LEVELS"] = {access_level.pk: [("foo", Always())]}
 
     role = admin_client.user.groups.first().role
 
