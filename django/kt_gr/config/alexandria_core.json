@@ -208,15 +208,7 @@
                 "permission": "create"
               },
               {
-                "scope": "Service",
-                "condition": {
-                  "~InstanceState": ["rejected", "finished"]
-                },
-                "permission": "update"
-              },
-              {
                 "scope": "All",
-                "fields": ["tags"],
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
                 },
