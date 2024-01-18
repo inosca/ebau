@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-12 14:19+0100\n"
-"PO-Revision-Date: 2023-12-13 14:33+0100\n"
+"PO-Revision-Date: 2024-01-18 16:58+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 3.4.1\n"
+"X-Generator: Poedit 3.4.2\n"
 
 #: camac/admin.py:16 camac/admin.py:17
 msgid "eBau"
@@ -293,8 +293,8 @@ msgstr "Charger et transformer le coordinates E: %(e)i et N: %(n)i a échoué"
 #: camac/dossier_import/loaders.py:300
 #, python-format
 msgid ""
-"Failed to load plot with numbers `%(plot_numbers)s` and egrid values "
-"`%(egrids)s`"
+"Failed to load plot with numbers `%(plot_numbers)s` and egrid values `"
+"%(egrids)s`"
 msgstr ""
 "Échec du chargement du graphe avec les numéros `%(plot_numbers)s` et les "
 "valeurs des egrides `%(egrids)s`"
@@ -314,8 +314,8 @@ msgid ""
 "have an invalid value in date field. Please use the format \"DD.MM.YYYY\" (e."
 "g. \"13.04.2021\")"
 msgstr ""
-"n'ont pas de valeur date valable. Veuillez utilizer le format \"DD.MM."
-"YYYY\" (e.g. \"13.04.2021\")"
+"n'ont pas de valeur date valable. Veuillez utilizer le format \"DD.MM.YYYY"
+"\" (e.g. \"13.04.2021\")"
 
 #: camac/dossier_import/messages.py:160
 msgid "have an invalid status"
@@ -660,11 +660,11 @@ msgstr "Décision"
 
 #: camac/instance/export/serializers.py:110
 msgid "SB1 submission date"
-msgstr ""
+msgstr "DC1 - date de dépôt"
 
 #: camac/instance/export/serializers.py:114
 msgid "SB2 submission date"
-msgstr ""
+msgstr "DC2 - date de dépôt"
 
 #: camac/instance/export/serializers.py:116
 msgid "Tags"
@@ -956,11 +956,14 @@ msgstr ""
 
 #: camac/notification/serializers.py:88
 msgid "Geometer (via permissions module)"
-msgstr "Géomètre (via le module permissions)"
+msgstr ""
+"Géomètre (par l'intermédiaire du module permettant l'octroi d'autorisations)"
 
 #: camac/notification/serializers.py:91
 msgid "Authorized entity (via permissions module)"
-msgstr "Entité autorisée (via le module permissions)"
+msgstr ""
+"Entité autorisée (par l'intermédiaire du module permettant l'octroi "
+"d'autorisations)"
 
 #: camac/notification/serializers.py:445
 #, python-format
@@ -1180,16 +1183,12 @@ msgid "Users"
 msgstr "Utilisateurs"
 
 #: camac/user/admin/inlines.py:78
-#, fuzzy
-#| msgid "Service group"
 msgid "Service relationship"
-msgstr "Type d'organisation"
+msgstr "Relation organisationnelle "
 
 #: camac/user/admin/inlines.py:79
-#, fuzzy
-#| msgid "Service groups"
 msgid "Service relationships"
-msgstr "Types d'organisation"
+msgstr "Relations organisationnelles"
 
 #: camac/user/admin/views.py:130 camac/user/models.py:498
 #: camac/user/models.py:571
@@ -1308,15 +1307,15 @@ msgstr "Types d'organisation"
 
 #: camac/user/models.py:529
 msgid "Geometer"
-msgstr ""
+msgstr "Géomètre"
 
 #: camac/user/models.py:537
 msgid "Service providing the given function"
-msgstr ""
+msgstr "Organisation fournissant"
 
 #: camac/user/models.py:542
 msgid "Function the service provides"
-msgstr ""
+msgstr "Fonction"
 
 #: camac/user/models.py:580
 msgid "Service parent"
@@ -1328,7 +1327,7 @@ msgstr "Reprendre la compétence dans le contrôle de la construction ?"
 
 #: camac/user/models.py:644
 msgid "Services that perform a specific function"
-msgstr ""
+msgstr "Organisations offrant une fonction spécifique"
 
 #: camac/user/models.py:652
 msgid "Services"
