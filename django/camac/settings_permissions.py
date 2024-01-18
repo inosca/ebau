@@ -1,6 +1,6 @@
 from typing import Callable, Dict, List, Tuple, TypedDict
 
-from camac.permissions.conditions import Always, InstanceState
+from camac.permissions.conditions import Always, HasRole, InstanceState
 
 """
 Configuration for the permissions module.
@@ -57,8 +57,6 @@ BE_GEOMETER_DEFAULT_ACCESSIBLE_STATES = InstanceState(
         "sb2",
         "conclusion",
         "finished",
-        "finished_internal",
-        "evaluated",
     ]
 )
 
@@ -94,9 +92,21 @@ PERMISSIONS: PermissionsConfig = {
                 # to permissions module naming convention once the InstanceEditableMixin
                 # is refactored / removed
                 ("document", BE_GEOMETER_DEFAULT_ACCESSIBLE_STATES),
-                ("workitems-read", BE_GEOMETER_DEFAULT_ACCESSIBLE_STATES),
-                ("communications-read", BE_GEOMETER_DEFAULT_ACCESSIBLE_STATES),
-                ("templates-read", BE_GEOMETER_DEFAULT_ACCESSIBLE_STATES),
+                (
+                    "workitems-read",
+                    HasRole(["geometer-lead", "geometer-clerk"])
+                    & BE_GEOMETER_DEFAULT_ACCESSIBLE_STATES,
+                ),
+                (
+                    "communications-read",
+                    HasRole(["geometer-lead", "geometer-clerk"])
+                    & BE_GEOMETER_DEFAULT_ACCESSIBLE_STATES,
+                ),
+                (
+                    "templates-read",
+                    HasRole(["geometer-lead", "geometer-clerk"])
+                    & BE_GEOMETER_DEFAULT_ACCESSIBLE_STATES,
+                ),
                 ("geometer-read", BE_GEOMETER_DEFAULT_ACCESSIBLE_STATES),
                 ("responsible-service-read", BE_GEOMETER_DEFAULT_ACCESSIBLE_STATES),
                 ("journal-read", BE_GEOMETER_DEFAULT_ACCESSIBLE_STATES),
