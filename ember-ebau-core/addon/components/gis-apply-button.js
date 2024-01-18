@@ -110,11 +110,17 @@ export default class GisApplyButtonComponent extends Component {
     this.appliedAnswers = 0;
   });
 
-  async applyAnswer(question, { value, label, form = null }, document) {
-    const doc = document ?? this.args.document;
-    const field = doc.findField(question);
+  async applyAnswer(
+    question,
+    { value, label, form = null },
+    doc = this.args.document,
+  ) {
+    const field = doc?.findField(question);
 
     try {
+      if (!field) {
+        return true;
+      }
       if (field.questionType === "DynamicChoiceQuestion") {
         const option = field.options.find((o) => o.label === value);
         field.answer.value = option.slug;
