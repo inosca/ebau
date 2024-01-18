@@ -10,6 +10,10 @@ export const AVAILABLE_GRANT_TYPES = [
   "USER",
 ];
 
+export const EVENT_TYPES = {
+  MANUAL_CREATION: "manual-creation",
+};
+
 export default class InstanceAclModel extends Model {
   @service store;
   @service fetch;
@@ -37,7 +41,7 @@ export default class InstanceAclModel extends Model {
   @belongsTo("access-level", { inverse: null, async: true }) accessLevel;
 
   get createdByName() {
-    if (!this.createdByService && !this.createdByUser) {
+    if (this.createdByEvent !== EVENT_TYPES.MANUAL_CREATION) {
       return this.intl.t("permissions.details.managedBySystem");
     }
     return this.createdByUser
@@ -46,7 +50,10 @@ export default class InstanceAclModel extends Model {
   }
 
   get revokedByName() {
-    if (!this.revokedByService && !this.revokedByUser) {
+    if (
+      this.revokedByEvent &&
+      this.revokedByEvent !== EVENT_TYPES.MANUAL_CREATION
+    ) {
       return this.intl.t("permissions.details.managedBySystem");
     }
     return this.revokedByUser
@@ -98,7 +105,8 @@ export default class InstanceAclModel extends Model {
 
   get revokeable() {
     return (
-      this.createdByEvent === "manual-creation" && this.status !== "expired"
+      this.createdByEvent === EVENT_TYPES.MANUAL_CREATION &&
+      this.status !== "expired"
     );
   }
 
