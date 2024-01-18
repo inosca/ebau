@@ -253,6 +253,7 @@ instances:
     pending: "Offen"
     sb: "Selbstdeklaration"
     constructionAcceptance: "Entschieden"
+    constructionMonitoring: "Entschieden"
     done: "Abgeschlossen"
     notSubmitted: "Neu"
     submitted: "Eingereicht"
