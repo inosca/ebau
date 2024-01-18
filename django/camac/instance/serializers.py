@@ -6,7 +6,6 @@ from io import StringIO
 from logging import getLogger
 
 from alexandria.core import models as alexandria_models
-from alexandria.core.storage_clients import Minio
 from caluma.caluma_form import models as form_models
 from caluma.caluma_form.validators import CustomValidationError, DocumentValidator
 from caluma.caluma_workflow import api as workflow_api, models as workflow_models
@@ -1208,15 +1207,9 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
                     "system-generated": True,
                 },
             )
-            file = alexandria_models.File.objects.create(
-                name=pdf.name, document=document
+            alexandria_models.File.objects.create(
+                name=pdf.name, document=document, content=pdf
             )
-            minio = Minio()
-            minio.client.put_object(
-                minio.bucket, f"{file.pk}_{pdf.name}", pdf, pdf.size
-            )
-            file.upload_status = alexandria_models.File.COMPLETED
-            file.save()
         else:
             attachment_section = AttachmentSection.objects.get(pk=target_lookup)
             attachment_section.attachments.create(
