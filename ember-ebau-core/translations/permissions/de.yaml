@@ -37,12 +37,6 @@ permissions:
     expired: Abgelaufen
     all: Alle
 
-  # those must be added manually according to the configured acls 
   access-level:
     all-levels: Alle Zugangsstufen
-    public-access: Öffentlich
-    registered-user: Antragstellende
-    service: Behörde
-    controlling: Mitarbeiter
-    token: Zugangscode
 

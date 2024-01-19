@@ -37,12 +37,6 @@ permissions:
     expired: Expiré
     all: Tous
 
-  # those must be added manually according to the configured acls 
   access-level:
     all-levels: Tous les niveaux d'accès
-    public-access: Public
-    registered-user: demandeur
-    service: autorité
-    controlling: employé
-    token: Code d'accès
 
