@@ -630,7 +630,7 @@ msgstr "Type de demande"
 
 #: camac/instance/export/serializers.py:88
 msgid "Parcels"
-msgstr ""
+msgstr "Parcelles"
 
 #: camac/instance/export/serializers.py:93
 #: camac/instance/export/serializers.py:195
