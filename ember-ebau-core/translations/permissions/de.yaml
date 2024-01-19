@@ -3,7 +3,7 @@ permissions:
   new: Neue Berechtigung erstellen
   create: Erstellen
   saveError: Beim Speichern ist ein Fehler aufgetreten, bitte versuchen Sie es erneut.
-  fetchError: Fehler beim Laden der ACL.
+  fetchError: Fehler beim Laden der Berechtigung.
   revokeError: Beim Widerrufen der Berechtigung ist ein Fehler aufgetreten.
   revoke: Berechtigung entziehen
   confirmRevoke: Sind Sie sich sicher, dass sie die Berechtigung entziehen wollen?
@@ -37,12 +37,6 @@ permissions:
     expired: Abgelaufen
     all: Alle
 
-  # those must be added manually according to the configured acls 
   access-level:
     all-levels: Alle Zugangsstufen
-    public-access: Öffentlich
-    registered-user: Antragstellende
-    service: Behörde
-    controlling: Mitarbeiter
-    token: Zugangscode
 

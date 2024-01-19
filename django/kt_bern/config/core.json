@@ -48376,7 +48376,7 @@
     "fields": {
       "instance_resource": 18000003,
       "language": "fr",
-      "name": "Autorisations",
+      "name": "Droits d'accès",
       "description": null
     }
   },
