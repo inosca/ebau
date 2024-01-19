@@ -120,7 +120,7 @@ class Command(BaseCommand):
 
         name_templates = {
             "fr": {
-                False: "géomètre conservateur {name} (Site {city})",
+                False: "géomètre conservateur {name} (Lieu {city})",
                 True: "géomètre conservateur {name}",
             },
             "de": {
