@@ -198,7 +198,15 @@ def test_extending_acl(db, instance_acl, end_time, expect_error):
         assert True
 
 
-def test_cache_eviction(db, user, permissions_settings, access_level, instance):
+@pytest.mark.parametrize("has_uncacheable_check", [True, False])
+def test_cache_eviction(
+    db,
+    user,
+    permissions_settings,
+    access_level,
+    instance,
+    has_uncacheable_check,
+):
     perm_check_call_counts = {"": 0}
 
     def funkytown():
@@ -209,9 +217,13 @@ def test_cache_eviction(db, user, permissions_settings, access_level, instance):
         access_level.pk: [
             ("foo", conditions.Always()),
             ("bar", conditions.Always()),
-            ("func", funkytown),
+            ("func", conditions.Callback(funkytown, allow_caching=True)),
         ]
     }
+    if has_uncacheable_check:
+        permissions_settings["ACCESS_LEVELS"][access_level.pk].append(
+            ("plain-callback", lambda instance: False),
+        )
 
     the_acl = api.grant(
         user=user,
@@ -229,9 +241,14 @@ def test_cache_eviction(db, user, permissions_settings, access_level, instance):
     # Assume one call to the permissions call
     assert perm_check_call_counts[""] == 1
 
-    # Second call should be cached
     permissions = manager.get_permissions(instance)
-    assert perm_check_call_counts[""] == 1
+
+    # Second call should be cached unless we have an un-cacheable check.
+    # Therefore, if the whole access level turns un-cacheable, we expect
+    # the call count to increase
+    addded_expected_call = 1 if has_uncacheable_check else 0
+
+    assert perm_check_call_counts[""] == 1 + addded_expected_call
 
     # Revoke some time in the future. This should still trigger cache eviction
     # and with it, recalculation
@@ -239,11 +256,11 @@ def test_cache_eviction(db, user, permissions_settings, access_level, instance):
 
     permissions = manager.get_permissions(instance)
     assert permissions == ["bar", "foo", "func"]
-    assert perm_check_call_counts[""] == 2
+    assert perm_check_call_counts[""] == addded_expected_call + 2
 
     # Calling again should not increase the permissions check call count
     permissions = manager.get_permissions(instance)
-    assert perm_check_call_counts[""] == 2
+    assert perm_check_call_counts[""] == addded_expected_call * 2 + 2
 
     # Immediate revocation must drop all permissions immediately
     api.revoke(the_acl)
