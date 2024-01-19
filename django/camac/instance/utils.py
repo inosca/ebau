@@ -1,16 +1,18 @@
 from collections import namedtuple
+from typing import Union
 
 from caluma.caluma_form.api import save_answer
 from caluma.caluma_form.models import AnswerDocument, Option, Question
 from caluma.caluma_user.models import OIDCUser
 from caluma.caluma_workflow.api import complete_work_item, skip_work_item
 from django.db.models import Prefetch
+from django.db.models.query import QuerySet
 from django.utils.timezone import now
 from django.utils.translation import gettext as _
 
 from camac.caluma.api import CalumaApi
 from camac.instance.models import Instance
-from camac.user.models import Group, Service, User
+from camac.user.models import Group, Service, ServiceRelation, User
 
 
 def get_lead_authority(service):
@@ -51,7 +53,14 @@ def get_construction_control(service):
         )
 
 
-def set_construction_control(instance: Instance) -> Service:
+def get_municipality(instance: Instance) -> Service:
+    """Return the responsible municipality for the given instance.
+
+    Ideally, the municipality is also the currently active service.
+    However in certain situations, there needs to be a fallback,
+    for example when active service is an RSTA, or when
+    the service is only known in the Caluma form.
+    """
     involved_municipalities = instance.instance_services.filter(
         service__service_group__name="municipality"
     )
@@ -66,7 +75,34 @@ def set_construction_control(instance: Instance) -> Service:
     else:
         # no involved municipality, take fallback from form
         municipality = Service.objects.get(pk=CalumaApi().get_municipality(instance))
+    return municipality
 
+
+def get_municipality_provider_services(
+    instance: Union[Instance, str, int], function: str
+) -> QuerySet[Service]:
+    """
+    Return *all* services that provde a function in the context of this instance.
+
+    Take the responsible municipality, and check the service relationships to find
+    and find any service providing the desired function.
+
+    The `function` needs to be one of the supported functions from
+    `user.ServiceRelation.FUNCTION_CHOICES`
+
+    Note: This returns a queryset with zero or multiple services. If you only need
+    one, use `get_municipality_provider_service()`.
+    """
+    if not isinstance(instance, Instance):  # Xzibit would be proud!
+        instance = Instance.objects.get(pk=instance)
+
+    municipality = get_municipality(instance)
+    relations = ServiceRelation.objects.filter(receiver=municipality, function=function)
+    return Service.objects.filter(pk__in=relations.values("provider"))
+
+
+def set_construction_control(instance: Instance) -> Service:
+    municipality = get_municipality(instance)
     construction_control = get_construction_control(municipality)
     instance.instance_services.create(service=construction_control, active=1)
 

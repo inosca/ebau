@@ -2,7 +2,7 @@ from functools import reduce
 
 from django.conf import settings
 from django.contrib.auth import get_user_model
-from django.db.models import Q
+from django.db.models import Q, Subquery
 from django_filters.constants import EMPTY_VALUES
 from django_filters.rest_framework import (
     BooleanFilter,
@@ -12,6 +12,7 @@ from django_filters.rest_framework import (
 )
 
 from camac.filters import CharMultiValueFilter, NumberMultiValueFilter
+from camac.instance import utils as instance_utils
 from camac.instance.models import Instance
 from camac.instance.views import InstanceView
 from camac.responsible.models import ResponsibleService
@@ -39,7 +40,14 @@ class PublicServiceFilterSet(FilterSet):
     suggestion_for_instance = NumberFilter(method="filter_suggestion_for_instance")
     exclude_own_service = BooleanFilter(method="filter_exclude_own_service")
     service_name = CharFilter(method="filter_service_name")
+
+    # ?provider_for=geometer;999111 (service id)
     provider_for = CharFilter(method="filter_provider_for")
+
+    # ?provider_for_instance_municipality=geometer;1234 (instance id)
+    provider_for_instance_municipality = CharFilter(
+        method="filter_provider_for_instance_municipality"
+    )
 
     @permission_aware
     def _available_in_distribution(self, queryset, name, value):
@@ -120,6 +128,14 @@ class PublicServiceFilterSet(FilterSet):
                 function=function, receiver=receiver
             ).values("provider")
         )
+
+    def filter_provider_for_instance_municipality(self, queryset, name, value):
+        function, receiver_instance = value.split(";")
+        providers = instance_utils.get_municipality_provider_services(
+            receiver_instance, function
+        )
+
+        return queryset.filter(pk__in=Subquery(providers.values("pk")))
 
     class Meta:
         model = models.Service
