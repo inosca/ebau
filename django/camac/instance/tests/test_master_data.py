@@ -39,6 +39,8 @@ def add_answer(
         if isinstance(value, date)
         else caluma_form_models.Question.TYPE_INTEGER
         if isinstance(value, int)
+        else caluma_form_models.Question.TYPE_MULTIPLE_CHOICE
+        if isinstance(value, list)
         else caluma_form_models.Question.TYPE_TEXT
     )
     value_key = (

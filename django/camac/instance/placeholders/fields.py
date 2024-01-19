@@ -771,10 +771,19 @@ class AlexandriaDocumentField(AliasedMixin, serializers.ReadOnlyField):
         "TAGS": [_("TAGS")],
     }
 
-    def __init__(self, mark=None, *args, **kwargs):
+    def __init__(
+        self,
+        mark=None,
+        category=None,
+        include_child_categories=False,
+        *args,
+        **kwargs,
+    ):
         super().__init__(*args, **kwargs)
 
         self.mark = mark
+        self.category = category
+        self.include_child_categories = include_child_categories
 
     def get_attribute(self, instance):
         queryset = alexandria_models.Document.objects.filter(
@@ -783,6 +792,14 @@ class AlexandriaDocumentField(AliasedMixin, serializers.ReadOnlyField):
 
         if self.mark:
             queryset = queryset.filter(marks__pk__contains=self.mark)
+
+        if self.category:
+            filter = Q(category_id=self.category)
+
+            if self.include_child_categories:
+                filter |= Q(category__parent_id=self.category)
+
+            queryset = queryset.filter(filter)
 
         return CustomAlexandriaVisibility().filter_queryset_for_document(
             queryset, self.context["request"]
