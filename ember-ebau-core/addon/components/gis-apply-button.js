@@ -115,7 +115,7 @@ export default class GisApplyButtonComponent extends Component {
     { value, label, form = null },
     doc = this.args.document,
   ) {
-    const field = doc?.findField(question);
+    const field = doc.findField(question);
 
     try {
       if (!field) {
