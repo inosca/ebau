@@ -1,6 +1,7 @@
 {{#if (has-feature "watermark")}}
   <div
-    class="watermark {{if @isPortal 'watermark--portal' 'watermark--internal'}}"
+    class="watermark {{unless this.isPortal 'watermark--internal'}}"
+    ...attributes
   >
     <div class="watermark__badge">{{this.watermark}}</div>
   </div>

@@ -1,16 +1,16 @@
-import { isDevelopingApp } from "@embroider/macros";
+import { inject as service } from "@ember/service";
+import { getOwnConfig } from "@embroider/macros";
 import Component from "@glimmer/component";
 
 export default class WatermarkComponent extends Component {
-  get watermark() {
-    if (isDevelopingApp() || /(\.local)/.test(location.host)) {
-      return "dev";
-    } else if (
-      /([-.]+test)|(test[-.]+)|(-t\.)|(\.sycloud)/.test(location.host)
-    ) {
-      return "test";
-    }
+  @service ebauModules;
 
-    return null;
+  get watermark() {
+    const appEnvName = getOwnConfig().appEnv;
+    return `${appEnvName}`.toLowerCase() !== "production" ? appEnvName : null;
+  }
+
+  get isPortal() {
+    return this.ebauModules.applicationName === "caluma-portal";
   }
 }
