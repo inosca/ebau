@@ -879,7 +879,7 @@
       "label": "{\"de\": \"Nachf\\u00fchrungsgeometer\", \"fr\": \"G\\u00e9om\\u00e8tre conservateur\", \"it\": null}",
       "type": "choice",
       "is_required": "true",
-      "is_hidden": "'decision-workflow'|answer != 'building-permit' || 'decision-decision-assessment'|answer(null) in ['decision-decision-assessment-appeal-confirmed', 'decision-decision-assessment-appeal-changed', 'decision-decision-assessment-appeal-rejected']",
+      "is_hidden": "'decision-workflow'|answer != 'building-permit'",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
