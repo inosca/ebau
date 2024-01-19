@@ -15,6 +15,7 @@ const ENV_MAP = {
 const ENVS = Object.values(ENV_MAP);
 const ENV = ENV_MAP[process.env.APPLICATION] || ENVS[0];
 const UNUSED_ENVS = ENVS.filter((e) => e !== ENV).join("|");
+const APP_ENV = process.env.APP_ENV ?? "dev";
 
 module.exports = function (defaults) {
   const app = new EmberApp(defaults, {
@@ -36,6 +37,9 @@ module.exports = function (defaults) {
       setConfig: {
         "@ember-data/store": {
           polyfillUUID: true,
+        },
+        "ember-ebau-core": {
+          appEnv: APP_ENV,
         },
       },
     },
