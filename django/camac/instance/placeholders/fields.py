@@ -10,9 +10,12 @@ from django.db.models import Exists, OuterRef, Q, Sum
 from django.utils.translation import get_language, gettext, gettext_noop as _
 from rest_framework import serializers
 
+from camac.alexandria.extensions.visibilities import (
+    CustomVisibility as CustomAlexandriaVisibility,
+)
 from camac.billing.models import BillingV2Entry
 from camac.caluma.utils import find_answer, work_item_by_addressed_service_condition
-from camac.user.models import Service
+from camac.user.models import Service, User
 from camac.utils import build_url, clean_join
 
 from .utils import (
@@ -756,32 +759,85 @@ class DecisionField(AliasedMixin, serializers.ReadOnlyField):
 
 
 class AlexandriaDocumentField(AliasedMixin, serializers.ReadOnlyField):
-    def __init__(self, mark_id=None, *args, **kwargs):
+    nested_aliases = {
+        "NAME": [_("NAME")],
+        "DESCRIPTION": [_("DESCRIPTION")],
+        "CREATED_AT": [_("CREATED_AT")],
+        "CREATED_BY": [_("CREATED_BY")],
+        "MODIFIED_AT": [_("MODIFIED_AT")],
+        "MODIFIED_BY": [_("MODIFIED_BY")],
+        "CATEGORY": [_("CATEGORY")],
+        "MARKS": [_("MARKS")],
+        "TAGS": [_("TAGS")],
+    }
+
+    def __init__(self, mark=None, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-        self.mark_id = mark_id
+        self.mark = mark
 
     def get_attribute(self, instance):
-        filter = {
-            "document__metainfo__camac-instance-id": str(instance.pk),
-            "variant": "original",
-        }
+        queryset = alexandria_models.Document.objects.filter(
+            instance_document__instance=instance
+        )
 
-        if self.mark_id:
-            filter["document__marks__pk"] = self.mark_id
+        if self.mark:
+            queryset = queryset.filter(marks__pk__contains=self.mark)
 
-        return alexandria_models.File.objects.filter(**filter)
+        return CustomAlexandriaVisibility().filter_queryset_for_document(
+            queryset, self.context["request"]
+        )
 
-    def to_representation(self, files):
+    def to_representation(self, documents):
         data = []
-        for file in files:
-            text = gettext(
-                "%(title)s (submitted as %(original_title)s) on %(date)s at %(time)s"
-            ) % {
-                "title": file.document.title[get_language()],
-                "original_title": file.name,
-                "date": file.document.created_at.strftime("%d.%m.%Y"),
-                "time": file.document.created_at.strftime("%H:%M"),
-            }
-            data.append(text)
-        return ",\n".join(data)
+
+        for document in documents:
+            system_generated = "system-generated" in document.metainfo
+            created_by = ""
+            modified_by = ""
+            if not system_generated:
+                created_by = User.objects.get(
+                    pk=document.created_by_user
+                ).get_full_name()
+                modified_by = User.objects.get(
+                    pk=document.modified_by_user
+                ).get_full_name()
+
+            data.append(
+                {
+                    "NAME": document.title.de,
+                    "DESCRIPTION": document.description.de,
+                    "CREATED_AT": document.created_at.strftime("%d.%m.%Y %H:%M"),
+                    "CREATED_BY": created_by,
+                    "MODIFIED_AT": document.modified_at.strftime("%d.%m.%Y %H:%M"),
+                    "MODIFIED_BY": modified_by,
+                    "CATEGORY": document.category.slug,
+                    "MARKS": list(document.marks.values_list("slug", flat=True)),
+                    "TAGS": list(document.tags.values_list("name", flat=True)),
+                }
+            )
+
+        return data
+
+
+class AlexandriaSimpleDocumentField(AlexandriaDocumentField):
+    nested_aliases = {}
+
+    def to_representation(self, documents):
+        return ",\n".join(
+            [
+                gettext(
+                    "%(title)s (submitted as %(original_title)s) on %(date)s at %(time)s"
+                )
+                % {
+                    "title": document.title[get_language()],
+                    "original_title": document.files.filter(variant="original")
+                    .order_by("-created_at")
+                    .first()
+                    .name,
+                    "date": document.created_at.strftime("%d.%m.%Y"),
+                    "time": document.created_at.strftime("%H:%M"),
+                }
+                for document in documents
+            ]
+        )
