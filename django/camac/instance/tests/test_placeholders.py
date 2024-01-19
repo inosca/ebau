@@ -303,6 +303,7 @@ def test_dms_placeholders_gr(
     snapshot.assert_match(response.json())
 
 
+@pytest.mark.freeze_time("2024-01-18 13:37", tick=True)
 @pytest.mark.parametrize("role__name", ["Municipality"])
 def test_dms_placeholders_so(
     db,
@@ -347,6 +348,13 @@ def test_dms_placeholders_so(
     )
     mocker.patch(
         "camac.instance.master_data.MasterData._answer_is_visible", return_value=True
+    )
+
+    # Land use
+    add_answer(
+        so_instance.case.document,
+        "nutzungsplanung-grundnutzung",
+        "Zone für öffentliche Bauten und Anlagen",
     )
 
     # Billing
@@ -431,6 +439,63 @@ def test_dms_placeholders_so(
     add_answer(
         publication_work_item.document, "publikation-amtsblatt", date(2023, 11, 29)
     )
+    add_answer(
+        publication_work_item.document,
+        "publikation-organ",
+        ["publikation-organ-amtsblatt", "publikation-organ-azeiger"],
+        label=["Amtsblatt", "Azeiger"],
+    )
+    Option.objects.filter(pk="publikation-organ-amtsblatt").update(
+        meta={"email": "amtsblatt@example.com"}
+    )
+    Option.objects.filter(pk="publikation-organ-azeiger").update(
+        meta={"email": "azeiger@example.com"}
+    )
+
+    # Documents
+    MarkFactory(slug="decision")
+
+    FileFactory(
+        document=AlexandriaDocumentFactory(
+            title="Ausnahmebewilligung",
+            category=CategoryFactory(
+                slug="beilagen-zum-gesuch",
+                metainfo={"access": {"Municipality": {"visibility": "all"}}},
+            ),
+            metainfo={"camac-instance-id": str(so_instance.pk)},
+            created_by_user=admin_client.user.pk,
+            modified_by_user=admin_client.user.pk,
+        ),
+        variant="original",
+    )
+    FileFactory(
+        document=AlexandriaDocumentFactory(
+            title="Situationsplan",
+            category=CategoryFactory(
+                slug="beilagen-zum-gesuch-projektplaene-projektbeschrieb",
+                parent_id="beilagen-zum-gesuch",
+                metainfo={"access": {"Municipality": {"visibility": "all"}}},
+            ),
+            metainfo={"camac-instance-id": str(so_instance.pk)},
+            created_by_user=admin_client.user.pk,
+            modified_by_user=admin_client.user.pk,
+        ),
+        variant="original",
+    )
+    FileFactory(
+        document=AlexandriaDocumentFactory(
+            title="Entscheid",
+            category=CategoryFactory(
+                slug="beteiligte-behoerden",
+                metainfo={"access": {"Municipality": {"visibility": "all"}}},
+            ),
+            metainfo={"camac-instance-id": str(so_instance.pk)},
+            marks=["decision"],
+            created_by_user=admin_client.user.pk,
+            modified_by_user=admin_client.user.pk,
+        ),
+        variant="original",
+    )
 
     url = reverse("instance-dms-placeholders", args=[so_instance.pk])
 
@@ -441,16 +506,21 @@ def test_dms_placeholders_so(
     checked_keys = [
         "EIGENE_GEBUEHREN_TOTAL",
         "EIGENE_GEBUEHREN",
+        "EINGEREICHTE_PLAENE",
+        "EINGEREICHTE_UNTERLAGEN",
         "EINSPRECHENDE",
+        "ENTSCHEIDDOKUMENTE",
         "GEBUEHREN_TOTAL",
         "GEBUEHREN",
         "GEMEINDE_WEBSEITE",
         "LEITBEHOERDE_NAME_ADRESSE",
         "LEITBEHOERDE_WEBSEITE",
         "MEINE_ORGANISATION_WEBSEITE",
+        "NUTZUNGSPLANUNG_GRUNDNUTZUNG",
         "PUBLIKATION_AMTSBLATT",
         "PUBLIKATION_ANZEIGER",
         "PUBLIKATION_ENDE",
+        "PUBLIKATION_ORGAN",
         "PUBLIKATION_START",
     ]
 

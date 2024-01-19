@@ -5117,6 +5117,120 @@
       'nested_aliases': dict({
       }),
     }),
+    'EINGEREICHTE_PLAENE': dict({
+      'aliases': list([
+        dict({
+          'de': 'EINGEREICHTE_PLAENE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Alle eingereichten Pläne',
+      }),
+      'nested_aliases': dict({
+        'CATEGORY': list([
+          dict({
+            'de': 'KATEGORIE',
+          }),
+        ]),
+        'CREATED_AT': list([
+          dict({
+            'de': 'ERSTELLT_AM',
+          }),
+        ]),
+        'CREATED_BY': list([
+          dict({
+            'de': 'ERSTELLT_VON',
+          }),
+        ]),
+        'DESCRIPTION': list([
+          dict({
+            'de': 'BESCHREIBUNG',
+          }),
+        ]),
+        'MARKS': list([
+          dict({
+            'de': 'MARKIERUNGEN',
+          }),
+        ]),
+        'MODIFIED_AT': list([
+          dict({
+            'de': 'GEAENDERT_AM',
+          }),
+        ]),
+        'MODIFIED_BY': list([
+          dict({
+            'de': 'GEAENDERT_VON',
+          }),
+        ]),
+        'NAME': list([
+          dict({
+            'de': 'NAME',
+          }),
+        ]),
+        'TAGS': list([
+          dict({
+            'de': 'STICHWORTE',
+          }),
+        ]),
+      }),
+    }),
+    'EINGEREICHTE_UNTERLAGEN': dict({
+      'aliases': list([
+        dict({
+          'de': 'EINGEREICHTE_UNTERLAGEN',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Alle eingereichten Unterlagen',
+      }),
+      'nested_aliases': dict({
+        'CATEGORY': list([
+          dict({
+            'de': 'KATEGORIE',
+          }),
+        ]),
+        'CREATED_AT': list([
+          dict({
+            'de': 'ERSTELLT_AM',
+          }),
+        ]),
+        'CREATED_BY': list([
+          dict({
+            'de': 'ERSTELLT_VON',
+          }),
+        ]),
+        'DESCRIPTION': list([
+          dict({
+            'de': 'BESCHREIBUNG',
+          }),
+        ]),
+        'MARKS': list([
+          dict({
+            'de': 'MARKIERUNGEN',
+          }),
+        ]),
+        'MODIFIED_AT': list([
+          dict({
+            'de': 'GEAENDERT_AM',
+          }),
+        ]),
+        'MODIFIED_BY': list([
+          dict({
+            'de': 'GEAENDERT_VON',
+          }),
+        ]),
+        'NAME': list([
+          dict({
+            'de': 'NAME',
+          }),
+        ]),
+        'TAGS': list([
+          dict({
+            'de': 'STICHWORTE',
+          }),
+        ]),
+      }),
+    }),
     'EINSPRECHENDE': dict({
       'aliases': list([
         dict({
@@ -5135,6 +5249,63 @@
         'NAME': list([
           dict({
             'de': 'NAME',
+          }),
+        ]),
+      }),
+    }),
+    'ENTSCHEIDDOKUMENTE': dict({
+      'aliases': list([
+        dict({
+          'de': 'ENTSCHEIDDOKUMENTE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Alle Dokumente die als Entscheiddokument markiert wurden',
+      }),
+      'nested_aliases': dict({
+        'CATEGORY': list([
+          dict({
+            'de': 'KATEGORIE',
+          }),
+        ]),
+        'CREATED_AT': list([
+          dict({
+            'de': 'ERSTELLT_AM',
+          }),
+        ]),
+        'CREATED_BY': list([
+          dict({
+            'de': 'ERSTELLT_VON',
+          }),
+        ]),
+        'DESCRIPTION': list([
+          dict({
+            'de': 'BESCHREIBUNG',
+          }),
+        ]),
+        'MARKS': list([
+          dict({
+            'de': 'MARKIERUNGEN',
+          }),
+        ]),
+        'MODIFIED_AT': list([
+          dict({
+            'de': 'GEAENDERT_AM',
+          }),
+        ]),
+        'MODIFIED_BY': list([
+          dict({
+            'de': 'GEAENDERT_VON',
+          }),
+        ]),
+        'NAME': list([
+          dict({
+            'de': 'NAME',
+          }),
+        ]),
+        'TAGS': list([
+          dict({
+            'de': 'STICHWORTE',
           }),
         ]),
       }),
@@ -5677,6 +5848,18 @@
         ]),
       }),
     }),
+    'NUTZUNGSPLANUNG_GRUNDNUTZUNG': dict({
+      'aliases': list([
+        dict({
+          'de': 'NUTZUNGSPLANUNG_GRUNDNUTZUNG',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Nutzungsplanung (Grundnutzung)',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
     'PARZELLE': dict({
       'aliases': list([
         dict({
@@ -5783,6 +5966,28 @@
         'de': 'Link zur öffentlichen Auflage',
       }),
       'nested_aliases': dict({
+      }),
+    }),
+    'PUBLIKATION_ORGAN': dict({
+      'aliases': list([
+        dict({
+          'de': 'PUBLIKATION_ORGAN',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Publikationsorgan des Dossiers',
+      }),
+      'nested_aliases': dict({
+        'EMAIL': list([
+          dict({
+            'de': 'EMAIL',
+          }),
+        ]),
+        'NAME': list([
+          dict({
+            'de': 'NAME',
+          }),
+        ]),
       }),
     }),
     'PUBLIKATION_START': dict({
@@ -7038,11 +7243,68 @@
     'EIGENE_GEBUEHREN[].POSITION',
     'EIGENE_GEBUEHREN[].RECHTSGRUNDLAGE',
     'EIGENE_GEBUEHREN_TOTAL',
+    'EINGEREICHTE_PLAENE',
+    'EINGEREICHTE_PLAENE[]',
+    'EINGEREICHTE_PLAENE[].BESCHREIBUNG',
+    'EINGEREICHTE_PLAENE[].CATEGORY',
+    'EINGEREICHTE_PLAENE[].CREATED_AT',
+    'EINGEREICHTE_PLAENE[].CREATED_BY',
+    'EINGEREICHTE_PLAENE[].DESCRIPTION',
+    'EINGEREICHTE_PLAENE[].ERSTELLT_AM',
+    'EINGEREICHTE_PLAENE[].ERSTELLT_VON',
+    'EINGEREICHTE_PLAENE[].GEAENDERT_AM',
+    'EINGEREICHTE_PLAENE[].GEAENDERT_VON',
+    'EINGEREICHTE_PLAENE[].KATEGORIE',
+    'EINGEREICHTE_PLAENE[].MARKIERUNGEN',
+    'EINGEREICHTE_PLAENE[].MARKS',
+    'EINGEREICHTE_PLAENE[].MODIFIED_AT',
+    'EINGEREICHTE_PLAENE[].MODIFIED_BY',
+    'EINGEREICHTE_PLAENE[].NAME',
+    'EINGEREICHTE_PLAENE[].STICHWORTE',
+    'EINGEREICHTE_PLAENE[].TAGS',
+    'EINGEREICHTE_UNTERLAGEN',
+    'EINGEREICHTE_UNTERLAGEN[]',
+    'EINGEREICHTE_UNTERLAGEN[].BESCHREIBUNG',
+    'EINGEREICHTE_UNTERLAGEN[].CATEGORY',
+    'EINGEREICHTE_UNTERLAGEN[].CREATED_AT',
+    'EINGEREICHTE_UNTERLAGEN[].CREATED_BY',
+    'EINGEREICHTE_UNTERLAGEN[].DESCRIPTION',
+    'EINGEREICHTE_UNTERLAGEN[].ERSTELLT_AM',
+    'EINGEREICHTE_UNTERLAGEN[].ERSTELLT_VON',
+    'EINGEREICHTE_UNTERLAGEN[].GEAENDERT_AM',
+    'EINGEREICHTE_UNTERLAGEN[].GEAENDERT_VON',
+    'EINGEREICHTE_UNTERLAGEN[].KATEGORIE',
+    'EINGEREICHTE_UNTERLAGEN[].MARKIERUNGEN',
+    'EINGEREICHTE_UNTERLAGEN[].MARKS',
+    'EINGEREICHTE_UNTERLAGEN[].MODIFIED_AT',
+    'EINGEREICHTE_UNTERLAGEN[].MODIFIED_BY',
+    'EINGEREICHTE_UNTERLAGEN[].NAME',
+    'EINGEREICHTE_UNTERLAGEN[].STICHWORTE',
+    'EINGEREICHTE_UNTERLAGEN[].TAGS',
     'EINSPRECHENDE',
     'EINSPRECHENDE[]',
     'EINSPRECHENDE[].ADDRESS',
     'EINSPRECHENDE[].ADRESSE',
     'EINSPRECHENDE[].NAME',
+    'ENTSCHEIDDOKUMENTE',
+    'ENTSCHEIDDOKUMENTE[]',
+    'ENTSCHEIDDOKUMENTE[].BESCHREIBUNG',
+    'ENTSCHEIDDOKUMENTE[].CATEGORY',
+    'ENTSCHEIDDOKUMENTE[].CREATED_AT',
+    'ENTSCHEIDDOKUMENTE[].CREATED_BY',
+    'ENTSCHEIDDOKUMENTE[].DESCRIPTION',
+    'ENTSCHEIDDOKUMENTE[].ERSTELLT_AM',
+    'ENTSCHEIDDOKUMENTE[].ERSTELLT_VON',
+    'ENTSCHEIDDOKUMENTE[].GEAENDERT_AM',
+    'ENTSCHEIDDOKUMENTE[].GEAENDERT_VON',
+    'ENTSCHEIDDOKUMENTE[].KATEGORIE',
+    'ENTSCHEIDDOKUMENTE[].MARKIERUNGEN',
+    'ENTSCHEIDDOKUMENTE[].MARKS',
+    'ENTSCHEIDDOKUMENTE[].MODIFIED_AT',
+    'ENTSCHEIDDOKUMENTE[].MODIFIED_BY',
+    'ENTSCHEIDDOKUMENTE[].NAME',
+    'ENTSCHEIDDOKUMENTE[].STICHWORTE',
+    'ENTSCHEIDDOKUMENTE[].TAGS',
     'FACHSTELLEN_KANTONAL',
     'FACHSTELLEN_KANTONAL[]',
     'FACHSTELLEN_KANTONAL[].BEANTWORTET',
@@ -7108,6 +7370,7 @@
     'NEBENBESTIMMUNGEN_MAPPED[]',
     'NEBENBESTIMMUNGEN_MAPPED[].FACHSTELLE',
     'NEBENBESTIMMUNGEN_MAPPED[].TEXT',
+    'NUTZUNGSPLANUNG_GRUNDNUTZUNG',
     'PARZELLE',
     'PROJEKTVERFASSER',
     'PROJEKTVERFASSER_ADDRESS_1',
@@ -7120,6 +7383,10 @@
     'PUBLIKATION_ANZEIGER',
     'PUBLIKATION_ENDE',
     'PUBLIKATION_LINK',
+    'PUBLIKATION_ORGAN',
+    'PUBLIKATION_ORGAN[]',
+    'PUBLIKATION_ORGAN[].EMAIL',
+    'PUBLIKATION_ORGAN[].NAME',
     'PUBLIKATION_START',
     'STATUS',
     'TODAY',
@@ -7897,19 +8164,110 @@
   dict({
     'EIGENE_GEBUEHREN': list([
       dict({
-        'BETRAG': '1’004.10',
-        'KOSTENSTELLE': '056229822',
-        'POSITION': 'relationship',
-        'RECHTSGRUNDLAGE': 'thus',
+        'BETRAG': '286.22',
+        'KOSTENSTELLE': '080448420',
+        'POSITION': 'democratic',
+        'RECHTSGRUNDLAGE': 'woman',
       }),
       dict({
-        'BETRAG': '352.81',
-        'KOSTENSTELLE': '054842269',
-        'POSITION': 'argue',
-        'RECHTSGRUNDLAGE': 'strong',
+        'BETRAG': '111.26',
+        'KOSTENSTELLE': '129077697',
+        'POSITION': 'tend',
+        'RECHTSGRUNDLAGE': 'party',
       }),
     ]),
-    'EIGENE_GEBUEHREN_TOTAL': '1’356.91',
+    'EIGENE_GEBUEHREN_TOTAL': '397.48',
+    'EINGEREICHTE_PLAENE': list([
+      dict({
+        'BESCHREIBUNG': '''
+          Election no way nearly page house. Tell film myself option.
+          During fly move when return beat who read. Discuss room financial yard wall bring. West light size foot attorney customer state.
+        ''',
+        'CATEGORY': 'beilagen-zum-gesuch-projektplaene-projektbeschrieb',
+        'CREATED_AT': '18.01.2024 13:37',
+        'CREATED_BY': 'Admin User',
+        'DESCRIPTION': '''
+          Election no way nearly page house. Tell film myself option.
+          During fly move when return beat who read. Discuss room financial yard wall bring. West light size foot attorney customer state.
+        ''',
+        'ERSTELLT_AM': '18.01.2024 13:37',
+        'ERSTELLT_VON': 'Admin User',
+        'GEAENDERT_AM': '18.01.2024 13:37',
+        'GEAENDERT_VON': 'Admin User',
+        'KATEGORIE': 'beilagen-zum-gesuch-projektplaene-projektbeschrieb',
+        'MARKIERUNGEN': list([
+        ]),
+        'MARKS': list([
+        ]),
+        'MODIFIED_AT': '18.01.2024 13:37',
+        'MODIFIED_BY': 'Admin User',
+        'NAME': 'Situationsplan',
+        'STICHWORTE': list([
+        ]),
+        'TAGS': list([
+        ]),
+      }),
+    ]),
+    'EINGEREICHTE_UNTERLAGEN': list([
+      dict({
+        'BESCHREIBUNG': '''
+          After drive might. For anyone develop consider.
+          Month reality leader car surface because. Thing most especially interview every. Maybe space thought worker sort.
+        ''',
+        'CATEGORY': 'beilagen-zum-gesuch',
+        'CREATED_AT': '18.01.2024 13:37',
+        'CREATED_BY': 'Admin User',
+        'DESCRIPTION': '''
+          After drive might. For anyone develop consider.
+          Month reality leader car surface because. Thing most especially interview every. Maybe space thought worker sort.
+        ''',
+        'ERSTELLT_AM': '18.01.2024 13:37',
+        'ERSTELLT_VON': 'Admin User',
+        'GEAENDERT_AM': '18.01.2024 13:37',
+        'GEAENDERT_VON': 'Admin User',
+        'KATEGORIE': 'beilagen-zum-gesuch',
+        'MARKIERUNGEN': list([
+        ]),
+        'MARKS': list([
+        ]),
+        'MODIFIED_AT': '18.01.2024 13:37',
+        'MODIFIED_BY': 'Admin User',
+        'NAME': 'Ausnahmebewilligung',
+        'STICHWORTE': list([
+        ]),
+        'TAGS': list([
+        ]),
+      }),
+      dict({
+        'BESCHREIBUNG': '''
+          Election no way nearly page house. Tell film myself option.
+          During fly move when return beat who read. Discuss room financial yard wall bring. West light size foot attorney customer state.
+        ''',
+        'CATEGORY': 'beilagen-zum-gesuch-projektplaene-projektbeschrieb',
+        'CREATED_AT': '18.01.2024 13:37',
+        'CREATED_BY': 'Admin User',
+        'DESCRIPTION': '''
+          Election no way nearly page house. Tell film myself option.
+          During fly move when return beat who read. Discuss room financial yard wall bring. West light size foot attorney customer state.
+        ''',
+        'ERSTELLT_AM': '18.01.2024 13:37',
+        'ERSTELLT_VON': 'Admin User',
+        'GEAENDERT_AM': '18.01.2024 13:37',
+        'GEAENDERT_VON': 'Admin User',
+        'KATEGORIE': 'beilagen-zum-gesuch-projektplaene-projektbeschrieb',
+        'MARKIERUNGEN': list([
+        ]),
+        'MARKS': list([
+        ]),
+        'MODIFIED_AT': '18.01.2024 13:37',
+        'MODIFIED_BY': 'Admin User',
+        'NAME': 'Situationsplan',
+        'STICHWORTE': list([
+        ]),
+        'TAGS': list([
+        ]),
+      }),
+    ]),
     'EINSPRECHENDE': list([
       dict({
         'ADDRESS': 'Beispielstrasse 1, 4321 Beispieldorf',
@@ -7922,40 +8280,86 @@
         'NAME': 'Einsprache AG, Sandra Anwältin',
       }),
     ]),
+    'ENTSCHEIDDOKUMENTE': list([
+      dict({
+        'BESCHREIBUNG': '''
+          Low when nothing wind own try plan.
+          To soon then situation rise Mrs. Yourself college clearly hotel.
+          Business per radio customer. Resource require pattern just break around.
+        ''',
+        'CATEGORY': 'beteiligte-behoerden',
+        'CREATED_AT': '18.01.2024 13:37',
+        'CREATED_BY': 'Admin User',
+        'DESCRIPTION': '''
+          Low when nothing wind own try plan.
+          To soon then situation rise Mrs. Yourself college clearly hotel.
+          Business per radio customer. Resource require pattern just break around.
+        ''',
+        'ERSTELLT_AM': '18.01.2024 13:37',
+        'ERSTELLT_VON': 'Admin User',
+        'GEAENDERT_AM': '18.01.2024 13:37',
+        'GEAENDERT_VON': 'Admin User',
+        'KATEGORIE': 'beteiligte-behoerden',
+        'MARKIERUNGEN': list([
+          'decision',
+        ]),
+        'MARKS': list([
+          'decision',
+        ]),
+        'MODIFIED_AT': '18.01.2024 13:37',
+        'MODIFIED_BY': 'Admin User',
+        'NAME': 'Entscheid',
+        'STICHWORTE': list([
+        ]),
+        'TAGS': list([
+        ]),
+      }),
+    ]),
     'GEBUEHREN': list([
       dict({
-        'BETRAG': '1’004.10',
-        'KOSTENSTELLE': '056229822',
-        'POSITION': 'relationship',
-        'RECHTSGRUNDLAGE': 'thus',
+        'BETRAG': '286.22',
+        'KOSTENSTELLE': '080448420',
+        'POSITION': 'democratic',
+        'RECHTSGRUNDLAGE': 'woman',
       }),
       dict({
-        'BETRAG': '352.81',
-        'KOSTENSTELLE': '054842269',
-        'POSITION': 'argue',
-        'RECHTSGRUNDLAGE': 'strong',
+        'BETRAG': '111.26',
+        'KOSTENSTELLE': '129077697',
+        'POSITION': 'tend',
+        'RECHTSGRUNDLAGE': 'party',
       }),
       dict({
-        'BETRAG': '1’542.26',
+        'BETRAG': '3’169.61',
         'KOSTENSTELLE': '',
-        'POSITION': 'financial',
+        'POSITION': 'five',
         'RECHTSGRUNDLAGE': '',
       }),
       dict({
-        'BETRAG': '808.66',
+        'BETRAG': '443.58',
         'KOSTENSTELLE': '',
-        'POSITION': 'rock',
+        'POSITION': 'almost',
         'RECHTSGRUNDLAGE': '',
       }),
     ]),
-    'GEBUEHREN_TOTAL': '3’707.83',
+    'GEBUEHREN_TOTAL': '4’010.67',
     'GEMEINDE_WEBSEITE': 'https://gemeinde.ch',
     'LEITBEHOERDE_NAME_ADRESSE': 'Test Leitbehörde, Teststrasse 13, 3000 Musterhausen',
     'LEITBEHOERDE_WEBSEITE': 'https://leitbehoerde.ch',
     'MEINE_ORGANISATION_WEBSEITE': 'https://meine-organisation.ch',
+    'NUTZUNGSPLANUNG_GRUNDNUTZUNG': 'Zone für öffentliche Bauten und Anlagen',
     'PUBLIKATION_AMTSBLATT': '29. November 2023',
     'PUBLIKATION_ANZEIGER': '28. November 2023',
     'PUBLIKATION_ENDE': '15. Dezember 2023',
+    'PUBLIKATION_ORGAN': list([
+      dict({
+        'EMAIL': 'amtsblatt@example.com',
+        'NAME': 'Amtsblatt',
+      }),
+      dict({
+        'EMAIL': 'azeiger@example.com',
+        'NAME': 'Azeiger',
+      }),
+    ]),
     'PUBLIKATION_START': '1. Dezember 2023',
   })
 # ---

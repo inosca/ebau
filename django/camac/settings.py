@@ -3925,6 +3925,7 @@ APPLICATIONS = {
                     )
                 },
             ),
+            "land_use_planning_land_use": ("answer", "nutzungsplanung-grundnutzung"),
         },
         "ACTIVE_SERVICES": {
             "MUNICIPALITY": {
