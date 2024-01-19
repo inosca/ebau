@@ -1,6 +1,6 @@
 decision:
   info: 
-    geometer: La commune dépend de la géomètre conservatrice <b>{geometer}</b> ou du géomètre conservateur XYZ.
+    geometer: La commune dépend de la géomètre conservatrice ou du géomètre conservateur <b>{geometer}</b>. 
 
   submit:
     preliminary-clarification: "Clôturer l'évaluation"
