@@ -11,17 +11,8 @@ export default class DecisionInfoGeometerComponent extends Component {
   fetchGeometer = task(async (instanceId) => {
     await Promise.resolve();
 
-    const instance =
-      this.store.peekRecord("instance", instanceId) ??
-      (await this.store.findRecord("instance", instanceId));
-    const municipality = instance.activeService;
-
-    if (!municipality) {
-      return;
-    }
-
     const geometer = await this.store.query("public-service", {
-      provider_for: `geometer;${municipality.id}`,
+      provider_for_instance_municipality: `geometer;${instanceId}`,
     });
 
     return geometer.firstObject;

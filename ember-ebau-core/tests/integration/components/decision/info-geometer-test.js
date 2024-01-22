@@ -11,7 +11,6 @@ module("Integration | Component | decision/info-geometer", function (hooks) {
 
   test("it renders", async function (assert) {
     const instance = this.server.create("instance");
-    const municipalityId = instance.activeService.id;
     this.set("context", { instanceId: instance.id });
 
     this.set("field", {
@@ -24,7 +23,7 @@ module("Integration | Component | decision/info-geometer", function (hooks) {
 
     this.server.get("/api/v1/public-services", (_, request) => {
       assert.deepEqual(request.queryParams, {
-        provider_for: `geometer;${municipalityId}`,
+        provider_for_instance_municipality: `geometer;${instance.id}`,
       });
 
       return {
