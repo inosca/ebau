@@ -217,28 +217,44 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
     @permission_aware
     def validate_context(self, context):
         # don't validate if context is new or unchanged
-        if not self.instance or context == self.instance.context:
+        attachment = self.instance
+
+        if not attachment or context == attachment.context:
             return context
 
         if not settings.APPLICATION.get("DOCUMENTS_SKIP_CONTEXT_VALIDATION"):
             service = self.context["request"].group.service
-            active_service = self.instance.instance.responsible_service(
+            active_service = attachment.instance.responsible_service(
                 filter_type="municipality"
             )
-            attachmentInInternSection = self.instance.attachment_sections.filter(
+            is_allowed_service = service == active_service
+
+            changed_props = [
+                k
+                for k in set(context).union(set(attachment.context))
+                if context.get(k) != attachment.context.get(k)
+            ]
+
+            if changed_props == ["for_geometer"]:
+                # "Allow geometer access" flag can be set by any involved
+                # (municipality) service
+                is_allowed_service |= attachment.instance.services.filter(
+                    pk=service.pk
+                ).exists()
+
+            attachment_in_intern_section = attachment.attachment_sections.filter(
                 attachment_section_id=settings.APPLICATION.get(
                     "ATTACHMENT_SECTION_INTERNAL", None
                 )
             ).exists()
 
-            if not attachmentInInternSection:
-                if not service or active_service != service:
-                    raise exceptions.PermissionDenied()
+            if not attachment_in_intern_section and not is_allowed_service:
+                raise exceptions.PermissionDenied()
 
         # prevent changing document's isDecision flag after case decision has been enacted
-        if self.instance.instance.instance_state.name in settings.APPLICATION.get(
+        if attachment.instance.instance_state.name in settings.APPLICATION.get(
             "ATTACHMENT_AFTER_DECISION_STATES", []
-        ) and context.get("isDecision") != self.instance.context.get("isDecision"):
+        ) and context.get("isDecision") != attachment.context.get("isDecision"):
             raise exceptions.ValidationError(
                 _(
                     "Changing decision document mark after decision is enacted is not allowed."

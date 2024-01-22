@@ -354,19 +354,19 @@ _other_service = LazyFixture(lambda service_factory: service_factory())
         ["done", _admin_service, False, False],
         ["old", _admin_service, False, False],
         # after decision: destroy own (but not others)
-        ["rejected", _admin_service, True, True],
-        ["rejected", _other_service, True, False],
-        ["correction", _admin_service, True, True],
+        ["rejected", _admin_service, False, False],
+        ["rejected", _other_service, False, False],
+        ["correction", _admin_service, False, False],
         ["sb1", _admin_service, True, True],
         ["sb1", _other_service, True, False],
-        ["sb2", _admin_service, True, True],
-        ["conclusion", _admin_service, True, True],
-        ["finished", _admin_service, True, True],
-        ["finished_internal", _admin_service, True, True],
-        ["evaluated", _admin_service, True, True],
+        ["sb2", _admin_service, False, False],
+        ["conclusion", _admin_service, False, False],
+        ["finished", _admin_service, False, False],
+        ["finished_internal", _admin_service, False, False],
+        ["evaluated", _admin_service, False, False],
     ],
 )
-def test_read_after_decision_permission(
+def test_read_during_sb1(
     db,
     attachment,
     be_instance,
@@ -377,13 +377,9 @@ def test_read_after_decision_permission(
 ):
     group = admin_user.get_default_group()
 
-    can_write = permissions.ReadWriteAfterDecisionPermission.can_write(
-        attachment, group, be_instance
-    )
+    can_write = permissions.ReadWriteDuringSB1.can_write(attachment, group, be_instance)
 
-    can_destroy = permissions.ReadWriteAfterDecisionPermission.can_destroy(
-        attachment, group
-    )
+    can_destroy = permissions.ReadWriteDuringSB1.can_destroy(attachment, group)
 
     assert can_write == expect_can_write
     assert can_destroy == expect_can_destroy

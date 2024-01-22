@@ -101,9 +101,6 @@ class AttachmentQuerysetMixin:
             )
         ]
 
-        if not readable_sections:
-            readable_sections = []
-
         # internal sections must be special-cased to also include the section in
         # the filter so it cannot be used with the other sections
         internal_sections = {

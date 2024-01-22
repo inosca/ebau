@@ -94,25 +94,19 @@ class AdminBeforeDecisionPermission(AdminPermission):
         )
 
 
-class ReadWriteAfterDecisionPermission(AdminServicePermission):
+class ReadWriteDuringSB1(AdminServicePermission):
     """Read and write permission, but only after the decision."""
 
     @classmethod
-    def is_after_decision(cls, instance, group) -> bool:
-        # can't defer to AdminBeforeDecisionPermission.is_before_decision()
-        # because it's checking for presence of an attachment and may return
-        # `False`, which we'd need to interpret as `True`, which is incorrect
+    def is_in_sb1(cls, instance, group) -> bool:
         instance_state = instance.instance_state.name
-        after_decision_states = settings.APPLICATION.get(
-            "ATTACHMENT_AFTER_DECISION_STATES", []
-        )
-        return instance_state in after_decision_states
+        return instance_state == "sb1"
 
     @classmethod
     def can_destroy(cls, attachment, group) -> bool:
         return (
             attachment
-            and cls.is_after_decision(attachment.instance, group)
+            and cls.is_in_sb1(attachment.instance, group)
             and super().can_destroy(
                 attachment,
                 group,
@@ -121,7 +115,7 @@ class ReadWriteAfterDecisionPermission(AdminServicePermission):
 
     @classmethod
     def can_write(cls, attachment, group, instance=None) -> bool:
-        return cls.is_after_decision(instance, group) and super().can_write(
+        return cls.is_in_sb1(instance, group) and super().can_write(
             attachment,
             group,
         )
@@ -311,7 +305,7 @@ PERMISSIONS = {
             AdminInternalPermission: [4],
             # Write only on "Beilagen SB1 (Papier und Nachrichten)".  This is
             # like AdminServicePermission, but limits it to after decision.
-            ReadWriteAfterDecisionPermission: [10],
+            ReadWriteDuringSB1: [10],
         },
         "geometer-clerk": {
             # Geometer has access to all sections, but the documents
@@ -320,7 +314,7 @@ PERMISSIONS = {
             AdminInternalPermission: [4],
             # Write only on "Beilagen SB1 (Papier und Nachrichten)".  This is
             # like AdminServicePermission, but limits it to after decision.
-            ReadWriteAfterDecisionPermission: [10],
+            ReadWriteDuringSB1: [10],
         },
         "geometer-readonly": {
             # Geometer has access to all sections, but the documents
