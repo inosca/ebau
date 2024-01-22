@@ -31,6 +31,7 @@ APPEAL = {
                         "applicant",  # Gesuchsteller/innen
                         "involved_in_distribution",  # Involvierte Stellen in Zirkulation
                         "construction_control",  # Baukontrolle
+                        "geometer_acl_services",
                     ],
                 }
             ],

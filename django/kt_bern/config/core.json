@@ -58,6 +58,24 @@
     }
   },
   {
+    "model": "core.anotification",
+    "pk": 15000005,
+    "fields": {
+      "template": "11-meldung-selbstdeklaration-geometer",
+      "recipient_type": "Custom_Plugin_Notification_Recipient_GeometerAclServices",
+      "processor": "Notification_Processor_SendEmailAPI"
+    }
+  },
+  {
+    "model": "core.anotification",
+    "pk": 15000006,
+    "fields": {
+      "template": "notify-geometer-sb2-complete",
+      "recipient_type": "Custom_Plugin_Notification_Recipient_GeometerAclServices",
+      "processor": "Notification_Processor_SendEmailAPI"
+    }
+  },
+  {
     "model": "core.apageredirect",
     "pk": 150047,
     "fields": {
@@ -85,6 +103,13 @@
     "pk": 15000003,
     "fields": {
       "php_class": "CheckHasOpenCadastralSurvey"
+    }
+  },
+  {
+    "model": "core.aphp",
+    "pk": 15000004,
+    "fields": {
+      "php_class": "CheckPendingGeometerInvolvement"
     }
   },
   {
@@ -196,7 +221,7 @@
       "success_message": null,
       "error_message": null,
       "execute_always": 0,
-      "sort": 1
+      "sort": 3
     }
   },
   {
@@ -266,7 +291,7 @@
       "success_message": null,
       "error_message": null,
       "execute_always": 0,
-      "sort": 2
+      "sort": 4
     }
   },
   {
@@ -322,7 +347,7 @@
       "success_message": null,
       "error_message": null,
       "execute_always": 0,
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -336,7 +361,7 @@
       "success_message": null,
       "error_message": null,
       "execute_always": 0,
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -476,7 +501,49 @@
       "success_message": null,
       "error_message": null,
       "execute_always": 0,
+      "sort": 1
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 15000004,
+    "fields": {
+      "available_action": "php",
+      "button": 20048,
+      "name": null,
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
       "sort": 0
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 15000005,
+    "fields": {
+      "available_action": "notification",
+      "button": 1200000,
+      "name": null,
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 4
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 15000006,
+    "fields": {
+      "available_action": "notification",
+      "button": 1200001,
+      "name": null,
+      "description": null,
+      "success_message": null,
+      "error_message": null,
+      "execute_always": 0,
+      "sort": 4
     }
   },
   {
@@ -895,10 +962,46 @@
     "fields": {
       "action": 15000003,
       "language": "de",
-      "name": "Validation",
+      "name": "Validation Cadastral Survey",
       "description": null,
       "success_message": null,
       "error_message": "Das Verfahren kann nicht abgeschlossen werden, wenn die Nachführung amtliche Vermessung noch ausstehend ist."
+    }
+  },
+  {
+    "model": "core.actiont",
+    "pk": 15000006,
+    "fields": {
+      "action": 15000004,
+      "language": "de",
+      "name": "Validation Geometer Involvement",
+      "description": null,
+      "success_message": null,
+      "error_message": "Das Verfahren kann nicht abgeschlossen werden, wenn die Prüfung SB2 noch ausstehend ist."
+    }
+  },
+  {
+    "model": "core.actiont",
+    "pk": 15000007,
+    "fields": {
+      "action": 15000005,
+      "language": "de",
+      "name": "SB1 abschliessen, E-Mail an Geometer",
+      "description": null,
+      "success_message": null,
+      "error_message": null
+    }
+  },
+  {
+    "model": "core.actiont",
+    "pk": 15000008,
+    "fields": {
+      "action": 15000006,
+      "language": "de",
+      "name": "SB2 abschliessen, E-Mail an Geometer",
+      "description": null,
+      "success_message": null,
+      "error_message": null
     }
   },
   {
@@ -38484,7 +38587,7 @@
       "instance_resource": 20070,
       "name": null,
       "description": null,
-      "class_field": "active_baukontrolle_only leitung_only no_open_cadastral_survey",
+      "class_field": "active_baukontrolle_only leitung_only no_open_cadastral_survey no_pending_geometer_involvement",
       "hidden": 0,
       "sort": 2
     }
