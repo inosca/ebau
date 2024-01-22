@@ -377,13 +377,9 @@ def test_read_during_sb1(
 ):
     group = admin_user.get_default_group()
 
-    can_write = permissions.ReadWriteAfterDecisionPermission.can_write(
-        attachment, group, be_instance
-    )
+    can_write = permissions.ReadWriteDuringSB1.can_write(attachment, group, be_instance)
 
-    can_destroy = permissions.ReadWriteAfterDecisionPermission.can_destroy(
-        attachment, group
-    )
+    can_destroy = permissions.ReadWriteDuringSB1.can_destroy(attachment, group)
 
     assert can_write == expect_can_write
     assert can_destroy == expect_can_destroy
