@@ -7,22 +7,6 @@ $navbar-border-color: $navbar-hover-color;
   &__header {
     padding: 17px 20px 20px 20px;
     position: relative;
-
-    &__watermark {
-      width: 150px;
-      position: absolute;
-      top: 15px;
-      left: -40px;
-      font-size: 1.2em;
-      text-align: center;
-      line-height: 30px;
-      letter-spacing: 1px;
-      color: #fff;
-      transform: rotate(-45deg);
-      background-color: #a9a9a9;
-      text-transform: uppercase;
-      box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
-    }
   }
 
   &__nav {
