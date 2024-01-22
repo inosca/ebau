@@ -7,6 +7,7 @@ from caluma.caluma_workflow.models import Case, WorkItem
 from django.conf import settings
 
 from camac.constants.kt_bern import ATTACHMENT_SECTION_ALLE_BETEILIGTEN
+from camac.core.utils import canton_aware
 from camac.document.models import Attachment, AttachmentSection
 from camac.instance.models import Instance
 from camac.instance.serializers import CalumaInstanceChangeResponsibleServiceSerializer
@@ -123,6 +124,28 @@ class NoticeRulingSendHandler(DocumentAccessibilityMixin, BaseSendHandler):
 
         return True, None
 
+    @canton_aware
+    def _find_and_fill_geometer(self, decision_document):  # pragma: no cover
+        pass
+
+    def _find_and_fill_geometer_be(self, decision_document):
+        # We only fill this answer if it's not already done
+        question_slug = "decision-geometer"
+        if decision_document.answers.filter(question_id=question_slug).exists():
+            return  # pragma: no cover
+
+        save_answer(
+            document=decision_document,
+            question=Question.objects.get(slug=question_slug),
+            value="decision-geometer-no",
+        )
+
+    def _get_decision_document(self, case):
+        decision_document = case.work_items.get(
+            task_id=settings.DECISION["TASK"], status=WorkItem.STATUS_READY
+        ).document
+        return decision_document
+
     def apply(self):
         attachments = self.get_attachments(self.data.eventNotice.document)
         if not self.has_attachment_permissions(attachments):
@@ -146,6 +169,14 @@ class NoticeRulingSendHandler(DocumentAccessibilityMixin, BaseSendHandler):
             # reject instance
             self.instance.set_instance_state("rejected", self.user)
 
+            # question *may* be hidden here if it's not a building-permit,
+            # but we don't care and fill anyway
+            try:
+                self._find_and_fill_geometer(self._get_decision_document(case))
+            except WorkItem.DoesNotExist:
+                # Happens if we're too early in the workflow
+                pass
+
             # send eCH event
             ruling.send(
                 sender=self.__class__,
@@ -160,9 +191,7 @@ class NoticeRulingSendHandler(DocumentAccessibilityMixin, BaseSendHandler):
             self.skip_work_item(settings.DISTRIBUTION["DISTRIBUTION_TASK"])
 
             # write the decision document
-            decision_document = case.work_items.get(
-                task_id=settings.DECISION["TASK"], status=WorkItem.STATUS_READY
-            ).document
+            decision_document = self._get_decision_document(case)
             save_answer(
                 document=decision_document,
                 question=Question.objects.get(
@@ -177,6 +206,9 @@ class NoticeRulingSendHandler(DocumentAccessibilityMixin, BaseSendHandler):
                 ),
                 date=self.data.eventNotice.decisionRuling.date.date(),
             )
+
+            self._find_and_fill_geometer(decision_document)
+
             if workflow_slug == "building-permit":
                 save_answer(
                     document=decision_document,
@@ -184,13 +216,6 @@ class NoticeRulingSendHandler(DocumentAccessibilityMixin, BaseSendHandler):
                         slug=settings.DECISION["QUESTIONS"]["APPROVAL_TYPE"]
                     ),
                     value=settings.DECISION["ANSWERS"]["APPROVAL_TYPE"]["UNKNOWN"],
-                )
-                # TODO: Needs to be defined what the expected behavior is for
-                # services working through eCH-0211 and geometer involvment
-                save_answer(
-                    document=decision_document,
-                    question=Question.objects.get(slug="decision-geometer"),
-                    value="decision-geometer-no",
                 )
 
             # this handle status changes and assignment of the construction control

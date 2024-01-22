@@ -255,7 +255,15 @@ def test_notice_ruling_send_handler(
                 task_id="decision"
             ).exists()
         else:
-            assert ech_instance_be.case.work_items.filter(task_id="decision").exists()
+            assert (
+                decision_workitem := ech_instance_be.case.work_items.filter(
+                    task_id="decision"
+                ).first()
+            )
+            # Decision-Geometer question must be answered
+            assert decision_workitem.document.answers.filter(
+                question_id="decision-geometer"
+            ).first()
 
         expected_service = (
             active_service
