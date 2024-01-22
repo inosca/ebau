@@ -12,6 +12,7 @@ export const AVAILABLE_GRANT_TYPES = [
 
 export const EVENT_TYPES = {
   MANUAL_CREATION: "manual-creation",
+  MANUAL_REVOCATION: "manual-revocation",
 };
 
 export default class InstanceAclModel extends Model {
@@ -52,7 +53,7 @@ export default class InstanceAclModel extends Model {
   get revokedByName() {
     if (
       this.revokedByEvent &&
-      this.revokedByEvent !== EVENT_TYPES.MANUAL_CREATION
+      this.revokedByEvent !== EVENT_TYPES.MANUAL_REVOCATION
     ) {
       return this.intl.t("permissions.details.managedBySystem");
     }
