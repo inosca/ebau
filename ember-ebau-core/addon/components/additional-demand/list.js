@@ -12,10 +12,22 @@ export default class AdditionalDemandListComponent extends Component {
   async newAdditionalDemand() {
     await this.additionalDemand.refetch();
 
-    this.router.transitionTo(
-      "cases.detail.additional-demand.detail",
-      this.ebauModules.instanceId,
-      decodeId(this.additionalDemand.demands.at(-1).raw.childCase.id),
+    const route = this.ebauModules.resolveModuleRoute(
+      "additional-demand",
+      "detail",
     );
+
+    if (this.ebauModules.isCamac) {
+      this.router.transitionTo(
+        route,
+        decodeId(this.additionalDemand.demands.at(-1).raw.childCase.id),
+      );
+    } else {
+      this.router.transitionTo(
+        route,
+        this.ebauModules.instanceId,
+        decodeId(this.additionalDemand.demands.at(-1).raw.childCase.id),
+      );
+    }
   }
 }
