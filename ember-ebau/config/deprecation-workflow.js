@@ -16,5 +16,6 @@ self.deprecationWorkflow.config = {
       handler: "silence",
       matchId: "ember-data:deprecate-promise-many-array-behaviors",
     }, // used in ember-alexandria
+    { handler: "silence", matchId: "ember-data:deprecate-promise-proxies" }, // Used in ember-power-select
   ],
 };

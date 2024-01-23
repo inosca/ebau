@@ -6322,7 +6322,7 @@
       "modified_by_group": null,
       "form": "construction-monitoring",
       "question": "abgenommen",
-      "sort": 6
+      "sort": 8
     }
   },
   {
@@ -6337,7 +6337,7 @@
       "modified_by_group": null,
       "form": "construction-monitoring",
       "question": "bauabhnahme-durchgefuehrt",
-      "sort": 8
+      "sort": 10
     }
   },
   {
@@ -6352,7 +6352,7 @@
       "modified_by_group": null,
       "form": "construction-monitoring",
       "question": "bauabnahme",
-      "sort": 7
+      "sort": 9
     }
   },
   {
@@ -6382,7 +6382,7 @@
       "modified_by_group": null,
       "form": "construction-monitoring",
       "question": "bemerkungen-baubegleitung",
-      "sort": 2
+      "sort": 4
     }
   },
   {
@@ -6397,7 +6397,22 @@
       "modified_by_group": null,
       "form": "construction-monitoring",
       "question": "frist-zur-maengelbehebung",
-      "sort": 3
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-monitoring.fuer-aib-freigeben",
+    "fields": {
+      "created_at": "2024-01-03T07:25:55.567Z",
+      "modified_at": "2024-01-03T07:25:55.567Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-monitoring",
+      "question": "fuer-aib-freigeben",
+      "sort": 2
     }
   },
   {
@@ -6412,7 +6427,22 @@
       "modified_by_group": null,
       "form": "construction-monitoring",
       "question": "hinweis-maengel",
-      "sort": 4
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-monitoring.info-aib",
+    "fields": {
+      "created_at": "2024-01-10T14:29:04.431Z",
+      "modified_at": "2024-01-10T14:29:04.431Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-monitoring",
+      "question": "info-aib",
+      "sort": 3
     }
   },
   {
@@ -6427,7 +6457,7 @@
       "modified_by_group": null,
       "form": "construction-monitoring",
       "question": "nicht-abgenommen-maengel",
-      "sort": 5
+      "sort": 7
     }
   },
   {
@@ -25623,6 +25653,22 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "fuer-aib-freigeben-ja",
+    "fields": {
+      "created_at": "2024-01-03T07:25:55.246Z",
+      "modified_at": "2024-01-03T07:25:55.246Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dossier f\\u00fcr Amt f\\u00fcr Immobilienbewertung (AIB) freigeben\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -54666,6 +54712,39 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "fuer-aib-freigeben",
+    "fields": {
+      "created_at": "2024-01-03T07:25:55.409Z",
+      "modified_at": "2024-01-03T07:25:55.409Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dossier f\\u00fcr Amt f\\u00fcr Immobilienbewertung (AIB) freigeben\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"TBD\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": "2fdcc8c0-60f2-46ba-996f-aec2b9d4e767",
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "fundationsart",
     "fields": {
       "created_at": "2023-05-19T10:25:21.775Z",
@@ -58703,6 +58782,37 @@
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"### Ableitung von Industrie- und Gewerbeabwasser\\n\\nDie Ableitung von Industrie- und Gewerbeabwasser ist bewilligungspflichtig.\\n\\nF\\u00fcr dieses Fachthema ist das Amt f\\u00fcr Natur und Umwelt (ANU) zust\\u00e4ndig.  \\nEmail: [info@anu.gr.ch](mailto:info@anu.gr.ch) Telefon: 081 257 29 46\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "info-aib",
+    "fields": {
+      "created_at": "2024-01-10T14:29:04.233Z",
+      "modified_at": "2024-01-18T11:48:55.608Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Info AIB\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"**Bitte beachten:** nach Art. 4 Abs. 1 und 2 des Gesetzes \\u00fcber die amtlichen Immobilienbewertungen (IBG) haben Gemeinden das AIB \\u00fcber Bauabnahmen zu informieren.\\n<style>[data-question-slug=\\\"info-aib\\\"], [data-question-slug=\\\"info-aib\\\"] p { margin-bottom: 0 !important;}</style>\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -82250,6 +82360,21 @@
       "modified_by_group": null,
       "question": "forstliche-baute",
       "option": "forstliche-baute-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "fuer-aib-freigeben.fuer-aib-freigeben-ja",
+    "fields": {
+      "created_at": "2024-01-03T07:25:55.419Z",
+      "modified_at": "2024-01-03T07:25:55.419Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "fuer-aib-freigeben",
+      "option": "fuer-aib-freigeben-ja",
       "sort": 1
     }
   },

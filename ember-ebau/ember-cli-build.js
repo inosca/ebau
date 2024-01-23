@@ -37,6 +37,9 @@ module.exports = function (defaults) {
     fingerprint: {
       extensions: ["js", "css", "map"],
     },
+    "ember-validated-form": {
+      theme: "uikit",
+    },
   });
 
   app.trees.app = stew.rm(

@@ -17,7 +17,7 @@ be moved to someplace else.
     "role__name, expect_results",
     [
         ("Geometer", 1),
-        ("Service", 0),
+        ("Service", 1),
     ],
 )
 @pytest.mark.parametrize("grant_type", ["USER", "SERVICE"])

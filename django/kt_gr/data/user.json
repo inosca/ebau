@@ -3954,6 +3954,38 @@
     }
   },
   {
+    "model": "user.group",
+    "pk": 10328,
+    "fields": {
+      "role": 4,
+      "service": 165,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 10329,
+    "fields": {
+      "role": 6,
+      "service": 165,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
     "model": "user.groupt",
     "pk": 24852,
     "fields": {
@@ -6309,7 +6341,7 @@
     "fields": {
       "group": 10257,
       "language": "de",
-      "name": "Sachbearbeitung Gebäudeversicherung 1 (GVG1)",
+      "name": "Sachbearbeitung Gebäudeversicherung Graubünden, Versicherung",
       "city": null
     }
   },
@@ -6319,7 +6351,7 @@
     "fields": {
       "group": 10258,
       "language": "de",
-      "name": "Administration Gebäudeversicherung 1 (GVG1)",
+      "name": "Administration Gebäudeversicherung Graubünden, Versicherung",
       "city": null
     }
   },
@@ -6329,7 +6361,7 @@
     "fields": {
       "group": 10259,
       "language": "de",
-      "name": "Sachbearbeitung Gebäudeversicherung 2 (GVG2)",
+      "name": "Sachbearbeitung Gebäudeversicherung Graubünden, Elementarschadenprävention",
       "city": null
     }
   },
@@ -6339,7 +6371,7 @@
     "fields": {
       "group": 10260,
       "language": "de",
-      "name": "Administration Gebäudeversicherung 2 (GVG2)",
+      "name": "Administration Gebäudeversicherung Graubünden, Elementarschadenprävention",
       "city": null
     }
   },
@@ -6430,6 +6462,26 @@
       "group": 10327,
       "language": "de",
       "name": "Pro Natura",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 26862,
+    "fields": {
+      "group": 10328,
+      "language": "de",
+      "name": "Sachbearbeitung Amt für Immobilienbewertung (AIB)",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 26863,
+    "fields": {
+      "group": 10329,
+      "language": "de",
+      "name": "Administration Amt für Immobilienbewertung (AIB)",
       "city": null
     }
   },
@@ -8858,7 +8910,7 @@
     "fields": {
       "service_group": 1,
       "service_parent": null,
-      "name": null,
+      "name": "gvg",
       "description": null,
       "sort": 0,
       "phone": null,
@@ -8986,6 +9038,26 @@
       "city": null,
       "address": null,
       "email": "pro.natura@example.com",
+      "website": null,
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 165,
+    "fields": {
+      "service_group": 1,
+      "service_parent": null,
+      "name": "aib",
+      "description": null,
+      "sort": 1,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
       "website": null,
       "disabled": 0,
       "notification": 1,
@@ -10274,8 +10346,8 @@
     "fields": {
       "service": 129,
       "language": "de",
-      "name": "Gebäudeversicherung 1 (GVG1)",
-      "description": "Gebäudeversicherung 1 (GVG1)",
+      "name": "Gebäudeversicherung Graubünden, Versicherung",
+      "description": "Gebäudeversicherung Graubünden, Versicherung",
       "city": null
     }
   },
@@ -10285,8 +10357,8 @@
     "fields": {
       "service": 130,
       "language": "de",
-      "name": "Gebäudeversicherung 2 (GVG2)",
-      "description": "Gebäudeversicherung 2 (GVG2)",
+      "name": "Gebäudeversicherung Graubünden, Elementarschadenprävention",
+      "description": "Gebäudeversicherung Graubünden, Elementarschadenprävention",
       "city": null
     }
   },
@@ -10342,6 +10414,17 @@
       "language": "de",
       "name": "Pro Natura",
       "description": "Pro Natura",
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 165,
+    "fields": {
+      "service": 165,
+      "language": "de",
+      "name": "Amt für Immobilienbewertung (AIB)",
+      "description": "Amt für Immobilienbewertung (AIB)",
       "city": null
     }
   }
