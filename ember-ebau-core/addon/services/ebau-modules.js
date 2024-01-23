@@ -11,6 +11,10 @@ export default class EbauModulesService extends Service {
     return getOwner(this).application.modulePrefix;
   }
 
+  get isCamac() {
+    return this.applicationName === "camac-ng";
+  }
+
   get storeServiceName() {
     return this.applicationName === "caluma-portal"
       ? "public-service"
