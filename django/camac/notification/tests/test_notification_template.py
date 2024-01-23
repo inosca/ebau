@@ -424,18 +424,19 @@ def test_notification_template_sendmail(
 
 
 @pytest.mark.parametrize(
-    "form_name,expected_recipients",
+    "form_name,released_for_aib,expected_recipients",
     [
-        ("baugesuch", ["info@aib.gr.ch"]),
-        ("solaranlage", ["info@aib.gr.ch"]),
-        ("bauanzeige", ["info@aib.gr.ch"]),
-        ("vorlaeufige-beurteilung", []),
+        ("baugesuch", True, ["info@aib.gr.ch"]),
+        ("baugesuch", False, []),
+        ("solaranlage", True, ["info@aib.gr.ch"]),
+        ("solaranlage", False, []),
+        ("bauanzeige", True, ["info@aib.gr.ch"]),
+        ("bauanzeige", False, []),
+        ("vorlaeufige-beurteilung", True, []),
+        ("vorlaeufige-beurteilung", False, []),
     ],
 )
-@pytest.mark.parametrize(
-    "role__name",
-    ["Municipality"],
-)
+@pytest.mark.parametrize("role__name", ["Municipality"])
 def test_notification_template_construction_acceptance(
     caluma_admin_user,
     gr_instance,
@@ -447,11 +448,11 @@ def test_notification_template_construction_acceptance(
     application_settings,
     instance_state_factory,
     notification_template_factory,
+    set_application_gr,
     gr_decision_settings,
+    answer_factory,
+    released_for_aib,
 ):
-    application_settings["CALUMA"]["SIMPLE_WORKFLOW"]["construction-acceptance"][
-        "notification"
-    ]["conditions"] = {"forms": ["baugesuch", "bauanzeige", "solaranlage"]}
     instance_state_factory(name="finished")
     instance_state_factory(name="construction-acceptance")
     notification_template_factory(slug="bauabnahme")
@@ -477,6 +478,17 @@ def test_notification_template_construction_acceptance(
             user=caluma_admin_user,
         )
 
+    if released_for_aib:
+        answer_factory(
+            document=gr_instance.case.work_items.filter(
+                task_id="construction-acceptance"
+            )
+            .first()
+            .document,
+            question__slug="fuer-aib-freigeben",
+            value=["fuer-aib-freigeben-ja"],
+        )
+
     workflow_api.complete_work_item(
         work_item=gr_instance.case.work_items.get(task_id="construction-acceptance"),
         user=caluma_admin_user,
@@ -485,7 +497,10 @@ def test_notification_template_construction_acceptance(
     assert len(mailoutbox) == len(expected_recipients)
 
     if form_name != "vorlaeufige-beurteilung":
-        assert mailoutbox[0].recipients() == expected_recipients
+        if not released_for_aib:
+            assert len(mailoutbox) == 0
+        else:
+            assert mailoutbox[0].recipients() == expected_recipients
 
 
 @pytest.mark.parametrize(

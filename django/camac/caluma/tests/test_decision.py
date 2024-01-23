@@ -63,6 +63,7 @@ def test_complete_decision(
     settings,
     gr_decision_settings,
 ):
+    settings.APPLICATION_NAME = "kt_gr"
     instance_state_factory(name=expected_instance_state)
 
     settings.APPLICATION["NOTIFICATIONS"] = {}

@@ -29,7 +29,7 @@
       "modified_by_group": null,
       "form": "decision",
       "question": "decision-date",
-      "sort": 3
+      "sort": 5
     }
   },
   {
@@ -44,7 +44,7 @@
       "modified_by_group": null,
       "form": "decision",
       "question": "decision-decision",
-      "sort": 5
+      "sort": 7
     }
   },
   {
@@ -59,7 +59,7 @@
       "modified_by_group": null,
       "form": "decision",
       "question": "decision-description",
-      "sort": 4
+      "sort": 6
     }
   },
   {
@@ -90,6 +90,36 @@
       "form": "decision",
       "question": "decision-submit",
       "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "decision.fuer-gvg-freigeben",
+    "fields": {
+      "created_at": "2024-01-03T07:21:55.694Z",
+      "modified_at": "2024-01-03T07:21:55.695Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "decision",
+      "question": "fuer-gvg-freigeben",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "decision.info-gvg",
+    "fields": {
+      "created_at": "2024-01-10T14:27:40.196Z",
+      "modified_at": "2024-01-10T14:27:40.196Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "decision",
+      "question": "info-gvg",
+      "sort": 4
     }
   },
   {
@@ -215,6 +245,22 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Abgeschrieben\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "fuer-gvg-freigeben-ja",
+    "fields": {
+      "created_at": "2024-01-03T07:21:55.352Z",
+      "modified_at": "2024-01-03T07:21:55.352Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dossier f\\u00fcr Geb\\u00e4udeversicherung (GVG) freigeben\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -389,6 +435,70 @@
     }
   },
   {
+    "model": "caluma_form.question",
+    "pk": "fuer-gvg-freigeben",
+    "fields": {
+      "created_at": "2024-01-03T07:21:55.520Z",
+      "modified_at": "2024-01-10T14:25:48.816Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dossier f\\u00fcr Geb\\u00e4udeversicherung (GVG) freigeben\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": "40e66630-f968-4475-81ee-be7fca513f68",
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "info-gvg",
+    "fields": {
+      "created_at": "2024-01-10T14:27:39.978Z",
+      "modified_at": "2024-01-18T11:44:43.133Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Info GVG\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"**Bitte beachten**: Gem\\u00e4ss Art. 17 Ziffer 1 des Gesetzes \\u00fcber die Geb\\u00e4udeversicherung im Kanton Graub\\u00fcnden (Geb\\u00e4udeversicherungsgesetz, GebVG) orientieren die Gemeinden die Geb\\u00e4udeversicherung Graub\\u00fcnden \\u00fcber die erteilte Baubewilligung.\\n<style>[data-question-slug=\\\"info-gvg\\\"], [data-question-slug=\\\"info-gvg\\\"] p {margin-bottom: 0 !important;}</style>\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
     "model": "caluma_form.questionoption",
     "pk": "decision-decision.decision-decision-approved",
     "fields": {
@@ -506,6 +616,21 @@
       "question": "decision-decision",
       "option": "decision-decision-written-off",
       "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "fuer-gvg-freigeben.fuer-gvg-freigeben-ja",
+    "fields": {
+      "created_at": "2024-01-10T14:25:48.828Z",
+      "modified_at": "2024-01-10T14:25:48.828Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "fuer-gvg-freigeben",
+      "option": "fuer-gvg-freigeben-ja",
+      "sort": 1
     }
   }
 ]
