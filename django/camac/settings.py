@@ -3321,13 +3321,7 @@ APPLICATIONS = {
                 "construction-acceptance": {
                     "next_instance_state": "finished",
                     "history_text": _("Construction monitoring performed"),
-                    "notification": {
-                        "template_slug": "bauabnahme",
-                        "recipient_types": ["aib"],
-                        "conditions": {
-                            "forms": ["baugesuch", "bauanzeige", "solaranlage"]
-                        },
-                    },
+                    # for notification see events/construction-acceptance.py
                 },
             },
             "PUBLIC_STATUS": {
@@ -3405,6 +3399,12 @@ APPLICATIONS = {
                 {
                     "template_slug": "beurteilung-behoerden",
                     "recipient_types": ["leitbehoerde"],
+                },
+            ],
+            "CONSTRUCTION_ACCEPTANCE": [
+                {
+                    "template_slug": "bauabnahme",
+                    "recipient_types": ["aib"],
                 },
             ],
         },

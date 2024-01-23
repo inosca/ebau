@@ -13,6 +13,7 @@ from camac.ech0211.signals import ruling
 from camac.instance import domain_logic
 from camac.notification.utils import send_mail_without_request
 from camac.permissions import events as permissions_events
+from camac.permissions.config.kt_gr import gr_include_gvg
 from camac.stats.cycle_time import compute_cycle_time
 from camac.user.models import User
 
@@ -35,6 +36,27 @@ def get_notification_config(instance):
         return settings.APPEAL["NOTIFICATIONS"].get("APPEAL_DECISION", [])
 
     return settings.APPLICATION["NOTIFICATIONS"].get("DECISION", [])
+
+
+def send_notifications(instance, context, user):
+    notification_config = get_notification_config(instance)
+
+    if not gr_include_gvg(instance):
+        notification_config = [
+            config
+            for config in notification_config
+            if config["recipient_types"] != ["gvg"]
+        ]
+
+    if not context or not context.get("no-notification"):
+        for config in notification_config:
+            send_mail_without_request(
+                config["template_slug"],
+                user.username,
+                user.camac_group,
+                instance={"id": instance.pk, "type": "instances"},
+                recipient_types=config["recipient_types"],
+            )
 
 
 @on(post_create_work_item, raise_exception=True)
@@ -102,16 +124,7 @@ def post_complete_decision(sender, work_item, user, context, **kwargs):
         user_pk=camac_user.pk,
         group_pk=user.camac_group,
     )
-
-    if not context or not context.get("no-notification"):
-        for config in get_notification_config(instance):
-            send_mail_without_request(
-                config["template_slug"],
-                user.username,
-                user.camac_group,
-                instance={"id": instance.pk, "type": "instances"},
-                recipient_types=config["recipient_types"],
-            )
+    send_notifications(instance, context, user)
 
     history_text = gettext_noop("Evaluation completed")
     if (

@@ -1,6 +1,7 @@
 import pytest
 from caluma.caluma_workflow import api as workflow_api
 
+from camac.constants import kt_gr as gr_constants
 from camac.permissions import events, exceptions
 from camac.permissions.models import AccessLevel, InstanceACL
 from camac.user.models import ServiceRelation
@@ -62,7 +63,6 @@ class SubmitCreatePermissions(events.EmptyEventHandler):
 
 
 class CustomTrigger(events.Trigger):
-
     instance_post_state_transition = events.EventTrigger()
 
 
@@ -174,3 +174,132 @@ def test_decision_event_handler_be(
 
     geometer_acl = acls.filter(service=geometer_service)
     assert geometer_acl.count() == expected_count
+
+
+@pytest.mark.parametrize(
+    "checkbox_checked,expected_count",
+    [(True, 1), (False, 0)],
+)
+def test_decision_event_handler_gr(
+    db,
+    gr_instance,
+    checkbox_checked,
+    expected_count,
+    gr_permissions_settings,
+    instance_state_factory,
+    settings,
+    application_settings,
+    answer_factory,
+    service_factory,
+    caluma_admin_user,
+    access_level_factory,
+):
+    settings.APPLICATION_NAME = "kt_gr"
+    gvg_service = service_factory(name=gr_constants.GVG_SERVICE_SLUG)
+
+    for task_id in [
+        "submit",
+        "formal-exam",
+        "distribution",
+    ]:
+        workflow_api.skip_work_item(
+            work_item=gr_instance.case.work_items.get(task_id=task_id),
+            user=caluma_admin_user,
+        )
+
+    if checkbox_checked:
+        answer_factory(
+            document=gr_instance.case.work_items.filter(task_id="decision")
+            .first()
+            .document,
+            question__slug="fuer-gvg-freigeben",
+            value=["fuer-gvg-freigeben-ja"],
+        )
+    access_level_factory(slug="read")
+    instance_state_factory(name="finished")
+
+    assert InstanceACL.objects.filter(instance=gr_instance).count() == 0
+
+    workflow_api.complete_work_item(
+        work_item=gr_instance.case.work_items.get(task_id="decision"),
+        user=caluma_admin_user,
+    )
+
+    acls = InstanceACL.objects.filter(instance=gr_instance)
+    assert acls.count() == expected_count
+
+    gvg_acl = acls.filter(service=gvg_service)
+    assert gvg_acl.count() == expected_count
+
+
+@pytest.mark.parametrize(
+    "checkbox_checked,expected_count",
+    [(True, 1), (False, 0)],
+)
+def test_construction_acceptance_event_handler_gr(
+    db,
+    gr_instance,
+    checkbox_checked,
+    expected_count,
+    gr_permissions_settings,
+    instance_state_factory,
+    settings,
+    answer_factory,
+    service_factory,
+    caluma_admin_user,
+    gr_decision_settings,
+    access_level_factory,
+):
+    settings.APPLICATION_NAME = "kt_gr"
+    aib_service = service_factory(name=gr_constants.AIB_SERVICE_SLUG)
+
+    for task_id in [
+        "submit",
+        "formal-exam",
+        "distribution",
+    ]:
+        workflow_api.skip_work_item(
+            work_item=gr_instance.case.work_items.get(task_id=task_id),
+            user=caluma_admin_user,
+        )
+
+    instance_state_factory(name="construction-acceptance")
+
+    answer_factory(
+        document=gr_instance.case.work_items.filter(task_id="decision")
+        .first()
+        .document,
+        question__slug="decision-decision",
+        value="decision-decision-approved",
+    )
+
+    workflow_api.complete_work_item(
+        work_item=gr_instance.case.work_items.get(task_id="decision"),
+        user=caluma_admin_user,
+    )
+
+    if checkbox_checked:
+        answer_factory(
+            document=gr_instance.case.work_items.filter(
+                task_id="construction-acceptance"
+            )
+            .first()
+            .document,
+            question__slug="fuer-aib-freigeben",
+            value=["fuer-aib-freigeben-ja"],
+        )
+    access_level_factory(slug="read")
+    instance_state_factory(name="finished")
+
+    assert InstanceACL.objects.filter(instance=gr_instance).count() == 0
+
+    workflow_api.complete_work_item(
+        work_item=gr_instance.case.work_items.get(task_id="construction-acceptance"),
+        user=caluma_admin_user,
+    )
+
+    acls = InstanceACL.objects.filter(instance=gr_instance)
+    assert acls.count() == expected_count
+
+    aib_acl = acls.filter(service=aib_service)
+    assert aib_acl.count() == expected_count

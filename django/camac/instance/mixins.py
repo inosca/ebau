@@ -165,14 +165,21 @@ class InstanceQuerysetMixin(object):
                     case__document__answers__value=responsible_pgv_answer,
                 ).values_list("instance_id", flat=True)
             )
-            filter = filter | Q(
-                **{
-                    form_field: [uri_constants.FORM_MITBERICHT_BUNDESSTELLE],
-                    instance_field: pgv_instances,
-                }
+
+            manager = PermissionManager.from_request(self._get_request())
+
+            filter = (
+                filter
+                | Q(
+                    **{
+                        form_field: [uri_constants.FORM_MITBERICHT_BUNDESSTELLE],
+                        instance_field: pgv_instances,
+                    }
+                )
+                | manager.get_q_object(self.instance_field)
             )
 
-        return queryset.filter(filter)
+        return queryset.distinct().filter(filter)
 
     def get_queryset_for_municipality(self, group=None):
         group = self._get_group(group)
@@ -190,11 +197,14 @@ class InstanceQuerysetMixin(object):
         )
         instances_for_activation = self._instances_with_activation(group)
 
-        return queryset.filter(
+        manager = PermissionManager.from_request(self._get_request())
+
+        return queryset.distinct().filter(
             Q(**{instance_field: instances_for_location})
             | Q(**{instance_field: instances_for_service})
             | Q(**{instance_field: instances_for_activation})
             | Q(**{instance_field: instances_for_responsible_service})
+            | manager.get_q_object(self.instance_field)
         )
 
     def get_queryset_for_service(self, group=None):
@@ -207,10 +217,13 @@ class InstanceQuerysetMixin(object):
         )
         instances_for_activation = self._instances_with_activation(group)
 
+        manager = PermissionManager.from_request(self._get_request())
+
         # use subquery to avoid duplicates
-        return queryset.filter(
+        return queryset.distinct().filter(
             Q(**{instance_field: instances_for_responsible_service})
             | Q(**{instance_field: instances_for_activation})
+            | manager.get_q_object(self.instance_field)
         )
 
     def get_queryset_for_uso(self, group=None):
@@ -223,7 +236,12 @@ class InstanceQuerysetMixin(object):
             group, Q(deadline__date__gte=timezone.localdate()) | Q(status="completed")
         )
 
-        return queryset.filter(**{instance_field: instances_for_activation})
+        manager = PermissionManager.from_request(self._get_request())
+
+        return queryset.distinct().filter(
+            Q(**{instance_field: instances_for_activation})
+            | manager.get_q_object(self.instance_field)
+        )
 
     def get_queryset_for_trusted_service(self, group=None):
         # "Trusted" services see all submitted instances (Kt. UR)
@@ -251,7 +269,12 @@ class InstanceQuerysetMixin(object):
             form__form_id__in=form_ids,
         )
 
-        return queryset.filter(**{instance_field: instances_for_location})
+        manager = PermissionManager.from_request(self._get_request())
+
+        return queryset.distinct().filter(
+            Q(**{instance_field: instances_for_location})
+            | manager.get_q_object(self.instance_field)
+        )
 
     def get_queryset_for_commission(self, group=None):
         group = self._get_group(group)
@@ -260,7 +283,13 @@ class InstanceQuerysetMixin(object):
         instances_with_invite = CommissionAssignment.objects.filter(group=group).values(
             "instance"
         )
-        return queryset.filter(**{instance_field: instances_with_invite})
+
+        manager = PermissionManager.from_request(self._get_request())
+
+        return queryset.distinct().filter(
+            Q(**{instance_field: instances_with_invite})
+            | manager.get_q_object(self.instance_field)
+        )
 
     def get_queryset_for_public(self, group=None):
         queryset = self.get_base_queryset()
