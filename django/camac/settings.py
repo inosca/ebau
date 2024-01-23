@@ -1594,6 +1594,7 @@ APPLICATIONS = {
                         "create-manual-workitems",
                         "create-publication",
                         "fill-publication",
+                        "geometer",
                     ],
                 },
             },
