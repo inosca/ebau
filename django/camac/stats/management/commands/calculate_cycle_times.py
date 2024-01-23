@@ -2,6 +2,7 @@ from caluma.caluma_workflow.models import WorkItem
 from django.core.management.base import BaseCommand
 from django.db.models import Exists, OuterRef
 
+from camac.instance.master_data import MasterData
 from camac.instance.models import Instance
 from camac.stats.cycle_time import compute_cycle_time
 
@@ -34,7 +35,7 @@ class Command(BaseCommand):
                 WorkItem.objects.filter(
                     case=OuterRef("case"),
                     task_id="decision",
-                    status=WorkItem.STATUS_COMPLETED,
+                    status__in=[WorkItem.STATUS_COMPLETED, WorkItem.STATUS_SKIPPED],
                 )
             )
         ).exclude(**{"case__meta__submit-date": None})
@@ -47,6 +48,9 @@ class Command(BaseCommand):
             f"Starting update of instances' cycle time. {instances.count()} to process...\n"
         )
         for num, instance in enumerate(instances.iterator(), start=1):
+            md = MasterData(instance.case)
+            if not md.decision_date:
+                continue
             cycle_time_dict = compute_cycle_time(instance)
             instance.case.meta.update(cycle_time_dict)
             if not options.get("dry_run"):
