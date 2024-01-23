@@ -1,6 +1,23 @@
 [
   {
     "model": "caluma_form.answer",
+    "pk": "2fdcc8c0-60f2-46ba-996f-aec2b9d4e767",
+    "fields": {
+      "created_at": "2024-01-19T07:58:15.653Z",
+      "modified_at": "2024-01-19T07:58:15.653Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "fuer-aib-freigeben",
+      "value": ["fuer-aib-freigeben-ja"],
+      "meta": {},
+      "document": null,
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "3a9d3dc8-f770-4115-8be8-92ef8cbcecfa",
     "fields": {
       "created_at": "2023-08-04T11:57:21.660Z",
@@ -11,6 +28,23 @@
       "modified_by_group": null,
       "question": "oeffentliche-auflage",
       "value": ["oeffentliche-auflage-ja"],
+      "meta": {},
+      "document": null,
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "40e66630-f968-4475-81ee-be7fca513f68",
+    "fields": {
+      "created_at": "2024-01-19T07:58:15.653Z",
+      "modified_at": "2024-01-19T07:58:15.653Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "fuer-gvg-freigeben",
+      "value": ["fuer-gvg-freigeben-ja"],
       "meta": {},
       "document": null,
       "date": null

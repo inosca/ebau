@@ -1,0 +1,11 @@
+[
+  {
+    "model": "permissions.accesslevel",
+    "pk": "read",
+    "fields": {
+      "name": "{\"de\": \"Leseberechtigung\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "required_grant_type": "SERVICE"
+    }
+  }
+]

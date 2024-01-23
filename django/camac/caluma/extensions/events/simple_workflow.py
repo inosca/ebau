@@ -10,16 +10,35 @@ from camac.user.models import User
 from .general import get_caluma_setting, get_instance
 
 
+def send_notification(notification, context, instance, user, work_item):
+    """Send notifications according to the settings in the notification configuration."""
+
+    if notification and (not context or not context.get("no-notification")):
+        additional_data = (
+            {"body": context.get("notification-body")}
+            if context and context.get("notification-body")
+            else {}
+        )
+
+        send_mail_without_request(
+            notification["template_slug"],
+            user.username,
+            user.camac_group,
+            instance={"id": instance.pk, "type": "instances"},
+            recipient_types=notification["recipient_types"],
+            work_item={"id": work_item.pk, "type": "work-items"},
+            **additional_data,
+        )
+
+
 @on(post_complete_work_item, raise_exception=True)
 @transaction.atomic
 def post_complete_simple_workflow(sender, work_item, user, context, **kwargs):
     simple_workflow_config = get_caluma_setting("SIMPLE_WORKFLOW", {})
 
-    if work_item.task_id in simple_workflow_config.keys():
+    if config := simple_workflow_config.get(work_item.task_id):
         instance = get_instance(work_item)
         camac_user = User.objects.get(username=user.username)
-
-        config = simple_workflow_config[work_item.task_id]
 
         next_instance_state = config.get("next_instance_state")
         ech_event_name = config.get("ech_event")
@@ -45,28 +64,4 @@ def post_complete_simple_workflow(sender, work_item, user, context, **kwargs):
             # create history entry
             create_history_entry(instance, camac_user, history_text)
 
-        if notification and (not context or not context.get("no-notification")):
-            # check conditions
-            if "conditions" in notification:
-                for type, config in notification["conditions"].items():
-                    if type == "forms":
-                        if instance.case.document.form.slug not in config:
-                            return
-                    else:  # pragma: no cover
-                        raise RuntimeError(f"unknown condition type: {type}")
-
-            additional_data = (
-                {"body": context.get("notification-body")}
-                if context and context.get("notification-body")
-                else {}
-            )
-
-            send_mail_without_request(
-                notification["template_slug"],
-                user.username,
-                user.camac_group,
-                instance={"id": instance.pk, "type": "instances"},
-                recipient_types=notification["recipient_types"],
-                work_item={"id": work_item.pk, "type": "work-items"},
-                **additional_data,
-            )
+        send_notification(notification, context, instance, user, work_item)
