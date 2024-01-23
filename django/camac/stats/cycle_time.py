@@ -126,7 +126,7 @@ def _retrieve_waiting_periods(
             response_answer and response_answer.date
         ) is None:
             continue
-        if response_answer.date > decision_date:
+        if decision_date and response_answer.date > decision_date:
             continue
         results.append((request_answer.date, response_answer.date))
     return sorted(results, key=lambda pair: pair[0])
