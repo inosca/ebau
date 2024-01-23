@@ -1404,10 +1404,16 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
         )
 
     def _get_recipients_aib(self, instance):
-        return [{"to": "info@aib.gr.ch"}]
+        service = Service.objects.filter(name="aib").first()
+        if service:
+            return [{"to": service.email}]
+        return []  # pragma: no cover
 
     def _get_recipients_gvg(self, instance):
-        return [{"to": "versicherung@gvg.gr.ch"}]
+        service = Service.objects.filter(name="gvg").first()
+        if service:
+            return [{"to": service.email}]
+        return []  # pragma: no cover
 
     def _recipient_log(self, recipients):
         return ", ".join(
