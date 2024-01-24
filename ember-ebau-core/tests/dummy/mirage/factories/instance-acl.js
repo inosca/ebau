@@ -1,8 +1,7 @@
 import { faker } from "@faker-js/faker";
-import { DateTime } from "luxon";
 import { Factory, association, trait } from "miragejs";
 
-// ATTENTION: This file is soft linked to ../ember-camac-ng/mirage/factories/ to prevent dublicated code!!!
+// ATTENTION: This file is soft linked to ../ember-camac-ng/mirage/factories/ to prevent duplicated code!!!
 
 export default Factory.extend({
   // TODO: refactor token handling
@@ -41,16 +40,10 @@ export default Factory.extend({
     const accessLevel = existingAccessLevels.length
       ? faker.helpers.arrayElement(existingAccessLevels)
       : server.create("access-level");
-    const expired = instanceAcl.endTime && instanceAcl.endTime < DateTime.now();
 
     instanceAcl.update({
       accessLevel,
       grantType: accessLevel.requiredGrantType,
-      status: instanceAcl.status ?? (expired ? "expired" : "active"),
-      entityName: `${instanceAcl.user.name} ${instanceAcl.user.surname}`,
-      entityEmail: instanceAcl.user
-        ? instanceAcl.user.email
-        : instanceAcl.service.email,
     });
 
     if (instanceAcl.revokedAt) {

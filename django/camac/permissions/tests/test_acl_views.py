@@ -85,6 +85,41 @@ def test_list_acl_view(
         assert len(acls_data) == 0
 
 
+@pytest.mark.parametrize("role__name", ["Applicant"])
+def test_list_acl_view_for_applicant(
+    db,
+    access_level_factory,
+    admin_client,
+    admin_user,
+    applicant_factory,
+    instance,
+    service,
+):
+    applicant_factory(instance=instance, invitee=admin_user)
+
+    visible_access_level = access_level_factory(slug="municipality-before-submission")
+    hidden_access_level = access_level_factory()
+
+    for access_level in [visible_access_level, hidden_access_level]:
+        api.grant(
+            instance,
+            grant_type=api.GRANT_CHOICES.SERVICE.value,
+            access_level=access_level,
+            service=service,
+        )
+
+    response = admin_client.get(
+        reverse("instance-acls-list"), {"instance": instance.pk}
+    )
+
+    result = response.json()["data"]
+    assert len(result) == 1
+
+    ids = [i["relationships"]["access-level"]["data"]["id"] for i in result]
+    assert visible_access_level.slug in ids
+    assert hidden_access_level.slug not in ids
+
+
 @pytest.mark.parametrize("set_end_time", [True, False])
 @pytest.mark.parametrize("set_start_time", [True, False])
 @pytest.mark.parametrize(
@@ -131,7 +166,7 @@ def test_create_acl(
             },
             "relationships": {
                 "instance": {"data": {"id": instance.pk, "type": "instances"}},
-                "service": {"data": {"id": service.pk, "type": "services"}},
+                "service": {"data": {"id": service.pk, "type": "public-services"}},
                 "access-level": {
                     "data": {"id": access_level.pk, "type": "access-levels"}
                 },

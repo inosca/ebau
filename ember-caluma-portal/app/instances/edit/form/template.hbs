@@ -1,6 +1,11 @@
 <LoadingOrNotfound
   @loading={{this.document.isLoading}}
-  @hasPermission={{can "read form of instance" this.editController.instance form=this.document.value.form}}
+  @hasPermission={{can
+    "read form of instance"
+    this.editController.instance
+    form=this.document.value.form
+    permissions=this.editController.permissions
+  }}
 >
   {{#if (is-embedded)}}
     <CfContent

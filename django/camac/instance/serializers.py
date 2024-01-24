@@ -45,7 +45,7 @@ from camac.instance.master_data import MasterData
 from camac.instance.mixins import InstanceEditableMixin, InstanceQuerysetMixin
 from camac.instance.utils import copy_instance, fill_ebau_number
 from camac.notification.utils import send_mail, send_mail_without_request
-from camac.permissions import api as permissions_api
+from camac.permissions import api as permissions_api, events as permissions_events
 from camac.responsible.models import ResponsibleService
 from camac.responsible.serializers import reassign_work_items
 from camac.tags.models import Keyword
@@ -1629,6 +1629,8 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             user_pk=self.context["request"].user.pk,
             group_pk=group.pk,
         )
+
+        permissions_events.Trigger.instance_submitted(None, instance)
 
         return instance
 
