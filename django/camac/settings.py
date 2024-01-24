@@ -3755,7 +3755,7 @@ APPLICATIONS = {
                 "fill-additional-demand": {
                     "notification": {
                         "template_slug": "nachforderung-beantwortet",
-                        "recipient_types": ["applicant"],
+                        "recipient_types": ["work_item_controlling"],
                     },
                 },
             },
