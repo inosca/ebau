@@ -1,7 +1,6 @@
-import datetime
 import functools
 import json
-from datetime import timedelta
+from datetime import datetime, timedelta
 
 import pyexcel
 import pytest
@@ -174,28 +173,27 @@ def test_instance_list_for_uso_gr(
 @pytest.mark.parametrize(
     "role__name,instance__user", [("uso", LazyFixture("admin_user"))]
 )
-@pytest.mark.parametrize("deadline_date", ["2023-12-02 23:00:00+00"])
 def test_instance_detail_uso(
     admin_client,
     instance,
     gr_instance,
     case_factory,
     work_item_factory,
-    deadline_date,
     distribution_settings,
     settings,
 ):
     settings.APPLICATION_NAME = "kt_gr"
     distribution_case = case_factory(workflow_id="inquiry", family=gr_instance.case)
+    deadline_date = "2023-12-02"
     work_item = work_item_factory(
         task_id="inquiry",
         addressed_groups=[gr_instance.group.service.pk],
-        deadline=deadline_date,
+        deadline=make_aware(datetime.strptime(deadline_date, "%Y-%m-%d")),
     )
     distribution_case.work_items.add(work_item)
 
     AnswerFactory(
-        question_id="inquiry-deadline", document=work_item.document, date=now()
+        question_id="inquiry-deadline", document=work_item.document, date=deadline_date
     )
 
     url = reverse("instance-detail", args=[instance.pk])
@@ -362,7 +360,7 @@ def test_instance_submit_date_filter(
 ):
     workflow_entry_factory(
         workflow_item=workflow_item_factory(pk=10),
-        workflow_date=make_aware(datetime.datetime(2021, 3, 3)),
+        workflow_date=make_aware(datetime(2021, 3, 3)),
         instance=instance,
     )
 
@@ -713,7 +711,7 @@ def test_with_cantonal_participation_filter(
 
     workflow_entry_factory(
         instance=ur_instance,
-        workflow_date=make_aware(datetime.datetime(2021, 7, 16, 8, 0, 6)),
+        workflow_date=make_aware(datetime(2021, 7, 16, 8, 0, 6)),
         group=1,
         workflow_item__pk=16,
     )
@@ -1807,48 +1805,48 @@ def test_instance_generate_identifier_gr(
         (
             "Municipality",
             LazyFixture("admin_user"),
-            datetime.datetime(2016, 6, 28, tzinfo=pytz.UTC),
-            datetime.datetime(2016, 7, 10, tzinfo=pytz.UTC),
+            datetime(2016, 6, 28, tzinfo=pytz.UTC),
+            datetime(2016, 7, 10, tzinfo=pytz.UTC),
             True,
             status.HTTP_200_OK,
         ),
         (
             "PublicReader",
             LazyFixture("admin_user"),
-            datetime.datetime(2017, 6, 28, tzinfo=pytz.UTC),
-            datetime.datetime(2017, 8, 1, tzinfo=pytz.UTC),
+            datetime(2017, 6, 28, tzinfo=pytz.UTC),
+            datetime(2017, 8, 1, tzinfo=pytz.UTC),
             True,
             status.HTTP_200_OK,
         ),
         (
             "Public",
             LazyFixture("admin_user"),
-            datetime.datetime(2017, 6, 28, tzinfo=pytz.UTC),
-            datetime.datetime(2017, 7, 10, tzinfo=pytz.UTC),
+            datetime(2017, 6, 28, tzinfo=pytz.UTC),
+            datetime(2017, 7, 10, tzinfo=pytz.UTC),
             True,
             status.HTTP_200_OK,
         ),
         (
             "Public",
             LazyFixture("user"),
-            datetime.datetime(2016, 6, 28, tzinfo=pytz.UTC),
-            datetime.datetime(2017, 7, 10, tzinfo=pytz.UTC),
+            datetime(2016, 6, 28, tzinfo=pytz.UTC),
+            datetime(2017, 7, 10, tzinfo=pytz.UTC),
             True,
             status.HTTP_404_NOT_FOUND,
         ),
         (
             "PublicReader",
             LazyFixture("admin_user"),
-            datetime.datetime(2017, 6, 26, tzinfo=pytz.UTC),
-            datetime.datetime(2017, 7, 10, tzinfo=pytz.UTC),
+            datetime(2017, 6, 26, tzinfo=pytz.UTC),
+            datetime(2017, 7, 10, tzinfo=pytz.UTC),
             True,
             status.HTTP_404_NOT_FOUND,
         ),
         (
             "PublicReader",
             LazyFixture("admin_user"),
-            datetime.datetime(2017, 6, 28, tzinfo=pytz.UTC),
-            datetime.datetime(2017, 7, 10, tzinfo=pytz.UTC),
+            datetime(2017, 6, 28, tzinfo=pytz.UTC),
+            datetime(2017, 7, 10, tzinfo=pytz.UTC),
             False,
             status.HTTP_404_NOT_FOUND,
         ),

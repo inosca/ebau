@@ -434,7 +434,7 @@ class InstanceView(
             deadline_answer = work_item.document.answers.filter(
                 question_id=settings.DISTRIBUTION["QUESTIONS"]["DEADLINE"]
             )
-            new_deadline = deadline_answer.first().date + timedelta(days=7)
+            new_deadline = timezone.now().date() + timedelta(days=7)
             deadline_answer.update(date=new_deadline)
 
             sync_inquiry_deadline(work_item)
