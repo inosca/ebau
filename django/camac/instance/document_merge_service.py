@@ -21,7 +21,7 @@ from camac.instance.master_data import MasterData
 from camac.instance.models import Instance
 from camac.instance.placeholders.utils import enrich_personal_data, get_person_name
 from camac.instance.utils import build_document_prefetch_statements
-from camac.utils import build_url, clean_join
+from camac.utils import build_url, clean_join, get_dict_item
 
 
 def find_in_result(slug, node):
@@ -97,7 +97,9 @@ def get_header_labels():
 
 
 def graceful_get(master_data, prop, key=None, default=None):
-    if prop not in settings.APPLICATION["MASTER_DATA"]:  # pragma: no cover
+    if not get_dict_item(
+        settings.MASTER_DATA, f"CONFIG.{prop}", default=False
+    ):  # pragma: no cover
         return default
 
     value = getattr(master_data, prop, default)

@@ -96,8 +96,8 @@ def test_command(
     workflow_item_factory,
     bfs_nr,
     run_again,
+    ur_master_data_settings,
 ):
-    application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_uri"]["MASTER_DATA"]
     workflow_item_factory(pk=uri_constants.WORKFLOW_ITEM_DOSSIER_ERFASST)
 
     client = ParashiftImporter(bfs_nr=bfs_nr)

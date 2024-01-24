@@ -23,9 +23,9 @@ def test_gwr_data_ur(
     workflow_entry_factory,
     snapshot,
     ur_master_data_case,  # noqa
+    ur_master_data_settings,
 ):
     settings.APPLICATION_NAME = "kt_uri"
-    application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_uri"]["MASTER_DATA"]
 
     ur_instance.case.meta = {"dossier-number": "1201-21-003"}
     ur_instance.case.save()
@@ -83,11 +83,9 @@ def test_instance_gwr_data_sz_gwr(
     settings,
     snapshot,
     sz_master_data_case_gwr,  # noqa
+    sz_master_data_settings,
 ):
     settings.APPLICATION_NAME = "kt_schwyz"
-    application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_schwyz"][
-        "MASTER_DATA"
-    ]
 
     url = reverse("instance-gwr-data", args=[sz_instance.pk])
 
@@ -105,11 +103,9 @@ def test_instance_gwr_data_sz_gwr_v2(
     settings,
     snapshot,
     sz_master_data_case_gwr_v2,  # noqa
+    sz_master_data_settings,
 ):
     settings.APPLICATION_NAME = "kt_schwyz"
-    application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_schwyz"][
-        "MASTER_DATA"
-    ]
 
     url = reverse("instance-gwr-data", args=[sz_instance.pk])
 

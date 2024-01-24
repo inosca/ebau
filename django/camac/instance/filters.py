@@ -954,7 +954,7 @@ class PublicCalumaInstanceFilterSet(FilterSet):
     exclude_instance = NumberFilter(field_name="instance__pk", exclude=True)
 
     def filter_municipality(self, queryset, name, value):
-        municipality_question = settings.APPLICATION["MASTER_DATA"]["municipality"][1]
+        municipality_question = settings.MASTER_DATA["CONFIG"]["municipality"][1]
 
         return queryset.filter(
             document__answers__question_id=municipality_question,
