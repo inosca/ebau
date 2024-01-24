@@ -3,6 +3,7 @@ DJANGO_ADMIN = {
         "ENABLED_MODELS": [
             "caluma_workflow.Case",
             "caluma_workflow.WorkItem",
+            "permissions.AccessLevel",
             "user.Group",
             "user.Role",
             "user.Service",

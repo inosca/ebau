@@ -5,6 +5,7 @@ import { allCases } from "@projectcaluma/ember-core/caluma-query/queries";
 import { queryManager } from "ember-apollo-client";
 import { query, findRecord } from "ember-data-resources";
 import mainConfig from "ember-ebau-core/config/main";
+import { hasFeature } from "ember-ebau-core/helpers/has-feature";
 import apolloQuery from "ember-ebau-core/resources/apollo";
 
 import config from "caluma-portal/config/environment";
@@ -99,6 +100,18 @@ export default class InstancesEditController extends Controller {
     sort: "title",
     include: "files,marks",
   }));
+
+  #permissions = query(this, "instance-permission", () => ({
+    instance_id: this.model,
+  }));
+
+  get permissions() {
+    if (!hasFeature("permissions.municipalityBeforeSubmission")) {
+      return [];
+    }
+
+    return this.#permissions.records?.[0]?.permissions ?? [];
+  }
 
   get hasFeedbackSection() {
     return Boolean(config.APPLICATION.documents.feedbackSections);

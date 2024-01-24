@@ -27,4 +27,7 @@ export default {
     createPaper: true,
     exportExcel: false,
   },
+  permissions: {
+    municipalityBeforeSubmission: true,
+  },
 };

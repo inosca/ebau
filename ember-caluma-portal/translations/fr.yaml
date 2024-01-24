@@ -375,6 +375,15 @@ instances:
     nfd: "Demandes de complément d'information"
 
   applicants:
+    municipality-access: ""
+    municipality-info: ""
+    municipality-info-empty: ""
+    period: ""
+    municipality: ""
+    authorize: ""
+    revoke: ""
+    now: ""
+
     invitee: "Utilisateur"
     created: "Enregistré sur"
     user: "Ajouté par"
