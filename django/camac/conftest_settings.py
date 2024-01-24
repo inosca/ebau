@@ -67,3 +67,6 @@ generate_module_test_settings("withdrawal", ["kt_so"])
 generate_module_test_settings("permissions", ["kt_bern", "kt_gr"])
 generate_module_test_settings("communications", ["kt_bern"])
 generate_module_test_settings("placeholders", ["kt_bern", "kt_so"])
+generate_module_test_settings(
+    "master_data", ["kt_bern", "kt_schwyz", "kt_uri", "kt_gr", "kt_so"]
+)
