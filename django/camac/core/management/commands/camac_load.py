@@ -8,7 +8,7 @@ from django.contrib.auth import get_user_model
 from django.core.management import call_command
 from django.core.management.base import BaseCommand
 
-from camac import dump_settings as config
+from camac.settings import dump as config
 
 
 class Command(BaseCommand):

@@ -61,13 +61,12 @@ from camac.notification.serializers import (
 from camac.objection import factories as objection_factories
 from camac.permissions import factories as permissions_factories
 from camac.responsible import factories as responsible_factories
+from camac.settings.testing import *  # noqa F403, F401
 from camac.tags import factories as tags_factories
 from camac.urls import urlpatterns as app_patterns
 from camac.user import factories as user_factories
 from camac.user.models import Group, User
 from camac.utils import build_url
-
-from .conftest_settings import *  # noqa F403, F401
 
 
 def register_module(module, prefix=""):

@@ -37,7 +37,7 @@ using the ACL.
                       0..* |                                    | Database
   ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~|~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
                            |                                    | Configuration
-                           |                                    v (settings_permissions.py)
+                           |                                    v (settings/modules/permissions.py)
                            |         +------------------+
                            `---------| Permission       |
                                 1..* | - identifier     |

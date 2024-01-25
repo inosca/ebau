@@ -6,7 +6,7 @@ from django.apps import apps
 from django.conf import settings
 from django.core.management.base import BaseCommand
 
-from camac import dump_settings as config
+from camac.settings import dump as config
 
 from .camac_dump_config import CamacDumpSerializer
 
