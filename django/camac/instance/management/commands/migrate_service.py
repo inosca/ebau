@@ -2,7 +2,7 @@ from django.apps import apps
 from django.core.management.base import BaseCommand
 from django.db import connection
 
-from camac.dump_settings import DUMP_CONFIG_MODELS, DUMP_CONFIG_MODELS_REFERENCING_DATA
+from camac.settings.dump import DUMP_CONFIG_MODELS, DUMP_CONFIG_MODELS_REFERENCING_DATA
 
 
 class Command(BaseCommand):

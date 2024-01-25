@@ -7,7 +7,7 @@ from django.conf import settings
 from django.core.management.base import BaseCommand
 from django.core.serializers.json import Serializer
 
-from camac import dump_settings as config
+from camac.settings import dump as config
 
 
 class CamacDumpSerializer(Serializer):

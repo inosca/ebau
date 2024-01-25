@@ -19,7 +19,7 @@ def generate_module_test_settings(module_name, cantons=[]):
         @pytest.fixture
         def fn(settings, request):
             original_settings = getattr(
-                import_module(f"camac.settings_{module_name.lower()}"),
+                import_module(f"camac.settings.modules.{module_name.lower()}"),
                 module_name.upper(),
             )
 
