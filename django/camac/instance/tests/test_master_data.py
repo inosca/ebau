@@ -9,7 +9,6 @@ from caluma.caluma_workflow import (
     factories as caluma_workflow_factories,
     models as caluma_workflow_models,
 )
-from django.conf import settings
 from django.utils.translation import override
 
 from ..master_data import MasterData
@@ -92,9 +91,9 @@ def test_master_data_exceptions(
     db,
     instance,
     instance_with_case,
-    application_settings,
+    master_data_settings,
 ):
-    application_settings["MASTER_DATA"] = {
+    master_data_settings["CONFIG"] = {
         "bar": ("unconfigured", "bar"),
         "baz": ("case_meta", "baz", {"value_parser": "boolean"}),
         "an_instance_property": ("instance_property", "case__form"),
@@ -140,8 +139,9 @@ def test_master_data_parsers(
     form_field_factory,
     instance,
     master_data_is_visible_mock,
+    master_data_settings,
 ):
-    application_settings["MASTER_DATA"] = {
+    master_data_settings["CONFIG"] = {
         "date": ("case_meta", "my-date", {"value_parser": "date"}),
         "datetime": ("case_meta", "my-datetime", {"value_parser": "datetime"}),
         "success": (
@@ -234,7 +234,7 @@ def test_master_data_parsers(
     snapshot.assert_match(
         {
             key: getattr(master_data, key)
-            for key in application_settings["MASTER_DATA"].keys()
+            for key in master_data_settings["CONFIG"].keys()
         }
     )
 
@@ -788,10 +788,10 @@ def sz_master_data_case_gwr_v2(sz_master_data_case, form_field_factory):
 
 
 @pytest.mark.parametrize(
-    "application_name,language,case,select_related,prefetch_related,num_queries",
+    "canton_master_data_settings,language,case,select_related,prefetch_related,num_queries",
     [
         (
-            "kt_bern",
+            pytest.lazy_fixture("be_master_data_settings"),
             "de",
             pytest.lazy_fixture("be_master_data_case"),
             ["document"],
@@ -816,7 +816,7 @@ def sz_master_data_case_gwr_v2(sz_master_data_case, form_field_factory):
             9,
         ),
         (
-            "kt_bern",
+            pytest.lazy_fixture("be_master_data_settings"),
             "fr",
             pytest.lazy_fixture("be_master_data_case"),
             ["document"],
@@ -833,7 +833,7 @@ def sz_master_data_case_gwr_v2(sz_master_data_case, form_field_factory):
             9,
         ),
         (
-            "kt_uri",
+            pytest.lazy_fixture("ur_master_data_settings"),
             "de",
             pytest.lazy_fixture("ur_master_data_case"),
             ["document", "instance"],
@@ -856,7 +856,7 @@ def sz_master_data_case_gwr_v2(sz_master_data_case, form_field_factory):
             8,
         ),
         (
-            "kt_schwyz",
+            pytest.lazy_fixture("sz_master_data_settings"),
             "de",
             pytest.lazy_fixture("sz_master_data_case_gwr"),
             ["instance", "instance__form"],
@@ -869,7 +869,7 @@ def sz_master_data_case_gwr_v2(sz_master_data_case, form_field_factory):
             5,
         ),
         (
-            "kt_schwyz",
+            pytest.lazy_fixture("sz_master_data_settings"),
             "de",
             pytest.lazy_fixture("sz_master_data_case_gwr_v2"),
             ["instance", "instance__form"],
@@ -886,19 +886,14 @@ def sz_master_data_case_gwr_v2(sz_master_data_case, form_field_factory):
 def test_master_data(
     db,
     snapshot,
-    application_settings,
     django_assert_num_queries,
-    application_name,
     language,
     case,
     select_related,
     prefetch_related,
     num_queries,
+    canton_master_data_settings,
 ):
-    application_settings["MASTER_DATA"] = settings.APPLICATIONS[application_name][
-        "MASTER_DATA"
-    ]
-
     with django_assert_num_queries(num_queries), override(language):
         case = (
             caluma_workflow_models.Case.objects.filter(pk=case.pk)
@@ -912,6 +907,6 @@ def test_master_data(
         snapshot.assert_match(
             {
                 key: getattr(master_data, key)
-                for key in application_settings["MASTER_DATA"].keys()
+                for key in canton_master_data_settings["CONFIG"].keys()
             }
         )

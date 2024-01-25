@@ -489,48 +489,43 @@ def unoconv_invalid_mock(requests_mock):
 
 
 @pytest.fixture
-def caluma_config_be(settings, application_settings, use_caluma_form):
+def caluma_config_be(
+    settings, application_settings, use_caluma_form, be_master_data_settings
+):
     application_settings["CALUMA"] = deepcopy(
         settings.APPLICATIONS["kt_bern"]["CALUMA"]
     )
-    application_settings["MASTER_DATA"] = deepcopy(
-        settings.APPLICATIONS["kt_bern"]["MASTER_DATA"]
-    )
 
 
 @pytest.fixture
-def caluma_config_ur(settings, application_settings, use_caluma_form):
+def caluma_config_ur(
+    settings, application_settings, use_caluma_form, ur_master_data_settings
+):
     application_settings["CALUMA"] = deepcopy(settings.APPLICATIONS["kt_uri"]["CALUMA"])
-    application_settings["MASTER_DATA"] = deepcopy(
-        settings.APPLICATIONS["kt_uri"]["MASTER_DATA"]
-    )
 
 
 @pytest.fixture
-def caluma_config_sz(settings, application_settings, use_caluma_form):
+def caluma_config_sz(
+    settings, application_settings, use_caluma_form, sz_master_data_settings
+):
     application_settings["CALUMA"] = deepcopy(
         settings.APPLICATIONS["kt_schwyz"]["CALUMA"]
-    )
-    application_settings["MASTER_DATA"] = deepcopy(
-        settings.APPLICATIONS["kt_schwyz"]["MASTER_DATA"]
     )
     application_settings["FORM_BACKEND"] = "camac-ng"
 
 
 @pytest.fixture
-def caluma_config_gr(settings, application_settings, use_caluma_form):
+def caluma_config_gr(
+    settings, application_settings, use_caluma_form, gr_master_data_settings
+):
     application_settings["CALUMA"] = deepcopy(settings.APPLICATIONS["kt_gr"]["CALUMA"])
-    application_settings["MASTER_DATA"] = deepcopy(
-        settings.APPLICATIONS["kt_gr"]["MASTER_DATA"]
-    )
 
 
 @pytest.fixture
-def caluma_config_so(settings, application_settings, use_caluma_form):
+def caluma_config_so(
+    settings, application_settings, use_caluma_form, so_master_data_settings
+):
     application_settings["CALUMA"] = deepcopy(settings.APPLICATIONS["kt_so"]["CALUMA"])
-    application_settings["MASTER_DATA"] = deepcopy(
-        settings.APPLICATIONS["kt_so"]["MASTER_DATA"]
-    )
 
 
 @pytest.fixture

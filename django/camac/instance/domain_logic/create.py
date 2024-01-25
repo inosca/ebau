@@ -371,7 +371,7 @@ class CreateInstanceLogic:
             # prefill municipality question if possible
             value = str(group.service.pk)
             source = Municipalities()
-            municipality_slug = settings.APPLICATION["MASTER_DATA"]["municipality"][1]
+            municipality_slug = settings.MASTER_DATA["CONFIG"]["municipality"][1]
 
             if source.validate_answer_value(
                 value, case.document, municipality_slug, None, None

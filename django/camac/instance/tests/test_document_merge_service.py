@@ -62,12 +62,9 @@ def test_document_merge_service_snapshot(
     be_dms_settings,
     service,
     snapshot,
+    be_master_data_settings,
 ):
     cache.clear()
-
-    application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_bern"][
-        "MASTER_DATA"
-    ]
 
     for kwargs, expected_queries in [
         ({"instance_id": 1}, 21),
@@ -133,10 +130,8 @@ def test_document_merge_service_cover_sheet_with_header_values(
     application_settings,
     master_data_is_visible_mock,
     freezer,
+    be_master_data_settings,
 ):
-    application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_bern"][
-        "MASTER_DATA"
-    ]
     be_instance.case.meta = {
         "camac-instance-id": be_instance.pk,
         "ebau-number": "2021-99",
@@ -238,11 +233,8 @@ def test_document_merge_service_cover_sheet_without_header_values(
     group,
     snapshot,
     application_settings,
+    be_master_data_settings,
 ):
-    application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_bern"][
-        "MASTER_DATA"
-    ]
-
     be_instance.case.meta = {
         "camac-instance-id": be_instance.pk,
         "submit-date": "2021-01-01",
@@ -271,10 +263,10 @@ def test_eingabebestaetigung_gr(
     freezer,
     application_settings,
     master_data_is_visible_mock,
+    gr_master_data_settings,
 ):
     settings.APPLICATION_NAME = "kt_gr"
     application_settings["DOCUMENT_BACKEND"] = "alexandria"
-    application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_gr"]["MASTER_DATA"]
 
     gr_instance.case.meta = {
         "camac-instance-id": gr_instance.pk,
