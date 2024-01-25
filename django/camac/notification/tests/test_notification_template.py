@@ -452,10 +452,13 @@ def test_notification_template_construction_acceptance(
     gr_decision_settings,
     answer_factory,
     released_for_aib,
+    service_factory,
 ):
     instance_state_factory(name="finished")
     instance_state_factory(name="construction-acceptance")
     notification_template_factory(slug="bauabnahme")
+
+    service_factory(name="aib", email="info@aib.gr.ch")
 
     gr_instance.case.document.form = caluma_form_models.Form.objects.create(
         pk=form_name
@@ -519,7 +522,9 @@ def test_notification_template_gvg(
     gr_instance,
     status_code,
     mailoutbox,
+    service_factory,
 ):
+    service_factory(name="gvg", email="versicherung@gvg.gr.ch")
     url = reverse("notificationtemplate-sendmail")
 
     gr_instance.case.document.save()
