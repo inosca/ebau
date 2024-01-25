@@ -16,7 +16,7 @@ from camac.alexandria.extensions.visibilities import (
 from camac.billing.models import BillingV2Entry
 from camac.caluma.utils import find_answer, work_item_by_addressed_service_condition
 from camac.user.models import Service, User
-from camac.utils import build_url, clean_join
+from camac.utils import build_url, clean_join, get_dict_item
 
 from .utils import (
     clean_and_add_full_name,
@@ -266,7 +266,9 @@ class MasterDataField(AliasedMixin, serializers.ReadOnlyField):
         return self.parser(super().to_representation(value))
 
     def get_attribute(self, instance):
-        if not settings.APPLICATION["MASTER_DATA"].get(self.source):  # pragma: no cover
+        if not get_dict_item(
+            settings.MASTER_DATA, f"CONFIG.{self.source}", default=None
+        ):  # pragma: no cover
             return None
 
         return getattr(instance._master_data, self.source)

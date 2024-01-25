@@ -1,5 +1,5 @@
 # serializer version: 1
-# name: test_master_data[kt_bern-de-be_master_data_case-select_related0-prefetch_related0-9]
+# name: test_master_data[be_master_data_settings-de-be_master_data_case-select_related0-prefetch_related0-9]
   dict({
     'alcohol_serving': 'mit',
     'applicants': list([
@@ -194,7 +194,7 @@
     'zip': 3000,
   })
 # ---
-# name: test_master_data[kt_bern-fr-be_master_data_case-select_related1-prefetch_related1-9]
+# name: test_master_data[be_master_data_settings-fr-be_master_data_case-select_related1-prefetch_related1-9]
   dict({
     'alcohol_serving': 'mit',
     'applicants': list([
@@ -389,7 +389,7 @@
     'zip': 3000,
   })
 # ---
-# name: test_master_data[kt_schwyz-de-sz_master_data_case_gwr-select_related3-prefetch_related3-5]
+# name: test_master_data[sz_master_data_settings-de-sz_master_data_case_gwr-select_related3-prefetch_related3-5]
   dict({
     'applicants': list([
       dict({
@@ -485,7 +485,7 @@
     'usage_zone': None,
   })
 # ---
-# name: test_master_data[kt_schwyz-de-sz_master_data_case_gwr_v2-select_related4-prefetch_related4-5]
+# name: test_master_data[sz_master_data_settings-de-sz_master_data_case_gwr_v2-select_related4-prefetch_related4-5]
   dict({
     'applicants': list([
       dict({
@@ -589,7 +589,7 @@
     'usage_zone': None,
   })
 # ---
-# name: test_master_data[kt_uri-de-ur_master_data_case-select_related2-prefetch_related2-8]
+# name: test_master_data[ur_master_data_settings-de-ur_master_data_case-select_related2-prefetch_related2-8]
   dict({
     'applicants': list([
       dict({

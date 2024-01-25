@@ -8,6 +8,7 @@ from django.conf import settings
 from django.utils.translation import get_language
 
 from camac.core.models import MultilingualModel
+from camac.utils import get_dict_item
 
 
 @dataclass
@@ -17,11 +18,13 @@ class MasterData(object):
     validation_context: dict = field(default_factory=dict)
 
     def __getattr__(self, lookup_key):
-        config = settings.APPLICATION["MASTER_DATA"].get(lookup_key)
+        config = get_dict_item(
+            settings.MASTER_DATA, f"CONFIG.{lookup_key}", default=None
+        )
 
         if not config:
             raise AttributeError(
-                f"Key '{lookup_key}' is not configured in master data config. Available keys are: {', '.join(settings.APPLICATION['MASTER_DATA'].keys())}"
+                f"Key '{lookup_key}' is not configured in master data config. Available keys are: {', '.join(settings.MASTER_DATA['CONFIG'].keys())}"
             )
 
         resolver, *args = config
@@ -111,7 +114,11 @@ class MasterData(object):
         Example configuration for a static value:
 
         MASTER_DATA = {
-            "some_string": ("static", "my-string")
+            "demo": {
+                "CONFIG": {
+                    "some_string": ("static", "my-string")
+                }
+            }
         }
         """
         return value
@@ -129,44 +136,56 @@ class MasterData(object):
         Example configuration for a "normal" value:
 
         MASTER_DATA = {
-            "some_string": (
-                "answer",
-                # question slug of the answer, can also be multiple
-                "my-string"
-            )
+            "demo": {
+                "CONFIG": {
+                    "some_string": (
+                        "answer",
+                        # question slug of the answer, can also be multiple
+                        "my-string"
+                    )
+                }
+            }
         }
 
         Example configuration for a date value:
 
         MASTER_DATA = {
-            "some_date": (
-                "answer",
-                "my-date",
-                {
-                    "value_key": "date",
-                    "default": datetime.date(2021, 8, 13)
+            "demo": {
+                "CONFIG": {
+                    "some_date": (
+                        "answer",
+                        "my-date",
+                        {
+                            "value_key": "date",
+                            "default": datetime.date(2021, 8, 13)
+                        }
+                    )
                 }
-            )
+            }
         }
 
         Example configuration for a choice question:
 
         MASTER_DATA = {
-            "some_choice": (
-                "answer",
-                "my-choice",
-                {
-                    "value_parser": (
+            "demo": {
+                "CONFIG": {
+                    "some_choice": (
+                        "answer",
+                        "my-choice",
                         {
-                            "mapping": {
-                                "my-choice-yes": True,
-                                "my-choice-no": False,
-                            }
+                            "value_parser": (
+                                {
+                                    "mapping": {
+                                        "my-choice-yes": True,
+                                        "my-choice-no": False,
+                                    }
+                                }
+                            ),
+                            "default": False
                         }
-                    ),
-                    "default": False
+                    )
                 }
-            )
+            }
         }
         """
         if not isinstance(lookup, list):
@@ -205,11 +224,15 @@ class MasterData(object):
         Example configuration:
 
         MASTER_DATA = {
-            "identifier": {
-                "case_meta",
-                "some-date",
-                {
-                    "value_parser": "date"
+            "demo": {
+                "CONFIG": {
+                    "identifier": (
+                        "case_meta",
+                        "some-date",
+                        {
+                            "value_parser": "date"
+                        }
+                    )
                 }
             }
         }
@@ -222,28 +245,32 @@ class MasterData(object):
         Example configuration:
 
         MASTER_DATA = {
-            "applicant": {
-                "table",
-                "applicant",
-                {
-                    "column_mapping": {
-                        "first_name": "first-name",
-                        "last_name": "last-name",
-                        "is_juristic_person": (
-                            "is-juristic-person",
-                            {
-                                "value_parser": (
-                                    "value_mapping",
+            "demo": {
+                "CONFIG": {
+                    "applicant": (
+                        "table",
+                        "applicant",
+                        {
+                            "column_mapping": {
+                                "first_name": "first-name",
+                                "last_name": "last-name",
+                                "is_juristic_person": (
+                                    "is-juristic-person",
                                     {
-                                        "mapping": {
-                                            "is-juristic-person-yes": True,
-                                            "is-juristic-person-no": False,
-                                        }
+                                        "value_parser": (
+                                            "value_mapping",
+                                            {
+                                                "mapping": {
+                                                    "is-juristic-person-yes": True,
+                                                    "is-juristic-person-no": False,
+                                                }
+                                            }
+                                        )
                                     }
                                 )
                             }
-                        ),
-                    }
+                        }
+                    )
                 }
             }
         }
@@ -274,11 +301,15 @@ class MasterData(object):
         Example configuration:
 
         MASTER_DATA = {
-            "submit_date": (
-                "first_workflow_entry",
-                # IDs of the workflow items
-                [10]
-            )
+            "demo": {
+                "CONFIG": {
+                    "submit_date": (
+                        "first_workflow_entry",
+                        # IDs of the workflow items
+                        [10]
+                    )
+                }
+            }
         }
         """
         entry = next(
@@ -297,11 +328,15 @@ class MasterData(object):
         Example configuration:
 
         MASTER_DATA = {
-            "submit_date": (
-                "last_workflow_entry",
-                # ID of the workflow item, can also be multiple
-                10
-            )
+            "demo": {
+                "CONFIG": {
+                    "submit_date": (
+                        "last_workflow_entry",
+                        # ID of the workflow item, can also be multiple
+                        10
+                    )
+                }
+            }
         }
         """
         if not isinstance(lookup, list):
@@ -323,11 +358,15 @@ class MasterData(object):
         Example configuration:
 
         MASTER_DATA = {
-            "some_string": (
-                "php_answer",
-                # question ID
-                123
-            )
+            "demo": {
+                "CONFIG": {
+                    "some_string": (
+                        "php_answer",
+                        # question ID
+                        123
+                    )
+                }
+            }
         }
         """
         answer = next(
@@ -346,21 +385,29 @@ class MasterData(object):
         Example configuration for a "normal" value:
 
         MASTER_DATA = {
-            "some_string": (
-                "ng_answer",
-                # name of the field
-                "my-field"
-            )
+            "demo": {
+                "CONFIG": {
+                    "some_string": (
+                        "ng_answer",
+                        # name of the field
+                        "my-field"
+                    )
+                }
+            }
         }
 
         Example configuration for a value with a potential override:
 
         MASTER_DATA = {
-            "some_string": (
-                "ng_answer",
-                # name of the field and override field
-                ["my-field", "my-field-override"],
-            )
+            "demo": {
+                "CONFIG": {
+                    "some_string": (
+                        "ng_answer",
+                        # name of the field and override field
+                        ["my-field", "my-field-override"],
+                    )
+                }
+            }
         }
         """
         lookup_previous = None
@@ -393,32 +440,36 @@ class MasterData(object):
         Example configuration for a camac-ng table with potential table override:
 
         MASTER_DATA = {
-            "applicant": {
-                "ng_table",
-                ["bauherrschaft", "bauherrschaft-override"],
-                {
-                    "column_mapping": {
-                        "last_name": "name",
-                        "first_name": "vorname",
-                        "street": "strasse",
-                        "zip": "plz",
-                        "town": "ort",
-                        "is_juristic_person": (
-                            "anrede",
-                            {
-                                "value_parser": (
-                                    "value_mapping",
+            "demo": {
+                "CONFIG": {
+                    "applicant": (
+                        "ng_table",
+                        ["bauherrschaft", "bauherrschaft-override"],
+                        {
+                            "column_mapping": {
+                                "last_name": "name",
+                                "first_name": "vorname",
+                                "street": "strasse",
+                                "zip": "plz",
+                                "town": "ort",
+                                "is_juristic_person": (
+                                    "anrede",
                                     {
-                                        "mapping": {
-                                            "Herr": False,
-                                            "Frau": False,
-                                            "Firma": True,
-                                        }
-                                    },
+                                        "value_parser": (
+                                            "value_mapping",
+                                            {
+                                                "mapping": {
+                                                    "Herr": False,
+                                                    "Frau": False,
+                                                    "Firma": True,
+                                                }
+                                            }
+                                        )
+                                    }
                                 )
-                            },
-                        ),
-                    }
+                            }
+                        }
+                    )
                 }
             }
         }
@@ -426,28 +477,32 @@ class MasterData(object):
         Example configuration for a camac-ng table with list value:
 
         MASTER_DATA = {
-            "buildings": (
-                "ng_table",
-                "gwr-v2",
-                {
-                    "column_mapping": {
-                        "name": "gebaeudebezeichnung",
-                        "dwellings": (
-                            "wohnungen",
-                            {
-                                "value_parser": (
-                                    "list_mapping",
+            "demo": {
+                "CONFIG": {
+                    "buildings": (
+                        "ng_table",
+                        "gwr-v2",
+                        {
+                            "column_mapping": {
+                                "name": "gebaeudebezeichnung",
+                                "dwellings": (
+                                    "wohnungen",
                                     {
-                                        "mapping": {
-                                            "location_on_floor": "lage",
-                                        }
+                                        "value_parser": (
+                                            "list_mapping",
+                                            {
+                                                "mapping": {
+                                                    "location_on_floor": "lage",
+                                                }
+                                            }
+                                        )
                                     }
                                 )
                             }
-                        ),
-                    }
+                        }
+                    )
                 }
-            ),
+            }
         }
         """
         return [

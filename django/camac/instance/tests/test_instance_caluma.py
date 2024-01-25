@@ -796,21 +796,12 @@ def test_instance_submit_cantonal_territory_usage_ur(
     submit_to,
     service_factory,
     authority_location_factory,
+    ur_master_data_settings,
 ):
     settings.APPLICATION_NAME = "kt_uri"
     application_settings["CALUMA"]["USE_LOCATION"] = True
     application_settings["CALUMA"]["GENERATE_IDENTIFIER"] = False
     application_settings["USE_INSTANCE_SERVICE"] = False
-    application_settings["MASTER_DATA"] = {
-        "veranstaltung_art": (
-            "answer",
-            "veranstaltung-art",
-        ),
-        "leitbehoerde_internal_form": (
-            "answer",
-            "leitbehoerde-internal-form",
-        ),
-    }
 
     cantonal_territory_form = caluma_form_factories.FormFactory(
         slug="cantonal-territory-usage"
@@ -910,17 +901,12 @@ def test_instance_submit_heat_extraction_ur(
     service_factory,
     authority_location_factory,
     form_slug,
+    ur_master_data_settings,
 ):
     settings.APPLICATION_NAME = "kt_uri"
     application_settings["CALUMA"]["USE_LOCATION"] = True
     application_settings["CALUMA"]["GENERATE_IDENTIFIER"] = False
     application_settings["USE_INSTANCE_SERVICE"] = False
-    application_settings["MASTER_DATA"] = {
-        "leitbehoerde_internal_form": (
-            "answer",
-            "leitbehoerde-internal-form",
-        ),
-    }
 
     heat_extraction_form = caluma_form_factories.FormFactory(slug=form_slug)
     caluma_form_factories.FormFactory(slug="personalien")
@@ -997,17 +983,12 @@ def test_instance_submit_pgv_gemeindestrasse_ur(
     instance_state_factory,
     service_factory,
     authority_location_factory,
+    ur_master_data_settings,
 ):
     settings.APPLICATION_NAME = "kt_uri"
     application_settings["CALUMA"]["USE_LOCATION"] = True
     application_settings["CALUMA"]["GENERATE_IDENTIFIER"] = False
     application_settings["USE_INSTANCE_SERVICE"] = False
-    application_settings["MASTER_DATA"] = {
-        "leitbehoerde": (
-            "answer",
-            "leitbehoerde",
-        ),
-    }
 
     pgv_gemeindestrasse_form = caluma_form_factories.FormFactory(
         slug="pgv-gemeindestrasse"

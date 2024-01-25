@@ -115,13 +115,13 @@ def test_dms_placeholders_gr(
     group,
     user_factory,
     responsible_service_factory,
+    gr_master_data_settings,
 ):
     settings.DISTRIBUTION["QUESTIONS"]["STATEMENT"] = "inquiry-answer-statement"
     application_settings["MUNICIPALITY_DATA_SHEET"] = settings.ROOT_DIR(
         "kt_gr",
         pathlib.Path(settings.APPLICATIONS["kt_bern"]["MUNICIPALITY_DATA_SHEET"]).name,
     )
-    application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_gr"]["MASTER_DATA"]
 
     responsible_service = gr_instance.responsible_service()
     responsible_service.address = "Teststrasse 1, 1234 Testdorf"
@@ -560,15 +560,13 @@ def test_dms_placeholders(
     nebenbestimmungen_question,
     be_dms_config,
     be_decision_settings,
+    be_master_data_settings,
 ):
     application_settings["INTERNAL_FRONTEND"] = "camac"
     application_settings["MUNICIPALITY_DATA_SHEET"] = settings.ROOT_DIR(
         "kt_bern",
         pathlib.Path(settings.APPLICATIONS["kt_bern"]["MUNICIPALITY_DATA_SHEET"]).name,
     )
-    application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_bern"][
-        "MASTER_DATA"
-    ]
 
     # publication
     document = DocumentFactory()
@@ -836,15 +834,13 @@ def test_dms_placeholders_empty(
     be_instance,
     snapshot,
     be_dms_config,
+    be_master_data_settings,
 ):
     application_settings["INTERNAL_FRONTEND"] = "camac"
     application_settings["MUNICIPALITY_DATA_SHEET"] = settings.ROOT_DIR(
         "kt_bern",
         pathlib.Path(settings.APPLICATIONS["kt_bern"]["MUNICIPALITY_DATA_SHEET"]).name,
     )
-    application_settings["MASTER_DATA"] = settings.APPLICATIONS["kt_bern"][
-        "MASTER_DATA"
-    ]
 
     response = admin_client.get(
         reverse("instance-dms-placeholders", args=[be_instance.pk])
