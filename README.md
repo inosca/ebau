@@ -15,7 +15,7 @@ Electronic building permit application for Swiss cantons.
   - [Predefined credentials](#predefined-credentials)
   - [Debugging](#debugging)
   - [Working locally with ember](#working-locally-with-ember)
-    - [Yarn workspace](#yarn-workspace)
+    - [pnpm workspace](#pnpm-workspaces)
   - [Django profiling](#django-profiling)
   - [Switching tenant](#switching-tenant)
     - [Working locally with ember](#working-locally-with-ember-1)
@@ -105,7 +105,7 @@ Python:
 Ember:
 
 - current LTS of Node.js
-- yarn
+- pnpm
 
 ## Development
 
@@ -168,9 +168,9 @@ make debug-django
 ```bash
 docker-compose up -d --build db django
 cd {ember|ember-camac-ng|ember-caluma-portal|ember-ebau} # Enter ember from the top level of the repo
-yarn # Install dependencies
-yarn test # Run tests
-yarn start-proxy # Run dev server with proxy to django api
+pnpm install # Install dependencies
+pnpm test # Run tests
+pnpm start-proxy # Run dev server with proxy to django api
 ```
 
 #### Help, ember-cli is not rebuilding after changes!
@@ -189,11 +189,11 @@ sudo sysctl -p # re-read config
 Make sure that the latter command only returns one value, otherwise the settings
 is duplicated and needs to be cleaned up.
 
-#### Yarn workspace
+#### pnpm workspaces
 
-Note however that those two apps `ember-caluma-portal` and `ember-camac-ng` share the same node modules tree through a [yarn workspace](https://classic.yarnpkg.com/en/docs/workspaces/).
+Note however that the apps `ember-caluma-portal`, `ember-camac-ng` and `ember-ebau-core` share the same node modules tree through a [pnpm workspace](https://pnpm.io/workspaces).
 
-The common yarn workspace allows us to share code (e.g. addons) between the apps which are part of this repo (instead of following the typical approach of publishing releases on npm). This also means that
+The common pnpm workspace allows us to share code (e.g. addons) between the apps which are part of this repo (instead of following the typical approach of publishing releases on npm). This also means that
 
 - (+) we save some disk space because of the avoided duplication in the `node_modules` directory
 - (-) the docker build processes of the two frontend containers have to run in the context of the root of the repo, in order to access the shared dependencies during build time
@@ -212,7 +212,7 @@ environment variables.
 
 #### Working locally with ember
 
-1. Stop the frontend servers started with `yarn start-proxy`
+1. Stop the frontend servers started with `pnpm start-proxy`
 2. Run `make kt_bern`
 3. Run `docker-compose up -d && make loadconfig`
 4. Start using command from step 1
