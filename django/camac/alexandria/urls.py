@@ -1,5 +1,3 @@
-from alexandria.core import views as alexandria_views
-from django.urls import path
 from rest_framework.routers import SimpleRouter
 
 from camac.alexandria import views
@@ -16,5 +14,3 @@ r.register(r"tagsynonymgroups", views.PatchedTagSynonymGroupViewSet)
 r.register(r"marks", views.PatchedMarkViewSet)
 
 urlpatterns = r.urls
-
-urlpatterns.append(path("hook", alexandria_views.hook_view, name="hook"))

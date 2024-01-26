@@ -245,7 +245,8 @@ class DMSHandler:
             )
             .annotate(
                 checksum=alexandria_models.File.objects.filter(
-                    document=OuterRef("pk"), variant=alexandria_models.File.ORIGINAL
+                    document=OuterRef("pk"),
+                    variant=alexandria_models.File.Variant.ORIGINAL,
                 )
                 .order_by("-created_at")
                 .values("checksum")[:1]

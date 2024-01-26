@@ -254,6 +254,7 @@ def test_document_merge_service_cover_sheet_without_header_values(
 @pytest.mark.django_db(transaction=True, reset_sequences=True)
 def test_eingabebestaetigung_gr(
     db,
+    minio_mock,
     gr_dms_settings,
     settings,
     gr_instance,

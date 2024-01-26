@@ -12,6 +12,7 @@ from pathlib import Path
 import faker
 import pytest
 import urllib3
+from alexandria.storages.backends.s3 import SsecGlobalS3Storage
 from caluma.caluma_core.faker import MultilangProvider
 from caluma.caluma_form import (
     factories as caluma_form_factories,
@@ -1351,9 +1352,6 @@ def gql():
 
 @pytest.fixture
 def minio_mock(mocker):
-    def side_effect(bucket, object_name, expires):
-        return f"http://minio/download-url/{object_name}"
-
     stat_response = MinioStatObject(
         # taken from a real-world minio stat() call
         bucket_name="alexandria-media",
@@ -1390,10 +1388,14 @@ def minio_mock(mocker):
     mocker.patch.object(Minio, "remove_object")
     mocker.patch.object(Minio, "copy_object")
     mocker.patch.object(Minio, "put_object")
-    Minio.presigned_get_object.side_effect = side_effect
     Minio.presigned_put_object.return_value = "http://minio/upload-url"
     Minio.stat_object.return_value = stat_response
     Minio.bucket_exists.return_value = True
+
+    mocker.patch("storages.backends.s3.S3Storage.save")
+    mocker.patch("storages.backends.s3.S3Storage.open")
+    SsecGlobalS3Storage.save.return_value = "name-of-the-file"
+    SsecGlobalS3Storage.open.return_value = django_file("multiple-pages.pdf")
     return Minio
 
 

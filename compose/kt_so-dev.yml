@@ -93,9 +93,7 @@ services:
       DYNAMIC_GROUPS_CLASSES: camac.caluma.extensions.dynamic_groups.CustomDynamicGroups
       DYNAMIC_TASKS_CLASSES: camac.caluma.extensions.dynamic_tasks.CustomDynamicTasks
       # Alexandria
-      ALEXANDRIA_MINIO_STORAGE_ENDPOINT: ember-ebau.local
-      ALEXANDRIA_MINIO_STORAGE_ACCESS_KEY: minio
-      ALEXANDRIA_MINIO_STORAGE_SECRET_KEY: minio123
+      DEFAULT_FILE_STORAGE: alexandria.storages.backends.s3.S3Storage
     networks:
       - ebau.local
     command: /bin/sh -c "./wait-for-it.sh db:5432 -- ./manage.py migrate && ./manage.py collectstatic --noinput && ./manage.py runserver 0:80 --pythonpath /app/$APPLICATION"
@@ -198,8 +196,6 @@ services:
     environment:
       MINIO_ROOT_USER: minio
       MINIO_ROOT_PASSWORD: minio123
-      MINIO_NOTIFY_WEBHOOK_ENDPOINT_ALEXANDRIA: http://django:80/alexandria/api/v1/hook
-      MINIO_NOTIFY_WEBHOOK_ENABLE_ALEXANDRIA: on
       MINIO_BROWSER_REDIRECT_URL: http://ember-ebau.local/minio/ui
     networks:
       - ebau.local
