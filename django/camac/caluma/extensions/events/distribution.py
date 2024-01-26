@@ -379,7 +379,9 @@ def post_resume_inquiry(sender, work_item, user, context=None, **kwargs):
         )
 
     # send notification to addressed service
-    send_inquiry_notification("INQUIRY_SENT", work_item, user)
+    send_inquiry_notification(
+        _get_inquiry_sent_notification_key(work_item), work_item, user
+    )
 
     if settings.DISTRIBUTION["ECH_EVENTS"]:
         camac_user = User.objects.get(username=user.username)
@@ -390,6 +392,14 @@ def post_resume_inquiry(sender, work_item, user, context=None, **kwargs):
             group_pk=user.camac_group,
             inquiry=work_item,
         )
+
+
+def _get_inquiry_sent_notification_key(work_item):
+    if settings.APPLICATION_NAME == "kt_gr":
+        service = Service.objects.get(pk=work_item.addressed_groups[0])
+        if service.service_group.name == "uso":
+            return "INQUIRY_SENT_TO_USO"
+    return "INQUIRY_SENT"
 
 
 @on(post_complete_work_item, raise_exception=True)

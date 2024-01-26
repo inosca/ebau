@@ -204,6 +204,18 @@
     }
   },
   {
+    "model": "notification.notificationtemplate",
+    "pk": 18,
+    "fields": {
+      "slug": "verfahrensablauf-uso",
+      "purpose": null,
+      "subject": null,
+      "body": null,
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
     "model": "notification.notificationtemplatet",
     "pk": 1,
     "fields": {
@@ -405,6 +417,18 @@
       "purpose": "Rückweisung (Gesuchsteller)",
       "subject": "Dossier aufgrund von Mängeln abgewiesen oder nicht darauf eingetreten (Dossier-Nr. {{DOSSIER_NR}})",
       "body": "Guten Tag\r\n\r\nDie Baubewilligungsbehörde ({{LEITBEHOERDE_NAME_DE}}) hat das Dossier mit der Dossier-Nr. {{DOSSIER_NR}} ({{INSTANCE_ID}}, {{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) zurückgewiesen. Das Dossier kann nun angepasst und erneut eingereicht werden.\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nMitteilung der Baubewilligungsbehörde:\r\n\r\n{{REJECTION_FEEDBACK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf."
+    }
+  },
+  {
+    "model": "notification.notificationtemplatet",
+    "pk": 18,
+    "fields": {
+      "template": 18,
+      "template_slug": "verfahrensablauf-uso",
+      "language": "de",
+      "purpose": "Verfahrensablauf (USO)",
+      "subject": "Hinweis zum Verfahrensablauf (Dossier-Nr. {{DOSSIER_NR}})",
+      "body": "Guten Tag\r\n\r\nSie erhalten das Dossier mit der Dossier-Nr. {{DOSSIER_NR}}, {{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}).\r\n\r\nBemerkung: {{INQUIRY_REMARK}}\r\n\r\n{{INQUIRY_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{CURRENT_SERVICE_DE}}"
     }
   }
 ]
