@@ -29,6 +29,7 @@ export default {
         "submitDateBefore",
         "keywords",
         "instanceState",
+        "paper",
       ],
     },
   },

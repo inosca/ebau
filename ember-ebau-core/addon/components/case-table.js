@@ -13,6 +13,7 @@ import { DateTime } from "luxon";
 import caseTableConfig from "ember-ebau-core/config/case-table";
 import mainConfig from "ember-ebau-core/config/main";
 import caseInstanceIdsQuery from "ember-ebau-core/gql/queries/case-instance-ids.graphql";
+import { hasFeature } from "ember-ebau-core/helpers/has-feature";
 
 export default class CaseTableComponent extends Component {
   @service store;
@@ -379,6 +380,7 @@ export default class CaseTableComponent extends Component {
               : macroCondition(getOwnConfig().application === "so")
                 ? {
                     keywords: this.args.filter.keywords,
+                    is_paper: this.args.filter.paper,
                   }
                 : {}),
     };
