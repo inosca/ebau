@@ -191,7 +191,7 @@ is duplicated and needs to be cleaned up.
 
 #### pnpm workspaces
 
-Note however that the apps `ember-caluma-portal`, `ember-camac-ng` and `ember-ebau-core` share the same node modules tree through a [pnpm workspace](https://pnpm.io/workspaces).
+Note however that the apps `ember-caluma-portal`, `ember-camac-ng`, `ember-ebau` and the addon `ember-ebau-core` share the same node modules tree through a [pnpm workspace](https://pnpm.io/workspaces).
 
 The common pnpm workspace allows us to share code (e.g. addons) between the apps which are part of this repo (instead of following the typical approach of publishing releases on npm). This also means that
 
