@@ -99,9 +99,9 @@ def distribution_permission_for(
 
                 attribute = (
                     value.task_id
-                    if type(value) == WorkItem
+                    if isinstance(value, WorkItem)
                     else value.form_id
-                    if type(value) == Document
+                    if isinstance(value, Document)
                     else None
                 )
                 configured_value_name = next(
