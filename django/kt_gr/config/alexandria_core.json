@@ -62,6 +62,9 @@
               }
             ]
           },
+          "uso": {
+            "visibility": "all"
+          },
           "support": {
             "visibility": "all",
             "permissions": [
