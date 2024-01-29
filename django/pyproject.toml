@@ -87,7 +87,7 @@ omit = [
     "manage.py",
     "setup.py",
     "form_json_helper.py",
-    "camac/settings_*.py",
+    "camac/settings/modules/*.py",
     "camac/wsgi.py",
     # TODO: write tests for the following"
     "camac/core/dataimport.py",

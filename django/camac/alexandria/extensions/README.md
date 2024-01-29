@@ -41,7 +41,7 @@ By leaving out the `fields` option, all fields are counted as modifiable.
 `fields` only apply to `create` and `update` permissions.
 
 Configure by setting a list of the fields which should be modifiable.
-Available options are in [settings](../../settings_alexandria.py) under the key `RESTRICTED_FIELDS`.
+Available options are in [settings](../../settings/modules/alexandria.py) under the key `RESTRICTED_FIELDS`.
 Current list of fields:
 ```py
 "title",
