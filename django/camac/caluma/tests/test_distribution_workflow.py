@@ -84,6 +84,34 @@ def distribution_case_be(
 
 
 @pytest.fixture
+def distribution_case_gr(
+    gr_instance,
+    caluma_admin_user,
+    instance_state_factory,
+    gr_distribution_settings,
+    notification_template_factory,
+):
+    # this is needed so that simple workflow works
+    notification_template_factory(slug="verfahrensablauf-fachstelle")
+    notification_template_factory(slug="verfahrensablauf-uso")
+    instance_state_factory(name="circulation")
+    instance_state_factory(name="decision")
+    instance_state_factory(
+        instance_state_id=bern_constants.INSTANCE_STATE_CORRECTION_IN_PROGRESS,
+        name="correction",
+    )
+
+    case = gr_instance.case
+
+    for task in ["submit", "formal-exam"]:
+        skip_work_item(
+            work_item=case.work_items.get(task_id=task), user=caluma_admin_user
+        )
+
+    return case
+
+
+@pytest.fixture
 def distribution_case_sz(
     sz_instance,
     caluma_admin_user,
@@ -114,6 +142,13 @@ def distribution_child_case_be(distribution_case_be, be_distribution_settings):
 
 
 @pytest.fixture
+def distribution_child_case_gr(distribution_case_gr, gr_distribution_settings):
+    return distribution_case_gr.work_items.get(
+        task_id=gr_distribution_settings["DISTRIBUTION_TASK"]
+    ).child_case
+
+
+@pytest.fixture
 def distribution_child_case_sz(distribution_case_sz, sz_distribution_settings):
     return distribution_case_sz.work_items.get(
         task_id=sz_distribution_settings["DISTRIBUTION_TASK"]
@@ -136,6 +171,27 @@ def inquiry_factory_be(
             user=caluma_admin_user,
             distribution_child_case=distribution_child_case_be,
             distribution_settings=be_distribution_settings,
+        )
+
+    return factory
+
+
+@pytest.fixture
+def inquiry_factory_gr(
+    caluma_admin_user,
+    distribution_child_case_gr,
+    gr_distribution_settings,
+    service,
+    service_factory,
+):
+    def factory(to_service=service_factory(), from_service=service, sent=False):
+        return _inquiry_factory(
+            to_service=to_service,
+            from_service=from_service,
+            sent=sent,
+            user=caluma_admin_user,
+            distribution_child_case=distribution_child_case_gr,
+            distribution_settings=gr_distribution_settings,
         )
 
     return factory
@@ -338,8 +394,38 @@ def test_send_inquiry(
     )
 
     assert len(mailoutbox) == 2
+    # mail to applicant, configured in simple workflow
     assert mailoutbox[0].to[0] == "applicant@example.com"
     assert mailoutbox[1].to[0] == addressed_service.email
+
+
+@pytest.mark.freeze_time("2022-03-23")
+def test_send_inquiry_gr(
+    db,
+    gr_instance,
+    distribution_child_case_gr,
+    inquiry_factory_gr,
+    mailoutbox,
+    service_factory,
+    group_factory,
+    work_item_factory,
+    service,
+    settings,
+):
+    settings.APPLICATION_NAME = "kt_gr"
+    addressed_service = service_factory(service_group__name="uso")
+    work_item_factory(
+        task_id=settings.DISTRIBUTION["DISTRIBUTION_CHECK_TASK"],
+        case=distribution_child_case_gr,
+        status=WorkItem.STATUS_READY,
+        addressed_groups=[str(service.pk)],
+    )
+    inquiry_factory_gr(to_service=addressed_service, sent=True)
+
+    gr_instance.refresh_from_db()
+
+    assert len(mailoutbox) == 1
+    assert mailoutbox[0].to[0] == addressed_service.email
 
 
 @pytest.mark.freeze_time("2022-03-23")

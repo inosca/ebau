@@ -224,6 +224,14 @@
     }
   },
   {
+    "model": "user.servicegroup",
+    "pk": 4,
+    "fields": {
+      "name": "uso",
+      "sort": null
+    }
+  },
+  {
     "model": "user.servicegroupt",
     "pk": 20000,
     "fields": {
@@ -248,6 +256,15 @@
       "service_group": 3,
       "language": "de",
       "name": "Ausserhalb Bauzone"
+    }
+  },
+  {
+    "model": "user.servicegroupt",
+    "pk": 20003,
+    "fields": {
+      "service_group": 4,
+      "language": "de",
+      "name": "Umweltschutzorganisation"
     }
   }
 ]

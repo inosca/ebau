@@ -588,6 +588,10 @@ DISTRIBUTION = {
                 "template_slug": "verfahrensablauf-fachstelle",
                 "recipient_types": ["inquiry_addressed"],
             },
+            "INQUIRY_SENT_TO_USO": {
+                "template_slug": "verfahrensablauf-uso",
+                "recipient_types": ["inquiry_addressed"],
+            },
             "INQUIRY_ANSWERED": {
                 "template_slug": "bericht-erstellt",
                 "recipient_types": ["inquiry_controlling"],
