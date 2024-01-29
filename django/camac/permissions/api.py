@@ -137,7 +137,7 @@ class PermissionManager:
         """Return the config for the given access level.
 
         The result is a list of (permission, condition) tuples (see the
-        `camac.settings_permissions` module, or the permission module
+        `camac.settings.modules.permissions` module, or the permission module
         documentation for details)
         """
         try:

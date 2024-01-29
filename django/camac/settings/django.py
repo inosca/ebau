@@ -24,7 +24,7 @@ from camac.utils import build_url
 env = environ.Env()
 
 # resolves to folder django or /app in container
-ROOT_DIR = environ.Path(__file__) - 2
+ROOT_DIR = environ.Path(__file__) - 3
 
 ENV_FILE = env.str("DJANGO_ENV_FILE", default=ROOT_DIR(".env"))
 
@@ -2643,7 +2643,8 @@ STATICFILES_DIRS += APPLICATIONS[APPLICATION_NAME].get("INCLUDE_STATIC_FILES", [
 
 def load_module_settings(module_name, application_name=APPLICATION_NAME):
     module = getattr(
-        import_module(f"camac.settings_{module_name.lower()}"), module_name.upper()
+        import_module(f"camac.settings.modules.{module_name.lower()}"),
+        module_name.upper(),
     )
     app_config = module.get(application_name, {})
 
