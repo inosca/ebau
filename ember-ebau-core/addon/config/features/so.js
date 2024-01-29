@@ -30,4 +30,5 @@ export default {
   permissions: {
     municipalityBeforeSubmission: true,
   },
+  watermark: true,
 };
