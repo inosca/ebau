@@ -22,6 +22,7 @@ export default class CaseTableComponent extends Component {
   @service notification;
   @service router;
   @service ebauModules;
+  @service permissions;
 
   @queryManager apollo;
 
@@ -540,13 +541,10 @@ export default class CaseTableComponent extends Component {
         parseInt(mainConfig.instanceStates?.new);
 
     if (hasFeature("permissions.municipalityBeforeSubmission")) {
-      const permissions = await this.store.query("instance-permission", {
-        instance_id: instanceId,
-      });
-
-      redirectToPortal =
-        redirectToPortal ||
-        (permissions[0]?.permissions.includes("redirect-to-portal") ?? false);
+      redirectToPortal ||= await this.permissions.hasAny(
+        instanceId,
+        "redirect-to-portal",
+      );
     }
 
     let url = `/index/redirect-to-instance-resource/instance-id/${instanceId}/`;
