@@ -36,6 +36,15 @@ from inflection import underscore
             },
             False,
         ),
+        (
+            "addressed",
+            {
+                "assignedUsers": ["3"],
+                # Millisecond change of deadline (same full second)
+                "deadline": "2022-11-10T00:00:00.15Z",
+            },
+            False,
+        ),
         ("addressed", {"name": "Bar"}, True),
         ("addressed", {"description": "Error"}, True),
         ("addressed", {"deadline": "2022-11-15T23:00:00Z"}, True),
@@ -70,7 +79,7 @@ def test_save_work_item_permission(
         created_by_group=str(service.pk) if involved_type == "creator" else None,
         addressed_groups=[str(service.pk)] if involved_type == "addressed" else [],
         controlling_groups=[str(service.pk)] if involved_type == "controller" else [],
-        deadline=None,
+        deadline="2022-11-10T00:00:00Z",
     )
 
     if involved_type == "creator":
