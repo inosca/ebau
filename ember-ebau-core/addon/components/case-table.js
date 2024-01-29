@@ -13,6 +13,7 @@ import { DateTime } from "luxon";
 import caseTableConfig from "ember-ebau-core/config/case-table";
 import mainConfig from "ember-ebau-core/config/main";
 import caseInstanceIdsQuery from "ember-ebau-core/gql/queries/case-instance-ids.graphql";
+import { hasFeature } from "ember-ebau-core/helpers/has-feature";
 
 export default class CaseTableComponent extends Component {
   @service store;
@@ -379,6 +380,7 @@ export default class CaseTableComponent extends Component {
               : macroCondition(getOwnConfig().application === "so")
                 ? {
                     keywords: this.args.filter.keywords,
+                    is_paper: this.args.filter.paper,
                   }
                 : {}),
     };
@@ -466,23 +468,33 @@ export default class CaseTableComponent extends Component {
   }
 
   @action
-  redirectToCase(caseRecord) {
+  async redirectToCase(caseRecord) {
     const instanceId = caseRecord.instanceId;
-    if (this.ebauModules.applicationName === "ebau") {
-      return this.router.transitionTo("cases.detail", instanceId);
+
+    let redirectToPortal =
+      caseRecord.instance.isPaper &&
+      parseInt(caseRecord.instance.get("instanceState.id")) ===
+        parseInt(mainConfig.instanceStates?.new);
+
+    if (hasFeature("permissions.municipalityBeforeSubmission")) {
+      const permissions = await this.store.query("instance-permission", {
+        instance_id: instanceId,
+      });
+
+      redirectToPortal =
+        redirectToPortal ||
+        (permissions[0]?.permissions.includes("redirect-to-portal") ?? false);
     }
 
     let url = `/index/redirect-to-instance-resource/instance-id/${instanceId}/`;
 
-    if (
-      caseRecord.instance.isPaper &&
-      parseInt(caseRecord.instance.get("instanceState.id")) ===
-        parseInt(mainConfig.instanceStates?.new)
-    ) {
+    if (redirectToPortal) {
       const portalURL = getOwnConfig().portalUrl;
       const group = this.ebauModules.groupId;
       const language = this.ebauModules.language;
       url = `${portalURL}/instances/${instanceId}?group=${group}&language=${language}`;
+    } else if (this.ebauModules.applicationName === "ebau") {
+      return this.router.transitionTo("cases.detail", instanceId);
     }
 
     location.assign(url);

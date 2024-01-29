@@ -132,6 +132,7 @@ PERMISSIONS: PermissionsConfig = {
         "ENABLED": True,
         "ACCESS_LEVELS": {
             "municipality-before-submission": [
+                ("redirect-to-portal", InstanceState(["new"])),
                 ("form-read", InstanceState(["new"])),
             ]
         },

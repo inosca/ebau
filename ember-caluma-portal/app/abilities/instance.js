@@ -32,7 +32,8 @@ export default class InstanceAbility extends Ability {
       hasFeature("permissions.municipalityBeforeSubmission") &&
       this.session.isInternal &&
       this.formName === "main" &&
-      hasInstanceState(this.model, "new")
+      hasInstanceState(this.model, "new") &&
+      !this.model.isPaper
     ) {
       return this.permissions?.includes("form-read");
     }
