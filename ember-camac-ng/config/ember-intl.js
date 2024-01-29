@@ -90,7 +90,7 @@ module.exports = function (/* environment */) {
         !process.env.CI &&
         !key.startsWith("caluma.") &&
         !key.startsWith("ember-gwr.") &&
-        require("./locales").includes(locale)
+        require("./locales")?.includes(locale)
       );
     },
   };

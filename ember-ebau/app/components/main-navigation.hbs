@@ -4,6 +4,7 @@
       <div class="uk-navbar-left uk-flex-nowrap">
         <LinkTo @route="index" class="uk-navbar-item uk-logo">
           <img alt={{t "nav.logo"}} src={{this.logoPath}} />
+          <Watermark />
         </LinkTo>
         <ul class="uk-navbar-nav uk-margin-right">
           {{#each this.resources.records as |resource|}}
