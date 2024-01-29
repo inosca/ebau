@@ -863,12 +863,13 @@ class InstanceView(
                 grant_type="SERVICE",
                 service=Service.objects.get(pk=municipality["slug"]),
                 access_level="municipality-before-submission",
+                event_name="manual-creation",
             )
         elif request.method == "DELETE":
             for acl in InstanceACL.currently_active().filter(
                 instance=instance, access_level="municipality-before-submission"
             ):
-                manager.revoke(acl)
+                manager.revoke(acl, event_name="manual-revokation")
 
         return response.Response(status=status.HTTP_204_NO_CONTENT)
 
