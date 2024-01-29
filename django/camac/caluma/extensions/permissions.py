@@ -223,6 +223,14 @@ class CustomPermission(BasePermission):
             for key, value in mutation.get_params(info)["input"].items()
         }
 
+        if serialized_input.get("deadline") and work_item.deadline:
+            # Special case: We shouldn't compare datetimes on microsecond precision
+            # Therefore, round down both values to second resolution
+            work_item.deadline = work_item.deadline.replace(microsecond=0)
+            serialized_input["deadline"] = serialized_input["deadline"].replace(
+                microsecond=0
+            )
+
         changed_keys = [
             key
             for key, value in serialized_input.items()
