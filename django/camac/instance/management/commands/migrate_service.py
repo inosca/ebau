@@ -1,8 +1,7 @@
 from django.apps import apps
+from django.conf import settings
 from django.core.management.base import BaseCommand
 from django.db import connection
-
-from camac.settings.dump import DUMP_CONFIG_MODELS, DUMP_CONFIG_MODELS_REFERENCING_DATA
 
 
 class Command(BaseCommand):
@@ -78,7 +77,10 @@ class Command(BaseCommand):
         """Only change tables that handle `data`, not `configuration`."""
         config_tables = [
             apps.get_model(m)._meta.db_table
-            for m in set(DUMP_CONFIG_MODELS + DUMP_CONFIG_MODELS_REFERENCING_DATA)
+            for m in set(
+                settings.DUMP["CONFIG"]["MODELS"]
+                + settings.DUMP["CONFIG"]["MODELS_REFERENCING_DATA"]
+            )
         ]
         return [(table, cols) for table, cols in data if table not in config_tables]
 

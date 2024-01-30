@@ -70,3 +70,4 @@ generate_module_test_settings("placeholders", ["kt_bern", "kt_so"])
 generate_module_test_settings(
     "master_data", ["kt_bern", "kt_schwyz", "kt_uri", "kt_gr", "kt_so"]
 )
+generate_module_test_settings("dump", settings.APPLICATIONS.keys())

@@ -7,8 +7,6 @@ from django.conf import settings
 from django.core.management.base import BaseCommand
 from django.core.serializers.json import Serializer
 
-from camac.settings import dump as config
-
 
 class CamacDumpSerializer(Serializer):
     def handle_m2m_field(self, obj, field):
@@ -43,20 +41,16 @@ class Command(BaseCommand):
             with open(filename, "w") as out:
                 serializer.serialize(itertools.chain(*querysets), indent=2, stream=out)
 
-    def get_groups(self):
-        return {
-            **config.DUMP_CONFIG_GROUPS,
-            **settings.APPLICATION.get("DUMP_CONFIG_GROUPS", {}),
-        }
-
     def get_models(self):
         config_models = set(
-            config.DUMP_CONFIG_MODELS + config.DUMP_CONFIG_MODELS_REFERENCING_DATA
-        ) - set(
-            config.DUMP_CONFIG_EXCLUDED_MODELS
-            + settings.APPLICATION.get("DUMP_CONFIG_EXCLUDED_MODELS", [])
+            settings.DUMP["CONFIG"]["MODELS"]
+            + settings.DUMP["CONFIG"]["MODELS_REFERENCING_DATA"]
+        ) - set(settings.DUMP["CONFIG"]["EXCLUDED_MODELS"])
+
+        group_models = (
+            set(itertools.chain(*settings.DUMP["CONFIG"]["GROUPS"].values()))
+            - config_models
         )
-        group_models = set(itertools.chain(*self.get_groups().values())) - config_models
 
         return [
             (
@@ -76,7 +70,9 @@ class Command(BaseCommand):
 
             excluded_pks = []
 
-            for filter_group, model_filters in self.get_groups().items():
+            for filter_group, model_filters in settings.DUMP["CONFIG"][
+                "GROUPS"
+            ].items():
                 if model_identifier in model_filters:
                     filtered_queryset = (
                         model.objects.exclude(pk__in=excluded_pks)
