@@ -11,10 +11,11 @@ from camac.core.models import Resource
 
 
 @pytest.mark.parametrize("application", settings.APPLICATIONS.keys())
-def test_dump_and_load(db, settings, application, tmp_path, resource_factory):
+def test_dump_and_load(db, application, request, resource_factory, settings, tmp_path):
+    short_name = settings.APPLICATIONS[application]["SHORT_NAME"]
+    request.getfixturevalue(f"{short_name}_dump_settings")
+
     settings.APPLICATION_DIR = settings.ROOT_DIR.path(application)
-    settings.APPLICATION = settings.APPLICATIONS[application]
-    settings.APPLICATION_NAME = application
 
     uuid = uuid4()
     resource_factory(name=uuid)
