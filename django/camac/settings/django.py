@@ -8,7 +8,6 @@ from importlib import import_module
 
 import environ
 from deepmerge import always_merger
-from django.db.models.expressions import Q
 from django.utils.translation import gettext_lazy as _
 
 from camac.constants import kt_bern as be_constants
@@ -188,72 +187,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "camac.wsgi.application"
 
-COMMON_QUESTION_SLUGS_BE = ["8-freigabequittung", "dokumente-platzhalter"]
-COMMON_FORM_SLUGS_BE = [
-    "personalien",
-    "allgemeine-angaben-kurz",
-    "parzelle-tabelle",
-    "personalien-tabelle",
-    "projektverfasserin",
-    "grundeigentumerin",
-    "gebaudeeigentumerin",
-    "vertreterin-mit-vollmacht",
-    "8-freigabequittung",
-]
-
-
-def generate_form_dump_config(regex=None, version=None):
-    if regex:
-        return {
-            "caluma_form.Option": Q(questions__forms__pk__iregex=regex),
-            "caluma_form.Question": Q(forms__pk__iregex=regex),
-            "caluma_form.Form": Q(pk__iregex=regex),
-            "caluma_form.QuestionOption": Q(question__forms__pk__iregex=regex),
-            "caluma_form.FormQuestion": Q(form__pk__iregex=regex),
-            "caluma_form.Answer": Q(
-                question__forms__pk__iregex=regex,
-                document__isnull=True,
-            ),
-        }
-    elif version:
-        v = f"-v{version}"
-        return {
-            "caluma_form.Form": Q(pk__endswith=v),
-            "caluma_form.FormQuestion": Q(form__pk__endswith=v),
-            "caluma_form.Question": Q(pk__endswith=v),
-            "caluma_form.QuestionOption": Q(question__pk__endswith=v),
-            "caluma_form.Option": Q(questions__pk__endswith=v),
-            "caluma_form.Answer": Q(
-                question__forms__pk__endswith=v,
-                document__isnull=True,
-            ),
-        }
-
-    return {}  # pragma: no cover
-
-
-def generate_workflow_dump_config(regex):
-    return {
-        "caluma_workflow.Workflow": Q(pk__iregex=regex),
-        "caluma_workflow.Task": Q(pk__iregex=regex),
-        "caluma_workflow.TaskFlow": Q(workflow__pk__iregex=regex),
-        "caluma_workflow.Flow": Q(task_flows__workflow__pk__iregex=regex),
-    }
-
-
-DISTRIBUTION_DUMP_CONFIG = {
-    "caluma_distribution": {
-        **generate_form_dump_config(r"(inquir(y|ies)|distribution)"),
-        **generate_workflow_dump_config(r"(inquir(y|ies)|distribution)"),
-    },
-}
-
-ADDITIONAL_DEMAND_DUMP_CONFIG = {
-    "caluma_additional_demand": {
-        **generate_form_dump_config(r"additional-demand"),
-        **generate_workflow_dump_config(r"additional-demand"),
-    }
-}
 
 # Application specific settings
 # an application is defined by the customer e.g. uri, schwyz, etc.
@@ -630,16 +563,6 @@ APPLICATIONS = {
             "surname",
         ],
         "SHORT_DOSSIER_NUMBER": True,
-        "DUMP_CONFIG_EXCLUDED_MODELS": [
-            "document.Template",
-            "user.Group",
-            "user.GroupT",
-            "user.GroupLocation",
-            "user.Service",
-            "user.ServiceT",
-            "notification.NotificationTemplate",
-            "notification.NotificationTemplateT",
-        ],
         "INTERCHANGEABLE_FORMS": [
             "vorentscheid-gemass-ss84-pbg-v2",
             "vorentscheid-gemass-ss84-pbg-v3",
@@ -683,26 +606,6 @@ APPLICATIONS = {
             "projektgenehmigungsgesuch-gemass-ss15-strag-v5",
         ],
         "STORE_PDF": {"SECTION": 1},
-        "DUMP_CONFIG_GROUPS": {
-            "email_notifications": {
-                "notification.NotificationTemplate": Q(type="email"),
-                "notification.NotificationTemplateT": Q(template__type="email"),
-            },
-            "buildingauthority": {
-                "caluma_form.Form": Q(pk="realisierung-tabelle"),
-                "caluma_form.FormQuestion": Q(form__pk="realisierung-tabelle"),
-                "caluma_form.Question": Q(pk__startswith="baukontrolle-realisierung")
-                | Q(pk="bewilligungsverfahren-gr-sitzung-bewilligungsdatum"),
-                "caluma_form.QuestionOption": Q(
-                    question__pk__startswith="baukontrolle-realisierung"
-                ),
-                "caluma_form.Option": Q(
-                    questions__pk__startswith="baukontrolle-realisierung"
-                ),
-            },
-            # Distribution
-            **DISTRIBUTION_DUMP_CONFIG,
-        },
         "FORM_FIELD_HISTORY_ENTRY": [
             {
                 "name": "materieller-pruefbericht-bemerkung",
@@ -1160,67 +1063,6 @@ APPLICATIONS = {
         "HAS_GESUCHSNUMMER": False,
         "SET_SUBMIT_DATE_CAMAC_ANSWER": True,
         "NOTIFICATIONS_EXCLUDED_TASKS": [],
-        "DUMP_CONFIG_GROUPS": {
-            "email_notifications": {
-                "notification.NotificationTemplate": Q(type="email"),
-                "notification.NotificationTemplateT": Q(template__type="email"),
-            },
-            # required by several form-questions
-            "caluma_form_common": {
-                "caluma_form.Form": Q(pk__in=COMMON_FORM_SLUGS_BE),
-                "caluma_form.FormQuestion": Q(form__pk__in=COMMON_FORM_SLUGS_BE),
-                "caluma_form.Question": Q(forms__pk__in=COMMON_FORM_SLUGS_BE)
-                | Q(pk__in=COMMON_QUESTION_SLUGS_BE),
-                "caluma_form.QuestionOption": Q(
-                    question__forms__pk__in=COMMON_FORM_SLUGS_BE
-                )
-                | Q(question_id__in=COMMON_QUESTION_SLUGS_BE),
-                "caluma_form.Option": Q(questions__forms__pk__in=COMMON_FORM_SLUGS_BE)
-                | Q(questions__pk__in=COMMON_QUESTION_SLUGS_BE),
-            },
-            "caluma_form_v2": generate_form_dump_config(version=2),
-            "caluma_form_v3": generate_form_dump_config(version=3),
-            "caluma_form_v4": generate_form_dump_config(version=4),
-            "caluma_dossier_import_form": generate_form_dump_config(
-                regex=r"^migriertes-dossier(-daten)?$"
-            ),
-            "caluma_form_sb2": generate_form_dump_config(regex=r"(-)?sb2$"),
-            "caluma_information_of_neighbors_form": generate_form_dump_config(
-                regex=r"^information-of-neighbors$"
-            ),
-            "caluma_ebau_number_form": generate_form_dump_config(
-                regex=r"^ebau-number$"
-            ),
-            "caluma_solar_plants_form": generate_form_dump_config(
-                regex=r"^solaranlagen(-)?"
-            ),
-            "caluma_decision_form": generate_form_dump_config(regex=r"^decision$"),
-            "caluma_audit_form": generate_form_dump_config(
-                regex=r"^(dossierpruefung|mp-|fp-|mp-|bab-)"
-            ),
-            "caluma_publication_form": generate_form_dump_config(
-                regex=r"^publikation$"
-            ),
-            "caluma_heat_generator_form": generate_form_dump_config(
-                regex=r"^heat-generator"
-            ),
-            "caluma_legal_submission_form": generate_form_dump_config(
-                r"^legal-submission"
-            ),
-            "caluma_appeal_form": generate_form_dump_config(r"^appeal"),
-            "caluma_geometer_form": generate_form_dump_config(r"^geometer"),
-            # Distribution
-            **DISTRIBUTION_DUMP_CONFIG,
-        },
-        "DUMP_CONFIG_EXCLUDED_MODELS": [
-            "user.Group",
-            "user.GroupT",
-            "user.GroupLocation",
-            "user.Service",
-            "user.ServiceT",
-            "notification.NotificationTemplate",
-            "notification.NotificationTemplateT",
-        ],
         "DOSSIER_IMPORT": {
             "WRITER_CLASS": "camac.dossier_import.config.kt_bern.KtBernDossierWriter",
             "INSTANCE_STATE_MAPPING": {
@@ -1458,20 +1300,6 @@ APPLICATIONS = {
         "ADMIN_GROUP": 1,
         "OEREB_FORMS": [296, 305],
         "INSTANCE_IDENTIFIER_FORM_ABBR": {},
-        "DUMP_CONFIG_GROUPS": {
-            "dashboard_document": {
-                "caluma_form.Document": Q(form="dashboard"),
-            },
-        },
-        "DUMP_CONFIG_EXCLUDED_MODELS": [
-            "user.Group",
-            "user.GroupT",
-            "user.GroupLocation",
-            "user.Service",
-            "user.ServiceT",
-            "notification.NotificationTemplate",
-            "notification.NotificationTemplateT",
-        ],
         "SET_SUBMIT_DATE_CAMAC_WORKFLOW": True,
         "SIDE_EFFECTS": {
             "document_downloaded": "camac.document.side_effects.create_workflow_entry",
@@ -1575,31 +1403,6 @@ APPLICATIONS = {
                     "recipient_types": ["leitbehoerde"],
                 },
             ],
-        },
-        "DUMP_CONFIG_GROUPS": {
-            "email_notifications": {
-                "notification.NotificationTemplate": Q(type="email"),
-                "notification.NotificationTemplateT": Q(template__type="email"),
-            },
-            # required by several form-questions
-            "caluma_form_common": {
-                "caluma_form.Form": Q(pk__in=COMMON_FORM_SLUGS_BE),
-                "caluma_form.FormQuestion": Q(form__pk__in=COMMON_FORM_SLUGS_BE),
-                "caluma_form.Question": Q(forms__pk__in=COMMON_FORM_SLUGS_BE)
-                | Q(pk__in=COMMON_QUESTION_SLUGS_BE),
-                "caluma_form.QuestionOption": Q(
-                    question__forms__pk__in=COMMON_FORM_SLUGS_BE
-                )
-                | Q(question_id__in=COMMON_QUESTION_SLUGS_BE),
-                "caluma_form.Option": Q(questions__forms__pk__in=COMMON_FORM_SLUGS_BE)
-                | Q(questions__pk__in=COMMON_QUESTION_SLUGS_BE),
-            },
-            "caluma_ebau_number_form": generate_form_dump_config(
-                regex=r"^ebau-number$"
-            ),
-            "caluma_decision_form": generate_form_dump_config(regex=r"^decision$"),
-            # Distribution
-            **DISTRIBUTION_DUMP_CONFIG,
         },
         "ATTACHMENT_SECTION_INTERNAL": 4,
         "DOCUMENT_BACKEND": "camac-ng",
@@ -1817,56 +1620,6 @@ APPLICATIONS = {
             ],
         },
         "SUBSERVICE_ROLES": ["subservice"],
-        "DUMP_CONFIG_GROUPS": {
-            "email_notifications": {
-                "notification.NotificationTemplate": Q(type="email"),
-                "notification.NotificationTemplateT": Q(template__type="email"),
-            },
-            # required by several form-questions
-            "caluma_form_common": {
-                "caluma_form.Form": Q(pk__in=COMMON_FORM_SLUGS_BE),
-                "caluma_form.FormQuestion": Q(form__pk__in=COMMON_FORM_SLUGS_BE),
-                "caluma_form.Question": Q(forms__pk__in=COMMON_FORM_SLUGS_BE)
-                | Q(pk__in=COMMON_QUESTION_SLUGS_BE),
-                "caluma_form.QuestionOption": Q(
-                    question__forms__pk__in=COMMON_FORM_SLUGS_BE
-                )
-                | Q(question_id__in=COMMON_QUESTION_SLUGS_BE),
-                "caluma_form.Option": Q(questions__forms__pk__in=COMMON_FORM_SLUGS_BE)
-                | Q(questions__pk__in=COMMON_QUESTION_SLUGS_BE),
-                "caluma_form.Answer": Q(
-                    document__isnull=True,
-                ),
-            },
-            "caluma_decision_form": generate_form_dump_config(regex=r"^decision$"),
-            "caluma_formal_exam_form": generate_form_dump_config(
-                regex=r"^formal-exam$"
-            ),
-            "caluma_material_exam_form": generate_form_dump_config(
-                regex=r"^material-exam$"
-            ),
-            "dashboard_document": {
-                "caluma_form.Document": Q(form="dashboard"),
-            },
-            # Sync the "core" groups (admin, support, portal) between servers, the rest is treated as data
-            "user_core_groups": {
-                "user.Group": Q(pk__lte=3),
-                "user.GroupT": Q(pk__lte=3),
-            },
-            # Distribution
-            **DISTRIBUTION_DUMP_CONFIG,
-            # Additional demand
-            **ADDITIONAL_DEMAND_DUMP_CONFIG,
-            "publication": {
-                **generate_form_dump_config(regex=r"^publikation?$"),
-            },
-        },
-        "DUMP_CONFIG_EXCLUDED_MODELS": [
-            "user.Group",
-            "user.GroupT",
-            "user.Service",
-            "user.ServiceT",
-        ],
         "DOCUMENT_BACKEND": "alexandria",
     },
     "kt_so": {
@@ -2039,52 +1792,6 @@ APPLICATIONS = {
             ],
         },
         "SUBSERVICE_ROLES": ["subservice"],
-        "DUMP_CONFIG_GROUPS": {
-            "email_notifications": {
-                "notification.NotificationTemplate": Q(type="email"),
-                "notification.NotificationTemplateT": Q(template__type="email"),
-            },
-            # Sync the "core" groups (admin, support, portal) between servers, the rest is treated as data
-            "user_core_groups": {
-                "user.Group": Q(role__name__in=["admin", "applicant", "support"]),
-                "user.GroupT": Q(
-                    group__role__name__in=["admin", "applicant", "support"]
-                ),
-            },
-            # Dashboard
-            "dashboard": {
-                **generate_form_dump_config(regex=r"^dashboard?$"),
-                "caluma_form.Document": Q(form="dashboard"),
-                # Static content
-                "caluma_form.Answer": Q(
-                    question_id__in=["portal-faq-inhalt-de", "portal-terms-inhalt-de"]
-                ),
-            },
-            "caluma_formal_exam_form": generate_form_dump_config(
-                regex=r"^formelle-pruefung"
-            ),
-            "caluma_material_exam_form": generate_form_dump_config(
-                regex=r"^materielle-pruefung"
-            ),
-            "caluma_publication_form": generate_form_dump_config(
-                regex=r"^publikation?$"
-            ),
-            "caluma_decision_form": generate_form_dump_config(regex=r"^entscheid$"),
-            # Distribution
-            **DISTRIBUTION_DUMP_CONFIG,
-            # Additional demand
-            **ADDITIONAL_DEMAND_DUMP_CONFIG,
-            # Objections
-            "caluma_objection_form": generate_form_dump_config(
-                regex=r"^einsprache(n)?"
-            ),
-        },
-        "DUMP_CONFIG_EXCLUDED_MODELS": [
-            "user.Group",
-            "user.GroupT",
-            "user.Service",
-            "user.ServiceT",
-        ],
         "ACTIVE_SERVICES": {
             "MUNICIPALITY": {
                 "FILTERS": {
@@ -2670,6 +2377,7 @@ PERMISSIONS = load_module_settings("permissions")
 COMMUNICATIONS = load_module_settings("communications")
 PLACEHOLDERS = load_module_settings("placeholders")
 MASTER_DATA = load_module_settings("master_data")
+DUMP = load_module_settings("dump")
 
 # Alexandria
 ALEXANDRIA = load_module_settings("alexandria")
