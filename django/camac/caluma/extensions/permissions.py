@@ -99,9 +99,9 @@ def distribution_permission_for(
 
                 attribute = (
                     value.task_id
-                    if type(value) == WorkItem
+                    if isinstance(value, WorkItem)
                     else value.form_id
-                    if type(value) == Document
+                    if isinstance(value, Document)
                     else None
                 )
                 configured_value_name = next(
@@ -222,6 +222,14 @@ class CustomPermission(BasePermission):
             underscore(key): value
             for key, value in mutation.get_params(info)["input"].items()
         }
+
+        if serialized_input.get("deadline") and work_item.deadline:
+            # Special case: We shouldn't compare datetimes on microsecond precision
+            # Therefore, round down both values to second resolution
+            work_item.deadline = work_item.deadline.replace(microsecond=0)
+            serialized_input["deadline"] = serialized_input["deadline"].replace(
+                microsecond=0
+            )
 
         changed_keys = [
             key
