@@ -6,8 +6,6 @@ from django.apps import apps
 from django.conf import settings
 from django.core.management.base import BaseCommand
 
-from camac.settings import dump as config
-
 from .camac_dump_config import CamacDumpSerializer
 
 
@@ -36,23 +34,14 @@ class Command(BaseCommand):
             with open(filename, "w") as out:
                 serializer.serialize(itertools.chain(*querysets), indent=2, stream=out)
 
-    def get_groups(self):
-        return {
-            **config.DUMP_CONFIG_GROUPS,
-            **settings.APPLICATION.get("DUMP_CONFIG_GROUPS", {}),
-        }
-
     def handle(self, *app_labels, **options):
         excluded_models = set(
-            config.DUMP_CONFIG_MODELS
-            + config.DUMP_CONFIG_MODELS_REFERENCING_DATA
-            + config.DUMP_DATA_EXCLUDED_MODELS
-        ) - set(
-            config.DUMP_CONFIG_EXCLUDED_MODELS
-            + settings.APPLICATION.get("DUMP_CONFIG_EXCLUDED_MODELS", [])
-        )
+            settings.DUMP["CONFIG"]["MODELS"]
+            + settings.DUMP["CONFIG"]["MODELS_REFERENCING_DATA"]
+            + settings.DUMP["DATA"]["EXCLUDED_MODELS"]
+        ) - set(settings.DUMP["CONFIG"]["EXCLUDED_MODELS"])
 
-        for app_label in sorted(config.DUMP_DATA_APPS):
+        for app_label in sorted(settings.DUMP["DATA"]["APPS"]):
             app_config = apps.get_app_config(app_label)
 
             for model in app_config.get_models():
@@ -62,7 +51,7 @@ class Command(BaseCommand):
                 if model_identifier in excluded_models or not model._meta.managed:
                     continue
 
-                for filter_group, model_filters in self.get_groups().items():
+                for _, model_filters in settings.DUMP["CONFIG"]["GROUPS"].items():
                     if model_identifier in model_filters:
                         # exclude models that are used in config group
                         excluded_pks += list(

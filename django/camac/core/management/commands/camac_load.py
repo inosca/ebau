@@ -8,8 +8,6 @@ from django.contrib.auth import get_user_model
 from django.core.management import call_command
 from django.core.management.base import BaseCommand
 
-from camac.settings import dump as config
-
 
 class Command(BaseCommand):
     help = "Load the camac configuration of the database"
@@ -51,8 +49,8 @@ class Command(BaseCommand):
                     )
 
         self.stdout.write("Flushing 'pure' config models...")
-        for model_name in set(config.DUMP_CONFIG_MODELS) - set(
-            config.DUMP_CONFIG_EXCLUDED_MODELS
+        for model_name in set(settings.DUMP["CONFIG"]["MODELS"]) - set(
+            settings.DUMP["CONFIG"]["EXCLUDED_MODELS"]
         ):
             (app_label, model_name) = model_name.split(".")
             model = apps.get_model(app_label=app_label, model_name=model_name)
