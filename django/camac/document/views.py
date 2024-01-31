@@ -21,6 +21,7 @@ from rest_framework_json_api.views import ModelViewSet, ReadOnlyModelViewSet
 from sorl.thumbnail import get_thumbnail
 from sorl.thumbnail.engines.convert_engine import EngineError
 
+from camac.communications.models import CommunicationsAttachment
 from camac.core.views import SendfileHttpResponse
 from camac.instance.document_merge_service import DMSHandler
 from camac.instance.mixins import InstanceEditableMixin, InstanceQuerysetMixin
@@ -246,6 +247,21 @@ class AttachmentView(
         operation_summary="Delete a file",
     )
     def destroy(self, request, *args, **kwargs):
+        # If the document is linked to the communications module, we cannot
+        # delete it.
+        if CommunicationsAttachment.objects.filter(
+            document_attachment=self.get_object()
+        ).exists():
+            # Prevent deletion: The delete wouldn't work either way, but
+            # due to ordering of events, the file would be deleted on-disk
+            # while the document object would still exist, causing a 404
+            # on subsequent download attempts
+            raise ValidationError(
+                _(
+                    "Cannot delete this document, as it is "
+                    "referenced in the communications module"
+                )
+            )
         return super().destroy(request, *args, **kwargs)
 
     @action(methods=["get"], detail=True)

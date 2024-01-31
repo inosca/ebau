@@ -296,7 +296,14 @@ msgstr ""
 msgid "Invalid mime type for template. Allowed types are: docx"
 msgstr ""
 
-#: camac/document/views.py:353
+#: camac/document/views.py:254
+msgid ""
+"Cannot delete this document, as it is referenced in the communications module"
+msgstr ""
+"Non è possibile eliminare questo documento, in quanto è referenziato nel "
+"modulo di comunicazione"
+
+#: camac/document/views.py:369
 msgid "Specifying an \"attachments\" filter is mandatory!"
 msgstr ""
 

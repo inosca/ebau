@@ -1,3 +1,5 @@
+import pathlib
+
 import pytest
 from django.urls import reverse
 from pytest_factoryboy import LazyFixture
@@ -190,3 +192,69 @@ def test_attachment_delete(
 
     response = admin_client.delete(url)
     assert response.status_code == status_code
+
+
+@pytest.mark.parametrize(
+    "instance_state__name, attachment__path, attachment__service, role__name, instance__user",
+    [
+        (
+            "new",
+            django_file("multiple-pages.pdf"),
+            LazyFixture("service"),
+            "applicant",
+            LazyFixture("admin_user"),
+        ),
+    ],
+)
+@pytest.mark.parametrize(
+    "communications_attachment__document_attachment, expect_success, expect_file_on_disk",
+    [
+        (LazyFixture("attachment"), False, True),
+        (None, True, False),
+    ],
+)
+def test_delete_with_comms_attachment(
+    admin_client,
+    mocker,
+    attachment,
+    communications_attachment,
+    attachment_section,
+    expect_success,
+    expect_file_on_disk,
+    application_settings,
+):
+    application_settings["ATTACHMENT_INTERNAL_STATES"] = ["internal"]
+    application_settings["ATTACHMENT_DELETEABLE_STATES"] = ["new"]
+
+    # fix permissions - they don't matter here, we're testing another aspect
+    mocker.patch(
+        "camac.document.permissions.PERMISSIONS",
+        {
+            "test": {
+                "applicant": {
+                    permissions.AdminPermission: [
+                        section.pk for section in models.AttachmentSection.objects.all()
+                    ]
+                }
+            }
+        },
+    )
+
+    attachment.attachment_sections.add(attachment_section)
+
+    url = reverse("attachment-detail", args=[attachment.pk])
+
+    file_path = pathlib.Path(attachment.path.file.name)
+
+    assert file_path.exists()
+
+    response = admin_client.delete(url)
+
+    expected_status = (
+        status.HTTP_204_NO_CONTENT if expect_success else status.HTTP_400_BAD_REQUEST
+    )
+
+    # we do the file check first to see the actual observed effect
+    assert file_path.exists() == expect_file_on_disk
+
+    assert response.status_code == expected_status, response.json()
