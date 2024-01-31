@@ -32,7 +32,7 @@ class BeGisClient(GISBaseClient):
             "service": "WFS",
             "version": "2.0.0",
             "Request": "GetFeature",
-            "typename": "of_planningcadastre01_de_ms_wfs:DIPANU_DIPANUF_VW_13541",
+            "typename": f"{settings.BE_GIS_POLYGON_SERVICE_CODE}:{settings.BE_GIS_POLYGON_LAYER_ID}",
             "count": 10,
             "Filter": f'<ogc:Filter><ogc:PropertyIsEqualTo matchCase="true"><ogc:PropertyName>EGRID</ogc:PropertyName><ogc:Literal>{egrid}</ogc:Literal></ogc:PropertyIsEqualTo></ogc:Filter>',
         }
@@ -101,7 +101,14 @@ class BeGisClient(GISBaseClient):
             ) from e
 
     def send_requests_in_batches(
-        self, data, egrids, batch_size, service_code, boolean_layers, special_layers
+        self,
+        data,
+        egrids,
+        batch_size,
+        service_code,
+        boolean_layers,
+        special_layers,
+        layers_dict,
     ):
         exception_messages = set()
 
@@ -126,7 +133,12 @@ class BeGisClient(GISBaseClient):
                         response = future.result()
                         xml_data, et = self.get_xml_data(response)
                         new_data = self.get_data_from_xml(
-                            service_code, boolean_layers, xml_data, et
+                            service_code=service_code,
+                            boolean_layers=boolean_layers,
+                            special_layers=special_layers,
+                            layers_dict=layers_dict,
+                            xml_data=xml_data,
+                            et=et,
                         )
                         self.merge_data_dict(data, new_data, special_layers)
                     except RuntimeError as e:  # pragma: no cover
@@ -150,7 +162,13 @@ class BeGisClient(GISBaseClient):
         egrids = self.params.get("egrids").split(",")
         batch_size = settings.GIS_REQUESTS_BATCH_SIZE
         data = self.send_requests_in_batches(
-            data, egrids, batch_size, service_code, boolean_layers, special_layers
+            data=data,
+            egrids=egrids,
+            batch_size=batch_size,
+            service_code=service_code,
+            boolean_layers=boolean_layers,
+            special_layers=special_layers,
+            layers_dict=layers_dict,
         )
 
         for layer_id in special_layers:
@@ -174,38 +192,27 @@ class BeGisClient(GISBaseClient):
         xml_data = et.findall("./gml:featureMember/", et.nsmap)
         return xml_data, et
 
-    def get_data_from_xml(self, service_code, boolean_layers, xml_data, et):
-        usage_zones = set()
-        building_regulations = set()
-        water_protection_zones = set()
+    def get_data_from_xml(
+        self, service_code, boolean_layers, special_layers, layers_dict, xml_data, et
+    ):
+        result = {}
 
-        boolean_data = {}
-        identifier_list = []
+        for layer_id in special_layers:
+            layer = layers_dict.get(layer_id, {})
+            search_term = layer.get("search_term", "")
+            xml_layer_list = [child for child in xml_data if layer_id in child.tag]
+            special_result_set = {
+                item.text.strip()
+                for child in xml_layer_list
+                for item in child.findall(f"{service_code}:{search_term}", et.nsmap)
+            }
+            result[layer_id] = sorted(special_result_set)
 
-        for child in xml_data:
-            identifier = child.tag.split("}")[-1]
-            identifier_list.append(identifier)
+        for layer_id in boolean_layers:
+            xml_layer_list = [child for child in xml_data if layer_id in child.tag]
+            result[layer_id] = len(xml_layer_list) > 0
 
-            if "UZP_BAU_VW_13587" in child.tag:
-                for item in child.findall(f"{service_code}:ZONE_LO", et.nsmap):
-                    usage_zones.add(item.text.strip())
-
-            if "UZP_UEO_VW_13678" in child.tag:
-                for item in child.findall(f"{service_code}:ZONE_LO", et.nsmap):
-                    building_regulations.add(item.text.strip())
-
-            for item in child.findall(f"{service_code}:GSKT_BEZEICH_DE", et.nsmap):
-                water_protection_zones.add(item.text.strip())
-
-        for value in boolean_layers:
-            boolean_data[value] = len([x for x in identifier_list if value in x]) > 0
-
-        return {
-            **boolean_data,
-            "UZP_BAU_VW_13587": sorted(usage_zones),
-            "UZP_UEO_VW_13678": sorted(building_regulations),
-            "GSK25_GSK_VW_3275": sorted(water_protection_zones),
-        }
+        return result
 
     def merge_data_dict(self, data, new_data, special_layers):
         for layer in special_layers:

@@ -114,7 +114,8 @@
                 "mapper": "grundwasserschutzzonen_v2",
                 "question": "grundwasserschutzzonen-v2"
               }
-            ]
+            ],
+            "search_term": "GSKT_BEZEICH_DE"
           }
         },
         "service_code": "of_inlandwaters01_de_ms_wfs"
@@ -162,7 +163,8 @@
                 "mapper": "nutzungszone",
                 "question": "nutzungszone"
               }
-            ]
+            ],
+            "search_term": "ZONE_LO"
           },
           "UZP_LSG_VW_13624": {
             "is_boolean": true,
@@ -180,7 +182,8 @@
                 "mapper": "ueberbauungsordnung",
                 "question": "ueberbauungsordnung"
               }
-            ]
+            ],
+            "search_term": "ZONE_LO"
           }
         },
         "service_code": "of_planningcadastre01_de_ms_wfs"
