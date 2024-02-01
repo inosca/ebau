@@ -883,20 +883,25 @@ def test_attachment_update_context(
 ):
     aasa = attachment_attachment_sections.attachment
     url = reverse("attachment-detail", args=[aasa.pk])
+
     if "displayName" in aasa.context.keys():
         application_settings[
             "ATTACHMENT_SECTION_INTERNAL"
         ] = aasa.attachment_sections.first().attachment_section_id
+    else:
+        application_settings["ATTACHMENT_SECTION_INTERNAL"] = None
 
     finished_state_name = "finished"
     application_settings["ATTACHMENT_AFTER_DECISION_STATES"] = [finished_state_name]
 
     aasa.instance.instance_state = instance_state
 
-    if is_active_service:
-        aasa.instance.group = admin_user.groups.first()
-    else:
-        aasa.instance.group = group_factory()
+    mocker.patch(
+        "camac.instance.models.Instance.responsible_service",
+        return_value=admin_user.groups.first().service
+        if is_active_service
+        else group_factory().service,
+    )
 
     aasa.instance.save()
 
