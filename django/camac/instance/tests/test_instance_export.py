@@ -8,8 +8,6 @@ from django.urls import reverse
 from django.utils.timezone import make_aware
 from rest_framework import status
 
-from .test_master_data import add_answer
-
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
 @pytest.mark.parametrize("service__name", ["Leitbehörde Burgdorf"])
@@ -98,6 +96,7 @@ def test_caluma_export_sz(
     settings,
     sz_distribution_settings,
     django_assert_num_queries,
+    utils,
 ):
     settings.APPLICATION_NAME = "kt_schwyz"
     settings.SHORT_DATE_FORMAT = "%d.%m.%Y"
@@ -185,12 +184,12 @@ def test_caluma_export_sz(
     work_item = work_item_factory(task_id="building-authority", case=sz_instance.case)
     work_item.document = document_factory(form_id="bauverwaltung")
     work_item.save()
-    add_answer(
+    utils.add_answer(
         work_item.document,
         "bewilligungsverfahren-gr-sitzung-bewilligungsdatum",
         make_aware(datetime.datetime(2023, 4, 1)),
     )
-    add_answer(
+    utils.add_answer(
         work_item.document,
         "bewilligungsverfahren-datum-gesamtentscheid",
         make_aware(datetime.datetime(2023, 4, 3)),

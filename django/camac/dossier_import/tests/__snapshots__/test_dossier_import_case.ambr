@@ -24,7 +24,7 @@
   datetime.date(2021, 12, 12)
 # ---
 # name: test_record_loading_be[dossier_row_patch16-application_type-kt_bern]
-  None
+  'Baugesuch'
 # ---
 # name: test_record_loading_be[dossier_row_patch17-applicants-kt_bern]
   list([
@@ -147,11 +147,7 @@
   'Musterstrasse 3a'
 # ---
 # name: test_record_loading_sz[dossier_row_patch10-completion_date-kt_schwyz-sz_instance]
-  list([
-    dict({
-      'value': datetime.date(2021, 12, 12),
-    }),
-  ])
+  datetime.date(2021, 12, 12)
 # ---
 # name: test_record_loading_sz[dossier_row_patch11-application_type_migrated-kt_schwyz-sz_instance]
   'Baugesuch'
@@ -230,33 +226,17 @@
   datetime.datetime(2021, 12, 12, 11, 0, tzinfo=<UTC>)
 # ---
 # name: test_record_loading_sz[dossier_row_patch5-construction_start_date-kt_schwyz-sz_instance]
-  list([
-    dict({
-      'value': datetime.date(2021, 12, 12),
-    }),
-  ])
+  datetime.date(2021, 12, 12)
 # ---
 # name: test_record_loading_sz[dossier_row_patch6-profile_approval_date-kt_schwyz-sz_instance]
-  list([
-    dict({
-      'value': datetime.date(2021, 12, 12),
-    }),
-  ])
+  datetime.date(2021, 12, 12)
 # ---
 # name: test_record_loading_sz[dossier_row_patch7-decision_date-kt_schwyz-sz_instance]
   datetime.date(2021, 12, 12)
 # ---
 # name: test_record_loading_sz[dossier_row_patch8-final_approval_date-kt_schwyz-sz_instance]
-  list([
-    dict({
-      'value': datetime.date(2021, 12, 12),
-    }),
-  ])
+  datetime.date(2021, 12, 12)
 # ---
 # name: test_record_loading_sz[dossier_row_patch9-completion_date-kt_schwyz-sz_instance]
-  list([
-    dict({
-      'value': datetime.date(2021, 12, 12),
-    }),
-  ])
+  datetime.date(2021, 12, 12)
 # ---

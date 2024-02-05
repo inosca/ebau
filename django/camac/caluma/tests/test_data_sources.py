@@ -5,8 +5,6 @@ from caluma.caluma_form import models as caluma_form_models
 from caluma.caluma_form.factories import QuestionFactory
 from django.core.cache import cache
 
-from camac.instance.tests.test_master_data import add_table_answer
-
 from ..extensions.countries import COUNTRIES
 from ..extensions.data_sources import (
     Attachments,
@@ -197,13 +195,13 @@ def test_attachments(
     assert len(data) == expected_count
 
 
-def test_landowners(db, caluma_admin_user, be_instance):
+def test_landowners(db, caluma_admin_user, be_instance, utils):
     question = QuestionFactory(
         slug="personalien-grundeigentumerin",
         type=caluma_form_models.Question.TYPE_TABLE,
     )
 
-    add_table_answer(
+    utils.add_table_answer(
         be_instance.case.document,
         question,
         [

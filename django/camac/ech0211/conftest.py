@@ -1,13 +1,14 @@
 import re
 import xml.dom.minidom as minidom
+from datetime import datetime
 
 import pytest
 from caluma.caluma_form import models as caluma_form_models
+from caluma.caluma_form.models import DynamicOption
 from caluma.caluma_workflow import api as workflow_api, models as caluma_workflow_models
 from django.core.management import call_command
 from lxml import etree
 
-from camac.ech0211.data_preparation import slugs_baugesuch, slugs_vorabklaerung_einfach
 from camac.instance.domain_logic import CreateInstanceLogic
 from camac.instance.serializers import SUBMIT_DATE_FORMAT
 
@@ -25,6 +26,7 @@ def ech_instance_sz(
     caluma_config_sz,
     work_item_factory,
     location,
+    utils,
 ):
 
     ech_instance = instance_with_case(ech_instance)
@@ -47,7 +49,19 @@ def ech_instance_sz(
     ech_instance.form = form_factory(name="application_type")
     attachment_factory(instance=ech_instance)
     call_command("loaddata", "/app/kt_schwyz/config/buildingauthority.json")
-    work_item_factory(task_id="building-authority", case=ech_instance.case)
+    ba_work_item = work_item_factory(
+        task_id="building-authority", case=ech_instance.case
+    )
+    utils.add_table_answer(
+        ba_work_item.document,
+        "baukontrolle-realisierung-table",
+        [{"baukontrolle-realisierung-baubeginn": datetime.now()}],
+    )
+    utils.add_answer(
+        ba_work_item.document,
+        "bewilligungsverfahren-gr-sitzung-bewilligungsdatum",
+        datetime.now(),
+    )
     ech_instance.location = location
     ech_instance.save()
     return ech_instance
@@ -90,9 +104,81 @@ def ech_instance(
 
 
 @pytest.fixture
-def ech_instance_be(ech_instance, instance_with_case, caluma_workflow_config_be):
+def ech_instance_be(ech_instance, instance_with_case, caluma_workflow_config_be, utils):
     ech_instance = instance_with_case(ech_instance)
     ech_instance.case.meta["ebau-number"] = "2020-1"
+
+    municipality = ech_instance.instance_services.first().service
+    municipality.name = "Testgemeinde"
+    municipality.save()
+    utils.add_answer(
+        ech_instance.case.document,
+        "gemeinde",
+        str(municipality.pk),
+    )
+    ech_instance.case.document.dynamicoption_set.update(slug=str(municipality.pk))
+    DynamicOption.objects.create(
+        document=ech_instance.case.document,
+        question_id="gemeinde",
+        slug=str(municipality.pk),
+        label=municipality.name,
+    )
+
+    utils.add_answer(
+        ech_instance.case.document, "beschreibung-bauvorhaben", "Testvorhaben"
+    )
+    utils.add_table_answer(
+        ech_instance.case.document,
+        "parzelle",
+        [
+            {
+                "parzellennummer": "1586",
+                "lagekoordinaten-nord": 1070000.0001,  # too many decimal places
+                "lagekoordinaten-ost": 2480000.0,
+            }
+        ],
+    )
+    utils.add_answer(ech_instance.case.document, "strasse-flurname", "Teststrasse")
+    utils.add_answer(ech_instance.case.document, "nr", "23b")
+    utils.add_table_answer(
+        ech_instance.case.document,
+        "personalien-gesuchstellerin",
+        [
+            {
+                "vorname-gesuchstellerin": "Testvorname",
+                "name-gesuchstellerin": "Testname",
+                "ort-gesuchstellerin": "Testort",
+                "plz-gesuchstellerin": 1234,
+                "strasse-gesuchstellerin": "Teststrasse",
+                "juristische-person-gesuchstellerin": "Nein",
+                "telefon-oder-mobile-gesuchstellerin": int("0311234567"),
+                "e-mail-gesuchstellerin": "a@b.ch",
+            }
+        ],
+    )
+    utils.add_table_answer(
+        ech_instance.case.document,
+        "beschreibung-der-prozessart-tabelle",
+        [
+            {
+                "prozessart": {
+                    "value": "felssturz",
+                    "options": ["felssturz", "fliesslawine"],
+                }
+            }
+        ],
+    )
+    utils.add_answer(ech_instance.case.document, "gwr-egid", "1738778")
+    utils.add_answer(ech_instance.case.document, "effektive-geschosszahl", "2")
+    utils.add_answer(
+        ech_instance.case.document,
+        "nutzungsart",
+        ["wohnen"],
+        options=["wohnen", "landwirtschaft"],
+    )
+    utils.add_answer(ech_instance.case.document, "sammelschutzraum", "Ja")
+    utils.add_answer(ech_instance.case.document, "baukosten-in-chf", 42)
+    utils.add_answer(ech_instance.case.document, "nutzungszone", "Testnutzungszone")
     return ech_instance
 
 
@@ -123,65 +209,6 @@ def ech_instance_case(ech_instance_be, caluma_admin_user):
         return case
 
     return wrapper
-
-
-def fill_document_ech(document, data):
-    for question_slug, value in data:
-        question = caluma_form_models.Question.objects.get(slug=question_slug)
-        if question.type == "dynamic_choice":
-            caluma_form_models.DynamicOption.objects.create(
-                document=document, question=question, slug=value, label=value
-            )
-        if question.type == "dynamic_multiple_choice":  # pragma: no cover
-            for v in value:
-                caluma_form_models.DynamicOption.objects.create(
-                    document=document, question=question, slug=v, label=v
-                )
-        caluma_form_models.Answer.objects.create(
-            document=document, value=value, question=question
-        )
-
-
-@pytest.fixture
-def vorabklaerung_einfach_filled(
-    caluma_config_bern, instance_with_case, instance_factory
-):
-    instance = instance_with_case(
-        instance_factory(),
-        workflow="preliminary-clarification",
-        form="vorabklaerung-einfach",
-    )
-
-    document = instance.case.document
-    fill_document_ech(document, slugs_vorabklaerung_einfach["top"])
-    return document
-
-
-@pytest.fixture
-def baugesuch_filled(
-    caluma_config_bern,
-    answer_factory,
-    answer_document_factory,
-    instance_with_case,
-    instance_factory,
-):
-    instance = instance_with_case(
-        instance_factory(), workflow="building-permit", form="baugesuch-generell-v2"
-    )
-
-    document = instance.case.document
-
-    for key, data in slugs_baugesuch.items():
-        if key == "top":
-            fill_document_ech(document, data)
-            continue
-        t_question = caluma_form_models.Question.objects.get(slug=key)
-        t_answer = answer_factory(document=document, question=t_question)
-        for row in data:
-            row_answer_doc = answer_document_factory(answer=t_answer)
-            fill_document_ech(row_answer_doc.document, row)
-
-    return document
 
 
 @pytest.fixture

@@ -165,7 +165,7 @@ class InstanceSerializer(InstanceEditableMixin, serializers.ModelSerializer):
         if not obj.instance_group or queryset.model is not models.Instance:
             return models.Instance.objects.none()
 
-        return queryset.filter(instance_group=obj.instance_group).exclude(pk=obj.pk)
+        return obj.get_linked_instances(queryset)
 
     def get_circulation_initializer_services(self, obj):
         return Service.objects.filter(

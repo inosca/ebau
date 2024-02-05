@@ -37,11 +37,11 @@ class ApplicationView(ECHInstanceQuerysetMixin, RetrieveModelMixin, GenericViewS
     def retrieve(self, request, instance_id=None, **kwargs):
         qs = self.get_queryset()
         instance = get_object_or_404(qs, pk=instance_id)
-        base_delivery_formatter = formatters.BaseDeliveryFormatter("kt_schwyz")
+        base_delivery_formatter = formatters.BaseDeliveryFormatter()
         try:
             xml_data = formatters.delivery(
                 instance,
-                answers={"ech-subject": instance.form.get_name()},
+                subject=instance.form.get_name(),
                 message_type=ECH_BASE_DELIVERY,
                 eventBaseDelivery=base_delivery_formatter.format_base_delivery(
                     instance
