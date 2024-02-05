@@ -16,7 +16,6 @@ from rest_framework import exceptions, status
 from camac.utils import build_url
 
 from ..document_merge_service import DMSClient, DMSHandler, DMSVisitor
-from .test_master_data import add_answer, add_table_answer
 
 
 @pytest.fixture
@@ -131,6 +130,7 @@ def test_document_merge_service_cover_sheet_with_header_values(
     master_data_is_visible_mock,
     freezer,
     be_master_data_settings,
+    utils,
 ):
     be_instance.case.meta = {
         "camac-instance-id": be_instance.pk,
@@ -149,7 +149,7 @@ def test_document_merge_service_cover_sheet_with_header_values(
     group.save()
 
     # Prepare plot answer
-    add_table_answer(
+    utils.add_table_answer(
         be_instance.case.document,
         "parzelle",
         [
@@ -164,7 +164,7 @@ def test_document_merge_service_cover_sheet_with_header_values(
     )
 
     # Prepare applicant answer
-    add_table_answer(
+    utils.add_table_answer(
         be_instance.case.document,
         "personalien-gesuchstellerin",
         [
@@ -178,9 +178,9 @@ def test_document_merge_service_cover_sheet_with_header_values(
     )
 
     # Prepare plot address
-    add_answer(be_instance.case.document, "strasse-flurname", "Bahnhofstrasse")
-    add_answer(be_instance.case.document, "nr", "2")
-    add_answer(be_instance.case.document, "ort-grundstueck", "Testhausen")
+    utils.add_answer(be_instance.case.document, "strasse-flurname", "Bahnhofstrasse")
+    utils.add_answer(be_instance.case.document, "nr", "2")
+    utils.add_answer(be_instance.case.document, "ort-grundstueck", "Testhausen")
 
     # Prepare tags
     tag_factory(name="some tag", instance=be_instance, service=municipality)
@@ -196,15 +196,17 @@ def test_document_merge_service_cover_sheet_with_header_values(
     )
 
     # Prepare modification
-    add_answer(be_instance.case.document, "beschreibung-projektaenderung", "Anbau Haus")
+    utils.add_answer(
+        be_instance.case.document, "beschreibung-projektaenderung", "Anbau Haus"
+    )
 
     # Prepare proposal
-    add_answer(
+    utils.add_answer(
         be_instance.case.document, "beschreibung-bauvorhaben", "Bau Einfamilienhaus"
     )
 
     # Municipality
-    add_answer(be_instance.case.document, "gemeinde", "1")
+    utils.add_answer(be_instance.case.document, "gemeinde", "1")
     DynamicOption.objects.create(
         document=be_instance.case.document,
         question_id="gemeinde",
@@ -254,7 +256,6 @@ def test_document_merge_service_cover_sheet_without_header_values(
 @pytest.mark.django_db(transaction=True, reset_sequences=True)
 def test_eingabebestaetigung_gr(
     db,
-    minio_mock,
     gr_dms_settings,
     settings,
     gr_instance,
@@ -264,7 +265,9 @@ def test_eingabebestaetigung_gr(
     freezer,
     application_settings,
     master_data_is_visible_mock,
+    utils,
     gr_master_data_settings,
+    minio_mock,
 ):
     settings.APPLICATION_NAME = "kt_gr"
     application_settings["DOCUMENT_BACKEND"] = "alexandria"
@@ -300,7 +303,7 @@ def test_eingabebestaetigung_gr(
     )
 
     # Prepare plot answer
-    add_table_answer(
+    utils.add_table_answer(
         gr_instance.case.document,
         "parzelle",
         [
@@ -315,7 +318,7 @@ def test_eingabebestaetigung_gr(
     )
 
     # Prepare applicant answer
-    add_table_answer(
+    utils.add_table_answer(
         gr_instance.case.document,
         "personalien-gesuchstellerin",
         [
@@ -329,7 +332,7 @@ def test_eingabebestaetigung_gr(
     )
 
     # Prepare landowner answer
-    add_table_answer(
+    utils.add_table_answer(
         gr_instance.case.document,
         "personalien-grundeigentumerin",
         [
@@ -343,7 +346,7 @@ def test_eingabebestaetigung_gr(
     )
 
     # Prepare project author answer
-    add_table_answer(
+    utils.add_table_answer(
         gr_instance.case.document,
         "personalien-projektverfasserin",
         [
@@ -357,26 +360,30 @@ def test_eingabebestaetigung_gr(
     )
 
     # Prepare project modification
-    add_answer(gr_instance.case.document, "projektaenderung", "projektaenderung-ja")
-    add_answer(
+    utils.add_answer(
+        gr_instance.case.document, "projektaenderung", "projektaenderung-ja"
+    )
+    utils.add_answer(
         gr_instance.case.document, "beschreibung-projektaenderung", "Projekt Änderung"
     )
 
     # Prepare plot address
-    add_answer(gr_instance.case.document, "street-and-housenumber", "Bahnhofstrasse 2")
-    add_answer(gr_instance.case.document, "ort-grundstueck", "Testhausen")
+    utils.add_answer(
+        gr_instance.case.document, "street-and-housenumber", "Bahnhofstrasse 2"
+    )
+    utils.add_answer(gr_instance.case.document, "ort-grundstueck", "Testhausen")
 
     # Prepare authority
     gr_instance.instance_services.all().delete()
     gr_instance.instance_services.create(service=municipality, active=1)
 
     # Prepare proposal
-    add_answer(
+    utils.add_answer(
         gr_instance.case.document, "beschreibung-bauvorhaben", "Bau Einfamilienhaus"
     )
 
     # Municipality
-    add_answer(gr_instance.case.document, "gemeinde", "1")
+    utils.add_answer(gr_instance.case.document, "gemeinde", "1")
     DynamicOption.objects.create(
         document=gr_instance.case.document,
         question_id="gemeinde",

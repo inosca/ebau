@@ -1,5 +1,5 @@
 # serializer version: 1
-# name: test_master_data[be_master_data_settings-de-be_master_data_case-select_related0-prefetch_related0-9]
+# name: test_master_data[be_master_data_settings-de-be_master_data_case-select_related0-prefetch_related0-10]
   dict({
     'alcohol_serving': 'mit',
     'applicants': list([
@@ -14,7 +14,7 @@
         'zip': 1234,
       }),
     ]),
-    'application_type': None,
+    'application_type': 'Baugesuch',
     'building_distances': list([
     ]),
     'building_owners': list([
@@ -36,6 +36,7 @@
       'slug': 'erhaltenswert-nein',
     }),
     'construction_costs': 199000,
+    'construction_duration': None,
     'construction_group': dict({
       'label': 'Ja',
       'slug': 'baugruppe-bauinventar-ja',
@@ -103,12 +104,14 @@
       'label': 'Bern',
       'slug': '1',
     }),
-    'nature_risk_type': list([
+    'municipality_name': 'Bern',
+    'nature_risk': list([
     ]),
     'number_of_accomodated_persons': None,
-    'organisation_category': 'ebaube',
+    'organization_category': 'ebaube',
     'outside_seating': 20,
     'paper_submit_date': datetime.datetime(2021, 3, 20, 13, 17, 8, tzinfo=tzutc()),
+    'parking_lots': None,
     'plot_data': list([
       dict({
         'coord_east': 2599941,
@@ -123,6 +126,7 @@
         'plot_number': 2592,
       }),
     ]),
+    'proceeding_type': None,
     'profile_approval_date': None,
     'project': dict({
       'label': 'Neubau',
@@ -177,10 +181,7 @@
     'street_number': 4,
     'submit_date': datetime.datetime(2021, 3, 31, 13, 17, 8, tzinfo=tzutc()),
     'usage_type': list([
-      dict({
-        'label': 'Wohnen',
-        'slug': 'nutzungsart-wohnen',
-      }),
+      'Wohnen',
     ]),
     'usage_zone': 'Wohnzone W2',
     'ventilation_systems': list([
@@ -194,7 +195,7 @@
     'zip': 3000,
   })
 # ---
-# name: test_master_data[be_master_data_settings-fr-be_master_data_case-select_related1-prefetch_related1-9]
+# name: test_master_data[be_master_data_settings-fr-be_master_data_case-select_related1-prefetch_related1-10]
   dict({
     'alcohol_serving': 'mit',
     'applicants': list([
@@ -209,7 +210,7 @@
         'zip': 1234,
       }),
     ]),
-    'application_type': None,
+    'application_type': 'Demande de permis de construire',
     'building_distances': list([
     ]),
     'building_owners': list([
@@ -231,6 +232,7 @@
       'slug': 'erhaltenswert-nein',
     }),
     'construction_costs': 199000,
+    'construction_duration': None,
     'construction_group': dict({
       'label': 'Ja',
       'slug': 'baugruppe-bauinventar-ja',
@@ -298,12 +300,14 @@
       'label': 'Berne',
       'slug': '1',
     }),
-    'nature_risk_type': list([
+    'municipality_name': 'Berne',
+    'nature_risk': list([
     ]),
     'number_of_accomodated_persons': None,
-    'organisation_category': 'ebaube',
+    'organization_category': 'ebaube',
     'outside_seating': 20,
     'paper_submit_date': datetime.datetime(2021, 3, 20, 13, 17, 8, tzinfo=tzutc()),
+    'parking_lots': None,
     'plot_data': list([
       dict({
         'coord_east': 2599941,
@@ -318,6 +322,7 @@
         'plot_number': 2592,
       }),
     ]),
+    'proceeding_type': None,
     'profile_approval_date': None,
     'project': dict({
       'label': 'Neubau',
@@ -372,10 +377,7 @@
     'street_number': 4,
     'submit_date': datetime.datetime(2021, 3, 31, 13, 17, 8, tzinfo=tzutc()),
     'usage_type': list([
-      dict({
-        'label': 'Vivre',
-        'slug': 'nutzungsart-wohnen',
-      }),
+      'Vivre',
     ]),
     'usage_zone': 'Wohnzone W2',
     'ventilation_systems': list([
@@ -447,23 +449,24 @@
       }),
     ]),
     'city': None,
-    'completion_date': list([
-    ]),
+    'completion_date': None,
     'construction_costs': 129000,
-    'construction_start_date': list([
-    ]),
+    'construction_duration': None,
+    'construction_start_date': None,
     'coordinates': list([
     ]),
     'decision_date': None,
     'dossier_number': None,
-    'final_approval_date': list([
-    ]),
+    'final_approval_date': None,
     'landowners': list([
     ]),
     'legal_representatives': list([
     ]),
     'municipality': 'Duncanchester',
+    'municipality_name': 'Duncanchester',
+    'nature_risk': None,
     'organization_category': 'ebausz',
+    'parking_lots': None,
     'plot_data': list([
       dict({
         'egrid_number': 'CH1234567890',
@@ -471,8 +474,7 @@
       }),
     ]),
     'proceeding_type': None,
-    'profile_approval_date': list([
-    ]),
+    'profile_approval_date': None,
     'project_authors': list([
     ]),
     'proposal': 'Grosses Haus',
@@ -480,9 +482,11 @@
     'remark': None,
     'street': None,
     'street_addition': None,
+    'street_number': None,
     'submit_date': None,
     'usage_type': None,
     'usage_zone': None,
+    'zip': None,
   })
 # ---
 # name: test_master_data[sz_master_data_settings-de-sz_master_data_case_gwr_v2-select_related4-prefetch_related4-5]
@@ -551,23 +555,24 @@
       }),
     ]),
     'city': None,
-    'completion_date': list([
-    ]),
+    'completion_date': None,
     'construction_costs': 129000,
-    'construction_start_date': list([
-    ]),
+    'construction_duration': None,
+    'construction_start_date': None,
     'coordinates': list([
     ]),
     'decision_date': None,
     'dossier_number': None,
-    'final_approval_date': list([
-    ]),
+    'final_approval_date': None,
     'landowners': list([
     ]),
     'legal_representatives': list([
     ]),
     'municipality': 'Duncanchester',
+    'municipality_name': 'Duncanchester',
+    'nature_risk': None,
     'organization_category': 'ebausz',
+    'parking_lots': None,
     'plot_data': list([
       dict({
         'egrid_number': 'CH1234567890',
@@ -575,8 +580,7 @@
       }),
     ]),
     'proceeding_type': None,
-    'profile_approval_date': list([
-    ]),
+    'profile_approval_date': None,
     'project_authors': list([
     ]),
     'proposal': 'Grosses Haus',
@@ -584,9 +588,11 @@
     'remark': None,
     'street': None,
     'street_addition': None,
+    'street_number': None,
     'submit_date': None,
     'usage_type': None,
     'usage_zone': None,
+    'zip': None,
   })
 # ---
 # name: test_master_data[ur_master_data_settings-de-ur_master_data_case-select_related2-prefetch_related2-8]
@@ -676,6 +682,7 @@
       'label': 'Altdorf',
       'slug': '1',
     }),
+    'municipality_name': None,
     'oereb_topic': list([
       'oereb-thema-knp',
     ]),

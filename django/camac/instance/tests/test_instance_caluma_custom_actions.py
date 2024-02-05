@@ -367,6 +367,7 @@ def test_change_responsible_service(
     be_distribution_settings,
     enable_ech,
 ):
+    application_settings["SHORT_NAME"] = "be"
     application_settings["NOTIFICATIONS"]["CHANGE_RESPONSIBLE_SERVICE"] = {
         "template_slug": notification_template.slug,
         "recipient_types": ["leitbehoerde"],

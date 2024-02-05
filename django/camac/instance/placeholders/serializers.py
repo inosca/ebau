@@ -1112,7 +1112,6 @@ class BeDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
     )
     nutzung = fields.MasterDataField(
         source="usage_type",
-        parser=get_option_label,
         join_by=", ",
         aliases=[_("USAGE_TYPE")],
         description=_("Usage type"),

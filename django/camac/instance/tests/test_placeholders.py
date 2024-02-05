@@ -27,12 +27,7 @@ from rest_framework import status
 
 from camac.instance.placeholders.utils import get_tel_and_email, human_readable_date
 
-from .test_master_data import (  # noqa
-    add_answer,
-    add_table_answer,
-    be_master_data_case,
-    gr_master_data_case,
-)
+from .test_master_data import be_master_data_case, gr_master_data_case  # noqa
 
 
 @pytest.fixture
@@ -115,7 +110,9 @@ def test_dms_placeholders_gr(
     group,
     user_factory,
     responsible_service_factory,
+    utils,
     gr_master_data_settings,
+    minio_mock,
 ):
     settings.DISTRIBUTION["QUESTIONS"]["STATEMENT"] = "inquiry-answer-statement"
     application_settings["MUNICIPALITY_DATA_SHEET"] = settings.ROOT_DIR(
@@ -159,12 +156,12 @@ def test_dms_placeholders_gr(
     # publication
     document = DocumentFactory()
 
-    add_answer(document, "publikation-anzeiger-von", "Bärnerblatt")
-    add_answer(document, "publikation-text", "Text")
-    add_answer(document, "beginn-publikationsorgan-gemeinde", date(2021, 8, 20))
-    add_answer(document, "ende-publikationsorgan-gemeinde", date(2021, 8, 21))
-    add_answer(document, "beginn-publikation-kantonsamtsblatt", date(2021, 8, 22))
-    add_answer(document, "ende-publikation-kantonsamtsblatt", date(2021, 8, 23))
+    utils.add_answer(document, "publikation-anzeiger-von", "Bärnerblatt")
+    utils.add_answer(document, "publikation-text", "Text")
+    utils.add_answer(document, "beginn-publikationsorgan-gemeinde", date(2021, 8, 20))
+    utils.add_answer(document, "ende-publikationsorgan-gemeinde", date(2021, 8, 21))
+    utils.add_answer(document, "beginn-publikation-kantonsamtsblatt", date(2021, 8, 22))
+    utils.add_answer(document, "ende-publikation-kantonsamtsblatt", date(2021, 8, 23))
 
     WorkItemFactory(
         case=gr_instance.case,
@@ -202,26 +199,26 @@ def test_dms_placeholders_gr(
     table_question.documents.add(row2)
 
     # zones
-    add_answer(gr_instance.case.document, "zonenplan", "Rebwirtschaftszone")
-    add_answer(
+    utils.add_answer(gr_instance.case.document, "zonenplan", "Rebwirtschaftszone")
+    utils.add_answer(
         gr_instance.case.document, "genereller-gestaltungsplan", "Historischer Weg"
     )
-    add_answer(
+    utils.add_answer(
         gr_instance.case.document,
         "genereller-erschliessungsplan",
         "Fuss- / Spazierweg, Parkierung Gebiete D",
     )
-    add_answer(gr_instance.case.document, "folgeplanung", "Baulinie allgemein")
+    utils.add_answer(gr_instance.case.document, "folgeplanung", "Baulinie allgemein")
 
     # gis
-    add_answer(
+    utils.add_answer(
         gr_instance.case.document,
         "gis-map",
         '{"markers": [{"x": 2569941.12345, "y": 1298923.12345}, {"x": 2609995.12345,"y": 1271340.12345}] }',
     )
 
     # Prepare project modification
-    add_answer(
+    utils.add_answer(
         gr_instance.case.document, "beschreibung-projektaenderung", "Projektänderung"
     )
 
@@ -320,6 +317,8 @@ def test_dms_placeholders_so(
     dynamic_option_factory,
     mocker,
     multilang,
+    utils,
+    minio_mock,
 ):
     # Authority
     authority = service_factory(
@@ -340,7 +339,7 @@ def test_dms_placeholders_so(
 
     # Municipality
     municipality = service_factory(website="https://gemeinde.ch")
-    add_answer(so_instance.case.document, "gemeinde", str(municipality.pk))
+    utils.add_answer(so_instance.case.document, "gemeinde", str(municipality.pk))
     dynamic_option_factory(
         slug=str(municipality.pk),
         question_id="gemeinde",
@@ -351,7 +350,7 @@ def test_dms_placeholders_so(
     )
 
     # Land use
-    add_answer(
+    utils.add_answer(
         so_instance.case.document,
         "nutzungsplanung-grundnutzung",
         "Zone für öffentliche Bauten und Anlagen",
@@ -374,7 +373,7 @@ def test_dms_placeholders_so(
         case=so_instance.case,
     )
 
-    table_answer = add_table_answer(
+    table_answer = utils.add_table_answer(
         objections_work_item.document,
         "einsprachen",
         [
@@ -387,7 +386,7 @@ def test_dms_placeholders_so(
     objection1 = table_answer.documents.first()
     objection2 = table_answer.documents.last()
 
-    add_table_answer(
+    utils.add_table_answer(
         objection1,
         "einsprache-einsprechende",
         [
@@ -404,7 +403,7 @@ def test_dms_placeholders_so(
         row_form_id="personalien-tabelle",
     )
 
-    add_table_answer(
+    utils.add_table_answer(
         objection2,
         "einsprache-einsprechende",
         [
@@ -431,15 +430,20 @@ def test_dms_placeholders_so(
         meta={"is-published": True},
     )
 
-    add_answer(publication_work_item.document, "publikation-start", date(2023, 12, 1))
-    add_answer(publication_work_item.document, "publikation-ende", date(2023, 12, 15))
-    add_answer(
+    utils.add_answer(
+        publication_work_item.document, "publikation-start", date(2023, 12, 1)
+    )
+    utils.add_answer(
+        publication_work_item.document, "publikation-ende", date(2023, 12, 15)
+    )
+    utils.add_answer(
         publication_work_item.document, "publikation-anzeiger", date(2023, 11, 28)
     )
-    add_answer(
+    utils.add_answer(
         publication_work_item.document, "publikation-amtsblatt", date(2023, 11, 29)
     )
-    add_answer(
+    # TODO check this
+    utils.add_answer(
         publication_work_item.document,
         "publikation-organ",
         ["publikation-organ-amtsblatt", "publikation-organ-azeiger"],
@@ -561,6 +565,7 @@ def test_dms_placeholders(
     be_dms_config,
     be_decision_settings,
     be_master_data_settings,
+    utils,
 ):
     application_settings["INTERNAL_FRONTEND"] = "camac"
     application_settings["MUNICIPALITY_DATA_SHEET"] = settings.ROOT_DIR(
@@ -571,29 +576,29 @@ def test_dms_placeholders(
     # publication
     document = DocumentFactory()
 
-    add_answer(document, "publikation-anzeiger-von", "Bärnerblatt")
-    add_answer(document, "publikation-text", "Text")
-    add_answer(
+    utils.add_answer(document, "publikation-anzeiger-von", "Bärnerblatt")
+    utils.add_answer(document, "publikation-text", "Text")
+    utils.add_answer(
         document,
         "publikation-1-publikation-anzeiger",
         date(2021, 8, 30),
     )
-    add_answer(
+    utils.add_answer(
         document,
         "publikation-2-publikation-anzeiger",
         date(2021, 8, 20),
     )
-    add_answer(
+    utils.add_answer(
         document,
         "publikation-amtsblatt",
         date(2021, 8, 10),
     )
-    add_answer(
+    utils.add_answer(
         document,
         "publikation-startdatum",
         date(2021, 9, 1),
     )
-    add_answer(
+    utils.add_answer(
         document,
         "publikation-ablaufdatum",
         date(2021, 9, 15),
@@ -609,7 +614,7 @@ def test_dms_placeholders(
     )
 
     # Modification
-    add_answer(document, "beschreibung-projektaenderung", "Umbau Haus in Garage")
+    utils.add_answer(document, "beschreibung-projektaenderung", "Umbau Haus in Garage")
 
     # Neighbors
     information_of_neighbors_document = DocumentFactory(
@@ -623,7 +628,7 @@ def test_dms_placeholders(
         case=be_instance.case,
         meta={"is-published": True},
     )
-    add_table_answer(
+    utils.add_table_answer(
         information_of_neighbors_document,
         "information-of-neighbors-neighbors",
         [
@@ -645,7 +650,7 @@ def test_dms_placeholders(
         case=be_instance.case,
     )
 
-    table_answer = add_table_answer(
+    table_answer = utils.add_table_answer(
         legal_submission.document,
         "legal-submission-table",
         [
@@ -686,7 +691,7 @@ def test_dms_placeholders(
         answers__value=["legal-submission-type-load-compensation-request"]
     )
 
-    add_table_answer(
+    utils.add_table_answer(
         objection,
         "legal-submission-legal-claimants-table-question",
         [
@@ -703,7 +708,7 @@ def test_dms_placeholders(
         row_form_id="personalien-tabelle",
     )
 
-    add_table_answer(
+    utils.add_table_answer(
         legal_custody,
         "legal-submission-legal-claimants-table-question",
         [
@@ -720,7 +725,7 @@ def test_dms_placeholders(
         row_form_id="personalien-tabelle",
     )
 
-    add_table_answer(
+    utils.add_table_answer(
         load_compensation,
         "legal-submission-legal-claimants-table-question",
         [

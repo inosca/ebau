@@ -15,7 +15,7 @@ def xml_encode_strings(value):
 
 
 def handle_string_values(value):
-    if not isinstance(value, str):
+    if not isinstance(value, str):  # pragma: no cover
         return value
     value = xml_encode_strings(value)
     # It's important to call strip_whitespace last, as it would also strip away any newlines

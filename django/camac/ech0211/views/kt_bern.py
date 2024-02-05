@@ -18,7 +18,6 @@ from camac.instance.models import Instance
 from camac.swagger.utils import get_operation_description, group_param
 
 from .. import event_handlers, formatters
-from ..data_preparation import get_document
 from ..mixins import ECHInstanceQuerysetMixin
 from ..parsers import ECHXMLParser
 from ..send_handlers import SendHandlerException, get_send_handler
@@ -44,15 +43,14 @@ class ApplicationView(ECHInstanceQuerysetMixin, RetrieveModelMixin, GenericViewS
     def retrieve(self, request, instance_id=None, **kwargs):
         qs = self.get_queryset()
         instance = get_object_or_404(qs, pk=instance_id)
-        document = get_document(instance.pk)
-        base_delivery_formatter = formatters.BaseDeliveryFormatter(config="kt_bern")
+        base_delivery_formatter = formatters.BaseDeliveryFormatter()
         try:
             xml_data = formatters.delivery(
                 instance,
-                document,
+                subject=instance.case.document.form.name.translate(),
                 message_type=ECH_BASE_DELIVERY,
                 eventBaseDelivery=base_delivery_formatter.format_base_delivery(
-                    instance, answers=document
+                    instance
                 ),
             ).toxml()
         except (

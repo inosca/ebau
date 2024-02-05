@@ -33,15 +33,21 @@
   				</ns1:planningPermissionApplicationIdentification>
   				<ns1:description>Testvorhaben</ns1:description>
   				<ns1:applicationType>Einfache Vorabklärung</ns1:applicationType>
-  				<ns1:intendedPurpose>None</ns1:intendedPurpose>
+  				<ns1:profilingYesNo>false</ns1:profilingYesNo>
+  				<ns1:intendedPurpose>Wohnen</ns1:intendedPurpose>
   				<ns1:parkingLotsYesNo>false</ns1:parkingLotsYesNo>
+  				<ns1:natureRisk>
+  					<ns1:riskDesignation>Felssturz</ns1:riskDesignation>
+  					<ns1:riskExists>true</ns1:riskExists>
+  				</ns1:natureRisk>
+  				<ns1:constructionCost>1000.0</ns1:constructionCost>
   				<ns1:namedMetaData>
   					<ns3:metaDataName>status</ns3:metaDataName>
   					<ns3:metaDataValue>David Rangel</ns3:metaDataValue>
   				</ns1:namedMetaData>
   				<ns1:locationAddress>
-  					<ns4:street>unknown</ns4:street>
-  					<ns4:houseNumber>0</ns4:houseNumber>
+  					<ns4:street>Teststrasse</ns4:street>
+  					<ns4:houseNumber>23b</ns4:houseNumber>
   					<ns4:town>unknown</ns4:town>
   					<ns4:swissZipCode>9999</ns4:swissZipCode>
   					<ns4:country>
@@ -68,7 +74,10 @@
   					</ns1:municipality>
   					<ns1:buildingInformation>
   						<ns1:building>
+  							<ns3:EGID>1738778</ns3:EGID>
+  							<ns3:numberOfFloors>2</ns3:numberOfFloors>
   							<ns3:buildingCategory>1040</ns3:buildingCategory>
+  							<ns3:civilDefenseShelter>true</ns3:civilDefenseShelter>
   						</ns1:building>
   					</ns1:buildingInformation>
   					<ns1:owner>
@@ -81,7 +90,7 @@
   								<ns4:street>Teststrasse</ns4:street>
   								<ns4:houseNumber>None</ns4:houseNumber>
   								<ns4:town>Testort</ns4:town>
-  								<ns4:swissZipCode>9999</ns4:swissZipCode>
+  								<ns4:swissZipCode>1234</ns4:swissZipCode>
   								<ns4:country>
   									<ns4:countryNameShort>CH</ns4:countryNameShort>
   								</ns4:country>
@@ -89,10 +98,15 @@
   						</ns1:ownerAdress>
   					</ns1:owner>
   				</ns1:realestateInformation>
+  				<ns1:zone>
+  					<ns1:zoneDesignation>Testnutzungszone</ns1:zoneDesignation>
+  				</ns1:zone>
   				<ns1:constructionProjectInformation>
   					<ns1:constructionProject>
+  						<ns3:totalCostsOfProject>1000</ns3:totalCostsOfProject>
   						<ns3:status>6701</ns3:status>
   						<ns3:description>Testvorhaben</ns3:description>
+  						<ns3:durationOfConstructionPhase>999</ns3:durationOfConstructionPhase>
   					</ns1:constructionProject>
   					<ns1:municipality>
   						<ns5:municipalityName>Testgemeinde</ns5:municipalityName>
@@ -126,7 +140,7 @@
   						<ns4:street>Teststrasse</ns4:street>
   						<ns4:houseNumber>None</ns4:houseNumber>
   						<ns4:town>Testort</ns4:town>
-  						<ns4:swissZipCode>9999</ns4:swissZipCode>
+  						<ns4:swissZipCode>1234</ns4:swissZipCode>
   						<ns4:country>
   							<ns4:countryNameShort>CH</ns4:countryNameShort>
   						</ns4:country>
@@ -215,18 +229,18 @@
   				</ns1:planningPermissionApplicationIdentification>
   				<ns1:description>None</ns1:description>
   				<ns1:applicationType>Christopher Foster</ns1:applicationType>
-  				<ns1:remark>None</ns1:remark>
   				<ns1:proceedingType>baubewilligung</ns1:proceedingType>
   				<ns1:profilingYesNo>false</ns1:profilingYesNo>
-  				<ns1:intendedPurpose>None</ns1:intendedPurpose>
+  				<ns1:intendedPurpose>.</ns1:intendedPurpose>
+  				<ns1:parkingLotsYesNo>false</ns1:parkingLotsYesNo>
   				<ns1:namedMetaData>
   					<ns3:metaDataName>status</ns3:metaDataName>
   					<ns3:metaDataValue>David Rangel</ns3:metaDataValue>
   				</ns1:namedMetaData>
   				<ns1:locationAddress>
-  					<ns4:street>None</ns4:street>
-  					<ns4:houseNumber>.</ns4:houseNumber>
-  					<ns4:town>None</ns4:town>
+  					<ns4:street>unknown</ns4:street>
+  					<ns4:houseNumber>0</ns4:houseNumber>
+  					<ns4:town>unknown</ns4:town>
   					<ns4:swissZipCode>9999</ns4:swissZipCode>
   					<ns4:country>
   						<ns4:countryNameShort>CH</ns4:countryNameShort>
@@ -261,6 +275,18 @@
   						</ns1:ownerAdress>
   					</ns1:owner>
   				</ns1:realestateInformation>
+  				<ns1:constructionProjectInformation>
+  					<ns1:constructionProject>
+  						<ns3:projectStartDate>2022-06-03</ns3:projectStartDate>
+  						<ns3:status>6701</ns3:status>
+  						<ns3:description>unknown</ns3:description>
+  						<ns3:durationOfConstructionPhase>999</ns3:durationOfConstructionPhase>
+  					</ns1:constructionProject>
+  					<ns1:municipality>
+  						<ns5:municipalityName>Elizabethburgh</ns5:municipalityName>
+  						<ns5:cantonAbbreviation>SZ</ns5:cantonAbbreviation>
+  					</ns1:municipality>
+  				</ns1:constructionProjectInformation>
   				<ns1:document>
   					<ns6:uuid>42b55f5f-3d79-4f29-af7b-a2377283a139</ns6:uuid>
   					<ns6:titles>
@@ -307,7 +333,7 @@
   					</ns3:identification>
   					<ns3:address>
   						<ns4:street>Miller Centers</ns4:street>
-  						<ns4:houseNumber>.</ns4:houseNumber>
+  						<ns4:houseNumber>0</ns4:houseNumber>
   						<ns4:town>Thomasville</ns4:town>
   						<ns4:swissZipCode>1816</ns4:swissZipCode>
   						<ns4:country>
@@ -327,7 +353,7 @@
   					</ns3:identification>
   					<ns3:address>
   						<ns4:street>Scott Ridge</ns4:street>
-  						<ns4:houseNumber>.</ns4:houseNumber>
+  						<ns4:houseNumber>0</ns4:houseNumber>
   						<ns4:town>Lake Williamchester</ns4:town>
   						<ns4:swissZipCode>5731</ns4:swissZipCode>
   						<ns4:country>
@@ -347,7 +373,7 @@
   					</ns3:identification>
   					<ns3:address>
   						<ns4:street>Carl Port</ns4:street>
-  						<ns4:houseNumber>.</ns4:houseNumber>
+  						<ns4:houseNumber>0</ns4:houseNumber>
   						<ns4:town>Brownstad</ns4:town>
   						<ns4:swissZipCode>9394</ns4:swissZipCode>
   						<ns4:country>
@@ -367,7 +393,7 @@
   					</ns3:identification>
   					<ns3:address>
   						<ns4:street>Ryan Burgs</ns4:street>
-  						<ns4:houseNumber>.</ns4:houseNumber>
+  						<ns4:houseNumber>0</ns4:houseNumber>
   						<ns4:town>East Charlesburgh</ns4:town>
   						<ns4:swissZipCode>5416</ns4:swissZipCode>
   						<ns4:country>
