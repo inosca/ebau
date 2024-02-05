@@ -1803,6 +1803,14 @@ APPLICATIONS = {
             },
         },
         "DOCUMENT_BACKEND": "alexandria",
+        "STORE_PDF": {
+            "SECTION": {
+                "MAIN": {
+                    "DEFAULT": "beilagen-zum-gesuch-weitere-gesuchsunterlagen",
+                    "PAPER": "beilagen-zum-gesuch-weitere-gesuchsunterlagen",
+                }
+            },
+        },
     },
 }
 
