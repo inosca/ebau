@@ -127,5 +127,5 @@ export default {
     "beschreibung-reklame",
     "beschrieb-verfahren",
   ],
-  coordinationServices: [1, 87, 302, 590, 546, 545, 636], // kantonale KOORs
+  customDeadlineServiceGroupSlugs: ["Koordinationsstellen"],
 };
