@@ -35,7 +35,7 @@ class FormGroupFactory(DjangoModelFactory):
 
 
 class CamacQuestionTypeFactory(DjangoModelFactory):
-    name = Faker("name")
+    name = Faker("word", ext_word_list=["text", "radio", "checkbox"])
 
     class Meta:
         model = models.QuestionType

@@ -14,8 +14,6 @@ from lxml import etree
 from pytest_factoryboy import LazyFixture
 from rest_framework import status
 
-from camac.instance.tests.test_master_data import add_answer, add_table_answer
-
 from .data import django_file
 
 
@@ -149,6 +147,7 @@ def test_template_merge(
     service_factory,
     application_settings,
     responsible_service_factory,
+    utils,
 ):
     call_command(
         "loaddata",
@@ -222,13 +221,13 @@ def test_template_merge(
     work_item = work_item_factory(task_id="building-authority", case=sz_instance.case)
     work_item.document = document_factory(form_id="bauverwaltung")
     work_item.save()
-    add_answer(work_item.document, "bewilligungsverfahren-gr-sitzung-nummer", 12)
-    add_answer(
+    utils.add_answer(work_item.document, "bewilligungsverfahren-gr-sitzung-nummer", 12)
+    utils.add_answer(
         work_item.document,
         "bewilligungsverfahren-gr-sitzung-bewilligungsdatum",
         make_aware(datetime(2023, 1, 2)),
     )
-    add_table_answer(
+    utils.add_table_answer(
         work_item.document,
         "bewilligungsverfahren-sitzung-baukommission",
         [

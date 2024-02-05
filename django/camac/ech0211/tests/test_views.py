@@ -3,7 +3,6 @@ import json
 
 import pytest
 from caluma.caluma_form import models as caluma_form_models
-from caluma.caluma_user.models import BaseUser
 from caluma.caluma_workflow import api as workflow_api, models as caluma_workflow_models
 from django.conf import settings
 from django.urls import reverse
@@ -16,8 +15,8 @@ from camac.constants.kt_bern import (
 from camac.ech0211.schema.ech_0211_2_0 import CreateFromDocument
 
 from ...dossier_import.config.kt_schwyz import COORDINATES_MAPPING, PARCEL_MAPPING
-from ...dossier_import.dossier_classes import Coordinates, Dossier, PlotData
-from ...dossier_import.writers import CalumaAnswerWriter, CamacNgListAnswerWriter
+from ...dossier_import.dossier_classes import Coordinates, PlotData
+from ...dossier_import.writers import CamacNgListAnswerWriter
 from ..constants import (
     ECH_JUDGEMENT_APPROVED_WITH_RESERVATION,
     ECH_JUDGEMENT_DECLINED,
@@ -27,19 +26,7 @@ from ..event_handlers import EventHandlerException, StatusNotificationEventHandl
 from ..formatters import delivery
 from ..models import Message
 from ..send_handlers import KindOfProceedingsSendHandler, NoticeRulingSendHandler
-from ..views import kt_bern as kt_bern_ech0211views
-from .caluma_document_data import baugesuch_data, vorabklaerung_data
 from .utils import xml_data
-
-
-class TestDossier(Dossier):
-    __test__ = False
-
-    def __new__(cls, *args, **kwargs):
-        obj = object.__new__(cls)
-        Dossier.__init__(obj, *args, **kwargs)
-        obj._meta = Dossier.Meta(target_state="changeme")
-        return obj
 
 
 @pytest.mark.parametrize("is_vorabklaerung", [False, True])
@@ -58,37 +45,30 @@ def test_application_retrieve_full_be(
     decision_factory,
     be_decision_settings,
 ):
-    # this is required to actually really dynamically load the correcto urls as configured
-    # reload(import_string(settings.ROOT_URLCONF))
     decision = be_decision_settings["ANSWERS"]["DECISION"]["DEPRECIATED"]
     if is_vorabklaerung:
+        ech_instance_be.case.workflow = caluma_workflow_models.Workflow.objects.get(
+            pk="preliminary-clarification"
+        )
+        ech_instance_be.case.save()
         decision = be_decision_settings["ANSWERS"]["DECISION"][
             "POSITIVE_WITH_RESERVATION"
         ]
     decision_factory(instance=ech_instance_be, decision=decision)
 
-    i = instance_with_case(instance_factory())
+    linked_instance = instance_with_case(instance_factory())
 
     attachment.instance = ech_instance_be
     attachment.context = {"tags": ["some", "tags"]}
     attachment.save()
     attachment.attachment_sections.add(attachment_section)
 
-    i.case.meta["ebau-number"] = "2019-23"
-    i.case.save()
+    linked_instance.case.meta["ebau-number"] = "2019-23"
+    linked_instance.case.save()
     ech_instance_be.case.meta["ebau-number"] = "2019-23"
     ech_instance_be.case.save()
-    url = reverse("application", args=[ech_instance_be.pk])
 
-    if is_vorabklaerung:
-        mocker.patch.object(
-            kt_bern_ech0211views, "get_document", return_value=vorabklaerung_data
-        )
-    else:
-        mocker.patch.object(
-            kt_bern_ech0211views, "get_document", return_value=baugesuch_data
-        )
-    response = admin_client.get(url)
+    response = admin_client.get(reverse("application", args=[ech_instance_be.pk]))
     assert response.status_code == status.HTTP_200_OK
 
     xml = CreateFromDocument(response.content)
@@ -582,6 +562,8 @@ def test_application_retrieve_full_sz(
     mocker,
     override_urls_sz,
     request,
+    work_item_factory,
+    master_data_is_visible_mock,
 ):
 
     ech_instance_sz.form.description = application_type
@@ -602,29 +584,14 @@ def test_application_retrieve_full_sz(
         CamacNgListAnswerWriter(
             target="punkte", column_mapping=COORDINATES_MAPPING
         ).write(ech_instance_sz, coordinates)
-    dossier = TestDossier(id=ech_instance_sz.identifier, proposal="baubeschrieb")
-    dossier_writer = type(
-        "DossierWriter",
-        (object,),
-        {
-            "_user": BaseUser(),
-            "_group": ech_instance_sz.responsible_service(),
-        },
-    )
 
     if decision and decision.get("date"):
         # determinining decision date in SZ requires a value from
         # the work_item document of task "building-authority"
-        CalumaAnswerWriter(
-            name="tb-datum",
-            target="bewilligungsverfahren-gr-sitzung-bewilligungsdatum",
-            value_key="date",
-            task="building-authority",
-            context={"dossier": dossier},
-            owner=dossier_writer,
-        ).write(ech_instance_sz, decision["date"])
-        ech_instance_sz.instance_state = instance_state_factory(
-            name=decision.get("decision")
+        work_item_factory(
+            task_id="make-decision",
+            case=ech_instance_sz.case,
+            status=caluma_workflow_models.WorkItem.STATUS_COMPLETED,
         )
 
     resp = admin_client.get(reverse("application", args=[ech_instance_sz.pk]))

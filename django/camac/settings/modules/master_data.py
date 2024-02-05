@@ -224,7 +224,9 @@ MASTER_DATA = {
             ),
             "street": ("ng_answer", "ortsbezeichnung-des-vorhabens"),
             "street_addition": ("ng_answer", "standort-spezialbezeichnung"),
+            "street_number": ("static", None),
             "city": ("ng_answer", "standort-ort"),
+            "zip": ("static", None),
             "submit_date": ("first_workflow_entry", [10]),
             "publication_date": ("first_workflow_entry", [15]),
             "decision_date": (
@@ -236,62 +238,30 @@ MASTER_DATA = {
                 },
             ),
             "construction_start_date": (
-                "table",
-                "baukontrolle-realisierung-table",
-                {
-                    "document_from_work_item": "building-authority",
-                    "column_mapping": {
-                        "value": (
-                            "baukontrolle-realisierung-baubeginn",
-                            {"value_key": "date"},
-                        )
-                    },
-                },
+                "baukontrolle",
+                "baukontrolle-realisierung-baubeginn",
             ),
+            "construction_duration": ("static", None),
             "profile_approval_date": (
-                "table",
-                "baukontrolle-realisierung-table",
-                {
-                    "document_from_work_item": "building-authority",
-                    "column_mapping": {
-                        "value": (
-                            "baukontrolle-realisierung-schnurgeruestabnahme",
-                            {"value_key": "date"},
-                        )
-                    },
-                },
+                "baukontrolle",
+                "baukontrolle-realisierung-schnurgeruestabnahme",
             ),
             "final_approval_date": (
-                "table",
-                "baukontrolle-realisierung-table",
-                {
-                    "document_from_work_item": "building-authority",
-                    "column_mapping": {
-                        "value": (
-                            "baukontrolle-realisierung-schlussabnahme",
-                            {"value_key": "date"},
-                        )
-                    },
-                },
+                "baukontrolle",
+                "baukontrolle-realisierung-schlussabnahme",
             ),
             "completion_date": (
-                "table",
-                "baukontrolle-realisierung-table",
-                {
-                    "document_from_work_item": "building-authority",
-                    "column_mapping": {
-                        "value": (
-                            "baukontrolle-realisierung-bauende",
-                            {"value_key": "date"},
-                        )
-                    },
-                },
+                "baukontrolle",
+                "baukontrolle-realisierung-bauende",
             ),
             "dossier_number": (
                 "instance_property",
                 "identifier",
             ),  # eCH0211: 3.1.1.1.1, 3.1.1.1.2
+            # TODO remove?
             "municipality": ("instance_property", "location"),
+            "municipality_name": ("instance_property", "location"),
+            "nature_risk": ("static", None),
             "proposal": (
                 "ng_answer",
                 ["bezeichnung", "bezeichnung-override"],
@@ -333,6 +303,7 @@ MASTER_DATA = {
                     }
                 },
             ),
+            "parking_lots": ("static", None),
             "buildings": (
                 "ng_table",
                 ["gwr", "gwr-v2"],
@@ -566,13 +537,8 @@ MASTER_DATA = {
     "kt_bern": {
         "ENABLED": True,
         "CONFIG": {
-            "organisation_category": ("static", "ebaube"),
+            "organization_category": ("static", "ebaube"),
             "remark": ("answer", "bemerkungen"),
-            "nature_risk_type": (
-                "table",
-                "beschreibung-der-prozessart-tabelle",
-                {"column_mapping": {"risk_type": "prozessart"}},
-            ),
             "applicants": (
                 "table",
                 "personalien-gesuchstellerin",
@@ -768,9 +734,17 @@ MASTER_DATA = {
                 "answer",
                 "sitzplaetze-garten",
             ),
-            "usage_type": ("answer", "nutzungsart", {"value_parser": "option"}),
+            "usage_type": (
+                "answer",
+                "nutzungsart",
+                {"value_parser": "option", "prop": "label"},
+            ),
             "usage_zone": ("answer", "nutzungszone"),
-            "application_type": ("answer", "geschaeftstyp"),
+            "application_type": ("form_name",),
+            "proceeding_type": (
+                "static",
+                None,
+            ),  # TODO: consider "Um welche Gesuchsbewilligungsart handelt es sich?" from formal exam
             "development_regulations": ("answer", "ueberbauungsordnung"),
             "situation": ("answer", "sachverhalt"),
             "proposal": ("answer", "beschreibung-bauvorhaben"),
@@ -780,7 +754,25 @@ MASTER_DATA = {
             "zip": ("answer", "plz-grundstueck-v3"),
             "city": ("answer", "ort-grundstueck"),
             "construction_costs": ("answer", "baukosten-in-chf"),
+            "construction_duration": ("answer", "dauer-in-monaten"),
             "municipality": ("answer", "gemeinde", {"value_parser": "dynamic_option"}),
+            "municipality_name": (
+                "answer",
+                "gemeinde",
+                {"value_parser": "dynamic_option", "prop": "label"},
+            ),
+            "nature_risk": (
+                "table",
+                "beschreibung-der-prozessart-tabelle",
+                {
+                    "column_mapping": {
+                        "risk_type": (
+                            "prozessart",
+                            {"value_parser": "option", "prop": "label"},
+                        )
+                    }
+                },
+            ),
             "plot_data": (
                 "table",
                 "parzelle",
@@ -810,7 +802,10 @@ MASTER_DATA = {
             "publication_date": ("answer", "datum-publikation", {"value_key": "date"}),
             "construction_start_date": (
                 "answer",
-                "datum-baubeginn",
+                [
+                    "geplanter-baubeginn",  # regular dossiers
+                    "datum-baubeginn",  # migrated dossiers
+                ],
                 {"value_key": "date"},
             ),
             "profile_approval_date": (
@@ -818,6 +813,7 @@ MASTER_DATA = {
                 "datum-schnurgeruestabnahme",
                 {"value_key": "date"},
             ),
+            "parking_lots": ("answer", "anzahl-abstellplaetze-fur-motorfahrzeuge"),
             "final_approval_date": (
                 "answer",
                 "datum-schlussabnahme",
@@ -1119,6 +1115,11 @@ MASTER_DATA = {
                 "answer",
                 "municipality",
                 {"value_parser": "dynamic_option"},
+            ),
+            "municipality_name": (
+                "answer",
+                "gemeinde",
+                {"value_parser": "dynamic_option", "prop": "label"},
             ),
             "category": (
                 "answer",
@@ -1574,6 +1575,11 @@ MASTER_DATA = {
             "city": ("answer", "ort-grundstueck"),
             "construction_costs": ("answer", "baukosten-in-chf"),
             "municipality": ("answer", "gemeinde", {"value_parser": "dynamic_option"}),
+            "municipality_name": (
+                "answer",
+                "gemeinde",
+                {"value_parser": "dynamic_option", "prop": "label"},
+            ),
             "plot_data": (
                 "table",
                 "parzelle",
@@ -1767,10 +1773,15 @@ MASTER_DATA = {
             "proposal": ("answer", "beschreibung-bauvorhaben"),
             "street": ("answer", "street-and-housenumber"),
             "street_number": ("answer", "nr"),  # unused
-            "zip": ("answer", "plz"),  # unused
+            "zip": ("answer", "plz"),
             "city": ("answer", "ort-grundstueck"),
             "construction_costs": ("answer", "baukosten-in-chf"),
             "municipality": ("answer", "gemeinde", {"value_parser": "dynamic_option"}),
+            "municipality_name": (
+                "answer",
+                "gemeinde",
+                {"value_parser": "dynamic_option", "prop": "label"},
+            ),
             "plot_data": (
                 "table",
                 "parzelle",
@@ -1833,6 +1844,11 @@ MASTER_DATA = {
             "city": ("answer", "ort"),
             "construction_costs": ("answer", "gesamtkosten"),
             "municipality": ("answer", "gemeinde", {"value_parser": "dynamic_option"}),
+            "municipality_name": (
+                "answer",
+                "gemeinde",
+                {"value_parser": "dynamic_option", "prop": "label"},
+            ),
             "dossier_number": ("case_meta", "dossier-number"),
             "plot_data": (
                 "table",

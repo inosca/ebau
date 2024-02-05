@@ -15,7 +15,6 @@ from ...core.models import InstanceService
 from ...instance.serializers import InstanceSubmitSerializer
 from .. import event_handlers
 from ..models import Message
-from .caluma_document_data import baugesuch_data
 
 
 @pytest.mark.parametrize(
@@ -29,7 +28,6 @@ from .caluma_document_data import baugesuch_data
     ],
 )
 @pytest.mark.freeze_time("2022-07-07")
-@pytest.mark.parametrize("api_level", ("basic", None))
 def test_submit_event_sz(
     db,
     set_application_sz,
@@ -46,11 +44,11 @@ def test_submit_event_sz(
     form_field_factory,
     caplog,
     ech_snapshot,
-    api_level,
     application_settings,
+    master_data_is_visible_mock,
 ):
     application_settings["ECH0211"]["API_ACTIVE"] = True
-    application_settings["ECH0211"]["API_LEVEL"] = api_level
+    application_settings["ECH0211"]["API_LEVEL"] = "basic"
     instance_state_factory(name="subm")
     serializer = InstanceSubmitSerializer(
         context={
@@ -77,16 +75,15 @@ def test_submit_event_sz(
 
     caplog.clear()
 
-    if api_level:
-        assert Message.objects.count() == 1
-        message = Message.objects.first()
-        assert message.receiver.get_name() == ech_instance_sz.group.service.name
-        ech_snapshot(message.body)
+    assert Message.objects.count() == 1
+    message = Message.objects.first()
+    assert message.receiver.get_name() == ech_instance_sz.group.service.name
+    ech_snapshot(message.body)
 
 
 @pytest.mark.freeze_time("2022-06-03")
 @pytest.mark.parametrize("has_active_service", [True, False])
-def test_submit_event(
+def test_submit_event_be(
     set_application_be,
     ech_instance_be,
     role_factory,
@@ -97,12 +94,12 @@ def test_submit_event(
     caplog,
     settings,
     ech_snapshot,
+    master_data_is_visible_mock,
 ):
     if not has_active_service:
         InstanceService.objects.filter(instance_id=ech_instance_be).update(active=False)
 
     group_factory(role=role_factory(name="support"))
-    mocker.patch.object(event_handlers, "get_document", return_value=baugesuch_data)
 
     caplog.clear()
 
@@ -136,7 +133,7 @@ def test_submit_event(
 )
 def test_event_handlers(
     event_type,
-    ech_instance_case,
+    ech_instance_be,
     set_application_be,
     role_factory,
     instance_service_factory,
@@ -146,11 +143,10 @@ def test_event_handlers(
     mocker,
     multilang,
     ech_snapshot,
+    master_data_is_visible_mock,
 ):
-    ech_instance_be = ech_instance_case().instance
     if event_type == "FileSubsequently":
         group_factory(role=role_factory(name="support"))
-        mocker.patch.object(event_handlers, "get_document", return_value=baugesuch_data)
 
     if event_type == "StatusNotification":
         ech_instance_be.instance_state = instance_state_factory(name="circulation_init")
@@ -369,11 +365,8 @@ def test_task_event_handler_SBs(
 def test_file_subsequently_signal(
     ech_instance_be,
     set_application_be,
-    mocker,
-    multilang,
     ech_snapshot,
 ):
-    mocker.patch.object(event_handlers, "get_document", return_value=baugesuch_data)
     file_subsequently.send(
         sender=None, instance=ech_instance_be, user_pk=None, group_pk=None
     )
@@ -381,3 +374,13 @@ def test_file_subsequently_signal(
     message = Message.objects.first()
     assert message.receiver.get_name() == "Leitbehörde Burgdorf"
     ech_snapshot(message.body)
+
+
+def test_skip_events_sz(
+    ech_instance_sz,
+    set_application_sz,
+):
+    file_subsequently.send(
+        sender=None, instance=ech_instance_sz, user_pk=None, group_pk=None
+    )
+    assert Message.objects.count() == 0

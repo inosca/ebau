@@ -152,11 +152,11 @@
   		<ns1:planningPermissionApplicationIdentification>
   			<ns1:localID>
   				<ns3:IdCategory>eBauNr</ns3:IdCategory>
-  				<ns3:Id>unknown</ns3:Id>
+  				<ns3:Id>2020-1</ns3:Id>
   			</ns1:localID>
   			<ns1:otherID>
   				<ns3:IdCategory>eBauNr</ns3:IdCategory>
-  				<ns3:Id>unknown</ns3:Id>
+  				<ns3:Id>2020-1</ns3:Id>
   			</ns1:otherID>
   			<ns1:dossierIdentification><!-- INSTANCE_ID --></ns1:dossierIdentification>
   		</ns1:planningPermissionApplicationIdentification>
@@ -230,11 +230,11 @@
   		<ns1:planningPermissionApplicationIdentification>
   			<ns1:localID>
   				<ns3:IdCategory>eBauNr</ns3:IdCategory>
-  				<ns3:Id>unknown</ns3:Id>
+  				<ns3:Id>2020-1</ns3:Id>
   			</ns1:localID>
   			<ns1:otherID>
   				<ns3:IdCategory>eBauNr</ns3:IdCategory>
-  				<ns3:Id>unknown</ns3:Id>
+  				<ns3:Id>2020-1</ns3:Id>
   			</ns1:otherID>
   			<ns1:dossierIdentification><!-- INSTANCE_ID --></ns1:dossierIdentification>
   		</ns1:planningPermissionApplicationIdentification>
@@ -246,7 +246,7 @@
 # name: test_event_handlers[FileSubsequently]
   '''
   <?xml version="1.0" ?>
-  <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5" xmlns:ns4="http://www.ech.ch/xmlns/eCH-0010/6" xmlns:ns5="http://www.ech.ch/xmlns/eCH-0007/6" xmlns:ns6="http://www.ech.ch/xmlns/eCH-0147/T0/1" xmlns:ns7="http://www.ech.ch/xmlns/eCH-0039/2" xmlns:ns8="http://www.ech.ch/xmlns/eCH-0044/4" xmlns:ns9="http://www.ech.ch/xmlns/eCH-0097/2">
+  <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5" xmlns:ns4="http://www.ech.ch/xmlns/eCH-0010/6" xmlns:ns5="http://www.ech.ch/xmlns/eCH-0007/6" xmlns:ns6="http://www.ech.ch/xmlns/eCH-0147/T0/1" xmlns:ns7="http://www.ech.ch/xmlns/eCH-0039/2" xmlns:ns8="http://www.ech.ch/xmlns/eCH-0044/4">
   	<ns1:deliveryHeader>
   		<ns2:senderId>https://ebau.apps.be.ch/</ns2:senderId>
   		<ns2:messageId><!-- MESSAGE_ID --></ns2:messageId>
@@ -256,7 +256,7 @@
   			<ns2:product>camac</ns2:product>
   			<ns2:productVersion><!-- VERSION --></ns2:productVersion>
   		</ns2:sendingApplication>
-  		<ns2:subject>Generelles Baugesuch</ns2:subject>
+  		<ns2:subject>file subsequently</ns2:subject>
   		<ns2:messageDate>2022-06-03T00:00:00Z</ns2:messageDate>
   		<ns2:action>1</ns2:action>
   		<ns2:testDeliveryFlag>true</ns2:testDeliveryFlag>
@@ -267,32 +267,32 @@
   			<ns1:planningPermissionApplicationIdentification>
   				<ns1:localID>
   					<ns3:IdCategory>eBauNr</ns3:IdCategory>
-  					<ns3:Id>unknown</ns3:Id>
+  					<ns3:Id>2020-1</ns3:Id>
   				</ns1:localID>
   				<ns1:otherID>
   					<ns3:IdCategory>eBauNr</ns3:IdCategory>
-  					<ns3:Id>unknown</ns3:Id>
+  					<ns3:Id>2020-1</ns3:Id>
   				</ns1:otherID>
   				<ns1:dossierIdentification><!-- INSTANCE_ID --></ns1:dossierIdentification>
   			</ns1:planningPermissionApplicationIdentification>
-  			<ns1:description>Beschreibung&amp;#10;Mehr Beschreibung</ns1:description>
-  			<ns1:applicationType>Generelles Baugesuch</ns1:applicationType>
-  			<ns1:remark>Foo bar</ns1:remark>
+  			<ns1:description>Testvorhaben</ns1:description>
+  			<ns1:applicationType>Baugesuch</ns1:applicationType>
+  			<ns1:profilingYesNo>false</ns1:profilingYesNo>
   			<ns1:intendedPurpose>Wohnen</ns1:intendedPurpose>
-  			<ns1:parkingLotsYesNo>true</ns1:parkingLotsYesNo>
+  			<ns1:parkingLotsYesNo>false</ns1:parkingLotsYesNo>
   			<ns1:natureRisk>
-  				<ns1:riskDesignation>Fliesslawine</ns1:riskDesignation>
+  				<ns1:riskDesignation>Felssturz</ns1:riskDesignation>
   				<ns1:riskExists>true</ns1:riskExists>
   			</ns1:natureRisk>
-  			<ns1:constructionCost>232323.0</ns1:constructionCost>
+  			<ns1:constructionCost>1000.0</ns1:constructionCost>
   			<ns1:namedMetaData>
   				<ns3:metaDataName>status</ns3:metaDataName>
   				<ns3:metaDataValue>David Rangel</ns3:metaDataValue>
   			</ns1:namedMetaData>
   			<ns1:locationAddress>
   				<ns4:street>Teststrasse</ns4:street>
-  				<ns4:houseNumber>23</ns4:houseNumber>
-  				<ns4:town>Burgdorf</ns4:town>
+  				<ns4:houseNumber>23b</ns4:houseNumber>
+  				<ns4:town>unknown</ns4:town>
   				<ns4:swissZipCode>9999</ns4:swissZipCode>
   				<ns4:country>
   					<ns4:countryNameShort>CH</ns4:countryNameShort>
@@ -301,26 +301,25 @@
   			<ns1:realestateInformation>
   				<ns1:realestate>
   					<ns3:realestateIdentification>
-  						<ns3:EGRID>23</ns3:EGRID>
   						<ns3:number>1586</ns3:number>
   					</ns3:realestateIdentification>
   					<ns3:realestateType>8</ns3:realestateType>
   					<ns3:coordinates>
   						<ns3:LV95>
-  							<ns3:east>2480034.0</ns3:east>
-  							<ns3:north>1070500.0</ns3:north>
+  							<ns3:east>2480000.0</ns3:east>
+  							<ns3:north>1070000.0</ns3:north>
   							<ns3:originOfCoordinates>904</ns3:originOfCoordinates>
   						</ns3:LV95>
   					</ns3:coordinates>
   				</ns1:realestate>
   				<ns1:municipality>
-  					<ns5:municipalityName>2</ns5:municipalityName>
+  					<ns5:municipalityName>Testgemeinde</ns5:municipalityName>
   					<ns5:cantonAbbreviation>BE</ns5:cantonAbbreviation>
   				</ns1:municipality>
   				<ns1:buildingInformation>
   					<ns1:building>
-  						<ns3:EGID>23</ns3:EGID>
-  						<ns3:numberOfFloors>23</ns3:numberOfFloors>
+  						<ns3:EGID>1738778</ns3:EGID>
+  						<ns3:numberOfFloors>2</ns3:numberOfFloors>
   						<ns3:buildingCategory>1040</ns3:buildingCategory>
   						<ns3:civilDefenseShelter>true</ns3:civilDefenseShelter>
   					</ns1:building>
@@ -328,59 +327,14 @@
   				<ns1:owner>
   					<ns1:ownerAdress>
   						<ns4:person>
-  							<ns4:firstName>Winston</ns4:firstName>
-  							<ns4:lastName>Smith</ns4:lastName>
+  							<ns4:firstName>Testvorname</ns4:firstName>
+  							<ns4:lastName>Testname</ns4:lastName>
   						</ns4:person>
   						<ns4:addressInformation>
   							<ns4:street>Teststrasse</ns4:street>
-  							<ns4:houseNumber>23</ns4:houseNumber>
-  							<ns4:town>Burgdorf</ns4:town>
-  							<ns4:swissZipCode>2323</ns4:swissZipCode>
-  							<ns4:country>
-  								<ns4:countryNameShort>CH</ns4:countryNameShort>
-  							</ns4:country>
-  						</ns4:addressInformation>
-  					</ns1:ownerAdress>
-  				</ns1:owner>
-  			</ns1:realestateInformation>
-  			<ns1:realestateInformation>
-  				<ns1:realestate>
-  					<ns3:realestateIdentification>
-  						<ns3:EGRID>24</ns3:EGRID>
-  						<ns3:number>1587</ns3:number>
-  					</ns3:realestateIdentification>
-  					<ns3:realestateType>8</ns3:realestateType>
-  					<ns3:coordinates>
-  						<ns3:LV95>
-  							<ns3:east>2480035.0</ns3:east>
-  							<ns3:north>1070600.0</ns3:north>
-  							<ns3:originOfCoordinates>904</ns3:originOfCoordinates>
-  						</ns3:LV95>
-  					</ns3:coordinates>
-  				</ns1:realestate>
-  				<ns1:municipality>
-  					<ns5:municipalityName>2</ns5:municipalityName>
-  					<ns5:cantonAbbreviation>BE</ns5:cantonAbbreviation>
-  				</ns1:municipality>
-  				<ns1:buildingInformation>
-  					<ns1:building>
-  						<ns3:EGID>23</ns3:EGID>
-  						<ns3:numberOfFloors>23</ns3:numberOfFloors>
-  						<ns3:buildingCategory>1040</ns3:buildingCategory>
-  						<ns3:civilDefenseShelter>true</ns3:civilDefenseShelter>
-  					</ns1:building>
-  				</ns1:buildingInformation>
-  				<ns1:owner>
-  					<ns1:ownerAdress>
-  						<ns4:person>
-  							<ns4:firstName>Winston</ns4:firstName>
-  							<ns4:lastName>Smith</ns4:lastName>
-  						</ns4:person>
-  						<ns4:addressInformation>
-  							<ns4:street>Teststrasse</ns4:street>
-  							<ns4:houseNumber>23</ns4:houseNumber>
-  							<ns4:town>Burgdorf</ns4:town>
-  							<ns4:swissZipCode>2323</ns4:swissZipCode>
+  							<ns4:houseNumber>None</ns4:houseNumber>
+  							<ns4:town>Testort</ns4:town>
+  							<ns4:swissZipCode>1234</ns4:swissZipCode>
   							<ns4:country>
   								<ns4:countryNameShort>CH</ns4:countryNameShort>
   							</ns4:country>
@@ -393,14 +347,13 @@
   			</ns1:zone>
   			<ns1:constructionProjectInformation>
   				<ns1:constructionProject>
-  					<ns3:projectStartDate>2019-09-15</ns3:projectStartDate>
-  					<ns3:totalCostsOfProject>232323</ns3:totalCostsOfProject>
+  					<ns3:totalCostsOfProject>1000</ns3:totalCostsOfProject>
   					<ns3:status>6701</ns3:status>
-  					<ns3:description>Beschreibung&amp;#10;Mehr Beschreibung</ns3:description>
-  					<ns3:durationOfConstructionPhase>23</ns3:durationOfConstructionPhase>
+  					<ns3:description>Testvorhaben</ns3:description>
+  					<ns3:durationOfConstructionPhase>999</ns3:durationOfConstructionPhase>
   				</ns1:constructionProject>
   				<ns1:municipality>
-  					<ns5:municipalityName>2</ns5:municipalityName>
+  					<ns5:municipalityName>Testgemeinde</ns5:municipalityName>
   					<ns5:cantonAbbreviation>BE</ns5:cantonAbbreviation>
   				</ns1:municipality>
   			</ns1:constructionProjectInformation>
@@ -423,84 +376,15 @@
   			<ns1:person>
   				<ns3:identification>
   					<ns3:personIdentification>
-  						<ns8:officialName>Smith</ns8:officialName>
-  						<ns8:firstName>Winston</ns8:firstName>
-  					</ns3:personIdentification>
-  				</ns3:identification>
-  				<ns3:address>
-  					<ns4:street>Teststrasse</ns4:street>
-  					<ns4:houseNumber>23</ns4:houseNumber>
-  					<ns4:town>Burgdorf</ns4:town>
-  					<ns4:swissZipCode>2323</ns4:swissZipCode>
-  					<ns4:country>
-  						<ns4:countryNameShort>CH</ns4:countryNameShort>
-  					</ns4:country>
-  				</ns3:address>
-  			</ns1:person>
-  		</ns1:relationshipToPerson>
-  		<ns1:relationshipToPerson>
-  			<ns1:role>contact</ns1:role>
-  			<ns1:person>
-  				<ns3:identification>
-  					<ns3:organisationIdentification>
-  						<ns9:uid>
-  							<ns9:uidOrganisationIdCategorie>CHE</ns9:uidOrganisationIdCategorie>
-  							<ns9:uidOrganisationId>123123123</ns9:uidOrganisationId>
-  						</ns9:uid>
-  						<ns9:localOrganisationId>
-  							<ns9:organisationIdCategory>unknown</ns9:organisationIdCategory>
-  							<ns9:organisationId><!-- ORGANISATION_ID --></ns9:organisationId>
-  						</ns9:localOrganisationId>
-  						<ns9:organisationName>Firma XY AG</ns9:organisationName>
-  						<ns9:organisationAdditionalName>Winston Smith</ns9:organisationAdditionalName>
-  						<ns9:legalForm>0223</ns9:legalForm>
-  					</ns3:organisationIdentification>
-  				</ns3:identification>
-  				<ns3:address>
-  					<ns4:street>Teststrasse</ns4:street>
-  					<ns4:houseNumber>23</ns4:houseNumber>
-  					<ns4:town>Burgdorf</ns4:town>
-  					<ns4:swissZipCode>2323</ns4:swissZipCode>
-  					<ns4:country>
-  						<ns4:countryNameShort>CH</ns4:countryNameShort>
-  					</ns4:country>
-  				</ns3:address>
-  			</ns1:person>
-  		</ns1:relationshipToPerson>
-  		<ns1:relationshipToPerson>
-  			<ns1:role>project author</ns1:role>
-  			<ns1:person>
-  				<ns3:identification>
-  					<ns3:personIdentification>
-  						<ns8:officialName>Smith</ns8:officialName>
-  						<ns8:firstName>Winston</ns8:firstName>
+  						<ns8:officialName>Testname</ns8:officialName>
+  						<ns8:firstName>Testvorname</ns8:firstName>
   					</ns3:personIdentification>
   				</ns3:identification>
   				<ns3:address>
   					<ns4:street>Teststrasse</ns4:street>
   					<ns4:houseNumber>None</ns4:houseNumber>
-  					<ns4:town>Burgdorf</ns4:town>
-  					<ns4:swissZipCode>2323</ns4:swissZipCode>
-  					<ns4:country>
-  						<ns4:countryNameShort>CH</ns4:countryNameShort>
-  					</ns4:country>
-  				</ns3:address>
-  			</ns1:person>
-  		</ns1:relationshipToPerson>
-  		<ns1:relationshipToPerson>
-  			<ns1:role>landowner</ns1:role>
-  			<ns1:person>
-  				<ns3:identification>
-  					<ns3:personIdentification>
-  						<ns8:officialName>Smith</ns8:officialName>
-  						<ns8:firstName>Winston</ns8:firstName>
-  					</ns3:personIdentification>
-  				</ns3:identification>
-  				<ns3:address>
-  					<ns4:street>Teststrasse</ns4:street>
-  					<ns4:houseNumber>23</ns4:houseNumber>
-  					<ns4:town>Burgdorf</ns4:town>
-  					<ns4:swissZipCode>2323</ns4:swissZipCode>
+  					<ns4:town>Testort</ns4:town>
+  					<ns4:swissZipCode>1234</ns4:swissZipCode>
   					<ns4:country>
   						<ns4:countryNameShort>CH</ns4:countryNameShort>
   					</ns4:country>
@@ -535,11 +419,11 @@
   		<ns1:planningPermissionApplicationIdentification>
   			<ns1:localID>
   				<ns3:IdCategory>eBauNr</ns3:IdCategory>
-  				<ns3:Id>unknown</ns3:Id>
+  				<ns3:Id>2020-1</ns3:Id>
   			</ns1:localID>
   			<ns1:otherID>
   				<ns3:IdCategory>eBauNr</ns3:IdCategory>
-  				<ns3:Id>unknown</ns3:Id>
+  				<ns3:Id>2020-1</ns3:Id>
   			</ns1:otherID>
   			<ns1:dossierIdentification><!-- INSTANCE_ID --></ns1:dossierIdentification>
   		</ns1:planningPermissionApplicationIdentification>
@@ -573,11 +457,11 @@
   		<ns1:planningPermissionApplicationIdentification>
   			<ns1:localID>
   				<ns3:IdCategory>eBauNr</ns3:IdCategory>
-  				<ns3:Id>unknown</ns3:Id>
+  				<ns3:Id>2020-1</ns3:Id>
   			</ns1:localID>
   			<ns1:otherID>
   				<ns3:IdCategory>eBauNr</ns3:IdCategory>
-  				<ns3:Id>unknown</ns3:Id>
+  				<ns3:Id>2020-1</ns3:Id>
   			</ns1:otherID>
   			<ns1:dossierIdentification><!-- INSTANCE_ID --></ns1:dossierIdentification>
   		</ns1:planningPermissionApplicationIdentification>
@@ -589,7 +473,7 @@
 # name: test_file_subsequently_signal
   '''
   <?xml version="1.0" ?>
-  <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5" xmlns:ns4="http://www.ech.ch/xmlns/eCH-0010/6" xmlns:ns5="http://www.ech.ch/xmlns/eCH-0007/6" xmlns:ns6="http://www.ech.ch/xmlns/eCH-0147/T0/1" xmlns:ns7="http://www.ech.ch/xmlns/eCH-0039/2" xmlns:ns8="http://www.ech.ch/xmlns/eCH-0044/4" xmlns:ns9="http://www.ech.ch/xmlns/eCH-0097/2">
+  <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5" xmlns:ns4="http://www.ech.ch/xmlns/eCH-0010/6" xmlns:ns5="http://www.ech.ch/xmlns/eCH-0007/6" xmlns:ns6="http://www.ech.ch/xmlns/eCH-0147/T0/1" xmlns:ns7="http://www.ech.ch/xmlns/eCH-0039/2" xmlns:ns8="http://www.ech.ch/xmlns/eCH-0044/4">
   	<ns1:deliveryHeader>
   		<ns2:senderId>https://ebau.apps.be.ch/</ns2:senderId>
   		<ns2:messageId><!-- MESSAGE_ID --></ns2:messageId>
@@ -599,7 +483,7 @@
   			<ns2:product>camac</ns2:product>
   			<ns2:productVersion><!-- VERSION --></ns2:productVersion>
   		</ns2:sendingApplication>
-  		<ns2:subject>Generelles Baugesuch</ns2:subject>
+  		<ns2:subject>file subsequently</ns2:subject>
   		<ns2:messageDate>2022-06-03T00:00:00Z</ns2:messageDate>
   		<ns2:action>1</ns2:action>
   		<ns2:testDeliveryFlag>true</ns2:testDeliveryFlag>
@@ -618,24 +502,19 @@
   				</ns1:otherID>
   				<ns1:dossierIdentification><!-- INSTANCE_ID --></ns1:dossierIdentification>
   			</ns1:planningPermissionApplicationIdentification>
-  			<ns1:description>Beschreibung&amp;#10;Mehr Beschreibung</ns1:description>
-  			<ns1:applicationType>Generelles Baugesuch</ns1:applicationType>
-  			<ns1:remark>Foo bar</ns1:remark>
-  			<ns1:intendedPurpose>Wohnen</ns1:intendedPurpose>
-  			<ns1:parkingLotsYesNo>true</ns1:parkingLotsYesNo>
-  			<ns1:natureRisk>
-  				<ns1:riskDesignation>Fliesslawine</ns1:riskDesignation>
-  				<ns1:riskExists>true</ns1:riskExists>
-  			</ns1:natureRisk>
-  			<ns1:constructionCost>232323.0</ns1:constructionCost>
+  			<ns1:description>None</ns1:description>
+  			<ns1:applicationType>Baugesuch</ns1:applicationType>
+  			<ns1:profilingYesNo>false</ns1:profilingYesNo>
+  			<ns1:intendedPurpose>.</ns1:intendedPurpose>
+  			<ns1:parkingLotsYesNo>false</ns1:parkingLotsYesNo>
   			<ns1:namedMetaData>
   				<ns3:metaDataName>status</ns3:metaDataName>
   				<ns3:metaDataValue>David Rangel</ns3:metaDataValue>
   			</ns1:namedMetaData>
   			<ns1:locationAddress>
-  				<ns4:street>Teststrasse</ns4:street>
-  				<ns4:houseNumber>23</ns4:houseNumber>
-  				<ns4:town>Burgdorf</ns4:town>
+  				<ns4:street>unknown</ns4:street>
+  				<ns4:houseNumber>0</ns4:houseNumber>
+  				<ns4:town>unknown</ns4:town>
   				<ns4:swissZipCode>9999</ns4:swissZipCode>
   				<ns4:country>
   					<ns4:countryNameShort>CH</ns4:countryNameShort>
@@ -644,41 +523,25 @@
   			<ns1:realestateInformation>
   				<ns1:realestate>
   					<ns3:realestateIdentification>
-  						<ns3:EGRID>23</ns3:EGRID>
-  						<ns3:number>1586</ns3:number>
+  						<ns3:number>0</ns3:number>
   					</ns3:realestateIdentification>
   					<ns3:realestateType>8</ns3:realestateType>
-  					<ns3:coordinates>
-  						<ns3:LV95>
-  							<ns3:east>2480034.0</ns3:east>
-  							<ns3:north>1070500.0</ns3:north>
-  							<ns3:originOfCoordinates>904</ns3:originOfCoordinates>
-  						</ns3:LV95>
-  					</ns3:coordinates>
   				</ns1:realestate>
   				<ns1:municipality>
-  					<ns5:municipalityName>2</ns5:municipalityName>
+  					<ns5:municipalityName>Testgemeinde</ns5:municipalityName>
   					<ns5:cantonAbbreviation>BE</ns5:cantonAbbreviation>
   				</ns1:municipality>
-  				<ns1:buildingInformation>
-  					<ns1:building>
-  						<ns3:EGID>23</ns3:EGID>
-  						<ns3:numberOfFloors>23</ns3:numberOfFloors>
-  						<ns3:buildingCategory>1040</ns3:buildingCategory>
-  						<ns3:civilDefenseShelter>true</ns3:civilDefenseShelter>
-  					</ns1:building>
-  				</ns1:buildingInformation>
   				<ns1:owner>
   					<ns1:ownerAdress>
   						<ns4:person>
-  							<ns4:firstName>Winston</ns4:firstName>
-  							<ns4:lastName>Smith</ns4:lastName>
+  							<ns4:firstName>unknown</ns4:firstName>
+  							<ns4:lastName>unknown</ns4:lastName>
   						</ns4:person>
   						<ns4:addressInformation>
-  							<ns4:street>Teststrasse</ns4:street>
-  							<ns4:houseNumber>23</ns4:houseNumber>
-  							<ns4:town>Burgdorf</ns4:town>
-  							<ns4:swissZipCode>2323</ns4:swissZipCode>
+  							<ns4:street>unknown</ns4:street>
+  							<ns4:houseNumber>0</ns4:houseNumber>
+  							<ns4:town>unknown</ns4:town>
+  							<ns4:swissZipCode>9999</ns4:swissZipCode>
   							<ns4:country>
   								<ns4:countryNameShort>CH</ns4:countryNameShort>
   							</ns4:country>
@@ -686,64 +549,14 @@
   					</ns1:ownerAdress>
   				</ns1:owner>
   			</ns1:realestateInformation>
-  			<ns1:realestateInformation>
-  				<ns1:realestate>
-  					<ns3:realestateIdentification>
-  						<ns3:EGRID>24</ns3:EGRID>
-  						<ns3:number>1587</ns3:number>
-  					</ns3:realestateIdentification>
-  					<ns3:realestateType>8</ns3:realestateType>
-  					<ns3:coordinates>
-  						<ns3:LV95>
-  							<ns3:east>2480035.0</ns3:east>
-  							<ns3:north>1070600.0</ns3:north>
-  							<ns3:originOfCoordinates>904</ns3:originOfCoordinates>
-  						</ns3:LV95>
-  					</ns3:coordinates>
-  				</ns1:realestate>
-  				<ns1:municipality>
-  					<ns5:municipalityName>2</ns5:municipalityName>
-  					<ns5:cantonAbbreviation>BE</ns5:cantonAbbreviation>
-  				</ns1:municipality>
-  				<ns1:buildingInformation>
-  					<ns1:building>
-  						<ns3:EGID>23</ns3:EGID>
-  						<ns3:numberOfFloors>23</ns3:numberOfFloors>
-  						<ns3:buildingCategory>1040</ns3:buildingCategory>
-  						<ns3:civilDefenseShelter>true</ns3:civilDefenseShelter>
-  					</ns1:building>
-  				</ns1:buildingInformation>
-  				<ns1:owner>
-  					<ns1:ownerAdress>
-  						<ns4:person>
-  							<ns4:firstName>Winston</ns4:firstName>
-  							<ns4:lastName>Smith</ns4:lastName>
-  						</ns4:person>
-  						<ns4:addressInformation>
-  							<ns4:street>Teststrasse</ns4:street>
-  							<ns4:houseNumber>23</ns4:houseNumber>
-  							<ns4:town>Burgdorf</ns4:town>
-  							<ns4:swissZipCode>2323</ns4:swissZipCode>
-  							<ns4:country>
-  								<ns4:countryNameShort>CH</ns4:countryNameShort>
-  							</ns4:country>
-  						</ns4:addressInformation>
-  					</ns1:ownerAdress>
-  				</ns1:owner>
-  			</ns1:realestateInformation>
-  			<ns1:zone>
-  				<ns1:zoneDesignation>Testnutzungszone</ns1:zoneDesignation>
-  			</ns1:zone>
   			<ns1:constructionProjectInformation>
   				<ns1:constructionProject>
-  					<ns3:projectStartDate>2019-09-15</ns3:projectStartDate>
-  					<ns3:totalCostsOfProject>232323</ns3:totalCostsOfProject>
   					<ns3:status>6701</ns3:status>
-  					<ns3:description>Beschreibung&amp;#10;Mehr Beschreibung</ns3:description>
-  					<ns3:durationOfConstructionPhase>23</ns3:durationOfConstructionPhase>
+  					<ns3:description>unknown</ns3:description>
+  					<ns3:durationOfConstructionPhase>999</ns3:durationOfConstructionPhase>
   				</ns1:constructionProject>
   				<ns1:municipality>
-  					<ns5:municipalityName>2</ns5:municipalityName>
+  					<ns5:municipalityName>Testgemeinde</ns5:municipalityName>
   					<ns5:cantonAbbreviation>BE</ns5:cantonAbbreviation>
   				</ns1:municipality>
   			</ns1:constructionProjectInformation>
@@ -766,84 +579,15 @@
   			<ns1:person>
   				<ns3:identification>
   					<ns3:personIdentification>
-  						<ns8:officialName>Smith</ns8:officialName>
-  						<ns8:firstName>Winston</ns8:firstName>
+  						<ns8:officialName>None</ns8:officialName>
+  						<ns8:firstName>None</ns8:firstName>
   					</ns3:personIdentification>
   				</ns3:identification>
   				<ns3:address>
-  					<ns4:street>Teststrasse</ns4:street>
-  					<ns4:houseNumber>23</ns4:houseNumber>
-  					<ns4:town>Burgdorf</ns4:town>
-  					<ns4:swissZipCode>2323</ns4:swissZipCode>
-  					<ns4:country>
-  						<ns4:countryNameShort>CH</ns4:countryNameShort>
-  					</ns4:country>
-  				</ns3:address>
-  			</ns1:person>
-  		</ns1:relationshipToPerson>
-  		<ns1:relationshipToPerson>
-  			<ns1:role>contact</ns1:role>
-  			<ns1:person>
-  				<ns3:identification>
-  					<ns3:organisationIdentification>
-  						<ns9:uid>
-  							<ns9:uidOrganisationIdCategorie>CHE</ns9:uidOrganisationIdCategorie>
-  							<ns9:uidOrganisationId>123123123</ns9:uidOrganisationId>
-  						</ns9:uid>
-  						<ns9:localOrganisationId>
-  							<ns9:organisationIdCategory>unknown</ns9:organisationIdCategory>
-  							<ns9:organisationId><!-- ORGANISATION_ID --></ns9:organisationId>
-  						</ns9:localOrganisationId>
-  						<ns9:organisationName>Firma XY AG</ns9:organisationName>
-  						<ns9:organisationAdditionalName>Winston Smith</ns9:organisationAdditionalName>
-  						<ns9:legalForm>0223</ns9:legalForm>
-  					</ns3:organisationIdentification>
-  				</ns3:identification>
-  				<ns3:address>
-  					<ns4:street>Teststrasse</ns4:street>
-  					<ns4:houseNumber>23</ns4:houseNumber>
-  					<ns4:town>Burgdorf</ns4:town>
-  					<ns4:swissZipCode>2323</ns4:swissZipCode>
-  					<ns4:country>
-  						<ns4:countryNameShort>CH</ns4:countryNameShort>
-  					</ns4:country>
-  				</ns3:address>
-  			</ns1:person>
-  		</ns1:relationshipToPerson>
-  		<ns1:relationshipToPerson>
-  			<ns1:role>project author</ns1:role>
-  			<ns1:person>
-  				<ns3:identification>
-  					<ns3:personIdentification>
-  						<ns8:officialName>Smith</ns8:officialName>
-  						<ns8:firstName>Winston</ns8:firstName>
-  					</ns3:personIdentification>
-  				</ns3:identification>
-  				<ns3:address>
-  					<ns4:street>Teststrasse</ns4:street>
+  					<ns4:street>None</ns4:street>
   					<ns4:houseNumber>None</ns4:houseNumber>
-  					<ns4:town>Burgdorf</ns4:town>
-  					<ns4:swissZipCode>2323</ns4:swissZipCode>
-  					<ns4:country>
-  						<ns4:countryNameShort>CH</ns4:countryNameShort>
-  					</ns4:country>
-  				</ns3:address>
-  			</ns1:person>
-  		</ns1:relationshipToPerson>
-  		<ns1:relationshipToPerson>
-  			<ns1:role>landowner</ns1:role>
-  			<ns1:person>
-  				<ns3:identification>
-  					<ns3:personIdentification>
-  						<ns8:officialName>Smith</ns8:officialName>
-  						<ns8:firstName>Winston</ns8:firstName>
-  					</ns3:personIdentification>
-  				</ns3:identification>
-  				<ns3:address>
-  					<ns4:street>Teststrasse</ns4:street>
-  					<ns4:houseNumber>23</ns4:houseNumber>
-  					<ns4:town>Burgdorf</ns4:town>
-  					<ns4:swissZipCode>2323</ns4:swissZipCode>
+  					<ns4:town>None</ns4:town>
+  					<ns4:swissZipCode>9999</ns4:swissZipCode>
   					<ns4:country>
   						<ns4:countryNameShort>CH</ns4:countryNameShort>
   					</ns4:country>
@@ -855,10 +599,10 @@
   
   '''
 # ---
-# name: test_submit_event[True]
+# name: test_submit_event_be[True]
   '''
   <?xml version="1.0" ?>
-  <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5" xmlns:ns4="http://www.ech.ch/xmlns/eCH-0010/6" xmlns:ns5="http://www.ech.ch/xmlns/eCH-0007/6" xmlns:ns6="http://www.ech.ch/xmlns/eCH-0147/T0/1" xmlns:ns7="http://www.ech.ch/xmlns/eCH-0039/2" xmlns:ns8="http://www.ech.ch/xmlns/eCH-0044/4" xmlns:ns9="http://www.ech.ch/xmlns/eCH-0097/2">
+  <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5" xmlns:ns4="http://www.ech.ch/xmlns/eCH-0010/6" xmlns:ns5="http://www.ech.ch/xmlns/eCH-0007/6" xmlns:ns6="http://www.ech.ch/xmlns/eCH-0147/T0/1" xmlns:ns7="http://www.ech.ch/xmlns/eCH-0039/2" xmlns:ns8="http://www.ech.ch/xmlns/eCH-0044/4">
   	<ns1:deliveryHeader>
   		<ns2:senderId>https://ebau.apps.be.ch/</ns2:senderId>
   		<ns2:messageId><!-- MESSAGE_ID --></ns2:messageId>
@@ -868,7 +612,7 @@
   			<ns2:product>camac</ns2:product>
   			<ns2:productVersion><!-- VERSION --></ns2:productVersion>
   		</ns2:sendingApplication>
-  		<ns2:subject>Generelles Baugesuch</ns2:subject>
+  		<ns2:subject>submit</ns2:subject>
   		<ns2:messageDate>2022-06-03T00:00:00Z</ns2:messageDate>
   		<ns2:action>1</ns2:action>
   		<ns2:testDeliveryFlag>true</ns2:testDeliveryFlag>
@@ -887,24 +631,24 @@
   				</ns1:otherID>
   				<ns1:dossierIdentification><!-- INSTANCE_ID --></ns1:dossierIdentification>
   			</ns1:planningPermissionApplicationIdentification>
-  			<ns1:description>Beschreibung&amp;#10;Mehr Beschreibung</ns1:description>
-  			<ns1:applicationType>Generelles Baugesuch</ns1:applicationType>
-  			<ns1:remark>Foo bar</ns1:remark>
+  			<ns1:description>Testvorhaben</ns1:description>
+  			<ns1:applicationType>Baugesuch</ns1:applicationType>
+  			<ns1:profilingYesNo>false</ns1:profilingYesNo>
   			<ns1:intendedPurpose>Wohnen</ns1:intendedPurpose>
-  			<ns1:parkingLotsYesNo>true</ns1:parkingLotsYesNo>
+  			<ns1:parkingLotsYesNo>false</ns1:parkingLotsYesNo>
   			<ns1:natureRisk>
-  				<ns1:riskDesignation>Fliesslawine</ns1:riskDesignation>
+  				<ns1:riskDesignation>Felssturz</ns1:riskDesignation>
   				<ns1:riskExists>true</ns1:riskExists>
   			</ns1:natureRisk>
-  			<ns1:constructionCost>232323.0</ns1:constructionCost>
+  			<ns1:constructionCost>1000.0</ns1:constructionCost>
   			<ns1:namedMetaData>
   				<ns3:metaDataName>status</ns3:metaDataName>
   				<ns3:metaDataValue>David Rangel</ns3:metaDataValue>
   			</ns1:namedMetaData>
   			<ns1:locationAddress>
   				<ns4:street>Teststrasse</ns4:street>
-  				<ns4:houseNumber>23</ns4:houseNumber>
-  				<ns4:town>Burgdorf</ns4:town>
+  				<ns4:houseNumber>23b</ns4:houseNumber>
+  				<ns4:town>unknown</ns4:town>
   				<ns4:swissZipCode>9999</ns4:swissZipCode>
   				<ns4:country>
   					<ns4:countryNameShort>CH</ns4:countryNameShort>
@@ -913,26 +657,25 @@
   			<ns1:realestateInformation>
   				<ns1:realestate>
   					<ns3:realestateIdentification>
-  						<ns3:EGRID>23</ns3:EGRID>
   						<ns3:number>1586</ns3:number>
   					</ns3:realestateIdentification>
   					<ns3:realestateType>8</ns3:realestateType>
   					<ns3:coordinates>
   						<ns3:LV95>
-  							<ns3:east>2480034.0</ns3:east>
-  							<ns3:north>1070500.0</ns3:north>
+  							<ns3:east>2480000.0</ns3:east>
+  							<ns3:north>1070000.0</ns3:north>
   							<ns3:originOfCoordinates>904</ns3:originOfCoordinates>
   						</ns3:LV95>
   					</ns3:coordinates>
   				</ns1:realestate>
   				<ns1:municipality>
-  					<ns5:municipalityName>2</ns5:municipalityName>
+  					<ns5:municipalityName>Testgemeinde</ns5:municipalityName>
   					<ns5:cantonAbbreviation>BE</ns5:cantonAbbreviation>
   				</ns1:municipality>
   				<ns1:buildingInformation>
   					<ns1:building>
-  						<ns3:EGID>23</ns3:EGID>
-  						<ns3:numberOfFloors>23</ns3:numberOfFloors>
+  						<ns3:EGID>1738778</ns3:EGID>
+  						<ns3:numberOfFloors>2</ns3:numberOfFloors>
   						<ns3:buildingCategory>1040</ns3:buildingCategory>
   						<ns3:civilDefenseShelter>true</ns3:civilDefenseShelter>
   					</ns1:building>
@@ -940,59 +683,14 @@
   				<ns1:owner>
   					<ns1:ownerAdress>
   						<ns4:person>
-  							<ns4:firstName>Winston</ns4:firstName>
-  							<ns4:lastName>Smith</ns4:lastName>
+  							<ns4:firstName>Testvorname</ns4:firstName>
+  							<ns4:lastName>Testname</ns4:lastName>
   						</ns4:person>
   						<ns4:addressInformation>
   							<ns4:street>Teststrasse</ns4:street>
-  							<ns4:houseNumber>23</ns4:houseNumber>
-  							<ns4:town>Burgdorf</ns4:town>
-  							<ns4:swissZipCode>2323</ns4:swissZipCode>
-  							<ns4:country>
-  								<ns4:countryNameShort>CH</ns4:countryNameShort>
-  							</ns4:country>
-  						</ns4:addressInformation>
-  					</ns1:ownerAdress>
-  				</ns1:owner>
-  			</ns1:realestateInformation>
-  			<ns1:realestateInformation>
-  				<ns1:realestate>
-  					<ns3:realestateIdentification>
-  						<ns3:EGRID>24</ns3:EGRID>
-  						<ns3:number>1587</ns3:number>
-  					</ns3:realestateIdentification>
-  					<ns3:realestateType>8</ns3:realestateType>
-  					<ns3:coordinates>
-  						<ns3:LV95>
-  							<ns3:east>2480035.0</ns3:east>
-  							<ns3:north>1070600.0</ns3:north>
-  							<ns3:originOfCoordinates>904</ns3:originOfCoordinates>
-  						</ns3:LV95>
-  					</ns3:coordinates>
-  				</ns1:realestate>
-  				<ns1:municipality>
-  					<ns5:municipalityName>2</ns5:municipalityName>
-  					<ns5:cantonAbbreviation>BE</ns5:cantonAbbreviation>
-  				</ns1:municipality>
-  				<ns1:buildingInformation>
-  					<ns1:building>
-  						<ns3:EGID>23</ns3:EGID>
-  						<ns3:numberOfFloors>23</ns3:numberOfFloors>
-  						<ns3:buildingCategory>1040</ns3:buildingCategory>
-  						<ns3:civilDefenseShelter>true</ns3:civilDefenseShelter>
-  					</ns1:building>
-  				</ns1:buildingInformation>
-  				<ns1:owner>
-  					<ns1:ownerAdress>
-  						<ns4:person>
-  							<ns4:firstName>Winston</ns4:firstName>
-  							<ns4:lastName>Smith</ns4:lastName>
-  						</ns4:person>
-  						<ns4:addressInformation>
-  							<ns4:street>Teststrasse</ns4:street>
-  							<ns4:houseNumber>23</ns4:houseNumber>
-  							<ns4:town>Burgdorf</ns4:town>
-  							<ns4:swissZipCode>2323</ns4:swissZipCode>
+  							<ns4:houseNumber>None</ns4:houseNumber>
+  							<ns4:town>Testort</ns4:town>
+  							<ns4:swissZipCode>1234</ns4:swissZipCode>
   							<ns4:country>
   								<ns4:countryNameShort>CH</ns4:countryNameShort>
   							</ns4:country>
@@ -1005,14 +703,13 @@
   			</ns1:zone>
   			<ns1:constructionProjectInformation>
   				<ns1:constructionProject>
-  					<ns3:projectStartDate>2019-09-15</ns3:projectStartDate>
-  					<ns3:totalCostsOfProject>232323</ns3:totalCostsOfProject>
+  					<ns3:totalCostsOfProject>1000</ns3:totalCostsOfProject>
   					<ns3:status>6701</ns3:status>
-  					<ns3:description>Beschreibung&amp;#10;Mehr Beschreibung</ns3:description>
-  					<ns3:durationOfConstructionPhase>23</ns3:durationOfConstructionPhase>
+  					<ns3:description>Testvorhaben</ns3:description>
+  					<ns3:durationOfConstructionPhase>999</ns3:durationOfConstructionPhase>
   				</ns1:constructionProject>
   				<ns1:municipality>
-  					<ns5:municipalityName>2</ns5:municipalityName>
+  					<ns5:municipalityName>Testgemeinde</ns5:municipalityName>
   					<ns5:cantonAbbreviation>BE</ns5:cantonAbbreviation>
   				</ns1:municipality>
   			</ns1:constructionProjectInformation>
@@ -1035,84 +732,15 @@
   			<ns1:person>
   				<ns3:identification>
   					<ns3:personIdentification>
-  						<ns8:officialName>Smith</ns8:officialName>
-  						<ns8:firstName>Winston</ns8:firstName>
-  					</ns3:personIdentification>
-  				</ns3:identification>
-  				<ns3:address>
-  					<ns4:street>Teststrasse</ns4:street>
-  					<ns4:houseNumber>23</ns4:houseNumber>
-  					<ns4:town>Burgdorf</ns4:town>
-  					<ns4:swissZipCode>2323</ns4:swissZipCode>
-  					<ns4:country>
-  						<ns4:countryNameShort>CH</ns4:countryNameShort>
-  					</ns4:country>
-  				</ns3:address>
-  			</ns1:person>
-  		</ns1:relationshipToPerson>
-  		<ns1:relationshipToPerson>
-  			<ns1:role>contact</ns1:role>
-  			<ns1:person>
-  				<ns3:identification>
-  					<ns3:organisationIdentification>
-  						<ns9:uid>
-  							<ns9:uidOrganisationIdCategorie>CHE</ns9:uidOrganisationIdCategorie>
-  							<ns9:uidOrganisationId>123123123</ns9:uidOrganisationId>
-  						</ns9:uid>
-  						<ns9:localOrganisationId>
-  							<ns9:organisationIdCategory>unknown</ns9:organisationIdCategory>
-  							<ns9:organisationId><!-- ORGANISATION_ID --></ns9:organisationId>
-  						</ns9:localOrganisationId>
-  						<ns9:organisationName>Firma XY AG</ns9:organisationName>
-  						<ns9:organisationAdditionalName>Winston Smith</ns9:organisationAdditionalName>
-  						<ns9:legalForm>0223</ns9:legalForm>
-  					</ns3:organisationIdentification>
-  				</ns3:identification>
-  				<ns3:address>
-  					<ns4:street>Teststrasse</ns4:street>
-  					<ns4:houseNumber>23</ns4:houseNumber>
-  					<ns4:town>Burgdorf</ns4:town>
-  					<ns4:swissZipCode>2323</ns4:swissZipCode>
-  					<ns4:country>
-  						<ns4:countryNameShort>CH</ns4:countryNameShort>
-  					</ns4:country>
-  				</ns3:address>
-  			</ns1:person>
-  		</ns1:relationshipToPerson>
-  		<ns1:relationshipToPerson>
-  			<ns1:role>project author</ns1:role>
-  			<ns1:person>
-  				<ns3:identification>
-  					<ns3:personIdentification>
-  						<ns8:officialName>Smith</ns8:officialName>
-  						<ns8:firstName>Winston</ns8:firstName>
+  						<ns8:officialName>Testname</ns8:officialName>
+  						<ns8:firstName>Testvorname</ns8:firstName>
   					</ns3:personIdentification>
   				</ns3:identification>
   				<ns3:address>
   					<ns4:street>Teststrasse</ns4:street>
   					<ns4:houseNumber>None</ns4:houseNumber>
-  					<ns4:town>Burgdorf</ns4:town>
-  					<ns4:swissZipCode>2323</ns4:swissZipCode>
-  					<ns4:country>
-  						<ns4:countryNameShort>CH</ns4:countryNameShort>
-  					</ns4:country>
-  				</ns3:address>
-  			</ns1:person>
-  		</ns1:relationshipToPerson>
-  		<ns1:relationshipToPerson>
-  			<ns1:role>landowner</ns1:role>
-  			<ns1:person>
-  				<ns3:identification>
-  					<ns3:personIdentification>
-  						<ns8:officialName>Smith</ns8:officialName>
-  						<ns8:firstName>Winston</ns8:firstName>
-  					</ns3:personIdentification>
-  				</ns3:identification>
-  				<ns3:address>
-  					<ns4:street>Teststrasse</ns4:street>
-  					<ns4:houseNumber>23</ns4:houseNumber>
-  					<ns4:town>Burgdorf</ns4:town>
-  					<ns4:swissZipCode>2323</ns4:swissZipCode>
+  					<ns4:town>Testort</ns4:town>
+  					<ns4:swissZipCode>1234</ns4:swissZipCode>
   					<ns4:country>
   						<ns4:countryNameShort>CH</ns4:countryNameShort>
   					</ns4:country>
@@ -1124,7 +752,7 @@
   
   '''
 # ---
-# name: test_submit_event_sz[basic-Support-instance__location0-baugesuch-instance__user0-1311-new]
+# name: test_submit_event_sz[Support-instance__location0-baugesuch-instance__user0-1311-new]
   '''
   <?xml version="1.0" ?>
   <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5" xmlns:ns4="http://www.ech.ch/xmlns/eCH-0010/6" xmlns:ns5="http://www.ech.ch/xmlns/eCH-0007/6" xmlns:ns6="http://www.ech.ch/xmlns/eCH-0147/T0/1" xmlns:ns7="http://www.ech.ch/xmlns/eCH-0039/2" xmlns:ns8="http://www.ech.ch/xmlns/eCH-0097/2" xmlns:ns9="http://www.ech.ch/xmlns/eCH-0044/4">
@@ -1137,7 +765,7 @@
   			<ns2:product>camac</ns2:product>
   			<ns2:productVersion><!-- VERSION --></ns2:productVersion>
   		</ns2:sendingApplication>
-  		<ns2:subject>application_type</ns2:subject>
+  		<ns2:subject>submit</ns2:subject>
   		<ns2:messageDate>2022-07-07T00:00:00Z</ns2:messageDate>
   		<ns2:action>1</ns2:action>
   		<ns2:testDeliveryFlag>true</ns2:testDeliveryFlag>
@@ -1158,17 +786,17 @@
   			</ns1:planningPermissionApplicationIdentification>
   			<ns1:description>None</ns1:description>
   			<ns1:applicationType>Brian Vasquez</ns1:applicationType>
-  			<ns1:remark>None</ns1:remark>
   			<ns1:profilingYesNo>false</ns1:profilingYesNo>
-  			<ns1:intendedPurpose>None</ns1:intendedPurpose>
+  			<ns1:intendedPurpose>.</ns1:intendedPurpose>
+  			<ns1:parkingLotsYesNo>false</ns1:parkingLotsYesNo>
   			<ns1:namedMetaData>
   				<ns3:metaDataName>status</ns3:metaDataName>
   				<ns3:metaDataValue>Tiffany Wood</ns3:metaDataValue>
   			</ns1:namedMetaData>
   			<ns1:locationAddress>
-  				<ns4:street>None</ns4:street>
-  				<ns4:houseNumber>.</ns4:houseNumber>
-  				<ns4:town>None</ns4:town>
+  				<ns4:street>unknown</ns4:street>
+  				<ns4:houseNumber>0</ns4:houseNumber>
+  				<ns4:town>unknown</ns4:town>
   				<ns4:swissZipCode>9999</ns4:swissZipCode>
   				<ns4:country>
   					<ns4:countryNameShort>CH</ns4:countryNameShort>
@@ -1203,6 +831,18 @@
   					</ns1:ownerAdress>
   				</ns1:owner>
   			</ns1:realestateInformation>
+  			<ns1:constructionProjectInformation>
+  				<ns1:constructionProject>
+  					<ns3:projectStartDate>2022-07-07</ns3:projectStartDate>
+  					<ns3:status>6701</ns3:status>
+  					<ns3:description>unknown</ns3:description>
+  					<ns3:durationOfConstructionPhase>999</ns3:durationOfConstructionPhase>
+  				</ns1:constructionProject>
+  				<ns1:municipality>
+  					<ns5:municipalityName>Elizabethburgh</ns5:municipalityName>
+  					<ns5:cantonAbbreviation>SZ</ns5:cantonAbbreviation>
+  				</ns1:municipality>
+  			</ns1:constructionProjectInformation>
   			<ns1:document>
   				<ns6:uuid>7c429fde-d404-4ddd-95cb-4f71a2fc0c39</ns6:uuid>
   				<ns6:titles>
@@ -1249,7 +889,7 @@
   				</ns3:identification>
   				<ns3:address>
   					<ns4:street>Miller Centers</ns4:street>
-  					<ns4:houseNumber>.</ns4:houseNumber>
+  					<ns4:houseNumber>0</ns4:houseNumber>
   					<ns4:town>Thomasville</ns4:town>
   					<ns4:swissZipCode>1816</ns4:swissZipCode>
   					<ns4:country>
@@ -1269,7 +909,7 @@
   				</ns3:identification>
   				<ns3:address>
   					<ns4:street>Scott Ridge</ns4:street>
-  					<ns4:houseNumber>.</ns4:houseNumber>
+  					<ns4:houseNumber>0</ns4:houseNumber>
   					<ns4:town>Lake Williamchester</ns4:town>
   					<ns4:swissZipCode>5731</ns4:swissZipCode>
   					<ns4:country>
@@ -1289,7 +929,7 @@
   				</ns3:identification>
   				<ns3:address>
   					<ns4:street>Carl Port</ns4:street>
-  					<ns4:houseNumber>.</ns4:houseNumber>
+  					<ns4:houseNumber>0</ns4:houseNumber>
   					<ns4:town>Brownstad</ns4:town>
   					<ns4:swissZipCode>9394</ns4:swissZipCode>
   					<ns4:country>
@@ -1309,7 +949,7 @@
   				</ns3:identification>
   				<ns3:address>
   					<ns4:street>Ryan Burgs</ns4:street>
-  					<ns4:houseNumber>.</ns4:houseNumber>
+  					<ns4:houseNumber>0</ns4:houseNumber>
   					<ns4:town>East Charlesburgh</ns4:town>
   					<ns4:swissZipCode>5416</ns4:swissZipCode>
   					<ns4:country>

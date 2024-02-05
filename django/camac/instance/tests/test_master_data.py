@@ -1,10 +1,7 @@
 from datetime import date
 
 import pytest
-from caluma.caluma_form import (
-    factories as caluma_form_factories,
-    models as caluma_form_models,
-)
+from caluma.caluma_form import factories as caluma_form_factories
 from caluma.caluma_workflow import (
     factories as caluma_workflow_factories,
     models as caluma_workflow_models,
@@ -12,79 +9,6 @@ from caluma.caluma_workflow import (
 from django.utils.translation import override
 
 from ..master_data import MasterData
-
-
-def _question(slug, question_type, question_label=None):
-    return (
-        {"question_id": slug}
-        if caluma_form_models.Question.objects.filter(pk=slug).exists()
-        else {
-            "question__pk": slug,
-            "question__type": question_type,
-            **({"question__label": question_label} if question_label else {}),
-        }
-    )
-
-
-def add_answer(
-    document,
-    question,
-    value,
-    label=None,
-    question_label=None,
-):
-    question_type = (
-        caluma_form_models.Question.TYPE_DATE
-        if isinstance(value, date)
-        else caluma_form_models.Question.TYPE_INTEGER
-        if isinstance(value, int)
-        else caluma_form_models.Question.TYPE_MULTIPLE_CHOICE
-        if isinstance(value, list)
-        else caluma_form_models.Question.TYPE_TEXT
-    )
-    value_key = (
-        "date" if question_type == caluma_form_models.Question.TYPE_DATE else "value"
-    )
-
-    answer = caluma_form_factories.AnswerFactory(
-        document=document,
-        **{value_key: value, **_question(question, question_type, question_label)},
-    )
-
-    if label:
-        if not isinstance(label, list):
-            label = [label]
-
-        if not isinstance(value, list):
-            value = [value]
-
-        for val, lab in zip(value, label):
-            if not isinstance(lab, dict):
-                lab = {"de": lab, "fr": lab}
-
-            caluma_form_factories.QuestionOptionFactory(
-                question_id=question, option__slug=val, option__label=lab
-            )
-
-    return answer
-
-
-def add_table_answer(document, question, rows, table_answer=None, row_form_id=None):
-    answer = add_answer(document, question, None) if not table_answer else table_answer
-
-    for i, row in enumerate(reversed(rows)):
-        row_args = {"form_id": row_form_id} if row_form_id else {}
-        row_document = caluma_form_factories.DocumentFactory(
-            family=document.family, **row_args
-        )
-        for column, value in row.items():
-            add_answer(row_document, column, value)
-
-        caluma_form_factories.AnswerDocumentFactory(
-            document=row_document, answer=answer, sort=i
-        )
-
-    return answer
 
 
 def test_master_data_exceptions(
@@ -140,6 +64,7 @@ def test_master_data_parsers(
     instance,
     master_data_is_visible_mock,
     master_data_settings,
+    utils,
 ):
     master_data_settings["CONFIG"] = {
         "date": ("case_meta", "my-date", {"value_parser": "date"}),
@@ -197,8 +122,8 @@ def test_master_data_parsers(
         instance=instance,
     )
 
-    add_answer(case.document, "my-success", "my-success-yes")
-    add_answer(
+    utils.add_answer(case.document, "my-success", "my-success-yes")
+    utils.add_answer(
         case.document, "multiple-choice", ["multiple-choice-yes", "multiple-choice-no"]
     )
 
@@ -240,7 +165,7 @@ def test_master_data_parsers(
 
 
 @pytest.fixture
-def be_master_data_case(db, be_instance, group, master_data_is_visible_mock):
+def be_master_data_case(db, be_instance, group, master_data_is_visible_mock, utils):
     be_instance.case.meta = {
         "ebau-number": "2021-1",
         "submit-date": "2021-03-31T13:17:08+0000",
@@ -251,90 +176,92 @@ def be_master_data_case(db, be_instance, group, master_data_is_visible_mock):
     document = be_instance.case.document
 
     # Simple data
-    add_answer(document, "is-paper", "is-paper-no")
-    add_answer(document, "beschreibung-bauvorhaben", "Grosses Haus")
-    add_answer(document, "beschreibung-projektaenderung", "Doch eher kleines Haus")
-    add_answer(document, "strasse-flurname", "Musterstrasse")
-    add_answer(document, "nr", 4)
-    add_answer(document, "baukosten-in-chf", 199000)
-    add_answer(document, "plz-grundstueck-v3", 3000)
-    add_answer(document, "ort-grundstueck", "Musterhausen")
-    add_answer(document, "baubeschrieb", "baubeschrieb-neubau", label="Neubau")
-    add_answer(
+    utils.add_answer(document, "is-paper", "is-paper-no")
+    utils.add_answer(document, "beschreibung-bauvorhaben", "Grosses Haus")
+    utils.add_answer(
+        document, "beschreibung-projektaenderung", "Doch eher kleines Haus"
+    )
+    utils.add_answer(document, "strasse-flurname", "Musterstrasse")
+    utils.add_answer(document, "nr", 4)
+    utils.add_answer(document, "baukosten-in-chf", 199000)
+    utils.add_answer(document, "plz-grundstueck-v3", 3000)
+    utils.add_answer(document, "ort-grundstueck", "Musterhausen")
+    utils.add_answer(document, "baubeschrieb", "baubeschrieb-neubau", label="Neubau")
+    utils.add_answer(
         document,
         "gewaesserschutzbereich-v2",
         ["gewaesserschutzbereich-v2-au"],
         label=[{"de": "Aᵤ", "fr": "Aᵤ"}],
     )
-    add_answer(
+    utils.add_answer(
         document,
         "nutzungsart",
         ["nutzungsart-wohnen"],
         label=[{"de": "Wohnen", "fr": "Vivre"}],
     )
-    add_answer(document, "nutzungszone", "Wohnzone W2")
-    add_answer(document, "ueberbauungsordnung", "Überbauung XY")
-    add_answer(document, "sachverhalt", "Sachverhalt Test")
-    add_answer(
+    utils.add_answer(document, "nutzungszone", "Wohnzone W2")
+    utils.add_answer(document, "ueberbauungsordnung", "Überbauung XY")
+    utils.add_answer(document, "sachverhalt", "Sachverhalt Test")
+    utils.add_answer(
         document,
         "grundwasserschutzzonen",
         ["grundwasserschutzzonen-s1"],
         label=[{"de": "S1", "fr": "S1"}],
     )
-    add_answer(
+    utils.add_answer(
         document,
         "grundwasserschutzzonen-v2",
         ["grundwasserschutzzonen-v2-s1"],
         label=[{"de": "S1", "fr": "S1"}],
     )
-    add_answer(
+    utils.add_answer(
         document, "oeffentlichkeit", "oeffentlichkeit-oeffentlich", label="Öffentlich"
     )
-    add_answer(document, "alkoholausschank", "alkoholausschank-ja", label="Ja")
-    add_answer(
+    utils.add_answer(document, "alkoholausschank", "alkoholausschank-ja", label="Ja")
+    utils.add_answer(
         document,
         "schuetzenswert",
         "schuetzenswert-ja",
         question_label="Schützenswert",
         label="Ja",
     )
-    add_answer(
+    utils.add_answer(
         document,
         "erhaltenswert",
         "erhaltenswert-nein",
         question_label="Erhaltenswert",
         label="Nein",
     )
-    add_answer(
+    utils.add_answer(
         document, "k-objekt", "k-objekt-ja", question_label="K-Objekt", label="Ja"
     )
-    add_answer(
+    utils.add_answer(
         document,
         "baugruppe-bauinventar",
         "baugruppe-bauinventar-ja",
         question_label="Baugruppe Bauinventar",
         label="Ja",
     )
-    add_answer(document, "bezeichnung-baugruppe", "Test Baugruppe")
-    add_answer(document, "rrb", "rrb-ja", label="Ja")
-    add_answer(
+    utils.add_answer(document, "bezeichnung-baugruppe", "Test Baugruppe")
+    utils.add_answer(document, "rrb", "rrb-ja", label="Ja")
+    utils.add_answer(
         document,
         "rrb-vom",
         date(2022, 1, 1),
         question_label="RRB vom",
     )
-    add_answer(document, "vertrag", "vertrag-ja", label="Ja")
+    utils.add_answer(document, "vertrag", "vertrag-ja", label="Ja")
 
-    add_answer(
+    utils.add_answer(
         document,
         "vertrag-vom",
         date(2022, 2, 1),
         question_label="Vertrag vom",
     )
-    add_answer(document, "sitzplaetze-garten", 20)
+    utils.add_answer(document, "sitzplaetze-garten", 20)
 
     # Municipality
-    add_answer(document, "gemeinde", "1")
+    utils.add_answer(document, "gemeinde", "1")
     caluma_form_factories.DynamicOptionFactory(
         question_id="gemeinde",
         document=be_instance.case.document,
@@ -343,7 +270,7 @@ def be_master_data_case(db, be_instance, group, master_data_is_visible_mock):
     )
 
     # Table data
-    add_table_answer(
+    utils.add_table_answer(
         document,
         "parzelle",
         [
@@ -361,7 +288,7 @@ def be_master_data_case(db, be_instance, group, master_data_is_visible_mock):
             },
         ],
     )
-    add_table_answer(
+    utils.add_table_answer(
         document,
         "personalien-gesuchstellerin",
         [
@@ -377,7 +304,7 @@ def be_master_data_case(db, be_instance, group, master_data_is_visible_mock):
             }
         ],
     )
-    add_table_answer(
+    utils.add_table_answer(
         document,
         "personalien-projektverfasserin",
         [
@@ -391,7 +318,7 @@ def be_master_data_case(db, be_instance, group, master_data_is_visible_mock):
             },
         ],
     )
-    add_table_answer(
+    utils.add_table_answer(
         document,
         "personalien-gebaudeeigentumerin",
         [
@@ -405,7 +332,7 @@ def be_master_data_case(db, be_instance, group, master_data_is_visible_mock):
             },
         ],
     )
-    add_table_answer(
+    utils.add_table_answer(
         document,
         "personalien-grundeigentumerin",
         [
@@ -419,7 +346,7 @@ def be_master_data_case(db, be_instance, group, master_data_is_visible_mock):
             },
         ],
     )
-    add_table_answer(
+    utils.add_table_answer(
         document,
         "personalien-vertreterin-mit-vollmacht",
         [
@@ -433,7 +360,7 @@ def be_master_data_case(db, be_instance, group, master_data_is_visible_mock):
             },
         ],
     )
-    add_table_answer(
+    utils.add_table_answer(
         document, "ausschankraeume", [{"sitzplaetze": 20}, {"sitzplaetze": 15}]
     )
 
@@ -441,7 +368,7 @@ def be_master_data_case(db, be_instance, group, master_data_is_visible_mock):
 
 
 @pytest.fixture
-def gr_master_data_case(db, gr_instance, group, master_data_is_visible_mock):
+def gr_master_data_case(db, gr_instance, group, master_data_is_visible_mock, utils):
     gr_instance.case.meta = {
         "dossier-number": "2023-1",
         "submit-date": "2021-03-31T13:17:08+0000",
@@ -451,14 +378,14 @@ def gr_master_data_case(db, gr_instance, group, master_data_is_visible_mock):
     document = gr_instance.case.document
 
     # Simple data
-    add_answer(document, "beschreibung-bauvorhaben", "Einfamilienhaus")
-    add_answer(document, "projektaenderung", "projektaenderung-ja")
-    add_answer(document, "street-and-housenumber", "Teststrasse 12")
-    add_answer(document, "plz-grundstueck-v3", 1234)
-    add_answer(document, "ort-grundstueck", "Testhausen")
+    utils.add_answer(document, "beschreibung-bauvorhaben", "Einfamilienhaus")
+    utils.add_answer(document, "projektaenderung", "projektaenderung-ja")
+    utils.add_answer(document, "street-and-housenumber", "Teststrasse 12")
+    utils.add_answer(document, "plz-grundstueck-v3", 1234)
+    utils.add_answer(document, "ort-grundstueck", "Testhausen")
 
     # Municipality
-    add_answer(document, "gemeinde", "18")
+    utils.add_answer(document, "gemeinde", "18")
     caluma_form_factories.DynamicOptionFactory(
         question_id="gemeinde",
         document=gr_instance.case.document,
@@ -467,7 +394,7 @@ def gr_master_data_case(db, gr_instance, group, master_data_is_visible_mock):
     )
 
     # Table data
-    add_table_answer(
+    utils.add_table_answer(
         document,
         "parzelle",
         [
@@ -485,7 +412,7 @@ def gr_master_data_case(db, gr_instance, group, master_data_is_visible_mock):
             },
         ],
     )
-    add_table_answer(
+    utils.add_table_answer(
         document,
         "personalien-gesuchstellerin",
         [
@@ -501,7 +428,7 @@ def gr_master_data_case(db, gr_instance, group, master_data_is_visible_mock):
             }
         ],
     )
-    add_table_answer(
+    utils.add_table_answer(
         document,
         "personalien-projektverfasserin",
         [
@@ -515,7 +442,7 @@ def gr_master_data_case(db, gr_instance, group, master_data_is_visible_mock):
             },
         ],
     )
-    add_table_answer(
+    utils.add_table_answer(
         document,
         "personalien-grundeigentumerin",
         [
@@ -531,184 +458,6 @@ def gr_master_data_case(db, gr_instance, group, master_data_is_visible_mock):
     )
 
     return gr_instance.case
-
-
-@pytest.fixture
-def ur_master_data_case(
-    db,
-    ur_instance,
-    workflow_entry_factory,
-    camac_answer_factory,
-    master_data_is_visible_mock,
-):
-    ur_instance.case.meta = {"dossier-number": "1201-21-003"}
-    ur_instance.case.save()
-
-    document = ur_instance.case.document
-
-    # Simple data
-    add_answer(document, "proposal-description", "Grosses Haus")
-    add_answer(document, "parcel-street", "Musterstrasse")
-    add_answer(document, "parcel-street-number", 4)
-    add_answer(document, "construction-cost", 129000)
-    add_answer(document, "parcel-city", "Musterdorf")
-    add_answer(document, "category", ["category-hochbaute", "category-tiefbaute"])
-    add_answer(document, "veranstaltung-art", ["veranstaltung-art-umbau"])
-    add_answer(document, "oereb-thema", ["oereb-thema-knp"])
-    add_answer(document, "form-type", ["form-type-oereb"])
-    add_answer(document, "typ-des-verfahrens", ["typ-des-verfahrens-genehmigung"])
-
-    # Municipality
-    add_answer(document, "municipality", "1")
-    caluma_form_factories.DynamicOptionFactory(
-        question_id="municipality",
-        document=ur_instance.case.document,
-        slug="1",
-        label={"de": "Altdorf"},
-    )
-
-    # Authority
-    add_answer(document, "leitbehoerde", "1")
-    caluma_form_factories.DynamicOptionFactory(
-        question_id="leitbehoerde",
-        document=ur_instance.case.document,
-        slug="1",
-        label={"de": "Leitbehörde Altdorf"},
-    )
-
-    # Plot
-    add_table_answer(
-        document,
-        "parcels",
-        [
-            {
-                "parcel-number": 123456789,
-                "e-grid": "CH123456789",
-                "coordinates-east": 2690970.9,
-                "coordinates-north": 1192891.9,
-            }
-        ],
-    )
-
-    # Applicant
-    add_table_answer(
-        document,
-        "applicant",
-        [
-            {
-                "first-name": "Max",
-                "last-name": "Mustermann",
-                "is-juristic-person": "is-juristic-person-yes",
-                "juristic-person-name": "ACME AG",
-                "street": "Teststrasse",
-                "street-number": 123,
-                "zip": 1233,
-                "city": "Musterdorf",
-                "country": "Schweiz",
-            }
-        ],
-    )
-
-    # Submit date
-    workflow_entry_factory(
-        instance=ur_instance,
-        workflow_date="2021-07-16 08:00:06+00",
-        group=1,
-        workflow_item__pk=12,
-    )
-
-    # Decision date
-    workflow_entry_factory(
-        instance=ur_instance,
-        workflow_date="2021-07-20 08:00:06+00",
-        group=1,
-        workflow_item__pk=47,
-    )
-
-    # Construction start date
-    workflow_entry_factory(
-        instance=ur_instance,
-        workflow_date="2021-07-25 08:00:06+00",
-        group=1,
-        workflow_item__pk=55,
-    )
-
-    # Construction end date
-    workflow_entry_factory(
-        instance=ur_instance,
-        workflow_date="2021-07-30 08:00:06+00",
-        group=1,
-        workflow_item__pk=67,
-    )
-
-    # Approval reason
-    camac_answer_factory(answer=5031, question__question_id=264, instance=ur_instance)
-
-    # Type of applicant
-    camac_answer_factory(
-        answer=6141,
-        question__question_id=267,
-        instance=ur_instance,
-    )
-
-    # Buildings
-    add_table_answer(
-        document,
-        "gebaeude",
-        [
-            {
-                "art-der-hochbaute": "art-der-hochbaute-parkhaus",
-                "gebaeudenummer-bezeichnung": "Villa",
-                "proposal": ["proposal-neubau"],
-                "gebaeudekategorie": "gebaeudekategorie-ohne-wohnnutzung",
-            }
-        ],
-    )
-
-    # Dwellings
-    add_table_answer(
-        document,
-        "wohnungen",
-        [
-            {
-                "zugehoerigkeit": "Villa",
-                "stockwerktyp": "stockwerktyp-obergeschoss",
-                "stockwerknummer": "2",
-                "lage": "Süd",
-                "wohnungsgroesse": "20",
-                "kocheinrichtung": "kocheinrichtung-kochnische-greater-4-m2",
-                "flaeche-in-m2": "420",
-                "mehrgeschossige-wohnung": "mehrgeschossige-wohnung-ja",
-                "zwg": "zwg-keine",
-            },
-            {
-                "zugehoerigkeit": "Villa",
-                "stockwerktyp": "stockwerktyp-parterre",
-                "lage": "Nord",
-                "wohnungsgroesse": "10",
-                "kocheinrichtung": "kocheinrichtung-keine-kocheinrichtung",
-                "flaeche-in-m2": "72",
-                "mehrgeschossige-wohnung": "mehrgeschossige-wohnung-nein",
-                "zwg": "zwg-erstwohnung",
-            },
-        ],
-    )
-
-    # Energy devices
-    add_table_answer(
-        document,
-        "haustechnik-tabelle",
-        [
-            {
-                "gehoert-zu-gebaeudenummer": "Villa",
-                "anlagetyp": "anlagetyp-hauptheizung",
-                "heizsystem-art": "-hauptheizung",
-                "hauptheizungsanlage": "hauptheizungsanlage-sonne-thermisch",
-            },
-        ],
-    )
-
-    return ur_instance.case
 
 
 @pytest.fixture
@@ -813,7 +562,9 @@ def sz_master_data_case_gwr_v2(sz_master_data_case, form_field_factory):
             # 6. Query for prefetching row documents
             # 7. Query for prefetching answer on previously prefetched row documents
             # 8. Query for prefetching dynamic options
-            9,
+            # 9. Query for fetching main form
+            # 10. ?
+            10,
         ),
         (
             pytest.lazy_fixture("be_master_data_settings"),
@@ -830,7 +581,7 @@ def sz_master_data_case_gwr_v2(sz_master_data_case, form_field_factory):
                 "work_items__document__answers__answerdocument_set",
                 "work_items__document__answers__answerdocument_set__document__answers",
             ],
-            9,
+            10,
         ),
         (
             pytest.lazy_fixture("ur_master_data_settings"),

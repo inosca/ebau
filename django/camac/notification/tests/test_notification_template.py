@@ -23,7 +23,6 @@ from rest_framework import status
 
 from camac.conftest import CALUMA_FORM_TYPES_SLUGS, FakeRequest
 from camac.instance.models import HistoryEntry
-from camac.instance.tests.test_master_data import add_answer, add_table_answer
 from camac.notification import serializers
 from camac.notification.serializers import (
     InstanceMergeSerializer,
@@ -145,6 +144,7 @@ def test_notification_template_merge(
     document_factory,
     settings,
     snapshot,
+    utils,
 ):
     notification_template.body = """
         identifier: {{identifier}}
@@ -186,24 +186,26 @@ def test_notification_template_merge(
     work_item = work_item_factory(task_id="building-authority", case=sz_instance.case)
     work_item.document = document_factory(form_id="bauverwaltung")
     work_item.save()
-    add_answer(work_item.document, "bewilligungsverfahren-gr-sitzung-beschluss", "foo")
-    add_answer(
+    utils.add_answer(
+        work_item.document, "bewilligungsverfahren-gr-sitzung-beschluss", "foo"
+    )
+    utils.add_answer(
         work_item.document,
         "beschwerdeverfahren-weiterzug-durch",
         "beschwerdeverfahren-weiterzug-durch-beschwerdegegner",
     )
-    add_answer(
+    utils.add_answer(
         work_item.document,
         "bewilligungsverfahren-gr-sitzung-datum",
         timezone.now(),
         "date",
     )
-    add_answer(
+    utils.add_answer(
         work_item.document,
         "bewilligungsverfahren-gr-sitzung-bewilligungsdatum",
         timezone.now(),
     )
-    add_table_answer(
+    utils.add_table_answer(
         work_item.document,
         "bewilligungsverfahren-sitzung-baukommission",
         [
@@ -710,6 +712,7 @@ def test_notification_placeholders(
     objection_participant_factory,
     work_item_factory,
     distribution_settings,
+    utils,
 ):
     settings.APPLICATION["WORKFLOW_ITEMS"]["SUBMIT"] = workflow_entry_factory(
         instance=sz_instance,
@@ -738,7 +741,7 @@ def test_notification_placeholders(
         status=caluma_workflow_models.WorkItem.STATUS_READY,
         task_id="building-authority",
     )
-    add_answer(
+    utils.add_answer(
         building_authority_work_item.document,
         "bewilligungsverfahren-gr-sitzung-bewilligungsdatum",
         timezone.make_aware(datetime(2019, 10, 24, 10)),
@@ -1513,6 +1516,7 @@ def test_notification_bauverwaltung_placeholders(
     work_item_factory,
     document_factory,
     settings,
+    utils,
 ):
     call_command(
         "loaddata", settings.ROOT_DIR("kt_schwyz/config/buildingauthority.json")
@@ -1528,20 +1532,22 @@ def test_notification_bauverwaltung_placeholders(
     work_item = work_item_factory(task_id="building-authority", case=sz_instance.case)
     work_item.document = document_factory(form_id="bauverwaltung")
     work_item.save()
-    add_answer(work_item.document, "bewilligungsverfahren-gr-sitzung-beschluss", "foo")
-    add_answer(
+    utils.add_answer(
+        work_item.document, "bewilligungsverfahren-gr-sitzung-beschluss", "foo"
+    )
+    utils.add_answer(
         work_item.document,
         "beschwerdeverfahren-weiterzug-durch",
         "beschwerdeverfahren-weiterzug-durch-beschwerdegegner",
     )
     date = timezone.now()
-    add_answer(
+    utils.add_answer(
         work_item.document,
         "bewilligungsverfahren-gr-sitzung-datum",
         date,
         "date",
     )
-    add_table_answer(
+    utils.add_table_answer(
         work_item.document,
         "bewilligungsverfahren-sitzung-baukommission",
         [

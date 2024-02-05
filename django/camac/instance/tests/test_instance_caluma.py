@@ -24,9 +24,6 @@ from camac.constants import (
     kt_uri as uri_constants,
 )
 from camac.core.models import Chapter, Question, QuestionType
-from camac.ech0211 import event_handlers
-from camac.ech0211.data_preparation import DocumentParser
-from camac.ech0211.tests.caluma_document_data import baugesuch_data
 from camac.instance.models import Instance
 from camac.instance.serializers import (
     SUBMIT_DATE_CHAPTER,
@@ -37,8 +34,6 @@ from camac.instance.serializers import (
 )
 from camac.user.models import Location
 from camac.utils import flatten
-
-from .test_master_data import add_answer
 
 
 @pytest.fixture
@@ -528,7 +523,6 @@ def test_instance_list(
     ],
 )
 def test_instance_submit_be(
-    mocker,
     admin_client,
     role,
     role_factory,
@@ -545,7 +539,6 @@ def test_instance_submit_be(
     application_settings,
     mock_nfd_permissions,
     mock_generate_and_store_pdf,
-    ech_mandatory_answers_einfache_vorabklaerung,
     caluma_workflow_config_be,
     has_personalien_sb1,
     caluma_admin_user,
@@ -559,14 +552,7 @@ def test_instance_submit_be(
     )
 
     group_factory(role=role_factory(name="support"))
-    mocker.patch.object(
-        DocumentParser,
-        "parse_answers",
-        return_value=ech_mandatory_answers_einfache_vorabklaerung,
-    )
     instance_state_factory(name="subm")
-
-    mocker.patch.object(event_handlers, "get_document", return_value=baugesuch_data)
 
     response = admin_client.post(reverse("instance-submit", args=[be_instance.pk]))
 
@@ -617,7 +603,6 @@ def test_instance_submit_ur(
     application_settings,
     mock_nfd_permissions,
     mock_generate_and_store_pdf,
-    ech_mandatory_answers_einfache_vorabklaerung,
     caluma_workflow_config_ur,
     caluma_admin_user,
     location_factory,
@@ -689,14 +674,7 @@ def test_instance_submit_ur(
         )
 
     group_factory(role=role_factory(name="support"))
-    mocker.patch.object(
-        DocumentParser,
-        "parse_answers",
-        return_value=ech_mandatory_answers_einfache_vorabklaerung,
-    )
     instance_state_factory(name="subm")
-
-    mocker.patch.object(event_handlers, "get_document", return_value=baugesuch_data)
 
     response = admin_client.post(reverse("instance-submit", args=[ur_instance.pk]))
 
@@ -787,7 +765,6 @@ def test_instance_submit_cantonal_territory_usage_ur(
     notification_template,
     application_settings,
     mock_generate_and_store_pdf,
-    ech_mandatory_answers_einfache_vorabklaerung,
     workflow_item_factory,
     location_factory,
     group_factory,
@@ -853,11 +830,6 @@ def test_instance_submit_cantonal_territory_usage_ur(
 
     authority_location_factory(location=location)
 
-    mocker.patch.object(
-        DocumentParser,
-        "parse_answers",
-        return_value=ech_mandatory_answers_einfache_vorabklaerung,
-    )
     instance_state_factory(name="ext")
     instance_state_factory(name="subm")
 
@@ -892,7 +864,6 @@ def test_instance_submit_heat_extraction_ur(
     notification_template,
     application_settings,
     mock_generate_and_store_pdf,
-    ech_mandatory_answers_einfache_vorabklaerung,
     workflow_item_factory,
     location_factory,
     group_factory,
@@ -940,11 +911,6 @@ def test_instance_submit_heat_extraction_ur(
 
     authority_location_factory(location=location)
 
-    mocker.patch.object(
-        DocumentParser,
-        "parse_answers",
-        return_value=ech_mandatory_answers_einfache_vorabklaerung,
-    )
     instance_state_factory(name="ext")
     instance_state_factory(name="subm")
 
@@ -976,7 +942,6 @@ def test_instance_submit_pgv_gemeindestrasse_ur(
     notification_template,
     application_settings,
     mock_generate_and_store_pdf,
-    ech_mandatory_answers_einfache_vorabklaerung,
     workflow_item_factory,
     location_factory,
     group_factory,
@@ -1057,7 +1022,6 @@ def test_instance_submit_mitbericht_kanton_doesnt_send_mail(
     notification_template,
     application_settings,
     mock_generate_and_store_pdf,
-    ech_mandatory_answers_einfache_vorabklaerung,
     workflow_item_factory,
     location_factory,
     group_factory,
@@ -1160,7 +1124,6 @@ def test_oereb_instance_copy_for_koor_afj(
     notification_template,
     application_settings,
     mock_generate_and_store_pdf,
-    ech_mandatory_answers_einfache_vorabklaerung,
     workflow_item_factory,
     location_factory,
     group_factory,
@@ -1170,6 +1133,7 @@ def test_oereb_instance_copy_for_koor_afj(
     authority_location_factory,
     form_slug,
     attachment_factory,
+    utils,
 ):
     settings.APPLICATION_NAME = "kt_uri"
 
@@ -1213,7 +1177,7 @@ def test_oereb_instance_copy_for_koor_afj(
         mocker.patch("camac.constants.kt_uri.KOOR_NP_GROUP_ID", group.pk)
         email = group.service.email
 
-        add_answer(
+        utils.add_answer(
             ur_instance.case.document,
             "waldfeststellung-mit-statischen-waldgrenzen-kanton",
             "waldfeststellung-mit-statischen-waldgrenzen-kanton-ja",
@@ -1225,13 +1189,13 @@ def test_oereb_instance_copy_for_koor_afj(
         mocker.patch("camac.constants.kt_uri.GBB_ALTDORF_SERVICE_ID", group.pk)
         email = group.service.email
 
-        add_answer(
+        utils.add_answer(
             ur_instance.case.document,
             "waldfeststellung-mit-statischen-waldgrenzen-gemeinde",
             "waldfeststellung-mit-statischen-waldgrenzen-gemeinde-ja",
         )
 
-    add_answer(
+    utils.add_answer(
         ur_instance.case.document,
         "form-type",
         f"form-type-{form_slug}",
@@ -1284,7 +1248,6 @@ def test_oereb_instance_copy_for_koor_afj(
     "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
 )
 def test_instance_submit_message_building_services_ur(
-    mocker,
     admin_client,
     settings,
     caluma_workflow_config_ur,
@@ -1292,7 +1255,6 @@ def test_instance_submit_message_building_services_ur(
     notification_template,
     application_settings,
     mock_generate_and_store_pdf,
-    ech_mandatory_answers_einfache_vorabklaerung,
     workflow_item_factory,
     group_factory,
     role_factory,
@@ -1335,12 +1297,6 @@ def test_instance_submit_message_building_services_ur(
         question_id="municipality",
     )
 
-    mocker.patch.object(
-        DocumentParser,
-        "parse_answers",
-        return_value=ech_mandatory_answers_einfache_vorabklaerung,
-    )
-
     instance_state_factory(name="subm")
 
     response = admin_client.post(reverse("instance-submit", args=[ur_instance.pk]))
@@ -1364,7 +1320,6 @@ def test_instance_submit_message_building_services_ur(
     "is_building_police_procedure,is_extend_validity", [(True, False), (False, True)]
 )
 def test_instance_submit_state_change_be(
-    mocker,
     admin_client,
     role,
     role_factory,
@@ -1380,7 +1335,6 @@ def test_instance_submit_state_change_be(
     application_settings,
     mock_nfd_permissions,
     mock_generate_and_store_pdf,
-    ech_mandatory_answers_einfache_vorabklaerung,
     caluma_workflow_config_be,
     notification_template,
     is_building_police_procedure,
@@ -1423,13 +1377,7 @@ def test_instance_submit_state_change_be(
     )
 
     group_factory(role=role_factory(name="support"))
-    mocker.patch.object(
-        DocumentParser,
-        "parse_answers",
-        return_value=ech_mandatory_answers_einfache_vorabklaerung,
-    )
     instance_state_factory(name="subm")
-    mocker.patch.object(event_handlers, "get_document", return_value=baugesuch_data)
 
     admin_client.post(reverse("instance-submit", args=[be_instance.pk]))
 
@@ -2218,8 +2166,6 @@ def test_rejection(
     caluma_workflow_config_be,
     mock_generate_and_store_pdf,
     application_settings,
-    ech_mandatory_answers_einfache_vorabklaerung,
-    mocker,
     submit_date_question,
     rejection_settings,
     caluma_admin_user,
@@ -2271,12 +2217,6 @@ def test_rejection(
     case = new_instance.case
 
     case.document.answers.create(value=str(service.pk), question_id="gemeinde")
-    mocker.patch.object(
-        DocumentParser,
-        "parse_answers",
-        return_value=ech_mandatory_answers_einfache_vorabklaerung,
-    )
-    mocker.patch.object(event_handlers, "get_document", return_value=baugesuch_data)
 
     submit_response = admin_client.post(
         reverse("instance-submit", args=[new_instance.pk])
@@ -2302,8 +2242,6 @@ def test_be_copy_responsible_user_on_submit(
     caluma_workflow_config_be,
     mock_generate_and_store_pdf,
     application_settings,
-    ech_mandatory_answers_einfache_vorabklaerung,
-    mocker,
     submit_date_question,
     rejection_settings,
     work_item_factory,
@@ -2364,12 +2302,6 @@ def test_be_copy_responsible_user_on_submit(
 
     case = new_instance.case
     case.document.answers.create(value=str(service.pk), question_id="gemeinde")
-    mocker.patch.object(
-        DocumentParser,
-        "parse_answers",
-        return_value=ech_mandatory_answers_einfache_vorabklaerung,
-    )
-    mocker.patch.object(event_handlers, "get_document", return_value=baugesuch_data)
 
     submit_response = admin_client.post(
         reverse("instance-submit", args=[new_instance.pk])

@@ -5,8 +5,6 @@ from rest_framework import status
 from camac.conftest import sz_master_data_case  # noqa
 from camac.instance.tests.test_master_data import sz_master_data_case_gwr  # noqa
 from camac.instance.tests.test_master_data import sz_master_data_case_gwr_v2  # noqa
-from camac.instance.tests.test_master_data import ur_master_data_case  # noqa
-from camac.instance.tests.test_master_data import add_table_answer
 
 
 @pytest.mark.freeze_time("2021-10-07")
@@ -22,8 +20,9 @@ def test_gwr_data_ur(
     settings,
     workflow_entry_factory,
     snapshot,
-    ur_master_data_case,  # noqa
+    ur_master_data_case,
     ur_master_data_settings,
+    utils,
 ):
     settings.APPLICATION_NAME = "kt_uri"
 
@@ -53,7 +52,7 @@ def test_gwr_data_ur(
     # Check logic for heating / warmwater devices and
     # primary / secondary devices
     table_answer = document.answers.filter(question_id="haustechnik-tabelle").first()
-    add_table_answer(
+    utils.add_table_answer(
         document,
         "haustechnik-tabelle",
         [

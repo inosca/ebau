@@ -3,7 +3,7 @@ from collections import namedtuple
 from caluma.caluma_form.api import save_answer
 from caluma.caluma_form.models import Question
 from caluma.caluma_workflow import api as workflow_api
-from caluma.caluma_workflow.models import Case, WorkItem
+from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 
 from camac.constants.kt_bern import ATTACHMENT_SECTION_ALLE_BETEILIGTEN
@@ -76,9 +76,6 @@ class BaseSendHandler:
             self.data.eventNotice.planningPermissionApplicationIdentification.dossierIdentification
         )
 
-    def get_case(self):
-        return Case.objects.get(instance__pk=self.get_instance_id())
-
     def complete_work_item(self, task, filters={}, context={}):
         return self._process_work_item("complete", task, filters, context)
 
@@ -88,7 +85,7 @@ class BaseSendHandler:
     def _process_work_item(self, action, task, filters, context):
         fn = getattr(workflow_api, f"{action}_work_item")
         work_item = WorkItem.objects.filter(
-            case__family=self.get_case(),
+            case__family=self.instance.case,
             task_id=task,
             status=WorkItem.STATUS_READY,
             **filters,
@@ -154,7 +151,7 @@ class NoticeRulingSendHandler(DocumentAccessibilityMixin, BaseSendHandler):
                 status=403,
             )
 
-        case = self.get_case()
+        case = self.instance.case
         workflow_slug = case.workflow_id
         judgement = self.data.eventNotice.decisionRuling.judgement
 
@@ -237,9 +234,7 @@ class ChangeResponsibilitySendHandler(BaseSendHandler):
         ]:
             return (
                 False,
-                (
-                    "Changing responsibility is not possible after the building permit has been issued.",
-                ),
+                "Changing responsibility is not possible after the building permit has been issued.",
             )
         return True, None
 
@@ -272,6 +267,7 @@ class ChangeResponsibilitySendHandler(BaseSendHandler):
             self.user, self.group, CalumaInfo(Context(self.caluma_user)), {}, {}
         )
 
+        # TODO: move business logic into domain logic to make this less awkward
         serializer = CalumaInstanceChangeResponsibleServiceSerializer(
             self.instance, data=data, context={"request": request}
         )
@@ -413,13 +409,10 @@ class TaskSendHandler(BaseSendHandler):
 
     def _get_service(self):
         try:
-            return Service.objects.get(
-                pk=int(
-                    self.data.eventRequest.extension.wildcardElements()[
-                        0
-                    ].firstChild.value
-                )
-            )
+            service_id = self.data.eventRequest.extension.wildcardElements()[
+                0
+            ].firstChild.value
+            return Service.objects.get(pk=int(service_id))
         except (ValueError, Service.DoesNotExist):
             raise SendHandlerException("Unknown service!")
 
