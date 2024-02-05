@@ -4,7 +4,6 @@ import { inject as service } from "@ember/service";
 import { camelize } from "@ember/string";
 import { tracked } from "@glimmer/tracking";
 import { dropTask } from "ember-concurrency";
-import { DateTime } from "luxon";
 
 import { hasFeature } from "ember-ebau-core/helpers/has-feature";
 
@@ -27,31 +26,10 @@ export default class BillingNewController extends Controller {
   @tracked newEntry = null;
 
   calculations = ["flat", "hourly", "percentage"];
+  taxRates = hasFeature("billing.reducedTaxRate") ? [8.1, 2.6] : [8.1];
 
   constructor(...args) {
     super(...args);
-
-    // TODO: Remove the old rates in February 2024
-    const now = DateTime.now().toMillis();
-    const useNewRates =
-      now >= DateTime.fromISO("2023-12-01").startOf("day").toMillis();
-    const useOldRates =
-      now <= DateTime.fromISO("2024-01-31").endOf("day").toMillis();
-
-    this.taxRates = [
-      ...(useNewRates
-        ? hasFeature("billing.reducedTaxRate")
-          ? [8.1, 2.6]
-          : [8.1]
-        : []),
-      ...(useOldRates
-        ? hasFeature("billing.reducedTaxRate")
-          ? [7.7, 2.5]
-          : [7.7]
-        : []),
-    ]
-      .sort()
-      .reverse();
 
     this.newEntry = this.store.createRecord("billing-v2-entry", {
       calculation: this.calculations[0],
