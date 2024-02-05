@@ -123,7 +123,7 @@ module("Acceptance | billing", function (hooks) {
     await fillIn("input[name=cost-center]", "1000121");
     await fillIn("select[name=calculation]", "flat");
     await fillIn("input[name=total-cost]", 1000.5);
-    await fillIn("select[name=tax-mode]", "inclusive:7.7");
+    await fillIn("select[name=tax-mode]", "inclusive:8.1");
     await fillIn("select[name=organization]", "cantonal");
     await fillIn("select[name=billing-type]", "by_authority");
     await click("button[data-test-submit]");
@@ -140,7 +140,7 @@ module("Acceptance | billing", function (hooks) {
     await fillIn("select[name=calculation]", "percentage");
     await fillIn("input[name=percentage]", 10.5);
     await fillIn("input[name=total-cost]", 1000.5);
-    await fillIn("select[name=tax-mode]", "exclusive:7.7");
+    await fillIn("select[name=tax-mode]", "exclusive:8.1");
     await fillIn("select[name=organization]", "municipal");
     await fillIn("select[name=billing-type]", "direct");
     await click("button[data-test-submit]");
