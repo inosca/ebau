@@ -37,8 +37,6 @@ from camac.constants.kt_bern import (
 from camac.document.models import Attachment
 from camac.user.models import Service
 
-from .constants import ECH_API_LEVEL_BASIC, ECH_API_LEVEL_FULL
-from .data_preparation import get_document
 from .formatters import (
     accompanying_report,
     change_responsibility,
@@ -46,7 +44,6 @@ from .formatters import (
     request,
     status_notification,
     submit,
-    submit_md,
 )
 from .models import Message
 from .signals import (
@@ -83,10 +80,7 @@ class BaseEventHandler:
         self.message_id = uuid4()
         self.message_receiver = self.instance.responsible_service()
 
-    def get_data(self):
-        return get_document(self.instance.pk)
-
-    def get_xml(self, data, **kwargs):  # pragma: no cover
+    def get_xml(self, **kwargs):  # pragma: no cover
         raise NotImplementedError()
 
     def create_message(self, xml):
@@ -109,38 +103,11 @@ class BaseEventHandler:
         )
 
     def run(self):
-        data = self.get_data()
-        xml = self.get_xml(data)
+        xml = self.get_xml()
         return self.create_message(xml)
 
 
 class SubmitEventHandler(BaseEventHandler):
-    event_type = "submit"
-    uri_instance_resource_id = 20014
-    message_type = ECH_SUBMIT
-
-    def get_xml(self, data):
-        try:
-            return delivery(
-                self.instance,
-                data,
-                message_type=self.message_type,
-                message_date=self.message_date,
-                message_id=str(self.message_id),
-                eventSubmitPlanningPermissionApplication=submit(
-                    self.instance, data, self.event_type
-                ),
-            ).toxml()
-        except (
-            IncompleteElementContentError,
-            UnprocessedElementContentError,
-            UnprocessedKeywordContentError,
-        ) as e:  # pragma: no cover
-            logger.error(e.details())
-            raise
-
-
-class SubmitMDEventHandler(BaseEventHandler):
     event_type = "submit"
     message_type = ECH_SUBMIT
 
@@ -148,11 +115,11 @@ class SubmitMDEventHandler(BaseEventHandler):
         try:
             return delivery(
                 self.instance,
-                answers={"ech-subject": self.instance.form.get_name()},
+                subject=self.event_type,
                 message_type=self.message_type,
                 message_date=self.message_date,
                 message_id=str(self.message_id),
-                eventSubmitPlanningPermissionApplication=submit_md(
+                eventSubmitPlanningPermissionApplication=submit(
                     self.instance, self.event_type
                 ),
             ).toxml()
@@ -170,19 +137,18 @@ class SubmitMDEventHandler(BaseEventHandler):
 
 class FileSubsequentlyEventHandler(BaseEventHandler):
     event_type = "file subsequently"
-    uri_instance_resource_id = 150000
     message_type = ECH_FILE_SUBSEQUENTLY
 
-    def get_xml(self, data):
+    def get_xml(self):
         try:
             return delivery(
                 self.instance,
-                data,
+                subject=self.event_type,
                 message_type=self.message_type,
                 message_date=self.message_date,
                 message_id=str(self.message_id),
                 eventSubmitPlanningPermissionApplication=submit(
-                    self.instance, data, self.event_type
+                    self.instance, self.event_type
                 ),
             ).toxml()
         except (
@@ -195,8 +161,7 @@ class FileSubsequentlyEventHandler(BaseEventHandler):
 
 
 class StatusNotificationEventHandler(BaseEventHandler):
-    def get_data(self):
-        return {"ech-subject": "status notification"}
+    event_type = "status notification"
 
     def get_message_type(self):
         message_type = "unknown"  # this should never be used
@@ -224,11 +189,11 @@ class StatusNotificationEventHandler(BaseEventHandler):
 
         return message_type
 
-    def get_xml(self, data, message_type):
+    def get_xml(self, message_type):
         try:
             return delivery(
                 self.instance,
-                data,
+                subject=self.event_type,
                 message_type=message_type,
                 message_date=self.message_date,
                 message_id=str(self.message_id),
@@ -243,8 +208,7 @@ class StatusNotificationEventHandler(BaseEventHandler):
             raise
 
     def run(self):
-        data = self.get_data()
-        xml = self.get_xml(data, self.get_message_type())
+        xml = self.get_xml(self.get_message_type())
         return self.create_message(xml)
 
 
@@ -252,14 +216,11 @@ class WithdrawPlanningPermissionApplicationEventHandler(BaseEventHandler):
     event_type = "withdraw planning permission application"
     message_type = ECH_WITHDRAW_PLANNING_PERMISSION_APPLICATION
 
-    def get_data(self):
-        return {"ech-subject": self.event_type}
-
-    def get_xml(self, data):
+    def get_xml(self):
         try:
             return delivery(
                 self.instance,
-                data,
+                subject=self.event_type,
                 message_type=self.message_type,
                 message_date=self.message_date,
                 message_id=str(self.message_id),
@@ -302,10 +263,7 @@ class TaskEventHandler(BaseEventHandler):
         if inquiry:
             self.message_receiver = Service.objects.get(pk=inquiry.addressed_groups[0])
 
-    def get_data(self):
-        return {"ech-subject": self.event_type}
-
-    def get_xml(self, data):
+    def get_xml(self):
         config = self.task_map[
             "circulation" if self.inquiry else self.instance.instance_state.name
         ]
@@ -318,7 +276,7 @@ class TaskEventHandler(BaseEventHandler):
         try:
             return delivery(
                 self.instance,
-                data,
+                subject=self.event_type,
                 message_type=config["message_type"],
                 message_date=self.message_date,
                 message_id=str(self.message_id),
@@ -343,9 +301,6 @@ class ClaimEventHandler(WithdrawPlanningPermissionApplicationEventHandler):
     event_type = "claim"
     message_type = ECH_CLAIM
 
-    def get_data(self):
-        return {"ech-subject": self.event_type}
-
 
 class AccompanyingReportEventHandler(BaseEventHandler):
     event_type = "accompanying report"
@@ -368,14 +323,11 @@ class AccompanyingReportEventHandler(BaseEventHandler):
         else:
             self.attachments = attachments
 
-    def get_data(self):
-        return {"ech-subject": self.event_type}
-
-    def get_xml(self, data):
+    def get_xml(self):
         try:
             return delivery(
                 self.instance,
-                data,
+                subject=self.event_type,
                 message_type=self.message_type,
                 message_date=self.message_date,
                 message_id=str(self.message_id),
@@ -399,14 +351,11 @@ class ChangeResponsibilityEventHandler(BaseEventHandler):
     event_type = "change responsibility"
     message_type = ECH_CHANGE_RESPONSIBILITY
 
-    def get_data(self):
-        return {"ech-subject": self.event_type}
-
-    def get_xml(self, data):
+    def get_xml(self):
         try:
             return delivery(
                 self.instance,
-                data,
+                subject=self.event_type,
                 message_type=self.message_type,
                 message_date=self.message_date,
                 message_id=str(self.message_id),
@@ -421,34 +370,31 @@ class ChangeResponsibilityEventHandler(BaseEventHandler):
             raise
 
 
-def if_ech_enabled(func):
-    @wraps(func)
-    def wrapper(*args, **kwargs):
-        instance = kwargs.get("instance")
-        if (
-            settings.APPLICATION["ECH0211"].get("API_ACTIVE")
-            and instance.case.workflow_id not in settings.ECH_EXCLUDED_WORKFLOWS
-            and instance.case.document.form_id not in settings.ECH_EXCLUDED_FORMS
-        ):
-            return func(*args, **kwargs)
+def if_ech_enabled(api_level="basic"):
+    def decorate(func):
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            instance = kwargs.get("instance")
+            if (
+                settings.APPLICATION["ECH0211"].get("API_ACTIVE")
+                and (
+                    api_level != "full"
+                    or settings.APPLICATION["ECH0211"].get("API_LEVEL") == "full"
+                )
+                and instance.case.workflow_id not in settings.ECH_EXCLUDED_WORKFLOWS
+                and instance.case.document.form_id not in settings.ECH_EXCLUDED_FORMS
+            ):
+                return func(*args, **kwargs)
 
-    return wrapper
+        return wrapper
+
+    return decorate
 
 
 @receiver(instance_submitted)
-@if_ech_enabled
+@if_ech_enabled()
 def submit_callback(sender, instance, user_pk, group_pk, **kwargs):
-    ech_api_level = settings.APPLICATION["ECH0211"].get("API_LEVEL")
-    if ech_api_level not in [
-        ECH_API_LEVEL_FULL,
-        ECH_API_LEVEL_BASIC,
-    ]:
-        return
-    if ech_api_level == ECH_API_LEVEL_FULL:
-        handler = SubmitEventHandler(instance, user_pk=user_pk, group_pk=group_pk)
-    if ech_api_level == ECH_API_LEVEL_BASIC:
-        handler = SubmitMDEventHandler(instance, user_pk=user_pk, group_pk=group_pk)
-    handler.run()
+    SubmitEventHandler(instance, user_pk=user_pk, group_pk=group_pk).run()
 
 
 @receiver(assigned_ebau_number)
@@ -458,7 +404,7 @@ def submit_callback(sender, instance, user_pk, group_pk, **kwargs):
 @receiver(finished)
 @receiver(rejected)
 @receiver(rejection_reverted)
-@if_ech_enabled
+@if_ech_enabled(api_level="full")
 def send_status_notification(sender, instance, user_pk, group_pk, **kwargs):
     handler = StatusNotificationEventHandler(
         instance, user_pk=user_pk, group_pk=group_pk
@@ -469,7 +415,7 @@ def send_status_notification(sender, instance, user_pk, group_pk, **kwargs):
 @receiver(task_send)
 @receiver(sb1_submitted)
 @receiver(sb2_submitted)
-@if_ech_enabled
+@if_ech_enabled(api_level="full")
 def task_callback(sender, instance, user_pk, group_pk, inquiry=None, **kwargs):
     handler = TaskEventHandler(
         instance,
@@ -481,7 +427,7 @@ def task_callback(sender, instance, user_pk, group_pk, inquiry=None, **kwargs):
 
 
 @receiver(accompanying_report_send)
-@if_ech_enabled
+@if_ech_enabled(api_level="full")
 def accompanying_report_callback(
     sender, instance, user_pk, group_pk, inquiry, attachments, **kwargs
 ):
@@ -496,14 +442,14 @@ def accompanying_report_callback(
 
 
 @receiver(file_subsequently)
-@if_ech_enabled
+@if_ech_enabled(api_level="full")
 def file_subsequently_callback(sender, instance, user_pk, group_pk, **kwargs):
     handler = FileSubsequentlyEventHandler(instance, user_pk=user_pk, group_pk=group_pk)
     handler.run()
 
 
 @receiver(change_responsibility_signal)
-@if_ech_enabled
+@if_ech_enabled(api_level="full")
 def change_responsibility_callback(sender, instance, user_pk, group_pk, **kwargs):
     handler = ChangeResponsibilityEventHandler(
         instance, user_pk=user_pk, group_pk=group_pk

@@ -25,29 +25,26 @@ from camac.ech0211 import formatters
     ],
 )
 def test_generate_delivery(
-    ech_mandatory_answers_einfache_vorabklaerung,
     camac_instance,
     config,
     appconf,
     multilang,
     ech_snapshot,
+    master_data_is_visible_mock,
 ):
-    base_delivery_formatter = formatters.BaseDeliveryFormatter(config)
-    camac_instance.fields.create(name="verfahrensart", value="baubewilligung")
-    # kt_bern's formatting requires data standardization in AnswersDict.
-    # kt_schwyz relies on MasterData api
-    additional_data = (
-        {"answers": ech_mandatory_answers_einfache_vorabklaerung}
-        if config == "kt_bern"
-        else {}
-    )
+    base_delivery_formatter = formatters.BaseDeliveryFormatter()
+
+    if config == "kt_schwyz":
+        camac_instance.fields.create(name="verfahrensart", value="baubewilligung")
+    else:
+        camac_instance.case.document.form.name = "Einfache Vorabklärung"
+        camac_instance.case.document.form.save()
+
     delivery = formatters.delivery(
         camac_instance,
-        ech_mandatory_answers_einfache_vorabklaerung,
-        ECH_BASE_DELIVERY,
-        eventBaseDelivery=base_delivery_formatter.format_base_delivery(
-            camac_instance, **additional_data
-        ),
+        subject="Einfache Vorabklärung",
+        message_type=ECH_BASE_DELIVERY,
+        eventBaseDelivery=base_delivery_formatter.format_base_delivery(camac_instance),
     )
     xml_data = delivery.toxml()
     my_dir = os.path.dirname(__file__)

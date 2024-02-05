@@ -5,6 +5,7 @@ from django.conf import settings
 from django.db import models
 
 from camac.core.models import HistoryActionConfig
+from camac.core.utils import canton_aware
 from camac.user.models import User
 from camac.user.permissions import get_role_name
 from camac.utils import build_url
@@ -174,6 +175,35 @@ class Instance(models.Model):
         InstanceGroup, models.SET_NULL, related_name="instances", null=True
     )
     rejection_feedback = models.TextField(blank=True, null=True)
+
+    def _get_queryset_for_linked_instances(self, queryset):
+        return queryset if queryset else Instance.objects.all()
+
+    @canton_aware
+    def get_linked_instances(self, queryset=None):
+        return (
+            self._get_queryset_for_linked_instances(queryset)
+            .filter(instance_group=self.instance_group)
+            .exclude(pk=self.pk)
+        )
+
+    def get_linked_instances_sz(self, queryset=None):
+        return (
+            self._get_queryset_for_linked_instances(queryset)
+            .exclude(pk=self.pk)
+            .filter(identifier=self.identifier)
+        )
+
+    def get_linked_instances_be(self, queryset=None):
+        ebau_nr = self.case.meta.get("ebau-number")
+        if not ebau_nr:  # pragma: no cover
+            return []
+
+        return (
+            self._get_queryset_for_linked_instances(queryset)
+            .filter(**{"case__meta__ebau-number": ebau_nr})
+            .exclude(pk=self.pk)
+        )
 
     def _responsible_service_instance_service(self, filter_type=None, **kwargs):
         active_services_settings = settings.APPLICATION.get("ACTIVE_SERVICES", {})

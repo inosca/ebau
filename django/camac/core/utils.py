@@ -10,7 +10,6 @@ from django.utils import timezone
 
 from camac.core.models import HistoryActionConfig
 from camac.core.translations import get_translations
-from camac.instance.models import HistoryEntry, HistoryEntryT, Instance
 from camac.user.models import User
 
 
@@ -49,7 +48,7 @@ def generate_dossier_nr(year: int) -> str:
     return generate_special_id("dossier-number", year)
 
 
-def assign_ebau_nr(instance: Instance, year=None) -> str:
+def assign_ebau_nr(instance, year=None) -> str:
     # TODO: seems to be unnecessary, from an old migration
     existing = instance.case.meta.get("ebau-number")
     if existing:
@@ -66,13 +65,16 @@ def assign_ebau_nr(instance: Instance, year=None) -> str:
 
 
 def create_history_entry(
-    instance: Instance,
+    instance,
     user: User,
     text: str,
     text_data: Callable[[str], dict] = lambda language: {},
     history_type: str = HistoryActionConfig.HISTORY_TYPE_STATUS,
     body: str = "",
 ) -> None:
+    # avoid circular import
+    from camac.instance.models import HistoryEntry, HistoryEntryT
+
     """
     Create a multilingual history entry for an instance.
 

@@ -14,7 +14,7 @@ from pyxb import IncompleteElementContentError, UnprocessedElementContentError
 from camac.constants.kt_bern import ECH_BASE_DELIVERY
 from camac.document.models import Attachment
 from camac.ech0211 import formatters
-from camac.ech0211.formatters import determine_decision_state
+from camac.ech0211.formatters import CantonSpecific
 
 logger = logging.getLogger(__name__)
 
@@ -25,45 +25,19 @@ logger = logging.getLogger(__name__)
 )
 def test_base_delivery(
     form,
-    ech_mandatory_answers_baugesuch,
-    ech_mandatory_answers_einfache_vorabklaerung,
-    ech_mandatory_answers_vollstaendige_vorabklaerung,
     set_application_be,
     ech_instance_be,
     multilang,
+    master_data_is_visible_mock,
 ):
-
-    ech_mandatory_answers = ech_mandatory_answers_baugesuch
-    if form == "baugesuch":
-        ech_mandatory_answers_baugesuch["baukosten-in-chf"] = 999  # too cheap
-        ech_mandatory_answers_baugesuch["parzelle"][0][
-            "lagekoordinaten-nord"
-        ] = 1070500.0001  # too many decimal places
-        ech_mandatory_answers_baugesuch["parzelle"][0][
-            "lagekoordinaten-ost"
-        ] = 2480034.0
-    elif form == "einfache vorabklaerung":
-        ech_mandatory_answers = ech_mandatory_answers_einfache_vorabklaerung
-        ech_mandatory_answers[
-            "ort-grundstueck"
-        ] = ""  # implicitly test filling up strings to min_length
-        # implicitly test empty coordinates
-        ech_mandatory_answers["parzelle"][0]["lagekoordinaten-nord"] = None
-        ech_mandatory_answers["parzelle"][0]["lagekoordinaten-ost"] = None
-
-    elif form == "vollstaendige vorabklaerung":
-        ech_mandatory_answers = ech_mandatory_answers_vollstaendige_vorabklaerung
-
-    configured_base_delivery_formatter = formatters.BaseDeliveryFormatter(
-        config="kt_bern"
-    )
+    configured_base_delivery_formatter = formatters.BaseDeliveryFormatter()
 
     xml = formatters.delivery(
         ech_instance_be,
-        ech_mandatory_answers,
-        ECH_BASE_DELIVERY,
+        subject=form,
+        message_type=ECH_BASE_DELIVERY,
         eventBaseDelivery=configured_base_delivery_formatter.format_base_delivery(
-            ech_instance_be, answers=ech_mandatory_answers
+            ech_instance_be
         ),
     )
 
@@ -83,18 +57,20 @@ def test_base_delivery(
     my_schema.validate(xml_data)
 
 
-def test_office(ech_instance_be, ech_snapshot, multilang):
+def test_office(set_application_be, ech_instance_be, ech_snapshot, multilang):
     off = formatters.office(
         ech_instance_be.responsible_service(filter_type="municipality"),
         organization_category="ebaube",
-        canton="BE",
     )
     ech_snapshot(off.toxml(element_name="office"))
 
 
 @pytest.mark.parametrize("amount", [0, 1, 2])
 @pytest.mark.parametrize("with_display_name", [True, False])
-def test_get_documents(db, attachment_factory, amount, with_display_name, ech_snapshot):
+def test_get_documents(
+    db, attachment_factory, amount, with_display_name, ech_snapshot, settings
+):
+    settings.INTERNAL_BASE_URL = "http://ebau.local"
     context = {}
     if with_display_name:
         context = {"displayName": "baz"}
@@ -170,5 +146,19 @@ def test_decision_formatter(
         caluma_admin_user,
         {"no-notification": True},
     )
-    decision, decision_date = determine_decision_state(ech_instance_sz)
+    decision, decision_date = CantonSpecific.determine_decision_state_sz(
+        ech_instance_sz
+    )
     assert decision == expected_decision
+
+
+@pytest.mark.parametrize(
+    "value,min,max,expected",
+    [
+        (" foo ", 0, 2, "f…"),
+        (" f", 3, 10, "f.."),
+        (" foo  ", 1, 10, "foo"),
+    ],
+)
+def test_assure_string_length(value, min, max, expected):
+    assert formatters.assure_string_length(value, min, max) == expected

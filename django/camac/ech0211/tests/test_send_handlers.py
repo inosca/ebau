@@ -515,12 +515,8 @@ def test_task_send_handler(
 
     xml = xml_data("task")
 
-    if test_case != "no_service":
-        service = service_factory(pk=23, email="s1@example.com")
     if test_case == "no_deadline":
         xml = xml.replace("<deadline>2020-03-15</deadline>", "")
-    elif test_case == "invalid_service_id":
-        xml = xml.replace("<serviceId>23</serviceId>", "<serviceId>string</serviceId>")
     elif test_case == "no_create_inquiry":
         distribution_case.work_items.filter(
             task_id=be_distribution_settings["INQUIRY_CREATE_TASK"]
@@ -532,9 +528,17 @@ def test_task_send_handler(
             case=distribution_case,
             addressed_groups=[str(group.service.pk)],
         )
+    elif test_case == "invalid_service_id":
+        xml = xml.replace("<serviceId>23</serviceId>", "<serviceId>string</serviceId>")
     elif test_case == "same_service":
         xml = xml.replace(
             "<serviceId>23</serviceId>", f"<serviceId>{group.service.pk}</serviceId>"
+        )
+
+    if test_case != "no_service":
+        service = service_factory(email="s1@example.com")
+        xml = xml.replace(
+            "<serviceId>23</serviceId>", f"<serviceId>{service.pk}</serviceId>"
         )
 
     data = CreateFromDocument(xml)

@@ -35,12 +35,17 @@ class MasterData(object):
                 f"Resolver '{resolver}' used in key '{lookup_key}' is not defined in master data class"
             )
 
+        if len(args) == 0:
+            return fn()
+
         lookup = args[0]
         kwargs = args[1] if len(args) > 1 else {}
 
         return fn(lookup, **kwargs)
 
-    def _parse_value(self, value, default=None, value_parser=None, answer=None):
+    def _parse_value(
+        self, value, default=None, value_parser=None, answer=None, **kwargs
+    ):
         if not value_parser or not value:
             return value if value else default
 
@@ -58,12 +63,7 @@ class MasterData(object):
                 f"Parser '{parser_name}' is not defined in master data class"
             )
 
-        return parser(
-            value,
-            default=default,
-            answer=answer,
-            **options,
-        )
+        return parser(value, default=default, answer=answer, **options, **kwargs)
 
     def _get_cell_value(self, row, lookup_config):
         options = {}
@@ -122,6 +122,9 @@ class MasterData(object):
         }
         """
         return value
+
+    def form_name_resolver(self):
+        return self.case.document.form.name.translate()
 
     def answer_resolver(
         self,
@@ -294,6 +297,30 @@ class MasterData(object):
                 )
             )
         ]
+
+    def baukontrolle_resolver(self, lookup, column_mapping={}, **kwargs):
+        """Find a specific date from the "Baukontrolle" caluma table.
+
+        This goes through all rows and returns the first non-empty value.
+
+        Example configuration:
+
+        MASTER_DATA = {
+            "final_approval_date": (
+                "baukontrolle", "baukontrolle-realisierung-schlussabnahme"
+            }
+        }
+        """
+
+        rows = self.table_resolver(
+            "baukontrolle-realisierung-table",
+            column_mapping={"value": (lookup, {"value_key": "date"})},
+            document_from_work_item="building-authority",
+        )
+        if len(rows) == 0:
+            return None
+
+        return next((r["value"] for r in rows if r["value"]), None)
 
     def first_workflow_entry_resolver(self, lookup, default=None, **kwargs):
         """Resolve data from the first workflow entry.
@@ -581,22 +608,30 @@ class MasterData(object):
             for item in value
         ]
 
-    def option_parser(self, value, default, answer=None, **kwargs):
+    def _return_option(self, option, value, prop, default):
+        if not option:
+            return default
+
+        if prop == "slug":  # pragma: no cover
+            return option.slug
+        elif prop == "label":
+            return option.label.get(get_language())
+
+        return {"slug": value, "label": option.label.get(get_language())}
+
+    def option_parser(self, value, default, answer=None, prop=None, **kwargs):
         if isinstance(value, list):
-            return [self.option_parser(v, default, answer=answer) for v in value]
+            return [
+                self.option_parser(v, default, answer=answer, prop=prop) for v in value
+            ]
 
         option = next(
             filter(lambda option: option.pk == value, answer.question.options.all()),
             None,
         )
+        return self._return_option(option, value, prop, default)
 
-        return (
-            {"slug": value, "label": option.label.get(get_language())}
-            if option
-            else default
-        )
-
-    def dynamic_option_parser(self, value, default, answer=None, **kwargs):
+    def dynamic_option_parser(self, value, default, answer=None, prop=None, **kwargs):
         if isinstance(value, list):  # pragma: no cover
             return [
                 self.dynamic_option_parser(v, default, answer=answer) for v in value
@@ -609,12 +644,4 @@ class MasterData(object):
             ),
             None,
         )
-
-        return (
-            {
-                "slug": dynamic_option.slug,
-                "label": dynamic_option.label.get(get_language()),
-            }
-            if dynamic_option
-            else default
-        )
+        return self._return_option(dynamic_option, value, prop, default)
