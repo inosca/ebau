@@ -814,23 +814,31 @@ class CantonSpecific:
     def building_information_be(cls, instance, md):
         document = instance.case.document
 
+        params = {
+            "civilDefenseShelter": handle_ja_nein_bool(
+                find_answer(document, "sammelschutzraum")
+            ),
+            "buildingCategory": 1040,  # TODO: map category to GWR categories
+            # We don't want to map the heatings, hence omitting
+            # heating=[
+            #     ns_person.heatingType(
+            #         heatGeneratorHeating=7410,
+            #         energySourceHeating=7511,
+            #     )
+            #     for heating in answers.get("feuerungsanlagen", [])[:2]
+            # ],  # eCH only accepts 2 heatingTypes
+        }
+
+        if egid := find_answer(document, "gwr-egid"):
+            params["EGID"] = egid
+
+        if number_of_floors := find_answer(
+            document, "effektive-geschosszahl"
+        ):  # pragma: no cover
+            params["numberOfFloors"] = number_of_floors
+
         return [
             ns_application.buildingInformationType(
-                building=ns_objektwesen.buildingType(
-                    EGID=find_answer(document, "gwr-egid") or 900000000,
-                    numberOfFloors=find_answer(document, "effektive-geschosszahl"),
-                    civilDefenseShelter=handle_ja_nein_bool(
-                        find_answer(document, "sammelschutzraum")
-                    ),
-                    buildingCategory=1040,  # TODO: map category to GWR categories
-                    # We don't want to map the heatings, hence omitting
-                    # heating=[
-                    #     ns_person.heatingType(
-                    #         heatGeneratorHeating=7410,
-                    #         energySourceHeating=7511,
-                    #     )
-                    #     for heating in answers.get("feuerungsanlagen", [])[:2]
-                    # ],  # eCH only accepts 2 heatingTypes
-                )
+                building=ns_objektwesen.buildingType(**params)
             )
         ]

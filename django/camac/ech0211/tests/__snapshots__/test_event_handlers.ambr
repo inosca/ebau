@@ -319,7 +319,6 @@
   				<ns1:buildingInformation>
   					<ns1:building>
   						<ns3:EGID>1738778</ns3:EGID>
-  						<ns3:numberOfFloors>2</ns3:numberOfFloors>
   						<ns3:buildingCategory>1040</ns3:buildingCategory>
   						<ns3:civilDefenseShelter>true</ns3:civilDefenseShelter>
   					</ns1:building>
@@ -675,7 +674,6 @@
   				<ns1:buildingInformation>
   					<ns1:building>
   						<ns3:EGID>1738778</ns3:EGID>
-  						<ns3:numberOfFloors>2</ns3:numberOfFloors>
   						<ns3:buildingCategory>1040</ns3:buildingCategory>
   						<ns3:civilDefenseShelter>true</ns3:civilDefenseShelter>
   					</ns1:building>
