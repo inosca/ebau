@@ -169,7 +169,6 @@ def ech_instance_be(ech_instance, instance_with_case, caluma_workflow_config_be,
         ],
     )
     utils.add_answer(ech_instance.case.document, "gwr-egid", "1738778")
-    utils.add_answer(ech_instance.case.document, "effektive-geschosszahl", "2")
     utils.add_answer(
         ech_instance.case.document,
         "nutzungsart",
