@@ -601,7 +601,7 @@ DISTRIBUTION = {
         "INQUIRY_TASK": "inquiry",
         "DEADLINE_LEAD_TIME_FOR_ADDRESSED_SERVICES": {
             "uso": 7,
-            "authority-bab": 60,
+            "authority-bab": 90,
         },
     },
     "kt_so": {

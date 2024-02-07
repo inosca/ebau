@@ -12,12 +12,11 @@ export default class InquiryDeadlineInputComponent extends Component {
   @tracked disabled = false;
 
   get isDisabled() {
-    if (!this.serviceGroupSlugs.value) {
+    const slugs = this.serviceGroupSlugs.value;
+    if (!slugs || !slugs.length) {
       return false;
     }
-    return (this.serviceGroupSlugs.value || []).every((sg) =>
-      specialServiceGroups.includes(sg),
-    );
+    return slugs.every((sg) => specialServiceGroups.includes(sg));
   }
 
   get _showHint() {
@@ -29,13 +28,18 @@ export default class InquiryDeadlineInputComponent extends Component {
   serviceGroupSlugs = trackedFunction(this, async () => {
     await Promise.resolve();
 
+    const serviceIds = this.args?.context?.selectedGroups;
+
+    if (!serviceIds) {
+      return [];
+    }
+
     const services = await this.store.query("service", {
-      service_id: this.args?.context?.selectedGroups.toString(),
+      service_id: serviceIds.toString(),
       include: "service_group",
     });
-    const serviceGroupSlugs = services.map((service) => {
+    return services.map((service) => {
       return service.serviceGroup.get("slug");
     });
-    return serviceGroupSlugs;
   });
 }
