@@ -91,7 +91,7 @@ def _load_csv(translation_file):
 
 class Command(BaseCommand):
     def handle(self, *args, **option):
-        for (model, file, key, name) in config:
+        for model, file, key, name in config:
             self._write_translations(model, _load_csv(file), key, name)
 
     def _write_translations(self, model, translations, key, name):
@@ -111,7 +111,7 @@ class Command(BaseCommand):
                 else:
                     count_skipped += 1
 
-            except (StopIteration):
+            except StopIteration:
                 pass
 
         self.stdout.write(

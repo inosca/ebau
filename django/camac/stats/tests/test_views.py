@@ -285,9 +285,9 @@ def test_instance_cycle_time_view(
         for i, decision_type in enumerate(decision_types):
             instance = instance_with_case(
                 instance_factory(user=admin_user),
-                workflow="building-permit"
-                if decision_type
-                else "preliminary-clarification",
+                workflow=(
+                    "building-permit" if decision_type else "preliminary-clarification"
+                ),
             )
             instance_service_factory(instance=instance, service=group.service)
             submitted = instance.creation_date

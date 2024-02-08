@@ -694,9 +694,9 @@ class Command(BaseCommand):
             inst.instance_state.name == "subm"
             and not document.case.meta["dossier-number"]
         ):
-            document.case.meta[
-                "dossier-number"
-            ] = CreateInstanceLogic.generate_identifier(inst)
+            document.case.meta["dossier-number"] = (
+                CreateInstanceLogic.generate_identifier(inst)
+            )
             document.case.save()
 
         log.info(
@@ -744,7 +744,7 @@ class Command(BaseCommand):
             street = Answer.objects.get(question_id=93, instance=inst).answer
             numbers = extract_parcels(parcel_string)
             table_ans, _ = document.answers.get_or_create(question_id="parcels")
-            for (index, number) in enumerate(numbers):
+            for index, number in enumerate(numbers):
                 row_doc = self._get_row_doc(
                     "",
                     root=document,
@@ -889,7 +889,7 @@ class Command(BaseCommand):
             question=involved_people_question,
         )
 
-        for (qid, qids, slug) in people_to_copy:
+        for qid, qids, slug in people_to_copy:
             table_ans, _ = document.answers.get_or_create(
                 question_id=slug,
                 question__type=form_models.Question.TYPE_TABLE,

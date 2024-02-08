@@ -2341,9 +2341,13 @@ class PublicCalumaInstanceSerializer(serializers.Serializer):  # pragma: no cove
     def get_applicant(self, case):
         return clean_join(
             *[
-                applicant.get("juristic_name")
-                if applicant.get("is_juristic_person")
-                else clean_join(applicant.get("first_name"), applicant.get("last_name"))
+                (
+                    applicant.get("juristic_name")
+                    if applicant.get("is_juristic_person")
+                    else clean_join(
+                        applicant.get("first_name"), applicant.get("last_name")
+                    )
+                )
                 for applicant in self.get_master_data(case).applicants
             ],
             separator=", ",

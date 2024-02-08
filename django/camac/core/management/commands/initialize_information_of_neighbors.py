@@ -51,9 +51,11 @@ class Command(BaseCommand):
                 task_id="information-of-neighbors",
                 document=save_document(form),
                 case=case,
-                status=WorkItem.STATUS_SUSPENDED
-                if case.instance.instance_state.name == "rejected"
-                else WorkItem.STATUS_READY,
+                status=(
+                    WorkItem.STATUS_SUSPENDED
+                    if case.instance.instance_state.name == "rejected"
+                    else WorkItem.STATUS_READY
+                ),
                 previous_work_item=case.work_items.filter(
                     task_id="ebau-number"
                 ).first(),

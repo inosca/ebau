@@ -628,9 +628,11 @@ def test_instance_submit_ur(
     mocker.patch.object(
         uri_constants,
         "BUNDESSTELLE_SERVICE_ID",
-        ur_instance.group.service_id
-        if special_case.get("is_federal")
-        else ur_instance.group.service_id + 1,
+        (
+            ur_instance.group.service_id
+            if special_case.get("is_federal")
+            else ur_instance.group.service_id + 1
+        ),
     )
 
     if form_slug != "main-form":
@@ -647,9 +649,9 @@ def test_instance_submit_ur(
     workflow_item_factory(workflow_item_id=ur_constants.WORKFLOW_ITEM_DOSSIER_ERFASST)
 
     location = location_factory(
-        communal_federal_number="1222"
-        if special_case.get("special_location")
-        else "1224"
+        communal_federal_number=(
+            "1222" if special_case.get("special_location") else "1224"
+        )
     )
 
     ur_instance.case.document.answers.create(
@@ -1656,9 +1658,7 @@ def test_generate_and_store_pdf(
 
     application_settings["STORE_PDF"] = {
         "SECTION": {
-            form_slug.upper()
-            if form_slug
-            else "MAIN": {
+            form_slug.upper() if form_slug else "MAIN": {
                 "DEFAULT": attachment_section_default.pk,
                 "PAPER": attachment_section_paper.pk,
             }

@@ -142,9 +142,7 @@ def canton_aware(include_base_method=False):
             canton = (
                 "be"
                 if settings.APPLICATION_NAME == "kt_bern"
-                else "sz"
-                if settings.APPLICATION_NAME == "kt_schwyz"
-                else None
+                else "sz" if settings.APPLICATION_NAME == "kt_schwyz" else None
             )
             func_name = f"{func.__name__}_{canton}" if canton else f"{func.__name__}"
             if hasattr(self, func_name):
@@ -350,13 +348,19 @@ class Command(BaseCommand):
         distribution_case = Case.objects.create(
             workflow_id="distribution",
             family=case,
-            status=Case.STATUS_COMPLETED
-            if distribution_is_closed
-            else Case.STATUS_CANCELED
-            if distribution_is_canceled
-            else Case.STATUS_SUSPENDED
-            if distribution_is_suspended
-            else Case.STATUS_RUNNING,
+            status=(
+                Case.STATUS_COMPLETED
+                if distribution_is_closed
+                else (
+                    Case.STATUS_CANCELED
+                    if distribution_is_canceled
+                    else (
+                        Case.STATUS_SUSPENDED
+                        if distribution_is_suspended
+                        else Case.STATUS_RUNNING
+                    )
+                )
+            ),
             closed_at=distribution_closed_at,
         )
 
@@ -366,13 +370,19 @@ class Command(BaseCommand):
             addressed_groups=[user.group],
             assigned_users=self.responsible_user(user.group, case.instance),
             case=case,
-            status=WorkItem.STATUS_COMPLETED
-            if distribution_is_closed
-            else WorkItem.STATUS_CANCELED
-            if distribution_is_canceled
-            else WorkItem.STATUS_SUSPENDED
-            if distribution_is_suspended
-            else WorkItem.STATUS_READY,
+            status=(
+                WorkItem.STATUS_COMPLETED
+                if distribution_is_closed
+                else (
+                    WorkItem.STATUS_CANCELED
+                    if distribution_is_canceled
+                    else (
+                        WorkItem.STATUS_SUSPENDED
+                        if distribution_is_suspended
+                        else WorkItem.STATUS_READY
+                    )
+                )
+            ),
             closed_at=distribution_closed_at,
             previous_work_item=previous_work_item,
             child_case=distribution_case,
@@ -400,11 +410,15 @@ class Command(BaseCommand):
                     addressed_groups=[user.group],
                     assigned_users=self.responsible_user(user.group, case.instance),
                     case=distribution_case,
-                    status=WorkItem.STATUS_CANCELED
-                    if distribution_is_closed or distribution_is_canceled
-                    else WorkItem.STATUS_SUSPENDED
-                    if distribution_is_suspended
-                    else WorkItem.STATUS_READY,
+                    status=(
+                        WorkItem.STATUS_CANCELED
+                        if distribution_is_closed or distribution_is_canceled
+                        else (
+                            WorkItem.STATUS_SUSPENDED
+                            if distribution_is_suspended
+                            else WorkItem.STATUS_READY
+                        )
+                    ),
                     meta=self.config.META,
                 ),
                 WorkItem(
@@ -413,13 +427,19 @@ class Command(BaseCommand):
                     addressed_groups=[user.group],
                     assigned_users=self.responsible_user(user.group, case.instance),
                     case=distribution_case,
-                    status=WorkItem.STATUS_COMPLETED
-                    if distribution_is_closed
-                    else WorkItem.STATUS_CANCELED
-                    if distribution_is_canceled
-                    else WorkItem.STATUS_SUSPENDED
-                    if distribution_is_suspended
-                    else WorkItem.STATUS_READY,
+                    status=(
+                        WorkItem.STATUS_COMPLETED
+                        if distribution_is_closed
+                        else (
+                            WorkItem.STATUS_CANCELED
+                            if distribution_is_canceled
+                            else (
+                                WorkItem.STATUS_SUSPENDED
+                                if distribution_is_suspended
+                                else WorkItem.STATUS_READY
+                            )
+                        )
+                    ),
                     closed_at=distribution_closed_at,
                     meta=self.config.META,
                 ),
@@ -430,20 +450,26 @@ class Command(BaseCommand):
                     controlling_groups=[user.group],
                     assigned_users=self.responsible_user(user.group, case.instance),
                     case=distribution_case,
-                    status=WorkItem.STATUS_COMPLETED
-                    if earliest_activation_sent_start_date
-                    or (distribution_is_closed and has_circulations)
-                    or (
-                        distribution_is_initialized
-                        and not distribution_is_canceled
-                        and not distribution_is_closed
-                    )
-                    else WorkItem.STATUS_CANCELED
-                    if distribution_is_canceled
-                    or (distribution_is_closed and not has_circulations)
-                    else WorkItem.STATUS_SUSPENDED
-                    if distribution_is_suspended
-                    else WorkItem.STATUS_READY,
+                    status=(
+                        WorkItem.STATUS_COMPLETED
+                        if earliest_activation_sent_start_date
+                        or (distribution_is_closed and has_circulations)
+                        or (
+                            distribution_is_initialized
+                            and not distribution_is_canceled
+                            and not distribution_is_closed
+                        )
+                        else (
+                            WorkItem.STATUS_CANCELED
+                            if distribution_is_canceled
+                            or (distribution_is_closed and not has_circulations)
+                            else (
+                                WorkItem.STATUS_SUSPENDED
+                                if distribution_is_suspended
+                                else WorkItem.STATUS_READY
+                            )
+                        )
+                    ),
                     meta=self.config.META,
                     deadline=pytz.utc.localize(
                         datetime.combine(
@@ -482,11 +508,15 @@ class Command(BaseCommand):
                     addressed_groups=[str(service_id)],
                     assigned_users=self.responsible_user(service_id, case.instance),
                     case=distribution_case,
-                    status=WorkItem.STATUS_CANCELED
-                    if distribution_is_closed or distribution_is_canceled
-                    else WorkItem.STATUS_SUSPENDED
-                    if distribution_is_suspended
-                    else WorkItem.STATUS_READY,
+                    status=(
+                        WorkItem.STATUS_CANCELED
+                        if distribution_is_closed or distribution_is_canceled
+                        else (
+                            WorkItem.STATUS_SUSPENDED
+                            if distribution_is_suspended
+                            else WorkItem.STATUS_READY
+                        )
+                    ),
                     meta=self.config.META,
                 )
             )
@@ -551,19 +581,28 @@ class Command(BaseCommand):
                     controlling_groups=[str(service_id)],
                     case=distribution_case,
                     meta=self.config.META,
-                    status=WorkItem.STATUS_COMPLETED
-                    if is_completed
-                    else WorkItem.STATUS_CANCELED
-                    if distribution_is_canceled
-                    else WorkItem.STATUS_SUSPENDED
-                    if distribution_is_suspended
-                    else WorkItem.STATUS_READY,
+                    status=(
+                        WorkItem.STATUS_COMPLETED
+                        if is_completed
+                        else (
+                            WorkItem.STATUS_CANCELED
+                            if distribution_is_canceled
+                            else (
+                                WorkItem.STATUS_SUSPENDED
+                                if distribution_is_suspended
+                                else WorkItem.STATUS_READY
+                            )
+                        )
+                    ),
                     deadline=deadline,
                     closed_at=(
-                        last_addressed_activation_answered_at or distribution_closed_at
-                    )
-                    if is_completed
-                    else None,
+                        (
+                            last_addressed_activation_answered_at
+                            or distribution_closed_at
+                        )
+                        if is_completed
+                        else None
+                    ),
                 )
             )
 
@@ -630,13 +669,15 @@ class Command(BaseCommand):
                 status=(
                     WorkItem.STATUS_COMPLETED
                     if is_completed
-                    else WorkItem.STATUS_SKIPPED
-                    if is_skipped
-                    else WorkItem.STATUS_READY
-                    if is_ready
-                    else WorkItem.STATUS_SUSPENDED
-                    if is_draft
-                    else None
+                    else (
+                        WorkItem.STATUS_SKIPPED
+                        if is_skipped
+                        else (
+                            WorkItem.STATUS_READY
+                            if is_ready
+                            else WorkItem.STATUS_SUSPENDED if is_draft else None
+                        )
+                    )
                 ),
                 document=document,
                 created_by_group=str(activation.service_parent_id),
@@ -714,21 +755,23 @@ class Command(BaseCommand):
                         controlling_groups=[],
                         case=distribution_case,
                         meta=self.config.META,
-                        status=WorkItem.STATUS_CANCELED
-                        if is_skipped
-                        or (
-                            distribution_case.parent_work_item.status
-                            == WorkItem.STATUS_COMPLETED
-                        )
-                        # redo-inquiry work-item canceled for services without pending inquiries
-                        # that are not the responsible service
-                        or (
-                            activation.service_parent_id != responsible_service.pk
-                            and not self.activations_ready(activations)
-                            .filter(service_id=activation.service_parent_id)
-                            .exists()
-                        )
-                        else distribution_case.parent_work_item.status,
+                        status=(
+                            WorkItem.STATUS_CANCELED
+                            if is_skipped
+                            or (
+                                distribution_case.parent_work_item.status
+                                == WorkItem.STATUS_COMPLETED
+                            )
+                            # redo-inquiry work-item canceled for services without pending inquiries
+                            # that are not the responsible service
+                            or (
+                                activation.service_parent_id != responsible_service.pk
+                                and not self.activations_ready(activations)
+                                .filter(service_id=activation.service_parent_id)
+                                .exists()
+                            )
+                            else distribution_case.parent_work_item.status
+                        ),
                         deadline=None,
                         closed_at=distribution_case.parent_work_item.closed_at,
                     )
@@ -1102,14 +1145,16 @@ class Command(BaseCommand):
                 addressed_groups=[user.group],
                 assigned_users=self.responsible_user(user.group, case.instance),
                 case=case,
-                status=WorkItem.STATUS_CANCELED
-                if next_work_item
-                or (case_is_depreciated and not next_work_item)
-                or (
-                    case.instance.previous_instance_state.name
-                    in self.config.POST_CIRCULATION_INSTANCE_STATES
-                )
-                else WorkItem.STATUS_READY,
+                status=(
+                    WorkItem.STATUS_CANCELED
+                    if next_work_item
+                    or (case_is_depreciated and not next_work_item)
+                    or (
+                        case.instance.previous_instance_state.name
+                        in self.config.POST_CIRCULATION_INSTANCE_STATES
+                    )
+                    else WorkItem.STATUS_READY
+                ),
                 previous_work_item=previous_work_item,
                 meta=self.config.META,
             )
@@ -1213,10 +1258,12 @@ class Command(BaseCommand):
         child_case = Case(
             workflow_id="inquiry",
             document=child_document,
-            status=Case.STATUS_COMPLETED
-            if self.activation_is_completed(activation)
-            or self.activation_is_skipped(activation, instance)
-            else Case.STATUS_RUNNING,
+            status=(
+                Case.STATUS_COMPLETED
+                if self.activation_is_completed(activation)
+                or self.activation_is_skipped(activation, instance)
+                else Case.STATUS_RUNNING
+            ),
             closed_at=activation.end_date,
             family=distribution_case.family,
         )
@@ -1242,11 +1289,15 @@ class Command(BaseCommand):
             status=(
                 WorkItem.STATUS_COMPLETED
                 if self.activation_is_completed(activation)
-                else WorkItem.STATUS_CANCELED
-                if self.activation_is_skipped(activation, instance)
-                else WorkItem.STATUS_READY
-                if self.activation_is_ready(activation)
-                else None
+                else (
+                    WorkItem.STATUS_CANCELED
+                    if self.activation_is_skipped(activation, instance)
+                    else (
+                        WorkItem.STATUS_READY
+                        if self.activation_is_ready(activation)
+                        else None
+                    )
+                )
             ),
             closed_at=activation.end_date,
             meta=self.config.META,
@@ -1335,19 +1386,28 @@ class Command(BaseCommand):
                 status=(
                     WorkItem.STATUS_COMPLETED
                     if activation_answer_draft_completed
-                    else WorkItem.STATUS_CANCELED
-                    if (activation_is_done and not activation_answer_draft_completed)
-                    or case_is_depreciated
-                    else WorkItem.STATUS_READY
-                    if activation_is_running and not activation_answer_draft_completed
-                    else ""
+                    else (
+                        WorkItem.STATUS_CANCELED
+                        if (
+                            activation_is_done and not activation_answer_draft_completed
+                        )
+                        or case_is_depreciated
+                        else (
+                            WorkItem.STATUS_READY
+                            if activation_is_running
+                            and not activation_answer_draft_completed
+                            else ""
+                        )
+                    )
                 ),
                 meta=self.config.META,
                 closed_at=activation_answer_draft_completed,
                 closed_by_user=assignee,
-                closed_by_group=str(activation.service_id)
-                if activation_answer_draft_completed
-                else None,
+                closed_by_group=(
+                    str(activation.service_id)
+                    if activation_answer_draft_completed
+                    else None
+                ),
             )
         )
 
@@ -1371,19 +1431,23 @@ class Command(BaseCommand):
                         status=(
                             WorkItem.STATUS_COMPLETED
                             if self.activation_is_completed(activation)
-                            else WorkItem.STATUS_CANCELED
-                            if self.activation_is_skipped(activation, instance)
-                            or activation_is_running
-                            else WorkItem.STATUS_READY
-                            if activation_is_in_review
-                            else ""
+                            else (
+                                WorkItem.STATUS_CANCELED
+                                if self.activation_is_skipped(activation, instance)
+                                or activation_is_running
+                                else (
+                                    WorkItem.STATUS_READY
+                                    if activation_is_in_review
+                                    else ""
+                                )
+                            )
                         ),
                         meta=self.config.META,
                         closed_at=activation.end_date,
                         closed_by_user=reviewer,
-                        closed_by_group=str(activation.service_id)
-                        if activation.end_date
-                        else None,
+                        closed_by_group=(
+                            str(activation.service_id) if activation.end_date else None
+                        ),
                         deadline=pytz.utc.localize(
                             datetime.combine(
                                 activation_answer_draft_completed
@@ -1406,12 +1470,16 @@ class Command(BaseCommand):
                         status=(
                             WorkItem.STATUS_COMPLETED
                             if activation_is_running
-                            else WorkItem.STATUS_CANCELED
-                            if self.activation_is_completed(activation)
-                            or self.activation_is_skipped(activation, instance)
-                            else WorkItem.STATUS_READY
-                            if activation_is_in_review
-                            else ""
+                            else (
+                                WorkItem.STATUS_CANCELED
+                                if self.activation_is_completed(activation)
+                                or self.activation_is_skipped(activation, instance)
+                                else (
+                                    WorkItem.STATUS_READY
+                                    if activation_is_in_review
+                                    else ""
+                                )
+                            )
                         ),
                     ),
                 ]
@@ -1429,9 +1497,11 @@ class Command(BaseCommand):
                             activation.service_id, instance
                         ),
                         meta=self.config.META,
-                        status=WorkItem.STATUS_CANCELED
-                        if case_is_depreciated
-                        else WorkItem.STATUS_READY,
+                        status=(
+                            WorkItem.STATUS_CANCELED
+                            if case_is_depreciated
+                            else WorkItem.STATUS_READY
+                        ),
                         deadline=pytz.utc.localize(
                             datetime.combine(
                                 datetime.now().date(),

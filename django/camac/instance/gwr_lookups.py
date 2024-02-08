@@ -105,23 +105,29 @@ class GwrSerializer(serializers.Serializer):
                 "street": applicant.get("street"),
                 "houseNumber": applicant.get("street_number"),
                 "country": {
-                    "countryNameShort": "ch"
-                    if applicant.get("country") == COUNTRY_SWITZERLAND
-                    else None,
+                    "countryNameShort": (
+                        "ch"
+                        if applicant.get("country") == COUNTRY_SWITZERLAND
+                        else None
+                    ),
                 },
             },
             "identification": {
-                "personIdentification": {
-                    "officialName": applicant.get("last_name"),
-                    "firstName": applicant.get("first_name"),
-                }
-                if not applicant.get("is_juristic_person")
-                else None,
+                "personIdentification": (
+                    {
+                        "officialName": applicant.get("last_name"),
+                        "firstName": applicant.get("first_name"),
+                    }
+                    if not applicant.get("is_juristic_person")
+                    else None
+                ),
                 "isOrganisation": applicant.get("is_juristic_person"),
                 "organisationIdentification": {
-                    "organisationName": applicant.get("juristic_name")
-                    if applicant.get("is_juristic_person")
-                    else None
+                    "organisationName": (
+                        applicant.get("juristic_name")
+                        if applicant.get("is_juristic_person")
+                        else None
+                    )
                 },
             },
         }
@@ -267,9 +273,11 @@ class GwrSerializer(serializers.Serializer):
                     "civilDefenseShelter": building.get("civil_defense_shelter"),
                     "numberOfFloors": building.get("number_of_floors"),
                     "numberOfSeparateHabitableRooms": building.get("number_of_rooms"),
-                    "dateOfConstruction": self.get_construction_date(building)
-                    if settings.APPLICATION_NAME == "kt_uri"
-                    else None,
+                    "dateOfConstruction": (
+                        self.get_construction_date(building)
+                        if settings.APPLICATION_NAME == "kt_uri"
+                        else None
+                    ),
                     "thermotechnicalDeviceForHeating1": self.get_energy_device(
                         building, is_heating=True, is_main_heating=True
                     ),
@@ -282,9 +290,11 @@ class GwrSerializer(serializers.Serializer):
                     "thermotechnicalDeviceForWarmWater2": self.get_energy_device(
                         building, is_heating=False, is_main_heating=False
                     ),
-                    "realestateIdentification": self.get_realestateIdentification(case)
-                    if settings.APPLICATION_NAME == "kt_uri"
-                    else None,
+                    "realestateIdentification": (
+                        self.get_realestateIdentification(case)
+                        if settings.APPLICATION_NAME == "kt_uri"
+                        else None
+                    ),
                     "dwellings": self.get_dwellings(building),
                 },
             }

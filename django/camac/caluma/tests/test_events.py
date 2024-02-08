@@ -797,9 +797,9 @@ def test_role_dependent_default_leadtime(
         addressed_groups=[addressed_group.pk],
     )
 
-    settings.DISTRIBUTION[
-        "NOTIFICATIONS"
-    ] = {}  # this short-circuits the notification logic which we dont want to test here
+    settings.DISTRIBUTION["NOTIFICATIONS"] = (
+        {}
+    )  # this short-circuits the notification logic which we dont want to test here
     settings.DISTRIBUTION["DEFAULT_DEADLINE_LEAD_TIME"] = 30
     settings.DISTRIBUTION["DEADLINE_LEAD_TIME_FOR_ADDRESSED_SERVICES"] = {
         "municipality": 10,

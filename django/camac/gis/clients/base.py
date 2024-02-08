@@ -45,7 +45,10 @@ class GISBaseClient:
         question_obj = Question.objects.filter(slug=question).first()
         if not question_obj:
             raise RuntimeError(f"Unknown question {question} in gis config")
-        if type(value) == list and question_obj.type != Question.TYPE_MULTIPLE_CHOICE:
+        if (
+            isinstance(value, list)
+            and question_obj.type != Question.TYPE_MULTIPLE_CHOICE
+        ):
             value = ", ".join(sorted(set(value)))
 
         if question in data:

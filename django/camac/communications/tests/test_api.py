@@ -4,6 +4,7 @@ Basic checking of API behaviour.
 Detailed checks for permissions / visibilities are done in
 the corresponding test modules.
 """
+
 import io
 import json
 import os

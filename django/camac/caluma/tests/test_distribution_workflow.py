@@ -778,9 +778,9 @@ def test_reopen_distribution(
 ):
     instance_state_distribution = instance_state_factory()
 
-    be_distribution_settings[
-        "INSTANCE_STATE_DISTRIBUTION"
-    ] = instance_state_distribution.name
+    be_distribution_settings["INSTANCE_STATE_DISTRIBUTION"] = (
+        instance_state_distribution.name
+    )
     be_distribution_settings["HISTORY"] = {"REDO_DISTRIBUTION": "reopen"}
     be_distribution_settings["REDO_DISTRIBUTION"] = {
         "CREATE_TASKS": [task_factory().slug]
@@ -1004,9 +1004,11 @@ def test_cancel_inquiry(
                 assert not create_inquiry_work_items.exists()
             else:
                 assert create_inquiry_work_items.filter(
-                    status=WorkItem.STATUS_CANCELED
-                    if i == len(inquiries)
-                    else WorkItem.STATUS_READY
+                    status=(
+                        WorkItem.STATUS_CANCELED
+                        if i == len(inquiries)
+                        else WorkItem.STATUS_READY
+                    )
                 ).exists()
 
 

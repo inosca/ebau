@@ -116,12 +116,16 @@ class Command(BaseCommand):
                     task=task,
                     meta={},
                     name=task.name,
-                    status=WorkItem.STATUS_READY
-                    if case.instance.instance_state.name != "arch"
-                    else WorkItem.STATUS_COMPLETED,
-                    deadline=(timezone.now() + timedelta(seconds=task.lead_time))
-                    if task.lead_time
-                    else None,
+                    status=(
+                        WorkItem.STATUS_READY
+                        if case.instance.instance_state.name != "arch"
+                        else WorkItem.STATUS_COMPLETED
+                    ),
+                    deadline=(
+                        (timezone.now() + timedelta(seconds=task.lead_time))
+                        if task.lead_time
+                        else None
+                    ),
                     addressed_groups=get_jexl_groups(
                         task.address_groups, task, case, BaseUser(), None, {}
                     ),

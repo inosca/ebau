@@ -4,6 +4,7 @@ Test for the uri keycloak migration.
 The tests in this module cover the migration logic required to migrate
 Kanton Uri's identity management from camac to keycloak.
 """
+
 import pytest
 from django.conf import settings
 
