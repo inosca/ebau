@@ -9,6 +9,7 @@ export default class ServiceModel extends Model {
   @attr("string") address;
   @attr("string") email;
   @attr("string") website;
+  @attr("string") logo;
 
   @attr("boolean") notification;
   @attr("boolean") responsibilityConstructionControl;

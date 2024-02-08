@@ -414,6 +414,7 @@
       "address": null,
       "email": "email@example.com",
       "website": null,
+      "logo": "",
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false
@@ -434,6 +435,7 @@
       "address": null,
       "email": "email@example.com",
       "website": null,
+      "logo": "",
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false
