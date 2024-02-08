@@ -122,6 +122,11 @@ const config = {
       void: "void",
     },
   },
+  gwr: {
+    cantonAbbreviation: "SO",
+    importModels: ["project", "building", "dwelling"],
+    modalContainer: "body",
+  },
 };
 
 config.intentSlugs = [config.answerSlugs.description];
