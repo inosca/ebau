@@ -97,9 +97,9 @@ class MasterData(object):
                 document = document.family
 
             if not self.validation_context.get(document.pk, None):
-                self.validation_context[
-                    document.pk
-                ] = DocumentValidator()._validation_context(document)
+                self.validation_context[document.pk] = (
+                    DocumentValidator()._validation_context(document)
+                )
 
             visible_questions = DocumentValidator().visible_questions(
                 answer.document, self.validation_context[document.pk]
@@ -585,24 +585,26 @@ class MasterData(object):
     def list_mapping_parser(self, value, default, mapping={}, **kwargs):
         return [
             {
-                key: self._parse_value(
-                    next(
-                        filter(
-                            None,
-                            (
-                                item.get(f)
-                                for f in (
-                                    field[0]
-                                    if isinstance(field[0], list)
-                                    else [field[0]]
-                                )
-                            ),
-                        )
-                    ),
-                    **field[1],
+                key: (
+                    self._parse_value(
+                        next(
+                            filter(
+                                None,
+                                (
+                                    item.get(f)
+                                    for f in (
+                                        field[0]
+                                        if isinstance(field[0], list)
+                                        else [field[0]]
+                                    )
+                                ),
+                            )
+                        ),
+                        **field[1],
+                    )
+                    if isinstance(field, tuple)
+                    else item.get(field)
                 )
-                if isinstance(field, tuple)
-                else item.get(field)
                 for key, field in mapping.items()
             }
             for item in value

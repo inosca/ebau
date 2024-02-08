@@ -1477,7 +1477,7 @@ class Utils:
             )
             for column, value in row.items():
                 options = None
-                if type(value) == dict:
+                if isinstance(value, dict):
                     options = value["options"]
                     value = value["value"]
                 Utils.add_answer(row_document, column, value, options=options)

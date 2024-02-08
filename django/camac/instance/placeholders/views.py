@@ -42,9 +42,11 @@ class DMSPlaceholdersDocsView(RetrieveAPIView):
                 ]
                 for nested_name, nested_aliases in field.nested_aliases.items()
             },
-            "description": get_translations_canton_aware(field.description)
-            if field.description
-            else None,
+            "description": (
+                get_translations_canton_aware(field.description)
+                if field.description
+                else None
+            ),
         }
 
     def get_docs(self, available_placeholders):

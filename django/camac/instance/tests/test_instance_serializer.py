@@ -16,9 +16,9 @@ def test_rejection_feedback(
     db, instance_factory, settings, application_name, expected_answer, mocker
 ):
     instance = instance_factory(
-        rejection_feedback="string from from instance"
-        if application_name == "kt_be"
-        else None
+        rejection_feedback=(
+            "string from from instance" if application_name == "kt_be" else None
+        )
     )
     settings.APPLICATION_NAME = application_name
 

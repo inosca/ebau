@@ -218,8 +218,8 @@ class XlsxFileDossierLoader:
         npoints = dossier_row.get(XlsxFileDossierLoader.Column.coordinate_n.value)
         if not (epoints and npoints):
             return None, messages
-        epoints = epoints.split(",") if type(epoints) == str else [epoints]
-        npoints = npoints.split(",") if type(npoints) == str else [npoints]
+        epoints = epoints.split(",") if isinstance(epoints, str) else [epoints]
+        npoints = npoints.split(",") if isinstance(npoints, str) else [npoints]
         for e, n in zip(epoints, npoints):
             e, n = numbers(e), numbers(n)
             if not (2480000 < e < 2840000.999) or not (1070000 < n < 1300000.999):
@@ -270,13 +270,13 @@ class XlsxFileDossierLoader:
         try:
             plot_numbers = (
                 [p.strip() for p in plot_numbers.split(",")]
-                if type(plot_numbers) == str
+                if isinstance(plot_numbers, str)
                 else [plot_numbers]
             )
 
             egrids = (
                 [e.strip() for e in egrids.split(",")]
-                if type(egrids) == str
+                if isinstance(egrids, str)
                 else [egrids]
             )
             municipality = dossier_row.get(

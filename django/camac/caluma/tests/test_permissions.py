@@ -388,15 +388,21 @@ def test_distribution_permission_for_answer(
 
     inquiry = active_inquiry_factory(
         be_instance,
-        controlling_service=service
-        if distribution_form == "INQUIRY_FORM" and is_permitted
-        else service_factory(),
-        addressed_service=service
-        if distribution_form == "INQUIRY_ANSWER_FORM" and is_permitted
-        else service_factory(),
-        status=WorkItem.STATUS_SUSPENDED
-        if distribution_form == "INQUIRY_FORM" and is_permitted
-        else WorkItem.STATUS_READY,
+        controlling_service=(
+            service
+            if distribution_form == "INQUIRY_FORM" and is_permitted
+            else service_factory()
+        ),
+        addressed_service=(
+            service
+            if distribution_form == "INQUIRY_ANSWER_FORM" and is_permitted
+            else service_factory()
+        ),
+        status=(
+            WorkItem.STATUS_SUSPENDED
+            if distribution_form == "INQUIRY_FORM" and is_permitted
+            else WorkItem.STATUS_READY
+        ),
     )
 
     document = (

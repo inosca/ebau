@@ -885,9 +885,9 @@ def test_attachment_update_context(
     url = reverse("attachment-detail", args=[aasa.pk])
 
     if "displayName" in aasa.context.keys():
-        application_settings[
-            "ATTACHMENT_SECTION_INTERNAL"
-        ] = aasa.attachment_sections.first().attachment_section_id
+        application_settings["ATTACHMENT_SECTION_INTERNAL"] = (
+            aasa.attachment_sections.first().attachment_section_id
+        )
     else:
         application_settings["ATTACHMENT_SECTION_INTERNAL"] = None
 
@@ -898,9 +898,11 @@ def test_attachment_update_context(
 
     mocker.patch(
         "camac.instance.models.Instance.responsible_service",
-        return_value=admin_user.groups.first().service
-        if is_active_service
-        else group_factory().service,
+        return_value=(
+            admin_user.groups.first().service
+            if is_active_service
+            else group_factory().service
+        ),
     )
 
     aasa.instance.save()

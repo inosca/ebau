@@ -6,6 +6,7 @@ parent "Fachstelle" service.
 
 This was written for the 1. Jul 2020 migration of Fachstellen for Kanton Schwyz.
 """
+
 from datetime import datetime, timedelta
 
 from django.core.exceptions import ObjectDoesNotExist

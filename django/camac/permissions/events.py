@@ -129,15 +129,21 @@ class PermissionEventHandler(metaclass=ABCMeta):
 
     @abstractmethod
     def decision_decreed(self, instance: Instance):
+        # fmt: off
         ...  # pragma: no cover
+        # fmt: on
 
     @abstractmethod
     def construction_acceptance_completed(self, instance: Instance):
+        # fmt: off
         ...  # pragma: no cover
+        # fmt: on
 
     @abstractmethod
     def instance_submitted(self, instance: Instance):
+        # fmt: off
         ...  # pragma: no cover
+        # fmt: on
 
 
 class EmptyEventHandler(PermissionEventHandler):

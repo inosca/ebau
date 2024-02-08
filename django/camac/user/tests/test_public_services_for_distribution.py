@@ -33,9 +33,11 @@ def test_public_services_for_distribution_list(
     service_group = service_group_factory()
     application_settings["SERVICE_GROUPS_FOR_DISTRIBUTION"] = {
         "roles": {role.name: [{"id": service_group.pk, "localized": localized}]},
-        "groups": {group.pk: [{"id": service_group.pk, "localized": localized}]}
-        if group_visibility
-        else {},
+        "groups": (
+            {group.pk: [{"id": service_group.pk, "localized": localized}]}
+            if group_visibility
+            else {}
+        ),
     }
 
     # Service not applicable for distribution

@@ -242,9 +242,11 @@ class Command(BaseCommand):
                     Answer(
                         question_id="legal-submission-status",
                         document=row_document,
-                        value="legal-submission-status-open"
-                        if work_item.status == WorkItem.STATUS_READY
-                        else "legal-submission-status-done",
+                        value=(
+                            "legal-submission-status-open"
+                            if work_item.status == WorkItem.STATUS_READY
+                            else "legal-submission-status-done"
+                        ),
                     ),
                 ]
             )
@@ -274,9 +276,11 @@ class Command(BaseCommand):
                     Answer(
                         question_id="juristische-person-gesuchstellerin",
                         document=row_document,
-                        value="juristische-person-gesuchstellerin-ja"
-                        if participant.company
-                        else "juristische-person-gesuchstellerin-nein",
+                        value=(
+                            "juristische-person-gesuchstellerin-ja"
+                            if participant.company
+                            else "juristische-person-gesuchstellerin-nein"
+                        ),
                     ),
                     Answer(
                         question_id="name-juristische-person-gesuchstellerin",
@@ -296,9 +300,11 @@ class Command(BaseCommand):
                     Answer(
                         question_id="vertreterin",
                         document=row_document,
-                        value="vertreterin-ja"
-                        if participant.representative
-                        else "vertreterin-nein",
+                        value=(
+                            "vertreterin-ja"
+                            if participant.representative
+                            else "vertreterin-nein"
+                        ),
                     ),
                     Answer(
                         question_id="telefon-oder-mobile-gesuchstellerin",

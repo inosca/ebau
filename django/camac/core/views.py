@@ -269,9 +269,9 @@ class PublicationEntryView(ModelViewSet):
         payload["standorte"] = [
             {
                 "adresse": adresse.value if adresse else "",
-                "spezialbezeichnung": spezialbezeichnung.value
-                if spezialbezeichnung
-                else "",
+                "spezialbezeichnung": (
+                    spezialbezeichnung.value if spezialbezeichnung else ""
+                ),
                 "ort": ort.value if ort else "",
             }
         ]

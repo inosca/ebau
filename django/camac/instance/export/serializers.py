@@ -212,11 +212,13 @@ class InstanceExportSerializerSZ(InstanceExportSerializer):
 
         return clean_join(
             *[
-                answer(applicant, "firma")
-                if answer(applicant, "firma")
-                else clean_join(
-                    answer(applicant, "vorname"),
-                    answer(applicant, "name"),
+                (
+                    answer(applicant, "firma")
+                    if answer(applicant, "firma")
+                    else clean_join(
+                        answer(applicant, "vorname"),
+                        answer(applicant, "name"),
+                    )
                 )
                 for applicant in instance.applicants
             ],

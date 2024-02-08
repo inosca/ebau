@@ -81,9 +81,11 @@ def get_header_labels():
     return {
         "addressHeaderLabel": _("Address"),
         "plotsHeaderLabel": _("Plots"),
-        "applicantHeaderLabel": _("Project Owner")
-        if settings.APPLICATION_NAME == "kt_so"
-        else _("Applicant"),
+        "applicantHeaderLabel": (
+            _("Project Owner")
+            if settings.APPLICATION_NAME == "kt_so"
+            else _("Applicant")
+        ),
         "landownerHeaderLabel": _("Landowner"),
         "projectAuthorHeaderLabel": _("Project Author"),
         "tagHeaderLabel": _("Keywords"),
@@ -126,9 +128,11 @@ class DMSHandler:
         data = {
             "caseId": instance.pk,
             "caseType": str(instance.case.document.form.name),
-            "formType": str(document.form.name)
-            if instance.case.document.pk != document.pk
-            else None,
+            "formType": (
+                str(document.form.name)
+                if instance.case.document.pk != document.pk
+                else None
+            ),
             "dossierNr": graceful_get(master_data, "dossier_number"),
             "municipality": graceful_get(master_data, "municipality", key="label"),
             "signatureSectionTitle": _("Signatures"),
@@ -531,14 +535,16 @@ class DMSVisitor:
     def _visit_table_question(self, node, parent_doc=None, answer=None, **_):
         return {
             "columns": [str(column.label) for column in node.row_form.questions.all()],
-            "rows": [
-                self._visit_document(
-                    answer_document.document, form=node.row_form, flatten=True
-                )
-                for answer_document in answer.answerdocument_set.all()
-            ]
-            if answer
-            else [],
+            "rows": (
+                [
+                    self._visit_document(
+                        answer_document.document, form=node.row_form, flatten=True
+                    )
+                    for answer_document in answer.answerdocument_set.all()
+                ]
+                if answer
+                else []
+            ),
         }
 
     def _visit_choice_question(

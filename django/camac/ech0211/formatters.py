@@ -1,4 +1,5 @@
 """Helpers for exporting instance data to eCH-0211."""
+
 import datetime
 import itertools
 import logging
@@ -213,15 +214,17 @@ def application(instance: Instance):
                     number=str(plot.get("plot_number", "unknown")),
                 ),
                 realestateType="8",  # mentioned in swagger README
-                coordinates=ns_objektwesen.coordinatesType(
-                    LV95=pyxb.BIND(
-                        east=handle_coordinate_value(plot.get("coord_east")),
-                        north=handle_coordinate_value(plot.get("coord_north")),
-                        originOfCoordinates=904,
+                coordinates=(
+                    ns_objektwesen.coordinatesType(
+                        LV95=pyxb.BIND(
+                            east=handle_coordinate_value(plot.get("coord_east")),
+                            north=handle_coordinate_value(plot.get("coord_north")),
+                            originOfCoordinates=904,
+                        )
                     )
-                )
-                if all(k in plot and plot[k] for k in ["coord_east", "coord_north"])
-                else None,
+                    if all(k in plot and plot[k] for k in ["coord_east", "coord_north"])
+                    else None
+                ),
             ),
             municipality=municipality(md),
             buildingInformation=CantonSpecific.building_information(instance, md),
@@ -286,24 +289,28 @@ def application(instance: Instance):
         applicationType=assure_string_length(
             md.application_type, max_length=100
         ),  # 3.1.1.3
-        remark=[assure_string_length(md.remark, max_length=950)]
-        if md.remark
-        else [],  # 3.1.1.4
+        remark=(
+            [assure_string_length(md.remark, max_length=950)] if md.remark else []
+        ),  # 3.1.1.4
         proceedingType=md.proceeding_type,  # 3.1.1.5
         profilingYesNo=isinstance(
             md.profile_approval_date, datetime.datetime
         ),  # 3.1.1.6
         profilingDate=md.profile_approval_date,  # 3.1.1.7
         parkingLotsYesNo=bool(md.parking_lots),
-        natureRisk=[
-            ns_application.natureRiskType(
-                riskDesignation=assure_string_length(risk["risk_type"], max_length=255),
-                riskExists=True,
-            )
-            for risk in md.nature_risk
-        ]
-        if md.nature_risk
-        else None,
+        natureRisk=(
+            [
+                ns_application.natureRiskType(
+                    riskDesignation=assure_string_length(
+                        risk["risk_type"], max_length=255
+                    ),
+                    riskExists=True,
+                )
+                for risk in md.nature_risk
+            ]
+            if md.nature_risk
+            else None
+        ),
         intendedPurpose=assure_string_length(
             ", ".join(md.usage_type or []), max_length=255
         ),  # 3.1.1.8
@@ -334,9 +341,9 @@ def application(instance: Instance):
                     max_length=1000,
                 ),
                 projectStartDate=md.construction_start_date,
-                durationOfConstructionPhase=md.construction_duration
-                if md.construction_duration
-                else 999,
+                durationOfConstructionPhase=(
+                    md.construction_duration if md.construction_duration else 999
+                ),
                 totalCostsOfProject=get_cost(md.construction_costs),
             ),
             municipality=municipality(md),
@@ -346,13 +353,15 @@ def application(instance: Instance):
         ],  # Referenzierte Baugesuche 3.1.1.22 TODO: verify!
         document=get_documents(instance.attachments.all()),  # 3.2
         decisionRuling=CantonSpecific.decision_ruling(instance, md),  # 3.4
-        zone=[  # TODO: 3.8
-            ns_application.zoneType(
-                zoneDesignation=assure_string_length(md.usage_zone, max_length=255)
-            )
-        ]
-        if md.usage_zone
-        else [],  # eCH allows for max 225 chars
+        zone=(
+            [  # TODO: 3.8
+                ns_application.zoneType(
+                    zoneDesignation=assure_string_length(md.usage_zone, max_length=255)
+                )
+            ]
+            if md.usage_zone
+            else []
+        ),  # eCH allows for max 225 chars
     )
     return planning_permission_application_type
 

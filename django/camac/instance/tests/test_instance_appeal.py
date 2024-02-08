@@ -65,9 +65,11 @@ def instance_for_appeal(
 
             if task_id == "decision":
                 decision_factory(
-                    decision=be_decision_settings["ANSWERS"]["DECISION"]["APPROVED"]
-                    if instance_state_name == "sb1"
-                    else be_decision_settings["ANSWERS"]["DECISION"]["REJECTED"]
+                    decision=(
+                        be_decision_settings["ANSWERS"]["DECISION"]["APPROVED"]
+                        if instance_state_name == "sb1"
+                        else be_decision_settings["ANSWERS"]["DECISION"]["REJECTED"]
+                    )
                 )
 
             complete_work_item(work_item=work_item, user=caluma_admin_user)

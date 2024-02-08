@@ -147,14 +147,16 @@ def test_dynamic_task_after_decision(
         if task_id == "decision":
             decision = decision_factory(
                 decision=be_decision_settings["ANSWERS"]["DECISION"][decision],
-                decision_type=be_decision_settings["ANSWERS"]["APPROVAL_TYPE"][
-                    decision_type
-                ]
-                if decision_type
-                else None,
-                decision_geometer="decision-geometer-yes"
-                if involve_geometer
-                else "decision-geometer-no",
+                decision_type=(
+                    be_decision_settings["ANSWERS"]["APPROVAL_TYPE"][decision_type]
+                    if decision_type
+                    else None
+                ),
+                decision_geometer=(
+                    "decision-geometer-yes"
+                    if involve_geometer
+                    else "decision-geometer-no"
+                ),
             )
 
         fn(case.work_items.get(task_id=task_id), caluma_admin_user)
@@ -434,9 +436,11 @@ def test_dynamic_task_after_check_sb2(
     answer_factory(
         document=geometer_work_item.document,
         question__slug="geometer-beurteilung-notwendigkeit-vermessung",
-        value="geometer-beurteilung-notwendigkeit-vermessung-notwendig"
-        if perform_cadastral_survey
-        else "geometer-beurteilung-notwendigkeit-vermessung-nicht-notwendig",
+        value=(
+            "geometer-beurteilung-notwendigkeit-vermessung-notwendig"
+            if perform_cadastral_survey
+            else "geometer-beurteilung-notwendigkeit-vermessung-nicht-notwendig"
+        ),
     )
 
     complete_work_item(geometer_work_item, user=caluma_admin_user)

@@ -100,9 +100,11 @@ class WorkItemAdmin(EbauAdminMixin, LocalizedFieldsAdminMixin, ModelAdmin):
     def _get_service_names(self, ids):
         return ", ".join(
             [
-                Service.objects.filter(pk=int(id)).first().get_name()
-                if id.isdigit()
-                else id
+                (
+                    Service.objects.filter(pk=int(id)).first().get_name()
+                    if id.isdigit()
+                    else id
+                )
                 for id in ids
             ]
         )
