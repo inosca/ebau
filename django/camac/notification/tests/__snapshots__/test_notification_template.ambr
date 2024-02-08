@@ -148,7 +148,7 @@
           field_bezeichnung: abc
           field_durchmesser_der_bohrung: 1
           billing_entries:
-              - Alex Smith: 903.24 CHF, erstellt am 12.05.1999 auf Kostenstelle John Bonilla / Shannon Cruz (Nr. 0000)
+              - Alex Smith: 903.24 CHF, erstellt am 04.05.2014 auf Kostenstelle John Bonilla / Shannon Cruz (Nr. 0000)
           bauverwaltung:
               - beschwerdeverfahren_weiterzug_durch: Beschwerdegegner
               - bewilligungsverfahren_gr_sitzung_beschluss: foo
@@ -160,7 +160,7 @@
               - bewilligungsverfahren_sitzung_baukommission:
                   - Bemerkung: Foo Bar, Nr: 78
           publications:
-              - 14.05.1990 - 19.09.2002 (W20)
+              - 20.12.1989 - 08.01.2004 (W51)
       
   '''
 # ---

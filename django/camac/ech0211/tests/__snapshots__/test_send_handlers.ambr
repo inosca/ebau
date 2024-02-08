@@ -39,10 +39,10 @@
   			<ns4:files>
   				<ns4:file>
   					<ns4:pathFileName>http://ebau.local/api/v1/attachments/files/?attachments=<!-- ATTACHMENT_ID --></ns4:pathFileName>
-  					<ns4:mimeType>image/svg+xml</ns4:mimeType>
+  					<ns4:mimeType>text/cmd</ns4:mimeType>
   				</ns4:file>
   			</ns4:files>
-  			<ns4:documentKind>Zachary Williams</ns4:documentKind>
+  			<ns4:documentKind>Patrick Adams</ns4:documentKind>
   		</ns1:document>
   		<ns1:remark>Wird in das Feld &quot;Stellungnahme&quot; übernommen.</ns1:remark>
   		<ns1:ancillaryClauses>Wird in das Feld &quot;Nebenbestimmungen&quot; übernommen.; Wird in das Feld &quot;Nebenbestimmungen&quot; übernommen.</ns1:ancillaryClauses>
