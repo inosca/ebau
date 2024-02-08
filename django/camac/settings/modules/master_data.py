@@ -2121,6 +2121,14 @@ MASTER_DATA = {
                 },
             ),
             "land_use_planning_land_use": ("answer", "nutzungsplanung-grundnutzung"),
+            "decision_date": (
+                "answer",
+                "entscheid-datum",
+                {
+                    "document_from_work_item": "decision",
+                    "value_key": "date",
+                },
+            ),
         },
     },
 }
