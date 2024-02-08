@@ -147,7 +147,7 @@ def ech0206__config(gis_data_source_factory, question_factory):
                     },
                     {
                         "question": "weitere-energie-waermequelle-heizung",
-                        "propertyName": "thermotechnicalDeviceForHeating1.energySourceHeating",
+                        "propertyName": "thermotechnicalDeviceForHeating2.energySourceHeating",
                     },
                     {
                         "question": "waermeerzeuger-heizung",

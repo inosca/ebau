@@ -976,7 +976,7 @@
       "template": null,
       "class_field": "menu-category-process",
       "hidden": 0,
-      "sort": 11,
+      "sort": 12,
       "form_group": 2000000,
       "require_permission": null
     }
@@ -1024,7 +1024,7 @@
       "template": "/ember-camac-ng/permissions.phtml",
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 15,
+      "sort": 16,
       "form_group": 2000000,
       "require_permission": null
     }
@@ -1056,7 +1056,7 @@
       "template": "/ember-camac-ng/journal.phtml",
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 12,
+      "sort": 13,
       "form_group": 2000000,
       "require_permission": null
     }
@@ -1088,7 +1088,7 @@
       "template": "/ember-camac-ng/corrections.phtml",
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 14,
+      "sort": 15,
       "form_group": 2000000,
       "require_permission": null
     }
@@ -1120,7 +1120,7 @@
       "template": null,
       "class_field": "menu-category-process",
       "hidden": 0,
-      "sort": 10,
+      "sort": 11,
       "form_group": 2000000,
       "require_permission": null
     }
@@ -1136,7 +1136,7 @@
       "template": "/ember-camac-ng/rejection.phtml",
       "class_field": "menu-category-process",
       "hidden": 0,
-      "sort": 9,
+      "sort": 10,
       "form_group": 2000000,
       "require_permission": null
     }
@@ -1168,7 +1168,23 @@
       "template": null,
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 13,
+      "sort": 14,
+      "form_group": 2000000,
+      "require_permission": null
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 21000000,
+    "fields": {
+      "available_instance_resource": "page",
+      "resource": 20006,
+      "name": null,
+      "description": null,
+      "template": "/ember-camac-ng/gwr.phtml",
+      "class_field": "menu-category-process",
+      "hidden": 0,
+      "sort": 9,
       "form_group": 2000000,
       "require_permission": null
     }
@@ -1436,6 +1452,16 @@
       "instance_resource": 18000001,
       "language": "de",
       "name": "History",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 21000000,
+    "fields": {
+      "instance_resource": 21000000,
+      "language": "de",
+      "name": "Verknüpfte GWR-Bauprojekte",
       "description": null
     }
   },
@@ -3618,6 +3644,42 @@
   },
   {
     "model": "core.irroleacl",
+    "pk": 15000030,
+    "fields": {
+      "instance_resource": 21000000,
+      "role": 3,
+      "instance_state": 120010
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 15000031,
+    "fields": {
+      "instance_resource": 21000000,
+      "role": 3,
+      "instance_state": 120007
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 15000032,
+    "fields": {
+      "instance_resource": 21000000,
+      "role": 3,
+      "instance_state": 120006
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 15000033,
+    "fields": {
+      "instance_resource": 21000000,
+      "role": 3,
+      "instance_state": 120011
+    }
+  },
+  {
+    "model": "core.irroleacl",
     "pk": 18000000,
     "fields": {
       "instance_resource": 18000000,
@@ -3668,6 +3730,24 @@
       "instance_resource": 18000001,
       "role": 3,
       "instance_state": 120006
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 21000000,
+    "fields": {
+      "instance_resource": 21000000,
+      "role": 3,
+      "instance_state": 120009
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 21000001,
+    "fields": {
+      "instance_resource": 21000000,
+      "role": 3,
+      "instance_state": 120005
     }
   },
   {
@@ -4158,6 +4238,14 @@
     }
   },
   {
+    "model": "core.rroleacl",
+    "pk": 21000000,
+    "fields": {
+      "resource": 14000006,
+      "role": 3
+    }
+  },
+  {
     "model": "core.resource",
     "pk": 20006,
     "fields": {
@@ -4249,6 +4337,19 @@
     }
   },
   {
+    "model": "core.resource",
+    "pk": 14000006,
+    "fields": {
+      "available_resource": "page",
+      "name": null,
+      "description": null,
+      "template": "/ember-camac-ng/gwr-global.phtml",
+      "class_field": "page",
+      "hidden": 0,
+      "sort": 11
+    }
+  },
+  {
     "model": "core.resourcet",
     "pk": 20006,
     "fields": {
@@ -4336,6 +4437,16 @@
       "language": "de",
       "name": "Meine Organisation",
       "description": "Verwaltung von Berechtigungen, Stammdaten und Unterfachstellen"
+    }
+  },
+  {
+    "model": "core.resourcet",
+    "pk": 21000000,
+    "fields": {
+      "resource": 14000006,
+      "language": "de",
+      "name": "GWR",
+      "description": null
     }
   }
 ]

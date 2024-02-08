@@ -3,6 +3,7 @@ from django.urls import reverse
 from rest_framework import status
 
 from camac.conftest import sz_master_data_case  # noqa
+from camac.instance.tests.test_master_data import gr_master_data_case  # noqa
 from camac.instance.tests.test_master_data import sz_master_data_case_gwr  # noqa
 from camac.instance.tests.test_master_data import sz_master_data_case_gwr_v2  # noqa
 
@@ -25,6 +26,7 @@ def test_gwr_data_ur(
     utils,
 ):
     settings.APPLICATION_NAME = "kt_uri"
+    settings.APPLICATION["SHORT_NAME"] = "ur"
 
     ur_instance.case.meta = {"dossier-number": "1201-21-003"}
     ur_instance.case.save()
@@ -85,6 +87,7 @@ def test_instance_gwr_data_sz_gwr(
     sz_master_data_settings,
 ):
     settings.APPLICATION_NAME = "kt_schwyz"
+    settings.APPLICATION["SHORT_NAME"] = "sz"
 
     url = reverse("instance-gwr-data", args=[sz_instance.pk])
 
@@ -105,8 +108,29 @@ def test_instance_gwr_data_sz_gwr_v2(
     sz_master_data_settings,
 ):
     settings.APPLICATION_NAME = "kt_schwyz"
+    settings.APPLICATION["SHORT_NAME"] = "sz"
 
     url = reverse("instance-gwr-data", args=[sz_instance.pk])
+
+    response = admin_client.get(url)
+    assert response.status_code == status.HTTP_200_OK
+
+    snapshot.assert_match(response.json())
+
+
+def test_instance_gwr_data_gr_gwr(
+    admin_client,
+    user,
+    gr_instance,
+    application_settings,
+    settings,
+    snapshot,
+    gr_master_data_case,  # noqa
+):
+    settings.APPLICATION_NAME = "kt_gr"
+    settings.APPLICATION["SHORT_NAME"] = "gr"
+
+    url = reverse("instance-gwr-data", args=[gr_instance.pk])
 
     response = admin_client.get(url)
     assert response.status_code == status.HTTP_200_OK

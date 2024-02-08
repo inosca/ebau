@@ -329,5 +329,18 @@
       "subservice": ["circulation", "decision", "finished"],
       "support": ["circulation", "finished", "new", "rejected", "subm"]
     }
+  },
+  "21000000": {
+    "label": "Meine Dossiers (Dossier list (Caluma)) > Verknüpfte GWR-Bauprojekte",
+    "acls": {
+      "municipality-lead": [
+        "circulation",
+        "construction-acceptance",
+        "decision",
+        "finished",
+        "init-distribution",
+        "rejected"
+      ]
+    }
   }
 }
