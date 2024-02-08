@@ -1,6 +1,6 @@
 Babel==2.10.3
 caluma==9.3.3
-caluma-alexandria==3.0.0-beta.7
+caluma-alexandria==3.0.0-beta.8
 dataclasses-json==0.5.7
 deepmerge==1.0.1
 Django==3.2.23
