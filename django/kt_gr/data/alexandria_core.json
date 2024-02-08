@@ -38,7 +38,9 @@
       "document": "bc1d9ef1-86c5-46bc-8048-33e8afb68d0b",
       "checksum": null,
       "encryption_status": null,
-      "content": "98e43114-01dc-4d4d-8cbf-b5e91f34d7cb_4-baugesuch.pdf"
+      "content": "98e43114-01dc-4d4d-8cbf-b5e91f34d7cb_4-baugesuch.pdf",
+      "mime_type": "application/pdf",
+      "size": 0
     }
   }
 ]

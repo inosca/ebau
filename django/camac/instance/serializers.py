@@ -1208,7 +1208,11 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
                 },
             )
             alexandria_models.File.objects.create(
-                name=pdf.name, document=document, content=pdf
+                name=pdf.name,
+                document=document,
+                content=pdf,
+                mime_type=pdf.content_type,
+                size=pdf.size,
             )
         else:
             attachment_section = AttachmentSection.objects.get(pk=target_lookup)
