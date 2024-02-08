@@ -13,7 +13,15 @@
         "rejected",
         "subm"
       ],
+      "service-lead": [
+        "circulation",
+        "decision",
+        "finished",
+        "rejected",
+        "subm"
+      ],
       "subservice": ["circulation", "decision", "finished"],
+      "support": ["new", "rejected", "subm"],
       "uso": [
         "circulation",
         "construction-acceptance",
@@ -24,20 +32,13 @@
         "new",
         "rejected",
         "subm"
-      ],
-      "service-lead": [
-        "circulation",
-        "decision",
-        "finished",
-        "subm",
-        "rejected"
-      ],
-      "support": ["new", "rejected", "subm"]
+      ]
     }
   },
   "2000001": {
     "label": "Meine Dossiers (Dossier list (Caluma)) > Formular",
     "acls": {
+      "applicant": ["decision"],
       "municipality-lead": [
         "circulation",
         "construction-acceptance",
@@ -49,17 +50,16 @@
         "rejected",
         "subm"
       ],
-      "applicant": ["decision"],
-      "subservice": ["circulation", "finished"],
-      "uso": ["circulation", "decision", "finished", "subm"],
       "service-lead": [
         "circulation",
         "decision",
         "finished",
-        "subm",
-        "rejected"
+        "rejected",
+        "subm"
       ],
-      "support": ["new", "rejected", "subm"]
+      "subservice": ["circulation", "finished"],
+      "support": ["new", "rejected", "subm"],
+      "uso": ["circulation", "decision", "finished", "subm"]
     }
   },
   "2000002": {
@@ -114,6 +114,13 @@
         "init-distribution",
         "rejected"
       ],
+      "subservice": [
+        "circulation",
+        "construction-acceptance",
+        "decision",
+        "finished",
+        "init-distribution"
+      ],
       "support": [
         "circulation",
         "construction-acceptance",
@@ -124,13 +131,6 @@
         "new",
         "rejected",
         "subm"
-      ],
-      "subservice": [
-        "circulation",
-        "construction-acceptance",
-        "decision",
-        "finished",
-        "init-distribution"
       ]
     }
   },
@@ -156,21 +156,21 @@
         "circulation",
         "construction-acceptance",
         "decision",
+        "finished",
         "init-distribution",
         "new",
-        "rejected",
-        "finished"
+        "rejected"
       ],
-      "subservice": ["circulation", "decision", "finished"],
-      "uso": ["circulation", "decision", "finished", "subm"],
       "service-lead": [
         "circulation",
         "decision",
         "finished",
-        "subm",
-        "rejected"
+        "rejected",
+        "subm"
       ],
-      "support": ["circulation", "finished", "new", "rejected", "subm"]
+      "subservice": ["circulation", "decision", "finished"],
+      "support": ["circulation", "finished", "new", "rejected", "subm"],
+      "uso": ["circulation", "decision", "finished", "subm"]
     }
   },
   "14000008": {
@@ -192,11 +192,11 @@
         "decision",
         "finished",
         "new",
-        "subm",
-        "rejected"
+        "rejected",
+        "subm"
       ],
-      "support": ["circulation", "finished", "new", "rejected", "subm"],
-      "subservice": ["circulation", "decision", "finished"]
+      "subservice": ["circulation", "decision", "finished"],
+      "support": ["circulation", "finished", "new", "rejected", "subm"]
     }
   },
   "14000011": {
@@ -217,11 +217,11 @@
         "circulation",
         "decision",
         "finished",
-        "subm",
-        "rejected"
+        "rejected",
+        "subm"
       ],
-      "support": ["circulation", "finished", "new", "rejected", "subm"],
-      "subservice": ["circulation", "decision", "finished"]
+      "subservice": ["circulation", "decision", "finished"],
+      "support": ["circulation", "finished", "new", "rejected", "subm"]
     }
   },
   "14000014": {
@@ -323,11 +323,11 @@
         "circulation",
         "decision",
         "finished",
-        "subm",
-        "rejected"
+        "rejected",
+        "subm"
       ],
-      "support": ["circulation", "finished", "new", "rejected", "subm"],
-      "subservice": ["circulation", "decision", "finished"]
+      "subservice": ["circulation", "decision", "finished"],
+      "support": ["circulation", "finished", "new", "rejected", "subm"]
     }
   }
 }
