@@ -576,7 +576,7 @@
       "form_state": 1,
       "name": "vorentscheid-gemass-ss84-pbg-v9",
       "description": "Vorentscheid gemäss § 84 PBG",
-      "family": null
+      "family": 3
     }
   },
   {
@@ -586,7 +586,7 @@
       "form_state": 1,
       "name": "baugesuch-reklamegesuch-v9",
       "description": "Baugesuch",
-      "family": null
+      "family": 1
     }
   },
   {
@@ -596,7 +596,7 @@
       "form_state": 1,
       "name": "projektanderung-v10",
       "description": "Projektänderung zu bewilligtem Baugesuch",
-      "family": null
+      "family": 2
     }
   },
   {
@@ -606,7 +606,7 @@
       "form_state": 1,
       "name": "technische-bewilligung-v4",
       "description": "Gesuch um technische Bewilligung",
-      "family": null
+      "family": 6
     }
   },
   {
@@ -616,7 +616,7 @@
       "form_state": 1,
       "name": "baumeldung-fur-geringfugiges-vorhaben-v6",
       "description": "Baumeldung für geringfügiges Vorhaben",
-      "family": null
+      "family": 5
     }
   },
   {
@@ -626,7 +626,7 @@
       "form_state": 1,
       "name": "projektgenehmigungsgesuch-gemass-ss15-strag-v5",
       "description": "Projektgenehmigungsgesuch gemäss § 15 StraG",
-      "family": null
+      "family": 9
     }
   },
   {
@@ -636,7 +636,7 @@
       "form_state": 1,
       "name": "konzession-fur-wasserentnahme-v5",
       "description": "Gesuch für Wasserentnahme",
-      "family": null
+      "family": 7
     }
   },
   {
