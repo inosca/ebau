@@ -38,7 +38,9 @@
       "document": "cdf48370-2dd5-458e-95e4-80edebe21a66",
       "checksum": "sha256:f6edcd8a1b4f7cb85486d0c6777f9174eadbc4d1d0d9e5aeba7132f30b34bc3e",
       "encryption_status": null,
-      "content": "30c7d656-2464-415c-9b4b-377313ac0e79_Situationsplan.pdf"
+      "content": "30c7d656-2464-415c-9b4b-377313ac0e79_Situationsplan.pdf",
+      "mime_type": "application/pdf",
+      "size": 20597
     }
   },
   {
@@ -58,7 +60,9 @@
       "document": "cdf48370-2dd5-458e-95e4-80edebe21a66",
       "checksum": null,
       "encryption_status": null,
-      "content": "c9026529-e853-4af3-8d29-f5b0dfe5d434_Situationsplan.pdf.jpg"
+      "content": "c9026529-e853-4af3-8d29-f5b0dfe5d434_Situationsplan.pdf.jpg",
+      "mime_type": "image/jpeg",
+      "size": 1024
     }
   }
 ]
