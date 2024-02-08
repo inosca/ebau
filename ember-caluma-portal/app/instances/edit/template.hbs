@@ -3,18 +3,23 @@
   @hasPermission={{can "read instance" this.instance}}
 >
   {{#if (not (is-embedded))}}
-    <h2>
-      {{or this.case.type this.case.document.form.name}}
-      {{this.instance.typeDetail}}
-      <span class="uk-text-light">
-        ({{t "instances.instance-id"}}
-        {{this.model}})
-      </span>
-    </h2>
+    <div class="uk-flex uk-flex-between">
+      <h2>
+        {{or this.case.type this.case.document.form.name}}
+        {{this.instance.typeDetail}}
+        <span class="uk-text-light">
+          ({{t "instances.instance-id"}}
+          {{this.model}})
+        </span>
+      </h2>
+      {{#if (has-feature "municipalityLogo")}}
+        <ActiveMunicipalityLogo @case={{this.case}} />
+      {{/if}}
+    </div>
   {{/if}}
 
   {{#if (can "read instance" this.instance)}}
-    <UkTab as |Tab|>
+    <UkTab class="uk-margin-remove-top" as |Tab|>
       {{#if (not (is-embedded))}}
         <Tab.item
           @href={{concat "/instances/" @model}}

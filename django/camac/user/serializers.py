@@ -370,6 +370,7 @@ class ServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):
             "municipality",
             "responsibility_construction_control",
             "disabled",
+            "logo",
         )
         read_only_fields = (
             "users",
@@ -377,6 +378,7 @@ class ServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):
             "service_parent",
             "service_group",
             "municipality",
+            "logo",
         )
 
 
@@ -423,7 +425,12 @@ class PublicServiceSerializer(MultilingualSerializer, serializers.ModelSerialize
 
     class Meta:
         model = models.Service
-        fields = ("name", "website", "service_group")
+        fields = (
+            "name",
+            "website",
+            "service_group",
+            "logo",
+        )
         resource_name = "public-services"
 
 

@@ -548,6 +548,10 @@ class ServiceRelation(models.Model):
         unique_together = ("receiver", "function")
 
 
+def logo_path(service, filename):  # pragma: no cover
+    return f"services/{service.pk}/{filename}"
+
+
 class Service(core_models.MultilingualModel, models.Model):
     """Represents an organisational entity which can be hierarchically structured.
 
@@ -623,6 +627,12 @@ class Service(core_models.MultilingualModel, models.Model):
         blank=True,
         null=True,
         verbose_name=_("Website"),
+    )
+    logo = models.ImageField(
+        upload_to=logo_path,
+        blank=True,
+        null=True,
+        verbose_name=_("Logo"),
     )
     disabled = models.PositiveSmallIntegerField(
         db_column="DISABLED", default=0, verbose_name=_("Disabled?")

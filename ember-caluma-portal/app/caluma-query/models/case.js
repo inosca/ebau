@@ -1,7 +1,10 @@
 import { inject as service } from "@ember/service";
 import CaseModel from "@projectcaluma/ember-core/caluma-query/models/case";
 import mainConfig from "ember-ebau-core/config/main";
-import { getAnswerDisplayValue } from "ember-ebau-core/utils/get-answer";
+import {
+  getAnswerDisplayValue,
+  getAnswer,
+} from "ember-ebau-core/utils/get-answer";
 
 import getFormTitle from "caluma-portal/utils/form-title";
 
@@ -48,6 +51,11 @@ export default class CustomCaseModel extends CaseModel {
 
   get municipality() {
     return this._getAnswerDisplayValue(answerSlugs.municipality);
+  }
+
+  get municipalityId() {
+    return getAnswer(this.raw.document, answerSlugs.municipality)?.node
+      .stringValue;
   }
 
   get submitDate() {

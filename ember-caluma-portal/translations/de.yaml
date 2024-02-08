@@ -168,6 +168,7 @@ index:
 
 instances:
   title: "Meine Dossiers"
+  logo: "Logo {service}"
   instance-id: "Dossier-Nr."
   special-id: "eBau-Nr."
   type: "Gesuchstyp"
