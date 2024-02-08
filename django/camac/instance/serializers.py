@@ -1206,14 +1206,23 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
                     "camac-instance-id": str(instance.pk),
                     "system-generated": True,
                 },
+                created_by_user=request.user.pk,
+                created_by_group=request.group.service_id,
+                modified_by_user=request.user.pk,
+                modified_by_group=request.group.service_id,
             )
-            alexandria_models.File.objects.create(
+            file = alexandria_models.File.objects.create(
                 name=pdf.name,
                 document=document,
                 content=pdf,
                 mime_type=pdf.content_type,
                 size=pdf.size,
+                created_by_user=request.user.pk,
+                created_by_group=request.group.service_id,
+                modified_by_user=request.user.pk,
+                modified_by_group=request.group.service_id,
             )
+            file.create_thumbnail()
         else:
             attachment_section = AttachmentSection.objects.get(pk=target_lookup)
             attachment_section.attachments.create(
