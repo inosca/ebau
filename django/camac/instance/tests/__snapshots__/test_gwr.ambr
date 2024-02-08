@@ -94,6 +94,78 @@
     ]),
   })
 # ---
+# name: test_instance_gwr_data_gr_gwr
+  dict({
+    'buildingPermitIssueDate': None,
+    'client': dict({
+      'address': dict({
+        'country': dict({
+          'countryNameShort': None,
+        }),
+        'houseNumber': 321,
+        'street': 'Testweg',
+        'swissZipCode': 4321,
+        'town': 'Testingen',
+      }),
+      'identification': dict({
+        'isOrganisation': True,
+        'organisationIdentification': dict({
+          'organisationName': 'Test AG',
+        }),
+        'personIdentification': None,
+      }),
+    }),
+    'constructionLocalisation': dict({
+      'municipalityName': 'Chur',
+    }),
+    'constructionProjectDescription': 'Einfamilienhaus',
+    'officialConstructionProjectFileNo': '2023-1',
+    'projectAnnouncementDate': '2021-03-31',
+    'projectCompletionDate': None,
+    'projectStartDate': None,
+    'realestateIdentification': dict({
+      'EGRID': 'CH334687150542',
+      'number': 123465,
+    }),
+    'totalCostsOfProject': 4000,
+    'typeOfClient': None,
+    'typeOfConstruction': None,
+    'typeOfConstructionProject': None,
+    'typeOfPermit': None,
+    'work': list([
+      dict({
+        'building': dict({
+          'buildingCategory': None,
+          'civilDefenseShelter': None,
+          'dateOfConstruction': None,
+          'dwellings': list([
+          ]),
+          'nameOfBuilding': None,
+          'numberOfFloors': None,
+          'numberOfSeparateHabitableRooms': None,
+          'realestateIdentification': None,
+          'thermotechnicalDeviceForHeating1': dict({
+            'energySourceHeating': 7540,
+            'heatGeneratorHeating': 7430,
+          }),
+          'thermotechnicalDeviceForHeating2': dict({
+            'energySourceHeating': 7530,
+            'heatGeneratorHeating': 7499,
+          }),
+          'thermotechnicalDeviceForWarmWater1': dict({
+            'energySourceHeating': 7510,
+            'heatGeneratorHotWater': 7651,
+          }),
+          'thermotechnicalDeviceForWarmWater2': dict({
+            'energySourceHeating': 7512,
+            'heatGeneratorHotWater': 7660,
+          }),
+        }),
+        'kindOfWork': None,
+      }),
+    ]),
+  })
+# ---
 # name: test_instance_gwr_data_sz_gwr
   dict({
     'buildingPermitIssueDate': None,

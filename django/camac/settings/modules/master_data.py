@@ -1775,7 +1775,7 @@ MASTER_DATA = {
             "street_number": ("answer", "nr"),  # unused
             "zip": ("answer", "plz"),
             "city": ("answer", "ort-grundstueck"),
-            "construction_costs": ("answer", "baukosten-in-chf"),
+            "construction_costs": ("answer", "baukosten"),
             "municipality": ("answer", "gemeinde", {"value_parser": "dynamic_option"}),
             "municipality_name": (
                 "answer",
@@ -1815,6 +1815,253 @@ MASTER_DATA = {
                 {
                     "document_from_work_item": "decision",
                     "value_key": "date",
+                },
+            ),
+            "buildings": (
+                "table",
+                "gebaeude-und-anlagen",
+                {
+                    "column_mapping": {
+                        "insurance_number": "amtliche-gebaeudenummer",
+                        "heating_heat_generator": (
+                            "waermeerzeuger-heizung",
+                            {
+                                "value_parser": (
+                                    "value_mapping",
+                                    {
+                                        "mapping": {
+                                            "waermeerzeuger-heizung-7400": 7400,
+                                            "waermeerzeuger-heizung-7410": 7410,
+                                            "waermeerzeuger-heizung-7411": 7411,
+                                            "waermeerzeuger-heizung-7420": 7420,
+                                            "waermeerzeuger-heizung-7421": 7421,
+                                            "waermeerzeuger-heizung-7430": 7430,
+                                            "waermeerzeuger-heizung-7431": 7431,
+                                            "waermeerzeuger-heizung-7432": 7432,
+                                            "waermeerzeuger-heizung-7433": 7433,
+                                            "waermeerzeuger-heizung-7434": 7434,
+                                            "waermeerzeuger-heizung-7435": 7435,
+                                            "waermeerzeuger-heizung-7436": 7436,
+                                            "waermeerzeuger-heizung-7440": 7440,
+                                            "waermeerzeuger-heizung-7441": 7441,
+                                            "waermeerzeuger-heizung-7450": 7450,
+                                            "waermeerzeuger-heizung-7451": 7451,
+                                            "waermeerzeuger-heizung-7452": 7452,
+                                            "waermeerzeuger-heizung-7460": 7460,
+                                            "waermeerzeuger-heizung-7461": 7461,
+                                            "waermeerzeuger-heizung-7499": 7499,
+                                            "waermeerzeuger-heizung-noch-nicht-festgelegt": None,
+                                        }
+                                    },
+                                )
+                            },
+                        ),
+                        "additional_heating_heat_generator": (
+                            "weitere-waermeerzeuger-heizung",
+                            {
+                                "value_parser": (
+                                    "value_mapping",
+                                    {
+                                        "mapping": {
+                                            "weitere-waermeerzeuger-heizung-7400": 7400,
+                                            "weitere-waermeerzeuger-heizung-7410": 7410,
+                                            "weitere-waermeerzeuger-heizung-7411": 7411,
+                                            "weitere-waermeerzeuger-heizung-7420": 7420,
+                                            "weitere-waermeerzeuger-heizung-7421": 7421,
+                                            "weitere-waermeerzeuger-heizung-7430": 7430,
+                                            "weitere-waermeerzeuger-heizung-7431": 7431,
+                                            "weitere-waermeerzeuger-heizung-7432": 7432,
+                                            "weitere-waermeerzeuger-heizung-7433": 7433,
+                                            "weitere-waermeerzeuger-heizung-7434": 7434,
+                                            "weitere-waermeerzeuger-heizung-7435": 7435,
+                                            "weitere-waermeerzeuger-heizung-7436": 7436,
+                                            "weitere-waermeerzeuger-heizung-7440": 7440,
+                                            "weitere-waermeerzeuger-heizung-7441": 7441,
+                                            "weitere-waermeerzeuger-heizung-7450": 7450,
+                                            "weitere-waermeerzeuger-heizung-7451": 7451,
+                                            "weitere-waermeerzeuger-heizung-7452": 7452,
+                                            "weitere-waermeerzeuger-heizung-7460": 7460,
+                                            "weitere-waermeerzeuger-heizung-7461": 7461,
+                                            "weitere-waermeerzeuger-heizung-7499": 7499,
+                                            "weitere-waermeerzeuger-heizung-noch-nicht-festgelegt": None,
+                                        }
+                                    },
+                                )
+                            },
+                        ),
+                        "heating_energy_source": (
+                            "energie-waermequelle-heizung",
+                            {
+                                "value_parser": (
+                                    "value_mapping",
+                                    {
+                                        "mapping": {
+                                            "energie-waermequelle-heizung-7500": 7500,
+                                            "energie-waermequelle-heizung-7501": 7501,
+                                            "energie-waermequelle-heizung-7510": 7510,
+                                            "energie-waermequelle-heizung-7511": 7511,
+                                            "energie-waermequelle-heizung-7512": 7512,
+                                            "energie-waermequelle-heizung-7513": 7513,
+                                            "energie-waermequelle-heizung-7520": 7520,
+                                            "energie-waermequelle-heizung-7530": 7530,
+                                            "energie-waermequelle-heizung-7540": 7540,
+                                            "energie-waermequelle-heizung-7541": 7541,
+                                            "energie-waermequelle-heizung-7542": 7542,
+                                            "energie-waermequelle-heizung-7550": 7550,
+                                            "energie-waermequelle-heizung-7560": 7560,
+                                            "energie-waermequelle-heizung-7570": 7570,
+                                            "energie-waermequelle-heizung-7580": 7580,
+                                            "energie-waermequelle-heizung-7581": 7581,
+                                            "energie-waermequelle-heizung-7582": 7582,
+                                            "energie-waermequelle-heizung-7598": 7598,
+                                            "energie-waermequelle-heizung-7599": 7599,
+                                            "energie-waermequelle-heizung-noch-nicht-festgelegt": None,
+                                        }
+                                    },
+                                )
+                            },
+                        ),
+                        "additional_heating_energy_source": (
+                            "weitere-energie-waermequelle-heizung",
+                            {
+                                "value_parser": (
+                                    "value_mapping",
+                                    {
+                                        "mapping": {
+                                            "weitere-energie-waermequelle-heizung-7500": 7500,
+                                            "weitere-energie-waermequelle-heizung-7501": 7501,
+                                            "weitere-energie-waermequelle-heizung-7510": 7510,
+                                            "weitere-energie-waermequelle-heizung-7511": 7511,
+                                            "weitere-energie-waermequelle-heizung-7512": 7512,
+                                            "weitere-energie-waermequelle-heizung-7513": 7513,
+                                            "weitere-energie-waermequelle-heizung-7520": 7520,
+                                            "weitere-energie-waermequelle-heizung-7530": 7530,
+                                            "weitere-energie-waermequelle-heizung-7540": 7540,
+                                            "weitere-energie-waermequelle-heizung-7541": 7541,
+                                            "weitere-energie-waermequelle-heizung-7542": 7542,
+                                            "weitere-energie-waermequelle-heizung-7550": 7550,
+                                            "weitere-energie-waermequelle-heizung-7560": 7560,
+                                            "weitere-energie-waermequelle-heizung-7570": 7570,
+                                            "weitere-energie-waermequelle-heizung-7580": 7580,
+                                            "weitere-energie-waermequelle-heizung-7581": 7581,
+                                            "weitere-energie-waermequelle-heizung-7582": 7582,
+                                            "weitere-energie-waermequelle-heizung-7598": 7598,
+                                            "weitere-energie-waermequelle-heizung-7599": 7599,
+                                            "weitere-energie-waermequelle-heizung-noch-nicht-festgelegt": None,
+                                        }
+                                    },
+                                )
+                            },
+                        ),
+                        "warmwater_heat_generator": (
+                            "waermeerzeuger-warmwasser",
+                            {
+                                "value_parser": (
+                                    "value_mapping",
+                                    {
+                                        "mapping": {
+                                            "waermeerzeuger-warmwasser-7600": 7600,
+                                            "waermeerzeuger-warmwasser-7610": 7610,
+                                            "waermeerzeuger-warmwasser-7620": 7620,
+                                            "waermeerzeuger-warmwasser-7630": 7630,
+                                            "waermeerzeuger-warmwasser-7632": 7632,
+                                            "waermeerzeuger-warmwasser-7634": 7634,
+                                            "waermeerzeuger-warmwasser-7640": 7640,
+                                            "waermeerzeuger-warmwasser-7650": 7650,
+                                            "waermeerzeuger-warmwasser-7651": 7651,
+                                            "waermeerzeuger-warmwasser-7660": 7660,
+                                            "waermeerzeuger-warmwasser-7699": 7699,
+                                        }
+                                    },
+                                )
+                            },
+                        ),
+                        "additional_warmwater_heat_generator": (
+                            "weitere-waermeerzeuger-warmwasser",
+                            {
+                                "value_parser": (
+                                    "value_mapping",
+                                    {
+                                        "mapping": {
+                                            "weitere-waermeerzeuger-warmwasser-7600": 7600,
+                                            "weitere-waermeerzeuger-warmwasser-7610": 7610,
+                                            "weitere-waermeerzeuger-warmwasser-7620": 7620,
+                                            "weitere-waermeerzeuger-warmwasser-7630": 7630,
+                                            "weitere-waermeerzeuger-warmwasser-7632": 7632,
+                                            "weitere-waermeerzeuger-warmwasser-7634": 7634,
+                                            "weitere-waermeerzeuger-warmwasser-7640": 7640,
+                                            "weitere-waermeerzeuger-warmwasser-7650": 7650,
+                                            "weitere-waermeerzeuger-warmwasser-7651": 7651,
+                                            "weitere-waermeerzeuger-warmwasser-7660": 7660,
+                                            "weitere-waermeerzeuger-warmwasser-7699": 7699,
+                                        }
+                                    },
+                                )
+                            },
+                        ),
+                        "warmwater_energy_source": (
+                            "energie-waermequelle-warmwasser",
+                            {
+                                "value_parser": (
+                                    "value_mapping",
+                                    {
+                                        "mapping": {
+                                            "energie-waermequelle-warmwasser-7500": 7500,
+                                            "energie-waermequelle-warmwasser-7501": 7501,
+                                            "energie-waermequelle-warmwasser-7510": 7510,
+                                            "energie-waermequelle-warmwasser-7511": 7511,
+                                            "energie-waermequelle-warmwasser-7512": 7512,
+                                            "energie-waermequelle-warmwasser-7513": 7513,
+                                            "energie-waermequelle-warmwasser-7520": 7520,
+                                            "energie-waermequelle-warmwasser-7530": 7530,
+                                            "energie-waermequelle-warmwasser-7540": 7540,
+                                            "energie-waermequelle-warmwasser-7541": 7541,
+                                            "energie-waermequelle-warmwasser-7550": 7550,
+                                            "energie-waermequelle-warmwasser-7560": 7560,
+                                            "energie-waermequelle-warmwasser-7570": 7570,
+                                            "energie-waermequelle-warmwasser-7580": 7580,
+                                            "energie-waermequelle-warmwasser-7581": 7581,
+                                            "energie-waermequelle-warmwasser-7582": 7582,
+                                            "energie-waermequelle-warmwasser-7598": 7598,
+                                            "energie-waermequelle-warmwasser-7599": 7599,
+                                            "energie-waermequelle-warmwasser-noch-nicht-festgelegt": None,
+                                        }
+                                    },
+                                )
+                            },
+                        ),
+                        "additional_warmwater_energy_source": (
+                            "weitere-energie-waermequelle-warmwasser",
+                            {
+                                "value_parser": (
+                                    "value_mapping",
+                                    {
+                                        "mapping": {
+                                            "weitere-energie-waermequelle-warmwasser-7500": 7500,
+                                            "weitere-energie-waermequelle-warmwasser-7501": 7501,
+                                            "weitere-energie-waermequelle-warmwasser-7510": 7510,
+                                            "weitere-energie-waermequelle-warmwasser-7511": 7511,
+                                            "weitere-energie-waermequelle-warmwasser-7512": 7512,
+                                            "weitere-energie-waermequelle-warmwasser-7513": 7513,
+                                            "weitere-energie-waermequelle-warmwasser-7520": 7520,
+                                            "weitere-energie-waermequelle-warmwasser-7530": 7530,
+                                            "weitere-energie-waermequelle-warmwasser-7540": 7540,
+                                            "weitere-energie-waermequelle-warmwasser-7541": 7541,
+                                            "weitere-energie-waermequelle-warmwasser-7550": 7550,
+                                            "weitere-energie-waermequelle-warmwasser-7560": 7560,
+                                            "weitere-energie-waermequelle-warmwasser-7570": 7570,
+                                            "weitere-energie-waermequelle-warmwasser-7580": 7580,
+                                            "weitere-energie-waermequelle-warmwasser-7581": 7581,
+                                            "weitere-energie-waermequelle-warmwasser-7582": 7582,
+                                            "weitere-energie-waermequelle-warmwasser-7598": 7598,
+                                            "weitere-energie-waermequelle-warmwasser-7599": 7599,
+                                            "weitere-energie-waermequelle-warmwasser-noch-nicht-festgelegt": None,
+                                        }
+                                    },
+                                )
+                            },
+                        ),
+                    },
                 },
             ),
         },

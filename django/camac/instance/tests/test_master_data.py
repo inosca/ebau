@@ -383,6 +383,7 @@ def gr_master_data_case(db, gr_instance, group, master_data_is_visible_mock, uti
     utils.add_answer(document, "street-and-housenumber", "Teststrasse 12")
     utils.add_answer(document, "plz-grundstueck-v3", 1234)
     utils.add_answer(document, "ort-grundstueck", "Testhausen")
+    utils.add_answer(document, "baukosten", 4000)
 
     # Municipality
     utils.add_answer(document, "gemeinde", "18")
@@ -453,6 +454,27 @@ def gr_master_data_case(db, gr_instance, group, master_data_is_visible_mock, uti
                 "nummer-gesuchstellerin": 16,
                 "plz-gesuchstellerin": 2222,
                 "ort-gesuchstellerin": "Beispieldorf",
+            },
+        ],
+    )
+    utils.add_table_answer(
+        document,
+        "gebaeude-und-anlagen",
+        [
+            {
+                "amtliche-gebaeudenummer": "4-116",
+                # heating 1
+                "waermeerzeuger-heizung": "waermeerzeuger-heizung-7430",
+                "energie-waermequelle-heizung": "energie-waermequelle-heizung-7540",
+                # heating 2
+                "weitere-waermeerzeuger-heizung": "weitere-waermeerzeuger-heizung-7499",
+                "weitere-energie-waermequelle-heizung": "weitere-energie-waermequelle-heizung-7530",
+                # warm water 1
+                "waermeerzeuger-warmwasser": "waermeerzeuger-warmwasser-7651",
+                "energie-waermequelle-warmwasser": "energie-waermequelle-warmwasser-7510",
+                # warm water 2
+                "weitere-waermeerzeuger-warmwasser": "weitere-waermeerzeuger-warmwasser-7660",
+                "weitere-energie-waermequelle-warmwasser": "weitere-energie-waermequelle-warmwasser-7512",
             },
         ],
     )

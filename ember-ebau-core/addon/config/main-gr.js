@@ -17,6 +17,11 @@ export default {
     "init-distribution": 120009,
     rejected: 120011,
   },
+  gwr: {
+    cantonAbbreviation: "GR",
+    importModels: ["project", "building", "dwelling"],
+    modalContainer: "body",
+  },
   answerSlugs: {
     objectStreet: "street-and-housenumber",
     objectLocation: "ort-grundstueck",
