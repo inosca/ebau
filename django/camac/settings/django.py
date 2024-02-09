@@ -2182,6 +2182,13 @@ GIS_BASE_URL = build_url(
 )
 BE_GIS_ENABLE_QUEUE = env.bool("BE_GIS_ENABLE_QUEUE", default=True)
 
+BE_GIS_POLYGON_LAYER_ID = env.str(
+    "BE_GIS_POLYGON_LAYER_ID", default="DIPANU_DIPANUF_VW_13541"
+)
+BE_GIS_POLYGON_SERVICE_CODE = env.str(
+    "BE_GIS_POLYGON_SERVICE_CODE", default="of_planningcadastre01_de_ms_wfs"
+)
+
 GIS_REQUESTS_BATCH_SIZE = env.int("GIS_REQUESTS_BATCH_SIZE", default=4)
 
 # GIS API (KT. GR)
