@@ -4,7 +4,7 @@ import math
 
 import requests
 from django.conf import settings
-from PyPDF2 import PdfReader, PdfWriter
+from pypdf import PdfReader, PdfWriter
 
 from camac.constants import kt_uri as uri_constants
 from camac.core.import_dossiers import import_dossiers
