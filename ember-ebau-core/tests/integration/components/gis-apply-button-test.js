@@ -116,7 +116,7 @@ module("Integration | Component | gis-apply-button", function (hooks) {
         .dom(
           "[data-test-gis-data-row]:nth-of-type(2) [data-test-gis-data-label]",
         )
-        .hasText(`Some Table ${t("so-gis.row-count", { count: 1 })}`);
+        .hasText(`Some Table ${t("gis.row-count", { count: 1 })}`);
       assert
         .dom(
           "[data-test-gis-data-row]:nth-of-type(2) [data-test-gis-data-table-label]",
@@ -133,7 +133,7 @@ module("Integration | Component | gis-apply-button", function (hooks) {
         .dom(
           "[data-test-gis-data-row]:nth-of-type(3) [data-test-gis-data-label]",
         )
-        .hasText(`Some Table ${t("so-gis.row-count", { count: 2 })}`);
+        .hasText(`Some Table ${t("gis.row-count", { count: 2 })}`);
       assert
         .dom(
           "[data-test-gis-data-row]:nth-of-type(3) [data-test-gis-data-table-label]",

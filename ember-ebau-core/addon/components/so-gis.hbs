@@ -4,12 +4,12 @@
       <PowerSelect
         @selected={{this.selectedSearchResult}}
         @searchField="label"
-        @placeholder={{t "so-gis.search.placeholder"}}
-        @loadingMessage={{t "so-gis.search.loading"}}
+        @placeholder={{t "gis.search.placeholder"}}
+        @loadingMessage={{t "gis.search.loading"}}
         @searchEnabled={{true}}
         @searchMessage=""
-        @searchPlaceholder={{t "so-gis.search.input-placeholder"}}
-        @noMatchesMessage={{t "so-gis.search.empty"}}
+        @searchPlaceholder={{t "gis.search.input-placeholder"}}
+        @noMatchesMessage={{t "gis.search.empty"}}
         @onChange={{fn (mut this.selectedSearchResult)}}
         @search={{perform this.search}}
         as |result|
@@ -22,7 +22,7 @@
       <UkButton
         @color="primary"
         @disabled={{not this.selectedSearchResult}}
-        @label={{t "so-gis.select"}}
+        @label={{t "gis.select"}}
         @onClick={{fn this.setPoint this.selectedSearchResult.value.lat this.selectedSearchResult.value.lng}}
       />
     </div>
