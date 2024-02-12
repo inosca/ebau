@@ -5537,7 +5537,7 @@
       "hint": "Bestimmungen zu Schutzgebieten finden sich in Baureglementen zur entsprechenden Schutzzone oder in einem allfälligen Schutzzonenreglement.",
       "type": "checkbox",
       "required": false,
-      "active-expression": "'ms:ch.sz.anjf.anjf_kant_naturschutzgebiete' in 'layer'|value|mapby('name') || 'ms:ch.sz.anjf.anjf_kant_pflanzenschutzreservate' in 'layer'|value|mapby('name') || 'ms:ch.sz.anjf.komm_schutzzonen' in 'layer'|value|mapby('name') || 'ms:ch.sz.anjf.anjf_kant_biotope' in 'layer'|value|mapby('name')",
+      "active-expression": "'ms:ch.sz.anjf.anjf_kant_naturschutzgebiete' in 'layer'|value|mapby('name') || 'ms:ch.sz.anjf.anjf_kant_pflanzenschutzreservate' in 'layer'|value|mapby('name') || 'ms:ch.sz.anjf.komm_schutzzonen' in 'layer'|value|mapby('name') || 'ms:ch.sz.anjf.anjf_kant_biotope' in 'layer'|value|mapby('name') || 'ms:ch.sz.a036a.kantonale_biotope' in 'layer'|value|mapby('name')",
       "config": {
         "options": ["Erledigt"]
       }
