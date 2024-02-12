@@ -5,6 +5,7 @@ import CfFieldInputActionButtonComponent from "@projectcaluma/ember-form/compone
 import { queryManager } from "ember-apollo-client";
 import { trackedFunction } from "ember-resources/util/function";
 
+import mainConfig from "ember-ebau-core/config/main";
 import getCaseMetaQuery from "ember-ebau-core/gql/queries/get-case-meta.graphql";
 import getCopiesQuery from "ember-ebau-core/gql/queries/get-copies.graphql";
 
@@ -20,6 +21,7 @@ const PARTIAL_NOTIFICATION_CONFIG = [
 ];
 
 export default class DecisionSubmitButtonComponent extends CfFieldInputActionButtonComponent {
+  @service ebauModules;
   @service fetch;
   @service intl;
   @service notification;
@@ -36,17 +38,25 @@ export default class DecisionSubmitButtonComponent extends CfFieldInputActionBut
   });
 
   get isPartial() {
-    return (
-      this.args.field.document.findAnswer("decision-approval-type") ===
-      "decision-approval-type-partial-building-permit"
-    );
+    try {
+      return (
+        this.args.field.document.findAnswer("decision-approval-type") ===
+        "decision-approval-type-partial-building-permit"
+      );
+    } catch (e) {
+      return false;
+    }
   }
 
   get isPreliminaryClarification() {
-    return (
-      this.args.field.document.findAnswer("decision-workflow") ===
-      "preliminary-clarification"
-    );
+    try {
+      return (
+        this.args.field.document.findAnswer("decision-workflow") ===
+        "preliminary-clarification"
+      );
+    } catch (e) {
+      return false;
+    }
   }
 
   get isAppeal() {
@@ -117,9 +127,7 @@ export default class DecisionSubmitButtonComponent extends CfFieldInputActionBut
     if (macroCondition(isTesting())) {
       this.args.redirectTo(copiedInstanceId);
     } else {
-      window.location.replace(
-        `/index/redirect-to-instance-resource/instance-id/${copiedInstanceId}`,
-      );
+      this.ebauModules.redirectToInstance(copiedInstanceId);
     }
   }
 
@@ -141,8 +149,9 @@ export default class DecisionSubmitButtonComponent extends CfFieldInputActionBut
   async onSuccess() {
     if (
       this.isAppeal &&
-      this.args.field.document.findAnswer("decision-decision-assessment") ===
-        "decision-decision-assessment-appeal-rejected"
+      this.args.field.document.findAnswer(
+        mainConfig.decision.answerSlugs.decision,
+      ) === mainConfig.decision.answerSlugs.rejected
     ) {
       return await this.redirectToCopiedInstance();
     }

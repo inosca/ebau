@@ -9,5 +9,8 @@
     {{#if @case.instance.isPaper}}
       <span class="uk-label subnav-header__label">{{t "nav.paper"}}</span>
     {{/if}}
+    {{#if @case.meta.is-appeal}}
+      <span class="uk-label subnav-header__label">{{t "nav.appeal"}}</span>
+    {{/if}}
   </div>
 </div>

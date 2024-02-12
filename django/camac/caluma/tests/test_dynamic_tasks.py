@@ -301,6 +301,40 @@ def test_dynamic_task_after_ebau_number(
 
 
 @pytest.mark.parametrize(
+    "is_appeal,expected_tasks",
+    [
+        (
+            False,
+            {"create-manual-workitems", "formal-exam", "init-additional-demand"},
+        ),
+        (
+            True,
+            {
+                "create-manual-workitems",
+                "formal-exam",
+                "init-additional-demand",
+                "appeal",
+            },
+        ),
+    ],
+)
+def test_dynamic_task_after_submit(
+    db,
+    caluma_admin_user,
+    expected_tasks,
+    is_appeal,
+    case_factory,
+):
+    case = case_factory(meta={"is-appeal": True} if is_appeal else {})
+
+    tasks = set(
+        CustomDynamicTasks().resolve_after_submit(case, caluma_admin_user, None, None)
+    )
+
+    assert tasks == expected_tasks
+
+
+@pytest.mark.parametrize(
     "decision,expected_tasks",
     [
         ("ACCEPTED", set()),

@@ -204,6 +204,18 @@
     }
   },
   {
+    "model": "notification.notificationtemplate",
+    "pk": 18,
+    "fields": {
+      "slug": "beschwerde",
+      "purpose": null,
+      "subject": null,
+      "body": null,
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
     "model": "notification.notificationtemplatet",
     "pk": 1,
     "fields": {
@@ -405,6 +417,18 @@
       "purpose": "Neue Nachricht (Behörden)",
       "subject": "Neue Nachricht (Dossier-Nr. {{ DOSSIER_NR }})",
       "body": "Guten Tag\r\n\r\nSie haben eine neue Nachricht auf dem Dossier mit der Dossier-Nr. {{ DOSSIER_NR }} erhalten.\r\n\r\n{{ INTERNAL_DOSSIER_LINK }}/communications\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\neBau"
+    }
+  },
+  {
+    "model": "notification.notificationtemplatet",
+    "pk": 18,
+    "fields": {
+      "template": 18,
+      "template_slug": "beschwerde",
+      "language": "de",
+      "purpose": "Beschwerde eingegangen",
+      "subject": "Beschwerde eingegangen (Dossier-Nr. {{ DOSSIER_NR }})",
+      "body": "Guten Tag\r\n\r\nBeim Dossier mit der Dossier-Nr. {{ DOSSIER_NR }} wurde ein Beschwerdenverfahren initialisiert und der Entscheid wurde aufgehoben.\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{ LEITBEHOERDE_NAME_DE }}\r\n\r\n"
     }
   }
 ]

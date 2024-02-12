@@ -571,6 +571,7 @@ DUMP = {
                 "caluma_objection_form": generate_form_dump_config(
                     regex=r"^einsprache(n)?"
                 ),
+                "caluma_appeal_form": generate_form_dump_config(regex=r"^beschwerde"),
             },
             "EXCLUDED_MODELS": [
                 "user.Group",

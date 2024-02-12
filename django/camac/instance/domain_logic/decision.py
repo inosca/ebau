@@ -197,8 +197,9 @@ class DecisionLogic:
                 new_meta={"is-rejected-appeal": True},
             )
 
-            fill_ebau_number(
-                instance=new_instance,
-                ebau_number=instance.case.meta.get("ebau-number"),
-                caluma_user=user,
-            )
+            if settings.APPLICATION_NAME == "kt_bern":
+                fill_ebau_number(
+                    instance=new_instance,
+                    ebau_number=instance.case.meta.get("ebau-number"),
+                    caluma_user=user,
+                )

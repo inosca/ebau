@@ -2495,25 +2495,38 @@ class CalumaInstanceAppealSerializer(serializers.Serializer):
             old_meta={"has-appeal": True},
         )
 
-        fill_ebau_number(
-            instance=new_instance,
-            ebau_number=instance.case.meta["ebau-number"],
-            caluma_user=caluma_user,
-        )
+        if settings.APPLICATION_NAME == "kt_bern":
+            fill_ebau_number(
+                instance=new_instance,
+                ebau_number=instance.case.meta["ebau-number"],
+                caluma_user=caluma_user,
+            )
 
-        # Set the status of the old instance to finished if current status is sb1
-        if instance.instance_state.name == "sb1":
-            for task, fn in [
-                ("sb1", workflow_api.skip_work_item),
-                ("sb2", workflow_api.skip_work_item),
-                ("complete", workflow_api.complete_work_item),
-            ]:
-                fn(
-                    work_item=instance.case.work_items.get(task_id=task),
-                    user=caluma_user,
-                )
+            # Set the status of the old instance to finished if current status is sb1
+            if instance.instance_state.name == "sb1":
+                for task, fn in [
+                    ("sb1", workflow_api.skip_work_item),
+                    ("sb2", workflow_api.skip_work_item),
+                    ("complete", workflow_api.complete_work_item),
+                ]:
+                    fn(
+                        work_item=instance.case.work_items.get(task_id=task),
+                        user=caluma_user,
+                    )
 
-            instance.set_instance_state("finished", user)
+                instance.set_instance_state("finished", user)
+        else:
+            identifier = domain_logic.CreateInstanceLogic.generate_identifier(
+                new_instance
+            )
+            new_instance.case.meta["dossier-number"] = identifier
+            new_instance.case.meta["dossier-number-sort"] = generate_sort_key(
+                identifier
+            )
+            new_instance.case.save()
+
+            if instance.instance_state.name == "construction-monitoring":
+                instance.set_instance_state("finished", user)
 
         # Add history entry to source instance
         create_history_entry(instance, user, gettext_noop("Appeal received"))

@@ -911,5 +911,38 @@
         "withdrawn"
       ]
     }
+  },
+  "20": {
+    "label": "Meine Dossiers (Dossierliste für Gemeinden) > Beschwerdeverfahren",
+    "acls": {
+      "municipality-clerk": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished",
+        "init-distribution",
+        "withdrawal",
+        "withdrawn"
+      ],
+      "municipality-lead": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished",
+        "init-distribution",
+        "subm",
+        "withdrawal",
+        "withdrawn"
+      ],
+      "municipality-read": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished",
+        "init-distribution",
+        "withdrawal",
+        "withdrawn"
+      ]
+    }
   }
 }
