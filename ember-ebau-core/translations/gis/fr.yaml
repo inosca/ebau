@@ -1,4 +1,3 @@
-# Not needed in french
 gis:
   parcelNumber: ""
   buildingLeaseNumber: ""
@@ -7,5 +6,18 @@ gis:
   noParcelNumber: ""
   technicalError: ""
   loadingError: ""
-  loadingHint: "La demande GIS est en cours de traitement. Cela peut prendre un certain temps."
+  loadingHint: "La demande SIG est en cours de traitement. Cela peut toutefois prendre un certain temps."
   info-text-ur: ""
+  apply: "Reprendre les données"
+  apply-error: Les données SIG de la parcelle n'ont pas pu être consultées
+  apply-answer-error: Les données SIG relatives à la question "{label}" n'ont pas pu être reprises
+  point-error: ""
+  select: ""
+  search-error: ""
+  row-count: "(Ligne {count})"
+
+  search:
+    placeholder: ""
+    input-placeholder: ""
+    loading: ""
+    empty: ""
