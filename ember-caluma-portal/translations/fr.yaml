@@ -252,6 +252,7 @@ instances:
   messageBuildingServicesButton: ""
 
   categories:
+    all: "Tous"
     pending: "Pendante"
     sb: "Déclaration spontanée"
     done: "Finalisé"
