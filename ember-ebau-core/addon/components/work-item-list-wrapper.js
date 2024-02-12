@@ -176,7 +176,6 @@ export default class WorkItemListWrapperComponent extends Component {
   });
 
   allResponsibles = trackedFunction(this, async () => {
-    await Promise.resolve();
     const users = await this.store.query("user", {
       sort: "name",
     });
