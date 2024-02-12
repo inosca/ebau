@@ -2,6 +2,9 @@ import Route from "@ember/routing/route";
 import { inject as service } from "@ember/service";
 import AlexandriaDocumentsFormComponent from "ember-ebau-core/components/alexandria-documents-form";
 import CalculatedPublicationDateComponent from "ember-ebau-core/components/calculated-publication-date";
+import DecisionAppealButtonComponent from "ember-ebau-core/components/decision/appeal-button";
+import DecisionInfoAppealComponent from "ember-ebau-core/components/decision/info-appeal";
+import DecisionSubmitButtonComponent from "ember-ebau-core/components/decision/submit-button";
 import DynamicMaxDateInputComponent from "ember-ebau-core/components/dynamic-max-date-input";
 import GrGisComponent from "ember-ebau-core/components/gr-gis";
 import InquiryAnswerStatus from "ember-ebau-core/components/inquiry-answer-status";
@@ -70,6 +73,21 @@ export default class ApplicationRoute extends Route {
       label: "Stellungnahme Frist",
       component: "inquiry-deadline-input",
       componentClass: InquiryDeadlineInputComponent,
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "Beschwerde eingegangen",
+      component: "decision/appeal-button",
+      componentClass: DecisionAppealButtonComponent,
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "Hilfetext Beschwerdeverfahren",
+      component: "decision/info-appeal",
+      componentClass: DecisionInfoAppealComponent,
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "Entscheid verfügen",
+      component: "decision/submit-button",
+      componentClass: DecisionSubmitButtonComponent,
     });
   }
 }

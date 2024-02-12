@@ -3,12 +3,35 @@ import { test as qunitTest } from "qunit";
 
 const app = getOwnConfig()?.application;
 
-export function testForApp(target) {
+// Lifted from qunit
+function extend(a, b, undefOnly) {
+  for (const prop in b) {
+    if (Object.prototype.hasOwnProperty.call(b, prop)) {
+      if (b[prop] === undefined) {
+        delete a[prop];
+      } else if (!(undefOnly && typeof a[prop] !== "undefined")) {
+        a[prop] = b[prop];
+      }
+    }
+  }
+  return a;
+}
+
+function runIfApp(fn, target) {
   return function (name, ...args) {
     if (app === target) {
-      return qunitTest(`${name} [${target.toUpperCase()}]`, ...args);
+      return fn(`${name} [${target.toUpperCase()}]`, ...args);
     }
   };
+}
+
+export function testForApp(target) {
+  return extend(runIfApp(qunitTest, target), {
+    todo: runIfApp(qunitTest.todo, target),
+    skip: runIfApp(qunitTest.skip, target),
+    only: runIfApp(qunitTest.only, target),
+    each: runIfApp(qunitTest.each, target),
+  });
 }
 
 export const testBE = testForApp("be");

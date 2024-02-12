@@ -1,5 +1,5 @@
 decision:
-  info: 
+  info:
     geometer: Dieser Gemeinde ist der Nachführungsgeometer <b>{geometer}</b> zugeordnet.
 
   submit:
@@ -7,6 +7,7 @@ decision:
     appeal: "Entscheid bestätigen"
 
   appeal:
+    # Kt. BE
     confirmed: |-
       Dieses Dossier wird nach dem Erfassen des Entscheides in den Status des
       vorhergehenden Entscheides <b>({status})</b> versetzt.
@@ -18,6 +19,18 @@ decision:
       Dieses Dossier wird nach dem Erfassen des Entscheides kopiert und in den
       Status <b>"{status}"</b> versetzt. Das momentane Dossier wird
       abgeschlossen.
+    # Kt. SO
+    zurueckgewiesen: |-
+      Dieses Dossier wird nach dem Erfassen des Entscheides kopiert und in den
+      Status <b>"{status}"</b> versetzt. Das momentane Dossier wird
+      abgeschlossen.
+    geaendert: |-
+      Dieses Dossier wird nach dem Bestätigen des Entscheides in den
+      gegenteiligen Status des vorhergehenden Entscheides <b>({status})</b>
+      versetzt.
+    bestaetigt: |-
+      Dieses Dossier wird nach dem Erfassen des Entscheides in den Status des
+      vorhergehenden Entscheides <b>({status})</b> versetzt.
 
   appeal-confirm: |-
     Wollen Sie das Beschwerdeverfahren wirklich starten? Dieses Dossier wird

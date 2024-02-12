@@ -4,6 +4,7 @@ nav:
   form: "Formular"
   documents: "Dokumente"
   paper: "Papier"
+  appeal: "Beschwerdeverfahren"
   masterData:
     label: "Stammdaten"
     hide: "Stammdaten verstecken"

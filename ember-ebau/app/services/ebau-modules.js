@@ -65,4 +65,9 @@ export default class CustomEbauModulesService extends EbauModulesService {
     this.router.transitionTo("cases.detail.index", this.instanceId);
     this.router.refresh();
   }
+
+  redirectToInstance(instanceId) {
+    this.router.transitionTo("cases.detail.index", instanceId);
+    this.router.refresh();
+  }
 }

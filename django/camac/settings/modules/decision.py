@@ -24,6 +24,7 @@ DECISION = {
     },
     "kt_bern": {
         "ENABLED": True,
+        "INSTANCE_STATE": "coordination",
         "ENABLE_STATS": True,
         "QUESTIONS": {
             "DECISION": "decision-decision-assessment",

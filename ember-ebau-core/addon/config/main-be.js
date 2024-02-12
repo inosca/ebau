@@ -93,6 +93,7 @@ export default {
     answerSlugs: {
       decision: "decision-decision-assessment",
       remarks: "decision-remarks",
+      rejected: "decision-decision-assessment-appeal-rejected",
     },
     colorMapping: {
       "decision-decision-assessment-positive": "uk-alert-success",
@@ -103,6 +104,19 @@ export default {
         "uk-alert-warning",
       "decision-decision-assessment-retreat": "uk-alert-warning",
     },
+  },
+  appeal: {
+    instanceStates: {
+      previousInstanceState: "coordination",
+      instanceStatePositiveDecision: "sb1",
+      instanceStateNegativeDecision: "finished",
+      circulationInit: "circulationInit",
+    },
+    decisionSlug: "decision-decision-assessment",
+    rejected: "rejected",
+    confirmed: "confirmed",
+    changed: "changed",
+    typeRegexExp: "-appeal-",
   },
   billing: {
     readOnlyInstanceStates: [
