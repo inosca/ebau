@@ -251,6 +251,7 @@ instances:
   withdrawInstanceSuccess: "Das Dossier wurde erfolgreich zurückgezogen"
 
   categories:
+    all: "Alle"
     pending: "Offen"
     sb: "Selbstdeklaration"
     constructionAcceptance: "Entschieden"
