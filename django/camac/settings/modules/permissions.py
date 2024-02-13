@@ -48,6 +48,10 @@ PermissionConfigEntry = TypedDict(
         # access level model.
         "ACCESS_LEVELS": Dict[str, List[PermissionLine]],
         "PERMISSION_MODE": Optional[PERMISSION_MODE],
+        # Map INTERNAL -> CANTON access level names. The INTERNAL ones
+        # are directly referenced by the migration tooling and may differ from
+        # the ones used by the canton.
+        "MIGRATION": Dict[str, str],
     },
 )
 
@@ -120,6 +124,10 @@ PERMISSIONS: PermissionsConfig = {
         },
         "EVENT_HANDLER": "camac.permissions.config.kt_bern.PermissionEventHandlerBE",
         "ENABLED": True,
+        # Map INTERNAL -> CANTON access level names. The INTERNAL ones
+        # are directly referenced by the migration tooling and may differ from
+        # the ones used by the canton.
+        "MIGRATION": {"APPLICANT": "applicant"},
     },
     "kt_gr": {
         "ACCESS_LEVELS": {
