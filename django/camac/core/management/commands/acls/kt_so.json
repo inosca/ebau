@@ -854,5 +854,62 @@
         "withdrawn"
       ]
     }
+  },
+  "18": {
+    "label": "Meine Dossiers (Dossierliste für Gemeinden) > Kommunikation",
+    "acls": {
+      "municipality-clerk": [
+        "construction-monitoring",
+        "correction",
+        "decision",
+        "distribution",
+        "finished",
+        "init-distribution",
+        "material-exam",
+        "reject",
+        "rejected",
+        "subm",
+        "withdrawal",
+        "withdrawn"
+      ],
+      "municipality-lead": [
+        "construction-monitoring",
+        "correction",
+        "decision",
+        "distribution",
+        "finished",
+        "init-distribution",
+        "material-exam",
+        "reject",
+        "rejected",
+        "subm",
+        "withdrawal",
+        "withdrawn"
+      ],
+      "service-clerk": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished",
+        "withdrawal",
+        "withdrawn"
+      ],
+      "service-lead": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished",
+        "withdrawal",
+        "withdrawn"
+      ],
+      "subservice": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished",
+        "withdrawal",
+        "withdrawn"
+      ]
+    }
   }
 }

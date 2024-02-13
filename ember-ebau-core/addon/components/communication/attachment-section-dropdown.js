@@ -6,6 +6,8 @@ import { tracked } from "@glimmer/tracking";
 import { trackedFunction } from "ember-resources/util/function";
 import UIkit from "uikit";
 
+import mainConfig from "ember-ebau-core/config/main";
+
 export default class CommunicationAttachmentSectionDropdownComponent extends Component {
   @service store;
   @service ebauModules;
@@ -15,9 +17,15 @@ export default class CommunicationAttachmentSectionDropdownComponent extends Com
   attachmentSections = trackedFunction(this, async () => {
     await Promise.resolve();
 
-    const sections = await this.store.query("attachment-section", {
-      instance: this.args.instanceId,
-    });
+    const sections =
+      mainConfig.documentBackend === "camac"
+        ? await this.store.query("attachment-section", {
+            instance: this.args.instanceId,
+          })
+        : await this.store.query("category", {
+            filter: { hasParent: false },
+            include: "children",
+          });
 
     if (!this.args.onlyWithUploadPermission) {
       return sections;

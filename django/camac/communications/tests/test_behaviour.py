@@ -412,7 +412,8 @@ def test_convert_attachment_to_document(
                         "id": str(communications_attachment.document_attachment_id),
                         "type": "attachments",
                     }
-                }
+                },
+                "alexandria-file": {"data": None},
             },
             "type": "communications-attachments",
         }
