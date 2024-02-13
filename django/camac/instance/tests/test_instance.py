@@ -16,7 +16,7 @@ from rest_framework import status
 
 from camac.core.models import InstanceLocation, WorkflowEntry
 from camac.instance import domain_logic, serializers
-from camac.instance.models import HistoryEntryT
+from camac.instance.models import HistoryEntryT, InstanceState
 
 
 @pytest.mark.freeze_time("2018-04-17")
@@ -1510,10 +1510,15 @@ def test_instance_export_list(
     instance_1 = instances[0]
     instance_2 = instances[1]
 
-    instance_1.instance_state = instance_state_factory(pk=1)
+    # the test situation needs the exact instance stat IDs, so we
+    # better make sure they don't trigger duplicate key errors
+    state_1 = InstanceState.objects.filter(pk=1).first() or instance_state_factory(pk=1)
+    state_2 = InstanceState.objects.filter(pk=2).first() or instance_state_factory(pk=2)
+
+    instance_1.instance_state = state_1
     instance_1.save()
 
-    instance_2.instance_state = instance_state_factory(pk=2)
+    instance_2.instance_state = state_2
     instance_2.save()
 
     add_field = functools.partial(form_field_factory, instance=instance_1)
