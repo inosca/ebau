@@ -124,6 +124,11 @@ PERMISSIONS: PermissionsConfig = {
                 ("journal-read", BE_GEOMETER_DEFAULT_ACCESSIBLE_STATES),
                 ("history-read", BE_GEOMETER_DEFAULT_ACCESSIBLE_STATES),
             ],
+            "applicant": [
+                ("applicant-remove", Always()),
+                ("applicant-add", Always()),
+                ("applicant-read", Always()),
+            ],
         },
         "EVENT_HANDLER": "camac.permissions.config.kt_bern.PermissionEventHandlerBE",
         "ENABLED": True,

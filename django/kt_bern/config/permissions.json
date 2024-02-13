@@ -1,6 +1,16 @@
 [
   {
     "model": "permissions.accesslevel",
+    "pk": "applicant",
+    "fields": {
+      "name": "{\"de\": \"Gesuchsteller/in\", \"fr\": \"Personne requ\\u00e9rante\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "required_grant_type": null,
+      "applicable_area": "APPLICANT"
+    }
+  },
+  {
+    "model": "permissions.accesslevel",
     "pk": "geometer",
     "fields": {
       "name": "{\"de\": \"Nachf\\u00fchrungsgeometer\", \"fr\": \"G\\u00e9om\\u00e8tre conservatrice ou g\\u00e9om\\u00e8tre conservateur\", \"it\": \"\"}",
