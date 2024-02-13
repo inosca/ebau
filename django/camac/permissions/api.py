@@ -48,14 +48,19 @@ class ACLUserInfo:
     def to_kwargs(self):
         return {"user": self.user, "service": self.service, "token": self.token}
 
-    def to_cache_key(self, instance: Instance):
+    def to_cache_key(self, instance: Union[Instance, str, int]):
         user = self.user.pk if self.user else "-"
         service = self.service.pk if self.service else "-"
         token = self.token.pk if self.token else "-"
         role = self.role.pk if self.role else "-"
 
+        # instance may be passed in as ID or model object
+        instance_id = (
+            str(instance.pk) if isinstance(instance, Instance) else str(instance)
+        )
+
         # The instance is first, so we can match better when revoking permissions
-        return f"permissions:i={instance.pk},r={role},u={user},s={service},t={token}"
+        return f"permissions:i={instance_id},r={role},u={user},s={service},t={token}"
 
 
 class PermissionManager:
@@ -82,7 +87,7 @@ class PermissionManager:
         userinfo = ACLUserInfo.from_request(request)
         return cls(userinfo=userinfo)
 
-    def get_permissions(self, instance: Instance) -> List[str]:
+    def get_permissions(self, instance: Union[Instance, str, int]) -> List[str]:
         cache_key = self.userinfo.to_cache_key(instance)
         cached_result = cache.get(cache_key)
         if cached_result:
@@ -90,6 +95,8 @@ class PermissionManager:
 
         acls = (
             models.InstanceACL.for_current_user(**self.userinfo.to_kwargs())
+            # this filter should work regardless of whether `instance`
+            # is a model or just an FK reference
             .filter(instance=instance)
             .select_related("access_level")
         )
@@ -99,6 +106,7 @@ class PermissionManager:
         expiry = timezone.now() + timedelta(days=10)
 
         enable_cache = True
+
         for acl in acls:
             access_level = acl.access_level
             if acl.end_time:
