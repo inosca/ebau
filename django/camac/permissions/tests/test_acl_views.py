@@ -6,7 +6,9 @@ from django.utils import timezone
 from rest_framework import status
 
 from camac.permissions import api
+from camac.permissions.conditions import Always
 from camac.permissions.models import InstanceACL
+from camac.permissions.switcher import PERMISSION_MODE
 from camac.utils import get_dict_item
 
 
@@ -486,3 +488,186 @@ def test_list_acl_filters(
     # Note: we set the start times to slightly different values. We implicitly
     # test the result order as well, we want the latest starting ACL first
     assert acl_names == expect_results
+
+
+@pytest.mark.parametrize("access_level__slug", ["foo"])
+@pytest.mark.parametrize(
+    "have_permission, expect_success",
+    [
+        ("permission-grant-foo", True),
+        ("permission-grant-any", True),
+        ("permission-grant-bar", False),
+    ],
+)
+def test_create_with_permissions(
+    # params
+    have_permission,
+    expect_success,
+    # fixtures
+    db,
+    user,
+    user_factory,
+    permissions_settings,
+    access_level,
+    instance,
+    instance_acl_factory,
+    admin_client,
+):
+    permissions_settings["PERMISSION_MODE"] = PERMISSION_MODE.FULL
+    permissions_settings["ACCESS_LEVELS"] = {
+        access_level.pk: [(have_permission, Always())]
+    }
+    instance_acl_factory(
+        user=admin_client.user,
+        access_level=access_level,
+        start_time=timezone.now(),
+        grant_type="USER",
+        instance=instance,
+    )
+
+    other_user = user_factory()
+
+    url = reverse("instance-acls-list")
+    result = admin_client.post(
+        url,
+        {
+            "data": {
+                "attributes": {
+                    "grant-type": "USER",
+                },
+                "relationships": {
+                    "instance": {"data": {"id": instance.pk, "type": "instances"}},
+                    "access-level": {
+                        "data": {"id": access_level.pk, "type": "access-levels"}
+                    },
+                    "user": {"data": {"id": other_user.pk, "type": "public-users"}},
+                },
+                "type": "instance-acls",
+            }
+        },
+    )
+    expect_status = (
+        status.HTTP_201_CREATED if expect_success else status.HTTP_403_FORBIDDEN
+    )
+
+    assert result.status_code == expect_status
+
+
+@pytest.mark.parametrize("access_level__slug", ["foo"])
+@pytest.mark.parametrize(
+    "have_permission, expect_success",
+    [
+        ("permission-revoke-foo", True),
+        ("permission-revoke-any", True),
+        ("permission-revoke-bar", False),
+    ],
+)
+def test_revoke_with_permissions(
+    # params
+    have_permission,
+    expect_success,
+    # fixtures
+    db,
+    user,
+    user_factory,
+    permissions_settings,
+    access_level,
+    instance,
+    instance_acl_factory,
+    admin_client,
+):
+    permissions_settings["PERMISSION_MODE"] = PERMISSION_MODE.FULL
+    permissions_settings["ACCESS_LEVELS"] = {
+        access_level.pk: [
+            (have_permission, Always()),
+            # the read permission is given here, we only test revocation rights
+            ("permission-read-any", Always()),
+        ]
+    }
+
+    # the one we need to *do the thing*
+    instance_acl_factory(
+        user=admin_client.user,
+        access_level=access_level,
+        start_time=timezone.now(),
+        grant_type="USER",
+        instance=instance,
+    )
+
+    other_user = user_factory()
+
+    # the one being tested on
+    to_delete = instance_acl_factory(
+        user=other_user,
+        access_level=access_level,
+        start_time=timezone.now(),
+        grant_type="USER",
+        instance=instance,
+    )
+
+    url = reverse("instance-acls-revoke", args=[to_delete.pk])
+    result = admin_client.post(
+        url,
+    )
+    expect_status = status.HTTP_200_OK if expect_success else status.HTTP_403_FORBIDDEN
+
+    assert result.status_code == expect_status
+
+
+@pytest.mark.parametrize("access_level__slug", ["foo"])
+@pytest.mark.parametrize(
+    "query_instance, have_permission, expected_count",
+    [
+        (True, "permission-revoke-foo", 0),
+        (True, "permission-revoke-any", 0),
+        (True, "permission-revoke-bar", 0),
+        (True, "permission-read-foo", 1),
+        (True, "permission-read-any", 2),
+        (False, "permission-read-any", 0),
+    ],
+)
+def test_list_with_permissions(
+    # params
+    query_instance,
+    have_permission,
+    expected_count,
+    # fixtures
+    db,
+    user,
+    user_factory,
+    access_level_factory,
+    permissions_settings,
+    access_level,
+    instance,
+    instance_acl_factory,
+    admin_client,
+):
+    permissions_settings["PERMISSION_MODE"] = PERMISSION_MODE.FULL
+    permissions_settings["ACCESS_LEVELS"] = {
+        access_level.pk: [(have_permission, Always())]
+    }
+
+    # the one we need to *do the thing*
+    instance_acl_factory(
+        user=admin_client.user,
+        access_level=access_level,
+        start_time=timezone.now(),
+        grant_type="USER",
+        instance=instance,
+    )
+
+    other_user = user_factory()
+
+    # some "other" ACL with an access level we can't see (but on "our" instance)
+    instance_acl_factory(
+        user=other_user,
+        access_level=access_level_factory(),
+        start_time=timezone.now(),
+        grant_type="USER",
+        instance=instance,
+    )
+
+    url = reverse("instance-acls-list")
+    result = admin_client.get(url, {"instance": instance.pk} if query_instance else {})
+
+    assert len(result.json()["data"]) == expected_count
