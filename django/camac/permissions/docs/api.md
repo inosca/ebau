@@ -117,6 +117,52 @@ class ExamplePermissionEventHandler(events.PermissionEventHandler):
 ```
 
 
+### Permissions mode switching
+
+The migration to the new permissions module takes quite a while. During this period,
+we need a way to ensure that switching to the permission module's logic does not break
+anything.
+
+The idea is that the permission switcher can not only switch between old and new permission
+code, but also compare the two and alert us when there is a discrepancy.
+
+Usage is relatively simple:
+
+1. Rename the existing method to something else. A `_rbac` suffix (for role-based access control)
+   seems meaningful and has been used a few times for this purpose.
+2. Implement a method that is using the new permission method, with the old name, and same interface
+3. Decorate it with `@camac.permissions.switcher.permission_switching_method`
+
+So, some permission switching part could look like this:
+
+```python
+    @permission_switching_method
+    def create(self, validated_data):
+        access_level = validated_data["access_level"].slug
+        manager = api.PermissionManager.from_request(self.context["request"])
+        manager.require_any(
+            validated_data["instance"],
+            [
+                permissions.GRANT_ANY,
+                permissions.GRANT_SPECIFIC(access_level),
+            ],
+        )
+        return self._do_create(validated_data)
+
+    @create.register_old
+    @permission_aware
+    def create_rbac(self, validated_data):
+        raise ValidationError("Only responsible service may create InstanceACLs")
+
+    def create_rbac_for_municipality(self, validated_data):
+        inst = validated_data["instance"]
+        self.context["view"].enforce_change_permission(inst)
+        return self._do_create(validated_data)
+```
+
+The configuration allows multiple execution modes for the switcher. See
+[the configuration chapter](./configuration.md)  to see what options you have.
+
 ## REST API
 
 The regular REST representation of the ACL entries is available under

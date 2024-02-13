@@ -1,6 +1,7 @@
-from typing import Callable, Dict, List, Tuple, TypedDict
+from typing import Callable, Dict, List, Optional, Tuple, TypedDict
 
 from camac.permissions.conditions import Always, HasRole, InstanceState
+from camac.permissions.switcher import PERMISSION_MODE
 
 """
 Configuration for the permissions module.
@@ -46,6 +47,7 @@ PermissionConfigEntry = TypedDict(
         # each access level entry here must refer to an existing
         # access level model.
         "ACCESS_LEVELS": Dict[str, List[PermissionLine]],
+        "PERMISSION_MODE": Optional[PERMISSION_MODE],
     },
 )
 
@@ -61,7 +63,9 @@ BE_GEOMETER_DEFAULT_ACCESSIBLE_STATES = InstanceState(
 )
 
 PERMISSIONS: PermissionsConfig = {
-    "default": {},
+    "default": {
+        "PERMISSION_MODE": PERMISSION_MODE.OFF,
+    },
     "demo": {
         "ACCESS_LEVELS": {
             "service": [
@@ -77,6 +81,7 @@ PERMISSIONS: PermissionsConfig = {
         "ENABLED": True,
     },
     "kt_bern": {
+        "PERMISSION_MODE": PERMISSION_MODE.AUTO_OFF,
         "ACCESS_LEVELS": {
             "geometer": [
                 # TODO: For ACLs that can be manually granted, read-permissions
