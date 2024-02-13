@@ -6,6 +6,7 @@ from django.conf import ImproperlyConfigured, settings
 from django.core.cache import cache
 from django.db.models import QuerySet, Subquery
 from django.utils import timezone
+from rest_framework.exceptions import PermissionDenied
 
 from camac.instance.models import Instance
 from camac.permissions import models
@@ -165,6 +166,30 @@ class PermissionManager:
             cache_duration = expiry - timezone.now()
             cache.set(cache_key, permissions_sorted, cache_duration.total_seconds())
         return permissions_sorted
+
+    def has_any(self, instance, required_permissions: List[str]):
+        """Return True if user has at least one of the required permissions."""
+        assert isinstance(required_permissions, list)
+        have = self.get_permissions(instance)
+        return any(permission in have for permission in required_permissions)
+
+    def has_all(self, instance, required_permissions: List[str]):
+        """Return True if user has all required permissions."""
+        assert isinstance(required_permissions, list)
+        have = self.get_permissions(instance)
+        return all(permission in have for permission in required_permissions)
+
+    def require_any(self, instance, required_permissions: List[str]):
+        """Enforce presence of at least one of the given permissions."""
+        if self.has_any(instance, required_permissions):
+            return
+        raise PermissionDenied("You do not have the required permission to do this")
+
+    def require_all(self, instance, required_permissions: List[str]):
+        """Enforce presence of all of the given the given permissions."""
+        if self.has_all(instance, required_permissions):
+            return
+        raise PermissionDenied("You do not have the required permission to do this")
 
     def _access_level_config(self, access_level_slug):
         """Return the config for the given access level.
