@@ -381,6 +381,7 @@ def test_get_access_levels(
                         "name": access_level.name.de,
                         "description": access_level.description.de,
                         "required-grant-type": None,
+                        "applicable-area": access_level.applicable_area,
                     },
                     "id": "guess-white-art",
                     "type": "access-levels",

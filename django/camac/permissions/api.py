@@ -46,7 +46,32 @@ class ACLUserInfo:
         return cls(user=user, service=service, token=None, role=role)
 
     def to_kwargs(self):
-        return {"user": self.user, "service": self.service, "token": self.token}
+        """Turn the userinfo into a "kwargs" dict.
+
+        The kwargs dict consists of the keys `user`, `service`, `token`, and
+        `area` - suitable for passing along to the filtering methods in
+        `camac.permissions.models`.
+        """
+
+        # Same logic as camac.user.permissions.get_role_name()
+        perms = settings.APPLICATION.get("ROLE_PERMISSIONS", {})
+
+        if not self.role:
+            area = models.APPLICABLE_AREAS.PUBLIC.value
+        else:
+            role_name = perms.get(self.role.name)
+            area = (
+                models.APPLICABLE_AREAS.APPLICANT.value
+                if role_name == "applicant"
+                else models.APPLICABLE_AREAS.INTERNAL.value
+            )
+
+        return {
+            "user": self.user,
+            "service": self.service,
+            "token": self.token,
+            "area": area,
+        }
 
     def to_cache_key(self, instance: Union[Instance, str, int]):
         user = self.user.pk if self.user else "-"
