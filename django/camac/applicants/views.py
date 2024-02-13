@@ -3,6 +3,7 @@ from rest_framework_json_api.views import ModelViewSet
 
 from camac.instance.mixins import InstanceQuerysetMixin
 from camac.notification.utils import send_mail
+from camac.permissions.events import Trigger
 from camac.user.permissions import permission_aware
 
 from . import filters, models, serializers
@@ -49,6 +50,10 @@ class ApplicantsView(InstanceQuerysetMixin, ModelViewSet):
 
     def has_update_permission(self):
         return False
+
+    def perform_destroy(self, instance):
+        Trigger.applicant_removed(self.request, instance.instance, instance)
+        return super().perform_destroy(instance)
 
     @permission_aware
     def has_object_destroy_permission(self, obj):

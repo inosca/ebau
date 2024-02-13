@@ -19,6 +19,7 @@ from camac.constants import kt_uri as ur_constants
 from camac.core.models import InstanceLocation, InstanceService
 from camac.core.utils import canton_aware, generate_dossier_nr, generate_sort_key
 from camac.instance.models import Instance, InstanceGroup
+from camac.permissions.events import Trigger
 from camac.user.permissions import permission_aware
 
 from .. import models
@@ -566,11 +567,14 @@ class CreateInstanceLogic:
 
         instance = Instance.objects.create(**data)
 
-        instance.involved_applicants.create(
+        new_applicant = instance.involved_applicants.create(
             user=camac_user,
             invitee=camac_user,
             created=timezone.now(),
             email=camac_user.email,
+        )
+        Trigger.applicant_added(
+            request=None, instance=instance, applicant=new_applicant
         )
 
         if settings.APPLICATION["CALUMA"].get("USE_LOCATION"):  # pragma: no cover

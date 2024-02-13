@@ -6,6 +6,7 @@ from rest_framework_json_api import relations, serializers
 
 from camac.instance.mixins import InstanceEditableMixin
 from camac.instance.models import Instance
+from camac.permissions.events import Trigger
 from camac.user.relations import CurrentUserResourceRelatedField
 from camac.user.serializers import UserSerializer
 
@@ -19,6 +20,11 @@ class ApplicantSerializer(serializers.ModelSerializer, InstanceEditableMixin):
     email = serializers.EmailField(required=True)
 
     included_serializers = {"invitee": UserSerializer, "user": UserSerializer}
+
+    def create(self, validated_data):
+        new = super().create(validated_data)
+        Trigger.applicant_added(self.context["request"], new.instance, new)
+        return new
 
     def validate(self, data):
         User = get_user_model()
