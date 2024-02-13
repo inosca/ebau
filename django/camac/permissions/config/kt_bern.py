@@ -6,8 +6,13 @@ from camac.permissions import api as permissions_api
 from camac.permissions.events import EmptyEventHandler
 from camac.user.models import ServiceRelation
 
+from .common import ApplicantsEventHandlerMixin
 
-class PermissionEventHandlerBE(EmptyEventHandler):
+
+class PermissionEventHandlerBE(ApplicantsEventHandlerMixin, EmptyEventHandler):
+    # applicant_added is in ApplicantEvents
+    # applicant_removed is in ApplicantEvents
+
     def decision_decreed(self, instance: Instance):
         decision = instance.case.work_items.filter(
             task_id="decision",
