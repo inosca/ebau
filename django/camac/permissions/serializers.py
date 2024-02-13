@@ -2,6 +2,8 @@ from rest_framework.exceptions import ValidationError
 from rest_framework_json_api import relations, serializers
 
 from camac.instance import models as instance_models
+from camac.permissions import permissions
+from camac.permissions.switcher import permission_switching_method
 from camac.user.permissions import permission_aware
 
 from . import api, models
@@ -56,15 +58,33 @@ class InstanceACLSerializer(serializers.ModelSerializer):
             "metainfo",
         ]
 
-    @permission_aware
+    @permission_switching_method
     def create(self, validated_data):
+        access_level = validated_data["access_level"].slug
+        manager = api.PermissionManager.from_request(self.context["request"])
+
+        manager.require_any(
+            validated_data["instance"],
+            [
+                permissions.GRANT_ANY,
+                permissions.GRANT_SPECIFIC(access_level),
+            ],
+        )
+
+        return self._do_create(validated_data)
+
+    @create.register_old
+    @permission_aware
+    def create_rbac(self, validated_data):
         raise ValidationError("Only responsible service may create InstanceACLs")
 
-    def create_for_municipality(self, validated_data):
+    def create_rbac_for_municipality(self, validated_data):
         inst = validated_data["instance"]
 
         self.context["view"].enforce_change_permission(inst)
+        return self._do_create(validated_data)
 
+    def _do_create(self, validated_data):
         validated_data["created_by_user"] = self.context["request"].user
         validated_data["created_by_service"] = self.context["request"].group.service
         validated_data["created_by_event"] = "manual-creation"
