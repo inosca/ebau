@@ -2,9 +2,11 @@ from logging import getLogger
 
 from camac.permissions import api as permissions_api
 from camac.permissions.events import EmptyEventHandler
-from camac.permissions.models import InstanceACL
+from camac.permissions.models import AccessLevel, InstanceACL
 
 log = getLogger(__name__)
+
+APPLICANT_ACCESS_LEVEL = "applicant"
 
 
 class ApplicantsEventHandlerMixin(EmptyEventHandler):
@@ -15,19 +17,24 @@ class ApplicantsEventHandlerMixin(EmptyEventHandler):
             # Non-user applicant, can't do anything right now.
             # This will be called again once the invitee logs in
             return
-        self.manager.grant(
-            instance,
-            grant_type=permissions_api.GRANT_CHOICES.USER.value,
-            access_level="applicant",
-            user=applicant.invitee,
-            event_name="applicant_added",
-        )
+        try:
+            self.manager.grant(
+                instance,
+                grant_type=permissions_api.GRANT_CHOICES.USER.value,
+                access_level=APPLICANT_ACCESS_LEVEL,
+                user=applicant.invitee,
+                event_name="applicant_added",
+            )
+        except AccessLevel.DoesNotExist:
+            log.warning(f"Access level '{APPLICANT_ACCESS_LEVEL}' is not configured")
 
     def applicant_removed(self, instance, applicant):
         # See if our applicant has a permission, then revoke if
         # it exists
         acls = InstanceACL.objects.filter(
-            instance=instance, user=applicant.invitee, access_level="applicant"
+            instance=instance,
+            user=applicant.invitee,
+            access_level=APPLICANT_ACCESS_LEVEL,
         )
         if not acls and getattr(applicant, "invitee"):  # pragma: no cover
             # applicant (with invitee, so not an email invite) didn't have an
