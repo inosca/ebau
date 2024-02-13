@@ -12,6 +12,17 @@
             <a href="#" {{on "click" (fn this.selectSection attachmentSection)}}>
               {{attachmentSection.name}}
             </a>
+            {{#if attachmentSection.children.length}}
+              <ul class="uk-nav-sub">
+                {{#each attachmentSection.children as |child|}}
+                  <li>
+                    <a href="#" {{on "click" (fn this.selectSection child)}}>
+                      {{child.name}}
+                    </a>
+                  </li>
+                {{/each}}
+              </ul>
+            {{/if}}
           </li>
         {{/each}}
       {{/if}}

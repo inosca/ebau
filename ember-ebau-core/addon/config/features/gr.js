@@ -15,4 +15,5 @@ export default {
     exportExcel: false,
   },
   watermark: true,
+  communications: true,
 };

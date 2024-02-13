@@ -1,5 +1,6 @@
 import os.path
 
+from django.conf import settings
 from django.contrib.postgres.fields import ArrayField
 from django.db import models
 
@@ -87,6 +88,14 @@ class CommunicationsAttachment(models.Model):
         null=True,
         default=None,
     )
+    alexandria_file = models.ForeignKey(
+        "alexandria_core.File",
+        on_delete=models.DO_NOTHING,
+        related_name="+",
+        blank=True,
+        null=True,
+        default=None,
+    )
 
     def __str__(self):
         atype = "uploaded" if self.file_attachment else "via docs module"
@@ -98,25 +107,37 @@ class CommunicationsAttachment(models.Model):
         if self.file_attachment:
             return os.path.basename(self.file_attachment.name)
 
-        return os.path.basename(self.document_attachment.name)
+        if settings.APPLICATION["DOCUMENT_BACKEND"] == "camac-ng":
+            return os.path.basename(self.document_attachment.name)
+
+        return self.alexandria_file.name
 
     @property
     def display_name(self):
         if self.file_attachment:
             return self.filename
 
-        return self.document_attachment.context.get("displayName", self.filename)
+        if settings.APPLICATION["DOCUMENT_BACKEND"] == "camac-ng":
+            return self.document_attachment.context.get("displayName", self.filename)
+
+        return self.alexandria_file.document.title.translate()
 
     @property
     def is_replaced(self):
         if self.file_attachment:
             return False
 
-        return self.document_attachment.context.get("isReplaced", False)
+        if settings.APPLICATION["DOCUMENT_BACKEND"] == "camac-ng":
+            return self.document_attachment.context.get("isReplaced", False)
+
+        return self.alexandria_file.document.marks.filter(slug="void").exists()
 
     @property
     def content_type(self):
         if self.file_attachment:
             return self.file_type
 
-        return self.document_attachment.mime_type
+        if settings.APPLICATION["DOCUMENT_BACKEND"] == "camac-ng":
+            return self.document_attachment.mime_type
+
+        return self.alexandria_file.mime_type

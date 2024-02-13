@@ -4,4 +4,5 @@ link-attachments:
   no-selected: "Es wurden keine Dokumente verlinkt."
   download: "Dokument herunterladen"
   upload-error: "Fehler beim Hochladen des Dokuments"
+  link-error: "Fehler beim Verlinken des Dokuments"
   replaced: "(ersetzt)"
