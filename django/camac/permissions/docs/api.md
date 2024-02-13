@@ -123,6 +123,9 @@ The migration to the new permissions module takes quite a while. During this per
 we need a way to ensure that switching to the permission module's logic does not break
 anything.
 
+For this, there is a permissions mode switcher. Migration *should* take place using this
+switcher, along with the [permissions migration script](./migration_script.md)
+
 The idea is that the permission switcher can not only switch between old and new permission
 code, but also compare the two and alert us when there is a discrepancy.
 
