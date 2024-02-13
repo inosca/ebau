@@ -48,6 +48,9 @@ PermissionConfigEntry = TypedDict(
         # access level model.
         "ACCESS_LEVELS": Dict[str, List[PermissionLine]],
         "PERMISSION_MODE": Optional[PERMISSION_MODE],
+        # If set to False, caching will never happen. If set to True,
+        # Caching only happens if the permissions are cacheable
+        "ENABLE_CACHE": Optional[bool],
         # Map INTERNAL -> CANTON access level names. The INTERNAL ones
         # are directly referenced by the migration tooling and may differ from
         # the ones used by the canton.
