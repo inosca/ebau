@@ -13,11 +13,6 @@ import pytest
 from django.urls import reverse
 from rest_framework import status
 
-from camac.communications import models
-
-_admin = pytest.lazy_fixture("admin_user")
-_other = pytest.lazy_fixture("some_other_user")
-
 
 @pytest.mark.parametrize(
     "role__name, expect_status",
@@ -139,107 +134,6 @@ def test_create_message(
             assert attachment.document_attachment
 
 
-@pytest.mark.parametrize("communications_message__created_by_user", [_admin])
-@pytest.mark.parametrize("role__name", ["Municipality"])
-@pytest.mark.parametrize(
-    "has_document, expect_status",
-    [
-        [False, status.HTTP_400_BAD_REQUEST],
-        [True, status.HTTP_201_CREATED],
-    ],
-)
-def test_attachment_create_jsonapi(
-    db,
-    be_instance,
-    admin_client,
-    topic_with_admin_involved,
-    communications_message,
-    has_document,
-    attachment_factory,
-    expect_status,
-):
-    post_data = {
-        "data": {
-            "type": "communications-attachments",
-            "id": None,
-            "attributes": {"body": "hello world"},
-            "relationships": {
-                "message": {
-                    "data": {
-                        "id": str(communications_message.pk),
-                        "type": "communications-messages",
-                    }
-                },
-            },
-        }
-    }
-    if has_document:
-        post_data["data"]["relationships"]["document-attachment"] = {
-            "data": {
-                "id": str(attachment_factory().pk),
-                "type": "attachments",
-            }
-        }
-    resp = admin_client.post(
-        reverse("communications-attachment-list"),
-        post_data,
-    )
-    assert resp.status_code == expect_status
-
-
-@pytest.mark.parametrize("communications_message__created_by_user", [_admin])
-@pytest.mark.parametrize("role__name", ["Municipality"])
-@pytest.mark.parametrize(
-    "has_document, has_file, expect_status",
-    [
-        [False, False, status.HTTP_400_BAD_REQUEST],
-        [False, True, status.HTTP_201_CREATED],
-        [True, False, status.HTTP_201_CREATED],
-        [True, True, status.HTTP_400_BAD_REQUEST],
-    ],
-)
-def test_attachment_create_with_upload(
-    db,
-    be_instance,
-    admin_client,
-    communications_message,
-    topic_with_admin_involved,
-    attachment_factory,
-    has_document,
-    has_file,
-    expect_status,
-    tmp_path,
-):
-    the_file = tmp_path / "foo.txt"
-    with the_file.open("w") as fh_out:
-        fh_out.write("hello")
-
-    post_data = {
-        "message": str(communications_message.pk),
-    }
-
-    if has_file:
-        post_data["file-attachment"] = the_file.open("r")
-    if has_document:
-        post_data["document-attachment"] = attachment_factory().pk
-
-    resp = admin_client.post(
-        reverse("communications-attachment-list"),
-        data=post_data,
-        format="multipart",
-    )
-
-    assert resp.status_code == expect_status
-    if expect_status == status.HTTP_201_CREATED:
-        att = models.CommunicationsAttachment.objects.get(
-            pk=(resp.json()["data"]["id"])
-        )
-        if has_file:
-            assert att.file_attachment.read() == b"hello"
-        else:
-            assert att.document_attachment
-
-
 @pytest.mark.parametrize("role__name", ["Municipality", "Applicant"])
 @pytest.mark.parametrize(
     "has_document, has_file, expect_status",
@@ -292,11 +186,13 @@ def test_attachment_download(
 
     communications_attachment.save()
 
-    resp = admin_client.get(
-        reverse(
-            "communications-attachment-download", args=[communications_attachment.pk]
-        )
+    get_response = admin_client.get(
+        reverse("communications-attachment-detail", args=[communications_attachment.pk])
     )
+
+    url = get_response.json()["data"]["attributes"]["download-url"]
+
+    resp = admin_client.get(url)
 
     assert resp.status_code == expect_status
     if expect_status == status.HTTP_200_OK:
