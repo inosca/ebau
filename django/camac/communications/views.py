@@ -123,7 +123,19 @@ class MessageView(
         model = models.CommunicationsMessage
 
 
-class AttachmentView(InvolvedInTopicQuerysetMixin, InstanceQuerysetMixin, ModelViewSet):
+class AttachmentView(
+    # Camac
+    InvolvedInTopicQuerysetMixin,
+    InstanceQuerysetMixin,
+    # DRF JSON-API
+    AutoPrefetchMixin,
+    PreloadIncludesMixin,
+    RelatedMixin,
+    # DRF
+    RetrieveModelMixin,
+    ListModelMixin,
+    GenericViewSet,
+):
     swagger_schema = None
     serializer_class = serializers.CommunicationsAttachmentSerializer
     filterset_class = filters.AttachmentFilterSet

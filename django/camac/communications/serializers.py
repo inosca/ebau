@@ -74,12 +74,6 @@ class CommunicationsAttachmentField(serializers.ResourceRelatedField):
             file_type=file.content_type if file else None,
         )
 
-    # def to_representation(self, value):
-    #    """Transform the *outgoing* native value into primitive data."""
-    #    # We just defer to the ResourceRelatedField to send the
-    #    # representation
-    #    return super().to_representation(value.all())
-
 
 class EntityListField(EntityNameMixin, serializers.ListField):
     def to_internal_value(self, data):
@@ -345,88 +339,10 @@ class MessageSerializer(serializers.ModelSerializer):
 
 class CommunicationsAttachmentSerializer(serializers.ModelSerializer):
     download_url = serializers.SerializerMethodField()
-    content_type = serializers.SerializerMethodField()
     file_attachment = serializers.FileField(required=False)
 
     def get_download_url(self, attachment):
         return reverse("communications-attachment-download", args=[attachment.pk])
-
-    def get_content_type(self, attachment):
-        if attachment.file_attachment:
-            return attachment.file_type
-        elif attachment.document_attachment:
-            return attachment.document_attachment.mime_type
-
-    def is_valid(self, raise_exception=False):
-        if self.context["request"].content_type.startswith("multipart/"):
-            # need to cleanup the data
-            self._prepare_multipart()
-        return super().is_valid(raise_exception=raise_exception)
-
-    def validate_message(self, value):
-        # lazy import required
-        from . import views
-
-        if value not in _qs_from_view(views.MessageView, self.context["request"]):
-            raise ValidationError(
-                gettext("Invisible message, cannot create or update attachment")
-            )
-
-        # Only allow anything to happen on attachments if the message has
-        # not yet been sent
-        if value.sent_at:
-            raise ValidationError(
-                gettext("Message has already been sent, cannot modify attachments")
-            )
-
-        if self.context["request"].user != value.created_by_user:
-            raise ValidationError(
-                gettext("You can only add/update attachments on your own messges")
-            )
-
-        return value
-
-    def _prepare_multipart(self):
-        """Massage multipart data into jsonapi-compatible form."""
-
-        # Depending on incoming data, the parser converts the request into
-        # a dict or an immutable QueryDict. In the latter case, we cannot
-        # modify the dict anymore to accomodate the multipart -> jsonapi
-        # conversion as needed, thus we need to unlock it.
-        # As nothing bad comes from just leaving it "mutable", we don't
-        # bother cleaning it up after.
-        if hasattr(self.initial_data, "_mutable"):
-            self.initial_data._mutable = True
-
-        if not isinstance(self.initial_data.get("message"), dict):
-            self.initial_data["message"] = {
-                "type": "communications-messages",
-                "id": self.initial_data["message"],
-            }
-
-        if "file-attachment" in self.initial_data:
-            self.initial_data["file_attachment"] = self.initial_data["file-attachment"]
-            del self.initial_data["file-attachment"]
-
-        if "document-attachment" in self.initial_data:
-            self.initial_data["document_attachment"] = {
-                "type": "attachments",
-                "id": self.initial_data["document-attachment"],
-            }
-            del self.initial_data["document-attachment"]
-
-    def validate(self, data):
-        has_file = "file_attachment" in data
-        has_doc = "document_attachment" in data
-
-        if has_file and has_doc:
-            raise ValidationError(
-                "Cannot both reference a document AND have an uploaded file"
-            )
-        elif (not has_file) and not has_doc:
-            raise ValidationError("Need either file-attachment or document-attachment")
-
-        return super().validate(data)
 
     class Meta:
         model = models.CommunicationsAttachment
