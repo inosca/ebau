@@ -150,105 +150,30 @@ def test_rejected_create_message(
     assert resp.json()["errors"][0]["source"]["pointer"] == "/data/relationships/topic"
 
 
-@pytest.mark.parametrize("role__name", ["Municipality", "Applicant"])
-def test_rejected_create_attachment(
-    db, be_instance, admin_client, role, communications_message
-):
-    """Test whether we can create a attachment where we shouldn't be allowed"""
-    url = reverse("communications-attachment-list")
-    resp = admin_client.post(
-        url,
-        {
-            "data": {
-                "type": "communications-attachments",
-                "attributes": {},
-                "relationships": {
-                    "message": {
-                        "data": {
-                            "id": str(communications_message.pk),
-                            "type": "communications-messages",
-                        }
-                    },
-                },
-            }
-        },
-    )
-    assert resp.status_code == status.HTTP_400_BAD_REQUEST
-    # check for proper validation error source
-    assert (
-        resp.json()["errors"][0]["source"]["pointer"] == "/data/relationships/message"
-    )
-
-
-@pytest.mark.parametrize("role__name", ["Municipality", "Applicant"])
-@pytest.mark.parametrize(
-    "communications_message__sent_at, communications_message__created_by_user, expect_status",
-    [
-        # Attachment on own, un-sent message should be OK
-        (None, _admin, status.HTTP_201_CREATED),
-        # Attachment on sent message should fail
-        ("2022-12-12T01:02:03Z", _admin, status.HTTP_400_BAD_REQUEST),
-        # Attachment on non-own message should fail
-        (None, _other, status.HTTP_400_BAD_REQUEST),
-    ],
-)
-def test_message_status_on_attachments(
-    db,
-    be_instance,
-    admin_client,
-    role,
-    communications_message,
-    topic_with_admin_involved,
-    attachment,
-    expect_status,
-):
-    """Test whether we can create attachments with sent / unsent message status"""
-
-    if role.name == "Applicant":
-        be_instance.involved_applicants.create(
-            invitee=admin_client.user, user=admin_client.user
-        )
-        default_group = admin_client.user.get_default_group()
-        default_group.service = None
-        default_group.save()
-
-    url = reverse("communications-attachment-list")
-    resp = admin_client.post(
-        url,
-        {
-            "data": {
-                "type": "communications-attachments",
-                "attributes": {},
-                "relationships": {
-                    "message": {
-                        "data": {
-                            "id": str(communications_message.pk),
-                            "type": "communications-messages",
-                        }
-                    },
-                    "document-attachment": {
-                        "data": {
-                            "id": str(attachment.pk),
-                            "type": "attachments",
-                        }
-                    },
-                },
-            }
-        },
-    )
-    assert resp.status_code == expect_status
-    # check for proper validation error source
-    if expect_status == status.HTTP_400_BAD_REQUEST:
-        assert (
-            resp.json()["errors"][0]["source"]["pointer"]
-            == "/data/relationships/message"
-        )
-
-
 @pytest.mark.parametrize("role__name", ["Municipality"])
 @pytest.mark.parametrize("method", ["delete", "patch"])
 def test_message_unallowed_methods(db, admin_client, communications_message, method):
     url = reverse("communications-message-detail", args=[communications_message.pk])
+    response = getattr(admin_client, method)(url)
+
+    assert response.status_code == status.HTTP_405_METHOD_NOT_ALLOWED
+
+
+@pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.parametrize("method", ["post", "patch"])
+def test_attachment_unallowed_methods(
+    db,
+    admin_client,
+    communications_attachment,
+    method,
+):
+    if method == "post":
+        url = reverse("communications-attachment-list")
+    else:
+        url = reverse(
+            "communications-attachment-detail", args=[communications_attachment.pk]
+        )
+
     response = getattr(admin_client, method)(url)
 
     assert response.status_code == status.HTTP_405_METHOD_NOT_ALLOWED
