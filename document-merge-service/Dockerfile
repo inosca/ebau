@@ -3,6 +3,9 @@ FROM ghcr.io/adfinis/document-merge-service:6.4.4
 # Only root user can install packages
 USER root
 RUN poetry run pip install boto3==1.28.9
+RUN \
+  --mount=type=cache,target=/var/cache/apt \
+  apt-get update && apt-get install -y --no-install-recommends hyphen-de hyphen-fr
 USER document-merge-service
 
 ENV CACHE_BACKEND=django.core.cache.backends.memcached.MemcachedCache
