@@ -1703,12 +1703,13 @@ def test_generate_and_store_pdf(
 
 def test_generate_and_store_pdf_in_alexandria(
     db,
-    gr_instance,
+    admin_user,
     application_settings,
-    caluma_admin_user,
+    dms_settings,
+    gr_instance,
+    group,
     minio_mock,
     mocker,
-    dms_settings,
 ):
     alexandria_category = CategoryFactory()
     application_settings["STORE_PDF"] = {
@@ -1723,7 +1724,11 @@ def test_generate_and_store_pdf_in_alexandria(
     ).return_value
     client.merge.return_value = b"some binary data"
     mocker.patch("camac.instance.document_merge_service.DMSVisitor.visit")
-    mocker.patch("camac.instance.serializers.CalumaInstanceSubmitSerializer.context")
+    context = mocker.patch(
+        "camac.instance.serializers.CalumaInstanceSubmitSerializer.context"
+    )
+    context["request"].user = admin_user
+    context["request"].group = group
 
     serializer = CalumaInstanceSubmitSerializer()
 
@@ -1735,6 +1740,9 @@ def test_generate_and_store_pdf_in_alexandria(
     serializer._generate_and_store_pdf(gr_instance)
 
     assert alexandria_category.documents.count() == 1
+    assert (
+        alexandria_category.documents.first().files.filter(variant="thumbnail").exists()
+    )
 
 
 @pytest.mark.parametrize(
