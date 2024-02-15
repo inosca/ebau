@@ -57,7 +57,6 @@ class Command(BaseCommand):
             .iterator()
         )
         for case in cases:
-
             if not case.work_items.filter(task=task).exists() and hasattr(
                 case, "instance"
             ):

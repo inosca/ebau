@@ -3,7 +3,6 @@ from rest_framework import status
 
 
 def test_public_user_list(admin_client, user):
-
     response = admin_client.get(reverse("publicuser-list"))
 
     assert response.status_code == status.HTTP_200_OK

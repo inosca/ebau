@@ -14,7 +14,6 @@ from camac.user.models import Group
 
 
 class Command(BaseCommand):
-
     help = "Validate archive for dossier_import"
 
     def add_arguments(self, parser):

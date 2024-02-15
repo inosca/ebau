@@ -4,7 +4,6 @@ from django.core.management import call_command
 
 
 def test_translate(db):
-
     with open("camac/core/tests/untranslated_config.json", "r+") as file:
         original_data = json.load(file)
 

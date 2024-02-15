@@ -1302,8 +1302,7 @@ class PublicCalumaInstanceView(mixins.InstanceQuerysetMixin, ListAPIView):
 
     permission_classes = [
         # This API is used by ÖREB in Kt. Uri
-        (IsApplication("kt_uri") & DefaultPermission)
-        | PublicationPermission
+        (IsApplication("kt_uri") & DefaultPermission) | PublicationPermission
     ]
     serializer_class = serializers.PublicCalumaInstanceSerializer
     filterset_class = filters.PublicCalumaInstanceFilterSet

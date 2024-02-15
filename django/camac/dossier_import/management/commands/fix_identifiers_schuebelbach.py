@@ -9,7 +9,6 @@ from camac.instance.models import Instance
 
 
 class Command(BaseCommand):  # pragma: no cover
-
     help = """Fix bad identifiers (ebau numbers) for Schübelbach."""
 
     def add_arguments(self, parser):

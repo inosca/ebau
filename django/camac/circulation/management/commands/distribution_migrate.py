@@ -138,11 +138,12 @@ def canton_aware(include_base_method=False):
     def decorator(func, *_):
         @wraps(func)
         def wrapper(self, *args, **kwargs):
-
             canton = (
                 "be"
                 if settings.APPLICATION_NAME == "kt_bern"
-                else "sz" if settings.APPLICATION_NAME == "kt_schwyz" else None
+                else "sz"
+                if settings.APPLICATION_NAME == "kt_schwyz"
+                else None
             )
             func_name = f"{func.__name__}_{canton}" if canton else f"{func.__name__}"
             if hasattr(self, func_name):
@@ -497,7 +498,8 @@ class Command(BaseCommand):
                 service_parent__isnull=True,
             )
             # Already generated for leading authority
-            .exclude(pk=user.group).values_list("pk", flat=True)
+            .exclude(pk=user.group)
+            .values_list("pk", flat=True)
         )
 
         for service_id in services_allowed_to_create:
@@ -675,7 +677,9 @@ class Command(BaseCommand):
                         else (
                             WorkItem.STATUS_READY
                             if is_ready
-                            else WorkItem.STATUS_SUSPENDED if is_draft else None
+                            else WorkItem.STATUS_SUSPENDED
+                            if is_draft
+                            else None
                         )
                     )
                 ),
@@ -875,8 +879,7 @@ class Command(BaseCommand):
             # approximation, archived depreciated case with no
             # (distribution-)succeeding work-item cannot be fully
             # reconstructed
-            case.instance.instance_state.name == "arch"
-            and has_circulations
+            case.instance.instance_state.name == "arch" and has_circulations
         )
 
     @canton_aware()
@@ -933,8 +936,7 @@ class Command(BaseCommand):
                 # approximation, archived depreciated case with no
                 # (distribution-)succeeding work-item cannot be fully
                 # reconstructed
-                case.instance.instance_state.name == "arch"
-                and not has_circulations
+                case.instance.instance_state.name == "arch" and not has_circulations
             )
         )
 
@@ -1126,7 +1128,6 @@ class Command(BaseCommand):
         next_work_item,
         distribution_work_item,
     ):
-
         # handle depreciated cases
         case_is_depreciated = self.case_is_depreciated(case)
 
@@ -1324,27 +1325,26 @@ class Command(BaseCommand):
         ).first()
         activation_answer_draft_completed = review_date.answer if review_date else None
 
-        find_user = (
-            lambda chapter, question, item: User.objects.filter(
-                groups__service=str(activation.service_id)
-            )
-            .annotate(fullname=Concat(F("name"), Value(" "), F("surname")))
-            .filter(
-                fullname=Value(
-                    core_models.ActivationAnswer.objects.filter(
-                        activation=activation.pk,
-                        chapter=chapter,
-                        question=question,
-                        item=item,
+        def find_user(chapter, question, item):
+            return (
+                User.objects.filter(groups__service=str(activation.service_id))
+                .annotate(fullname=Concat(F("name"), Value(" "), F("surname")))
+                .filter(
+                    fullname=Value(
+                        core_models.ActivationAnswer.objects.filter(
+                            activation=activation.pk,
+                            chapter=chapter,
+                            question=question,
+                            item=item,
+                        )
+                        .values_list("answer", flat=True)
+                        .first()
                     )
-                    .values_list("answer", flat=True)
-                    .first()
                 )
+                .distinct()
+                .values_list("username", flat=True)
+                .first()
             )
-            .distinct()
-            .values_list("username", flat=True)
-            .first()
-        )
 
         assignee = find_user(chapter=1, question=5, item=1)
 

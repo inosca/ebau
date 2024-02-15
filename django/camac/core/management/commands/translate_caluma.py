@@ -56,7 +56,6 @@ class Command(BaseCommand):
         )
 
     def handle(self, *args, **options):
-
         translations = []
         for file in sources:
             translations = translations + _load_csv(file)

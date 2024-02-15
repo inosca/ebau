@@ -50,7 +50,6 @@ class Command(BaseCommand):
 
         for work_item in tqdm(work_items_to_migrate, mininterval=1, maxinterval=2):
             try:
-
                 deadline = work_item.case.parent_work_item.document.answers.get(
                     question_id=settings.DISTRIBUTION["QUESTIONS"]["DEADLINE"]
                 ).date
