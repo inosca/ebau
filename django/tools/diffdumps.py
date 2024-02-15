@@ -299,7 +299,6 @@ class Diffy:
         return print(*args, file=self.stderr)
 
     def _show_conflict(self, conflict, output):
-
         if conflict.get("base") is None:  # case 5
             message = "Two additions"
         elif conflict.get("first") is None:  # case 8
@@ -439,8 +438,8 @@ if __name__ == "__main__":
     diffy = Diffy(stdin=stdin, stdout=stdout, stderr=stderr)
 
     diffy.apply_dump(json.load(args.base[0]), "base")
-    diffy.apply_dump(json.load(args.first[0]), "first"),
-    diffy.apply_dump(json.load(args.second[0]), "second"),
+    diffy.apply_dump(json.load(args.first[0]), "first")
+    diffy.apply_dump(json.load(args.second[0]), "second")
 
     diffy.flatten_changes()
 

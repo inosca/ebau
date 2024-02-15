@@ -282,9 +282,7 @@ def test_distribution_permission_for_task(
                 }}
             }}
         }}
-        """.format(
-            mutation=mutation, work_item=work_item.pk
-        )
+        """.format(mutation=mutation, work_item=work_item.pk)
     )
 
     if not is_permitted:

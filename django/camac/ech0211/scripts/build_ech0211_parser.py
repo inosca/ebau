@@ -28,11 +28,9 @@ SCHEMA_URLS = {
 
 
 def fetch_schema_files(workdir, force):
-
     files = {}
 
     for url, schema_file in SCHEMA_URLS.items():
-
         schema_file = workdir + "/" + schema_file
 
         # only download xsd file if needed or if it doesn't exist yet

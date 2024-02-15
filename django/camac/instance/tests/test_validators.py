@@ -95,7 +95,7 @@ FORM_CONFIG = {
 def test_form_data_validator_validate_deactivation(
     db, form_field_factory, form_factory, instance, settings
 ):
-    """Test form data validation for deactivated dependent questions
+    """Test form data validation for deactivated dependent questions.
 
     Ensure form-data validation evaluates correctly in the following use-case:
     1) Initially the value 'Yes' is selected in question 0 and question 1

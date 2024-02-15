@@ -163,7 +163,6 @@ class ParashiftImporter:
 
         dossiers = []
         for page_number in range(1, (total_pages + 1)):
-
             result = self._get(
                 self.LIST_URI_FORMAT.format(
                     to_id=to_id, from_id=from_id, page_number=page_number

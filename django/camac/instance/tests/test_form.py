@@ -55,7 +55,6 @@ def test_form_versioned_filter(
     ],
 )
 def test_form_state_filter(admin_client, form, form_state, amount):
-
     url = reverse("form-list")
 
     response = admin_client.get(url, {"form_state": str(form_state.pk)})

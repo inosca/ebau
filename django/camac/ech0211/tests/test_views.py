@@ -89,7 +89,6 @@ def test_applications_list(
     override_urls_be,
     ech_instance_be,
 ):
-
     url = reverse("applications")
     response = admin_client.get(url)
     assert response.status_code == status.HTTP_200_OK
@@ -565,7 +564,6 @@ def test_application_retrieve_full_sz(
     work_item_factory,
     master_data_is_visible_mock,
 ):
-
     ech_instance_sz.form.description = application_type
     ech_instance_sz.form.save()
     mocker.patch.object(  # make for a deterministic message_id

@@ -177,7 +177,6 @@ class FormFieldListValueFilter(Filter):
         self._keys = keys
 
     def filter(self, qs, value, *args, **kwargs):
-
         if value in EMPTY_VALUES:
             return qs
 
@@ -813,7 +812,6 @@ class InstanceResponsibilityFilterSet(FilterSet):
 
 
 class InstanceIssueFilterSet(FilterSet):
-
     state = CharMultiValueFilter()
 
     class Meta:
@@ -873,7 +871,6 @@ class FormFilterSet(FilterSet):
 
 
 class FormFieldFilterSet(FilterSet):
-
     instance = NumberMultiValueFilter()
     name = CharMultiValueFilter()
     egrid = JSONFieldMultiValueFilter(

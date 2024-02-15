@@ -100,7 +100,7 @@ def rejected_application_factory(
 ):
     def wrapper(parent_application: Instance, duration: int = 5) -> Instance:
         """
-        Create one rejected application predating a parent application
+        Create one rejected application predating a parent application.
 
         @param parent_application: Application instance succeeding rejected instance
         @param duration: num of days until rejection
@@ -148,7 +148,7 @@ def rejected_application_factory(
 def nest_rejected_applications(rejected_application_factory):
     def wrapper(parent: Instance, recursions: List[int]) -> Union[Instance, Callable]:
         """
-        Recursively nest rejected instances
+        Recursively nest rejected instances.
 
         Every item in the recursion parameter defines a number of days
          the parent instance predates the current instance.

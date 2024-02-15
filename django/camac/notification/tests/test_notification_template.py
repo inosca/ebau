@@ -718,12 +718,12 @@ def test_notification_placeholders(
         instance=sz_instance,
         workflow_date=timezone.make_aware(datetime(2019, 7, 22, 10)),
     ).workflow_item.pk
-    settings.APPLICATION["WORKFLOW_ITEMS"]["INSTANCE_COMPLETE"] = (
-        workflow_entry_factory(
-            instance=sz_instance,
-            workflow_date=timezone.make_aware(datetime(2019, 8, 23, 10)),
-        ).workflow_item.pk
-    )
+    settings.APPLICATION["WORKFLOW_ITEMS"][
+        "INSTANCE_COMPLETE"
+    ] = workflow_entry_factory(
+        instance=sz_instance,
+        workflow_date=timezone.make_aware(datetime(2019, 8, 23, 10)),
+    ).workflow_item.pk
     settings.APPLICATION["WORKFLOW_ITEMS"]["START_CIRC"] = workflow_entry_factory(
         instance=sz_instance,
         workflow_date=timezone.make_aware(datetime(2019, 9, 24, 10)),

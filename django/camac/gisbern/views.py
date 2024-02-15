@@ -94,9 +94,7 @@ def get_gis_data(polygon):
             {1}
           </ogc:Intersects>
         </ogc:Filter>
-      </Query>""".format(
-                x, polygon
-            ),
+      </Query>""".format(x, polygon),
             boolean_layers + special_layers,
         )
     )

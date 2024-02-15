@@ -163,9 +163,7 @@ class IsPublicAccess(permissions.BasePermission):
 
 DefaultPermission = (
     # identical to DEFAULT_PERMISSION_CLASSES
-    permissions.IsAuthenticated
-    & IsGroupMember
-    & ViewPermissions
+    permissions.IsAuthenticated & IsGroupMember & ViewPermissions
 )
 
 
