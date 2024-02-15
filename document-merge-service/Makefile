@@ -10,11 +10,15 @@ install-dev: ## Install development environment
 
 .PHONY: test
 test: ## Test the extensions
+	@# TODO: We'll need to migrate DMS to `ruff` as well, but as it's in a
+	@# separate container (external) we need to do it separately
 	@poetry run black --check document_merge_service/extensions/
 	@poetry run flake8 document_merge_service/extensions/
 	@poetry run pytest -vv --cov document_merge_service/extensions --cov-report term --cov-report xml:artifacts/cobertura.xml --junitxml=artifacts/junit.xml document_merge_service/extensions/
 
 .PHONY: format
 format: ## Format the extensions
+	@# TODO: We'll need to migrate DMS to `ruff` as well, but as it's in a
+	@# separate container (external) we need to do it separately
 	@poetry run black document_merge_service/extensions/
 	@poetry run isort document_merge_service/extensions/
