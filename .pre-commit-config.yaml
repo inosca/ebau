@@ -1,24 +1,15 @@
 repos:
 -   repo: local
     hooks:
-    - id: black
-      name: black
+    - id: ruff-format
+      stages: [commit]
+      name: format code
       language: system
-      entry: black --config django/pyproject.toml
+      entry: bash -c 'cd django && ruff format'
       types: [python]
-      exclude: >
-          (?x)^(
-            .*/migrations/.* |
-            .*/snapshots/.* |
-            .*/ech0211\/schema/.*
-          )$
-    - id: isort
-      name: isort
+    - id: ruff-check
+      stages: [commit]
+      name: check format,import
       language: system
-      entry: isort
-      types: [python]
-    - id: flake8
-      name: flake8
-      language: system
-      entry: flake8 --config django/.flake8
+      entry: bash -c 'cd django && ruff check'
       types: [python]

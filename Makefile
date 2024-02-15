@@ -149,7 +149,7 @@ format:
 	@yarn --cwd=ember-caluma-portal lint:js --fix
 	@yarn --cwd=ember install
 	@yarn --cwd=ember lint:js --fix
-	@black --config django/pyproject.toml django
+	@(cd django && ruff format)
 	@npx --yes prettier@3.0.3 --write *.yml
 	@npx --yes prettier@3.0.3 --write compose/*.yml
 
