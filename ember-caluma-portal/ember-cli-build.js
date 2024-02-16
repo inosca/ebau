@@ -27,7 +27,6 @@ module.exports = function (defaults) {
         enableSupport: ["be", "ur", "gr"].includes(ENV),
         enableInstanceSupport: ENV === "be",
         enableModificationConfirm: ENV === "be",
-        enableCommunications: ["be", "so"].includes(ENV),
         enableAdditionalDemand: ["gr", "so"].includes(ENV),
         enableInstanceActionDescription: ENV !== "so",
         instancePaperFilterDefault: ENV === "ur",

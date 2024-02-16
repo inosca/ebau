@@ -32,4 +32,5 @@ export default {
   },
   watermark: true,
   municipalityLogo: true,
+  communications: true,
 };
