@@ -11,7 +11,7 @@ import { t } from "ember-intl/test-support";
 import { module, test } from "qunit";
 
 import { setupApplicationTest } from "dummy/tests/helpers";
-import setupFeatures from "dummy/tests/helpers/features";
+import { setupFeatures } from "ember-ebau-core/test-support";
 
 module("Acceptance | billing", function (hooks) {
   setupApplicationTest(hooks);

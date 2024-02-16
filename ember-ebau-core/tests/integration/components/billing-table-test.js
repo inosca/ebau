@@ -7,8 +7,8 @@ import { module, test } from "qunit";
 import { stub } from "sinon";
 
 import { setupRenderingTest } from "dummy/tests/helpers";
-import setupFeatures from "dummy/tests/helpers/features";
 import BillingV2EntryAbility from "ember-ebau-core/abilities/billing-v2-entry";
+import { setupFeatures } from "ember-ebau-core/test-support";
 
 module("Integration | Component | billing-table", function (hooks) {
   setupRenderingTest(hooks);
