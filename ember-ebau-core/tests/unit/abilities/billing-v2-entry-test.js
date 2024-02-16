@@ -3,9 +3,9 @@ import { module, test } from "qunit";
 import { stub } from "sinon";
 
 import { setupTest } from "dummy/tests/helpers";
-import setupFeatures from "dummy/tests/helpers/features";
 import BillingV2EntryAbility from "ember-ebau-core/abilities/billing-v2-entry";
 import mainConfig from "ember-ebau-core/config/main";
+import { setupFeatures } from "ember-ebau-core/test-support";
 
 module("Unit | Ability | billing-v2-entry", function (hooks) {
   setupTest(hooks);

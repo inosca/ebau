@@ -5,8 +5,8 @@ import { t } from "ember-intl/test-support";
 import { module, test } from "qunit";
 
 import { setupRenderingTest } from "dummy/tests/helpers";
-import setupFeatures from "dummy/tests/helpers/features";
 import { hasFeature } from "ember-ebau-core/helpers/has-feature";
+import { setupFeatures } from "ember-ebau-core/test-support";
 
 module("Integration | Component | gis-apply-button", function (hooks) {
   setupRenderingTest(hooks);

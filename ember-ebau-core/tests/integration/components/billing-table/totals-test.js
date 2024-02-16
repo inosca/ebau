@@ -4,7 +4,7 @@ import { t } from "ember-intl/test-support";
 import { module, test } from "qunit";
 
 import { setupRenderingTest } from "dummy/tests/helpers";
-import setupFeatures from "dummy/tests/helpers/features";
+import { setupFeatures } from "ember-ebau-core/test-support";
 
 module("Integration | Component | billing-table/totals", function (hooks) {
   setupRenderingTest(hooks);
