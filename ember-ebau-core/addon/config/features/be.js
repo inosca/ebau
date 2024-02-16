@@ -33,4 +33,5 @@ export default {
   gis: {
     v3: true,
   },
+  communications: true,
 };

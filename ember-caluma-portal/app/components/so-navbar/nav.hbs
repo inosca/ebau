@@ -2,15 +2,13 @@
   {{#if @isAuthenticated}}
     <li><LinkTo @route="index">{{t "global.title"}}</LinkTo></li>
     <li><LinkTo @route="instances">{{t "nav.instances"}}</LinkTo></li>
-    {{#if (macroCondition (macroGetOwnConfig "enableCommunications"))}}
-      {{#unless @isInternal}}
-        <li>
-          <LinkTo @route="communications-global">
-            {{t "nav.communications"}}
-            <Communication::UnreadMessageBadge />
-          </LinkTo>
-        </li>
-      {{/unless}}
+    {{#if (and (has-feature "communications") (not @isInternal))}}
+      <li>
+        <LinkTo @route="communications-global">
+          {{t "nav.communications"}}
+          <Communication::UnreadMessageBadge />
+        </LinkTo>
+      </li>
     {{/if}}
   {{/if}}
   {{#if (or @isAuthenticated (has-feature "publication.disableAuthentication"))}}

@@ -60,12 +60,14 @@
             {{#if this.session.isAuthenticated}}
               <UkSubnav::Item @href="/">{{t "nav.index"}}</UkSubnav::Item>
               <UkSubnav::Item @href="/instances">{{t "nav.instances"}}</UkSubnav::Item>
-              {{#if (macroCondition (macroGetOwnConfig "enableCommunications"))}}
-                {{#unless this.session.isInternal}}
-                  <UkSubnav::Item @href="/communications-global">{{t "nav.communications" }}
-                    <Communication::UnreadMessageBadge class="uk-margin-small-left" />
-                  </UkSubnav::Item>
-                {{/unless}}
+              {{#if
+                (and
+                  (has-feature "communications") (not this.session.isInternal)
+                )
+              }}
+                <UkSubnav::Item @href="/communications-global">{{t "nav.communications" }}
+                  <Communication::UnreadMessageBadge class="uk-margin-small-left" />
+                </UkSubnav::Item>
               {{/if}}
               {{#if (macroCondition (macroGetOwnConfig "enableSupport"))}}
                 <UkSubnav::Item @href="/support">{{t "nav.support"}}</UkSubnav::Item>
