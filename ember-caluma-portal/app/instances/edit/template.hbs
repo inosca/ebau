@@ -87,21 +87,24 @@
           </AriaHeading>
         </Tab.item>
       {{/if}}
-      {{#if (macroCondition (macroGetOwnConfig "enableCommunications"))}}
-        {{#if (can "read communication of instance" this.instance)}}
-          <Tab.item
-            @href={{concat "/instances/" @model "/communications"}}
-            as |active|
-          >
-            <AriaHeading @enabled={{active}}>
-              {{t "nav.communications"}}
-              <Communication::UnreadMessageBadge
-                @instanceId={{this.model}}
-                class="uk-margin-small-left"
-              />
-            </AriaHeading>
-          </Tab.item>
-        {{/if}}
+      {{#if
+        (and
+          (has-feature "communications")
+          (can "read communication of instance" this.instance)
+        )
+      }}
+        <Tab.item
+          @href={{concat "/instances/" @model "/communications"}}
+          as |active|
+        >
+          <AriaHeading @enabled={{active}}>
+            {{t "nav.communications"}}
+            <Communication::UnreadMessageBadge
+              @instanceId={{this.model}}
+              class="uk-margin-small-left"
+            />
+          </AriaHeading>
+        </Tab.item>
       {{/if}}
       {{#if (can "read applicants of instance" this.instance)}}
         <Tab.item

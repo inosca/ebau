@@ -3,7 +3,7 @@ import { hbs } from "ember-cli-htmlbars";
 import { module, test } from "qunit";
 
 import { setupRenderingTest } from "dummy/tests/helpers";
-import setupFeatures from "dummy/tests/helpers/features";
+import { setupFeatures } from "ember-ebau-core/test-support";
 
 module("Integration | Component | watermark", function (hooks) {
   setupRenderingTest(hooks);

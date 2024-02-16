@@ -2,7 +2,7 @@ import { setupMirage } from "ember-cli-mirage/test-support";
 import { module, test } from "qunit";
 
 import { setupTest } from "dummy/tests/helpers";
-import setupConfig from "dummy/tests/helpers/config";
+import { setupConfig } from "ember-ebau-core/test-support";
 
 module("Unit | Ability | instance", function (hooks) {
   setupTest(hooks);

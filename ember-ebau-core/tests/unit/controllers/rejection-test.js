@@ -2,7 +2,6 @@ import { setupMirage } from "ember-cli-mirage/test-support";
 import { module, test } from "qunit";
 
 import { setupTest } from "dummy/tests/helpers";
-import setupFeatures from "dummy/tests/helpers/features";
 import {
   CLAIMS_EMPTY,
   CLAIMS_NOT_EMPTY,
@@ -12,6 +11,7 @@ import {
   DISTRIBUTION_NOT_EMPTY,
 } from "dummy/tests/unit/controllers/rejection-data";
 import RejectionController from "ember-ebau-core/controllers/rejection";
+import { setupFeatures } from "ember-ebau-core/test-support";
 
 module("Unit | Controller | rejection", function (hooks) {
   setupTest(hooks);
