@@ -14,7 +14,7 @@ function setFeature(features, name, value) {
   }, features);
 }
 
-function setupFeatures(hooks) {
+export default function setupFeatures(hooks) {
   const originalFeatures = { ...featuresConfig.features };
 
   const helper = {
@@ -48,5 +48,3 @@ function setupFeatures(hooks) {
     featuresConfig.features = originalFeatures;
   });
 }
-
-export default setupFeatures;

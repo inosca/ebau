@@ -1,8 +1,8 @@
 import { module, test } from "qunit";
 
 import { setupTest } from "dummy/tests/helpers";
-import setupFeatures from "dummy/tests/helpers/features";
 import BillingNewController from "ember-ebau-core/controllers/billing/new";
+import { setupFeatures } from "ember-ebau-core/test-support";
 
 module("Unit | Controller | billing/new", function (hooks) {
   setupTest(hooks);
