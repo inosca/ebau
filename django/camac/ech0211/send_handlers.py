@@ -72,9 +72,7 @@ class BaseSendHandler:
             )
 
     def get_instance_id(self):
-        return (
-            self.data.eventNotice.planningPermissionApplicationIdentification.dossierIdentification
-        )
+        return self.data.eventNotice.planningPermissionApplicationIdentification.dossierIdentification
 
     def complete_work_item(self, task, filters={}, context={}):
         return self._process_work_item("complete", task, filters, context)
@@ -239,14 +237,10 @@ class ChangeResponsibilitySendHandler(BaseSendHandler):
         return True, None
 
     def get_instance_id(self):
-        return (
-            self.data.eventChangeResponsibility.planningPermissionApplicationIdentification.dossierIdentification
-        )
+        return self.data.eventChangeResponsibility.planningPermissionApplicationIdentification.dossierIdentification
 
     def apply(self):
-        new_service_id = (
-            self.data.eventChangeResponsibility.responsibleDecisionAuthority.decisionAuthority.buildingAuthorityIdentificationType.localOrganisationId.organisationId
-        )
+        new_service_id = self.data.eventChangeResponsibility.responsibleDecisionAuthority.decisionAuthority.buildingAuthorityIdentificationType.localOrganisationId.organisationId
 
         try:
             new_service = Service.objects.get(pk=new_service_id)
@@ -290,9 +284,7 @@ class AccompanyingReportSendHandler(BaseSendHandler):
         return False, "There is no running inquiry for your service."
 
     def get_instance_id(self):
-        return (
-            self.data.eventAccompanyingReport.planningPermissionApplicationIdentification.dossierIdentification
-        )
+        return self.data.eventAccompanyingReport.planningPermissionApplicationIdentification.dossierIdentification
 
     def _get_inquiry(self):
         return (
@@ -365,9 +357,7 @@ class CloseArchiveDossierSendHandler(BaseSendHandler):
         )
 
     def get_instance_id(self):
-        return (
-            self.data.eventCloseArchiveDossier.planningPermissionApplicationIdentification.dossierIdentification
-        )
+        return self.data.eventCloseArchiveDossier.planningPermissionApplicationIdentification.dossierIdentification
 
     def apply(self):
         self.skip_work_item("sb1")
@@ -377,9 +367,7 @@ class CloseArchiveDossierSendHandler(BaseSendHandler):
 
 class TaskSendHandler(BaseSendHandler):
     def get_instance_id(self):
-        return (
-            self.data.eventRequest.planningPermissionApplicationIdentification.dossierIdentification
-        )
+        return self.data.eventRequest.planningPermissionApplicationIdentification.dossierIdentification
 
     def has_permission(self):
         if not super().has_permission()[0]:  # pragma: no cover
@@ -469,9 +457,7 @@ class KindOfProceedingsSendHandler(DocumentAccessibilityMixin, BaseSendHandler):
         )
 
     def get_instance_id(self):
-        return (
-            self.data.eventKindOfProceedings.planningPermissionApplicationIdentification.dossierIdentification
-        )
+        return self.data.eventKindOfProceedings.planningPermissionApplicationIdentification.dossierIdentification
 
     def has_permission(self):
         if not super().has_permission():  # pragma: no cover

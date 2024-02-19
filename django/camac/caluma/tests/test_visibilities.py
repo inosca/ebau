@@ -663,7 +663,7 @@ def test_form_visibility_sz(
                 "visibleFor": {"services": [services["Service 4"].pk]},
             }
         }
-    ),
+    )
 
     query = """
         query {

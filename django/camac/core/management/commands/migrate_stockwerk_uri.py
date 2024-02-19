@@ -57,7 +57,6 @@ class Command(BaseCommand):
 
     def assign_the_floor(self, answers):
         for answer in answers:
-
             if answer.value in ANSWERS_FOR_PARTERRE:
                 Answer.objects.create(
                     question_id="stockwerktyp",

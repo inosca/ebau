@@ -102,9 +102,9 @@ def test_decision_event_handler_be(
     settings.APPLICATION_NAME = "kt_bern"
     application_settings["SHORT_NAME"] = "be"
     instance_state_factory(name="sb1")
-    permissions_settings["EVENT_HANDLER"] = (
-        "camac.permissions.config.kt_bern.PermissionEventHandlerBE"
-    )
+    permissions_settings[
+        "EVENT_HANDLER"
+    ] = "camac.permissions.config.kt_bern.PermissionEventHandlerBE"
 
     be_instance.case.document.answers.create(
         question_id="is-paper", value="is-paper-no"

@@ -36,7 +36,6 @@ class Command(BaseCommand):
                 47245,
             ]
         ):
-
             workflow_entry = i.workflowentry_set.filter(workflow_item_id=65).first()
             new_date = workflow_entry.workflow_date - timedelta(days=20)
             print(f"{i.pk}: {workflow_entry.workflow_date} --> {new_date}")

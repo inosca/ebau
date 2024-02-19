@@ -263,7 +263,6 @@ def test_form_field_list_filtering(
     size,
     instance_ids,
 ):
-
     instance = instance_factory(pk=1, user=admin_user)
     form_field_factory(
         instance=instance,

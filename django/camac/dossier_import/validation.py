@@ -13,7 +13,6 @@ from camac.dossier_import.loaders import InvalidImportDataError
 from camac.dossier_import.models import DossierImport
 
 from .config.common import mimetypes
-from .dossier_classes import Dossier
 from .loaders import XlsxFileDossierLoader
 from .messages import MessageCodes
 

@@ -35,5 +35,4 @@ if settings.MANABI_ENABLE:
 
     application = dispatch
 else:
-
     application = get_wsgi_application()

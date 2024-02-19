@@ -11,7 +11,6 @@ from camac.user.models import Group
 
 
 class Command(BaseCommand):
-
     help = "Import instances and cases from zip package"
 
     def add_arguments(self, parser):

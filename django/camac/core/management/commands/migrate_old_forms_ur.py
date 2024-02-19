@@ -127,7 +127,6 @@ class Command(BaseCommand):
 
                 answer.save()
             except AttributeError:
-
                 Answer.objects.create(
                     value=FORM_TYPE_MAPPING[new_form.pk],
                     document=instance.case.document,

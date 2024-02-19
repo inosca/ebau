@@ -13,7 +13,6 @@ def test_answer_get_value_by_cqi(
     answer_list_factory,
     question_chapter_factory,
 ):
-
     type = QuestionType.objects.create(pk=4)
     question_chapter = question_chapter_factory.create(question__question_type=type)
     question = question_chapter.question

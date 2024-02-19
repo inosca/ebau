@@ -187,6 +187,7 @@ class Group(core_models.MultilingualModel, models.Model):
     """A group is tightly coupled to one role (with child roles) and one service/organisation (with child entities).
 
     It builds a link between user and service/organisation. A group has location information attached.
+
     Examples:
     - Admin with role Admin
     - Administration Location X with role Administration
@@ -419,6 +420,7 @@ class Role(core_models.MultilingualModel, models.Model):
     """Represents an organisational role which is tied to a user.
 
     A role can have many groups.
+
     Examples:
     - business specific role a person takes within an organisation entity
     - guest role or admin role (-> user.is_superuser)

@@ -1,21 +1,9 @@
 -r requirements.txt
-black==24.1.1
 debugpy==1.8.0
 django-extensions==3.2.3
 django-silk==5.1.0
 Faker==22.6.0
-flake8==7.0.0
-flake8-blind-except==0.2.1
-flake8-debugger==4.1.2
-flake8-deprecated==2.2.1
-flake8-docstrings==1.7.0
-flake8-isort==6.1.1
-flake8-mock==0.4
-flake8-polyfill==1.0.2
-flake8-string-format==0.3.0
-flake8-tuple==0.4.1
 ipdb==0.13.13
-isort==5.13.2
 mock==5.1.0
 pdbpp==0.10.3
 pre-commit==3.5.0
@@ -39,3 +27,4 @@ syrupy==4.6.1
 web-pdb==1.6.2
 Werkzeug==3.0.1
 psutil==5.9.8
+ruff==0.2.1

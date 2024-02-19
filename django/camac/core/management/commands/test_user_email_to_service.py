@@ -29,7 +29,6 @@ def test_user_email_to_service(
     service,
     expect_service_email,
 ):
-
     if two_users:
         user_group_factory(
             user=user_factory(email="seconduser@example.org"),

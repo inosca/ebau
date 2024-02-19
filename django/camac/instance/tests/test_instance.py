@@ -255,7 +255,9 @@ def test_instance_search_sanctions(
     instance_factory,
     admin_client,
 ):
-    """Test that instances can be filtered by sanction creator and sanction
+    """Test that instances can be filtered correctly.
+
+    Instances must be filter-able by sanction creator and sanction
     control instance.
     """
 
@@ -1298,8 +1300,9 @@ def test_instance_create(
     response = admin_client.post(url, data=json)
     assert response.status_code == status.HTTP_201_CREATED
 
-    assert json["data"]["attributes"]["modification-date"] < (
-        response.json()["data"]["attributes"]["modification-date"]
+    assert (
+        json["data"]["attributes"]["modification-date"]
+        < (response.json()["data"]["attributes"]["modification-date"])
     )
 
     if instance.location:

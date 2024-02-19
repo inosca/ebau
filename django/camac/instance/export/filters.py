@@ -195,27 +195,23 @@ class InstanceExportFilterBackendBE(InstanceExportFilterBackend):
             .values(f"label__{language}")[:1]
         )
 
-        answer = (
-            lambda slug, ref="case__document_id": Answer.objects.filter(
-                question_id=slug,
-                document_id=OuterRef(ref),
+        def answer(slug, ref="case__document_id"):
+            return (
+                Answer.objects.filter(question_id=slug, document_id=OuterRef(ref))
+                .annotate(
+                    string_value=NullIf(
+                        Trim(
+                            Replace(
+                                Cast("value", output_field=CharField()),
+                                Value('"'),
+                                Value(""),
+                            )
+                        ),
+                        Value(""),
+                    )
+                )
+                .values("string_value")[:1]
             )
-            .annotate(
-                # Return NULL if the answer is empty so this function returns
-                # the same on empty answers as on no answer at all.
-                string_value=NullIf(
-                    Trim(
-                        Replace(
-                            Cast("value", output_field=CharField()),
-                            Value('"'),
-                            Value(""),
-                        )
-                    ),
-                    Value(""),
-                ),
-            )
-            .values("string_value")[:1]
-        )
 
         # We need to put a `NullIf` function around the street and city in order
         # to filter them out properly if empty. This is needed because
@@ -348,27 +344,23 @@ class InstanceExportFilterBackendSZ(InstanceExportFilterBackend):
             super().filter_queryset(request, queryset, view).order_by("-identifier")
         )
 
-        answer = (
-            lambda name: FormField.objects.filter(
-                instance_id=OuterRef("pk"),
-                name=name,
+        def answer(name):
+            return (
+                FormField.objects.filter(instance_id=OuterRef("pk"), name=name)
+                .annotate(
+                    string_value=NullIf(
+                        Trim(
+                            Replace(
+                                Cast("value", output_field=CharField()),
+                                Value('"'),
+                                Value(""),
+                            )
+                        ),
+                        Value(""),
+                    )
+                )
+                .values("string_value")[:1]
             )
-            .annotate(
-                # Return NULL if the answer is empty so this function returns
-                # the same on empty answers as on no answer at all.
-                string_value=NullIf(
-                    Trim(
-                        Replace(
-                            Cast("value", output_field=CharField()),
-                            Value('"'),
-                            Value(""),
-                        )
-                    ),
-                    Value(""),
-                ),
-            )
-            .values("string_value")[:1]
-        )
 
         intent = Coalesce(answer("bezeichnung-override"), answer("bezeichnung"))
 

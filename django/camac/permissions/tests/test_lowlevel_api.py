@@ -10,7 +10,7 @@ from camac.permissions import api, conditions, exceptions, models
 
 @pytest.mark.parametrize("grant_type", ["user", "service", "token"])
 def test_grant_permission(db, grant_type, user, service, token, instance, access_level):
-    """Test whether visibility of the ACLs themselves works correctly"""
+    """Test whether visibility of the ACLs themselves works correctly."""
     # Fetch before grant - should be no access
     visible_acls = models.InstanceACL.for_current_user(user=user, service=service)
     assert visible_acls.count() == 0
@@ -38,7 +38,7 @@ def _get_instances(user, service, token):
 def test_visible_instances(
     db, grant_type, user, service, token, instance, access_level
 ):
-    """Test whether the "simple" ACL types all work on the "instance" queryset"""
+    """Test whether the "simple" ACL types all work on the "instance" queryset."""
     visible_instances = _get_instances(user, service, token)
 
     assert visible_instances.count() == 0
@@ -78,7 +78,7 @@ def test_visible_instances_public_access(
     instance,
     access_level,
 ):
-    """Test access using the "public" grant types"""
+    """Test access using the "public" grant types."""
     visible_instances = _get_instances(request_user, None, None)
 
     # With no ACL, nothing's visible
@@ -111,7 +111,7 @@ def test_visible_instances_public_access(
 def test_revoked_acl(
     db, freezer, user, access_level, instance, end_time, expect_result
 ):
-    """Test whether the ACL's revocation is handled correctly"""
+    """Test whether the ACL's revocation is handled correctly."""
 
     # Note: the `end_time` parameter is a lambda so it runs within the
     # `freezer` and thus does not generate "unfrozen" times
@@ -153,7 +153,7 @@ def test_revoked_acl(
     ],
 )
 def test_future_acl(db, user, access_level, instance, start_time, expect_result):
-    """Test whether the ACL's start time is handled correctly"""
+    """Test whether the ACL's start time is handled correctly."""
     visible_instances = _get_instances(user, None, None)
 
     assert visible_instances.count() == 0

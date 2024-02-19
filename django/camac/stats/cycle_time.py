@@ -48,7 +48,7 @@ def _get_rejected_instance_cycletime(rejected_instance: Instance) -> int:
 
 
 def _compute_total_idle_days(
-    sorted_durations: List[Tuple[datetime.datetime, datetime.datetime]]
+    sorted_durations: List[Tuple[datetime.datetime, datetime.datetime]],
 ) -> int:
     """
     Compute total idle days from a set of durations that may encompass and overlap one another.

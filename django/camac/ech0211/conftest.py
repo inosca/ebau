@@ -28,7 +28,6 @@ def ech_instance_sz(
     location,
     utils,
 ):
-
     ech_instance = instance_with_case(ech_instance)
 
     for role in [
@@ -242,7 +241,6 @@ def ech_snapshot(snapshot):
                 r"\1\2<!-- ATTACHMENT_ID -->\3",
             ),
         ]:
-
             pretty_xml = re.sub(
                 search,
                 replace,

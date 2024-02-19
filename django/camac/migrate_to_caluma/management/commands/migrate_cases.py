@@ -531,7 +531,6 @@ class Command(BaseCommand):
         return count
 
     def _log_missing_map(self, cqi, ans):
-
         log.error("CAMAC -> Caluma Transform not found: %s" % cqi)
         log.error(
             "  Pages:    %s"
@@ -694,9 +693,9 @@ class Command(BaseCommand):
             inst.instance_state.name == "subm"
             and not document.case.meta["dossier-number"]
         ):
-            document.case.meta["dossier-number"] = (
-                CreateInstanceLogic.generate_identifier(inst)
-            )
+            document.case.meta[
+                "dossier-number"
+            ] = CreateInstanceLogic.generate_identifier(inst)
             document.case.save()
 
         log.info(

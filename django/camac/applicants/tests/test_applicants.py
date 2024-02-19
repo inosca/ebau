@@ -113,7 +113,7 @@ def test_applicant_create(
     # it's email (which is totally possible) and then another user registered
     # with that old email address. That user should be allowed to be invited
     # since it's a different user.
-    user_factory(email="old@example.com"),
+    user_factory(email="old@example.com")
     applicant_factory(
         instance=be_instance,
         invitee=user_factory(email="new@example.com"),

@@ -56,9 +56,9 @@ DISTRIBUTION = {
             "SaveDocumentAnswer": {
                 "INQUIRY_FORM": lambda group, document, *_: is_lead_role(group)
                 and has_permission_for_inquiry_document(group, document),
-                "INQUIRY_ANSWER_FORM": lambda group, document, *_: has_permission_for_inquiry_answer_document(
-                    group, document
-                ),
+                "INQUIRY_ANSWER_FORM": lambda group,
+                document,
+                *_: has_permission_for_inquiry_answer_document(group, document),
             },
         },
     },

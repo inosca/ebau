@@ -505,7 +505,7 @@ def caluma_workflow_config_ur(
     notification_template,
 ):
     def transform_notifications(notifications):
-        if type(notifications) is dict:
+        if isinstance(notifications, dict):
             return notifications
         return [
             {
@@ -1431,7 +1431,6 @@ class Utils:
         question_label=None,
         options=None,
     ):
-
         question_type = Utils._get_question_type(value, options)
         value_key = (
             "date"
