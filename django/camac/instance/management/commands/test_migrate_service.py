@@ -16,7 +16,6 @@ def test_migrate_service(
     user_factory,
     group_factory,
 ):
-
     instance_service = instance_service_factory()
     source_2 = service_factory()
     service = instance_service.service

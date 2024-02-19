@@ -137,7 +137,6 @@ class Command(BaseCommand):
 
     def _migrate_simple_answers(self):
         for slug in ALLGEMEINE_ANGABEN_SLUG_MAPPING.keys():
-
             Answer.objects.filter(
                 question_id=slug, document__form__slug="vorabklaerung-einfach"
             ).update(question_id=ALLGEMEINE_ANGABEN_SLUG_MAPPING[slug])

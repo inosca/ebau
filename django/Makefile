@@ -22,8 +22,7 @@ start: ## Start the development server
 .PHONY: test
 test: ## Test the project
 	@touch .env
-	@black --check .
-	@flake8
+	@ruff check .
 	@pytest -vv --cov --cov-report term --cov-report xml:artifacts/cobertura.xml --vcr-record=none -n 8 --dist worksteal --junitxml=artifacts/junit.xml
 
 .PHONY: sqlsequencereset

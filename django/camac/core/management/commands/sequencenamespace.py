@@ -25,7 +25,6 @@ class Command(AppCommand):
 
         qn = ops.quote_name
         for model in model_list:
-
             query_tpl = re.sub(
                 r"\s+",
                 " ",
@@ -144,7 +143,6 @@ class Command(AppCommand):
             connection.ops, self.style, models, ns_start, ns_end
         )
         if options.get("execute"):
-
             print(
                 "Updating SEQUENCEs for user %s (range %d..%d) in app %s"
                 % (user, ns_start, ns_end, app_config.verbose_name)

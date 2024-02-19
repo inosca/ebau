@@ -172,7 +172,7 @@ class GrGisClient(GISBaseClient):
                 values = getattr(self, f"map_{property_config['mapper']}")(
                     values, intermediate_result, question
                 )
-                if values and type(values) is not list:
+                if values and not isinstance(values, list):
                     values = [values]
 
             if values:

@@ -71,7 +71,6 @@ class Command(BaseCommand):
             mininterval=1,
             maxinterval=2,
         ):
-
             try:
                 last_completed_inquiry = (
                     distribution_case.work_items.filter(

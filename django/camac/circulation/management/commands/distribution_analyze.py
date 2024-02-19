@@ -190,7 +190,6 @@ class Command(BaseCommand):
                     "case__family__instance"
                 )
             ).order_by("pk"):
-
                 work_items = ""
                 for work_item in create_inquiry_unique_addressed_service:
                     work_items += f"{work_item.task_id} {work_item.status} {work_item.addressed_groups} | "
@@ -572,7 +571,6 @@ class Command(BaseCommand):
                 self._log_instance(instance, ", ".join(active_work_items))
 
     def _check_inquiry_answer(self):
-
         answer_status_draft_be = 20000
 
         circulation_answer_count = (

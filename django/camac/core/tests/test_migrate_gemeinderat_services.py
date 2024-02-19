@@ -14,7 +14,6 @@ def test_migrate_gemeinderat_services(
     circulation_factory,
     attachment_factory,
 ):
-
     services_extern = []
     services_intern = []
     service_groups_extern = []

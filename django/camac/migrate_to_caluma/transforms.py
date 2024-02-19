@@ -122,7 +122,6 @@ class Transform:
     @staticmethod
     def join_checkbox(mapping, separator):
         def wrapper(val, document, slug):
-
             value_list = [mapping.get(v) for v in json.loads(val) if mapping.get(v)]
             try:
                 existing_answer = document.answers.get(question=slug)
@@ -137,7 +136,6 @@ class Transform:
     @staticmethod
     def join_multiple_values():
         def wrapper(val, document, slug):
-
             try:
                 existing_answer = document.answers.get(question=slug)
                 values = f"{existing_answer.value}; {val}"

@@ -109,7 +109,6 @@ class Command(BaseCommand):
     help = "Send reminders for unread or overdue work items."
 
     def handle(self, *args, **options):
-
         subject = "Erinnerung an Aufgaben"
         if settings.APPLICATION.get("IS_MULTILINGUAL", False):
             subject = subject + " / Rappel des tâches"

@@ -4,7 +4,6 @@ from django.db.backends.postgresql.schema import (
 
 
 class DatabaseSchemaEditor(DjangoDatabaseSchemaEditor):
-
     # HACK - this field is used only in calls to drop a default value via:
     #
     #     ALTER COLUMN %(column)s DROP NOT NULL

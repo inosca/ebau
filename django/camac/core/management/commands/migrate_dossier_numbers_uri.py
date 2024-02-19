@@ -30,7 +30,7 @@ class Command(BaseCommand):
         for case in cases_with_wrong_dossier_number:
             old_dossier_number = case.meta["dossier-number"]
 
-            year = re.search("\-(.*?)\-", case.meta["dossier-number"]).group(1)
+            year = re.search(r"\-(.*?)\-", case.meta["dossier-number"]).group(1)
 
             new_dossier_number = CreateInstanceLogic.generate_identifier(
                 case.instance, year=int(year)

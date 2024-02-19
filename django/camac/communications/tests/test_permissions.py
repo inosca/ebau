@@ -91,7 +91,7 @@ def test_rejected_access(db, be_instance, admin_client, role, obj, url):
 
 @pytest.mark.parametrize("role__name", ["Municipality", "Applicant", "Service"])
 def test_rejected_create_topic(db, be_instance, admin_client, role):
-    """Test whether we can create a topic where we shouldn't be allowed"""
+    """Test whether we can create a topic where we shouldn't be allowed."""
     url = reverse("communications-topic-list")
     if role.name != "Applicant":
         be_instance.services.set([])
@@ -124,7 +124,7 @@ def test_rejected_create_topic(db, be_instance, admin_client, role):
 def test_rejected_create_message(
     db, be_instance, admin_client, role, communications_topic
 ):
-    """Test whether we can create a message where we shouldn't be allowed"""
+    """Test whether we can create a message where we shouldn't be allowed."""
     url = reverse("communications-message-list")
     resp = admin_client.post(
         url,

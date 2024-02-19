@@ -7,7 +7,6 @@ from camac.instance.models import FormField
 
 
 class Command(BaseCommand):
-
     help = """Fix addresses without house nr for Schübelbach."""
 
     def add_arguments(self, parser):
