@@ -2,6 +2,7 @@ import { inject as service } from "@ember/service";
 import Model, { attr, belongsTo, hasMany } from "@ember-data/model";
 import { tracked } from "@glimmer/tracking";
 
+import mainConfig from "ember-ebau-core/config/main";
 export default class CommunicationMessageModel extends Model {
   @service store;
   @service("communications/unread-messages") unreadMessages;
@@ -33,6 +34,14 @@ export default class CommunicationMessageModel extends Model {
     this.filesToSave.forEach((file) => {
       formData.append("attachments", file);
     });
+
+    if (mainConfig.documentBackend === "alexandria") {
+      const files = this.store.peekAll("file").sortBy("createdAt");
+      this.documentAttachmentsToSave = this.documentAttachmentsToSave.map(
+        (attachment) => files.findBy("document.id", attachment)?.id,
+      );
+    }
+
     this.documentAttachmentsToSave.forEach((documentAttachment) => {
       formData.append(
         "attachments",

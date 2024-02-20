@@ -1,13 +1,20 @@
 import json
 
+from alexandria.core import models as alexandria_models
 from django.conf import settings
 from django.core.cache import cache
+from django.core.exceptions import ValidationError as DjangoCoreValidationError
+from django.db import transaction
 from django.urls import reverse
 from django.utils import timezone
 from django.utils.translation import gettext
-from rest_framework.exceptions import ValidationError
+from rest_framework.exceptions import PermissionDenied, ValidationError
 from rest_framework_json_api import relations, serializers
 
+from camac.alexandria.extensions.permissions.extension import (
+    MODE_CREATE,
+    CustomPermission as CustomAlexandriaPermission,
+)
 from camac.document import models as document_models
 from camac.instance.models import Instance
 from camac.instance.views import InstanceView
@@ -65,14 +72,19 @@ class CommunicationsAttachmentField(serializers.ResourceRelatedField):
             doc_ref = json.loads(data)
             doc_id = doc_ref["id"]
         else:
-            # Upload
-            pass
             file = data
-        return models.CommunicationsAttachment(
-            document_attachment_id=doc_id,
+
+        attachment = models.CommunicationsAttachment(
             file_attachment=file,
             file_type=file.content_type if file else None,
         )
+
+        if settings.APPLICATION["DOCUMENT_BACKEND"] == "camac-ng":
+            attachment.document_attachment_id = doc_id
+        elif settings.APPLICATION["DOCUMENT_BACKEND"] == "alexandria":
+            attachment.alexandria_file_id = doc_id
+
+        return attachment
 
 
 class EntityListField(EntityNameMixin, serializers.ListField):
@@ -98,7 +110,7 @@ class TopicSerializer(serializers.ModelSerializer):
     )
     has_unread = serializers.SerializerMethodField()
     involved_entities = EntityListField()
-    dossier_number = serializers.SerializerMethodField()
+    dossier_number = serializers.CharField(read_only=True)
     initiated_by_entity = EntityField(required=False)
 
     responsible_service_users = relations.SerializerMethodResourceRelatedField(
@@ -107,10 +119,6 @@ class TopicSerializer(serializers.ModelSerializer):
         many=True,
         read_only=True,
     )
-
-    def get_dossier_number(self, topic):
-        lookup = settings.COMMUNICATIONS["NOTIFICATIONS"]["DOSSIER_NUMBER_LOOKUP"]
-        return lookup(topic.instance)
 
     def get_responsible_service_users(self, topic):
         group = self.context["request"].group
@@ -342,6 +350,14 @@ class CommunicationsAttachmentSerializer(serializers.ModelSerializer):
     file_attachment = serializers.FileField(required=False)
 
     def get_download_url(self, attachment):
+        if (
+            attachment.file_attachment
+            and settings.DEFAULT_FILE_STORAGE == "storages.backends.s3.S3Storage"
+        ):
+            return attachment.file_attachment.url
+        elif attachment.alexandria_file:
+            return attachment.alexandria_file.get_download_url(self.context["request"])
+
         return reverse("communications-attachment-download", args=[attachment.pk])
 
     class Meta:
@@ -350,6 +366,7 @@ class CommunicationsAttachmentSerializer(serializers.ModelSerializer):
             "message",
             "file_attachment",
             "document_attachment",
+            "alexandria_file",
             "download_url",
             "content_type",
             "filename",
@@ -367,38 +384,116 @@ class CommunicationsAttachmentSerializer(serializers.ModelSerializer):
 
 class ConvertToDocumentSerializer(serializers.ModelSerializer):
     section = serializers.ResourceRelatedField(
-        required=True,
+        required=False,
         write_only=True,
         queryset=document_models.AttachmentSection.objects,
     )
+    category = serializers.ResourceRelatedField(
+        required=False,
+        write_only=True,
+        queryset=alexandria_models.Category.objects,
+    )
 
-    def update(self, instance, validated_data):
-        section = validated_data["section"]
-
-        if instance.document_attachment_id:  # pragma: no cover
+    def validate(self, data):
+        if self.instance.document_attachment_id or self.instance.alexandria_file_id:
             raise ValidationError(
-                "This attachment is already a document module attachment"
+                gettext("This attachment is already a document module attachment")
             )
-        doc_attachment = document_models.Attachment.objects.create(
-            name=instance.filename,
-            instance=instance.message.topic.instance,
-            user=self.context["request"].user,
-            service=self.context["request"].group.service,
-            group=self.context["request"].group,
-            context={"copied-from-communications-attachment": str(instance.pk)},
-            size=instance.file_attachment.size,
-            date=timezone.localtime(),
-            mime_type=instance.file_type,
+
+        required_field = (
+            "section"
+            if settings.APPLICATION["DOCUMENT_BACKEND"] == "camac-ng"
+            else "category"
         )
-        doc_attachment.path.save(instance.filename, instance.file_attachment)
-        doc_attachment.save()
-        doc_attachment.attachment_sections.add(section)
-        instance.document_attachment = doc_attachment
+
+        if required_field not in data:
+            raise ValidationError(
+                gettext("'%(field)s' is required") % {"field": required_field}
+            )
+
+        return super().validate(data)
+
+    @transaction.atomic()
+    def update(self, instance, validated_data):
+        if settings.APPLICATION["DOCUMENT_BACKEND"] == "camac-ng":
+            section = validated_data["section"]
+            doc_attachment = document_models.Attachment.objects.create(
+                name=instance.filename,
+                instance=instance.message.topic.instance,
+                user=self.context["request"].user,
+                service=self.context["request"].group.service,
+                group=self.context["request"].group,
+                context={"copied-from-communications-attachment": str(instance.pk)},
+                size=instance.file_attachment.size,
+                date=timezone.localtime(),
+                mime_type=instance.file_type,
+            )
+            doc_attachment.path.save(instance.filename, instance.file_attachment)
+            doc_attachment.save()
+            doc_attachment.attachment_sections.add(section)
+            instance.document_attachment = doc_attachment
+        else:
+            user = self.context["request"].user.pk
+            group = self.context["request"].group.service_id
+
+            available_permissions = (
+                CustomAlexandriaPermission().get_available_permissions(
+                    self.context["request"],
+                    instance.message.topic.instance,
+                    validated_data["category"],
+                )
+            )
+
+            if MODE_CREATE not in available_permissions:
+                raise PermissionDenied()
+
+            document = alexandria_models.Document.objects.create(
+                title=instance.filename,
+                date=timezone.localtime(),
+                category=validated_data["category"],
+                metainfo={
+                    "camac-instance-id": str(instance.message.topic.instance_id),
+                    "copied-from-communications-attachment": str(instance.pk),
+                },
+                created_by_user=user,
+                created_by_group=group,
+                modified_by_user=user,
+                modified_by_group=group,
+            )
+            file = alexandria_models.File.objects.create(
+                document=document,
+                name=instance.filename,
+                content=instance.file_attachment.file,
+                mime_type=instance.file_type,
+                size=instance.file_attachment.file.size,
+                created_by_user=user,
+                created_by_group=group,
+                modified_by_user=user,
+                modified_by_group=group,
+            )
+            try:
+                file.create_thumbnail()
+            except DjangoCoreValidationError:
+                # thumbnail could not be generated because of an unsupported
+                # mime type
+                pass
+            instance.alexandria_file = file
+
         instance.file_attachment = None
         instance.save()
         return instance
 
     class Meta:
         model = models.CommunicationsAttachment
-        fields = ["section", "id", "document_attachment", "filename"]
-        read_only_fields = ["id", "document_attachment", "filename"]
+        fields = [
+            "section",
+            "category",
+            "document_attachment",
+            "alexandria_file",
+            "filename",
+        ]
+        read_only_fields = [
+            "document_attachment",
+            "alexandria_file",
+            "filename",
+        ]

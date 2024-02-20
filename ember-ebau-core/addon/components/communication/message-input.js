@@ -5,6 +5,7 @@ import { tracked } from "@glimmer/tracking";
 
 export default class CommunicationMessageInputComponent extends Component {
   @service ebauModules;
+  @service store;
 
   @tracked showDocumentUpload = false;
   @tracked attachmentSection;

@@ -7,6 +7,8 @@ import { dropTask, task } from "ember-concurrency";
 import { query } from "ember-data-resources";
 import { localCopy } from "tracked-toolbox";
 
+import mainConfig from "ember-ebau-core/config/main";
+
 export default class LinkAttachmentsModalComponent extends Component {
   @service store;
   @service fetch;
@@ -17,11 +19,21 @@ export default class LinkAttachmentsModalComponent extends Component {
 
   @localCopy("args.selected") selected = [];
 
-  attachments = query(this, "attachment", () => ({
-    sort: "date",
-    instance: this.instanceId,
-    attachment_sections: this.attachmentSectionId,
-  }));
+  attachments =
+    mainConfig.documentBackend === "camac"
+      ? query(this, "attachment", () => ({
+          sort: "date",
+          instance: this.instanceId,
+          attachment_sections: this.attachmentSectionId,
+        }))
+      : query(this, "document", () => ({
+          sort: "date",
+          filter: {
+            category: this.attachmentSectionId,
+            metainfo: { key: "camac-instance-id", value: this.instanceId },
+          },
+          include: "files",
+        }));
 
   get attachmentSectionId() {
     return this.args.section?.id;
@@ -72,6 +84,7 @@ export default class LinkAttachmentsModalComponent extends Component {
       yield this.args.save(this.selected);
       this.args.onHide();
     } catch (error) {
+      console.error(error);
       this.notification.danger(this.intl.t("link-attachments.link-error"));
     }
   }

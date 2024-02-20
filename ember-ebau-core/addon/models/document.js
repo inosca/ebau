@@ -30,6 +30,10 @@ export default class CustomDocumentModel extends DocumentModel {
     return this.#displayName.value;
   }
 
+  get displayNameOrReplaced() {
+    return this.#displayName.value;
+  }
+
   // conflict with existing tag model in the ebau api,
   // because we dont need it we can set it to null
   @hasMany("tag", { inverse: null, async: true }) tags;

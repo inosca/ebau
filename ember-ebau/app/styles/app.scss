@@ -1,7 +1,6 @@
 @import "variables";
 
 @import "ember-uikit";
-@import "ember-ebau-core";
 @import "ember-alexandria";
 
 $border-color: darken($global-muted-background, 10%);
@@ -25,6 +24,7 @@ $main-navigation-background: $global-primary-background !default;
 @import "@projectcaluma/ember-form";
 @import "@projectcaluma/ember-distribution";
 @import "ember-ebau-gwr";
+@import "ember-ebau-core";
 
 .main-content {
   margin-top: $main-nav-height;

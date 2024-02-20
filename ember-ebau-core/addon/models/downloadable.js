@@ -22,9 +22,13 @@ export default class DownloadableModel extends Model {
 
   @dropTask
   *download(event) {
+    yield this._download(event);
+  }
+
+  async _download(event) {
     event?.preventDefault();
     try {
-      const response = yield this.fetch.fetch(`${this.downloadPath}`, {
+      const response = await this.fetch.fetch(`${this.downloadPath}`, {
         mode: "cors",
         headers: {
           accept: undefined,
@@ -32,7 +36,7 @@ export default class DownloadableModel extends Model {
         },
       });
 
-      const file = yield response.blob();
+      const file = await response.blob();
 
       saveAs(file, this.downloadName, { type: file.type });
 

@@ -15,7 +15,7 @@
 
 {{#if (can "link attachments on message")}}
   <span>
-    {{#if @file.documentAttachment}}
+    {{#if (or @file.documentAttachment @file.alexandriaFile)}}
       <span class="uk-text-meta">
         {{t "communications.detail.uploadedToDMS"}}
       </span>

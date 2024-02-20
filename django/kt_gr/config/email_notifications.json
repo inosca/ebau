@@ -216,6 +216,30 @@
     }
   },
   {
+    "model": "notification.notificationtemplate",
+    "pk": 19,
+    "fields": {
+      "slug": "communications-new-message",
+      "purpose": null,
+      "subject": null,
+      "body": null,
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
+    "model": "notification.notificationtemplate",
+    "pk": 20,
+    "fields": {
+      "slug": "communications-new-message-internal",
+      "purpose": null,
+      "subject": null,
+      "body": null,
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
     "model": "notification.notificationtemplatet",
     "pk": 1,
     "fields": {
@@ -429,6 +453,30 @@
       "purpose": "Verfahrensablauf (USO)",
       "subject": "Hinweis zum Verfahrensablauf (Dossier-Nr. {{DOSSIER_NR}})",
       "body": "Guten Tag\r\n\r\nSie erhalten das Dossier mit der Dossier-Nr. {{DOSSIER_NR}}, {{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}).\r\n\r\nBemerkung: {{INQUIRY_REMARK}}\r\n\r\n{{INQUIRY_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{CURRENT_SERVICE_DE}}"
+    }
+  },
+  {
+    "model": "notification.notificationtemplatet",
+    "pk": 19,
+    "fields": {
+      "template": 19,
+      "template_slug": "communications-new-message",
+      "language": "de",
+      "purpose": "Neue Nachricht (Gesuchsteller)",
+      "subject": "Neue Nachricht (Dossier-Nr. {{ DOSSIER_NR }})",
+      "body": "Guten Tag\r\n\r\nSie haben eine neue Nachricht auf dem Dossier mit der Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) erhalten.\r\n\r\n{{ PUBLIC_DOSSIER_LINK }}/communications\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\neBau"
+    }
+  },
+  {
+    "model": "notification.notificationtemplatet",
+    "pk": 20,
+    "fields": {
+      "template": 20,
+      "template_slug": "communications-new-message-internal",
+      "language": "de",
+      "purpose": "Neue Nachricht (Behörden)",
+      "subject": "Neue Nachricht (Dossier-Nr. {{ DOSSIER_NR }})",
+      "body": "Guten Tag\r\n\r\nSie haben eine neue Nachricht auf dem Dossier mit der Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) erhalten.\r\n\r\n{{ INTERNAL_DOSSIER_LINK }}/communications\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\neBau"
     }
   }
 ]
