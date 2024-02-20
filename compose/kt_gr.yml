@@ -15,12 +15,15 @@ services:
       - cache
       - keycloak
       - mailhog
+      - clamav
     environment:
       - DATABASE_HOST=db
       - DATABASE_NAME=${APPLICATION}
       - DJANGO_CACHE_LOCATION=cache:11211
       - DJANGO_MEDIA_ROOT=/var/lib/camac/media
       - DJANGO_CLAMD_ENABLED=false
+      - DJANGO_CLAMD_TCP_ADDR=clamav
+      - DJANGO_DEFAULT_FILE_STORAGE=alexandria.storages.backends.s3.S3Storage
       - APPLICATION=${APPLICATION}
       - CACHE_BACKEND=django.core.cache.backends.memcached.MemcachedCache
       - CACHE_LOCATION=cache:11211
@@ -81,6 +84,13 @@ services:
       - FILE_STORAGE=storages.backends.s3boto3.S3Boto3Storage
       - AWS_STORAGE_BUCKET_NAME=dms-media
       - AWS_S3_SIGNATURE_VERSION=s3v4
+
+  clamav:
+    image: tiredofit/clamav:2.6.11
+    environment:
+      - CONCURRENT_DATABASE_RELOAD=false
+      - DEFINITIONS_UPDATE_FREQUENCY=1440
+      - DEFINITIONS_UPDATE_BEGIN=0300
 
 volumes:
   pgdata:
