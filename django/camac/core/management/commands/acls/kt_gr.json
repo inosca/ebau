@@ -270,6 +270,42 @@
       ]
     }
   },
+  "15000002": {
+    "label": "Meine Dossiers (Dossier list (Caluma)) > Kommunikation",
+    "acls": {
+      "municipality-lead": [
+        "circulation",
+        "construction-acceptance",
+        "correction",
+        "decision",
+        "finished",
+        "init-distribution",
+        "rejected",
+        "subm"
+      ],
+      "service-lead": ["circulation", "decision", "finished", "rejected"],
+      "subservice": [
+        "circulation",
+        "correction",
+        "decision",
+        "finished",
+        "init-distribution",
+        "new",
+        "subm"
+      ],
+      "support": [
+        "circulation",
+        "correction",
+        "decision",
+        "finished",
+        "init-distribution",
+        "new",
+        "rejected",
+        "subm"
+      ],
+      "uso": ["circulation", "decision", "finished"]
+    }
+  },
   "18000000": {
     "label": "Meine Dossiers (Dossier list (Caluma)) > Dokumente",
     "acls": {

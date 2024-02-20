@@ -1,9 +1,12 @@
 import { inject as service } from "@ember/service";
 import { htmlSafe } from "@ember/template";
 import { attr, belongsTo } from "@ember-data/model";
-import { task } from "ember-concurrency";
+import { dropTask, task } from "ember-concurrency";
+import { saveAs } from "file-saver";
 
 import DownloadableModel from "./downloadable";
+
+import mainConfig from "ember-ebau-core/config/main";
 
 export default class CommunicationAttachmentModel extends DownloadableModel {
   @service fetch;
@@ -18,8 +21,12 @@ export default class CommunicationAttachmentModel extends DownloadableModel {
   @attr isReplaced;
 
   @belongsTo("communications-message", { inverse: null, async: true }) message;
+  // camac document backend
   @belongsTo("attachment", { inverse: null, async: true }) documentAttachment;
   @belongsTo("attachmentSection", { inverse: null, async: true }) section;
+  // alexandria document backend
+  @belongsTo("file", { inverse: null, async: true }) alexandriaFile;
+  @belongsTo("category", { inverse: null, async: true }) category;
 
   get downloadPath() {
     return this.downloadUrl;
@@ -43,7 +50,12 @@ export default class CommunicationAttachmentModel extends DownloadableModel {
 
   uploadToDMS = task(async (instanceId, attachmentSection) => {
     try {
-      this.section = attachmentSection;
+      if (mainConfig.documentBackend === "camac") {
+        this.section = attachmentSection;
+      } else {
+        this.category = attachmentSection;
+      }
+
       const response = await this.fetch.fetch(
         `/api/v1/communications-attachments/${this.id}/convert_to_document`,
         {
@@ -64,5 +76,15 @@ export default class CommunicationAttachmentModel extends DownloadableModel {
     } catch (error) {
       this.notification.danger(this.intl.t("link-attachments.upload-error"));
     }
+  });
+
+  download = dropTask(async (event) => {
+    event?.preventDefault();
+
+    if (!this.downloadUrl.endsWith("/download")) {
+      return await saveAs(this.downloadUrl);
+    }
+
+    return await this._download(event);
   });
 }

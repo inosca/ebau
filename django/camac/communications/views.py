@@ -54,9 +54,15 @@ class TopicView(InvolvedInTopicQuerysetMixin, InstanceQuerysetMixin, ModelViewSe
         )
         return qs_out
 
+    def _annotate_dossier_number(self, qs):
+        return qs.annotate(
+            dossier_number=settings.COMMUNICATIONS["DOSSIER_NUMBER_ANNOTATION"]
+        )
+
     def get_queryset(self, *args, **kwargs):
         qs = super().get_queryset(*args, **kwargs)
         qs = self._annotate_has_unread(qs)
+        qs = self._annotate_dossier_number(qs)
         return qs
 
     class Meta:
