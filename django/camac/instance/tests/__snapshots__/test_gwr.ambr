@@ -1,4 +1,56 @@
 # serializer version: 1
+# name: test_gwr_data_so
+  dict({
+    'buildingPermitIssueDate': None,
+    'client': None,
+    'constructionLocalisation': None,
+    'constructionProjectDescription': None,
+    'officialConstructionProjectFileNo': '1201-21-003',
+    'projectAnnouncementDate': None,
+    'projectCompletionDate': '2021-08-05',
+    'projectStartDate': '2021-07-25',
+    'realestateIdentification': None,
+    'totalCostsOfProject': None,
+    'typeOfClient': 6141,
+    'typeOfConstruction': 6235,
+    'typeOfConstructionProject': 6011,
+    'typeOfPermit': 5031,
+    'work': list([
+      dict({
+        'building': dict({
+          'buildingCategory': 1060,
+          'civilDefenseShelter': None,
+          'dateOfConstruction': dict({
+            'yearMonthDay': '2021-08-05',
+          }),
+          'dwellings': list([
+          ]),
+          'nameOfBuilding': 'Villa',
+          'numberOfFloors': None,
+          'numberOfSeparateHabitableRooms': None,
+          'realestateIdentification': None,
+          'thermotechnicalDeviceForHeating1': dict({
+            'energySourceHeating': None,
+            'heatGeneratorHeating': None,
+          }),
+          'thermotechnicalDeviceForHeating2': dict({
+            'energySourceHeating': None,
+            'heatGeneratorHeating': None,
+          }),
+          'thermotechnicalDeviceForWarmWater1': dict({
+            'energySourceHeating': None,
+            'heatGeneratorHotWater': None,
+          }),
+          'thermotechnicalDeviceForWarmWater2': dict({
+            'energySourceHeating': None,
+            'heatGeneratorHotWater': None,
+          }),
+        }),
+        'kindOfWork': 6001,
+      }),
+    ]),
+  })
+# ---
 # name: test_gwr_data_ur
   dict({
     'buildingPermitIssueDate': '2021-07-20',

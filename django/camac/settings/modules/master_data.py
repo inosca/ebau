@@ -2089,7 +2089,6 @@ MASTER_DATA = {
             "street_number": ("answer", "strasse-nummer"),
             "zip": ("answer", "plz"),
             "city": ("answer", "ort"),
-            "construction_costs": ("answer", "gesamtkosten"),
             "municipality": ("answer", "gemeinde", {"value_parser": "dynamic_option"}),
             "municipality_name": (
                 "answer",
@@ -2127,6 +2126,125 @@ MASTER_DATA = {
                 {
                     "document_from_work_item": "decision",
                     "value_key": "date",
+                },
+            ),
+            "type_of_applicant": ("php_answer", 267),
+            "type_of_construction": (
+                "table",
+                "gebaeude",
+                {
+                    "column_mapping": {
+                        "art_der_hochbaute": (
+                            "art-der-hochbaute",
+                            {
+                                "value_parser": (
+                                    "value_mapping",
+                                    {
+                                        "mapping": {
+                                            "art-der-hochbaute-einfamilienhaus": 6271,
+                                            "art-der-hochbaute-doppeleinfamilienhaus": 6272,
+                                            "art-der-hochbaute-mehrfamilienhaus": 6273,
+                                            "art-der-hochbaute-wohn-und-geschaftshaus": 6274,
+                                            "art-der-hochbaute-geschaftshaus": 6294,
+                                            "art-der-hochbaute-garage-oder-carport": 6278,
+                                            "art-der-hochbaute-parkhaus": 6235,
+                                            "art-der-hochbaute-bauten-und-anlagen-gastgewerbe": 6295,
+                                            "art-der-hochbaute-heim-mit-unterkunft": 6254,
+                                            "art-der-hochbaute-wohnheim-ohne-pflege": 6276,
+                                            "art-der-hochbaute-spital": 6253,
+                                            "art-der-hochbaute-schulen": 6251,
+                                            "art-der-hochbaute-sporthallen": 6259,
+                                            "art-der-hochbaute-tourismusanlagen": 6256,
+                                            "art-der-hochbaute-kirchen": 6257,
+                                            "art-der-hochbaute-kulturbauten": 6258,
+                                            "art-der-hochbaute-oekonomie-mit-tieren-mit-tieren": 6281,
+                                            "art-der-hochbaute-oekonomiegebaude": 6281,
+                                            "art-der-hochbaute-forstwirtschaft": 6282,
+                                            "art-der-hochbaute-materiallager": 6292,
+                                            "art-der-hochbaute-silo": 6292,
+                                            "art-der-hochbaute-kommunikationsanlagen": 6245,
+                                            "art-der-hochbaute-kehrichtentsorgungsanlagen": 6222,
+                                            "art-der-hochbaute-andere": 6299,
+                                            "art-der-hochbaute-energieholzlager": 6292,
+                                            "art-der-hochbaute-industrie": 6299,
+                                            "art-der-hochbaute-landwirtschaft-betrieb-wohnteil": 6281,
+                                            "art-der-hochbaute-reklamebauten": 6299,
+                                            "art-der-hochbaute-brennstofflager": 6292,
+                                        }
+                                    },
+                                )
+                            },
+                        )
+                    }
+                },
+            ),
+            "construction_costs": ("answer", "gesamtkosten"),
+            "construction_start_date": (
+                "first_workflow_entry",
+                [55],
+            ),
+            "construction_end_date": (
+                "last_workflow_entry",
+                [67],
+            ),
+            "approval_reason": ("php_answer", 264, {"default": 5000}),
+            "category": (
+                "answer",
+                "category",
+                {
+                    "value_parser": (
+                        "value_mapping",
+                        {
+                            "mapping": {
+                                "category-hochbaute": 6011,
+                                "category-tiefbaute": 6010,
+                            }
+                        },
+                    ),
+                    "default": [],
+                },
+            ),
+            "buildings": (
+                "table",
+                "gebaeude",
+                {
+                    "column_mapping": {
+                        "name": "gebaeudenummer-bezeichnung",
+                        "proposal": (
+                            "proposal",
+                            {
+                                "value_parser": (
+                                    "value_mapping",
+                                    {
+                                        "mapping": {
+                                            "proposal-neubau": 6001,
+                                            "proposal-umbau-erneuerung-sanierung": 6002,
+                                            "proposal-abbruch-rueckbau": 6007,
+                                        }
+                                    },
+                                ),
+                                "default": [],
+                            },
+                        ),
+                        "building_category": (
+                            "gebaeudekategorie",
+                            {
+                                "value_parser": (
+                                    "value_mapping",
+                                    {
+                                        "mapping": {
+                                            "gebaeudekategorie-andere": 1030,
+                                            "gebaeudekategorie-ausschliessliche-wohnnutzung": 1020,
+                                            "gebaeudekategorie-ohne-wohnnutzung": 1060,
+                                            "gebaeudekategorie-provisorische-unterkunft": 1010,
+                                            "gebaeudekategorie-sonderbau": 1080,
+                                            "gebaeudekategorie-teilweise-wohnnutzung": 1040,
+                                        }
+                                    },
+                                )
+                            },
+                        ),
+                    }
                 },
             ),
         },
