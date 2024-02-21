@@ -30,7 +30,10 @@ export default class LinkAttachmentsModalComponent extends Component {
           sort: "date",
           filter: {
             category: this.attachmentSectionId,
-            metainfo: { key: "camac-instance-id", value: this.instanceId },
+            metainfo: JSON.stringify({
+              key: "camac-instance-id",
+              value: String(this.instanceId),
+            }),
           },
           include: "files",
         }));
