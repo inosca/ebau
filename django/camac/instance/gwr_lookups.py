@@ -239,7 +239,7 @@ class GwrSerializer(serializers.Serializer):
             dwellings = building.get("dwellings") if building.get("dwellings") else []
             return [dwelling_data(dwelling) for dwelling in dwellings]
 
-        if settings.APPLICATION_NAME == "kt_uri":
+        if settings.APPLICATION_NAME in ["kt_uri", "kt_so"]:
             return [
                 dwelling_data(dwelling)
                 for dwelling in self.master_data.dwellings
@@ -275,7 +275,7 @@ class GwrSerializer(serializers.Serializer):
                     "numberOfSeparateHabitableRooms": building.get("number_of_rooms"),
                     "dateOfConstruction": (
                         self.get_construction_date(building)
-                        if settings.APPLICATION_NAME == "kt_uri"
+                        if settings.APPLICATION_NAME in ["kt_uri", "kt_so"]
                         else None
                     ),
                     "thermotechnicalDeviceForHeating1": self.get_energy_device(
@@ -292,7 +292,7 @@ class GwrSerializer(serializers.Serializer):
                     ),
                     "realestateIdentification": (
                         self.get_realestateIdentification(case)
-                        if settings.APPLICATION_NAME == "kt_uri"
+                        if settings.APPLICATION_NAME in ["kt_uri", "kt_so"]
                         else None
                     ),
                     "dwellings": self.get_dwellings(building),
@@ -312,7 +312,7 @@ class GwrSerializer(serializers.Serializer):
         # TODO Configure this for BE and SZ
         type_of_applicant = (
             self.master_data.type_of_applicant
-            if settings.APPLICATION_NAME == "kt_uri"
+            if settings.APPLICATION_NAME in ["kt_uri", "kt_so"]
             else None
         )
         if type_of_applicant:

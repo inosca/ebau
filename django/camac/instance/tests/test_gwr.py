@@ -11,6 +11,74 @@ from camac.instance.tests.test_master_data import (
 
 
 @pytest.mark.freeze_time("2021-10-07")
+def test_gwr_data_so(
+    admin_client,
+    user,
+    instance,
+    use_caluma_form,
+    so_instance,
+    caluma_forms_so,
+    caluma_admin_user,
+    application_settings,
+    settings,
+    workflow_entry_factory,
+    snapshot,
+    so_master_data_case,
+    so_master_data_settings,
+    utils,
+):
+    settings.APPLICATION_NAME = "kt_so"
+    settings.APPLICATION["SHORT_NAME"] = "so"
+
+    so_instance.case.meta = {"dossier-number": "1201-21-003"}
+    so_instance.case.save()
+
+    document = so_instance.case.document
+
+    # Completed date
+    # Assert that workflow entry of last group (phase) is selected
+    workflow_entry = next(
+        filter(
+            lambda entry: entry.workflow_item_id == 67,
+            so_instance.workflowentry_set.all(),
+        ),
+        None,
+    )
+
+    workflow_entry_factory(
+        instance=so_instance,
+        workflow_date="2021-08-05 08:00:06+00",
+        group=2,
+        workflow_item=workflow_entry.workflow_item,
+    )
+
+    # Energy devices
+    # Check logic for heating / warmwater devices and
+    # primary / secondary devices
+    table_answer = document.answers.filter(question_id="haustechnik-tabelle").first()
+    utils.add_table_answer(
+        document,
+        "haustechnik-tabelle",
+        [
+            {
+                "gehoert-zu-gebaeudenummer": "Villa",
+                "anlagetyp": "anlagetyp-warmwasser",
+                "heizsystem-art": "-zusatzheizung",
+                "hauptheizungsanlage": "hauptheizungsanlage-gas",
+            }
+        ],
+        table_answer,
+    )
+
+    url = reverse("instance-gwr-data", args=[instance.pk])
+
+    response = admin_client.get(url)
+    assert response.status_code == status.HTTP_200_OK
+
+    snapshot.assert_match(response.json())
+
+
+@pytest.mark.freeze_time("2021-10-07")
 def test_gwr_data_ur(
     admin_client,
     user,
