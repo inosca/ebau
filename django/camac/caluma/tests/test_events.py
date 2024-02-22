@@ -206,6 +206,7 @@ def test_copy_municipality_tags_for_sb1(
     settings,
     application_settings,
     be_decision_settings,
+    be_ech0211_settings,
 ):
     settings.APPLICATION_NAME = "kt_bern"
     application_settings["SHORT_NAME"] = "be"
@@ -278,6 +279,7 @@ def test_copy_responsible_person_lead_authority(
     settings,
     application_settings,
     be_decision_settings,
+    be_ech0211_settings,
 ):
     settings.APPLICATION_NAME = "kt_bern"
     application_settings["SHORT_NAME"] = "be"
@@ -695,6 +697,7 @@ def test_complete_simple_workflow(
     role_factory,
     expected_instance_state,
     expected_history_text,
+    be_ech0211_settings,
 ):
     work_item = work_item_factory(task=task_factory(slug=task))
     instance_state = instance_state_factory(name=expected_instance_state)

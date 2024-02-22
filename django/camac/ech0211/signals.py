@@ -1,6 +1,7 @@
 import django.dispatch
 
 instance_submitted = django.dispatch.Signal()
+exam_completed = django.dispatch.Signal()
 sb1_submitted = django.dispatch.Signal()
 sb2_submitted = django.dispatch.Signal()
 circulation_started = django.dispatch.Signal()

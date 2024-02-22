@@ -98,6 +98,7 @@ def test_decision_event_handler_be(
     caluma_admin_user,
     be_decision_settings,
     use_instance_service,
+    be_ech0211_settings,
 ):
     settings.APPLICATION_NAME = "kt_bern"
     application_settings["SHORT_NAME"] = "be"
@@ -193,6 +194,7 @@ def test_decision_event_handler_gr(
     service_factory,
     caluma_admin_user,
     access_level_factory,
+    gr_ech0211_settings,
 ):
     settings.APPLICATION_NAME = "kt_gr"
     gvg_service = service_factory(name=gr_constants.GVG_SERVICE_SLUG)
@@ -249,6 +251,7 @@ def test_construction_acceptance_event_handler_gr(
     caluma_admin_user,
     gr_decision_settings,
     access_level_factory,
+    gr_ech0211_settings,
 ):
     settings.APPLICATION_NAME = "kt_gr"
     aib_service = service_factory(name=gr_constants.AIB_SERVICE_SLUG)

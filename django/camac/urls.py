@@ -2,7 +2,6 @@ from django.conf import settings
 from django.conf.urls import include
 from django.contrib import admin
 from django.urls import re_path
-from django.utils.module_loading import import_string
 
 from camac.caluma.views import CamacAuthenticatedGraphQLView
 from camac.swagger.views import get_swagger_view
@@ -60,12 +59,8 @@ urlpatterns = [
     re_path(r"^django/oidc/", include("mozilla_django_oidc.urls")),
 ]
 
-if settings.APPLICATION["ECH0211"]["API_ACTIVE"]:  # pragma: no cover
-    UrlsConf = settings.APPLICATION["ECH0211"].get("URLS_CLASS")
-    if UrlsConf:
-        urlpatterns += [
-            re_path(r"^ech/v1/", include(import_string(UrlsConf).urlpatterns))
-        ]
+if settings.ECH0211:  # pragma: no cover
+    urlpatterns += [re_path(r"^ech/v1/", include("camac.ech0211.urls"))]
 
 if settings.ENABLE_SILK:  # pragma: no cover
     urlpatterns.append(re_path(r"^api/silk/", include("silk.urls", namespace="silk")))

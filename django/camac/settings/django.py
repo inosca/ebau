@@ -18,20 +18,8 @@ from camac.constants.kt_bern import (
     INSTANCE_STATE_SB1,
 )
 from camac.constants.kt_uri import KOOR_SERVICE_IDS as URI_KOOR_SERVICE_IDS
+from camac.settings.env import ROOT_DIR, env
 from camac.utils import build_url
-
-env = environ.Env()
-
-# resolves to folder django or /app in container
-ROOT_DIR = environ.Path(__file__) - 3
-
-ENV_FILE = env.str("DJANGO_ENV_FILE", default=ROOT_DIR(".env"))
-
-# overwrite ENV with contents of .env, except while running pytest
-if env.str("APPLICATION_ENV", default="production") != "ci" and os.path.exists(
-    ENV_FILE
-):  # pragma: no cover
-    environ.Env.read_env(ENV_FILE, True)
 
 # We need to import the caluma settings after we merge os.environ with our
 # local .env file otherwise caluma tries to get it's settings from it's own env
@@ -194,9 +182,6 @@ APPLICATIONS = {
     "test": {
         "SHORT_NAME": "test",
         "INTERNAL_FRONTEND": "ebau",
-        "ECH0211": {
-            "API_ACTIVE": env.bool("ECH0211_API_ACTIVE", default=False),
-        },
         "USE_CAMAC_ADMIN": True,
         "LOG_NOTIFICATIONS": True,
         # Mapping between camac role and instance permission.
@@ -337,11 +322,6 @@ APPLICATIONS = {
             "Lesezugriff": "readonly",
             "Fachstelle Leitbehörde": "municipality-lead",
             "Support": "support",
-        },
-        "ECH0211": {
-            "API_ACTIVE": env.bool("ECH0211_API_ACTIVE", default=False),
-            "API_LEVEL": "basic",
-            "URLS_CLASS": "camac.ech0211.urls.SZUrlsConf",
         },
         "PUBLIC_ROLES": ["Publikation", "Portal"],
         "INSTANCE_HIDDEN_STATES": {
@@ -710,7 +690,7 @@ APPLICATIONS = {
             "LOCATION_REQUIRED": True,  # this is a workaround to account for differing validation requirements per config
             "RESOURCE_ID_PATH": "/index/template/resource-id/25#/dossier-import/",  # That's required for `reversing` the URL to the dossier-import resource tab in the UI
             "TRANSFORM_COORDINATE_SYSTEM": "epsg:4326",  # use world wide coordinates instead of swiss ones
-            "PROD_URL": env.str(  # this is also used in the xml delivery of the ech0211 endpoint
+            "PROD_URL": env.str(
                 "DJANGO_DOSSIER_IMPORT_PROD_URL", "https://behoerden.ebau-sz.ch/"
             ),
             "PROD_AUTH_URL": env.str(
@@ -726,12 +706,6 @@ APPLICATIONS = {
         "SHORT_NAME": "be",
         "INTERNAL_FRONTEND": "camac",
         "TAGGED_RELEASES": True,
-        "ECH0211": {
-            "API_ACTIVE": env.bool("ECH0211_API_ACTIVE", default=True),
-            "API_LEVEL": "full",
-            "SWAGGER_PATH": "camac.swagger.views.kt_bern",
-            "URLS_CLASS": "camac.ech0211.urls.BEUrlsConf",
-        },
         "USE_CAMAC_ADMIN": True,
         "INCLUDE_STATIC_FILES": [("xml", "kt_bern/static/ech0211/xml")],
         "LOG_NOTIFICATIONS": True,
@@ -1164,7 +1138,7 @@ APPLICATIONS = {
             "CALUMA_FORM": "migriertes-dossier",
             "FORM_ID": 1,
             "ATTACHMENT_SECTION_ID": 4,  # Internal
-            "PROD_URL": env.str(  # this is also used in the xml delivery of the ech0211 endpoint
+            "PROD_URL": env.str(
                 "DJANGO_DOSSIER_IMPORT_PROD_URL",
                 "https://ebau.apps.be.ch/",
             ),
@@ -1183,9 +1157,6 @@ APPLICATIONS = {
     "kt_uri": {
         "SHORT_NAME": "ur",
         "INTERNAL_FRONTEND": "camac",
-        "ECH0211": {
-            "API_ACTIVE": env.bool("ECH0211_API_ACTIVE", default=False),
-        },
         "USE_CAMAC_ADMIN": True,
         "ENABLE_PUBLIC_CALUMA": True,
         "LOG_NOTIFICATIONS": False,
@@ -1400,9 +1371,6 @@ APPLICATIONS = {
     "demo": {
         "SHORT_NAME": "demo",
         "INTERNAL_FRONTEND": "ebau",
-        "ECH0211": {
-            "API_ACTIVE": env.bool("ECH0211_API_ACTIVE", default=False),
-        },
         "USE_CAMAC_ADMIN": True,
         "LOG_NOTIFICATIONS": True,
         # Mapping between camac role and instance permission.
@@ -1490,9 +1458,6 @@ APPLICATIONS = {
     "kt_gr": {
         "SHORT_NAME": "gr",
         "INTERNAL_FRONTEND": "ebau",
-        "ECH0211": {
-            "API_ACTIVE": env.bool("ECH0211_API_ACTIVE", default=False),
-        },
         "USE_CAMAC_ADMIN": False,
         "LOG_NOTIFICATIONS": True,
         "STORE_PDF": {
@@ -1582,6 +1547,7 @@ APPLICATIONS = {
                 "formal-exam": {
                     "next_instance_state": "init-distribution",
                     "history_text": _("Preliminary exam performed"),
+                    "ech_event": "camac.ech0211.signals.exam_completed",
                 },
                 "init-distribution": {
                     "next_instance_state": "circulation",
@@ -1702,9 +1668,6 @@ APPLICATIONS = {
         "SHORT_NAME": "so",
         "INTERNAL_FRONTEND": "ebau",
         "TAGGED_RELEASES": True,
-        "ECH0211": {
-            "API_ACTIVE": env.bool("ECH0211_API_ACTIVE", default=False),
-        },
         "USE_CAMAC_ADMIN": False,
         "LOG_NOTIFICATIONS": True,
         "ENABLE_PUBLIC_CALUMA": True,
@@ -2471,6 +2434,7 @@ PLACEHOLDERS = load_module_settings("placeholders")
 MASTER_DATA = load_module_settings("master_data")
 DUMP = load_module_settings("dump")
 CONSTRUCTION_MONITORING = load_module_settings("construction_monitoring")
+ECH0211 = load_module_settings("ech0211")
 
 # Alexandria
 ALEXANDRIA = load_module_settings("alexandria")

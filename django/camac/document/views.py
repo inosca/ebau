@@ -196,7 +196,10 @@ class AttachmentView(
 
     @classmethod
     def include_in_swagger(cls):
-        return settings.APPLICATION["DOCUMENT_BACKEND"] == "camac-ng"
+        return (
+            bool(settings.ECH0211)
+            and settings.APPLICATION["DOCUMENT_BACKEND"] == "camac-ng"
+        )
 
     def has_object_destroy_permission(self, attachment):
         for section in attachment.attachment_sections.all():
@@ -310,7 +313,10 @@ class AttachmentDownloadView(
 
     @classmethod
     def include_in_swagger(cls):
-        return settings.APPLICATION["DOCUMENT_BACKEND"] == "camac-ng"
+        return (
+            bool(settings.ECH0211)
+            and settings.APPLICATION["DOCUMENT_BACKEND"] == "camac-ng"
+        )
 
     def _create_history_entry(self, request, attachment):
         fields = {
@@ -428,7 +434,10 @@ class AttachmentSectionView(ReadOnlyModelViewSet):
 
     @classmethod
     def include_in_swagger(cls):
-        return settings.APPLICATION["DOCUMENT_BACKEND"] == "camac-ng"
+        return (
+            settings.ECH0211.get("API_LEVEL") == "full"
+            and settings.APPLICATION["DOCUMENT_BACKEND"] == "camac-ng"
+        )
 
     def get_queryset(self):
         if getattr(self, "swagger_fake_view", False):

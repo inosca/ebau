@@ -24,9 +24,10 @@ def test_message_throttling(
     user_group_factory,
     params,
     set_application_be,
-    override_urls_be,
+    be_ech0211_settings,
     status_first,
     status_second,
+    reload_ech0211_urls,
 ):
     user_group_factory(user=admin_user, group__pk=1)
     user_group_factory(user=admin_user, group__pk=2)

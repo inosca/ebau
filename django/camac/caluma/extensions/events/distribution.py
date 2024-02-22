@@ -204,7 +204,7 @@ def post_redo_distribution(sender, work_item, user, context=None, **kwargs):
             settings.DISTRIBUTION["HISTORY"].get("REDO_DISTRIBUTION"),
         )
 
-    if settings.DISTRIBUTION["ECH_EVENTS"]:
+    if settings.ECH0211.get("API_LEVEL") == "full":
         circulation_started.send(
             sender="post_redo_distribution",
             instance=work_item.case.family.instance,
@@ -383,7 +383,7 @@ def post_resume_inquiry(sender, work_item, user, context=None, **kwargs):
         _get_inquiry_sent_notification_key(work_item), work_item, user
     )
 
-    if settings.DISTRIBUTION["ECH_EVENTS"]:
+    if settings.ECH0211.get("API_LEVEL") == "full":
         camac_user = User.objects.get(username=user.username)
         task_send.send(
             sender="post_resume_inquiry",
@@ -449,7 +449,7 @@ def post_complete_inquiry(sender, work_item, user, context=None, **kwargs):
         ):
             cancel_work_item(work_item=work_item_to_cancel, user=user, context=context)
 
-    if settings.DISTRIBUTION["ECH_EVENTS"]:
+    if settings.ECH0211.get("API_LEVEL") == "full":
         camac_user = User.objects.get(username=user.username)
         accompanying_report_send.send(
             sender="post_complete_inquiry",
