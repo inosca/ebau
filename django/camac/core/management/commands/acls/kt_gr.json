@@ -15,12 +15,18 @@
       ],
       "service-lead": [
         "circulation",
+        "construction-acceptance",
         "decision",
         "finished",
         "rejected",
         "subm"
       ],
-      "subservice": ["circulation", "decision", "finished"],
+      "subservice": [
+        "circulation",
+        "construction-acceptance",
+        "decision",
+        "finished"
+      ],
       "support": ["new", "rejected", "subm"],
       "uso": [
         "circulation",
@@ -52,14 +58,21 @@
       ],
       "service-lead": [
         "circulation",
+        "construction-acceptance",
         "decision",
         "finished",
         "rejected",
         "subm"
       ],
-      "subservice": ["circulation", "finished"],
+      "subservice": ["circulation", "construction-acceptance", "finished"],
       "support": ["new", "rejected", "subm"],
-      "uso": ["circulation", "decision", "finished", "subm"]
+      "uso": [
+        "circulation",
+        "construction-acceptance",
+        "decision",
+        "finished",
+        "subm"
+      ]
     }
   },
   "2000002": {
@@ -72,6 +85,13 @@
         "init-distribution",
         "rejected",
         "subm"
+      ],
+      "service-lead": [
+        "circulation",
+        "construction-acceptance",
+        "decision",
+        "init-distribution",
+        "rejected"
       ]
     }
   },
@@ -84,9 +104,9 @@
   "12000006": {
     "label": "Meine Dossiers (Dossier list (Caluma)) > Publikation",
     "acls": {
-      "municipality-admin": ["construction-acceptance"],
       "municipality-lead": [
         "circulation",
+        "construction-acceptance",
         "decision",
         "init-distribution",
         "rejected"
@@ -163,14 +183,33 @@
       ],
       "service-lead": [
         "circulation",
+        "construction-acceptance",
         "decision",
         "finished",
         "rejected",
         "subm"
       ],
-      "subservice": ["circulation", "decision", "finished"],
-      "support": ["circulation", "finished", "new", "rejected", "subm"],
-      "uso": ["circulation", "decision", "finished", "subm"]
+      "subservice": [
+        "circulation",
+        "construction-acceptance",
+        "decision",
+        "finished"
+      ],
+      "support": [
+        "circulation",
+        "construction-acceptance",
+        "finished",
+        "new",
+        "rejected",
+        "subm"
+      ],
+      "uso": [
+        "circulation",
+        "construction-acceptance",
+        "decision",
+        "finished",
+        "subm"
+      ]
     }
   },
   "14000008": {
@@ -189,14 +228,27 @@
       ],
       "service-lead": [
         "circulation",
+        "construction-acceptance",
         "decision",
         "finished",
         "new",
         "rejected",
         "subm"
       ],
-      "subservice": ["circulation", "decision", "finished"],
-      "support": ["circulation", "finished", "new", "rejected", "subm"]
+      "subservice": [
+        "circulation",
+        "construction-acceptance",
+        "decision",
+        "finished"
+      ],
+      "support": [
+        "circulation",
+        "construction-acceptance",
+        "finished",
+        "new",
+        "rejected",
+        "subm"
+      ]
     }
   },
   "14000011": {
@@ -215,13 +267,26 @@
       ],
       "service-lead": [
         "circulation",
+        "construction-acceptance",
         "decision",
         "finished",
         "rejected",
         "subm"
       ],
-      "subservice": ["circulation", "decision", "finished"],
-      "support": ["circulation", "finished", "new", "rejected", "subm"]
+      "subservice": [
+        "circulation",
+        "construction-acceptance",
+        "decision",
+        "finished"
+      ],
+      "support": [
+        "circulation",
+        "construction-acceptance",
+        "finished",
+        "new",
+        "rejected",
+        "subm"
+      ]
     }
   },
   "14000014": {
@@ -247,9 +312,10 @@
         "decision",
         "finished",
         "init-distribution",
-        "rejected"
+        "rejected",
+        "subm"
       ],
-      "service-lead": ["circulation", "decision"]
+      "service-lead": ["circulation", "construction-acceptance", "decision"]
     }
   },
   "15000000": {
@@ -263,6 +329,7 @@
     "acls": {
       "municipality-lead": [
         "circulation",
+        "construction-acceptance",
         "decision",
         "init-distribution",
         "rejected",
@@ -283,9 +350,16 @@
         "rejected",
         "subm"
       ],
-      "service-lead": ["circulation", "decision", "finished", "rejected"],
+      "service-lead": [
+        "circulation",
+        "construction-acceptance",
+        "decision",
+        "finished",
+        "rejected"
+      ],
       "subservice": [
         "circulation",
+        "construction-acceptance",
         "correction",
         "decision",
         "finished",
@@ -295,6 +369,7 @@
       ],
       "support": [
         "circulation",
+        "construction-acceptance",
         "correction",
         "decision",
         "finished",
@@ -303,7 +378,7 @@
         "rejected",
         "subm"
       ],
-      "uso": ["circulation", "decision", "finished"]
+      "uso": ["circulation", "construction-acceptance", "decision", "finished"]
     }
   },
   "18000000": {
@@ -319,9 +394,16 @@
         "rejected",
         "subm"
       ],
-      "service-lead": ["circulation", "decision", "finished", "rejected"],
+      "service-lead": [
+        "circulation",
+        "construction-acceptance",
+        "decision",
+        "finished",
+        "rejected"
+      ],
       "subservice": [
         "circulation",
+        "construction-acceptance",
         "correction",
         "decision",
         "finished",
@@ -331,6 +413,7 @@
       ],
       "support": [
         "circulation",
+        "construction-acceptance",
         "correction",
         "decision",
         "finished",
@@ -339,7 +422,7 @@
         "rejected",
         "subm"
       ],
-      "uso": ["circulation", "decision", "finished"]
+      "uso": ["circulation", "construction-acceptance", "decision", "finished"]
     }
   },
   "18000001": {
@@ -357,13 +440,26 @@
       ],
       "service-lead": [
         "circulation",
+        "construction-acceptance",
         "decision",
         "finished",
         "rejected",
         "subm"
       ],
-      "subservice": ["circulation", "decision", "finished"],
-      "support": ["circulation", "finished", "new", "rejected", "subm"]
+      "subservice": [
+        "circulation",
+        "construction-acceptance",
+        "decision",
+        "finished"
+      ],
+      "support": [
+        "circulation",
+        "construction-acceptance",
+        "finished",
+        "new",
+        "rejected",
+        "subm"
+      ]
     }
   },
   "21000000": {
