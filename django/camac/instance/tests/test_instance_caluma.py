@@ -1708,7 +1708,6 @@ def test_generate_and_store_pdf_in_alexandria(
     dms_settings,
     gr_instance,
     group,
-    minio_mock,
     mocker,
 ):
     alexandria_category = CategoryFactory()
