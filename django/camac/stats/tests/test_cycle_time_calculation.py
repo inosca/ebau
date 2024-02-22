@@ -146,6 +146,7 @@ def test_decision_completion_computes_cycle_time(
     settings,
     application_settings,
     be_decision_settings,
+    be_ech0211_settings,
 ):
     settings.APPLICATION_NAME = "kt_bern"
     application_settings["SHORT_NAME"] = "be"

@@ -72,3 +72,4 @@ generate_module_test_settings(
     "master_data", ["kt_bern", "kt_schwyz", "kt_uri", "kt_gr", "kt_so"]
 )
 generate_module_test_settings("dump", settings.APPLICATIONS.keys())
+generate_module_test_settings("ech0211", ["kt_schwyz", "kt_bern", "kt_gr"])

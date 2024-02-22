@@ -6,6 +6,7 @@ import sys
 from copy import deepcopy
 from dataclasses import dataclass, field
 from datetime import date, datetime, timezone
+from importlib import import_module, reload
 from pathlib import Path
 
 import faker
@@ -29,10 +30,8 @@ from deepmerge import always_merger
 from django.conf import settings
 from django.core.cache import cache
 from django.core.management import call_command
-from django.test import override_settings
-from django.urls import path
+from django.urls import clear_url_caches
 from django.utils.timezone import make_aware
-from django.views.generic import RedirectView
 from factory import Faker
 from factory.base import FactoryMetaClass
 from jwt import encode as jwt_encode
@@ -52,7 +51,6 @@ from camac.document import factories as document_factories
 from camac.document.tests.data import django_file
 from camac.dossier_import import factories as dossier_import_factories
 from camac.ech0211 import factories as ech_factories
-from camac.ech0211.urls import BEUrlsConf, SZUrlsConf
 from camac.faker import FreezegunAwareDatetimeProvider
 from camac.gis import factories as gis_factories
 from camac.instance import factories as instance_factories
@@ -67,7 +65,6 @@ from camac.responsible import factories as responsible_factories
 from camac.settings.modules.construction_monitoring import CONSTRUCTION_MONITORING
 from camac.settings.testing import *  # noqa F403, F401
 from camac.tags import factories as tags_factories
-from camac.urls import urlpatterns as app_patterns
 from camac.user import factories as user_factories
 from camac.user.models import Group, User
 from camac.utils import build_url
@@ -266,25 +263,7 @@ def admin_client(db, admin_user, request_mock):
 
 
 @pytest.fixture
-def override_urls_be():
-    BEUrlsConf.urlpatterns += app_patterns
-    BEUrlsConf.urlpatterns += [
-        path(f"ech/v1/{key}", RedirectView.as_view(url=url))
-        for key, url in BEUrlsConf.redirects.items()
-    ]
-    with override_settings(ROOT_URLCONF=BEUrlsConf):
-        yield
-
-
-@pytest.fixture
-def override_urls_sz():
-    SZUrlsConf.urlpatterns += app_patterns
-    with override_settings(ROOT_URLCONF=SZUrlsConf):
-        yield
-
-
-@pytest.fixture
-def set_application_be(settings, override_urls_be):
+def set_application_be(settings):
     application_dict = copy.deepcopy(settings.APPLICATIONS["kt_bern"])
     settings.APPLICATION = application_dict
     settings.APPLICATION_NAME = "kt_bern"
@@ -1420,13 +1399,6 @@ def minio_mock(mocker):
 
 
 @pytest.fixture
-def enable_ech(application_settings):
-    application_settings["ECH0211"]["API_ACTIVE"] = True
-    application_settings["ECH0211"]["API_LEVEL"] = "full"
-    application_settings["DOSSIER_IMPORT"]["PROD_URL"] = "ebau.local"
-
-
-@pytest.fixture
 def notification_add_recipient_type():  # pragma: todo cover
     """Add notification module recipient type.
 
@@ -1888,3 +1860,22 @@ def construction_stage_factory_sz(
         return construction_stage
 
     return factory
+
+
+def reload_urlconf(urlconf=None):
+    """
+    Reload the given urlconf (needed when it is dynamic).
+
+    Credit: https://codeinthehole.com/tips/how-to-reload-djangos-url-config/
+    """
+    clear_url_caches()
+    if urlconf in sys.modules:
+        reload(sys.modules[urlconf])
+    else:
+        import_module(urlconf)
+
+
+@pytest.fixture
+def reload_ech0211_urls():
+    reload_urlconf("camac.urls")
+    reload_urlconf("camac.ech0211.urls")

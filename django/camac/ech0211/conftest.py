@@ -3,6 +3,7 @@ import xml.dom.minidom as minidom
 from datetime import datetime
 
 import pytest
+from alexandria.core.factories import DocumentFactory, FileFactory
 from caluma.caluma_form import models as caluma_form_models
 from caluma.caluma_form.models import DynamicOption
 from caluma.caluma_workflow import api as workflow_api, models as caluma_workflow_models
@@ -103,6 +104,76 @@ def ech_instance(
 
 
 @pytest.fixture
+def ech_instance_gr(ech_instance, instance_with_case, caluma_workflow_config_gr, utils):
+    ech_instance = instance_with_case(ech_instance)
+    ech_instance.case.meta["dossier-number"] = "2020-1"
+
+    municipality = ech_instance.instance_services.first().service
+    municipality.name = "Testgemeinde"
+    municipality.save()
+    utils.add_answer(
+        ech_instance.case.document,
+        "gemeinde",
+        str(municipality.pk),
+    )
+    ech_instance.case.document.dynamicoption_set.update(slug=str(municipality.pk))
+    DynamicOption.objects.create(
+        document=ech_instance.case.document,
+        question_id="gemeinde",
+        slug=str(municipality.pk),
+        label=municipality.name,
+    )
+
+    utils.add_answer(
+        ech_instance.case.document, "beschreibung-bauvorhaben", "Testvorhaben"
+    )
+    utils.add_table_answer(
+        ech_instance.case.document,
+        "parzelle",
+        [
+            {
+                "parzellennummer": "1586",
+                "e-grid-nr": "123",
+            }
+        ],
+    )
+    utils.add_answer(
+        ech_instance.case.document, "street-and-housenumber", "Teststrasse 12a"
+    )
+    utils.add_answer(ech_instance.case.document, "ort-grundstueck", "Chur")
+    utils.add_answer(ech_instance.case.document, "plz", "1234")
+    utils.add_table_answer(
+        ech_instance.case.document,
+        "personalien-gesuchstellerin",
+        [
+            {
+                "vorname-gesuchstellerin": "Testvorname",
+                "name-gesuchstellerin": "Testname",
+                "ort-gesuchstellerin": "Testort",
+                "plz-gesuchstellerin": 1234,
+                "strasse-gesuchstellerin": "Teststrasse",
+                "juristische-person-gesuchstellerin": "Nein",
+                "telefon-oder-mobile-gesuchstellerin": int("0311234567"),
+                "e-mail-gesuchstellerin": "a@b.ch",
+            }
+        ],
+    )
+    FileFactory(
+        pk="57a93396-454c-4a55-b48f-d114ad264df9",
+        variant="original",
+        name="Situationsplan.pdf",
+        document=DocumentFactory(
+            pk="f8380740-d73a-4683-8909-2ced929ddbc5",
+            metainfo={"camac-instance-id": ech_instance.pk},
+            title="Situationsplan",
+            category__name="Beilagen zum Gesuch",
+        ),
+    )
+
+    return ech_instance
+
+
+@pytest.fixture
 def ech_instance_be(ech_instance, instance_with_case, caluma_workflow_config_be, utils):
     ech_instance = instance_with_case(ech_instance)
     ech_instance.case.meta["ebau-number"] = "2020-1"
@@ -177,6 +248,7 @@ def ech_instance_be(ech_instance, instance_with_case, caluma_workflow_config_be,
     utils.add_answer(ech_instance.case.document, "sammelschutzraum", "Ja")
     utils.add_answer(ech_instance.case.document, "baukosten-in-chf", 42)
     utils.add_answer(ech_instance.case.document, "nutzungszone", "Testnutzungszone")
+    utils.add_answer(ech_instance.case.document, "effektive-geschosszahl", 2)
     return ech_instance
 
 

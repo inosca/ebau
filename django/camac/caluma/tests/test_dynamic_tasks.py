@@ -110,6 +110,7 @@ def test_dynamic_task_after_decision(
     settings,
     application_settings,
     be_decision_settings,
+    be_ech0211_settings,
 ):
     settings.APPLICATION_NAME = "kt_bern"
     application_settings["SHORT_NAME"] = "be"
@@ -190,6 +191,7 @@ def test_dynamic_task_after_inquiries_completed(
     service,
     service_factory,
     is_lead_authority,
+    be_ech0211_settings,
 ):
     invited_service = service_factory()
     if is_lead_authority:

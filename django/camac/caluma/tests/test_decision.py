@@ -62,6 +62,7 @@ def test_complete_decision(
     expected_text,
     settings,
     gr_decision_settings,
+    gr_ech0211_settings,
 ):
     settings.APPLICATION_NAME = "kt_gr"
     instance_state_factory(name=expected_instance_state)
@@ -171,6 +172,7 @@ def test_complete_decision_be(
     construction_control,
     settings,
     be_decision_settings,
+    be_ech0211_settings,
 ):
     settings.APPLICATION_NAME = "kt_bern"
     application_settings["SHORT_NAME"] = "be"
@@ -259,6 +261,7 @@ def test_complete_decision_appeal(
     settings,
     application_settings,
     be_decision_settings,
+    be_ech0211_settings,
 ):
     settings.APPLICATION_NAME = "kt_bern"
     application_settings["SHORT_NAME"] = "be"
@@ -387,6 +390,7 @@ def test_complete_decision_withdrawn(
     so_instance,
     withdrawal_settings,
     work_item_factory,
+    disable_ech0211_settings,
 ):
     instance_state_factory(name=withdrawal_settings["INSTANCE_STATE_CONFIRMED"])
 

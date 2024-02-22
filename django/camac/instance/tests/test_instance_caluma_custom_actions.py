@@ -184,6 +184,7 @@ def test_set_ebau_number_workflow(
     caluma_workflow,
     expected_instance_state,
     expect_completed_work_item,
+    be_ech0211_settings,
 ):
     instance_state_factory(name="circulation_init")
 
@@ -354,6 +355,7 @@ def test_change_responsible_service(
     admin_client,
     admin_user,
     be_instance,
+    be_ech0211_settings,
     notification_template,
     role,
     group,
@@ -365,7 +367,6 @@ def test_change_responsible_service(
     expected_status,
     caluma_admin_user,
     be_distribution_settings,
-    enable_ech,
 ):
     application_settings["SHORT_NAME"] = "be"
     application_settings["NOTIFICATIONS"]["CHANGE_RESPONSIBLE_SERVICE"] = {
@@ -511,7 +512,9 @@ def test_reassign_distribution_and_complete_distribution_workitems(
     expected_status,
     caluma_admin_user,
     instance_state_factory,
+    be_ech0211_settings,
 ):
+    application_settings["SHORT_NAME"] = "be"
     notification_template.slug = "03-verfahren-vorzeitig-beendet"
     notification_template.save()
     application_settings["NOTIFICATIONS"]["CHANGE_RESPONSIBLE_SERVICE"] = {

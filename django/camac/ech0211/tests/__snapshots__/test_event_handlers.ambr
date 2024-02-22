@@ -4,7 +4,7 @@
   <?xml version="1.0" ?>
   <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5" xmlns:ns4="http://www.ech.ch/xmlns/eCH-0147/T0/1" xmlns:ns5="http://www.ech.ch/xmlns/eCH-0039/2">
   	<ns1:deliveryHeader>
-  		<ns2:senderId>https://ebau.apps.be.ch/</ns2:senderId>
+  		<ns2:senderId>http://ebau.local</ns2:senderId>
   		<ns2:messageId><!-- MESSAGE_ID --></ns2:messageId>
   		<ns2:messageType>5100004</ns2:messageType>
   		<ns2:sendingApplication>
@@ -68,7 +68,7 @@
   <?xml version="1.0" ?>
   <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5" xmlns:ns4="http://www.ech.ch/xmlns/eCH-0147/T0/1" xmlns:ns5="http://www.ech.ch/xmlns/eCH-0039/2">
   	<ns1:deliveryHeader>
-  		<ns2:senderId>https://ebau.apps.be.ch/</ns2:senderId>
+  		<ns2:senderId>http://ebau.local</ns2:senderId>
   		<ns2:messageId><!-- MESSAGE_ID --></ns2:messageId>
   		<ns2:messageType>5100004</ns2:messageType>
   		<ns2:sendingApplication>
@@ -134,7 +134,7 @@
   <?xml version="1.0" ?>
   <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5" xmlns:ns4="http://www.ech.ch/xmlns/eCH-0097/2" xmlns:ns5="http://www.ech.ch/xmlns/eCH-0007/6" xmlns:ns6="http://www.ech.ch/xmlns/eCH-0010/6">
   	<ns1:deliveryHeader>
-  		<ns2:senderId>https://ebau.apps.be.ch/</ns2:senderId>
+  		<ns2:senderId>http://ebau.local</ns2:senderId>
   		<ns2:messageId><!-- MESSAGE_ID --></ns2:messageId>
   		<ns2:messageType>5200005</ns2:messageType>
   		<ns2:sendingApplication>
@@ -212,7 +212,7 @@
   <?xml version="1.0" ?>
   <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5">
   	<ns1:deliveryHeader>
-  		<ns2:senderId>https://ebau.apps.be.ch/</ns2:senderId>
+  		<ns2:senderId>http://ebau.local</ns2:senderId>
   		<ns2:messageId><!-- MESSAGE_ID --></ns2:messageId>
   		<ns2:messageType>5200004</ns2:messageType>
   		<ns2:sendingApplication>
@@ -248,7 +248,7 @@
   <?xml version="1.0" ?>
   <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5" xmlns:ns4="http://www.ech.ch/xmlns/eCH-0010/6" xmlns:ns5="http://www.ech.ch/xmlns/eCH-0007/6" xmlns:ns6="http://www.ech.ch/xmlns/eCH-0147/T0/1" xmlns:ns7="http://www.ech.ch/xmlns/eCH-0039/2" xmlns:ns8="http://www.ech.ch/xmlns/eCH-0044/4">
   	<ns1:deliveryHeader>
-  		<ns2:senderId>https://ebau.apps.be.ch/</ns2:senderId>
+  		<ns2:senderId>http://ebau.local</ns2:senderId>
   		<ns2:messageId><!-- MESSAGE_ID --></ns2:messageId>
   		<ns2:messageType>5100001</ns2:messageType>
   		<ns2:sendingApplication>
@@ -319,6 +319,7 @@
   				<ns1:buildingInformation>
   					<ns1:building>
   						<ns3:EGID>1738778</ns3:EGID>
+  						<ns3:numberOfFloors>2</ns3:numberOfFloors>
   						<ns3:buildingCategory>1040</ns3:buildingCategory>
   						<ns3:civilDefenseShelter>true</ns3:civilDefenseShelter>
   					</ns1:building>
@@ -400,7 +401,7 @@
   <?xml version="1.0" ?>
   <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5">
   	<ns1:deliveryHeader>
-  		<ns2:senderId>https://ebau.apps.be.ch/</ns2:senderId>
+  		<ns2:senderId>http://ebau.local</ns2:senderId>
   		<ns2:messageId><!-- MESSAGE_ID --></ns2:messageId>
   		<ns2:messageType>5200030</ns2:messageType>
   		<ns2:sendingApplication>
@@ -438,7 +439,7 @@
   <?xml version="1.0" ?>
   <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5">
   	<ns1:deliveryHeader>
-  		<ns2:senderId>https://ebau.apps.be.ch/</ns2:senderId>
+  		<ns2:senderId>http://ebau.local</ns2:senderId>
   		<ns2:messageId><!-- MESSAGE_ID --></ns2:messageId>
   		<ns2:messageType>5100002</ns2:messageType>
   		<ns2:sendingApplication>
@@ -474,7 +475,7 @@
   <?xml version="1.0" ?>
   <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5" xmlns:ns4="http://www.ech.ch/xmlns/eCH-0010/6" xmlns:ns5="http://www.ech.ch/xmlns/eCH-0007/6" xmlns:ns6="http://www.ech.ch/xmlns/eCH-0147/T0/1" xmlns:ns7="http://www.ech.ch/xmlns/eCH-0039/2" xmlns:ns8="http://www.ech.ch/xmlns/eCH-0044/4">
   	<ns1:deliveryHeader>
-  		<ns2:senderId>https://ebau.apps.be.ch/</ns2:senderId>
+  		<ns2:senderId>http://ebau.local</ns2:senderId>
   		<ns2:messageId><!-- MESSAGE_ID --></ns2:messageId>
   		<ns2:messageType>5100001</ns2:messageType>
   		<ns2:sendingApplication>
@@ -603,7 +604,7 @@
   <?xml version="1.0" ?>
   <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5" xmlns:ns4="http://www.ech.ch/xmlns/eCH-0010/6" xmlns:ns5="http://www.ech.ch/xmlns/eCH-0007/6" xmlns:ns6="http://www.ech.ch/xmlns/eCH-0147/T0/1" xmlns:ns7="http://www.ech.ch/xmlns/eCH-0039/2" xmlns:ns8="http://www.ech.ch/xmlns/eCH-0044/4">
   	<ns1:deliveryHeader>
-  		<ns2:senderId>https://ebau.apps.be.ch/</ns2:senderId>
+  		<ns2:senderId>http://ebau.local</ns2:senderId>
   		<ns2:messageId><!-- MESSAGE_ID --></ns2:messageId>
   		<ns2:messageType>5100000</ns2:messageType>
   		<ns2:sendingApplication>
@@ -674,6 +675,7 @@
   				<ns1:buildingInformation>
   					<ns1:building>
   						<ns3:EGID>1738778</ns3:EGID>
+  						<ns3:numberOfFloors>2</ns3:numberOfFloors>
   						<ns3:buildingCategory>1040</ns3:buildingCategory>
   						<ns3:civilDefenseShelter>true</ns3:civilDefenseShelter>
   					</ns1:building>
@@ -755,7 +757,7 @@
   <?xml version="1.0" ?>
   <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5" xmlns:ns4="http://www.ech.ch/xmlns/eCH-0010/6" xmlns:ns5="http://www.ech.ch/xmlns/eCH-0007/6" xmlns:ns6="http://www.ech.ch/xmlns/eCH-0147/T0/1" xmlns:ns7="http://www.ech.ch/xmlns/eCH-0039/2" xmlns:ns8="http://www.ech.ch/xmlns/eCH-0097/2" xmlns:ns9="http://www.ech.ch/xmlns/eCH-0044/4">
   	<ns1:deliveryHeader>
-  		<ns2:senderId>https://behoerden.ebau-sz.ch/</ns2:senderId>
+  		<ns2:senderId>http://ebau.local</ns2:senderId>
   		<ns2:messageId><!-- MESSAGE_ID --></ns2:messageId>
   		<ns2:messageType>5100000</ns2:messageType>
   		<ns2:sendingApplication>
@@ -966,7 +968,7 @@
   <?xml version="1.0" ?>
   <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5" xmlns:ns4="http://www.ech.ch/xmlns/eCH-0039/2" xmlns:ns5="http://www.ech.ch/xmlns/eCH-0147/T0/1">
   	<ns1:deliveryHeader>
-  		<ns2:senderId>https://ebau.apps.be.ch/</ns2:senderId>
+  		<ns2:senderId>http://ebau.local</ns2:senderId>
   		<ns2:messageId><!-- MESSAGE_ID --></ns2:messageId>
   		<ns2:messageType>5200009</ns2:messageType>
   		<ns2:sendingApplication>
@@ -1024,7 +1026,7 @@
   <?xml version="1.0" ?>
   <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5" xmlns:ns4="http://www.ech.ch/xmlns/eCH-0039/2" xmlns:ns5="http://www.ech.ch/xmlns/eCH-0147/T0/1">
   	<ns1:deliveryHeader>
-  		<ns2:senderId>https://ebau.apps.be.ch/</ns2:senderId>
+  		<ns2:senderId>http://ebau.local</ns2:senderId>
   		<ns2:messageId><!-- MESSAGE_ID --></ns2:messageId>
   		<ns2:messageType>5200008</ns2:messageType>
   		<ns2:sendingApplication>
@@ -1082,7 +1084,7 @@
   <?xml version="1.0" ?>
   <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5" xmlns:ns4="http://www.ech.ch/xmlns/eCH-0039/2" xmlns:ns5="http://www.ech.ch/xmlns/eCH-0147/T0/1">
   	<ns1:deliveryHeader>
-  		<ns2:senderId>https://ebau.apps.be.ch/</ns2:senderId>
+  		<ns2:senderId>http://ebau.local</ns2:senderId>
   		<ns2:messageId><!-- MESSAGE_ID --></ns2:messageId>
   		<ns2:messageType>5200007</ns2:messageType>
   		<ns2:sendingApplication>

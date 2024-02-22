@@ -1,11 +1,15 @@
 import logging
 
+from django.conf import settings
+from django.core.exceptions import ValidationError
 from django.db import transaction
 from django.http import HttpResponse
 from drf_yasg import openapi
 from drf_yasg.utils import swagger_auto_schema
 from pyxb import IncompleteElementContentError, UnprocessedElementContentError
+from rest_framework import status
 from rest_framework.authentication import get_authorization_header
+from rest_framework.exceptions import NotFound, ParseError
 from rest_framework.generics import get_object_or_404
 from rest_framework.mixins import ListModelMixin, RetrieveModelMixin
 from rest_framework.parsers import JSONParser
@@ -14,25 +18,89 @@ from rest_framework.viewsets import GenericViewSet
 from rest_framework_xml.renderers import XMLRenderer
 
 from camac.constants.kt_bern import ECH_BASE_DELIVERY
+from camac.ech0211.models import Message
+from camac.ech0211.throttling import ECHMessageThrottle
 from camac.instance.models import Instance
 from camac.swagger.utils import get_operation_description, group_param
 
-from .. import event_handlers, formatters
-from ..mixins import ECHInstanceQuerysetMixin
-from ..parsers import ECHXMLParser
-from ..send_handlers import SendHandlerException, get_send_handler
-from ..serializers import ApplicationsSerializer
+from . import event_handlers, formatters
+from .mixins import ECHInstanceQuerysetMixin
+from .parsers import ECHXMLParser
+from .send_handlers import SendHandlerException, get_send_handler
+from .serializers import ApplicationsSerializer
 
 logger = logging.getLogger(__name__)
+
+
+last_param = openapi.Parameter(
+    "last",
+    openapi.IN_QUERY,
+    description=(
+        "UUID of last message. Can be found in `delivery.deliveryHeader.messageId`. "
+        "If omitted, first message is returned"
+    ),
+    type=openapi.TYPE_STRING,
+)
+
+
+class MessageView(RetrieveModelMixin, GenericViewSet):
+    queryset = Message.objects
+    serializer_class = Serializer
+    renderer_classes = (XMLRenderer,)
+
+    throttle_classes = [ECHMessageThrottle]
+
+    @classmethod
+    def include_in_swagger(cls):
+        return bool(settings.ECH0211)
+
+    def get_queryset(self):
+        qs = super().get_queryset()
+        return qs.filter(receiver=self.request.group.service)
+
+    def get_object(self, last=None):
+        queryset = self.get_queryset()
+        next_message = queryset.first()
+        if last:
+            try:
+                last_message = queryset.get(pk=last)
+            except ValidationError:
+                raise ParseError("'last' parameter must be a valid UUID")
+            except Message.DoesNotExist:
+                return
+
+            next_message = queryset.filter(
+                created_at__gt=last_message.created_at
+            ).first()
+
+        return next_message
+
+    @swagger_auto_schema(
+        tags=["eCH-0211"],
+        manual_parameters=[group_param, last_param],
+        operation_summary="Get message",
+        operation_description=get_operation_description(),
+        responses={"200": "eCH-0211 message"},
+    )
+    def retrieve(self, request, *args, **kwargs):
+        message = self.get_object(request.query_params.get("last"))
+        if not message:
+            return HttpResponse(status=status.HTTP_204_NO_CONTENT)
+        response = HttpResponse(message.body)
+        response["Content-Type"] = "application/xml"
+        return response
 
 
 class ApplicationView(ECHInstanceQuerysetMixin, RetrieveModelMixin, GenericViewSet):
     instance_field = None
     serializer_class = Serializer
     renderer_classes = (XMLRenderer,)
-    queryset = Instance.objects
     instance_field = None
-    include_in_swagger = True
+    queryset = Instance.objects
+
+    @classmethod
+    def include_in_swagger(cls):
+        return bool(settings.ECH0211)
 
     @swagger_auto_schema(
         tags=["eCH-0211"],
@@ -46,9 +114,14 @@ class ApplicationView(ECHInstanceQuerysetMixin, RetrieveModelMixin, GenericViewS
         instance = get_object_or_404(qs, pk=instance_id)
         base_delivery_formatter = formatters.BaseDeliveryFormatter()
         try:
+            subject = (
+                instance.form.get_name()
+                if settings.APPLICATION_NAME == "kt_schwyz"
+                else instance.case.document.form.name.translate()
+            )
             xml_data = formatters.delivery(
                 instance,
-                subject=instance.case.document.form.name.translate(),
+                subject=subject,
                 message_type=ECH_BASE_DELIVERY,
                 eventBaseDelivery=base_delivery_formatter.format_base_delivery(
                     instance
@@ -72,7 +145,10 @@ class ApplicationsView(ECHInstanceQuerysetMixin, ListModelMixin, GenericViewSet)
     queryset = Instance.objects
     instance_field = None
     filter_backends = []
-    include_in_swagger = True
+
+    @classmethod
+    def include_in_swagger(cls):
+        return bool(settings.ECH0211)
 
     def get_queryset(self, group=None):
         if getattr(self, "swagger_fake_view", False):  # pragma: no cover
@@ -89,17 +165,6 @@ class ApplicationsView(ECHInstanceQuerysetMixin, ListModelMixin, GenericViewSet)
         return super().list(request, *args, **kwargs)
 
 
-last_param = openapi.Parameter(
-    "last",
-    openapi.IN_QUERY,
-    description=(
-        "UUID of last message. Can be found in `delivery.deliveryHeader.messageId`. "
-        "If omitted, first message is returned"
-    ),
-    type=openapi.TYPE_STRING,
-)
-
-
 class EventView(ECHInstanceQuerysetMixin, GenericViewSet):
     instance_field = None
     queryset = Instance.objects
@@ -107,12 +172,13 @@ class EventView(ECHInstanceQuerysetMixin, GenericViewSet):
     serializer_class = Serializer
 
     def has_create_permission(self):
-        if self.request.group.role.name == "support":
-            return True
-        return False
+        return self.request.group.role.name == "support"
 
     @transaction.atomic
     def create(self, request, instance_id, event_type, *args, **kwargs):
+        if settings.ECH0211.get("API_LEVEL") != "full":
+            raise NotFound()
+
         instance = get_object_or_404(self.get_queryset(), pk=instance_id)
         try:
             EventHandler = getattr(event_handlers, f"{event_type}EventHandler")
@@ -136,7 +202,10 @@ class SendView(ECHInstanceQuerysetMixin, GenericViewSet):
     renderer_classes = (XMLRenderer,)
     parser_classes = (ECHXMLParser,)
     serializer_class = Serializer
-    include_in_swagger = True
+
+    @classmethod
+    def include_in_swagger(cls):
+        return settings.ECH0211.get("API_LEVEL") == "full"
 
     @swagger_auto_schema(
         tags=["eCH-0211"],
@@ -151,6 +220,9 @@ class SendView(ECHInstanceQuerysetMixin, GenericViewSet):
     )
     @transaction.atomic
     def create(self, request, *args, **kwargs):
+        if settings.ECH0211.get("API_LEVEL") != "full":
+            raise NotFound()
+
         if not request.data:
             return HttpResponse(status=400)
 

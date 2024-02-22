@@ -17,9 +17,10 @@ import pytest
 def test_redirect(
     admin_client,
     set_application_be,
-    override_urls_be,
+    be_ech0211_settings,
     input,
     output,
+    reload_ech0211_urls,
 ):
     response = admin_client.get(input)
 

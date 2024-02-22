@@ -32,8 +32,8 @@ def test_submit_event_sz(
     db,
     set_application_sz,
     ech_instance_sz,
+    sz_ech0211_settings,
     rf,
-    settings,
     admin_client,
     role,
     user_group,
@@ -44,11 +44,8 @@ def test_submit_event_sz(
     form_field_factory,
     caplog,
     ech_snapshot,
-    application_settings,
     master_data_is_visible_mock,
 ):
-    application_settings["ECH0211"]["API_ACTIVE"] = True
-    application_settings["ECH0211"]["API_LEVEL"] = "basic"
     instance_state_factory(name="subm")
     serializer = InstanceSubmitSerializer(
         context={
@@ -86,13 +83,13 @@ def test_submit_event_sz(
 def test_submit_event_be(
     set_application_be,
     ech_instance_be,
+    be_ech0211_settings,
     role_factory,
     group_factory,
     mocker,
     multilang,
     has_active_service,
     caplog,
-    settings,
     ech_snapshot,
     master_data_is_visible_mock,
 ):
@@ -134,6 +131,7 @@ def test_submit_event_be(
 def test_event_handlers(
     event_type,
     ech_instance_be,
+    be_ech0211_settings,
     set_application_be,
     role_factory,
     instance_service_factory,
@@ -196,6 +194,7 @@ def test_accompanying_report_event_handler(
     attachment_section_factory,
     be_distribution_settings,
     ech_instance_be,
+    be_ech0211_settings,
     ech_snapshot,
     group_factory,
     multilang,
@@ -286,6 +285,7 @@ def test_task_event_handler_stellungnahme(
     attachment_attachment_section_factory,
     attachment_section_factory,
     ech_instance_be,
+    be_ech0211_settings,
     ech_snapshot,
     instance_state_factory,
     service_factory,
@@ -321,6 +321,7 @@ def test_task_event_handler_stellungnahme(
 @pytest.mark.parametrize("instance_state_name", ["sb2", "conclusion"])
 def test_task_event_handler_SBs(
     ech_instance_be,
+    be_ech0211_settings,
     set_application_be,
     instance_state_name,
     instance_state_factory,
@@ -363,8 +364,9 @@ def test_task_event_handler_SBs(
 
 @pytest.mark.freeze_time("2022-06-03")
 def test_file_subsequently_signal(
-    ech_instance_be,
     set_application_be,
+    ech_instance_be,
+    be_ech0211_settings,
     ech_snapshot,
 ):
     file_subsequently.send(
@@ -377,8 +379,9 @@ def test_file_subsequently_signal(
 
 
 def test_skip_events_sz(
-    ech_instance_sz,
     set_application_sz,
+    ech_instance_sz,
+    sz_ech0211_settings,
 ):
     file_subsequently.send(
         sender=None, instance=ech_instance_sz, user_pk=None, group_pk=None

@@ -10,7 +10,6 @@ from camac.utils import (
 
 DISTRIBUTION = {
     "default": {
-        "ECH_EVENTS": False,
         "DEFAULT_DEADLINE_LEAD_TIME": 30,  # 30 days, needs to be the same as configured in the frontend
         "DISTRIBUTION_WORKFLOW": "distribution",
         "DISTRIBUTION_TASK": "distribution",
@@ -64,7 +63,6 @@ DISTRIBUTION = {
     },
     "kt_bern": {
         "ENABLED": True,
-        "ECH_EVENTS": True,
         "INSTANCE_STATE_DISTRIBUTION": "circulation",
         "HISTORY": {
             "COMPLETE_DISTRIBUTION": _("Circulation completed"),

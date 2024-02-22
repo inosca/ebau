@@ -70,6 +70,7 @@
       }),
     ]),
     'is_paper': False,
+    'joined_street_and_number': False,
     'k_object': dict({
       'label': 'Ja',
       'slug': 'k-objekt-ja',
@@ -266,6 +267,7 @@
       }),
     ]),
     'is_paper': False,
+    'joined_street_and_number': False,
     'k_object': dict({
       'label': 'Ja',
       'slug': 'k-objekt-ja',
@@ -484,6 +486,7 @@
       }),
     ]),
     'is_paper': False,
+    'joined_street_and_number': False,
     'land_use_planning_land_use': 'Wohnzone 3',
     'landowners': list([
     ]),
@@ -580,6 +583,7 @@
     'decision_date': None,
     'dossier_number': None,
     'final_approval_date': None,
+    'joined_street_and_number': True,
     'landowners': list([
     ]),
     'legal_representatives': list([
@@ -604,7 +608,6 @@
     'remark': None,
     'street': None,
     'street_addition': None,
-    'street_number': None,
     'submit_date': None,
     'usage_type': None,
     'usage_zone': None,
@@ -686,6 +689,7 @@
     'decision_date': None,
     'dossier_number': None,
     'final_approval_date': None,
+    'joined_street_and_number': True,
     'landowners': list([
     ]),
     'legal_representatives': list([
@@ -710,7 +714,6 @@
     'remark': None,
     'street': None,
     'street_addition': None,
-    'street_number': None,
     'submit_date': None,
     'usage_type': None,
     'usage_zone': None,
@@ -796,6 +799,7 @@
     'form_type': list([
       'form-type-oereb',
     ]),
+    'joined_street_and_number': False,
     'legal_state': list([
       'typ-des-verfahrens-genehmigung',
     ]),
