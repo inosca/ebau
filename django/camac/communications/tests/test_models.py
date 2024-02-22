@@ -27,7 +27,7 @@ def document_attachment(db, file_attachment, attachment):
 
 
 @pytest.fixture
-def alexandria_file(db, minio_mock):
+def alexandria_file(db):
     file = FileFactory(
         name="mydocument.docx",
         document__title="My Document",

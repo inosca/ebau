@@ -21,7 +21,6 @@ def alexandria_setup(
     create_caluma_publication,  # noqa: F811
     instance_with_case,
     instance,
-    minio_mock,
     mocker,
     publication_settings,
     role,
@@ -315,7 +314,6 @@ def test_mark_visibility(db, admin_client, visible_marks):
 def test_detail_visibility(
     db,
     instance,
-    minio_mock,
     admin_client,
     mocker,
     caluma_admin_user,
@@ -357,7 +355,7 @@ def test_detail_visibility(
 
 
 @pytest.mark.parametrize("role__name", ["applicant"])
-def test_file_download(db, minio_mock, alexandria_setup, admin_client, client):
+def test_file_download(db, alexandria_setup, admin_client, client):
     response = admin_client.get(reverse("file-list"))
     url = response.json()["data"][0]["attributes"]["download-url"]
 
