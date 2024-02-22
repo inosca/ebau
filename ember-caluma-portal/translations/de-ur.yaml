@@ -71,21 +71,30 @@ instances:
       öffentlichen Strassen und Plätzen, die über den Gemeingebrauch hinausgehen, sind
       bewilligungspflichtig. Gemäss Artikel 3 der Verordnung über den Strassenverkehr erteilt
       die Baudirektion, bzw. je nach Art der Beanspruchung, die Sicherheitsdirektion, die
-      Zustimmung, wenn dem Vorhaben keine überwiegenden Interessen entgegenstehen.\n\n **Meldung
-      Solaranlage:** Mit diesem Formular können Sie der Gemeindebaubehörde die geplante
-      Installation einer voraussichtlich baubewilligungsbefreiten Solaranlage melden. Das
-      Formular ist so aufgebaut, dass je nach Art und Lage der Anlage und unter der
-      Voraussetzung, dass die Fragen korrekt beantwortet werden, bereits im Formular geklärt
-      wird, ob eine Baubewilligung notwendig ist. Wenn dies der Fall ist, werden Sie im Formular
-      darauf hingewiesen, für die Meldung der Solaranlage das Formular „Baugesuch“ zu verwenden.\n\n
-      **Reklamegesuch:** Dieses Formular wählen Sie, wenn Sie eine Reklametafel, eine Werbeschrift
+      Zustimmung, wenn dem Vorhaben keine überwiegenden Interessen entgegenstehen.\n\n
+      **Gesuch um Bohrbewilligung zur Wasser- oder Wärmeentnahme**: Das Verfahren bei der
+      Prüfung und Bewilligung zur Nutzung des Grundwassers oder der Erdwärme ist zweistufig. In
+      einem ersten Schritt ist ein Gesuch für die Erteilung der Bohrbewilligung einzureichen.
+      Vorausgesetzt, dass sowohl die Prüfung durch das Amt für Energie als auch die Bohrergebnisse
+      positiv ausfallen, wird in einem zweiten Schritt das Verfahren für die Konzessionsvergabe
+      durchgeführt. Dazu ist ein separates Gesuch um Erteilung einer Konzession zur Wasser- und/oder
+      Wärmeentnahme einzureichen.\n\n **Konzessionsgesuch zur Wasser- oder Wärmeentnahme**: Nach
+      Erteilung der Bohrbewilligung und nach Erstellung der Anlage ist vor Inbetriebnahme ein
+      Konzessionsgesuch einzureichen. Beim Konzessionsgesuch ist die ID des Dossiers für die
+      Bohrbewilligung anzugeben. Die Konzession wird vor Inbetriebnahme der Anlage erteilt (in der
+      Regel auf 20 Jahre befristet).\n\n **Reklamegesuch:** Dieses Formular wählen Sie, wenn Sie eine Reklametafel, eine Werbeschrift
       oder ein Plakat oder Ähnliches anbringen wollen und dazu keine baulichen Massnahmen
       erforderlich sind (z.B. politische Wahlplakate oder die Neubeschriftung eines Restaurants).
       Für eigentliche Reklamebauten in deren Zusammenhang bauliche Massnahmen notwendig sind
       zum Beispiel die Erstellung von Fundamenten und Stahlkonstruktionen) ist in der Regel ein
       Baugesuch erforderlich. Wenn Sie nicht sicher sind, welches Verfahren Sie wählen sollen,
       empfehlen wir Ihnen, die Frage der Baubewilligungspflicht mit der Gemeindebaubehörde zu
-      klären."
+      klären. \n\n **Solaranlage:** Mit diesem Formular können Sie der 
+      Gemeindebaubehörde die geplante Installation einer voraussichtlich baubewilligungsbefreiten 
+      Solaranlage melden. Das Formular ist so aufgebaut, dass je nach Art und Lage der Anlage und unter der
+      Voraussetzung, dass die Fragen korrekt beantwortet werden, bereits im Formular geklärt
+      wird, ob eine Baubewilligung notwendig ist. Wenn dies der Fall ist, werden Sie im Formular
+      darauf hingewiesen, für die Meldung der Solaranlage das Formular „Baugesuch“ zu verwenden."
 
   status:
     done: "Zurück bei Gemeinde"
