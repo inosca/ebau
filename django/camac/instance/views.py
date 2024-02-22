@@ -734,27 +734,33 @@ class InstanceView(
         return self._custom_serializer_action(request, pk, status.HTTP_204_NO_CONTENT)
 
     @swagger_auto_schema(
-        tags=["PDF generation service"],
-        manual_parameters=[
-            group_param,
-            openapi.Parameter(
-                "form-slug",
-                openapi.IN_QUERY,
-                description="The form that should be used instead of the main form. E.g. 'sb1' or 'sb2' for self-declaration forms.",
-                type=openapi.TYPE_STRING,
-                format=openapi.FORMAT_SLUG,
-            ),
-            openapi.Parameter(
-                "document-id",
-                openapi.IN_QUERY,
-                description="The UUID of the document that should be converted to a PDF. If passed, this will override the form-slug parameter.",
-                type=openapi.TYPE_STRING,
-                format=openapi.FORMAT_UUID,
-            ),
-        ],
-        operation_description=get_operation_description(["Nexplore"]),
-        operation_summary="Generate a PDF for an instance",
-        responses={"200": "PDF file"},
+        **(
+            {
+                "tags": ["PDF generation service"],
+                "manual_parameters": [
+                    group_param,
+                    openapi.Parameter(
+                        "form-slug",
+                        openapi.IN_QUERY,
+                        description="The form that should be used instead of the main form. E.g. 'sb1' or 'sb2' for self-declaration forms.",
+                        type=openapi.TYPE_STRING,
+                        format=openapi.FORMAT_SLUG,
+                    ),
+                    openapi.Parameter(
+                        "document-id",
+                        openapi.IN_QUERY,
+                        description="The UUID of the document that should be converted to a PDF. If passed, this will override the form-slug parameter.",
+                        type=openapi.TYPE_STRING,
+                        format=openapi.FORMAT_UUID,
+                    ),
+                ],
+                "operation_description": get_operation_description(["Nexplore"]),
+                "operation_summary": "Generate a PDF for an instance",
+                "responses": {"200": "PDF file"},
+            }
+            if settings.APPLICATION_NAME == "kt_bern"
+            else {"auto_schema": None}
+        )
     )
     @action(methods=["get"], detail=True, url_path="generate-pdf")
     def generate_pdf(self, request, pk=None):

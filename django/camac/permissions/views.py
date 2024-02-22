@@ -18,6 +18,7 @@ class InstanceACLViewset(InstanceQuerysetMixin, ModelViewSet):
     serializer_class = serializers.InstanceACLSerializer
     filterset_class = filters.InstanceACLFilterSet
     queryset = models.InstanceACL.objects
+    swagger_schema = None
 
     instance_field = "instance"
     ordering_fields = ["start_time"]
@@ -118,6 +119,7 @@ class InstancePermissionsViewset(
     filterset_class = instance_filters.InstanceFilterSet
     serializer_class = serializers.InstancePermissionSerializer
     queryset = instance_models.Instance.objects
+    swagger_schema = None
 
     instance_prefix = ""
 
@@ -125,6 +127,7 @@ class InstancePermissionsViewset(
 class AccessLevelViewset(ReadOnlyModelViewSet):
     serializer_class = serializers.AccessLevelSerializer
     queryset = models.AccessLevel.objects.all()
+    swagger_schema = None
 
     @permission_aware
     def get_queryset(self):
