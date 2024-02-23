@@ -1,0 +1,44 @@
+{{#if (or (can "create construction-stage") (can "initialize construction-monitoring"))}}
+<div class="uk-margin uk-text-center">
+    <button
+        type="button"
+        class="uk-icon-button"
+        disabled={{this.createConstructionStage.isRunning}}
+        {{uk-tooltip (t "construction-monitoring.construction-stage.create")}}
+        {{on "click" (perform this.createConstructionStage)}}
+    >
+        {{#if this.createConstructionStage.isRunning}}
+          <UkSpinner @ratio={{0.6}} />
+        {{else}}
+          <UkIcon @icon="plus" />
+        {{/if}}
+    </button>
+    {{#unless this.constructionMonitoring.constructionStages.length}}
+        <div class="uk-padding">
+            {{t "construction-monitoring.controls.start-info"}}
+        </div>
+    {{/unless}}
+</div>
+{{/if}}
+
+{{yield}}
+
+{{#if (can "complete construction-monitoring")}}
+<div class="uk-margin uk-margin-large-top uk-text-center uk-margin-small-right">
+    <UkButton
+        @color="default"
+        @label={{t "construction-monitoring.controls.complete"}}
+        @loading={{this.completeConstructionMonitoring.isRunning}}
+        @onClick={{perform this.completeConstructionMonitoring}}
+    />
+</div>
+{{else if (can "initialize construction-monitoring")}}
+<div class="uk-margin uk-margin-large-top uk-text-center uk-margin-small-right">
+    <UkButton
+        @color="default"
+        @label={{t "construction-monitoring.controls.skip"}}
+        @loading={{this.skipConstructionMonitoring.isRunning}}
+        @onClick={{perform this.skipConstructionMonitoring}}
+    />
+</div>
+{{/if}}

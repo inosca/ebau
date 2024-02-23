@@ -1,0 +1,59 @@
+query ConstructionStep($constructionStepId: GenericScalar!, $caseId: ID!, $questionId: ID!) {
+  allWorkItems(
+    filter: [
+      { case: $caseId }
+      { metaValue: { key: "construction-step-id", value: $constructionStepId } }
+    ]
+    order: [{ attribute: CREATED_AT, direction: ASC }]
+  ) {
+    edges {
+      node {
+        id
+        addressedGroups
+        controllingGroups
+        document {
+          id
+          modifiedAt
+          modifiedByUser
+          modifiedByGroup
+          isApproved: answers(
+            filter: [
+              { question: $questionId }
+            ]
+            first: 1
+          ) {
+            edges {
+              node {
+                question {
+                  id
+                }
+                id
+                ... on StringAnswer {
+                  value
+                }
+              }
+            }
+          }
+        }
+        meta
+        closedAt
+        closedByUser
+        closedByGroup
+        createdAt
+        deadline
+        status
+        task {
+          slug
+          name
+          meta
+        }
+        case {
+          parentWorkItem {
+            id
+            status
+          }
+        }
+      }
+    }
+  }
+}

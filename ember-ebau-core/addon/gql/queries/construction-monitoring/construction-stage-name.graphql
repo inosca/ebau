@@ -1,0 +1,21 @@
+query ConstructionStageName($id: ID!) {
+  allDocuments(
+    filter: [{ id: $id }]
+  ) {
+    edges {
+      node {
+        id
+        constructionStageName: answers(filter: [{ questions: ["construction-stage-name"] }]) {
+          edges {
+            node {
+              id
+              ... on StringAnswer {
+                value
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

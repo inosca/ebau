@@ -303,6 +303,10 @@ APPLICATIONS = {
             # GR
             "aib",
             "gvg",
+            # SZ
+            "involved_in_construction_step",
+            "localized_geometer",
+            "tax_administration",
         ],
         "ATTACHMENT_SECTION_INTERNAL": 4,
         "DOCUMENT_BACKEND": "camac-ng",
@@ -381,6 +385,67 @@ APPLICATIONS = {
             # Fachstellen Gemeinden
             5: [5],
         },
+        "GEOMETER_FORM_FIELDS": {
+            "geometer",
+            "geometer-v2",
+            "geometer-v3",
+            "geometer-v4",
+        },
+        # Important: All versions of the geometer form-field option need to be included!
+        # geometer form-field option: service ids
+        "LOCALIZED_GEOMETER_SERVICE_MAPPING": {
+            # geometer
+            "Trigonet AG (Stans)": [
+                152,  # Trigonet AG (Geometer) - (deactivated)
+            ],
+            "Geoterra AG (Siebnen, Pfäffikon, Einsiedeln)": [
+                129,  # Geoterra AG (Geometer) - (deactivated)
+                147,  # Geoterra AG (Gde_Bez Ingenieur) - (deactivated)
+            ],
+            "GEO Netz AG (Schwyz, Lachen)": [
+                313,  # GEO Netz AG (Geometer)
+            ],
+            "HSK Ingenieur AG (Goldau, Küssnacht, Brunnen)": [
+                # No service found
+            ],
+            "geometrie plus ag (Freienbach, Einsiedeln)": [
+                144,  # geometrie plus ag (Gde_Bez Ingenieur)
+                154,  # geometrie plus ag (Geometer)
+            ],
+            "Wild Ingenieure AG (Küssnacht)": [
+                150,  # Wild Ingenieure AG (Geometer)
+                151,  # Wild Ingenieure AG (Gde_Bez Ingenieur)
+            ],
+            # geometer-v2 (only removal)
+            # geometer-v3
+            "Geoinfra Ingenieure AG (Pfäffikon, Siebnen, Einsiedeln, Goldau, Küssnacht, Brunnen)": [
+                148,  # Geoinfra Goldau (Geometer)
+                149,  # Geoinfra Goldau (Gde_Bez Ingenieur)
+                299,  # Geoinfra Küssnacht (Geometer)
+                300,  # Geoinfra Küssnacht (Gde_Bez Ingenieur)
+                301,  # Geoinfra Brunnen (Geometer)
+                302,  # Geoinfra Brunnen (Gde_Bez Ingenieur)
+                303,  # Geoinfra Siebnen (Geometer)
+                304,  # Geoinfra Einsiedeln (Geometer)
+                305,  # Geoinfra Pfäffikon (Geometer)
+                306,  # Geoinfra Pfäffikon (Gde_Bez Ingenieur)
+                333,  # Geoinfra Siebnen (Gde_Bez Ingenieur)
+                334,  # Geoinfra Siebnen (Gde Umwelt)
+            ],
+            "geometrie plus ag (Freienbach)": [
+                144,  # geometrie plus ag (Gde_Bez Ingenieur)
+                154,  # geometrie plus ag (Geometer)
+            ],
+            "GEO Netz AG (Lachen, Schwyz)": [
+                313,  # GEO Netz AG (Geometer)
+            ],
+            # geometer-v4
+            "geometrie plus ag (Einsiedeln, Freienbach)": [
+                144,  # geometrie plus ag (Gde_Bez Ingenieur),
+                154,  # geometrie plus ag (Geometer)
+            ],
+        },
+        "TAX_ADMINISTRATION": 196,  # Kantonale Steuerverwaltung
         "NOTIFICATIONS": {
             "SUBMIT": "gesuchseingang",
             "APPLICANT": {
@@ -394,6 +459,11 @@ APPLICATIONS = {
                 }
             ],
         },
+        "CUSTOM_NOTIFICATION_TYPES": [
+            "involved_in_construction_step",
+            "localized_geometer",
+            "tax_administration",
+        ],
         "PUBLICATION_DURATION": timedelta(days=20),
         "PUBLICATION_ATTACHMENT_SECTION": [4],
         "ATTACHMENT_INTERNAL_STATES": ["internal"],
@@ -550,6 +620,10 @@ APPLICATIONS = {
                 },
                 "complete-distribution": {
                     "next_instance_state": "redac",
+                },
+                "complete-instance": {
+                    "next_instance_state": "instance-completed",
+                    "history_text": "Verfahren abgeschlossen",
                 },
             },
         },
@@ -2393,6 +2467,7 @@ COMMUNICATIONS = load_module_settings("communications")
 PLACEHOLDERS = load_module_settings("placeholders")
 MASTER_DATA = load_module_settings("master_data")
 DUMP = load_module_settings("dump")
+CONSTRUCTION_MONITORING = load_module_settings("construction_monitoring")
 
 # Alexandria
 ALEXANDRIA = load_module_settings("alexandria")

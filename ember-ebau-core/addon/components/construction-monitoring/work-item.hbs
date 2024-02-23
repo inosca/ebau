@@ -1,0 +1,64 @@
+<ConstructionMonitoring::WorkItem::Divider @workItem={{@workItem}} @isLastWorkItem={{@isLastWorkItem}} />
+
+<div class="uk-margin-remove-top uk-card uk-card-body uk-card-default">
+
+    <ConstructionMonitoring::WorkItem::Header
+        @workItem={{@workItem}}
+        @users={{@users}}
+        @services={{@services}}
+    />
+
+    <CfContent
+        @documentId={{decode-id @documentId}}
+        @disabled={{(or (not this.isActionable) (cannot "edit work item of construction-step" @workItem))}}
+    >
+        <:default as |content|>
+
+                <content.form />
+
+                {{#if (can "edit work item of construction-step" @workItem)}}
+                    <DocumentValidity
+                        @document={{content.document}}
+                        as |isValid validate|
+                    >
+
+                        <div class="uk-margin-medium-top uk-margin-small-bottom uk-flex uk-flex-middle uk-flex-left">
+                        <div class="uk-flex uk-flex-middle uk-flex-left">
+                        {{#if this.showActionable}}
+                            <UkButton
+                                @type="submit"
+                                @color="default"
+                                @onClick={{perform this.toggleActionable}}
+                                @loading={{this.toggleActionable.isRunning}}
+                                @label={{if this.isActionable "Bearbeitung beenden" "Bearbeitung übernehmen"}}
+                                class="uk-margin-small-right"
+                            />
+                        {{/if}}
+                        {{#if this.isActionable}}
+                            <UkButton
+                                @type="submit"
+                                @color="primary"
+                                @loading={{@complete.isRunning}}
+                                @disabled={{or (not isValid) @complete.isRunning}}
+                                @onClick={{fn (perform @complete) @workItem validate}}
+                                @label={{t
+                                    (concat "construction-monitoring.construction-step." @workItem.task.slug "-complete")
+                                    default="construction-monitoring.construction-step.construction-step-complete"
+                                }}
+                                class="uk-margin-small-right"
+                            />
+                        {{/if}}
+                        </div>
+                        {{#if this.showActionable}}
+                            <div class="uk-text-bolder">
+                                {{t "construction-monitoring.construction-step.work-item.addressed-to-applicant"}}
+                            </div>
+                        {{/if}}
+                        </div>
+
+                    </DocumentValidity>
+                {{/if}}
+        </:default>
+    </CfContent>
+
+</div>

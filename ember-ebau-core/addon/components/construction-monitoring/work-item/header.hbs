@@ -1,0 +1,21 @@
+<div class="uk-card-title construction-step__work-item__header construction-step__work-item__header{{if this.isReady "--active"}}">
+    <div class="uk-flex uk-flex-between uk-flex-middle">
+        <div class="uk-text-lead uk-text-bolder">
+            {{@workItem.task.name}}
+        </div>
+        <div class="uk-badge uk-text-bolder uk-text-muted uk-flex-none uk-margin-large-left">
+            {{t "construction-monitoring.construction-step.work-item.index-count" index=(add (get @workItem.meta "construction-step.index") 1) total=(get @workItem.meta "construction-step.total")}}
+        </div>
+    </div>
+    <div class="uk-text-meta">
+        <span class="uk-text-muted">
+            {{this.metaInfo}}
+        </span>
+        {{#if (and this.isMunicipality (can "edit work item of construction-step" @workItem))}}
+        <a class="uk-link-text uk-text-danger" href={{this.workItemLink}}>
+            {{t "construction-monitoring.construction-step.work-item.edit-deadline"}}
+        </a>
+        {{/if}}
+    </div>
+</div>
+<hr class="uk-margin-bottom" />

@@ -1,0 +1,3363 @@
+[
+  {
+    "model": "caluma_form.form",
+    "pk": "complete-instance",
+    "fields": {
+      "created_at": "2023-11-10T08:43:22.164Z",
+      "modified_at": "2023-11-10T09:03:18.180Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Verfahren abschliessen\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": true,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "construction-step-baubeginn-melden",
+    "fields": {
+      "created_at": "2023-10-27T12:54:22.468Z",
+      "modified_at": "2023-10-27T12:54:22.468Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Baubeginn melden\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "construction-step-baufreigabe",
+    "fields": {
+      "created_at": "2023-10-27T12:52:16.155Z",
+      "modified_at": "2023-10-27T12:52:16.155Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Baufreigabe\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "construction-step-baufreigabe-beantragen",
+    "fields": {
+      "created_at": "2023-10-27T12:49:53.006Z",
+      "modified_at": "2023-10-27T12:49:53.006Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Baufreigabe beantragen\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "construction-step-kanalisation-kontrollieren",
+    "fields": {
+      "created_at": "2023-10-27T12:56:43.120Z",
+      "modified_at": "2023-10-27T12:56:43.120Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Kanalisation kontrollieren\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "construction-step-kanalisationsabnahme-melden",
+    "fields": {
+      "created_at": "2023-10-27T12:55:42.654Z",
+      "modified_at": "2023-10-27T12:55:42.654Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Meldung \\\"Bereit zur Kanalisationsabnahme\\\"\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "construction-step-plan-construction-stage",
+    "fields": {
+      "created_at": "2023-10-27T12:34:14.807Z",
+      "modified_at": "2023-10-27T12:34:14.807Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Baubegleitung planen\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "construction-step-rohbauabnahme-melden",
+    "fields": {
+      "created_at": "2023-10-27T13:00:25.958Z",
+      "modified_at": "2023-10-27T13:00:25.958Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Meldung \\\"Bereit zur Rohbauabnahme\\\"\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "construction-step-rohbau-kontrollieren",
+    "fields": {
+      "created_at": "2023-10-27T13:01:11.086Z",
+      "modified_at": "2023-10-27T13:01:11.086Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Rohbau kontrollieren\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "construction-step-schlussabnahme-gebaeude",
+    "fields": {
+      "created_at": "2023-10-27T13:04:40.495Z",
+      "modified_at": "2023-10-27T13:05:10.236Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Schlussabnahme Geb\\u00e4ude\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "construction-step-schlussabnahme-gebaeude-melden",
+    "fields": {
+      "created_at": "2023-10-27T13:04:10.526Z",
+      "modified_at": "2023-10-27T13:04:10.527Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Meldung \\\"Bereit zur Schlussabnahme Geb\\u00e4ude\\\"\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "construction-step-schlussabnahme-projekt",
+    "fields": {
+      "created_at": "2023-10-27T13:07:55.580Z",
+      "modified_at": "2023-10-27T13:07:55.580Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Schlussabnahme Teil-/Gesamtprojekt\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "construction-step-schlussabnahme-projekt-melden",
+    "fields": {
+      "created_at": "2023-10-27T13:06:32.051Z",
+      "modified_at": "2023-10-27T13:06:32.051Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Meldung \\\"Bereit zur Schlussabnahme Teil-/Gesamtprojekt\\\"\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "construction-step-schlussabnahme-projekt-planen",
+    "fields": {
+      "created_at": "2023-10-27T13:07:20.389Z",
+      "modified_at": "2023-10-27T13:07:20.389Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Schlussabnahme Teil-/Gesamtprojekt planen\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "construction-step-schnurgeruestabnahme-melden",
+    "fields": {
+      "created_at": "2023-10-27T12:58:00.092Z",
+      "modified_at": "2023-10-27T12:58:00.092Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Meldung \\\"Bereit zur Schnurger\\u00fcstabnahme\\\"\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "construction-step-schnurgeruestabnahme-planen",
+    "fields": {
+      "created_at": "2023-10-27T12:58:38.231Z",
+      "modified_at": "2023-10-27T12:58:38.232Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Schnurger\\u00fcstabnahme planen\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "construction-step-schnurgeruest-kontrollieren",
+    "fields": {
+      "created_at": "2023-10-27T12:59:35.982Z",
+      "modified_at": "2023-10-27T12:59:35.982Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Schnurger\\u00fcst kontrollieren\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "construction-step-zwischenkontrolle",
+    "fields": {
+      "created_at": "2024-01-29T16:50:34.080Z",
+      "modified_at": "2024-01-29T16:50:34.080Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Zwischenkontrolle\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "construction-step-zwischenkontrolle-melden",
+    "fields": {
+      "created_at": "2024-01-29T16:49:42.074Z",
+      "modified_at": "2024-01-29T16:49:42.074Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Meldung \\\"Bereit zur Zwischenkontrolle\\\"\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "complete-instance.complete-instance-title",
+    "fields": {
+      "created_at": "2023-11-10T09:08:35.979Z",
+      "modified_at": "2023-11-10T09:08:35.979Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "complete-instance",
+      "question": "complete-instance-title",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "complete-instance.steuerverwaltung-informieren",
+    "fields": {
+      "created_at": "2023-11-10T09:04:30.362Z",
+      "modified_at": "2023-11-10T09:04:30.362Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "complete-instance",
+      "question": "steuerverwaltung-informieren",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "complete-instance.verfahren-abschliessen",
+    "fields": {
+      "created_at": "2023-11-10T09:04:43.682Z",
+      "modified_at": "2023-11-10T09:04:43.682Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "complete-instance",
+      "question": "verfahren-abschliessen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-step-baubeginn-melden.construction-step-baubeginn-melden-bemerkungen",
+    "fields": {
+      "created_at": "2024-01-16T20:55:18.404Z",
+      "modified_at": "2024-01-16T20:55:18.404Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-step-baubeginn-melden",
+      "question": "construction-step-baubeginn-melden-bemerkungen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-step-baubeginn-melden.construction-step-baubeginn-melden-bestaetigung",
+    "fields": {
+      "created_at": "2024-01-16T20:53:32.727Z",
+      "modified_at": "2024-01-16T20:53:32.727Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-step-baubeginn-melden",
+      "question": "construction-step-baubeginn-melden-bestaetigung",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-step-baufreigabe-beantragen.construction-step-baufreigabe-beantragen-bemerkungen",
+    "fields": {
+      "created_at": "2024-02-05T09:10:51.702Z",
+      "modified_at": "2024-02-05T09:10:51.703Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-step-baufreigabe-beantragen",
+      "question": "construction-step-baufreigabe-beantragen-bemerkungen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-step-baufreigabe-beantragen.construction-step-baufreigabe-beantragen-bestaetigung",
+    "fields": {
+      "created_at": "2024-01-16T20:27:30.398Z",
+      "modified_at": "2024-01-16T20:27:30.398Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-step-baufreigabe-beantragen",
+      "question": "construction-step-baufreigabe-beantragen-bestaetigung",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-step-baufreigabe.construction-step-baufreigabe-bemerkungen",
+    "fields": {
+      "created_at": "2024-01-16T20:33:27.553Z",
+      "modified_at": "2024-01-16T20:33:27.553Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-step-baufreigabe",
+      "question": "construction-step-baufreigabe-bemerkungen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-step-baufreigabe.construction-step-baufreigabe-is-approved",
+    "fields": {
+      "created_at": "2024-01-16T20:46:58.636Z",
+      "modified_at": "2024-01-16T20:46:58.636Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-step-baufreigabe",
+      "question": "construction-step-baufreigabe-is-approved",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-step-kanalisation-kontrollieren.construction-step-kanalisation-kontrollieren-bemerkungen",
+    "fields": {
+      "created_at": "2024-01-17T08:59:00.768Z",
+      "modified_at": "2024-01-17T08:59:00.768Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-step-kanalisation-kontrollieren",
+      "question": "construction-step-kanalisation-kontrollieren-bemerkungen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-step-kanalisation-kontrollieren.construction-step-kanalisation-kontrollieren-datum-der-abnahme",
+    "fields": {
+      "created_at": "2024-01-17T08:58:22.793Z",
+      "modified_at": "2024-01-17T08:58:22.793Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-step-kanalisation-kontrollieren",
+      "question": "construction-step-kanalisation-kontrollieren-datum-der-abnahme",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-step-kanalisation-kontrollieren.construction-step-kanalisationsabnahme-is-approved",
+    "fields": {
+      "created_at": "2024-01-17T09:00:35.330Z",
+      "modified_at": "2024-01-17T09:00:35.330Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-step-kanalisation-kontrollieren",
+      "question": "construction-step-kanalisationsabnahme-is-approved",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-step-kanalisationsabnahme-melden.construction-step-kanalisationsabnahme-melden-bemerkungen",
+    "fields": {
+      "created_at": "2024-01-17T08:55:30.615Z",
+      "modified_at": "2024-01-17T08:55:30.615Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-step-kanalisationsabnahme-melden",
+      "question": "construction-step-kanalisationsabnahme-melden-bemerkungen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-step-kanalisationsabnahme-melden.construction-step-kanalisationsabnahme-melden-bestaetigung",
+    "fields": {
+      "created_at": "2024-01-17T08:54:52.424Z",
+      "modified_at": "2024-01-17T08:54:52.424Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-step-kanalisationsabnahme-melden",
+      "question": "construction-step-kanalisationsabnahme-melden-bestaetigung",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-step-plan-construction-stage.construction-stage-name",
+    "fields": {
+      "created_at": "2023-10-27T12:40:24.676Z",
+      "modified_at": "2023-10-27T12:40:24.676Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-step-plan-construction-stage",
+      "question": "construction-stage-name",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-step-plan-construction-stage.construction-steps",
+    "fields": {
+      "created_at": "2023-10-27T12:43:46.864Z",
+      "modified_at": "2023-10-27T12:43:46.864Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-step-plan-construction-stage",
+      "question": "construction-steps",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-step-plan-construction-stage.construction-steps-bemerkungen",
+    "fields": {
+      "created_at": "2024-02-05T10:05:42.516Z",
+      "modified_at": "2024-02-05T10:05:42.516Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-step-plan-construction-stage",
+      "question": "construction-steps-bemerkungen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-step-rohbauabnahme-melden.construction-step-rohbauabnahme-melden-bemerkungen",
+    "fields": {
+      "created_at": "2024-01-17T09:31:30.543Z",
+      "modified_at": "2024-01-17T09:31:30.543Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-step-rohbauabnahme-melden",
+      "question": "construction-step-rohbauabnahme-melden-bemerkungen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-step-rohbauabnahme-melden.construction-step-rohbauabnahme-melden-bestaetigung",
+    "fields": {
+      "created_at": "2024-01-17T09:31:05.818Z",
+      "modified_at": "2024-01-17T09:31:05.818Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-step-rohbauabnahme-melden",
+      "question": "construction-step-rohbauabnahme-melden-bestaetigung",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-step-rohbau-kontrollieren.construction-step-rohbauabnahme-is-approved",
+    "fields": {
+      "created_at": "2024-01-17T09:34:44.752Z",
+      "modified_at": "2024-01-17T09:34:44.752Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-step-rohbau-kontrollieren",
+      "question": "construction-step-rohbauabnahme-is-approved",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-step-rohbau-kontrollieren.construction-step-rohbau-kontrollieren-bemerkungen",
+    "fields": {
+      "created_at": "2024-01-17T09:33:02.037Z",
+      "modified_at": "2024-01-17T09:33:02.037Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-step-rohbau-kontrollieren",
+      "question": "construction-step-rohbau-kontrollieren-bemerkungen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-step-schlussabnahme-gebaeude.construction-step-schlussabnahme-gebaeude-bemerkungen",
+    "fields": {
+      "created_at": "2024-01-17T09:51:15.532Z",
+      "modified_at": "2024-01-17T09:51:15.532Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-step-schlussabnahme-gebaeude",
+      "question": "construction-step-schlussabnahme-gebaeude-bemerkungen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-step-schlussabnahme-gebaeude.construction-step-schlussabnahme-gebaeude-datum-der-abnahme",
+    "fields": {
+      "created_at": "2024-01-17T09:50:37.500Z",
+      "modified_at": "2024-01-17T09:50:37.500Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-step-schlussabnahme-gebaeude",
+      "question": "construction-step-schlussabnahme-gebaeude-datum-der-abnahme",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-step-schlussabnahme-gebaeude.construction-step-schlussabnahme-gebaeude-is-approved",
+    "fields": {
+      "created_at": "2024-01-17T09:52:33.997Z",
+      "modified_at": "2024-01-17T09:52:33.997Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-step-schlussabnahme-gebaeude",
+      "question": "construction-step-schlussabnahme-gebaeude-is-approved",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-step-schlussabnahme-gebaeude-melden.construction-step-schlussabnahme-gebaeude-melden-bemerkungen",
+    "fields": {
+      "created_at": "2024-01-17T09:48:48.012Z",
+      "modified_at": "2024-01-17T09:48:48.012Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-step-schlussabnahme-gebaeude-melden",
+      "question": "construction-step-schlussabnahme-gebaeude-melden-bemerkungen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-step-schlussabnahme-gebaeude-melden.construction-step-schlussabnahme-gebaeude-melden-bestaetigung",
+    "fields": {
+      "created_at": "2024-01-17T09:48:30.304Z",
+      "modified_at": "2024-01-17T09:48:30.304Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-step-schlussabnahme-gebaeude-melden",
+      "question": "construction-step-schlussabnahme-gebaeude-melden-bestaetigung",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-step-schlussabnahme-projekt.construction-step-schlussabnahme-projekt-bemerkungen",
+    "fields": {
+      "created_at": "2024-01-17T09:56:40.426Z",
+      "modified_at": "2024-01-17T09:56:40.426Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-step-schlussabnahme-projekt",
+      "question": "construction-step-schlussabnahme-projekt-bemerkungen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-step-schlussabnahme-projekt.construction-step-schlussabnahme-projekt-is-approved",
+    "fields": {
+      "created_at": "2024-01-17T09:57:45.298Z",
+      "modified_at": "2024-01-17T09:57:45.298Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-step-schlussabnahme-projekt",
+      "question": "construction-step-schlussabnahme-projekt-is-approved",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-step-schlussabnahme-projekt-melden.construction-step-schlussabnahme-projekt-melden-bemerkungen",
+    "fields": {
+      "created_at": "2024-01-17T09:54:44.734Z",
+      "modified_at": "2024-01-17T09:54:44.734Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-step-schlussabnahme-projekt-melden",
+      "question": "construction-step-schlussabnahme-projekt-melden-bemerkungen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-step-schlussabnahme-projekt-melden.construction-step-schlussabnahme-projekt-melden-bestaetigung",
+    "fields": {
+      "created_at": "2024-01-17T09:54:24.168Z",
+      "modified_at": "2024-01-17T09:54:24.168Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-step-schlussabnahme-projekt-melden",
+      "question": "construction-step-schlussabnahme-projekt-melden-bestaetigung",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-step-schlussabnahme-projekt-planen.construction-step-schlussabnahme-projekt-planen-bemerkungen",
+    "fields": {
+      "created_at": "2024-01-17T09:55:33.989Z",
+      "modified_at": "2024-01-17T09:55:33.989Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-step-schlussabnahme-projekt-planen",
+      "question": "construction-step-schlussabnahme-projekt-planen-bemerkungen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-step-schlussabnahme-projekt-planen.construction-step-schlussabnahme-projekt-planen-datum-der-abnahme",
+    "fields": {
+      "created_at": "2024-02-05T09:40:29.328Z",
+      "modified_at": "2024-02-05T09:40:29.328Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-step-schlussabnahme-projekt-planen",
+      "question": "construction-step-schlussabnahme-projekt-planen-datum-der-abnahme",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-step-schnurgeruestabnahme-melden.construction-step-schnurgeruestabnahme-melden-bemerkungen",
+    "fields": {
+      "created_at": "2024-01-17T09:07:30.444Z",
+      "modified_at": "2024-01-17T09:07:30.444Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-step-schnurgeruestabnahme-melden",
+      "question": "construction-step-schnurgeruestabnahme-melden-bemerkungen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-step-schnurgeruestabnahme-melden.construction-step-schnurgeruestabnahme-melden-bestaetigung",
+    "fields": {
+      "created_at": "2024-01-17T09:06:40.548Z",
+      "modified_at": "2024-01-17T09:06:40.548Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-step-schnurgeruestabnahme-melden",
+      "question": "construction-step-schnurgeruestabnahme-melden-bestaetigung",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-step-schnurgeruestabnahme-planen.construction-step-schnurgeruestabnahme-planen-bemerkungen",
+    "fields": {
+      "created_at": "2024-01-17T09:13:08.307Z",
+      "modified_at": "2024-01-17T09:13:08.307Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-step-schnurgeruestabnahme-planen",
+      "question": "construction-step-schnurgeruestabnahme-planen-bemerkungen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-step-schnurgeruestabnahme-planen.construction-step-schnurgeruestabnahme-planen-datum-der-abnahme",
+    "fields": {
+      "created_at": "2024-01-17T09:12:35.614Z",
+      "modified_at": "2024-01-17T09:12:35.614Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-step-schnurgeruestabnahme-planen",
+      "question": "construction-step-schnurgeruestabnahme-planen-datum-der-abnahme",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-step-schnurgeruest-kontrollieren.construction-step-schnurgeruestabnahme-is-approved",
+    "fields": {
+      "created_at": "2024-01-17T09:23:04.907Z",
+      "modified_at": "2024-01-17T09:23:04.907Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-step-schnurgeruest-kontrollieren",
+      "question": "construction-step-schnurgeruestabnahme-is-approved",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-step-schnurgeruest-kontrollieren.construction-step-schnurgeruest-kontrollieren-bemerkungen",
+    "fields": {
+      "created_at": "2024-01-17T09:21:53.634Z",
+      "modified_at": "2024-01-17T09:21:53.634Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-step-schnurgeruest-kontrollieren",
+      "question": "construction-step-schnurgeruest-kontrollieren-bemerkungen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-step-zwischenkontrolle.construction-step-zwischenkontrolle-bemerkungen",
+    "fields": {
+      "created_at": "2024-02-05T09:49:06.141Z",
+      "modified_at": "2024-02-05T09:49:06.141Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-step-zwischenkontrolle",
+      "question": "construction-step-zwischenkontrolle-bemerkungen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-step-zwischenkontrolle.construction-step-zwischenkontrolle-datum-der-abnahme",
+    "fields": {
+      "created_at": "2024-02-05T09:48:43.182Z",
+      "modified_at": "2024-02-05T09:48:43.182Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-step-zwischenkontrolle",
+      "question": "construction-step-zwischenkontrolle-datum-der-abnahme",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-step-zwischenkontrolle.construction-step-zwischenkontrolle-is-approved",
+    "fields": {
+      "created_at": "2024-01-30T10:11:44.657Z",
+      "modified_at": "2024-01-30T10:11:44.657Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-step-zwischenkontrolle",
+      "question": "construction-step-zwischenkontrolle-is-approved",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-step-zwischenkontrolle-melden.construction-step-zwischenkontrolle-melden-bemerkungen",
+    "fields": {
+      "created_at": "2024-02-05T09:46:29.582Z",
+      "modified_at": "2024-02-05T09:46:29.582Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-step-zwischenkontrolle-melden",
+      "question": "construction-step-zwischenkontrolle-melden-bemerkungen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-step-zwischenkontrolle-melden.construction-step-zwischenkontrolle-melden-bestaetigung",
+    "fields": {
+      "created_at": "2024-01-30T11:31:33.219Z",
+      "modified_at": "2024-01-30T11:31:33.219Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-step-zwischenkontrolle-melden",
+      "question": "construction-step-zwischenkontrolle-melden-bestaetigung",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "construction-step-baubeginn",
+    "fields": {
+      "created_at": "2023-10-27T12:43:46.678Z",
+      "modified_at": "2023-10-27T12:43:46.678Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Baubeginn melden\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "construction-step-baubeginn-melden-bestaetigung-text",
+    "fields": {
+      "created_at": "2024-01-16T20:53:32.628Z",
+      "modified_at": "2024-01-16T20:53:32.628Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hiermit best\\u00e4tige ich, dass die ben\\u00f6tigten Auflagen zum Baubeginn erledigt sind.\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "construction-step-baufreigabe",
+    "fields": {
+      "created_at": "2023-10-27T12:43:46.640Z",
+      "modified_at": "2023-10-27T12:43:46.640Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Baufreigabe\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "construction-step-baufreigabe-beantragen-bestaetigung",
+    "fields": {
+      "created_at": "2024-01-16T20:27:30.302Z",
+      "modified_at": "2024-01-16T20:27:30.302Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hiermit best\\u00e4tige ich, dass die ben\\u00f6tigten Auflagen zur Baufreigabe erledigt sind.\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "construction-step-baufreigabe-is-approved-no",
+    "fields": {
+      "created_at": "2024-01-16T20:46:58.505Z",
+      "modified_at": "2024-01-16T20:46:58.505Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "construction-step-baufreigabe-is-approved-yes",
+    "fields": {
+      "created_at": "2024-01-16T20:46:58.508Z",
+      "modified_at": "2024-01-16T20:46:58.508Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "construction-step-kanalisationsabnahme",
+    "fields": {
+      "created_at": "2023-10-27T12:43:46.684Z",
+      "modified_at": "2023-10-27T12:43:46.684Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Kanalisationsabnahme\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "construction-step-kanalisationsabnahme-is-approved-no",
+    "fields": {
+      "created_at": "2024-01-17T09:00:35.164Z",
+      "modified_at": "2024-01-17T09:00:35.164Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein (Abnahme mit Abweichungen)\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "construction-step-kanalisationsabnahme-is-approved-yes",
+    "fields": {
+      "created_at": "2024-01-17T09:00:35.160Z",
+      "modified_at": "2024-01-17T09:00:35.160Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja (in Ordnung)\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "construction-step-kanalisationsabnahme-melden-bestaetigung-text",
+    "fields": {
+      "created_at": "2024-01-17T08:54:52.267Z",
+      "modified_at": "2024-01-17T08:54:52.267Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Alle Auflagen die bis zum jetzigen Zeitpunkt erledigt werden konnten, wurden erledigt.\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "construction-step-rohbauabnahme",
+    "fields": {
+      "created_at": "2023-10-27T12:43:46.679Z",
+      "modified_at": "2023-10-27T12:43:46.679Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Rohbauabnahme\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "construction-step-rohbauabnahme-is-approved-no",
+    "fields": {
+      "created_at": "2024-01-17T09:34:44.605Z",
+      "modified_at": "2024-01-17T09:34:44.605Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein (Abnahme mit Abweichungen)\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "construction-step-rohbauabnahme-is-approved-yes",
+    "fields": {
+      "created_at": "2024-01-17T09:34:44.601Z",
+      "modified_at": "2024-01-17T09:34:44.601Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja (in Ordnung)\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "construction-step-rohbauabnahme-melden-bestaetigung-text",
+    "fields": {
+      "created_at": "2024-01-17T09:31:05.680Z",
+      "modified_at": "2024-01-17T09:31:05.680Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Alle Auflagen die bis zum jetzigen Zeitpunkt erledigt werden konnten, wurden erledigt.\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "construction-step-schlussabnahme-gebaeude",
+    "fields": {
+      "created_at": "2023-10-27T12:43:46.683Z",
+      "modified_at": "2023-10-27T12:43:46.683Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Schlussabnahme (Geb\\u00e4ude)\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "construction-step-schlussabnahme-gebaeude-is-approved-no",
+    "fields": {
+      "created_at": "2024-01-17T09:52:33.848Z",
+      "modified_at": "2024-01-17T09:52:33.848Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein (Abnahme mit Abweichungen)\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "construction-step-schlussabnahme-gebaeude-is-approved-yes",
+    "fields": {
+      "created_at": "2024-01-17T09:52:33.845Z",
+      "modified_at": "2024-01-17T09:52:33.845Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja (in Ordnung)\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "construction-step-schlussabnahme-gebaeude-melden-bestaetigung-text",
+    "fields": {
+      "created_at": "2024-01-17T09:48:30.167Z",
+      "modified_at": "2024-01-17T09:48:30.167Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Alle Auflagen die bis zum jetzigen Zeitpunkt erledigt werden konnten, wurden erledigt.\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "construction-step-schlussabnahme-projekt",
+    "fields": {
+      "created_at": "2023-10-27T12:43:46.695Z",
+      "modified_at": "2023-10-27T12:43:46.695Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Schlussabnahme (Teil-/Gesamtprojekt)\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "construction-step-schlussabnahme-projekt-is-approved-no",
+    "fields": {
+      "created_at": "2024-01-17T09:57:45.158Z",
+      "modified_at": "2024-01-17T09:57:45.158Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein (Abnahme mit Abweichungen)\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "construction-step-schlussabnahme-projekt-is-approved-yes",
+    "fields": {
+      "created_at": "2024-01-17T09:57:45.160Z",
+      "modified_at": "2024-01-17T09:57:45.160Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja (in Ordnunug)\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "construction-step-schlussabnahme-projekt-melden-bestaetigung-confirm",
+    "fields": {
+      "created_at": "2024-01-17T09:54:24.044Z",
+      "modified_at": "2024-01-17T09:54:24.044Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Alle Auflagen die bis zum jetzigen Zeitpunkt erledigt werden konnten, wurden erledigt.\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "construction-step-schnurgeruestabnahme",
+    "fields": {
+      "created_at": "2023-10-27T12:43:46.662Z",
+      "modified_at": "2023-10-27T12:43:46.662Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Schnurger\\u00fcstabnahme\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "construction-step-schnurgeruestabnahme-is-approved-no",
+    "fields": {
+      "created_at": "2024-01-17T09:23:04.762Z",
+      "modified_at": "2024-01-17T09:23:04.762Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein (Abnahme mit Abweichungen)\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "construction-step-schnurgeruestabnahme-is-approved-yes",
+    "fields": {
+      "created_at": "2024-01-17T09:23:04.759Z",
+      "modified_at": "2024-01-17T09:23:04.759Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja (in Ordnung)\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "construction-step-schnurgeruestabnahme-melden-bestaetigung-text",
+    "fields": {
+      "created_at": "2024-01-17T09:06:40.414Z",
+      "modified_at": "2024-01-17T09:06:40.414Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Alle Auflagen die bis zum jetzigen Zeitpunkt erledigt werden konnten, wurden erledigt.\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "construction-step-zwischenkontrolle",
+    "fields": {
+      "created_at": "2024-01-29T16:59:42.279Z",
+      "modified_at": "2024-01-29T16:59:42.279Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Zwischenkontrolle\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "construction-step-zwischenkontrolle-is-approved-no",
+    "fields": {
+      "created_at": "2024-01-30T10:11:44.569Z",
+      "modified_at": "2024-01-30T10:11:44.569Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein (Abnahme mit Abweichungen)\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "construction-step-zwischenkontrolle-is-approved-yes",
+    "fields": {
+      "created_at": "2024-01-30T10:11:44.567Z",
+      "modified_at": "2024-01-30T10:11:44.567Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja (in Ordnung)\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "construction-step-zwischenkontrolle-melden-bestaetigung-text",
+    "fields": {
+      "created_at": "2024-01-30T11:31:33.117Z",
+      "modified_at": "2024-01-30T11:31:33.117Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Alle Auflagen, die bis zum jetzigen Zeitpunkt erledigt werden konnten, wurden erledigt.\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "steuerverwaltung-informieren-steuerverwaltung-informieren",
+    "fields": {
+      "created_at": "2023-11-10T09:05:42.096Z",
+      "modified_at": "2023-11-10T09:06:44.330Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Steuerverwaltung informieren\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "complete-instance-title",
+    "fields": {
+      "created_at": "2023-11-10T09:08:35.920Z",
+      "modified_at": "2023-11-10T09:15:23.661Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Verfahren abschliessen\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"<div class=\\\"uk-text-lead uk-text-bold\\\">Verfahren abschliessen</div>\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "construction-stage-name",
+    "fields": {
+      "created_at": "2023-10-27T12:40:24.637Z",
+      "modified_at": "2023-10-27T12:40:24.637Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bezeichnung der Bauetappe\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "construction-step-baubeginn-melden-bemerkungen",
+    "fields": {
+      "created_at": "2024-01-16T20:55:18.357Z",
+      "modified_at": "2024-01-16T20:55:18.357Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkungen\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "construction-step-baubeginn-melden-bestaetigung",
+    "fields": {
+      "created_at": "2024-01-16T20:53:32.672Z",
+      "modified_at": "2024-01-16T20:53:32.672Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Baubeginn melden Best\\u00e4tigung\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "construction-step-baufreigabe-beantragen-bemerkungen",
+    "fields": {
+      "created_at": "2024-02-05T09:10:51.663Z",
+      "modified_at": "2024-02-05T09:10:51.663Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkungen\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "construction-step-baufreigabe-beantragen-bestaetigung",
+    "fields": {
+      "created_at": "2024-01-16T20:27:30.348Z",
+      "modified_at": "2024-01-16T20:27:30.348Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Baufreigabe beantragen Best\\u00e4tigung\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "construction-step-baufreigabe-bemerkungen",
+    "fields": {
+      "created_at": "2024-01-16T20:33:27.496Z",
+      "modified_at": "2024-01-16T20:33:27.496Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkungen\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "construction-step-baufreigabe-is-approved",
+    "fields": {
+      "created_at": "2024-01-16T20:46:58.568Z",
+      "modified_at": "2024-01-16T20:46:58.568Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Erteilung Baufreigabe\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "construction-step-kanalisation-kontrollieren-bemerkungen",
+    "fields": {
+      "created_at": "2024-01-17T08:59:00.697Z",
+      "modified_at": "2024-01-17T08:59:00.697Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkungen\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "construction-step-kanalisation-kontrollieren-datum-der-abnahme",
+    "fields": {
+      "created_at": "2024-01-17T08:58:22.733Z",
+      "modified_at": "2024-01-17T08:58:22.733Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Datum der Abnahme\", \"fr\": null, \"it\": null}",
+      "type": "date",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "construction-step-kanalisationsabnahme-is-approved",
+    "fields": {
+      "created_at": "2024-01-17T09:00:35.247Z",
+      "modified_at": "2024-01-17T09:00:35.247Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abnahmeergebnis\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "construction-step-kanalisationsabnahme-melden-bemerkungen",
+    "fields": {
+      "created_at": "2024-01-17T08:55:30.551Z",
+      "modified_at": "2024-01-17T08:55:30.551Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkungen\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "construction-step-kanalisationsabnahme-melden-bestaetigung",
+    "fields": {
+      "created_at": "2024-01-17T08:54:52.331Z",
+      "modified_at": "2024-01-17T08:54:52.331Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Kanalisationsabnahme melden Best\\u00e4tigung\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "construction-step-rohbauabnahme-is-approved",
+    "fields": {
+      "created_at": "2024-01-17T09:34:44.668Z",
+      "modified_at": "2024-01-17T09:34:44.668Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abnahmeergebnis\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "construction-step-rohbauabnahme-melden-bemerkungen",
+    "fields": {
+      "created_at": "2024-01-17T09:31:30.481Z",
+      "modified_at": "2024-01-17T09:31:30.481Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkungen\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "construction-step-rohbauabnahme-melden-bestaetigung",
+    "fields": {
+      "created_at": "2024-01-17T09:31:05.738Z",
+      "modified_at": "2024-01-17T09:31:05.738Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Best\\u00e4tigung\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "construction-step-rohbau-kontrollieren-bemerkungen",
+    "fields": {
+      "created_at": "2024-01-17T09:33:01.964Z",
+      "modified_at": "2024-01-17T09:33:01.964Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkungen\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "construction-steps",
+    "fields": {
+      "created_at": "2023-10-27T12:43:46.762Z",
+      "modified_at": "2024-01-29T16:59:49.215Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Folgende Prozessschritte sind im Baubegleitungsprozess n\\u00f6tig:\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "construction-steps-bemerkungen",
+    "fields": {
+      "created_at": "2024-02-05T10:05:42.467Z",
+      "modified_at": "2024-02-05T10:05:42.467Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkungen\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "!('construction-step-zwischenkontrolle' in 'construction-steps'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "construction-step-schlussabnahme-gebaeude-bemerkungen",
+    "fields": {
+      "created_at": "2024-01-17T09:51:15.473Z",
+      "modified_at": "2024-01-17T09:51:15.473Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkungen\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "construction-step-schlussabnahme-gebaeude-datum-der-abnahme",
+    "fields": {
+      "created_at": "2024-01-17T09:50:37.439Z",
+      "modified_at": "2024-01-17T09:50:37.439Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Datum der Abnahme\", \"fr\": null, \"it\": null}",
+      "type": "date",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "construction-step-schlussabnahme-gebaeude-is-approved",
+    "fields": {
+      "created_at": "2024-01-17T09:52:33.918Z",
+      "modified_at": "2024-02-05T12:25:46.285Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abnahmeergebnis\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "construction-step-schlussabnahme-gebaeude-melden-bemerkungen",
+    "fields": {
+      "created_at": "2024-01-17T09:48:47.952Z",
+      "modified_at": "2024-01-17T09:48:47.952Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkungen\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "construction-step-schlussabnahme-gebaeude-melden-bestaetigung",
+    "fields": {
+      "created_at": "2024-01-17T09:48:30.225Z",
+      "modified_at": "2024-01-17T09:48:30.225Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Best\\u00e4tigung\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "construction-step-schlussabnahme-projekt-bemerkungen",
+    "fields": {
+      "created_at": "2024-01-17T09:56:40.362Z",
+      "modified_at": "2024-01-17T09:56:40.362Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkungen\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "construction-step-schlussabnahme-projekt-is-approved",
+    "fields": {
+      "created_at": "2024-01-17T09:57:45.221Z",
+      "modified_at": "2024-01-17T09:57:45.221Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abnahmeergebnis\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "construction-step-schlussabnahme-projekt-melden-bemerkungen",
+    "fields": {
+      "created_at": "2024-01-17T09:54:44.666Z",
+      "modified_at": "2024-01-17T09:54:44.666Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkungen\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "construction-step-schlussabnahme-projekt-melden-bestaetigung",
+    "fields": {
+      "created_at": "2024-01-17T09:54:24.102Z",
+      "modified_at": "2024-01-17T09:54:24.102Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Best\\u00e4tigung\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "construction-step-schlussabnahme-projekt-planen-bemerkungen",
+    "fields": {
+      "created_at": "2024-01-17T09:55:33.926Z",
+      "modified_at": "2024-01-17T09:55:33.926Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkungen\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "construction-step-schlussabnahme-projekt-planen-datum-der-abnahme",
+    "fields": {
+      "created_at": "2024-02-05T09:40:29.292Z",
+      "modified_at": "2024-02-05T09:40:29.292Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Datum der Abnahme\", \"fr\": null, \"it\": null}",
+      "type": "date",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "construction-step-schnurgeruestabnahme-is-approved",
+    "fields": {
+      "created_at": "2024-01-17T09:23:04.826Z",
+      "modified_at": "2024-01-17T09:23:04.826Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abnahmeergebnis\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "construction-step-schnurgeruestabnahme-melden-bemerkungen",
+    "fields": {
+      "created_at": "2024-01-17T09:07:30.384Z",
+      "modified_at": "2024-01-17T09:07:30.384Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkungen\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "construction-step-schnurgeruestabnahme-melden-bestaetigung",
+    "fields": {
+      "created_at": "2024-01-17T09:06:40.470Z",
+      "modified_at": "2024-01-17T09:06:40.470Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Schnurger\\u00fcstabnahme melden Best\\u00e4tigung\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "construction-step-schnurgeruestabnahme-planen-bemerkungen",
+    "fields": {
+      "created_at": "2024-01-17T09:13:08.246Z",
+      "modified_at": "2024-01-17T09:13:08.246Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkungen\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "construction-step-schnurgeruestabnahme-planen-datum-der-abnahme",
+    "fields": {
+      "created_at": "2024-01-17T09:12:35.540Z",
+      "modified_at": "2024-01-17T09:12:35.540Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Datum der Abnahme\", \"fr\": null, \"it\": null}",
+      "type": "date",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "construction-step-schnurgeruest-kontrollieren-bemerkungen",
+    "fields": {
+      "created_at": "2024-01-17T09:21:53.573Z",
+      "modified_at": "2024-01-17T09:21:53.573Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkungen\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "construction-step-zwischenkontrolle-bemerkungen",
+    "fields": {
+      "created_at": "2024-02-05T09:49:06.106Z",
+      "modified_at": "2024-02-05T09:49:06.106Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkungen\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "construction-step-zwischenkontrolle-datum-der-abnahme",
+    "fields": {
+      "created_at": "2024-02-05T09:48:43.148Z",
+      "modified_at": "2024-02-05T09:48:43.148Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Datum der Abnahme\", \"fr\": null, \"it\": null}",
+      "type": "date",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "construction-step-zwischenkontrolle-is-approved",
+    "fields": {
+      "created_at": "2024-01-30T10:11:44.608Z",
+      "modified_at": "2024-01-30T10:11:44.608Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abnahmeergebnis\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "construction-step-zwischenkontrolle-melden-bemerkungen",
+    "fields": {
+      "created_at": "2024-02-05T09:46:29.549Z",
+      "modified_at": "2024-02-05T09:46:29.549Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkungen\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "construction-step-zwischenkontrolle-melden-bestaetigung",
+    "fields": {
+      "created_at": "2024-01-30T11:31:33.156Z",
+      "modified_at": "2024-01-30T11:31:33.156Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Zwischenkontrolle melden Best\\u00e4tigung\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "steuerverwaltung-informieren",
+    "fields": {
+      "created_at": "2023-11-10T08:45:18.181Z",
+      "modified_at": "2023-11-10T09:06:44.419Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Steuerverwaltung informieren\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "verfahren-abschliessen",
+    "fields": {
+      "created_at": "2023-11-10T08:46:06.499Z",
+      "modified_at": "2023-11-10T09:09:54.988Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Verfahren abschliessen\", \"fr\": null, \"it\": null}",
+      "type": "action_button",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Sind Sie sicher, dass Sie das Verfahren abschliessen m\\u00f6chten?\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "color": "primary",
+        "action": "complete",
+        "show_validation": false,
+        "validate_on_enter": false
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "construction-step-baubeginn-melden-bestaetigung.construction-step-baubeginn-melden-bestaetigung-text",
+    "fields": {
+      "created_at": "2024-01-16T20:53:32.675Z",
+      "modified_at": "2024-01-16T20:53:32.675Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "construction-step-baubeginn-melden-bestaetigung",
+      "option": "construction-step-baubeginn-melden-bestaetigung-text",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "construction-step-baufreigabe-beantragen-bestaetigung.construction-step-baufreigabe-beantragen-bestaetigung",
+    "fields": {
+      "created_at": "2024-01-16T20:27:30.352Z",
+      "modified_at": "2024-01-16T20:27:30.352Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "construction-step-baufreigabe-beantragen-bestaetigung",
+      "option": "construction-step-baufreigabe-beantragen-bestaetigung",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "construction-step-baufreigabe-is-approved.construction-step-baufreigabe-is-approved-no",
+    "fields": {
+      "created_at": "2024-01-16T20:46:58.575Z",
+      "modified_at": "2024-01-16T20:46:58.575Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "construction-step-baufreigabe-is-approved",
+      "option": "construction-step-baufreigabe-is-approved-no",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "construction-step-baufreigabe-is-approved.construction-step-baufreigabe-is-approved-yes",
+    "fields": {
+      "created_at": "2024-01-16T20:46:58.579Z",
+      "modified_at": "2024-01-16T20:46:58.579Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "construction-step-baufreigabe-is-approved",
+      "option": "construction-step-baufreigabe-is-approved-yes",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "construction-step-kanalisationsabnahme-is-approved.construction-step-kanalisationsabnahme-is-approved-no",
+    "fields": {
+      "created_at": "2024-01-17T09:00:35.254Z",
+      "modified_at": "2024-01-17T09:00:35.254Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "construction-step-kanalisationsabnahme-is-approved",
+      "option": "construction-step-kanalisationsabnahme-is-approved-no",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "construction-step-kanalisationsabnahme-is-approved.construction-step-kanalisationsabnahme-is-approved-yes",
+    "fields": {
+      "created_at": "2024-01-17T09:00:35.259Z",
+      "modified_at": "2024-01-17T09:00:35.259Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "construction-step-kanalisationsabnahme-is-approved",
+      "option": "construction-step-kanalisationsabnahme-is-approved-yes",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "construction-step-kanalisationsabnahme-melden-bestaetigung.construction-step-kanalisationsabnahme-melden-bestaetigung-text",
+    "fields": {
+      "created_at": "2024-01-17T08:54:52.335Z",
+      "modified_at": "2024-01-17T08:54:52.335Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "construction-step-kanalisationsabnahme-melden-bestaetigung",
+      "option": "construction-step-kanalisationsabnahme-melden-bestaetigung-text",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "construction-step-rohbauabnahme-is-approved.construction-step-rohbauabnahme-is-approved-no",
+    "fields": {
+      "created_at": "2024-01-17T09:34:44.673Z",
+      "modified_at": "2024-01-17T09:34:44.673Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "construction-step-rohbauabnahme-is-approved",
+      "option": "construction-step-rohbauabnahme-is-approved-no",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "construction-step-rohbauabnahme-is-approved.construction-step-rohbauabnahme-is-approved-yes",
+    "fields": {
+      "created_at": "2024-01-17T09:34:44.678Z",
+      "modified_at": "2024-01-17T09:34:44.678Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "construction-step-rohbauabnahme-is-approved",
+      "option": "construction-step-rohbauabnahme-is-approved-yes",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "construction-step-rohbauabnahme-melden-bestaetigung.construction-step-rohbauabnahme-melden-bestaetigung-text",
+    "fields": {
+      "created_at": "2024-01-17T09:31:05.744Z",
+      "modified_at": "2024-01-17T09:31:05.744Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "construction-step-rohbauabnahme-melden-bestaetigung",
+      "option": "construction-step-rohbauabnahme-melden-bestaetigung-text",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "construction-step-schlussabnahme-gebaeude-is-approved.construction-step-schlussabnahme-gebaeude-is-approved-no",
+    "fields": {
+      "created_at": "2024-02-05T12:25:46.288Z",
+      "modified_at": "2024-02-05T12:25:46.288Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "construction-step-schlussabnahme-gebaeude-is-approved",
+      "option": "construction-step-schlussabnahme-gebaeude-is-approved-no",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "construction-step-schlussabnahme-gebaeude-is-approved.construction-step-schlussabnahme-gebaeude-is-approved-yes",
+    "fields": {
+      "created_at": "2024-02-05T12:25:46.289Z",
+      "modified_at": "2024-02-05T12:25:46.290Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "construction-step-schlussabnahme-gebaeude-is-approved",
+      "option": "construction-step-schlussabnahme-gebaeude-is-approved-yes",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "construction-step-schlussabnahme-gebaeude-melden-bestaetigung.construction-step-schlussabnahme-gebaeude-melden-bestaetigung-text",
+    "fields": {
+      "created_at": "2024-01-17T09:48:30.232Z",
+      "modified_at": "2024-01-17T09:48:30.232Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "construction-step-schlussabnahme-gebaeude-melden-bestaetigung",
+      "option": "construction-step-schlussabnahme-gebaeude-melden-bestaetigung-text",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "construction-step-schlussabnahme-projekt-is-approved.construction-step-schlussabnahme-projekt-is-approved-no",
+    "fields": {
+      "created_at": "2024-01-17T09:57:45.226Z",
+      "modified_at": "2024-01-17T09:57:45.226Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "construction-step-schlussabnahme-projekt-is-approved",
+      "option": "construction-step-schlussabnahme-projekt-is-approved-no",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "construction-step-schlussabnahme-projekt-is-approved.construction-step-schlussabnahme-projekt-is-approved-yes",
+    "fields": {
+      "created_at": "2024-01-17T09:57:45.229Z",
+      "modified_at": "2024-01-17T09:57:45.229Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "construction-step-schlussabnahme-projekt-is-approved",
+      "option": "construction-step-schlussabnahme-projekt-is-approved-yes",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "construction-step-schlussabnahme-projekt-melden-bestaetigung.construction-step-schlussabnahme-projekt-melden-bestaetigung-confirm",
+    "fields": {
+      "created_at": "2024-01-17T09:54:24.107Z",
+      "modified_at": "2024-01-17T09:54:24.107Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "construction-step-schlussabnahme-projekt-melden-bestaetigung",
+      "option": "construction-step-schlussabnahme-projekt-melden-bestaetigung-confirm",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "construction-step-schnurgeruestabnahme-is-approved.construction-step-schnurgeruestabnahme-is-approved-no",
+    "fields": {
+      "created_at": "2024-01-17T09:23:04.831Z",
+      "modified_at": "2024-01-17T09:23:04.832Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "construction-step-schnurgeruestabnahme-is-approved",
+      "option": "construction-step-schnurgeruestabnahme-is-approved-no",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "construction-step-schnurgeruestabnahme-is-approved.construction-step-schnurgeruestabnahme-is-approved-yes",
+    "fields": {
+      "created_at": "2024-01-17T09:23:04.836Z",
+      "modified_at": "2024-01-17T09:23:04.836Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "construction-step-schnurgeruestabnahme-is-approved",
+      "option": "construction-step-schnurgeruestabnahme-is-approved-yes",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "construction-step-schnurgeruestabnahme-melden-bestaetigung.construction-step-schnurgeruestabnahme-melden-bestaetigung-text",
+    "fields": {
+      "created_at": "2024-01-17T09:06:40.474Z",
+      "modified_at": "2024-01-17T09:06:40.474Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "construction-step-schnurgeruestabnahme-melden-bestaetigung",
+      "option": "construction-step-schnurgeruestabnahme-melden-bestaetigung-text",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "construction-steps.construction-step-baubeginn",
+    "fields": {
+      "created_at": "2024-01-29T16:59:49.223Z",
+      "modified_at": "2024-01-29T16:59:49.223Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "construction-steps",
+      "option": "construction-step-baubeginn",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "construction-steps.construction-step-baufreigabe",
+    "fields": {
+      "created_at": "2024-01-29T16:59:49.224Z",
+      "modified_at": "2024-01-29T16:59:49.224Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "construction-steps",
+      "option": "construction-step-baufreigabe",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "construction-steps.construction-step-kanalisationsabnahme",
+    "fields": {
+      "created_at": "2024-01-29T16:59:49.221Z",
+      "modified_at": "2024-01-29T16:59:49.221Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "construction-steps",
+      "option": "construction-step-kanalisationsabnahme",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "construction-steps.construction-step-rohbauabnahme",
+    "fields": {
+      "created_at": "2024-01-29T16:59:49.220Z",
+      "modified_at": "2024-01-29T16:59:49.220Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "construction-steps",
+      "option": "construction-step-rohbauabnahme",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "construction-steps.construction-step-schlussabnahme-gebaeude",
+    "fields": {
+      "created_at": "2024-01-29T16:59:49.218Z",
+      "modified_at": "2024-01-29T16:59:49.218Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "construction-steps",
+      "option": "construction-step-schlussabnahme-gebaeude",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "construction-steps.construction-step-schlussabnahme-projekt",
+    "fields": {
+      "created_at": "2024-01-29T16:59:49.217Z",
+      "modified_at": "2024-01-29T16:59:49.217Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "construction-steps",
+      "option": "construction-step-schlussabnahme-projekt",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "construction-steps.construction-step-schnurgeruestabnahme",
+    "fields": {
+      "created_at": "2024-01-29T16:59:49.222Z",
+      "modified_at": "2024-01-29T16:59:49.222Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "construction-steps",
+      "option": "construction-step-schnurgeruestabnahme",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "construction-steps.construction-step-zwischenkontrolle",
+    "fields": {
+      "created_at": "2024-01-29T16:59:49.220Z",
+      "modified_at": "2024-01-29T16:59:49.220Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "construction-steps",
+      "option": "construction-step-zwischenkontrolle",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "construction-step-zwischenkontrolle-is-approved.construction-step-zwischenkontrolle-is-approved-no",
+    "fields": {
+      "created_at": "2024-01-30T10:11:44.611Z",
+      "modified_at": "2024-01-30T10:11:44.611Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "construction-step-zwischenkontrolle-is-approved",
+      "option": "construction-step-zwischenkontrolle-is-approved-no",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "construction-step-zwischenkontrolle-is-approved.construction-step-zwischenkontrolle-is-approved-yes",
+    "fields": {
+      "created_at": "2024-01-30T10:11:44.613Z",
+      "modified_at": "2024-01-30T10:11:44.613Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "construction-step-zwischenkontrolle-is-approved",
+      "option": "construction-step-zwischenkontrolle-is-approved-yes",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "construction-step-zwischenkontrolle-melden-bestaetigung.construction-step-zwischenkontrolle-melden-bestaetigung-text",
+    "fields": {
+      "created_at": "2024-01-30T11:31:33.160Z",
+      "modified_at": "2024-01-30T11:31:33.160Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "construction-step-zwischenkontrolle-melden-bestaetigung",
+      "option": "construction-step-zwischenkontrolle-melden-bestaetigung-text",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "steuerverwaltung-informieren.steuerverwaltung-informieren-steuerverwaltung-informieren",
+    "fields": {
+      "created_at": "2023-11-10T09:06:44.423Z",
+      "modified_at": "2023-11-10T09:06:44.423Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "steuerverwaltung-informieren",
+      "option": "steuerverwaltung-informieren-steuerverwaltung-informieren",
+      "sort": 1
+    }
+  }
+]

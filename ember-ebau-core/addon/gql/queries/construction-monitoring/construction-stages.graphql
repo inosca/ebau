@@ -1,0 +1,44 @@
+query ConstructionStages($instanceId: GenericScalar!, $constructionStageTask: String!) {
+  allWorkItems(
+    filter: [
+      { tasks: [$constructionStageTask] }
+      { rootCaseMetaValue: { key: "camac-instance-id", value: $instanceId } }
+    ]
+    order: [{ attribute: CREATED_AT, direction: ASC }]
+  ) {
+    edges {
+      node {
+        id
+        name
+        task {
+          name
+        }
+        status
+        addressedGroups
+        case {
+          id
+        }
+        childCase {
+          id
+          status
+          workItems {
+            edges {
+              node {
+                id
+                status
+                meta
+                createdAt
+                case {
+                  parentWorkItem {
+                    id
+                    status
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,76 @@
+construction-monitoring:
+  title: "Baubegleitung"
+
+  start-info: "Es wurde noch kein Baubegleitungsprozess für dieses Gesuch durchgeführt."
+  not-performed-info: "Es wurde kein Baubegleitungsprozess für dieses Gesuch durchgeführt."
+  not-available-info: "Es wird kein Baubegleitungsprozess für dieses Gesuch benötigt."
+  index-info: "Wählen Sie eine Bauetappe um weitere Informationen zu erhalten."
+
+  status:
+    in-progress: "In Bearbeitung"
+    completed: "Abgeschlossen"
+    canceled: "Frühzeitig beendet"
+    pending: "In Bearbeitung"
+    not-approved: "Prozessschritt wurde nicht bewilligt"
+    unknown: "Unbekannt"
+    approved: "Bestätigt"
+
+  controls:
+    start-info: Klicken Sie "+" um eine Bauetappe zu starten. Falls kein Baubegleitungsprozess benötigt wird, können Sie diesen Schritt auch überspringen.
+    
+    skip: "Baubegleitungsprozess überspringen"
+    skip-confirm: "Bitte bestätigen Sie, dass der Baubegleitungsprozess übersprungen werden soll. Dieser Schritt kann nicht rückgängig gemacht werden."
+    skip-error: "Beim Überspringen des Baubegleitungsprozesses ist ein Fehler aufgetreten."
+
+    complete: "Baubegleitungsprozess abschliessen"
+    complete-confirm: "Bitte bestätigen Sie, dass der Baubegleitungsprozess abgeschlossen werden soll. Dieser Schritt kann nicht rückgängig gemacht werden."
+    complete-error: "Beim Abschliessen des Baubegleitunsprozesses ist ein Fehler aufgetreten."
+
+  construction-stage:
+    title: "Bauetappe"
+
+    create: "Bauetappe starten"
+    create-error: "Beim Starten der Bauetappe ist ein Fehler aufgetreten."
+
+    cancel: "Bauetappe abbrechen"
+    cancel-confirm: "Bitte bestätigen Sie, dass die Bauetappe abgebrochen werden soll. Dieser Schritt kann nicht rückgängig gemacht werden."
+    cancel-error: "Beim Abbrechen der Bauetappe ist ein Fehler aufgetreten."
+    canceled-info: "Die Bauetappe <b>{constructionStageName}</b> wurde abgebrochen."
+
+    completed-applicant-info: "Die Bauetappe <b>{constructionStageName}</b> wurde abgeschlossen."
+    completed-service-info: "Die Bauetappe <b>{constructionStageName}</b> wurde abgeschlossen."
+    canceled-applicant-info: "Die Bauetappe <b>{constructionStageName}</b> wurde abgebrochen."
+    canceled-service-info: "Die Bauetappe <b>{constructionStageName}</b> wurde früzeitig abgebrochen."
+    running-applicant-info: "Die Bauetappe <b>{constructionStageName}</b> befindet sich in Bearbeitung."
+    running-service-info: "Falls Sie die Bauetappe nicht wie geplant zu Ende führen möchten, können Sie diese hier abbrechen."
+
+  construction-step:
+    title: "Prozessschritt"
+
+    construction-step-complete: "Senden"
+
+    construction-step-plan-construction-stage: "Bauetappe planen"
+    construction-step-plan-construction-stage-complete: "Planung der Bauetappe abschliessen"
+    construction-step-baufreigabe: "Baufreigabe"
+    construction-step-baubeginn: "Baubeginn"
+    construction-step-schnurgeruestabnahme: "Schnurgerüstabnahme"
+    construction-step-kanalisationsabnahme: "Kanalisationsabnahme"
+    construction-step-rohbauabnahme: "Rohbauabnahme"
+    construction-step-zwischenkontrolle: "Zwischenkontrolle"
+    construction-step-schlussabnahme-gebaeude: "Schlussabnahme (Gebäude)"
+    construction-step-schlussabnahme-projekt: "Schlussabnahme (Teil-/Gesamtprojekt)"
+
+    work-item:
+      edit-deadline: "(editieren)"
+      index-count: "Prozessschritt {index} von {total}"
+      info-ready: "Frist läuft am {deadline} ab"
+      info-completed: "Beantwortet am {closedAt} durch {closedByUser}{closedByService}"
+      info-canceled: "Der Prozessschritt wurde frühzeitig abgebrochen."
+
+      divider-info-ready: Der nächste Prozesschritt befindet sich bei der Gemeinde in Bearbeitung.
+      divider-info-skipped: Der Prozesschritt wurde frühzeitig abgebrochen.
+
+      addressed-to-applicant: Standardmässig durch die Gesuchstellenden auszufüllen
+
+    update-construction-stage-name-error: "Beim Speichern des Namens der Bauetappe ist ein Fehler aufgetreten."
+    complete-error: "Beim Abschliessen der Aufgabe ist ein Fehler aufgetreten."

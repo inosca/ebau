@@ -1,0 +1,32 @@
+<div class="uk-flex uk-flex-middle uk-flex-between">
+    <div class="uk-text-lead uk-text-bold">{{this.constructionStepName}}</div>
+    <div 
+        class="uk-label uk-text-bold uk-label-{{this.status.color}} uk-margin-left {{if (eq this.status.color "muted") "construction-stage__header-label--muted"}}">
+        {{this.status.label}}
+    </div>
+</div>
+<hr class="uk-margin-bottom" />
+
+{{#if this.constructionStepTask.isRunning}}
+    <div class="uk-text-center">
+        <UkSpinner @ratio={{2}} />
+    </div>
+{{else}}
+    {{#each this.constructionStepWorkItemGroups as |iteration|}}
+        <div class="uk-margin-bottom">
+            {{#each iteration key="id" as |workItem|}}
+                <ConstructionMonitoring::WorkItem
+                    @workItem={{workItem}}
+                    @documentId={{decode-id workItem.document.id}}
+                    @constructionStepId={{@model.constructionStepId}}
+                    @constructionStageId={{@model.constructionStageId}}
+                    @complete={{this.completeConstructionStepWorkItem}}
+                    @users={{this.users}}
+                    @services={{this.services}}
+                    @isLastWorkItem={{eq workItem.id this.lastWorkItemId}}
+                    @count={{iteration.length}}
+                />
+            {{/each}}
+        </div>
+    {{/each}}
+{{/if}}

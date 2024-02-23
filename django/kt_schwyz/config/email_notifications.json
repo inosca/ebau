@@ -118,5 +118,65 @@
       "service": null,
       "type": "email"
     }
+  },
+  {
+    "model": "notification.notificationtemplate",
+    "pk": 27,
+    "fields": {
+      "slug": "complete-construction-step-baufreigabe",
+      "purpose": "Abschluss Baufreigabe Baubegleitung",
+      "subject": "Gesuch {{identifier}}: Abschluss Baufreigabe",
+      "body": "Beim Gesuch {{ identifier }}, {{ location }} wurde die Baufreigabe erteilt.",
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
+    "model": "notification.notificationtemplate",
+    "pk": 28,
+    "fields": {
+      "slug": "complete-construction-step-schnurgeruestabnahme",
+      "purpose": "Abschluss Schnurgeruestabnahme Baubegleitung",
+      "subject": "Gesuch {{identifier}}: Abschluss Schnurgerüstabnahme",
+      "body": "Beim Gesuch {{ identifier }}, {{ location }} wurde die Schnurgerüstabnahme gemacht.",
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
+    "model": "notification.notificationtemplate",
+    "pk": 29,
+    "fields": {
+      "slug": "complete-construction-step-schlussabnahme",
+      "purpose": "Abschluss Schussabnahme Baubegleitung",
+      "subject": "Gesuch {{identifier}}: Abschluss Schlussabnahme",
+      "body": "Beim Gesuch {{ identifier }}, {{ location }} wurde die Schlussabnahme gemacht.",
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
+    "model": "notification.notificationtemplate",
+    "pk": 30,
+    "fields": {
+      "slug": "notify-appeal-deadline",
+      "purpose": "Ablauf Beschwerdefrist",
+      "subject": "Gesuch {{identifier}}: Ablauf Beschwerdefrist",
+      "body": "Beim Gesuch {{ identifier }}, {{ location }} ist die Beschwerdefrist abgelaufen und die Bewilligung in Rechtskraft erwachsen.",
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
+    "model": "notification.notificationtemplate",
+    "pk": 31,
+    "fields": {
+      "slug": "notify-complete-instance",
+      "purpose": "Abschluss Verfahren",
+      "subject": "Gesuch {{identifier}}: Abschluss Verfahren",
+      "body": "Beim Gesuch {{ identifier }}, {{ location }} wurde das Verfahren abgeschlossen.",
+      "service": null,
+      "type": "email"
+    }
   }
 ]

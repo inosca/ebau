@@ -1,0 +1,19 @@
+<div class="uk-padding-large">
+    <div class="uk-margin-auto uk-margin construction-monitoring__index-icon-background">
+        <FaIcon @icon="house-circle-check" />
+    </div>
+    <div class="uk-text-large uk-text-bolder uk-text-center uk-margin-small-bottom">
+        {{t "construction-monitoring.title"}}
+    </div>
+    <div class="uk-width-medium uk-text-center uk-margin-auto">
+        {{#if this.constructionMonitoring.constructionStages.length}}
+            {{t "construction-monitoring.index-info"}}
+        {{else if (or this.constructionMonitoring.isSkipped this.ebauModules.isApplicant)}}
+            {{t "construction-monitoring.not-performed-info"}}
+        {{else if (not this.constructionMonitoring.isAvailable)}}
+            {{t "construction-monitoring.not-available-info"}}
+        {{else}}
+            {{t "construction-monitoring.start-info"}}
+        {{/if}}
+    </div>
+</div>

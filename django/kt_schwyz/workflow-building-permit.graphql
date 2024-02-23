@@ -89,7 +89,7 @@ mutation CreateFlow7 {
     input: {
       workflow: "building-permit"
       tasks: ["make-decision"]
-      next: "['archive-instance']|tasks"
+      next: "['init-construction-monitoring']|tasks"
       redoable: "'distribution'|task"
     }
   ) {
