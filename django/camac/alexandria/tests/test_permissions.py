@@ -354,7 +354,11 @@ def test_document_permission(
         ),
     ],
 )
-def test_file_permission(db, role, admin_client, instance, access, method, status_code):
+def test_file_permission(
+    db, role, mocker, admin_client, instance, access, method, status_code
+):
+    mocker.patch("alexandria.core.serializers.validate_file_infection", return_value=None)
+
     alexandria_category = CategoryFactory(metainfo={"access": access})
     doc = DocumentFactory(
         title="Foo",
