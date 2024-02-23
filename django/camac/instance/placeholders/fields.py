@@ -8,8 +8,10 @@ from caluma.caluma_form.models import Answer, AnswerDocument, Document, Question
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 from django.db.models import Exists, OuterRef, Q, Sum
+from django.db.models.fields.files import ImageFieldFile
 from django.utils import timezone
 from django.utils.translation import get_language, gettext, gettext_noop as _
+from PIL import Image
 from rest_framework import serializers
 
 from camac.alexandria.extensions.visibilities import (
@@ -83,6 +85,16 @@ class ServiceField(ABC, AliasedMixin, serializers.ReadOnlyField):
 
     def to_representation(self, value):
         value = super().to_representation(value)
+
+        if isinstance(value, ImageFieldFile):
+            if not value:  # pragma: no cover
+                return None
+
+            data = BytesIO(value.file.read())
+            img = Image.open(data)
+            img.save(data, "PNG")
+            data_b64 = base64.b64encode(data.getvalue())
+            return f"data:image/png;base64,{data_b64.decode('utf-8')}"
 
         if value and self.remove_name_prefix:
             # Municipalities and districts in BE all have a prefix which is

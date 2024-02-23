@@ -106,6 +106,7 @@
       'slug': '1',
     }),
     'municipality_name': 'Bern',
+    'municipality_slug': '1',
     'nature_risk': list([
     ]),
     'number_of_accomodated_persons': None,
@@ -303,6 +304,7 @@
       'slug': '1',
     }),
     'municipality_name': 'Berne',
+    'municipality_slug': '1',
     'nature_risk': list([
     ]),
     'number_of_accomodated_persons': None,
@@ -505,6 +507,7 @@
       'slug': '1',
     }),
     'municipality_name': 'Solothurn',
+    'municipality_slug': '1',
     'plot_data': list([
       dict({
         'coord_east': 2690970.9,

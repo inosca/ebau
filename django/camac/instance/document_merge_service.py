@@ -21,6 +21,7 @@ from camac.instance.master_data import MasterData
 from camac.instance.models import Instance
 from camac.instance.placeholders.utils import enrich_personal_data, get_person_name
 from camac.instance.utils import build_document_prefetch_statements
+from camac.user.models import Service
 from camac.utils import build_url, clean_join, get_dict_item
 
 
@@ -113,6 +114,17 @@ def graceful_get(master_data, prop, key=None, default=None):
 
 
 class DMSHandler:
+    def get_files(self, instance):
+        files = []
+
+        master_data = MasterData(instance.case)
+        municipality = Service.objects.filter(pk=master_data.municipality_slug).first()
+
+        if municipality and municipality.logo:
+            files.append(("files", ("municipality_logo", municipality.logo.file.file)))
+
+        return files
+
     def get_meta_data(self, instance, document, service):
         master_data = MasterData(instance.case)
         timezone = get_current_timezone()
@@ -355,6 +367,7 @@ class DMSHandler:
                 request.group.service,
             ),
             template,
+            self.get_files(instance),
         )
 
         _file = ContentFile(
@@ -397,15 +410,18 @@ class DMSClient:
 
         return response.content
 
-    def merge(self, data, template, convert="pdf", add_headers={}):
-        headers = {"authorization": self.auth_token, "content-type": "application/json"}
-        headers.update(add_headers)
+    def merge(self, data, template, files=[], convert="pdf", add_headers={}):
+        headers = {"authorization": self.auth_token, **add_headers}
         url = build_url(self.url, f"/template/{template}/merge", trailing=True)
 
         return self._make_dms_request(
             url,
-            data=json.dumps({"convert": convert, "data": data}, cls=DjangoJSONEncoder),
             headers=headers,
+            data={
+                "convert": convert,
+                "data": json.dumps(data, cls=DjangoJSONEncoder),
+            },
+            files=files,
         )
 
     def convert_docx_to_pdf(self, file):

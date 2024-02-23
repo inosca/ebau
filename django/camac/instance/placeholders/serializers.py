@@ -1571,6 +1571,11 @@ class SoDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         aliases=[_("BUILDER_REPRESENTATIVE_NAME_ADDRESS")],
         description=_("Name and address of the representative of the first builder"),
     )
+    municipality_logo = fields.MunicipalityField(
+        source="logo",
+        aliases=[_("MUNICIPALITY_LOGO")],
+        description=_("Logo of the municipality"),
+    )
 
     class Meta:
         exclude = [
