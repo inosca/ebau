@@ -9,6 +9,9 @@ from django.conf import settings
 from django.core.exceptions import ObjectDoesNotExist
 from django.db import transaction
 
+from camac.caluma.extensions.events.construction_monitoring import (
+    can_perform_construction_monitoring,
+)
 from camac.caluma.extensions.events.general import get_caluma_setting
 from camac.dossier_import.dossier_classes import Dossier
 from camac.dossier_import.messages import (
@@ -287,11 +290,23 @@ class KtSchwyzDossierWriter(DossierWriter):
             "distribution",
             "make-decision",
         ]
-        DONE = APPROVED + ["archive-instance"]
+        # TODO: Test dossier-import in status DONE
+        DONE = (
+            APPROVED
+            + (
+                ["init-construction-monitoring"]
+                if can_perform_construction_monitoring(instance)
+                else []
+            )
+            + [
+                "complete-instance",
+                "archive-instance",
+            ]
+        )
 
         path_to_state = {"SUBMITTED": SUBMITTED, "APPROVED": APPROVED, "DONE": DONE}
 
-        default_context = {"no-notification": True, "no-history": True}
+        default_context = {"no-notification": True, "no-history": True, "skip": True}
 
         # In order for a work item to be completed no sibling work items can be
         # in state ready. They have to be dealt with in advance.

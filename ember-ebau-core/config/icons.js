@@ -9,6 +9,7 @@ module.exports = function () {
       "draw-polygon",
       "minus",
       "rotate-left",
+      "house-circle-check",
     ],
   };
 };

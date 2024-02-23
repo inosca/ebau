@@ -31,13 +31,19 @@ def generate_form_dump_config(regex=None, version=None):
     return {}  # pragma: no cover
 
 
-def generate_workflow_dump_config(regex):
-    return {
+def generate_workflow_dump_config(regex, include_task_regex=False):
+    filters = {
         "caluma_workflow.Workflow": Q(pk__iregex=regex),
         "caluma_workflow.Task": Q(pk__iregex=regex),
         "caluma_workflow.TaskFlow": Q(workflow__pk__iregex=regex),
         "caluma_workflow.Flow": Q(task_flows__workflow__pk__iregex=regex),
     }
+
+    if include_task_regex:
+        filters["caluma_workflow.TaskFlow"] |= Q(task__pk__iregex=regex)
+        filters["caluma_workflow.Flow"] |= Q(task_flows__task__pk__iregex=regex)
+
+    return filters
 
 
 COMMON_QUESTION_SLUGS_BE = ["8-freigabequittung", "dokumente-platzhalter"]
@@ -65,6 +71,19 @@ ADDITIONAL_DEMAND_DUMP_CONFIG = {
     "caluma_additional_demand": {
         **generate_form_dump_config(r"additional-demand"),
         **generate_workflow_dump_config(r"additional-demand"),
+    }
+}
+
+CONSTRUCTION_MONITORING_REGEX = (
+    r"(construction-monitoring|construction-stage|construction-step|complete-instance)"
+)
+
+CONSTRUCTION_MONITORING_DUMP_CONFIG = {
+    "caluma_construction_monitoring_form": {
+        **generate_form_dump_config(CONSTRUCTION_MONITORING_REGEX),
+    },
+    "caluma_construction_monitoring_workflow": {
+        **generate_workflow_dump_config(CONSTRUCTION_MONITORING_REGEX, True),
     }
 }
 
@@ -417,6 +436,7 @@ DUMP = {
                 },
                 # Distribution
                 **DISTRIBUTION_DUMP_CONFIG,
+                **CONSTRUCTION_MONITORING_DUMP_CONFIG,
             },
             "EXCLUDED_MODELS": [
                 "document.Template",

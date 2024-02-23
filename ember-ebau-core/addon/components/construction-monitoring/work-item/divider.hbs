@@ -1,0 +1,17 @@
+{{#if this.showInfo}}
+<div class="uk-alert uk-width-1-2 uk-margin-auto uk-margin-small-bottom uk-text-center">
+    {{this.showInfo}}
+</div>
+{{/if}}
+<div
+    class="construction-step__work-item-divider uk-text-{{this.status.color}}"
+    title={{t this.status.label}}
+    {{uk-tooltip (t this.status.label)}}
+>
+    {{#if this.showConnector}}
+    <div class="construction-step__work-item-divider__connector"></div>
+    {{/if}}
+    <div class="construction-step__work-item-divider__icon {{unless this.isReady "construction-step__work-item-divider__icon__highlight-approval"}}">
+        <UkIcon @icon={{this.status.icon}} />
+    </div>
+</div>

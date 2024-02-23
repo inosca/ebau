@@ -6824,6 +6824,54 @@
     }
   },
   {
+    "model": "user.group",
+    "pk": 506,
+    "fields": {
+      "role": 5,
+      "service": 302,
+      "disabled": 0,
+      "name": "Geoinfra Brunnen (Gde_Bez Ingenieur)",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 507,
+    "fields": {
+      "role": 5,
+      "service": 301,
+      "disabled": 0,
+      "name": "Geoinfra Brunnen (Geometer)",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 549,
+    "fields": {
+      "role": 5,
+      "service": 313,
+      "disabled": 0,
+      "name": "GEO Netz AG (Geometer)",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
     "model": "user.grouplocation",
     "pk": 1,
     "fields": {
@@ -31100,7 +31148,7 @@
     "pk": 3105,
     "fields": {
       "group": 272,
-      "location": 9
+      "location": 30
     }
   },
   {
@@ -32797,6 +32845,118 @@
     "fields": {
       "group": 263,
       "location": 7
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 3355,
+    "fields": {
+      "group": 506,
+      "location": 1
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 3356,
+    "fields": {
+      "group": 506,
+      "location": 17
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 3357,
+    "fields": {
+      "group": 506,
+      "location": 26
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 3358,
+    "fields": {
+      "group": 506,
+      "location": 18
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 3359,
+    "fields": {
+      "group": 506,
+      "location": 20
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 3360,
+    "fields": {
+      "group": 506,
+      "location": 21
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 3361,
+    "fields": {
+      "group": 506,
+      "location": 23
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 3362,
+    "fields": {
+      "group": 507,
+      "location": 1
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 3363,
+    "fields": {
+      "group": 507,
+      "location": 17
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 3364,
+    "fields": {
+      "group": 507,
+      "location": 18
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 3365,
+    "fields": {
+      "group": 507,
+      "location": 20
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 3366,
+    "fields": {
+      "group": 507,
+      "location": 21
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 3367,
+    "fields": {
+      "group": 507,
+      "location": 26
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 3368,
+    "fields": {
+      "group": 507,
+      "location": 23
     }
   },
   {
@@ -38418,6 +38578,69 @@
       "logo": "",
       "disabled": 0,
       "notification": 1,
+      "responsibility_construction_control": false
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 301,
+    "fields": {
+      "service_group": 2,
+      "service_parent": null,
+      "name": "Geoinfra Brunnen (Geometer)",
+      "description": null,
+      "sort": 221,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 0,
+      "responsibility_construction_control": false
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 302,
+    "fields": {
+      "service_group": 2,
+      "service_parent": null,
+      "name": "Geoinfra Brunnen (Gde_Bez Ingenieur)",
+      "description": null,
+      "sort": 222,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 0,
+      "responsibility_construction_control": false
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 313,
+    "fields": {
+      "service_group": 2,
+      "service_parent": null,
+      "name": "GEO Netz AG (Geometer)",
+      "description": null,
+      "sort": 220,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 0,
       "responsibility_construction_control": false
     }
   }

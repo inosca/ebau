@@ -1,0 +1,23 @@
+<div class="uk-flex uk-flex-middle uk-flex-between">
+    <div class="uk-text-lead uk-text-bold">{{this.constructionStage.displayName}}</div>
+    <div 
+        class="uk-label uk-text-bold uk-label-{{this.status.color}} uk-margin-left {{if (eq this.status.color "muted") "construction-stage__header-label--muted"}}">
+        {{this.status.label}}
+    </div>
+</div>
+<hr />
+{{#if this.infoText}}
+    <div class="uk-text-wrap uk-margin uk-margin-remove-bottom">
+        {{this.infoText}}
+    </div>
+{{/if}}
+
+{{#if (can "cancel construction-stage" this.constructionStage)}}
+    <UkButton
+        class="uk-margin"
+        @onClick={{perform this.cancelConstructionStage}}
+        @label={{t "construction-monitoring.construction-stage.cancel"}}
+        @loading={{this.cancelConstructionStage.isRunning}}
+        @disabled={{this.cancelConstructionStage.isRunning}}
+    />
+{{/if}}

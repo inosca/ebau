@@ -947,6 +947,10 @@ class NotificationTemplateMergeSerializer(
         queryset=caluma_workflow_models.WorkItem.objects.all(),
         required=False,
     )
+    case = serializers.ResourceRelatedField(
+        queryset=caluma_workflow_models.Case.objects.all(),
+        required=False,
+    )
     notification_template = serializers.ResourceRelatedField(
         queryset=models.NotificationTemplate.objects.all()
     )
@@ -1121,6 +1125,30 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
 
         return flatten(
             [self._get_responsible(instance, acl.service) for acl in geometer_acls]
+        )
+
+    def _get_recipients_localized_geometer(self, instance):
+        if not settings.APPLICATION.get("LOCALIZED_GEOMETER_SERVICE_MAPPING"):
+            return []  # pragma: no cover
+
+        geometer_answer = instance.fields.filter(
+            name__in=settings.APPLICATION.get("GEOMETER_FORM_FIELDS", [])
+        ).values_list("value", flat=True)[0]
+
+        geometer_service_ids = settings.APPLICATION[
+            "LOCALIZED_GEOMETER_SERVICE_MAPPING"
+        ].get(geometer_answer, [])
+
+        # TODO: For geometers that have groups that have a subset of locations and a
+        # group without any location, are the groups containing the location to be preferred?
+        geometer_services = Service.objects.filter(
+            Q(groups__locations__in=[instance.location])
+            | Q(groups__locations__isnull=True),
+            pk__in=geometer_service_ids,
+        )[:1]
+
+        return flatten(
+            [self._get_responsible(instance, service) for service in geometer_services]
         )
 
     def _get_recipients_lisag(self, instance):
@@ -1402,6 +1430,35 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
                 for service in Service.objects.filter(pk__in=groups)
             ]
         )
+
+    def _get_recipients_involved_in_construction_step(self, instance):
+        work_item = self.validated_data.get("work_item")
+        case = self.validated_data.get("case")
+        if not settings.CONSTRUCTION_MONITORING or (
+            not work_item and not case
+        ):  # pragma: no cover
+            return []
+
+        key = work_item.task.pk if work_item else case.workflow.pk
+        service_ids = settings.CONSTRUCTION_MONITORING.get(
+            "NOTIFICATION_RECIPIENTS", {}
+        ).get(key)
+
+        return flatten(
+            [
+                self._get_responsible(instance, service)
+                for service in Service.objects.filter(pk__in=service_ids)
+            ]
+        )
+
+    def _get_recipients_tax_administration(self, instance):
+        service = Service.objects.filter(
+            pk=settings.APPLICATION.get("TAX_ADMINISTRATION")
+        ).first()
+        if service:
+            return self._get_responsible(instance, service)
+
+        return []  # pragma: no cover
 
     def _get_recipients_aib(self, instance):
         service = Service.objects.filter(name="aib").first()
