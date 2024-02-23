@@ -1,0 +1,84 @@
+# serializer version: 1
+# name: test_swagger_paths[demo]
+  list([
+    '/v1/attachment-sections',
+    '/v1/attachment-sections/{attachment_section_id}',
+    '/v1/attachments',
+    '/v1/attachments/files/',
+    '/v1/attachments/{attachment_id}',
+    '/v1/groups',
+    '/v1/groups/{group_id}',
+    '/v1/me',
+  ])
+# ---
+# name: test_swagger_paths[kt_bern]
+  list([
+    '/api/v1/attachment-sections',
+    '/api/v1/attachment-sections/{attachment_section_id}',
+    '/api/v1/attachments',
+    '/api/v1/attachments/files/',
+    '/api/v1/attachments/{attachment_id}',
+    '/api/v1/groups',
+    '/api/v1/groups/{group_id}',
+    '/api/v1/instances/{instance_id}/generate-pdf',
+    '/api/v1/me',
+    '/application/{instance_id}/',
+    '/applications',
+    '/message/',
+    '/send/',
+  ])
+# ---
+# name: test_swagger_paths[kt_gr]
+  list([
+    '/groups',
+    '/groups/{group_id}',
+    '/me',
+  ])
+# ---
+# name: test_swagger_paths[kt_schwyz]
+  list([
+    '/api/v1/attachment-sections',
+    '/api/v1/attachment-sections/{attachment_section_id}',
+    '/api/v1/attachments',
+    '/api/v1/attachments/files/',
+    '/api/v1/attachments/{attachment_id}',
+    '/api/v1/groups',
+    '/api/v1/groups/{group_id}',
+    '/api/v1/me',
+    '/application/{instance_id}/',
+    '/applications',
+    '/message/',
+  ])
+# ---
+# name: test_swagger_paths[kt_so]
+  list([
+    '/groups',
+    '/groups/{group_id}',
+    '/me',
+  ])
+# ---
+# name: test_swagger_paths[kt_uri]
+  list([
+    '/v1/attachment-sections',
+    '/v1/attachment-sections/{attachment_section_id}',
+    '/v1/attachments',
+    '/v1/attachments/files/',
+    '/v1/attachments/{attachment_id}',
+    '/v1/groups',
+    '/v1/groups/{group_id}',
+    '/v1/me',
+    '/v1/public-caluma-instances',
+  ])
+# ---
+# name: test_swagger_paths[test]
+  list([
+    '/v1/attachment-sections',
+    '/v1/attachment-sections/{attachment_section_id}',
+    '/v1/attachments',
+    '/v1/attachments/files/',
+    '/v1/attachments/{attachment_id}',
+    '/v1/groups',
+    '/v1/groups/{group_id}',
+    '/v1/me',
+  ])
+# ---

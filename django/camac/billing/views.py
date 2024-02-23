@@ -12,7 +12,6 @@ from camac.user.permissions import permission_aware
 
 
 class BillingV2EntryViewset(ModelViewSet, InstanceQuerysetMixin):
-    swagger_schema = None
     serializer_class = BillingV2EntrySerializer
     filterset_class = BillingV2EntryFilterSet
     queryset = BillingV2Entry.objects.all().order_by("organization", "pk")

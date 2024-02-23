@@ -720,6 +720,7 @@ APPLICATIONS = {
             "PROD_SUPPORT_GROUP_ID": 486,
         },
         "THUMBNAIL_SIZE": "x300",
+        "DOCUMENT_BACKEND": "camac-ng",
     },
     "kt_bern": {
         "SHORT_NAME": "be",
@@ -2331,6 +2332,7 @@ SWAGGER_SETTINGS = {
         "drf_yasg.inspectors.SimpleFieldInspector",
         "drf_yasg.inspectors.StringDefaultFieldInspector",
     ],
+    "DEFAULT_GENERATOR_CLASS": "camac.swagger.generators.OptInOpenAPISchemaGenerator",
 }
 
 # Schwyz Publication

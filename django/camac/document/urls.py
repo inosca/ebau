@@ -3,15 +3,6 @@ from rest_framework.routers import SimpleRouter
 
 from . import views
 
-
-class UnswaggeredAttachmentView(views.AttachmentView):
-    swagger_schema = None
-
-
-class UnswaggeredAttachmentSectionView(views.AttachmentSectionView):
-    swagger_schema = None
-
-
 r = SimpleRouter(trailing_slash=False)
 
 r.register(r"attachments", views.AttachmentView)

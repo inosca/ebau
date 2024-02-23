@@ -41,7 +41,6 @@ class PatchedSearch(MultilingualSearchFilter):
 
 
 class PatchedDocumentViewSet(views.DocumentViewSet):
-    swagger_schema = None
     permission_classes = [DefaultPermission | PublicationPermission]
     filter_backends = [
         PatchedSearch,
@@ -51,14 +50,12 @@ class PatchedDocumentViewSet(views.DocumentViewSet):
 
 
 class PatchedFileViewSet(views.FileViewSet):
-    swagger_schema = None
     permission_classes = [
         DefaultPermission | PublicationPermission | AlexandriaFileDownloadPermission
     ]
 
 
 class PatchedTagViewSet(views.TagViewSet):
-    swagger_schema = None
     filter_backends = [
         PatchedSearch,
         OrderingFilter,
@@ -67,8 +64,6 @@ class PatchedTagViewSet(views.TagViewSet):
 
 
 class PatchedCategoryViewSet(views.CategoryViewSet):
-    swagger_schema = None
-
     @action(methods=["get"], detail=True)
     def permissions(self, request, pk=None):
         instance_id = request.query_params.get("instance")
@@ -106,10 +101,5 @@ class PatchedCategoryViewSet(views.CategoryViewSet):
         )
 
 
-class PatchedTagSynonymGroupViewSet(views.TagSynonymGroupViewSet):
-    swagger_schema = None
-
-
 class PatchedMarkViewSet(views.MarkViewSet):
-    swagger_schema = None
     permission_classes = [DefaultPermission | PublicationPermission]

@@ -7,7 +7,6 @@ from . import filters, models, serializers
 
 
 class TagView(ReadOnlyModelViewSet):
-    swagger_schema = None
     serializer_class = serializers.TagSerializer
     filterset_class = filters.TagFilterSet
     search_fields = ("name",)
@@ -29,7 +28,6 @@ class TagView(ReadOnlyModelViewSet):
 
 
 class KeywordView(ModelViewSet, InstanceQuerysetMixin):
-    swagger_schema = None
     serializer_class = serializers.KeywordSerializer
     filterset_class = filters.KeywordFilterSet
     search_fields = ("name",)

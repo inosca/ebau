@@ -8,7 +8,6 @@ from . import filters, models, serializers
 
 
 class ObjectionTimeframeView(ModelViewSet):
-    swagger_schema = None
     serializer_class = serializers.ObjectionTimeframeSerializer
     filterset_class = filters.ObjectionTimeframeFilterSet
     queryset = models.ObjectionTimeframe.objects
@@ -47,7 +46,6 @@ class ObjectionTimeframeView(ModelViewSet):
 
 
 class ObjectionView(InstanceQuerysetMixin, ModelViewSet):
-    swagger_schema = None
     serializer_class = serializers.ObjectionSerializer
     filterset_class = filters.ObjectionFilterSet
     queryset = models.Objection.objects
@@ -104,7 +102,6 @@ class ObjectionView(InstanceQuerysetMixin, ModelViewSet):
 
 
 class ObjectionParticipantView(ModelViewSet):
-    swagger_schema = None
     serializer_class = serializers.ObjectionParticipantSerializer
     filterset_class = filters.ObjectionParticipantFilterSet
     queryset = models.ObjectionParticipant.objects

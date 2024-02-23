@@ -330,6 +330,24 @@ def set_application_so(settings):
 
 
 @pytest.fixture
+def set_application_test(settings):
+    application_dict = copy.deepcopy(settings.APPLICATIONS["test"])
+    settings.APPLICATION = application_dict
+    settings.APPLICATION_NAME = "test"
+    settings.INTERNAL_BASE_URL = "http://ember-ebau.local"
+    return application_dict
+
+
+@pytest.fixture
+def set_application_demo(settings):
+    application_dict = copy.deepcopy(settings.APPLICATIONS["demo"])
+    settings.APPLICATION = application_dict
+    settings.APPLICATION_NAME = "demo"
+    settings.INTERNAL_BASE_URL = "http://ember-ebau.local"
+    return application_dict
+
+
+@pytest.fixture
 def application_settings(settings):
     application_dict = copy.deepcopy(settings.APPLICATION)
     # settings fixture only restores per attribute
@@ -1764,6 +1782,7 @@ def construction_monitoring_initialized_case_sz(
     ).first()
     return stage.child_case
 
+
 @pytest.fixture
 def construction_monitoring_planned_case_sz(
     construction_monitoring_initialized_case_sz,
@@ -1773,10 +1792,12 @@ def construction_monitoring_planned_case_sz(
     plan_stage = construction_monitoring_initialized_case_sz.work_items.first()
     utils.add_answer(plan_stage.document, "construction-stage-name", "Test")
     utils.add_answer(
-    plan_stage.document, "construction-steps", ["construction-step-baubeginn"])
+        plan_stage.document, "construction-steps", ["construction-step-baubeginn"]
+    )
 
     complete_work_item(work_item=plan_stage, user=caluma_admin_user)
     return construction_monitoring_initialized_case_sz
+
 
 @pytest.fixture
 def construction_stage_factory_sz(

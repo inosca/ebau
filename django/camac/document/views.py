@@ -194,6 +194,10 @@ class AttachmentView(
     }
     ordering_fields = ("name", "date", "size")
 
+    @classmethod
+    def include_in_swagger(cls):
+        return settings.APPLICATION["DOCUMENT_BACKEND"] == "camac-ng"
+
     def has_object_destroy_permission(self, attachment):
         for section in attachment.attachment_sections.all():
             if not section.can_destroy(attachment, self.request.group):
@@ -303,6 +307,10 @@ class AttachmentDownloadView(
     # use empty serializer to avoid an exception on schema generation
     serializer_class = Serializer
     permission_classes = [DefaultPermission | PublicationPermission]
+
+    @classmethod
+    def include_in_swagger(cls):
+        return settings.APPLICATION["DOCUMENT_BACKEND"] == "camac-ng"
 
     def _create_history_entry(self, request, attachment):
         fields = {
@@ -418,6 +426,10 @@ class AttachmentSectionView(ReadOnlyModelViewSet):
     ordering = ("sort", "name")
     serializer_class = serializers.AttachmentSectionSerializer
 
+    @classmethod
+    def include_in_swagger(cls):
+        return settings.APPLICATION["DOCUMENT_BACKEND"] == "camac-ng"
+
     def get_queryset(self):
         if getattr(self, "swagger_fake_view", False):
             return models.AttachmentSection.objects.none()
@@ -446,7 +458,6 @@ class AttachmentSectionView(ReadOnlyModelViewSet):
 
 
 class TemplateView(ModelViewSet):
-    swagger_schema = None
     queryset = models.Template.objects
     filterset_class = filters.TemplateFilterSet
     serializer_class = serializers.TemplateSerializer
@@ -532,7 +543,6 @@ class TemplateView(ModelViewSet):
 
 
 class AttachmentDownloadHistoryView(ReadOnlyModelViewSet):
-    swagger_schema = None
     queryset = models.AttachmentDownloadHistory.objects.all()
     ordering_fields = ("date_time", "name")
     filterset_class = filters.AttachmentDownloadHistoryFilterSet
@@ -540,7 +550,6 @@ class AttachmentDownloadHistoryView(ReadOnlyModelViewSet):
 
 
 class AttachmentVersionView(ReadOnlyModelViewSet):
-    swagger_schema = None
     queryset = models.AttachmentVersion.objects.all()
     ordering_fields = ("created_at", "name")
     ordering = "-pk"
