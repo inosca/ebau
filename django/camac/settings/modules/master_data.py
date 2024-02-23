@@ -791,6 +791,11 @@ MASTER_DATA = {
                 "gemeinde",
                 {"value_parser": "dynamic_option", "prop": "label"},
             ),
+            "municipality_slug": (
+                "answer",
+                "gemeinde",
+                {"value_parser": "dynamic_option", "prop": "slug"},
+            ),
             "nature_risk": (
                 "table",
                 "beschreibung-der-prozessart-tabelle",
@@ -1623,6 +1628,11 @@ MASTER_DATA = {
                 "gemeinde",
                 {"value_parser": "dynamic_option", "prop": "label"},
             ),
+            "municipality_slug": (
+                "answer",
+                "gemeinde",
+                {"value_parser": "dynamic_option", "prop": "slug"},
+            ),
             "plot_data": (
                 "table",
                 "parzelle",
@@ -1844,6 +1854,11 @@ MASTER_DATA = {
                 "answer",
                 "gemeinde",
                 {"value_parser": "dynamic_option", "prop": "label"},
+            ),
+            "municipality_slug": (
+                "answer",
+                "gemeinde",
+                {"value_parser": "dynamic_option", "prop": "slug"},
             ),
             "plot_data": (
                 "table",
@@ -2160,6 +2175,11 @@ MASTER_DATA = {
                 "answer",
                 "gemeinde",
                 {"value_parser": "dynamic_option", "prop": "label"},
+            ),
+            "municipality_slug": (
+                "answer",
+                "gemeinde",
+                {"value_parser": "dynamic_option", "prop": "slug"},
             ),
             "dossier_number": ("case_meta", "dossier-number"),
             "plot_data": (

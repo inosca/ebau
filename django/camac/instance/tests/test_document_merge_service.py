@@ -282,6 +282,7 @@ def test_eingabebestaetigung_gr(
         service_group__name="municipality",
         trans__language="de",
         trans__name="Leitbehörde Chur",
+        logo=None,
     )
     group.service = municipality
     group.save()
