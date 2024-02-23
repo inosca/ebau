@@ -312,8 +312,7 @@
         "decision",
         "finished",
         "init-distribution",
-        "rejected",
-        "subm"
+        "rejected"
       ],
       "service-lead": ["circulation", "construction-acceptance", "decision"]
     }
