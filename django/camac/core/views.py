@@ -91,7 +91,6 @@ class MultilangMixin:
 
 
 class PublicationEntryView(ModelViewSet):
-    swagger_schema = None
     filterset_class = filters.PublicationEntryFilterSet
     serializer_class = serializers.PublicationEntrySerializer
     queryset = models.PublicationEntry.objects.all()
@@ -425,7 +424,6 @@ class SendfileHttpResponse(HttpResponse):
 class AuthorityView(ReadOnlyModelViewSet):
     """Only used in Kt. UR for 'Leitbehörde'."""
 
-    swagger_schema = None
     serializer_class = serializers.AuthoritySerializer
     queryset = models.Authority.objects.all()
 
@@ -433,14 +431,12 @@ class AuthorityView(ReadOnlyModelViewSet):
 class WorkflowEntryView(ReadOnlyModelViewSet, InstanceQuerysetMixin):
     """Only used in Kt. UR."""
 
-    swagger_schema = None
     serializer_class = serializers.WorkflowEntrySerializer
     queryset = models.WorkflowEntry.objects.all()
     filterset_class = filters.WorkflowEntryFilterSet
 
 
 class ResourceView(ReadOnlyModelViewSet):
-    swagger_schema = None
     serializer_class = serializers.ResourceSerializer
 
     def get_queryset(self):
@@ -450,7 +446,6 @@ class ResourceView(ReadOnlyModelViewSet):
 
 
 class InstanceResourceView(ReadOnlyModelViewSet):
-    swagger_schema = None
     serializer_class = serializers.InstanceResourceSerializer
     filterset_class = filters.InstanceResourceFilterSet
 
@@ -463,7 +458,6 @@ class InstanceResourceView(ReadOnlyModelViewSet):
 
 
 class StaticContentView(ModelViewSet):
-    swagger_schema = None
     filterset_class = filters.StaticContentFilterSet
     queryset = models.StaticContent.objects.all()
     serializer_class = serializers.StaticContentSerializer

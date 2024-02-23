@@ -5,11 +5,6 @@ from . import views
 from .export.views import InstanceExportView
 from .placeholders.views import DMSPlaceholdersDocsView
 
-
-class UnswaggeredInstanceView(views.InstanceView):
-    swagger_schema = None
-
-
 urlpatterns = [
     re_path(
         r"instances/export$",

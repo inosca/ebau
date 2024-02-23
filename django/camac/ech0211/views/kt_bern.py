@@ -32,6 +32,7 @@ class ApplicationView(ECHInstanceQuerysetMixin, RetrieveModelMixin, GenericViewS
     renderer_classes = (XMLRenderer,)
     queryset = Instance.objects
     instance_field = None
+    include_in_swagger = True
 
     @swagger_auto_schema(
         tags=["eCH-0211"],
@@ -71,6 +72,7 @@ class ApplicationsView(ECHInstanceQuerysetMixin, ListModelMixin, GenericViewSet)
     queryset = Instance.objects
     instance_field = None
     filter_backends = []
+    include_in_swagger = True
 
     def get_queryset(self, group=None):
         if getattr(self, "swagger_fake_view", False):  # pragma: no cover
@@ -101,7 +103,6 @@ last_param = openapi.Parameter(
 class EventView(ECHInstanceQuerysetMixin, GenericViewSet):
     instance_field = None
     queryset = Instance.objects
-    swagger_schema = None
     parser_classes = (JSONParser,)
     serializer_class = Serializer
 
@@ -135,6 +136,7 @@ class SendView(ECHInstanceQuerysetMixin, GenericViewSet):
     renderer_classes = (XMLRenderer,)
     parser_classes = (ECHXMLParser,)
     serializer_class = Serializer
+    include_in_swagger = True
 
     @swagger_auto_schema(
         tags=["eCH-0211"],

@@ -45,7 +45,6 @@ from .serializers import (
 class ClaimSummaryView(ListAPIView):
     renderer_classes = [JSONRenderer]
     filterset_class = ClaimSummaryFilterSet
-    swagger_schema = None
     queryset = Document.objects.filter(form_id="nfd-tabelle").exclude(
         answers__question_id="nfd-tabelle-status",
         answers__value="nfd-tabelle-status-entwurf",
@@ -72,7 +71,6 @@ class ClaimSummaryView(ListAPIView):
 class InstanceSummaryView(InstanceQuerysetMixin, ListAPIView):
     filterset_class = InstanceSummaryFilterSet
     renderer_classes = [JSONRenderer]
-    swagger_schema = None
     queryset = Instance.objects.all()
     serializer_class = InstanceSummarySerializer
     instance_field = None
@@ -83,7 +81,6 @@ class InstanceSummaryView(InstanceQuerysetMixin, ListAPIView):
 
 class InquiriesSummaryView(ListAPIView):
     renderer_classes = [JSONRenderer]
-    swagger_schema = None
     serializer_class = InquiriesSummarySerializer
 
     def get_base_queryset(self) -> QuerySet:
@@ -141,7 +138,6 @@ class InquiriesSummaryView(ListAPIView):
 class InstancesCycleTimesView(InstanceQuerysetMixin, ListAPIView):
     filterset_class = InstanceCycleTimeFilterSet
     renderer_classes = [JSONRenderer]
-    swagger_schema = None
     queryset = Instance.objects.filter(
         case__meta__has_keys=["total-cycle-time", "net-cycle-time"]
     ).filter(
