@@ -267,7 +267,6 @@ def test_eingabebestaetigung_gr(
     master_data_is_visible_mock,
     utils,
     gr_master_data_settings,
-    minio_mock,
 ):
     settings.APPLICATION_NAME = "kt_gr"
     application_settings["DOCUMENT_BACKEND"] = "alexandria"

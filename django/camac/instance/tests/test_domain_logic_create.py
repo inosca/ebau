@@ -16,7 +16,6 @@ def test_copy_attachments(
     db,
     instance_factory,
     application_settings,
-    minio_mock,
     instance_with_case,
     caluma_workflow_config_gr,
     skip_exported_form_attachment,
@@ -45,19 +44,22 @@ def test_copy_attachments(
     files = [FileFactory(document=doc) for doc in docs]
 
     assert Document.objects.count() == 2
-    assert File.objects.count() == 2
+    assert File.objects.filter(variant=File.Variant.ORIGINAL).count() == 2
 
     CreateInstanceLogic.copy_attachments(
         source_instance, target_instance, skip_exported_form_attachment
     )
 
     assert Document.objects.count() == 2 + expected_copies
-    assert File.objects.count() == 2 + expected_copies
+    assert (
+        File.objects.filter(variant=File.Variant.ORIGINAL).count()
+        == 2 + expected_copies
+    )
 
     new_document = (
         Document.objects.filter(title=docs[0].title).order_by("-created_at").first()
     )
-    new_file = new_document.files.first()
+    new_file = new_document.get_latest_original()
     old_file = files[0]
 
     assert new_document.metainfo["camac-instance-id"] == str(target_instance.pk)

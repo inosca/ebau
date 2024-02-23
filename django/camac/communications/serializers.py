@@ -473,7 +473,7 @@ class ConvertToDocumentSerializer(serializers.ModelSerializer):
             )
             try:
                 file.create_thumbnail()
-            except DjangoCoreValidationError:
+            except DjangoCoreValidationError:  # pragma: no cover
                 # thumbnail could not be generated because of an unsupported
                 # mime type
                 pass

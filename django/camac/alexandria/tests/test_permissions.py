@@ -354,9 +354,7 @@ def test_document_permission(
         ),
     ],
 )
-def test_file_permission(
-    db, role, minio_mock, admin_client, instance, access, method, status_code
-):
+def test_file_permission(db, role, admin_client, instance, access, method, status_code):
     alexandria_category = CategoryFactory(metainfo={"access": access})
     doc = DocumentFactory(
         title="Foo",
@@ -518,7 +516,6 @@ def test_nested_permission(db, role, applicant_factory, admin_client, instance):
 def test_patch_fields(
     db,
     role,
-    minio_mock,
     caluma_admin_user,
     applicant_factory,
     admin_client,
