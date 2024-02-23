@@ -107,7 +107,6 @@ def test_dms_placeholders_gr(
     responsible_service_factory,
     utils,
     gr_master_data_settings,
-    minio_mock,
 ):
     settings.DISTRIBUTION["QUESTIONS"]["STATEMENT"] = "inquiry-answer-statement"
     application_settings["MUNICIPALITY_DATA_SHEET"] = settings.ROOT_DIR(
@@ -287,7 +286,6 @@ def test_dms_placeholders_so(
     mocker,
     multilang,
     utils,
-    minio_mock,
 ):
     # Authority
     authority = service_factory(
