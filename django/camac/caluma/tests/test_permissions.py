@@ -46,6 +46,7 @@ from inflection import underscore
             False,
         ),
         ("addressed", {"name": "Bar"}, True),
+        ("addressed-not-manual", {"name": "Bar"}, False),
         ("addressed", {"description": "Error"}, True),
         ("addressed", {"deadline": "2022-11-15T23:00:00Z"}, True),
         (
@@ -71,19 +72,25 @@ def test_save_work_item_permission(
     service,
     be_instance,
     application_settings,
+    construction_monitoring_settings,
 ):
     work_item = work_item_factory(
         case=be_instance.case,
         name="Foo",
         description="Foo work item",
         created_by_group=str(service.pk) if involved_type == "creator" else None,
-        addressed_groups=[str(service.pk)] if involved_type == "addressed" else [],
+        addressed_groups=[str(service.pk)]
+        if involved_type in ["addressed", "addressed-not-manual"]
+        else [],
         controlling_groups=[str(service.pk)] if involved_type == "controller" else [],
         deadline="2022-11-10T00:00:00Z",
     )
 
     if involved_type == "creator":
         application_settings["CALUMA"]["MANUAL_WORK_ITEM_TASK"] = work_item.task_id
+
+    if involved_type == "addressed-not-manual":
+        construction_monitoring_settings["CONSTRUCTION_STAGE_TASK"] = work_item.task_id
 
     mutation = """
         mutation($input: SaveWorkItemInput!) {
@@ -608,3 +615,45 @@ def test_coordination_services(
 
     assert work_item.deadline is not None
     assert result.errors is None
+
+
+@pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.parametrize(
+    "involved_type,task_id,can_create",
+    [
+        ("addressed", "create-manual-workitems", True),
+        (None, "create-manual-workitems", True),
+        ("addressed", "construction-stage", True),
+        (None, "construction-stage", False),
+    ],
+)
+def test_create_work_item_permission(
+    caluma_admin_schema_executor,
+    involved_type,
+    sz_instance,
+    task_id,
+    construction_monitoring_initialized_case_sz,
+    construction_monitoring_settings,
+    service_factory,
+    caluma_admin_user,
+    can_create,
+):
+    case = sz_instance.case
+
+    if not involved_type == "addressed":
+        caluma_admin_user.group = service_factory()
+
+    variables = {"input": {"case": str(case.pk), "multipleInstanceTask": task_id}}
+
+    result = caluma_admin_schema_executor(
+        """
+        mutation createWorkItem($input: CreateWorkItemInput!) {
+            createWorkItem(input: $input) {
+                clientMutationId
+            }
+        }
+        """,
+        variables=variables,
+    )
+
+    assert not result.errors if can_create else result.errors

@@ -1,5 +1,8 @@
-mutation CompleteWorkItem($id: ID!) {
-  completeWorkItem(input: { id: $id }) {
+mutation CompleteWorkItem($id: ID!, $context: JSONString) {
+  completeWorkItem(input: { id: $id, context: $context }) {
     clientMutationId
+    workItem {
+      id
+    }
   }
 }

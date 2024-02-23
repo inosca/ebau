@@ -9,6 +9,7 @@ from caluma.caluma_core.permissions import (
     object_permission_for,
     permission_for,
 )
+from caluma.caluma_core.relay import extract_global_id
 from caluma.caluma_form.models import Document
 from caluma.caluma_form.schema import (
     CopyDocument,
@@ -19,6 +20,7 @@ from caluma.caluma_form.schema import (
 )
 from caluma.caluma_workflow.models import Case, WorkItem
 from caluma.caluma_workflow.schema import (
+    CancelCase,
     CancelWorkItem,
     CompleteWorkItem,
     CreateWorkItem,
@@ -31,6 +33,7 @@ from caluma.caluma_workflow.schema import (
     SuspendCase,
 )
 from django.conf import settings
+from django.db.models import Q
 from inflection import underscore
 
 from camac.caluma.utils import CamacRequest
@@ -179,8 +182,21 @@ class CustomPermission(BasePermission):
     def has_permission_for_save_case(
         self, mutation, info, case=None
     ):  # pragma: todo cover
-        # Visibilty handles whether the user has access to the case
         return True
+
+    # Case
+    @permission_for(CancelCase)
+    @object_permission_for(CancelCase)
+    def has_permission_for_cancel_case(
+        self, mutation, info, case=None
+    ):  # pragma: todo cover
+        if not case or self.has_camac_role("support"):
+            return True
+
+        if settings.CONSTRUCTION_MONITORING and case.workflow_id == settings.CONSTRUCTION_MONITORING["CONSTRUCTION_STAGE_WORKFLOW"]:
+            return is_addressed_to_service(case.parent_work_item,  get_current_service_id(info))
+
+        return False
 
     @permission_for(SuspendCase)
     @permission_for(ResumeCase)
@@ -201,7 +217,26 @@ class CustomPermission(BasePermission):
     def has_permission_for_create_work_item(self, mutation, info):  # pragma: todo cover
         # Visibilty handles whether the user has access to the case on which
         # the work item is created
-        return True
+
+        # In addition, only allow creation if there is a ready multiple-instance work-item
+        # addressed to the service of the request. In case of manual work-items, it checks
+        # for the dummy work-item with no addressed groups.
+        input = mutation.get_params(info).get("input", {})
+        task_id = input.get("multiple_instance_task")
+        case = input.get("case")
+        case_id = extract_global_id(case)
+
+        service = get_current_service_id(info)
+        queryset = WorkItem.objects.filter(
+            Q(addressed_groups__len=0)
+            if task_id == settings.APPLICATION["CALUMA"].get("MANUAL_WORK_ITEM_TASK", None)
+            else Q(addressed_groups__contains=[str(service)]),
+            task_id=task_id,
+            case_id=case_id,
+            status=WorkItem.STATUS_READY,
+        )
+
+        return queryset.exists()
 
     @permission_for(SaveWorkItem)
     @object_permission_for(SaveWorkItem)
@@ -247,6 +282,13 @@ class CustomPermission(BasePermission):
             "deadline": is_controller or is_coordination,
             "meta": is_addressed or is_controller,
         }
+
+        if settings.CONSTRUCTION_MONITORING:
+            permissions_for_key["name"] = (
+                is_addressed
+                and work_item.task_id
+                == settings.CONSTRUCTION_MONITORING["CONSTRUCTION_STAGE_TASK"]
+            )
 
         return all(
             [
@@ -462,7 +504,9 @@ class CustomPermission(BasePermission):
 
     @permission_aware
     def has_caluma_form_edit_permission(self, document, info):
-        return is_addressed_to_applicant(document.family.work_item)
+        work_item = document.family.work_item
+
+        return is_addressed_to_applicant(work_item) and work_item.status == WorkItem.STATUS_READY
 
     def has_caluma_form_edit_permission_for_municipality(self, document, info):
         work_item = document.family.work_item

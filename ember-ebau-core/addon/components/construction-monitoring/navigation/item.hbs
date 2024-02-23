@@ -1,0 +1,20 @@
+{{#let @itemTab as |itemTab|}} 
+    <itemTab.item
+        @href={{module-route "construction-monitoring" "construction-stage.construction-step" models=(array (decode-id @constructionStage.id) @constructionStep.id) asURL=true}}
+        @linkToIndex={{true}}
+    >
+        <span
+            class="uk-width-expand uk-text-truncate"
+            title={{t (concat "construction-monitoring.construction-step." @constructionStep.id)}}
+        >
+            {{t (concat "construction-monitoring.construction-step." @constructionStep.id)}}
+        </span>
+        {{#if this.status}}
+            <UkIcon
+                @icon={{this.status.icon}}
+                class="uk-text-{{this.status.color}}"
+                {{uk-tooltip this.status.label}}
+            />
+        {{/if}}
+    </itemTab.item>
+{{/let}}

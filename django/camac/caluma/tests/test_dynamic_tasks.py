@@ -452,3 +452,111 @@ def test_dynamic_task_after_check_sb2(
         )
         == expected_tasks
     )
+
+
+@pytest.mark.parametrize(
+    "needs_approval,is_approved,previous_task,selected_steps,expected_tasks",
+    [
+        (
+            True,
+            True,
+            "construction-step-baufreigabe",
+            [
+                "construction-step-baufreigabe",
+                "construction-step-kanalisationsabnahme",
+                "construction-step-schnurgeruestabnahme",
+            ],
+            {
+                "construction-step-kanalisationsabnahme-melden",
+                "construction-step-schnurgeruestabnahme-melden",
+            },
+        ),
+        (
+            True,
+            False,
+            "construction-step-schnurgeruest-kontrollieren",
+            [
+                "construction-step-schnurgeruestabnahme",
+            ],
+            {
+                "construction-step-schnurgeruestabnahme-melden",
+            },
+        ),
+        (
+            False,
+            False,
+            "construction-step-baubeginn-melden",
+            [
+                "construction-step-baubeginn",
+                "construction-step-rohbauabnahme",
+            ],
+            {
+                "construction-step-rohbauabnahme-melden",
+            },
+        ),
+        (
+            True,
+            True,
+            "construction-step-baufreigabe",
+            [
+                "construction-step-baufreigabe",
+                "construction-step-schlussabnahme-gebaeude",
+                "construction-step-schlussabnahme-projekt",
+            ],
+            {
+                "construction-step-schlussabnahme-gebaeude-melden",
+            },
+        ),
+        (
+            True,
+            True,
+            "construction-step-baufreigabe",
+            [
+                "construction-step-baufreigabe",
+            ],
+            set(),
+        ),
+    ],
+)
+def test_dynamic_task_after_construction_step(
+    db,
+    caluma_admin_user,
+    previous_task,
+    expected_tasks,
+    selected_steps,
+    needs_approval,
+    is_approved,
+    sz_construction_monitoring_settings,
+    construction_monitoring_initialized_case_sz,
+    sz_instance,
+    utils,
+):
+    plan_stage = construction_monitoring_initialized_case_sz.work_items.first()
+    utils.add_answer(plan_stage.document, "construction-stage-name", "Test")
+    utils.add_answer(plan_stage.document, "construction-steps", selected_steps)
+    complete_work_item(work_item=plan_stage, user=caluma_admin_user)
+
+    previous_work_items = construction_monitoring_initialized_case_sz.work_items.filter(
+        status=WorkItem.STATUS_READY
+    )
+    previous_work_item = previous_work_items.first()
+    while previous_work_item.task_id != previous_task:
+        previous_work_item.document.form.questions.update(is_required="False")
+        complete_work_item(work_item=previous_work_item, user=caluma_admin_user)
+        previous_work_item = previous_work_items.first()
+
+    if needs_approval:
+        question = previous_work_item.meta["construction-step"]["needs-approval"]
+        answer = f"{question}-yes" if is_approved else f"{question}-no"
+        utils.add_answer(previous_work_item.document, question, answer)
+
+    tasks = set(
+        CustomDynamicTasks().resolve_after_construction_step(
+            construction_monitoring_initialized_case_sz,
+            caluma_admin_user,
+            previous_work_item,
+            None,
+        )
+    )
+
+    assert tasks == expected_tasks

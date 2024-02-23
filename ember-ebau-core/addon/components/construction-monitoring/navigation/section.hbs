@@ -1,0 +1,41 @@
+{{#let @sectionTab as |sectionTab|}}
+    <sectionTab.item
+        class="{{if this.isActive "uk-text-bold"}} uk-width-1-1"
+        @href={{module-route "construction-monitoring" "construction-stage" models=(array (decode-id @constructionStage.id)) asURL=true}}
+        @linkToIndex={{true}}
+    >
+        <a href="" {{on "click" this.toggle}} class="uk-link-reset uk-width-expand uk-flex uk-flex-inline">
+            <div
+                class="uk-margin-small-right uk-width-expand uk-text-truncate"
+                title={{@constructionStage.displayName}}
+            >
+                {{@constructionStage.displayName}}
+            </div>
+            {{#if this.expanded}}
+                <UkIcon @icon="chevron-down" class="uk-width-auto" />
+            {{else}}
+                <UkIcon @icon="chevron-right" class="uk-width-auto"/>
+            {{/if}}
+        </a>
+        {{#if this.status}}
+            <UkIcon
+                @icon={{this.status.icon}}
+                class="uk-text-{{this.status.color}}"
+                {{uk-tooltip this.status.label}}
+            />
+        {{/if}}
+
+    </sectionTab.item>
+
+    {{#if this.expanded}}
+        <UkTab class="uk-margin-left uk-margin-remove-top uk-width-auto" @left={{true}} as |itemTab|>
+            {{#each @constructionStage.constructionSteps as |constructionStep|}}
+                <ConstructionMonitoring::Navigation::Item
+                    @constructionStage={{@constructionStage}}
+                    @constructionStep={{constructionStep}}
+                    @itemTab={{itemTab}}
+                />
+            {{/each}}
+        </UkTab>
+    {{/if}}
+ {{/let}}

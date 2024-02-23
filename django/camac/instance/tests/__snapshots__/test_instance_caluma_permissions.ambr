@@ -7417,11 +7417,29 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_sz[Fachstelle-internal-200-instance__user0]
+# name: test_instance_permissions_sz[Fachstelle-construction-monitoring-200-instance__user0]
   dict({
     'bauverwaltung': list([
       'read',
     ]),
+  })
+# ---
+# name: test_instance_permissions_sz[Fachstelle-done-200-instance__user0]
+  dict({
+    'bauverwaltung': list([
+      'read',
+    ]),
+  })
+# ---
+# name: test_instance_permissions_sz[Fachstelle-instance-completed-200-instance__user0]
+  dict({
+    'bauverwaltung': list([
+      'read',
+    ]),
+  })
+# ---
+# name: test_instance_permissions_sz[Fachstelle-internal-200-instance__user0]
+  dict({
     'main': list([
       'read',
       'write',
@@ -7462,7 +7480,7 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_sz[Gemeinde-internal-200-instance__user0]
+# name: test_instance_permissions_sz[Gemeinde-construction-monitoring-200-instance__user0]
   dict({
     'bauverwaltung': list([
       'read',
@@ -7474,11 +7492,38 @@
     ]),
   })
 # ---
-# name: test_instance_permissions_sz[Gemeinde-new-200-instance__user0]
+# name: test_instance_permissions_sz[Gemeinde-done-200-instance__user0]
+  dict({
+    'bauverwaltung': list([
+      'read',
+      'write',
+    ]),
+    'main': list([
+      'read',
+      'write',
+    ]),
+  })
+# ---
+# name: test_instance_permissions_sz[Gemeinde-instance-completed-200-instance__user0]
   dict({
     'bauverwaltung': list([
       'read',
     ]),
+    'main': list([
+      'read',
+    ]),
+  })
+# ---
+# name: test_instance_permissions_sz[Gemeinde-internal-200-instance__user0]
+  dict({
+    'main': list([
+      'read',
+      'write',
+    ]),
+  })
+# ---
+# name: test_instance_permissions_sz[Gemeinde-new-200-instance__user0]
+  dict({
     'main': list([
       'read',
     ]),

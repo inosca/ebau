@@ -48,7 +48,7 @@ def test_bad_file_format_dossier_xlsx(db, user, settings, config, make_dossier_w
 @pytest.mark.parametrize(
     "config,camac_instance",
     [
-        ("kt_schwyz", lazy_fixture("sz_instance")),
+        ("kt_schwyz", lazy_fixture("sz_instance_with_form")),
         ("kt_bern", lazy_fixture("be_instance")),
     ],
 )
@@ -67,6 +67,7 @@ def test_create_instance_dossier_import_case(
     admin_user,
     group,
     be_decision_settings,
+    sz_construction_monitoring_settings,
 ):
     # The test import file features faulty lines for cov
     # - 3 lines with good data (1 without documents directory)
@@ -112,6 +113,7 @@ def test_create_instance_dossier_import_case(
     assert deletion[1]["instance.Instance"] == 4
 
 
+# TODO: Check instance state skipping for dossier-import
 @pytest.mark.parametrize(
     "target_state,expected_work_items_states,expected_case_status",
     [
@@ -152,6 +154,8 @@ def test_create_instance_dossier_import_case(
                 ("distribution", "skipped"),
                 ("depreciate-case", "skipped"),
                 ("make-decision", "skipped"),
+                ("init-construction-monitoring", "skipped"),
+                ("complete-instance", "skipped"),
                 ("archive-instance", "skipped"),
             ],
             "completed",
@@ -160,11 +164,12 @@ def test_create_instance_dossier_import_case(
 )
 def test_set_workflow_state_sz(
     db,
-    sz_instance,
+    sz_instance_with_form,
     make_dossier_writer,
     target_state,
     expected_work_items_states,
     expected_case_status,
+    sz_construction_monitoring_settings,
 ):
     # This test skips instance creation where the instance's instance_state is set to the correct
     # state.
@@ -172,12 +177,13 @@ def test_set_workflow_state_sz(
     writer = make_dossier_writer(
         "kt_schwyz",
     )
-    writer._set_workflow_state(sz_instance, target_state)
+    writer._set_workflow_state(sz_instance_with_form, target_state)
     for task_id, expected_status in expected_work_items_states:
         assert (
-            sz_instance.case.work_items.get(task_id=task_id).status == expected_status
+            sz_instance_with_form.case.work_items.get(task_id=task_id).status
+            == expected_status
         )
-    assert sz_instance.case.status == expected_case_status
+    assert sz_instance_with_form.case.status == expected_case_status
 
 
 @pytest.mark.parametrize(

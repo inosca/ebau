@@ -13,6 +13,7 @@ import pytest
 import urllib3
 from alexandria.storages.backends.s3 import SsecGlobalS3Storage
 from caluma.caluma_core.faker import MultilangProvider
+from caluma.caluma_core.relay import extract_global_id
 from caluma.caluma_form import (
     factories as caluma_form_factories,
     models as caluma_form_models,
@@ -23,6 +24,8 @@ from caluma.caluma_workflow import (
     factories as caluma_workflow_factories,
     models as caluma_workflow_models,
 )
+from caluma.caluma_workflow.api import complete_work_item, skip_work_item
+from deepmerge import always_merger
 from django.conf import settings
 from django.core.cache import cache
 from django.core.management import call_command
@@ -61,6 +64,7 @@ from camac.notification.serializers import (
 from camac.objection import factories as objection_factories
 from camac.permissions import factories as permissions_factories
 from camac.responsible import factories as responsible_factories
+from camac.settings.modules.construction_monitoring import CONSTRUCTION_MONITORING
 from camac.settings.testing import *  # noqa F403, F401
 from camac.tags import factories as tags_factories
 from camac.urls import urlpatterns as app_patterns
@@ -637,6 +641,10 @@ def caluma_workflow_config_sz(db, caluma_config_sz):
         "loaddata",
         settings.ROOT_DIR("kt_schwyz/config/caluma_workflow.json"),
         settings.ROOT_DIR("kt_schwyz/config/caluma_distribution.json"),
+        settings.ROOT_DIR(
+            "kt_schwyz/config/caluma_construction_monitoring_workflow.json"
+        ),
+        settings.ROOT_DIR("kt_schwyz/config/caluma_construction_monitoring_form.json"),
     )
 
     yield caluma_workflow_models.Workflow.objects.all()
@@ -1003,6 +1011,13 @@ def sz_instance(instance, caluma_workflow_config_sz, instance_with_case):
 
 
 @pytest.fixture
+def sz_instance_with_form(sz_instance, form_factory):
+    form = form_factory(name="baugesuch-reklamegesuch")
+    sz_instance.form = form_factory(name="baugesuch-reklamegesuch-v2", family=form)
+    return sz_instance
+
+
+@pytest.fixture
 def ur_instance(instance, caluma_workflow_config_ur, instance_with_case):
     return instance_with_case(instance)
 
@@ -1173,6 +1188,24 @@ def decision_factory(be_instance, document_factory, work_item_factory):
         return work_item
 
     return factory
+
+
+@pytest.fixture
+def construction_monitoring_settings(settings):
+    construction_monitoring_dict = copy.deepcopy(CONSTRUCTION_MONITORING["default"])
+    settings.CONSTRUCTION_MONITORING = construction_monitoring_dict
+    return construction_monitoring_dict
+
+
+@pytest.fixture
+def sz_construction_monitoring_settings(settings, construction_monitoring_settings):
+    construction_monitoring_dict = copy.deepcopy(
+        always_merger.merge(
+            construction_monitoring_settings, CONSTRUCTION_MONITORING["kt_schwyz"]
+        )
+    )
+    settings.CONSTRUCTION_MONITORING = construction_monitoring_dict
+    return construction_monitoring_dict
 
 
 @pytest.fixture
@@ -1680,3 +1713,106 @@ def _default_file_storage_backend(settings):
     settings.DEFAULT_FILE_STORAGE = "django.core.files.storage.FileSystemStorage"
     settings.ALEXANDRIA_FILE_STORAGE = "django.core.files.storage.FileSystemStorage"
     settings.ALEXANDRIA_ENABLE_AT_REST_ENCRYPTION = False
+
+
+@pytest.fixture
+def construction_monitoring_case_sz(
+    sz_instance_with_form,
+    caluma_admin_user,
+    instance_state_factory,
+    notification_template_factory,
+    form_factory,
+    sz_construction_monitoring_settings,
+):
+    notification_template_factory(slug="einladung-zur-stellungnahme")
+    notification_template_factory(slug="complete-construction-step-schlussabnahme")
+
+    instance_state_factory(name="circ")
+    instance_state_factory(name="redac")
+    instance_state_factory(name="done")
+    instance_state_factory(name="construction-monitoring")
+
+    case = sz_instance_with_form.case
+
+    for task in ["submit", "complete-check", "distribution", "make-decision"]:
+        skip_work_item(
+            work_item=case.work_items.get(task_id=task), user=caluma_admin_user
+        )
+
+    return case
+
+
+@pytest.fixture
+def construction_monitoring_initialized_case_sz(
+    construction_monitoring_case_sz,
+    sz_instance,
+    sz_construction_monitoring_settings,
+    caluma_admin_user,
+):
+    case = sz_instance.case
+    complete_work_item(
+        work_item=case.work_items.get(
+            task_id=sz_construction_monitoring_settings[
+                "INIT_CONSTRUCTION_MONITORING_TASK"
+            ],
+        ),
+        user=caluma_admin_user,
+    )
+
+    stage = case.work_items.filter(
+        task_id=sz_construction_monitoring_settings["CONSTRUCTION_STAGE_TASK"]
+    ).first()
+    return stage.child_case
+
+@pytest.fixture
+def construction_monitoring_planned_case_sz(
+    construction_monitoring_initialized_case_sz,
+    caluma_admin_user,
+    utils,
+):
+    plan_stage = construction_monitoring_initialized_case_sz.work_items.first()
+    utils.add_answer(plan_stage.document, "construction-stage-name", "Test")
+    utils.add_answer(
+    plan_stage.document, "construction-steps", ["construction-step-baubeginn"])
+
+    complete_work_item(work_item=plan_stage, user=caluma_admin_user)
+    return construction_monitoring_initialized_case_sz
+
+@pytest.fixture
+def construction_stage_factory_sz(
+    construction_monitoring_initialized_case_sz,
+    sz_construction_monitoring_settings,
+    caluma_admin_user,
+    caluma_admin_schema_executor,
+):
+    def factory(case=construction_monitoring_initialized_case_sz):
+        variables = {
+            "input": {
+                "case": str(case.pk),
+                "multipleInstanceTask": sz_construction_monitoring_settings[
+                    "CONSTRUCTION_STAGE_TASK"
+                ],
+            }
+        }
+
+        result = caluma_admin_schema_executor(
+            """
+            mutation createWorkItem($input: CreateWorkItemInput!) {
+                createWorkItem(input: $input) {
+                    clientMutationId
+                    workItem {
+                        id
+                    }
+                }
+            }
+            """,
+            variables=variables,
+        )
+
+        construction_stage = case.work_items.get(
+            pk=extract_global_id(result.data["createWorkItem"]["workItem"]["id"])
+        )
+
+        return construction_stage
+
+    return factory
