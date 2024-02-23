@@ -134,6 +134,7 @@ def test_decision_formatter(
     expected_decision,
     expected_state,
     caluma_admin_user,
+    construction_monitoring_settings,
 ):
     call_command("loaddata", "/app/kt_schwyz/config/instance.json")
 

@@ -192,6 +192,10 @@ export default class CustomWorkItemModel extends WorkItemModel {
       .filter(Boolean)
       .find((workItem) => workItem.task.slug === "inquiry");
 
+    const constructionStepWorkItem = [this.raw, this.raw.case.parentWorkItem]
+      .filter(Boolean)
+      .find((workItem) => workItem.meta["construction-step-id"]);
+
     if (distributionWorkItem) {
       map = {
         ...map,
@@ -205,6 +209,17 @@ export default class CustomWorkItemModel extends WorkItemModel {
         INQUIRY_UUID: decodeId(inquiryWorkItem.id),
         INQUIRY_ADDRESSED: inquiryWorkItem.addressedGroups[0],
         INQUIRY_CONTROLLING: inquiryWorkItem.controllingGroups[0],
+      };
+    }
+
+    if (constructionStepWorkItem) {
+      map = {
+        ...map,
+        CONSTRUCTION_STAGE_UUID: decodeId(
+          constructionStepWorkItem.case.parentWorkItem.id,
+        ),
+        CONSTRUCTION_STEP_ID:
+          constructionStepWorkItem.meta["construction-step-id"],
       };
     }
 
@@ -244,16 +259,30 @@ export default class CustomWorkItemModel extends WorkItemModel {
       .filter(Boolean)
       .find((workItem) => workItem.task.slug === "inquiry");
 
-    if (!inquiryWorkItem) {
-      return {};
+    if (inquiryWorkItem) {
+      return {
+        INQUIRY_UUID: decodeId(inquiryWorkItem.id),
+        INQUIRY_ADDRESSED: inquiryWorkItem.addressedGroups[0],
+        INQUIRY_CONTROLLING: inquiryWorkItem.controllingGroups[0],
+        DISTRIBUTION_CASE_UUID: decodeId(inquiryWorkItem.case.id),
+      };
     }
 
-    return {
-      INQUIRY_UUID: decodeId(inquiryWorkItem.id),
-      INQUIRY_ADDRESSED: inquiryWorkItem.addressedGroups[0],
-      INQUIRY_CONTROLLING: inquiryWorkItem.controllingGroups[0],
-      DISTRIBUTION_CASE_UUID: decodeId(inquiryWorkItem.case.id),
-    };
+    const constructionStepWorkItem = [this.raw, this.raw.case.parentWorkItem]
+      .filter(Boolean)
+      .find((workItem) => workItem.meta?.["construction-step-id"]);
+
+    if (constructionStepWorkItem) {
+      return {
+        CONSTRUCTION_STAGE_UUID: decodeId(
+          constructionStepWorkItem.case.parentWorkItem.id,
+        ),
+        CONSTRUCTION_STEP_ID:
+          constructionStepWorkItem.meta["construction-step-id"],
+      };
+    }
+
+    return {};
   }
 
   _getDirectLinkFor(configKey) {

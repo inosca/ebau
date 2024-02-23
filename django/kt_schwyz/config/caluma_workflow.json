@@ -9,7 +9,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "['archive-instance']|tasks"
+      "next": "['after-make-decision']|tasks"
     }
   },
   {

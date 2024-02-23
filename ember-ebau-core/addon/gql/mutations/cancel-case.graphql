@@ -1,0 +1,7 @@
+mutation cancelCase($input: CancelCaseInput!) {
+  cancelCase(
+    input: $input
+  ) {
+    clientMutationId
+  }
+}

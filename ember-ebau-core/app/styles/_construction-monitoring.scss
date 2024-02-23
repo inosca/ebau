@@ -1,0 +1,128 @@
+@import "ember-uikit/variables-theme";
+
+$custom-muted-color-dark: #{darken($global-muted-background, 15%)};
+$custom-muted-color-light: #{darken($global-muted-background, 5%)};
+
+#construction-monitoring {
+  .construction-monitoring__index-icon-background {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    color: white;
+    background-color: rgb(240, 240, 240);
+    @extend .uk-padding-small;
+
+    svg {
+      max-width: 100%;
+      height: auto;
+      box-sizing: border-box;
+    }
+  }
+
+  .uk-disabled, :disabled {
+    background-color: rgb(250, 250, 250);
+  }
+
+  .uk-form-controls {
+    .uk-input, .uk-textarea, .uk-radio, .uk-select, .uk-checkbox, .uk-range, label, .uk-form-label {
+      font-size: $global-medium-font-size;
+    }
+  }
+
+  .uk-card.uk-card-body {
+    border: 1px solid rgb(240, 240, 240);
+  }
+}
+
+// fix nested containers, which removes padding
+.uk-container #construction-monitoring .uk-container {
+  padding-left: 40px !important;
+  padding-right: 40px !important;
+}
+
+.construction-stage {
+  &__header-label {
+    &--muted {
+      background-color: $custom-muted-color-light;
+      color: $text-muted-color;
+    }
+  }
+}
+
+.construction-step__work-item__header {
+    border-left: 4px solid $custom-muted-color-dark;
+    padding-left: 40px;
+    margin-left: -40px;
+    margin-top: -5px;
+    padding-top: 5px; 
+    margin-bottom: -10px;
+    padding-bottom: 10px;
+
+    &--active {
+      border-left: 4px solid $global-primary-background;
+    }
+
+    .uk-badge {
+      background-color: $custom-muted-color-light;
+    }
+}
+
+.construction-step__work-item__info {
+  background-color: $custom-muted-color-light;
+}
+
+$size: 36px;
+$iconSize: $size * 0.6;
+$sizeCompleted: $size - 2; 
+$sizeSmall: 32px;
+$iconSizeSmall: $sizeSmall * 0.6;
+$colors: (
+  muted: $custom-muted-color-dark,
+  emphasis: $text-emphasis-color,
+  success: $text-success-color,
+  danger: $text-danger-color,
+  warning: $text-warning-color,
+);
+
+.construction-step__work-item-divider {
+
+  position: relative;
+  z-index: 1;
+
+  &__connector {
+    @extend .uk-margin-auto;
+    
+    height: 10px;
+    width: 2px;
+  }
+  
+  &__icon {
+    @extend .uk-flex, .uk-flex-center, .uk-flex-middle, .uk-margin-auto;
+    
+    width: $size;
+    height: $size;
+    border-radius: 50%;
+    border-width: 2px;
+    border-style: solid;
+    margin-bottom: -21px;
+    background-color: #ffffff;
+
+    &__highlight-approval {
+        border-width: 3px;
+        width: $sizeCompleted;
+        height: $sizeCompleted;
+    }
+  }
+  
+  @each $colorName, $color in $colors {
+    &.uk-text-#{$colorName} {
+      > .construction-step__work-item-divider__icon {
+        border-color: $color;
+      }
+
+      > .construction-step__work-item-divider__connector {
+        background-color: $color;
+      }
+    }
+  }
+}

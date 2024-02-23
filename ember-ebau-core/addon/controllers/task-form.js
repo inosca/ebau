@@ -32,6 +32,7 @@ export default class TaskFormController extends Controller {
         "material-exam",
         "construction-acceptance",
         "geometer",
+        "complete-instance",
       ].includes(this.model)
     ) {
       this.ebauModules.redirectToWorkItems();

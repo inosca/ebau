@@ -1,0 +1,47 @@
+query Controls(
+  $initTask: ID!
+  $completeTask: ID!
+  $instanceId: GenericScalar!
+  $currentGroup: String!
+) {
+  init: allWorkItems(
+    filter: [
+      { rootCaseMetaValue: { key: "camac-instance-id", value: $instanceId } }
+      { task: $initTask }
+      { status: CANCELED, invert: true }
+      { status: SKIPPED, invert: true }
+      { status: SUSPENDED, invert: true }
+      { status: REDO, invert: true }
+      { addressedGroups: [$currentGroup] }
+    ]
+    first: 1
+  ) {
+    edges {
+      node {
+        id
+        status
+        addressedGroups
+      }
+    }
+  }
+  complete: allWorkItems(
+    filter: [
+      { rootCaseMetaValue: { key: "camac-instance-id", value: $instanceId } }
+      { task: $completeTask }
+      { status: CANCELED, invert: true }
+      { status: SKIPPED, invert: true }
+      { status: SUSPENDED, invert: true }
+      { status: REDO, invert: true }
+      { addressedGroups: [$currentGroup] }
+    ]
+    first: 1
+  ) {
+    edges {
+      node {
+        id
+        status
+        addressedGroups
+      }
+    }
+  }
+}
