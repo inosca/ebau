@@ -3,7 +3,7 @@ caluma==9.3.3
 caluma-alexandria==3.0.0-beta.11
 dataclasses-json==0.5.7
 deepmerge==1.0.1
-Django==3.2.23
+Django==3.2.24
 django-admin-sortable2==1.0.4
 django-clamd==0.4.0
 django-environ==0.10.0
@@ -13,7 +13,7 @@ django-filter==23.5
 django-generic-api-permissions==0.4.2
 django-json-widget==1.1.1
 django-q==1.3.9
-django-reversion==5.0.10
+django-reversion==5.0.12
 djangorestframework==3.14.0
 djangorestframework-jsonapi==6.1.0
 djangorestframework-xml==2.0.0
@@ -51,7 +51,7 @@ sorl-thumbnail==12.9.0
 tabulate==0.8.10
 tqdm==4.66.1
 urllib3==1.26.18
-uWSGI==2.0.23
+uWSGI==2.0.24
 WsgiDAV==4.2.0
 whitenoise==6.2.0
 xmlschema==2.0.4
