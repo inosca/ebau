@@ -424,7 +424,7 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Sofern die Nachforderung vollst\\u00e4ndig beantwortet wurde, wird die aktuelle Nachforderungs-Anfrage abgeschlossen. Weil noch zus\\u00e4tzliche oder weitere Unterlagen notwendig sind, kann die Nachforderung als unvollst\\u00e4ndig beantwortet werden. Sodass kann eine weitere Nachforderung an den Gesuchsteller formuliert werden.\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
