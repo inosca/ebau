@@ -51,7 +51,7 @@ def generate_module_test_settings(module_name, cantons=[]):
         setattr(sys.modules[__name__], scoped_fixture_name, generate(canton=canton))
 
 
-generate_module_test_settings("appeal", ["kt_bern"])
+generate_module_test_settings("appeal", ["kt_bern", "kt_so"])
 generate_module_test_settings(
     "distribution", ["kt_bern", "kt_schwyz", "kt_gr", "kt_so"]
 )

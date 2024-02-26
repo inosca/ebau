@@ -69,6 +69,7 @@ const config = {
     answerSlugs: {
       decision: "entscheid-entscheid",
       remarks: "entscheid-bemerkungen",
+      rejected: "entscheid-entscheid-beschwerde-zurueckgewiesen",
     },
     colorMapping: {
       "entscheid-entscheid-zustimmung": "uk-alert-success",
@@ -76,6 +77,19 @@ const config = {
       "entscheid-entscheid-teilzustimmung": "uk-alert-warning",
       "entscheid-entscheid-rueckzug": "uk-alert-warning",
     },
+  },
+  appeal: {
+    instanceStates: {
+      previousInstanceState: "decision",
+      instanceStatePositiveDecision: "construction-monitoring",
+      instanceStateNegativeDecision: "finished",
+      circulationInit: "subm",
+    },
+    decisionSlug: "entscheid-entscheid",
+    rejected: "zurueckgewiesen",
+    confirmed: "bestaetigt",
+    changed: "geaendert",
+    typeRegexExp: "-beschwerde-",
   },
   legalSubmission: {
     task: "objections",

@@ -22,7 +22,11 @@ export default class CustomField extends Field {
       "allWorkItems.edges",
     );
 
-    return response[0].node.case.document.form.slug;
+    const workflow = response[0].node.case.workflow.slug;
+    const form = response[0].node.case.document.form.slug;
+    const isAppeal = response[0].node.case.meta["is-appeal"] ?? false;
+
+    return { workflow, form, isAppeal };
   }
 
   get enabledOptions() {
@@ -33,7 +37,7 @@ export default class CustomField extends Field {
 
       if (!this.caseInformation.value) return [];
 
-      const form = this.caseInformation.value;
+      const { form } = this.caseInformation.value;
 
       if (form === "baugesuch") {
         // Baugesuche
@@ -51,6 +55,29 @@ export default class CustomField extends Field {
           "decision-decision-positive-with-reservation",
           "decision-decision-retreat",
           "decision-decision-other",
+        ];
+      }
+    } else if (macroCondition(getOwnConfig().application === "so")) {
+      if (this.question.slug !== "entscheid-entscheid") {
+        return null;
+      }
+
+      if (!this.caseInformation.value) return [];
+
+      const { workflow, isAppeal } = this.caseInformation.value;
+
+      if (isAppeal) {
+        return [
+          "entscheid-entscheid-beschwerde-bestaetigt",
+          "entscheid-entscheid-beschwerde-geaendert",
+          "entscheid-entscheid-beschwerde-zurueckgewiesen",
+        ];
+      } else if (workflow === "building-permit") {
+        return [
+          "entscheid-entscheid-ablehnung",
+          "entscheid-entscheid-zustimmung",
+          "entscheid-entscheid-teilzustimmung",
+          "entscheid-entscheid-rueckzug",
         ];
       }
     }

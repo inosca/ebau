@@ -36,9 +36,11 @@ class InstanceResourceFilterSet(FilterSet):
         return filtered
 
     def filter_instance(self, qs, name, value):
+        instance = Instance.objects.get(pk=value)
+
         permissions_for_instance = PermissionManager.from_request(
             self.request
-        ).get_permissions(Instance.objects.get(pk=value))
+        ).get_permissions(instance)
 
         if permissions_for_instance:
             # If the user has "new" permissions on this instance,
@@ -47,10 +49,14 @@ class InstanceResourceFilterSet(FilterSet):
                 require_permission__in=permissions_for_instance,
                 require_permission__isnull=False,
             )
+
+        # TODO: this needs to be removed in favor of the permission module
+        # as soon as the municipality permissions are migrated.
+        if not instance.case or not instance.case.meta.get("is-appeal"):
+            qs = qs.exclude(class_field__contains="appeal-only")
+
         return qs.filter(
-            role_acls__instance_state__in=Instance.objects.filter(pk=value).values(
-                "instance_state"
-            ),
+            role_acls__instance_state=instance.instance_state,
             role_acls__role=self.request.group.role,
         )
 

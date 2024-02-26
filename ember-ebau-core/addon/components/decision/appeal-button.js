@@ -11,6 +11,7 @@ import { confirmTask } from "ember-ebau-core/decorators";
 import getCaseMetaQuery from "ember-ebau-core/gql/queries/get-case-meta.graphql";
 
 export default class DecisionAppealButtonComponent extends Component {
+  @service ebauModules;
   @service notification;
   @service fetch;
   @service intl;
@@ -34,13 +35,17 @@ export default class DecisionAppealButtonComponent extends Component {
     }
 
     const INSTANCE_STATES = mainConfig.instanceStates;
+    const APPEAL_INSTANCE_STATES = mainConfig.appeal.instanceStates;
 
     return (
-      // Previous instance state is "In Koordination"
+      // Previous step was complete the decision
       parseInt(this.instance.record.belongsTo("previousInstanceState").id()) ===
-        INSTANCE_STATES.coordination &&
-      // Instance state is "Selbstdeklaration 1 (SB1)" or "Abgeschlossen"
-      [INSTANCE_STATES.sb1, INSTANCE_STATES.finished].includes(
+        INSTANCE_STATES[APPEAL_INSTANCE_STATES.previousInstanceState] &&
+      // The decision is completed positive or negative
+      [
+        INSTANCE_STATES[APPEAL_INSTANCE_STATES.instanceStatePositiveDecision],
+        INSTANCE_STATES[APPEAL_INSTANCE_STATES.instanceStateNegativeDecision],
+      ].includes(
         parseInt(this.instance.record.belongsTo("instanceState").id()),
       ) &&
       // Instance doesn't already have an appeal
@@ -63,9 +68,7 @@ export default class DecisionAppealButtonComponent extends Component {
       if (macroCondition(isTesting())) {
         this.args.redirectTo(newInstanceId);
       } else {
-        window.location.replace(
-          `/index/redirect-to-instance-resource/instance-id/${newInstanceId}`,
-        );
+        this.ebauModules.redirectToInstance(newInstanceId);
       }
     } catch (e) {
       this.notification.danger(this.intl.t("decision.appeal-error"));

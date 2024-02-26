@@ -611,12 +611,9 @@ def caluma_workflow_config_so(
         settings.ROOT_DIR("kt_so/config/caluma_objection_form.json"),
     )
 
-    workflows = caluma_workflow_models.Workflow.objects.all()
+    workflow = caluma_workflow_models.Workflow.objects.get(pk="building-permit")
     main_form = caluma_form_models.Form.objects.get(pk="main-form")
 
-    workflows.update(allow_all_forms=True)
-
-    workflow = workflows.get(pk="building-permit")
     workflow.allow_forms.clear()
     workflow.allow_forms.add(main_form)
     workflow.save()
@@ -936,6 +933,7 @@ def caluma_forms_so(settings):
     caluma_form_models.Form.objects.create(slug="publikation")
     caluma_form_models.Form.objects.create(slug="erdwaermesonden")
     caluma_form_models.Form.objects.create(slug="personalien-tabelle")
+    caluma_form_models.Form.objects.create(slug="beschwerdeverfahren")
 
     # dynamic choice options get cached, so we clear them
     # to ensure the new "gemeinde" options will be valid
@@ -1202,6 +1200,46 @@ def decision_factory(be_instance, document_factory, work_item_factory):
                 question_id="decision-geometer",
                 value=decision_geometer,
             )
+
+        return work_item
+
+    return factory
+
+
+@pytest.fixture
+def decision_factory_so(so_instance, so_decision_settings):
+    call_command(
+        "loaddata", settings.ROOT_DIR("kt_so/config/caluma_decision_form.json")
+    )
+
+    def factory(
+        instance=so_instance,
+        decision=so_decision_settings["ANSWERS"]["DECISION"]["APPROVED"],
+        construction_tee=so_decision_settings["ANSWERS"]["BAUABSCHLAG"][
+            "OHNE_WIEDERHERSTELLUNG"
+        ],
+        decision_date=date.today(),
+    ):
+        work_item = instance.case.work_items.get(task_id=so_decision_settings["TASK"])
+
+        work_item.document.answers.create(
+            question_id=so_decision_settings["QUESTIONS"]["DECISION"],
+            value=decision,
+        )
+
+        if decision in [
+            so_decision_settings["ANSWERS"]["DECISION"]["REJECTED"],
+            so_decision_settings["ANSWERS"]["DECISION"]["PARTIALLY_APPROVED"],
+        ]:
+            work_item.document.answers.create(
+                question_id=so_decision_settings["QUESTIONS"]["BAUABSCHLAG"],
+                value=construction_tee,
+            )
+
+        work_item.document.answers.create(
+            question_id=so_decision_settings["QUESTIONS"]["DATE"],
+            date=decision_date,
+        )
 
         return work_item
 

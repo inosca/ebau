@@ -126,3 +126,38 @@ def test_instance_resource_filter_instance(
     data = response.json()["data"]
     received = sorted([check_lookups[rec["id"]] for rec in data])
     assert received == expect_results
+
+
+@pytest.mark.parametrize("is_appeal", [True, False])
+def test_instance_resource_appeal_only(
+    admin_client,
+    so_instance,
+    instance_resource_factory,
+    role,
+    ir_role_acl_factory,
+    is_appeal,
+):
+    visible_ir = instance_resource_factory()
+    appeal_only_ir = instance_resource_factory(class_field="appeal-only")
+
+    for ir in [visible_ir, appeal_only_ir]:
+        ir_role_acl_factory(
+            role=role,
+            instance_state=so_instance.instance_state,
+            instance_resource=ir,
+        )
+
+    if is_appeal:
+        so_instance.case.meta.update({"is-appeal": True})
+        so_instance.case.save()
+
+    response = admin_client.get(
+        reverse("instance-resource-list"), {"instance": so_instance.pk}
+    )
+
+    assert response.status_code == status.HTTP_200_OK
+
+    ids = [int(record["id"]) for record in response.json()["data"]]
+
+    assert visible_ir.pk in ids
+    assert (appeal_only_ir.pk in ids) == is_appeal

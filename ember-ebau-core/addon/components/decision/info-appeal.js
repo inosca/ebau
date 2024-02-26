@@ -6,12 +6,6 @@ import { trackedFunction } from "ember-resources/util/function";
 import mainConfig from "ember-ebau-core/config/main";
 import getSourceCaseMeta from "ember-ebau-core/gql/queries/get-source-case-meta.graphql";
 
-const COLOR_MAP = {
-  confirmed: "success",
-  changed: "danger",
-  rejected: "danger",
-};
-
 export default class DecisionInfoAppealComponent extends Component {
   @service intl;
   @service store;
@@ -19,12 +13,18 @@ export default class DecisionInfoAppealComponent extends Component {
   @queryManager apollo;
 
   get appealType() {
-    return this.args.field.document
-      .findAnswer("decision-decision-assessment")
-      ?.replace(/^decision-decision-assessment-appeal-/, "");
+    const decisionSlug = mainConfig.appeal.decisionSlug;
+    const re = new RegExp(`${decisionSlug}${mainConfig.appeal.typeRegexExp}`);
+    return this.args.field.document.findAnswer(decisionSlug)?.replace(re, "");
   }
 
   get color() {
+    const COLOR_MAP = {
+      [mainConfig.appeal.confirmed]: "success",
+      [mainConfig.appeal.changed]: "danger",
+      [mainConfig.appeal.rejected]: "danger",
+    };
+
     return COLOR_MAP[this.appealType];
   }
 
@@ -47,6 +47,7 @@ export default class DecisionInfoAppealComponent extends Component {
 
   nextState = trackedFunction(this, async () => {
     const INSTANCE_STATES = mainConfig.instanceStates;
+    const APPEAL_INSTANCE_STATES = mainConfig.appeal.instanceStates;
 
     const previous = parseInt(
       this.sourceInstance.value?.get("previousInstanceState.id"),
@@ -54,28 +55,34 @@ export default class DecisionInfoAppealComponent extends Component {
 
     let instanceStateId;
 
-    if (this.appealType === "rejected") {
-      instanceStateId = INSTANCE_STATES.circulationInit;
+    if (this.appealType === mainConfig.appeal.rejected) {
+      instanceStateId = INSTANCE_STATES[APPEAL_INSTANCE_STATES.circulationInit];
     } else if (
-      this.appealType === "confirmed" &&
-      previous === INSTANCE_STATES.coordination
+      this.appealType === mainConfig.appeal.confirmed &&
+      previous === INSTANCE_STATES[APPEAL_INSTANCE_STATES.previousInstanceState]
     ) {
-      instanceStateId = INSTANCE_STATES.finished;
+      instanceStateId =
+        INSTANCE_STATES[APPEAL_INSTANCE_STATES.instanceStateNegativeDecision];
     } else if (
-      this.appealType === "confirmed" &&
-      previous === INSTANCE_STATES.sb1
+      this.appealType === mainConfig.appeal.confirmed &&
+      previous ===
+        INSTANCE_STATES[APPEAL_INSTANCE_STATES.instanceStatePositiveDecision]
     ) {
-      instanceStateId = INSTANCE_STATES.sb1;
+      instanceStateId =
+        INSTANCE_STATES[APPEAL_INSTANCE_STATES.instanceStatePositiveDecision];
     } else if (
-      this.appealType === "changed" &&
-      previous === INSTANCE_STATES.coordination
+      this.appealType === mainConfig.appeal.changed &&
+      previous === INSTANCE_STATES[APPEAL_INSTANCE_STATES.previousInstanceState]
     ) {
-      instanceStateId = INSTANCE_STATES.sb1;
+      instanceStateId =
+        INSTANCE_STATES[APPEAL_INSTANCE_STATES.instanceStatePositiveDecision];
     } else if (
-      this.appealType === "changed" &&
-      previous === INSTANCE_STATES.sb1
+      this.appealType === mainConfig.appeal.changed &&
+      previous ===
+        INSTANCE_STATES[APPEAL_INSTANCE_STATES.instanceStatePositiveDecision]
     ) {
-      instanceStateId = INSTANCE_STATES.finished;
+      instanceStateId =
+        INSTANCE_STATES[APPEAL_INSTANCE_STATES.instanceStateNegativeDecision];
     } else {
       return null;
     }
