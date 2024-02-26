@@ -189,6 +189,11 @@ def post_complete_construction_monitoring(sender, work_item, user, context, **kw
         # Unfinished construction stages must be skipped
         skip_work_item(work_item=work_item, user=user, context=context)
 
+    instance = get_instance(work_item)
+    camac_user = User.objects.get(username=user.username)
+    history_text = _("Construction monitoring completed")
+    create_history_entry(instance, camac_user, history_text)
+
 
 def set_complete_construction_monitoring_deadline(case):
     if not settings.CONSTRUCTION_MONITORING:
