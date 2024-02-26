@@ -1617,6 +1617,7 @@ APPLICATIONS = {
                     "init-distribution": "inProcedure",
                     "correction": "inProcedure",
                     "circulation": "inProcedure",
+                    "construction-acceptance": "constructionAcceptance",
                     "decision": "inProcedure",
                     "finished": "done",
                     "rejected": "rejected",
