@@ -483,6 +483,184 @@ def gr_master_data_case(db, gr_instance, group, master_data_is_visible_mock, uti
 
 
 @pytest.fixture
+def so_master_data_case(
+    db,
+    so_instance,
+    workflow_entry_factory,
+    camac_answer_factory,
+    master_data_is_visible_mock,
+    utils,
+):
+    so_instance.case.meta = {
+        "dossier-number": "2024-1",
+        "submit-date": "2024-02-22T13:17:08+0000",
+    }
+    so_instance.case.save()
+
+    document = so_instance.case.document
+
+    # Simple data
+    utils.add_answer(document, "umschreibung-bauprojekt", "Grosses Haus")
+    utils.add_answer(document, "strasse-flurname", "Musterstrasse")
+    utils.add_answer(document, "strasse-nummer", 4)
+    utils.add_answer(document, "gesamtkosten", 129000)
+    utils.add_answer(document, "ort", "Musterdorf")
+    utils.add_answer(
+        document,
+        "art-der-bauwerke",
+        ["art-der-bauwerke-hochbaute", "art-der-bauwerke-tiefbaute"],
+    )
+
+    # Municipality
+    utils.add_answer(document, "gemeinde", "1")
+    caluma_form_factories.DynamicOptionFactory(
+        question_id="gemeinde",
+        document=so_instance.case.document,
+        slug="1",
+        label={"de": "Solothurn"},
+    )
+
+    # Plot
+    utils.add_table_answer(
+        document,
+        "parzellen",
+        [
+            {
+                "parzellennummer": 123456789,
+                "e-grid": "CH123456789",
+                "lagekoordinaten-ost": 2690970.9,
+                "lagekoordinaten-nord": 1192891.9,
+            }
+        ],
+    )
+
+    # Applicant
+    utils.add_table_answer(
+        document,
+        "bauherrin",
+        [
+            {
+                "vorname": "Max",
+                "nachname": "Mustermann",
+                "juristische-person": "juristische-person-ja",
+                "juristische-person-name": "ACME AG",
+                "strasse": "Teststrasse",
+                "strasse-nummer": 123,
+                "plz": 1233,
+                "ort": "Musterdorf",
+                "country": "Schweiz",
+            }
+        ],
+    )
+
+    # Buildings
+    utils.add_table_answer(
+        document,
+        "gebaeude",
+        [
+            {
+                "art-der-hochbaute": "art-der-hochbaute-parkhaus",
+                "gebaeude-bezeichnung": "Villa",
+                "proposal": ["proposal-neubau"],
+                "gebaeudekategorie": "gebaeudekategorie-ohne-wohnnutzung",
+            }
+        ],
+    )
+
+    # Dwellings
+    utils.add_table_answer(
+        document,
+        "wohnungen",
+        [
+            {
+                "dazugehoeriges-gebaeude": "Villa",
+                "stockwerktyp": "stockwerktyp-obergeschoss",
+                "stockwerknummer": "2",
+                "lage": "Süd",
+                "anzahl-zimmer": "20",
+                "kocheinrichtung": "kocheinrichtung-kochnische-greater-4-m2",
+                "flaeche": "420",
+                "maisonette": "maisonette-ja",
+                "zwg": "zwg-keine",
+            },
+            {
+                "dazugehoeriges-gebaeude": "Villa",
+                "stockwerktyp": "stockwerktyp-parterre",
+                "lage": "Nord",
+                "anzahl-zimmer": "10",
+                "kocheinrichtung": "kocheinrichtung-keine-kocheinrichtung",
+                "flaeche": "72",
+                "maisonette": "maisonette-nein",
+                "zwg": "zwg-erstwohnung",
+            },
+        ],
+    )
+
+    # Energy devices
+    utils.add_table_answer(
+        document,
+        "gebaeudetechnik",
+        [
+            {
+                "bezeichnung-dazugehoeriges-gebaeude": "Villa",
+                "anlagetyp": "anlagetyp-hauptheizung",
+                "heizsystem-art": "-hauptheizung",
+                "hauptheizungsanlage": "hauptheizungsanlage-sonne-thermisch",
+            },
+        ],
+    )
+
+    return so_instance.case
+
+
+@pytest.fixture
+def ur_master_data_case_gwr(ur_instance, ur_master_data_case, workflow_entry_factory, utils):
+    ur_master_data_case.meta = {"dossier-number": "1201-21-003"}
+    ur_master_data_case.save()
+
+    document =ur_master_data_case.document
+
+    # Completed date
+    # Assert that workflow entry of last group (phase) is selected
+    workflow_entry = next(
+        filter(
+            lambda entry: entry.workflow_item_id == 67,
+            ur_instance.workflowentry_set.all(),
+        ),
+        None,
+    )
+
+    workflow_entry_factory(
+        instance=ur_instance,
+        workflow_date="2021-08-05 08:00:06+00",
+        group=2,
+        workflow_item=workflow_entry.workflow_item,
+    )
+
+    # Energy devices
+    # Check logic for heating / warmwater devices and
+    # primary / secondary devices
+    table_answer = document.answers.filter(
+        question_id="haustechnik-tabelle"
+    ).first()
+    utils.add_table_answer(
+        document,
+        "haustechnik-tabelle",
+        [
+            {
+                "gehoert-zu-gebaeudenummer": "Villa",
+                "anlagetyp": "anlagetyp-warmwasser",
+                "heizsystem-art": "-zusatzheizung",
+                "hauptheizungsanlage": "hauptheizungsanlage-gas",
+            }
+        ],
+        table_answer,
+    )
+
+    return ur_master_data_case
+
+
+@pytest.fixture
 def sz_master_data_case_gwr(sz_master_data_case, form_field_factory):
     sz_instance = sz_master_data_case.instance
 
