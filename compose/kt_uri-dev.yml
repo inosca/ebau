@@ -63,6 +63,7 @@ services:
       - "5678:5678"
     volumes:
       - ../django:/app
+      - /app/staticfiles # prevent staticfiles from leaking to the host system
     environment:
       - ENV=development
       - APPLICATION_ENV=development

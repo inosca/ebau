@@ -66,6 +66,7 @@ services:
       - ../django:/app
       - djangomedia:/var/lib/camac/media
       - djangotmpmedia:/tmp/camac/tmpfiles
+      - /app/staticfiles # prevent staticfiles from leaking to the host system
     environment:
       - APPLICATION_ENV=development
       - KEYCLOAK_URL=http://ebau-keycloak.local/auth/
