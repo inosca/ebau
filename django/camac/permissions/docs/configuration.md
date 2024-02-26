@@ -28,6 +28,17 @@ specific module data, or to perform certain actions) can be named freely. The
 following example gives a few possible permission names; however these do not
 neccessarily match what is available in the application.
 
+### `permissions` constants modules
+
+It's relatively easy to mistype permissions names. To avoid this, it is
+recommended to create, for each module, a `permissions.py` that defines all
+the permissions that are being used. Where dynamic permisisons are defined (for
+example, depending on data in DB such as document categories, access levels,
+roles, whatnot), you can create a function that generates the appropriate name.
+
+The [`permission`](../permissions.py) and [`applicant`](../../applicants/permissions.py)
+modules provide useful examples.
+
 
 ## Instance resource permissions
 
