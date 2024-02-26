@@ -29,3 +29,23 @@ $form-disabled-color: darken($global-muted-color, 30%);
 // ember-power-select
 $ember-power-select-border-color: $global-border;
 $ember-power-select-placeholder-color: $form-placeholder-color;
+
+#construction-monitoring {
+  .uk-form-controls {
+    .uk-input,
+    .uk-textarea,
+    .uk-radio,
+    .uk-select,
+    .uk-checkbox,
+    .uk-range,
+    label,
+    .uk-form-label {
+      font-size: $global-medium-font-size;
+    }
+  }
+
+  .uk-disabled,
+  :disabled {
+    background-color: rgb(250, 250, 250);
+  }
+}
