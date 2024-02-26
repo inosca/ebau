@@ -3,9 +3,6 @@ from django.conf.urls import include
 from django.contrib import admin
 from django.urls import re_path
 from django.utils.module_loading import import_string
-from ebau_gwr.linker.views import GWRLinkViewSet
-from ebau_gwr.token_proxy.views import TokenProxyView
-from rest_framework.routers import SimpleRouter
 
 from camac.caluma.views import CamacAuthenticatedGraphQLView
 from camac.swagger.views import get_swagger_view
@@ -13,23 +10,6 @@ from camac.swagger.views import get_swagger_view
 # TODO: Ensure that only the necessary routes are registered dependening on
 # settings.APPLICATION_NAME
 
-
-class UnswaggeredGWRLinkViewSet(GWRLinkViewSet):
-    swagger_schema = None
-
-
-class UnswaggeredTokenProxyView(TokenProxyView):
-    swagger_schema = None
-
-
-r = SimpleRouter(trailing_slash=False)
-
-r.register(
-    r"^api/v1/housing-stat-token",
-    UnswaggeredTokenProxyView,
-    basename="housingstattoken",
-)
-r.register(r"^api/v1/linker/gwr-links", UnswaggeredGWRLinkViewSet)
 
 schema_view = get_swagger_view()
 
@@ -51,6 +31,8 @@ urlpatterns = [
     re_path(r"^api/v1/", include("camac.permissions.urls")),
     re_path(r"^api/v1/stats/", include("camac.stats.urls")),
     re_path(r"^api/v1/gis/", include("camac.gis.urls")),
+    re_path(r"^api/v1/linker/", include("ebau_gwr.linker.urls")),
+    re_path(r"^api/v1/", include("ebau_gwr.token_proxy.urls")),
     re_path(
         r"^graphql",
         CamacAuthenticatedGraphQLView.as_view(graphiql=settings.DEBUG),
@@ -76,7 +58,7 @@ urlpatterns = [
     re_path(r"^django/admin/", admin.site.urls),
     re_path(r"^django/i18n/", include("django.conf.urls.i18n")),
     re_path(r"^django/oidc/", include("mozilla_django_oidc.urls")),
-] + r.urls
+]
 
 if settings.APPLICATION["ECH0211"]["API_ACTIVE"]:  # pragma: no cover
     UrlsConf = settings.APPLICATION["ECH0211"].get("URLS_CLASS")

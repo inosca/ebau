@@ -11,7 +11,6 @@ from .utils import send_mail
 
 
 class NotificationTemplateView(ModelViewSet):
-    swagger_schema = None
     queryset = models.NotificationTemplate.objects.all()
     serializer_class = serializers.NotificationTemplateSerializer
     filterset_class = filters.NotificationTemplateFilterSet

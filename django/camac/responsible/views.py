@@ -14,7 +14,6 @@ class ResponsibleServiceView(InstanceEditableMixin, ModelViewSet):
     a responsible user in the instance resource "Zuständigkeit".
     """
 
-    swagger_schema = None
     serializer_class = serializers.ResponsibleServiceSerializer
     filterset_class = filters.ResponsibleServiceFilterSet
     queryset = models.ResponsibleService.objects.all()

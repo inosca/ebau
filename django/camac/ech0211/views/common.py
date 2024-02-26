@@ -20,6 +20,7 @@ class MessageView(RetrieveModelMixin, GenericViewSet):
     renderer_classes = (XMLRenderer,)
 
     throttle_classes = [ECHMessageThrottle]
+    include_in_swagger = True
 
     def get_queryset(self):
         qs = super().get_queryset()

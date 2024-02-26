@@ -17,7 +17,6 @@ from camac.instance.models import Instance
 
 
 class InstanceExportView(ListAPIView, InstanceQuerysetMixin):
-    swagger_schema = None
     instance_field = None
     queryset = Instance.objects
 

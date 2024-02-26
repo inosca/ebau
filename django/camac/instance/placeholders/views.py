@@ -17,7 +17,6 @@ from camac.instance.placeholders.serializers import (
 
 
 class DMSPlaceholdersDocsView(RetrieveAPIView):
-    swagger_schema = None
     renderer_classes = [JSONRenderer]
 
     def get_serializer_class(self):
