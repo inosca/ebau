@@ -233,6 +233,9 @@ class GwrSerializer(serializers.Serializer):
             None,
         )
 
+    def get_energy_device_so(self, building, is_heating, is_main_heating):
+        return self.get_energy_device_ur(building, is_heating, is_main_heating)
+
     @catch_and_log(fallback=[])
     def get_dwellings(self, building):
         if settings.APPLICATION_NAME == "kt_schwyz":
