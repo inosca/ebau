@@ -406,6 +406,11 @@ def media_root(tmpdir_factory, settings):
     settings.MEDIA_ROOT = tmpdir_factory.mktemp("media_root")
 
 
+@pytest.fixture(autouse=True)
+def mock_clamd(mocker):
+    mocker.patch("django_clamd.validators.validate_file_infection", return_value=None)
+
+
 @pytest.fixture
 def clear_cache():
     cache.clear()
