@@ -738,6 +738,7 @@ APPLICATIONS = {
         "SYSTEM_USER": "service-account-camac-admin",
         "ATTACHMENT_SECTION_INTERNAL": 4,
         "ROLE_PERMISSIONS": {
+            "applicant": "applicant",
             "service-lead": "service",
             "service-clerk": "service",
             "service-readonly": "service",
