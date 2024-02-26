@@ -38,7 +38,6 @@ class DossierImportView(ModelViewSet):
     queryset = DossierImport.objects.all().order_by("-created_at")
 
     instance_field = None
-    swagger_schema = None
 
     @permission_aware
     def get_queryset(self):

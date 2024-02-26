@@ -1,4 +1,5 @@
 import pytest
+from django.conf import settings
 from django.test import override_settings
 from django.urls import reverse
 from pytest_lazyfixture import lazy_fixture
@@ -34,3 +35,25 @@ def test_swagger_schema(
         response = admin_client.get(reverse("schema-json", args=[".json"]))
         assert response.status_code == status.HTTP_200_OK
         assert not len(caplog.messages)
+
+
+@pytest.mark.parametrize("application_name", settings.APPLICATIONS.keys())
+def test_swagger_paths(
+    admin_client, application_name, settings, snapshot, application_settings, request
+):
+    short_name = settings.APPLICATIONS[application_name]["SHORT_NAME"]
+
+    request.getfixturevalue(f"set_application_{short_name}")
+
+    # TODO: remove if eCH urls are properly refactored
+    if application_name in ["kt_bern", "kt_schwyz"]:
+        request.getfixturevalue(f"override_urls_{short_name}")
+
+        application_settings["ECH0211"] = settings.APPLICATIONS[application_name].get(
+            "ECH0211", {}
+        )
+
+    response = admin_client.get(reverse("schema-json", args=[".json"]))
+    result = response.json()
+
+    assert sorted(set(result["paths"].keys())) == snapshot

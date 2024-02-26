@@ -68,7 +68,6 @@ from .placeholders.serializers import (
 
 
 class InstanceStateView(ReadOnlyModelViewSet):
-    swagger_schema = None
     serializer_class = serializers.InstanceStateSerializer
     filterset_class = filters.InstanceStateFilterSet
     ordering = ("sort", "name")
@@ -78,7 +77,6 @@ class InstanceStateView(ReadOnlyModelViewSet):
 
 
 class FormView(ReadOnlyModelViewSet):
-    swagger_schema = None
     serializer_class = serializers.FormSerializer
     filterset_class = filters.FormFilterSet
 
@@ -91,7 +89,6 @@ class FormView(ReadOnlyModelViewSet):
 
 
 class FormConfigDownloadView(RetrieveAPIView):
-    swagger_schema = None
     path = settings.APPLICATION_DIR("form.json")
     permission_classes = [DefaultPermission | PublicationPermission]
 
@@ -109,6 +106,10 @@ class InstanceView(
     Instance field is actually model itself.
     """
     instance_editable_permission = "instance"
+
+    @classmethod
+    def include_in_swagger(cls):
+        return settings.APPLICATION_NAME == "kt_bern"
 
     queryset = models.Instance.objects.select_related("group__service")
     prefetch_for_includes = {
@@ -142,9 +143,6 @@ class InstanceView(
         "fields__value",
         "instance_state__description",
     )
-
-    if settings.APPLICATION_NAME == "kt_schwyz":  # pragma: no cover
-        swagger_schema = None
 
     @property
     def filter_backends(self):
@@ -734,33 +732,27 @@ class InstanceView(
         return self._custom_serializer_action(request, pk, status.HTTP_204_NO_CONTENT)
 
     @swagger_auto_schema(
-        **(
-            {
-                "tags": ["PDF generation service"],
-                "manual_parameters": [
-                    group_param,
-                    openapi.Parameter(
-                        "form-slug",
-                        openapi.IN_QUERY,
-                        description="The form that should be used instead of the main form. E.g. 'sb1' or 'sb2' for self-declaration forms.",
-                        type=openapi.TYPE_STRING,
-                        format=openapi.FORMAT_SLUG,
-                    ),
-                    openapi.Parameter(
-                        "document-id",
-                        openapi.IN_QUERY,
-                        description="The UUID of the document that should be converted to a PDF. If passed, this will override the form-slug parameter.",
-                        type=openapi.TYPE_STRING,
-                        format=openapi.FORMAT_UUID,
-                    ),
-                ],
-                "operation_description": get_operation_description(["Nexplore"]),
-                "operation_summary": "Generate a PDF for an instance",
-                "responses": {"200": "PDF file"},
-            }
-            if settings.APPLICATION_NAME == "kt_bern"
-            else {"auto_schema": None}
-        )
+        tags=["PDF generation service"],
+        manual_parameters=[
+            group_param,
+            openapi.Parameter(
+                "form-slug",
+                openapi.IN_QUERY,
+                description="The form that should be used instead of the main form. E.g. 'sb1' or 'sb2' for self-declaration forms.",
+                type=openapi.TYPE_STRING,
+                format=openapi.FORMAT_SLUG,
+            ),
+            openapi.Parameter(
+                "document-id",
+                openapi.IN_QUERY,
+                description="The UUID of the document that should be converted to a PDF. If passed, this will override the form-slug parameter.",
+                type=openapi.TYPE_STRING,
+                format=openapi.FORMAT_UUID,
+            ),
+        ],
+        operation_description=get_operation_description(["Nexplore"]),
+        operation_summary="Generate a PDF for an instance",
+        responses={"200": "PDF file"},
     )
     @action(methods=["get"], detail=True, url_path="generate-pdf")
     def generate_pdf(self, request, pk=None):
@@ -881,7 +873,6 @@ class InstanceView(
 
 
 class InstanceResponsibilityView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
-    swagger_schema = None
     serializer_class = serializers.InstanceResponsibilitySerializer
     filterset_class = filters.InstanceResponsibilityFilterSet
     queryset = models.InstanceResponsibility.objects.all()
@@ -947,7 +938,6 @@ class FormFieldView(
     is allowed to read instance may read form data as well.
     """
 
-    swagger_schema = None
     serializer_class = serializers.FormFieldSerializer
     filterset_class = filters.FormFieldFilterSet
     queryset = models.FormField.objects.all()
@@ -964,7 +954,6 @@ class FormFieldView(
 class JournalEntryView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
     """Journal entries used for internal use and not viewable by applicant."""
 
-    swagger_schema = None
     serializer_class = serializers.JournalEntrySerializer
     filterset_class = filters.JournalEntryFilterSet
     queryset = models.JournalEntry.objects.all()
@@ -1041,7 +1030,6 @@ class HistoryEntryView(
 ):
     """History entries used for internal use and not viewable by applicant."""
 
-    swagger_schema = None
     serializer_class = serializers.HistoryEntrySerializer
     filterset_class = filters.HistoryEntryFilterSet
     queryset = models.HistoryEntry.objects.all()
@@ -1088,7 +1076,6 @@ class HistoryEntryView(
 class IssueView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
     """Issues used for internal use and not viewable by applicant."""
 
-    swagger_schema = None
     serializer_class = serializers.IssueSerializer
     filterset_class = filters.InstanceIssueFilterSet
     queryset = models.Issue.objects.all()
@@ -1143,7 +1130,6 @@ class IssueView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
 class IssueTemplateView(views.ModelViewSet):
     """Issues templates used for internal use and not viewable by applicant."""
 
-    swagger_schema = None
     serializer_class = serializers.IssueTemplateSerializer
     filterset_class = filters.IssueTemplateFilterSet
     queryset = models.IssueTemplate.objects.all()
@@ -1208,7 +1194,6 @@ class IssueTemplateView(views.ModelViewSet):
 class IssueTemplateSetView(views.ModelViewSet):
     """Issue sets used for internal use and not viewable by applicant."""
 
-    swagger_schema = None
     serializer_class = serializers.IssueTemplateSetSerializer
     filterset_class = filters.IssueTemplateSetFilterSet
     queryset = models.IssueTemplateSet.objects.all()
@@ -1316,19 +1301,18 @@ class PublicCalumaInstanceView(mixins.InstanceQuerysetMixin, ListAPIView):
 
     instance_field = "instance"
 
-    if settings.APPLICATION_NAME == "kt_uri":  # pragma: no cover
+    @classmethod
+    def include_in_swagger(cls):
+        return settings.APPLICATION_NAME == "kt_uri"
 
-        @swagger_auto_schema(
-            tags=["Public caluma instances"],
-            operation_summary="Get list of public caluma instances",
-            operation_description="Public view for published instances",
-            manual_parameters=[group_param],
-        )
-        def get(self, request, *args, **kwargs):
-            return super().list(request, *args, **kwargs)
-
-    else:
-        swagger_schema = None
+    @swagger_auto_schema(
+        tags=["Public caluma instances"],
+        operation_summary="Get list of public caluma instances",
+        operation_description="Public view for published instances",
+        manual_parameters=[group_param],
+    )
+    def get(self, request, *args, **kwargs):
+        return super().list(request, *args, **kwargs)
 
     @permission_aware
     def get_queryset(self):

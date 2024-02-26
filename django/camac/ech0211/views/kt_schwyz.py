@@ -26,6 +26,7 @@ class ApplicationView(ECHInstanceQuerysetMixin, RetrieveModelMixin, GenericViewS
     renderer_classes = (XMLRenderer,)
     queryset = Instance.objects.filter(form__description__in=FORM_DESCRIPTIONS)
     instance_field = None
+    include_in_swagger = True
 
     @swagger_auto_schema(
         tags=["eCH-0211"],
@@ -64,6 +65,7 @@ class ApplicationsView(ECHInstanceQuerysetMixin, ListModelMixin, GenericViewSet)
     queryset = Instance.objects
     instance_field = None
     filter_backends = []
+    include_in_swagger = True
 
     @swagger_auto_schema(
         tags=["eCH-0211"],

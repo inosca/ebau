@@ -23,7 +23,6 @@ from . import filters, models, serializers
 
 
 class LocationView(MultilangMixin, ReadOnlyModelViewSet):
-    swagger_schema = None
     filterset_class = filters.LocationFilterSet
     serializer_class = serializers.LocationSerializer
     queryset = models.Location.objects.all()
@@ -31,7 +30,6 @@ class LocationView(MultilangMixin, ReadOnlyModelViewSet):
 
 
 class UserView(ReadOnlyModelViewSet):
-    swagger_schema = None
     filterset_class = filters.UserFilterSet
     serializer_class = serializers.UserSerializer
     queryset = models.User.objects.filter(disabled=False)
@@ -66,14 +64,12 @@ class UserView(ReadOnlyModelViewSet):
 
 
 class PublicUserView(ReadOnlyModelViewSet):
-    swagger_schema = None
     filterset_class = filters.PublicUserFilterSet
     serializer_class = serializers.PublicUserSerializer
     queryset = models.User.objects.all().distinct()
 
 
 class ServiceView(MultilangMixin, ModelViewSet):
-    swagger_schema = None
     filterset_class = filters.ServiceFilterSet
     serializer_class = serializers.ServiceSerializer
     queryset = models.Service.objects.all()
@@ -121,7 +117,6 @@ class ServiceView(MultilangMixin, ModelViewSet):
 
 
 class PublicServiceView(MultilangMixin, ReadOnlyModelViewSet):
-    swagger_schema = None
     filterset_class = filters.PublicServiceFilterSet
     serializer_class = serializers.PublicServiceSerializer
     queryset = models.Service.objects.filter(disabled=False)
@@ -165,6 +160,7 @@ class MeView(
     model = get_user_model()
     serializer_class = serializers.CurrentUserSerializer
     permission_classes = [IsAuthenticated]
+    include_in_swagger = True
 
     def get_object(self, *args, **kwargs):
         return self.request.user
@@ -179,7 +175,6 @@ class MeView(
 
 
 class RoleView(MultilangMixin, ReadOnlyModelViewSet):
-    swagger_schema = None
     serializer_class = serializers.RoleSerializer
     queryset = models.Role.objects.all()
 
@@ -192,6 +187,7 @@ class GroupView(MultilangMixin, ReadOnlyModelViewSet):
     filterset_class = filters.GroupFilterSet
     serializer_class = serializers.GroupSerializer
     queryset = models.Group.objects.filter(disabled=False)
+    include_in_swagger = True
 
     @permission_aware
     def get_queryset(self):
@@ -231,7 +227,6 @@ class GroupView(MultilangMixin, ReadOnlyModelViewSet):
 
 
 class PublicGroupView(MultilangMixin, ReadOnlyModelViewSet):
-    swagger_schema = None
     filterset_class = filters.PublicGroupFilterSet
     serializer_class = serializers.PublicGroupSerializer
     permission_classes = [IsAuthenticated]
@@ -252,7 +247,6 @@ class PublicGroupView(MultilangMixin, ReadOnlyModelViewSet):
 
 
 class UserGroupView(ModelViewSet):
-    swagger_schema = None
     serializer_class = serializers.UserGroupSerializer
     queryset = models.UserGroup.objects.all()
     filterset_class = filters.UserGroupFilterSet

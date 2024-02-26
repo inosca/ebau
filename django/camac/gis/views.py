@@ -25,7 +25,6 @@ def get_client(identifier):
 
 
 class GISDataView(ListAPIView):
-    swagger_schema = None
     renderer_classes = [JSONRenderer]
     queryset = GISDataSource.objects.filter(disabled=False).order_by("sort")
 

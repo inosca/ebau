@@ -37,7 +37,6 @@ class InvolvedInTopicQuerysetMixin:
 
 
 class TopicView(InvolvedInTopicQuerysetMixin, InstanceQuerysetMixin, ModelViewSet):
-    swagger_schema = None
     serializer_class = serializers.TopicSerializer
     filterset_class = filters.TopicFilterSet
     instance_field = "instance"
@@ -83,7 +82,6 @@ class MessageView(
     ListModelMixin,
     GenericViewSet,
 ):
-    swagger_schema = None
     serializer_class = serializers.MessageSerializer
     filterset_class = filters.MessageFilterSet
     instance_field = "topic__instance"
@@ -142,7 +140,6 @@ class AttachmentView(
     ListModelMixin,
     GenericViewSet,
 ):
-    swagger_schema = None
     serializer_class = serializers.CommunicationsAttachmentSerializer
     filterset_class = filters.AttachmentFilterSet
     instance_field = "message__topic__instance"
