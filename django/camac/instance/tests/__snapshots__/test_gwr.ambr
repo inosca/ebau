@@ -1,4 +1,415 @@
 # serializer version: 1
+# name: test_gwr_data[kt_gr-gr-gr_instance-gr_master_data_case]
+  dict({
+    'buildingPermitIssueDate': None,
+    'client': dict({
+      'address': dict({
+        'country': dict({
+          'countryNameShort': None,
+        }),
+        'houseNumber': 321,
+        'street': 'Testweg',
+        'swissZipCode': 4321,
+        'town': 'Testingen',
+      }),
+      'identification': dict({
+        'isOrganisation': True,
+        'organisationIdentification': dict({
+          'organisationName': 'Test AG',
+        }),
+        'personIdentification': None,
+      }),
+    }),
+    'constructionLocalisation': dict({
+      'municipalityName': 'Chur',
+    }),
+    'constructionProjectDescription': 'Einfamilienhaus',
+    'officialConstructionProjectFileNo': '2023-1',
+    'projectAnnouncementDate': '2021-03-31',
+    'projectCompletionDate': None,
+    'projectStartDate': None,
+    'realestateIdentification': dict({
+      'EGRID': 'CH334687150542',
+      'number': 123465,
+    }),
+    'totalCostsOfProject': 4000,
+    'typeOfClient': None,
+    'typeOfConstruction': None,
+    'typeOfConstructionProject': None,
+    'typeOfPermit': None,
+    'work': list([
+      dict({
+        'building': dict({
+          'buildingCategory': None,
+          'civilDefenseShelter': None,
+          'dateOfConstruction': None,
+          'dwellings': list([
+          ]),
+          'nameOfBuilding': None,
+          'numberOfFloors': None,
+          'numberOfSeparateHabitableRooms': None,
+          'realestateIdentification': None,
+          'thermotechnicalDeviceForHeating1': dict({
+            'energySourceHeating': 7540,
+            'heatGeneratorHeating': 7430,
+          }),
+          'thermotechnicalDeviceForHeating2': dict({
+            'energySourceHeating': 7530,
+            'heatGeneratorHeating': 7499,
+          }),
+          'thermotechnicalDeviceForWarmWater1': dict({
+            'energySourceHeating': 7510,
+            'heatGeneratorHotWater': 7651,
+          }),
+          'thermotechnicalDeviceForWarmWater2': dict({
+            'energySourceHeating': 7512,
+            'heatGeneratorHotWater': 7660,
+          }),
+        }),
+        'kindOfWork': None,
+      }),
+    ]),
+  })
+# ---
+# name: test_gwr_data[kt_schwyz-sz-sz_instance-sz_master_data_case_gwr]
+  dict({
+    'buildingPermitIssueDate': None,
+    'client': dict({
+      'address': dict({
+        'country': dict({
+          'countryNameShort': 'ch',
+        }),
+        'houseNumber': None,
+        'street': 'Teststrasse 3',
+        'swissZipCode': 5678,
+        'town': 'Musterdorf',
+      }),
+      'identification': dict({
+        'isOrganisation': False,
+        'organisationIdentification': dict({
+          'organisationName': None,
+        }),
+        'personIdentification': dict({
+          'firstName': 'Max',
+          'officialName': 'Mustermann',
+        }),
+      }),
+    }),
+    'constructionLocalisation': None,
+    'constructionProjectDescription': 'Grosses Haus',
+    'officialConstructionProjectFileNo': None,
+    'projectAnnouncementDate': None,
+    'projectCompletionDate': None,
+    'projectStartDate': None,
+    'realestateIdentification': dict({
+      'EGRID': 'CH1234567890',
+      'number': 1234,
+    }),
+    'totalCostsOfProject': 129000,
+    'typeOfClient': 6161,
+    'typeOfConstruction': None,
+    'typeOfConstructionProject': None,
+    'typeOfPermit': None,
+    'work': list([
+      dict({
+        'building': dict({
+          'buildingCategory': 1060,
+          'civilDefenseShelter': None,
+          'dateOfConstruction': None,
+          'dwellings': list([
+            dict({
+              'floor': None,
+              'floorNumber': None,
+              'floorType': None,
+              'kitchen': True,
+              'locationOfDwellingOnFloor': 'Nord',
+              'multipleFloor': True,
+              'noOfHabitableRooms': 4,
+              'surfaceAreaOfDwelling': 42,
+              'usageLimitation': None,
+            }),
+          ]),
+          'nameOfBuilding': None,
+          'numberOfFloors': 2,
+          'numberOfSeparateHabitableRooms': None,
+          'realestateIdentification': None,
+          'thermotechnicalDeviceForHeating1': dict({
+            'energySourceHeating': 7540,
+            'heatGeneratorHeating': 7436,
+          }),
+          'thermotechnicalDeviceForHeating2': None,
+          'thermotechnicalDeviceForWarmWater1': dict({
+            'energySourceHeating': 7560,
+            'heatGeneratorHotWater': None,
+          }),
+          'thermotechnicalDeviceForWarmWater2': None,
+        }),
+        'kindOfWork': None,
+      }),
+    ]),
+  })
+# ---
+# name: test_gwr_data[kt_schwyz-sz-sz_instance-sz_master_data_case_gwr_v2]
+  dict({
+    'buildingPermitIssueDate': None,
+    'client': dict({
+      'address': dict({
+        'country': dict({
+          'countryNameShort': 'ch',
+        }),
+        'houseNumber': None,
+        'street': 'Teststrasse 3',
+        'swissZipCode': 5678,
+        'town': 'Musterdorf',
+      }),
+      'identification': dict({
+        'isOrganisation': False,
+        'organisationIdentification': dict({
+          'organisationName': None,
+        }),
+        'personIdentification': dict({
+          'firstName': 'Max',
+          'officialName': 'Mustermann',
+        }),
+      }),
+    }),
+    'constructionLocalisation': None,
+    'constructionProjectDescription': 'Grosses Haus',
+    'officialConstructionProjectFileNo': None,
+    'projectAnnouncementDate': None,
+    'projectCompletionDate': None,
+    'projectStartDate': None,
+    'realestateIdentification': dict({
+      'EGRID': 'CH1234567890',
+      'number': 1234,
+    }),
+    'totalCostsOfProject': 129000,
+    'typeOfClient': 6161,
+    'typeOfConstruction': None,
+    'typeOfConstructionProject': None,
+    'typeOfPermit': None,
+    'work': list([
+      dict({
+        'building': dict({
+          'buildingCategory': 1020,
+          'civilDefenseShelter': True,
+          'dateOfConstruction': None,
+          'dwellings': list([
+            dict({
+              'floor': None,
+              'floorNumber': None,
+              'floorType': None,
+              'kitchen': True,
+              'locationOfDwellingOnFloor': 'West',
+              'multipleFloor': False,
+              'noOfHabitableRooms': 2,
+              'surfaceAreaOfDwelling': 70,
+              'usageLimitation': None,
+            }),
+            dict({
+              'floor': None,
+              'floorNumber': None,
+              'floorType': None,
+              'kitchen': False,
+              'locationOfDwellingOnFloor': 'Ost',
+              'multipleFloor': False,
+              'noOfHabitableRooms': 3,
+              'surfaceAreaOfDwelling': 24,
+              'usageLimitation': None,
+            }),
+          ]),
+          'nameOfBuilding': 'Grosses Haus',
+          'numberOfFloors': 4,
+          'numberOfSeparateHabitableRooms': 24,
+          'realestateIdentification': None,
+          'thermotechnicalDeviceForHeating1': dict({
+            'energySourceHeating': 7510,
+            'heatGeneratorHeating': 7411,
+          }),
+          'thermotechnicalDeviceForHeating2': None,
+          'thermotechnicalDeviceForWarmWater1': dict({
+            'energySourceHeating': 7570,
+            'heatGeneratorHotWater': 7650,
+          }),
+          'thermotechnicalDeviceForWarmWater2': None,
+        }),
+        'kindOfWork': None,
+      }),
+    ]),
+  })
+# ---
+# name: test_gwr_data[kt_so-so-so_instance-so_master_data_case]
+  dict({
+    'buildingPermitIssueDate': None,
+    'client': dict({
+      'address': dict({
+        'country': dict({
+          'countryNameShort': None,
+        }),
+        'houseNumber': 123,
+        'street': 'Teststrasse',
+        'swissZipCode': 1233,
+        'town': 'Musterdorf',
+      }),
+      'identification': dict({
+        'isOrganisation': True,
+        'organisationIdentification': dict({
+          'organisationName': 'ACME AG',
+        }),
+        'personIdentification': None,
+      }),
+    }),
+    'constructionLocalisation': dict({
+      'municipalityName': 'Solothurn',
+    }),
+    'constructionProjectDescription': 'Grosses Haus',
+    'officialConstructionProjectFileNo': '1201-21-003',
+    'projectAnnouncementDate': None,
+    'projectCompletionDate': '2021-08-05',
+    'projectStartDate': '2021-07-25',
+    'realestateIdentification': dict({
+      'EGRID': 'CH123456789',
+      'number': 123456789,
+    }),
+    'totalCostsOfProject': 129000,
+    'typeOfClient': 6141,
+    'typeOfConstruction': 6235,
+    'typeOfConstructionProject': 6011,
+    'typeOfPermit': 5031,
+    'work': list([
+      dict({
+        'building': dict({
+          'buildingCategory': 1060,
+          'civilDefenseShelter': None,
+          'dateOfConstruction': dict({
+            'yearMonthDay': '2021-08-05',
+          }),
+          'dwellings': list([
+          ]),
+          'nameOfBuilding': 'Villa',
+          'numberOfFloors': None,
+          'numberOfSeparateHabitableRooms': None,
+          'realestateIdentification': dict({
+            'EGRID': 'CH123456789',
+            'number': 123456789,
+          }),
+          'thermotechnicalDeviceForHeating1': dict({
+            'energySourceHeating': None,
+            'heatGeneratorHeating': None,
+          }),
+          'thermotechnicalDeviceForHeating2': dict({
+            'energySourceHeating': None,
+            'heatGeneratorHeating': None,
+          }),
+          'thermotechnicalDeviceForWarmWater1': dict({
+            'energySourceHeating': None,
+            'heatGeneratorHotWater': None,
+          }),
+          'thermotechnicalDeviceForWarmWater2': dict({
+            'energySourceHeating': None,
+            'heatGeneratorHotWater': None,
+          }),
+        }),
+        'kindOfWork': 6001,
+      }),
+    ]),
+  })
+# ---
+# name: test_gwr_data[kt_uri-ur-ur_instance-ur_master_data_case]
+  dict({
+    'buildingPermitIssueDate': '2021-07-20',
+    'client': dict({
+      'address': dict({
+        'country': dict({
+          'countryNameShort': 'ch',
+        }),
+        'houseNumber': 123,
+        'street': 'Teststrasse',
+        'swissZipCode': 1233,
+        'town': 'Musterdorf',
+      }),
+      'identification': dict({
+        'isOrganisation': True,
+        'organisationIdentification': dict({
+          'organisationName': 'ACME AG',
+        }),
+        'personIdentification': None,
+      }),
+    }),
+    'constructionLocalisation': dict({
+      'municipalityName': 'Altdorf',
+    }),
+    'constructionProjectDescription': 'Grosses Haus',
+    'officialConstructionProjectFileNo': '1201-21-003',
+    'projectAnnouncementDate': '2021-07-16',
+    'projectCompletionDate': '2021-08-05',
+    'projectStartDate': '2021-07-25',
+    'realestateIdentification': dict({
+      'EGRID': 'CH123456789',
+      'number': 123456789,
+    }),
+    'totalCostsOfProject': 129000,
+    'typeOfClient': 6141,
+    'typeOfConstruction': 6235,
+    'typeOfConstructionProject': 6011,
+    'typeOfPermit': 5031,
+    'work': list([
+      dict({
+        'building': dict({
+          'buildingCategory': 1060,
+          'civilDefenseShelter': None,
+          'dateOfConstruction': dict({
+            'yearMonthDay': '2021-08-05',
+          }),
+          'dwellings': list([
+            dict({
+              'floor': 3102,
+              'floorNumber': 2,
+              'floorType': 3101,
+              'kitchen': True,
+              'locationOfDwellingOnFloor': 'Süd',
+              'multipleFloor': True,
+              'noOfHabitableRooms': '20',
+              'surfaceAreaOfDwelling': '420',
+              'usageLimitation': 3401,
+            }),
+            dict({
+              'floor': 3100,
+              'floorNumber': None,
+              'floorType': 3100,
+              'kitchen': False,
+              'locationOfDwellingOnFloor': 'Nord',
+              'multipleFloor': False,
+              'noOfHabitableRooms': '10',
+              'surfaceAreaOfDwelling': '72',
+              'usageLimitation': 3402,
+            }),
+          ]),
+          'nameOfBuilding': 'Villa',
+          'numberOfFloors': None,
+          'numberOfSeparateHabitableRooms': None,
+          'realestateIdentification': dict({
+            'EGRID': 'CH123456789',
+            'number': 123456789,
+          }),
+          'thermotechnicalDeviceForHeating1': dict({
+            'energySourceHeating': 7570,
+            'informationSourceHeating': 869,
+            'revisionDate': '2021-10-07',
+          }),
+          'thermotechnicalDeviceForHeating2': None,
+          'thermotechnicalDeviceForWarmWater1': None,
+          'thermotechnicalDeviceForWarmWater2': dict({
+            'energySourceHeating': 7520,
+            'informationSourceHeating': 869,
+            'revisionDate': '2021-10-07',
+          }),
+        }),
+        'kindOfWork': 6001,
+      }),
+    ]),
+  })
+# ---
 # name: test_gwr_data_so
   dict({
     'buildingPermitIssueDate': None,
