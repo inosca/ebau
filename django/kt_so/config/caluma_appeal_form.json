@@ -1,15 +1,33 @@
 [
   {
     "model": "caluma_form.form",
-    "pk": "entscheid",
+    "pk": "beschwerdeverfahren",
     "fields": {
-      "created_at": "2023-10-24T11:20:08.837Z",
-      "modified_at": "2023-10-24T11:20:08.837Z",
+      "created_at": "2024-02-14T10:37:30.729Z",
+      "modified_at": "2024-02-14T10:37:30.730Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "name": "{\"de\": \"Entscheid\", \"fr\": null, \"it\": null}",
+      "name": "{\"de\": \"Beschwerdeverfahren\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "beschwerdeverfahren-tabelle",
+    "fields": {
+      "created_at": "2024-02-14T10:38:14.337Z",
+      "modified_at": "2024-02-14T10:38:14.337Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Beschwerdeverfahren Tabelle\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "meta": {},
       "is_published": false,
@@ -19,135 +37,135 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "entscheid.entscheid-bauabschlag",
+    "pk": "beschwerdeverfahren.beschwerdefuehrer-tabelle",
     "fields": {
-      "created_at": "2023-10-24T11:23:39.630Z",
-      "modified_at": "2023-10-24T11:23:39.630Z",
+      "created_at": "2024-02-14T13:46:19.809Z",
+      "modified_at": "2024-02-14T13:46:19.809Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "form": "entscheid",
-      "question": "entscheid-bauabschlag",
-      "sort": 6
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "entscheid.entscheid-bemerkungen",
-    "fields": {
-      "created_at": "2023-10-24T11:47:28.516Z",
-      "modified_at": "2023-10-24T11:47:28.516Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "entscheid",
-      "question": "entscheid-bemerkungen",
-      "sort": 4
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "entscheid.entscheid-beschwerde",
-    "fields": {
-      "created_at": "2024-02-12T13:18:23.017Z",
-      "modified_at": "2024-02-12T13:18:23.017Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "entscheid",
-      "question": "entscheid-beschwerde",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "entscheid.entscheid-datum",
-    "fields": {
-      "created_at": "2023-10-24T11:48:31.807Z",
-      "modified_at": "2023-10-24T11:48:31.807Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "entscheid",
-      "question": "entscheid-datum",
-      "sort": 5
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "entscheid.entscheid-entscheid",
-    "fields": {
-      "created_at": "2023-10-24T11:23:02.514Z",
-      "modified_at": "2023-10-24T11:23:02.514Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "entscheid",
-      "question": "entscheid-entscheid",
-      "sort": 8
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "entscheid.entscheid-hilfetext-beschwerdeverfahren-bestaetigen",
-    "fields": {
-      "created_at": "2024-02-16T13:28:26.525Z",
-      "modified_at": "2024-02-16T13:28:26.525Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "entscheid",
-      "question": "entscheid-hilfetext-beschwerdeverfahren-bestaetigen",
-      "sort": 3
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "entscheid.entscheid-verfuegen",
-    "fields": {
-      "created_at": "2023-10-24T11:48:06.514Z",
-      "modified_at": "2023-10-24T11:48:06.514Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "entscheid",
-      "question": "entscheid-verfuegen",
+      "form": "beschwerdeverfahren",
+      "question": "beschwerdefuehrer-tabelle",
       "sort": 2
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "entscheid.hilfetext-beschwerdeverfahren",
+    "pk": "beschwerdeverfahren.beschwerdegegner-tabelle",
     "fields": {
-      "created_at": "2024-02-15T06:08:59.338Z",
-      "modified_at": "2024-02-15T06:08:59.338Z",
+      "created_at": "2024-02-14T13:47:40.941Z",
+      "modified_at": "2024-02-14T13:47:40.941Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "form": "entscheid",
-      "question": "hilfetext-beschwerdeverfahren",
-      "sort": 7
+      "form": "beschwerdeverfahren",
+      "question": "beschwerdegegner-tabelle",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "beschwerdeverfahren.beschwerdeverfahren-tabelle",
+    "fields": {
+      "created_at": "2024-02-14T10:39:40.119Z",
+      "modified_at": "2024-02-14T10:39:40.120Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "beschwerdeverfahren",
+      "question": "beschwerdeverfahren-tabelle",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "beschwerdeverfahren-tabelle.beschreibung-typ",
+    "fields": {
+      "created_at": "2024-02-14T13:38:33.558Z",
+      "modified_at": "2024-02-14T13:38:33.558Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "beschwerdeverfahren-tabelle",
+      "question": "beschreibung-typ",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "beschwerdeverfahren-tabelle.beschwerde-bemerkung",
+    "fields": {
+      "created_at": "2024-02-14T13:39:45.769Z",
+      "modified_at": "2024-02-14T13:39:45.769Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "beschwerdeverfahren-tabelle",
+      "question": "beschwerde-bemerkung",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "beschwerdeverfahren-tabelle.beschwerdedatum",
+    "fields": {
+      "created_at": "2024-02-14T13:39:17.323Z",
+      "modified_at": "2024-02-14T13:39:17.323Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "beschwerdeverfahren-tabelle",
+      "question": "beschwerdedatum",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "beschwerdeverfahren-tabelle.beschwerdeinstanz",
+    "fields": {
+      "created_at": "2024-02-14T13:35:46.346Z",
+      "modified_at": "2024-02-14T13:35:46.346Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "beschwerdeverfahren-tabelle",
+      "question": "beschwerdeinstanz",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "beschwerdeverfahren-tabelle.beschwerdetyp",
+    "fields": {
+      "created_at": "2024-02-14T13:37:18.617Z",
+      "modified_at": "2024-02-14T13:37:18.617Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "beschwerdeverfahren-tabelle",
+      "question": "beschwerdetyp",
+      "sort": 4
     }
   },
   {
     "model": "caluma_form.option",
-    "pk": "entscheid-bauabschlag-mit-wiederherstellung",
+    "pk": "beschwerdeinstanz-bjd",
     "fields": {
-      "created_at": "2023-10-24T11:23:39.186Z",
-      "modified_at": "2023-10-24T11:23:39.186Z",
+      "created_at": "2024-02-14T13:35:45.869Z",
+      "modified_at": "2024-02-14T13:35:45.869Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"Mit Wiederherstellung\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Bau- und Justizdepartement (BJD)\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -155,15 +173,15 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "entscheid-bauabschlag-ohne-wiederherstellung",
+    "pk": "beschwerdeinstanz-bundesgericht",
     "fields": {
-      "created_at": "2023-10-24T11:23:39.206Z",
-      "modified_at": "2023-10-24T11:23:39.206Z",
+      "created_at": "2024-02-14T13:35:45.898Z",
+      "modified_at": "2024-02-14T13:35:45.898Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"Ohne Wiederherstellung\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Bundesgericht\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -171,15 +189,15 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "entscheid-entscheid-ablehnung",
+    "pk": "beschwerdeinstanz-verwaltungsgericht",
     "fields": {
-      "created_at": "2023-10-24T11:23:02.041Z",
-      "modified_at": "2023-10-24T11:23:02.041Z",
+      "created_at": "2024-02-14T13:35:45.831Z",
+      "modified_at": "2024-02-14T13:35:45.831Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"Ablehnung\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Verwaltungsgericht\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -187,15 +205,15 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "entscheid-entscheid-beschwerde-bestaetigt",
+    "pk": "beschwerdetyp-andere",
     "fields": {
-      "created_at": "2024-02-15T06:10:14.042Z",
-      "modified_at": "2024-02-15T06:10:14.042Z",
+      "created_at": "2024-02-14T13:37:18.094Z",
+      "modified_at": "2024-02-14T13:37:18.094Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"Entscheid best\\u00e4tigt\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Andere\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -203,15 +221,15 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "entscheid-entscheid-beschwerde-geaendert",
+    "pk": "beschwerdetyp-aufforderung-zur-stellungnahme",
     "fields": {
-      "created_at": "2024-02-15T06:10:14.071Z",
-      "modified_at": "2024-02-15T06:10:14.071Z",
+      "created_at": "2024-02-14T13:37:18.029Z",
+      "modified_at": "2024-02-14T13:37:18.029Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"Entscheid ge\\u00e4ndert / aufgehoben\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Aufforderung zur Stellungnahme\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -219,15 +237,15 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "entscheid-entscheid-beschwerde-zurueckgewiesen",
+    "pk": "beschwerdetyp-eingabe",
     "fields": {
-      "created_at": "2024-02-15T06:10:14.085Z",
-      "modified_at": "2024-02-15T06:10:14.085Z",
+      "created_at": "2024-02-14T13:37:17.837Z",
+      "modified_at": "2024-02-14T13:37:17.837Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"Entscheid zur\\u00fcckgewiesen\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Eingabe bei Beschwerdeinstanz (Poststempel)\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -235,15 +253,15 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "entscheid-entscheid-rueckzug",
+    "pk": "beschwerdetyp-entscheid",
     "fields": {
-      "created_at": "2023-10-24T11:23:02.048Z",
-      "modified_at": "2023-10-24T11:23:02.048Z",
+      "created_at": "2024-02-14T13:37:18.073Z",
+      "modified_at": "2024-02-14T13:37:18.073Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"R\\u00fcckzug\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Entscheid\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -251,15 +269,15 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "entscheid-entscheid-teilzustimmung",
+    "pk": "beschwerdetyp-eroeffnung",
     "fields": {
-      "created_at": "2023-10-24T11:23:01.925Z",
-      "modified_at": "2023-10-24T11:23:01.925Z",
+      "created_at": "2024-02-14T13:37:18.047Z",
+      "modified_at": "2024-02-14T13:37:18.047Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"Teilzustimmung\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Er\\u00f6ffnung des Beschwerdeverfahren bei Beschwerdeinstanz\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -267,15 +285,31 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "entscheid-entscheid-zustimmung",
+    "pk": "beschwerdetyp-frist-der-stellungnahme",
     "fields": {
-      "created_at": "2023-10-24T11:23:01.971Z",
-      "modified_at": "2023-10-24T11:23:01.971Z",
+      "created_at": "2024-02-14T13:37:18.105Z",
+      "modified_at": "2024-02-14T13:37:18.105Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"Zustimmung\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Frist der Stellungnahme\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "beschwerdetyp-stellungnahme",
+    "fields": {
+      "created_at": "2024-02-14T13:37:17.826Z",
+      "modified_at": "2024-02-14T13:37:17.826Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Stellungnahme\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -283,24 +317,27 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "entscheid-bauabschlag",
+    "pk": "beschreibung-typ",
     "fields": {
-      "created_at": "2023-10-24T11:23:39.415Z",
-      "modified_at": "2023-10-24T11:24:56.285Z",
+      "created_at": "2024-02-14T13:38:33.323Z",
+      "modified_at": "2024-02-14T13:38:33.323Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"Bauabschlag\", \"fr\": null, \"it\": null}",
-      "type": "choice",
+      "label": "{\"de\": \"Beschreibung Typ\", \"fr\": null, \"it\": null}",
+      "type": "text",
       "is_required": "true",
-      "is_hidden": "!(\n\t\"entscheid-entscheid\"|answer in [\n\t\t\"entscheid-entscheid-ablehnung\",\n\t\t\"entscheid-entscheid-teilzustimmung\"\n\t]\n)",
+      "is_hidden": "'beschwerdetyp'|answer != 'beschwerdetyp-andere'",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -314,15 +351,15 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "entscheid-bemerkungen",
+    "pk": "beschwerde-bemerkung",
     "fields": {
-      "created_at": "2023-10-24T11:47:28.277Z",
-      "modified_at": "2023-10-24T11:47:28.277Z",
+      "created_at": "2024-02-14T13:39:45.520Z",
+      "modified_at": "2024-02-14T13:39:45.520Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"Bemerkungen\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Bemerkung\", \"fr\": null, \"it\": null}",
       "type": "textarea",
       "is_required": "false",
       "is_hidden": "false",
@@ -348,44 +385,10 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "entscheid-beschwerde",
+    "pk": "beschwerdedatum",
     "fields": {
-      "created_at": "2024-02-12T13:18:22.792Z",
-      "modified_at": "2024-02-12T13:18:22.792Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Beschwerde eingegangen\", \"fr\": null, \"it\": null}",
-      "type": "static",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {
-        "hideLabel": true,
-        "widgetOverride": "decision/appeal-button"
-      },
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "entscheid-datum",
-    "fields": {
-      "created_at": "2023-10-24T11:48:31.569Z",
-      "modified_at": "2023-10-24T11:48:31.569Z",
+      "created_at": "2024-02-14T13:39:17.067Z",
+      "modified_at": "2024-02-14T13:39:17.067Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
@@ -413,17 +416,17 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "entscheid-entscheid",
+    "pk": "beschwerdefuehrer-tabelle",
     "fields": {
-      "created_at": "2023-10-24T11:23:02.294Z",
-      "modified_at": "2024-02-15T06:10:14.332Z",
+      "created_at": "2024-02-14T13:46:19.589Z",
+      "modified_at": "2024-02-14T13:47:01.970Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Entscheid\", \"fr\": null, \"it\": null}",
-      "type": "choice",
-      "is_required": "true",
+      "label": "{\"de\": \"Beschwerdef\\u00fchrer/innen\", \"fr\": null, \"it\": null}",
+      "type": "table",
+      "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
@@ -431,9 +434,17 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": {
+        "columnsToDisplay": [
+          "juristische-person-name",
+          "nachname",
+          "vorname",
+          "vertretung-telefon",
+          "vertretung-e-mail"
+        ]
+      },
       "data_source": null,
-      "row_form": null,
+      "row_form": "personalien-tabelle",
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
@@ -444,63 +455,64 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "entscheid-hilfetext-beschwerdeverfahren-bestaetigen",
+    "pk": "beschwerdegegner-tabelle",
     "fields": {
-      "created_at": "2024-02-16T13:28:26.276Z",
-      "modified_at": "2024-02-16T13:28:26.276Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Hilfetext Beschwerdeverfahren best\\u00e4tigen\", \"fr\": null, \"it\": null}",
-      "type": "static",
-      "is_required": "false",
-      "is_hidden": "!(\n\t'entscheid-entscheid'|answer in [\n\t\t'entscheid-entscheid-beschwerde-bestaetigt',\n\t\t'entscheid-entscheid-beschwerde-geaendert',\n\t\t'entscheid-entscheid-beschwerde-zurueckgewiesen'\n\t]\n)",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"<div class=\\\"uk-alert uk-alert-default uk-margin-remove\\\"><strong>Achtung:</strong> Der Entscheid kann in eBau erst best\\u00e4tigt werden, wenn das Rechtsverfahren definitiv abgeschlossen ist.</div>\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "entscheid-verfuegen",
-    "fields": {
-      "created_at": "2023-10-24T11:48:06.368Z",
-      "modified_at": "2024-02-16T15:33:48.897Z",
+      "created_at": "2024-02-14T13:47:40.685Z",
+      "modified_at": "2024-02-14T13:47:54.806Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Entscheid verf\\u00fcgen\", \"fr\": null, \"it\": null}",
-      "type": "action_button",
+      "label": "{\"de\": \"Beschwerdegegner/innen\", \"fr\": null, \"it\": null}",
+      "type": "table",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"Haben Sie den Entscheid im Men\\u00fc \\\"Dokumente\\\" hochgeladen und m\\u00f6chten Sie den Entscheid jetzt verf\\u00fcgen? Dieser Schritt kann nicht r\\u00fcckg\\u00e4ngig gemacht werden.\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "columnsToDisplay": [
+          "juristische-person-name",
+          "vorname",
+          "nachname",
+          "vertretung-telefon",
+          "vertretung-e-mail"
+        ]
+      },
+      "data_source": null,
+      "row_form": "personalien-tabelle",
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "beschwerdeinstanz",
+    "fields": {
+      "created_at": "2024-02-14T13:35:46.096Z",
+      "modified_at": "2024-02-14T13:35:46.096Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschwerdeinstanz\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "color": "primary",
-        "action": "complete",
-        "show_validation": false,
-        "validate_on_enter": false
-      },
-      "meta": {
-        "widgetOverride": "decision/submit-button"
-      },
+      "configuration": {},
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -513,27 +525,25 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "hilfetext-beschwerdeverfahren",
+    "pk": "beschwerdetyp",
     "fields": {
-      "created_at": "2024-02-15T06:08:59.112Z",
-      "modified_at": "2024-02-15T06:24:16.694Z",
+      "created_at": "2024-02-14T13:37:18.346Z",
+      "modified_at": "2024-02-14T13:37:18.346Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"Hilfetext Beschwerdeverfahren\", \"fr\": null, \"it\": null}",
-      "type": "static",
-      "is_required": "false",
-      "is_hidden": "!(\n\t'entscheid-entscheid'|answer in [\n\t\t'entscheid-entscheid-beschwerde-bestaetigt',\n\t\t'entscheid-entscheid-beschwerde-geaendert',\n\t\t'entscheid-entscheid-beschwerde-zurueckgewiesen'\n\t]\n)",
+      "label": "{\"de\": \"Typ\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"x\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": "decision/info-appeal"
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -545,138 +555,184 @@
     }
   },
   {
-    "model": "caluma_form.questionoption",
-    "pk": "entscheid-bauabschlag.entscheid-bauabschlag-mit-wiederherstellung",
+    "model": "caluma_form.question",
+    "pk": "beschwerdeverfahren-tabelle",
     "fields": {
-      "created_at": "2023-10-24T11:24:56.295Z",
-      "modified_at": "2023-10-24T11:24:56.295Z",
+      "created_at": "2024-02-14T10:39:39.899Z",
+      "modified_at": "2024-02-14T10:39:39.899Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_user": null,
       "modified_by_group": null,
-      "question": "entscheid-bauabschlag",
-      "option": "entscheid-bauabschlag-mit-wiederherstellung",
-      "sort": 1
+      "label": "{\"de\": \"Beschwerdeverfahren\", \"fr\": null, \"it\": null}",
+      "type": "table",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": "beschwerdeverfahren-tabelle",
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
     }
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "entscheid-bauabschlag.entscheid-bauabschlag-ohne-wiederherstellung",
+    "pk": "beschwerdeinstanz.beschwerdeinstanz-bjd",
     "fields": {
-      "created_at": "2023-10-24T11:24:56.301Z",
-      "modified_at": "2023-10-24T11:24:56.301Z",
+      "created_at": "2024-02-14T13:35:46.121Z",
+      "modified_at": "2024-02-14T13:35:46.121Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "question": "entscheid-bauabschlag",
-      "option": "entscheid-bauabschlag-ohne-wiederherstellung",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "entscheid-entscheid.entscheid-entscheid-ablehnung",
-    "fields": {
-      "created_at": "2024-02-15T06:10:14.376Z",
-      "modified_at": "2024-02-15T06:10:14.376Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "entscheid-entscheid",
-      "option": "entscheid-entscheid-ablehnung",
-      "sort": 7
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "entscheid-entscheid.entscheid-entscheid-beschwerde-bestaetigt",
-    "fields": {
-      "created_at": "2024-02-15T06:10:14.356Z",
-      "modified_at": "2024-02-15T06:10:14.356Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "entscheid-entscheid",
-      "option": "entscheid-entscheid-beschwerde-bestaetigt",
+      "question": "beschwerdeinstanz",
+      "option": "beschwerdeinstanz-bjd",
       "sort": 3
     }
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "entscheid-entscheid.entscheid-entscheid-beschwerde-geaendert",
+    "pk": "beschwerdeinstanz.beschwerdeinstanz-bundesgericht",
     "fields": {
-      "created_at": "2024-02-15T06:10:14.349Z",
-      "modified_at": "2024-02-15T06:10:14.349Z",
+      "created_at": "2024-02-14T13:35:46.107Z",
+      "modified_at": "2024-02-14T13:35:46.107Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "question": "entscheid-entscheid",
-      "option": "entscheid-entscheid-beschwerde-geaendert",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "entscheid-entscheid.entscheid-entscheid-beschwerde-zurueckgewiesen",
-    "fields": {
-      "created_at": "2024-02-15T06:10:14.342Z",
-      "modified_at": "2024-02-15T06:10:14.342Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "entscheid-entscheid",
-      "option": "entscheid-entscheid-beschwerde-zurueckgewiesen",
+      "question": "beschwerdeinstanz",
+      "option": "beschwerdeinstanz-bundesgericht",
       "sort": 1
     }
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "entscheid-entscheid.entscheid-entscheid-rueckzug",
+    "pk": "beschwerdeinstanz.beschwerdeinstanz-verwaltungsgericht",
     "fields": {
-      "created_at": "2024-02-15T06:10:14.361Z",
-      "modified_at": "2024-02-15T06:10:14.361Z",
+      "created_at": "2024-02-14T13:35:46.115Z",
+      "modified_at": "2024-02-14T13:35:46.115Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "question": "entscheid-entscheid",
-      "option": "entscheid-entscheid-rueckzug",
-      "sort": 4
+      "question": "beschwerdeinstanz",
+      "option": "beschwerdeinstanz-verwaltungsgericht",
+      "sort": 2
     }
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "entscheid-entscheid.entscheid-entscheid-teilzustimmung",
+    "pk": "beschwerdetyp.beschwerdetyp-andere",
     "fields": {
-      "created_at": "2024-02-15T06:10:14.366Z",
-      "modified_at": "2024-02-15T06:10:14.366Z",
+      "created_at": "2024-02-14T13:37:18.354Z",
+      "modified_at": "2024-02-14T13:37:18.354Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "question": "entscheid-entscheid",
-      "option": "entscheid-entscheid-teilzustimmung",
+      "question": "beschwerdetyp",
+      "option": "beschwerdetyp-andere",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "beschwerdetyp.beschwerdetyp-aufforderung-zur-stellungnahme",
+    "fields": {
+      "created_at": "2024-02-14T13:37:18.374Z",
+      "modified_at": "2024-02-14T13:37:18.374Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "beschwerdetyp",
+      "option": "beschwerdetyp-aufforderung-zur-stellungnahme",
       "sort": 5
     }
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "entscheid-entscheid.entscheid-entscheid-zustimmung",
+    "pk": "beschwerdetyp.beschwerdetyp-eingabe",
     "fields": {
-      "created_at": "2024-02-15T06:10:14.371Z",
-      "modified_at": "2024-02-15T06:10:14.371Z",
+      "created_at": "2024-02-14T13:37:18.383Z",
+      "modified_at": "2024-02-14T13:37:18.383Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "question": "entscheid-entscheid",
-      "option": "entscheid-entscheid-zustimmung",
+      "question": "beschwerdetyp",
+      "option": "beschwerdetyp-eingabe",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "beschwerdetyp.beschwerdetyp-entscheid",
+    "fields": {
+      "created_at": "2024-02-14T13:37:18.359Z",
+      "modified_at": "2024-02-14T13:37:18.359Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "beschwerdetyp",
+      "option": "beschwerdetyp-entscheid",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "beschwerdetyp.beschwerdetyp-eroeffnung",
+    "fields": {
+      "created_at": "2024-02-14T13:37:18.379Z",
+      "modified_at": "2024-02-14T13:37:18.379Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "beschwerdetyp",
+      "option": "beschwerdetyp-eroeffnung",
       "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "beschwerdetyp.beschwerdetyp-frist-der-stellungnahme",
+    "fields": {
+      "created_at": "2024-02-14T13:37:18.368Z",
+      "modified_at": "2024-02-14T13:37:18.368Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "beschwerdetyp",
+      "option": "beschwerdetyp-frist-der-stellungnahme",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "beschwerdetyp.beschwerdetyp-stellungnahme",
+    "fields": {
+      "created_at": "2024-02-14T13:37:18.363Z",
+      "modified_at": "2024-02-14T13:37:18.363Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "beschwerdetyp",
+      "option": "beschwerdetyp-stellungnahme",
+      "sort": 3
     }
   }
 ]

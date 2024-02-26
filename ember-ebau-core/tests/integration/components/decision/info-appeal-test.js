@@ -2,10 +2,11 @@ import { render } from "@ember/test-helpers";
 import { hbs } from "ember-cli-htmlbars";
 import { setupMirage } from "ember-cli-mirage/test-support";
 import { t } from "ember-intl/test-support";
-import { module, test } from "qunit";
+import { module } from "qunit";
 
 import { setupRenderingTest } from "dummy/tests/helpers";
 import id from "dummy/tests/helpers/graphql-id";
+import { testBE } from "dummy/tests/helpers/scenarios";
 import mainConfig from "ember-ebau-core/config/main";
 
 module("Integration | Component | decision/info-appeal", function (hooks) {
@@ -69,7 +70,7 @@ module("Integration | Component | decision/info-appeal", function (hooks) {
     };
   });
 
-  test.each(
+  testBE.each(
     "it renders",
     [
       ["confirmed", "sb1", "sb1", "success"],

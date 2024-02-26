@@ -370,8 +370,10 @@ class InstanceView(
                 instance.responsible_service(filter_type="municipality")
                 == self.request.group.service
             )
-            and instance.previous_instance_state.name == "coordination"
-            and instance.instance_state.name in ["finished", "sb1"]
+            and instance.previous_instance_state.name
+            == settings.DECISION["INSTANCE_STATE"]
+            and instance.instance_state.name
+            in settings.APPEAL["INSTANCE_STATES_AFTER_DECISION"]
         )
 
     @permission_aware

@@ -103,6 +103,15 @@ class CustomDynamicTasks(BaseDynamicTasks):
 
         return tasks
 
+    @register_dynamic_task("after-submit")
+    def resolve_after_submit(self, case, user, prev_work_item, context):
+        tasks = ["create-manual-workitems", "formal-exam", "init-additional-demand"]
+
+        if case.meta.get("is-appeal"):
+            tasks.append("appeal")
+
+        return tasks
+
     @register_dynamic_task("after-check-additional-demand")
     def resolve_after_check_additional_demand(
         self, case, user, prev_work_item, context

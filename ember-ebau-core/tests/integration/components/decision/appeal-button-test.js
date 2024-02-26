@@ -1,10 +1,11 @@
 import { render, click, waitFor } from "@ember/test-helpers";
 import { hbs } from "ember-cli-htmlbars";
 import { setupMirage } from "ember-cli-mirage/test-support";
-import { module, test } from "qunit";
+import { module } from "qunit";
 
 import { setupRenderingTest } from "dummy/tests/helpers";
 import id from "dummy/tests/helpers/graphql-id";
+import { testBE } from "dummy/tests/helpers/scenarios";
 import mainConfig from "ember-ebau-core/config/main";
 
 module("Integration | Component | decision/appeal-button", function (hooks) {
@@ -56,7 +57,7 @@ module("Integration | Component | decision/appeal-button", function (hooks) {
     };
   });
 
-  test.each(
+  testBE.each(
     "it renders only if correct states are given",
     [
       [null, null, false, false],
@@ -79,7 +80,7 @@ module("Integration | Component | decision/appeal-button", function (hooks) {
     },
   );
 
-  test("it redirects after successful appeal", async function (assert) {
+  testBE("it redirects after successful appeal", async function (assert) {
     this.initialize("finished", "coordination");
 
     this.server.post(
