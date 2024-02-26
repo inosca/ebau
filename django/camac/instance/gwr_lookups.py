@@ -312,7 +312,7 @@ class GwrSerializer(serializers.Serializer):
         # TODO Configure this for BE and SZ
         type_of_applicant = (
             self.master_data.type_of_applicant
-            if settings.APPLICATION_NAME in ["kt_uri", "kt_so"]
+            if settings.APPLICATION_NAME == "kt_uri"
             else None
         )
         if type_of_applicant:
