@@ -84,7 +84,7 @@ CONSTRUCTION_MONITORING_DUMP_CONFIG = {
     },
     "caluma_construction_monitoring_workflow": {
         **generate_workflow_dump_config(CONSTRUCTION_MONITORING_REGEX, True),
-    }
+    },
 }
 
 DUMP = {
