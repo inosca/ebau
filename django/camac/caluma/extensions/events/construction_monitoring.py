@@ -45,7 +45,9 @@ def filter_by_task(settings_keys):
 
 
 def construction_step_can_continue(work_item):
-    if not settings.CONSTRUCTION_MONITORING or not work_item.meta.get("construction-step-id"):
+    if not settings.CONSTRUCTION_MONITORING or not work_item.meta.get(
+        "construction-step-id"
+    ):
         return True  # pragma: no cover
 
     needs_approval_question = work_item.meta["construction-step"].get("needs-approval")
@@ -124,12 +126,16 @@ def post_create_construction_stage(sender, work_item, user, context=None, **kwar
 def post_create_construction_step_work_item(sender, work_item, user, context, **kwargs):
     """Set needed meta attributes on the newly created work item."""
 
-    if not settings.CONSTRUCTION_MONITORING or not work_item.task.meta.get("construction-step-id"):
+    if not settings.CONSTRUCTION_MONITORING or not work_item.task.meta.get(
+        "construction-step-id"
+    ):
         return
 
     if (
         work_item.task.meta["construction-step-id"]
-        != settings.CONSTRUCTION_MONITORING["CONSTRUCTION_STEP_PLAN_CONSTRUCTION_STAGE_TASK"]
+        != settings.CONSTRUCTION_MONITORING[
+            "CONSTRUCTION_STEP_PLAN_CONSTRUCTION_STAGE_TASK"
+        ]
     ):
         work_item.name = f"{work_item.name} ({work_item.case.parent_work_item.name})"
 
@@ -145,12 +151,17 @@ def post_complete_construction_step_work_item(
 ):
     """Set needed meta attributes on the newly created work item."""
 
-    if not settings.CONSTRUCTION_MONITORING or not work_item.task.meta.get("construction-step-id"):
+    if not settings.CONSTRUCTION_MONITORING or not work_item.task.meta.get(
+        "construction-step-id"
+    ):
         return
 
     instance = get_instance(work_item)
     if (
-        work_item.task.pk == settings.CONSTRUCTION_MONITORING["CONSTRUCTION_STEP_PLAN_CONSTRUCTION_STAGE_TASK"]
+        work_item.task.pk
+        == settings.CONSTRUCTION_MONITORING[
+            "CONSTRUCTION_STEP_PLAN_CONSTRUCTION_STAGE_TASK"
+        ]
         and instance.instance_state.name
         == settings.CONSTRUCTION_MONITORING["PREVIOUS_INSTANCE_STATE"]
     ):
@@ -252,7 +263,9 @@ def post_complete_construction_stage(sender, case, user, context, **kwargs):
 @on(post_complete_work_item, raise_exception=True)
 @filter_by_task(["COMPLETE_INSTANCE_TASK"])
 @transaction.atomic
-def post_complete_instance(sender, work_item, user, context, **kwargs):  # pragma: todo cover
+def post_complete_instance(
+    sender, work_item, user, context, **kwargs
+):  # pragma: todo cover
     instance = get_instance(work_item)
 
     notifications = settings.CONSTRUCTION_MONITORING["NOTIFICATIONS"].get(
