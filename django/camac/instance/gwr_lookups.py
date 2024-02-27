@@ -233,13 +233,16 @@ class GwrSerializer(serializers.Serializer):
             None,
         )
 
+    def get_energy_device_so(self, building, is_heating, is_main_heating):
+        return self.get_energy_device_ur(building, is_heating, is_main_heating)
+
     @catch_and_log(fallback=[])
     def get_dwellings(self, building):
         if settings.APPLICATION_NAME == "kt_schwyz":
             dwellings = building.get("dwellings") if building.get("dwellings") else []
             return [dwelling_data(dwelling) for dwelling in dwellings]
 
-        if settings.APPLICATION_NAME == "kt_uri":
+        if settings.APPLICATION_NAME in ["kt_uri", "kt_so"]:
             return [
                 dwelling_data(dwelling)
                 for dwelling in self.master_data.dwellings
@@ -292,7 +295,7 @@ class GwrSerializer(serializers.Serializer):
                     ),
                     "realestateIdentification": (
                         self.get_realestateIdentification(case)
-                        if settings.APPLICATION_NAME == "kt_uri"
+                        if settings.APPLICATION_NAME in ["kt_uri", "kt_so"]
                         else None
                     ),
                     "dwellings": self.get_dwellings(building),

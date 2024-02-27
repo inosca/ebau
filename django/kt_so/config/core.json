@@ -498,7 +498,7 @@
       "template": null,
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 16,
+      "sort": 17,
       "form_group": 1,
       "require_permission": null
     }
@@ -514,7 +514,7 @@
       "template": "/ember-camac-ng/journal.phtml",
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 17,
+      "sort": 18,
       "form_group": 1,
       "require_permission": null
     }
@@ -562,7 +562,7 @@
       "template": "/ember-camac-ng/additional-demand.phtml",
       "class_field": "menu-category-extraordinary",
       "hidden": 0,
-      "sort": 12,
+      "sort": 13,
       "form_group": 1,
       "require_permission": null
     }
@@ -578,7 +578,7 @@
       "template": "/ember-camac-ng/corrections.phtml",
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 18,
+      "sort": 19,
       "form_group": 1,
       "require_permission": null
     }
@@ -626,7 +626,7 @@
       "template": "/ember-camac-ng/billing.phtml",
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 15,
+      "sort": 16,
       "form_group": 1,
       "require_permission": null
     }
@@ -658,7 +658,7 @@
       "template": "/ember-camac-ng/legal-submission.phtml",
       "class_field": "menu-category-extraordinary",
       "hidden": 0,
-      "sort": 13,
+      "sort": 14,
       "form_group": 1,
       "require_permission": null
     }
@@ -681,6 +681,22 @@
   },
   {
     "model": "core.instanceresource",
+    "pk": 19,
+    "fields": {
+      "available_instance_resource": "page",
+      "resource": 3,
+      "name": null,
+      "description": null,
+      "template": "/ember-camac-ng/gwr.phtml",
+      "class_field": "menu-category-process",
+      "hidden": 0,
+      "sort": 12,
+      "form_group": 1,
+      "require_permission": null
+    }
+  },
+  {
+    "model": "core.instanceresource",
     "pk": 20,
     "fields": {
       "available_instance_resource": "taskform",
@@ -690,7 +706,7 @@
       "template": null,
       "class_field": "menu-category-extraordinary appeal-only",
       "hidden": 0,
-      "sort": 14,
+      "sort": 15,
       "form_group": 1,
       "require_permission": null
     }
@@ -873,6 +889,16 @@
       "language": "de",
       "name": "Kommunikation",
       "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 19,
+    "fields": {
+      "instance_resource": 19,
+      "language": "de",
+      "name": "Verknüpfte GWR-Bauprojekte",
+      "description": "Eidg. Gebäude- und Wohnungsregister"
     }
   },
   {
@@ -7051,6 +7077,132 @@
     }
   },
   {
+    "model": "core.irroleacl",
+    "pk": 698,
+    "fields": {
+      "instance_resource": 19,
+      "role": 6,
+      "instance_state": 8
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 699,
+    "fields": {
+      "instance_resource": 19,
+      "role": 6,
+      "instance_state": 7
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 700,
+    "fields": {
+      "instance_resource": 19,
+      "role": 6,
+      "instance_state": 5
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 701,
+    "fields": {
+      "instance_resource": 19,
+      "role": 6,
+      "instance_state": 9
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 702,
+    "fields": {
+      "instance_resource": 19,
+      "role": 6,
+      "instance_state": 4
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 703,
+    "fields": {
+      "instance_resource": 19,
+      "role": 6,
+      "instance_state": 13
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 704,
+    "fields": {
+      "instance_resource": 19,
+      "role": 6,
+      "instance_state": 12
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 705,
+    "fields": {
+      "instance_resource": 19,
+      "role": 5,
+      "instance_state": 8
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 706,
+    "fields": {
+      "instance_resource": 19,
+      "role": 5,
+      "instance_state": 7
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 707,
+    "fields": {
+      "instance_resource": 19,
+      "role": 5,
+      "instance_state": 5
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 708,
+    "fields": {
+      "instance_resource": 19,
+      "role": 5,
+      "instance_state": 9
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 709,
+    "fields": {
+      "instance_resource": 19,
+      "role": 5,
+      "instance_state": 4
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 710,
+    "fields": {
+      "instance_resource": 19,
+      "role": 5,
+      "instance_state": 13
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 711,
+    "fields": {
+      "instance_resource": 19,
+      "role": 5,
+      "instance_state": 12
+    }
+  },
+  {
     "model": "core.irtaskform",
     "pk": 4,
     "fields": {
@@ -7277,6 +7429,22 @@
     }
   },
   {
+    "model": "core.rroleacl",
+    "pk": 24,
+    "fields": {
+      "resource": 7,
+      "role": 5
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 25,
+    "fields": {
+      "resource": 7,
+      "role": 6
+    }
+  },
+  {
     "model": "core.resource",
     "pk": 1,
     "fields": {
@@ -7355,6 +7523,19 @@
     }
   },
   {
+    "model": "core.resource",
+    "pk": 7,
+    "fields": {
+      "available_resource": "page",
+      "name": null,
+      "description": null,
+      "template": "/ember-camac-ng/gwr-global.phtml",
+      "class_field": null,
+      "hidden": 0,
+      "sort": 6
+    }
+  },
+  {
     "model": "core.resourcet",
     "pk": 1,
     "fields": {
@@ -7412,6 +7593,16 @@
       "language": "de",
       "name": "Kommunikation",
       "description": null
+    }
+  },
+  {
+    "model": "core.resourcet",
+    "pk": 7,
+    "fields": {
+      "resource": 7,
+      "language": "de",
+      "name": "GWR",
+      "description": "Eidg. Gebäude- und Wohnungsregister"
     }
   }
 ]

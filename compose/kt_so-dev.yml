@@ -86,6 +86,7 @@ services:
       OIDC_USERINFO_ENDPOINT: http://ebau-keycloak.local/auth/realms/ebau/protocol/openid-connect/userinfo
       # GWR
       GWR_FERNET_KEY: GUdwT6yKxqfszrnHC7wyKDmtVZdhjSVQEPnpeJYNLf8=
+      GWR_HOUSING_STAT_BASE_URI: https://www-r.housing-stat.ch/regbl/api/ech0216/2
       # Caluma
       EVENT_RECEIVER_MODULES: camac.caluma.extensions.events
       VISIBILITY_CLASSES: camac.caluma.extensions.visibilities.CustomVisibility
