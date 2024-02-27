@@ -164,7 +164,12 @@ def test_create_construction_stage(
 
         assert stage.child_case.work_items.count() == 1
         work_item = stage.child_case.work_items.first()
-        assert work_item.task.pk ==  sz_construction_monitoring_settings["CONSTRUCTION_STEP_PLAN_CONSTRUCTION_STAGE_TASK"]
+        assert (
+            work_item.task.pk
+            == sz_construction_monitoring_settings[
+                "CONSTRUCTION_STEP_PLAN_CONSTRUCTION_STAGE_TASK"
+            ]
+        )
         assert work_item.status == WorkItem.STATUS_READY
         assert work_item.addressed_groups == [str(service.pk)]
         assert (
@@ -316,6 +321,7 @@ def test_complete_construction_monitoring(
     assert complete_instance.status == WorkItem.STATUS_READY
     assert complete_instance.addressed_groups == [str(service.pk)]
 
+
 @pytest.mark.parametrize("role__name", ["municipality-lead"])
 def test_complete_construction_step_work_item(
     db,
@@ -327,19 +333,23 @@ def test_complete_construction_step_work_item(
     utils,
     notification_template,
 ):
-
     plan_stage = construction_monitoring_initialized_case_sz.work_items.first()
     utils.add_answer(plan_stage.document, "construction-stage-name", "Test")
     utils.add_answer(
-    plan_stage.document, "construction-steps", ["construction-step-baubeginn"])
+        plan_stage.document, "construction-steps", ["construction-step-baubeginn"]
+    )
     sz_construction_monitoring_settings["NOTIFICATIONS"] = {
-        plan_stage.task.pk: [{
-            "template_slug": notification_template.slug,
-            "recipient_types": ["leitbehoerde"],
-        }]
+        plan_stage.task.pk: [
+            {
+                "template_slug": notification_template.slug,
+                "recipient_types": ["leitbehoerde"],
+            }
+        ]
     }
 
-    sz_instance.instance_state = InstanceState.objects.get(name=sz_construction_monitoring_settings["PREVIOUS_INSTANCE_STATE"])
+    sz_instance.instance_state = InstanceState.objects.get(
+        name=sz_construction_monitoring_settings["PREVIOUS_INSTANCE_STATE"]
+    )
     sz_instance.save()
 
     variables = {
@@ -361,6 +371,9 @@ def test_complete_construction_step_work_item(
     plan_stage.refresh_from_db()
     sz_instance.refresh_from_db()
 
-    assert sz_instance.instance_state.name == sz_construction_monitoring_settings["CONSTRUCTION_MONITORING_INSTANCE_STATE"]
+    assert (
+        sz_instance.instance_state.name
+        == sz_construction_monitoring_settings["CONSTRUCTION_MONITORING_INSTANCE_STATE"]
+    )
     assert len(mail.outbox) == 1
     assert sz_instance.group.service.email in mail.outbox[0].recipients()

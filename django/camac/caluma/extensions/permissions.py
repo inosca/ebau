@@ -193,8 +193,14 @@ class CustomPermission(BasePermission):
         if not case or self.has_camac_role("support"):
             return True
 
-        if settings.CONSTRUCTION_MONITORING and case.workflow_id == settings.CONSTRUCTION_MONITORING["CONSTRUCTION_STAGE_WORKFLOW"]:
-            return is_addressed_to_service(case.parent_work_item,  get_current_service_id(info))
+        if (
+            settings.CONSTRUCTION_MONITORING
+            and case.workflow_id
+            == settings.CONSTRUCTION_MONITORING["CONSTRUCTION_STAGE_WORKFLOW"]
+        ):
+            return is_addressed_to_service(
+                case.parent_work_item, get_current_service_id(info)
+            )
 
         return False
 
@@ -225,11 +231,13 @@ class CustomPermission(BasePermission):
         task_id = input.get("multiple_instance_task")
         case = input.get("case")
         case_id = extract_global_id(case)
-
+        manual_workitem_task = settings.APPLICATION["CALUMA"].get(
+            "MANUAL_WORK_ITEM_TASK", None
+        )
         service = get_current_service_id(info)
         queryset = WorkItem.objects.filter(
             Q(addressed_groups__len=0)
-            if task_id == settings.APPLICATION["CALUMA"].get("MANUAL_WORK_ITEM_TASK", None)
+            if task_id == manual_workitem_task
             else Q(addressed_groups__contains=[str(service)]),
             task_id=task_id,
             case_id=case_id,
@@ -506,7 +514,10 @@ class CustomPermission(BasePermission):
     def has_caluma_form_edit_permission(self, document, info):
         work_item = document.family.work_item
 
-        return is_addressed_to_applicant(work_item) and work_item.status == WorkItem.STATUS_READY
+        return (
+            is_addressed_to_applicant(work_item)
+            and work_item.status == WorkItem.STATUS_READY
+        )
 
     def has_caluma_form_edit_permission_for_municipality(self, document, info):
         work_item = document.family.work_item
