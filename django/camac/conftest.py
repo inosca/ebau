@@ -1875,4 +1875,3 @@ def construction_stage_factory_sz(
         return construction_stage
 
     return factory
-

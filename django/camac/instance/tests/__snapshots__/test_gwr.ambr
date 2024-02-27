@@ -244,7 +244,7 @@
     'client': dict({
       'address': dict({
         'country': dict({
-          'countryNameShort': None,
+          'countryNameShort': 'ch',
         }),
         'houseNumber': 123,
         'street': 'Teststrasse',
@@ -273,7 +273,7 @@
     }),
     'totalCostsOfProject': 129000,
     'typeOfClient': None,
-    'typeOfConstruction': None,
+    'typeOfConstruction': 6235,
     'typeOfConstructionProject': 6011,
     'typeOfPermit': None,
     'work': list([
@@ -320,9 +320,13 @@
           }),
           'thermotechnicalDeviceForHeating2': None,
           'thermotechnicalDeviceForWarmWater1': None,
-          'thermotechnicalDeviceForWarmWater2': None,
+          'thermotechnicalDeviceForWarmWater2': dict({
+            'energySourceHeating': 7580,
+            'informationSourceHeating': 869,
+            'revisionDate': '2021-10-07',
+          }),
         }),
-        'kindOfWork': None,
+        'kindOfWork': 6001,
       }),
     ]),
   })

@@ -548,7 +548,7 @@ def so_master_data_case(
                 "strasse-nummer": 123,
                 "plz": 1233,
                 "ort": "Musterdorf",
-                "country": "Schweiz",
+                "land": "Schweiz",
             }
         ],
     )
@@ -559,9 +559,9 @@ def so_master_data_case(
         "gebaeude",
         [
             {
-                "art-der-hochbaute": "art-der-hochbaute-parkhaus",
+                "typ-des-bauwerks": "typ-des-bauwerks-parkhaus",
                 "gebaeude-bezeichnung": "Villa",
-                "proposal": ["proposal-neubau"],
+                "art-der-arbeiten": ["art-der-arbeiten-neubau"],
                 "gebaeudekategorie": "gebaeudekategorie-ohne-wohnnutzung",
             }
         ],
@@ -606,6 +606,12 @@ def so_master_data_case(
                 "anlagetyp": "anlagetyp-hauptheizung",
                 "heizsystem-art": "-hauptheizung",
                 "hauptheizungsanlage": "hauptheizungsanlage-sonne-thermisch",
+            },
+            {
+                "bezeichnung-dazugehoeriges-gebaeude": "Villa",
+                "anlagetyp": "anlagetyp-warmwasser",
+                "heizsystem-art": "-zusatzheizung",
+                "hauptheizungsanlage": "hauptheizungsanlage-fernwaerme",
             },
         ],
     )

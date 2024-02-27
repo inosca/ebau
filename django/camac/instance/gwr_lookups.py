@@ -278,7 +278,7 @@ class GwrSerializer(serializers.Serializer):
                     "numberOfSeparateHabitableRooms": building.get("number_of_rooms"),
                     "dateOfConstruction": (
                         self.get_construction_date(building)
-                        if settings.APPLICATION_NAME in ["kt_uri", "kt_so"]
+                        if settings.APPLICATION_NAME == "kt_uri"
                         else None
                     ),
                     "thermotechnicalDeviceForHeating1": self.get_energy_device(
