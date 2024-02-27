@@ -68,8 +68,15 @@ def test_office(set_application_be, ech_instance_be, ech_snapshot, multilang):
 @pytest.mark.parametrize("amount", [0, 1, 2])
 @pytest.mark.parametrize("with_display_name", [True, False])
 def test_get_documents(
-    db, attachment_factory, amount, with_display_name, ech_snapshot, settings
+    db,
+    attachment_factory,
+    amount,
+    with_display_name,
+    ech_snapshot,
+    settings,
+    application_settings,
 ):
+    application_settings["DOCUMENT_BACKEND"] = "camac-ng"
     settings.INTERNAL_BASE_URL = "http://ebau.local"
     context = {}
     if with_display_name:
