@@ -117,17 +117,30 @@ class CustomVisibility(Authenticated, InstanceQuerysetMixin):
         if settings.CONSTRUCTION_MONITORING:
             queryset = queryset.annotate(
                 is_construction_stage=ExpressionWrapper(
-                    Q(task__pk=settings.CONSTRUCTION_MONITORING["CONSTRUCTION_STAGE_TASK"])
-                , output_field=BooleanField()),
+                    Q(
+                        task__pk=settings.CONSTRUCTION_MONITORING[
+                            "CONSTRUCTION_STAGE_TASK"
+                        ]
+                    ),
+                    output_field=BooleanField(),
+                ),
                 is_construction_monitoring_control=ExpressionWrapper(
-                    Q(task__pk__in=[
-                        settings.CONSTRUCTION_MONITORING["INIT_CONSTRUCTION_MONITORING_TASK"],
-                        settings.CONSTRUCTION_MONITORING["COMPLETE_CONSTRUCTION_MONITORING_TASK"]
-                    ]
-                ), output_field=BooleanField()),
+                    Q(
+                        task__pk__in=[
+                            settings.CONSTRUCTION_MONITORING[
+                                "INIT_CONSTRUCTION_MONITORING_TASK"
+                            ],
+                            settings.CONSTRUCTION_MONITORING[
+                                "COMPLETE_CONSTRUCTION_MONITORING_TASK"
+                            ],
+                        ]
+                    ),
+                    output_field=BooleanField(),
+                ),
                 is_construction_step=ExpressionWrapper(
-                    Q(**{ "meta__construction-step-id__isnull": False })
-                , output_field=BooleanField()),
+                    Q(**{"meta__construction-step-id__isnull": False}),
+                    output_field=BooleanField(),
+                ),
             )
 
             filters &= self.visible_construction_step_work_items_expression(
@@ -194,54 +207,66 @@ class CustomVisibility(Authenticated, InstanceQuerysetMixin):
             )
 
     @permission_aware
-    def visible_construction_step_work_items_expression(self, group):  # pragma: todo cover
+    def visible_construction_step_work_items_expression(
+        self, group
+    ):  # pragma: todo cover
         return (
-            Q(is_construction_step=False) &
-            Q(is_construction_stage=False) &
-            Q(is_construction_monitoring_control=False)
+            Q(is_construction_step=False)
+            & Q(is_construction_stage=False)
+            & Q(is_construction_monitoring_control=False)
         )
 
-    def visible_construction_step_work_items_expression_for_applicant(self, group):  # pragma: todo cover
+    def visible_construction_step_work_items_expression_for_applicant(
+        self, group
+    ):  # pragma: todo cover
         return (
-            # No construction-monitoring work-item (no additional filtering)
-            Q(is_construction_step=False) &
-            Q(is_construction_stage=False) &
-            Q(is_construction_monitoring_control=False) &
-            ~Q(task=settings.CONSTRUCTION_MONITORING["COMPLETE_INSTANCE_TASK"])
-        ) | (
-            # Applicants see construction-step work-items addressed to them,
-            # and those that have been completed by the municipality
-            Q(is_construction_step=True) &
             (
-                Q(addressed_groups__contains=["applicant"]) |
-                Q(status=workflow_models.WorkItem.STATUS_COMPLETED)
+                # No construction-monitoring work-item (no additional filtering)
+                Q(is_construction_step=False)
+                & Q(is_construction_stage=False)
+                & Q(is_construction_monitoring_control=False)
+                & ~Q(task=settings.CONSTRUCTION_MONITORING["COMPLETE_INSTANCE_TASK"])
             )
-        ) | (
-            # Applicants can see construction stages as soon as the planning
-            # has been completed
-            Exists(
-                workflow_models.WorkItem.objects.filter(
-                    task_id=settings.CONSTRUCTION_MONITORING["CONSTRUCTION_STEP_PLAN_CONSTRUCTION_STAGE_TASK"],
-                    status=workflow_models.WorkItem.STATUS_COMPLETED,
-                    case__parent_work_item__pk=OuterRef("pk"),
+            | (
+                # Applicants see construction-step work-items addressed to them,
+                # and those that have been completed by the municipality
+                Q(is_construction_step=True)
+                & (
+                    Q(addressed_groups__contains=["applicant"])
+                    | Q(status=workflow_models.WorkItem.STATUS_COMPLETED)
                 )
-            ) & Q(is_construction_stage=True)
+            )
+            | (
+                # Applicants can see construction stages as soon as the planning
+                # has been completed
+                Exists(
+                    workflow_models.WorkItem.objects.filter(
+                        task_id=settings.CONSTRUCTION_MONITORING[
+                            "CONSTRUCTION_STEP_PLAN_CONSTRUCTION_STAGE_TASK"
+                        ],
+                        status=workflow_models.WorkItem.STATUS_COMPLETED,
+                        case__parent_work_item__pk=OuterRef("pk"),
+                    )
+                )
+                & Q(is_construction_stage=True)
+            )
         )
 
     def visible_construction_step_work_items_expression_for_municipality(self, group):
         return (
             # No construction-monitoring work-item (no additional filtering)
-            Q(is_construction_step=False) &
-            Q(is_construction_stage=False) &
-            Q(is_construction_monitoring_control=False)
+            Q(is_construction_step=False)
+            & Q(is_construction_stage=False)
+            & Q(is_construction_monitoring_control=False)
         ) | (
             # Construction-monitoring work-item addressed to current service
             Q(addressed_groups__contains=[str(group.service_id)])
         )
 
-    def visible_construction_step_work_items_expression_for_support(self, group):  # pragma: todo cover
+    def visible_construction_step_work_items_expression_for_support(
+        self, group
+    ):  # pragma: todo cover
         return Value(True)
-
 
 
 class CustomVisibilitySZ(CustomVisibility):
@@ -362,6 +387,7 @@ class CustomVisibilitySZ(CustomVisibility):
     def filter_queryset_public(self, node, queryset, info):
         # this is blueprint data which is uncritical and can be exposed publicly
         return queryset  # pragma: no cover
+
 
 class CustomVisibilityBE(CustomVisibility):
     pass

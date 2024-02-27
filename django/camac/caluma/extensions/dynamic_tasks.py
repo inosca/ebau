@@ -241,7 +241,9 @@ class CustomDynamicTasks(BaseDynamicTasks):
         # Retrieve selected construction steps
         document = Document.objects.filter(
             work_item__case__pk=case.pk,
-            form_id=settings.CONSTRUCTION_MONITORING["CONSTRUCTION_STEP_PLAN_CONSTRUCTION_STAGE_FORM"],
+            form_id=settings.CONSTRUCTION_MONITORING[
+                "CONSTRUCTION_STEP_PLAN_CONSTRUCTION_STAGE_FORM"
+            ],
         ).first()
 
         answer = (
