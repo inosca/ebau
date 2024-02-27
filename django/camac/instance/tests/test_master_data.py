@@ -614,11 +614,13 @@ def so_master_data_case(
 
 
 @pytest.fixture
-def ur_master_data_case_gwr(ur_instance, ur_master_data_case, workflow_entry_factory, utils):
+def ur_master_data_case_gwr(
+    ur_instance, ur_master_data_case, workflow_entry_factory, utils
+):
     ur_master_data_case.meta = {"dossier-number": "1201-21-003"}
     ur_master_data_case.save()
 
-    document =ur_master_data_case.document
+    document = ur_master_data_case.document
 
     # Completed date
     # Assert that workflow entry of last group (phase) is selected
@@ -640,9 +642,7 @@ def ur_master_data_case_gwr(ur_instance, ur_master_data_case, workflow_entry_fac
     # Energy devices
     # Check logic for heating / warmwater devices and
     # primary / secondary devices
-    table_answer = document.answers.filter(
-        question_id="haustechnik-tabelle"
-    ).first()
+    table_answer = document.answers.filter(question_id="haustechnik-tabelle").first()
     utils.add_table_answer(
         document,
         "haustechnik-tabelle",
