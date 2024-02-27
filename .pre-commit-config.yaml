@@ -7,9 +7,9 @@ repos:
       language: system
       entry: bash -c 'cd django && ruff format'
       types: [python]
-    - id: ruff-check
+    - id: ruff-check-and-fix
       stages: [commit]
-      name: check format,import
+      name: fix style and imports
       language: system
-      entry: bash -c 'cd django && ruff check'
+      entry: bash -c 'cd django && ruff check --fix .'
       types: [python]
