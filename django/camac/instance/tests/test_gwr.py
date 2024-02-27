@@ -41,14 +41,14 @@ from camac.instance.tests.test_master_data import (
 def test_gwr_data(
     admin_client,
     canton_name,
-    # use_caluma_form,
-    # caluma_admin_user,
     master_data_case,
     settings,
     snapshot,
 ):
     settings.APPLICATION_NAME = canton_name
-    settings.APPLICATION["SHORT_NAME"] = settings.APPLICATIONS[canton_name]["SHORT_NAME"]
+    settings.APPLICATION["SHORT_NAME"] = settings.APPLICATIONS[canton_name][
+        "SHORT_NAME"
+    ]
 
     url = reverse("instance-gwr-data", args=[master_data_case.instance.pk])
 
