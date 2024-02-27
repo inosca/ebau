@@ -154,6 +154,7 @@ respectively:
 |               | PortalUser  | portal            | portal     |         |
 | kt_bern       | Admin       | user              | user       |         |
 | kt_gr         | Admin       | admin@example.com | admin      |         |
+| kt_so         | Admin       | admin             | admin      |         |
 
 ### Debugging
 
