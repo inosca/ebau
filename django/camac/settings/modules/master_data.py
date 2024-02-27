@@ -5,6 +5,7 @@ SO_PERSONAL_DATA_MAPPING = {
     "street_number": "strasse-nummer",
     "zip": "plz",
     "town": "ort",
+    "country": "land",
     "email": "e-mail",
     "tel": "telefon",
     "is_juristic_person": (
@@ -2089,6 +2090,7 @@ MASTER_DATA = {
             "street_number": ("answer", "strasse-nummer"),
             "zip": ("answer", "plz"),
             "city": ("answer", "ort"),
+            "country": ("answer", "land"),
             "municipality": ("answer", "gemeinde", {"value_parser": "dynamic_option"}),
             "municipality_name": (
                 "answer",
