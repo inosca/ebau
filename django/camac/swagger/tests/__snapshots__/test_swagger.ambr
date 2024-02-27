@@ -31,6 +31,8 @@
     '/api/v1/public-services/{service_id}',
     '/ech/v1/application/{instance_id}/',
     '/ech/v1/applications',
+    '/ech/v1/files',
+    '/ech/v1/files/{id}',
     '/ech/v1/message/',
     '/ech/v1/send/',
   ])

@@ -1,23 +1,29 @@
 import logging
 
+from alexandria.core.models import File
 from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.db import transaction
 from django.http import HttpResponse
 from drf_yasg import openapi
+from drf_yasg.inspectors import SwaggerAutoSchema
 from drf_yasg.utils import swagger_auto_schema
+from generic_permissions.visibilities import VisibilityViewMixin
 from pyxb import IncompleteElementContentError, UnprocessedElementContentError
 from rest_framework import status
 from rest_framework.authentication import get_authorization_header
 from rest_framework.exceptions import NotFound, ParseError
 from rest_framework.generics import get_object_or_404
-from rest_framework.mixins import ListModelMixin, RetrieveModelMixin
-from rest_framework.parsers import JSONParser
+from rest_framework.mixins import CreateModelMixin, ListModelMixin, RetrieveModelMixin
+from rest_framework.parsers import JSONParser, MultiPartParser
+from rest_framework.renderers import JSONRenderer
+from rest_framework.response import Response
 from rest_framework.serializers import Serializer
 from rest_framework.viewsets import GenericViewSet
 from rest_framework_xml.renderers import XMLRenderer
 
 from camac.constants.kt_bern import ECH_BASE_DELIVERY
+from camac.core.views import SendfileHttpResponse
 from camac.ech0211.models import Message
 from camac.ech0211.throttling import ECHMessageThrottle
 from camac.instance.models import Instance
@@ -27,7 +33,7 @@ from . import event_handlers, formatters
 from .mixins import ECHInstanceQuerysetMixin
 from .parsers import ECHXMLParser
 from .send_handlers import SendHandlerException, get_send_handler
-from .serializers import ApplicationsSerializer
+from .serializers import ApplicationsSerializer, ECHFileSerializer
 
 logger = logging.getLogger(__name__)
 
@@ -41,6 +47,11 @@ last_param = openapi.Parameter(
     ),
     type=openapi.TYPE_STRING,
 )
+
+
+class FileSwaggerAutoSchema(SwaggerAutoSchema):
+    def get_produces(self):
+        return ["application/octet-stream"]
 
 
 class MessageView(RetrieveModelMixin, GenericViewSet):
@@ -249,3 +260,90 @@ class SendView(ECHInstanceQuerysetMixin, GenericViewSet):
             return HttpResponse(str(e), status=e.status)
 
         return HttpResponse(status=201)
+
+
+class ECHFileView(
+    VisibilityViewMixin,
+    RetrieveModelMixin,
+    CreateModelMixin,
+    GenericViewSet,
+):
+    queryset = File.objects
+    serializer_class = ECHFileSerializer
+    parser_classes = [MultiPartParser]
+    renderer_classes = [JSONRenderer]
+
+    @classmethod
+    def include_in_swagger(cls):
+        return settings.APPLICATION["DOCUMENT_BACKEND"] == "alexandria"
+
+    def get_queryset(self):
+        if getattr(self, "swagger_fake_view", False):  # pragma: no cover
+            return File.objects.none()
+
+        return super().get_queryset()
+
+    @swagger_auto_schema(
+        tags=["eCH-0211 files"],
+        manual_parameters=[
+            group_param,
+        ],
+        operation_summary="Download file",
+        operation_description=get_operation_description(),
+        responses={
+            status.HTTP_200_OK: openapi.Response(
+                "The requested file",
+                schema=openapi.Schema(type=openapi.TYPE_FILE),
+            )
+        },
+        auto_schema=FileSwaggerAutoSchema,
+    )
+    def retrieve(self, request, **kwargs):
+        if settings.APPLICATION["DOCUMENT_BACKEND"] != "alexandria":
+            raise NotFound()
+
+        file = self.get_object()
+
+        return SendfileHttpResponse(
+            content_type=file.mime_type,
+            filename=file.name,
+            file_obj=file.content,
+        )
+
+    @swagger_auto_schema(
+        tags=["eCH-0211 files"],
+        manual_parameters=[
+            group_param,
+            openapi.Parameter(
+                name="category",
+                in_=openapi.IN_FORM,
+                description="Category to upload the file into.",
+                type=openapi.TYPE_STRING,
+                required=True,
+                format=openapi.FORMAT_SLUG,
+                enum=settings.ECH0211.get("ALLOWED_CATEGORIES", []),
+            ),
+        ],
+        operation_summary="Upload file",
+        operation_description=get_operation_description(),
+        responses={
+            status.HTTP_201_CREATED: openapi.Response("File was successfully created"),
+            status.HTTP_400_BAD_REQUEST: openapi.Response("Invalid request"),
+            status.HTTP_403_FORBIDDEN: openapi.Response("Permission denied"),
+        },
+        auto_schema=SwaggerAutoSchema
+        if settings.ECH0211.get("API_LEVEL") == "full"
+        else None,
+    )
+    def create(self, request, **kwargs):
+        if (
+            settings.ECH0211.get("API_LEVEL") != "full"
+            or settings.APPLICATION["DOCUMENT_BACKEND"] != "alexandria"
+        ):
+            raise NotFound()
+
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+
+        return Response(status=status.HTTP_201_CREATED)
