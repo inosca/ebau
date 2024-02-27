@@ -2,9 +2,9 @@
   <Filter.Select
   @class="uk-margin-small-right uk-width-1-5"
   @label={{t "workItems.filters.responsible"}}
-  @options={{this.allResponsibles.value}}
-  @selected={{this.selectedResponsible}}
-  @onChange={{this.setResponsible}}
+  @options={{@allResponsibles.value}}
+  @selected={{@selectedResponsible}}
+  @onChange={{@setResponsible}}
   />
   <Filter.RadioButtons
     @name="type"

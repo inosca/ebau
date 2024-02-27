@@ -2,6 +2,7 @@ import Controller from "@ember/controller";
 import { action } from "@ember/object";
 import { service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
+import { trackedFunction } from "ember-resources/util/function";
 
 export default class WorkItemsIndexController extends Controller {
   @service intl;
@@ -20,5 +21,30 @@ export default class WorkItemsIndexController extends Controller {
   @action
   setFilter(filter, value) {
     this[filter] = value;
+  }
+
+  allResponsibles = trackedFunction(this, async () => {
+    const users = await this.store.query("user", {
+      sort: "name",
+    });
+    return [
+      { value: "all", label: this.intl.t("workItems.filters.all") },
+      { value: "own", label: this.intl.t("workItems.filters.own") },
+      ...users.map((u) => ({
+        label: `${u.name} ${u.surname}`,
+        value: u.username,
+      })),
+    ];
+  });
+
+  get selectedResponsible() {
+    return this.allResponsibles.value?.find(
+      (r) => r.value === this.responsible,
+    );
+  }
+
+  @action
+  setResponsible(person) {
+    this.responsible = person.value;
   }
 }
