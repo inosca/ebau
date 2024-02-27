@@ -912,6 +912,29 @@
       ]
     }
   },
+  "19": {
+    "label": "Meine Dossiers (Dossierliste für Gemeinden) > Verknüpfte GWR-Bauprojekte",
+    "acls": {
+      "municipality-clerk": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished",
+        "init-distribution",
+        "withdrawal",
+        "withdrawn"
+      ],
+      "municipality-lead": [
+        "construction-monitoring",
+        "decision",
+        "distribution",
+        "finished",
+        "init-distribution",
+        "withdrawal",
+        "withdrawn"
+      ]
+    }
+  },
   "20": {
     "label": "Meine Dossiers (Dossierliste für Gemeinden) > Beschwerdeverfahren",
     "acls": {
