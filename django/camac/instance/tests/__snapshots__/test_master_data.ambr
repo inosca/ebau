@@ -391,6 +391,128 @@
     'zip': 3000,
   })
 # ---
+# name: test_master_data[so_master_data_settings-de-so_master_data_case-select_related5-prefetch_related5-9]
+  dict({
+    'applicants': list([
+      dict({
+        'country': 'Schweiz',
+        'email': None,
+        'first_name': 'Max',
+        'is_juristic_person': True,
+        'juristic_name': 'ACME AG',
+        'last_name': 'Mustermann',
+        'street': 'Teststrasse',
+        'street_number': 123,
+        'tel': '012 345 67 89',
+        'town': 'Musterdorf',
+        'zip': 1233,
+      }),
+    ]),
+    'buildings': list([
+      dict({
+        'building_category': 1060,
+        'name': 'Villa',
+        'proposal': list([
+          6001,
+        ]),
+      }),
+    ]),
+    'category': list([
+      6011,
+      6010,
+    ]),
+    'city': 'Musterdorf',
+    'construction_costs': 129000,
+    'decision_date': None,
+    'dossier_number': '2024-1',
+    'dwellings': list([
+      dict({
+        'area': '420',
+        'floor_number': '2',
+        'floor_type': 3101,
+        'has_kitchen_facilities': True,
+        'kitchen_facilities': 'kocheinrichtung-kochnische-greater-4-m2',
+        'location_on_floor': 'Süd',
+        'multiple_floors': True,
+        'name_of_building': 'Villa',
+        'number_of_rooms': '20',
+        'usage_limitation': 3401,
+      }),
+      dict({
+        'area': '72',
+        'floor_number': None,
+        'floor_type': 3100,
+        'has_kitchen_facilities': False,
+        'kitchen_facilities': 'kocheinrichtung-keine-kocheinrichtung',
+        'location_on_floor': 'Nord',
+        'multiple_floors': False,
+        'name_of_building': 'Villa',
+        'number_of_rooms': '10',
+        'usage_limitation': 3402,
+      }),
+    ]),
+    'energy_devices': list([
+      dict({
+        'energy_source': 7511,
+        'information_source': 869,
+        'is_heating': False,
+        'is_heating_and_warm_water': True,
+        'is_main_heating': True,
+        'is_warm_water': False,
+        'name_of_building': 'Villa',
+        'type': 'anlagetyp-heizung-und-warmwasseraufbereitung',
+      }),
+      dict({
+        'energy_source': 7570,
+        'information_source': 869,
+        'is_heating': True,
+        'is_heating_and_warm_water': False,
+        'is_main_heating': False,
+        'is_warm_water': False,
+        'name_of_building': 'Villa',
+        'type': 'anlagetyp-hauptheizung',
+      }),
+      dict({
+        'energy_source': 7580,
+        'information_source': 869,
+        'is_heating': False,
+        'is_heating_and_warm_water': False,
+        'is_main_heating': False,
+        'is_warm_water': True,
+        'name_of_building': 'Villa',
+        'type': 'anlagetyp-warmwasser',
+      }),
+    ]),
+    'is_paper': False,
+    'land_use_planning_land_use': 'Wohnzone 3',
+    'landowners': list([
+    ]),
+    'municipality': dict({
+      'label': 'Solothurn',
+      'slug': '1',
+    }),
+    'municipality_name': 'Solothurn',
+    'plot_data': list([
+      dict({
+        'coord_east': 2690970.9,
+        'coord_north': 1192891.9,
+        'egrid_number': 'CH123456789',
+        'plot_number': 123456789,
+      }),
+    ]),
+    'project_authors': list([
+    ]),
+    'proposal': 'Grosses Haus',
+    'street': 'Musterstrasse',
+    'street_number': 4,
+    'submit_date': datetime.datetime(2024, 2, 22, 13, 17, 8, tzinfo=tzutc()),
+    'type_of_construction': list([
+      dict({
+        'art_der_hochbaute': 6235,
+      }),
+    ]),
+  })
+# ---
 # name: test_master_data[sz_master_data_settings-de-sz_master_data_case_gwr-select_related3-prefetch_related3-5]
   dict({
     'applicants': list([
