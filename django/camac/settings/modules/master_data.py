@@ -2088,9 +2088,7 @@ MASTER_DATA = {
             "proposal": ("answer", "umschreibung-bauprojekt"),
             "street": ("answer", "strasse-flurname"),
             "street_number": ("answer", "strasse-nummer"),
-            "zip": ("answer", "plz"),
             "city": ("answer", "ort"),
-            "country": ("answer", "land"),
             "municipality": ("answer", "gemeinde", {"value_parser": "dynamic_option"}),
             "municipality_name": (
                 "answer",
@@ -2298,6 +2296,7 @@ MASTER_DATA = {
                                             "anlagetyp-thermische-solaranlage": False,
                                             "anlagetyp-warmwasser": False,
                                             "anlagetyp-hauptheizung": True,
+                                            "anlagetyp-heizung-und-warmwasseraufbereitung": False,
                                         }
                                     },
                                 )
@@ -2320,6 +2319,30 @@ MASTER_DATA = {
                                             "anlagetyp-thermische-solaranlage": False,
                                             "anlagetyp-warmwasser": True,
                                             "anlagetyp-hauptheizung": False,
+                                            "anlagetyp-heizung-und-warmwasseraufbereitung": False,
+                                        }
+                                    },
+                                )
+                            },
+                        ),
+                        "is_heating_and_warm_water": (
+                            "anlagetyp",
+                            {
+                                "value_parser": (
+                                    "value_mapping",
+                                    {
+                                        "mapping": {
+                                            "anlagetyp-analgetyp-klima": False,
+                                            "anlagetyp-aufzuege": False,
+                                            "anlagetyp-betankungsanlage": False,
+                                            "anlagetyp-lueftungsanlage": False,
+                                            "anlagetyp-notstrom-aggregat": False,
+                                            "anlagetyp-photovoltaische-solaranlage": False,
+                                            "anlagetyp-tankanlagen": False,
+                                            "anlagetyp-thermische-solaranlage": False,
+                                            "anlagetyp-warmwasser": False,
+                                            "anlagetyp-hauptheizung": False,
+                                            "anlagetyp-heizung-und-warmwasseraufbereitung": True,
                                         }
                                     },
                                 )

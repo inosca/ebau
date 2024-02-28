@@ -314,16 +314,24 @@
             'number': 123456789,
           }),
           'thermotechnicalDeviceForHeating1': dict({
+            'energySourceHeating': 7511,
+            'informationSourceHeating': 869,
+            'revisionDate': None,
+          }),
+          'thermotechnicalDeviceForHeating2': dict({
             'energySourceHeating': 7570,
             'informationSourceHeating': 869,
-            'revisionDate': '2021-10-07',
+            'revisionDate': None,
           }),
-          'thermotechnicalDeviceForHeating2': None,
-          'thermotechnicalDeviceForWarmWater1': None,
+          'thermotechnicalDeviceForWarmWater1': dict({
+            'energySourceHeating': 7511,
+            'informationSourceHeating': 869,
+            'revisionDate': None,
+          }),
           'thermotechnicalDeviceForWarmWater2': dict({
             'energySourceHeating': 7580,
             'informationSourceHeating': 869,
-            'revisionDate': '2021-10-07',
+            'revisionDate': None,
           }),
         }),
         'kindOfWork': 6001,
