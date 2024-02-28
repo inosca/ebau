@@ -46138,7 +46138,7 @@
       "hidden": 0,
       "sort": 18,
       "form_group": 40000,
-      "require_permission": null
+      "require_permission": "lead-authority-read"
     }
   },
   {
@@ -46154,7 +46154,7 @@
       "hidden": 0,
       "sort": 10,
       "form_group": 40000,
-      "require_permission": null
+      "require_permission": "publication-read"
     }
   },
   {
@@ -46170,7 +46170,7 @@
       "hidden": 0,
       "sort": 5,
       "form_group": 40000,
-      "require_permission": "responsible-service-read"
+      "require_permission": "responsible-read"
     }
   },
   {
@@ -46186,7 +46186,7 @@
       "hidden": 0,
       "sort": 5,
       "form_group": 40000,
-      "require_permission": null
+      "require_permission": "responsibilities-read"
     }
   },
   {
@@ -46202,7 +46202,7 @@
       "hidden": 0,
       "sort": 19,
       "form_group": 40000,
-      "require_permission": null
+      "require_permission": "construction-control-read"
     }
   },
   {
@@ -46218,7 +46218,7 @@
       "hidden": 0,
       "sort": 7,
       "form_group": 40000,
-      "require_permission": null
+      "require_permission": "construction-control-read"
     }
   },
   {
@@ -46234,7 +46234,7 @@
       "hidden": 0,
       "sort": 2,
       "form_group": 40000,
-      "require_permission": null
+      "require_permission": "form-read"
     }
   },
   {
@@ -46266,7 +46266,7 @@
       "hidden": 0,
       "sort": 3,
       "form_group": 40000,
-      "require_permission": null
+      "require_permission": "documents-read"
     }
   },
   {
@@ -46282,7 +46282,7 @@
       "hidden": 0,
       "sort": 2,
       "form_group": 40000,
-      "require_permission": null
+      "require_permission": "form-read"
     }
   },
   {
@@ -46298,7 +46298,7 @@
       "hidden": 0,
       "sort": 3,
       "form_group": 40000,
-      "require_permission": null
+      "require_permission": "documents-read"
     }
   },
   {
@@ -46330,7 +46330,7 @@
       "hidden": 0,
       "sort": 4,
       "form_group": 40000,
-      "require_permission": "templates-read"
+      "require_permission": "dms-generate-read"
     }
   },
   {
@@ -46346,7 +46346,7 @@
       "hidden": 0,
       "sort": 4,
       "form_group": 40000,
-      "require_permission": null
+      "require_permission": "dms-generate-read"
     }
   },
   {
@@ -46362,7 +46362,7 @@
       "hidden": 0,
       "sort": 5,
       "form_group": 40000,
-      "require_permission": null
+      "require_permission": "responsibilities-read"
     }
   },
   {
@@ -46378,7 +46378,7 @@
       "hidden": 0,
       "sort": 5,
       "form_group": 40000,
-      "require_permission": null
+      "require_permission": "history-read"
     }
   },
   {
@@ -46410,7 +46410,7 @@
       "hidden": 0,
       "sort": 0,
       "form_group": 40000,
-      "require_permission": null
+      "require_permission": "work-items-read"
     }
   },
   {
@@ -46426,7 +46426,7 @@
       "hidden": 0,
       "sort": 0,
       "form_group": 40000,
-      "require_permission": null
+      "require_permission": "work-items-read"
     }
   },
   {
@@ -46474,7 +46474,7 @@
       "hidden": 0,
       "sort": 8,
       "form_group": 40000,
-      "require_permission": null
+      "require_permission": "journal-read"
     }
   },
   {
@@ -46490,7 +46490,7 @@
       "hidden": 0,
       "sort": 10,
       "form_group": 40000,
-      "require_permission": null
+      "require_permission": "history-read"
     }
   },
   {
@@ -46506,7 +46506,7 @@
       "hidden": 0,
       "sort": 12,
       "form_group": 40000,
-      "require_permission": null
+      "require_permission": "journal-read"
     }
   },
   {
@@ -46522,7 +46522,7 @@
       "hidden": 0,
       "sort": 14,
       "form_group": 40000,
-      "require_permission": null
+      "require_permission": "history-read"
     }
   },
   {
@@ -46538,7 +46538,7 @@
       "hidden": 0,
       "sort": 16,
       "form_group": 40000,
-      "require_permission": null
+      "require_permission": "additional-demands-read"
     }
   },
   {
@@ -46554,7 +46554,7 @@
       "hidden": 0,
       "sort": 1,
       "form_group": 40000,
-      "require_permission": null
+      "require_permission": "form-read"
     }
   },
   {
@@ -46570,7 +46570,7 @@
       "hidden": 0,
       "sort": 2,
       "form_group": 40000,
-      "require_permission": null
+      "require_permission": "documents-read"
     }
   },
   {
@@ -46586,7 +46586,7 @@
       "hidden": 0,
       "sort": 3,
       "form_group": 40000,
-      "require_permission": null
+      "require_permission": "audit-log-read"
     }
   },
   {
@@ -46602,7 +46602,7 @@
       "hidden": 0,
       "sort": 22,
       "form_group": 40000,
-      "require_permission": null
+      "require_permission": "revisionhistory-read"
     }
   },
   {
@@ -46618,7 +46618,7 @@
       "hidden": 0,
       "sort": 9,
       "form_group": 40000,
-      "require_permission": null
+      "require_permission": "changelog-read"
     }
   },
   {
@@ -46634,7 +46634,7 @@
       "hidden": 0,
       "sort": 13,
       "form_group": 40000,
-      "require_permission": null
+      "require_permission": "changelog-read"
     }
   },
   {
@@ -46650,7 +46650,7 @@
       "hidden": 0,
       "sort": 4,
       "form_group": 40000,
-      "require_permission": null
+      "require_permission": "changelog-read"
     }
   },
   {
@@ -46666,7 +46666,7 @@
       "hidden": 0,
       "sort": 7,
       "form_group": 40000,
-      "require_permission": null
+      "require_permission": "audit-read"
     }
   },
   {
@@ -46682,7 +46682,7 @@
       "hidden": 0,
       "sort": 6,
       "form_group": 40000,
-      "require_permission": null
+      "require_permission": "dossier-validation-read"
     }
   },
   {
@@ -46698,7 +46698,7 @@
       "hidden": 0,
       "sort": 0,
       "form_group": 40000,
-      "require_permission": null
+      "require_permission": "support-read"
     }
   },
   {
@@ -46714,7 +46714,7 @@
       "hidden": 0,
       "sort": 24,
       "form_group": 40000,
-      "require_permission": null
+      "require_permission": "corrections-read"
     }
   },
   {
@@ -46730,7 +46730,7 @@
       "hidden": 0,
       "sort": 6,
       "form_group": 40000,
-      "require_permission": null
+      "require_permission": "assign-ebau-number-read"
     }
   },
   {
@@ -46746,7 +46746,7 @@
       "hidden": 0,
       "sort": 14,
       "form_group": 40000,
-      "require_permission": null
+      "require_permission": "legal-submission-read"
     }
   },
   {
@@ -46762,7 +46762,7 @@
       "hidden": 0,
       "sort": 4,
       "form_group": 40000,
-      "require_permission": null
+      "require_permission": "dms-generate-read"
     }
   },
   {
@@ -46778,7 +46778,7 @@
       "hidden": 0,
       "sort": 13,
       "form_group": 40000,
-      "require_permission": null
+      "require_permission": "related-gwr-projects-read"
     }
   },
   {
@@ -46794,7 +46794,7 @@
       "hidden": 0,
       "sort": 11,
       "form_group": 40000,
-      "require_permission": null
+      "require_permission": "information-of-neighbors"
     }
   },
   {
@@ -46810,7 +46810,7 @@
       "hidden": 0,
       "sort": 9,
       "form_group": 40000,
-      "require_permission": null
+      "require_permission": "decision-read"
     }
   },
   {
@@ -46826,7 +46826,7 @@
       "hidden": 0,
       "sort": 6,
       "form_group": 40000,
-      "require_permission": null
+      "require_permission": "decision-read"
     }
   },
   {
@@ -46842,7 +46842,7 @@
       "hidden": 0,
       "sort": 8,
       "form_group": 40000,
-      "require_permission": null
+      "require_permission": "distribution-read"
     }
   },
   {
@@ -46858,7 +46858,7 @@
       "hidden": 0,
       "sort": 7,
       "form_group": 40000,
-      "require_permission": null
+      "require_permission": "distribution-read"
     }
   },
   {
@@ -46874,7 +46874,7 @@
       "hidden": 0,
       "sort": 11,
       "form_group": 40000,
-      "require_permission": null
+      "require_permission": "legal-submission-read"
     }
   },
   {
@@ -46890,7 +46890,7 @@
       "hidden": 0,
       "sort": 8,
       "form_group": 40000,
-      "require_permission": null
+      "require_permission": "decision-read"
     }
   },
   {
@@ -46906,7 +46906,7 @@
       "hidden": 0,
       "sort": 15,
       "form_group": 40000,
-      "require_permission": null
+      "require_permission": "appeal-read"
     }
   },
   {
@@ -46922,7 +46922,7 @@
       "hidden": 0,
       "sort": 12,
       "form_group": 40000,
-      "require_permission": null
+      "require_permission": "billing-read"
     }
   },
   {
@@ -46938,7 +46938,7 @@
       "hidden": 0,
       "sort": 10,
       "form_group": 40000,
-      "require_permission": null
+      "require_permission": "fees-read"
     }
   },
   {
@@ -46954,7 +46954,7 @@
       "hidden": 0,
       "sort": 17,
       "form_group": 40000,
-      "require_permission": null
+      "require_permission": "rejection-read"
     }
   },
   {
@@ -47002,7 +47002,7 @@
       "hidden": 0,
       "sort": 1,
       "form_group": 40000,
-      "require_permission": null
+      "require_permission": "communications-read"
     }
   },
   {
@@ -47018,7 +47018,7 @@
       "hidden": 0,
       "sort": 25,
       "form_group": 40000,
-      "require_permission": null
+      "require_permission": "permissions-read"
     }
   },
   {
