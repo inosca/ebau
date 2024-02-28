@@ -8,7 +8,7 @@ from django.db import transaction
 from django.urls import reverse
 from django.utils import timezone
 from django.utils.translation import gettext
-from django_clamd import validators as clamd_validators
+from django_clamd.validators import validate_file_infection
 from rest_framework.exceptions import PermissionDenied, ValidationError
 from rest_framework_json_api import relations, serializers
 
@@ -326,7 +326,7 @@ class MessageSerializer(serializers.ModelSerializer):
 
     def validate_attachments(self, value):
         for attachment in value:
-            clamd_validators.validate_file_infection(attachment.file_attachment)
+            validate_file_infection(attachment.file_attachment)
         return value
 
     included_serializers = {
