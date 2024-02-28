@@ -38,6 +38,7 @@ services:
       - LANGUAGES=de,it
       - META_FIELDS=camac-instance-id,submit-date
       - ENABLE_HISTORICAL_API=true
+      - ALEXANDRIA_ENABLE_PDF_CONVERSION=true
 
   ember-caluma-portal:
     build:
