@@ -49,6 +49,7 @@ def test_applicant_update(admin_client, be_instance):
 @pytest.fixture
 def applicant_permissions_module(permissions_settings, access_level_factory):
     lvl = access_level_factory(slug="applicant", applicable_area="APPLICANT")
+    muni = access_level_factory(slug="municipality", applicable_area="INTERNAL")
 
     # Bern already does the "right" thing
     mod = "camac.permissions.config.kt_bern.PermissionEventHandlerBE"
@@ -61,6 +62,10 @@ def applicant_permissions_module(permissions_settings, access_level_factory):
     permissions_settings["ACCESS_LEVELS"][lvl.slug] = [
         ("applicant-add", Always()),
         ("applicant-remove", Always()),
+        ("applicant-read", Always()),
+    ]
+    permissions_settings["ACCESS_LEVELS"][muni.slug] = [
+        ("applicant-read", Always()),
     ]
 
     # return value is just for parametrization id
@@ -94,6 +99,8 @@ def test_applicant_delete(
     active_inquiry_factory,
     use_permission_mod,
     request,
+    role,
+    instance_acl_factory,
 ):
     active_inquiry_factory(be_instance)
     if extra_applicants:
@@ -103,6 +110,13 @@ def test_applicant_delete(
         # TODO can we lazyfixture this?
         request.getfixturevalue("applicant_permissions_module")
         _sync_applicants(be_instance)
+        if role.name == "Municipality":
+            instance_acl_factory(
+                user=admin_client.user,
+                grant_type="USER",
+                access_level_id="municipality",
+                instance=be_instance,
+            )
 
     url = reverse("applicant-detail", args=[be_instance.involved_applicants.first().pk])
 
