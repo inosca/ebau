@@ -246,7 +246,10 @@ PERMISSIONS: PermissionsConfig = {
         # Map INTERNAL -> CANTON access level names. The INTERNAL ones
         # are directly referenced by the migration tooling and may differ from
         # the ones used by the canton.
-        "MIGRATION": {"APPLICANT": "applicant"},
+        "MIGRATION": {
+            "APPLICANT": "applicant",
+            "MUNICIPALITY": "lead-authority",
+        },
     },
     "kt_gr": {
         "ACCESS_LEVELS": {
