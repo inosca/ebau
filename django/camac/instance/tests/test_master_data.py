@@ -500,11 +500,14 @@ def so_master_data_case(
     document = so_instance.case.document
 
     # Simple data
+    utils.add_answer(document, "is-paper", "is-paper-no")
     utils.add_answer(document, "umschreibung-bauprojekt", "Grosses Haus")
     utils.add_answer(document, "strasse-flurname", "Musterstrasse")
     utils.add_answer(document, "strasse-nummer", 4)
     utils.add_answer(document, "gesamtkosten", 129000)
     utils.add_answer(document, "ort", "Musterdorf")
+    utils.add_answer(document, "plz", 3000)
+    utils.add_answer(document, "nutzungsplanung-grundnutzung", "Wohnzone 3")
     utils.add_answer(
         document,
         "art-der-bauwerke",
@@ -549,6 +552,8 @@ def so_master_data_case(
                 "plz": 1233,
                 "ort": "Musterdorf",
                 "land": "Schweiz",
+                "email": "max.mustermann@acme.com",
+                "telefon": "012 345 67 89",
             }
         ],
     )
@@ -603,8 +608,14 @@ def so_master_data_case(
         [
             {
                 "bezeichnung-dazugehoeriges-gebaeude": "Villa",
-                "anlagetyp": "anlagetyp-hauptheizung",
+                "anlagetyp": "anlagetyp-heizung-und-warmwasseraufbereitung",
                 "heizsystem-art": "-hauptheizung",
+                "hauptheizungsanlage": "hauptheizungsanlage-erdsonde",
+            },
+            {
+                "bezeichnung-dazugehoeriges-gebaeude": "Villa",
+                "anlagetyp": "anlagetyp-hauptheizung",
+                "heizsystem-art": "-zusatzheizung",
                 "hauptheizungsanlage": "hauptheizungsanlage-sonne-thermisch",
             },
             {
@@ -837,6 +848,23 @@ def sz_master_data_case_gwr_v2(sz_master_data_case, form_field_factory):
             # 4. Query for prefetching work_items
             # 5. Query for selecting form
             5,
+        ),
+        (
+            pytest.lazy_fixture("so_master_data_settings"),
+            "de",
+            pytest.lazy_fixture("so_master_data_case"),
+            ["document"],
+            [
+                "document__answers",
+                "document__answers__question__options",
+                "document__answers__answerdocument_set",
+                "document__answers__answerdocument_set__document__answers",
+                "document__dynamicoption_set",
+                "work_items__document__answers",
+                "work_items__document__answers__answerdocument_set",
+                "work_items__document__answers__answerdocument_set__document__answers",
+            ],
+            9,
         ),
     ],
 )
