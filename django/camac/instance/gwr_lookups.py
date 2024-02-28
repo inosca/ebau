@@ -218,15 +218,20 @@ class GwrSerializer(serializers.Serializer):
     def get_energy_device_ur(self, building, is_heating, is_main_heating):
         heating_type = "is_heating" if is_heating else "is_warm_water"
         building_name = building.get("name")
+        revision_date = None
+
+        if settings.APPLICATION_NAME == "kt_uri":
+            revision_date = timezone.now().date()
+
         return next(
             (
                 {
                     "energySourceHeating": device.get("energy_source"),
                     "informationSourceHeating": device.get("information_source"),
-                    "revisionDate": timezone.now().date(),
+                    "revisionDate": revision_date,
                 }
                 for device in self.master_data.energy_devices
-                if device.get(heating_type)
+                if (device.get(heating_type) or device.get("is_heating_and_warm_water"))
                 and device.get("name_of_building") == building_name
                 and device.get("is_main_heating") == is_main_heating
             ),
