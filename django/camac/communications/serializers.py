@@ -8,6 +8,7 @@ from django.db import transaction
 from django.urls import reverse
 from django.utils import timezone
 from django.utils.translation import gettext
+from django_clamd.validators import validate_file_infection
 from rest_framework.exceptions import PermissionDenied, ValidationError
 from rest_framework_json_api import relations, serializers
 
@@ -283,16 +284,6 @@ class MessageSerializer(serializers.ModelSerializer):
             list(message.read_by.values_list("entity", flat=True))
         )
 
-    def validate_topic(self, value):
-        # lazy import required
-        from . import views
-
-        if value in _qs_from_view(views.TopicView, self.context["request"]):
-            return value
-        raise ValidationError(
-            gettext("Invisible topic, cannot create or update message")
-        )
-
     def get_read_at(self, message):
         if hasattr(message, "read_at"):
             return message.read_at
@@ -322,6 +313,21 @@ class MessageSerializer(serializers.ModelSerializer):
             )
 
         return super().validate(data)
+
+    def validate_topic(self, value):
+        # lazy import required
+        from . import views
+
+        if value in _qs_from_view(views.TopicView, self.context["request"]):
+            return value
+        raise ValidationError(
+            gettext("Invisible topic, cannot create or update message")
+        )
+
+    def validate_attachments(self, value):
+        for attachment in value:
+            validate_file_infection(attachment.file_attachment)
+        return value
 
     included_serializers = {
         "topic": TopicSerializer,
