@@ -788,6 +788,7 @@ class GrDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
             for answer in Answer.objects.filter(
                 question_id="gis-map", document_id=instance.case.document.pk
             )
+            if answer.value
         ]
 
         if not coordinates:  # pragma: no cover
