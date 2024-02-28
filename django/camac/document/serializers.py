@@ -5,7 +5,7 @@ from pathlib import Path
 
 from django.conf import settings
 from django.utils.translation import gettext as _
-from django_clamd import validators as clamd_validators
+from django_clamd.validators import validate_file_infection
 from inflection import dasherize, underscore
 from manabi.token import Key, Token
 from manabi.util import from_string
@@ -208,7 +208,7 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
 
     @permission_aware
     def _validate_file_infection(self, path):
-        return clamd_validators.validate_file_infection(path)
+        return validate_file_infection(path)
 
     def _validate_file_infection_for_support(self, path):
         # support can upload without infection scan on their own risk
@@ -372,7 +372,7 @@ class TemplateSerializer(serializers.ModelSerializer):
                 _("Invalid mime type for template. Allowed types are: docx")
             )
 
-        clamd_validators.validate_file_infection(path)
+        validate_file_infection(path)
 
         return path
 
