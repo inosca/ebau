@@ -18,5 +18,15 @@
       "required_grant_type": "SERVICE",
       "applicable_area": "INTERNAL"
     }
+  },
+  {
+    "model": "permissions.accesslevel",
+    "pk": "lead-authority",
+    "fields": {
+      "name": "{\"de\": \"Leitbeh\\u00f6rde\", \"fr\": \"Responsable autorit\\u00e9\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "required_grant_type": "SERVICE",
+      "applicable_area": "INTERNAL"
+    }
   }
 ]
