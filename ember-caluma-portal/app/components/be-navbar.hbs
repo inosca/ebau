@@ -134,7 +134,7 @@
                 {{/if}}
               </li>
             {{/if}}
-            {{#if (gt this.languages.length 1)}}
+            {{#if this.showLanguageSwitcher}}
               {{#each this.languages as |lang|}}
                 <li class={{if (eq lang this.session.language) "uk-active"}}>
                   <a href="#" {{on "click" (fn this.setLanguage lang)}}>

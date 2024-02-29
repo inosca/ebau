@@ -51,7 +51,7 @@
               </div>
             {{/if}}
           </li>
-          {{#if (gt this.languages.length 1)}}
+          {{#if this.showLanguageSwitcher}}
             <li>
               <a href="#">{{get this.languageNames this.session.language}}<span uk-drop-parent-icon></span></a>
               <div

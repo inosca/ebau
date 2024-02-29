@@ -32,6 +32,13 @@ export default class MainNavigationComponent extends Component {
     return "/ebau-inosca-logo.svg";
   }
 
+  get showLanguageSwitcher() {
+    if (name === "gr") {
+      return false;
+    }
+    return this.languages.length > 1;
+  }
+
   resources = findAll(this, "resource");
 
   @action
