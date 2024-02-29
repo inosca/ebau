@@ -42,19 +42,14 @@ By leaving out the `fields` option, all fields are counted as modifiable.
 
 Configure by setting a list of the fields which should be modifiable.
 Available options are in [settings](../../settings/modules/alexandria.py) under the key `RESTRICTED_FIELDS`.
-Current list of fields:
-```py
-"title",
-"description",
-"metainfo",
-"category",
-"tags",
-"marks",
-"files",
-```
 
 The `files` field is a little special as this also controls the file model permission.
 That means if you want to allow the creation of a file you will need to set `files` in `fields`
+
+The `category` field controls if the document can be moved out of the the category.
+That means if you want to allow moving document from category A to B.
+The configuration would have to be `update` for field `category` in A and `write` in B.
+If `marks` were set in A they are also checked for in B through `update` `marks`.
 
 - `create`: any request data containing fields not listed in the `fields` array will be rejected.
 - `update`: any request that attempts to change fields not present in the `fields` array will be rejected.

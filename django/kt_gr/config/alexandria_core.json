@@ -1218,7 +1218,7 @@
             "permissions": [
               {
                 "scope": "All",
-                "fields": ["tags", "marks"],
+                "fields": ["category", "tags", "marks"],
                 "condition": {
                   "~InstanceState": ["rejected", "finished"]
                 },
