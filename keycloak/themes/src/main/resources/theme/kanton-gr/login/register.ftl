@@ -6,6 +6,9 @@
         ${msg("registerTitle")}
     <#elseif section = "form">
         <form id="kc-register-form" class="${properties.kcFormClass!}" action="${url.registrationAction}" method="post">
+            <p>
+                ${msg("registerMessage")}
+            </p>
             <div class="${properties.kcFormGroupClass!}">
                 <div class="${properties.kcLabelWrapperClass!}">
                     <label for="firstName" class="${properties.kcLabelClass!}">${msg("firstName")}</label>
