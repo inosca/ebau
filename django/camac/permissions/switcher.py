@@ -13,9 +13,11 @@ short hint regarding the behaviour).
 """
 
 from enum import Enum
+from functools import singledispatchmethod
 from logging import getLogger
 
 from django.conf import settings
+from django.db.models import QuerySet
 
 log = getLogger(__name__)
 
@@ -96,10 +98,7 @@ class PermissionMethod:
             else:
                 old = self._method._old_method(self._instance, *args, **kwargs)
                 new = self._method._new_method(self._instance, *args, **kwargs)
-                # TODO: we'll likely have to be a bit more creative with the
-                # comparison here: We need to investigate QS equality checks for
-                # example (different query, same result should be acceptable)
-                if old == new:
+                if self._is_equal(old, new):
                     return old
                 elif mode == PERMISSION_MODE.CHECKING:
                     raise RuntimeError(
@@ -112,6 +111,26 @@ class PermissionMethod:
                         f"says {old}, NEW says {new}. Returning NEW"
                     )
                     return new
+
+        @singledispatchmethod
+        def _is_equal(self, old, new):
+            return old == new
+
+        @_is_equal.register
+        def _(self, old: QuerySet, new: QuerySet):
+            # TODO: I'd kinda like to minimize DB load here, but we need to be
+            # sure that both QSs are exactly equal (not in SQL, but in results,
+            # that is!)
+            old_vals = list(old.values_list("pk", flat=True))
+            new_vals = list(new.values_list("pk", flat=True))
+
+            if not old.ordered or not new.ordered:
+                # Not ordered, we cannot assume consistent ordering.
+                # So for comparison, we need to do the ordering ourselves
+                old_vals = sorted(old_vals)
+                new_vals = sorted(new_vals)
+
+            return old_vals == new_vals
 
         def __str__(self):
             return str(self._method)
