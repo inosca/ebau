@@ -1,5 +1,4 @@
 """Helpers for exporting instance data to eCH-0211."""
-
 import datetime
 import itertools
 import logging
@@ -7,6 +6,7 @@ import re
 from typing import List
 
 import pyxb
+from alexandria.core.models import Document
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 from django.urls import reverse
@@ -29,6 +29,7 @@ from ..instance.master_data import MasterData
 from .schema import (
     ech_0007_6_0,
     ech_0010_6_0 as ns_address,
+    ech_0039_2_0,
     ech_0044_4_1,
     ech_0058_5_0,
     ech_0097_2_0 as ns_company_identification,
@@ -90,11 +91,6 @@ def authority(service, organization_category=None):
     )
 
 
-def get_document_sections(attachment):
-    sections = [s.get_name() for s in attachment.attachment_sections.all()]
-    return "; ".join(sections)
-
-
 def get_zip(value):
     if not value or not len(str(value)) == 4:
         # use 9999 for non swiss zips
@@ -108,40 +104,16 @@ def get_cost(value):
     return value
 
 
-def get_keywords(attachment):
-    tags = attachment.context.get("tags")
-    if tags:
-        return pyxb.BIND(keyword=tags)
+def get_all_documents(instance):
+    # TODO check visibility!!
+    if settings.APPLICATION["DOCUMENT_BACKEND"] == "camac-ng":
+        return get_documents(instance.attachments.all())
+    return get_documents(Document.objects.filter(instance_document__instance=instance))
 
 
-def get_documents(attachments):
-    documents = [
-        ns_nachrichten_t0.documentType(
-            uuid=str(attachment.uuid),
-            titles=pyxb.BIND(title=[attachment.display_name]),
-            status="signed",  # ech0039 documentStatusType
-            documentKind=get_document_sections(attachment),
-            keywords=get_keywords(attachment),
-            files=ns_nachrichten_t0.filesType(
-                file=[
-                    ns_nachrichten_t0.fileType(
-                        pathFileName=build_url(
-                            settings.INTERNAL_BASE_URL,
-                            f"{reverse('multi-attachment-download')}?attachments={attachment.pk}",
-                        ),
-                        mimeType=attachment.mime_type,
-                        # internalSortOrder minOccurs=0
-                        # version minOccurs=0
-                        # hashCode minOccurs=0
-                        # hashCodeAlgorithm minOccurs=0
-                    )
-                ]
-            ),
-        )
-        for attachment in attachments.order_by("-date", "pk")
-    ]
+def get_documents(documents):
     if not documents:
-        documents = [
+        return [
             ns_nachrichten_t0.documentType(
                 uuid="00000000-0000-0000-0000-000000000000",
                 titles=pyxb.BIND(title=["dummy"]),
@@ -155,21 +127,101 @@ def get_documents(attachments):
                 ),
             )
         ]
-    return documents
+    if settings.APPLICATION["DOCUMENT_BACKEND"] == "camac-ng":
+        return get_camac_documents(documents)
+    return get_alexandria_documents(documents)
 
 
-def extract_street_number(string, fallback="0"):
-    """Very simple street number extractor.
+def get_camac_documents(documents):
+    def get_keywords(attachment):
+        tags = attachment.context.get("tags")
+        if tags:
+            return pyxb.BIND(keyword=tags)
 
-    Split string at first digit if any.
-    """
-    if not string:
-        return fallback
+    return [
+        ns_nachrichten_t0.documentType(
+            uuid=str(attachment.uuid),
+            titles=pyxb.BIND(title=[attachment.display_name]),
+            status="signed",  # ech0039 documentStatusType
+            documentKind="; ".join(
+                [s.get_name() for s in attachment.attachment_sections.all()]
+            ),
+            keywords=get_keywords(attachment),
+            files=ns_nachrichten_t0.filesType(
+                file=[
+                    ns_nachrichten_t0.fileType(
+                        pathFileName=build_url(
+                            settings.INTERNAL_BASE_URL,
+                            f"{reverse('multi-attachment-download')}?attachments={attachment.pk}",
+                        ),
+                        mimeType=attachment.mime_type,
+                    )
+                ]
+            ),
+        )
+        for attachment in documents.order_by("-date", "pk")
+    ]
 
-    split = list(re.split(r"(\d+)", string))
+
+def get_alexandria_documents(documents):
+    return [
+        ns_nachrichten_t0.documentType(
+            uuid=str(doc.pk),
+            titles=pyxb.BIND(title=[doc.title.translate()]),
+            status="undefined",  # ech0039 documentStatusType
+            documentKind=doc.category.name.translate(),
+            keywords=[
+                # TODO check visbility
+                ech_0039_2_0.keywordType(keyword=t.name.translate())
+                for t in doc.tags.all()
+            ]
+            if doc.tags.exists()
+            else None,
+            files=ns_nachrichten_t0.filesType(
+                file=[
+                    ns_nachrichten_t0.fileType(
+                        pathFileName=build_url(
+                            settings.INTERNAL_BASE_URL,
+                            f"ech/v1/files/{file.pk}",  # TODO: reverse for new endpoint
+                        ),
+                        mimeType="application/octet-stream",
+                    )
+                    for file in doc.files.filter(variant="original").order_by(
+                        "-created_at"
+                    )
+                ]
+            ),
+        )
+        for doc in documents.order_by("-created_at")
+    ]
+
+
+def split_street_and_housenumber(address):
+    if not address:
+        return None, None
+    if "," in address:
+        return address, None
+
+    split = list(re.split(r"(\d+)", address))
     if len(split) > 1:
-        return "".join(split[1:])
-    return fallback
+        return (split[0].strip(), "".join(split[1:]))
+    return address, None
+
+
+def get_location_address(md):
+    if md.joined_street_and_number:
+        street, street_number = split_street_and_housenumber(md.street)
+    else:
+        street = md.street
+        street_number = md.street_number
+
+    return ns_address.swissAddressInformationType(
+        houseNumber=assure_string_length(street_number or "0", max_length=12),
+        street=assure_string_length(street or "unknown", max_length=60),
+        town=assure_string_length(md.city if md.city else "unknown", max_length=40),
+        swissZipCode=get_zip(md.zip),
+        country="CH",
+    )
 
 
 def make_dummy_address_ech0044():
@@ -320,17 +372,7 @@ def application(instance: Instance):
                 metaDataName="status", metaDataValue=instance.instance_state.get_name()
             )
         ],
-        locationAddress=ns_address.swissAddressInformationType(  # 3.1.1.15
-            houseNumber=assure_string_length(
-                md.street_number or extract_street_number(md.street), max_length=12
-            ),
-            street=assure_string_length(
-                md.street if md.street else "unknown", max_length=60
-            ),
-            town=assure_string_length(md.city if md.city else "unknown", max_length=40),
-            swissZipCode=get_zip(md.zip),
-            country="CH",
-        ),
+        locationAddress=get_location_address(md),
         realestateInformation=realestate_info,  # TODO: 3.1.1.16 incl subtype
         constructionProjectInformation=ns_application.constructionProjectInformationType(
             constructionProject=ns_objektwesen.constructionProject(
@@ -351,7 +393,7 @@ def application(instance: Instance):
         referencedPlanningPermissionApplication=[
             permission_application_identification(i) for i in related_instances
         ],  # Referenzierte Baugesuche 3.1.1.22 TODO: verify!
-        document=get_documents(instance.attachments.all()),  # 3.2
+        document=get_all_documents(instance),  # 3.2
         decisionRuling=CantonSpecific.decision_ruling(instance, md),  # 3.4
         zone=(
             [  # TODO: 3.8
@@ -381,13 +423,13 @@ def office(service, organization_category=None):
 
 
 def permission_application_identification(instance: Instance):
-    ebau_nr = MasterData(instance.case).dossier_number or "unknown"
+    dossier_number = MasterData(instance.case).dossier_number or "unknown"
     return ns_application.planningPermissionApplicationIdentificationType(  # 3.1.1.1
         localID=[
-            ns_objektwesen.namedIdType(IdCategory="eBauNr", Id=ebau_nr)
+            ns_objektwesen.namedIdType(IdCategory="eBauNr", Id=dossier_number)
         ],  # 3.1.1.1.1
         otherID=[
-            ns_objektwesen.namedIdType(IdCategory="eBauNr", Id=ebau_nr)
+            ns_objektwesen.namedIdType(IdCategory="eBauNr", Id=dossier_number)
         ],  # 3.1.1.1.2
         dossierIdentification=str(instance.instance_id),  # 3.1.1.1.3
     )
@@ -536,7 +578,7 @@ def directive(comment, deadline=None):
 
 
 def request(
-    instance: Instance, event_type: str, comment=None, deadline=None, attachments=None
+    instance: Instance, event_type: str, comment=None, deadline=None, documents=None
 ):
     return ns_application.eventRequestType(
         eventType=ns_application.eventTypeType(event_type),
@@ -544,7 +586,7 @@ def request(
             instance
         ),
         directive=directive(comment, deadline) if comment else None,
-        document=get_documents(attachments) if attachments else None,
+        document=get_documents(documents) if documents else None,
     )
 
 
@@ -645,7 +687,7 @@ def delivery(
     try:
         return ns_application.delivery(
             deliveryHeader=ech_0058_5_0.headerType(
-                senderId=settings.APPLICATION["DOSSIER_IMPORT"]["PROD_URL"],
+                senderId=settings.INTERNAL_BASE_URL,
                 messageId=message_id or str(id(instance)),
                 messageType=message_type,
                 sendingApplication=pyxb.BIND(
@@ -767,7 +809,15 @@ class CantonSpecific:
         ]
 
     @classmethod
+    def decision_ruling_gr(cls, instance, md):  # pragma: no cover
+        return cls.caluma_decision_ruling(instance, md)
+
+    @classmethod
     def decision_ruling_be(cls, instance, md):
+        return cls.caluma_decision_ruling(instance, md)
+
+    @classmethod
+    def caluma_decision_ruling(cls, instance, md):
         caluma_workflow_slug = instance.case.workflow.slug
         work_item = instance.case.work_items.filter(
             task_id="decision",
@@ -789,13 +839,14 @@ class CantonSpecific:
             .first()
             .date
         )
-        ruling = (
-            answers.filter(question_id=settings.DECISION["QUESTIONS"]["APPROVAL_TYPE"])
-            .first()
-            .value
-            if caluma_workflow_slug == "building-permit"
-            else "VORABKLAERUNG"
-        )
+        ruling = ""
+        if caluma_workflow_slug != "building-permit":
+            ruling = "VORABKLAERUNG"
+        if approval_type_question := settings.DECISION["QUESTIONS"].get(
+            "APPROVAL_TYPE"
+        ):
+            answer = answers.filter(question_id=approval_type_question).first()
+            ruling = answer.question.options.get(pk=answer.value).label
 
         return [
             ns_application.decisionRulingType(
@@ -812,11 +863,6 @@ class CantonSpecific:
     @classmethod
     @canton_aware
     def building_information(cls, instance, md):
-        raise RuntimeError("not implemented")  # pragma: no cover
-
-    @classmethod
-    def building_information_sz(cls, instance, md):
-        # currently not implemented
         return []
 
     @classmethod
@@ -841,9 +887,7 @@ class CantonSpecific:
         if egid := find_answer(document, "gwr-egid"):
             params["EGID"] = egid
 
-        if number_of_floors := find_answer(
-            document, "effektive-geschosszahl"
-        ):  # pragma: no cover
+        if number_of_floors := find_answer(document, "effektive-geschosszahl"):
             params["numberOfFloors"] = number_of_floors
 
         return [

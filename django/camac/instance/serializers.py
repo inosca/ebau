@@ -2387,18 +2387,14 @@ class PublicCalumaInstanceSerializer(serializers.Serializer):  # pragma: no cove
         return self.get_master_data(case).proposal
 
     def get_street(self, case):
+        md = self.get_master_data(case)
         if settings.APPLICATION_NAME == "kt_schwyz":
-            return clean_join(
-                self.get_master_data(case).street,
-                self.get_master_data(case).street_addition,
-                self.get_master_data(case).city,
-                separator=", ",
-            )
+            return clean_join(md.street, md.street_addition, md.city, separator=", ")
 
-        return clean_join(
-            self.get_master_data(case).street,
-            self.get_master_data(case).street_number,
-        )
+        if md.joined_street_and_number:
+            return md.street
+
+        return clean_join(md.street, md.street_number)
 
     def get_parcels(self, case):
         return clean_join(

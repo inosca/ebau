@@ -364,6 +364,7 @@ def test_send_inquiry(
     service_factory,
     work_item_factory,
     service,
+    be_ech0211_settings,
 ):
     addressed_service = service_factory()
     work_item_factory(
@@ -411,8 +412,9 @@ def test_send_inquiry_gr(
     work_item_factory,
     service,
     settings,
+    set_application_gr,
+    gr_ech0211_settings,
 ):
-    settings.APPLICATION_NAME = "kt_gr"
     addressed_service = service_factory(service_group__name="uso")
     work_item_factory(
         task_id=settings.DISTRIBUTION["DISTRIBUTION_CHECK_TASK"],
@@ -443,6 +445,7 @@ def test_do_not_send_inquiry_in_correction(
     instance_state_factory,
     service,
     settings,
+    be_ech0211_settings,
 ):
     settings.APPLICATION_NAME = "kt_bern"
     instance_state_correction = instance_state_factory(name="correction")
@@ -515,6 +518,7 @@ def test_complete_inquiry(
     caluma_admin_user,
     distribution_child_case_be,
     be_distribution_settings,
+    be_ech0211_settings,
     inquiry_factory_be,
     mailoutbox,
     service,
@@ -657,6 +661,7 @@ def test_complete_distribution(
     mailoutbox,
     service_factory,
     work_item_factory,
+    be_ech0211_settings,
 ):
     service = service_factory()
 
@@ -736,6 +741,7 @@ def test_distribution_complete_history(
     inquiry_factory_be,
     has_inquiries,
     mocker,
+    be_ech0211_settings,
 ):
     mocker.patch("camac.notification.utils.send_mail", return_value=None)
 
@@ -775,6 +781,7 @@ def test_reopen_distribution(
     service,
     instance_state_factory,
     task_factory,
+    be_ech0211_settings,
 ):
     instance_state_distribution = instance_state_factory()
 
@@ -890,6 +897,7 @@ def test_reopen_inquiry(
     caluma_admin_user,
     sz_distribution_settings,
     inquiry_factory_sz,
+    sz_ech0211_settings,
 ):
     inquiry = inquiry_factory_sz(sent=True)
 
@@ -1022,6 +1030,7 @@ def test_sync_inquiry_deadline(
     inquiry_factory_be,
     mocker,
     success,
+    be_ech0211_settings,
 ):
     mocker.patch(
         "camac.caluma.extensions.permissions.CustomPermission.has_camac_edit_permission",

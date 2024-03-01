@@ -523,6 +523,7 @@ def test_instance_list(
     ],
 )
 def test_instance_submit_be(
+    set_application_be,
     admin_client,
     role,
     role_factory,
@@ -542,6 +543,7 @@ def test_instance_submit_be(
     caluma_workflow_config_be,
     has_personalien_sb1,
     caluma_admin_user,
+    disable_ech0211_settings,
 ):
     application_settings["NOTIFICATIONS"]["SUBMIT"] = [
         {"template_slug": notification_template.slug, "recipient_types": ["applicant"]}
@@ -611,6 +613,7 @@ def test_instance_submit_ur(
     authority,
     form_slug,
     special_case,
+    disable_ech0211_settings,
 ):
     settings.APPLICATION_NAME = "kt_uri"
     application_settings["NOTIFICATIONS"]["SUBMIT"] = [
@@ -776,6 +779,7 @@ def test_instance_submit_cantonal_territory_usage_ur(
     service_factory,
     authority_location_factory,
     ur_master_data_settings,
+    disable_ech0211_settings,
 ):
     settings.APPLICATION_NAME = "kt_uri"
     application_settings["CALUMA"]["USE_LOCATION"] = True
@@ -875,6 +879,7 @@ def test_instance_submit_heat_extraction_ur(
     authority_location_factory,
     form_slug,
     ur_master_data_settings,
+    disable_ech0211_settings,
 ):
     settings.APPLICATION_NAME = "kt_uri"
     application_settings["CALUMA"]["USE_LOCATION"] = True
@@ -951,6 +956,7 @@ def test_instance_submit_pgv_gemeindestrasse_ur(
     service_factory,
     authority_location_factory,
     ur_master_data_settings,
+    disable_ech0211_settings,
 ):
     settings.APPLICATION_NAME = "kt_uri"
     application_settings["CALUMA"]["USE_LOCATION"] = True
@@ -1030,6 +1036,7 @@ def test_instance_submit_mitbericht_kanton_doesnt_send_mail(
     instance_state_factory,
     service_factory,
     authority_location_factory,
+    disable_ech0211_settings,
 ):
     settings.APPLICATION_NAME = "kt_uri"
 
@@ -1073,6 +1080,7 @@ def test_instance_authority_by_submission_for_koor_afg(
     instance_state_factory,
     service_factory,
     authority_location_factory,
+    disable_ech0211_settings,
 ):
     settings.APPLICATION_NAME = "kt_uri"
     application_settings["STORE_PDF"] = False
@@ -1136,6 +1144,7 @@ def test_oereb_instance_copy_for_koor_afj(
     form_slug,
     attachment_factory,
     utils,
+    disable_ech0211_settings,
 ):
     settings.APPLICATION_NAME = "kt_uri"
 
@@ -1264,6 +1273,7 @@ def test_instance_submit_message_building_services_ur(
     service_factory,
     instance_factory,
     authority_location,
+    disable_ech0211_settings,
 ):
     settings.APPLICATION_NAME = "kt_uri"
     application_settings["CALUMA"]["USE_LOCATION"] = True
@@ -1443,6 +1453,7 @@ def test_instance_report(
     decision_factory,
     settings,
     be_decision_settings,
+    be_ech0211_settings,
 ):
     settings.APPLICATION_NAME = "kt_bern"
     application_settings["SHORT_NAME"] = "be"
@@ -1528,6 +1539,7 @@ def test_instance_finalize(
     decision_factory,
     settings,
     be_decision_settings,
+    be_ech0211_settings,
 ):
     settings.APPLICATION_NAME = "kt_bern"
     application_settings["SHORT_NAME"] = "be"
@@ -2176,6 +2188,7 @@ def test_rejection(
     submit_date_question,
     rejection_settings,
     caluma_admin_user,
+    disable_ech0211_settings,
 ):
     application_settings["NOTIFICATIONS"]["SUBMIT"] = []
 
@@ -2253,6 +2266,7 @@ def test_be_copy_responsible_user_on_submit(
     rejection_settings,
     work_item_factory,
     user_factory,
+    disable_ech0211_settings,
 ):
     application_settings["NOTIFICATIONS"]["SUBMIT"] = []
     application_settings["COPY_RESPONSIBLE_PERSON_ON_SUBMIT"] = True

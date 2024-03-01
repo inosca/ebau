@@ -1393,7 +1393,7 @@ def test_instance_create_internal_sz(
         ("Applicant", LazyFixture("location"), "baugesuch", status.HTTP_200_OK),
     ],
 )
-def test_instance_submit(
+def test_instance_submit_sz(
     admin_client,
     admin_user,
     form,
@@ -1418,6 +1418,7 @@ def test_instance_submit(
     caluma_admin_user,
     application_settings,
 ):
+    application_settings["SHORT_NAME"] = "sz"
     application_settings["NOTIFICATIONS"]["SUBMIT"] = notification_template.slug
     application_settings["WORKFLOW_ITEMS"]["SUBMIT"] = workflow_item.pk
     application_settings["INSTANCE_IDENTIFIER_FORM_ABBR"] = {"vbs": "PV"}

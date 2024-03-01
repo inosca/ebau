@@ -227,20 +227,22 @@ def get_swagger_description():
 
     get_table_data = (
         GET_TABLE_DATA_BASIC
-        if settings.APPLICATION["ECH0211"].get("API_LEVEL") == "basic"
+        if settings.ECH0211.get("API_LEVEL") == "basic"
         else GET_TABLE_DATA_FULL
     )
     post_table_data = (
-        POST_TABLE_DATA
-        if settings.APPLICATION["ECH0211"].get("API_LEVEL") == "full"
-        else None
+        POST_TABLE_DATA if settings.ECH0211.get("API_LEVEL") == "full" else None
     )
 
     get_messages = tabulate(get_table_data, GET_TABLE_HEADERS, tablefmt="github")
     post_messages = tabulate(post_table_data, POST_TABLE_HEADERS, tablefmt="github")
-    desc = desc.replace("{get_messages}", get_messages).replace(
-        "{post_messages}", post_messages
+    desc = (
+        desc.replace("{get_messages}", get_messages)
+        .replace("{post_messages}", post_messages)
+        .replace("{internal_base_url}", settings.INTERNAL_BASE_URL)
+        .replace("{keycloak_url}", settings.KEYCLOAK_URL)
     )
+
     return desc
 
 

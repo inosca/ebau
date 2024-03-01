@@ -227,6 +227,7 @@ def test_instance_appeal(
     role,
     settings,
     application_settings,
+    be_ech0211_settings,
 ):
     settings.APPLICATION_NAME = "kt_bern"
     application_settings["SHORT_NAME"] = "be"
@@ -323,6 +324,7 @@ def test_instance_appeal_so(
     role,
     settings,
     application_settings,
+    disable_ech0211_settings,
 ):
     settings.APPLICATION_NAME = "kt_so"
     application_settings["SHORT_NAME"] = "so"

@@ -1,14 +1,6 @@
 # serializer version: 1
 # name: test_swagger_paths[demo]
   list([
-    '/v1/attachment-sections',
-    '/v1/attachment-sections/{attachment_section_id}',
-    '/v1/attachments',
-    '/v1/attachments/files/',
-    '/v1/attachments/{attachment_id}',
-    '/v1/groups',
-    '/v1/groups/{group_id}',
-    '/v1/me',
   ])
 # ---
 # name: test_swagger_paths[kt_bern]
@@ -22,63 +14,50 @@
     '/api/v1/groups/{group_id}',
     '/api/v1/instances/{instance_id}/generate-pdf',
     '/api/v1/me',
-    '/application/{instance_id}/',
-    '/applications',
-    '/message/',
-    '/send/',
+    '/api/v1/public-services',
+    '/api/v1/public-services/{service_id}',
+    '/ech/v1/application/{instance_id}/',
+    '/ech/v1/applications',
+    '/ech/v1/message/',
+    '/ech/v1/send/',
   ])
 # ---
 # name: test_swagger_paths[kt_gr]
   list([
-    '/groups',
-    '/groups/{group_id}',
-    '/me',
+    '/api/v1/groups',
+    '/api/v1/groups/{group_id}',
+    '/api/v1/me',
+    '/api/v1/public-services',
+    '/api/v1/public-services/{service_id}',
+    '/ech/v1/application/{instance_id}/',
+    '/ech/v1/applications',
+    '/ech/v1/message/',
+    '/ech/v1/send/',
   ])
 # ---
 # name: test_swagger_paths[kt_schwyz]
   list([
-    '/api/v1/attachment-sections',
-    '/api/v1/attachment-sections/{attachment_section_id}',
     '/api/v1/attachments',
     '/api/v1/attachments/files/',
     '/api/v1/attachments/{attachment_id}',
     '/api/v1/groups',
     '/api/v1/groups/{group_id}',
     '/api/v1/me',
-    '/application/{instance_id}/',
-    '/applications',
-    '/message/',
+    '/ech/v1/application/{instance_id}/',
+    '/ech/v1/applications',
+    '/ech/v1/message/',
   ])
 # ---
 # name: test_swagger_paths[kt_so]
   list([
-    '/groups',
-    '/groups/{group_id}',
-    '/me',
   ])
 # ---
 # name: test_swagger_paths[kt_uri]
   list([
-    '/v1/attachment-sections',
-    '/v1/attachment-sections/{attachment_section_id}',
-    '/v1/attachments',
-    '/v1/attachments/files/',
-    '/v1/attachments/{attachment_id}',
-    '/v1/groups',
-    '/v1/groups/{group_id}',
-    '/v1/me',
-    '/v1/public-caluma-instances',
+    '/public-caluma-instances',
   ])
 # ---
 # name: test_swagger_paths[test]
   list([
-    '/v1/attachment-sections',
-    '/v1/attachment-sections/{attachment_section_id}',
-    '/v1/attachments',
-    '/v1/attachments/files/',
-    '/v1/attachments/{attachment_id}',
-    '/v1/groups',
-    '/v1/groups/{group_id}',
-    '/v1/me',
   ])
 # ---
