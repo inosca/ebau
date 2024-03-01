@@ -217,6 +217,16 @@ POST_TABLE_DATA = [
     ],
 ]
 
+POST_SUBMIT = [
+    [
+        "Submit",
+        "Dossier einreichen",
+        "-",
+        "5200113",
+        f"[submit]({static('xml/post/submit_planning_permission_application.xml')})",
+    ],
+]
+
 
 def get_swagger_description():
     with open(
@@ -225,14 +235,17 @@ def get_swagger_description():
     ) as myfile:
         desc = myfile.read()
 
-    get_table_data = (
-        GET_TABLE_DATA_BASIC
-        if settings.ECH0211.get("API_LEVEL") == "basic"
-        else GET_TABLE_DATA_FULL
-    )
-    post_table_data = (
-        POST_TABLE_DATA if settings.ECH0211.get("API_LEVEL") == "full" else None
-    )
+    api_level = settings.ECH0211.get("API_LEVEL")
+
+    get_table_data = GET_TABLE_DATA_BASIC
+    if api_level == "full":
+        get_table_data = GET_TABLE_DATA_FULL
+
+    post_table_data = None
+    if api_level == "full":
+        post_table_data = POST_TABLE_DATA
+    if settings.ECH0211.get("ALLOW_SUBMIT_BY_MUNICIPALITY"):
+        post_table_data += POST_SUBMIT
 
     get_messages = tabulate(get_table_data, GET_TABLE_HEADERS, tablefmt="github")
     post_messages = tabulate(post_table_data, POST_TABLE_HEADERS, tablefmt="github")
