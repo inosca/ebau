@@ -4,7 +4,7 @@ FROM ghcr.io/adfinis/document-merge-service:6.4.4
 USER root
 RUN poetry run pip install boto3==1.28.9
 RUN \
-  --mount=type=cache,target=/var/cache/apt \
+  --mount=type=cache,target=/var/cache/apt,sharing=locked \
   apt-get update && apt-get install -y --no-install-recommends hyphen-de hyphen-fr
 USER document-merge-service
 
