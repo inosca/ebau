@@ -86,9 +86,14 @@ ECH0211 = {
             r"dossier-check/<int:instance_id>/": "/page/index/instance-resource-id/150009/instance-id/%(instance_id)i",
             r"revision-history/<int:instance_id>/": "/revisionhistory/revisionhistory/index/instance-resource-id/150004/instance-id/%(instance_id)i",
         },
+        "NOTICE_RULING": {
+            "ALLOWED_STATES": ["coordination", "circulation"],
+            "ONLY_DECLINE": ["circulation_init"],
+        },
     },
     "kt_gr": {
         "ENABLED": True,
+        "ALLOW_SUBMIT_BY_MUNICIPALITY": True,
         "STATUS_NOTIFICATION_TYPES": [
             {
                 "new_state": "init-distribution",
@@ -133,5 +138,9 @@ ECH0211 = {
             r"dossier-check/<int:instance_id>/": "/cases/%(instance_id)i/task-form/formal-exam",
         },
         "ALLOWED_CATEGORIES": ["beteiligte-behörden", "intern"],
+        "NOTICE_RULING": {
+            "ALLOWED_STATES": ["decision", "circulation"],
+            "ONLY_DECLINE": ["distribution-init"],
+        },
     },
 }
