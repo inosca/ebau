@@ -19,7 +19,7 @@ RUN mkdir -p $APP_HOME $STATIC_DIR \
     && chmod -R 770 $HOME $STATIC_DIR
 
 RUN \
-  --mount=type=cache,target=/var/cache/apt \
+  --mount=type=cache,target=/var/cache/apt,sharing=locked \
   apt-get update && apt-get install -y --no-install-recommends \
   git \
   build-essential \
