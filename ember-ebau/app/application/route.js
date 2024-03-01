@@ -2,6 +2,7 @@ import Route from "@ember/routing/route";
 import { inject as service } from "@ember/service";
 import AlexandriaDocumentsFormComponent from "ember-ebau-core/components/alexandria-documents-form";
 import CalculatedPublicationDateComponent from "ember-ebau-core/components/calculated-publication-date";
+import CoordinatesPlaceholderComponent from "ember-ebau-core/components/coordinates-placeholder";
 import DecisionAppealButtonComponent from "ember-ebau-core/components/decision/appeal-button";
 import DecisionInfoAppealComponent from "ember-ebau-core/components/decision/info-appeal";
 import DecisionSubmitButtonComponent from "ember-ebau-core/components/decision/submit-button";
@@ -88,6 +89,11 @@ export default class ApplicationRoute extends Route {
       label: "Entscheid verfügen",
       component: "decision/submit-button",
       componentClass: DecisionSubmitButtonComponent,
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "Koordinaten Platzhalter",
+      component: "coordinates-placeholder",
+      componentClass: CoordinatesPlaceholderComponent,
     });
   }
 }
