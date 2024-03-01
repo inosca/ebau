@@ -123,6 +123,10 @@ class PublicServiceView(MultilangMixin, ReadOnlyModelViewSet):
     search_fields = ("name", "trans__name")
     ordering_fields = ("name", "service_group__name")
 
+    @classmethod
+    def include_in_swagger(cls):
+        return settings.ECH0211.get("API_LEVEL") == "full"
+
     def get_queryset(self):
         queryset = super().get_queryset()
         if getattr(self, "swagger_fake_view", False):  # pragma: no cover
@@ -160,7 +164,10 @@ class MeView(
     model = get_user_model()
     serializer_class = serializers.CurrentUserSerializer
     permission_classes = [IsAuthenticated]
-    include_in_swagger = True
+
+    @classmethod
+    def include_in_swagger(cls):
+        return bool(settings.ECH0211)
 
     def get_object(self, *args, **kwargs):
         return self.request.user
@@ -187,7 +194,10 @@ class GroupView(MultilangMixin, ReadOnlyModelViewSet):
     filterset_class = filters.GroupFilterSet
     serializer_class = serializers.GroupSerializer
     queryset = models.Group.objects.filter(disabled=False)
-    include_in_swagger = True
+
+    @classmethod
+    def include_in_swagger(cls):
+        return bool(settings.ECH0211)
 
     @permission_aware
     def get_queryset(self):

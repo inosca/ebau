@@ -96,12 +96,12 @@ def test_validate(
 def test_reject_instance(
     db,
     be_instance,
+    be_ech0211_settings,
     admin_client,
     instance_state_factory,
     rejection_settings,
     notification_template,
     mailoutbox,
-    enable_ech,
 ):
     instance_state_factory(name=rejection_settings["INSTANCE_STATE"])
 
@@ -149,12 +149,12 @@ def test_reject_instance(
 def test_revert_instance_rejection(
     db,
     be_instance,
+    be_ech0211_settings,
     admin_client,
     caluma_admin_user,
     rejection_settings,
     notification_template,
     mailoutbox,
-    enable_ech,
 ):
     rejection_settings["NOTIFICATIONS"] = {
         "REVERTED": [

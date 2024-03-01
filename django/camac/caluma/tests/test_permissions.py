@@ -234,6 +234,7 @@ def test_distribution_permission_for_task(
     status,
     task,
     work_item_factory,
+    disable_ech0211_settings,
 ):
     work_item = active_inquiry_factory(
         be_instance,

@@ -1,10 +1,10 @@
 # serializer version: 1
-# name: test_generate_delivery[kt_bern-set_application_be-ech_instance_be]
+# name: test_generate_delivery[kt_bern-set_application_be-ech_instance_be-be_master_data_settings]
   '''
   <?xml version="1.0" ?>
   <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5" xmlns:ns4="http://www.ech.ch/xmlns/eCH-0010/6" xmlns:ns5="http://www.ech.ch/xmlns/eCH-0007/6" xmlns:ns6="http://www.ech.ch/xmlns/eCH-0147/T0/1" xmlns:ns7="http://www.ech.ch/xmlns/eCH-0039/2" xmlns:ns8="http://www.ech.ch/xmlns/eCH-0044/4" xmlns:ns9="http://www.ech.ch/xmlns/eCH-0097/2">
   	<ns1:deliveryHeader>
-  		<ns2:senderId>https://ebau.apps.be.ch/</ns2:senderId>
+  		<ns2:senderId>http://ebau.local</ns2:senderId>
   		<ns2:messageId><!-- MESSAGE_ID --></ns2:messageId>
   		<ns2:messageType>5200000</ns2:messageType>
   		<ns2:sendingApplication>
@@ -75,6 +75,7 @@
   					<ns1:buildingInformation>
   						<ns1:building>
   							<ns3:EGID>1738778</ns3:EGID>
+  							<ns3:numberOfFloors>2</ns3:numberOfFloors>
   							<ns3:buildingCategory>1040</ns3:buildingCategory>
   							<ns3:civilDefenseShelter>true</ns3:civilDefenseShelter>
   						</ns1:building>
@@ -194,12 +195,186 @@
   
   '''
 # ---
-# name: test_generate_delivery[kt_schwyz-set_application_sz-ech_instance_sz]
+# name: test_generate_delivery[kt_gr-set_application_gr-ech_instance_gr-gr_master_data_settings]
+  '''
+  <?xml version="1.0" ?>
+  <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5" xmlns:ns4="http://www.ech.ch/xmlns/eCH-0010/6" xmlns:ns5="http://www.ech.ch/xmlns/eCH-0007/6" xmlns:ns6="http://www.ech.ch/xmlns/eCH-0147/T0/1" xmlns:ns7="http://www.ech.ch/xmlns/eCH-0039/2" xmlns:ns8="http://www.ech.ch/xmlns/eCH-0044/4" xmlns:ns9="http://www.ech.ch/xmlns/eCH-0097/2">
+  	<ns1:deliveryHeader>
+  		<ns2:senderId>http://ember-ebau.local</ns2:senderId>
+  		<ns2:messageId><!-- MESSAGE_ID --></ns2:messageId>
+  		<ns2:messageType>5200000</ns2:messageType>
+  		<ns2:sendingApplication>
+  			<ns2:manufacturer>Adfinis AG</ns2:manufacturer>
+  			<ns2:product>camac</ns2:product>
+  			<ns2:productVersion><!-- VERSION --></ns2:productVersion>
+  		</ns2:sendingApplication>
+  		<ns2:subject>Einfache Vorabklärung</ns2:subject>
+  		<ns2:messageDate>2022-06-03T00:00:00Z</ns2:messageDate>
+  		<ns2:action>1</ns2:action>
+  		<ns2:testDeliveryFlag>true</ns2:testDeliveryFlag>
+  	</ns1:deliveryHeader>
+  	<ns1:eventBaseDelivery>
+  		<ns1:planningPermissionApplicationInformation>
+  			<ns1:planningPermissionApplication>
+  				<ns1:planningPermissionApplicationIdentification>
+  					<ns1:localID>
+  						<ns3:IdCategory>eBauNr</ns3:IdCategory>
+  						<ns3:Id>2020-1</ns3:Id>
+  					</ns1:localID>
+  					<ns1:otherID>
+  						<ns3:IdCategory>eBauNr</ns3:IdCategory>
+  						<ns3:Id>2020-1</ns3:Id>
+  					</ns1:otherID>
+  					<ns1:dossierIdentification><!-- INSTANCE_ID --></ns1:dossierIdentification>
+  				</ns1:planningPermissionApplicationIdentification>
+  				<ns1:description>Testvorhaben</ns1:description>
+  				<ns1:applicationType>Einfache Vorabklärung</ns1:applicationType>
+  				<ns1:profilingYesNo>false</ns1:profilingYesNo>
+  				<ns1:intendedPurpose>.</ns1:intendedPurpose>
+  				<ns1:parkingLotsYesNo>false</ns1:parkingLotsYesNo>
+  				<ns1:namedMetaData>
+  					<ns3:metaDataName>status</ns3:metaDataName>
+  					<ns3:metaDataValue>David Rangel</ns3:metaDataValue>
+  				</ns1:namedMetaData>
+  				<ns1:locationAddress>
+  					<ns4:street>Teststrasse</ns4:street>
+  					<ns4:houseNumber>12a</ns4:houseNumber>
+  					<ns4:town>Chur</ns4:town>
+  					<ns4:swissZipCode>1234</ns4:swissZipCode>
+  					<ns4:country>
+  						<ns4:countryNameShort>CH</ns4:countryNameShort>
+  					</ns4:country>
+  				</ns1:locationAddress>
+  				<ns1:realestateInformation>
+  					<ns1:realestate>
+  						<ns3:realestateIdentification>
+  							<ns3:EGRID>123</ns3:EGRID>
+  							<ns3:number>1586</ns3:number>
+  						</ns3:realestateIdentification>
+  						<ns3:realestateType>8</ns3:realestateType>
+  					</ns1:realestate>
+  					<ns1:municipality>
+  						<ns5:municipalityName>Testgemeinde</ns5:municipalityName>
+  						<ns5:cantonAbbreviation>GR</ns5:cantonAbbreviation>
+  					</ns1:municipality>
+  					<ns1:owner>
+  						<ns1:ownerAdress>
+  							<ns4:person>
+  								<ns4:firstName>Testvorname</ns4:firstName>
+  								<ns4:lastName>Testname</ns4:lastName>
+  							</ns4:person>
+  							<ns4:addressInformation>
+  								<ns4:street>Teststrasse</ns4:street>
+  								<ns4:houseNumber>None</ns4:houseNumber>
+  								<ns4:town>Testort</ns4:town>
+  								<ns4:swissZipCode>1234</ns4:swissZipCode>
+  								<ns4:country>
+  									<ns4:countryNameShort>CH</ns4:countryNameShort>
+  								</ns4:country>
+  							</ns4:addressInformation>
+  						</ns1:ownerAdress>
+  					</ns1:owner>
+  				</ns1:realestateInformation>
+  				<ns1:constructionProjectInformation>
+  					<ns1:constructionProject>
+  						<ns3:status>6701</ns3:status>
+  						<ns3:description>Testvorhaben</ns3:description>
+  						<ns3:durationOfConstructionPhase>999</ns3:durationOfConstructionPhase>
+  					</ns1:constructionProject>
+  					<ns1:municipality>
+  						<ns5:municipalityName>Testgemeinde</ns5:municipalityName>
+  						<ns5:cantonAbbreviation>GR</ns5:cantonAbbreviation>
+  					</ns1:municipality>
+  				</ns1:constructionProjectInformation>
+  				<ns1:document>
+  					<ns6:uuid>f8380740-d73a-4683-8909-2ced929ddbc5</ns6:uuid>
+  					<ns6:titles>
+  						<ns7:title>Situationsplan</ns7:title>
+  					</ns6:titles>
+  					<ns6:status>undefined</ns6:status>
+  					<ns6:files>
+  						<ns6:file>
+  							<ns6:pathFileName>http://ember-ebau.local/ech/v1/files/57a93396-454c-4a55-b48f-d114ad264df9</ns6:pathFileName>
+  							<ns6:mimeType>application/octet-stream</ns6:mimeType>
+  						</ns6:file>
+  					</ns6:files>
+  					<ns6:documentKind>Beilagen zum Gesuch</ns6:documentKind>
+  				</ns1:document>
+  			</ns1:planningPermissionApplication>
+  			<ns1:relationshipToPerson>
+  				<ns1:role>applicant</ns1:role>
+  				<ns1:person>
+  					<ns3:identification>
+  						<ns3:personIdentification>
+  							<ns8:officialName>Testname</ns8:officialName>
+  							<ns8:firstName>Testvorname</ns8:firstName>
+  						</ns3:personIdentification>
+  					</ns3:identification>
+  					<ns3:address>
+  						<ns4:street>Teststrasse</ns4:street>
+  						<ns4:houseNumber>None</ns4:houseNumber>
+  						<ns4:town>Testort</ns4:town>
+  						<ns4:swissZipCode>1234</ns4:swissZipCode>
+  						<ns4:country>
+  							<ns4:countryNameShort>CH</ns4:countryNameShort>
+  						</ns4:country>
+  					</ns3:address>
+  				</ns1:person>
+  			</ns1:relationshipToPerson>
+  			<ns1:decisionAuthority>
+  				<ns1:decisionAuthority>
+  					<ns3:buildingAuthorityIdentificationType>
+  						<ns9:uid>
+  							<ns9:uidOrganisationIdCategorie>CHE</ns9:uidOrganisationIdCategorie>
+  							<ns9:uidOrganisationId>123123123</ns9:uidOrganisationId>
+  						</ns9:uid>
+  						<ns9:localOrganisationId>
+  							<ns9:organisationIdCategory>ebaugr</ns9:organisationIdCategory>
+  							<ns9:organisationId><!-- ORGANISATION_ID --></ns9:organisationId>
+  						</ns9:localOrganisationId>
+  						<ns9:organisationName>Leitbehörde Burgdorf</ns9:organisationName>
+  						<ns9:legalForm>0223</ns9:legalForm>
+  					</ns3:buildingAuthorityIdentificationType>
+  					<ns3:address>
+  						<ns4:street>Teststrasse 23</ns4:street>
+  						<ns4:town>Burgdorf</ns4:town>
+  						<ns4:swissZipCode>3400</ns4:swissZipCode>
+  						<ns4:country>
+  							<ns4:countryNameShort>CH</ns4:countryNameShort>
+  						</ns4:country>
+  					</ns3:address>
+  				</ns1:decisionAuthority>
+  			</ns1:decisionAuthority>
+  			<ns1:entryOffice>
+  				<ns1:entryOfficeIdentification>
+  					<ns9:uid>
+  						<ns9:uidOrganisationIdCategorie>CHE</ns9:uidOrganisationIdCategorie>
+  						<ns9:uidOrganisationId>123123123</ns9:uidOrganisationId>
+  					</ns9:uid>
+  					<ns9:localOrganisationId>
+  						<ns9:organisationIdCategory>ebaugr</ns9:organisationIdCategory>
+  						<ns9:organisationId><!-- ORGANISATION_ID --></ns9:organisationId>
+  					</ns9:localOrganisationId>
+  					<ns9:organisationName>Leitbehörde Burgdorf</ns9:organisationName>
+  					<ns9:legalForm>0223</ns9:legalForm>
+  				</ns1:entryOfficeIdentification>
+  				<ns1:municipality>
+  					<ns5:municipalityName>Burgdorf</ns5:municipalityName>
+  					<ns5:cantonAbbreviation>GR</ns5:cantonAbbreviation>
+  				</ns1:municipality>
+  			</ns1:entryOffice>
+  		</ns1:planningPermissionApplicationInformation>
+  	</ns1:eventBaseDelivery>
+  </ns1:delivery>
+  
+  '''
+# ---
+# name: test_generate_delivery[kt_schwyz-set_application_sz-ech_instance_sz-sz_master_data_settings]
   '''
   <?xml version="1.0" ?>
   <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5" xmlns:ns4="http://www.ech.ch/xmlns/eCH-0010/6" xmlns:ns5="http://www.ech.ch/xmlns/eCH-0007/6" xmlns:ns6="http://www.ech.ch/xmlns/eCH-0147/T0/1" xmlns:ns7="http://www.ech.ch/xmlns/eCH-0039/2" xmlns:ns8="http://www.ech.ch/xmlns/eCH-0097/2" xmlns:ns9="http://www.ech.ch/xmlns/eCH-0044/4">
   	<ns1:deliveryHeader>
-  		<ns2:senderId>https://behoerden.ebau-sz.ch/</ns2:senderId>
+  		<ns2:senderId>http://ebau.local</ns2:senderId>
   		<ns2:messageId><!-- MESSAGE_ID --></ns2:messageId>
   		<ns2:messageType>5200000</ns2:messageType>
   		<ns2:sendingApplication>

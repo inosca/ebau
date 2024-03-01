@@ -36,14 +36,16 @@ def test_application_retrieve_full_be(
     admin_client,
     mocker,
     ech_instance_be,
+    be_ech0211_settings,
     instance_with_case,
     instance_factory,
     attachment,
     attachment_section,
     multilang,
-    override_urls_be,
     decision_factory,
     be_decision_settings,
+    reload_ech0211_urls,
+    ech_snapshot,
 ):
     decision = be_decision_settings["ANSWERS"]["DECISION"]["DEPRECIATED"]
     if is_vorabklaerung:
@@ -86,8 +88,9 @@ def test_applications_list(
     admin_client,
     admin_user,
     set_application_be,
-    override_urls_be,
+    be_ech0211_settings,
     ech_instance_be,
+    reload_ech0211_urls,
 ):
     url = reverse("applications")
     response = admin_client.get(url)
@@ -105,7 +108,8 @@ def test_applications_list_exclude(
     form_id,
     caluma_admin_user,
     set_application_be,
-    override_urls_be,
+    be_ech0211_settings,
+    reload_ech0211_urls,
 ):
     # generate an instance that should not be accessible for eCH
     form = caluma_form_models.Form.objects.create(slug=form_id)
@@ -137,7 +141,8 @@ def test_message_retrieve(
     give_last,
     service_factory,
     set_application_be,
-    override_urls_be,
+    be_ech0211_settings,
+    reload_ech0211_urls,
 ):
     receiver = admin_user.groups.first().service
     dummy_receiver = service_factory()
@@ -168,7 +173,8 @@ def test_message_retrieve_204(
     admin_client,
     message_factory,
     set_application_be,
-    override_urls_be,
+    be_ech0211_settings,
+    reload_ech0211_urls,
 ):
     m = message_factory(body="first xml", receiver=service)
 
@@ -188,9 +194,10 @@ def test_event_post(
     admin_client,
     admin_user,
     ech_instance_case,
+    be_ech0211_settings,
     role_factory,
     set_application_be,
-    override_urls_be,
+    reload_ech0211_urls,
 ):
     ech_instance = ech_instance_case().instance
 
@@ -223,12 +230,33 @@ def test_event_post_404(
     ech_instance_be,
     role_factory,
     set_application_be,
-    override_urls_be,
+    be_ech0211_settings,
+    reload_ech0211_urls,
 ):
     group = admin_user.groups.first()
     group.role = role_factory(name="support")
     group.save()
     url = reverse("event", args=[ech_instance_be.pk, "NotAnEvent"])
+    response = admin_client.post(url)
+
+    assert response.status_code == status.HTTP_404_NOT_FOUND
+
+
+@pytest.mark.parametrize("role__name", ["support"])
+def test_event_disabled(
+    admin_client, set_application_sz, sz_ech0211_settings, reload_ech0211_urls
+):
+    url = reverse("event", args=[1, "NotAnEvent"])
+    response = admin_client.post(url)
+
+    assert response.status_code == status.HTTP_404_NOT_FOUND
+
+
+@pytest.mark.parametrize("role__name", ["support"])
+def test_send_disabled(
+    admin_client, set_application_sz, sz_ech0211_settings, reload_ech0211_urls
+):
+    url = reverse("send")
     response = admin_client.post(url)
 
     assert response.status_code == status.HTTP_404_NOT_FOUND
@@ -241,7 +269,8 @@ def test_event_post_400(
     role_factory,
     mocker,
     set_application_be,
-    override_urls_be,
+    be_ech0211_settings,
+    reload_ech0211_urls,
 ):
     group = admin_user.groups.first()
     group.role = role_factory(name="support")
@@ -262,7 +291,7 @@ def test_send(
     admin_client,
     admin_user,
     set_application_be,
-    override_urls_be,
+    be_ech0211_settings,
     ech_instance_be,
     ech_instance_case,
     settings,
@@ -275,6 +304,7 @@ def test_send(
     caluma_workflow_config_be,
     caluma_admin_user,
     be_decision_settings,
+    reload_ech0211_urls,
 ):
     if has_permission:
         service_group_baukontrolle = service_group_factory(name="construction-control")
@@ -325,7 +355,7 @@ def test_send(
         assert response.status_code == 403
 
 
-def test_send_400_no_data(admin_client, set_application_be, override_urls_be):
+def test_send_400_no_data(admin_client, set_application_be, be_ech0211_settings):
     url = reverse("send")
     response = admin_client.post(url)
 
@@ -345,7 +375,7 @@ def test_send_400_invalid_judgement(
     admin_client,
     admin_user,
     ech_instance_be,
-    override_urls_be,
+    be_ech0211_settings,
     mocker,
     instance_state_factory,
     role_factory,
@@ -354,6 +384,7 @@ def test_send_400_invalid_judgement(
     caluma_workflow_config_be,
     caluma_admin_user,
     settings,
+    reload_ech0211_urls,
 ):
     attachment_section_beteiligte_behoerden = attachment_section_factory(
         pk=ATTACHMENT_SECTION_BETEILIGTE_BEHOERDEN
@@ -405,7 +436,7 @@ def test_send_400_invalid_judgement(
 
 
 def test_send_403(
-    admin_client, admin_user, ech_instance_be, override_urls_be, settings
+    admin_client, admin_user, ech_instance_be, be_ech0211_settings, settings
 ):
     settings.APPLICATION = settings.APPLICATIONS["kt_bern"]
     group = admin_user.groups.first()
@@ -425,13 +456,14 @@ def test_send_403_attachment_permissions(
     ech_message,
     admin_client,
     ech_instance_be,
-    override_urls_be,
+    be_ech0211_settings,
     instance_factory,
     attachment_section_factory,
     attachment_factory,
     settings,
     mocker,
     be_distribution_settings,
+    reload_ech0211_urls,
 ):
     mocker.patch.object(
         NoticeRulingSendHandler, "has_permission", return_value=(True, None)
@@ -463,10 +495,11 @@ def test_send_404_attachment_missing(
     admin_client,
     admin_user,
     ech_instance_be,
-    override_urls_be,
+    be_ech0211_settings,
     instance_state_factory,
     role_factory,
     settings,
+    reload_ech0211_urls,
 ):
     group = admin_user.groups.first()
     group.service = ech_instance_be.services.first()
@@ -499,7 +532,8 @@ def test_send_unparseable_message(
     match,
     replace,
     settings,
-    override_urls_be,
+    be_ech0211_settings,
+    reload_ech0211_urls,
 ):
     group = admin_user.groups.first()
     group.service = ech_instance_be.services.first()
@@ -515,7 +549,9 @@ def test_send_unparseable_message(
     assert response.status_code == 400
 
 
-def test_send_unknown_instance(admin_client, set_application_be, override_urls_be):
+def test_send_unknown_instance(
+    admin_client, set_application_be, be_ech0211_settings, reload_ech0211_urls
+):
     url = reverse("send")
     response = admin_client.post(
         url, data=xml_data("notice_ruling"), content_type="application/xml"
@@ -551,6 +587,7 @@ def test_application_retrieve_full_sz(
     admin_client,
     set_application_sz,
     ech_instance_sz,
+    sz_ech0211_settings,
     application_type,
     instance_state_factory,
     plot_data,
@@ -559,10 +596,10 @@ def test_application_retrieve_full_sz(
     decision,
     snapshot,
     mocker,
-    override_urls_sz,
     request,
     work_item_factory,
     master_data_is_visible_mock,
+    reload_ech0211_urls,
 ):
     ech_instance_sz.form.description = application_type
     ech_instance_sz.form.save()
@@ -596,7 +633,7 @@ def test_application_retrieve_full_sz(
     assert resp.status_code == status.HTTP_200_OK
 
 
-def test_message_invalid_last(admin_client, set_application_be):
+def test_message_invalid_last(admin_client, set_application_be, reload_ech0211_urls):
     response = admin_client.get(reverse("message"), data={"last": "invalid-uuid"})
 
     assert response.status_code == status.HTTP_400_BAD_REQUEST
