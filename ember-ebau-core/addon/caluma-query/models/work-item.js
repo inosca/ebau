@@ -412,6 +412,7 @@ export default class CustomWorkItemModel extends WorkItemModel {
       }
       parentWorkItem {
         id
+        meta
         addressedGroups
         controllingGroups
         task {
