@@ -35,7 +35,17 @@
   </UkButton>
 </div>
 
-<Dms::Docs
-  @data={{this.placeholders.value}}
-  @title={{t "dms.docs.title-generate"}}
-/>
+{{#if this.placeholders.isLoading}}
+  <UkFlex @horizontal="center" class="uk-padding uk-animation-fade">
+    <UkSpinner @ratio={{3}} />
+  </UkFlex>
+{{else if this.placeholders.isError}}
+  <div class="uk-margin uk-flex uk-flex-center">
+    <div class="uk-alert-danger uk-width-1-2 uk-padding-small">{{t "dms.error"}}</div>
+  </div>
+{{else}}
+  <Dms::Docs
+    @data={{this.placeholders.value}}
+    @title={{t "dms.docs.title-generate"}}
+  />
+{{/if}}
