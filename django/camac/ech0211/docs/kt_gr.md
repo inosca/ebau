@@ -1,5 +1,13 @@
 # Gemeindeschnittstelle eBau Graubünden
 
+## Unterschiede zur Schnittstelle im Kt. Bern
+
+Diese Schnittstelle entspricht in weiten Teilen der Gemeindeschnittstelle des Kantons Bern (https://ebau-test.sycloud.ch/api/swagger/), bis auf folgende Abweichungen:
+
+- Auf den "group" Parameter kann verzichtet werden, da im Kt. GR keine dedizierte "Baukontrolle"-Rolle existiert
+- Dokumente werden über `ech/v1/files` hoch/runtergeladen (statt über `api/v1/attachments`), da im Kt. GR ein modernisiertes Dokumentenmodul eingesetzt wird
+- Gemeinden können Gesuche, welche über ihr eigenes Portal eingereicht wurden, mit der POST Message `submit` an eBau weiterleiten.
+
 ## Authentifizierung
 
 Zur Authentifizierung wird der Standard [OpenID Connect](https://openid.net/connect/) genutzt. Pro Gemeinde wird eine `client-id` und ein `client-secret` vergeben, mit welchen Tokens bezogen werden können:
@@ -38,7 +46,7 @@ Verschiedene Aufgaben werden gemäss Spezifikation direkt in eBau erledigt. Unte
 
 ## Abweichungen und Besonderheiten
 
-- Der Type `planningPermissionAplicationIdentifier` enthält unter `localId` die eBau-Nummer und unter `dossierIdentification` unsere Dossiernummer ("Instance id")
+- Der Type `planningPermissionAplicationIdentifier` enthält unter `localId` die kantonale Dossiernummer und unter `dossierIdentification` den technischen Primärschlüssel "Dossier ID" ("Instance id")
 
 - Der Type `localOrganisationId` enthält unter `organisationId` unsere Service id. Service ids können über den `/ech/v1/public-services/` endpoint abgefragt werden.
 
@@ -54,9 +62,8 @@ Verschiedene Aufgaben werden gemäss Spezifikation direkt in eBau erledigt. Unte
 
   Bei ausgehenden Meldungen werden die Dokumente jedoch korrekt abgefüllt. Dabei gilt zu beachten:
 
-  - `documentKind` enthält alle `AttachmentSections`, separiert durch `; `
+  - `documentKind` enthält den Namen der `Category`
   - `keywords` enthält alle Tags (zB: `vollmacht-dokument`)
-  - `uuid` enthält eine mit dem `Attachment` assoziierte uuid, diese ist jedoch ansonstenn nicht über die API exposed. `Attachments` werden prinzipiell über ihren PK referenziert
 
 - In einer `application` wird immer der Status `6701` gesetzt. Der korrekte Status aus dem eBau findet sich unter `namedMetaData.status`. Bei einer `statusNotification` wird immer der Status `in progress` gesetzt. Der korrekte Status findet sich im `remark`.
 
@@ -87,16 +94,7 @@ Verschiedene Aufgaben werden gemäss Spezifikation direkt in eBau erledigt. Unte
   | 3         | Abgeschrieben           | Nicht verfügbar für Vorabklärungen |
   | 4         | Abgelehnt               |                                    |
 
-- `relationshipToPerson`: Hier füllen wir folgende Personalien ab:
-
-  | eBau form               | ech role       |
-  | ----------------------- | -------------- |
-  | Gesuchsteller           | applicant      |
-  | Vertreter mit Vollmacht | contact        |
-  | Projektverfasser        | project author |
-  | Grundeigentümer         | landowner      |
-
-  Sollte es sich bei einem Eintrag um eine juristische Person handeln, sieht eCH keine
+- `relationshipToPerson`: Sollte es sich bei einem Eintrag um eine juristische Person handeln, sieht eCH keine
   Felder vor für Vor- und Nachname der Kontaktperson. Wir füllen diese Namen daher in das Feld
   `organisationAdditionalName` im Format: "Vorname Name".
 
