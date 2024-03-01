@@ -1,10 +1,18 @@
 from django.conf import settings
 from django.urls import path, re_path
 from django.views.generic import RedirectView
+from rest_framework.routers import SimpleRouter
 
 from camac.ech0211 import views
 
-urlpatterns = [
+r = SimpleRouter(trailing_slash=False)
+
+r.register(r"files", views.ECHFileView, "ech-file")
+
+urlpatterns = r.urls
+
+
+urlpatterns += [
     re_path(
         r"application/(?P<instance_id>\d+)/?$",
         views.ApplicationView.as_view({"get": "retrieve"}),
