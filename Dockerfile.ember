@@ -9,7 +9,7 @@ COPY ember-ebau/package.json /myapp/ember-ebau/
 COPY ember-ebau-core/package.json /myapp/ember-ebau-core/
 
 # Fetch all workspace dependencies
-RUN --mount=type=cache,target=.pnpm-store \
+RUN --mount=type=cache,target=.pnpm-store,sharing=locked \
   corepack enable && \
   pnpm config set store-dir .pnpm-store && \
   pnpm fetch
