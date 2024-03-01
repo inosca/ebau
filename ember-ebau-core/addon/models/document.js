@@ -4,7 +4,6 @@ import { hasMany } from "@ember-data/model";
 import DocumentModel from "ember-alexandria/models/document";
 import { dropTask } from "ember-concurrency";
 import { trackedFunction } from "ember-resources/util/function";
-import { saveAs } from "file-saver";
 
 import mainConfig from "ember-ebau-core/config/main";
 
@@ -46,15 +45,8 @@ export default class CustomDocumentModel extends DocumentModel {
       const file = (yield this.files).find(
         (file) => file.variant === "original",
       );
-      const extension = file.name.includes(".")
-        ? `.${file.name.split(".").slice(-1)[0]}`
-        : "";
 
-      // There is a known issue with file-saver and urls.
-      // The filename passed as the second argument is ignored.
-      // https://github.com/eligrey/FileSaver.js/issues/670
-
-      yield saveAs(file.downloadUrl, this.title + extension);
+      open(file.downloadUrl);
     } catch (e) {
       /* eslint-disable-next-line no-console */
       console.error(e);
