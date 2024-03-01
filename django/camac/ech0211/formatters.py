@@ -182,7 +182,7 @@ def get_alexandria_documents(documents):
                     ns_nachrichten_t0.fileType(
                         pathFileName=build_url(
                             settings.INTERNAL_BASE_URL,
-                            f"ech/v1/files/{file.pk}",  # TODO: reverse for new endpoint
+                            reverse("ech-file-detail", args=[file.pk]),
                         ),
                         mimeType="application/octet-stream",
                     )

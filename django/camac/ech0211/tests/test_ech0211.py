@@ -40,6 +40,7 @@ def test_generate_delivery(
     ech_snapshot,
     master_data_is_visible_mock,
     _master_data_settings,
+    reload_ech0211_urls,
 ):
     base_delivery_formatter = formatters.BaseDeliveryFormatter()
 

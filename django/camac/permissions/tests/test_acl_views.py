@@ -203,7 +203,7 @@ def test_create_acl(
             assert relationships["revoked-by-service"]["data"]["id"]
             assert relationships["revoked-by-user"]["data"]["id"]
             assert attrs["revoked-by-event"]
-            assert attrs["end-time"] == set_end_time.isoformat()
+            assert attrs["end-time"] == set_end_time.astimezone().isoformat()
 
         assert created_by_user == str(admin_client.user.id)
     else:
