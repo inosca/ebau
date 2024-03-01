@@ -104,14 +104,18 @@ class NoticeRulingSendHandler(DocumentAccessibilityMixin, BaseSendHandler):
         if not super().has_permission()[0]:
             return False, None
 
-        if self.instance.instance_state.name == "circulation_init":
+        if self.instance.instance_state.name in settings.ECH0211["NOTICE_RULING"].get(
+            "ONLY_DECLINE", []
+        ):
             if self.data.eventNotice.decisionRuling.judgement != ECH_JUDGEMENT_DECLINED:
                 return (
                     False,
                     f'For instances in the state "Zirkulation initialisieren", only a NoticeRuling with judgement "{ECH_JUDGEMENT_DECLINED}" is allowed.',
                 )
             return True, None
-        if self.instance.instance_state.name not in ["coordination", "circulation"]:
+        if self.instance.instance_state.name not in settings.ECH0211[
+            "NOTICE_RULING"
+        ].get("ALLOWED_STATES", []):
             return (
                 False,
                 'NoticeRuling is only allowed for instances in the state "In Koordination" or "In Zirkulation".',

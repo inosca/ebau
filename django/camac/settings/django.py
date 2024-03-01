@@ -1459,6 +1459,7 @@ APPLICATIONS = {
         "SHORT_NAME": "gr",
         "INTERNAL_FRONTEND": "ebau",
         "USE_CAMAC_ADMIN": False,
+        "INCLUDE_STATIC_FILES": [("xml", "kt_bern/static/ech0211/xml")],
         "LOG_NOTIFICATIONS": True,
         "STORE_PDF": {
             "SECTION": {
