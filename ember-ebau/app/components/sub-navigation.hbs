@@ -4,7 +4,15 @@
       <UkSubnav::Item
         @href={{concat "/cases/" @instanceId "/" ir.link}}
         class={{ir.classField}}
-      >{{ir.name}}</UkSubnav::Item>
+      >
+        {{ir.name}}
+        {{#if (eq ir.link "communications")}}
+          <Communication::UnreadMessageBadge
+            @instanceId={{@instanceId}}
+            class="uk-margin-small-left"
+          />
+        {{/if}}
+      </UkSubnav::Item>
     {{/if}}
   {{/each}}
 </ul>

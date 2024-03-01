@@ -11,7 +11,14 @@
             <UkSubnav::Item
               @href={{resource.link}}
               @currentWhen={{this.removeQueryParams resource.link}}
-            >{{resource.name}}</UkSubnav::Item>
+            >
+              {{resource.name}}
+              {{#if (eq resource.link "/communications-global")}}
+                <Communication::UnreadMessageBadge
+                  class="uk-margin-small-left"
+                />
+              {{/if}}
+            </UkSubnav::Item>
           {{/each}}
         </ul>
       </div>
