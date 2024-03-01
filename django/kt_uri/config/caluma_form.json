@@ -545,10 +545,10 @@
     "pk": "gebaeude-tabelle",
     "fields": {
       "created_at": "2020-10-19T12:40:29.693Z",
-      "modified_at": "2020-10-19T12:40:29.693Z",
+      "modified_at": "2024-02-13T14:27:04.475Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "name": "{\"de\": \"Geb\\u00e4ude Tabelle\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -5901,6 +5901,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "gebaeude-tabelle.angabe-gesamtleistung-zev",
+    "fields": {
+      "created_at": "2024-02-13T14:09:58.069Z",
+      "modified_at": "2024-02-13T14:09:58.069Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "gebaeude-tabelle",
+      "question": "angabe-gesamtleistung-zev",
+      "sort": 29
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "gebaeude-tabelle.angabe-material-und-durchmesser",
     "fields": {
       "created_at": "2023-08-02T06:41:28.880Z",
@@ -5912,6 +5927,21 @@
       "form": "gebaeude-tabelle",
       "question": "angabe-material-und-durchmesser",
       "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "gebaeude-tabelle.anrechenbare-gebaeudeflaeche",
+    "fields": {
+      "created_at": "2024-02-13T12:35:44.371Z",
+      "modified_at": "2024-02-13T12:35:44.371Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "gebaeude-tabelle",
+      "question": "anrechenbare-gebaeudeflaeche",
+      "sort": 33
     }
   },
   {
@@ -5956,7 +5986,7 @@
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
       "question": "art-der-hochbaute",
-      "sort": 38
+      "sort": 43
     }
   },
   {
@@ -5971,7 +6001,7 @@
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
       "question": "art-der-montage",
-      "sort": 36
+      "sort": 41
     }
   },
   {
@@ -5986,7 +6016,7 @@
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
       "question": "art-der-reklamebaute",
-      "sort": 37
+      "sort": 42
     }
   },
   {
@@ -6106,7 +6136,7 @@
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
       "question": "egid",
-      "sort": 39
+      "sort": 44
     }
   },
   {
@@ -6122,6 +6152,21 @@
       "form": "gebaeude-tabelle",
       "question": "energieversorgung",
       "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "gebaeude-tabelle.erforderliche-gesamtleistung",
+    "fields": {
+      "created_at": "2024-02-14T09:57:16.375Z",
+      "modified_at": "2024-02-14T09:57:16.375Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "gebaeude-tabelle",
+      "question": "erforderliche-gesamtleistung",
+      "sort": 31
     }
   },
   {
@@ -6271,7 +6316,22 @@
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
       "question": "gebaeudenummer-bezeichnung",
-      "sort": 40
+      "sort": 45
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "gebaeude-tabelle.gesetzliche-anforderung",
+    "fields": {
+      "created_at": "2024-02-13T12:57:07.100Z",
+      "modified_at": "2024-02-13T12:57:07.100Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "gebaeude-tabelle",
+      "question": "gesetzliche-anforderung",
+      "sort": 30
     }
   },
   {
@@ -6286,7 +6346,7 @@
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
       "question": "gleiche-reklamen",
-      "sort": 33
+      "sort": 38
     }
   },
   {
@@ -6301,7 +6361,7 @@
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
       "question": "groesse-der-reklame-cm",
-      "sort": 34
+      "sort": 39
     }
   },
   {
@@ -6316,7 +6376,7 @@
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
       "question": "hinweis-erfassung-solaranlage",
-      "sort": 29
+      "sort": 34
     }
   },
   {
@@ -6346,7 +6406,7 @@
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
       "question": "proposal",
-      "sort": 32
+      "sort": 37
     }
   },
   {
@@ -6361,7 +6421,7 @@
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
       "question": "reklamebeleuchtung",
-      "sort": 35
+      "sort": 40
     }
   },
   {
@@ -6376,7 +6436,7 @@
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
       "question": "solaranlagenpflicht",
-      "sort": 31
+      "sort": 36
     }
   },
   {
@@ -6391,7 +6451,7 @@
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
       "question": "solarpflicht",
-      "sort": 30
+      "sort": 35
     }
   },
   {
@@ -16430,6 +16490,22 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "anrechenbare-grundflaeche-kleiner300",
+    "fields": {
+      "created_at": "2024-02-07T13:59:56.535Z",
+      "modified_at": "2024-02-07T13:59:56.535Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Die Grundfl\\u00e4che des Geb\\u00e4udes ist kleiner als 300 m2\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "anschluss-bestehend",
     "fields": {
       "created_at": "2020-09-21T06:59:05.302Z",
@@ -16545,13 +16621,13 @@
     "pk": "antrag-ausnahme-solarpflicht-zev",
     "fields": {
       "created_at": "2023-01-13T08:42:48.431Z",
-      "modified_at": "2023-01-13T08:42:48.431Z",
+      "modified_at": "2024-02-13T13:07:05.813Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Beteiligung an einem Zusammenschluss zum Eigenverbrauch ZEV gem\\u00e4ss Energiegesetz Bund\", \"fr\": null, \"it\": null}",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -22551,6 +22627,70 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"5 Punkte (sehr gut)\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "gesetzliche-anforderung-ausnahme",
+    "fields": {
+      "created_at": "2024-02-14T07:25:13.258Z",
+      "modified_at": "2024-02-14T07:25:13.259Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Es wird eine Ausnahme geltend gemacht\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "gesetzliche-anforderung-photovoltaikanlage",
+    "fields": {
+      "created_at": "2024-02-13T12:57:06.900Z",
+      "modified_at": "2024-02-13T12:57:06.900Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Photovoltaikanlage\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "gesetzliche-anforderung-thermische-solaranlage",
+    "fields": {
+      "created_at": "2024-02-13T12:57:06.889Z",
+      "modified_at": "2024-02-13T12:57:06.889Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"thermische Solaranlage\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "gesetzliche-anforderung-zusammenschluss-zum-eigenverbrauch-zev",
+    "fields": {
+      "created_at": "2024-02-13T12:57:06.949Z",
+      "modified_at": "2024-02-13T12:57:06.949Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Zusammenschluss zum Eigenverbrauch ZEV\", \"fr\": null, \"it\": null}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -32334,6 +32474,38 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "wird-eine-ausnahme-geltend-gemacht-ja",
+    "fields": {
+      "created_at": "2024-02-13T13:01:25.586Z",
+      "modified_at": "2024-02-13T13:01:25.586Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "wird-eine-ausnahme-geltend-gemacht-nein",
+    "fields": {
+      "created_at": "2024-02-13T13:01:25.620Z",
+      "modified_at": "2024-02-13T13:01:25.620Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "wuenschen-sie-zum-thema-artenschutz-bei-neubauten-eine-beratung-ja",
     "fields": {
       "created_at": "2020-11-24T11:15:17.128Z",
@@ -34242,6 +34414,74 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "angabe-gesamtleistung",
+    "fields": {
+      "created_at": "2024-02-13T14:04:19.574Z",
+      "modified_at": "2024-02-13T14:08:26.048Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Angaben zur Gesamtleistung der geplanten Anlagen bzw. zur ZEV\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "angabe-gesamtleistung-zev",
+    "fields": {
+      "created_at": "2024-02-13T14:09:58.006Z",
+      "modified_at": "2024-02-28T10:29:59.424Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Angabe zur Gesamtleistung der geplanten Anlage bzw. zur ZEV\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "true",
+      "is_hidden": "\"solarpflicht-ja\" != \"solarpflicht\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"Bitte hier die geplante Gesamtleistung der Anlage eintragen (in kWp f\\u00fcr Phtovoltaikanlagen und in kWth f\\u00fcr thermische Anlagen). Bei ZEV bitten wir Sie die Gesamtleistung und den Standort dieser Anlage anzugeben.\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "angabe-material-und-durchmesser",
     "fields": {
       "created_at": "2023-08-02T06:41:28.719Z",
@@ -34746,6 +34986,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "anrechenbare-gebaeudeflaeche",
+    "fields": {
+      "created_at": "2024-02-13T12:35:44.247Z",
+      "modified_at": "2024-02-28T10:33:48.546Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wie gross ist die anrechenbare Geb\\u00e4udefl\\u00e4che in m2?\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "true",
+      "is_hidden": "\"solarpflicht-ja\" != \"solarpflicht\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"###Anrechenbare Geb\\u00e4udefl\\u00e4che\\nAls anrechenbare Geb\\u00e4udefl\\u00e4che gilt die Fl\\u00e4che innerhalb der projizierten Fassadenlinie. Dazu z\\u00e4hlen die Fl\\u00e4chen von Geb\\u00e4uden, Kleinbauten, Anbauten sowie die Fl\\u00e4chen der Teile von Unterniveaubauten, die das massgebende Terain \\u00fcberragen und \\u00fcberdeckt sind. Kleine Anbauten die h\\u00f6chstens 60 cm \\u00fcber die Fassadenlinie vorspringen, m\\u00fcssen nicht angerechnet werden. Ebenso unterirdische Bauten, sofern diese unter gewachsenem Terrain erstellt werden. Bauten die nur teilweise unter bestehenden Terrain liegen und \\u00fcberdeckt sind, z\\u00e4hlen zur anrechenbaren Geb\\u00e4udefl\\u00e4che.\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[\"erforderliche-gesamtleistung\"]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "anschluesse",
     "fields": {
       "created_at": "2023-08-02T06:34:51.651Z",
@@ -34842,15 +35116,15 @@
     "pk": "antrag-ausnahme-solarpflicht",
     "fields": {
       "created_at": "2022-12-20T14:39:22.670Z",
-      "modified_at": "2023-01-13T08:42:48.646Z",
+      "modified_at": "2024-02-14T09:39:00.513Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
-      "label": "{\"de\": \"Die Solaranlage wird aus folgendem Grund nicht realisiert:\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Die Anlage kann aus folgenden Gr\\u00fcnden nicht realisiert werden:\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
-      "is_required": "false",
-      "is_hidden": "!(\n  \"solarpflicht-ja\" ==\"solarpflicht\"|answer\n)",
+      "is_required": "true",
+      "is_hidden": "!(\n  \"gesetzliche-anforderung-ausnahme\" in \"gesetzliche-anforderung\"|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -35309,10 +35583,10 @@
     "pk": "applicant",
     "fields": {
       "created_at": "2020-08-27T15:39:37.223Z",
-      "modified_at": "2021-04-27T09:24:53.589Z",
+      "modified_at": "2024-02-06T13:06:07.024Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Gesuchsteller/in\", \"fr\": null, \"it\": null}",
       "type": "table",
@@ -35321,11 +35595,16 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
-        "columnsToDisplay": ["last-name", "e-mail", "phone", "first-name"]
+        "columnsToDisplay": [
+          "last-name",
+          "e-mail",
+          "first-name",
+          "juristic-person-name"
+        ]
       },
       "data_source": null,
       "row_form": "personal-data-table",
@@ -37746,19 +38025,19 @@
     "pk": "begruendung-ausname-solarpflicht",
     "fields": {
       "created_at": "2022-12-20T14:40:20.249Z",
-      "modified_at": "2022-12-21T12:52:19.922Z",
+      "modified_at": "2024-02-14T09:39:29.184Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "christian.zosel@adfinis.com",
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "label": "{\"de\": \"Begr\\u00fcndung\", \"fr\": null, \"it\": null}",
       "type": "textarea",
       "is_required": "true",
-      "is_hidden": "!(\n  \"solarpflicht-ja\" ==\"solarpflicht\"|answer\n)",
+      "is_hidden": "!(\n  \"gesetzliche-anforderung-ausnahme\" in \"gesetzliche-anforderung\"|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"###Ausnahmen\\n####Entgegenstehende, \\u00f6ffentlich-rechtliche Vorschriften\\nWenn die Installation einer Solaranlage anderen \\u00f6ffentlich-rechtlichen Vorschriften  widerspricht (z.B. wenn ein nationales Kulturobjekt betroffen ist und die Installation einer Photovoltaikanlage nach Abkl\\u00e4rung mit der Denkmalpflege nicht m\\u00f6glich ist), geben Sie an um welche Vorschrift es sich handelt und beschreiben Sie den Widerspruch bitte ausf\\u00fchrlich.\\n\\n####Technische Marbarkeit\\nWenn eine Photovoltaikanlage technisch nicht machbar ist, ist dies ausf\\u00fchrlich zu begr\\u00fcnden. Allein die Aussage dass z.B. nicht gen\\u00fcgend Dachfl\\u00e4chen verf\\u00fcgbar sind (das kann bei Terrassenbauten oder MFH mit Attikawohnungen der Fall sein) gen\\u00fcgt nicht. So sind z.B. auch Installationen an Terrassenbr\\u00fcstungen,  Fassaden und vorgelagerten oder freistehenden Kleinbauten (z.B. Garagen) zu pr\\u00fcfen.\\n\\n####Wirtschaftlichkeit\\nEine Ausnahmebewilligung aufgrund der Wirtschaftlichkeit einer Anlage setzt voraus, dass dies im Rahmen einer detaillierten Berechnung belegt wird (siehe Beispiel).\\n\\n####Berechnungsbeispiel Wirtschaftlichkeit:\\nBei einer Dachfl\\u00e4che von 300 m2 ist in der Regel eine Modulfl\\u00e4che von 60 m2 gefordert. Bei angenommenen 5 m2 pro kW ergibt dies eine Leistung von ungef\\u00e4hr 12 kW. Annahme / Durchschnitt: Der Energieertrag einer PV Anlage mit horizontal installierten PV Modulen im Schweizer Mittelland betr\\u00e4gt rund 180 kWh. Pro Jahr liefert eine PV Anlage pro kW installierte Leistung einen Ertrag von 900 kWh/Jahr.\\n\\nBei 12 kW installierten Leistung resultiert somit ein j\\u00e4hrlicher Ertrag von 10'800 kWh/Jahr.\\n\\nBei einem Kapitalzinssatz von 1.75 % und bei einer Nettoinvestitionssumme von Fr. 30'270.-- rechnen sich die Eigenkapitalkosten pro Jahr auf Fr. 1'511.- (Amortisation und Zins). Falls Sie MwSt.- pflichtig sind, ist dies in der Berechnung zu ber\\u00fccksichtigen. Die Betriebskosten (ca. 2.5 Rp/kWh) von Fr. 270.-- werden von den Einnahmen abgezogen. Der Nettoertrag der Anlage betr\\u00e4gt Fr. 163.- pro Jahr. \\n\\n60 % Einspeisung = 6'480 kWh x 0.10 Rp / kWh  = Fr. 648.00, 40 % Eigenverbrauch = 4'320 kWh x 0.30 Rp / kWh\\t= Fr. 1'296.00, j\\u00e4hrliche Eigenkapitalkosten = Fr. 1'511.00, j\\u00e4hrliche Betriebskosten = Fr. 270.00, j\\u00e4hrlicher Nettoertrag = Fr.\\t163.00\\n\\nIn diesem Beispiel ist die Anlage wirtschaftlich.\\nDer Nettoertrag ist positiv, die Anlage muss demnach erstellt werden.\\n\\nQuelle Berechnungsbeispiel:\\nMerkblatt des Kantons Aargau - Energie, Pflicht zur Nutzung der Sonnenenergie vom Dezember 2023\\n\\n####Ersatzbeitrag bei Ausnahmebewilligungen\\nWenn eine Ausnahmebewilligung gew\\u00e4hrt wird, ist die Pflicht zur Nutzung der Sonenenergie gem\\u00e4ss Artikel 29a des Energiereglements (EnR 40.7215) mit einem Ersatzbeitrag abzugelten. F\\u00fcr jedes fehlende kW Anlageleistung ist eine Ersatzabgabe von Fr. 2'500.-- zu entrichten.\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"Bitte beachten Sie die Ausf\\u00fchrungen im Info\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -43670,6 +43949,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "erforderliche-gesamtleistung",
+    "fields": {
+      "created_at": "2024-02-14T09:57:16.310Z",
+      "modified_at": "2024-02-28T10:36:21.938Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Erforderliche Gesamtleistung in Watt (W)\", \"fr\": null, \"it\": null}",
+      "type": "calculated_float",
+      "is_required": "false",
+      "is_hidden": "\"solarpflicht-ja\" != \"solarpflicht\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Gem\\u00e4ss Artikel 29a des Energiereglements (EnR) muss die Leistung der installierten Solaranlage mindestens 20 Watt (W) pro m2 anrechenbarer Geb\\u00e4udefl\\u00e4che betragen.\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": "('anrechenbare-gebaeudeflaeche'|answer * 20)|round(2)",
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "erforderliche-unterlagen-kleintankanlagen",
     "fields": {
       "created_at": "2021-11-26T08:34:50.763Z",
@@ -43961,10 +44271,10 @@
     "pk": "esid",
     "fields": {
       "created_at": "2020-11-25T18:23:53.676Z",
-      "modified_at": "2024-01-29T09:10:38.880Z",
+      "modified_at": "2024-01-29T09:17:04.195Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "stephan.hug@adfinis.com",
       "modified_by_group": null,
       "label": "{\"de\": \"ESID\", \"fr\": null, \"it\": null}",
       "type": "integer",
@@ -44647,19 +44957,19 @@
     "pk": "first-name",
     "fields": {
       "created_at": "2020-08-27T15:35:18.028Z",
-      "modified_at": "2020-08-28T15:02:29.765Z",
+      "modified_at": "2024-02-06T12:47:39.527Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Vorname\", \"fr\": null, \"it\": null}",
       "type": "text",
-      "is_required": "true",
+      "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -46216,6 +46526,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "gesetzliche-anforderung",
+    "fields": {
+      "created_at": "2024-02-13T12:57:07.023Z",
+      "modified_at": "2024-02-28T10:37:10.540Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wie wird die gesetzliche Anforderung erf\\u00fcllt?\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "\"solarpflicht-ja\" != \"solarpflicht\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "gesetzliche-vorgaben",
     "fields": {
       "created_at": "2022-02-24T15:15:42.451Z",
@@ -47254,6 +47595,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "hinweis-ausnahme",
+    "fields": {
+      "created_at": "2024-02-13T14:22:25.871Z",
+      "modified_at": "2024-02-13T14:24:27.096Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis: Ausnahme\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "!(\n  \"wird-eine-ausnahme-geltend-gemacht-ja\" ==\"wird-eine-ausnahme-geltend-gemacht\"|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"Bei Bewilligung einer Ausnahme von der Realisierung einer neuen Anlage muss ein Ersatzbeitrag geleistet werden.ma\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "hinweis-auswahl",
     "fields": {
       "created_at": "2023-06-07T09:19:40.178Z",
@@ -47505,7 +47880,7 @@
     "pk": "hinweis-erfassung-solaranlage",
     "fields": {
       "created_at": "2022-12-20T14:26:35.064Z",
-      "modified_at": "2022-12-21T07:18:03.864Z",
+      "modified_at": "2024-02-13T10:16:26.753Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
@@ -47518,7 +47893,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"*Bitte erfassen Sie die geplante Solaranlage im Thema Hochbau mit der Tabelle \\\"Geb\\u00e4udetechnik\\\"*\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"*Bitte erfassen Sie die geplante Solaranlage und deren Gesamtleistung zus\\u00e4tzlich im Thema Hochbau mit der Tabelle \\\"Geb\\u00e4udetechnik\\\"*\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -48809,6 +49184,74 @@
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "installierte-gesamtleistung",
+    "fields": {
+      "created_at": "2024-02-13T12:47:57.961Z",
+      "modified_at": "2024-02-14T09:46:46.193Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "jonas.lehmann@adfinis.com",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Erforderliche Gesamtleistung in Watt (w)\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "true",
+      "is_hidden": "!(\n  \"solarpflicht-ja\" ==\"solarpflicht\"|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Gem\\u00e4ss Artikel 29a des Energiereglements (EnR) muss die Leistung der installierten Solaranlage mindestens 20 Watt (W) pro m2 anrechenbarer Geb\\u00e4udefl\\u00e4che betragen. Die Mindestleistung in W betr\\u00e4gt bei diesem Vorhaben folglich.\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "installierte-mindesdtleistungolaranlage-mindestens-20-watt-pro-m2-anreche",
+    "fields": {
+      "created_at": "2024-02-13T12:45:52.681Z",
+      "modified_at": "2024-02-13T12:45:52.681Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gem\\u00e4ss Artikel 29a des Energiereglements (EnR) muss die Leistung der installierten Solaranlage mindestens 20 Watt pro m2 anrechenbarer Geb\\u00e4udefl\\u00e4che betragen. Die Mindestleistung in Watt (W) betr\\u00e4gt bei diesem Vorhaben:\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -50249,19 +50692,19 @@
     "pk": "last-name",
     "fields": {
       "created_at": "2020-08-27T15:35:26.286Z",
-      "modified_at": "2020-08-28T15:02:34.593Z",
+      "modified_at": "2024-02-06T12:47:46.476Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Name\", \"fr\": null, \"it\": null}",
       "type": "text",
-      "is_required": "true",
+      "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -56049,7 +56492,7 @@
     "pk": "solaranlagenpflicht",
     "fields": {
       "created_at": "2022-12-20T12:15:13.883Z",
-      "modified_at": "2022-12-20T12:26:13.676Z",
+      "modified_at": "2024-02-13T12:49:32.940Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
@@ -56062,7 +56505,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"####Pflicht zur Nutzung der Sonnenenergie bei Geb\\u00e4uden (Neubauten) gem\\u00e4ss Energiegesetz (EnG)\\n\\nGem\\u00e4ss Artikel 45a EnG ist beim Bau neuer Geb\\u00e4ude mit einer anrechenbaren Geb\\u00e4udefl\\u00e4che von mehr als 300 m2 auf den D\\u00e4chern oder an den Fassaden eine Solaranlage, beispielsweise eine Photovoltaik- oder eine Solarthermieanlage, zu erstellen. \\n\\nGem\\u00e4ss Artikel 29a des Energiereglements (EnR) muss die Leistung der installierten Solaranlage mindestens  20 W pro m2 anrechenbarer Geb\\u00e4udefl\\u00e4che betragen.\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"####Pflicht zur Nutzung der Sonnenenergie bei Geb\\u00e4uden (Neubauten) gem\\u00e4ss Energiegesetz (EnG)\\n\\nGem\\u00e4ss Artikel 45a EnG ist beim Bau neuer Geb\\u00e4ude mit einer anrechenbaren Geb\\u00e4udefl\\u00e4che von mehr als 300 m2 auf den D\\u00e4chern oder an den Fassaden eine Solaranlage, beispielsweise eine Photovoltaik- oder eine Solarthermieanlage, zu erstellen.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -56145,10 +56588,41 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "solar-pflicht",
+    "fields": {
+      "created_at": "2024-02-07T13:43:43.101Z",
+      "modified_at": "2024-02-07T13:54:24.575Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Pflicht zur Nutzung der Sonnenenergie\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"#### Pflicht zur Nutzung der Sonenenergie\\nGem\\u00e4ss Artikel 45a des Schweizerischen Energiegesetzes (SR 730.0, vom 1. Februar 2024) besteht beim Bau neuer Geb\\u00e4ude unter bestimmten Voraussetzungen die Pflicht zur Nutzung der Sonnenenergie\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "solarpflicht",
     "fields": {
       "created_at": "2022-12-20T12:03:03.354Z",
-      "modified_at": "2022-12-21T07:38:29.645Z",
+      "modified_at": "2024-02-13T14:12:18.286Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
@@ -56159,7 +56633,7 @@
       "is_hidden": "!(\n  \"proposal-neubau\" in \"proposal\"|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"###Anrechenbare Geb\\u00e4udefl\\u00e4che\\nAls anrechenbare Geb\\u00e4udefl\\u00e4che gilt die Fl\\u00e4che innerhalb der projizierten Fassadenlinie. Dazu z\\u00e4hlen die Fl\\u00e4chen von Geb\\u00e4uden, Kleinbauten, Anbauten sowie die Fl\\u00e4chen der Teile von Unterniveaubauten, die das massgebende Terain \\u00fcberragen und \\u00fcberdeckt sind. Kleine Anbauten die h\\u00f6chstens 60 cm \\u00fcber die Fassadenlinie vorspringen, m\\u00fcssen nicht angerechnet werden. Ebenso unterirdische Bauten, sofern diese unter gewachsenem Terrain erstellt werden. Bauten die nur teilweise unter bestehenden Terrain liegen und \\u00fcberdeckt sind, z\\u00e4hlen zur anrechenbaren Geb\\u00e4udefl\\u00e4che.\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -56975,15 +57449,15 @@
     "pk": "strassenname",
     "fields": {
       "created_at": "2020-11-25T18:24:59.825Z",
-      "modified_at": "2024-01-29T09:10:08.656Z",
+      "modified_at": "2024-01-29T09:06:56.934Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "stephan.hug@adfinis.com",
       "modified_by_group": null,
       "label": "{\"de\": \"Strassenname\", \"fr\": null, \"it\": null}",
       "type": "text",
       "is_required": "false",
-      "is_hidden": "!(\n\t\"erschliessungen\"|answer in [\"erschliessungen-liegenschaftszufahrt\", \"erschliessungen-quartierstrasse\", \"erschliessungen-gemeindestrasse\", \"erschliessungen-korporationsstrasse\", \"erschliessungen-gueterstrasse\"]\n)",
+      "is_hidden": "!(\n\t\"erschliessungen\"|answer(\"\") in [\"erschliessungen-liegenschaftszufahrt\", \"erschliessungen-quartierstrasse\", \"erschliessungen-gemeindestrasse\", \"erschliessungen-korporationsstrasse\", \"erschliessungen-gueterstrasse\"]\n)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"##INFO\\n\\nDer Strasssenname wird von der zust\\u00e4ndigen Gemeinde vergeben und im GWR nachgef\\u00fchrt\", \"fr\": null, \"it\": null}",
@@ -60858,6 +61332,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "wird-eine-ausnahme-geltend-gemacht",
+    "fields": {
+      "created_at": "2024-02-13T13:01:25.681Z",
+      "modified_at": "2024-02-13T13:01:56.213Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wird eine Ausnahme geltend gemacht?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "!(\n  \"solarpflicht-ja\" ==\"solarpflicht\"|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "wohnungen",
     "fields": {
       "created_at": "2020-11-09T12:42:59.148Z",
@@ -62430,11 +62935,11 @@
     "model": "caluma_form.questionoption",
     "pk": "antrag-ausnahme-solarpflicht.antrag-ausnahme-solarpflicht-technisch",
     "fields": {
-      "created_at": "2023-01-13T08:42:48.659Z",
-      "modified_at": "2023-01-13T08:42:48.659Z",
-      "created_by_user": "admin",
+      "created_at": "2024-02-14T09:39:00.523Z",
+      "modified_at": "2024-02-14T09:39:00.523Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "question": "antrag-ausnahme-solarpflicht",
       "option": "antrag-ausnahme-solarpflicht-technisch",
@@ -62445,11 +62950,11 @@
     "model": "caluma_form.questionoption",
     "pk": "antrag-ausnahme-solarpflicht.antrag-ausnahme-solarpflicht-vorschriften",
     "fields": {
-      "created_at": "2023-01-13T08:42:48.662Z",
-      "modified_at": "2023-01-13T08:42:48.662Z",
-      "created_by_user": "admin",
+      "created_at": "2024-02-14T09:39:00.525Z",
+      "modified_at": "2024-02-14T09:39:00.525Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "question": "antrag-ausnahme-solarpflicht",
       "option": "antrag-ausnahme-solarpflicht-vorschriften",
@@ -62460,11 +62965,11 @@
     "model": "caluma_form.questionoption",
     "pk": "antrag-ausnahme-solarpflicht.antrag-ausnahme-solarpflicht-wirtschaftlich",
     "fields": {
-      "created_at": "2023-01-13T08:42:48.656Z",
-      "modified_at": "2023-01-13T08:42:48.656Z",
-      "created_by_user": "admin",
+      "created_at": "2024-02-14T09:39:00.521Z",
+      "modified_at": "2024-02-14T09:39:00.521Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "question": "antrag-ausnahme-solarpflicht",
       "option": "antrag-ausnahme-solarpflicht-wirtschaftlich",
@@ -62475,11 +62980,11 @@
     "model": "caluma_form.questionoption",
     "pk": "antrag-ausnahme-solarpflicht.antrag-ausnahme-solarpflicht-zev",
     "fields": {
-      "created_at": "2023-01-13T08:42:48.653Z",
-      "modified_at": "2023-01-13T08:42:48.653Z",
-      "created_by_user": "admin",
+      "created_at": "2024-02-14T09:39:00.519Z",
+      "modified_at": "2024-02-14T09:39:00.519Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "question": "antrag-ausnahme-solarpflicht",
       "option": "antrag-ausnahme-solarpflicht-zev",
@@ -68023,6 +68528,66 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "gesetzliche-anforderung.gesetzliche-anforderung-ausnahme",
+    "fields": {
+      "created_at": "2024-02-28T10:37:10.557Z",
+      "modified_at": "2024-02-28T10:37:10.557Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "gesetzliche-anforderung",
+      "option": "gesetzliche-anforderung-ausnahme",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "gesetzliche-anforderung.gesetzliche-anforderung-photovoltaikanlage",
+    "fields": {
+      "created_at": "2024-02-28T10:37:10.578Z",
+      "modified_at": "2024-02-28T10:37:10.578Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "gesetzliche-anforderung",
+      "option": "gesetzliche-anforderung-photovoltaikanlage",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "gesetzliche-anforderung.gesetzliche-anforderung-thermische-solaranlage",
+    "fields": {
+      "created_at": "2024-02-28T10:37:10.586Z",
+      "modified_at": "2024-02-28T10:37:10.586Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "gesetzliche-anforderung",
+      "option": "gesetzliche-anforderung-thermische-solaranlage",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "gesetzliche-anforderung.gesetzliche-anforderung-zusammenschluss-zum-eigenverbrauch-zev",
+    "fields": {
+      "created_at": "2024-02-28T10:37:10.566Z",
+      "modified_at": "2024-02-28T10:37:10.566Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "gesetzliche-anforderung",
+      "option": "gesetzliche-anforderung-zusammenschluss-zum-eigenverbrauch-zev",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "gibt-es-oertliche-absaugungen.gibt-es-oertliche-absaugungen-ja",
     "fields": {
       "created_at": "2020-10-26T16:38:05.538Z",
@@ -72960,8 +73525,8 @@
     "model": "caluma_form.questionoption",
     "pk": "solarpflicht.solarpflicht-ja",
     "fields": {
-      "created_at": "2022-12-21T07:38:29.652Z",
-      "modified_at": "2022-12-21T07:38:29.652Z",
+      "created_at": "2024-02-13T14:12:18.292Z",
+      "modified_at": "2024-02-13T14:12:18.292Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
@@ -72975,8 +73540,8 @@
     "model": "caluma_form.questionoption",
     "pk": "solarpflicht.solarpflicht-nein",
     "fields": {
-      "created_at": "2022-12-21T07:38:29.650Z",
-      "modified_at": "2022-12-21T07:38:29.650Z",
+      "created_at": "2024-02-13T14:12:18.290Z",
+      "modified_at": "2024-02-13T14:12:18.290Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
@@ -76989,6 +77554,36 @@
       "question": "winter-und-sommerbetrieb",
       "option": "winter-und-sommerbetrieb-nein-nur-winterbetrieb",
       "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "wird-eine-ausnahme-geltend-gemacht.wird-eine-ausnahme-geltend-gemacht-ja",
+    "fields": {
+      "created_at": "2024-02-13T13:01:56.220Z",
+      "modified_at": "2024-02-13T13:01:56.220Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "wird-eine-ausnahme-geltend-gemacht",
+      "option": "wird-eine-ausnahme-geltend-gemacht-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "wird-eine-ausnahme-geltend-gemacht.wird-eine-ausnahme-geltend-gemacht-nein",
+    "fields": {
+      "created_at": "2024-02-13T13:01:56.217Z",
+      "modified_at": "2024-02-13T13:01:56.217Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "wird-eine-ausnahme-geltend-gemacht",
+      "option": "wird-eine-ausnahme-geltend-gemacht-nein",
+      "sort": 1
     }
   },
   {
