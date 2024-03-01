@@ -39,4 +39,8 @@
   li:nth-last-child(1 of .menu-category-analysis) {
     border-bottom: 1px solid $border-color;
   }
+
+  .uk-badge {
+    background-color: $global-danger-background;
+  }
 }
