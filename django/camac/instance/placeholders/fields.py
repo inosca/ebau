@@ -395,8 +395,8 @@ class InquiriesField(AliasedMixin, serializers.ReadOnlyField):
     def get_attribute(self, instance):
         service = self.context["request"].group.service
 
-        if not service: # pragma: no cover
-           return None
+        if not service:  # pragma: no cover
+            return None
 
         queryset = WorkItem.objects.filter(
             task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
