@@ -10,11 +10,10 @@
       @label={{t "gis.apply-button"}}
       @document={{@field.document}}
       @disabled={{not this.egrids}}
-      @params={{hash
-        egrids=this.egrids
-      }}
+      @params={{hash egrids=this.egrids}}
       @onGetData={{this.applySelection}}
       @size="small"
+      @instanceId={{@context.instanceId}}
     />
 
    <button

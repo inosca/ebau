@@ -49,10 +49,11 @@ def be_data_sources(
         type = config[1]
         q = question_factory(slug=slug, type=type, label=slug)
         if len(config) == 3:
-            for option in config[2]:
+            for i, option in enumerate(reversed(config[2])):
                 question_option_factory(
                     question=q,
                     option=option_factory(slug=f"{slug}-{option}", label=option),
+                    sort=i,
                 )
 
     return GISDataSource.objects.all()
@@ -75,7 +76,7 @@ def be_data_sources(
 def test_be_client(
     db,
     admin_client,
-    snapshot,
+    gis_snapshot,
     vcr_config,
     egrids,
     be_data_sources,
@@ -93,7 +94,7 @@ def test_be_client(
     )
 
     assert response.status_code == status.HTTP_200_OK
-    snapshot.assert_match(response.json())
+    assert response.json() == gis_snapshot
 
 
 @pytest.mark.parametrize(
@@ -108,7 +109,7 @@ def test_be_client(
 def test_be_client_error(
     db,
     admin_client,
-    snapshot,
+    gis_snapshot,
     vcr_config,
     egrids,
     be_data_sources,
@@ -123,4 +124,4 @@ def test_be_client_error(
     )
 
     assert response.status_code == status.HTTP_400_BAD_REQUEST
-    snapshot.assert_match(response.json())
+    assert response.json() == gis_snapshot

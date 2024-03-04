@@ -8,9 +8,10 @@
         'value': 'BLN: Weissenstein, Nr. des BLN: 1010, IVS Regional und Lokal: Hächler - Schitterwald, Nr. des IVS Regional und Lokal: SO 421',
       }),
       'gemeinde': dict({
+        'displayValue': 'Welschenrohr-Gänsbrunnen',
         'hidden': False,
         'label': 'Suse Junk',
-        'value': 'Welschenrohr-Gänsbrunnen',
+        'value': '1',
       }),
       'gemeindenummer-bfs': dict({
         'hidden': False,
@@ -110,9 +111,10 @@
         'value': None,
       }),
       'gemeinde': dict({
+        'displayValue': 'Bettlach',
         'hidden': False,
         'label': 'Suse Junk',
-        'value': 'Bettlach',
+        'value': '2',
       }),
       'gemeindenummer-bfs': dict({
         'hidden': False,
@@ -212,9 +214,10 @@
         'value': None,
       }),
       'gemeinde': dict({
+        'displayValue': 'Lüsslingen-Nennigkofen',
         'hidden': False,
         'label': 'Suse Junk',
-        'value': 'Lüsslingen-Nennigkofen',
+        'value': '3',
       }),
       'gemeindenummer-bfs': dict({
         'hidden': False,
@@ -314,9 +317,10 @@
         'value': None,
       }),
       'gemeinde': dict({
+        'displayValue': 'Solothurn',
         'hidden': False,
         'label': 'Suse Junk',
-        'value': 'Solothurn',
+        'value': '4',
       }),
       'gemeindenummer-bfs': dict({
         'hidden': False,
@@ -416,9 +420,10 @@
         'value': None,
       }),
       'gemeinde': dict({
+        'displayValue': 'Luterbach',
         'hidden': False,
         'label': 'Suse Junk',
-        'value': 'Luterbach',
+        'value': '5',
       }),
       'gemeindenummer-bfs': dict({
         'hidden': False,
@@ -518,9 +523,10 @@
         'value': 'IVS National: St. Niklaus - Einsiedelei; Verenaschlucht, Nr. des IVS National: SO 365.0.1',
       }),
       'gemeinde': dict({
+        'displayValue': 'Rüttenen',
         'hidden': False,
         'label': 'Suse Junk',
-        'value': 'Rüttenen',
+        'value': '6',
       }),
       'gemeindenummer-bfs': dict({
         'hidden': False,
@@ -620,9 +626,10 @@
         'value': 'IVS Regional und Lokal: Solothurn/Hübeli - Kreuzen - Einsiedelei, Nr. des IVS Regional und Lokal: SO 441',
       }),
       'gemeinde': dict({
+        'displayValue': 'Rüttenen',
         'hidden': False,
         'label': 'Suse Junk',
-        'value': 'Rüttenen',
+        'value': '6',
       }),
       'gemeindenummer-bfs': dict({
         'hidden': False,
@@ -722,9 +729,10 @@
         'value': 'Amphibien Ortsfeste Objekte: Grenchner Witi, Wasser- und Zugvogelreservate: Witi (BE,SO), Flachmoore: Altwasser',
       }),
       'gemeinde': dict({
+        'displayValue': 'Grenchen',
         'hidden': False,
         'label': 'Suse Junk',
-        'value': 'Grenchen',
+        'value': '7',
       }),
       'gemeindenummer-bfs': dict({
         'hidden': False,
@@ -824,9 +832,10 @@
         'value': None,
       }),
       'gemeinde': dict({
+        'displayValue': 'Langendorf',
         'hidden': False,
         'label': 'Suse Junk',
-        'value': 'Langendorf',
+        'value': '8',
       }),
       'gemeindenummer-bfs': dict({
         'hidden': False,
@@ -934,6 +943,7 @@
   dict({
     'data': dict({
       'gemeinde': dict({
+        'displayValue': None,
         'hidden': False,
         'label': 'Suse Junk',
         'value': None,

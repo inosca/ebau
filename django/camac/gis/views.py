@@ -1,17 +1,22 @@
 import itertools
 import logging
 from importlib import import_module
+from uuid import uuid4
 
+from caluma.caluma_data_source.data_source_handlers import get_data_sources
 from caluma.caluma_form.models import Question
-from django.utils.translation import gettext as _
+from django.core.cache import cache
+from django.utils.translation import get_language, gettext as _
 from django_q.tasks import async_task, fetch, result
 from rest_framework import status
 from rest_framework.exceptions import ValidationError
-from rest_framework.generics import ListAPIView
+from rest_framework.generics import CreateAPIView, ListAPIView
+from rest_framework.parsers import JSONParser
 from rest_framework.renderers import JSONRenderer
 from rest_framework.response import Response
 
 from camac.gis.models import GISDataSource
+from camac.gis.serializers import GISApplySerializer
 from camac.gis.utils import merge_data
 
 logger = logging.getLogger(__name__)
@@ -47,17 +52,18 @@ class GISDataView(ListAPIView):
                 "value": value,
             }
 
-            if question and question.type == Question.TYPE_TABLE:
-                labeled_data[question_slug]["form"] = question.row_form_id
+            if not question:
+                continue
 
-            if question and question.type == Question.TYPE_CHOICE:
+            if question.type == Question.TYPE_TABLE:
+                labeled_data[question_slug]["form"] = question.row_form_id
+            elif question.type == Question.TYPE_CHOICE:
                 option = question.options.filter(
                     slug=f"{question.slug}-{value}"
                 ).first()
                 labeled_data[question_slug]["value"] = option.slug
                 labeled_data[question_slug]["displayValue"] = option.label.translate()
-
-            if question and question.type == Question.TYPE_MULTIPLE_CHOICE:
+            elif question.type == Question.TYPE_MULTIPLE_CHOICE:
                 options = question.options.filter(
                     slug__in=[f"{question.slug}-{v}" for v in value]
                 ).order_by("-questionoption__sort")
@@ -65,6 +71,23 @@ class GISDataView(ListAPIView):
                     {"value": o.slug, "displayValue": o.label.translate()}
                     for o in options
                 ]
+            elif question.type == Question.TYPE_DYNAMIC_CHOICE:
+                # This code only implements one of the possible structures a
+                # caluma data source can have: a list containing a dict with
+                # label and slug where the label is also a dict with a key value
+                # pair for each language. Right now this is the only structure
+                # we use in camac-ng. For more information on how the data
+                # source structure looks like, please check the implementation
+                # in django/camac/caluma/extensions/data_sources.py
+                caluma_user = self.request.caluma_info.context.user
+                data_source = get_data_sources(dic=True)[question.data_source]()
+                mapped = {
+                    label[get_language()]: str(slug)
+                    for slug, label in data_source.get_data(caluma_user, question, {})
+                }
+
+                labeled_data[question_slug]["value"] = mapped.get(value)
+                labeled_data[question_slug]["displayValue"] = value
 
         return labeled_data
 
@@ -115,7 +138,12 @@ class GISDataView(ListAPIView):
         return data, errors
 
     def _process_response(self, data, errors):
-        response = {"data": self.add_hidden(self.add_labels(data))}
+        data = self.add_hidden(self.add_labels(data))
+        cache_key = uuid4()
+
+        cache.set(cache_key, data, 3600)
+
+        response = {"data": data, "cache": cache_key}
 
         if len(errors) > 0:
             response["errors"] = errors
@@ -171,3 +199,9 @@ class GISDataView(ListAPIView):
                 queryset, query_params, data, errors
             )
             return self._process_response(data, errors)
+
+
+class GISApplyView(CreateAPIView):
+    serializer_class = GISApplySerializer
+    renderer_classes = [JSONRenderer]
+    parser_classes = [JSONParser]
