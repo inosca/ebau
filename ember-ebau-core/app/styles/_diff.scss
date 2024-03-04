@@ -1,0 +1,12 @@
+.diff {
+  display: inline-block;
+  padding: 0 5px;
+
+  &--old {
+    background: $alert-primary-background;
+  }
+
+  &--new {
+    background: $alert-success-background;
+  }
+}

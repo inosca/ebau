@@ -1,4 +1,4 @@
-import { click, render, waitFor } from "@ember/test-helpers";
+import { click, render, settled, waitFor } from "@ember/test-helpers";
 import { hbs } from "ember-cli-htmlbars";
 import { setupMirage } from "ember-cli-mirage/test-support";
 import { t } from "ember-intl/test-support";
@@ -32,21 +32,16 @@ module("Integration | Component | gis-apply-button", function (hooks) {
         findField() {
           return {
             answer: { value: null },
-            save: {
-              perform() {
-                assert.step("save-field");
-              },
-            },
-            validate: {
-              perform() {
-                assert.step("validate-field");
-              },
+            refreshAnswer: {
+              linked: () => ({
+                perform: () => assert.step("refresh-answer"),
+              }),
             },
           };
         },
       };
 
-      const data_response = {
+      const dataResponse = {
         data: {
           "some-question": { label: "Some Question", value: "My value" },
           "some-table": {
@@ -79,13 +74,18 @@ module("Integration | Component | gis-apply-button", function (hooks) {
         if (hasFeature("gis.v3")) {
           return { task_id: "1234" };
         }
-        return data_response;
+        return dataResponse;
       });
 
       this.server.get("/api/v1/gis/data/:id", (_, request) => {
         assert.deepEqual(Object.keys(request.params.id), Object.keys("1234"));
 
-        return data_response;
+        return dataResponse;
+      });
+
+      this.server.post("/api/v1/gis/apply", () => {
+        assert.step("apply");
+        return { questions: Object.keys(dataResponse.data) };
       });
 
       await render(hbs`<GisApplyButton
@@ -147,12 +147,10 @@ module("Integration | Component | gis-apply-button", function (hooks) {
 
       await click("[data-test-confirm]");
 
-      assert.verifySteps([
-        "validate-field",
-        "validate-field",
-        "save-field",
-        "save-field",
-      ]);
+      // eslint-disable-next-line ember/no-settled-after-test-helper
+      await settled();
+
+      assert.verifySteps(["apply", "refresh-answer", "refresh-answer"]);
     },
   );
 });

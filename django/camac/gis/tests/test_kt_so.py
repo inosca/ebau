@@ -21,7 +21,7 @@ TEST_COORDINATES = {
 
 
 @pytest.fixture
-def so_data_sources(question_factory, settings):
+def so_data_sources(question_factory, settings, mock_municipalities):
     call_command("loaddata", settings.ROOT_DIR("kt_so/config/gis.json"))
 
     gis_questions = [
@@ -47,6 +47,20 @@ def so_data_sources(question_factory, settings):
     for slug, type in gis_questions:
         question_factory(slug=slug, type=type)
 
+    Question.objects.filter(slug="gemeinde").update(data_source="Municipalities")
+    mock_municipalities(
+        [
+            "Welschenrohr-Gänsbrunnen",
+            "Bettlach",
+            "Lüsslingen-Nennigkofen",
+            "Solothurn",
+            "Luterbach",
+            "Rüttenen",
+            "Grenchen",
+            "Langendorf",
+        ]
+    )
+
     return GISDataSource.objects.all()
 
 
@@ -55,7 +69,7 @@ def so_data_sources(question_factory, settings):
 def test_sogis_client(
     db,
     admin_client,
-    snapshot,
+    gis_snapshot,
     name,
     coords,
     so_data_sources,
@@ -65,12 +79,16 @@ def test_sogis_client(
     response = admin_client.get(reverse("gis-data"), data={"x": x, "y": y})
 
     assert response.status_code == status.HTTP_200_OK
-    snapshot.assert_match(response.json())
+    assert response.json() == gis_snapshot
 
 
 @pytest.fixture
 def so_fake_data_source(gis_data_source_factory, question_factory):
-    question_factory(slug="gemeinde", type=Question.TYPE_DYNAMIC_CHOICE)
+    question_factory(
+        slug="gemeinde",
+        type=Question.TYPE_DYNAMIC_CHOICE,
+        data_source="Municipalities",
+    )
 
     return gis_data_source_factory(
         pk="49992886-4602-4eb3-8499-ebeb58c9f17d",
@@ -120,7 +138,7 @@ def test_sogis_client_errors(
     admin_client,
     data_source,
     expected_status,
-    snapshot,
+    gis_snapshot,
     vcr_config,
 ):
     response = admin_client.get(
@@ -129,4 +147,4 @@ def test_sogis_client_errors(
     )
 
     assert response.status_code == expected_status
-    snapshot.assert_match(response.json())
+    assert response.json() == gis_snapshot

@@ -10,7 +10,7 @@ from camac.gis.models import GISDataSource
 
 @pytest.fixture
 def gr_data_sources(
-    question_factory, question_option_factory, option_factory, settings
+    question_factory, question_option_factory, option_factory, mock_municipalities
 ):
     gis_questions = [
         ("gemeinde", Question.TYPE_DYNAMIC_CHOICE),
@@ -61,18 +61,21 @@ def gr_data_sources(
         type = config[1]
         q = question_factory(slug=slug, type=type, label=slug)
         if len(config) == 3:
-            for index, option in enumerate(config[2]):
+            for i, option in enumerate(reversed(config[2])):
                 question_option_factory(
                     question=q,
                     option=option_factory(slug=f"{slug}-{option}", label=option),
-                    sort=len(config[2]) - index,
+                    sort=i,
                 )
+
+    Question.objects.filter(slug="gemeinde").update(data_source="Municipalities")
+    mock_municipalities(["Chur", "Roveredo (GR)"])
 
     return GISDataSource.objects.all()
 
 
 @pytest.fixture
-def gr__config(gis_data_source_factory, question_factory):
+def gr_config(gis_data_source_factory, question_factory):
     gis_data_source_factory(
         client=GISDataSource.CLIENT_PARAM,
         config=[{"hidden": True, "question": "gis-map", "parameterName": "query"}],
@@ -351,13 +354,12 @@ def gr__config(gis_data_source_factory, question_factory):
     ],
 )
 @pytest.mark.vcr()
-@pytest.mark.xfail(strict=False)  # flaky snapshot ordering
 def test_gr_client(
     db,
     admin_client,
-    snapshot,
+    gis_snapshot,
     vcr_config,
-    gr__config,
+    gr_config,
     query,
     form,
     gr_data_sources,
@@ -371,4 +373,4 @@ def test_gr_client(
     )
 
     assert response.status_code == status.HTTP_200_OK
-    snapshot.assert_match(response.json())
+    assert response.json() == gis_snapshot

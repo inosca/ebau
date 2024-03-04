@@ -29,9 +29,10 @@
         ]),
       }),
       'gemeinde': dict({
+        'displayValue': 'Chur',
         'hidden': False,
         'label': 'gemeinde',
-        'value': 'Chur',
+        'value': '1',
       }),
       'genereller-erschliessungsplan': dict({
         'hidden': False,
@@ -139,9 +140,10 @@
         ]),
       }),
       'gemeinde': dict({
+        'displayValue': 'Roveredo (GR)',
         'hidden': False,
         'label': 'gemeinde',
-        'value': 'Roveredo (GR)',
+        'value': '2',
       }),
       'genereller-gestaltungsplan': dict({
         'hidden': False,
@@ -233,9 +235,10 @@
         ]),
       }),
       'gemeinde': dict({
+        'displayValue': 'Chur',
         'hidden': False,
         'label': 'gemeinde',
-        'value': 'Chur',
+        'value': '1',
       }),
       'gis-map': dict({
         'hidden': True,
@@ -326,9 +329,10 @@
         ]),
       }),
       'gemeinde': dict({
+        'displayValue': 'Chur',
         'hidden': False,
         'label': 'gemeinde',
-        'value': 'Chur',
+        'value': '1',
       }),
       'genereller-erschliessungsplan': dict({
         'hidden': False,
@@ -440,9 +444,10 @@
         'value': 'Quartierplan Welschdörfli 4 (hinweisend), GÜP Welschdörfli West (hinweisend)',
       }),
       'gemeinde': dict({
+        'displayValue': 'Chur',
         'hidden': False,
         'label': 'gemeinde',
-        'value': 'Chur',
+        'value': '1',
       }),
       'genereller-erschliessungsplan': dict({
         'hidden': False,
@@ -555,9 +560,10 @@
         ]),
       }),
       'gemeinde': dict({
+        'displayValue': 'Chur',
         'hidden': False,
         'label': 'gemeinde',
-        'value': 'Chur',
+        'value': '1',
       }),
       'genereller-erschliessungsplan': dict({
         'hidden': False,
@@ -643,9 +649,10 @@
   dict({
     'data': dict({
       'gemeinde': dict({
+        'displayValue': 'Roveredo (GR)',
         'hidden': False,
         'label': 'gemeinde',
-        'value': 'Roveredo (GR)',
+        'value': '2',
       }),
       'genereller-gestaltungsplan': dict({
         'hidden': False,
@@ -713,9 +720,10 @@
         ]),
       }),
       'gemeinde': dict({
+        'displayValue': 'Roveredo (GR)',
         'hidden': False,
         'label': 'gemeinde',
-        'value': 'Roveredo (GR)',
+        'value': '2',
       }),
       'genereller-erschliessungsplan': dict({
         'hidden': False,
@@ -833,9 +841,10 @@
         'value': 'Baulinie allgemein',
       }),
       'gemeinde': dict({
+        'displayValue': 'Chur',
         'hidden': False,
         'label': 'gemeinde',
-        'value': 'Chur',
+        'value': '1',
       }),
       'genereller-erschliessungsplan': dict({
         'hidden': False,
@@ -1003,9 +1012,10 @@
         ]),
       }),
       'gemeinde': dict({
+        'displayValue': 'Roveredo (GR)',
         'hidden': False,
         'label': 'gemeinde',
-        'value': 'Roveredo (GR)',
+        'value': '2',
       }),
       'gis-map': dict({
         'hidden': True,
@@ -1097,9 +1107,10 @@
         'value': 'ausserhalb-bauzone-ja',
       }),
       'gemeinde': dict({
+        'displayValue': 'Chur',
         'hidden': False,
         'label': 'gemeinde',
-        'value': 'Chur',
+        'value': '1',
       }),
       'gis-map': dict({
         'hidden': True,
@@ -1170,9 +1181,10 @@
         'value': 'ausserhalb-bauzone-ja',
       }),
       'gemeinde': dict({
+        'displayValue': 'Chur',
         'hidden': False,
         'label': 'gemeinde',
-        'value': 'Chur',
+        'value': '1',
       }),
       'gis-map': dict({
         'hidden': True,
@@ -1243,9 +1255,10 @@
         'value': 'ausserhalb-bauzone-ja',
       }),
       'gemeinde': dict({
+        'displayValue': 'Chur',
         'hidden': False,
         'label': 'gemeinde',
-        'value': 'Chur',
+        'value': '1',
       }),
       'gis-map': dict({
         'hidden': True,
@@ -1342,9 +1355,10 @@
         ]),
       }),
       'gemeinde': dict({
+        'displayValue': 'Chur',
         'hidden': False,
         'label': 'gemeinde',
-        'value': 'Chur',
+        'value': '1',
       }),
       'genereller-erschliessungsplan': dict({
         'hidden': False,

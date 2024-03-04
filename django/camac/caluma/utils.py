@@ -276,6 +276,7 @@ class CalumaInfo:
             oidc_user = OIDCUser(token=token, claims=request.auth)
 
             self.user = extend_user(oidc_user, request)
+            self.META = request.META
 
 
 def filter_by_workflow_base(settings_keys, get_settings):

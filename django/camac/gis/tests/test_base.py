@@ -38,7 +38,7 @@ def test_view_structure(
     gis_data_source_factory,
     mocker,
     question_factory,
-    snapshot,
+    gis_snapshot,
 ):
     question_factory(
         slug="text-question",
@@ -70,4 +70,4 @@ def test_view_structure(
     response = admin_client.get(reverse("gis-data"))
 
     assert response.status_code == status.HTTP_200_OK
-    snapshot.assert_match(response.json())
+    assert response.json() == gis_snapshot
