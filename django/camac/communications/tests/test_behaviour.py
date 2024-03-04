@@ -404,7 +404,13 @@ def test_convert_attachment_to_document(
 
     expected_json = {
         "data": {
-            "attributes": {"filename": "foo.txt"},
+            "attributes": {
+                "filename": "foo.txt",
+                "download-url": reverse(
+                    "communications-attachment-download",
+                    args=[communications_attachment.pk],
+                ),
+            },
             "id": str(communications_attachment.pk),
             "relationships": {
                 "document-attachment": {
