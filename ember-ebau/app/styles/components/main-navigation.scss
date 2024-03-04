@@ -31,4 +31,8 @@
     max-width: $sidebar-width - ($padding-small-padding * 2);
     max-height: 50px;
   }
+
+  .uk-badge {
+    background-color: $global-danger-background;
+  }
 }
