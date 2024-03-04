@@ -1,5 +1,8 @@
 from logging import getLogger
 
+from django.conf import settings
+
+from camac.instance.models import Instance
 from camac.permissions import api as permissions_api
 from camac.permissions.events import EmptyEventHandler
 from camac.permissions.models import AccessLevel, InstanceACL
@@ -50,3 +53,24 @@ class ApplicantsEventHandlerMixin(EmptyEventHandler):
             # applicant, but as there's no DB constraint enforcing this,
             # we loop to make sure we get all the affected ACLs
             self.manager.revoke(acl, event_name="applicant_removed")
+
+
+class InstanceSubmissionHandlerMixin(EmptyEventHandler):
+    def instance_submitted(self, instance: Instance):
+        if settings.APPLICATION.get("USE_INSTANCE_SERVICE"):
+            self.manager.grant(
+                instance,
+                grant_type="SERVICE",
+                access_level="lead-authority",
+                service=instance.responsible_service(),
+                event_name="instance-submitted",
+            )
+        else:
+            group_service = instance.group.service
+            self.manager.grant(
+                instance,
+                grant_type="SERVICE",
+                access_level="lead-authority",
+                service=group_service,
+                event_name="instance-submitted",
+            )
