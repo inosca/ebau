@@ -37,6 +37,9 @@ class InstanceQuerysetMixin(object):
 
     instance_field = "instance"
 
+    def permissions_manager(self):
+        return PermissionManager.from_request(self._get_request())
+
     def _get_instance_filter_expr(self, field, expr=None):
         """Get filter expression of field on given model."""
         result = field
@@ -127,8 +130,7 @@ class InstanceQuerysetMixin(object):
 
     def get_queryset_for_geometer(self, group=None):
         queryset = self.get_base_queryset()
-        manager = PermissionManager.from_request(self._get_request())
-        return manager.filter_queryset(queryset, self.instance_field)
+        return self.permissions_manager().filter_queryset(queryset, self.instance_field)
 
     def get_queryset_for_coordination(self, group=None):
         group = self._get_group(group)
@@ -166,8 +168,6 @@ class InstanceQuerysetMixin(object):
                 ).values_list("instance_id", flat=True)
             )
 
-            manager = PermissionManager.from_request(self._get_request())
-
             filter = (
                 filter
                 | Q(
@@ -176,7 +176,7 @@ class InstanceQuerysetMixin(object):
                         instance_field: pgv_instances,
                     }
                 )
-                | manager.get_q_object(self.instance_field)
+                | self.permissions_manager().get_q_object(self.instance_field)
             )
 
         return queryset.filter(filter)
@@ -197,14 +197,12 @@ class InstanceQuerysetMixin(object):
         )
         instances_for_activation = self._instances_with_activation(group)
 
-        manager = PermissionManager.from_request(self._get_request())
-
         return queryset.filter(
             Q(**{instance_field: instances_for_location})
             | Q(**{instance_field: instances_for_service})
             | Q(**{instance_field: instances_for_activation})
             | Q(**{instance_field: instances_for_responsible_service})
-            | manager.get_q_object(self.instance_field)
+            | self.permissions_manager().get_q_object(self.instance_field)
         )
 
     def get_queryset_for_service(self, group=None):
@@ -217,13 +215,11 @@ class InstanceQuerysetMixin(object):
         )
         instances_for_activation = self._instances_with_activation(group)
 
-        manager = PermissionManager.from_request(self._get_request())
-
         # use subquery to avoid duplicates
         return queryset.filter(
             Q(**{instance_field: instances_for_responsible_service})
             | Q(**{instance_field: instances_for_activation})
-            | manager.get_q_object(self.instance_field)
+            | self.permissions_manager().get_q_object(self.instance_field)
         )
 
     def get_queryset_for_uso(self, group=None):
@@ -236,11 +232,9 @@ class InstanceQuerysetMixin(object):
             group, Q(deadline__date__gte=timezone.localdate()) | Q(status="completed")
         )
 
-        manager = PermissionManager.from_request(self._get_request())
-
         return queryset.filter(
             Q(**{instance_field: instances_for_activation})
-            | manager.get_q_object(self.instance_field)
+            | self.permissions_manager().get_q_object(self.instance_field)
         )
 
     def get_queryset_for_trusted_service(self, group=None):
@@ -269,11 +263,9 @@ class InstanceQuerysetMixin(object):
             form__form_id__in=form_ids,
         )
 
-        manager = PermissionManager.from_request(self._get_request())
-
         return queryset.filter(
             Q(**{instance_field: instances_for_location})
-            | manager.get_q_object(self.instance_field)
+            | self.permissions_manager().get_q_object(self.instance_field)
         )
 
     def get_queryset_for_commission(self, group=None):
@@ -284,11 +276,9 @@ class InstanceQuerysetMixin(object):
             "instance"
         )
 
-        manager = PermissionManager.from_request(self._get_request())
-
         return queryset.filter(
             Q(**{instance_field: instances_with_invite})
-            | manager.get_q_object(self.instance_field)
+            | self.permissions_manager().get_q_object(self.instance_field)
         )
 
     def get_queryset_for_public(self, group=None):
@@ -432,6 +422,9 @@ class InstanceEditableMixin(AttributeMixin):
     Set it to None if no specific permission is required.
     """
 
+    def permissions_manager(self):
+        return PermissionManager.from_request(get_request(self))
+
     def get_instance(self, obj):
         instance = obj
         instance_field = self.serializer_getattr("instance_field")
@@ -508,8 +501,7 @@ class InstanceEditableMixin(AttributeMixin):
         return set()
 
     def get_editable_for_geometer(self, instance):
-        manager = PermissionManager.from_request(get_request(self))
-        return manager.get_permissions(instance)
+        return self.permissions_manager().get_permissions(instance)
 
     def get_editable_for_support(self, instance):
         return {"instance", "form", "document"}
