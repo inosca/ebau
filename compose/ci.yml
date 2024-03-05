@@ -68,6 +68,7 @@ services:
       - META_FIELDS=camac-instance-id,ebau-number,submit-date
       - ENABLE_HISTORICAL_API=true
       - GWR_FERNET_KEY=GUdwT6yKxqfszrnHC7wyKDmtVZdhjSVQEPnpeJYNLf8=
+      - MANABI_SHARED_KEY=bNEZsIjvxDAiLhDA1chvF9zL9OJYPNlCqNPlm7KbhmU
     volumes:
       - djangomedia:/var/lib/camac/media
       - djangotmpmedia:/tmp/camac/tmpfiles
