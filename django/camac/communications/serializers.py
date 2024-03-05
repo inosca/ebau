@@ -388,7 +388,7 @@ class CommunicationsAttachmentSerializer(serializers.ModelSerializer):
         ]
 
 
-class ConvertToDocumentSerializer(serializers.ModelSerializer):
+class ConvertToDocumentSerializer(CommunicationsAttachmentSerializer):
     section = serializers.ResourceRelatedField(
         required=False,
         write_only=True,
@@ -497,9 +497,11 @@ class ConvertToDocumentSerializer(serializers.ModelSerializer):
             "document_attachment",
             "alexandria_file",
             "filename",
+            "download_url",
         ]
         read_only_fields = [
             "document_attachment",
             "alexandria_file",
             "filename",
+            "download_url",
         ]
