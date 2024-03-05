@@ -127,17 +127,17 @@ class CustomPermission:
     @permission_for(Document)
     @object_permission_for(Document)
     def has_permission_for_document(self, request, document=None):
-        if request.method == "POST":
-            # On creation we don't have an data in the database yet. Therefore
+        if document is not None:
+            # On update and delete we can get the needed data from the database
+            instance = document.instance_document.instance
+            category = document.category
+        elif request.method == "POST":
+            # On creation we don't have any data in the database yet. Therefore
             # we need to get the needed data from the request.
             instance = Instance.objects.get(
                 pk=request.data["metainfo"]["camac-instance-id"]
             )
             category = Category.objects.get(pk=request.data["category"]["id"])
-        elif document is not None:
-            # On update and delete we can get the needed data from the database
-            instance = document.instance_document.instance
-            category = document.category
         else:
             # If there is no document, we called `permission_for` which can be
             # ignored for update and delete requests as `object_permission_for`

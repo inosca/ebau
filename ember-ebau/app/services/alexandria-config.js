@@ -84,4 +84,5 @@ export default class CustomAlexandriaConfigService extends AlexandriaConfigServi
 
   namespace = "/alexandria/api/v1";
   zipDownloadNamespace = "/alexandria";
+  enablePDFConversion = true;
 }
