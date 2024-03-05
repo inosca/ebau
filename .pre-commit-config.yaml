@@ -1,15 +1,15 @@
 repos:
 -   repo: local
     hooks:
-    - id: ruff-format
-      stages: [commit]
-      name: format code
-      language: system
-      entry: bash -c 'cd django && ruff format'
-      types: [python]
     - id: ruff-check-and-fix
       stages: [commit]
       name: fix style and imports
       language: system
       entry: bash -c 'cd django && ruff check --fix .'
+      types: [python]
+    - id: ruff-format
+      stages: [commit]
+      name: format code
+      language: system
+      entry: bash -c 'cd django && ruff format'
       types: [python]
