@@ -17,7 +17,8 @@ locale.setlocale(locale.LC_ALL, f"{settings.DEFAULT_LOCALE_CODE}.UTF-8")
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "camac.settings")
 
 if settings.MANABI_ENABLE:
-    if settings.ALEXANDRIA["ENABLED"]:
+    backend = settings.APPLICATION["DOCUMENT_BACKEND"]
+    if backend == "alexandria":
         from alexandria.dav import get_dav
     else:
         from camac.dav import get_dav
@@ -31,7 +32,9 @@ if settings.MANABI_ENABLE:
         if path.startswith(dav_prefix):
             environ = environ.copy()
             environ["SCRIPT_NAME"] = environ.get("SCRIPT_NAME", "") + dav_prefix
-            environ["PATH_INFO"] = path[len(dav_prefix):]
+            if backend == "camac-ng":
+                # TODO unify with new alexandria implementation
+                environ["PATH_INFO"] = path[len(dav_prefix) :]
             return wsgi_dav(environ, start_response)
         else:
             return wsgi_django(environ, start_response)
