@@ -1069,6 +1069,9 @@ importers:
       eslint-plugin-qunit:
         specifier: 8.0.1
         version: 8.0.1(eslint@8.56.0)
+      flatpickr:
+        specifier: ^4.6.13
+        version: 4.6.13
       get-user-locale:
         specifier: 2.3.1
         version: 2.3.1

@@ -91,6 +91,7 @@
     "eslint-plugin-n": "16.4.0",
     "eslint-plugin-prettier": "5.0.1",
     "eslint-plugin-qunit": "8.0.1",
+    "flatpickr": "^4.6.13",
     "get-user-locale": "2.3.1",
     "graphql": "15.8.0",
     "loader.js": "4.7.0",
