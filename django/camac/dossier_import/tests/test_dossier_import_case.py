@@ -601,7 +601,7 @@ def test_record_loading_all_empty(
     config,
     snapshot,
 ):
-    """Load data from import record, make persistant and verify with master_data API."""
+    """Load data from import record, make persistent and verify with master_data API."""
     settings.APPLICATION = settings.APPLICATIONS[config]
     writer = make_dossier_writer(config=config)
     loader = XlsxFileDossierLoader()
@@ -643,7 +643,7 @@ def test_record_loading_exceptions(
     dossier_row_patch,
     expected,
 ):
-    """Load data from import record, make persistant and verify with master_data API."""
+    """Load data from import record, make persistent and verify with master_data API."""
     loader = XlsxFileDossierLoader()
     dossier_row_sparse.update(dossier_row_patch)
     make_workflow_items_for_config(config)
