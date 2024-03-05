@@ -102,7 +102,7 @@ class PermissionManager:
         return cls(userinfo=userinfo)
 
     @classmethod
-    def from_params(cls, user=None, service=None, token=None):
+    def from_params(cls, user=None, service=None, token=None) -> "PermissionManager":
         userinfo = ACLUserInfo(user=user, service=service, token=token)
         return cls(userinfo=userinfo)
 
