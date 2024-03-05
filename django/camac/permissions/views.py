@@ -8,10 +8,11 @@ from rest_framework_json_api.views import ModelViewSet, ReadOnlyModelViewSet
 from camac.core import models as core_models
 from camac.instance import filters as instance_filters, models as instance_models
 from camac.instance.mixins import InstanceQuerysetMixin
+from camac.permissions.switcher import permission_switching_method
 from camac.user.permissions import get_group, get_role_name, permission_aware
 from camac.utils import get_dict_item
 
-from . import api, filters, mixins, models, serializers
+from . import api, filters, mixins, models, permissions, serializers
 
 
 class InstanceACLViewset(InstanceQuerysetMixin, ModelViewSet):
@@ -23,7 +24,47 @@ class InstanceACLViewset(InstanceQuerysetMixin, ModelViewSet):
     ordering_fields = ["start_time"]
     ordering = ["-start_time"]
 
+    @permission_switching_method
     def get_queryset(self):
+        qs = self.get_base_queryset()
+        # Instance ACLs are never shown outside of a single instance. Therefore
+        # we find the instance query param here (even though the filtering is done in
+        # the filterset) and limit the ACL visibility to the ones where
+        # the user has `permission-read-$ACCESSLEVEL`.
+
+        instance_id = self.request.query_params.get("instance")
+        if not instance_id:
+            if "pk" in self.kwargs:
+                # Detail view (or revoke). This is a bit ugly, bu twe use
+                # the (single) ACL to get the instance, and from there see
+                # if the user is actually allowed to see the ACL.
+                # I wish we could get around the double-query here, but
+                # can't see how
+                instance_id = qs.model.objects.get(pk=self.kwargs["pk"]).instance_id
+            else:
+                # User MUST pass instance filter for the list view
+                return qs.none()
+
+        manager = api.PermissionManager.from_request(self.request)
+        have_permissions = manager.get_permissions(instance_id)
+
+        read_prefix = permissions.READ_SPECIFIC("")
+
+        # If we have a "permission-read-foo" on this instance, we're allowed
+        # to see all ACLs that refer to the access level "foo".
+        visible_access_levels = [
+            perm.replace(read_prefix, "")
+            for perm in have_permissions
+            if perm.startswith(read_prefix)
+        ]
+        if "any" in visible_access_levels:
+            # The exception is "any", which allows us to see all ACLs
+            return qs
+
+        return qs.filter(access_level__slug__in=visible_access_levels)
+
+    @get_queryset.register_old
+    def get_queryset_rbac(self):
         # TODO: This uses the old permissions / visibility system for now.
         #       Migrate once we're fully using the permissions system
         #       (automatic creation / revocation etc)
@@ -55,13 +96,29 @@ class InstanceACLViewset(InstanceQuerysetMixin, ModelViewSet):
 
     @action(methods=["post"], detail=True)
     def revoke(self, request, pk):
+        return self._revoke(request, pk)
+
+    @permission_switching_method
+    def _revoke(self, request, pk):
+        acl: models.InstanceACL = self.get_object()
+        api.PermissionManager.from_request(request).require_any(
+            acl.instance,
+            [permissions.REVOKE_ANY, permissions.REVOKE_SPECIFIC(acl.access_level_id)],
+        )
+
+        return self._do_revoke(request, acl)
+
+    @_revoke.register_old
+    def _revoke_rbac(self, request, pk):
         acl: models.InstanceACL = self.get_object()
         self.enforce_change_permission(acl.instance)
+        return self._do_revoke(request, acl)
+
+    def _do_revoke(self, request, acl):
         api.PermissionManager.from_request(request).revoke(
             acl,
             event_name="manual-revocation",
         )
-
         serializer = self.get_serializer(acl)
         return response.Response(serializer.data, status=status.HTTP_200_OK)
 

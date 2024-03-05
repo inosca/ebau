@@ -28,6 +28,17 @@ specific module data, or to perform certain actions) can be named freely. The
 following example gives a few possible permission names; however these do not
 neccessarily match what is available in the application.
 
+### `permissions` constants modules
+
+It's relatively easy to mistype permissions names. To avoid this, it is
+recommended to create, for each module, a `permissions.py` that defines all
+the permissions that are being used. Where dynamic permisisons are defined (for
+example, depending on data in DB such as document categories, access levels,
+roles, whatnot), you can create a function that generates the appropriate name.
+
+The [`permission`](../permissions.py) and [`applicant`](../../applicants/permissions.py)
+modules provide useful examples.
+
 
 ## Instance resource permissions
 
@@ -67,6 +78,7 @@ PERMISSIONS = {
         # For details on the event handler, see below
         "EVENT_HANDLER": "camac.my_canton.permissions.PermissionEventHandler",
         "ENABLED": True,
+        "PERMISSION_MODE": PERMISSION_MODE.OFF
     },
 ```
 
@@ -119,6 +131,59 @@ The currently available checks are:
 * `HasRole`: Require user to have one of a list of given roles
 * `Always`: Will always grant the permission
 * `Never`: Will never grant the permission. This may be useful for specifying exclusions
+
+
+## Permission switcher
+
+During the transition, where the permissions module is integrated all over the
+place, we need a way to switch between old mode and new mode permissions:
+Maybe we want the old (and tested) code in production, but want to have a log message
+each time the new permission code does something different.
+
+You can configure the permissions mode switcher as follows:
+
+```python
+from camac.permissions.conditions import InstanceState, Always, HasRole
+from camac.permissions.switcher import PERMISSION_MODE
+PERMISSIONS = {
+    "demo": {
+        "PERMISSION_MODE": PERMISSION_MODE.AUTO_ON,
+        "ACCESS_LEVELS": {
+            ...
+        }
+    }
+}
+```
+
+The available permission modes are these:
+
+* In `FULL` mode, the permissions switcher will *only* use the permissions
+  module, the "traditional" permissions are not checked at all. This will
+  be the default once the transition is complete and we are sure everything
+  is correct.
+
+* In `CHECKING` mode, both backends are checked, and any difference is treated as
+  an error. This should be used during development of the transition.
+
+* In `LOGGING` mode, the same thing happens as in `CHECKING`, but any difference
+  is only logged as warning, but not treated as an error (so it won't trigger
+  HTTP/500 errors, for example).
+
+* In `OFF` mode, only the old permissions code is used. This can be used for
+  production while parts of the transition are already merged, but not
+  considered stable enough to activate. *This is the default!*
+
+These are the "main modes". In addition, there are the following as well:
+
+* `AUTO_ON`: Automatic **on** mode will be in `CHECKING` mode in the development
+  environment, and in `LOGGING` mode in production (including CI, stage, test
+  etc)
+* `AUTO_OFF`: Automatic **off** mode is using `OFF` in production, stage, etc,
+  and `LOGGING` in development mode.
+* `CLEANUP_AFTER_MIGRATION`: Cleanup mode is used as a marker to find all call
+  sites and remove the old code (as well as the switcher) once we are done with
+  the migration.
+
 
 ## Permission event handlers
 

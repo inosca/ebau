@@ -6,6 +6,7 @@ from django.conf import ImproperlyConfigured, settings
 from django.core.cache import cache
 from django.db.models import QuerySet, Subquery
 from django.utils import timezone
+from rest_framework.exceptions import PermissionDenied
 
 from camac.instance.models import Instance
 from camac.permissions import models
@@ -46,16 +47,46 @@ class ACLUserInfo:
         return cls(user=user, service=service, token=None, role=role)
 
     def to_kwargs(self):
-        return {"user": self.user, "service": self.service, "token": self.token}
+        """Turn the userinfo into a "kwargs" dict.
 
-    def to_cache_key(self, instance: Instance):
+        The kwargs dict consists of the keys `user`, `service`, `token`, and
+        `area` - suitable for passing along to the filtering methods in
+        `camac.permissions.models`.
+        """
+
+        # Same logic as camac.user.permissions.get_role_name()
+        perms = settings.APPLICATION.get("ROLE_PERMISSIONS", {})
+
+        if not self.role:
+            area = models.APPLICABLE_AREAS.PUBLIC.value
+        else:
+            role_name = perms.get(self.role.name)
+            area = (
+                models.APPLICABLE_AREAS.APPLICANT.value
+                if role_name == "applicant"
+                else models.APPLICABLE_AREAS.INTERNAL.value
+            )
+
+        return {
+            "user": self.user,
+            "service": self.service,
+            "token": self.token,
+            "area": area,
+        }
+
+    def to_cache_key(self, instance: Union[Instance, str, int]):
         user = self.user.pk if self.user else "-"
         service = self.service.pk if self.service else "-"
         token = self.token.pk if self.token else "-"
         role = self.role.pk if self.role else "-"
 
+        # instance may be passed in as ID or model object
+        instance_id = (
+            str(instance.pk) if isinstance(instance, Instance) else str(instance)
+        )
+
         # The instance is first, so we can match better when revoking permissions
-        return f"permissions:i={instance.pk},r={role},u={user},s={service},t={token}"
+        return f"permissions:i={instance_id},r={role},u={user},s={service},t={token}"
 
 
 class PermissionManager:
@@ -82,7 +113,7 @@ class PermissionManager:
         userinfo = ACLUserInfo.from_request(request)
         return cls(userinfo=userinfo)
 
-    def get_permissions(self, instance: Instance) -> List[str]:
+    def get_permissions(self, instance: Union[Instance, str, int]) -> List[str]:
         cache_key = self.userinfo.to_cache_key(instance)
         cached_result = cache.get(cache_key)
         if cached_result:
@@ -90,6 +121,8 @@ class PermissionManager:
 
         acls = (
             models.InstanceACL.for_current_user(**self.userinfo.to_kwargs())
+            # this filter should work regardless of whether `instance`
+            # is a model or just an FK reference
             .filter(instance=instance)
             .select_related("access_level")
         )
@@ -98,7 +131,11 @@ class PermissionManager:
         # We try to cache rather long
         expiry = timezone.now() + timedelta(days=10)
 
-        enable_cache = True
+        # We can globally disable the cache. By default, caching is enabled,
+        # but during development, it can be disabled so any stale permissions
+        # won't be kept around
+        enable_cache = settings.PERMISSIONS.get("ENABLE_CACHE", True)
+
         for acl in acls:
             access_level = acl.access_level
             if acl.end_time:
@@ -132,6 +169,30 @@ class PermissionManager:
             cache_duration = expiry - timezone.now()
             cache.set(cache_key, permissions_sorted, cache_duration.total_seconds())
         return permissions_sorted
+
+    def has_any(self, instance, required_permissions: List[str]):
+        """Return True if user has at least one of the required permissions."""
+        assert isinstance(required_permissions, list)
+        have = self.get_permissions(instance)
+        return any(permission in have for permission in required_permissions)
+
+    def has_all(self, instance, required_permissions: List[str]):
+        """Return True if user has all required permissions."""
+        assert isinstance(required_permissions, list)
+        have = self.get_permissions(instance)
+        return all(permission in have for permission in required_permissions)
+
+    def require_any(self, instance, required_permissions: List[str]):
+        """Enforce presence of at least one of the given permissions."""
+        if self.has_any(instance, required_permissions):
+            return
+        raise PermissionDenied("You do not have the required permission to do this")
+
+    def require_all(self, instance, required_permissions: List[str]):
+        """Enforce presence of all of the given the given permissions."""
+        if self.has_all(instance, required_permissions):
+            return
+        raise PermissionDenied("You do not have the required permission to do this")
 
     def _access_level_config(self, access_level_slug):
         """Return the config for the given access level.

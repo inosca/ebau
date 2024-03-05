@@ -32,6 +32,13 @@ class GRANT_CHOICES(models.TextChoices):
     TOKEN = "TOKEN", "Token"
 
 
+class APPLICABLE_AREAS(models.TextChoices):
+    PUBLIC = "PUBLIC", "Public"
+    APPLICANT = "APPLICANT", "Applicant"
+    INTERNAL = "INTERNAL", "Internal"
+    ANY = "ANY", "Any"
+
+
 class AccessLevel(models.Model):
     slug = models.SlugField(max_length=100, primary_key=True)
 
@@ -49,6 +56,12 @@ class AccessLevel(models.Model):
         choices=GRANT_CHOICES.choices,
         null=True,
         blank=True,
+    )
+
+    applicable_area = models.CharField(
+        max_length=50,
+        default=APPLICABLE_AREAS.ANY.value,
+        choices=APPLICABLE_AREAS.choices,
     )
 
 
@@ -112,16 +125,20 @@ class InstanceACL(models.Model):
     metainfo = models.JSONField(null=True, default=None)
 
     @classmethod
-    def for_current_user(cls, user=None, service=None, token=None):
+    def for_current_user(cls, user=None, service=None, token=None, area=None):
         """Return a QS with all the ACLs of the given user."""
         filter = cls.filter_for_current_user(
-            user=user, service=service, token=token, acl_prefix=""
+            user=user,
+            service=service,
+            token=token,
+            acl_prefix="",
+            area=area,
         )
         return cls.objects.filter(filter)
 
     @classmethod
     def filter_for_current_user(
-        cls, user=None, service=None, token=None, acl_prefix=""
+        cls, user=None, service=None, token=None, acl_prefix="", area=None
     ):
         """Generate a filter for the current user.
 
@@ -154,12 +171,30 @@ class InstanceACL(models.Model):
             )
         if service:
             user_filter_parts.append(models.Q(**{f"{prefix}service": service}))
+
+            if area is None:
+                area = APPLICABLE_AREAS.INTERNAL.value
+
+        elif area is None:  # pragma: no cover
+            # No service, and is_portal_user was not explicitly passed.
+            # Assume public mode.
+            # TODO: this should never happen, but I'm hesitant to raise
+            # an exception.
+            area = APPLICABLE_AREAS.PUBLIC.value
+
         if token:
             user_filter_parts.append(models.Q(**{f"{prefix}token": token}))
 
+        # We only consider ACLs with access levels in the user's current
+        # area of the application, as well as "any" which applies everywhere
+        acceptable_areas = [area, APPLICABLE_AREAS.ANY.value]
+        area_filter = models.Q(
+            **{f"{prefix}access_level__applicable_area__in": acceptable_areas}
+        )
+
         user_filter = reduce(operator.or_, user_filter_parts)
 
-        return user_filter & cls.filter_active(acl_prefix=acl_prefix)
+        return user_filter & cls.filter_active(acl_prefix=acl_prefix) & area_filter
 
     @classmethod
     def filter_active(cls, acl_prefix):
