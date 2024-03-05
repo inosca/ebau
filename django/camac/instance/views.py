@@ -59,6 +59,7 @@ from . import (
     validators,
 )
 from .domain_logic import link_instances
+from .milestones.serializers import MilestonesSerializer, UrMilestonesSerializer
 from .placeholders.serializers import (
     BeDMSPlaceholdersSerializer,
     DMSPlaceholdersSerializer,
@@ -183,6 +184,10 @@ class InstanceView(
                     "kt_so": SoDMSPlaceholdersSerializer,
                     "default": DMSPlaceholdersSerializer,
                 },
+                "milestones": {
+                    "kt_uri": UrMilestonesSerializer,
+                    "default": MilestonesSerializer,
+                },
                 "appeal": serializers.CalumaInstanceAppealSerializer,
                 "default": serializers.CalumaInstanceSerializer,
                 "correction": serializers.CalumaInstanceCorrectionSerializer,
@@ -199,7 +204,9 @@ class InstanceView(
             self.action, SERIALIZER_CLASS[backend]["default"]
         )
         if isinstance(serializer_config, dict):
-            return serializer_config.get(settings.APPLICATION_NAME, "default")
+            return serializer_config.get(
+                settings.APPLICATION_NAME, serializer_config["default"]
+            )
 
         return serializer_config
 
@@ -663,12 +670,15 @@ class InstanceView(
 
         return response.Response(data=serializer.data)
 
-    def _custom_serializer_action(self, request, pk=None, status_code=None):
+    def _custom_serializer_action(
+        self, request, pk=None, status_code=None, perform_save=True
+    ):
         serializer = self.get_serializer(
             instance=self.get_object(), data=request.data, partial=True
         )
         serializer.is_valid(raise_exception=True)
-        serializer.save()
+        if perform_save:
+            serializer.save()
 
         if status_code == status.HTTP_204_NO_CONTENT:
             return response.Response(data=None, status=status_code)
@@ -798,6 +808,15 @@ class InstanceView(
     def dms_placeholders(self, request, pk):
         serializer = self.get_serializer(instance=self.get_object())
         return response.Response(serializer.data)
+
+    @swagger_auto_schema(auto_schema=None)
+    @action(
+        methods=["get"],
+        detail=True,
+        renderer_classes=[JSONRenderer],
+    )
+    def milestones(self, request, pk):
+        return self._custom_serializer_action(request, pk, perform_save=False)
 
     @swagger_auto_schema(auto_schema=None)
     @action(methods=["post"], detail=True)
