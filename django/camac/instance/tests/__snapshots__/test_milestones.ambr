@@ -1,0 +1,147 @@
+# serializer version: 1
+# name: test_milestones_ur[is-paper-no-Municipality]
+  dict({
+    'sections': list([
+      dict({
+        'fields': list([
+          dict({
+            'label': 'instance submitted',
+            'slug': 'instance-submitted',
+            'value': '2023-01-01T19:00:00Z',
+          }),
+          dict({
+            'label': 'is paper',
+            'slug': 'is-paper',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Paper submission',
+            'slug': 'paper-submission',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Check completed',
+            'slug': 'check-completed',
+            'value': list([
+              '2023-01-01T19:00:00Z',
+            ]),
+          }),
+          dict({
+            'label': 'Forwarded to coordination service',
+            'slug': 'forwarded-to-koor',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Start of municipal distribution',
+            'slug': 'start-municipal-distribution',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Start of cantonal distribution',
+            'slug': 'start-cantonal-distribution',
+            'value': list([
+              '2023-12-31T00:00:00Z',
+              '2023-12-31T00:00:00Z',
+            ]),
+          }),
+          dict({
+            'label': 'Returned to municipality',
+            'slug': 'returned-to-municipality',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Distribution completed',
+            'slug': 'distribution-completed',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Building permit valid until',
+            'slug': 'building-permit-valid-until',
+            'value': '2024-01-01T19:00:00Z',
+          }),
+        ]),
+        'label': 'regular process',
+        'slug': 'regular-process',
+      }),
+    ]),
+  })
+# ---
+# name: test_milestones_ur[is-paper-yes-Municipality]
+  dict({
+    'sections': list([
+      dict({
+        'fields': list([
+          dict({
+            'label': 'instance submitted',
+            'slug': 'instance-submitted',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'is paper',
+            'slug': 'is-paper',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Paper submission',
+            'slug': 'paper-submission',
+            'value': '2023-01-01T19:00:00Z',
+          }),
+          dict({
+            'label': 'Check completed',
+            'slug': 'check-completed',
+            'value': list([
+              '2023-01-01T19:00:00Z',
+            ]),
+          }),
+          dict({
+            'label': 'Forwarded to coordination service',
+            'slug': 'forwarded-to-koor',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Start of municipal distribution',
+            'slug': 'start-municipal-distribution',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Start of cantonal distribution',
+            'slug': 'start-cantonal-distribution',
+            'value': list([
+              '2023-12-31T00:00:00Z',
+              '2023-12-31T00:00:00Z',
+            ]),
+          }),
+          dict({
+            'label': 'Returned to municipality',
+            'slug': 'returned-to-municipality',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Distribution completed',
+            'slug': 'distribution-completed',
+            'value': list([
+            ]),
+          }),
+          dict({
+            'label': 'Building permit valid until',
+            'slug': 'building-permit-valid-until',
+            'value': '2024-01-01T19:00:00Z',
+          }),
+        ]),
+        'label': 'regular process',
+        'slug': 'regular-process',
+      }),
+    ]),
+  })
+# ---
