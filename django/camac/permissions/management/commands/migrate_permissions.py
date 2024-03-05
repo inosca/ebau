@@ -44,15 +44,18 @@ class ACL:
         return hash(self) == hash(other)
 
     def __hash__(self):
-        # explicitly exclude hidden attrs
+        # explicitly exclude hidden attrs. Also, we compare the
+        # string representation of the attributes, so as not to
+        # get confused: Some data sources may give us stringified references
+        # while the ORM gives int/uuid foreign keys.
         return hash(
             (
-                self.instance_id,
-                self.access_level,
-                self.state,
-                self.type,
-                self.user_id,
-                self.service_id,
+                str(self.instance_id),
+                str(self.access_level),
+                str(self.state),
+                str(self.type),
+                str(self.user_id),
+                str(self.service_id),
             )
         )
 
@@ -183,10 +186,12 @@ class Command(BaseCommand):
         resulting iterator for better output on the terminal.
         """
 
+        prefix = f"{instance_prefix}__" if instance_prefix else ""
+
         qs = qs.filter(
             **{
-                f"{instance_prefix}__pk__gte": self.min_instance_id,
-                f"{instance_prefix}__pk__lte": self.max_instance_id,
+                f"{prefix}pk__gte": self.min_instance_id,
+                f"{prefix}pk__lte": self.max_instance_id,
             }
         )
         return tqdm.tqdm(
