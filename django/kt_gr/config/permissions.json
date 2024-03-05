@@ -5,7 +5,8 @@
     "fields": {
       "name": "{\"de\": \"Leseberechtigung\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "required_grant_type": "SERVICE"
+      "required_grant_type": "SERVICE",
+      "applicable_area": "INTERNAL"
     }
   }
 ]

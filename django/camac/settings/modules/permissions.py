@@ -1,6 +1,7 @@
-from typing import Callable, Dict, List, Tuple, TypedDict
+from typing import Callable, Dict, List, Optional, Tuple, TypedDict
 
 from camac.permissions.conditions import Always, HasRole, InstanceState
+from camac.permissions.switcher import PERMISSION_MODE
 
 """
 Configuration for the permissions module.
@@ -46,6 +47,14 @@ PermissionConfigEntry = TypedDict(
         # each access level entry here must refer to an existing
         # access level model.
         "ACCESS_LEVELS": Dict[str, List[PermissionLine]],
+        "PERMISSION_MODE": Optional[PERMISSION_MODE],
+        # If set to False, caching will never happen. If set to True,
+        # Caching only happens if the permissions are cacheable
+        "ENABLE_CACHE": Optional[bool],
+        # Map INTERNAL -> CANTON access level names. The INTERNAL ones
+        # are directly referenced by the migration tooling and may differ from
+        # the ones used by the canton.
+        "MIGRATION": Dict[str, str],
     },
 )
 
@@ -61,7 +70,9 @@ BE_GEOMETER_DEFAULT_ACCESSIBLE_STATES = InstanceState(
 )
 
 PERMISSIONS: PermissionsConfig = {
-    "default": {},
+    "default": {
+        "PERMISSION_MODE": PERMISSION_MODE.OFF,
+    },
     "demo": {
         "ACCESS_LEVELS": {
             "service": [
@@ -77,6 +88,7 @@ PERMISSIONS: PermissionsConfig = {
         "ENABLED": True,
     },
     "kt_bern": {
+        "PERMISSION_MODE": PERMISSION_MODE.AUTO_OFF,
         "ACCESS_LEVELS": {
             "geometer": [
                 # TODO: For ACLs that can be manually granted, read-permissions
@@ -112,9 +124,18 @@ PERMISSIONS: PermissionsConfig = {
                 ("journal-read", BE_GEOMETER_DEFAULT_ACCESSIBLE_STATES),
                 ("history-read", BE_GEOMETER_DEFAULT_ACCESSIBLE_STATES),
             ],
+            "applicant": [
+                ("applicant-remove", Always()),
+                ("applicant-add", Always()),
+                ("applicant-read", Always()),
+            ],
         },
         "EVENT_HANDLER": "camac.permissions.config.kt_bern.PermissionEventHandlerBE",
         "ENABLED": True,
+        # Map INTERNAL -> CANTON access level names. The INTERNAL ones
+        # are directly referenced by the migration tooling and may differ from
+        # the ones used by the canton.
+        "MIGRATION": {"APPLICANT": "applicant"},
     },
     "kt_gr": {
         "ACCESS_LEVELS": {

@@ -1,5 +1,18 @@
 # TODO - next steps
 
+## Phase 2:
+
+* [x] Permission switching / comparison
+* [ ] Migration tooling
+  - [x] Applicants
+  - [ ] (Lead) municipalities
+  - [ ] Services
+* [ ] Convert access role-by-role
+  - [x] Applicants
+  - [ ] (Lead) municipalities
+  - [ ] Services
+
+
 ## Phase 1
 
 * [x] Backend: Configuration "new style" - ask Jimmy
@@ -7,17 +20,17 @@
   -> Use "old way" to check for LB, until LB is migrated
   -> I'm LB IF: `instance.responsible_service(...) == request.group.service`
 * [x] Includes: InstanceACL -> Instance and -> User
-* [ ]  MERGE in `master`
-* [ ] Geometer access:
+* [x]  MERGE in `master`
+* [x] Geometer access:
   - instance queryset mixin: has new role. `_for_geometer()` will directly
     call new permission module, no fallback
   - Define events and event handlers to grant/revoke permissions as needed
     -> spec in offer for kt bern "geometer" feature
   - Note: Geometers won't receive automatic access to existing instances, no
     migration required
-* [ ] MERGE in `master`
-* [ ] InstanceResource API: Query permissions module in addition
-* [ ] Modify PHP code to use InstanceResource API instead of direct DB access
+* [x] MERGE in `master`
+* [x] InstanceResource API: Query permissions module in addition
+* [x] Modify PHP code to use InstanceResource API instead of direct DB access
   * Figure out special cases in PHP code
 
 
@@ -34,6 +47,8 @@
 
 Future TODO:
 
-* [ ] access levels: attributes for marking them "user-assignable" or "system-assignable"
+* [x] access levels: attributes for marking them "user-assignable" or "system-assignable"
       -> metainfo?
       -> who may grant which access levels? -> DGAP?
+      done by the permissions system itself (user requires
+      permissions-add-foobar or permissions-add-any to grant ACL)

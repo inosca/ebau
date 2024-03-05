@@ -21,6 +21,7 @@ from rest_framework.exceptions import AuthenticationFailed
 from camac.applicants.models import Applicant
 from camac.core.models import InstancePortal
 from camac.instance.models import Instance
+from camac.permissions.events import Trigger
 from camac.user.models import Group, UserGroup
 from camac.utils import clean_join
 
@@ -189,7 +190,12 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
             )
         ).delete()
 
-        pending_applicants.update(invitee=user)
+        for applicant in pending_applicants:
+            applicant.invitee = user
+            applicant.save()
+
+            # no request, but can still trigger
+            Trigger.applicant_added(None, applicant.instance, applicant)
 
     def authenticate_header(self, request):
         return 'JWT realm="{0}"'.format(settings.KEYCLOAK_REALM)

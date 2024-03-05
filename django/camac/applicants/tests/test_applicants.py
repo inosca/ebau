@@ -3,6 +3,11 @@ from django.urls import reverse
 from pytest_factoryboy import LazyFixture
 from rest_framework import status
 
+from camac.permissions.conditions import Always
+from camac.permissions.events import Trigger
+from camac.permissions.models import AccessLevel
+from camac.permissions.switcher import PERMISSION_MODE
+
 
 @pytest.fixture
 def app_settings_with_notif_templates(application_settings, notification_template):
@@ -41,6 +46,34 @@ def test_applicant_update(admin_client, be_instance):
     assert response.status_code == status.HTTP_403_FORBIDDEN
 
 
+@pytest.fixture
+def applicant_permissions_module(permissions_settings, access_level_factory):
+    lvl = access_level_factory(slug="applicant", applicable_area="APPLICANT")
+
+    # Bern already does the "right" thing
+    mod = "camac.permissions.config.kt_bern.PermissionEventHandlerBE"
+
+    permissions_settings["EVENT_HANDLER"] = mod
+    permissions_settings["PERMISSION_MODE"] = PERMISSION_MODE.AUTO_ON
+
+    permissions_settings.setdefault("ACCESS_LEVELS", {})
+
+    permissions_settings["ACCESS_LEVELS"][lvl.slug] = [
+        ("applicant-add", Always()),
+        ("applicant-remove", Always()),
+    ]
+
+    # return value is just for parametrization id
+    return "permissions_module_active"
+
+
+def _sync_applicants(instance):
+    # Factories / fixtures don't trigger permission events, so we have to
+    for appl in instance.involved_applicants.all():
+        Trigger.applicant_added(None, appl.instance, appl)
+
+
+@pytest.mark.parametrize("use_permission_mod", [True, False])
 @pytest.mark.parametrize(
     "role__name,instance__user,extra_applicants,expected_status",
     [
@@ -59,11 +92,17 @@ def test_applicant_delete(
     extra_applicants,
     expected_status,
     active_inquiry_factory,
+    use_permission_mod,
+    request,
 ):
     active_inquiry_factory(be_instance)
-
     if extra_applicants:
         applicant_factory.create_batch(extra_applicants, instance=be_instance)
+
+    if use_permission_mod:
+        # TODO can we lazyfixture this?
+        request.getfixturevalue("applicant_permissions_module")
+        _sync_applicants(be_instance)
 
     url = reverse("applicant-detail", args=[be_instance.involved_applicants.first().pk])
 
@@ -72,6 +111,7 @@ def test_applicant_delete(
     assert response.status_code == expected_status
 
 
+@pytest.mark.parametrize("use_permission_mod", [True, False])
 @pytest.mark.parametrize("instance__user", [LazyFixture("admin_user")])
 @pytest.mark.parametrize(
     "role__name,passed_email,existing_user,expected_status",
@@ -100,6 +140,8 @@ def test_applicant_create(
     existing_user,
     expected_status,
     app_settings_with_notif_templates,
+    use_permission_mod,
+    request,
 ):
     url = reverse("applicant-list")
 
@@ -108,6 +150,10 @@ def test_applicant_create(
         invitee=user_factory(email="exists@example.com"),
         email="exists@example.com",
     )
+    if use_permission_mod:
+        # TODO can we lazyfixture this?
+        request.getfixturevalue("applicant_permissions_module")
+        _sync_applicants(be_instance)
 
     # This simulates a case where a user was invited with an email, then changed
     # it's email (which is totally possible) and then another user registered
@@ -170,3 +216,45 @@ def test_applicant_create_multiple_users(
     )
 
     assert response.status_code == status.HTTP_201_CREATED
+
+
+@pytest.mark.parametrize("instance__user", [LazyFixture("admin_user")])
+def test_missing_applicant_access_level(
+    admin_client,
+    be_instance,
+    user_factory,
+    app_settings_with_notif_templates,
+    applicant_permissions_module,
+    caplog,
+    permissions_settings,
+):
+    url = reverse("applicant-list")
+
+    # In this test specifically, we want to test what happens if the
+    # applicant access level is missing
+    AccessLevel.objects.filter(slug="applicant").delete()
+
+    # We need to be in "old" mode, as otherwise the "new" permissions code will
+    # reject adding applicants (since there are no permissions)
+    permissions_settings["PERMISSION_MODE"] = PERMISSION_MODE.OFF
+
+    the_user = user_factory(email="test@example.com")
+
+    response = admin_client.post(
+        url,
+        data={
+            "data": {
+                "type": "applicants",
+                "attributes": {"email": "test@example.com"},
+                "relationships": {
+                    "instance": {"data": {"id": be_instance.pk, "type": "instances"}}
+                },
+            }
+        },
+    )
+    assert response.status_code == status.HTTP_201_CREATED
+    invitee_id = response.json()["data"]["relationships"]["invitee"]["data"]["id"]
+    assert str(invitee_id) == str(the_user.pk)
+
+    # This is the warning we're looking for
+    assert "Access level 'applicant' is not configured" in caplog.messages

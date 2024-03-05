@@ -13,6 +13,7 @@ class AccessLevelFactory(DjangoModelFactory):
     name = Faker("word")
     description = Faker("sentence")
     required_grant_type = None
+    applicable_area = models.APPLICABLE_AREAS.ANY.value
 
     class Meta:
         model = models.AccessLevel

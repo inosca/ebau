@@ -128,6 +128,7 @@ omit = [
     "camac/core/management/commands/sequencenamespace.py",
     "camac/instance/management/commands/duplicate_instance.py",
     "camac/core/management/commands/repair_sz_workflow.py",
+    "camac/permissions/management/commands/migrate_permissions.py",
     # Temporary exlusions, remove when publication permission endpoint is reenabled"
     # revert !2353 to remove"
     "camac/core/views.py",

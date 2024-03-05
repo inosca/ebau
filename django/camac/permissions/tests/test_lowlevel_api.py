@@ -6,6 +6,8 @@ from django.utils import timezone
 
 from camac.instance import models as instance_models
 from camac.permissions import api, conditions, exceptions, models
+from camac.permissions.conditions import Always
+from camac.permissions.switcher import PERMISSION_MODE
 
 
 @pytest.mark.parametrize("grant_type", ["user", "service", "token"])
@@ -384,3 +386,58 @@ def test_condition_objects(
 
     result = resp.json()["data"]["attributes"]["permissions"]
     assert sorted(result) == sorted(["foo", "bar", "never-or-always"])
+
+
+@pytest.mark.parametrize(
+    "method, require, expect_result, expect_error",
+    [
+        # user has "foo" but not "bar"
+        ("has_any", ["foo"], True, False),
+        ("has_all", ["foo"], True, False),
+        ("has_any", ["bar"], False, False),
+        ("has_all", ["bar"], False, False),
+        ("has_any", ["foo", "bar"], True, False),
+        ("has_all", ["foo", "bar"], False, False),
+        ("require_any", ["foo"], None, False),
+        ("require_all", ["foo"], None, False),
+        ("require_any", ["bar"], None, True),
+        ("require_all", ["bar"], None, True),
+        ("require_any", ["foo", "bar"], None, False),
+        ("require_all", ["foo", "bar"], None, True),
+    ],
+)
+def test_require_functions(
+    # params
+    method,
+    require,
+    expect_result,
+    expect_error,
+    # fixtures
+    db,
+    instance,
+    user,
+    instance_acl_factory,
+    permissions_settings,
+    access_level,
+):
+    permissions_settings["PERMISSION_MODE"] = PERMISSION_MODE.AUTO_ON
+    permissions_settings.setdefault("ACCESS_LEVELS", {})
+    permissions_settings["ACCESS_LEVELS"][access_level.slug] = [
+        ("foo", Always()),
+    ]
+
+    instance_acl_factory(
+        user=user,
+        access_level=access_level,
+        start_time=timezone.now(),
+        grant_type="USER",
+        instance=instance,
+    )
+    manager = api.PermissionManager.from_params(user=user)
+
+    if expect_error:
+        with pytest.raises(Exception) as excinfo:
+            getattr(manager, method)(instance, require)
+        assert excinfo.match("You do not have the required permission to do this")
+    else:
+        assert getattr(manager, method)(instance, require) == expect_result

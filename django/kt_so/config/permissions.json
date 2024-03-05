@@ -5,7 +5,8 @@
     "fields": {
       "name": "{\"de\": \"Lesezugriff f\\u00fcr Gemeinde vor Einreichung\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"Ein Lesezugriff der von Gesuchstellenden an die zust\\u00e4ndige Gemeinde vor der Einreichung vergeben werden kann, damit die Gemeinde bei der Erfassung des Dossiers unterst\\u00fctzen kann. Der Zugriff wird nach der Einreichung des Dossiers widerrufen.\", \"fr\": \"\", \"it\": \"\"}",
-      "required_grant_type": "SERVICE"
+      "required_grant_type": "SERVICE",
+      "applicable_area": "INTERNAL"
     }
   }
 ]

@@ -75,6 +75,10 @@ def decision_dispatch_method(fn: Callable) -> Callable:
 
 
 class EventTrigger:
+    def __init__(self, description=None):
+        if description:
+            self.__doc__ = description
+
     def __set_name__(self, owner, name):
         self.name = name
 
@@ -92,6 +96,9 @@ class Trigger:
     decision_decreed = EventTrigger()
     construction_acceptance_completed = EventTrigger()
     instance_submitted = EventTrigger()
+
+    applicant_added = EventTrigger("Whenever an applicant is invited/added")
+    applicant_removed = EventTrigger("Whenever an applicant is removed")
 
 
 class PermissionEventHandler(metaclass=ABCMeta):
@@ -139,6 +146,18 @@ class PermissionEventHandler(metaclass=ABCMeta):
     def instance_submitted(self, instance: Instance):
         ...  # pragma: no cover
 
+    @abstractmethod
+    def applicant_added(self, instance: Instance, applicant):
+        # fmt: off
+        ...  # pragma: no cover
+        # fmt: on
+
+    @abstractmethod
+    def applicant_removed(self, instance: Instance, applicant):
+        # fmt: off
+        ...  # pragma: no cover
+        # fmt: on
+
 
 class EmptyEventHandler(PermissionEventHandler):
     """An empty permissions event handler.
@@ -157,6 +176,12 @@ class EmptyEventHandler(PermissionEventHandler):
         return  # pragma: no cover
 
     def instance_submitted(self, instance: Instance):
+        return  # pragma: no cover
+
+    def applicant_added(self, instance: Instance, applicant):
+        return  # pragma: no cover
+
+    def applicant_removed(self, instance: Instance, applicant):
         return  # pragma: no cover
 
 
