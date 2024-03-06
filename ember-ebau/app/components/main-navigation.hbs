@@ -12,7 +12,7 @@
               @href={{resource.link}}
               @currentWhen={{this.removeQueryParams resource.link}}
             >
-              {{resource.name}}
+              <span>{{resource.name}}</span>
               {{#if (eq resource.link "/communications-global")}}
                 <Communication::UnreadMessageBadge
                   class="uk-margin-small-left"

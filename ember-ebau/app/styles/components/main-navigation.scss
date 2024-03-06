@@ -12,7 +12,7 @@
       color: white;
     }
 
-    > li.uk-active > a {
+    > li.uk-active > a > span:first-of-type {
       text-decoration: underline;
       text-underline-offset: 5px;
     }
