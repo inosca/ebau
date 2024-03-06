@@ -32,9 +32,6 @@ if settings.MANABI_ENABLE:
         if path.startswith(dav_prefix):
             environ = environ.copy()
             environ["SCRIPT_NAME"] = environ.get("SCRIPT_NAME", "") + dav_prefix
-            if backend == "camac-ng":
-                # TODO unify with new alexandria implementation
-                environ["PATH_INFO"] = path[len(dav_prefix) :]
             return wsgi_dav(environ, start_response)
         else:
             return wsgi_django(environ, start_response)
