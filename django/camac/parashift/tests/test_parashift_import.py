@@ -4,7 +4,7 @@ from pathlib import Path
 import pytest
 from django.conf import settings
 from django.core.management import call_command
-from PyPDF2 import PdfReader
+from pypdf import PdfReader
 
 from camac.constants import kt_uri as uri_constants
 from camac.instance.master_data import MasterData
@@ -121,8 +121,8 @@ def test_command(
 
     # one PDF, split into 4 pieces
     assert instance.attachments.count() == 4
-    attachment = instance.attachments.first()
-    assert attachment.path.size == 91785
+    attachment = instance.attachments.order_by("name").first()
+    assert attachment.path.size == 91784
 
     if run_again:
         instances = client.run("138866", "138867")
@@ -145,8 +145,8 @@ def test_command(
         )
 
         assert instance.attachments.count() == 4
-        attachment = instance.attachments.first()
-        assert attachment.path.size == 91785
+        attachment = instance.attachments.order_by("name").first()
+        assert attachment.path.size == 91784
 
 
 def test_command_validation_error(requests_mock, capsys):
