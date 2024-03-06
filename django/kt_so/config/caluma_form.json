@@ -19,24 +19,6 @@
   },
   {
     "model": "caluma_form.form",
-    "pk": "anlagestandort-tabelle",
-    "fields": {
-      "created_at": "2024-02-22T13:47:01.251Z",
-      "modified_at": "2024-02-22T13:47:01.251Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "name": "{\"de\": \"Anlagestandort Tabelle\", \"fr\": null, \"it\": null}",
-      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "meta": {},
-      "is_published": false,
-      "is_archived": false,
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.form",
     "pk": "arbeitssicherheit",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -46,24 +28,6 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "name": "{\"de\": \"Arbeitssicherheit und Gesundheitsschutz\", \"fr\": null, \"it\": null}",
-      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "meta": {},
-      "is_published": false,
-      "is_archived": false,
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.form",
-    "pk": "art-des-lagergutes-tabelle",
-    "fields": {
-      "created_at": "2024-02-21T12:45:24.415Z",
-      "modified_at": "2024-02-21T12:45:24.415Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "name": "{\"de\": \"Art des Lagergutes Tabelle\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "meta": {},
       "is_published": false,
@@ -267,24 +231,6 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "name": "{\"de\": \"Deklaration Entw\\u00e4sserungsfl\\u00e4chen Tabelle\", \"fr\": null, \"it\": null}",
-      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "meta": {},
-      "is_published": false,
-      "is_archived": false,
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.form",
-    "pk": "deklaration-nicht-verschmutztes-abwasser-tabelle",
-    "fields": {
-      "created_at": "2024-02-21T09:31:37.709Z",
-      "modified_at": "2024-02-21T09:31:37.709Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "name": "{\"de\": \"Deklaration Entw\\u00e4sserungsfl\\u00e4chen nicht verschmutztes Abwasser Tabelle\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "meta": {},
       "is_published": false,
@@ -29422,40 +29368,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "ansprechsperson-fuer-rueckfragen-idr-geologein",
-    "fields": {
-      "created_at": "2024-02-22T15:32:03.720Z",
-      "modified_at": "2024-02-22T15:34:04.516Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Ansprechsperson f\\u00fcr R\\u00fcckfragen (i.d.R. Geologe*in)\", \"fr\": null, \"it\": null}",
-      "type": "textarea",
-      "is_required": "true",
-      "is_hidden": "!(\n\t\"hauptheizungsanlage\"|answer in [\"hauptheizungsanlage-grundwasser\", \"hauptheizungsanlage-abwasser\", \"hauptheizungsanlage-oberflaechenwasser\"]\n)",
-      "is_archived": false,
-      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"Genaue Adresse, E-Mail, Tel. Nr., Mobil-Nr.\", \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "max_length": null,
-        "min_length": null
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "antrag-ausnahme-solarpflicht",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -29575,40 +29487,6 @@
       "configuration": {
         "max_value": null,
         "min_value": 0
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "anzahl-behaelter",
-    "fields": {
-      "created_at": "2024-02-21T12:46:52.056Z",
-      "modified_at": "2024-02-21T12:46:52.056Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Anzahl Beh\\u00e4lter\", \"fr\": null, \"it\": null}",
-      "type": "integer",
-      "is_required": "true",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "max_value": null,
-        "min_value": null
       },
       "meta": {},
       "data_source": null,
@@ -30886,37 +30764,6 @@
         "max_length": null,
         "min_length": null
       },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "art-des-lagergutes",
-    "fields": {
-      "created_at": "2024-02-21T12:46:24.910Z",
-      "modified_at": "2024-02-21T12:46:24.910Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Art des Lagergutes (Medium)\", \"fr\": null, \"it\": null}",
-      "type": "choice",
-      "is_required": "true",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -32938,43 +32785,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "behaelter",
-    "fields": {
-      "created_at": "2024-02-21T12:48:40.696Z",
-      "modified_at": "2024-02-21T12:55:37.341Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Beh\\u00e4lter\", \"fr\": null, \"it\": null}",
-      "type": "table",
-      "is_required": "true",
-      "is_hidden": "\"anlagetyp-lageranlage-wassergefaehrdende-fluessigkeiten\" != \"anlagetyp\"|answer",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {
-        "columnsToDisplay": [
-          "art-des-lagergutes",
-          "anzahl-behaelter",
-          "volumen-pro-behaelter"
-        ]
-      },
-      "data_source": null,
-      "row_form": "art-des-lagergutes-tabelle",
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "behaelterbeschichtung",
     "fields": {
       "created_at": "2024-02-21T14:20:54.042Z",
@@ -33779,40 +33589,6 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "max_length": null,
-        "min_length": null
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "beschreibung-einbauten",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Beschreibung\", \"fr\": null, \"it\": null}",
-      "type": "textarea",
-      "is_required": "true",
-      "is_hidden": "!(\"art-der-einbauten-andere\" in \"art-der-einbauten\"|answer)",
-      "is_archived": false,
-      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"Permanente Einbauten ins Grundwasser bed\\u00fcrfen einer Ausnahmebewilligung. Dazu ist mit der Baueingabe ein Durchflussnachweis einzureichen.\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
@@ -35661,39 +35437,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "detailplan-einleitung-grundriss-schnitte",
-    "fields": {
-      "created_at": "2024-02-21T07:53:51.476Z",
-      "modified_at": "2024-02-21T07:54:16.472Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Detailplan Einleitung (Grundriss / Schnitte)\", \"fr\": null, \"it\": null}",
-      "type": "multiple_choice",
-      "is_required": "true",
-      "is_hidden": "!(\n\t\"meteorwasser\"|answer in [\"meteorwasser-ableitung\", \"meteorwasser-einleitung-in-oberflaechengewaesser\"]\n)",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {
-        "hideLabel": true
-      },
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "detailplan-entnahme-und-rueckgabebauwerke",
     "fields": {
       "created_at": "2024-02-22T14:39:27.203Z",
@@ -36268,40 +36011,6 @@
   {
     "model": "caluma_form.question",
     "pk": "durchlaessigkeit",
-    "fields": {
-      "created_at": "2024-02-22T16:04:56.998Z",
-      "modified_at": "2024-02-22T16:04:56.998Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Durchl\\u00e4ssigkeit K-Wert (m/s)\", \"fr\": null, \"it\": null}",
-      "type": "integer",
-      "is_required": "true",
-      "is_hidden": "!(\n\t\"hauptheizungsanlage\"|answer in [\"hauptheizungsanlage-grundwasser\", \"hauptheizungsanlage-abwasser\", \"hauptheizungsanlage-oberflaechenwasser\"]\n)",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "max_value": null,
-        "min_value": null
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "durchlaessigkeit-k-wert-ms",
     "fields": {
       "created_at": "2024-02-22T16:04:56.998Z",
       "modified_at": "2024-02-22T16:04:56.998Z",
@@ -36920,37 +36629,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "einzureichende-unterlagen-lageranlage-titel",
-    "fields": {
-      "created_at": "2024-02-21T12:31:23.103Z",
-      "modified_at": "2024-02-21T12:31:23.103Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Einzureichende Unterlagen Lageranlage Titel\", \"fr\": null, \"it\": null}",
-      "type": "static",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"**Einzureichende Unterlagen**\\n\\n* Der Standort der Lager- und Umschlagsanlage(n) muss in einem Situationsplan ersichtlich sein.\\n* Darstellung der Gesamtsituation der Lager- und Entnahmeanlage mit F\\u00fcll-, Entnahmeleitungen und Sicherheitseinrichtungen im Detailplan 1:50 (Grundriss und Schnitte).\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "elektrische-installationen-in-feuchten-korrosions-feuer-oder-explosionsgefaehrdeten-raeumen",
     "fields": {
       "created_at": "2023-11-29T16:23:40.545Z",
@@ -37417,40 +37095,6 @@
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"##Hinweis##\\nBei der Baubewilligungsbeh\\u00f6rde ist ein Entsorgungskonzept einzureichen. Die Konzeptvorlage finden Sie hier: [Entsorgungskonzept](https://www.abfall.ch/info/publikationen)\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "entwaesserte-flaechen-art",
-    "fields": {
-      "created_at": "2024-02-21T09:32:05.416Z",
-      "modified_at": "2024-02-21T09:32:05.416Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Entw\\u00e4sserte Fl\\u00e4chen (Art)\", \"fr\": null, \"it\": null}",
-      "type": "text",
-      "is_required": "true",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "max_length": null,
-        "min_length": null
-      },
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -38546,40 +38190,6 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "erdwaermesondenbohrung",
-    "fields": {
-      "created_at": "2024-02-22T13:48:12.077Z",
-      "modified_at": "2024-02-22T13:48:12.077Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Erdw\\u00e4rmesondenbohrung\", \"fr\": null, \"it\": null}",
-      "type": "text",
-      "is_required": "true",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"x / y\", \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "max_length": null,
-        "min_length": null
-      },
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -40437,40 +40047,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "flaeche-der-unbeschichteten-metallflaechen-m",
-    "fields": {
-      "created_at": "2024-02-19T16:48:04.571Z",
-      "modified_at": "2024-02-21T09:50:14.465Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Fl\\u00e4che der unbeschichteten Metallfl\\u00e4chen (m\\u00b2)\", \"fr\": null, \"it\": null}",
-      "type": "integer",
-      "is_required": "true",
-      "is_hidden": "!(\n\t\"meteorwasser\"|answer in [\"meteorwasser-ableitung\", \n\"meteorwasser-einleitung-in-oberflaechengewaesser\"] && \"unbeschichtete-metallflaechen-ja\" == \"unbeschichtete-metallflaechen\"|answer\n)",
-      "is_archived": false,
-      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "max_value": null,
-        "min_value": null
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "flaeche-groesser",
     "fields": {
       "created_at": "2023-11-13T07:29:07.979Z",
@@ -42195,40 +41771,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "gesamtflaeche-m2",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Gesamtfl\\u00e4che (m\\u00b2)\", \"fr\": null, \"it\": null}",
-      "type": "float",
-      "is_required": "false",
-      "is_hidden": "!(\n  \"anlagetyp\"|answer in [\"anlagetyp-thermische-solaranlage\", \"anlagetyp-photovoltaische-solaranlage\"] \n)",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "max_value": null,
-        "min_value": null
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "gesamtkosten",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -42264,40 +41806,6 @@
   {
     "model": "caluma_form.question",
     "pk": "gesamtleitstung",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-09-30T13:26:03.202Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "645a484a-3312-4602-9d87-77215f03f5bf",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Gesamtleistung (kW)\", \"fr\": null, \"it\": null}",
-      "type": "float",
-      "is_required": "false",
-      "is_hidden": "!(\n  \"anlagetyp\"|answer in [\"anlagetyp-thermische-solaranlage\", \"anlagetyp-photovoltaische-solaranlage\"] \n)",
-      "is_archived": false,
-      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "max_value": null,
-        "min_value": null
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "gesamtleitstung-kw",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
       "modified_at": "2023-09-30T13:26:03.202Z",
@@ -44251,37 +43759,6 @@
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"**Hinweis**: Die Dimensionierung wird durch die \\u00f6rtliche Wasserversorgung festgelegt.\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "hinweis-einbau-unter-den-mittleren-grundwasserspiegel",
-    "fields": {
-      "created_at": "2023-10-23T13:04:34.105Z",
-      "modified_at": "2023-10-23T13:07:18.080Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Hinweis Einbau unter den mittleren Grundwasserspiegel\", \"fr\": null, \"it\": null}",
-      "type": "static",
-      "is_required": "false",
-      "is_hidden": "!(\"art-der-einbauten-pfahlung\" in \"art-der-einbauten\"|answer)",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"Es ist ein Gesuch f\\u00fcr den Einbau unter den Mittleren Grundwasserspiegel mit dem Baugesuch einzureichen (Formular).\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -46376,40 +45853,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "hoechste-pumpleistung-lmin",
-    "fields": {
-      "created_at": "2024-02-22T08:45:37.962Z",
-      "modified_at": "2024-02-22T08:46:52.640Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"H\\u00f6chste Pumpleistung (l/min)\", \"fr\": null, \"it\": null}",
-      "type": "integer",
-      "is_required": "false",
-      "is_hidden": "!(\"art-der-einbauten-leitungen\" in \"art-der-einbauten\"|answer)",
-      "is_archived": false,
-      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"(bez\\u00fcgl. HGW)\", \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "max_value": null,
-        "min_value": null
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "hoechster-grundwasserspiegel",
     "fields": {
       "created_at": "2024-02-19T16:15:39.018Z",
@@ -46544,40 +45987,6 @@
   {
     "model": "caluma_form.question",
     "pk": "hydraul-gradient",
-    "fields": {
-      "created_at": "2024-02-22T16:03:59.454Z",
-      "modified_at": "2024-02-22T16:03:59.454Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Hydraul. Gradient (m/100m)\", \"fr\": null, \"it\": null}",
-      "type": "integer",
-      "is_required": "true",
-      "is_hidden": "!(\n\t\"hauptheizungsanlage\"|answer in [\"hauptheizungsanlage-grundwasser\", \"hauptheizungsanlage-abwasser\", \"hauptheizungsanlage-oberflaechenwasser\"]\n)",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "max_value": null,
-        "min_value": null
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "hydraul-gradient-m100m",
     "fields": {
       "created_at": "2024-02-22T16:03:59.454Z",
       "modified_at": "2024-02-22T16:03:59.454Z",
@@ -47090,40 +46499,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "installierte-pumpenleistung-ls",
-    "fields": {
-      "created_at": "2024-02-23T12:17:41.150Z",
-      "modified_at": "2024-02-23T12:17:55.608Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Installierte Pumpenleistung (L/s)\", \"fr\": null, \"it\": null}",
-      "type": "integer",
-      "is_required": "false",
-      "is_hidden": "!(\n\t\"hauptheizungsanlage\"|answer in [\"hauptheizungsanlage-grundwasser\", \"hauptheizungsanlage-abwasser\", \"hauptheizungsanlage-oberflaechenwasser\"]\n)",
-      "is_archived": false,
-      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "max_value": null,
-        "min_value": null
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "is-paper",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -47255,40 +46630,6 @@
   {
     "model": "caluma_form.question",
     "pk": "kaeltemittel-menge",
-    "fields": {
-      "created_at": "2024-02-23T14:19:40.944Z",
-      "modified_at": "2024-02-23T14:19:40.944Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"K\\u00e4ltemittel Menge (kg)\", \"fr\": null, \"it\": null}",
-      "type": "integer",
-      "is_required": "true",
-      "is_hidden": "!(\n\t\"hauptheizungsanlage\"|answer in [\"hauptheizungsanlage-grundwasser\", \"hauptheizungsanlage-abwasser\", \"hauptheizungsanlage-oberflaechenwasser\"]\n)",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "max_value": null,
-        "min_value": null
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "kaeltemittel-menge-kg",
     "fields": {
       "created_at": "2024-02-23T14:19:40.944Z",
       "modified_at": "2024-02-23T14:19:40.944Z",
@@ -47638,75 +46979,7 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "kompressor-heizen-kw",
-    "fields": {
-      "created_at": "2024-02-23T14:24:17.230Z",
-      "modified_at": "2024-02-23T14:26:02.597Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Kompressor heizen (kW)\", \"fr\": null, \"it\": null}",
-      "type": "integer",
-      "is_required": "true",
-      "is_hidden": "!(\n\t\"hauptheizungsanlage\"|answer in [\"hauptheizungsanlage-grundwasser\", \"hauptheizungsanlage-abwasser\", \"hauptheizungsanlage-oberflaechenwasser\"]\n)",
-      "is_archived": false,
-      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"Stromaufnahme\", \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "max_value": null,
-        "min_value": null
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "kompressor-kuehlen",
-    "fields": {
-      "created_at": "2024-02-23T14:25:24.916Z",
-      "modified_at": "2024-02-23T14:25:24.916Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Kompressor k\\u00fchlen (kW)\", \"fr\": null, \"it\": null}",
-      "type": "integer",
-      "is_required": "true",
-      "is_hidden": "!(\n\t\"hauptheizungsanlage\"|answer in [\"hauptheizungsanlage-grundwasser\", \"hauptheizungsanlage-abwasser\", \"hauptheizungsanlage-oberflaechenwasser\"]\n)",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"Stromaufnahme\", \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "max_value": null,
-        "min_value": null
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "kompressor-kuehlen-kw",
     "fields": {
       "created_at": "2024-02-23T14:25:24.916Z",
       "modified_at": "2024-02-23T14:25:24.916Z",
@@ -47808,78 +47081,10 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "konzentration-l-oder-kg",
-    "fields": {
-      "created_at": "2024-02-23T14:34:53.663Z",
-      "modified_at": "2024-02-23T14:34:53.663Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Konzentration (L oder kg)\", \"fr\": null, \"it\": null}",
-      "type": "text",
-      "is_required": "true",
-      "is_hidden": "!(\n\t\"hauptheizungsanlage\"|answer in [\"hauptheizungsanlage-grundwasser\", \"hauptheizungsanlage-abwasser\", \"hauptheizungsanlage-oberflaechenwasser\"]\n)",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "max_length": null,
-        "min_length": null
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "koordinaten",
     "fields": {
       "created_at": "2024-02-19T16:28:34.458Z",
       "modified_at": "2024-02-19T16:28:34.458Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Koordinaten\", \"fr\": null, \"it\": null}",
-      "type": "text",
-      "is_required": "true",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"x / y\", \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "max_length": null,
-        "min_length": null
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "koordinaten-anlagestandort",
-    "fields": {
-      "created_at": "2024-02-22T13:47:36.307Z",
-      "modified_at": "2024-02-22T13:47:36.307Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
@@ -48114,18 +47319,18 @@
     "pk": "koordinaten-waermenutzungsanlage",
     "fields": {
       "created_at": "2024-02-23T14:17:35.985Z",
-      "modified_at": "2024-02-23T14:17:35.985Z",
+      "modified_at": "2024-03-06T08:59:20.005Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Koordinaten\", \"fr\": null, \"it\": null}",
       "type": "text",
       "is_required": "true",
-      "is_hidden": "false",
+      "is_hidden": "!(\n\t\"hauptheizungsanlage\"|answer in [\"hauptheizungsanlage-grundwasser\", \"hauptheizungsanlage-abwasser\", \"hauptheizungsanlage-oberflaechenwasser\"]\n)",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"x / y\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
@@ -48146,40 +47351,6 @@
   {
     "model": "caluma_form.question",
     "pk": "kote-grundwasserstauer",
-    "fields": {
-      "created_at": "2024-02-22T16:02:44.325Z",
-      "modified_at": "2024-02-22T16:02:44.325Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Kote Grundwasserstauer (m.\\u00fc.M.)\", \"fr\": null, \"it\": null}",
-      "type": "integer",
-      "is_required": "true",
-      "is_hidden": "!(\n\t\"hauptheizungsanlage\"|answer in [\"hauptheizungsanlage-grundwasser\", \"hauptheizungsanlage-abwasser\", \"hauptheizungsanlage-oberflaechenwasser\"]\n)",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "max_value": null,
-        "min_value": null
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "kote-grundwasserstauer-muem",
     "fields": {
       "created_at": "2024-02-22T16:02:44.325Z",
       "modified_at": "2024-02-22T16:02:44.325Z",
@@ -50002,40 +49173,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "materialisierung-entwaesserte-flaechen",
-    "fields": {
-      "created_at": "2024-02-21T09:33:36.512Z",
-      "modified_at": "2024-02-21T09:33:36.513Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Materialisierung\", \"fr\": null, \"it\": null}",
-      "type": "text",
-      "is_required": "true",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "max_length": null,
-        "min_length": null
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "max-entnahmemenge2",
     "fields": {
       "created_at": "2024-02-23T12:51:34.088Z",
@@ -50207,40 +49344,6 @@
   {
     "model": "caluma_form.question",
     "pk": "maximale-wassertemperatur-vor-nutzung",
-    "fields": {
-      "created_at": "2024-02-23T14:37:10.370Z",
-      "modified_at": "2024-02-23T14:37:10.370Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Maximale Wassertemperatur vor Nutzung (\\u00b0C)\", \"fr\": null, \"it\": null}",
-      "type": "integer",
-      "is_required": "true",
-      "is_hidden": "!(\n\t\"hauptheizungsanlage\"|answer in [\"hauptheizungsanlage-grundwasser\", \"hauptheizungsanlage-abwasser\", \"hauptheizungsanlage-oberflaechenwasser\"]\n)",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "max_value": null,
-        "min_value": null
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "maximale-wassertemperatur-vor-nutzung-c",
     "fields": {
       "created_at": "2024-02-23T14:37:10.370Z",
       "modified_at": "2024-02-23T14:37:10.370Z",
@@ -50659,40 +49762,6 @@
   {
     "model": "caluma_form.question",
     "pk": "mittlerer-grundwasserspiegel",
-    "fields": {
-      "created_at": "2024-02-22T16:01:07.948Z",
-      "modified_at": "2024-02-22T16:01:07.948Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Mittlerer Grundwasserspiegel (m.\\u00fc.M.)\", \"fr\": null, \"it\": null}",
-      "type": "integer",
-      "is_required": "true",
-      "is_hidden": "!(\n\t\"hauptheizungsanlage\"|answer in [\"hauptheizungsanlage-grundwasser\", \"hauptheizungsanlage-abwasser\", \"hauptheizungsanlage-oberflaechenwasser\"]\n)",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "max_value": null,
-        "min_value": null
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "mittlerer-grundwasserspiegel-muem",
     "fields": {
       "created_at": "2024-02-22T16:01:07.948Z",
       "modified_at": "2024-02-22T16:01:07.948Z",
@@ -53182,40 +52251,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "ok-terrain-muem",
-    "fields": {
-      "created_at": "2024-02-23T12:05:14.930Z",
-      "modified_at": "2024-02-23T12:05:14.930Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"OK Terrain (m.\\u00fc.M.)\", \"fr\": null, \"it\": null}",
-      "type": "integer",
-      "is_required": "false",
-      "is_hidden": "!(\n\t\"hauptheizungsanlage\"|answer in [\"hauptheizungsanlage-grundwasser\", \"hauptheizungsanlage-abwasser\", \"hauptheizungsanlage-oberflaechenwasser\"]\n)",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "max_value": null,
-        "min_value": null
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "ort",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -53779,40 +52814,6 @@
   {
     "model": "caluma_form.question",
     "pk": "porositaet",
-    "fields": {
-      "created_at": "2024-02-22T16:05:26.384Z",
-      "modified_at": "2024-02-22T16:05:26.384Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Porosit\\u00e4t (%)\", \"fr\": null, \"it\": null}",
-      "type": "integer",
-      "is_required": "true",
-      "is_hidden": "!(\n\t\"hauptheizungsanlage\"|answer in [\"hauptheizungsanlage-grundwasser\", \"hauptheizungsanlage-abwasser\", \"hauptheizungsanlage-oberflaechenwasser\"]\n)",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "max_value": null,
-        "min_value": null
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "porositaet-prozent",
     "fields": {
       "created_at": "2024-02-22T16:05:26.384Z",
       "modified_at": "2024-02-22T16:05:26.384Z",
@@ -57118,40 +56119,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "tiefe-der-fassung-m-ab-okt",
-    "fields": {
-      "created_at": "2024-02-23T12:12:26.099Z",
-      "modified_at": "2024-02-23T12:12:26.099Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Tiefe der Fassung (m ab OKT)\", \"fr\": null, \"it\": null}",
-      "type": "integer",
-      "is_required": "false",
-      "is_hidden": "!(\n\t\"hauptheizungsanlage\"|answer in [\"hauptheizungsanlage-grundwasser\", \"hauptheizungsanlage-abwasser\", \"hauptheizungsanlage-oberflaechenwasser\"]\n)",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "max_value": null,
-        "min_value": null
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "tiefe-des-versickerungsbauwerks",
     "fields": {
       "created_at": "2024-02-23T13:37:33.683Z",
@@ -57254,75 +56221,7 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "tiefe-einbau-pumpe-m-ab-okt",
-    "fields": {
-      "created_at": "2024-02-23T12:19:04.596Z",
-      "modified_at": "2024-02-23T12:19:04.596Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Tiefe Einbau Pumpe (m ab OKT)\", \"fr\": null, \"it\": null}",
-      "type": "text",
-      "is_required": "false",
-      "is_hidden": "!(\n\t\"hauptheizungsanlage\"|answer in [\"hauptheizungsanlage-grundwasser\", \"hauptheizungsanlage-abwasser\", \"hauptheizungsanlage-oberflaechenwasser\"]\n)",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "max_length": null,
-        "min_length": null
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "tiefster-grundwasserspiegel",
-    "fields": {
-      "created_at": "2024-02-22T16:01:49.905Z",
-      "modified_at": "2024-02-22T16:01:49.905Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Tiefster Grundwasserspiegel (m.\\u00fc.M.)\", \"fr\": null, \"it\": null}",
-      "type": "integer",
-      "is_required": "true",
-      "is_hidden": "!(\n\t\"hauptheizungsanlage\"|answer in [\"hauptheizungsanlage-grundwasser\", \"hauptheizungsanlage-abwasser\", \"hauptheizungsanlage-oberflaechenwasser\"]\n)",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "max_value": null,
-        "min_value": null
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "tiefster-grundwasserspiegel-muem",
     "fields": {
       "created_at": "2024-02-22T16:01:49.905Z",
       "modified_at": "2024-02-22T16:01:49.905Z",
@@ -57972,40 +56871,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "unterhalb-mgw-m",
-    "fields": {
-      "created_at": "2024-02-21T17:14:16.302Z",
-      "modified_at": "2024-02-21T17:14:16.302Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Unterhalb MGW (m\\u00b3)\", \"fr\": null, \"it\": null}",
-      "type": "integer",
-      "is_required": "true",
-      "is_hidden": "!(\"art-der-einbauten-pfahlung\" in \"art-der-einbauten\"|answer)",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "max_value": null,
-        "min_value": null
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "unterlagen-fuer-berechnung",
     "fields": {
       "created_at": "2023-11-13T09:12:39.732Z",
@@ -58169,40 +57034,6 @@
   {
     "model": "caluma_form.question",
     "pk": "verdampferleistung-heizen",
-    "fields": {
-      "created_at": "2024-02-23T14:22:33.259Z",
-      "modified_at": "2024-02-23T14:25:39.483Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Verdampferleistung heizen (kW)\", \"fr\": null, \"it\": null}",
-      "type": "integer",
-      "is_required": "true",
-      "is_hidden": "!(\n\t\"hauptheizungsanlage\"|answer in [\"hauptheizungsanlage-grundwasser\", \"hauptheizungsanlage-abwasser\", \"hauptheizungsanlage-oberflaechenwasser\"]\n)",
-      "is_archived": false,
-      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"Umweltw\\u00e4rme\", \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "max_value": null,
-        "min_value": null
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "verdampferleistung-heizen-kw",
     "fields": {
       "created_at": "2024-02-23T14:22:33.259Z",
       "modified_at": "2024-02-23T14:25:39.483Z",
@@ -58955,40 +57786,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "volumen-pro-behaelter",
-    "fields": {
-      "created_at": "2024-02-21T12:47:23.735Z",
-      "modified_at": "2024-02-21T12:47:23.736Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Volumen pro Beh\\u00e4lter (l)\", \"fr\": null, \"it\": null}",
-      "type": "integer",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "max_value": null,
-        "min_value": null
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "volumen-pro-behaelter-andere",
     "fields": {
       "created_at": "2024-02-21T13:14:05.994Z",
@@ -59615,40 +58412,6 @@
   {
     "model": "caluma_form.question",
     "pk": "wandstaerke",
-    "fields": {
-      "created_at": "2024-02-21T14:15:45.544Z",
-      "modified_at": "2024-02-21T14:17:54.047Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Wandst\\u00e4rke (mm)\", \"fr\": null, \"it\": null}",
-      "type": "float",
-      "is_required": "true",
-      "is_hidden": "\"anlagetyp-lageranlage-wassergefaehrdende-fluessigkeiten\" != \"anlagetyp\"|answer",
-      "is_archived": false,
-      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "max_value": null,
-        "min_value": null
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "wandstaerke-mm",
     "fields": {
       "created_at": "2024-02-21T14:15:45.544Z",
       "modified_at": "2024-02-21T14:17:54.047Z",
