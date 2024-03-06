@@ -2,7 +2,6 @@ import { inject as service } from "@ember/service";
 import { htmlSafe } from "@ember/template";
 import { attr, belongsTo } from "@ember-data/model";
 import { dropTask, task } from "ember-concurrency";
-import { saveAs } from "file-saver";
 
 import DownloadableModel from "./downloadable";
 
@@ -82,7 +81,8 @@ export default class CommunicationAttachmentModel extends DownloadableModel {
     event?.preventDefault();
 
     if (!this.downloadUrl.endsWith("/download")) {
-      return await saveAs(this.downloadUrl);
+      // Download URL is a presigned link, open directly
+      return open(this.downloadUrl);
     }
 
     return await this._download(event);
