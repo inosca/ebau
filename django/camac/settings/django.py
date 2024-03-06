@@ -722,6 +722,10 @@ APPLICATIONS = {
                     "recipient_types": ["applicant"],
                 },
                 {
+                    "template_slug": "00-empfang-anfragebaugesuch-gesuchsteller-nicht-registriert",
+                    "recipient_types": ["unregistered_applicant"],
+                },
+                {
                     "template_slug": "00-empfang-anfragebaugesuch-behorden",
                     "recipient_types": ["leitbehoerde"],
                 },
@@ -730,6 +734,10 @@ APPLICATIONS = {
                 {
                     "template_slug": "00-empfang-vorabklaerung-gesuchsteller",
                     "recipient_types": ["applicant"],
+                },
+                {
+                    "template_slug": "00-empfang-vorabklaerung-gesuchsteller-nicht-registriert",
+                    "recipient_types": ["unregistered_applicant"],
                 },
                 {
                     "template_slug": "00-empfang-anfragebaugesuch-behorden",
@@ -742,6 +750,10 @@ APPLICATIONS = {
                     "recipient_types": ["applicant"],
                 },
                 {
+                    "template_slug": "00-empfang-meldung-waermeerzeugerersatz-gesuchsteller-nicht-registriert",
+                    "recipient_types": ["unregistered_applicant"],
+                },
+                {
                     "template_slug": "00-empfang-meldung-waermeerzeugerersatz-behoerden",
                     "recipient_types": ["leitbehoerde"],
                 },
@@ -750,6 +762,10 @@ APPLICATIONS = {
                 {
                     "template_slug": "11-meldung-selbstdeklaration-gesuchsteller",
                     "recipient_types": ["applicant"],
+                },
+                {
+                    "template_slug": "11-meldung-selbstdeklaration-gesuchsteller-nicht-registriert",
+                    "recipient_types": ["unregistered_applicant"],
                 },
                 {
                     "template_slug": "11-meldung-selbstdeklaration-baukontrolle",
@@ -792,6 +808,10 @@ APPLICATIONS = {
                     "recipient_types": ["applicant"],
                 },
                 {
+                    "template_slug": "08-entscheid-gesuchsteller-nicht-registriert",
+                    "recipient_types": ["unregistered_applicant"],
+                },
+                {
                     "template_slug": "08-entscheid-behoerden",
                     "recipient_types": [
                         "leitbehoerde",
@@ -804,6 +824,10 @@ APPLICATIONS = {
                 {
                     "template_slug": "08-beurteilung-zu-voranfrage-gesuchsteller",
                     "recipient_types": ["applicant"],
+                },
+                {
+                    "template_slug": "08-beurteilung-zu-voranfrage-gesuchsteller-nicht-registriert",
+                    "recipient_types": ["unregistered_applicant"],
                 },
                 {
                     "template_slug": "08-beurteilung-zu-voranfrage-behoerden",
