@@ -20,6 +20,7 @@ export default class InstancesEditApplicantsController extends Controller {
   municipalityPermissions = query(this, "instance-acl", () => ({
     access_level: "municipality-before-submission",
     include: "service,created_by_user,revoked_by_user",
+    instance: this.editController.model,
   }));
 
   get municipalityHasPermission() {
