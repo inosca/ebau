@@ -51,10 +51,10 @@ APPEAL = {
         "ENABLED": True,
         "INSTANCE_STATES_AFTER_DECISION": ["construction-monitoring", "finished"],
         "QUESTIONS": {
-            "TABLE": "beschwerde-tabelle",
+            "TABLE": "beschwerdeverfahren-tabelle",
             "TYPE": "beschwerdetyp",
             "AUTHORITY": "beschwerdeinstanz",
-            "DATE": "entscheid-datum",
+            "DATE": "beschwerdedatum",
             "DECISION": "entscheid-entscheid",
         },
         "ANSWERS": {
