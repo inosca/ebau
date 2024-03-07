@@ -1513,6 +1513,16 @@ class SoDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         },
         description=_("Publication organ of the instance"),
     )
+    angemeldet_email = fields.CurrentUserField(
+        source="email",
+        aliases=[_("LOGGED_IN_EMAIL")],
+        description=_("Email address of the currently logged in user"),
+    )
+    angemeldet_name = fields.CurrentUserField(
+        source="full_name",
+        aliases=[_("LOGGED_IN_NAME")],
+        description=_("Name of the currently logged in user"),
+    )
 
     class Meta:
         exclude = [

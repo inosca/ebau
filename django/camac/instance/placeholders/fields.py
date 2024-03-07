@@ -1,4 +1,5 @@
 import base64
+from abc import ABC, abstractmethod
 from io import BytesIO
 
 import qrcode
@@ -61,7 +62,7 @@ class DeprecatedField(AliasedMixin, serializers.ReadOnlyField):
         return self.value
 
 
-class ServiceField(AliasedMixin, serializers.ReadOnlyField):
+class ServiceField(ABC, AliasedMixin, serializers.ReadOnlyField):
     def __init__(
         self,
         source_args=[],
@@ -74,6 +75,10 @@ class ServiceField(AliasedMixin, serializers.ReadOnlyField):
         self.source_args = source_args
         self.remove_name_prefix = remove_name_prefix
         self.add_municipality_prefix = add_municipality_prefix
+
+    @abstractmethod
+    def get_service(instance):  # pragma: no cover
+        ...
 
     def to_representation(self, value):
         value = super().to_representation(value)
@@ -120,13 +125,10 @@ class ResponsibleServiceField(ServiceField):
         return instance.responsible_service(filter_type="municipality")
 
 
-class ResponsibleUserField(AliasedMixin, serializers.ReadOnlyField):
-    def get_user(self, instance):
-        responsible_service = instance.responsible_services.filter(
-            service=self.context["request"].group.service
-        ).first()
-
-        return responsible_service.responsible_user if responsible_service else None
+class UserField(ABC, AliasedMixin, serializers.ReadOnlyField):
+    @abstractmethod
+    def get_user(instance):  # pragma: no cover
+        ...
 
     def get_attribute(self, instance):
         user = self.get_user(instance)
@@ -138,6 +140,20 @@ class ResponsibleUserField(AliasedMixin, serializers.ReadOnlyField):
             return clean_join(user.name, user.surname)
 
         return getattr(user, self.source)
+
+
+class ResponsibleUserField(UserField):
+    def get_user(self, instance):
+        responsible_service = instance.responsible_services.filter(
+            service=self.context["request"].group.service
+        ).first()
+
+        return responsible_service.responsible_user if responsible_service else None
+
+
+class CurrentUserField(UserField):
+    def get_user(self, instance):
+        return self.context["request"].user
 
 
 class BillingEntriesField(AliasedMixin, serializers.ReadOnlyField):

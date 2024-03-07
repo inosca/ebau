@@ -475,6 +475,8 @@ def test_dms_placeholders_so(
     assert response.status_code == status.HTTP_200_OK
 
     checked_keys = [
+        "ANGEMELDET_EMAIL",
+        "ANGEMELDET_NAME",
         "EIGENE_GEBUEHREN_TOTAL",
         "EIGENE_GEBUEHREN",
         "EINGEREICHTE_PLAENE",
