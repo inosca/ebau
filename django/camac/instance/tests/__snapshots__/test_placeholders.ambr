@@ -5013,6 +5013,30 @@
       'nested_aliases': dict({
       }),
     }),
+    'ANGEMELDET_EMAIL': dict({
+      'aliases': list([
+        dict({
+          'de': 'ANGEMELDET_EMAIL',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Email-Adresse des/r momentan angemeldeten Benutzer/in',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'ANGEMELDET_NAME': dict({
+      'aliases': list([
+        dict({
+          'de': 'ANGEMELDET_NAME',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Name des/r momentan angemeldeten Benutzer/in',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
     'BASE_URL': dict({
       'aliases': list([
         dict({
@@ -7223,6 +7247,8 @@
     'ALLE_PROJEKTVERFASSER',
     'ALLE_PROJEKTVERFASSER_NAME_ADDRESS',
     'ALLE_PROJEKTVERFASSER_NAME_ADRESSE',
+    'ANGEMELDET_EMAIL',
+    'ANGEMELDET_NAME',
     'BASE_URL',
     'BAUEINGABE_DATUM',
     'BAUENTSCHEID_DATUM',
@@ -8162,6 +8188,8 @@
 # ---
 # name: test_dms_placeholders_so[Municipality]
   dict({
+    'ANGEMELDET_EMAIL': 'admin@example.com',
+    'ANGEMELDET_NAME': 'Admin User',
     'EIGENE_GEBUEHREN': list([
       dict({
         'BETRAG': '553.25',
