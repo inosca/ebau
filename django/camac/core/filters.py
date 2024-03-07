@@ -52,8 +52,10 @@ class InstanceResourceFilterSet(FilterSet):
 
         # TODO: this needs to be removed in favor of the permission module
         # as soon as the municipality permissions are migrated.
-        if not instance.case or not instance.case.meta.get("is-appeal"):
-            qs = qs.exclude(class_field__contains="appeal-only")
+        if instance.case and instance.case.meta.get("is-appeal"):
+            qs = qs.exclude(class_field__contains="appeal-exclude")
+        else:
+            qs = qs.exclude(class_field__contains="appeal-include")
 
         return qs.filter(
             role_acls__instance_state=instance.instance_state,

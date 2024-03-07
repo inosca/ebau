@@ -361,7 +361,7 @@ def test_instance_appeal_so(
             != instance.case.meta["dossier-number"]
         )
 
-        assert new_instance.instance_state.name == "subm"
+        assert new_instance.instance_state.name == "decision"
 
         assert len(mailoutbox) == 1
         assert notification_template.subject in mailoutbox[0].subject

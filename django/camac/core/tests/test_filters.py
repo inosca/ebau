@@ -138,9 +138,10 @@ def test_instance_resource_appeal_only(
     is_appeal,
 ):
     visible_ir = instance_resource_factory()
-    appeal_only_ir = instance_resource_factory(class_field="appeal-only")
+    appeal_include_ir = instance_resource_factory(class_field="appeal-include")
+    appeal_exclude_ir = instance_resource_factory(class_field="appeal-exclude")
 
-    for ir in [visible_ir, appeal_only_ir]:
+    for ir in [visible_ir, appeal_include_ir, appeal_exclude_ir]:
         ir_role_acl_factory(
             role=role,
             instance_state=so_instance.instance_state,
@@ -160,4 +161,5 @@ def test_instance_resource_appeal_only(
     ids = [int(record["id"]) for record in response.json()["data"]]
 
     assert visible_ir.pk in ids
-    assert (appeal_only_ir.pk in ids) == is_appeal
+    assert (appeal_include_ir.pk in ids) == is_appeal
+    assert (appeal_exclude_ir.pk in ids) != is_appeal
