@@ -192,6 +192,118 @@
   },
   {
     "model": "alexandria_core.category",
+    "pk": "beschwerden",
+    "fields": {
+      "created_at": "2024-03-07T00:00:00Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2024-03-07T00:00:00Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "sort": 5,
+        "access": {
+          "support": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "permission": "delete"
+              }
+            ]
+          },
+          "subservice": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
+          },
+          "service-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
+          },
+          "service-clerk": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
+          },
+          "municipality-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags", "marks"],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "permission": "delete"
+              }
+            ]
+          },
+          "municipality-read": {
+            "visibility": "all"
+          },
+          "municipality-clerk": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags", "marks"],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "permission": "delete"
+              }
+            ]
+          }
+        }
+      },
+      "name": "{\"de\": \"Beschwerden\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "color": "#FF7800",
+      "parent": null
+    }
+  },
+  {
+    "model": "alexandria_core.category",
     "pk": "beteiligte-behoerden",
     "fields": {
       "created_at": "2023-10-04T00:00:00Z",
@@ -485,7 +597,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
-        "sort": 5,
+        "sort": 6,
         "access": {
           "support": {
             "visibility": "all",
@@ -685,7 +797,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
-        "sort": 6,
+        "sort": 7,
         "access": {
           "support": {
             "visibility": "all",
