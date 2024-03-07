@@ -85,35 +85,14 @@
             "visibility": "all",
             "permissions": [
               {
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
                 "permission": "create"
               },
               {
                 "scope": "All",
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
                 "permission": "update"
               },
               {
                 "scope": "All",
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
                 "permission": "delete"
               }
             ]
@@ -393,35 +372,14 @@
             "visibility": "all",
             "permissions": [
               {
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
                 "permission": "create"
               },
               {
                 "scope": "All",
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
                 "permission": "update"
               },
               {
                 "scope": "All",
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
                 "permission": "delete"
               }
             ]
@@ -551,35 +509,14 @@
             "visibility": "all",
             "permissions": [
               {
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
                 "permission": "create"
               },
               {
                 "scope": "All",
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
                 "permission": "update"
               },
               {
                 "scope": "All",
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
                 "permission": "delete"
               }
             ]
@@ -844,35 +781,14 @@
             "visibility": "all",
             "permissions": [
               {
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
                 "permission": "create"
               },
               {
                 "scope": "All",
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
                 "permission": "update"
               },
               {
                 "scope": "All",
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
                 "permission": "delete"
               }
             ]
@@ -1181,35 +1097,14 @@
             "visibility": "all",
             "permissions": [
               {
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
                 "permission": "create"
               },
               {
                 "scope": "All",
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
                 "permission": "update"
               },
               {
                 "scope": "All",
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
                 "permission": "delete"
               }
             ]
@@ -1420,35 +1315,14 @@
             "visibility": "all",
             "permissions": [
               {
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
                 "permission": "create"
               },
               {
                 "scope": "All",
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
                 "permission": "update"
               },
               {
                 "scope": "All",
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
                 "permission": "delete"
               }
             ]
@@ -1632,35 +1506,14 @@
             "visibility": "all",
             "permissions": [
               {
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
                 "permission": "create"
               },
               {
                 "scope": "All",
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
                 "permission": "update"
               },
               {
                 "scope": "All",
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
                 "permission": "delete"
               }
             ]
@@ -1835,35 +1688,14 @@
             "visibility": "all",
             "permissions": [
               {
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
                 "permission": "create"
               },
               {
                 "scope": "All",
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
                 "permission": "update"
               },
               {
                 "scope": "All",
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
                 "permission": "delete"
               }
             ]
