@@ -1,6 +1,6 @@
 Babel==2.14.0
 caluma==9.3.3
-caluma-alexandria==3.0.0-beta.13
+caluma-alexandria==3.0.0-beta.17
 dataclasses-json==0.6.4
 deepmerge==1.1.1
 # caluma and caluma-alexandria have pinned django versions >=3.2.19
@@ -26,7 +26,7 @@ docxtpl==0.16.7
 drf-yasg==1.21.7
 ebau_gwr==0.6.3
 Jinja2==3.1.3
-manabi==1.2.0
+manabi==1.3.3
 # Downgrade minio to 7.2.0 as 7.2.1 (which was not marked as a breaking change)
 # doesn't support urllib3<2 anymore. https://github.com/minio/minio-py/issues/1378
 minio==7.2.0
@@ -62,7 +62,6 @@ tqdm==4.66.1
 # urllib3 v2 requires open ssl version which is not supported on BE systems
 urllib3==1.26.18
 uWSGI==2.0.24
-# WsgiDAV has to stay on v4.2.0 because otherwise manabi isn't compatible
-WsgiDAV==4.2.0
+WsgiDAV==4.3.0
 whitenoise==6.6.0
 xmlschema==3.0.1

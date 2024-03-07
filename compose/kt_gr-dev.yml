@@ -69,6 +69,7 @@ services:
       - /app/staticfiles # prevent staticfiles from leaking to the host system
     environment:
       - APPLICATION_ENV=development
+      - ENV=development # used in caluma and alexandria settings
       - KEYCLOAK_URL=http://ebau-keycloak.local/auth/
       - DATABASE_PASSWORD=camac
       - DATABASE_USER=camac
