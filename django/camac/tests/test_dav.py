@@ -23,7 +23,7 @@ environ = {
     "SERVER_PROTOCOL": "HTTP/1.1",
     "SERVER_SOFTWARE": "WSGIServer/0.2",
     "REQUEST_METHOD": "GET",
-    "PATH_INFO": "/1Ui3IS5xxIedbhSdPFPoGQRnTUtPVTmleMGJe1KyvWsVU704wk68k3YC70txTn5ZEJ4Ms3bh5Esy0OD4mZM0TnumUymWglgp3wq0CHo3W89DyW0/asdf_1tJa2fV.docx",
+    "PATH_INFO": "/dav/1Ui3IS5xxIedbhSdPFPoGQRnTUtPVTmleMGJe1KyvWsVU704wk68k3YC70txTn5ZEJ4Ms3bh5Esy0OD4mZM0TnumUymWglgp3wq0CHo3W89DyW0/asdf_1tJa2fV.docx",
     "QUERY_STRING": "",
     "REMOTE_ADDR": "172.21.0.12",
     "CONTENT_TYPE": "text/plain",
@@ -39,7 +39,7 @@ file_not_exists = Path("attachments/files/2/not.docx")
 
 def do_get(dav, environ, start_response, file_):
     token = make_token(file_)
-    environ["PATH_INFO"] = f"/{token.as_url()}"
+    environ["PATH_INFO"] = f"/dav/{token.as_url()}"
     list(dav(environ, start_response))
 
 
@@ -54,7 +54,7 @@ def make_put(environ, token):
     environ["REQUEST_METHOD"] = "PUT"
     environ["CONTENT_LENGTH"] = "2"
     environ["wsgi.input"] = BytesIO(b"11")
-    environ["PATH_INFO"] = f"/{token.as_url()}"
+    environ["PATH_INFO"] = f"/dav/{token.as_url()}"
     return environ
 
 

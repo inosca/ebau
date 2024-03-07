@@ -39,7 +39,9 @@ def get_dav():
             "mount_path": "/dav",
             "lock_storage": ManabiDbLockStorage(refresh, postgres_dsn),
             "provider_mapping": {
-                "/": ManabiProvider(settings.MEDIA_ROOT, cb_hook_config=cb_hook_config),
+                "/dav": ManabiProvider(
+                    settings.MEDIA_ROOT, cb_hook_config=cb_hook_config
+                ),
             },
             "middleware_stack": [
                 HeaderLogger,
