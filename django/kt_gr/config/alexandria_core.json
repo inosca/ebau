@@ -475,6 +475,27 @@
             "visibility": "all",
             "permissions": [
               {
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
                 "scope": "All",
                 "fields": ["tags", "marks"],
                 "condition": {
@@ -485,6 +506,17 @@
                   ]
                 },
                 "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "delete"
               }
             ]
           },
@@ -561,6 +593,27 @@
             "visibility": "all",
             "permissions": [
               {
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
                 "scope": "All",
                 "fields": ["tags"],
                 "condition": {
@@ -571,6 +624,17 @@
                   ]
                 },
                 "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "delete"
               }
             ]
           },
@@ -579,7 +643,6 @@
             "permissions": [
               {
                 "condition": {
-                  "PaperInstance": true,
                   "~InstanceState": [
                     "rejected",
                     "finished",
@@ -611,6 +674,28 @@
                   ]
                 },
                 "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "delete"
               },
               {
                 "scope": "All",
@@ -1298,6 +1383,16 @@
             "visibility": "all",
             "permissions": [
               {
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "create"
+              },
+              {
                 "scope": "All",
                 "fields": ["tags", "marks"],
                 "condition": {
@@ -1308,6 +1403,28 @@
                   ]
                 },
                 "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "delete"
               }
             ]
           },
@@ -1360,6 +1477,16 @@
             "visibility": "all",
             "permissions": [
               {
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "create"
+              },
+              {
                 "scope": "All",
                 "fields": ["tags"],
                 "condition": {
@@ -1370,12 +1497,56 @@
                   ]
                 },
                 "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "delete"
               }
             ]
           },
           "municipality-lead": {
             "visibility": "all",
             "permissions": [
+              {
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "condition": {
+                  "PaperInstance": true,
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
               {
                 "scope": "All",
                 "fields": ["title", "description", "date", "tags", "marks"],
@@ -1389,17 +1560,26 @@
                 "permission": "update"
               },
               {
-                "scope": "All",
+                "scope": "Service",
                 "condition": {
-                  "PaperInstance": true
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
                 },
                 "permission": "update"
               },
               {
+                "scope": "Service",
                 "condition": {
-                  "PaperInstance": true
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
                 },
-                "permission": "create"
+                "permission": "delete"
               }
             ]
           }
