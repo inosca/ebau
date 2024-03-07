@@ -1,3 +1,4 @@
+from camac.permissions.conditions import Always
 from camac.permissions.switcher import PERMISSION_MODE
 
 from .common import REQUIRE_NEW_STATE
@@ -8,7 +9,11 @@ SO_PERMISSIONS_SETTINGS = {
         "municipality-before-submission": [
             ("redirect-to-portal", REQUIRE_NEW_STATE),
             ("form-read", REQUIRE_NEW_STATE),
-        ]
+        ],
+        "read": [
+            ("form-read", Always()),
+            ("documents-read", Always()),
+        ],
     },
     "EVENT_HANDLER": "camac.permissions.config.kt_so.PermissionEventHandlerSO",
     "MIGRATION": {},
