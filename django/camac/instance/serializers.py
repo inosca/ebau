@@ -2520,6 +2520,7 @@ class CalumaInstanceAppealSerializer(serializers.Serializer):
                 identifier
             )
             new_instance.case.save()
+            new_instance.set_instance_state("decision", user)
 
             if instance.instance_state.name == "construction-monitoring":
                 instance.set_instance_state("finished", user)

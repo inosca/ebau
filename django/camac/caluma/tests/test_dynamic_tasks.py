@@ -311,12 +311,7 @@ def test_dynamic_task_after_ebau_number(
         ),
         (
             True,
-            {
-                "create-manual-workitems",
-                "formal-exam",
-                "init-additional-demand",
-                "appeal",
-            },
+            {"create-manual-workitems", "appeal", "decision"},
         ),
     ],
 )
