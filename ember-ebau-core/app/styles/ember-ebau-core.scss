@@ -16,6 +16,7 @@ tr[role="link"] {
   min-width: 20px;
 }
 
+@import "components/filters/select";
 @import "components/additional-demand";
 @import "components/billing-table";
 @import "components/dropzone";

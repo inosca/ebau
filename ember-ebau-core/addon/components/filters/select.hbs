@@ -1,0 +1,13 @@
+  <div class={{(concat "filters-select " @class)}}>
+    <label class="uk-form-label uk-text-bold" for="type">{{@label}}</label>
+    <div class="uk-form-controls">
+    <PowerSelect
+    @options={{@options}}
+    @selected={{@selected}}
+    @renderInPlace={{true}}
+    @onChange={{@onChange}} as |option|
+  >
+    {{option.label}}
+  </PowerSelect>
+    </div>
+  </div>
