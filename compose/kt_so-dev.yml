@@ -77,6 +77,7 @@ services:
       DJANGO_TEMPFILE_DOWNLOAD_URL: /tmp
       DOCUMENT_MERGE_SERVICE_URL: http://document-merge-service:8000/document-merge-service/api/v1/
       ENABLE_HISTORICAL_API: true
+      ENV: dev # needed for manabi dev mode
       LANGUAGE_CODE: de
       LANGUAGES: de
       OAUTHLIB_INSECURE_TRANSPORT: 1

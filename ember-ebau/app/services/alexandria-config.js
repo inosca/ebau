@@ -1,6 +1,7 @@
 import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 import AlexandriaConfigService from "ember-alexandria/services/alexandria-config";
+import { hasFeature } from "ember-ebau-core/helpers/has-feature";
 
 export default class CustomAlexandriaConfigService extends AlexandriaConfigService {
   markIcons = {
@@ -84,6 +85,6 @@ export default class CustomAlexandriaConfigService extends AlexandriaConfigServi
 
   namespace = "/alexandria/api/v1";
   zipDownloadNamespace = "/alexandria";
-  enablePDFConversion = true;
-  enableWebDAV = true;
+  enablePDFConversion = hasFeature("alexandria.pdfConversion");
+  enableWebDAV = hasFeature("alexandria.webDAV");
 }
