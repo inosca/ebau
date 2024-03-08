@@ -76,6 +76,9 @@ export default class WorkItemListWrapperComponent extends Component {
       ...(this.args.responsible === "own"
         ? [{ assignedUsers: [this.args.username] }]
         : []),
+      ...(!["own", "all"].includes(this.args.responsible)
+        ? [{ assignedUsers: [this.args.responsible] }]
+        : []),
       ...(this.args.type === "unread"
         ? [{ metaValue: [{ key: "not-viewed", value: true }] }]
         : []),
