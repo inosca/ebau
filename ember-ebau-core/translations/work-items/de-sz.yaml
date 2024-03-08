@@ -2,5 +2,5 @@ workItems:
   filters:
     task:
       init-distribution: "Zirkulation initialisieren ({count})"
-      complete-check: "vollständige Prüfung ({count})"
+      complete-check: "Vollständigkeitsprüfung durchführen ({count})"
       make-decision: "Entscheid verfügen ({count})"
