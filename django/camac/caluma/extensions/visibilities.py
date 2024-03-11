@@ -5,6 +5,7 @@ from caluma.caluma_form import (
 )
 from caluma.caluma_user.visibilities import Authenticated
 from caluma.caluma_workflow import models as workflow_models, schema as workflow_schema
+from caluma.caluma_workflow.models import Case
 from django.conf import settings
 from django.db.models import Exists, ExpressionWrapper, F, OuterRef, Q, Value
 from django.db.models.fields import BooleanField
@@ -16,6 +17,8 @@ from camac.instance.mixins import InstanceQuerysetMixin
 from camac.user.models import Role
 from camac.user.permissions import permission_aware
 from camac.utils import filters, order
+
+from .. import ast_utils
 
 
 class CustomVisibility(Authenticated, InstanceQuerysetMixin):
@@ -152,6 +155,36 @@ class CustomVisibility(Authenticated, InstanceQuerysetMixin):
     def filter_queryset_for_work_items_for_public(self, node, queryset, info):
         return queryset.none()
 
+    def _visible_instances_qs(self, info):
+        """Return "all" visible instances, as a queryset.
+
+        Also contains a performance improvement heuristic: If the GQL query
+        contains a filter that identifies a single case or instance, we limit
+        the "visible instances" such that only the selected instance id is
+        returned. This greatly improves performance if you'd normally see a lot
+        of instances.
+        """
+        qs = CalumaInstanceFilterSet(
+            data=filters(self.request),
+            queryset=self.get_queryset(),
+            request=self.request,
+        ).qs
+
+        if info.path.typename == "Mutation":
+            return qs
+
+        # Apply heuristic: If there is a case ID or instance ID in
+        # the query, we can narrow down the "visible instances" massively
+        # to gain improved query performance
+        filter_type, value = ast_utils.extract_case_from_filters(info)
+        if filter_type == "case_id" and value:
+            qs = qs.filter(
+                case__family__in=Case.objects.filter(pk=value).values("family")
+            )
+        elif filter_type == "instance_id" and value:
+            qs = qs.filter(pk=value)
+        return qs
+
     def _all_visible_instances(self, info):
         """Fetch visible camac instances and cache the result.
 
@@ -164,13 +197,9 @@ class CustomVisibility(Authenticated, InstanceQuerysetMixin):
         if result is not None:  # pragma: no cover
             return result
 
-        filtered = CalumaInstanceFilterSet(
-            data=filters(self.request),
-            queryset=self.get_queryset(),
-            request=self.request,
+        instance_ids = list(
+            self._visible_instances_qs(info).values_list("pk", flat=True)
         )
-
-        instance_ids = list(filtered.qs.values_list("pk", flat=True))
 
         setattr(info.context, "_visibility_instances_cache", instance_ids)
         return instance_ids

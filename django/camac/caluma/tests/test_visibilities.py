@@ -903,3 +903,172 @@ def test_publication_visibility(
     assert case_ids == [str(be_instance.case_id)]
     assert document_ids == [str(be_instance.case.document_id)]
     assert work_item_ids == []
+
+
+@pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.parametrize(
+    "filter, variable, param",
+    [
+        ("{caseFamily: $case}", "case", "$case:ID!"),
+        (
+            '{rootCaseMetaValue: {key: "camac-instance-id", value: $instance}}',
+            "instance",
+            "$instance:GenericScalar!",
+        ),
+    ],
+)
+def test_visibility_performance_heuristic_workitems(
+    db,
+    active_inquiry_factory,
+    admin_user,
+    caluma_admin_schema_executor,
+    caluma_admin_user,
+    caluma_workflow_config_be,
+    instance_factory,
+    instance_with_case,
+    role,
+    mocker,
+    #
+    param,
+    filter,
+    variable,
+):
+    mocker.patch("caluma.caluma_core.types.Node.visibility_classes", [CustomVisibility])
+
+    group = admin_user.groups.first()
+    visible_instance = instance_with_case(instance_factory(group=group))
+    not_visible_instance = instance_with_case(instance_factory())
+    active_inquiry_factory(visible_instance, group.service)
+
+    visible_instance.case.meta["camac-instance-id"] = visible_instance.pk
+    visible_instance.case.save()
+
+    for instance in [visible_instance, not_visible_instance]:
+        instance.case.document.answers.create(
+            question_id="is-paper", value="is-paper-no"
+        )
+
+        # complete submit work item, there should now be 4 work items
+        workflow_api.complete_work_item(
+            work_item=instance.case.work_items.get(task_id="submit"),
+            user=caluma_admin_user,
+        )
+
+    query = f"""
+        query({param}) {{
+            allWorkItems(filter: [
+                {filter}
+            ]) {{
+                edges {{
+                    node {{
+                        id
+                    }}
+                }}
+            }}
+        }}
+    """
+
+    possible_vars = {
+        "case": str(visible_instance.case.pk),
+        "instance": str(visible_instance.pk),
+    }
+
+    result = caluma_admin_schema_executor(
+        query, variable_values={variable: possible_vars[variable]}
+    )
+
+    assert not result.errors
+
+    visible_workitems = set(
+        [
+            extract_global_id(edge["node"]["id"])
+            for edge in result.data["allWorkItems"]["edges"]
+        ]
+    )
+    assert (
+        len(visible_workitems) == 6
+    )  # submit, nfd, create-manual-workitem, ebau-number, inquiry (incl. distribution)
+
+
+@pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.parametrize(
+    "filter, variable, param",
+    [
+        ("{rootCase: $case}", "case", "$case:ID!"),
+        (
+            '{metaValue: {key: "camac-instance-id", value: $instance}}',
+            "instance",
+            "$instance:GenericScalar!",
+        ),
+        # The "id" does not trigger the heuristic, as we currently
+        # do not check for the root node type where we look for the
+        # filters.
+        ("{id: $case}", "case", "$case:ID!"),
+    ],
+)
+def test_visibility_performance_heuristic_cases(
+    db,
+    active_inquiry_factory,
+    admin_user,
+    caluma_admin_schema_executor,
+    caluma_admin_user,
+    caluma_workflow_config_be,
+    instance_factory,
+    instance_with_case,
+    role,
+    mocker,
+    #
+    param,
+    filter,
+    variable,
+):
+    mocker.patch("caluma.caluma_core.types.Node.visibility_classes", [CustomVisibility])
+
+    group = admin_user.groups.first()
+    visible_instance = instance_with_case(instance_factory(group=group))
+    not_visible_instance = instance_with_case(instance_factory())
+    active_inquiry_factory(visible_instance, group.service)
+
+    visible_instance.case.meta["camac-instance-id"] = visible_instance.pk
+    visible_instance.case.save()
+
+    for instance in [visible_instance, not_visible_instance]:
+        instance.case.document.answers.create(
+            question_id="is-paper", value="is-paper-no"
+        )
+
+        # complete submit work item, there should now be 4 work items
+        workflow_api.complete_work_item(
+            work_item=instance.case.work_items.get(task_id="submit"),
+            user=caluma_admin_user,
+        )
+
+    query = f"""
+        query({param}) {{
+            allCases(filter: [
+                {filter}
+            ]) {{
+                edges {{
+                    node {{
+                        id
+                    }}
+                }}
+            }}
+        }}
+    """
+
+    possible_vars = {
+        "case": str(visible_instance.case.pk),
+        "instance": str(visible_instance.pk),
+    }
+
+    result = caluma_admin_schema_executor(
+        query, variable_values={variable: possible_vars[variable]}
+    )
+
+    assert not result.errors
+
+    # Note: We can't match exactly the number of cases returned, as the `metaValue`
+    # filter will apply on *any* case, and thus not return the child cases, as
+    # is with the root case filters
+    assert len(result.data["allCases"]["edges"])
