@@ -2,6 +2,7 @@ additional-demand:
   new: "Neue Nachforderung"
   cancel: "Nachforderung abbrechen"
   request: "Anfrage"
+  request-info: "Die Anfrage zur Nachforderung wird direkt den Gesuchstellenden zugestellt. Sofern eine kant. Fachstelle eine Nachforderung auslöst, wird zudem auch die Gemeinde über die Nachforderung informiert."
   answer: "Antwort"
   check: "Prüfung"
   sent-message: "Gesendet am {date}"
