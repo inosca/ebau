@@ -19,7 +19,7 @@ def get_option_label(option: Union[dict, None]) -> Union[str, None]:
     return option.get("label") if option else None
 
 
-def get_person_address_1(person: dict) -> str:
+def get_person_address_1(person: dict, use_representative: bool = False) -> str:
     """Extract the first address line from a person dictionary.
 
     >>> get_person_address_1({
@@ -28,11 +28,15 @@ def get_person_address_1(person: dict) -> str:
     })
     "Test Avenue 10"
     """
+    prefix = "representative_" if use_representative else ""
 
-    return clean_join(person.get("street"), person.get("street_number"))
+    return clean_join(
+        person.get(f"{prefix}street"),
+        person.get(f"{prefix}street_number"),
+    )
 
 
-def get_person_address_2(person):
+def get_person_address_2(person: dict, use_representative: bool = False) -> str:
     """Extract the second address line from a person dictionary.
 
     >>> get_person_address_1({
@@ -41,8 +45,9 @@ def get_person_address_2(person):
     })
     "9999 Testcity"
     """
+    prefix = "representative_" if use_representative else ""
 
-    return clean_join(person.get("zip"), person.get("town"))
+    return clean_join(person.get(f"{prefix}zip"), person.get(f"{prefix}town"))
 
 
 def get_tel_and_email(person):
@@ -53,6 +58,7 @@ def get_person_name(
     person: dict,
     include_name: bool = True,
     include_juristic_name: bool = True,
+    use_representative: bool = False,
 ) -> str:
     """Extract the name from a person dictionary.
 
@@ -65,13 +71,18 @@ def get_person_name(
     "ACME Inc., John Smith"
     """
 
+    prefix = "representative_" if use_representative else ""
     parts = []
 
-    if include_juristic_name and person.get("is_juristic_person"):
-        parts.append(person.get("juristic_name"))
+    if include_juristic_name and person.get(f"{prefix}is_juristic_person"):
+        parts.append(person.get(f"{prefix}juristic_name"))
 
     if include_name:
-        parts.append(clean_join(person.get("first_name"), person.get("last_name")))
+        parts.append(
+            clean_join(
+                person.get(f"{prefix}first_name"), person.get(f"{prefix}last_name")
+            )
+        )
 
     return clean_join(*parts, separator=", ")
 

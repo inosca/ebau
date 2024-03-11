@@ -333,6 +333,55 @@ def test_dms_placeholders_so(
         cost_center=None,
     )
 
+    # Builder
+    utils.add_table_answer(
+        so_instance.case.document,
+        "bauherrin",
+        [
+            {
+                "juristische-person": "juristische-person-nein",
+                "vorname": "Sandra",
+                "nachname": "Bauherrin",
+                "strasse": "Eine Strasse",
+                "strasse-nummer": 13,
+                "plz": 4500,
+                "ort": "Solothurn",
+                "vertretung": "vertretung-ja",
+                "vertretung-vorname": "Judith",
+                "vertretung-nachname": "Vertreterin",
+                "vertretung-strasse": "Teststrasse",
+                "vertretung-nummer": 99,
+                "vertretung-plz": 4702,
+                "vertretung-ort": "Oensingen",
+            },
+            {
+                "juristische-person": "juristische-person-ja",
+                "juristische-person-name": "Test AG",
+                "strasse": "Teststrasse",
+                "strasse-nummer": 41,
+                "plz": 4500,
+                "ort": "Solothurn",
+            },
+            {
+                "juristische-person": "juristische-person-nein",
+                "vorname": "Carl",
+                "nachname": "Builder",
+                "strasse": "Strasse",
+                "strasse-nummer": 1,
+                "plz": 4500,
+                "ort": "Solothurn",
+                "vertretung": "vertretung-ja",
+                "vertretung-vorname": "Max",
+                "vertretung-nachname": "Vertreten",
+                "vertretung-strasse": "Weg",
+                "vertretung-nummer": 7,
+                "vertretung-plz": 2540,
+                "vertretung-ort": "Grenchen",
+            },
+        ],
+        row_form_id="personalien-tabelle",
+    )
+
     # Objection
     objections_work_item = work_item_factory(
         task_id="einsprachen",
@@ -474,8 +523,14 @@ def test_dms_placeholders_so(
     assert response.status_code == status.HTTP_200_OK
 
     checked_keys = [
+        "ALLE_BAUHERREN_VERTRETER_NAME_ADRESSE",
+        "ALLE_BAUHERREN_VERTRETER",
         "ANGEMELDET_EMAIL",
         "ANGEMELDET_NAME",
+        "BAUHERR_VERTRETER_ADRESSE_1",
+        "BAUHERR_VERTRETER_ADRESSE_2",
+        "BAUHERR_VERTRETER_NAME_ADRESSE",
+        "BAUHERR_VERTRETER",
         "EIGENE_GEBUEHREN_TOTAL",
         "EIGENE_GEBUEHREN",
         "EINGEREICHTE_PLAENE",
