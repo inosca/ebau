@@ -820,12 +820,14 @@ class AlexandriaDocumentField(AliasedMixin, serializers.ReadOnlyField):
             created_by = ""
             modified_by = ""
             if not system_generated:
-                created_by = User.objects.get(
+                if created_by_user := User.objects.filter(
                     pk=document.created_by_user
-                ).get_full_name()
-                modified_by = User.objects.get(
+                ).first():
+                    created_by = created_by_user.get_full_name()
+                if modified_by_user := User.objects.filter(
                     pk=document.modified_by_user
-                ).get_full_name()
+                ).first():
+                    modified_by = modified_by_user.get_full_name()
 
             data.append(
                 {
