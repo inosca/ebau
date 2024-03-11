@@ -8,6 +8,7 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
   @service ebauModules;
   @service session;
   @service store;
+  @service fetch;
 
   get currentGroupId() {
     return this.session.service?.id;
@@ -204,6 +205,7 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
       hooks: {
         postCompleteDistribution: () => this.ebauModules.redirectToWorkItems(),
       },
+      inquiryReminderNotificationTemplateSlug: "inquiry-reminder",
     };
   }
 
@@ -224,5 +226,35 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
 
       return { ...(await typed), [type]: result };
     }, Promise.resolve({}));
+  }
+
+  async sendReminderDistributionInquiry(inquiryId) {
+    if (!this.distribution.inquiryReminderNotificationTemplateSlug) {
+      return;
+    }
+
+    await this.fetch.fetch(`/api/v1/notification-templates/sendmail`, {
+      method: "POST",
+      headers: {
+        accept: "application/vnd.api+json",
+        "content-type": "application/vnd.api+json",
+      },
+      body: JSON.stringify({
+        data: {
+          type: "notification-template-sendmails",
+          attributes: {
+            "template-slug":
+              this.distribution.inquiryReminderNotificationTemplateSlug,
+            "recipient-types": ["inquiry_addressed"],
+          },
+          relationships: {
+            instance: {
+              data: { type: "instances", id: this.currentInstanceId },
+            },
+            inquiry: { data: { type: "work-items", id: inquiryId } },
+          },
+        },
+      }),
+    });
   }
 }
