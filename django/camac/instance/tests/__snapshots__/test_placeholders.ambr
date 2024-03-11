@@ -5255,6 +5255,28 @@
         ]),
       }),
     }),
+    'EINSPRACHEN': dict({
+      'aliases': list([
+        dict({
+          'de': 'EINSPRACHEN',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Alle Einsprachen',
+      }),
+      'nested_aliases': dict({
+        'DATUM_POSTSTEMPEL': list([
+          dict({
+            'de': 'DATUM_POSTSTEMPEL',
+          }),
+        ]),
+        'EINSPRECHENDE': list([
+          dict({
+            'de': 'EINSPRECHENDE',
+          }),
+        ]),
+      }),
+    }),
     'EINSPRECHENDE': dict({
       'aliases': list([
         dict({
@@ -7307,6 +7329,10 @@
     'EINGEREICHTE_UNTERLAGEN[].NAME',
     'EINGEREICHTE_UNTERLAGEN[].STICHWORTE',
     'EINGEREICHTE_UNTERLAGEN[].TAGS',
+    'EINSPRACHEN',
+    'EINSPRACHEN[]',
+    'EINSPRACHEN[].DATUM_POSTSTEMPEL',
+    'EINSPRACHEN[].EINSPRECHENDE',
     'EINSPRECHENDE',
     'EINSPRECHENDE[]',
     'EINSPRECHENDE[].ADDRESS',
@@ -8294,6 +8320,16 @@
         ]),
         'TAGS': list([
         ]),
+      }),
+    ]),
+    'EINSPRACHEN': list([
+      dict({
+        'DATUM_POSTSTEMPEL': '12.12.2023',
+        'EINSPRECHENDE': 'Heinz Einsprachenmann',
+      }),
+      dict({
+        'DATUM_POSTSTEMPEL': '22.12.2023',
+        'EINSPRECHENDE': 'Einsprache AG, Sandra Anwältin',
       }),
     ]),
     'EINSPRECHENDE': list([

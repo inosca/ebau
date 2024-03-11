@@ -453,7 +453,19 @@ class InquiriesField(AliasedMixin, serializers.ReadOnlyField):
 
 
 class LegalSubmissionField(AliasedMixin, serializers.ReadOnlyField):
-    def __init__(self, type, *args, **kwargs):
+    def __init__(self, type=None, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        self.type = type
+
+    @property
+    def nested_aliases(self):
+        if settings.APPLICATION_NAME == "kt_so":
+            return {
+                "DATUM_POSTSTEMPEL": [_("DATE_POSTMARK")],
+                "EINSPRECHENDE": [_("OPPOSING")],
+            }
+
         nested_aliases = {
             "DATUM_DOKUMENT": [_("DATE_DOCUMENT")],
             "DATUM_EINGANG": [_("DATE_RECEIPT")],
@@ -461,14 +473,12 @@ class LegalSubmissionField(AliasedMixin, serializers.ReadOnlyField):
             "TITEL": [_("TITLE")],
         }
 
-        if type == "legal-submission-type-objection":
+        if self.type == "legal-submission-type-objection":
             nested_aliases["RUEGEPUNKTE"] = [_("REPRIMANDS")]
         else:
             nested_aliases["ANLIEGEN"] = [_("REQUEST"), _("CONCERN")]
 
-        super().__init__(nested_aliases=nested_aliases, *args, **kwargs)
-
-        self.type = type
+        return nested_aliases
 
     def to_representation(self, value):
         data = []
@@ -477,32 +487,29 @@ class LegalSubmissionField(AliasedMixin, serializers.ReadOnlyField):
             legal_claimants = []
 
             for claimant in find_answer(
-                document, "legal-submission-legal-claimants-table-question"
+                document,
+                settings.PLACEHOLDERS["LEGAL_SUBMISSIONS"][
+                    "LEGAL_CLAIMANTS_TABLE_QUESTION"
+                ],
             ):
-                is_juristic = (
-                    find_answer(
-                        claimant, "juristische-person-gesuchstellerin", raw_value=True
-                    )
-                    == "juristische-person-gesuchstellerin-ja"
-                )
-                name = (
-                    find_answer(claimant, "name-juristische-person-gesuchstellerin")
-                    if is_juristic
-                    else clean_join(
-                        find_answer(claimant, "vorname-gesuchstellerin"),
-                        find_answer(claimant, "name-gesuchstellerin"),
-                    )
-                )
-                legal_claimants.append(name)
+                legal_claimants.append(get_person_name(row_to_person(claimant)))
 
-            legal_submission = {
-                "DATUM_EINGANG": find_answer(document, "legal-submission-receipt-date"),
-                "DATUM_DOKUMENT": find_answer(
-                    document, "legal-submission-document-date"
-                ),
-                "TITEL": find_answer(document, "legal-submission-title"),
-                "RECHTSBEGEHRENDE": clean_join(*legal_claimants, separator=", "),
-            }
+            if settings.APPLICATION_NAME == "kt_bern":
+                legal_submission = {
+                    "DATUM_EINGANG": find_answer(
+                        document, "legal-submission-receipt-date"
+                    ),
+                    "DATUM_DOKUMENT": find_answer(
+                        document, "legal-submission-document-date"
+                    ),
+                    "TITEL": find_answer(document, "legal-submission-title"),
+                    "RECHTSBEGEHRENDE": clean_join(*legal_claimants, separator=", "),
+                }
+            elif settings.APPLICATION_NAME == "kt_so":
+                legal_submission = {
+                    "DATUM_POSTSTEMPEL": find_answer(document, "einsprache-datum"),
+                    "EINSPRECHENDE": clean_join(*legal_claimants, separator=", "),
+                }
 
             if self.type == "legal-submission-type-objection":
                 legal_submission["RUEGEPUNKTE"] = find_answer(
@@ -522,12 +529,13 @@ class LegalSubmissionField(AliasedMixin, serializers.ReadOnlyField):
         return data
 
     def get_attribute(self, instance):
-        return (
-            Document.objects.filter(
-                form_id="legal-submission-form",
-                family__work_item__case__instance=instance,
-            )
-            .filter(
+        queryset = Document.objects.filter(
+            form_id=settings.PLACEHOLDERS["LEGAL_SUBMISSIONS"]["FORM"],
+            family__work_item__case__instance=instance,
+        )
+
+        if self.type:
+            queryset = queryset.filter(
                 Exists(
                     Answer.objects.filter(
                         question_id="legal-submission-type",
@@ -536,8 +544,8 @@ class LegalSubmissionField(AliasedMixin, serializers.ReadOnlyField):
                     )
                 )
             )
-            .prefetch_related("answers")
-        )
+
+        return queryset.prefetch_related("answers").order_by("-answerdocument__sort")
 
 
 class LegalClaimantsField(AliasedMixin, serializers.ReadOnlyField):
