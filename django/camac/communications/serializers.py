@@ -477,6 +477,10 @@ class ConvertToDocumentSerializer(CommunicationsAttachmentSerializer):
                 modified_by_user=user,
                 modified_by_group=group,
             )
+            document.created_at = instance.message.created_at
+            document.save()
+            file.created_at = instance.message.created_at
+            file.save()
             try:
                 file.create_thumbnail()
             except DjangoCoreValidationError:  # pragma: no cover
