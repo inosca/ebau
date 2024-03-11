@@ -1932,7 +1932,7 @@
         }
       },
       "name": "{\"de\": \"Umweltschutzorganisationen\", \"fr\": \"\", \"it\": \"Organizzazioni di protezione ambientale\"}",
-      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"Hier werden Dokumente hochgeladen, welche Umweltschutzorganisationen zug\\u00e4nglich gemacht werden sollen. Dokumente in dieser Kategorie k\\u00f6nnen vom ARE hochgeladen und von USOs eingesehen werden.\", \"fr\": \"\", \"it\": \"\"}",
       "color": "#66CFC9",
       "parent": null
     }
