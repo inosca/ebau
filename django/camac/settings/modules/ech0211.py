@@ -90,6 +90,13 @@ ECH0211 = {
             "ALLOWED_STATES": ["coordination", "circulation"],
             "ONLY_DECLINE": ["circulation_init"],
         },
+        "JUDGEMENT_MAPPING": {
+            "inquiry-answer-status-positive": 1,
+            "inquiry-answer-status-not-involved": 3,
+            "inquiry-answer-status-claim": 4,
+            "inquiry-answer-status-negative": 4,
+            "inquiry-answer-status-unknown": None,
+        },
     },
     "kt_gr": {
         "ENABLED": True,
@@ -141,6 +148,17 @@ ECH0211 = {
         "NOTICE_RULING": {
             "ALLOWED_STATES": ["decision", "circulation"],
             "ONLY_DECLINE": ["distribution-init"],
+        },
+        "JUDGEMENT_MAPPING": {
+            "inquiry-answer-status-approved": 1,
+            "inquiry-answer-status-positive": 1,
+            "inquiry-answer-status-not-involved": 3,
+            "inquiry-answer-status-renounced": 3,
+            "inquiry-answer-status-claim": 4,
+            "inquiry-answer-status-rejected": 4,
+            "inquiry-answer-status-negative": 4,
+            "inquiry-answer-status-written-off": None,
+            "inquiry-answer-status-not-following": None,
         },
     },
 }
