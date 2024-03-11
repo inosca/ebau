@@ -276,7 +276,7 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
         ],
         description={
             "default": _("Name and address of the applicant"),
-            "so": _("Name and address of the builder"),
+            "so": _("Name and address of the first builder"),
         },
     )
     gesuchsteller = fields.MasterDataPersonField(
@@ -290,7 +290,7 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
         ],
         description={
             "default": _("Name of the applicant"),
-            "so": _("Name of the builder"),
+            "so": _("Name of the first builder"),
         },
     )
     grundeigentuemer_address_1 = fields.MasterDataPersonField(
@@ -1526,6 +1526,50 @@ class SoDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         source="full_name",
         aliases=[_("LOGGED_IN_NAME")],
         description=_("Name of the currently logged in user"),
+    )
+    alle_bauherren_vertreter = fields.MasterDataPersonField(
+        source="applicants",
+        use_representative=True,
+        aliases=[_("ALL_BUILDER_REPRESENTATIVES")],
+        description=_("Names of all builder representatives"),
+    )
+    alle_bauherren_vertreter_name_adresse = fields.MasterDataPersonField(
+        source="applicants",
+        use_representative=True,
+        fields="__all__",
+        aliases=[_("ALL_BUILDER_REPRESENTATIVES_NAME_ADDRESS")],
+        description=_("Names and addresses of all builder representatives"),
+    )
+    bauherr_vertreter = fields.MasterDataPersonField(
+        source="applicants",
+        only_first=True,
+        use_representative=True,
+        aliases=[_("BUILDER_REPRESENTATIVE")],
+        description=_("Name of the representative of the first builder"),
+    )
+    bauherr_vertreter_adresse_1 = fields.MasterDataPersonField(
+        source="applicants",
+        only_first=True,
+        use_representative=True,
+        fields=["address_1"],
+        aliases=[_("BUILDER_REPRESENTATIVE_ADDRESS_1")],
+        description=_("Address line 1 of the representative of the first builder"),
+    )
+    bauherr_vertreter_adresse_2 = fields.MasterDataPersonField(
+        source="applicants",
+        only_first=True,
+        use_representative=True,
+        fields=["address_2"],
+        aliases=[_("BUILDER_REPRESENTATIVE_ADDRESS_2")],
+        description=_("Address line 2 of the representative of the first builder"),
+    )
+    bauherr_vertreter_name_adresse = fields.MasterDataPersonField(
+        source="applicants",
+        only_first=True,
+        use_representative=True,
+        fields="__all__",
+        aliases=[_("BUILDER_REPRESENTATIVE_NAME_ADDRESS")],
+        description=_("Name and address of the representative of the first builder"),
     )
 
     class Meta:

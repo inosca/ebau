@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-11 13:12+0100\n"
+"POT-Creation-Date: 2024-03-11 17:30+0100\n"
 "PO-Revision-Date: 2023-12-21 17:01+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -69,9 +69,9 @@ msgid "DEADLINE"
 msgstr "FRIST"
 
 #: camac/instance/placeholders/fields.py:328
-#: camac/instance/placeholders/fields.py:550
-#: camac/instance/placeholders/fields.py:658
-#: camac/instance/placeholders/fields.py:790
+#: camac/instance/placeholders/fields.py:548
+#: camac/instance/placeholders/fields.py:683
+#: camac/instance/placeholders/fields.py:815
 #: camac/instance/placeholders/serializers.py:1515
 msgid "NAME"
 msgstr "NAME"
@@ -132,53 +132,53 @@ msgstr "ANLIEGEN"
 msgid "CONCERN"
 msgstr "ANLIEGEN"
 
-#: camac/instance/placeholders/fields.py:550
+#: camac/instance/placeholders/fields.py:548
 #: camac/instance/placeholders/serializers.py:112
 msgid "ADDRESS"
 msgstr "ADRESSE"
 
-#: camac/instance/placeholders/fields.py:656
+#: camac/instance/placeholders/fields.py:681
 msgid "ADDRESS_1"
 msgstr "ADRESSE_1"
 
-#: camac/instance/placeholders/fields.py:657
+#: camac/instance/placeholders/fields.py:682
 msgid "ADDRESS_2"
 msgstr "ADRESSE_2"
 
-#: camac/instance/placeholders/fields.py:791
+#: camac/instance/placeholders/fields.py:816
 msgid "DESCRIPTION"
 msgstr "BESCHREIBUNG"
 
-#: camac/instance/placeholders/fields.py:792
+#: camac/instance/placeholders/fields.py:817
 msgid "CREATED_AT"
 msgstr "ERSTELLT_AM"
 
-#: camac/instance/placeholders/fields.py:793
+#: camac/instance/placeholders/fields.py:818
 msgid "CREATED_BY"
 msgstr "ERSTELLT_VON"
 
-#: camac/instance/placeholders/fields.py:794
+#: camac/instance/placeholders/fields.py:819
 msgid "MODIFIED_AT"
 msgstr "GEAENDERT_AM"
 
-#: camac/instance/placeholders/fields.py:795
+#: camac/instance/placeholders/fields.py:820
 msgid "MODIFIED_BY"
 msgstr "GEAENDERT_VON"
 
-#: camac/instance/placeholders/fields.py:796
+#: camac/instance/placeholders/fields.py:821
 msgid "CATEGORY"
 msgstr "KATEGORIE"
 
-#: camac/instance/placeholders/fields.py:797
+#: camac/instance/placeholders/fields.py:822
 msgid "MARKS"
 msgstr "MARKIERUNGEN"
 
-#: camac/instance/placeholders/fields.py:798
+#: camac/instance/placeholders/fields.py:823
 #: camac/instance/placeholders/serializers.py:1202
 msgid "TAGS"
 msgstr "STICHWORTE"
 
-#: camac/instance/placeholders/fields.py:874
+#: camac/instance/placeholders/fields.py:899
 #, python-format
 msgid "%(title)s (submitted as %(original_title)s) on %(date)s at %(time)s"
 msgstr "%(title)s (eingereicht als %(original_title)s) am %(date)s um %(time)s"
@@ -396,8 +396,8 @@ msgid "Name and address of the applicant"
 msgstr "Name und Adresse des/r Gesuchsteller/in"
 
 #: camac/instance/placeholders/serializers.py:279
-msgid "Name and address of the builder"
-msgstr "Name und Adresse des/r Bauherr/in"
+msgid "Name and address of the first builder"
+msgstr "Name und Adresse des/r ersten Bauherr/in"
 
 #: camac/instance/placeholders/serializers.py:287
 msgid "APPLICANT"
@@ -412,8 +412,8 @@ msgid "Name of the applicant"
 msgstr "Name des/r Gesuchsteller/in"
 
 #: camac/instance/placeholders/serializers.py:293
-msgid "Name of the builder"
-msgstr "Name des/r Bauherr/in"
+msgid "Name of the first builder"
+msgstr "Name des/r ersten Bauherr/in"
 
 #: camac/instance/placeholders/serializers.py:300
 msgid "LANDOWNER_ADDRESS_1"
@@ -1725,3 +1725,51 @@ msgstr "ANGEMELDET_NAME"
 #: camac/instance/placeholders/serializers.py:1528
 msgid "Name of the currently logged in user"
 msgstr "Name des/r momentan angemeldeten Benutzer/in"
+
+#: camac/instance/placeholders/serializers.py:1533
+msgid "ALL_BUILDER_REPRESENTATIVES"
+msgstr "ALLE_BAUHERREN_VERTRETER"
+
+#: camac/instance/placeholders/serializers.py:1534
+msgid "Names of all builder representatives"
+msgstr "Namen aller Vertreter/innen der Bauherr/innen"
+
+#: camac/instance/placeholders/serializers.py:1540
+msgid "ALL_BUILDER_REPRESENTATIVES_NAME_ADDRESS"
+msgstr "ALLE_BAUHERREN_VERTRETER_NAME_ADRESSE"
+
+#: camac/instance/placeholders/serializers.py:1541
+msgid "Names and addresses of all builder representatives"
+msgstr "Namen und Adressen aller Vertreter/innen der Bauherr/innen"
+
+#: camac/instance/placeholders/serializers.py:1547
+msgid "BUILDER_REPRESENTATIVE"
+msgstr "BAUHERR_VERTRETER"
+
+#: camac/instance/placeholders/serializers.py:1548
+msgid "Name of the representative of the first builder"
+msgstr "Name des/r Vertreter/in des/r ersten Bauherr/in"
+
+#: camac/instance/placeholders/serializers.py:1555
+msgid "BUILDER_REPRESENTATIVE_ADDRESS_1"
+msgstr "BAUHERR_VERTRETER_ADRESSE_1"
+
+#: camac/instance/placeholders/serializers.py:1556
+msgid "Address line 1 of the representative of the first builder"
+msgstr "Adresslinie 1 des/r Vertreter/in des/r ersten Bauherr/in"
+
+#: camac/instance/placeholders/serializers.py:1563
+msgid "BUILDER_REPRESENTATIVE_ADDRESS_2"
+msgstr "BAUHERR_VERTRETER_ADRESSE_2"
+
+#: camac/instance/placeholders/serializers.py:1564
+msgid "Address line 2 of the representative of the first builder"
+msgstr "Adresslinie 2 des/r Vertreter/in des/r ersten Bauherr/in"
+
+#: camac/instance/placeholders/serializers.py:1571
+msgid "BUILDER_REPRESENTATIVE_NAME_ADDRESS"
+msgstr "BAUHERR_VERTRETER_NAME_ADRESSE"
+
+#: camac/instance/placeholders/serializers.py:1572
+msgid "Name and address of the representative of the first builder"
+msgstr "Name und Adresse des/r Vertreter/in des/r ersten Bauherr/in"

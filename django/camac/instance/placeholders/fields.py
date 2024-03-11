@@ -604,12 +604,14 @@ class MasterDataPersonField(MasterDataField):
     def __init__(
         self,
         only_first=False,
+        use_representative=False,
         fields=["juristic_name", "name"],
         **kwargs,
     ):
         super().__init__(**kwargs)
 
         self.only_first = only_first
+        self.use_representative = use_representative
         self.fields = (
             ["juristic_name", "name", "address_1", "address_2"]
             if fields == "__all__"
@@ -617,23 +619,48 @@ class MasterDataPersonField(MasterDataField):
         )
 
     def parse_row(self, row):
+        has_representative = row.get("has_representative", False)
+
+        if self.use_representative and not has_representative:
+            return ""
+
         parts = []
 
         if "juristic_name" in self.fields:
             parts.append(
-                get_person_name(row, include_name=False, include_juristic_name=True)
+                get_person_name(
+                    row,
+                    include_name=False,
+                    include_juristic_name=True,
+                    use_representative=self.use_representative,
+                )
             )
 
         if "name" in self.fields:
             parts.append(
-                get_person_name(row, include_name=True, include_juristic_name=False)
+                get_person_name(
+                    row,
+                    include_name=True,
+                    include_juristic_name=False,
+                    use_representative=self.use_representative,
+                )
             )
 
         if "address_1" in self.fields:
-            parts.append(get_person_address_1(row))
+            parts.append(
+                get_person_address_1(
+                    row,
+                    use_representative=self.use_representative,
+                )
+            )
 
         if "address_2" in self.fields:
-            parts.append(get_person_address_2(row))
+            parts.append(
+                get_person_address_2(
+                    row,
+                    use_representative=self.use_representative,
+                )
+            )
 
         return clean_join(*parts, separator=", ")
 
