@@ -1231,6 +1231,11 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
                 content=pdf,
                 mime_type=pdf.content_type,
                 size=pdf.size,
+                encryption_status=(
+                    settings.ALEXANDRIA_ENCRYPTION_METHOD
+                    if settings.ALEXANDRIA_ENABLE_AT_REST_ENCRYPTION
+                    else None
+                ),
                 created_by_user=request.user.pk,
                 created_by_group=request.group.service_id,
                 modified_by_user=request.user.pk,
