@@ -368,8 +368,8 @@ importers:
         specifier: 3.0.0
         version: 3.0.0
       ember-alexandria:
-        specifier: 7.0.0-beta.6
-        version: 7.0.0-beta.6(@ember-data/store@4.12.5)(@ember/string@3.1.1)(@ember/test-helpers@3.2.1)(@glint/template@1.2.1)(ember-engines@0.9.0)(ember-source@4.12.3)(graphql@15.8.0)(webpack@5.89.0)
+        specifier: 7.0.0
+        version: 7.0.0(@ember-data/store@4.12.5)(@ember/string@3.1.1)(@ember/test-helpers@3.2.1)(@glint/template@1.2.1)(ember-engines@0.9.0)(ember-source@4.12.3)(graphql@15.8.0)(webpack@5.89.0)
       ember-apollo-client:
         specifier: 4.0.2
         version: 4.0.2(@glint/template@1.2.1)(graphql@15.8.0)(webpack@5.89.0)
@@ -923,8 +923,8 @@ importers:
         specifier: 3.0.0
         version: 3.0.0
       ember-alexandria:
-        specifier: 7.0.0-beta.6
-        version: 7.0.0-beta.6(@ember-data/store@4.12.5)(@ember/string@3.1.1)(@ember/test-helpers@3.2.1)(@glint/template@1.2.1)(ember-engines@0.9.0)(ember-source@4.12.3)(graphql@15.8.0)(webpack@5.89.0)
+        specifier: 7.0.0
+        version: 7.0.0(@ember-data/store@4.12.5)(@ember/string@3.1.1)(@ember/test-helpers@3.2.1)(@glint/template@1.2.1)(ember-engines@0.9.0)(ember-source@4.12.3)(graphql@15.8.0)(webpack@5.89.0)
       ember-apollo-client:
         specifier: 4.0.2
         version: 4.0.2(@glint/template@1.2.1)(graphql@15.8.0)(webpack@5.89.0)
@@ -1148,8 +1148,8 @@ importers:
         specifier: 12.8.0
         version: 12.8.0(@glimmer/tracking@1.1.2)(@glint/template@1.2.1)(ember-source@4.12.3)(webpack@5.89.0)
       ember-alexandria:
-        specifier: 7.0.0-beta.6
-        version: 7.0.0-beta.6(@ember-data/store@4.12.5)(@ember/string@3.1.1)(@ember/test-helpers@3.2.1)(@glint/template@1.2.1)(ember-engines@0.9.0)(ember-source@4.12.3)(graphql@15.8.0)(webpack@5.89.0)
+        specifier: 7.0.0
+        version: 7.0.0(@ember-data/store@4.12.5)(@ember/string@3.1.1)(@ember/test-helpers@3.2.1)(@glint/template@1.2.1)(ember-engines@0.9.0)(ember-source@4.12.3)(graphql@15.8.0)(webpack@5.89.0)
       ember-apollo-client:
         specifier: 4.1.1
         version: 4.1.1(@glint/template@1.2.1)(graphql@15.8.0)(webpack@5.89.0)
@@ -4209,8 +4209,8 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
-  /@embroider/macros@1.14.0(@glint/template@1.2.1):
-    resolution: {integrity: sha512-V+jkc8mU6mJ4McW6qdEhCiD74CzMDd1T4CeJ9IkidC3pPwTMRIKJMkbiSnjmGDy7NCxT66XtFwJH7HGM2B/fXA==}
+  /@embroider/macros@1.15.0(@glint/template@1.2.1):
+    resolution: {integrity: sha512-gXh46ZafqYb6AJVoCCaQwYRsqFIwAat/PVCaJgEDKnOgOP/BTyIXwAld0gLZlIgSKkqOccBih83bXMShflKkLg==}
     engines: {node: 12.* || 14.* || >= 16}
     peerDependencies:
       '@glint/template': ^1.0.0
@@ -4218,11 +4218,12 @@ packages:
       '@glint/template':
         optional: true
     dependencies:
+      '@babel/core': 7.24.0
       '@embroider/shared-internals': 2.5.2
       '@glint/template': 1.2.1
       assert-never: 1.2.1
       babel-import-util: 2.0.1
-      ember-cli-babel: 7.26.11
+      ember-cli-babel: 8.2.0(@babel/core@7.24.0)
       find-up: 5.0.0
       lodash: 4.17.21
       resolve: 1.22.8
@@ -8286,8 +8287,8 @@ packages:
   /electron-to-chromium@1.4.615:
     resolution: {integrity: sha512-/bKPPcgZVUziECqDc+0HkT87+0zhaWSZHNXqF8FLd2lQcptpmUFwoCSWjCdOng9Gdq+afKArPdEg/0ZW461Eng==}
 
-  /ember-alexandria@7.0.0-beta.6(@ember-data/store@4.12.5)(@ember/string@3.1.1)(@ember/test-helpers@3.2.1)(@glint/template@1.2.1)(ember-engines@0.9.0)(ember-source@4.12.3)(graphql@15.8.0)(webpack@5.89.0):
-    resolution: {integrity: sha512-SruoZjAmMVmrDlDrr/4+JG0J0W5phMFoiteGHw3lzVXcvKsXwaT51J+K2tRCuuBwvbqha8SCiWaUtLBTMmGDYw==}
+  /ember-alexandria@7.0.0(@ember-data/store@4.12.5)(@ember/string@3.1.1)(@ember/test-helpers@3.2.1)(@glint/template@1.2.1)(ember-engines@0.9.0)(ember-source@4.12.3)(graphql@15.8.0)(webpack@5.89.0):
+    resolution: {integrity: sha512-9Dp9ED9GivhZ//BLwW4a7Yq4awuSFn0kwUAEivcLa9ihgsve52HD7CPYCxTVeZ9iYdMA5elk5kFDAk2GkoDwqA==}
     engines: {node: '>= 18'}
     peerDependencies:
       ember-engines: ^0.9.0
@@ -8297,7 +8298,7 @@ packages:
       '@ember/legacy-built-in-components': 0.5.0(@glint/template@1.2.1)(ember-source@4.12.3)
       '@ember/optional-features': 2.1.0
       '@ember/render-modifiers': 2.1.0(@babel/core@7.24.0)(@glint/template@1.2.1)(ember-source@4.12.3)
-      '@embroider/macros': 1.14.0(@glint/template@1.2.1)
+      '@embroider/macros': 1.15.0(@glint/template@1.2.1)
       '@fortawesome/ember-fontawesome': 2.0.0(@glint/template@1.2.1)(ember-source@4.12.3)(webpack@5.89.0)
       '@fortawesome/free-regular-svg-icons': 6.5.1
       '@fortawesome/free-solid-svg-icons': 6.5.1
@@ -8307,6 +8308,7 @@ packages:
       ember-auto-import: 2.7.2(@glint/template@1.2.1)(webpack@5.89.0)
       ember-cli-babel: 8.2.0(@babel/core@7.24.0)
       ember-cli-htmlbars: 6.3.0
+      ember-cli-showdown: 7.0.0(@glint/template@1.2.1)(ember-source@4.12.3)(webpack@5.89.0)
       ember-composable-helpers: 5.0.0
       ember-concurrency: 3.1.1(@babel/core@7.24.0)(ember-source@4.12.3)
       ember-data: 4.12.5(@babel/core@7.24.0)(@ember/string@3.1.1)(@glimmer/tracking@1.1.2)(@glint/template@1.2.1)(ember-source@4.12.3)(webpack@5.89.0)
