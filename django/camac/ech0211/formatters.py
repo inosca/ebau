@@ -596,14 +596,6 @@ def accompanying_report(
     attachments: List[Attachment],
     inquiry: WorkItem,
 ):
-    judgement_mapping = {
-        settings.DISTRIBUTION["ANSWERS"]["STATUS"]["POSITIVE"]: 1,
-        settings.DISTRIBUTION["ANSWERS"]["STATUS"]["NEGATIVE"]: 4,
-        settings.DISTRIBUTION["ANSWERS"]["STATUS"]["NOT_INVOLVED"]: 1,
-        settings.DISTRIBUTION["ANSWERS"]["STATUS"]["CLAIM"]: 4,
-        settings.DISTRIBUTION["ANSWERS"]["STATUS"]["UNKNOWN"]: None,
-    }
-
     status = inquiry.child_case.document.answers.get(
         question_id=settings.DISTRIBUTION["QUESTIONS"]["STATUS"]
     )
@@ -632,7 +624,7 @@ def accompanying_report(
                 settings.DISTRIBUTION["QUESTIONS"]["ANCILLARY_CLAUSES"],
             )
         ),
-        judgement=judgement_mapping.get(status.value),
+        judgement=settings.ECH0211["JUDGEMENT_MAPPING"].get(status.value),
     )
 
 

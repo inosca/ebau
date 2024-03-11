@@ -601,6 +601,15 @@ DISTRIBUTION = {
             "uso": 7,
             "authority-bab": 90,
         },
+        "ANSWERS": {
+            "STATUS": {
+                "POSITIVE": "inquiry-answer-status-positive",
+                "NEGATIVE": "inquiry-answer-status-negative",
+                "NOT_INVOLVED": "inquiry-answer-status-not-involved",
+                "CLAIM": "inquiry-answer-status-claim",
+                "UNKNOWN": "inquiry-answer-status-unknown",
+            },
+        },
     },
     "kt_so": {
         "ENABLED": True,

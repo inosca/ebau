@@ -85,6 +85,10 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
     "inquiry-answer-status-not-involved": INQUIRY_STATUS.POSITIVE,
     "inquiry-answer-status-following": INQUIRY_STATUS.POSITIVE,
     "inquiry-answer-status-renounced": INQUIRY_STATUS.POSITIVE,
+    "inquiry-answer-status-unknown": {
+      icon: "question",
+      color: "emphasis",
+    },
   };
   static distributionStatusMappingSO = {
     "inquiry-answer-status-positive": INQUIRY_STATUS.POSITIVE,
