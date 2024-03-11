@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-11 10:31+0100\n"
+"POT-Creation-Date: 2024-03-11 13:12+0100\n"
 "PO-Revision-Date: 2023-12-21 17:01+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -69,10 +69,10 @@ msgid "DEADLINE"
 msgstr "FRIST"
 
 #: camac/instance/placeholders/fields.py:328
-#: camac/instance/placeholders/fields.py:540
-#: camac/instance/placeholders/fields.py:648
-#: camac/instance/placeholders/fields.py:780
-#: camac/instance/placeholders/serializers.py:1511
+#: camac/instance/placeholders/fields.py:550
+#: camac/instance/placeholders/fields.py:658
+#: camac/instance/placeholders/fields.py:790
+#: camac/instance/placeholders/serializers.py:1515
 msgid "NAME"
 msgstr "NAME"
 
@@ -93,82 +93,92 @@ msgstr "TEXT"
 msgid "BY"
 msgstr "VON"
 
-#: camac/instance/placeholders/fields.py:452
+#: camac/instance/placeholders/fields.py:459
+msgid "DATE_POSTMARK"
+msgstr "DATUM_POSTSTEMPEL"
+
+#: camac/instance/placeholders/fields.py:460
+#: camac/instance/placeholders/serializers.py:1085
+#: camac/instance/placeholders/serializers.py:1475
+msgid "OPPOSING"
+msgstr "EINSPRECHENDE"
+
+#: camac/instance/placeholders/fields.py:464
 msgid "DATE_DOCUMENT"
 msgstr "DATUM_DOKUMENT"
 
-#: camac/instance/placeholders/fields.py:453
+#: camac/instance/placeholders/fields.py:465
 msgid "DATE_RECEIPT"
 msgstr "DATUM_EINGANG"
 
-#: camac/instance/placeholders/fields.py:454
+#: camac/instance/placeholders/fields.py:466
 #: camac/instance/placeholders/serializers.py:1099
 msgid "LEGAL_CLAIMANTS"
 msgstr "RECHTSBEGEHRENDE"
 
-#: camac/instance/placeholders/fields.py:455
+#: camac/instance/placeholders/fields.py:467
 msgid "TITLE"
 msgstr "TITEL"
 
-#: camac/instance/placeholders/fields.py:459
+#: camac/instance/placeholders/fields.py:471
 msgid "REPRIMANDS"
 msgstr "RUEGEPUNKTE"
 
-#: camac/instance/placeholders/fields.py:461
+#: camac/instance/placeholders/fields.py:473
 msgid "REQUEST"
 msgstr "ANLIEGEN"
 
-#: camac/instance/placeholders/fields.py:461
+#: camac/instance/placeholders/fields.py:473
 msgid "CONCERN"
 msgstr "ANLIEGEN"
 
-#: camac/instance/placeholders/fields.py:540
+#: camac/instance/placeholders/fields.py:550
 #: camac/instance/placeholders/serializers.py:112
 msgid "ADDRESS"
 msgstr "ADRESSE"
 
-#: camac/instance/placeholders/fields.py:646
+#: camac/instance/placeholders/fields.py:656
 msgid "ADDRESS_1"
 msgstr "ADRESSE_1"
 
-#: camac/instance/placeholders/fields.py:647
+#: camac/instance/placeholders/fields.py:657
 msgid "ADDRESS_2"
 msgstr "ADRESSE_2"
 
-#: camac/instance/placeholders/fields.py:781
+#: camac/instance/placeholders/fields.py:791
 msgid "DESCRIPTION"
 msgstr "BESCHREIBUNG"
 
-#: camac/instance/placeholders/fields.py:782
+#: camac/instance/placeholders/fields.py:792
 msgid "CREATED_AT"
 msgstr "ERSTELLT_AM"
 
-#: camac/instance/placeholders/fields.py:783
+#: camac/instance/placeholders/fields.py:793
 msgid "CREATED_BY"
 msgstr "ERSTELLT_VON"
 
-#: camac/instance/placeholders/fields.py:784
+#: camac/instance/placeholders/fields.py:794
 msgid "MODIFIED_AT"
 msgstr "GEAENDERT_AM"
 
-#: camac/instance/placeholders/fields.py:785
+#: camac/instance/placeholders/fields.py:795
 msgid "MODIFIED_BY"
 msgstr "GEAENDERT_VON"
 
-#: camac/instance/placeholders/fields.py:786
+#: camac/instance/placeholders/fields.py:796
 msgid "CATEGORY"
 msgstr "KATEGORIE"
 
-#: camac/instance/placeholders/fields.py:787
+#: camac/instance/placeholders/fields.py:797
 msgid "MARKS"
 msgstr "MARKIERUNGEN"
 
-#: camac/instance/placeholders/fields.py:788
+#: camac/instance/placeholders/fields.py:798
 #: camac/instance/placeholders/serializers.py:1202
 msgid "TAGS"
 msgstr "STICHWORTE"
 
-#: camac/instance/placeholders/fields.py:864
+#: camac/instance/placeholders/fields.py:874
 #, python-format
 msgid "%(title)s (submitted as %(original_title)s) on %(date)s at %(time)s"
 msgstr "%(title)s (eingereicht als %(original_title)s) am %(date)s um %(time)s"
@@ -895,12 +905,12 @@ msgid "End date of the publication in the cantonal Gazette"
 msgstr "Enddatum der Publikation im Kantonsamtsblatt"
 
 #: camac/instance/placeholders/serializers.py:727
-#: camac/instance/placeholders/serializers.py:1480
+#: camac/instance/placeholders/serializers.py:1484
 msgid "DECISION_DOCUMENTS"
 msgstr "ENTSCHEIDDOKUMENTE"
 
 #: camac/instance/placeholders/serializers.py:728
-#: camac/instance/placeholders/serializers.py:1481
+#: camac/instance/placeholders/serializers.py:1485
 msgid "All documents marked as decision documents"
 msgstr "Alle Dokumente die als Entscheiddokument markiert wurden"
 
@@ -1225,17 +1235,13 @@ msgid "NEIGHBORS"
 msgstr "ALLE_NACHBARN"
 
 #: camac/instance/placeholders/serializers.py:1080
+#: camac/instance/placeholders/serializers.py:1479
 msgid "OBJECTIONS"
 msgstr "EINSPRACHEN"
 
 #: camac/instance/placeholders/serializers.py:1081
 msgid "All legal submissions of the type \"objection\""
 msgstr "Alle Rechtsbegehren vom Typ \"Einsprache\""
-
-#: camac/instance/placeholders/serializers.py:1085
-#: camac/instance/placeholders/serializers.py:1475
-msgid "OPPOSING"
-msgstr "EINSPRECHENDE"
 
 #: camac/instance/placeholders/serializers.py:1086
 #: camac/instance/placeholders/serializers.py:1476
@@ -1664,54 +1670,58 @@ msgstr "Datum der Publikation im Anzeiger"
 msgid "PUBLICATION_DATE_OFFICIAL_GAZETTE"
 msgstr "PUBLIKATION_AMTSBLATT"
 
-#: camac/instance/placeholders/serializers.py:1486
+#: camac/instance/placeholders/serializers.py:1480
+msgid "All objections"
+msgstr "Alle Einsprachen"
+
+#: camac/instance/placeholders/serializers.py:1490
 msgid "SUBMITTED_DOCUMENTS"
 msgstr "EINGEREICHTE_UNTERLAGEN"
 
-#: camac/instance/placeholders/serializers.py:1487
+#: camac/instance/placeholders/serializers.py:1491
 msgid "All submitted documents"
 msgstr "Alle eingereichten Unterlagen"
 
-#: camac/instance/placeholders/serializers.py:1491
+#: camac/instance/placeholders/serializers.py:1495
 msgid "SUBMITTED_PLANS"
 msgstr "EINGEREICHTE_PLAENE"
 
-#: camac/instance/placeholders/serializers.py:1492
+#: camac/instance/placeholders/serializers.py:1496
 msgid "All submitted plans"
 msgstr "Alle eingereichten Pläne"
 
-#: camac/instance/placeholders/serializers.py:1496
+#: camac/instance/placeholders/serializers.py:1500
 msgid "LAND_USE_PLANNING_LAND_USE"
 msgstr "NUTZUNGSPLANUNG_GRUNDNUTZUNG"
 
-#: camac/instance/placeholders/serializers.py:1497
+#: camac/instance/placeholders/serializers.py:1501
 msgid "Land use planning (land use)"
 msgstr "Nutzungsplanung (Grundnutzung)"
 
-#: camac/instance/placeholders/serializers.py:1509
+#: camac/instance/placeholders/serializers.py:1513
 msgid "PUBLICATION_ORGAN"
 msgstr "PUBLIKATION_ORGAN"
 
-#: camac/instance/placeholders/serializers.py:1512
+#: camac/instance/placeholders/serializers.py:1516
 msgid "EMAIL"
 msgstr "EMAIL"
 
-#: camac/instance/placeholders/serializers.py:1514
+#: camac/instance/placeholders/serializers.py:1518
 msgid "Publication organ of the instance"
 msgstr "Publikationsorgan des Dossiers"
 
-#: camac/instance/placeholders/serializers.py:1518
+#: camac/instance/placeholders/serializers.py:1522
 msgid "LOGGED_IN_EMAIL"
 msgstr "ANGEMELDET_EMAIL"
 
-#: camac/instance/placeholders/serializers.py:1519
+#: camac/instance/placeholders/serializers.py:1523
 msgid "Email address of the currently logged in user"
 msgstr "Email-Adresse des/r momentan angemeldeten Benutzer/in"
 
-#: camac/instance/placeholders/serializers.py:1523
+#: camac/instance/placeholders/serializers.py:1527
 msgid "LOGGED_IN_NAME"
 msgstr "ANGEMELDET_NAME"
 
-#: camac/instance/placeholders/serializers.py:1524
+#: camac/instance/placeholders/serializers.py:1528
 msgid "Name of the currently logged in user"
 msgstr "Name des/r momentan angemeldeten Benutzer/in"

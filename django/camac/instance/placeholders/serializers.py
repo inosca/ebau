@@ -1475,6 +1475,10 @@ class SoDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         aliases=[_("OPPOSING")],
         description=_("Opposing with address"),
     )
+    einsprachen = fields.LegalSubmissionField(
+        aliases=[_("OBJECTIONS")],
+        description=_("All objections"),
+    )
     entscheiddokumente = fields.AlexandriaDocumentField(
         mark="decision",
         aliases=[_("DECISION_DOCUMENTS")],

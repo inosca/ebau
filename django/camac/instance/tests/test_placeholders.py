@@ -350,11 +350,10 @@ def test_dms_placeholders_so(
         row_form_id="einsprache",
     )
 
-    objection1 = table_answer.documents.first()
-    objection2 = table_answer.documents.last()
+    objections = table_answer.answerdocument_set.order_by("-sort")
 
     utils.add_table_answer(
-        objection1,
+        objections.first().document,
         "einsprache-einsprechende",
         [
             {
@@ -371,7 +370,7 @@ def test_dms_placeholders_so(
     )
 
     utils.add_table_answer(
-        objection2,
+        objections.last().document,
         "einsprache-einsprechende",
         [
             {
@@ -481,6 +480,7 @@ def test_dms_placeholders_so(
         "EIGENE_GEBUEHREN",
         "EINGEREICHTE_PLAENE",
         "EINGEREICHTE_UNTERLAGEN",
+        "EINSPRACHEN",
         "EINSPRECHENDE",
         "ENTSCHEIDDOKUMENTE",
         "GEBUEHREN_TOTAL",
