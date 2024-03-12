@@ -4941,6 +4941,30 @@
       'nested_aliases': dict({
       }),
     }),
+    'ALLE_BAUHERREN_VERTRETER': dict({
+      'aliases': list([
+        dict({
+          'de': 'ALLE_BAUHERREN_VERTRETER',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Namen aller Vertreter/innen der Bauherr/innen',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'ALLE_BAUHERREN_VERTRETER_NAME_ADRESSE': dict({
+      'aliases': list([
+        dict({
+          'de': 'ALLE_BAUHERREN_VERTRETER_NAME_ADRESSE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Namen und Adressen aller Vertreter/innen der Bauherr/innen',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
     'ALLE_GESUCHSTELLER': dict({
       'aliases': list([
         dict({
@@ -5013,6 +5037,30 @@
       'nested_aliases': dict({
       }),
     }),
+    'ANGEMELDET_EMAIL': dict({
+      'aliases': list([
+        dict({
+          'de': 'ANGEMELDET_EMAIL',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Email-Adresse des/r momentan angemeldeten Benutzer/in',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'ANGEMELDET_NAME': dict({
+      'aliases': list([
+        dict({
+          'de': 'ANGEMELDET_NAME',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Name des/r momentan angemeldeten Benutzer/in',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
     'BASE_URL': dict({
       'aliases': list([
         dict({
@@ -5033,6 +5081,54 @@
       ]),
       'description': dict({
         'de': 'Datum an dem das Dossier eingereicht wurde',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'BAUHERR_VERTRETER': dict({
+      'aliases': list([
+        dict({
+          'de': 'BAUHERR_VERTRETER',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Name des/r Vertreter/in des/r ersten Bauherr/in',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'BAUHERR_VERTRETER_ADRESSE_1': dict({
+      'aliases': list([
+        dict({
+          'de': 'BAUHERR_VERTRETER_ADRESSE_1',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Adresslinie 1 des/r Vertreter/in des/r ersten Bauherr/in',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'BAUHERR_VERTRETER_ADRESSE_2': dict({
+      'aliases': list([
+        dict({
+          'de': 'BAUHERR_VERTRETER_ADRESSE_2',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Adresslinie 2 des/r Vertreter/in des/r ersten Bauherr/in',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'BAUHERR_VERTRETER_NAME_ADRESSE': dict({
+      'aliases': list([
+        dict({
+          'de': 'BAUHERR_VERTRETER_NAME_ADRESSE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Name und Adresse des/r Vertreter/in des/r ersten Bauherr/in',
       }),
       'nested_aliases': dict({
       }),
@@ -5227,6 +5323,28 @@
         'TAGS': list([
           dict({
             'de': 'STICHWORTE',
+          }),
+        ]),
+      }),
+    }),
+    'EINSPRACHEN': dict({
+      'aliases': list([
+        dict({
+          'de': 'EINSPRACHEN',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Alle Einsprachen',
+      }),
+      'nested_aliases': dict({
+        'DATUM_POSTSTEMPEL': list([
+          dict({
+            'de': 'DATUM_POSTSTEMPEL',
+          }),
+        ]),
+        'EINSPRECHENDE': list([
+          dict({
+            'de': 'EINSPRECHENDE',
           }),
         ]),
       }),
@@ -5468,7 +5586,7 @@
         }),
       ]),
       'description': dict({
-        'de': 'Name des/r Bauherr/in',
+        'de': 'Name des/r ersten Bauherr/in',
       }),
       'nested_aliases': dict({
       }),
@@ -5504,7 +5622,7 @@
         }),
       ]),
       'description': dict({
-        'de': 'Name und Adresse des/r Bauherr/in',
+        'de': 'Name und Adresse des/r ersten Bauherr/in',
       }),
       'nested_aliases': dict({
       }),
@@ -7215,6 +7333,8 @@
     'ADRESSE',
     'ALLE_BAUHERREN',
     'ALLE_BAUHERREN_NAME_ADRESSE',
+    'ALLE_BAUHERREN_VERTRETER',
+    'ALLE_BAUHERREN_VERTRETER_NAME_ADRESSE',
     'ALLE_GESUCHSTELLER',
     'ALLE_GESUCHSTELLER_NAME_ADDRESS',
     'ALLE_GRUNDEIGENTUEMER',
@@ -7223,6 +7343,8 @@
     'ALLE_PROJEKTVERFASSER',
     'ALLE_PROJEKTVERFASSER_NAME_ADDRESS',
     'ALLE_PROJEKTVERFASSER_NAME_ADRESSE',
+    'ANGEMELDET_EMAIL',
+    'ANGEMELDET_NAME',
     'BASE_URL',
     'BAUEINGABE_DATUM',
     'BAUENTSCHEID_DATUM',
@@ -7230,6 +7352,10 @@
     'BAUHERR_ADRESSE_1',
     'BAUHERR_ADRESSE_2',
     'BAUHERR_NAME_ADRESSE',
+    'BAUHERR_VERTRETER',
+    'BAUHERR_VERTRETER_ADRESSE_1',
+    'BAUHERR_VERTRETER_ADRESSE_2',
+    'BAUHERR_VERTRETER_NAME_ADRESSE',
     'BESCHREIBUNG_BAUVORHABEN',
     'DECISION_DATE',
     'DOSSIER_NUMBER',
@@ -7281,6 +7407,10 @@
     'EINGEREICHTE_UNTERLAGEN[].NAME',
     'EINGEREICHTE_UNTERLAGEN[].STICHWORTE',
     'EINGEREICHTE_UNTERLAGEN[].TAGS',
+    'EINSPRACHEN',
+    'EINSPRACHEN[]',
+    'EINSPRACHEN[].DATUM_POSTSTEMPEL',
+    'EINSPRACHEN[].EINSPRECHENDE',
     'EINSPRECHENDE',
     'EINSPRECHENDE[]',
     'EINSPRECHENDE[].ADDRESS',
@@ -8162,6 +8292,14 @@
 # ---
 # name: test_dms_placeholders_so[Municipality]
   dict({
+    'ALLE_BAUHERREN_VERTRETER': 'Judith Vertreterin, Max Vertreten',
+    'ALLE_BAUHERREN_VERTRETER_NAME_ADRESSE': 'Judith Vertreterin, Teststrasse 99, 4702 Oensingen, Max Vertreten, Weg 7, 2540 Grenchen',
+    'ANGEMELDET_EMAIL': 'admin@example.com',
+    'ANGEMELDET_NAME': 'Admin User',
+    'BAUHERR_VERTRETER': 'Judith Vertreterin',
+    'BAUHERR_VERTRETER_ADRESSE_1': 'Teststrasse 99',
+    'BAUHERR_VERTRETER_ADRESSE_2': '4702 Oensingen',
+    'BAUHERR_VERTRETER_NAME_ADRESSE': 'Judith Vertreterin, Teststrasse 99, 4702 Oensingen',
     'EIGENE_GEBUEHREN': list([
       dict({
         'BETRAG': '553.25',
@@ -8179,17 +8317,11 @@
     'EIGENE_GEBUEHREN_TOTAL': '629.76',
     'EINGEREICHTE_PLAENE': list([
       dict({
-        'BESCHREIBUNG': '''
-          Office quality large nor human law large. Concern house while chance conference sometimes.
-          Camera turn budget health politics. Possible Mrs prevent woman seven often. Six husband soon.
-        ''',
+        'BESCHREIBUNG': 'Participant among sound than growth may. Gas than use I serious.',
         'CATEGORY': 'beilagen-zum-gesuch-projektplaene-projektbeschrieb',
         'CREATED_AT': '18.01.2024 13:37',
         'CREATED_BY': 'Admin User',
-        'DESCRIPTION': '''
-          Office quality large nor human law large. Concern house while chance conference sometimes.
-          Camera turn budget health politics. Possible Mrs prevent woman seven often. Six husband soon.
-        ''',
+        'DESCRIPTION': 'Participant among sound than growth may. Gas than use I serious.',
         'ERSTELLT_AM': '18.01.2024 13:37',
         'ERSTELLT_VON': 'Admin User',
         'GEAENDERT_AM': '18.01.2024 13:37',
@@ -8211,15 +8343,15 @@
     'EINGEREICHTE_UNTERLAGEN': list([
       dict({
         'BESCHREIBUNG': '''
-          Bank gas color approach identify send. Kid argue service yeah.
-          Despite certain remember so view forward political lead. Daughter red measure treatment. Stop life paper free per.
+          Ahead will moment PM current happen turn. Then situation rise Mrs. Yourself college clearly hotel.
+          Business per radio customer. Resource require pattern just break around.
         ''',
         'CATEGORY': 'beilagen-zum-gesuch',
         'CREATED_AT': '18.01.2024 13:37',
         'CREATED_BY': 'Admin User',
         'DESCRIPTION': '''
-          Bank gas color approach identify send. Kid argue service yeah.
-          Despite certain remember so view forward political lead. Daughter red measure treatment. Stop life paper free per.
+          Ahead will moment PM current happen turn. Then situation rise Mrs. Yourself college clearly hotel.
+          Business per radio customer. Resource require pattern just break around.
         ''',
         'ERSTELLT_AM': '18.01.2024 13:37',
         'ERSTELLT_VON': 'Admin User',
@@ -8239,17 +8371,11 @@
         ]),
       }),
       dict({
-        'BESCHREIBUNG': '''
-          Office quality large nor human law large. Concern house while chance conference sometimes.
-          Camera turn budget health politics. Possible Mrs prevent woman seven often. Six husband soon.
-        ''',
+        'BESCHREIBUNG': 'Participant among sound than growth may. Gas than use I serious.',
         'CATEGORY': 'beilagen-zum-gesuch-projektplaene-projektbeschrieb',
         'CREATED_AT': '18.01.2024 13:37',
         'CREATED_BY': 'Admin User',
-        'DESCRIPTION': '''
-          Office quality large nor human law large. Concern house while chance conference sometimes.
-          Camera turn budget health politics. Possible Mrs prevent woman seven often. Six husband soon.
-        ''',
+        'DESCRIPTION': 'Participant among sound than growth may. Gas than use I serious.',
         'ERSTELLT_AM': '18.01.2024 13:37',
         'ERSTELLT_VON': 'Admin User',
         'GEAENDERT_AM': '18.01.2024 13:37',
@@ -8268,6 +8394,16 @@
         ]),
       }),
     ]),
+    'EINSPRACHEN': list([
+      dict({
+        'DATUM_POSTSTEMPEL': '12.12.2023',
+        'EINSPRECHENDE': 'Heinz Einsprachenmann',
+      }),
+      dict({
+        'DATUM_POSTSTEMPEL': '22.12.2023',
+        'EINSPRECHENDE': 'Einsprache AG, Sandra Anwältin',
+      }),
+    ]),
     'EINSPRECHENDE': list([
       dict({
         'ADDRESS': 'Beispielstrasse 1, 4321 Beispieldorf',
@@ -8282,17 +8418,11 @@
     ]),
     'ENTSCHEIDDOKUMENTE': list([
       dict({
-        'BESCHREIBUNG': '''
-          Job easy win he car short. Final paper subject newspaper over wall political nothing.
-          Explain religious class property building identify. Place travel without.
-        ''',
+        'BESCHREIBUNG': 'Suggest remain kid child life. Power together imagine put away.',
         'CATEGORY': 'beteiligte-behoerden',
         'CREATED_AT': '18.01.2024 13:37',
         'CREATED_BY': 'Admin User',
-        'DESCRIPTION': '''
-          Job easy win he car short. Final paper subject newspaper over wall political nothing.
-          Explain religious class property building identify. Place travel without.
-        ''',
+        'DESCRIPTION': 'Suggest remain kid child life. Power together imagine put away.',
         'ERSTELLT_AM': '18.01.2024 13:37',
         'ERSTELLT_VON': 'Admin User',
         'GEAENDERT_AM': '18.01.2024 13:37',
