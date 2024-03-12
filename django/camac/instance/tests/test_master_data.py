@@ -553,6 +553,16 @@ def so_master_data_case(
                 "land": "Schweiz",
                 "email": "max.mustermann@acme.com",
                 "telefon": "012 345 67 89",
+                "vertretung": "vertretung-ja",
+                "vertretung-nachname": "Meier",
+                "vertretung-vorname": "Hans",
+                "vertretung-strasse": "Strasse",
+                "vertretung-nummer": 55,
+                "vertretung-plz": 4500,
+                "vertretung-ort": "Solothurn",
+                "vertretung-land": "Schweiz",
+                "vertretung-e-mail": "hans.meier@vertretung.ch",
+                "vertretung-telefon": "013 333 33 33",
             }
         ],
     )

@@ -23,6 +23,29 @@ SO_PERSONAL_DATA_MAPPING = {
         },
     ),
     "juristic_name": "juristische-person-name",
+    "has_representative": (
+        "vertretung",
+        {
+            "value_parser": (
+                "value_mapping",
+                {
+                    "mapping": {
+                        "vertretung-ja": True,
+                        "vertretung-nein": False,
+                    }
+                },
+            )
+        },
+    ),
+    "representative_last_name": "vertretung-nachname",
+    "representative_first_name": "vertretung-vorname",
+    "representative_street": "vertretung-strasse",
+    "representative_street_number": "vertretung-nummer",
+    "representative_zip": "vertretung-plz",
+    "representative_town": "vertretung-ort",
+    "representative_country": "vertretung-land",
+    "representative_email": "vertretung-e-mail",
+    "representative_tel": "vertretung-telefon",
 }
 
 
