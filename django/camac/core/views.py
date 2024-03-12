@@ -438,23 +438,23 @@ class WorkflowEntryView(ReadOnlyModelViewSet, InstanceQuerysetMixin):
 
 class ResourceView(ReadOnlyModelViewSet):
     serializer_class = serializers.ResourceSerializer
+    queryset = models.Resource.objects.filter(hidden=False).order_by("sort")
+
+    prefetch_for_includes = {"__all__": ["trans"]}
 
     def get_queryset(self):
-        return models.Resource.objects.filter(
-            hidden=False, role_acls__role=self.request.group.role
-        ).order_by("sort")
+        return super().get_queryset().filter(role_acls__role=self.request.group.role)
 
 
 class InstanceResourceView(ReadOnlyModelViewSet):
     serializer_class = serializers.InstanceResourceSerializer
     filterset_class = filters.InstanceResourceFilterSet
+    queryset = (
+        models.InstanceResource.objects.filter(hidden=False).distinct().order_by("sort")
+    )
 
-    def get_queryset(self):
-        return (
-            models.InstanceResource.objects.filter(hidden=False)
-            .distinct()
-            .order_by("sort")
-        )
+    select_for_includes = {"__all__": ["ir_taskform", "resource", "form_group"]}
+    prefetch_for_includes = {"__all__": ["trans"]}
 
 
 class StaticContentView(ModelViewSet):
