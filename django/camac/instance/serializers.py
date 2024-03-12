@@ -6,6 +6,7 @@ from io import StringIO
 from logging import getLogger
 
 from alexandria.core import models as alexandria_models
+from alexandria.core.api import create_document_file as create_alexandria_document_file
 from caluma.caluma_form import models as form_models
 from caluma.caluma_form.validators import CustomValidationError, DocumentValidator
 from caluma.caluma_workflow import api as workflow_api, models as workflow_models
@@ -1213,35 +1214,22 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
 
         target_lookup = self._get_pdf_section(instance, form_slug)
         if settings.APPLICATION["DOCUMENT_BACKEND"] == "alexandria":
-            document = alexandria_models.Document.objects.create(
-                title=pdf.name,
+            create_alexandria_document_file(
+                user=request.user.pk,
+                group=request.group.service_id,
                 category=alexandria_models.Category.objects.get(pk=target_lookup),
-                metainfo={
-                    "camac-instance-id": str(instance.pk),
-                    "system-generated": True,
-                },
-                created_by_user=request.user.pk,
-                created_by_group=request.group.service_id,
-                modified_by_user=request.user.pk,
-                modified_by_group=request.group.service_id,
-            )
-            file = alexandria_models.File.objects.create(
-                name=pdf.name,
-                document=document,
-                content=pdf,
+                document_title=pdf.name,
+                file_name=pdf.name,
+                file_content=pdf,
                 mime_type=pdf.content_type,
-                size=pdf.size,
-                encryption_status=(
-                    settings.ALEXANDRIA_ENCRYPTION_METHOD
-                    if settings.ALEXANDRIA_ENABLE_AT_REST_ENCRYPTION
-                    else None
-                ),
-                created_by_user=request.user.pk,
-                created_by_group=request.group.service_id,
-                modified_by_user=request.user.pk,
-                modified_by_group=request.group.service_id,
+                file_size=pdf.size,
+                additional_document_attributes={
+                    "metainfo": {
+                        "camac-instance-id": str(instance.pk),
+                        "system-generated": True,
+                    },
+                },
             )
-            file.create_thumbnail()
         else:
             attachment_section = AttachmentSection.objects.get(pk=target_lookup)
             attachment_section.attachments.create(

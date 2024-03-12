@@ -1,6 +1,6 @@
-from alexandria.core.models import Category, Document, File
+from alexandria.core.api import create_document_file as create_alexandria_document_file
+from alexandria.core.models import Category
 from django.conf import settings
-from django.core.exceptions import ValidationError as DjangoCoreValidationError
 from django_clamd.validators import validate_file_infection
 from rest_framework.exceptions import PermissionDenied
 from rest_framework.serializers import Serializer
@@ -57,36 +57,20 @@ class ECHFileSerializer(Serializer):
         return value
 
     def create(self, validated_data):
-        user = self.context["request"].user.pk
-        group = self.context["request"].group.service_id
         content = validated_data["content"]
 
-        document = Document.objects.create(
-            title=content.name,
+        document, _ = create_alexandria_document_file(
+            user=self.context["request"].user.pk,
+            group=self.context["request"].group.service_id,
             category=validated_data["category"],
-            metainfo={"camac-instance-id": str(validated_data["instance"].pk)},
-            created_by_user=user,
-            created_by_group=group,
-            modified_by_user=user,
-            modified_by_group=group,
-        )
-        file = File.objects.create(
-            document=document,
-            name=content.name,
-            content=content,
+            document_title=content.name,
+            file_name=content.name,
+            file_content=content,
             mime_type=content.content_type,
-            size=content.size,
-            created_by_user=user,
-            created_by_group=group,
-            modified_by_user=user,
-            modified_by_group=group,
+            file_size=content.size,
+            additional_document_attributes={
+                "metainfo": {"camac-instance-id": str(validated_data["instance"].pk)},
+            },
         )
-
-        try:
-            file.create_thumbnail()
-        except DjangoCoreValidationError:  # pragma: no cover
-            # thumbnail could not be generated because of an unsupported
-            # mime type
-            pass
 
         return document
