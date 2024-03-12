@@ -15,7 +15,8 @@ Electronic building permit application for Swiss cantons.
   - [Predefined credentials](#predefined-credentials)
   - [Debugging](#debugging)
   - [Working locally with ember](#working-locally-with-ember)
-    - [pnpm workspace](#pnpm-workspaces)
+    - [Help, ember-cli is not rebuilding after changes!](#help-ember-cli-is-not-rebuilding-after-changes)
+    - [pnpm workspaces](#pnpm-workspaces)
   - [Django profiling](#django-profiling)
   - [Switching tenant](#switching-tenant)
     - [Working locally with ember](#working-locally-with-ember-1)
@@ -111,7 +112,7 @@ Ember:
 
 ### Basic setup
 
-Docker can be used to get eBau up and running quickly. The following script guides you through the setup process. We recommend using the `demo` config for now, since it features the highest number of modules in the `ember-ebau` app.
+Docker can be used to get eBau up and running quickly. The following script guides you through the setup process. We recommend using the `kt_gr` or `kt_so` config for now, since other cantons still rely on legacy components for the internal area that are not part of this repository.
 
 ```bash
 make start-dev-env
