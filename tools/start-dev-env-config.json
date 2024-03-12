@@ -19,6 +19,10 @@
     "kt_gr": {
       "compose": "compose/kt_gr.yml:compose/kt_gr-dev.yml",
       "loadconfig": "make loadconfig"
+    },
+    "kt_so": {
+      "compose": "compose/kt_so.yml:compose/kt_so-dev.yml",
+      "loadconfig": "make loadconfig"
     }
   },
   "profiles": {
