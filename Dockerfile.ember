@@ -2,7 +2,6 @@ FROM danlynn/ember-cli:4.12.1 as build
 
 # Copy pnpm relevant files from all apps in workspace
 COPY package.json pnpm-*.yaml /myapp/
-COPY ember/package.json /myapp/ember/
 COPY ember-caluma-portal/package.json /myapp/ember-caluma-portal/
 COPY ember-camac-ng/package.json /myapp/ember-camac-ng/
 COPY ember-ebau/package.json /myapp/ember-ebau/
