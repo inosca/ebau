@@ -240,6 +240,18 @@
     }
   },
   {
+    "model": "notification.notificationtemplate",
+    "pk": 21,
+    "fields": {
+      "slug": "inquiry-reminder",
+      "purpose": null,
+      "subject": null,
+      "body": null,
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
     "model": "notification.notificationtemplatet",
     "pk": 1,
     "fields": {
@@ -477,6 +489,18 @@
       "purpose": "Neue Nachricht (Behörden)",
       "subject": "Neue Nachricht (Dossier-Nr. {{ DOSSIER_NR }})",
       "body": "Guten Tag\r\n\r\nSie haben eine neue Nachricht auf dem Dossier mit der Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) erhalten.\r\n\r\n{{ INTERNAL_DOSSIER_LINK }}/communications\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\neBau"
+    }
+  },
+  {
+    "model": "notification.notificationtemplatet",
+    "pk": 21,
+    "fields": {
+      "template": 21,
+      "template_slug": "inquiry-reminder",
+      "language": "de",
+      "purpose": "Meldung Fristüberschreitung (Fachstelle)",
+      "subject": "Meldung Fristüberschreitung (Dossier-Nr. {{DOSSIER_NR}})",
+      "body": "Guten Tag \r\n\r\nDie gesetzte Frist im Baubewilligungsverfahren für das Dossier mit der Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) ist abgelaufen. Fehlende Stellungnahmen, Amts- und Fachberichte, Verfügungen sind bei betroffenen Stellen nachzufordern.\r\n\r\n{{INQUIRY_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n{{LEITBEHOERDE_NAME_DE}}"
     }
   }
 ]
