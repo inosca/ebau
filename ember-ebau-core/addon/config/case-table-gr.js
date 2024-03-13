@@ -94,6 +94,9 @@ export default {
     submitDate: {
       caluma: [{ meta: "submit-date" }],
     },
+    inquiryCreated: {
+      caluma: [{ meta: "inquiry-created" }],
+    },
   },
   defaultOrder: "dossierNumber",
   addressSlugs: [answerSlugs.objectStreet, answerSlugs.objectLocation],
