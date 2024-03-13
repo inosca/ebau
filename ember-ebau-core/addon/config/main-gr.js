@@ -36,6 +36,7 @@ export default {
     isJuristicApplicant: "juristische-person-gesuchstellerin",
     isJuristicApplicantYes: "juristische-person-gesuchstellerin-ja",
     personalDataApplicant: "personalien-gesuchstellerin",
+    coordinates: "gis-map",
   },
   personalSuggestions: {
     tableQuestions: [

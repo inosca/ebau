@@ -21,6 +21,7 @@ const rootQuestions = [
   answerSlugs.personalDataApplicant,
   answerSlugs.municipality,
   answerSlugs.parcel,
+  answerSlugs.coordinates,
   ...mainConfig.intentSlugs,
 ]
   .filter(Boolean)
