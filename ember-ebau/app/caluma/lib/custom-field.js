@@ -1,7 +1,7 @@
 import { macroCondition, getOwnConfig } from "@embroider/macros";
 import Field from "@projectcaluma/ember-form/lib/field";
 import { dropTask } from "ember-concurrency";
-import { trackedTask } from "ember-resources/util/ember-concurrency";
+import { trackedTask } from "reactiveweb/ember-concurrency";
 
 import workItemCaseInformationQuery from "ebau/gql/queries/work-item-case-information.graphql";
 

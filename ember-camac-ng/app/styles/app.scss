@@ -24,3 +24,9 @@
   @import "x-toggle";
   @import "a11y";
 }
+
+// @projectcaluma/ember-form theoretically already imports these styles.
+// However, since we import them scoped they don't apply to the actual flatpickr
+// elements as they are appended to the body - not our ember container.
+@import "flatpickr/dist/flatpickr";
+@import "flatpickr/dist/themes/airbnb";

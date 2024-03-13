@@ -2,10 +2,11 @@ import { action } from "@ember/object";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { dropTask } from "ember-concurrency";
+import { localCopy } from "tracked-toolbox";
 
 export default class JournalTextareaComponent extends Component {
   @tracked isValidDuration = true;
-  @tracked entryDuration = this.args.journalEntry.duration;
+  @localCopy("args.journalEntry.duration") entryDuration;
 
   @dropTask
   *saveEntry(entry) {

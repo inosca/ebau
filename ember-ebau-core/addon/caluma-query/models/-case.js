@@ -1,7 +1,7 @@
 import { getOwner, setOwner } from "@ember/application";
 import { inject as service } from "@ember/service";
 import CaseModel from "@projectcaluma/ember-core/caluma-query/models/case";
-import { trackedFunction } from "ember-resources/util/function";
+import { trackedFunction } from "reactiveweb/function";
 
 import CustomWorkItemModel from "ember-ebau-core/caluma-query/models/work-item";
 import mainConfig from "ember-ebau-core/config/main";

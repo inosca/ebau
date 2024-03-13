@@ -3,7 +3,7 @@ import { inject as service } from "@ember/service";
 import AdapterError from "@ember-data/adapter/error";
 import Component from "@glimmer/component";
 import { dropTask } from "ember-concurrency";
-import { trackedFunction } from "ember-resources/util/function";
+import { trackedFunction } from "reactiveweb/function";
 
 import { MIME_TYPE_TO_ENGINE } from "ember-ebau-core/utils/dms";
 

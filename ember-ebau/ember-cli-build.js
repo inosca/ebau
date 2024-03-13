@@ -40,6 +40,11 @@ module.exports = function (defaults) {
     "ember-validated-form": {
       theme: "uikit",
     },
+    babel: {
+      plugins: [
+        require.resolve("ember-concurrency/async-arrow-task-transform"),
+      ],
+    },
   });
 
   app.trees.app = stew.rm(

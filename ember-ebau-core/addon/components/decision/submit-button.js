@@ -3,7 +3,7 @@ import { inject as service } from "@ember/service";
 import { isTesting, macroCondition } from "@embroider/macros";
 import CfFieldInputActionButtonComponent from "@projectcaluma/ember-form/components/cf-field/input/action-button";
 import { queryManager } from "ember-apollo-client";
-import { trackedFunction } from "ember-resources/util/function";
+import { trackedFunction } from "reactiveweb/function";
 
 import mainConfig from "ember-ebau-core/config/main";
 import getCaseMetaQuery from "ember-ebau-core/gql/queries/get-case-meta.graphql";

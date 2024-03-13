@@ -4,7 +4,7 @@ import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { task } from "ember-concurrency";
 import { findRecord } from "ember-data-resources";
-import { trackedFunction } from "ember-resources/util/function";
+import { trackedFunction } from "reactiveweb/function";
 
 import paginatedQuery from "ember-ebau-core/resources/paginated";
 

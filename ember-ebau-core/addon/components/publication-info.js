@@ -2,7 +2,7 @@ import { getOwnConfig } from "@embroider/macros";
 import Component from "@glimmer/component";
 import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
-import { trackedTask } from "ember-resources/util/ember-concurrency";
+import { trackedTask } from "reactiveweb/ember-concurrency";
 
 import municipality from "ember-ebau-core/gql/queries/municipality.graphql";
 

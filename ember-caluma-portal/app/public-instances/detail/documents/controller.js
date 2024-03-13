@@ -2,7 +2,7 @@ import Controller, { inject as controller } from "@ember/controller";
 import { inject as service } from "@ember/service";
 import { dropTask } from "ember-concurrency";
 import mainConfig from "ember-ebau-core/config/main";
-import { trackedTask } from "ember-resources/util/ember-concurrency";
+import { trackedTask } from "reactiveweb/ember-concurrency";
 
 export default class PublicInstancesDetailDocumentsController extends Controller {
   @service store;
