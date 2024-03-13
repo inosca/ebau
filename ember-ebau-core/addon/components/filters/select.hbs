@@ -1,13 +1,16 @@
-  <div class={{(concat "filters-select " @class)}}>
-    <label class="uk-form-label uk-text-bold" for="type">{{@label}}</label>
-    <div class="uk-form-controls">
+<div
+  class="uk-margin-small-right uk-margin-small-top uk-flex uk-flex-column filters-select"
+  ...attributes
+>
+  <label class="uk-form-label uk-text-bold">{{@label}}</label>
+  <div class="uk-button-group uk-flex-wrap">
     <PowerSelect
-    @options={{@options}}
-    @selected={{@selected}}
-    @renderInPlace={{true}}
-    @onChange={{@onChange}} as |option|
-  >
-    {{option.label}}
-  </PowerSelect>
-    </div>
+      @options={{@options}}
+      @selected={{@selected}}
+      @renderInPlace={{true}}
+      @onChange={{@onChange}}
+    as |option|>
+      {{option.label}}
+    </PowerSelect>
   </div>
+</div>

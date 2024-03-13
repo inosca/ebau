@@ -1,8 +1,10 @@
 .filters-select {
-  margin-top: 8.5px;
+  .ember-basic-dropdown {
+    width: 100%;
+  }
 
   .ember-power-select-trigger {
-    line-height: 30px;
-    min-height: 30px;
+    line-height: $button-small-line-height;
+    min-height: $button-small-line-height;
   }
 }
