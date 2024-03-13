@@ -1,7 +1,7 @@
 import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
 import { queryManager } from "ember-apollo-client";
-import { trackedFunction } from "ember-resources/util/function";
+import { trackedFunction } from "reactiveweb/function";
 
 import mainConfig from "ember-ebau-core/config/main";
 import getSourceCaseMeta from "ember-ebau-core/gql/queries/get-source-case-meta.graphql";

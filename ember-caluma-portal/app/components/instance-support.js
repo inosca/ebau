@@ -4,7 +4,7 @@ import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { queryManager } from "ember-apollo-client";
 import apolloQuery from "ember-ebau-core/resources/apollo";
-import { trackedFunction } from "ember-resources/util/function";
+import { trackedFunction } from "reactiveweb/function";
 
 import config from "caluma-portal/config/environment";
 import instanceSupportQuery from "caluma-portal/gql/queries/instance-support.graphql";

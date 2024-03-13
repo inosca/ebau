@@ -2,8 +2,8 @@ import Controller from "@ember/controller";
 import { inject as service } from "@ember/service";
 import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
-import { trackedTask } from "ember-resources/util/ember-concurrency";
 import { DateTime, Interval } from "luxon";
+import { trackedTask } from "reactiveweb/ember-concurrency";
 
 import mainConfig from "ember-ebau-core/config/main";
 import getPublications from "ember-ebau-core/gql/queries/get-publications.graphql";

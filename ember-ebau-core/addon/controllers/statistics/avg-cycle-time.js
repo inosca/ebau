@@ -4,7 +4,7 @@ import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 import { queryManager } from "ember-apollo-client";
 import { dropTask, lastValue } from "ember-concurrency";
-import { trackedTask } from "ember-resources/util/ember-concurrency";
+import { trackedTask } from "reactiveweb/ember-concurrency";
 
 import decisionProceduresQuery from "ember-ebau-core/gql/queries/decision-procedures.graphql";
 

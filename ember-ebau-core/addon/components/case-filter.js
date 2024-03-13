@@ -10,7 +10,7 @@ import { allForms } from "@projectcaluma/ember-core/caluma-query/queries";
 import { queryManager } from "ember-apollo-client";
 import { restartableTask, timeout } from "ember-concurrency";
 import { findAll, query } from "ember-data-resources";
-import { trackedFunction } from "ember-resources/util/function";
+import { trackedFunction } from "reactiveweb/function";
 import { cached } from "tracked-toolbox";
 
 import AsyncSelectMultipleComponent from "ember-ebau-core/components/case-filter/async-select-multiple";

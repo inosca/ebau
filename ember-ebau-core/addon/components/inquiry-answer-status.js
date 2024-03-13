@@ -3,7 +3,7 @@ import { inject as service } from "@ember/service";
 import { macroCondition, getOwnConfig } from "@embroider/macros";
 import Component from "@glimmer/component";
 import { queryManager } from "ember-apollo-client";
-import { trackedFunction } from "ember-resources/util/function";
+import { trackedFunction } from "reactiveweb/function";
 
 import mainConfig from "ember-ebau-core/config/main";
 import caseFormTypeQuery from "ember-ebau-core/gql/queries/case-form-type.graphql";

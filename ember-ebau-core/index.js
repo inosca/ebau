@@ -42,5 +42,10 @@ module.exports = {
         hasBuildingControl: ENV === "be",
       },
     },
+    babel: {
+      plugins: [
+        require.resolve("ember-concurrency/async-arrow-task-transform"),
+      ],
+    },
   },
 };
