@@ -989,8 +989,8 @@ importers:
         specifier: workspace:*
         version: link:../ember-ebau-core
       ember-ebau-gwr:
-        specifier: 7.4.6
-        version: 7.4.6(@ember/string@3.1.1)(@glint/template@1.2.1)(ember-engines@0.9.0)(ember-source@4.12.3)(webpack@5.89.0)
+        specifier: 7.5.0
+        version: 7.5.0(@ember/string@3.1.1)(@glint/template@1.2.1)(ember-engines@0.9.0)(ember-source@4.12.3)(webpack@5.89.0)
       ember-engines:
         specifier: 0.9.0
         version: 0.9.0(@glint/template@1.2.1)(ember-source@4.12.3)
@@ -9585,6 +9585,52 @@ packages:
 
   /ember-ebau-gwr@7.4.6(@ember/string@3.1.1)(@glint/template@1.2.1)(ember-engines@0.9.0)(ember-source@4.12.3)(webpack@5.89.0):
     resolution: {integrity: sha512-jZfQ9TpRiXw12Us6yf//cH9WoIFYV6bEeIIRFEY3w5RqrbpWk2y1GRqBVrz04clHa8aDng7dlmPodF/rUx7GEA==}
+    engines: {node: '>= 18'}
+    peerDependencies:
+      ember-engines: ^0.9.0
+      ember-source: ^4.0.0
+    dependencies:
+      '@babel/core': 7.23.6
+      '@ember/legacy-built-in-components': 0.5.0(@glint/template@1.2.1)(ember-source@4.12.3)
+      '@ember/render-modifiers': 2.1.0(@babel/core@7.23.6)(@glint/template@1.2.1)(ember-source@4.12.3)
+      '@fortawesome/ember-fontawesome': 2.0.0(@glint/template@1.2.1)(ember-source@4.12.3)(webpack@5.89.0)
+      '@fortawesome/free-regular-svg-icons': 6.5.1
+      '@fortawesome/free-solid-svg-icons': 6.5.1
+      '@glimmer/component': 1.1.2(@babel/core@7.23.6)
+      '@glimmer/tracking': 1.1.2
+      ember-auto-import: 2.7.2(@glint/template@1.2.1)(webpack@5.89.0)
+      ember-changeset: 4.1.2(@glint/template@1.2.1)(ember-data@4.12.5)(webpack@5.89.0)
+      ember-changeset-validations: 4.1.1(@glint/template@1.2.1)(webpack@5.89.0)
+      ember-cli-babel: 8.2.0(@babel/core@7.23.6)
+      ember-cli-htmlbars: 6.3.0
+      ember-composable-helpers: 5.0.0
+      ember-concurrency: 3.1.1(@babel/core@7.23.6)(ember-source@4.12.3)
+      ember-data: 4.12.5(@babel/core@7.23.6)(@ember/string@3.1.1)(@glimmer/tracking@1.1.2)(@glint/template@1.2.1)(ember-source@4.12.3)(webpack@5.89.0)
+      ember-engines: 0.9.0(@glint/template@1.2.1)(ember-source@4.12.3)
+      ember-engines-router-service: 0.5.0(@glint/template@1.2.1)(ember-source@4.12.3)
+      ember-flatpickr: 4.0.0(@babel/core@7.23.6)(@glint/template@1.2.1)(ember-source@4.12.3)
+      ember-intl: 6.5.0(@babel/core@7.23.6)(@glint/template@1.2.1)(webpack@5.89.0)
+      ember-power-select: 7.2.0(@babel/core@7.23.6)(@glint/template@1.2.1)(ember-source@4.12.3)(webpack@5.89.0)
+      ember-resources: 6.4.2(@glimmer/component@1.1.2)(@glimmer/tracking@1.1.2)(@glint/template@1.2.1)(ember-concurrency@3.1.1)(ember-source@4.12.3)
+      ember-source: 4.12.3(@babel/core@7.23.6)(@glimmer/component@1.1.2)(@glint/template@1.2.1)(webpack@5.89.0)
+      ember-truth-helpers: 4.0.3(ember-source@4.12.3)
+      ember-uikit: 9.0.0(@glint/template@1.2.1)(ember-source@4.12.3)(webpack@5.89.0)
+      ember-validated-form: 7.0.0(@babel/core@7.23.6)(@glint/template@1.2.1)(ember-data@4.12.5)(ember-source@4.12.3)(webpack@5.89.0)
+      handlebars: 4.7.8
+      luxon: 3.4.4
+    transitivePeerDependencies:
+      - '@ember/string'
+      - '@ember/test-waiters'
+      - '@glint/environment-ember-loose'
+      - '@glint/template'
+      - rollup
+      - supports-color
+      - typescript
+      - webpack
+    dev: true
+
+  /ember-ebau-gwr@7.5.0(@ember/string@3.1.1)(@glint/template@1.2.1)(ember-engines@0.9.0)(ember-source@4.12.3)(webpack@5.89.0):
+    resolution: {integrity: sha512-tXBvUJ/a+BYn5zjqyoR1b9rXhiN5LU6PJYZuhi2HSsC9q4b2UhiFvscphM9HtAaC5nUw9sHNHIBnDRPDmmSo7w==}
     engines: {node: '>= 18'}
     peerDependencies:
       ember-engines: ^0.9.0
