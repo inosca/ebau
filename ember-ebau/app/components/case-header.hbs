@@ -6,7 +6,7 @@
     </div>
     <div>
       <div class="uk-text-bold">{{t "cases.tableHeaders.parcel"}}</div>
-      {{or @case.plots "-"}}
+      {{or @case.plots "-"}} {{#if @case.coordinatesLink}}(<a href={{@case.coordinatesLink}} target="_blank" rel="noopener noreferrer">{{format-coordinate @case.centerCoordinate}}</a>){{/if}}
     </div>
     <div>
       <div class="uk-text-bold">{{t "cases.tableHeaders.applicants"}}</div>
