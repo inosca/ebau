@@ -9608,7 +9608,7 @@
       "label": "Ihr Bauvorhaben wird durch einen belasteten Standort tangiert. Es sind die Altlastenuntersuchungen (z. B. historische, technische Untersuchung) einzureichen (vgl. Ablaufschema „<a href=\"/assets/documents/20201029_Ablaufschema_Bauen_auf_belasteten_Standorten.pdf\" title=\"Herunterladen\" target=\"_blank\">Bauen auf belasteten Standorten</a>“).",
       "type": "checkbox",
       "required": false,
-      "active-expression": "'ms:ch.sz.a020a.kataster_belasteter_standorte' in 'layer'|value|mapby('name') || 'ms:ch.sz.a020a.kataster_belasteter_standorte_pnt' in 'layer'|value|mapby('name') || 'ms:ch.sz.a020a.kataster_belasteter_standorte_01' in 'layer'|value|mapby('name') || 'ms:ch.sz.a020a.kataster_belasteter_standorte_pnt_01' in 'layer'|value|mapby('name') || 'ms:ch.sz.a020a.kataster_belasteter_standorte_02' in 'layer'|value|mapby('name') || 'ms:ch.sz.a020a.kataster_belasteter_standorte_pnt_02' in 'layer'|value|mapby('name')",
+      "active-expression": "'ms:ch.sz.a020a.kataster_belasteter_standorte' in 'layer'|value|mapby('name') || 'ms:ch.sz.a020a.kataster_belasteter_standorte_pnt' in 'layer'|value|mapby('name') || 'ms:ch.sz.a020a.kataster_belasteter_standorte_01' in 'layer'|value|mapby('name') || 'ms:ch.sz.a020a.kataster_belasteter_standorte_pnt_01' in 'layer'|value|mapby('name') || 'ms:ch.sz.a020a.kataster_belasteter_standorte_02' in 'layer'|value|mapby('name') || 'ms:ch.sz.a020a.kataster_belasteter_standorte_pnt_02' in 'layer'|value|mapby('name') || 'ms:ch.sz.a020b.kataster_belasteter_standorte.polygon' in 'layer'|value|mapby('name') || 'ms:ch.sz.a020b.kataster_belasteter_standorte.punkt' in 'layer'|value|mapby('name')",
       "config": {
         "options": ["Vorhanden"]
       }
