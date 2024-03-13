@@ -5,6 +5,12 @@ import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { task, timeout } from "ember-concurrency";
 
+import {
+  LatLngToEPSG2056,
+  EPSG2056toLatLng,
+  getCenter,
+} from "ember-ebau-core/utils/gis";
+
 const { L } = window;
 
 const RESOLUTIONS = [50, 20, 10, 5, 2.5, 2, 1.5, 1, 0.5, 0.25, 0.1, 0.05];
@@ -16,15 +22,6 @@ L.CRS.EPSG2056 = new L.Proj.CRS(
     origin: [2420000, 1350000],
   },
 );
-
-function LatLngToEPSG2056(coordinates) {
-  const arr = Array.isArray(coordinates)
-    ? coordinates
-    : [coordinates.lat, coordinates.lng];
-  return L.CRS.EPSG2056.project(L.latLng(arr));
-}
-const EPSG2056toLatLng = ([x, y]) =>
-  L.CRS.EPSG2056.unproject(new L.point(x, y));
 
 function addLabel(feature) {
   let label;
@@ -70,21 +67,14 @@ export default class GrGisComponent extends Component {
   }
 
   get centerCoordinate() {
-    if (!this.markers.length) {
-      return null;
-    }
-    if (this.geometry === "POLYGON" && this.markers.length > 2) {
-      return LatLngToEPSG2056(L.polygon(this.markers).getBounds().getCenter());
-    } else if (this.geometry === "POINT") {
-      return LatLngToEPSG2056(this.markers[0]);
-    }
-    return LatLngToEPSG2056(L.polyline(this.markers).getBounds().getCenter());
+    return getCenter(this.markers, this.geometry);
   }
 
   get centerCoordinateUrl() {
-    // GIS seems to use different zoom levels than we do, do a rough conversion
-    const convertedZoom = this.zoom - 5;
-    return `https://edit.geo.gr.ch/theme/Nutzungsplanung_Kommunaler_Darstellungsdienst?lang=de&baselayer_ref=Karte%20grau&map_x=${this.centerCoordinate.x}&map_y=${this.centerCoordinate.y}&map_zoom=${convertedZoom}`;
+    return this.intl.t("gis.coordinatesLink", {
+      x: this.centerCoordinate.x,
+      y: this.centerCoordinate.y,
+    });
   }
 
   @task
