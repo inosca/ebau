@@ -30,6 +30,7 @@ services:
 
   db:
     image: acr.run/camac-ng/camac-ng/db:master
+    shm_size: 1g
     build:
       context: ../db
       cache_from:
