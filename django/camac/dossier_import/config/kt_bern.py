@@ -7,7 +7,6 @@ from caluma.caluma_workflow import api as workflow_api
 from caluma.caluma_workflow.api import skip_work_item
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
-from django.core.exceptions import ObjectDoesNotExist
 from django.db import transaction
 from rest_framework.exceptions import ValidationError
 
@@ -200,7 +199,7 @@ class KtBernDossierWriter(DossierWriter):
 
     @transaction.atomic
     def import_dossier(
-        self, dossier: Dossier, import_session_id: str
+        self, dossier: Dossier, import_session_id: str, allow_updates: bool = False
     ) -> DossierSummary:
         dossier_summary = DossierSummary(
             dossier_id=dossier.id, status=DOSSIER_IMPORT_STATUS_SUCCESS, details=[]
@@ -338,10 +337,10 @@ class KtBernDossierWriter(DossierWriter):
         for task_id in path_to_state[target_state]:
             try:
                 work_item = instance.case.work_items.get(task_id=task_id)
-            except ObjectDoesNotExist as e:  # pragma: no cover
+            except WorkItem.DoesNotExist as e:
                 messages.append(
                     Message(
-                        level=LOG_LEVEL_WARNING,
+                        level=LOG_LEVEL_ERROR,
                         code=MessageCodes.WORKFLOW_SKIP_ITEM_FAILED.value,
                         detail=f"Skip work item with task_id {task_id} failed with {ConfigurationError(e)}.",
                     )

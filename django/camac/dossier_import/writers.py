@@ -32,6 +32,7 @@ class FieldWriter:
     target: str
     value: Any = None
     name: Optional[str] = None
+    protected: bool = False
 
     def __init__(
         self,
@@ -41,15 +42,32 @@ class FieldWriter:
         owner=None,
         context=None,
         column_mapping: Optional[dict] = None,
+        protected: bool = False,
     ):
         # The field writer allows for static values: set value in the field definition
         # in the writer class (e. g. for required answers)
+        # The `protected` keyword protects the field to be deleted on a reimport.
+
         self.target = target
         self.value = value
         self.column_mapping = column_mapping
         self.owner = owner
         self.context = context
         self.name = name or target
+        self.protected = protected
+
+    def can_delete(self):
+        if not self.protected:
+            return True
+        if dossier := self.context.get("dossier"):
+            dossier._meta.errors.append(
+                Message(
+                    level=Severity.WARNING.value,
+                    code=MessageCodes.WRITING_READ_ONLY_FIELD.value,
+                    detail=f"Ignoring {self.owner.delete_keyword} on field {self.target} (readonly).",
+                )
+            )
+        return False
 
 
 class CamacNgAnswerWriter(FieldWriter):
@@ -420,6 +438,15 @@ class DossierWriter:
         # self.write_fields(instance, dossier)
         # self._handle_dossier_attachments(dossier)
         # self._set_workflow_state(instance, dossier.Meta.target_state)
+        raise NotImplementedError  # pragma: no cover
+
+    def existing_dossier(self, dossier_id):
+        """Return the instance identified by dossier_id.
+
+        Different configs use different methods to identify instances. This
+        is just an abstraction that is needed for retrieving instances
+        when reimporting dossiers.
+        """
         raise NotImplementedError  # pragma: no cover
 
     def _set_workflow_state(self, instance: Instance, target_state: str):
