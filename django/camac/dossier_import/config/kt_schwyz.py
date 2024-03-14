@@ -6,7 +6,6 @@ from caluma.caluma_workflow import api as workflow_api
 from caluma.caluma_workflow.api import cancel_work_item, skip_work_item
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
-from django.core.exceptions import ObjectDoesNotExist
 from django.db import transaction
 
 from camac.caluma.extensions.events.construction_monitoring import (
@@ -176,12 +175,11 @@ class KtSchwyzDossierWriter(DossierWriter):
 
     @transaction.atomic
     def import_dossier(
-        self, dossier: Dossier, import_session_id: str
+        self, dossier: Dossier, import_session_id: str, allow_updates: bool = False
     ) -> DossierSummary:
         dossier_summary = DossierSummary(
             dossier_id=dossier.id, status=DOSSIER_IMPORT_STATUS_SUCCESS, details=[]
         )
-
         # copy messages from loader to summary
         dossier_summary.details += dossier._meta.errors
 
@@ -223,23 +221,6 @@ class KtSchwyzDossierWriter(DossierWriter):
         instance.case.meta["import-id"] = import_session_id
         instance.case.save()
         dossier_summary.instance_id = instance.pk
-        dossier_summary.details.append(
-            Message(
-                level=LOG_LEVEL_DEBUG,
-                code=MessageCodes.INSTANCE_CREATED.value,
-                detail=f"Instance created with ID:  {instance.pk}",
-            )
-        )
-        workflow_message = self._set_workflow_state(
-            instance, dossier._meta.target_state
-        )
-        dossier_summary.details.append(
-            Message(
-                level=get_message_max_level(workflow_message),
-                code=MessageCodes.SET_WORKFLOW_STATE.value,
-                detail=workflow_message,
-            )
-        )
         self.write_fields(instance, dossier)
 
         dossier_summary.details.append(
@@ -262,7 +243,9 @@ class KtSchwyzDossierWriter(DossierWriter):
 
         return dossier_summary
 
-    def _set_workflow_state(self, instance: Instance, target_state) -> List[Message]:
+    def _set_workflow_state(
+        self, instance: Instance, dossier: Dossier
+    ) -> List[Message]:
         """Advance instance's case through defined workflow sequence to target state.
 
         In order to advance to a specified worklow state after every flow all tasks need to be
@@ -282,6 +265,8 @@ class KtSchwyzDossierWriter(DossierWriter):
          as cancelling them instead of skipping.
         """
         messages = []
+
+        target_state = dossier._meta.target_state
 
         # configure workflow state advance path and strategies
         SUBMITTED = ["submit"]
@@ -313,10 +298,10 @@ class KtSchwyzDossierWriter(DossierWriter):
         for task_id in path_to_state[target_state]:
             try:
                 work_item = instance.case.work_items.get(task_id=task_id)
-            except ObjectDoesNotExist as e:
+            except WorkItem.DoesNotExist as e:
                 messages.append(
                     Message(
-                        level=LOG_LEVEL_WARNING,
+                        level=LOG_LEVEL_ERROR,
                         code=MessageCodes.WORKFLOW_SKIP_ITEM_FAILED.value,
                         detail=f"Skip work item with task_id {task_id} failed with {ConfigurationError(e)}.",
                     )

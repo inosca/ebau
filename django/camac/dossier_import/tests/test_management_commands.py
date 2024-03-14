@@ -17,14 +17,11 @@ def test_import_dossiers_exceptions(
     db,
     settings,
     config,
-    setup_fixtures_required_by_application_config,
-    make_workflow_items_for_config,
+    setup_dossier_writer,
     dossier_import,
     snapshot,
 ):
-    settings.APPLICATION = settings.APPLICATIONS[config]
-    make_workflow_items_for_config(config)
-    setup_fixtures_required_by_application_config(config)
+    setup_dossier_writer(config)
     out = StringIO()
     dossier_import.source_file.delete()
     with pytest.raises(CommandError):
@@ -52,49 +49,25 @@ def test_import_dossiers_manage_command(
     db,
     settings,
     config,
-    setup_fixtures_required_by_application_config,
-    make_workflow_items_for_config,
-    construction_control_for,
-    service_factory,
-    user,
-    user_factory,
-    group,
-    location,
-    dynamic_option_factory,
-    document_factory,
+    setup_dossier_writer,
     snapshot,
     camac_instance,
     use_location,
 ):
-    call_command(
-        "loaddata", settings.ROOT_DIR("kt_bern/config/caluma_decision_form.json")
-    )
-
-    settings.APPLICATION = settings.APPLICATIONS[config]
-    make_workflow_items_for_config(config)
-    setup_fixtures_required_by_application_config(config)
+    writer = setup_dossier_writer(config)
     out = StringIO()
-    service = service_factory(service_group__name="municipality")
-    if config == "kt_bern":
-        construction_control_for(service)
-        dynamic_option_factory(
-            slug=str(service.pk), question_id="gemeinde", document=document_factory()
-        )
 
-    group.service = service
-    group.save()
-    user_factory(username=settings.APPLICATION["DOSSIER_IMPORT"]["USER"])
     args = [
         "import_dossiers",
         "--no-input",
         f"--override_application={config}",
         "--verbosity=2",
         "from_archive",
-        f"--user_id={user.pk}",
-        f"--group_id={group.pk}",
+        f"--user_id={writer._user.pk}",
+        f"--group_id={writer._group.pk}",
     ]
     if use_location:
-        args.append(f"--location_id={location.pk}")
+        args.append(f"--location_id={writer._location.pk}")
 
     call_command(
         *args,
@@ -120,24 +93,17 @@ def test_import_dossiers_manage_command(
 def test_validate_dossiers_manage_command(
     db,
     settings,
+    setup_dossier_writer,
     config,
-    setup_fixtures_required_by_application_config,
-    make_workflow_items_for_config,
-    service,
-    user,
-    group,
-    location,
     snapshot,
 ):
-    settings.APPLICATION = settings.APPLICATIONS[config]
-    make_workflow_items_for_config(config)
-    setup_fixtures_required_by_application_config(config)
+    writer = setup_dossier_writer(config)
     out = StringIO()
     call_command(
         "validate_dossiers",
-        f"--user_id={user.pk}",
-        f"--group_id={group.pk}",
-        f"--location_id={location.pk}",
+        f"--user_id={writer._user.pk}",
+        f"--group_id={writer._group.pk}",
+        f"--location_id={writer._location.pk}",
         str(Path(TEST_IMPORT_FILE_PATH) / TEST_IMPORT_FILE_NAME),
         stdout=out,
         stderr=StringIO(),

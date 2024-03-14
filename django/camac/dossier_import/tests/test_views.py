@@ -130,6 +130,7 @@ def test_validation_errors(
 
 
 @pytest.mark.parametrize("role__name", ["Support"])
+@pytest.mark.parametrize("dossier_exists", [False, lazy_fixture("instance")])
 @pytest.mark.parametrize(
     "import_file,expected_status,expected_result",
     [
@@ -175,7 +176,7 @@ def test_validation_errors(
             {
                 "error": [
                     "1 Dossiers haben einen ungültigen Status. Betroffene Dossiers:\n2017-86: 'DONKED' (status)",
-                    "2 Dossiers fehlt ein Wert in einem zwingenden Feld. Betroffene Dossiers:\n2017-87: status,\n9: submit_date",
+                    "2 Dossiers fehlt ein Wert in einem zwingenden Feld. Betroffene Dossiers:\n9: submit_date,\n2017-87: status",
                 ]
             },
         ),
@@ -198,11 +199,14 @@ def test_validation_errors(
 )
 def test_file_validation(
     db,
+    settings,
+    mocker,
     admin_client,
     group,
     admin_user,
     role,
     location,
+    dossier_exists,
     archive_file,
     import_file,
     expected_status,
@@ -210,6 +214,10 @@ def test_file_validation(
     snapshot,
 ):
     # create an import case with an uploaded file using the REST endpoint (POST)
+    mocker.patch(
+        f"{settings.APPLICATION['DOSSIER_IMPORT']['WRITER_CLASS']}.existing_dossier",
+        lambda self, dossier_id: dossier_exists,
+    )
     the_file = import_file and archive_file(import_file)
     resp = admin_client.post(
         reverse("dossier-import-list"),
@@ -359,8 +367,7 @@ def test_state_transitions(
     settings,
     archive_file,
     dossier_import_factory,
-    setup_fixtures_required_by_application_config,
-    make_workflow_items_for_config,
+    setup_dossier_writer,
     config,
     camac_instance,
     action,
@@ -371,9 +378,7 @@ def test_state_transitions(
     host,
     mailoutbox,
 ):
-    make_workflow_items_for_config(config)
-    setup_fixtures_required_by_application_config(config)
-    settings.APPLICATION = settings.APPLICATIONS[config]
+    setup_dossier_writer(config)
     settings.INTERNAL_BASE_URL = f"https://{host}.example.com"
     # settings.Q_CLUSTER["sync"] = True  # doesn't work, unfortunately
 
