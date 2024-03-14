@@ -13,7 +13,7 @@ gis:
   noMatchesMessage: "keine Ergebnisse gefunden"
   searchPlaceholder: "Adresse suchen..."
   centeredCoordinates: "Koordinaten"
-  coordinatesLink: "https://geogr.mapplus.ch/viewer/geogr/?lang=de&basemap=av&blop=1&x={x}&y={y}&zl=11&hl=0&layers=zp_gefahren|zp_nls|zp_waldgrenze|bauzonen|gs_zonen"
+  coordinatesLink: "https://geogr.mapplus.ch/viewer/geogr/?lang=de&basemap=av&blop=1&x={x}&y={y}&zl=13&hl=0&layers=zp_gefahren|zp_nls|zp_waldgrenze|bauzonen|gs_zonen"
   openInGeoGR: "in GeoGR öffnen"
 
   groups:
