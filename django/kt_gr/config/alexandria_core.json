@@ -497,7 +497,7 @@
               },
               {
                 "scope": "All",
-                "fields": ["tags", "marks"],
+                "fields": ["title", "description", "date", "tags", "marks"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
@@ -1394,7 +1394,7 @@
               },
               {
                 "scope": "All",
-                "fields": ["tags", "marks"],
+                "fields": ["title", "description", "date", "tags", "marks"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
