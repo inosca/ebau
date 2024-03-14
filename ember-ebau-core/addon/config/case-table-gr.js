@@ -80,7 +80,6 @@ export default {
   },
   filterPresets: {
     service: {
-      pending: { instanceState: ["20004"], inquiryState: "pending" },
       paper: { paper: "1" },
     },
     municipality: {
