@@ -98,19 +98,7 @@
             ]
           },
           "applicant": {
-            "visibility": "all",
-            "permissions": [
-              {
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
-                "permission": "update"
-              }
-            ]
+            "visibility": "all"
           },
           "subservice": {
             "visibility": "all",
