@@ -1081,13 +1081,6 @@
                   "marks",
                   "files"
                 ],
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
                 "permission": "create"
               },
               {
@@ -1101,24 +1094,10 @@
                   "tags",
                   "files"
                 ],
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
                 "permission": "update"
               },
               {
                 "scope": "Service",
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
                 "permission": "delete"
               }
             ]
@@ -1136,13 +1115,6 @@
                   "tags",
                   "files"
                 ],
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
                 "permission": "create"
               },
               {
@@ -1156,24 +1128,10 @@
                   "tags",
                   "files"
                 ],
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
                 "permission": "update"
               },
               {
                 "scope": "Service",
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
                 "permission": "delete"
               }
             ]
@@ -1207,13 +1165,6 @@
                   "tags",
                   "files"
                 ],
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
                 "permission": "create"
               },
               {
@@ -1227,24 +1178,10 @@
                   "tags",
                   "files"
                 ],
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
                 "permission": "update"
               },
               {
                 "scope": "Service",
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
                 "permission": "delete"
               }
             ]
@@ -1262,13 +1199,6 @@
                   "tags",
                   "files"
                 ],
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
                 "permission": "create"
               },
               {
@@ -1282,24 +1212,10 @@
                   "tags",
                   "files"
                 ],
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
                 "permission": "update"
               },
               {
                 "scope": "Service",
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
                 "permission": "delete"
               }
             ]
@@ -1317,13 +1233,6 @@
                   "tags",
                   "files"
                 ],
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
                 "permission": "create"
               },
               {
@@ -1337,24 +1246,10 @@
                   "tags",
                   "files"
                 ],
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
                 "permission": "update"
               },
               {
                 "scope": "Service",
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
                 "permission": "delete"
               }
             ]
