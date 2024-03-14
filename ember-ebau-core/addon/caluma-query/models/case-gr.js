@@ -12,6 +12,9 @@ export default class CustomCaseModel extends CustomCaseBaseModel {
       getAnswer(this.raw.document, mainConfig.answerSlugs.coordinates)?.node
         .stringValue,
     );
+    if (!answer) {
+      return "";
+    }
     const markers = answer.markers.map((marker) =>
       EPSG2056toLatLng([marker.x, marker.y]),
     );
@@ -19,6 +22,10 @@ export default class CustomCaseModel extends CustomCaseBaseModel {
   }
 
   get coordinatesLink() {
+    if (!this.centerCoordinate) {
+      return "";
+    }
+
     return this.intl.t("gis.coordinatesLink", {
       x: this.centerCoordinate.x,
       y: this.centerCoordinate.y,
