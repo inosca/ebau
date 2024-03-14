@@ -744,7 +744,7 @@
       "modified_by_group": null,
       "metainfo": {},
       "name": "{\"de\": \"Gutachten, Nachweise, Begr\\u00fcndungen\", \"fr\": \"\", \"it\": \"\"}",
-      "description": "{\"de\": \"Unter den Begriff *weitere Gesuchsunterlagen* fallen Gesuchsunterlagen wie z.B. detaillierte Berechnungen der anzuwenden Nutzungsziffern, L\\u00e4rmschutznachweise, Brandschutznachweise, Energienachweise, Bericht zur Umweltvert\\u00e4glichkeitspr\\u00fcfung (UVP), Bodenkundliches Fachgutachten, Vopr\\u00fcfungsentscheid der Geb\\u00e4udeversicherung.\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"Unter die Begriffe *Gutachten, Nachweise, Begr\\u00fcndungen* fallen Gesuchsunterlagen wie z.B. Fotodokumentation der bestehenden Baute/Anlage, Formulare zu Zusatzgesuchen (Rodungsgesuch),  etc..\", \"fr\": \"\", \"it\": \"\"}",
       "color": "#9CDD69",
       "parent": "beilagen-zum-gesuch"
     }
@@ -778,7 +778,7 @@
       "modified_by_group": null,
       "metainfo": {},
       "name": "{\"de\": \"Weitere Gesuchsunterlagen\", \"fr\": \"\", \"it\": \"\"}",
-      "description": "{\"de\": \"Unter die Begriffe *Gutachten, Nachweise, Begr\\u00fcndungen* fallen Gesuchsunterlagen wie z.B. Fotodokumentation der bestehenden Baute/Anlage, Formulare zu Zusatzgesuchen (Rodungsgesuch),  etc..\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"Unter den Begriff *weitere Gesuchsunterlagen* fallen Gesuchsunterlagen wie z.B. detaillierte Berechnungen der anzuwenden Nutzungsziffern, L\\u00e4rmschutznachweise, Brandschutznachweise, Energienachweise, Bericht zur Umweltvert\\u00e4glichkeitspr\\u00fcfung (UVP), Bodenkundliches Fachgutachten, Vopr\\u00fcfungsentscheid der Geb\\u00e4udeversicherung.\", \"fr\": \"\", \"it\": \"\"}",
       "color": "#9CDD69",
       "parent": "beilagen-zum-gesuch"
     }
