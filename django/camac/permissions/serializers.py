@@ -3,7 +3,7 @@ from rest_framework_json_api import relations, serializers
 
 from camac.instance import models as instance_models
 from camac.permissions import permissions
-from camac.permissions.switcher import permission_switching_method
+from camac.permissions.switcher import get_permission_mode, permission_switching_method
 from camac.user.permissions import permission_aware
 
 from . import api, models
@@ -105,6 +105,9 @@ class InstancePermissionSerializer(serializers.ModelSerializer):
         read_only=True,
     )
     permissions = serializers.SerializerMethodField()
+
+    def get_root_meta(self, resource, many):
+        return {"permission_mode": get_permission_mode().value}
 
     def get_instance(self, instance):
         return instance
