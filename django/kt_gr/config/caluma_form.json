@@ -13147,7 +13147,7 @@
       "modified_by_group": null,
       "form": "spezialformulare",
       "question": "abfallanlage",
-      "sort": 20
+      "sort": 19
     }
   },
   {
@@ -13162,7 +13162,7 @@
       "modified_by_group": null,
       "form": "spezialformulare",
       "question": "ableitung-von-industrie-und-gewerbeabwasser",
-      "sort": 19
+      "sort": 18
     }
   },
   {
@@ -13207,7 +13207,7 @@
       "modified_by_group": null,
       "form": "spezialformulare",
       "question": "bauten-ausserhalb-bauzone",
-      "sort": 24
+      "sort": 23
     }
   },
   {
@@ -13222,7 +13222,7 @@
       "modified_by_group": null,
       "form": "spezialformulare",
       "question": "betriebsleiterwohnhaus",
-      "sort": 23
+      "sort": 22
     }
   },
   {
@@ -13327,7 +13327,7 @@
       "modified_by_group": null,
       "form": "spezialformulare",
       "question": "gwr",
-      "sort": 25
+      "sort": 24
     }
   },
   {
@@ -13372,7 +13372,7 @@
       "modified_by_group": null,
       "form": "spezialformulare",
       "question": "lageranlagen-mit-wassergefaehrdenden-fluessigkeiten",
-      "sort": 18
+      "sort": 17
     }
   },
   {
@@ -13402,22 +13402,22 @@
       "modified_by_group": null,
       "form": "spezialformulare",
       "question": "schutzplaetze",
-      "sort": 21
+      "sort": 20
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "spezialformulare.solaranlagen",
+    "pk": "spezialformulare.solaranlage-baugesuch",
     "fields": {
-      "created_at": "2023-04-20T09:12:38.740Z",
-      "modified_at": "2023-04-20T09:12:38.740Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_at": "2024-03-14T09:35:17.722Z",
+      "modified_at": "2024-03-14T09:35:17.722Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "spezialformulare",
-      "question": "solaranlagen",
-      "sort": 17
+      "question": "solaranlage-baugesuch",
+      "sort": 1
     }
   },
   {
@@ -13432,7 +13432,7 @@
       "modified_by_group": null,
       "form": "spezialformulare",
       "question": "stallbau-und-hofduengerlager",
-      "sort": 22
+      "sort": 21
     }
   },
   {
@@ -67405,6 +67405,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "solaranlage-baugesuch",
+    "fields": {
+      "created_at": "2024-03-14T09:35:17.470Z",
+      "modified_at": "2024-03-14T09:41:31.323Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Solaranlage\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "!(\n\t\"beschreibung-der-anlagen-solaranlagen\" in \"beschreibung-der-anlagen\"|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "solaranlagen",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "solaranlage-leistung",
     "fields": {
       "created_at": "2023-04-24T07:35:36.285Z",
@@ -67442,15 +67473,15 @@
     "pk": "solaranlagen",
     "fields": {
       "created_at": "2023-04-20T09:12:38.565Z",
-      "modified_at": "2023-05-01T09:45:19.933Z",
+      "modified_at": "2024-03-14T09:34:09.283Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Solaranlagen\", \"fr\": null, \"it\": null}",
       "type": "form",
       "is_required": "false",
-      "is_hidden": "!(\"solaranlage\" in form)",
+      "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
