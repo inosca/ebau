@@ -98,19 +98,7 @@
             ]
           },
           "applicant": {
-            "visibility": "all",
-            "permissions": [
-              {
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
-                "permission": "update"
-              }
-            ]
+            "visibility": "all"
           },
           "subservice": {
             "visibility": "all",
@@ -461,6 +449,79 @@
   },
   {
     "model": "alexandria_core.category",
+    "pk": "bauabnahme",
+    "fields": {
+      "created_at": "2020-08-04T13:24:00.704Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2020-08-04T13:24:00.704Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "access": {
+          "are": {
+            "visibility": "all"
+          },
+          "support": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "permission": "delete"
+              }
+            ]
+          },
+          "applicant": {
+            "visibility": "all"
+          },
+          "subservice": {
+            "visibility": "all"
+          },
+          "service-lead": {
+            "visibility": "all"
+          },
+          "municipality-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "condition": {
+                  "InstanceState": ["construction-acceptance"]
+                },
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "condition": {
+                  "InstanceState": ["construction-acceptance"]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "InstanceState": ["construction-acceptance"]
+                },
+                "permission": "delete"
+              }
+            ]
+          }
+        }
+      },
+      "name": "{\"de\": \"Bauabnahme\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"Hier werden von der Leitbeh\\u00f6rde Dokumente zur Bauabnahme hochgeladen, welche f\\u00fcr alle am Verfahren beteiligten Rollen einsehbar sein sollen (z.B. Bauabnahmeprotokoll). Gesuchstellenden werden diese Dokumente im eBau-Portal unter R\\u00fcckmeldungen angezeigt.\", \"fr\": \"\", \"it\": \"\"}",
+      "color": "#CB68C1",
+      "parent": null
+    }
+  },
+  {
+    "model": "alexandria_core.category",
     "pk": "beilagen-zum-gesuch",
     "fields": {
       "created_at": "2020-08-04T13:24:00.677Z",
@@ -497,7 +558,7 @@
               },
               {
                 "scope": "All",
-                "fields": ["tags", "marks"],
+                "fields": ["title", "description", "date", "tags", "marks"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
@@ -1081,13 +1142,6 @@
                   "marks",
                   "files"
                 ],
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
                 "permission": "create"
               },
               {
@@ -1101,24 +1155,10 @@
                   "tags",
                   "files"
                 ],
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
                 "permission": "update"
               },
               {
                 "scope": "Service",
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
                 "permission": "delete"
               }
             ]
@@ -1136,13 +1176,6 @@
                   "tags",
                   "files"
                 ],
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
                 "permission": "create"
               },
               {
@@ -1156,24 +1189,10 @@
                   "tags",
                   "files"
                 ],
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
                 "permission": "update"
               },
               {
                 "scope": "Service",
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
                 "permission": "delete"
               }
             ]
@@ -1207,13 +1226,6 @@
                   "tags",
                   "files"
                 ],
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
                 "permission": "create"
               },
               {
@@ -1227,24 +1239,10 @@
                   "tags",
                   "files"
                 ],
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
                 "permission": "update"
               },
               {
                 "scope": "Service",
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
                 "permission": "delete"
               }
             ]
@@ -1262,13 +1260,6 @@
                   "tags",
                   "files"
                 ],
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
                 "permission": "create"
               },
               {
@@ -1282,24 +1273,10 @@
                   "tags",
                   "files"
                 ],
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
                 "permission": "update"
               },
               {
                 "scope": "Service",
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
                 "permission": "delete"
               }
             ]
@@ -1317,13 +1294,6 @@
                   "tags",
                   "files"
                 ],
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
                 "permission": "create"
               },
               {
@@ -1337,24 +1307,10 @@
                   "tags",
                   "files"
                 ],
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
                 "permission": "update"
               },
               {
                 "scope": "Service",
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
                 "permission": "delete"
               }
             ]
@@ -1394,7 +1350,7 @@
               },
               {
                 "scope": "All",
-                "fields": ["tags", "marks"],
+                "fields": ["title", "description", "date", "tags", "marks"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
