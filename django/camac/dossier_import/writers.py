@@ -449,6 +449,13 @@ class DossierWriter:
         """
         raise NotImplementedError  # pragma: no cover
 
+    def set_dossier_id(self, instance, dossier_id):
+        """Make the instance retrievable by dossier_id.
+
+        The reverse of `self.existing_dossier`
+        """
+        raise NotImplementedError  # pragma: no cover
+
     def _set_workflow_state(self, instance: Instance, target_state: str):
         """Fast-Forward case to Dossier.Meta.target_state."""
         raise NotImplementedError  # pragma: no cover
@@ -521,10 +528,3 @@ class DossierWriter:
                 attachment_section.attachments.add(attachment)
 
         return messages
-
-    def _ensure_retrieveable(self):
-        """Make imported dossiers identifiable.
-
-        E. g. client deployment specific location for storing `internal id`
-        """
-        raise NotImplementedError  # pragma: no cover

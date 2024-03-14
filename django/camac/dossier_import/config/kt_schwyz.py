@@ -173,6 +173,24 @@ class KtSchwyzDossierWriter(DossierWriter):
         instance.save()
         return instance
 
+    def existing_dossier(self, dossier_id):
+        return Instance.objects.filter(
+            fields__name="kommunale-gesuchsnummer",
+            fields__value=dossier_id,
+            group_id=self._group.pk,
+        ).first()
+
+    def set_dossier_id(self, instance, dossier_id):
+        """Make the instance retrievable by dossier_id.
+
+        This config achieves that by calling `write_fields`. The
+        method is still implemented to make it explicit and allow
+        for better testing.
+        """
+        if self.existing_dossier(dossier_id):
+            return
+        self.cantonal_id.write(instance, dossier_id)
+
     @transaction.atomic
     def import_dossier(
         self, dossier: Dossier, import_session_id: str, allow_updates: bool = False
@@ -203,11 +221,23 @@ class KtSchwyzDossierWriter(DossierWriter):
                     detail=dossier._meta.target_state,
                 )
             )
-        if Instance.objects.filter(
-            fields__name="kommunale-gesuchsnummer",
-            fields__value=dossier.id,
-            group_id=self._group.pk,
-        ).first():
+
+        created = False
+        if instance := self.existing_dossier(dossier.id):
+            dossier_summary.instance_id = instance.pk
+            if not allow_updates:
+                dossier_summary.details.append(
+                    Message(
+                        level=LOG_LEVEL_WARNING,
+                        code=MessageCodes.DUPLICATE_DOSSIER.value,
+                        detail=None,
+                    )
+                )
+                dossier_summary.status = DOSSIER_IMPORT_STATUS_ERROR
+                return dossier_summary
+        else:
+            instance = self.create_instance(dossier)
+            created = True
             dossier_summary.details.append(
                 Message(
                     level=LOG_LEVEL_WARNING,
@@ -215,12 +245,20 @@ class KtSchwyzDossierWriter(DossierWriter):
                     detail=None,
                 )
             )
-            dossier_summary.status = DOSSIER_IMPORT_STATUS_ERROR
-            return dossier_summary
-        instance = self.create_instance(dossier)
-        instance.case.meta["import-id"] = import_session_id
-        instance.case.save()
         dossier_summary.instance_id = instance.pk
+
+        if created:
+            instance.case.meta["import-id"] = import_session_id
+            instance.case.save()
+            workflow_message = self._set_workflow_state(instance, dossier)
+            dossier_summary.details.append(
+                Message(
+                    level=get_message_max_level(workflow_message),
+                    code=MessageCodes.SET_WORKFLOW_STATE.value,
+                    detail=workflow_message,
+                )
+            )
+
         self.write_fields(instance, dossier)
 
         dossier_summary.details.append(

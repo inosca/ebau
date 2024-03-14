@@ -197,6 +197,23 @@ class KtBernDossierWriter(DossierWriter):
 
         return instance
 
+    def existing_dossier(self, dossier_id):
+        return (
+            tag := Tags.objects.filter(
+                name=dossier_id, service=self._group.service
+            ).first()
+        ) and tag.instance
+
+    def set_dossier_id(self, instance, dossier_id):
+        """Make the instance retrievable by dossier_id."""
+        Tags.objects.create(
+            name=dossier_id, service=self._group.service, instance=instance
+        )
+        construction_control = get_construction_control(self._group.service)
+        Tags.objects.create(
+            name=dossier_id, service=construction_control, instance=instance
+        )
+
     @transaction.atomic
     def import_dossier(
         self, dossier: Dossier, import_session_id: str, allow_updates: bool = False
@@ -218,48 +235,52 @@ class KtBernDossierWriter(DossierWriter):
             )
             dossier_summary.status = DOSSIER_IMPORT_STATUS_ERROR
             return dossier_summary
-
-        tag = Tags.objects.filter(name=dossier.id, service=self._group.service).first()
-        if tag:
-            dossier_summary.details.append(
-                Message(
-                    level=LOG_LEVEL_WARNING,
-                    code=MessageCodes.DUPLICATE_DOSSIER.value,
-                    detail=f"Dossier with ID {dossier.id} already exists.",
+        created = False
+        if instance := self.existing_dossier(dossier.id):
+            dossier_summary.dossier_id = instance.pk
+            if not allow_updates:
+                dossier_summary.details.append(
+                    Message(
+                        level=LOG_LEVEL_WARNING,
+                        code=MessageCodes.DUPLICATE_DOSSIER.value,
+                        detail=f"Dossier with ID {dossier.id} already exists.",
+                    )
                 )
-            )
-            dossier_summary.status = DOSSIER_IMPORT_STATUS_ERROR
-            return dossier_summary
-        instance = self.create_instance(dossier)
-        Tags.objects.create(
-            name=dossier.id, service=self._group.service, instance=instance
-        )
-        construction_control = get_construction_control(self._group.service)
-        Tags.objects.create(
-            name=dossier.id, service=construction_control, instance=instance
-        )
-        instance.case.meta["import-id"] = import_session_id
-        instance.case.save()
+                dossier_summary.status = DOSSIER_IMPORT_STATUS_ERROR
+                return dossier_summary
+        else:
+            instance = self.create_instance(dossier)
+            created = True
+            self.set_dossier_id(instance, dossier.id)
         dossier_summary.instance_id = instance.pk
         dossier_summary.details.append(
             Message(
-                level=LOG_LEVEL_DEBUG,
+                level=Severity.DEBUG.value,
                 code=MessageCodes.INSTANCE_CREATED.value,
                 detail=f"Instance created with ID:  {instance.pk}",
             )
         )
-        q_municipality = Question.objects.get(slug="gemeinde")
-        save_answer(
-            document=instance.case.document,
-            question=q_municipality,
-            value=str(self._group.service_id),
-            user=self._caluma_user,
-        )
-
         dossier_summary.details += self._create_dossier_attachments(dossier, instance)
+        if created:
+            instance.case.meta["import-id"] = import_session_id
+            instance.case.save()
+            q_municipality = Question.objects.get(slug="gemeinde")
+            save_answer(
+                document=instance.case.document,
+                question=q_municipality,
+                value=str(self._group.service_id),
+                user=self._caluma_user,
+            )
 
-        workflow_message = self._set_workflow_state(instance, dossier)
-        instance.history.all().delete()
+            workflow_message = self._set_workflow_state(instance, dossier)
+            dossier_summary.details.append(
+                Message(
+                    level=get_message_max_level(workflow_message),
+                    code=MessageCodes.SET_WORKFLOW_STATE.value,
+                    detail=workflow_message,
+                )
+            )
+            instance.history.all().delete()
 
         self.write_fields(instance, dossier)
         dossier_summary.details += dossier._meta.warnings
@@ -272,13 +293,6 @@ class KtBernDossierWriter(DossierWriter):
             )
         )
 
-        dossier_summary.details.append(
-            Message(
-                level=get_message_max_level(workflow_message),
-                code=MessageCodes.SET_WORKFLOW_STATE.value,
-                detail=workflow_message,
-            )
-        )
         if (
             get_message_max_level(dossier_summary.details) == LOG_LEVEL_ERROR
         ):  # pragma: no cover
