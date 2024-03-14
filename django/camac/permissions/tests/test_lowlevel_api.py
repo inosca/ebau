@@ -358,7 +358,7 @@ def test_condition_objects(
 ):
     permissions_settings["ACCESS_LEVELS"] = {
         access_level.pk: [
-            ("foo", conditions.InstanceState(["state-foo"])),
+            ("foo", conditions.RequireInstanceState(["state-foo"])),
             ("bar", conditions.HasRole(["role-bar"])),
             ("never", conditions.Never()),
             ("never-or-always", conditions.Always() | conditions.Never()),

@@ -50,7 +50,7 @@ class BinaryCheck(Check):
 
     def __repr__(self):
         opname = self._op.__name__.strip("_")
-        return f"BinaryCheck({opname}{self._left}, {self._right})"
+        return f"BinaryCheck({opname}, {self._left}, {self._right})"
 
     @property
     def allow_caching(self):  # pragma: no cover
@@ -100,15 +100,13 @@ class Callback(Check):
 
 
 @dataclass
-class InstanceState(Check):
+class RequireInstanceState(Check):
     """Permission check: Require instance is in one of the configured states."""
 
     require_states: List[str]
 
     def apply(self, userinfo, instance):
-        return any(
-            instance.instance_state.name == state for state in self.require_states
-        )
+        return instance.instance_state.name in self.require_states
 
     @property
     def allow_caching(self):  # pragma: no cover
