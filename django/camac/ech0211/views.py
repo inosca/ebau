@@ -27,7 +27,11 @@ from camac.core.views import SendfileHttpResponse
 from camac.ech0211.models import Message
 from camac.ech0211.throttling import ECHMessageThrottle
 from camac.instance.models import Instance
-from camac.swagger.utils import get_operation_description, group_param
+from camac.swagger.utils import (
+    conditional_factory,
+    get_operation_description,
+    group_param,
+)
 
 from . import event_handlers, formatters
 from .mixins import ECHInstanceQuerysetMixin
@@ -331,9 +335,9 @@ class ECHFileView(
             status.HTTP_400_BAD_REQUEST: openapi.Response("Invalid request"),
             status.HTTP_403_FORBIDDEN: openapi.Response("Permission denied"),
         },
-        auto_schema=SwaggerAutoSchema
-        if settings.ECH0211.get("API_LEVEL") == "full"
-        else None,
+        auto_schema=conditional_factory(
+            SwaggerAutoSchema, lambda: settings.ECH0211.get("API_LEVEL") == "full"
+        ),
     )
     def create(self, request, **kwargs):
         if (
