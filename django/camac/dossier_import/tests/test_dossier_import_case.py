@@ -484,6 +484,7 @@ def test_record_loading_be(
     expected_target,
     snapshot,
     is_empty,
+    mocker,
     work_item_factory,
     master_data_is_visible_mock,
 ):
@@ -511,6 +512,8 @@ def test_record_loading_be(
     # test overwriting values
     if not is_empty:
         writer.write_fields(camac_instance, dossier)
+        mocker.patch.object(writer, "existing_dossier", camac_instance)
+        instance_service_factory(instance=camac_instance, service=writer._group.service)
 
     dossier_row_sparse.update(dossier_row_patch)
     dossier = dossier_loader._load_dossier(dossier_row_sparse)
@@ -561,6 +564,7 @@ def test_record_loading_sz(
     config,
     dossier,
     dossier_loader,
+    mocker,
     snapshot,
     dossier_row_patch,
     target,
@@ -573,6 +577,8 @@ def test_record_loading_sz(
     if not is_empty:
         # fill the instance's fields ..
         writer.write_fields(camac_instance, dossier)
+        mocker.patch.object(writer, "existing_dossier", camac_instance)
+
     dossier_row_sparse.update(dossier_row_patch)
     work_item_factory(task_id="building-authority", case=camac_instance.case)
     dossier = dossier_loader._load_dossier(dossier_row_sparse)
