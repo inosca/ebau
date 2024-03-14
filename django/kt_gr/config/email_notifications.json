@@ -252,6 +252,18 @@
     }
   },
   {
+    "model": "notification.notificationtemplate",
+    "pk": 22,
+    "fields": {
+      "slug": "bauabnahme-gesuchsteller",
+      "purpose": null,
+      "subject": null,
+      "body": null,
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
     "model": "notification.notificationtemplatet",
     "pk": 1,
     "fields": {
@@ -501,6 +513,18 @@
       "purpose": "Meldung Fristüberschreitung (Fachstelle)",
       "subject": "Meldung Fristüberschreitung (Dossier-Nr. {{DOSSIER_NR}})",
       "body": "Guten Tag \r\n\r\nDie gesetzte Frist im Baubewilligungsverfahren für das Dossier mit der Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) ist abgelaufen. Fehlende Stellungnahmen, Amts- und Fachberichte, Verfügungen sind bei betroffenen Stellen nachzufordern.\r\n\r\n{{INQUIRY_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n{{LEITBEHOERDE_NAME_DE}}"
+    }
+  },
+  {
+    "model": "notification.notificationtemplatet",
+    "pk": 22,
+    "fields": {
+      "template": 22,
+      "template_slug": "bauabnahme-gesuchsteller",
+      "language": "de",
+      "purpose": "Bauabnahme (Gesuchsteller)",
+      "subject": "Information über Bauabnahme (Dossier-Nr. {{DOSSIER_NR}})",
+      "body": "Guten Tag\r\n\r\nDie Bauabnahme zum Dossier mit der Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde abgeschlossen.\r\n\r\nDie Dokumente finden Sie unter folgendem Link:\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{LEITBEHOERDE_NAME_DE}}"
     }
   }
 ]

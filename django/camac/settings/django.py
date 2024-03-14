@@ -1661,6 +1661,10 @@ APPLICATIONS = {
                     "template_slug": "bauabnahme",
                     "recipient_types": ["aib"],
                 },
+                {
+                    "template_slug": "bauabnahme-gesuchsteller",
+                    "recipient_types": ["applicant"],
+                },
             ],
         },
         "SUBSERVICE_ROLES": ["subservice"],
