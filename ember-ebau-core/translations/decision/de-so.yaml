@@ -1,0 +1,13 @@
+decision:
+  appeal:
+    changed: |-
+      Dieses Dossier wird nach dem Erfassen des Entscheides in den Status
+      <b>"{status}"</b> versetzt.
+    annulled: |-
+      Dieses Dossier wird nach dem Erfassen des Entscheides in den Status
+      <b>"{status}"</b> versetzt. Die Bauherrschaft muss ein neues Dossier
+      einreichen.
+    rejected: |-
+      Dieses Dossier wird nach dem Erfassen des Entscheides kopiert und in den
+      Status <b>"{status}"</b> versetzt. Das momentane Dossier wird
+      abgeschlossen und die Leitbehörde muss das Verfahren nochmals durchführen.

@@ -13,19 +13,15 @@ export default class DecisionInfoAppealComponent extends Component {
   @queryManager apollo;
 
   get appealType() {
-    const decisionSlug = mainConfig.appeal.decisionSlug;
-    const re = new RegExp(`${decisionSlug}${mainConfig.appeal.typeRegexExp}`);
-    return this.args.field.document.findAnswer(decisionSlug)?.replace(re, "");
+    return mainConfig.appeal.answerSlugs[
+      this.args.field.document.findAnswer(
+        mainConfig.decision.answerSlugs.decision,
+      )
+    ];
   }
 
   get color() {
-    const COLOR_MAP = {
-      [mainConfig.appeal.confirmed]: "success",
-      [mainConfig.appeal.changed]: "danger",
-      [mainConfig.appeal.rejected]: "danger",
-    };
-
-    return COLOR_MAP[this.appealType];
+    return mainConfig.appeal.info[this.appealType].color;
   }
 
   sourceInstance = trackedFunction(this, async () => {
@@ -46,46 +42,22 @@ export default class DecisionInfoAppealComponent extends Component {
   });
 
   nextState = trackedFunction(this, async () => {
-    const INSTANCE_STATES = mainConfig.instanceStates;
-    const APPEAL_INSTANCE_STATES = mainConfig.appeal.instanceStates;
-
-    const previous = parseInt(
+    const previousInstanceState = parseInt(
       this.sourceInstance.value?.get("previousInstanceState.id"),
     );
 
-    let instanceStateId;
-
-    if (this.appealType === mainConfig.appeal.rejected) {
-      instanceStateId = INSTANCE_STATES[APPEAL_INSTANCE_STATES.circulationInit];
-    } else if (
-      this.appealType === mainConfig.appeal.confirmed &&
-      previous === INSTANCE_STATES[APPEAL_INSTANCE_STATES.previousInstanceState]
-    ) {
-      instanceStateId =
-        INSTANCE_STATES[APPEAL_INSTANCE_STATES.instanceStateNegativeDecision];
-    } else if (
-      this.appealType === mainConfig.appeal.confirmed &&
-      previous ===
-        INSTANCE_STATES[APPEAL_INSTANCE_STATES.instanceStatePositiveDecision]
-    ) {
-      instanceStateId =
-        INSTANCE_STATES[APPEAL_INSTANCE_STATES.instanceStatePositiveDecision];
-    } else if (
-      this.appealType === mainConfig.appeal.changed &&
-      previous === INSTANCE_STATES[APPEAL_INSTANCE_STATES.previousInstanceState]
-    ) {
-      instanceStateId =
-        INSTANCE_STATES[APPEAL_INSTANCE_STATES.instanceStatePositiveDecision];
-    } else if (
-      this.appealType === mainConfig.appeal.changed &&
-      previous ===
-        INSTANCE_STATES[APPEAL_INSTANCE_STATES.instanceStatePositiveDecision]
-    ) {
-      instanceStateId =
-        INSTANCE_STATES[APPEAL_INSTANCE_STATES.instanceStateNegativeDecision];
-    } else {
+    if (!previousInstanceState) {
       return null;
     }
+
+    const previousWasPositive =
+      previousInstanceState ===
+      mainConfig.instanceStates[mainConfig.appeal.instanceStates.afterPositive];
+
+    const instanceStateId =
+      mainConfig.instanceStates[
+        mainConfig.appeal.info[this.appealType].status(previousWasPositive)
+      ];
 
     const nextState =
       this.store.peekRecord("instance-state", instanceStateId) ??

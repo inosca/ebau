@@ -8,7 +8,7 @@ from django.core.management import call_command
 
 from camac.core.models import HistoryActionConfig
 from camac.instance.domain_logic import DecisionLogic
-from camac.instance.models import HistoryEntryT, Instance
+from camac.instance.models import HistoryEntryT, Instance, InstanceState
 from camac.instance.utils import copy_instance
 
 
@@ -424,3 +424,86 @@ def test_complete_decision_withdrawn(
         .get_trans_attr("title")
         == "Rückzug bestätigt"
     )
+
+
+@pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.parametrize(
+    "previous_instance_state,expected_instance_state,decision,expect_copy",
+    [
+        ("construction-monitoring", "construction-monitoring", "CONFIRMED", False),
+        ("finished", "finished", "CONFIRMED", False),
+        ("construction-monitoring", "construction-monitoring", "CHANGED", False),
+        ("finished", "construction-monitoring", "CHANGED", False),
+        ("construction-monitoring", "finished", "ANNULLED", False),
+        ("finished", "finished", "ANNULLED", False),
+        ("construction-monitoring", "finished", "REJECTED", True),
+        ("finished", "finished", "REJECTED", True),
+    ],
+)
+def test_complete_decision_appeal_so(
+    db,
+    admin_user,
+    so_appeal_settings,
+    so_instance,
+    caluma_admin_user,
+    decision_factory_so,
+    decision,
+    expect_copy,
+    expected_instance_state,
+    instance_state_factory,
+    previous_instance_state,
+    settings,
+    application_settings,
+    so_decision_settings,
+    disable_ech0211_settings,
+):
+    settings.APPLICATION_NAME = "kt_so"
+    application_settings["SHORT_NAME"] = "so"
+
+    instance_state_factory(name="new")
+    instance_state_factory(name="subm")
+    instance_state_factory(name="construction-monitoring")
+    instance_state_factory(name="finished")
+
+    so_instance.previous_instance_state = InstanceState.objects.get(
+        name=previous_instance_state
+    )
+    so_instance.save()
+
+    so_instance.case.workflow = Workflow.objects.get(pk="building-permit")
+    so_instance.case.meta.update({"has-appeal": True})
+    so_instance.case.save()
+
+    instance = copy_instance(
+        instance=so_instance,
+        group=admin_user.groups.first(),
+        user=admin_user,
+        caluma_user=caluma_admin_user,
+        new_meta={"dossier-number": "2024-1", "is-appeal": True},
+    )
+
+    work_item = decision_factory_so(
+        instance, so_appeal_settings["ANSWERS"]["DECISION"][decision]
+    )
+
+    send_event(
+        post_complete_work_item,
+        sender="post_complete_work_item",
+        work_item=work_item,
+        user=caluma_admin_user,
+        context={},
+    )
+
+    instance.refresh_from_db()
+
+    assert instance.instance_state.name == expected_instance_state
+
+    if expect_copy:
+        new_instance = Instance.objects.get(
+            case__document__source=instance.case.document
+        )
+
+        assert "is-rejected-appeal" in new_instance.case.meta
+        assert "dossier-number" in new_instance.case.meta
+        assert "dossier-number-sort" in new_instance.case.meta
+        assert new_instance.instance_state.name == "subm"
