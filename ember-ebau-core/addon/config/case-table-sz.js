@@ -18,6 +18,7 @@ export default {
       "form",
       "caseCreatedDateAfter",
       "caseCreatedDateBefore",
+      "calumaKeywordSearch",
     ],
     "camac-ng": [
       "instanceIdentifier",

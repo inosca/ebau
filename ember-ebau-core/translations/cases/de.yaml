@@ -88,6 +88,9 @@ cases:
     keywordSearch-hint: "Die Stichwortsuche kann etwas länger dauern, da alle Dossierdaten durchsucht werden."
     keywordSearchTooShort: 'Die einzelnen Begriffe der Stichwortsuche müssen mindestens drei Buchstaben beinhalten, z.B. Neubau EFH oder "KW 1"'
     landowner-placeholder: ""
+    calumaKeywordSearch: "Stichwortsuche"
+    calumaKeywordSearch-placeholder: ""
+    calumaKeywordSearch-hint: "Die Stichwortsuche kann etwas länger dauern, da alle Dossierdaten durchsucht werden."
     landowner: "Grundeigentümerschaft"
     modification-placeholder: ""
     modification: "Projektänderung"

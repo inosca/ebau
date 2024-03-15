@@ -339,6 +339,7 @@ export default class CaseTableComponent extends Component {
               : {}),
             keyword_search: this.args.filter.keywordSearch,
             location: this.args.filter.municipality,
+            caluma_keyword_search: this.args.filter.calumaKeywordSearch,
           }
         : macroCondition(getOwnConfig().application === "ur")
           ? {
