@@ -405,6 +405,7 @@ class InstanceQuerysetMixin(object):
             )
             if extra_filters:
                 work_items = work_items.filter(extra_filters)
+
             return list(work_items.values_list("case__family__instance__pk", flat=True))
 
         return Circulation.objects.filter(activations__service=group.service).values(
