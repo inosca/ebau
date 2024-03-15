@@ -29,7 +29,7 @@ def post_complete_construction_acceptance(sender, work_item, user, context, **kw
             "CONSTRUCTION_ACCEPTANCE", []
         ):
             send_mail_without_request(
-                "bauabnahme",
+                config["template_slug"],
                 user.username,
                 user.camac_group,
                 instance={"id": instance.pk, "type": "instances"},

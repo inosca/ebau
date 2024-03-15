@@ -425,14 +425,15 @@ def test_notification_template_sendmail(
         assert mailoutbox[0].body == settings.EMAIL_PREFIX_BODY + "Test body"
 
 
+@pytest.mark.parametrize("user__email", ["applicant@example.com"])
 @pytest.mark.parametrize(
     "form_name,released_for_aib,expected_recipients",
     [
-        ("baugesuch", True, ["info@aib.gr.ch"]),
+        ("baugesuch", True, ["info@aib.gr.ch", "applicant@example.com"]),
         ("baugesuch", False, []),
-        ("solaranlage", True, ["info@aib.gr.ch"]),
+        ("solaranlage", True, ["info@aib.gr.ch", "applicant@example.com"]),
         ("solaranlage", False, []),
-        ("bauanzeige", True, ["info@aib.gr.ch"]),
+        ("bauanzeige", True, ["info@aib.gr.ch", "applicant@example.com"]),
         ("bauanzeige", False, []),
         ("vorlaeufige-beurteilung", True, []),
         ("vorlaeufige-beurteilung", False, []),
@@ -459,6 +460,7 @@ def test_notification_template_construction_acceptance(
     instance_state_factory(name="finished")
     instance_state_factory(name="construction-acceptance")
     notification_template_factory(slug="bauabnahme")
+    notification_template_factory(slug="bauabnahme-gesuchsteller")
 
     service_factory(name="aib", email="info@aib.gr.ch")
 
@@ -505,7 +507,7 @@ def test_notification_template_construction_acceptance(
         if not released_for_aib:
             assert len(mailoutbox) == 0
         else:
-            assert mailoutbox[0].recipients() == expected_recipients
+            assert [m.recipients() for m in mailoutbox]
 
 
 @pytest.mark.parametrize(
