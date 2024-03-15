@@ -643,6 +643,10 @@ def caluma_workflow_config_sz(db, caluma_config_sz):
     caluma_form_models.Form.objects.create(slug="baugesuch")
     caluma_form_models.Form.objects.create(slug="bauverwaltung")
     caluma_form_models.Form.objects.create(slug="main-form")
+    caluma_form_models.Form.objects.create(slug="voranfrage")
+    caluma_form_models.Form.objects.create(slug="voranfrage-personalien")
+    caluma_form_models.Form.objects.create(slug="are-geschaeft")
+    caluma_form_models.Form.objects.create(slug="koordinaten")
 
     call_command(
         "loaddata",
@@ -1023,6 +1027,11 @@ def sz_instance_with_form(sz_instance, form_factory):
     form = form_factory(name="baugesuch-reklamegesuch")
     sz_instance.form = form_factory(name="baugesuch-reklamegesuch-v2", family=form)
     return sz_instance
+
+
+@pytest.fixture
+def sz_instance_internal(instance, caluma_workflow_config_sz, instance_with_case):
+    return instance_with_case(instance, workflow="internal-document", form="voranfrage")
 
 
 @pytest.fixture

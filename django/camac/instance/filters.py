@@ -1,7 +1,8 @@
 import re
 from functools import reduce
 
-from caluma.caluma_form.models import Answer, Option
+from caluma.caluma_form.filters import SearchAnswersFilter
+from caluma.caluma_form.models import Answer, Document, Option
 from caluma.caluma_workflow.models import Case, WorkItem
 from django.conf import settings
 from django.contrib.postgres.fields import ArrayField
@@ -389,6 +390,9 @@ class InstanceKeywordSearchFilter(CharFilter):
             if len(val) < 3:
                 return queryset.none()
 
+        return self.filter_queryset(processed_values, queryset, value)
+
+    def filter_queryset(self, processed_values, queryset, value):
         # All search terms must be contained in either
         # the form, journal entries or inquiry answers
         filters = Q()
@@ -405,6 +409,34 @@ class InstanceKeywordSearchFilter(CharFilter):
             processed_journal_entries=self.get_processed_journal_entries(),
             processed_inquiry_answers=self.get_processed_inquiry_answers(),
             processed_issues=self.get_processed_issues(),
+        ).filter(filters)
+
+
+class CalumaInstanceKeywordSearchFilter(InstanceKeywordSearchFilter):
+    def get_answers(self, queryset, value):
+        form_slug_list = settings.APPLICATION["CALUMA"]["INTERNAL_FORMS"]
+        # Implemented for internal instances that have only one Document attached
+        # to the main Case and the visibility is restricted through InstanceQuerysetMixin
+        # For extension for instances with Documents visible to multiple services,
+        # visibility restriction needs to be implemented.
+        document_queryset = Document.objects.filter(case__instance__in=queryset)
+        search_value = [{"questions": [], "forms": form_slug_list, "value": value}]
+        return SearchAnswersFilter(document_id="pk").filter(
+            document_queryset, search_value
+        )
+
+    def filter_queryset(self, processed_values, queryset, value):
+        # All search terms must be contained in either
+        # the issues,  journal entries or inquiry answers
+        filtered_documents = self.get_answers(queryset, value)
+        filters = Q()
+        for val in processed_values:
+            filters &= Q(processed_journal_entries__icontains=val)
+
+        filters = filters | Q(case__document__in=filtered_documents)
+
+        return queryset.annotate(
+            processed_journal_entries=self.get_processed_journal_entries(),
         ).filter(filters)
 
 
@@ -800,9 +832,14 @@ class CalumaInstanceFilterSet(InstanceFilterSet):
 
     sanction_creator = NumberFilter(field_name="sanctions__service")
     sanction_control_instance = NumberFilter(field_name="sanctions__control_instance")
+    caluma_keyword_search = CalumaInstanceKeywordSearchFilter()
 
     class Meta(InstanceFilterSet.Meta):
-        fields = InstanceFilterSet.Meta.fields + ("is_paper", "is_modification")
+        fields = InstanceFilterSet.Meta.fields + (
+            "is_paper",
+            "is_modification",
+            "caluma_keyword_search",
+        )
 
 
 class InstanceResponsibilityFilterSet(FilterSet):
