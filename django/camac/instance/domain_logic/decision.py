@@ -1,7 +1,8 @@
 from caluma.caluma_workflow import models as workflow_models
 from django.conf import settings
 
-from camac.core.utils import canton_aware
+from camac.core.utils import canton_aware, generate_sort_key
+from camac.instance.domain_logic import CreateInstanceLogic
 from camac.instance.models import Instance
 from camac.instance.utils import (
     copy_instance,
@@ -79,6 +80,15 @@ class DecisionLogic:
 
         if not decision:  # pragma: no cover
             return False
+
+        if settings.APPEAL and work_item.case.meta.get("is-appeal"):
+            previous_instance = work_item.case.document.source.case.instance
+            previous_state = previous_instance.previous_instance_state.name
+
+            return (
+                decision == settings.APPEAL["ANSWERS"]["DECISION"]["CONFIRMED"]
+                and previous_state == "construction-monitoring"
+            ) or decision == settings.APPEAL["ANSWERS"]["DECISION"]["CHANGED"]
 
         construction_tee = (
             work_item.document.answers.filter(
@@ -203,3 +213,10 @@ class DecisionLogic:
                     ebau_number=instance.case.meta.get("ebau-number"),
                     caluma_user=user,
                 )
+            else:
+                identifier = CreateInstanceLogic.generate_identifier(new_instance)
+                new_instance.case.meta["dossier-number"] = identifier
+                new_instance.case.meta["dossier-number-sort"] = generate_sort_key(
+                    identifier
+                )
+                new_instance.case.save()
