@@ -48,9 +48,13 @@ ADDITIONAL_DEMAND = {
         "NOTIFICATIONS": {
             "ACCEPTED": [
                 {
-                    "recipient_types": ["applicant", "leitbehoerde"],
-                    "template_slug": "nachforderung-akzeptiert",
-                }
+                    "recipient_types": ["applicant"],
+                    "template_slug": "nachforderung-akzeptiert-bauherrschaft",
+                },
+                {
+                    "recipient_types": ["leitbehoerde"],
+                    "template_slug": "nachforderung-akzeptiert-gemeinde",
+                },
             ],
             "REJECTED": [
                 {
