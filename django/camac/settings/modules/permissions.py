@@ -1,6 +1,6 @@
 from typing import Callable, Dict, List, Optional, Tuple, TypedDict
 
-from camac.permissions.conditions import Always, HasRole, InstanceState
+from camac.permissions.conditions import Always, HasRole, RequireInstanceState
 from camac.permissions.switcher import PERMISSION_MODE
 
 """
@@ -60,7 +60,7 @@ PermissionConfigEntry = TypedDict(
 
 PermissionsConfig = Dict[str, PermissionConfigEntry]
 
-BE_GEOMETER_DEFAULT_ACCESSIBLE_STATES = InstanceState(
+BE_GEOMETER_DEFAULT_ACCESSIBLE_STATES = RequireInstanceState(
     [
         "sb1",
         "sb2",
@@ -79,7 +79,7 @@ PERMISSIONS: PermissionsConfig = {
                 # (permission, list-of[instance-state or "*" for any])
                 # (permission, (lambda instance -> True/False))
                 ("foo", Always()),
-                ("edit-form", InstanceState(["new"])),
+                ("edit-form", RequireInstanceState(["new"])),
             ]
         },
         # Event handler that defines callbacks, which can grant/revoke
@@ -153,8 +153,8 @@ PERMISSIONS: PermissionsConfig = {
         "ENABLED": True,
         "ACCESS_LEVELS": {
             "municipality-before-submission": [
-                ("redirect-to-portal", InstanceState(["new"])),
-                ("form-read", InstanceState(["new"])),
+                ("redirect-to-portal", RequireInstanceState(["new"])),
+                ("form-read", RequireInstanceState(["new"])),
             ]
         },
         "EVENT_HANDLER": "camac.permissions.config.kt_so.PermissionEventHandlerSO",
