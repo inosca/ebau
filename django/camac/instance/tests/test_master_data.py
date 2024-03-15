@@ -204,12 +204,6 @@ def be_master_data_case(db, be_instance, group, master_data_is_visible_mock, uti
     utils.add_answer(document, "sachverhalt", "Sachverhalt Test")
     utils.add_answer(
         document,
-        "grundwasserschutzzonen",
-        ["grundwasserschutzzonen-s1"],
-        label=[{"de": "S1", "fr": "S1"}],
-    )
-    utils.add_answer(
-        document,
         "grundwasserschutzzonen-v2",
         ["grundwasserschutzzonen-v2-s1"],
         label=[{"de": "S1", "fr": "S1"}],
