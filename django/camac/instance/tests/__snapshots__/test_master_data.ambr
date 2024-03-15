@@ -153,7 +153,7 @@
     'protection_area': list([
       dict({
         'label': 'S1',
-        'slug': 'grundwasserschutzzonen-s1',
+        'slug': 'grundwasserschutzzonen-v2-s1',
       }),
     ]),
     'public': dict({
@@ -350,7 +350,7 @@
     'protection_area': list([
       dict({
         'label': 'S1',
-        'slug': 'grundwasserschutzzonen-s1',
+        'slug': 'grundwasserschutzzonen-v2-s1',
       }),
     ]),
     'public': dict({
