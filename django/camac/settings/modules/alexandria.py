@@ -1,5 +1,6 @@
 ALEXANDRIA = {
     "default": {
+        "EXCLUSIVE_MARKS": ["void"],
         "MARK_VISIBILITY": {
             "APPLICANT": ["decision"],
             "PUBLIC": ["publication"],

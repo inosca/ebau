@@ -15,7 +15,7 @@ django-environ==0.10.0
 django-excel==0.0.10
 django-extra-fields==3.0.2
 django-filter==23.5
-django-generic-api-permissions==0.4.2
+django-generic-api-permissions==0.4.3
 django-json-widget==1.1.1
 django-q==1.3.9
 django-reversion==5.0.12
