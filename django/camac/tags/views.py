@@ -18,13 +18,23 @@ class TagView(ReadOnlyModelViewSet):
         return super().get_queryset().none()
 
     def get_queryset_for_municipality(self):
-        return super().get_queryset().filter(service=self.request.group.service)
+        return (
+            super()
+            .get_queryset()
+            .filter(service=self.request.group.service)
+            .distinct("name")
+        )
 
     def get_queryset_for_service(self):
-        return super().get_queryset().filter(service=self.request.group.service)
+        return (
+            super()
+            .get_queryset()
+            .filter(service=self.request.group.service)
+            .distinct("name")
+        )
 
     def get_queryset_for_support(self):
-        return super().get_queryset()
+        return super().get_queryset().distinct("name")
 
 
 class KeywordView(ModelViewSet, InstanceQuerysetMixin):
