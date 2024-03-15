@@ -15,7 +15,6 @@ services:
       - cache
       - keycloak
       - mailhog
-      - clamav
     environment:
       - DATABASE_HOST=db
       - DATABASE_NAME=${APPLICATION}
