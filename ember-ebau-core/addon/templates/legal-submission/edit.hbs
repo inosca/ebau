@@ -6,4 +6,6 @@
 <CfContent
   @documentId={{@model.documentId}}
   @context={{hash instanceId=@model.instanceId}}
+  @loading={{this.workItem.isLoading}}
+  @disabled={{cannot "edit legal-submission" this.workItem.value}}
 />
