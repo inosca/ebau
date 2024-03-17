@@ -1,3 +1,5 @@
+import hashlib
+import logging
 import mimetypes
 import re
 import shutil
@@ -22,10 +24,12 @@ from camac.document.models import Attachment, AttachmentSection
 from camac.dossier_import.domain_logic import get_or_create_ebau_nr
 from camac.dossier_import.dossier_classes import CalumaPlotData, Dossier
 from camac.dossier_import.loaders import safe_join
-from camac.dossier_import.messages import LOG_LEVEL_WARNING, Message, MessageCodes
+from camac.dossier_import.messages import Message, MessageCodes, Severity
 from camac.instance.domain_logic import SUBMIT_DATE_FORMAT
 from camac.instance.models import Instance
 from camac.user.models import Group, User
+
+log = logging.getLogger("dossier_import")
 
 
 class FieldWriter:
@@ -191,7 +195,7 @@ class CalumaAnswerWriter(FieldWriter):
                 if not work_item:  # pragma: no cover
                     dossier._meta.errors.append(
                         Message(
-                            level=LOG_LEVEL_WARNING,
+                            level=Severity.WARNING.value,
                             code=MessageCodes.INCONSISTENT_WORKFLOW_STATE.value,
                             detail=f"Missing {self.task} work item, cannot write {self.target}",
                         )
@@ -210,7 +214,7 @@ class CalumaAnswerWriter(FieldWriter):
                 value = value[: question.max_length - 3] + "..."
                 dossier._meta.warnings.append(
                     Message(
-                        level=LOG_LEVEL_WARNING,
+                        level=Severity.WARNING.value,
                         code=MessageCodes.FIELD_VALIDATION_ERROR.value,
                         detail=_(
                             'Value "%(value)s" in field %(target)s is too long (max: %(max)s)'
@@ -232,7 +236,7 @@ class CalumaAnswerWriter(FieldWriter):
             except ValidationError:  # pragma: no cover
                 dossier._meta.errors.append(
                     Message(
-                        level=LOG_LEVEL_WARNING,
+                        level=Severity.WARNING.value,
                         code=MessageCodes.FIELD_VALIDATION_ERROR.value,
                         detail=f"Failed to write {value} to {self.target} for dossier {instance}",
                     )
@@ -257,7 +261,7 @@ class BuildingAuthorityRowWriter(CalumaAnswerWriter):
             dossier = self.context.get("dossier")
             dossier._meta.errors.append(
                 Message(
-                    level=LOG_LEVEL_WARNING,
+                    level=Severity.WARNING.value,
                     code=MessageCodes.INCONSISTENT_WORKFLOW_STATE.value,
                     detail=f"Missing building-authority work item, cannot write {self.target}",
                 )
@@ -276,11 +280,25 @@ class BuildingAuthorityRowWriter(CalumaAnswerWriter):
             )
             AnswerDocument.objects.create(answer=table_answer, document=row_document)
 
-        Answer.objects.create(
-            question_id=self.target,
-            document=row_document,
-            **{self.value_key: value},
-        )
+        question = Question.objects.get(pk=self.target)
+        try:
+            form_api.save_answer(
+                question=question,
+                document=row_document,
+                value=value,
+                user=BaseUser(
+                    username=self.owner._user.username, group=self.owner._group.pk
+                ),
+            )
+        except ValidationError:  # pragma: no cover
+            dossier._meta.errors.append(
+                Message(
+                    level=Severity.WARNING.value,
+                    code=MessageCodes.FIELD_VALIDATION_ERROR.value,
+                    detail=f"Failed to write {value} to {self.target} for dossier {instance}",
+                )
+            )
+            return
 
 
 class CalumaListAnswerWriter(FieldWriter):
@@ -316,7 +334,7 @@ class CalumaListAnswerWriter(FieldWriter):
                     except ValidationError:  # pragma: no cover
                         self.context.get("dossier")._meta.errors.append(
                             Message(
-                                level=LOG_LEVEL_WARNING,
+                                level=Severity.WARNING.value,
                                 code=MessageCodes.FIELD_VALIDATION_ERROR.value,
                                 detail=f"Failed to write {value} for field {field.name} to {self.target} for dossier {instance}.",
                             )
@@ -380,7 +398,7 @@ class EbauNumberWriter(CalumaAnswerWriter):
             )
             dossier._meta.errors.append(
                 Message(
-                    level=LOG_LEVEL_WARNING,
+                    level=Severity.WARNING.value,
                     code=MessageCodes.FIELD_VALIDATION_ERROR.value,
                     detail=detail,
                 )

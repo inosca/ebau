@@ -219,7 +219,7 @@ def validate_zip_archive_structure(instance_pk, clean_on_fail=True) -> DossierIm
                         None,
                         MessageCodes.MISSING_REQUIRED_VALUE_ERROR.value,
                         dossier_msgs,
-                        level=messages.LOG_LEVEL_ERROR,
+                        level=messages.Severity.ERROR.value,
                     )
                     try:
                         dossiers_success.remove(dossier_id)
@@ -233,7 +233,7 @@ def validate_zip_archive_structure(instance_pk, clean_on_fail=True) -> DossierIm
                     status,
                     MessageCodes.STATUS_CHOICE_VALIDATION_ERROR.value,
                     dossier_msgs,
-                    level=messages.LOG_LEVEL_ERROR,
+                    level=messages.Severity.ERROR.value,
                 )
                 try:
                     dossiers_success.remove(dossier_id)
@@ -251,7 +251,7 @@ def validate_zip_archive_structure(instance_pk, clean_on_fail=True) -> DossierIm
                     None,
                     MessageCodes.MISSING_REQUIRED_VALUE_ERROR.value,
                     dossier_msgs,
-                    level=messages.LOG_LEVEL_ERROR,
+                    level=messages.Severity.ERROR.value,
                 )
                 try:
                     dossiers_success.remove(dossier_id)

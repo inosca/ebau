@@ -20,6 +20,7 @@ from camac.dossier_import.messages import (
     DossierSummary,
     Message,
     MessageCodes,
+    Severity,
     get_message_max_level,
 )
 from camac.dossier_import.validation import TargetStatus
@@ -78,12 +79,6 @@ PLOT_DATA_MAPPING = {
     "coord_east": "lagekoordinaten-ost",
     "coord_north": "lagekoordinaten-nord",
 }
-
-
-LOG_LEVEL_DEBUG = 0
-LOG_LEVEL_INFO = 1
-LOG_LEVEL_WARNING = 2
-LOG_LEVEL_ERROR = 3
 
 
 class ConfigurationError(Exception):
@@ -228,7 +223,7 @@ class KtBernDossierWriter(DossierWriter):
         if dossier._meta.missing:
             dossier_summary.details.append(
                 Message(
-                    level=LOG_LEVEL_ERROR,
+                    level=Severity.ERROR.value,
                     code=MessageCodes.MISSING_REQUIRED_VALUE_ERROR.value,
                     detail=f"missing values in required fields: {dossier._meta.missing}",
                 )
@@ -241,7 +236,7 @@ class KtBernDossierWriter(DossierWriter):
             if not allow_updates:
                 dossier_summary.details.append(
                     Message(
-                        level=LOG_LEVEL_WARNING,
+                        level=Severity.WARNING.value,
                         code=MessageCodes.DUPLICATE_DOSSIER.value,
                         detail=f"Dossier with ID {dossier.id} already exists.",
                     )
@@ -287,17 +282,17 @@ class KtBernDossierWriter(DossierWriter):
         dossier_summary.details += dossier._meta.errors
         dossier_summary.details.append(
             Message(
-                level=LOG_LEVEL_DEBUG,
+                level=Severity.DEBUG.value,
                 code=MessageCodes.FORM_DATA_WRITTEN.value,
                 detail="Form data written.",
             )
         )
 
         if (
-            get_message_max_level(dossier_summary.details) == LOG_LEVEL_ERROR
+            get_message_max_level(dossier_summary.details) == Severity.ERROR.value
         ):  # pragma: no cover
             dossier_summary.status = DOSSIER_IMPORT_STATUS_ERROR
-        if get_message_max_level(dossier_summary.details) == LOG_LEVEL_WARNING:
+        if get_message_max_level(dossier_summary.details) == Severity.WARNING.value:
             dossier_summary.status = DOSSIER_IMPORT_STATUS_WARNING  # pragma: no cover
 
         return dossier_summary
@@ -354,7 +349,7 @@ class KtBernDossierWriter(DossierWriter):
             except WorkItem.DoesNotExist as e:
                 messages.append(
                     Message(
-                        level=LOG_LEVEL_ERROR,
+                        level=Severity.ERROR.value,
                         code=MessageCodes.WORKFLOW_SKIP_ITEM_FAILED.value,
                         detail=f"Skip work item with task_id {task_id} failed with {ConfigurationError(e)}.",
                     )
@@ -393,7 +388,7 @@ class KtBernDossierWriter(DossierWriter):
                 instance.save()
         messages.append(  # pragma: no cover
             Message(
-                level=LOG_LEVEL_DEBUG,
+                level=Severity.DEBUG.value,
                 code=MessageCodes.SET_WORKFLOW_STATE.value,
                 detail=f"Workflow state set to {target_state}.",
             )
@@ -415,7 +410,7 @@ class KtBernDossierWriter(DossierWriter):
         except ValidationError:  # pragma: no cover
             dossier._meta.errors.append(
                 Message(
-                    level=LOG_LEVEL_WARNING,
+                    level=Severity.WARNING.value,
                     code=MessageCodes.FIELD_VALIDATION_ERROR.value,
                     detail=f"Failed to write {value} to {ebau_number_slug} for dossier {instance}",
                 )
@@ -433,7 +428,7 @@ class KtBernDossierWriter(DossierWriter):
         except ValidationError:  # pragma: no cover
             dossier._meta.errors.append(
                 Message(
-                    level=LOG_LEVEL_WARNING,
+                    level=Severity.WARNING.value,
                     code=MessageCodes.FIELD_VALIDATION_ERROR.value,
                     detail=f"Failed to write '{exists_slug}-yes' to {exists_slug} for dossier {instance}",
                 )

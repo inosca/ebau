@@ -10,7 +10,7 @@ from camac.caluma.api import CalumaApi
 from camac.core.models import InstanceLocation
 from camac.dossier_import.dossier_classes import Dossier
 from camac.dossier_import.loaders import InvalidImportDataError, XlsxFileDossierLoader
-from camac.dossier_import.messages import LOG_LEVEL_ERROR, MessageCodes, update_summary
+from camac.dossier_import.messages import MessageCodes, Severity, update_summary
 from camac.dossier_import.validation import validate_zip_archive_structure
 from camac.instance.master_data import MasterData
 from camac.instance.models import Instance
@@ -206,7 +206,7 @@ def test_set_workflow_state_exceptions(
     camac_instance.case.work_items.get(task_id=expected_work_items_states[0]).delete()
     messages = writer._set_workflow_state(camac_instance, dossier)
     assert (
-        list((filter(lambda x: x.level == LOG_LEVEL_ERROR, messages)))[0].code
+        list((filter(lambda x: x.level == Severity.ERROR.value, messages)))[0].code
         == MessageCodes.WORKFLOW_SKIP_ITEM_FAILED
     )
 

@@ -17,12 +17,10 @@ from camac.dossier_import.messages import (
     DOSSIER_IMPORT_STATUS_ERROR,
     DOSSIER_IMPORT_STATUS_SUCCESS,
     DOSSIER_IMPORT_STATUS_WARNING,
-    LOG_LEVEL_DEBUG,
-    LOG_LEVEL_ERROR,
-    LOG_LEVEL_WARNING,
     DossierSummary,
     Message,
     MessageCodes,
+    Severity,
     get_message_max_level,
 )
 from camac.dossier_import.writers import (
@@ -204,7 +202,7 @@ class KtSchwyzDossierWriter(DossierWriter):
         if dossier._meta.missing:
             dossier_summary.details.append(
                 Message(
-                    level=LOG_LEVEL_ERROR,
+                    level=Severity.ERROR.value,
                     code=MessageCodes.MISSING_REQUIRED_VALUE_ERROR.value,
                     detail=dossier._meta.missing,
                 )
@@ -216,7 +214,7 @@ class KtSchwyzDossierWriter(DossierWriter):
         ):  # pragma: no cover
             dossier_summary.details.append(
                 Message(
-                    level=LOG_LEVEL_ERROR,
+                    level=Severity.ERROR.value,
                     code=MessageCodes.STATUS_CHOICE_VALIDATION_ERROR.value,
                     detail=dossier._meta.target_state,
                 )
@@ -228,7 +226,7 @@ class KtSchwyzDossierWriter(DossierWriter):
             if not allow_updates:
                 dossier_summary.details.append(
                     Message(
-                        level=LOG_LEVEL_WARNING,
+                        level=Severity.WARNING.value,
                         code=MessageCodes.DUPLICATE_DOSSIER.value,
                         detail=None,
                     )
@@ -240,9 +238,9 @@ class KtSchwyzDossierWriter(DossierWriter):
             created = True
             dossier_summary.details.append(
                 Message(
-                    level=LOG_LEVEL_WARNING,
-                    code=MessageCodes.DUPLICATE_DOSSIER.value,
-                    detail=None,
+                    level=Severity.DEBUG.value,
+                    code=MessageCodes.INSTANCE_CREATED.value,
+                    detail=f"Instance created with ID:  {instance.pk}",
                 )
             )
         dossier_summary.instance_id = instance.pk
@@ -263,7 +261,7 @@ class KtSchwyzDossierWriter(DossierWriter):
 
         dossier_summary.details.append(
             Message(
-                level=LOG_LEVEL_DEBUG,
+                level=Severity.DEBUG.value,
                 code=MessageCodes.FORM_DATA_WRITTEN.value,
                 detail="Form data written.",
             )
@@ -271,11 +269,11 @@ class KtSchwyzDossierWriter(DossierWriter):
         dossier_summary.details += self._create_dossier_attachments(dossier, instance)
         instance.history.all().delete()
         if (
-            get_message_max_level(dossier_summary.details) == LOG_LEVEL_ERROR
+            get_message_max_level(dossier_summary.details) == Severity.ERROR.value
         ):  # pragma: no cover
             dossier_summary.status = DOSSIER_IMPORT_STATUS_ERROR
         if (
-            get_message_max_level(dossier_summary.details) == LOG_LEVEL_WARNING
+            get_message_max_level(dossier_summary.details) == Severity.WARNING.value
         ):  # pragma: no cover
             dossier_summary.status = DOSSIER_IMPORT_STATUS_WARNING
 
@@ -339,7 +337,7 @@ class KtSchwyzDossierWriter(DossierWriter):
             except WorkItem.DoesNotExist as e:
                 messages.append(
                     Message(
-                        level=LOG_LEVEL_ERROR,
+                        level=Severity.ERROR.value,
                         code=MessageCodes.WORKFLOW_SKIP_ITEM_FAILED.value,
                         detail=f"Skip work item with task_id {task_id} failed with {ConfigurationError(e)}.",
                     )
@@ -371,7 +369,7 @@ class KtSchwyzDossierWriter(DossierWriter):
                 )
         messages.append(
             Message(
-                level=LOG_LEVEL_DEBUG,
+                level=Severity.DEBUG.value,
                 code=MessageCodes.SET_WORKFLOW_STATE.value,
                 detail=f"Workflow state set to {target_state}.",
             )

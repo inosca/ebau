@@ -39,10 +39,17 @@ class Summary:
     error: dict = field(default_factory=list)
 
 
-LOG_LEVEL_DEBUG = 0
-LOG_LEVEL_INFO = 1
-LOG_LEVEL_WARNING = 2
-LOG_LEVEL_ERROR = 3
+class Severity(int, Enum):
+    """Levels of verbosity.
+
+    More is less.
+    """
+
+    DEBUG = 0
+    INFO = 1
+    WARNING = 2
+    ERROR = 3
+
 
 # import status categories
 DOSSIER_IMPORT_STATUS_SUCCESS = "success"
@@ -86,7 +93,7 @@ class MessageCodes(str, Enum):
     UNHANDLED_EXCEPTION = "unhandled-exceptions"
 
 
-def get_message_max_level(message_list: List[Message], default=LOG_LEVEL_DEBUG):
+def get_message_max_level(message_list: List[Message], default=Severity.DEBUG.value):
     return (
         message_list
         and sorted(message_list, key=lambda msg: msg.level, reverse=True)[0].level
@@ -205,10 +212,10 @@ def update_summary(dossier_import):
         if not validation_message_object.get("summary"):  # pragma: no cover
             validation_message_object["summary"] = Summary().to_dict()
         validation_message_object["summary"]["warning"] += aggregate_messages_by_level(
-            validation_message_object, LOG_LEVEL_WARNING
+            validation_message_object, Severity.WARNING.value
         )
         validation_message_object["summary"]["error"] += aggregate_messages_by_level(
-            validation_message_object, LOG_LEVEL_ERROR
+            validation_message_object, Severity.ERROR.value
         )
         dossier_import.messages["validation"] = validation_message_object
         dossier_import.save()
@@ -218,10 +225,10 @@ def update_summary(dossier_import):
         if not import_message_object.get("summary"):  # pragma: no cover
             import_message_object["summary"] = Summary().to_dict()
         import_message_object["summary"]["warning"] += aggregate_messages_by_level(
-            import_message_object, LOG_LEVEL_WARNING
+            import_message_object, Severity.WARNING.value
         )
         import_message_object["summary"]["error"] += aggregate_messages_by_level(
-            import_message_object, LOG_LEVEL_ERROR
+            import_message_object, Severity.ERROR.value
         )
         import_message_object["summary"]["stats"].update(
             {
@@ -239,7 +246,7 @@ def update_summary(dossier_import):
 
 
 def append_or_update_dossier_message(
-    dossier_id, field_name, detail, code, messages, level=LOG_LEVEL_WARNING
+    dossier_id, field_name, detail, code, messages, level=Severity.WARNING.value
 ):
     dossier_msg = next(
         (d for d in messages if d.dossier_id == dossier_id),
