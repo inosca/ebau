@@ -77,7 +77,7 @@ def test_create_instance_dossier_import_case(
         dossier_import.messages["import"]["details"].append(message.to_dict())
     update_summary(dossier_import)
     assert dossier_import.messages["import"]["summary"]["stats"]["dossiers"] == 4
-    assert len(dossier_import.messages["import"]["summary"]["warning"]) == 2
+    assert len(dossier_import.messages["import"]["summary"]["warning"]) == 1
     assert len(dossier_import.messages["import"]["summary"]["error"]) == 1
 
     instances = Instance.objects.filter(

@@ -1,18 +1,19 @@
 import hashlib
 import logging
-import mimetypes
 import re
-import shutil
+import traceback
 from dataclasses import asdict, fields
 from datetime import datetime
 from pathlib import Path
 from typing import Any, List, Optional
 
+import magic
 from caluma.caluma_form import api as form_api
 from caluma.caluma_form.models import Answer, AnswerDocument, Document, Question
 from caluma.caluma_user.models import BaseUser
 from django.conf import settings
 from django.core.exceptions import ObjectDoesNotExist
+from django.core.files import File
 from django.db import IntegrityError
 from django.utils import timezone
 from django.utils.translation import gettext as _
@@ -481,7 +482,16 @@ class DossierWriter:
     def _create_dossier_attachments(
         self, dossier: Dossier, instance: Instance
     ) -> List[Message]:
-        """Create attachments for file pointers in dossier's attachments."""
+        """Create attachments for files in dossier's attachments.
+
+        This will get the file-name after stripping the dossier-id from the
+        path.
+
+        python-magic is used to guess the MIME type.
+
+        If an attachment by that name already exists the contents will be
+        replaced, rather than creating a new one
+        """
         messages = []
         if not dossier.attachments:
             return messages
@@ -493,56 +503,102 @@ class DossierWriter:
         attachments_path = instance_files_path / str(dossier.id)
 
         attachments_path.mkdir(parents=True, exist_ok=True)
-
-        for attachment in dossier.attachments:
-            target_base_path = f"{settings.MEDIA_ROOT}/attachments/files/{instance.pk}"
+        for document in dossier.attachments:
+            content = File(document.file_accessor)
 
             file_path = re.sub(
                 # ensure that dossier.id is only removed at the beginning of a path
                 r"^{dossier_id}/".format(dossier_id=dossier.id),
                 "",
-                attachment.name.encode("utf-8", errors="ignore").decode(
+                document.name.encode("utf-8", errors="ignore").decode(
                     "utf-8", errors="ignore"
                 ),
             )
 
-            # make sub_dirs
-            # ensure path exists if directory is not handled individually
-            (Path(target_base_path) / "/".join(file_path.split("/")[:-1])).mkdir(
-                parents=True, exist_ok=True
-            )
+            mimimi = magic.Magic(mime=True, uncompress=True)
+            mime_type = mimimi.from_buffer(content.file.read())
+            content.file.seek(0)
 
-            mimetypes.add_type("application/vnd.ms-outlook", ".msg")
-            mime_type, _ = mimetypes.guess_type(str(Path(target_base_path) / file_path))
-
-            if not mime_type:
+            if not mime_type:  # pragma: no cover
                 messages.append(
                     Message(
-                        level=LOG_LEVEL_WARNING,
+                        level=Severity.WARNING.value,
                         code=MessageCodes.MIME_TYPE_UNKNOWN,
                         detail=file_path,
                     )
                 )
                 continue
 
-            with open(str(Path(target_base_path) / file_path), "wb") as target_file:
-                shutil.copyfileobj(attachment.file_accessor, target_file)
+            defaults = dict(
+                user=self._user,
+                instance=instance,
+                service=self._group.service,
+                group=self._group,
+                name=file_path,
+                size=content.size,
+                context={},
+                date=timezone.localtime(),
+                mime_type=mime_type,
+            )
 
-                attachment = Attachment.objects.create(
-                    instance=instance,
-                    user=self._user,
-                    service=self._group.service,
-                    group=self._group,
-                    name=file_path,
-                    context={},
-                    path=f"attachments/files/{instance.pk}/{file_path}",
-                    size=target_file.tell(),
-                    date=timezone.localtime(),
-                    mime_type=mime_type,
+            attachment, created = Attachment.objects.get_or_create(
+                instance=instance,
+                name=file_path,
+                defaults=defaults,
+            )
+
+            # If an attachment by the same name exists we'll overwrite the file, unless the data is identical.
+            # Django's own `FileField.path.save` method cannot be used because it would create another
+            # file with a random suffix, thus cluttering the file system.
+            if not created:
+                if (
+                    hashlib.md5(attachment.path.file.read()).digest()
+                    == hashlib.md5(content.read()).digest()
+                ):
+                    continue
+                content.seek(0)
+                try:
+                    with Path(attachment.path.path).open("wb") as file:
+                        file.write(content.read())
+                except OSError as e:  # pragma: no cover
+                    tb = traceback.format_exc()
+                    log.exception(tb)
+                    messages.append(
+                        Message(
+                            level=Severity.ERROR.value,
+                            code=MessageCodes.UNHANDLED_EXCEPTION,
+                            detail=f"Something went wrong replacing '{file_path}' with error: {e}",
+                        )
+                    )
+                    continue
+                defaults["size"] = attachment.path.size
+                Attachment.objects.filter(pk=attachment.pk).update(**defaults)
+                messages.append(
+                    Message(
+                        level=Severity.INFO.value,
+                        code=MessageCodes.ATTACHMENT_UPDATED.value,
+                        detail=attachment.name,
+                    )
                 )
+                continue
+            attachment.path.save(file_path, content, save=True)
+            if created:
                 attachment_section = AttachmentSection.objects.get(
                     attachment_section_id=self._import_settings["ATTACHMENT_SECTION_ID"]
                 )
                 attachment_section.attachments.add(attachment)
-
+            att_sec = (
+                attachment.attachment_sections.filter(
+                    attachment_section_id=self._import_settings["ATTACHMENT_SECTION_ID"]
+                )
+                .values("name", "attachment_section_id")
+                .first()
+            )
+            messages.append(
+                Message(
+                    level=Severity.INFO.value,
+                    code=MessageCodes.ATTACHMENT_CREATED.value,
+                    detail=f"{attachment.name} ({attachment.mime_type}) in section {'{name} ({attachment_section_id})'.format(**att_sec)}",
+                )
+            )
         return messages

@@ -74,6 +74,8 @@ class MessageCodes(str, Enum):
     INSTANCE_CREATED = "instance-created"
     FORM_DATA_WRITTEN = "form-data-written"
     ATTACHMENTS_WRITTEN = "attachments-written"
+    ATTACHMENT_UPDATED = "attachment-updated"
+    ATTACHMENT_CREATED = "attachment-created"
     SET_WORKFLOW_STATE = "workflow-state-set"
     UNDO_IMPORT_TRIGGERED = "undo-import-triggered"
 
