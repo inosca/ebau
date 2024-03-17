@@ -185,8 +185,6 @@ class KtSchwyzDossierWriter(DossierWriter):
         method is still implemented to make it explicit and allow
         for better testing.
         """
-        if self.existing_dossier(dossier_id):
-            return
         self.cantonal_id.write(instance, dossier_id)
 
     @transaction.atomic
