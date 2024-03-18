@@ -167,7 +167,11 @@ The available permission modes are these:
 
 * In `LOGGING` mode, the same thing happens as in `CHECKING`, but any difference
   is only logged as warning, but not treated as an error (so it won't trigger
-  HTTP/500 errors, for example).
+  HTTP/500 errors, for example). The old data is then returned.
+
+* In `DEV` mode, the behaviour is equal to the `LOGGING` mode, but the **new**
+  data is returned instead. This is the mode to be used when developing the
+  permission module, but should never be accepted in a merge request.
 
 * In `OFF` mode, only the old permissions code is used. This can be used for
   production while parts of the transition are already merged, but not
@@ -176,10 +180,12 @@ The available permission modes are these:
 These are the "main modes". In addition, there are the following as well:
 
 * `AUTO_ON`: Automatic **on** mode will be in `CHECKING` mode in the development
-  environment, and in `LOGGING` mode in production (including CI, stage, test
-  etc)
+  environment, and in `LOGGING` mode in production (including CI,
+  stage, test etc)
+
 * `AUTO_OFF`: Automatic **off** mode is using `OFF` in production, stage, etc,
   and `LOGGING` in development mode.
+
 * `CLEANUP_AFTER_MIGRATION`: Cleanup mode is used as a marker to find all call
   sites and remove the old code (as well as the switcher) once we are done with
   the migration.
