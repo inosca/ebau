@@ -68,7 +68,7 @@ def extract_case_from_filters(info):
                 arg = [arg]
 
             if _match := next(
-                (obj for obj in arg if obj["key"] == "camac-instance-id")
+                (obj for obj in arg if obj["key"] == "camac-instance-id"), None
             ):
                 return ("instance_id", _match["value"])
 
