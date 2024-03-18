@@ -2458,6 +2458,9 @@ GENERIC_PERMISSIONS_VISIBILITY_CLASSES = [
 GENERIC_PERMISSIONS_PERMISSION_CLASSES = [
     "camac.alexandria.extensions.permissions.CustomPermission"
 ]
+GENERIC_PERMISSIONS_VALIDATION_CLASSES = [
+    "camac.alexandria.extensions.validations.CustomValidation"
+]
 
 
 is_s3_storage = DEFAULT_FILE_STORAGE == "storages.backends.s3.S3Storage"
