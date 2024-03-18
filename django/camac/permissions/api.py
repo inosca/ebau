@@ -219,6 +219,7 @@ class PermissionManager:
         starting_at: Optional[datetime] = None,
         ends_at: Optional[datetime] = None,
         event_name: Optional[str] = None,
+        **additional_attrs,
     ):
         """Grant permissions by creating a new ACL on the given Instance.
 
@@ -267,6 +268,7 @@ class PermissionManager:
             created_by_event=event_name,
             created_by_service=self.userinfo.service,
             revoked_by_user=self.userinfo.user if ends_at else None,
+            **additional_attrs,
         )
         return new_acl
 

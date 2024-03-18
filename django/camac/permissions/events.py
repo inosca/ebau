@@ -1,5 +1,6 @@
 from abc import ABCMeta, abstractmethod
 from functools import wraps
+from logging import getLogger
 from typing import Callable, Type
 
 from django.conf import settings
@@ -13,6 +14,8 @@ from camac.notification import utils as notification_utils
 from .api import PermissionManager
 from .exceptions import MissingEventHandler
 from .models import InstanceACL
+
+log = getLogger(__name__)
 
 
 def decision_dispatch_method(fn: Callable) -> Callable:
@@ -219,16 +222,19 @@ def acl_created(sender, instance, created, **kwargs):
     for notification_config in settings.APPLICATION["NOTIFICATIONS"].get(
         "PERMISSION_ACL_GRANTED", []
     ):
-        notification_utils.send_mail_without_request(
-            notification_config["template_slug"],
-            username=None,
-            group_id=None,
-            instance={
-                "id": acl.instance.pk,
-                "type": "instances",
-            },
-            recipient_types=notification_config["recipient_types"],
-            metainfo={
-                "acl": acl,
-            },
-        )
+        try:
+            notification_utils.send_mail_without_request(
+                notification_config["template_slug"],
+                username=None,
+                group_id=None,
+                instance={
+                    "id": acl.instance.pk,
+                    "type": "instances",
+                },
+                recipient_types=notification_config["recipient_types"],
+                metainfo={
+                    "acl": acl,
+                },
+            )
+        except Exception as exc:  # pragma: no cover
+            log.warning(f"Could not send notification for new ACL: {exc}")
