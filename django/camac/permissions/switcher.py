@@ -27,19 +27,27 @@ class PERMISSION_MODE(Enum):
 
     # Full on = old permission code is not used anymore
     FULL = "FULL"
+
     # Checking runs both old and new code, raises an exception on difference
     CHECKING = "CHECKING"
+
     # Logging is equal to checking, but only a warning is logged instead of
-    # raising an exception
+    # raising an exception. Returns "old" data if it differs
     LOGGING = "LOGGING"
+
+    # DEV is equal to logging, but returns "new" data if it differs
+    DEV = "DEV"
+
     # Off mode means only the old permission code is run
     OFF = "OFF"
+
     # Cleanup mode is used as a marker to find all call sites and remove
     # the old code (as well as the switcher) once we are done with the migration
     CLEANUP_AFTER_MIGRATION = "CLEANUP_AFTER_MIGRATION"
 
     # Auto on mode uses "checking" mode in dev env, but logging mode in production
     AUTO_ON = "AUTO_ON"
+
     # Auto off mode uses logging mode in dev, but "off" in production.
     AUTO_OFF = "AUTO_OFF"
 
@@ -53,6 +61,11 @@ def get_permission_mode():
         settings.PERMISSIONS.get("PERMISSION_MODE", PERMISSION_MODE.OFF)
         or PERMISSION_MODE.OFF
     )
+
+    if isinstance(set_mode, str):
+        # This way, we can also set it from env
+        set_mode = getattr(PERMISSION_MODE, set_mode)
+
     if set_mode == PERMISSION_MODE.AUTO_ON:
         return (
             PERMISSION_MODE.LOGGING
@@ -105,12 +118,19 @@ class PermissionMethod:
                         f"Permissions module discrepancy in `{self}`: OLD "
                         f"says {old}, NEW says {new}"
                     )
-                elif mode == PERMISSION_MODE.LOGGING:
+                elif mode == PERMISSION_MODE.DEV:
                     log.error(
                         f"Permissions module discrepancy in `{self}`: OLD "
                         f"says {old}, NEW says {new}. Returning NEW"
                     )
                     return new
+
+                elif mode == PERMISSION_MODE.LOGGING:
+                    log.error(
+                        f"Permissions module discrepancy in `{self}`: OLD "
+                        f"says {old}, NEW says {new}. Returning OLD"
+                    )
+                    return old
 
         @singledispatchmethod
         def _is_equal(self, old, new):
