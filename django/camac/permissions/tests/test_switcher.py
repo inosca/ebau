@@ -1,6 +1,7 @@
 import pytest
 
 from .. import switcher
+from ..switcher import PERMISSION_MODE
 
 
 @pytest.fixture(
@@ -16,11 +17,6 @@ def permission_mode(permissions_settings, request):
     """Parametrized to run once with every permissions mode available."""
     permissions_settings["PERMISSION_MODE"] = request.param
     return request.param
-
-
-def test_permission_modes(permission_mode):
-    print((permission_mode))
-    pass
 
 
 def test_permission_method(permissions_settings, permission_mode):
@@ -58,11 +54,12 @@ def test_permission_method(permissions_settings, permission_mode):
 @pytest.mark.parametrize(
     "mode, expect_error, expect_log, expect_result",
     [
-        (None, False, False, 11),
-        (switcher.PERMISSION_MODE.OFF, False, False, 11),
-        (switcher.PERMISSION_MODE.CHECKING, True, None, None),
-        (switcher.PERMISSION_MODE.LOGGING, False, True, 99),
-        (switcher.PERMISSION_MODE.FULL, False, False, 99),
+        (None, False, False, "oldvalue"),
+        (PERMISSION_MODE.OFF, False, False, "oldvalue"),
+        (PERMISSION_MODE.CHECKING, True, None, None),
+        (PERMISSION_MODE.LOGGING, False, True, "oldvalue"),
+        (PERMISSION_MODE.FULL, False, False, "newvalue"),
+        (PERMISSION_MODE.DEV, False, True, "newvalue"),
     ],
 )
 def test_permission_mismatch(
@@ -75,11 +72,11 @@ def test_permission_mismatch(
         # permission switching method
         @switcher.permission_switching_method
         def foo(self):
-            return 99
+            return "newvalue"
 
         @foo.register_old
         def foo_old(self):
-            return 11
+            return "oldvalue"
 
     thing = TestThingy()
 
@@ -88,9 +85,36 @@ def test_permission_mismatch(
             thing.foo()
         assert excinfo.match("Permissions module discrepancy in `TestThingy.foo`")
     else:
+        value_name = "NEW" if expect_result == "newvalue" else "OLD"
         warning = (
             "Permissions module discrepancy in `TestThingy.foo`: "
-            "OLD says 11, NEW says 99. Returning NEW"
+            f"OLD says oldvalue, NEW says newvalue. Returning {value_name}"
         )
         assert expect_result == thing.foo()
         assert (warning in caplog.messages) == expect_log
+
+
+@pytest.mark.parametrize("as_string", [True, False])
+@pytest.mark.parametrize(
+    "env, mode, expected_out",
+    [
+        ("development", PERMISSION_MODE.FULL, PERMISSION_MODE.FULL),
+        ("development", PERMISSION_MODE.CHECKING, PERMISSION_MODE.CHECKING),
+        ("development", PERMISSION_MODE.LOGGING, PERMISSION_MODE.LOGGING),
+        ("development", PERMISSION_MODE.DEV, PERMISSION_MODE.DEV),
+        ("development", PERMISSION_MODE.OFF, PERMISSION_MODE.OFF),
+        ("development", PERMISSION_MODE.AUTO_ON, PERMISSION_MODE.CHECKING),
+        ("production", PERMISSION_MODE.AUTO_ON, PERMISSION_MODE.LOGGING),
+        ("development", PERMISSION_MODE.AUTO_OFF, PERMISSION_MODE.LOGGING),
+        ("production", PERMISSION_MODE.AUTO_OFF, PERMISSION_MODE.OFF),
+    ],
+)
+def test_get_permission_mode(settings, env, mode, as_string, expected_out):
+    if as_string:
+        mode = mode.value
+
+    settings.PERMISSIONS["PERMISSION_MODE"] = mode
+    settings.ENV = env
+
+    output = switcher.get_permission_mode()
+    assert output == expected_out
