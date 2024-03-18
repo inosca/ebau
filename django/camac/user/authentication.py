@@ -52,6 +52,7 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
 
     def authenticate(self, request):
         jwt_value = self.get_jwt_value(request)
+        accept_language_header = request.headers.get("Accept-Language")
         if jwt_value is None:
             return None
 
@@ -60,11 +61,11 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
 
         return cache.get_or_set(
             "authentication.userinfo.%s" % token_hash,
-            lambda: self._verify_token(jwt_value),
+            lambda: self._verify_token(jwt_value, accept_language_header),
             timeout=settings.OIDC_BEARER_TOKEN_REVALIDATION_TIME,
         )
 
-    def _verify_token(self, jwt_value):  # noqa: C901
+    def _verify_token(self, jwt_value, accept_language_header):  # noqa: C901
         keycloak = KeycloakOpenID(
             server_url=settings.KEYCLOAK_URL,
             client_id=settings.KEYCLOAK_CLIENT,
@@ -95,20 +96,21 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
             raise AuthenticationFailed(_("Error while fetching userinfo"))
 
         # TODO: don't use jwt token at all, once Middleware is refactored
-        return self._build_user(resp), jwt_decoded
+        return self._build_user(resp, accept_language_header), jwt_decoded
 
-    def _update_or_create_user(self, defaults):
+    def _update_or_create_user(self, defaults, accept_language_header):
         user_model = get_user_model()
         filter_condition = Q(username=defaults["username"])
 
         # If enabled we also consider the email address
         if settings.OIDC_BOOTSTRAP_BY_EMAIL_FALLBACK and defaults["email"]:
             filter_condition |= Q(email=defaults["email"])
-
         existing_users = user_model.objects.filter(filter_condition)
+        if not accept_language_header and existing_users:
+            defaults["language"] = existing_users[0].language
         return existing_users.update_or_create(defaults=defaults)
 
-    def _build_user(self, data):
+    def _build_user(self, data, accept_language_header):
         language = translation.get_language()
 
         # Different customers use different claims as their username
@@ -144,7 +146,7 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
             for key in settings.APPLICATION.get("OIDC_SYNC_USER_ATTRIBUTES")
         }
 
-        user, created = self._update_or_create_user(defaults)
+        user, created = self._update_or_create_user(defaults, accept_language_header)
 
         self._update_applicants(user)
         self._assign_demo_groups(user)
@@ -156,7 +158,6 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
         if not user.is_active:
             msg = _("User is deactivated.")
             raise AuthenticationFailed(msg)
-
         return user
 
     def _assign_demo_groups(self, user):
