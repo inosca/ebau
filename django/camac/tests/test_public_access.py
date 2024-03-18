@@ -9,7 +9,11 @@ from camac.instance.tests.test_instance_public import (  # noqa: F401
 
 
 @pytest.fixture
-def public_urls(application_settings):
+def public_urls(
+    application_settings,
+    disable_ech0211_settings,
+    reload_ech0211_urls,
+):
     mixin_urls = []
 
     for view, urls in get_resolver().reverse_dict.items():
@@ -66,7 +70,12 @@ def public_data(
     create_caluma_publication(be_instance)
 
 
-def test_public_urls(db, public_urls, public_data, admin_client):
+def test_public_urls(
+    db,
+    public_urls,
+    public_data,
+    admin_client,
+):
     """Test public URLs to see that no data is leaked unintentionally.
 
     All URLs of views using the InstanceQuerysetMixin are collected and fetched
