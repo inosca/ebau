@@ -1,7 +1,7 @@
 <UkButton
   data-test-apply
   @color="primary"
-  @label={{t "so-gis.apply"}}
+  @label={{t "gis.apply"}}
   @onClick={{perform this.getData}}
   @disabled={{or @disabled this.getData.isRunning}}
   @loading={{this.getData.isRunning}}
@@ -26,7 +26,7 @@
                 >
                   {{data.label}}
                   {{#if (gt data.value.length 1)}}
-                    {{t "so-gis.row-count" count=(add i 1)}}
+                    {{t "gis.row-count" count=(add i 1)}}
                   {{/if}}
                 </p>
                 <table

@@ -67,7 +67,7 @@ export default class GisApplyButtonComponent extends Component {
       this.showModal = true;
     } catch (e) {
       console.error(e);
-      this.notification.danger(this.intl.t("so-gis.apply-error"));
+      this.notification.danger(this.intl.t("gis.apply-error"));
     }
   });
 
@@ -137,7 +137,7 @@ export default class GisApplyButtonComponent extends Component {
       return true;
     } catch {
       this.notification.danger(
-        this.intl.t("so-gis.apply-answer-error", { label }),
+        this.intl.t("gis.apply-answer-error", { label }),
       );
       return false;
     } finally {
