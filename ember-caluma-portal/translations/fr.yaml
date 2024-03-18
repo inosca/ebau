@@ -392,10 +392,10 @@ claims:
     answered: "Répondu"
 
 notfound:
-  title: "404"
-  subtitle: "La page n'a pas été trouvée"
+  title: "Vous ne disposez pas des droits d'accès à ce dossier."
+  subtitle: "Veuillez vérifier que le numéro de dossier est correct et que l'accès au dossier vous a été accordé sous 'DROITS D'ACCÈS'."
   link: "Retour à"
-  home: "la page principale"
+  home: "la page d'accueil"
 
 paper:
   type: "papier"
