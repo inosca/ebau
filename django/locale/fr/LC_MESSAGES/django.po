@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-02-26 12:02+0100\n"
-"PO-Revision-Date: 2024-01-19 13:58+0100\n"
+"PO-Revision-Date: 2024-03-18 15:34+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -321,7 +321,14 @@ msgid "Invalid mime type for template. Allowed types are: docx"
 msgstr ""
 "Type de mime non valide pour le modèle. Les types autorisés sont : docx"
 
-#: camac/document/views.py:353
+#: camac/document/views.py:254
+msgid ""
+"Cannot delete this document, as it is referenced in the communications module"
+msgstr ""
+"Ce document ne peut pas être supprimé, car il est référencé dans le module "
+"de communication."
+
+#: camac/document/views.py:369
 msgid "Specifying an \"attachments\" filter is mandatory!"
 msgstr "La spécification d'un filtre \"attachments\" est obligatoire !"
 
