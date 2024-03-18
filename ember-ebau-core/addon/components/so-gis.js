@@ -48,7 +48,7 @@ export default class SoGisMapComponent extends Component {
 
       this.map.fitBounds(bounds);
     } catch {
-      this.notification.danger(this.intl.t("so-gis.point-error"));
+      this.notification.danger(this.intl.t("gis.point-error"));
     }
   }
 
@@ -89,7 +89,7 @@ export default class SoGisMapComponent extends Component {
         };
       });
     } catch {
-      this.notification.danger(this.intl.t("so-gis.search-error"));
+      this.notification.danger(this.intl.t("gis.search-error"));
     }
   });
 }
