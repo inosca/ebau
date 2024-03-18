@@ -1,6 +1,6 @@
 Babel==2.14.0
 caluma==9.3.3
-caluma-alexandria==3.0.0-beta.18
+caluma-alexandria==3.0.0
 dataclasses-json==0.6.4
 deepmerge==1.1.1
 # caluma and caluma-alexandria have pinned django versions >=3.2.19
