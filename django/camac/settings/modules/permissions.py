@@ -88,7 +88,7 @@ PERMISSIONS: PermissionsConfig = {
         "ENABLED": True,
     },
     "kt_bern": {
-        "PERMISSION_MODE": PERMISSION_MODE.AUTO_OFF,
+        "PERMISSION_MODE": PERMISSION_MODE.OFF,
         "ACCESS_LEVELS": {
             "geometer": [
                 # TODO: For ACLs that can be manually granted, read-permissions
