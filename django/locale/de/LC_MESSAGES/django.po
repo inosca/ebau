@@ -28,6 +28,11 @@ msgstr "eBau"
 msgid "Administration"
 msgstr "Administration"
 
+#: camac/alexandria/extensions/validations.py:16
+#, python-format
+msgid "Mark \"%(mark)s\" can not be combined with other marks"
+msgstr "Die Markierung \"%(mark)s\" kann nicht mit anderen Markierungen kombiniert werden"
+
 #: camac/applicants/serializers.py:39
 #, python-format
 msgid "Email '%(email)s' has already access to instance %(instance)s"
