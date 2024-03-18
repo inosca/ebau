@@ -1,9 +1,9 @@
 import json
 
 from alexandria.core import models as alexandria_models
+from alexandria.core.api import create_document_file as create_alexandria_document_file
 from django.conf import settings
 from django.core.cache import cache
-from django.core.exceptions import ValidationError as DjangoCoreValidationError
 from django.db import transaction
 from django.urls import reverse
 from django.utils import timezone
@@ -439,9 +439,6 @@ class ConvertToDocumentSerializer(CommunicationsAttachmentSerializer):
             doc_attachment.attachment_sections.add(section)
             instance.document_attachment = doc_attachment
         else:
-            user = self.context["request"].user.pk
-            group = self.context["request"].group.service_id
-
             available_permissions = (
                 CustomAlexandriaPermission().get_available_permissions(
                     self.context["request"],
@@ -453,40 +450,26 @@ class ConvertToDocumentSerializer(CommunicationsAttachmentSerializer):
             if MODE_CREATE not in available_permissions:
                 raise PermissionDenied()
 
-            document = alexandria_models.Document.objects.create(
-                title=instance.filename,
-                date=timezone.localtime(),
+            document, file = create_alexandria_document_file(
+                user=self.context["request"].user.pk,
+                group=self.context["request"].group.service_id,
                 category=validated_data["category"],
-                metainfo={
-                    "camac-instance-id": str(instance.message.topic.instance_id),
-                    "copied-from-communications-attachment": str(instance.pk),
-                },
-                created_by_user=user,
-                created_by_group=group,
-                modified_by_user=user,
-                modified_by_group=group,
-            )
-            file = alexandria_models.File.objects.create(
-                document=document,
-                name=instance.filename,
-                content=instance.file_attachment.file,
+                document_title=instance.filename,
+                file_name=instance.filename,
+                file_content=instance.file_attachment.file,
                 mime_type=instance.file_type,
-                size=instance.file_attachment.file.size,
-                created_by_user=user,
-                created_by_group=group,
-                modified_by_user=user,
-                modified_by_group=group,
+                file_size=instance.file_attachment.file.size,
+                additional_document_attributes={
+                    "metainfo": {
+                        "camac-instance-id": str(instance.message.topic.instance_id),
+                        "copied-from-communications-attachment": str(instance.pk),
+                    },
+                },
             )
             document.created_at = instance.message.created_at
             document.save()
             file.created_at = instance.message.created_at
             file.save()
-            try:
-                file.create_thumbnail()
-            except DjangoCoreValidationError:  # pragma: no cover
-                # thumbnail could not be generated because of an unsupported
-                # mime type
-                pass
             instance.alexandria_file = file
 
         instance.file_attachment = None
