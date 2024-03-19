@@ -70,9 +70,9 @@ def test_create_message_with_alexandria_attachment(
     topic_with_admin_involved,
     use_alexandria_backend,
 ):
-    communications_settings["NOTIFICATIONS"]["APPLICANT"][
-        "template_slug"
-    ] = notification_template.slug
+    communications_settings["NOTIFICATIONS"]["APPLICANT"]["template_slug"] = (
+        notification_template.slug
+    )
     communications_settings["NOTIFICATIONS"]["INTERNAL_INVOLVED_ENTITIES"][
         "template_slug"
     ] = notification_template.slug

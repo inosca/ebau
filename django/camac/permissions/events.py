@@ -138,16 +138,15 @@ class PermissionEventHandler(metaclass=ABCMeta):
         return cls(manager=PermissionManager.from_request(request))
 
     @abstractmethod
-    def decision_decreed(self, instance: Instance):
-        ...  # pragma: no cover
+    def decision_decreed(self, instance: Instance): ...  # pragma: no cover
 
     @abstractmethod
-    def construction_acceptance_completed(self, instance: Instance):
-        ...  # pragma: no cover
+    def construction_acceptance_completed(
+        self, instance: Instance
+    ): ...  # pragma: no cover
 
     @abstractmethod
-    def instance_submitted(self, instance: Instance):
-        ...  # pragma: no cover
+    def instance_submitted(self, instance: Instance): ...  # pragma: no cover
 
     @abstractmethod
     def applicant_added(self, instance: Instance, applicant):

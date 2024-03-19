@@ -693,9 +693,9 @@ class Command(BaseCommand):
             inst.instance_state.name == "subm"
             and not document.case.meta["dossier-number"]
         ):
-            document.case.meta[
-                "dossier-number"
-            ] = CreateInstanceLogic.generate_identifier(inst)
+            document.case.meta["dossier-number"] = (
+                CreateInstanceLogic.generate_identifier(inst)
+            )
             document.case.save()
 
         log.info(

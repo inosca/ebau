@@ -90,9 +90,9 @@ def test_create_message(
     notification_template,
     communications_settings,
 ):
-    communications_settings["NOTIFICATIONS"]["APPLICANT"][
-        "template_slug"
-    ] = notification_template.slug
+    communications_settings["NOTIFICATIONS"]["APPLICANT"]["template_slug"] = (
+        notification_template.slug
+    )
     communications_settings["NOTIFICATIONS"]["INTERNAL_INVOLVED_ENTITIES"][
         "template_slug"
     ] = notification_template.slug
@@ -241,9 +241,9 @@ def test_notification_email(
     role,
     notifications_enabled,
 ):
-    communications_settings["NOTIFICATIONS"]["APPLICANT"][
-        "template_slug"
-    ] = notification_template.slug
+    communications_settings["NOTIFICATIONS"]["APPLICANT"]["template_slug"] = (
+        notification_template.slug
+    )
     communications_settings["NOTIFICATIONS"]["INTERNAL_INVOLVED_ENTITIES"][
         "template_slug"
     ] = notification_template.slug
