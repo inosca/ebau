@@ -217,9 +217,9 @@ def test_adding_message_with_allow_replies(
     communications_settings,
     expect_status,
 ):
-    communications_settings["NOTIFICATIONS"]["APPLICANT"][
-        "template_slug"
-    ] = notification_template.slug
+    communications_settings["NOTIFICATIONS"]["APPLICANT"]["template_slug"] = (
+        notification_template.slug
+    )
     communications_settings["NOTIFICATIONS"]["INTERNAL_INVOLVED_ENTITIES"][
         "template_slug"
     ] = notification_template.slug

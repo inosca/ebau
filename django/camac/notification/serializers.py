@@ -805,9 +805,9 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
                 row_answers = {}
                 # loop over answers in table row to format the answer
                 for answer in row.document.answers.all():
-                    row_answers[
-                        inflection.underscore(answer.question.slug)
-                    ] = get_answer_display_value(answer, option_separator="\n")
+                    row_answers[inflection.underscore(answer.question.slug)] = (
+                        get_answer_display_value(answer, option_separator="\n")
+                    )
                 question_answers.append(row_answers)
             answers[inflection.underscore(question.slug)] = question_answers
 
