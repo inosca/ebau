@@ -3,7 +3,10 @@ from django.urls import reverse
 
 from camac.permissions import api
 from camac.permissions.conditions import Callback, RequireInstanceState
-from camac.permissions.switcher import get_permission_mode
+from camac.permissions.switcher import (
+    get_permission_mode,
+    is_permission_mode_fully_enabled,
+)
 
 
 @pytest.fixture
@@ -43,7 +46,10 @@ def test_permissions_view(
     result = admin_client.get(url, {"instance": instance.pk})
     assert result.json() == {
         "data": [],
-        "meta": {"permission-mode": get_permission_mode().value},
+        "meta": {
+            "permission-mode": get_permission_mode().value,
+            "fully-enabled": is_permission_mode_fully_enabled(),
+        },
     }
 
     # Grant this access level to our user
@@ -75,7 +81,10 @@ def test_permissions_view(
                 "type": "instance-permissions",
             }
         ],
-        "meta": {"permission-mode": get_permission_mode().value},
+        "meta": {
+            "permission-mode": get_permission_mode().value,
+            "fully-enabled": is_permission_mode_fully_enabled(),
+        },
     }
 
 
@@ -129,5 +138,8 @@ def test_no_include_instance(
                     "type": "instance-permissions",
                 }
             ],
-            "meta": {"permission-mode": get_permission_mode().value},
+            "meta": {
+                "permission-mode": get_permission_mode().value,
+                "fully-enabled": is_permission_mode_fully_enabled(),
+            },
         }
