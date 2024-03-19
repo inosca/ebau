@@ -149,7 +149,7 @@ def ech_instance_gr(ech_instance, instance_with_case, caluma_workflow_config_gr,
             {
                 "vorname-gesuchstellerin": "Testvorname",
                 "name-gesuchstellerin": "Testname",
-                "ort-gesuchstellerin": "Testort",
+                "ort-gesuchstellerin": "Testort ",
                 "plz-gesuchstellerin": 1234,
                 "strasse-gesuchstellerin": "Teststrasse",
                 "juristische-person-gesuchstellerin": "Nein",
