@@ -64,7 +64,7 @@
     "ember-concurrency": "4.0.1",
     "ember-data": "4.12.5",
     "ember-ebau-core": "workspace:*",
-    "ember-ebau-gwr": "7.5.4",
+    "ember-ebau-gwr": "7.5.5",
     "ember-engines": "0.9.0",
     "ember-engines-router-service": "0.5.1",
     "ember-fetch": "8.1.2",
