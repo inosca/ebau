@@ -1192,29 +1192,6 @@
   },
   {
     "model": "caluma_form.historicalanswer",
-    "pk": "058771d2-f9ef-4190-b2b4-46b046260179",
-    "fields": {
-      "created_at": "2023-11-27T09:23:37.811Z",
-      "modified_at": "2023-11-27T09:23:37.811Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "history_question_type": "choice",
-      "id": "18cc2117-0777-4cb6-9a04-287e46ddc907",
-      "value": "wuenschen-sie-zum-thema-artenschutz-bei-neubauten-eine-beratung-nein",
-      "meta": {},
-      "date": null,
-      "history_user_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "question": "artenschutz-beratung",
-      "document": "49c897f2-6c95-4414-bdb5-4c29074f23b6",
-      "history_date": "2023-11-27T09:23:37.812Z",
-      "history_change_reason": null,
-      "history_type": "+"
-    }
-  },
-  {
-    "model": "caluma_form.historicalanswer",
     "pk": "06a0ec1a-c76b-4529-b93d-606f6fe8dd38",
     "fields": {
       "created_at": "2023-11-27T09:22:14.111Z",
@@ -1255,29 +1232,6 @@
       "question": "ort",
       "document": "5e7dcb8b-b7ef-434e-8e87-d7fb9be53c31",
       "history_date": "2023-10-05T08:56:10.282Z",
-      "history_change_reason": null,
-      "history_type": "+"
-    }
-  },
-  {
-    "model": "caluma_form.historicalanswer",
-    "pk": "097a0848-1859-4c29-96d6-55dd41e523bf",
-    "fields": {
-      "created_at": "2023-09-08T17:02:03.981Z",
-      "modified_at": "2023-09-08T17:02:03.981Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "history_question_type": "choice",
-      "id": "593a80f2-2271-47cc-bf10-5f94b7fa4991",
-      "value": "wuenschen-sie-zum-thema-artenschutz-bei-neubauten-eine-beratung-nein",
-      "meta": {},
-      "date": null,
-      "history_user_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "question": "artenschutz-beratung",
-      "document": "88099d1f-7c40-48fc-8e66-a86c7c3a42f2",
-      "history_date": "2023-09-08T17:02:03.984Z",
       "history_change_reason": null,
       "history_type": "+"
     }
@@ -3699,29 +3653,6 @@
   },
   {
     "model": "caluma_form.historicalanswer",
-    "pk": "90ead40a-e8a1-4a4e-930e-943741713855",
-    "fields": {
-      "created_at": "2023-10-05T09:00:05.854Z",
-      "modified_at": "2023-10-05T09:00:05.854Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "history_question_type": "choice",
-      "id": "582aea73-5edd-4861-abb7-f2d4f468eb82",
-      "value": "wuenschen-sie-zum-thema-artenschutz-bei-neubauten-eine-beratung-nein",
-      "meta": {},
-      "date": null,
-      "history_user_id": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "question": "artenschutz-beratung",
-      "document": "5e7dcb8b-b7ef-434e-8e87-d7fb9be53c31",
-      "history_date": "2023-10-05T09:00:05.856Z",
-      "history_change_reason": null,
-      "history_type": "+"
-    }
-  },
-  {
-    "model": "caluma_form.historicalanswer",
     "pk": "9198207e-d7d4-4ce5-a5a9-62ff280360d6",
     "fields": {
       "created_at": "2023-11-27T09:20:53.376Z",
@@ -5890,23 +5821,6 @@
   },
   {
     "model": "caluma_form.answer",
-    "pk": "18cc2117-0777-4cb6-9a04-287e46ddc907",
-    "fields": {
-      "created_at": "2023-11-27T09:23:37.811Z",
-      "modified_at": "2023-11-27T09:23:37.811Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "artenschutz-beratung",
-      "value": "wuenschen-sie-zum-thema-artenschutz-bei-neubauten-eine-beratung-nein",
-      "meta": {},
-      "document": "49c897f2-6c95-4414-bdb5-4c29074f23b6",
-      "date": null
-    }
-  },
-  {
-    "model": "caluma_form.answer",
     "pk": "19686d36-60e9-40bb-8a15-9932eb986a44",
     "fields": {
       "created_at": "2023-10-05T08:57:10.412Z",
@@ -6706,23 +6620,6 @@
   },
   {
     "model": "caluma_form.answer",
-    "pk": "582aea73-5edd-4861-abb7-f2d4f468eb82",
-    "fields": {
-      "created_at": "2023-10-05T09:00:05.854Z",
-      "modified_at": "2023-10-05T09:00:05.854Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "artenschutz-beratung",
-      "value": "wuenschen-sie-zum-thema-artenschutz-bei-neubauten-eine-beratung-nein",
-      "meta": {},
-      "document": "5e7dcb8b-b7ef-434e-8e87-d7fb9be53c31",
-      "date": null
-    }
-  },
-  {
-    "model": "caluma_form.answer",
     "pk": "58b9e659-40fc-4b09-8293-aa9527b303cf",
     "fields": {
       "created_at": "2023-10-05T08:58:37.413Z",
@@ -6750,23 +6647,6 @@
       "modified_by_group": null,
       "question": "gebaeudetechnik",
       "value": null,
-      "meta": {},
-      "document": "88099d1f-7c40-48fc-8e66-a86c7c3a42f2",
-      "date": null
-    }
-  },
-  {
-    "model": "caluma_form.answer",
-    "pk": "593a80f2-2271-47cc-bf10-5f94b7fa4991",
-    "fields": {
-      "created_at": "2023-09-08T17:02:03.981Z",
-      "modified_at": "2023-09-08T17:02:03.981Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "artenschutz-beratung",
-      "value": "wuenschen-sie-zum-thema-artenschutz-bei-neubauten-eine-beratung-nein",
       "meta": {},
       "document": "88099d1f-7c40-48fc-8e66-a86c7c3a42f2",
       "date": null
