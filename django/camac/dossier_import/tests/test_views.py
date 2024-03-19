@@ -414,9 +414,9 @@ def test_transmitting_logic(
 ):
     application_settings["DOSSIER_IMPORT"]["PROD_URL"] = "http://ebau.local"
     application_settings["DOSSIER_IMPORT"]["LOCATION_REQUIRED"] = location_required
-    application_settings["DOSSIER_IMPORT"][
-        "PROD_AUTH_URL"
-    ] = settings.KEYCLOAK_OIDC_TOKEN_URL
+    application_settings["DOSSIER_IMPORT"]["PROD_AUTH_URL"] = (
+        settings.KEYCLOAK_OIDC_TOKEN_URL
+    )
 
     # set a real group ID - useful for testing without the mock
     group.pk = 22507  # Administration Leitbehörde Burgdorf

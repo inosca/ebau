@@ -203,9 +203,9 @@ def test_complete_decision_be(
 
     if workflow == "internal":
         ebau_number_work_item = work_item_factory(case=be_instance.case)
-        application_settings["CALUMA"][
-            "EBAU_NUMBER_TASK"
-        ] = ebau_number_work_item.task_id
+        application_settings["CALUMA"]["EBAU_NUMBER_TASK"] = (
+            ebau_number_work_item.task_id
+        )
 
     send_event(
         post_complete_work_item,

@@ -288,9 +288,9 @@ def post_create_inquiry(sender, work_item, user, context=None, **kwargs):
     }
 
     if deadline_override := _get_deadline_override(settings, work_item):
-        answers[
-            settings.DISTRIBUTION["QUESTIONS"]["DEADLINE"]
-        ] = deadline_override.isoformat()
+        answers[settings.DISTRIBUTION["QUESTIONS"]["DEADLINE"]] = (
+            deadline_override.isoformat()
+        )
 
     for slug, value in answers.items():
         question = Question.objects.get(pk=slug)

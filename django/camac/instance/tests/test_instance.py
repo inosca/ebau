@@ -2253,9 +2253,9 @@ def test_instance_change_form(
         "template_slug": notification_template.slug,
         "recipient_types": ["applicant"],
     }
-    application_settings["CALUMA"]["SIMPLE_WORKFLOW"]["reject-form"][
-        "notification"
-    ] = notification
+    application_settings["CALUMA"]["SIMPLE_WORKFLOW"]["reject-form"]["notification"] = (
+        notification
+    )
     application_settings["INTERCHANGEABLE_FORMS"] = [
         "vorentscheid-gemass-ss84-pbg-v2",
         "baugesuch-reklamegesuch-v2",

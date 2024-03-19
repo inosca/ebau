@@ -706,9 +706,9 @@ def test_complete_simple_workflow(
         "template_slug": notification_template.slug,
         "recipient_types": ["applicant"],
     }
-    application_settings["CALUMA"]["SIMPLE_WORKFLOW"][task][
-        "notification"
-    ] = notification
+    application_settings["CALUMA"]["SIMPLE_WORKFLOW"][task]["notification"] = (
+        notification
+    )
 
     case = work_item.case
     instance.case = case
