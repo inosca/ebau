@@ -15,11 +15,44 @@ const UNUSED_ENVS = ENVS.filter((e) => e !== ENV).join("|");
 const APP_ENV = process.env.APP_ENV ?? "dev";
 
 module.exports = function (defaults) {
+  /**
+   * We manually prepend the assets in ember-camac-ng because the app is
+   * embedded in the PHP part of eBau. We differ between 3 environments:
+   *
+   * 1. Development: If the application is started with the dev server, we
+   *    prepend the whole host (kind of like it was hosted on a CDN) so the
+   *    browser fetches the assets from our development server.
+   * 2. Production: If the app is built for production, we prepend the path
+   *    /ember/ to our assets. Those assets are stored on a separate container
+   *    that is being accessed via nginx proxy under that path.
+   * 3. Testing: In testing, we don't prepend anything as the test app runs like
+   *    a regular ember app without being embedded in the PHP part of the
+   *    application.
+   *
+   * Previously, we did the prepending when we loaded the assets into the PHP
+   * page. This was not possible anymore because dynamic imports from
+   * `ember-auto-import` need to have the correct asset URL in build time so we
+   * switched to properly prepending in the build process.
+   *
+   * WARNING: This will not work when running the development server with the
+   * `--prod` flag as `EmberApp.env()` will return `production`. In this rare
+   * case the prepend variable must be manually set to `http://localhost:4300`.
+   */
+  const env = EmberApp.env();
+  const prepend =
+    env === "development"
+      ? "http://localhost:4300/"
+      : env === "production"
+        ? "/ember/"
+        : null;
+
   const app = new EmberApp(defaults, {
     "ember-simple-auth": {
       useSessionSetupMethod: true,
     },
     fingerprint: {
+      enabled: true,
+      prepend,
       extensions: ["js", "css", "map"],
     },
     "@embroider/macros": {
@@ -38,6 +71,14 @@ module.exports = function (defaults) {
           appEnv: APP_ENV,
         },
       },
+    },
+    babel: {
+      plugins: [
+        require.resolve("ember-concurrency/async-arrow-task-transform"),
+      ],
+    },
+    autoImport: {
+      publicAssetURL: prepend ? `${prepend}/assets/` : null,
     },
   });
 

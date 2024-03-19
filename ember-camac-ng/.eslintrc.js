@@ -5,4 +5,7 @@ module.exports = {
   settings: {
     "import/internal-regex": "^(camac-ng|dummy)/",
   },
+  rules: {
+    "ember/no-runloop": "warn",
+  },
 };

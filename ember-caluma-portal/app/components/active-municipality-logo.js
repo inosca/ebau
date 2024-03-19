@@ -4,7 +4,7 @@ import Component from "@glimmer/component";
 import { decodeId } from "@projectcaluma/ember-core/helpers/decode-id";
 import { task, timeout } from "ember-concurrency";
 import mainConfig from "ember-ebau-core/config/main";
-import { trackedFunction } from "ember-resources/util/function";
+import { trackedFunction } from "reactiveweb/function";
 import { dedupeTracked } from "tracked-toolbox";
 
 const { answerSlugs } = mainConfig;

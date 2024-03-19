@@ -5,4 +5,7 @@ module.exports = {
   settings: {
     "import/internal-regex": "^(ember-ebau-core|dummy)/",
   },
+  rules: {
+    "ember/no-runloop": "warn",
+  },
 };

@@ -5,11 +5,11 @@ import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 import { query } from "ember-data-resources";
 import mainConfig from "ember-ebau-core/config/main";
-import { trackedFunction } from "ember-resources/util/function";
 import { handleUnauthorized } from "ember-simple-auth-oidc";
 import { getConfig } from "ember-simple-auth-oidc/config";
 import Session from "ember-simple-auth-oidc/services/session";
 import { getUserLocales } from "get-user-locale";
+import { trackedFunction } from "reactiveweb/function";
 import { localCopy, cached } from "tracked-toolbox";
 import UIkit from "uikit";
 

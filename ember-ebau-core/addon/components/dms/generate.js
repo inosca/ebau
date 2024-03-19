@@ -3,8 +3,8 @@ import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { dropTask } from "ember-concurrency";
 import { findAll } from "ember-data-resources";
-import { trackedFunction } from "ember-resources/util/function";
 import { saveAs } from "file-saver";
+import { trackedFunction } from "reactiveweb/function";
 
 import mainConfig from "ember-ebau-core/config/main";
 import {

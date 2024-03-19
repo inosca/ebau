@@ -1,7 +1,7 @@
 import Controller from "@ember/controller";
 import { tracked } from "@glimmer/tracking";
 import { queryManager } from "ember-apollo-client";
-import { trackedFunction } from "ember-resources/util/function";
+import { trackedFunction } from "reactiveweb/function";
 
 import getInstanceCaseQuery from "ebau/gql/queries/get-instance-case.graphql";
 

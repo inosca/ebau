@@ -4,8 +4,8 @@ import Component from "@glimmer/component";
 import { useCalumaQuery } from "@projectcaluma/ember-core/caluma-query";
 import { allWorkItems } from "@projectcaluma/ember-core/caluma-query/queries";
 import { queryManager } from "ember-apollo-client";
-import { trackedFunction } from "ember-resources/util/function";
 import { gql } from "graphql-tag";
+import { trackedFunction } from "reactiveweb/function";
 
 import workItemListConfig from "ember-ebau-core/config/work-item-list";
 import getProcessData, {

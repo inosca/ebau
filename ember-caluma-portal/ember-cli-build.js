@@ -51,6 +51,11 @@ module.exports = function (defaults) {
     fingerprint: {
       extensions: ["js", "css", "map"],
     },
+    babel: {
+      plugins: [
+        require.resolve("ember-concurrency/async-arrow-task-transform"),
+      ],
+    },
   });
 
   app.trees.styles = stew.rm(

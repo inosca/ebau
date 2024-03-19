@@ -2,7 +2,7 @@ import { inject as service } from "@ember/service";
 import { htmlSafe } from "@ember/template";
 import Component from "@glimmer/component";
 import { task } from "ember-concurrency";
-import { trackedTask } from "ember-resources/util/ember-concurrency";
+import { trackedTask } from "reactiveweb/ember-concurrency";
 
 export default class DecisionInfoGeometerComponent extends Component {
   @service intl;
