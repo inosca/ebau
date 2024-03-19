@@ -22,7 +22,6 @@ urlpatterns = [
     re_path(r"^api/v1/", include("camac.circulation.urls")),
     re_path(r"^api/v1/", include("camac.notification.urls")),
     re_path(r"^api/v1/", include("camac.objection.urls")),
-    re_path(r"^api/v1/", include("camac.gisbern.urls")),
     re_path(r"^api/v1/", include("camac.responsible.urls")),
     re_path(r"^api/v1/", include("camac.communications.urls")),
     re_path(r"^api/v1/", include("camac.tags.urls")),
