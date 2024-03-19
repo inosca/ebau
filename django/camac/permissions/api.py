@@ -114,6 +114,8 @@ class PermissionManager:
         return cls(userinfo=userinfo)
 
     def get_permissions(self, instance: Union[Instance, str, int]) -> List[str]:
+        if not isinstance(instance, Instance):  # pragma: no cover
+            instance = Instance.objects.get(pk=instance)
         cache_key = self.userinfo.to_cache_key(instance)
         cached_result = cache.get(cache_key)
         if cached_result:
