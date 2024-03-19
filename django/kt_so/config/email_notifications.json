@@ -51,7 +51,7 @@
     "model": "notification.notificationtemplate",
     "pk": 5,
     "fields": {
-      "slug": "nachforderung-akzeptiert",
+      "slug": "nachforderung-akzeptiert-bauherrschaft",
       "purpose": null,
       "subject": null,
       "body": null,
@@ -216,6 +216,18 @@
     }
   },
   {
+    "model": "notification.notificationtemplate",
+    "pk": 19,
+    "fields": {
+      "slug": "nachforderung-akzeptiert-gemeinde",
+      "purpose": null,
+      "subject": null,
+      "body": null,
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
     "model": "notification.notificationtemplatet",
     "pk": 1,
     "fields": {
@@ -236,7 +248,7 @@
       "language": "de",
       "purpose": "Gesuchsbearbeitungs Einladung (neu)",
       "subject": "Einsicht respektive Mitarbeit (Dossier Nr. {{ DOSSIER_NR }})",
-      "body": "Guten Tag\r\n\r\nSie haben Zugriff auf das Dossier-Nr. {{ DOSSIER_NR }} erhalten. Damit können Sie dieses einsehen respektive mitbearbeiten:\r\n\r\n{{ PUBLIC_DOSSIER_LINK }}\r\n\r\nUm das Dossier einsehen respektive mitbearbeiten zu können, ist eine Registrierung auf dem eBau Portal des Kanton Solothurn erforderlich.\r\n\r\nUnter folgendem Link können Sie sich registrieren: {{ REGISTRATION_LINK }}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\neBau"
+      "body": "Guten Tag\r\n\r\nSie haben Zugriff auf das Dossier-Nr. {{ DOSSIER_NR }} erhalten. Damit können Sie dieses einsehen respektive mitbearbeiten:\r\n\r\n{{ PUBLIC_DOSSIER_LINK }}\r\n\r\nUm das Dossier einsehen respektive mitbearbeiten zu können, ist eine Registrierung auf dem Online-Schalter des Kantons Solothurn erforderlich.\r\n\r\nUnter folgendem Link können Sie sich registrieren: https://my.so.ch/Pages/Authentication/Login.aspx?IDP=OpenID\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\neBau"
     }
   },
   {
@@ -268,11 +280,11 @@
     "pk": 5,
     "fields": {
       "template": 5,
-      "template_slug": "nachforderung-akzeptiert",
+      "template_slug": "nachforderung-akzeptiert-bauherrschaft",
       "language": "de",
-      "purpose": "Nachforderung akzeptiert",
+      "purpose": "Nachforderung akzeptiert (Bauherrschaft)",
       "subject": "Nachforderung akzeptiert (Dossier-Nr. {{ DOSSIER_NR }})",
-      "body": "Guten Tag\r\n\r\nIm eBau wurde die Nachforderung angeschlossen im Dossier-Nr. {{ DOSSIER_NR }}.\r\n\r\n{{ INTERNAL_DOSSIER_LINK }}/additional-demand\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\neBau"
+      "body": "Guten Tag\r\n\r\nIm eBau wurde die Nachforderung abgeschlossen im Dossier-Nr. {{ DOSSIER_NR }}.\r\n\r\n{{ PUBLIC_DOSSIER_LINK }}/additional-demand\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\neBau"
     }
   },
   {
@@ -429,6 +441,18 @@
       "purpose": "Beschwerde eingegangen",
       "subject": "Beschwerde eingegangen (Dossier-Nr. {{ DOSSIER_NR }})",
       "body": "Guten Tag\r\n\r\nBeim Dossier mit der Dossier-Nr. {{ DOSSIER_NR }} wurde ein Beschwerdenverfahren initialisiert und der Entscheid wurde aufgehoben.\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{ LEITBEHOERDE_NAME_DE }}\r\n\r\n"
+    }
+  },
+  {
+    "model": "notification.notificationtemplatet",
+    "pk": 19,
+    "fields": {
+      "template": 19,
+      "template_slug": "nachforderung-akzeptiert-gemeinde",
+      "language": "de",
+      "purpose": "Nachforderung akzeptiert (Gemeinde)",
+      "subject": "Nachforderung akzeptiert (Dossier-Nr. {{ DOSSIER_NR }})",
+      "body": "Guten Tag\r\n\r\nIm eBau wurde die Nachforderung abgeschlossen im Dossier-Nr. {{ DOSSIER_NR }}.\r\n\r\n{{ PUBLIC_DOSSIER_LINK }}/additional-demand\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\neBau"
     }
   }
 ]
