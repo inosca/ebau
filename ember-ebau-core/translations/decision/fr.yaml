@@ -1,6 +1,6 @@
 decision:
-  info: 
-    geometer: La commune dépend de la géomètre conservatrice ou du géomètre conservateur <b>{geometer}</b>. 
+  info:
+    geometer: La commune dépend de la géomètre conservatrice ou du géomètre conservateur <b>{geometer}</b>.
 
   submit:
     preliminary-clarification: "Clôturer l'évaluation"
@@ -13,6 +13,7 @@ decision:
     changed: |-
       Ce dossier passe au statut opposé à la décision précédente
       <b>({status})</b> après la confirmation de la décision.
+    annulled: ""
     rejected: |-
       Ce dossier est copié après la saisie de la décision et passe au statut
       <b>« {status} »</b>. Le dossier en cours est clôturé.

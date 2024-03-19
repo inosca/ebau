@@ -107,16 +107,29 @@ export default {
   },
   appeal: {
     instanceStates: {
-      previousInstanceState: "coordination",
-      instanceStatePositiveDecision: "sb1",
-      instanceStateNegativeDecision: "finished",
-      circulationInit: "circulationInit",
+      decision: "coordination",
+      afterPositive: "sb1",
+      afterNegative: "finished",
     },
-    decisionSlug: "decision-decision-assessment",
-    rejected: "rejected",
-    confirmed: "confirmed",
-    changed: "changed",
-    typeRegexExp: "-appeal-",
+    answerSlugs: {
+      "decision-decision-assessment-appeal-confirmed": "confirmed",
+      "decision-decision-assessment-appeal-changed": "changed",
+      "decision-decision-assessment-appeal-rejected": "rejected",
+    },
+    info: {
+      confirmed: {
+        color: "success",
+        status: (prevPositive) => (prevPositive ? "sb1" : "finished"),
+      },
+      changed: {
+        color: "danger",
+        status: (prevPositive) => (prevPositive ? "finished" : "sb1"),
+      },
+      rejected: {
+        color: "danger",
+        status: () => "circulationInit",
+      },
+    },
   },
   billing: {
     readOnlyInstanceStates: [
