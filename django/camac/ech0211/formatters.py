@@ -234,7 +234,7 @@ def make_dummy_address_ech0044():
                 addressInformation=ns_address.addressInformationType(
                     street="unknown",
                     houseNumber="0",
-                    town=ns_address.townType("unknown"),
+                    town="unknown",
                     swissZipCode=9999,
                     country="CH",
                 ),
@@ -299,9 +299,7 @@ def application(instance: Instance):
                             houseNumber=assure_string_length(
                                 owner.get("street_number", "0"), max_length=12
                             ),
-                            town=assure_string_length(
-                                ns_address.townType(owner.get("town")), max_length=40
-                            ),
+                            town=assure_string_length(owner.get("town"), max_length=40),
                             swissZipCode=get_zip(owner.get("zip")),
                             # foreignZipCode minOccurs=0
                             country="CH",
@@ -524,9 +522,7 @@ def person_to_ech0129_personIdentifcationType(person):
             houseNumber=assure_string_length(
                 person.get("street_number", "0"), max_length=12
             ),
-            town=assure_string_length(
-                ns_address.townType(person.get("town", "")), max_length=40
-            ),
+            town=assure_string_length(person.get("town", ""), max_length=40),
             swissZipCode=get_zip(person.get("zip", "")),
             country="CH",
         ),
