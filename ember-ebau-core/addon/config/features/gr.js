@@ -14,10 +14,6 @@ export default {
     createPaper: true,
     exportExcel: false,
   },
-  alexandria: {
-    pdfConversion: true,
-    webDAV: true,
-  },
   watermark: true,
   communications: true,
 };
