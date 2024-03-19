@@ -805,9 +805,9 @@ def test_case_keyword_filter_sz(
 
     request = rf.get("/graphql")
     request.user = caluma_admin_user
-    request.META[
-        "HTTP_X_CAMAC_FILTERS"
-    ] = f"instance_state={state}&caluma_keyword_search={search_value}"
+    request.META["HTTP_X_CAMAC_FILTERS"] = (
+        f"instance_state={state}&caluma_keyword_search={search_value}"
+    )
 
     query = """
         query {

@@ -11,12 +11,12 @@ from camac.permissions.switcher import PERMISSION_MODE
 
 @pytest.fixture
 def app_settings_with_notif_templates(application_settings, notification_template):
-    application_settings["NOTIFICATIONS"]["APPLICANT"][
-        "NEW"
-    ] = notification_template.slug
-    application_settings["NOTIFICATIONS"]["APPLICANT"][
-        "EXISTING"
-    ] = notification_template.slug
+    application_settings["NOTIFICATIONS"]["APPLICANT"]["NEW"] = (
+        notification_template.slug
+    )
+    application_settings["NOTIFICATIONS"]["APPLICANT"]["EXISTING"] = (
+        notification_template.slug
+    )
 
 
 @pytest.mark.parametrize(
