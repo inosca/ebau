@@ -515,24 +515,6 @@
   },
   {
     "model": "caluma_form.form",
-    "pk": "landschaft-ortsbild",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-11-28T17:49:47.248Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "name": "{\"de\": \"Natur / Landschaft\", \"fr\": null, \"it\": null}",
-      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "meta": {},
-      "is_published": false,
-      "is_archived": false,
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.form",
     "pk": "landwirtschaft",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -7883,21 +7865,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "generelle-fachthemen.landschaft-ortsbild",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "form": "generelle-fachthemen",
-      "question": "landschaft-ortsbild",
-      "sort": 3
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "generelle-fachthemen.naturgefahren",
     "fields": {
       "created_at": "2023-09-11T12:48:34.459Z",
@@ -11824,96 +11791,6 @@
       "form": "koordinaten-tabelle",
       "question": "koordinaten",
       "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "landschaft-ortsbild.artenschutz",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "form": "landschaft-ortsbild",
-      "question": "artenschutz",
-      "sort": 5
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "landschaft-ortsbild.artenschutz-beratung",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "form": "landschaft-ortsbild",
-      "question": "artenschutz-beratung",
-      "sort": 4
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "landschaft-ortsbild.beratung-landschaftsbild",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "form": "landschaft-ortsbild",
-      "question": "beratung-landschaftsbild",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "landschaft-ortsbild.landschaftsschutz-titel",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "form": "landschaft-ortsbild",
-      "question": "landschaftsschutz-titel",
-      "sort": 3
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "landschaft-ortsbild.natur-landschaft",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "form": "landschaft-ortsbild",
-      "question": "natur-landschaft",
-      "sort": 8
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "landschaft-ortsbild.naturschutz",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "form": "landschaft-ortsbild",
-      "question": "naturschutz",
-      "sort": 7
     }
   },
   {
@@ -18661,38 +18538,6 @@
   {
     "model": "caluma_form.option",
     "pk": "belasteter-standort-nein",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "Beratung-Landschaftsbild-ja",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "Beratung-Landschaftsbild-nein",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
       "modified_at": "2023-07-05T09:47:01.796Z",
@@ -27780,38 +27625,6 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "wuenschen-sie-zum-thema-artenschutz-bei-neubauten-eine-beratung-ja",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "wuenschen-sie-zum-thema-artenschutz-bei-neubauten-eine-beratung-nein",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
     "pk": "wurden-vorabklaerungen-durchgefuehrt-ja",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -30842,68 +30655,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "artenschutz",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Artenschutz an Geb\\u00e4uden\", \"fr\": null, \"it\": null}",
-      "type": "static",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"####Artenschutz bei Neu- und Umbauten\\n\\n-\\tEine erstaunlich grosse Zahl wildlebender Tiere hat sich als sogenannte \\u00abKulturfolger\\u00bb an unsere Behausungen gew\\u00f6hnt und ist auf Nistm\\u00f6glichkeiten in den Siedlungen angewiesen. In erster Linie denken wir dabei an [Flederm\\u00e4use](https://www.fledermausschutz.ch), [V\\u00f6gel](https://www.birdlife.ch/) oder kleine S\\u00e4ugetiere wie der [Igel](https://www.wildtier.ch). Einige spannende und n\\u00fctzliche Tierarten k\\u00f6nnen durch die Realisierung von Nistm\\u00f6glichkeiten gezielt gef\\u00f6rdert werden. \\n-\\tVermeiden Sie mit meist geringf\\u00fcgigen Anpassungen neue Fallen f\\u00fcr Tiere in Ihrer Umgebung. So k\\u00f6nnen Glasfl\\u00e4chen ein grosses Problem f\\u00fcr V\\u00f6gel oder Abs\\u00e4tze am falschen Ort f\\u00fcr kleinere Tiere zum t\\u00f6dlichen Hindernis werden. \\n-\\tBei Umbauten oder Abbruch-Arbeiten soll vor Arbeitsbeginn abgekl\\u00e4rt werden, ob Brutst\\u00e4tten oder Verstecke von Tieren betroffen sind. Bei Verdacht auf Fledermausquartiere hilft Ihnen der [Kantonale Fledermausberater](http://www.fledermausschutz-nw.ch/) gerne weiter.\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "artenschutz-beratung",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2024-01-04T13:24:49.850Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Haben Sie Interesse an Artenschutzmassnahmen oder Fragen zu oben genannten Themen?\", \"fr\": null, \"it\": null}",
-      "type": "choice",
-      "is_required": "'is-paper'|answer != 'is-paper-yes'",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "asbest",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -32527,7 +32278,7 @@
       "is_hidden": "!(\n\t[\n\t\t\"mindest-und-grenzabstaende-gewaesser\",\n\t\t\"mindest-und-grenzabstaende-verkehrsflaechen\",\n\t\t\"mindest-und-grenzabstaende-waldabstand\",\n\t\t\"mindest-und-grenzabstaende-heckenabstand\",\n\t\t\"mindest-und-grenzabstaende-grenzabstand\",\n\t\t\"mindest-und-grenzabstaende-gebaeudeabstand\"\n\t]\n\tintersects \"mindest-und-grenzabstaende\"|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"####INFO\\nDie Unterschreitung eines gesetzlich festgelegten Mindestabstands kann ausnahmsweise bewilligt werden, wenn objektive Gr\\u00fcnde dies rechtfertigen und die \\u00f6ffentlichen Interessen gewahrt bleiben. Bitte umschreiben Sie im daf\\u00fcr vorgesehen Feld kurz die Hintergr\\u00fcnde, weshalb der vorgeschriebene Mindestabstand nicht eingehalten werden kann.\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
@@ -32956,7 +32707,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"---\\n\\n####Vorkehrungen f\\u00fcr Hindernisfreies Bauen\\n \\nF\\u00fcr folgende Bauten und Anlagen sind im Interesse von Menschen mit Behinderungen gesetzliche Mindestanforderungen zu erf\\u00fcllen, gest\\u00fctzt auf \\u00a7 58 der Kantonalen Bauverordnung des Kantons  Solothurn (KBV) sowie auf \\u00a7 143 des Planungs- und Baugesetzes des Kantons Solothurn (PBG):\\n\\n- \\u00d6ffentlich zug\\u00e4ngliche Bauten und Anlagen, Besuchsbereiche in Bauten mit Arbeitspl\\u00e4tzen\\n- Mehrfamilienh\\u00e4user ab 6 Wohneinheiten\\n- Geb\\u00e4ude mit mehr als 50 Arbeitspl\\u00e4tzen\\n- \\u00d6ffentlich zug\\u00e4ngliche Einrichtungen des \\u00f6ffentlichen Verkehrs (Bauten, Anlagen, \\n  Kommunikationssysteme, Billettbezug)\\n\\n**Hinweis:** Es empfiehlt sich, die Norm SIA 500 inklusive Korrigendas und Auslegungen f\\u00fcr das Hindernisfreie Bauen bei s\\u00e4mtlichen Hochbauten zu beachten.\\n\\nHier gehts zu den [Merkbl\\u00e4ttern und Checklisten - Procap](https://www.procap.ch/angebote/beratung-information/bauen-und-verkehr/merkblaetter-und-checklisten/)\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"---\\n\\n####Vorkehrungen f\\u00fcr Hindernisfreies Bauen\\n \\nF\\u00fcr folgende Bauten und Anlagen sind im Interesse von Menschen mit Behinderungen gesetzliche Mindestanforderungen zu erf\\u00fcllen, gest\\u00fctzt auf \\u00a7 58 der Kantonalen Bauverordnung des Kantons  Solothurn (KBV) sowie auf \\u00a7 143<sup>bis</sup> PBG des Planungs- und Baugesetzes des Kantons Solothurn (PBG):\\n\\n- \\u00d6ffentlich zug\\u00e4ngliche Bauten und Anlagen, Besuchsbereiche in Bauten mit Arbeitspl\\u00e4tzen\\n- Mehrfamilienh\\u00e4user ab 6 Wohneinheiten\\n- Geb\\u00e4ude mit mehr als 50 Arbeitspl\\u00e4tzen\\n- \\u00d6ffentlich zug\\u00e4ngliche Einrichtungen des \\u00f6ffentlichen Verkehrs (Bauten, Anlagen, \\n  Kommunikationssysteme, Billettbezug)\\n\\n**Hinweis:** Es empfiehlt sich, die Norm SIA 500 inklusive Korrigendas und Auslegungen f\\u00fcr das Hindernisfreie Bauen bei s\\u00e4mtlichen Hochbauten zu beachten.\\n\\nHier gehts zu den [Merkbl\\u00e4ttern und Checklisten - Procap](https://www.procap.ch/angebote/beratung-information/bauen-und-verkehr/merkblaetter-und-checklisten/)\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -33428,37 +33179,6 @@
         "max_length": null,
         "min_length": null
       },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "beratung-landschaftsbild",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"W\\u00fcnschen Sie eine Beratung zum Thema \\u00abErhalt des Landschaftsbildes\\u00bb?\", \"fr\": null, \"it\": null}",
-      "type": "choice",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -48093,68 +47813,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "landschaft-ortsbild",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-11-28T17:50:36.539Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Natur / Landschaft\", \"fr\": null, \"it\": null}",
-      "type": "form",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": "landschaft-ortsbild",
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "landschaftsschutz-titel",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-09-21T06:00:18.165Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "645a484a-3312-4602-9d87-77215f03f5bf",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Landschaft\", \"fr\": null, \"it\": null}",
-      "type": "static",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"---\\n\\n####Landschaftsschutz\\n\\n\\n -\\tDer Erhalt eindr\\u00fccklicher Kulturlandschaften bedarf hoher Anstrengungen. Insbesondere bei geplanten Bauten ausserhalb der Bauzone werden diese vertieft auf ihre Auswirkung auf das Landschaftsbild gepr\\u00fcft. Im Zentrum stehen dabei Gr\\u00f6sse, Form, Materialisierung und Farbgebung der Bauten, welche sich stimmig ins Landschaftsbild einf\\u00fcgen sollen. \\n-\\tDie Einpassung von Bauten und Anlagen in die Landschaft beginnt bereits bei der Planung. Damit im Rahmen eines Baubewilligungsverfahrens unliebsame und teils kostspielige Projektanpassungen vermieden werden k\\u00f6nnen, soll den Aspekten Landschaft- und Ortsbildschutz m\\u00f6glichst fr\\u00fchzeitig Rechnung getragen werden.\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "landwirtschaft",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -48645,7 +48303,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"---\\n\\n#### Lichtschutz\\n\\nUnter Lichtverschmutzung versteht man die k\\u00fcnstliche und ungewollte Aufhellung der Umgebung und des Nachthimmels mit sch\\u00e4dlichen oder l\\u00e4stigen Auswirkungen auf Mensch und Umwelt. Bei der Neuinstallation von Aussenbeleuchtungen im Rahmen von Baugesuchen, bei neuen Leuchtreklamen sowie bei Strassen- und Platzbeleuchtungen sind die Aspekte des Lichtschutzes zu ber\\u00fccksichtigen.\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"---\\n\\n#### Lichtschutz\\n\\nUnter Lichtverschmutzung versteht man die k\\u00fcnstliche und ungewollte Aufhellung der Umgebung und des Nachthimmels mit sch\\u00e4dlichen oder l\\u00e4stigen Auswirkungen auf Mensch und Umwelt. Bei der Neuinstallation von Aussenbeleuchtungen im Rahmen von Baugesuchen, bei neuen Leuchtreklamen sowie bei Strassen- und Platzbeleuchtungen sind die Aspekte des Lichtschutzes zu beachten.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -50859,68 +50517,6 @@
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"## Naturgefahren\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "natur-landschaft",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Natur- und Landschaft / Ortsbild- und Denkmalschutz Titel\", \"fr\": null, \"it\": null}",
-      "type": "static",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"##Natur und Landschaft\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "naturschutz",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-09-21T05:56:45.575Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "645a484a-3312-4602-9d87-77215f03f5bf",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Naturschutz Titel\", \"fr\": null, \"it\": null}",
-      "type": "static",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"####Naturschutz und Biodiversit\\u00e4t\\n\\n\\n-\\tDie F\\u00f6rderung und der Erhalt der Biodiversit\\u00e4t gewinnt zunehmend auch in den sich ausbreitenden Siedlungsgebieten an Bedeutung. Durch eine naturnahe Gestaltung der Umgebung kann wertvoller Lebensraum f\\u00fcr Tiere und Pflanzen geschaffen werden. Davon profitieren erwiesenermassen auch wiederum die Menschen. \\n-\\tGarten und Geb\\u00e4ude bieten eine Vielzahl an M\\u00f6glichkeiten, neuen Lebensraum f\\u00fcr Tiere und Pflanzen zu schaffen. W\\u00e4hrend Rasenfl\\u00e4chen, Thuja-Hecken oder Steinw\\u00fcsten niemandem etwas bringen, sorgen farbenpr\\u00e4chtige Blumenwiesen, artenreiche Naturhecken und wilde Ecken mit Ast- und Steinhaufen f\\u00fcr buntes Leben in ihrem Garten.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -60673,36 +60269,6 @@
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "artenschutz-beratung.wuenschen-sie-zum-thema-artenschutz-bei-neubauten-eine-beratung-ja",
-    "fields": {
-      "created_at": "2024-01-04T13:24:49.867Z",
-      "modified_at": "2024-01-04T13:24:49.867Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "artenschutz-beratung",
-      "option": "wuenschen-sie-zum-thema-artenschutz-bei-neubauten-eine-beratung-ja",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "artenschutz-beratung.wuenschen-sie-zum-thema-artenschutz-bei-neubauten-eine-beratung-nein",
-    "fields": {
-      "created_at": "2024-01-04T13:24:49.861Z",
-      "modified_at": "2024-01-04T13:24:49.861Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "artenschutz-beratung",
-      "option": "wuenschen-sie-zum-thema-artenschutz-bei-neubauten-eine-beratung-nein",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
     "pk": "asbest.asbest-ja",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -62003,36 +61569,6 @@
       "modified_by_group": null,
       "question": "belasteter-standort",
       "option": "belasteter-standort-nein",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "beratung-landschaftsbild.Beratung-Landschaftsbild-ja",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "beratung-landschaftsbild",
-      "option": "Beratung-Landschaftsbild-ja",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "beratung-landschaftsbild.Beratung-Landschaftsbild-nein",
-    "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "beratung-landschaftsbild",
-      "option": "Beratung-Landschaftsbild-nein",
       "sort": 1
     }
   },
