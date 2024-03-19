@@ -17,16 +17,16 @@
   {{#if (this.hasColumn "withdrawn")}}
     <td>{{t (concat "global." (if this.withdrawn "yes" "no"))}}</td>
   {{/if}}
-  {{#if (can "edit legal-submission" @workItem)}}
-    <td>
-      <div class="uk-flex uk-flex-middle uk-flex-right">
-        <LinkTo
-          @route={{module-route "legal-submission" "edit"}}
-          @model={{decode-id @legalSubmission.id}}
-          class="uk-button uk-button-link"
-        >
-          <UkIcon @icon="pencil" />
-        </LinkTo>
+  <td>
+    <div class="uk-flex uk-flex-middle uk-flex-right">
+      <LinkTo
+        @route={{module-route "legal-submission" "edit"}}
+        @model={{decode-id @legalSubmission.id}}
+        class="uk-button uk-button-link"
+      >
+        <UkIcon @icon="pencil" />
+      </LinkTo>
+      {{#if (can "edit legal-submission" @workItem)}}
         <UkButton
           @color="link"
           @loading={{this.delete.isRunning}}
@@ -37,7 +37,7 @@
         >
           <UkIcon @icon="trash" />
         </UkButton>
-      </div>
-    </td>
-  {{/if}}
+      {{/if}}
+    </div>
+  </td>
 </tr>

@@ -66,9 +66,7 @@
         {{#if (this.hasColumn "withdrawn")}}
           <th>{{t "legal-submission.withdrawn"}}</th>
         {{/if}}
-        {{#if (can "edit legal-submission" this.workItem.value)}}
-          <th></th>
-        {{/if}}
+        <th></th>
       </tr>
     </thead>
     <tbody>

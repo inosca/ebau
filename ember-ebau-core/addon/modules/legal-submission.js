@@ -1,3 +1,4 @@
+import LegalSubmissionEditController from "ember-ebau-core/controllers/legal-submission/edit";
 import LegalSubmissionIndexController from "ember-ebau-core/controllers/legal-submission/index";
 import { registerModule } from "ember-ebau-core/modules";
 import LegalSubmissionRoute from "ember-ebau-core/routes/legal-submission";
@@ -20,6 +21,7 @@ export default function register(router, options = {}) {
     },
     controllers: {
       "legal-submission/index": LegalSubmissionIndexController,
+      "legal-submission/edit": LegalSubmissionEditController,
     },
     templates: {
       "legal-submission": LegalSubmissionTemplate,
