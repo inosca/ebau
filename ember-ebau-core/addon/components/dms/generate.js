@@ -169,7 +169,7 @@ export default class DmsGenerateComponent extends Component {
   }
 
   async saveToDocumentsAlexandria(blob, filename) {
-    const file = new File([blob], filename);
+    const file = new File([blob], filename, { type: blob.type });
 
     await this.alexandriaDocuments.upload("intern", [file]);
   }
