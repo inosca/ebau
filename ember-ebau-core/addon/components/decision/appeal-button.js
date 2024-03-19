@@ -40,11 +40,11 @@ export default class DecisionAppealButtonComponent extends Component {
     return (
       // Previous step was complete the decision
       parseInt(this.instance.record.belongsTo("previousInstanceState").id()) ===
-        INSTANCE_STATES[APPEAL_INSTANCE_STATES.previousInstanceState] &&
+        INSTANCE_STATES[APPEAL_INSTANCE_STATES.decision] &&
       // The decision is completed positive or negative
       [
-        INSTANCE_STATES[APPEAL_INSTANCE_STATES.instanceStatePositiveDecision],
-        INSTANCE_STATES[APPEAL_INSTANCE_STATES.instanceStateNegativeDecision],
+        INSTANCE_STATES[APPEAL_INSTANCE_STATES.afterPositive],
+        INSTANCE_STATES[APPEAL_INSTANCE_STATES.afterNegative],
       ].includes(
         parseInt(this.instance.record.belongsTo("instanceState").id()),
       ) &&

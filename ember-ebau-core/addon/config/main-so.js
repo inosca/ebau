@@ -80,16 +80,35 @@ const config = {
   },
   appeal: {
     instanceStates: {
-      previousInstanceState: "decision",
-      instanceStatePositiveDecision: "construction-monitoring",
-      instanceStateNegativeDecision: "finished",
-      circulationInit: "subm",
+      decision: "decision",
+      afterPositive: "construction-monitoring",
+      afterNegative: "finished",
     },
-    decisionSlug: "entscheid-entscheid",
-    rejected: "zurueckgewiesen",
-    confirmed: "bestaetigt",
-    changed: "geaendert",
-    typeRegexExp: "-beschwerde-",
+    answerSlugs: {
+      "entscheid-entscheid-beschwerde-bestaetigt": "confirmed",
+      "entscheid-entscheid-beschwerde-geaendert": "changed",
+      "entscheid-entscheid-beschwerde-aufgehoben": "annulled",
+      "entscheid-entscheid-beschwerde-zurueckgewiesen": "rejected",
+    },
+    info: {
+      confirmed: {
+        color: "success",
+        status: (prevPositive) =>
+          prevPositive ? "construction-monitoring" : "finished",
+      },
+      changed: {
+        color: "warning",
+        status: () => "construction-monitoring",
+      },
+      annulled: {
+        color: "danger",
+        status: () => "finished",
+      },
+      rejected: {
+        color: "danger",
+        status: () => "subm",
+      },
+    },
   },
   legalSubmission: {
     task: "objections",
