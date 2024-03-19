@@ -371,8 +371,8 @@ importers:
         specifier: 3.0.0
         version: 3.0.0
       ember-alexandria:
-        specifier: 7.0.3
-        version: 7.0.3(@ember-data/store@4.12.5)(@ember/string@3.1.1)(@ember/test-helpers@3.3.0)(@ember/test-waiters@3.1.0)(@glint/template@1.3.0)(ember-engines@0.9.0)(ember-resources@7.0.0)(ember-source@4.12.3)(graphql@15.8.0)(typescript@5.4.2)(webpack@5.90.3)
+        specifier: 7.0.4
+        version: 7.0.4(@ember-data/store@4.12.5)(@ember/string@3.1.1)(@ember/test-helpers@3.3.0)(@ember/test-waiters@3.1.0)(@glint/template@1.3.0)(ember-engines@0.9.0)(ember-resources@7.0.0)(ember-source@4.12.3)(graphql@15.8.0)(typescript@5.4.2)(webpack@5.90.3)
       ember-apollo-client:
         specifier: 4.0.2
         version: 4.0.2(@glint/template@1.3.0)(graphql@15.8.0)(webpack@5.90.3)
@@ -935,8 +935,8 @@ importers:
         specifier: 3.0.0
         version: 3.0.0
       ember-alexandria:
-        specifier: 7.0.3
-        version: 7.0.3(@ember-data/store@4.12.5)(@ember/string@3.1.1)(@ember/test-helpers@3.3.0)(@ember/test-waiters@3.1.0)(@glint/template@1.3.0)(ember-engines@0.9.0)(ember-resources@7.0.0)(ember-source@4.12.3)(graphql@15.8.0)(typescript@5.4.2)(webpack@5.90.3)
+        specifier: 7.0.4
+        version: 7.0.4(@ember-data/store@4.12.5)(@ember/string@3.1.1)(@ember/test-helpers@3.3.0)(@ember/test-waiters@3.1.0)(@glint/template@1.3.0)(ember-engines@0.9.0)(ember-resources@7.0.0)(ember-source@4.12.3)(graphql@15.8.0)(typescript@5.4.2)(webpack@5.90.3)
       ember-apollo-client:
         specifier: 4.0.2
         version: 4.0.2(@glint/template@1.3.0)(graphql@15.8.0)(webpack@5.90.3)
@@ -1160,8 +1160,8 @@ importers:
         specifier: 12.10.3
         version: 12.10.3(@ember/test-waiters@3.1.0)(@glimmer/tracking@1.1.2)(@glint/template@1.3.0)(ember-data@4.12.5)(ember-resources@7.0.0)(ember-source@4.12.3)(typescript@5.4.2)(webpack@5.90.3)
       ember-alexandria:
-        specifier: 7.0.3
-        version: 7.0.3(@ember-data/store@4.12.5)(@ember/string@3.1.1)(@ember/test-helpers@3.3.0)(@ember/test-waiters@3.1.0)(@glint/template@1.3.0)(ember-engines@0.9.0)(ember-resources@7.0.0)(ember-source@4.12.3)(graphql@15.8.0)(typescript@5.4.2)(webpack@5.90.3)
+        specifier: 7.0.4
+        version: 7.0.4(@ember-data/store@4.12.5)(@ember/string@3.1.1)(@ember/test-helpers@3.3.0)(@ember/test-waiters@3.1.0)(@glint/template@1.3.0)(ember-engines@0.9.0)(ember-resources@7.0.0)(ember-source@4.12.3)(graphql@15.8.0)(typescript@5.4.2)(webpack@5.90.3)
       ember-apollo-client:
         specifier: 4.1.1
         version: 4.1.1(@glint/template@1.3.0)(graphql@15.8.0)(webpack@5.90.3)
@@ -7121,8 +7121,8 @@ packages:
   /electron-to-chromium@1.4.710:
     resolution: {integrity: sha512-w+9yAVHoHhysCa+gln7AzbO9CdjFcL/wN/5dd+XW/Msl2d/4+WisEaCF1nty0xbAKaxdaJfgLB2296U7zZB7BA==}
 
-  /ember-alexandria@7.0.3(@ember-data/store@4.12.5)(@ember/string@3.1.1)(@ember/test-helpers@3.3.0)(@ember/test-waiters@3.1.0)(@glint/template@1.3.0)(ember-engines@0.9.0)(ember-resources@7.0.0)(ember-source@4.12.3)(graphql@15.8.0)(typescript@5.4.2)(webpack@5.90.3):
-    resolution: {integrity: sha512-mfBj0jo2iXqCsjk3COD2x2JClbYSU7gebFp9/iJHSwMPl8rOHbPyU8mG4DMMV3vt1E2OvuGQQuLGzgxMhOJu6w==}
+  /ember-alexandria@7.0.4(@ember-data/store@4.12.5)(@ember/string@3.1.1)(@ember/test-helpers@3.3.0)(@ember/test-waiters@3.1.0)(@glint/template@1.3.0)(ember-engines@0.9.0)(ember-resources@7.0.0)(ember-source@4.12.3)(graphql@15.8.0)(typescript@5.4.2)(webpack@5.90.3):
+    resolution: {integrity: sha512-5gjpIHt4Gv1Sz3PeyUPDP6cmK3fSGVUiy6A5LbQyc+M5SC/OaltSx+7K5cWJVWOhjOx7WCq/qss4CPgZkLOR6Q==}
     engines: {node: '>= 18'}
     peerDependencies:
       ember-engines: ^0.9.0
