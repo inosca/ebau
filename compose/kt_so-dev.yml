@@ -96,6 +96,10 @@ services:
       DATA_SOURCE_CLASSES: camac.caluma.extensions.data_sources.Municipalities,camac.caluma.extensions.data_sources.Services,camac.caluma.extensions.data_sources.Countries
       DYNAMIC_GROUPS_CLASSES: camac.caluma.extensions.dynamic_groups.CustomDynamicGroups
       DYNAMIC_TASKS_CLASSES: camac.caluma.extensions.dynamic_tasks.CustomDynamicTasks
+      # Alexandria
+      ALEXANDRIA_ENABLE_PDF_CONVERSION: true
+      ALEXANDRIA_USE_MANABI: true
+      ALEXANDRIA_DMS_URL: http://document-merge-service:8000/document-merge-service/api/v1
     networks:
       - ebau.local
     command: /bin/sh -c "./wait-for-it.sh db:5432 -- ./manage.py migrate && ./manage.py collectstatic --noinput && ./manage.py runserver 0:80 --pythonpath /app/$APPLICATION"
