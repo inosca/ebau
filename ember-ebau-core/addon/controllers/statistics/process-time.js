@@ -1,7 +1,7 @@
 import Controller from "@ember/controller";
 import { inject as service } from "@ember/service";
 import { dropTask } from "ember-concurrency";
-import { trackedTask } from "ember-resources/util/ember-concurrency";
+import { trackedTask } from "reactiveweb/ember-concurrency";
 
 export default class StatisticsProcessTimeController extends Controller {
   @service fetch;

@@ -3,7 +3,7 @@ import { htmlSafe } from "@ember/template";
 import { hasMany } from "@ember-data/model";
 import DocumentModel from "ember-alexandria/models/document";
 import { dropTask } from "ember-concurrency";
-import { trackedFunction } from "ember-resources/util/function";
+import { trackedFunction } from "reactiveweb/function";
 
 import mainConfig from "ember-ebau-core/config/main";
 

@@ -2,7 +2,7 @@ import { registerDestructor } from "@ember/destroyable";
 import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 import { task, lastValue } from "ember-concurrency";
-import { Resource } from "ember-resources";
+import { Resource } from "ember-modify-based-class-resource";
 
 const shouldResetPage = ([oldModel, oldQuery] = [], [newModel, newQuery]) =>
   parseInt(newQuery.page.number) === 1 ||

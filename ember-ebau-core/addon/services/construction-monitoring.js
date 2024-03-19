@@ -3,7 +3,7 @@ import Service, { inject as service } from "@ember/service";
 import { decodeId } from "@projectcaluma/ember-core/helpers/decode-id";
 import { queryManager, getObservable } from "ember-apollo-client";
 import { restartableTask } from "ember-concurrency";
-import { trackedTask } from "ember-resources/util/ember-concurrency";
+import { trackedTask } from "reactiveweb/ember-concurrency";
 
 import constructionMonitoringConfig from "ember-ebau-core/config/construction-monitoring";
 import constructionStagesQuery from "ember-ebau-core/gql/queries/construction-monitoring/construction-stages.graphql";

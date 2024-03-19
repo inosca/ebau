@@ -1,7 +1,7 @@
 import { registerDestructor } from "@ember/destroyable";
 import { queryManager } from "ember-apollo-client";
 import { task, lastValue } from "ember-concurrency";
-import { Resource } from "ember-resources";
+import { Resource } from "ember-modify-based-class-resource";
 
 export class ApolloQuery extends Resource {
   @queryManager apollo;

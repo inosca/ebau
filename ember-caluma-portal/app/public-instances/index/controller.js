@@ -5,7 +5,7 @@ import { tracked } from "@glimmer/tracking";
 import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
 import mainConfig from "ember-ebau-core/config/main";
-import { trackedTask } from "ember-resources/util/ember-concurrency";
+import { trackedTask } from "reactiveweb/ember-concurrency";
 
 import getMunicipalities from "caluma-portal/gql/queries/get-municipalities.graphql";
 

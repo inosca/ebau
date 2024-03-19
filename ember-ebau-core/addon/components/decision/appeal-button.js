@@ -4,7 +4,7 @@ import Component from "@glimmer/component";
 import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
 import { findRecord } from "ember-data-resources";
-import { trackedFunction } from "ember-resources/util/function";
+import { trackedFunction } from "reactiveweb/function";
 
 import mainConfig from "ember-ebau-core/config/main";
 import { confirmTask } from "ember-ebau-core/decorators";

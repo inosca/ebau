@@ -4,7 +4,7 @@ import { tracked } from "@glimmer/tracking";
 import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
 import apolloQuery from "ember-ebau-core/resources/apollo";
-import { trackedFunction } from "ember-resources/util/function";
+import { trackedFunction } from "reactiveweb/function";
 
 import config from "caluma-portal/config/environment";
 import getEbauNumberQuery from "caluma-portal/gql/queries/get-ebau-number.graphql";

@@ -1,8 +1,8 @@
 import { inject as service } from "@ember/service";
 import { htmlSafe } from "@ember/template";
 import { attr, belongsTo, hasMany } from "@ember-data/model";
-import { trackedFunction } from "ember-resources/util/function";
 import { filesize } from "filesize";
+import { trackedFunction } from "reactiveweb/function";
 
 import DownloadableModel from "./downloadable";
 

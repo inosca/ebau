@@ -4,8 +4,8 @@ import { inject as service } from "@ember/service";
 import { decodeId } from "@projectcaluma/ember-core/helpers/decode-id";
 import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
-import { trackedTask } from "ember-resources/util/ember-concurrency";
 import { confirm } from "ember-uikit";
+import { trackedTask } from "reactiveweb/ember-concurrency";
 import { dedupeTracked } from "tracked-toolbox";
 
 import mainConfig from "ember-ebau-core/config/main";

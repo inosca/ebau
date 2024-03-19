@@ -4,7 +4,7 @@ import Component from "@glimmer/component";
 import { decodeId } from "@projectcaluma/ember-core/helpers/decode-id";
 import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
-import { trackedFunction } from "ember-resources/util/function";
+import { trackedFunction } from "reactiveweb/function";
 
 import mainConfig from "ember-ebau-core/config/main";
 import createDocumentMutation from "ember-ebau-core/gql/mutations/create-document.graphql";

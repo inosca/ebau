@@ -3,7 +3,7 @@ import { inject as service } from "@ember/service";
 import { decodeId } from "@projectcaluma/ember-core/helpers/decode-id";
 import { queryManager, getObservable } from "ember-apollo-client";
 import { dropTask, restartableTask } from "ember-concurrency";
-import { trackedTask } from "ember-resources/util/ember-concurrency";
+import { trackedTask } from "reactiveweb/ember-concurrency";
 
 import completeWorkItemMutation from "ember-ebau-core/gql/mutations/complete-work-item.graphql";
 import saveWorkItemMutation from "ember-ebau-core/gql/mutations/save-workitem.graphql";

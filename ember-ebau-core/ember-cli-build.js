@@ -12,9 +12,6 @@ module.exports = function (defaults) {
     "ember-validated-form": {
       theme: "uikit",
     },
-    flatpickr: {
-      locales: ["de", "fr", "it"],
-    },
   });
 
   /*

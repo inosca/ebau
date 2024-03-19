@@ -9,8 +9,8 @@ import { allCases } from "@projectcaluma/ember-core/caluma-query/queries";
 import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
 import mainConfig from "ember-ebau-core/config/main";
-import { trackedTask } from "ember-resources/util/ember-concurrency";
 import { DateTime } from "luxon";
+import { trackedTask } from "reactiveweb/ember-concurrency";
 import { cached } from "tracked-toolbox";
 
 import config from "caluma-portal/config/environment";

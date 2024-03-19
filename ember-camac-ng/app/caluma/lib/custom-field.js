@@ -2,7 +2,7 @@ import { inject as service } from "@ember/service";
 import { isEmpty } from "@ember/utils";
 import Field from "@projectcaluma/ember-form/lib/field";
 import { dropTask } from "ember-concurrency";
-import { trackedTask } from "ember-resources/util/ember-concurrency";
+import { trackedTask } from "reactiveweb/ember-concurrency";
 import { cached } from "tracked-toolbox";
 
 import workItemCaseInformationQuery from "camac-ng/gql/queries/work-item-case-information.graphql";
