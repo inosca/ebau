@@ -75,6 +75,7 @@
                                 </div>
                             </div>
                             <span>${msg("noAccount")} <a tabindex="6" href="${url.registrationUrl}">${msg("doRegister")}</a></span>
+                            <span>${msg("needHelp")?no_esc}</span>
                         </form>
                     </#if>
                     <#if social.providers??>
