@@ -188,6 +188,17 @@ class CustomPermission:
         else:
             document = file.document
 
+        # replacement files can only be created by same organization
+        if (
+            settings.APPLICATION_NAME == "kt_gr"
+            and request.method == "POST"
+            and document.files.filter(variant=File.Variant.ORIGINAL).count() >= 1
+            and not scopes.ServiceAndSubservice(
+                request.caluma_info.context.user, document
+            ).evaluate()
+        ):
+            return False
+
         available_permissions = self.get_available_permissions(
             request, document.instance_document.instance, document.category, document
         )
