@@ -64,7 +64,12 @@
         "rejected",
         "subm"
       ],
-      "subservice": ["circulation", "construction-acceptance", "finished"],
+      "subservice": [
+        "circulation",
+        "construction-acceptance",
+        "decision",
+        "finished"
+      ],
       "support": ["new", "rejected", "subm"],
       "uso": [
         "circulation",
