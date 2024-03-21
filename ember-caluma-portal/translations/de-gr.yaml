@@ -19,4 +19,7 @@ instances:
       info: "Die gemäss Art. 40 Abs. 1 der kantonalen Raumplanungsverordnung (KRVO) von der Baubewilligungspflicht ausgenommen Bauvorhaben sind mit der **Bauanzeige** bei der kommunalen Baubehörde anzuzeigen (vgl. Art. 40a KRVO).\n\n**Solaranlagen** auf Dächern unterliegen der Anzeigepflicht nach Art. 40a KRVO. Die kommunale Baubehörde entscheidet aufgrund des Bundesrechts, ob die Solaranlage auf dem Dach genügend angepasst und daher bewilligungsfrei ist."
 
 support:
-  info: "Bei fachlichen Fragen zur Eingabe eines Baugesuchs wenden Sie sich bitte an die Bauverwaltung der zuständigen Gemeinde."
+  technical: |-
+    Bei technischen Problemen mit eBau melden Sie sich bitte beim <b>technischen
+    Support (24/7)</b> unter der folgenden Nummer:<br><a href="tel:+41 81 553 35
+    00">+41 81 553 35 00</a>

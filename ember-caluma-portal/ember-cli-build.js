@@ -25,7 +25,7 @@ module.exports = function (defaults) {
         application: ENV,
         enableFaq: ENV === "be",
         enableSupport: ["be", "ur", "gr"].includes(ENV),
-        enableInstanceSupport: ENV === "be",
+        enableInstanceSupport: ["be", "gr"].includes(ENV),
         enableModificationConfirm: ENV === "be",
         enableAdditionalDemand: ["gr", "so"].includes(ENV),
         enableInstanceActionDescription: ENV !== "so",
