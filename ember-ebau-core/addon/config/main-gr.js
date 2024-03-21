@@ -108,4 +108,7 @@ export default {
     "authority-bab", // Ausserhalb Bauzone
     "uso", // Umweltschutzorganisationen
   ],
+  communication: {
+    rolesWithApplicantContact: ["activeOrInolvedLeadAuthority", "service"],
+  },
 };

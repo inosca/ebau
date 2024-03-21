@@ -14,4 +14,7 @@ export default {
     juristicNameRegexp: "^name-juristische-person.*$",
     emailRegexp: "^e-mail-.*$",
   },
+  communication: {
+    rolesWithApplicantContact: ["activeOrInolvedLeadAuthority"],
+  },
 };

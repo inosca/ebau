@@ -165,4 +165,7 @@ export default {
   attachmentSections: {
     internal: 4,
   },
+  communication: {
+    rolesWithApplicantContact: ["activeOrInolvedLeadAuthority"],
+  },
 };
