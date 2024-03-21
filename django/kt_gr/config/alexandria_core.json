@@ -273,6 +273,7 @@
       },
       "name": "{\"de\": \"Alle Beteiligten\", \"fr\": \"\", \"it\": \"Tutti coinvolti\"}",
       "description": "{\"de\": \"Hier werden von der Leitbeh\\u00f6rde Dokumente hochgeladen, welche f\\u00fcr alle am Verfahren beteiligten Rollen einsehbar sein sollen (z.B. Verfahrensprogramm, Bauentscheid). Gesuchstellenden werden diese Dokumente im eBau-Portal unter *R\\u00fcckmeldungen* angezeigt.\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\"]",
       "color": "#CB68C1",
       "parent": null
     }
@@ -443,6 +444,7 @@
       },
       "name": "{\"de\": \"Alle Kanton\", \"fr\": \"\", \"it\": \"Tutti i canton\"}",
       "description": "{\"de\": \"Diese Kategorie dient dem Dokumentenaustausch zwischen kantonalen Fachstellen. Alle kantonalen Fachstellen haben Zugriff auf hier hochgeladene Dokumente.\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\"]",
       "color": "#66CFC9",
       "parent": null
     }
@@ -516,6 +518,7 @@
       },
       "name": "{\"de\": \"Bauabnahme\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"Hier werden von der Leitbeh\\u00f6rde Dokumente zur Bauabnahme hochgeladen, welche f\\u00fcr alle am Verfahren beteiligten Rollen einsehbar sein sollen (z.B. Bauabnahmeprotokoll). Gesuchstellenden werden diese Dokumente im eBau-Portal unter R\\u00fcckmeldungen angezeigt.\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\"]",
       "color": "#CB68C1",
       "parent": null
     }
@@ -772,6 +775,7 @@
       },
       "name": "{\"de\": \"Beilagen zum Gesuch\", \"fr\": \"\", \"it\": \"Allegati alla domanda\"}",
       "description": "{\"de\": \"Diese Dokumente wurden vom Gesuchstellenden hochgeladen und sind f\\u00fcr alle am Verfahren beteiligten Beh\\u00f6rden einsehbar.\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\"]",
       "color": "#9CDD69",
       "parent": null
     }
@@ -789,6 +793,7 @@
       "metainfo": {},
       "name": "{\"de\": \"Grundst\\u00fccksangaben\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"Unter den Begriff *Grundst\\u00fccksangaben* fallen Gesuchsunterlagen wie z.B. Kartenausschnitt 1:25000, Grundbuchauszug und Situationsplan 1:500 oder 1:1000, Situationsplan mit Anschl\\u00fcssen f\\u00fcr Wasser, Kanalisation, elektrischen Strom und Telefon, Dienstbarkeiten etc.\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\"]",
       "color": "#9CDD69",
       "parent": "beilagen-zum-gesuch"
     }
@@ -806,6 +811,7 @@
       "metainfo": {},
       "name": "{\"de\": \"Gutachten, Nachweise, Begr\\u00fcndungen\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"Unter die Begriffe *Gutachten, Nachweise, Begr\\u00fcndungen* fallen Gesuchsunterlagen wie z.B. Fotodokumentation der bestehenden Baute/Anlage, Formulare zu Zusatzgesuchen (Rodungsgesuch),  etc..\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\"]",
       "color": "#9CDD69",
       "parent": "beilagen-zum-gesuch"
     }
@@ -823,6 +829,7 @@
       "metainfo": {},
       "name": "{\"de\": \"Projektpl\\u00e4ne, Projektbeschrieb\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"Unter die Begriffe *Projektpl\\u00e4ne, Projektbeschrieb* fallen Gesuchsunterlagen wie z.B. Aufnahmepl\\u00e4ne (Grundrisse, Schnitte, Ansichten, L\\u00e4ngen- und Querprofile, Normalprofile) und fachgerechte Projektpl\\u00e4ne (Grundrisse, Schnitte, Ansichten, L\\u00e4ngen- und Querprofile, Normalprofile), Umgebungspl\\u00e4ne, Baubeschrieb etc.\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": null,
       "color": "#9CDD69",
       "parent": "beilagen-zum-gesuch"
     }
@@ -840,6 +847,7 @@
       "metainfo": {},
       "name": "{\"de\": \"Weitere Gesuchsunterlagen\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"Unter den Begriff *weitere Gesuchsunterlagen* fallen Gesuchsunterlagen wie z.B. detaillierte Berechnungen der anzuwenden Nutzungsziffern, L\\u00e4rmschutznachweise, Brandschutznachweise, Energienachweise, Bericht zur Umweltvert\\u00e4glichkeitspr\\u00fcfung (UVP), Bodenkundliches Fachgutachten, Vopr\\u00fcfungsentscheid der Geb\\u00e4udeversicherung.\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\"]",
       "color": "#9CDD69",
       "parent": "beilagen-zum-gesuch"
     }
@@ -1112,6 +1120,7 @@
       },
       "name": "{\"de\": \"Beteiligte Beh\\u00f6rden\", \"fr\": \"\", \"it\": \"Autorit\\u00e0 coinvolte\"}",
       "description": "{\"de\": \"Hier werden die von den beteiligten Beh\\u00f6rden erfassten Dokumente (z.B. Verf\\u00fcgungen, Amts- und Fachberichte, Stellungnahmen) hochgeladen. Diese Dokumente sind nur f\\u00fcr die am Verfahren beteiligten Beh\\u00f6rden sichtbar, nicht aber f\\u00fcr die Gesuchstellenden.\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\"]",
       "color": "#8791EC",
       "parent": null
     }
@@ -1319,6 +1328,7 @@
       },
       "name": "{\"de\": \"Intern\", \"fr\": \"\", \"it\": \"Interno\"}",
       "description": "{\"de\": \"Hier werden Dokumente hochgeladen, welche nur innerhalb der eigenen Organisation sichtbar sein sollen. In diesem Ordner bestehen keine Einschr\\u00e4nkungen hinsichtlich der erlaubten Dateiformate.\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"application/msword\", \"application/vnd.openxmlformats-officedocument.wordprocessingml.document\", \"application/vnd.ms-excel\", \"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\", \"application/vnd.ms-powerpoint\", \"application/vnd.openxmlformats-officedocument.presentationml.presentation\", \"application/vnd.ms-outlook\"]",
       "color": "#DB8B72",
       "parent": null
     }
@@ -1543,6 +1553,7 @@
       },
       "name": "{\"de\": \"Nachforderung\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"Diese Dokumente wurden vom Gesuchstellenden im Rahmen von Nachforderungen hochgeladen und sind f\\u00fcr alle am Verfahren beteiligten Beh\\u00f6rden einsehbar.\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\"]",
       "color": "#66CFC9",
       "parent": null
     }
@@ -1720,6 +1731,7 @@
       },
       "name": "{\"de\": \"Stellungnahmen ans ARE\", \"fr\": \"\", \"it\": \"Dichiarazioni all'ARE\"}",
       "description": "{\"de\": \"Hier werden Stellungnahmen, Verf\\u00fcgungen und weitere Dokumente zu Handen des Amts f\\u00fcr Raumentwicklung hochgeladen. Die Dokumente sind ausschliesslich f\\u00fcr das ARE sichtbar. Andere Fachstellen haben keinen Zugriff auf hier hochgeladene Dokumente.\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\"]",
       "color": "#66CFC9",
       "parent": null
     }
@@ -1889,6 +1901,7 @@
       },
       "name": "{\"de\": \"Umweltschutzorganisationen\", \"fr\": \"\", \"it\": \"Organizzazioni di protezione ambientale\"}",
       "description": "{\"de\": \"Hier werden Dokumente hochgeladen, welche Umweltschutzorganisationen zug\\u00e4nglich gemacht werden sollen. Dokumente in dieser Kategorie k\\u00f6nnen vom ARE hochgeladen und von USOs eingesehen werden.\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\"]",
       "color": "#66CFC9",
       "parent": null
     }

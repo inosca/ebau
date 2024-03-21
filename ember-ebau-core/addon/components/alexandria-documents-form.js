@@ -156,25 +156,18 @@ export default class AlexandriaDocumentsFormComponent extends Component {
 
   @task
   *upload({ file, bucket }) {
-    try {
-      this.alexandriaConfig.documentId = this.documentId;
+    this.alexandriaConfig.documentId = this.documentId;
 
-      const documentModel = yield this.alexandriaDocuments.upload(
-        bucket,
-        [file],
-        this.args.context,
-      );
+    const documentModel = yield this.alexandriaDocuments.upload(
+      bucket,
+      [file],
+      this.args.context,
+    );
 
-      this.uploadedAttachmentIds = [
-        ...this.uploadedAttachmentIds,
-        documentModel[0].id,
-      ];
-
-      this.notification.success(this.intl.t("documents.uploadSuccess"));
-    } catch (error) {
-      console.error(error);
-      this.notification.danger(this.intl.t("documents.uploadError"));
-    }
+    this.uploadedAttachmentIds = [
+      ...this.uploadedAttachmentIds,
+      documentModel[0].id,
+    ];
   }
 
   @dropTask
