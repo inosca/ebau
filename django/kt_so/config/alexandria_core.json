@@ -118,6 +118,7 @@
       },
       "name": "{\"de\": \"Beilagen zum Gesuch\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": null,
       "color": "#7FC241",
       "parent": null
     }
@@ -135,6 +136,7 @@
       "metainfo": {},
       "name": "{\"de\": \"Grundst\\u00fccksangaben\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"Unter die Begriffe *Grundst\\u00fccksangaben und Projektbeschrieb* fallen Gesuchsunterlagen wie z. B. Katasterplan (z. B. \\u00d6REB-Kataster), Grundbuchauszug, Dienstbarkeiten, Projektbeschrieb.\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": null,
       "color": "#7FC241",
       "parent": "beilagen-zum-gesuch"
     }
@@ -152,6 +154,7 @@
       "metainfo": {},
       "name": "{\"de\": \"Gutachten, Nachweise, Begr\\u00fcndungen\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"Unter die Begriffe *Gutachten, Nachweise, Begr\\u00fcndungen, Ausnahmebegehren* fallen Gesuchsunterlagen wie z. B. Vollmachten, Einverst\\u00e4ndnis Nachbarn, Nutzungsberechnungen, Energietechnische Massnahmennachweis (EMN), L\\u00e4rmschutznachweise, Brandschutznachweise.\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": null,
       "color": "#7FC241",
       "parent": "beilagen-zum-gesuch"
     }
@@ -169,6 +172,7 @@
       "metainfo": {},
       "name": "{\"de\": \"Projektpl\\u00e4ne, Projektbeschrieb\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"Unter den Begriff*Projektpl\\u00e4ne* fallen Gesuchsunterlagen wie z. B. Situationsplan (Art. 12 und 13 BewD), Projektpl\\u00e4ne (Art. 14 BewD) wie Grundrisse, Schnitt- und Fassadenpl\\u00e4ne, Umgebungsgestaltungspl\\u00e4ne, Kanalisationspl\\u00e4ne, Siedlungsentw\\u00e4sserungspl\\u00e4ne.\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": null,
       "color": "#7FC241",
       "parent": "beilagen-zum-gesuch"
     }
@@ -186,6 +190,7 @@
       "metainfo": {},
       "name": "{\"de\": \"Weitere Gesuchsunterlagen\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"Unter den Begriff *Weitere Gesuchsunterlagen* fallen Dokumentunterlagen wie z. B. Formulare - Anschluss Elektrizit\\u00e4t, Anschluss Gemeinschaftsantenne, Anschluss Gas, Anschluss Wasser, Wasser- / Abwasserinstallationen und andere Gesuchsunterlagen\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": null,
       "color": "#7FC241",
       "parent": "beilagen-zum-gesuch"
     }
@@ -298,6 +303,7 @@
       },
       "name": "{\"de\": \"Beschwerden\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": null,
       "color": "#FF7800",
       "parent": null
     }
@@ -470,6 +476,7 @@
       },
       "name": "{\"de\": \"Beteiligte Beh\\u00f6rden\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": null,
       "color": "#00A99D",
       "parent": null
     }
@@ -582,6 +589,7 @@
       },
       "name": "{\"de\": \"Einsprachen\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": null,
       "color": "#E1B422",
       "parent": null
     }
@@ -782,6 +790,7 @@
       },
       "name": "{\"de\": \"Intern\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": null,
       "color": "#689BD0",
       "parent": null
     }
@@ -982,6 +991,7 @@
       },
       "name": "{\"de\": \"Intern (mit Unterfachstellen)\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": null,
       "color": "#024A91",
       "parent": null
     }
@@ -1104,6 +1114,7 @@
       },
       "name": "{\"de\": \"Nachforderung\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": null,
       "color": "#EE1D23",
       "parent": null
     }
