@@ -385,6 +385,73 @@ def test_file_permission(
     assert response.status_code == status_code
 
 
+@pytest.mark.parametrize("role__name", ["municipality"])
+@pytest.mark.parametrize(
+    "other_group,status_code",
+    [
+        (
+            True,
+            HTTP_403_FORBIDDEN,
+        ),
+        (
+            False,
+            HTTP_201_CREATED,
+        ),
+    ],
+)
+def test_file_replace_permission(
+    db,
+    role,
+    mocker,
+    admin_client,
+    service,
+    service_factory,
+    instance,
+    other_group,
+    status_code,
+    set_application_gr,
+):
+    mocker.patch(
+        "alexandria.core.serializers.validate_file_infection", return_value=None
+    )
+
+    alexandria_category = CategoryFactory(
+        metainfo={
+            "access": {
+                "municipality": {
+                    "visibility": "all",
+                    "permissions": [
+                        {"permission": "create", "scope": "All"},
+                    ],
+                },
+            }
+        }
+    )
+
+    if other_group:
+        service = service_factory()
+
+    doc = DocumentFactory(
+        title="Foo",
+        category=alexandria_category,
+        metainfo={"camac-instance-id": instance.pk},
+        created_by_group=service.pk,
+    )
+    FileFactory(name="File", document=doc, variant="original")
+    url = reverse("file-list")
+
+    data = {
+        "name": "file.png",
+        "document": str(doc.pk),
+        "content": io.BytesIO(FileData.png),
+        "variant": "original",
+    }
+
+    response = admin_client.post(url, data=data, format="multipart")
+
+    assert response.status_code == status_code
+
+
 @pytest.mark.parametrize(
     "role__name,method,status_code",
     [
