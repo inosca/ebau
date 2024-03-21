@@ -6,11 +6,18 @@ from camac.permissions import api as permissions_api
 from camac.permissions.events import EmptyEventHandler
 from camac.user.models import ServiceRelation
 
-from .common import ApplicantsEventHandlerMixin, InstanceSubmissionHandlerMixin
+from .common import (
+    ApplicantsEventHandlerMixin,
+    ChangeResponsibleServiceHandlerMixin,
+    InstanceSubmissionHandlerMixin,
+)
 
 
 class PermissionEventHandlerBE(
-    ApplicantsEventHandlerMixin, InstanceSubmissionHandlerMixin, EmptyEventHandler
+    ApplicantsEventHandlerMixin,
+    InstanceSubmissionHandlerMixin,
+    ChangeResponsibleServiceHandlerMixin,
+    EmptyEventHandler,
 ):
     # applicant_added is in ApplicantEvents
     # applicant_removed is in ApplicantEvents

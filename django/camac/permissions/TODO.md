@@ -5,12 +5,15 @@
 * [x] Permission switching / comparison
 * [ ] Migration tooling
   - [x] Applicants
-  - [ ] (Lead) municipalities
+  - [x] (Lead) municipalities
   - [ ] Services
+      - map from (sent) inquiries
+
 * [ ] Convert access role-by-role
   - [x] Applicants
-  - [ ] (Lead) municipalities
+  - [x] (Lead) municipalities
   - [ ] Services
+      - inquiry sent
 
 
 ## Phase 1

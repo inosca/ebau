@@ -21,6 +21,16 @@
   },
   {
     "model": "permissions.accesslevel",
+    "pk": "involved-authority",
+    "fields": {
+      "name": "{\"de\": \"Involvierte Leitbeh\\u00f6rde\", \"fr\": \"Autorit\\u00e9 impliqu\\u00e9e\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "required_grant_type": "SERVICE",
+      "applicable_area": "INTERNAL"
+    }
+  },
+  {
+    "model": "permissions.accesslevel",
     "pk": "lead-authority",
     "fields": {
       "name": "{\"de\": \"Leitbeh\\u00f6rde\", \"fr\": \"Responsable autorit\\u00e9\", \"it\": \"\"}",
