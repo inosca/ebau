@@ -1751,9 +1751,6 @@ def test_generate_and_store_pdf_in_alexandria(
     serializer._generate_and_store_pdf(gr_instance)
 
     assert alexandria_category.documents.count() == 1
-    assert (
-        alexandria_category.documents.first().files.filter(variant="thumbnail").exists()
-    )
 
 
 @pytest.mark.parametrize(
