@@ -8,6 +8,7 @@ from caluma.caluma_form.models import Answer, AnswerDocument, Document, Question
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 from django.db.models import Exists, OuterRef, Q, Sum
+from django.utils import timezone
 from django.utils.translation import get_language, gettext, gettext_noop as _
 from rest_framework import serializers
 
@@ -913,7 +914,9 @@ class AlexandriaSimpleDocumentField(AlexandriaDocumentField):
                     .first()
                     .name,
                     "date": document.created_at.strftime("%d.%m.%Y"),
-                    "time": document.created_at.strftime("%H:%M"),
+                    "time": document.created_at.astimezone(
+                        timezone.get_current_timezone()
+                    ).strftime("%H:%M"),
                 }
                 for document in documents
             ]
