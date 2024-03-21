@@ -8,17 +8,19 @@ import { EPSG2056toLatLng, getCenter } from "ember-ebau-core/utils/gis";
 export default class CustomCaseModel extends CustomCaseBaseModel {
   @service intl;
   get centerCoordinate() {
-    const answer = JSON.parse(
-      getAnswer(this.raw.document, mainConfig.answerSlugs.coordinates)?.node
-        .stringValue,
-    );
-    if (!answer) {
-      return "";
+    try {
+      const answer = JSON.parse(
+        getAnswer(this.raw.document, mainConfig.answerSlugs.coordinates).node
+          .stringValue,
+      );
+      const markers = answer.markers.map((marker) =>
+        EPSG2056toLatLng([marker.x, marker.y]),
+      );
+      return getCenter(markers, answer.geometry);
+    } catch (e) {
+      console.warn("could not compute center coordinate", e);
+      return null;
     }
-    const markers = answer.markers.map((marker) =>
-      EPSG2056toLatLng([marker.x, marker.y]),
-    );
-    return getCenter(markers, answer.geometry);
   }
 
   get coordinatesLink() {
