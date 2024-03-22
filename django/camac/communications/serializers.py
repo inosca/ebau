@@ -326,7 +326,9 @@ class MessageSerializer(serializers.ModelSerializer):
 
     def validate_attachments(self, value):
         for attachment in value:
-            validate_file_infection(attachment.file_attachment)
+            # only need to check "inline" uploaded files, not linked ones
+            if attachment.file_attachment:
+                validate_file_infection(attachment.file_attachment)
         return value
 
     included_serializers = {
