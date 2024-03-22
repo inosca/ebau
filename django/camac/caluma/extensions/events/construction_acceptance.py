@@ -14,6 +14,10 @@ from .general import get_instance
 @transaction.atomic
 @filter_events(lambda work_item: work_item.task.slug == "construction-acceptance")
 def post_complete_construction_acceptance(sender, work_item, user, context, **kwargs):
+    notification_config = settings.APPLICATION["NOTIFICATIONS"].get(
+        "CONSTRUCTION_ACCEPTANCE", []
+    )
+
     instance = get_instance(work_item)
     permissions_events.Trigger.construction_acceptance_completed(None, instance)
 
@@ -24,10 +28,15 @@ def post_complete_construction_acceptance(sender, work_item, user, context, **kw
     ]:
         return
 
-    if gr_include_aib(instance) and (not context or not context.get("no-notification")):
-        for config in settings.APPLICATION["NOTIFICATIONS"].get(
-            "CONSTRUCTION_ACCEPTANCE", []
-        ):
+    if not gr_include_aib(instance):
+        notification_config = [
+            config
+            for config in notification_config
+            if config["recipient_types"] != ["aib"]
+        ]
+
+    if not context or not context.get("no-notification"):
+        for config in notification_config:
             send_mail_without_request(
                 config["template_slug"],
                 user.username,
