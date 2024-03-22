@@ -3,7 +3,6 @@ import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { queryManager } from "ember-apollo-client";
-import apolloQuery from "ember-ebau-core/resources/apollo";
 import { trackedFunction } from "reactiveweb/function";
 
 import config from "caluma-portal/config/environment";
@@ -16,26 +15,26 @@ export default class InstanceSupportComponent extends Component {
 
   @tracked showModal = false;
 
-  info = apolloQuery(
-    this,
-    () => ({
+  info = trackedFunction(this, async () => {
+    if (!this.showModal) {
+      return null;
+    }
+    // eagerly fetch the municipality every time the modal is opened
+    // in case it has been recently set or changed
+    return await this.apollo.query({
       query: instanceSupportQuery,
       variables: { instanceId: this.args.instance.id },
-    }),
-    "allCases.edges",
-    (data) => {
-      return {
-        form: data[0]?.node.document.form.slug,
-        municipality: data[0]?.node.document.municipality.edges[0]?.node.value,
-      };
-    },
-  );
+      fetchPolicy: "network-only",
+    });
+  });
 
   get serviceId() {
+    const document = this.info.value?.allCases.edges[0].node.document;
+
     return (
       this.args.instance.get("activeService.id") ?? // Active service if the instance is already submitted
-      config.APPLICATION.staticSupportIds?.[this.info.value?.form] ?? // Static services for certain forms
-      this.info.value?.municipality // Municipality selected in the form
+      config.APPLICATION.staticSupportIds?.[document?.form.slug] ?? // Static services for certain forms
+      document?.municipality.edges[0]?.node.value // Municipality selected in the form
     );
   }
 
@@ -60,8 +59,6 @@ export default class InstanceSupportComponent extends Component {
   @action
   async toggle(event) {
     event.preventDefault();
-
-    await this.info.reload();
 
     this.showModal = !this.showModal;
   }
