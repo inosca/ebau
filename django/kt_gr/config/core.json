@@ -4817,6 +4817,30 @@
   },
   {
     "model": "core.rroleacl",
+    "pk": 12000021,
+    "fields": {
+      "resource": 14000003,
+      "role": 20000
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 12000022,
+    "fields": {
+      "resource": 14000004,
+      "role": 20000
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 12000023,
+    "fields": {
+      "resource": 14000005,
+      "role": 20000
+    }
+  },
+  {
+    "model": "core.rroleacl",
     "pk": 14000001,
     "fields": {
       "resource": 14000000,
