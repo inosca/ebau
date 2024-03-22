@@ -28,7 +28,7 @@ communications:
     collapseMessage: Nachricht einklappen
     readOnly: In dieser Konversation können von Ihnen keine Nachrichten erfasst werden.
     loadPreviousMessages: Vorherige Nachrichten laden
-    uploadToDMS: Anhang ins Dokumentenmodul hochloaden
+    uploadToDMS: Anhang ins Dokumentenmodul hochladen
     uploadedToDMS: Im Dokumentenmodul gespeichert
     attachmentSections: Kategorien
 
