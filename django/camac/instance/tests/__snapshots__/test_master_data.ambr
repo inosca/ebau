@@ -818,7 +818,8 @@
       'label': 'Altdorf',
       'slug': '1',
     }),
-    'municipality_name': None,
+    'municipality_name': 'Altdorf',
+    'municipality_slug': '1',
     'oereb_topic': list([
       'oereb-thema-knp',
     ]),

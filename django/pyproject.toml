@@ -148,6 +148,7 @@ omit = [
     "camac/core/management/commands/migrate_einfache_vorabklaerung.py",
     "camac/core/management/commands/migrate_uri_attachment_sections.py",
     "camac/core/management/commands/migrate_ur_submit_date.py",
+    "camac/core/management/commands/migrate_uri_instances.py",
     "camac/core/management/commands/fix_einfache_vorabklaerung.py",
     "camac/core/management/commands/restore_preliminary_clarification.py",
     "camac/ech0211/management/commands/fix_ech_circulation_answer.py",

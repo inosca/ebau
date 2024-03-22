@@ -40,7 +40,7 @@ export default class InstanceModel extends Model {
   @hasMany("service", { inverse: null, async: true, readOnly: true }) services;
   @hasMany("service", { inverse: null, async: false, readOnly: true })
   involvedServices;
-  @hasMany("instance", { inverse: null, async: true, readOnly: true })
+  @hasMany("instance", { inverse: null, async: false, readOnly: true })
   linkedInstances;
   @hasMany("user", { inverse: null, async: true, readOnly: true })
   responsibleServiceUsers;

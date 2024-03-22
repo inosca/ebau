@@ -5,6 +5,7 @@
 from . import (  # noqa: F401
     additional_demand,
     audit,
+    complete_check,
     construction_acceptance,
     construction_monitoring,
     decision,

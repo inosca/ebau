@@ -33,4 +33,8 @@ export default class CustomSessionService extends SessionService {
       "x-camac-group": this.shoebox.content.groupId,
     };
   }
+
+  get isInternal() {
+    return Boolean(this.shoebox.content.groupId);
+  }
 }

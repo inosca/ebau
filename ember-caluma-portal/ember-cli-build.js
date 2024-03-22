@@ -27,7 +27,7 @@ module.exports = function (defaults) {
         enableSupport: ["be", "ur", "gr"].includes(ENV),
         enableInstanceSupport: ["be", "gr"].includes(ENV),
         enableModificationConfirm: ENV === "be",
-        enableAdditionalDemand: ["gr", "so"].includes(ENV),
+        enableAdditionalDemand: ["gr", "so", "ur"].includes(ENV),
         enableInstanceActionDescription: ENV !== "so",
         instancePaperFilterDefault: ENV === "ur",
         showProfileLink: ENV === "gr",

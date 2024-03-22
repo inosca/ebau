@@ -90,7 +90,7 @@ class UrMilestonesSerializer(MilestonesSerializer):
                     fields.WorkItemsField(
                         slug="check-completed",
                         label=_("Check completed"),
-                        task="check-permit",
+                        task="complete-check",
                         field="closed_at",
                     ),
                     fields.WorkItemsField(

@@ -1,12 +1,15 @@
 import logging
+from functools import cached_property
 
 import reversion
 from django.conf import settings
 from django.db import models
+from django.db.models import Q
 
 from camac.core.models import HistoryActionConfig
 from camac.core.utils import canton_aware
-from camac.user.models import User
+from camac.instance.master_data import MasterData
+from camac.user.models import Service, User
 from camac.user.permissions import get_role_name
 from camac.utils import build_url
 
@@ -205,6 +208,18 @@ class Instance(models.Model):
             .exclude(pk=self.pk)
         )
 
+    def get_linked_instances_ur(self, queryset=None):
+        # FIXME: instance groups should be extracted into a
+        # proper relationship.
+        if not self.instance_group:  # pragma: no cover
+            return []
+
+        return (
+            InstanceGroup.objects.prefetch_related("instances")
+            .get(pk=self.instance_group.pk)
+            .instances.exclude(pk=self.pk)
+        )
+
     def _responsible_service_instance_service(self, filter_type=None, **kwargs):
         active_services_settings = settings.APPLICATION.get("ACTIVE_SERVICES", {})
 
@@ -278,6 +293,23 @@ class Instance(models.Model):
             path = "/index/redirect-to-instance-resource/instance-id/"
 
         return build_url(settings.INTERNAL_BASE_URL, path, self.pk)
+
+    @cached_property
+    def municipality(self):
+        md = MasterData(self.case)
+
+        if settings.APPLICATION_NAME == "kt_uri":
+            communal_federal_number = md.municipality_slug
+            return Service.objects.filter(
+                Q(groups__locations__communal_federal_number=communal_federal_number)
+                & Q(service_group__name="Sekretariate Gemeindebaubehörden")
+            ).first()
+
+        return (
+            Service.objects.get(pk=md.municipality.get("slug"))
+            if md.municipality
+            else None
+        )
 
     class Meta:
         managed = True
