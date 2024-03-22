@@ -1847,55 +1847,6 @@
                 "permission": "delete"
               }
             ]
-          },
-          "municipality-lead": {
-            "visibility": "all",
-            "permissions": [
-              {
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
-                "permission": "create"
-              },
-              {
-                "scope": "Service",
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
-                "permission": "update"
-              },
-              {
-                "scope": "All",
-                "fields": ["tags"],
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
-                "permission": "update"
-              },
-              {
-                "scope": "Service",
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
-                "permission": "delete"
-              }
-            ]
           }
         }
       },
