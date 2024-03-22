@@ -829,7 +829,7 @@
       "metainfo": {},
       "name": "{\"de\": \"Projektpl\\u00e4ne, Projektbeschrieb\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"Unter die Begriffe *Projektpl\\u00e4ne, Projektbeschrieb* fallen Gesuchsunterlagen wie z.B. Aufnahmepl\\u00e4ne (Grundrisse, Schnitte, Ansichten, L\\u00e4ngen- und Querprofile, Normalprofile) und fachgerechte Projektpl\\u00e4ne (Grundrisse, Schnitte, Ansichten, L\\u00e4ngen- und Querprofile, Normalprofile), Umgebungspl\\u00e4ne, Baubeschrieb etc.\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": null,
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\"]",
       "color": "#9CDD69",
       "parent": "beilagen-zum-gesuch"
     }
