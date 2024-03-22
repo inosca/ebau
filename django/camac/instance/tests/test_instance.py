@@ -16,7 +16,7 @@ from rest_framework import status
 
 from camac.core.models import InstanceLocation, WorkflowEntry
 from camac.instance import domain_logic, serializers
-from camac.instance.models import HistoryEntryT, InstanceState
+from camac.instance.models import HistoryEntryT, InstanceGroup, InstanceState
 
 
 @pytest.mark.freeze_time("2018-04-17")
@@ -2320,3 +2320,16 @@ def test_instance_change_form(
         assert caluma_workflow_models.WorkItem.objects.filter(
             task_id="formal-addition"
         ).exists()
+
+
+def test_linked_instances_ur(db, ur_instance, instance_factory, set_application_ur):
+    instance_group = InstanceGroup.objects.create()
+    other_instance = instance_factory(instance_group=instance_group)
+
+    assert ur_instance.get_linked_instances() == []
+
+    ur_instance.instance_group = instance_group
+    ur_instance.save()
+
+    ur_instance.refresh_from_db()
+    assert list(ur_instance.get_linked_instances()) == [other_instance]

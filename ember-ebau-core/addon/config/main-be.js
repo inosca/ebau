@@ -162,4 +162,7 @@ export default {
       status: "legal-submission-status",
     },
   },
+  attachmentSections: {
+    internal: 4,
+  },
 };

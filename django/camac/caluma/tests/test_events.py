@@ -13,6 +13,7 @@ from caluma.caluma_workflow.models import Task
 from django.conf import settings
 from django.utils import timezone
 
+from camac.constants import kt_uri as uri_constants
 from camac.instance.models import HistoryEntryT
 
 
@@ -852,3 +853,103 @@ def test_post_create_reject_work_item(
         so_instance.instance_state.name
         == so_rejection_settings["WORK_ITEM"]["INSTANCE_STATE"]
     )
+
+
+@pytest.mark.parametrize(
+    "answer,expected_status",
+    [
+        (
+            "complete-check-baubewilligungspflichtig-baubewilligungspflichtig",
+            caluma_workflow_models.WorkItem.STATUS_READY,
+        ),
+        (
+            "complete-check-baubewilligungspflichtig-baubewilligungspflichtig-nein",
+            caluma_workflow_models.WorkItem.STATUS_SKIPPED,
+        ),
+    ],
+)
+def test_event_skip_circulation_ur(
+    caluma_admin_user,
+    work_item_factory,
+    document_factory,
+    question_factory,
+    answer_factory,
+    task_factory,
+    answer,
+    expected_status,
+    set_application_ur,
+):
+    complete_distribution_work_item = work_item_factory(
+        task_id=task_factory(slug="complete-distribution").pk
+    )
+    complete_check_work_item = work_item_factory(
+        task_id=task_factory(slug="complete-check").pk, document=document_factory()
+    )
+    complete_distribution_work_item.case.parent_work_item = complete_check_work_item
+    complete_distribution_work_item.case.save()
+
+    answer_factory(
+        document=complete_distribution_work_item.case.parent_work_item.document,
+        question=question_factory(slug="complete-check-baubewilligungspflichtig"),
+        value=answer,
+    )
+
+    send_event(
+        post_create_work_item,
+        sender="post_create_work_item",
+        work_item=complete_distribution_work_item,
+        user=caluma_admin_user,
+        context={},
+    )
+
+    complete_distribution_work_item.refresh_from_db()
+
+    assert complete_distribution_work_item.status == expected_status
+
+
+def test_convert_instance_ur(
+    db,
+    task_factory,
+    work_item_factory,
+    question_factory,
+    answer_factory,
+    document_factory,
+    case_factory,
+    ur_instance,
+    caluma_admin_user,
+    form_factory,
+    mocker,
+    set_application_ur,
+):
+    solar_form = form_factory()
+    construction_form = form_factory()
+    mocker.patch("camac.constants.kt_uri.FORM_MELDUNG_SOLARANLAGE", solar_form.pk)
+    mocker.patch("camac.constants.kt_uri.FORM_BAUGESUCH", construction_form.pk)
+
+    complete_check_document = document_factory()
+    ur_instance.form_id = uri_constants.FORM_MELDUNG_SOLARANLAGE
+    ur_instance.save()
+    answer_factory(
+        document=complete_check_document,
+        question=question_factory(slug="complete-check-baubewilligungspflichtig"),
+        value="complete-check-baubewilligungspflichtig-baubewilligungspflichtig",
+    )
+    answer_factory(
+        document=ur_instance.case.document,
+        question_id="form-type",
+        value="form-type-building-permit-canton",
+    )
+    complete_check_work_item = work_item_factory(
+        task_id="complete-check",
+        document=complete_check_document,
+        case=ur_instance.case,
+    )
+    send_event(
+        post_complete_work_item,
+        sender="post_complete_work_item",
+        work_item=complete_check_work_item,
+        user=caluma_admin_user,
+        context={},
+    )
+    ur_instance.refresh_from_db()
+    assert ur_instance.form_id == uri_constants.FORM_BAUGESUCH

@@ -2,6 +2,7 @@ import pytest
 from caluma.caluma_workflow.models import WorkItem
 
 from camac.caluma.extensions.dynamic_groups import CustomDynamicGroups
+from camac.constants import kt_uri as uri_constants
 from camac.user.models import ServiceRelation
 
 
@@ -237,3 +238,31 @@ def test_dynamic_group_geometer_be(
             .first()
         )
     ]
+
+
+@pytest.mark.parametrize(
+    "given_slug,expected_group_pk",
+    [
+        ("geometer-ur", uri_constants.GEOMETER_SERVICE_ID),
+        ("gebaeudeschaetzung-ur", uri_constants.FGS_SERVICE_ID),
+    ],
+)
+def test_dynamic_groups_ur(
+    db,
+    service_factory,
+    caluma_admin_user,
+    ur_instance,
+    given_slug,
+    expected_group_pk,
+):
+    service_factory(pk=expected_group_pk)
+
+    result = CustomDynamicGroups().resolve(given_slug)(
+        task=None,
+        case=ur_instance.case,
+        user=caluma_admin_user,
+        prev_work_item=None,
+        context={},
+    )
+
+    assert result == [str(expected_group_pk)]

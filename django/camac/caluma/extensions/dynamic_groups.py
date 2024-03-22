@@ -8,6 +8,7 @@ from caluma.caluma_workflow.dynamic_groups import (
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 
+from camac.constants import kt_uri as uri_constants
 from camac.instance import utils as instance_utils
 from camac.instance.models import Instance
 from camac.user.models import Service, ServiceRelation
@@ -123,3 +124,17 @@ class CustomDynamicGroups(BaseDynamicGroups):
             case.family.instance, ServiceRelation.FUNCTION_GEOMETER
         )
         return [str(geometer.pk) for geometer in geometers]
+
+    @register_dynamic_group("geometer-ur")
+    def resolve_geometer_ur(self, task, case, user, prev_work_item, context, **kwargs):
+        return [
+            str(Service.objects.get(pk=uri_constants.GEOMETER_SERVICE_ID).pk)
+        ]  # AGO (Geometer), Kt. Uri
+
+    @register_dynamic_group("gebaeudeschaetzung-ur")
+    def resolve_gebaeudeschaetzung_ur(
+        self, task, case, user, prev_work_item, context, **kwargs
+    ):
+        return [
+            str(Service.objects.get(pk=uri_constants.FGS_SERVICE_ID).pk)
+        ]  # FGS Fachstelle für Gebäudeschätzung

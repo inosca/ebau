@@ -253,7 +253,7 @@ export default class CaseDashboardComponent extends Component {
       workflowEntries.find(
         (we) =>
           we.belongsTo("workflowItem").id() === WORKFLOW_ITEM_IDS[1].toString(),
-      )?.workflowDate || workflowEntries.firstObject?.workflowDate;
+      )?.workflowDate || workflowEntries[0]?.workflowDate;
 
     const ownActivation = activations.find(
       (activation) =>
@@ -270,18 +270,15 @@ export default class CaseDashboardComponent extends Component {
         invert: true,
       }),
     });
-    const attachmentId = attachment.get("firstObject")?.id;
+    const attachmentId = attachment[0]?.id;
 
     let parcelPicture;
 
     if (attachmentId) {
       try {
-        const response = yield this.fetch.fetch(
-          `${attachment.get("firstObject").path}`,
-          {
-            headers: { accept: undefined },
-          },
-        );
+        const response = yield this.fetch.fetch(`${attachment?.[0].path}`, {
+          headers: { accept: undefined },
+        });
         const blob = yield response.blob();
         parcelPicture = yield convertToBase64(blob);
       } catch (e) {

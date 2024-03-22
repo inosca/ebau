@@ -5,6 +5,10 @@ distribution:
   subservices: "Offices régionaux spécialisés"
   external-services: ""
   municipal-services: ""
+  coordination-services: "Centres de coordination"
+  communal-council: "Conseillers municipaux"
+  communal-service-point: "Services communaux"
+  infrastructure-communal-correspondence: "Installations d'infrastructure En suspens des communes"
 
   send-answer: "Envoyer la réponse"
   release-for-review: "Valider pour contrôle"

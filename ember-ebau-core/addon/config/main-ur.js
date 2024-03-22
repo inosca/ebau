@@ -18,7 +18,7 @@ export default {
   ],
   useLocation: true,
   urGisUrl: "https://geo.ur.ch/wms",
-  attachmentSections: { applicant: "12000000" },
+  attachmentSections: { applicant: "12000000", internal: "12000001" },
   submittedStates: [
     21, // comm
     22, // ext

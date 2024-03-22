@@ -4,11 +4,15 @@ export default {
     roles: {},
     services: {},
     default: [
-      "check-permit",
+      "accept",
+      "complete-check",
       "init-distribution",
-      "fill-inquiry",
+      "inquiry",
+      "check-inquiries",
+      "check-distribution",
       "decision",
       "construction-supervision",
+      "archive",
     ],
   },
 };

@@ -649,5 +649,22 @@ DISTRIBUTION = {
             },
         },
     },
+    "kt_uri": {
+        "ENABLED": True,
+        "INSTANCE_STATE_DISTRIBUTION": "comm",
+        "HISTORY": {
+            "COMPLETE_DISTRIBUTION": _("Circulation completed"),
+            "SKIP_DISTRIBUTION": _("Circulation skipped"),
+            "REDO_DISTRIBUTION": _("Circulation reopened"),
+        },
+        "REDO_INQUIRY": {
+            "REOPEN_TASKS": ["fill-inquiry"],
+        },
+        "QUESTIONS": {
+            "STATEMENT": "inquiry-answer-statement",
+            "ANCILLARY_CLAUSES": "inquiry-answer-ancillary-clauses",
+        },
+        "DEFAULT_SUGGESTIONS": [1],  # KOOR BG
+    },
     "demo": {"ENABLED": True},
 }

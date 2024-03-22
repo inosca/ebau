@@ -107,13 +107,7 @@ class ServiceField(ABC, AliasedMixin, serializers.ReadOnlyField):
 
 class MunicipalityField(ServiceField):
     def get_service(self, instance):
-        caluma_municipality = instance._master_data.municipality
-
-        return (
-            Service.objects.get(pk=caluma_municipality.get("slug"))
-            if caluma_municipality
-            else None
-        )
+        return instance.municipality
 
 
 class CurrentServiceField(ServiceField):

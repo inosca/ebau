@@ -32,7 +32,7 @@ from camac.instance.serializers import (
     CalumaInstanceSerializer,
     CalumaInstanceSubmitSerializer,
 )
-from camac.user.models import Location
+from camac.user.models import Location, Service
 from camac.utils import flatten
 
 
@@ -668,8 +668,15 @@ def test_instance_submit_ur(
         authority_location = authority_location_factory(location=location)
 
     if special_case.get("custom_leitbehoerde"):
+        dynamic_option = caluma_form_models.DynamicOption.objects.create(
+            document=ur_instance.case.document,
+            question_id="leitbehoerde-internal-form",
+            slug=str(authority_location.authority.pk),
+            label="Musterdorf",
+        )
+
         ur_instance.case.document.answers.create(
-            value=str(authority.pk),
+            value=dynamic_option.slug,
             question_id="leitbehoerde-internal-form",
         )
 
@@ -699,7 +706,7 @@ def test_instance_submit_ur(
     )
 
     if special_case.get("custom_leitbehoerde"):
-        assert int(found_authority) == int(authority.pk)
+        assert int(found_authority) == int(authority_location.authority.pk)
     elif special_case.get("special_location") and "oereb" in form_slug:
         # this is a special "diverse gemeinden" or "alle gemeinden" dossier
         # this is therefore an ÖREB dossier and in this case the leitbehörde
@@ -789,14 +796,14 @@ def test_instance_submit_cantonal_territory_usage_ur(
     cantonal_territory_form = caluma_form_factories.FormFactory(
         slug="cantonal-territory-usage"
     )
+    cantonal_territory_form.questions.create(
+        slug="veranstaltung-art",
+        type=caluma_form_models.Question.TYPE_TEXT,
+    )
+
     caluma_form_factories.FormFactory(slug="personalien")
     ur_instance.case.document.form = cantonal_territory_form
     ur_instance.case.document.save()
-
-    ur_instance.case.document.form.questions.create(
-        slug="veranstaltung-art",
-        type=caluma_form_models.Question.TYPE_CHOICE,
-    )
 
     koor_service = service_factory(email=f"{submit_to}@example.com")
     mocker.patch(f"camac.constants.kt_uri.{submit_to}_SERVICE_ID", koor_service.pk)
@@ -886,9 +893,9 @@ def test_instance_submit_heat_extraction_ur(
     application_settings["CALUMA"]["GENERATE_IDENTIFIER"] = False
     application_settings["USE_INSTANCE_SERVICE"] = False
 
-    heat_extraction_form = caluma_form_factories.FormFactory(slug=form_slug)
+    ur_instance.case.document.form_id = form_slug
+    ur_instance.case.document.save()
     caluma_form_factories.FormFactory(slug="personalien")
-    ur_instance.case.document.form = heat_extraction_form
     ur_instance.case.document.save()
 
     koor_service = service_factory(email="KOOR_AFE@example.com")
@@ -963,10 +970,7 @@ def test_instance_submit_pgv_gemeindestrasse_ur(
     application_settings["CALUMA"]["GENERATE_IDENTIFIER"] = False
     application_settings["USE_INSTANCE_SERVICE"] = False
 
-    pgv_gemeindestrasse_form = caluma_form_factories.FormFactory(
-        slug="pgv-gemeindestrasse"
-    )
-    ur_instance.case.document.form = pgv_gemeindestrasse_form
+    ur_instance.case.document.form_id = "pgv-gemeindestrasse"
     ur_instance.case.document.save()
 
     koor_service = service_factory(email="KOOR_BD@example.com")
@@ -1015,26 +1019,18 @@ def test_instance_submit_pgv_gemeindestrasse_ur(
     assert ur_instance.group == koor_group
 
 
-@pytest.mark.parametrize("instance_state__name", ["new"])
-@pytest.mark.parametrize("instance__user", [LazyFixture("admin_user")])
 @pytest.mark.parametrize(
-    "role__name,service_group__name", [("Applicant", "coordination")]
+    "instance_state__name,instance__user,service_group__name",
+    [("new", LazyFixture("admin_user"), "Sekretariate Gemeindebaubehörden")],
 )
 def test_instance_submit_mitbericht_kanton_doesnt_send_mail(
-    mocker,
     admin_client,
     settings,
-    caluma_workflow_config_ur,
     ur_instance,
-    admin_user,
-    notification_template,
     application_settings,
     mock_generate_and_store_pdf,
-    workflow_item_factory,
     location_factory,
-    group_factory,
     instance_state_factory,
-    service_factory,
     authority_location_factory,
     disable_ech0211_settings,
 ):
@@ -1053,6 +1049,7 @@ def test_instance_submit_mitbericht_kanton_doesnt_send_mail(
     )
 
     authority_location_factory(location=location)
+    Service.objects.first().groups.first().locations.set([location])
 
     instance_state_factory(name="ext")
     instance_state_factory(name="subm")
@@ -1086,8 +1083,7 @@ def test_instance_authority_by_submission_for_koor_afg(
     application_settings["STORE_PDF"] = False
     application_settings["SET_SUBMIT_DATE_CAMAC_ANSWER"] = False
 
-    bgbb_form = caluma_form_factories.FormFactory(slug="bgbb")
-    ur_instance.case.document.form = bgbb_form
+    ur_instance.case.document.form_id = "bgbb"
     ur_instance.case.document.save()
 
     koor_service = service_factory(email="KOOR_AFG@example.com")
@@ -1119,6 +1115,42 @@ def test_instance_authority_by_submission_for_koor_afg(
     ).value == str(uri_constants.KOOR_AFG_AUTHORITY_ID)
 
 
+@pytest.mark.parametrize("service_group__name", ["Sekretariate Gemeindebaubehörden"])
+def test_set_instance_service_ur_bgbb(
+    db, ur_instance, mocker, set_application_ur, group_factory, utils
+):
+    # if form is "bgbb" and the form was submitted by the AFG
+    # AFG should be the responsible service. Otherwise it is the
+    # municipality where it was submitted.
+    ur_instance.case.document.form_id = "bgbb"
+    ur_instance.case.document.form.save()
+
+    koor_afg_group = group_factory(
+        service__name="KOOR AFG", service__service_group__name="Koordinationsstellen"
+    )
+
+    utils.add_answer(
+        ur_instance.case.document,
+        "municipality",
+        ur_instance.group.locations.first().communal_federal_number,
+    )
+
+    ur_instance.group = koor_afg_group
+    mocker.patch("camac.constants.kt_uri.KOOR_AFG_GROUP_ID", koor_afg_group.pk)
+    mocker.patch(
+        "camac.constants.kt_uri.KOOR_AFG_SERVICE_ID", koor_afg_group.service.pk
+    )
+
+    serializer = CalumaInstanceSubmitSerializer()
+    serializer.instance = ur_instance
+
+    assert ur_instance.responsible_service() is None
+    serializer._set_instance_service(ur_instance.case, ur_instance)
+    assert (
+        ur_instance.responsible_service() == koor_afg_group.service
+    ), "should assign the KOOR AFG as the responsible service"
+
+
 @pytest.mark.parametrize("form_slug", ["oereb", "oereb-verfahren-gemeinde"])
 @pytest.mark.parametrize("service_group__name", [("municipality", "coordination")])
 @pytest.mark.parametrize("instance_state__name", ["new"])
@@ -1147,6 +1179,17 @@ def test_oereb_instance_copy_for_koor_afj(
     disable_ech0211_settings,
 ):
     settings.APPLICATION_NAME = "kt_uri"
+    application_settings["ACTIVE_SERVICES"] = {
+        "MUNICIPALITY": {
+            "FILTERS": {
+                "service__service_group__name__in": [
+                    "Sekretariate Gemeindebaubehörden",
+                    "Koordinationsstellen",
+                ]
+            },
+            "DEFAULT": True,
+        },
+    }
 
     ur_instance.form = form_factory(name="camac-form")
     ur_instance.attachments.add(
@@ -1174,11 +1217,26 @@ def test_oereb_instance_copy_for_koor_afj(
     koor_np_service = service_factory(email="KOOR_NP@example.com", name="KOOR NP")
     mocker.patch("camac.constants.kt_uri.KOOR_NP_SERVICE_ID", koor_np_service.pk)
 
+    location = location_factory()
+    authority_location_factory(location=location)
+
     gbb_altdorf_service = service_factory(
-        email="gbb-altdorf@example.com", name="GBB Altdorf"
+        email="gbb-altdorf@example.com",
+        name="GBB Altdorf",
+        service_group__name="Sekretariate Gemeindebaubehörden",
     )
+    gbb_group = group_factory()
+    gbb_group.locations.set([location])
+    gbb_group.save()
+    gbb_altdorf_service.groups.set([gbb_group])
+    gbb_altdorf_service.save()
+
     mocker.patch(
         "camac.constants.kt_uri.GBB_ALTDORF_SERVICE_ID", gbb_altdorf_service.pk
+    )
+
+    ur_instance.case.document.answers.create(
+        value=str(location.communal_federal_number), question_id="municipality"
     )
 
     if form_slug == "oereb":
@@ -1215,13 +1273,6 @@ def test_oereb_instance_copy_for_koor_afj(
     application_settings["SET_SUBMIT_DATE_CAMAC_ANSWER"] = False
 
     workflow_item_factory(workflow_item_id=ur_constants.WORKFLOW_ITEM_DOSSIER_ERFASST)
-
-    location = location_factory()
-    authority_location_factory(location=location)
-
-    ur_instance.case.document.answers.create(
-        value=str(location.communal_federal_number), question_id="municipality"
-    )
 
     instance_state_factory(name="ext")
     instance_state_factory(name="comm")

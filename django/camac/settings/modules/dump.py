@@ -457,6 +457,21 @@ DUMP = {
                 "dashboard_document": {
                     "caluma_form.Document": Q(form="dashboard"),
                 },
+                "caluma_complete_check_form": generate_form_dump_config(
+                    regex=r"^complete-check$"
+                ),
+                "caluma_decision_form": generate_form_dump_config(regex=r"^decision$"),
+                "caluma_gebaeudeschaetzung_forms": generate_form_dump_config(
+                    regex=r"^gebaeudeschaetzung$"
+                ),
+                "caluma_geometer_forms": generate_form_dump_config(regex=r"^geometer$"),
+                "caluma_instance_management_form": generate_form_dump_config(
+                    regex=r"^instance-management$"
+                ),
+                # Distribution
+                **DISTRIBUTION_DUMP_CONFIG,
+                # Additional demand
+                **ADDITIONAL_DEMAND_DUMP_CONFIG,
             },
             "EXCLUDED_MODELS": [
                 "user.Group",

@@ -1152,8 +1152,13 @@ MASTER_DATA = {
             ),
             "municipality_name": (
                 "answer",
-                "gemeinde",
+                "municipality",
                 {"value_parser": "dynamic_option", "prop": "label"},
+            ),
+            "municipality_slug": (
+                "answer",
+                "municipality",
+                {"value_parser": "dynamic_option", "prop": "slug"},
             ),
             "category": (
                 "answer",
