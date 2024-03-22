@@ -486,6 +486,107 @@ def test_dynamic_task_after_check_sb2(
 
 
 @pytest.mark.parametrize(
+    "answer1,answer2,answer3,expected_tasks",
+    [
+        (
+            "decision-task-nachfuehrungsgeometer-ja",
+            "decision-task-gebaudeschaetzung-ja",
+            "decision-task-baubegleitungsprozess-ja",
+            ["geometer", "gebaeudeschaetzung", "construction-supervision"],
+        ),
+        (
+            "decision-task-nachfuehrungsgeometer-nein",
+            "decision-task-gebaudeschaetzung-nein",
+            "decision-task-baubegleitungsprozess-nein",
+            [],
+        ),
+    ],
+)
+def test_dynamic_task_after_decision_ur(
+    db,
+    work_item_factory,
+    document_factory,
+    question_factory,
+    answer_factory,
+    ur_instance,
+    caluma_admin_user,
+    expected_tasks,
+    answer1,
+    answer2,
+    answer3,
+):
+    work_item = work_item_factory(
+        case=ur_instance.case,
+        task_id="decision",
+    )
+    work_item.document = document_factory()
+    work_item.save()
+
+    answer_factory(
+        document=work_item.document,
+        question=question_factory(slug="decision-task-nachfuehrungsgeometer"),
+        value=answer1,
+    )
+    answer_factory(
+        document=work_item.document,
+        question=question_factory(slug="decision-task-gebaudeschaetzung"),
+        value=answer2,
+    )
+    answer_factory(
+        document=work_item.document,
+        question=question_factory(slug="decision-task-baubegleitungsprozess"),
+        value=answer3,
+    )
+
+    result = CustomDynamicTasks().resolve_after_decision_ur(
+        ur_instance.case, caluma_admin_user, work_item, None
+    )
+
+    assert result == expected_tasks
+
+
+@pytest.mark.parametrize(
+    "answer,expected_tasks",
+    [
+        (
+            "complete-check-vollstaendigkeitspruefung-incomplete",
+            ["init-additional-demand"],
+        ),
+        ("complete-check-vollstaendigkeitspruefung-complete", []),
+    ],
+)
+def test_dynamic_task_after_complete_check_ur(
+    db,
+    work_item_factory,
+    document_factory,
+    question_factory,
+    answer_factory,
+    ur_instance,
+    caluma_admin_user,
+    answer,
+    expected_tasks,
+):
+    work_item = work_item_factory(
+        case=ur_instance.case,
+        task_id="decision",
+    )
+    work_item.document = document_factory()
+    work_item.save()
+
+    answer_factory(
+        document=work_item.document,
+        question=question_factory(slug="complete-check-vollstaendigkeitspruefung"),
+        value=answer,
+    )
+
+    result = CustomDynamicTasks().resolve_after_complete_check_ur(
+        ur_instance.case, caluma_admin_user, work_item, None
+    )
+
+    assert result == expected_tasks
+
+
+@pytest.mark.parametrize(
     "needs_approval,is_approved,previous_task,selected_steps,expected_tasks",
     [
         (

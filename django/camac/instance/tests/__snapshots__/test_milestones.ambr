@@ -25,7 +25,6 @@
             'label': 'Check completed',
             'slug': 'check-completed',
             'value': list([
-              '2023-01-01T19:00:00Z',
             ]),
           }),
           dict({
@@ -44,7 +43,6 @@
             'label': 'Start of cantonal distribution',
             'slug': 'start-cantonal-distribution',
             'value': list([
-              '2023-12-31T00:00:00Z',
               '2023-12-31T00:00:00Z',
             ]),
           }),
@@ -98,7 +96,6 @@
             'label': 'Check completed',
             'slug': 'check-completed',
             'value': list([
-              '2023-01-01T19:00:00Z',
             ]),
           }),
           dict({
@@ -117,7 +114,6 @@
             'label': 'Start of cantonal distribution',
             'slug': 'start-cantonal-distribution',
             'value': list([
-              '2023-12-31T00:00:00Z',
               '2023-12-31T00:00:00Z',
             ]),
           }),

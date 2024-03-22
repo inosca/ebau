@@ -53,21 +53,21 @@ def generate_module_test_settings(module_name, cantons=[]):
 
 generate_module_test_settings("appeal", ["kt_bern", "kt_so"])
 generate_module_test_settings(
-    "distribution", ["kt_bern", "kt_schwyz", "kt_gr", "kt_so"]
+    "distribution", ["kt_bern", "kt_schwyz", "kt_gr", "kt_so", "kt_uri"]
 )
 generate_module_test_settings("publication", ["kt_gr"])
 generate_module_test_settings("decision", ["kt_bern", "kt_gr", "kt_so"])
-generate_module_test_settings("dms", ["kt_bern", "kt_gr"])
+generate_module_test_settings("dms", ["kt_bern", "kt_gr", "kt_uri"])
 generate_module_test_settings(
     "additional_demand", ["kt_gr", "kt_so", "kt_bern", "kt_uri"]
 )
 generate_module_test_settings("alexandria", ["kt_gr", "kt_so"])
 generate_module_test_settings("rejection", ["kt_bern", "kt_so"])
 generate_module_test_settings("withdrawal", ["kt_so"])
-generate_module_test_settings("construction_monitoring", ["kt_schwyz"])
+generate_module_test_settings("construction_monitoring", ["kt_schwyz", "kt_uri"])
 generate_module_test_settings("permissions", ["kt_bern", "kt_gr", "kt_so"])
 generate_module_test_settings("communications", ["kt_bern", "kt_gr", "kt_so"])
-generate_module_test_settings("placeholders", ["kt_bern", "kt_so"])
+generate_module_test_settings("placeholders", ["kt_bern", "kt_so", "kt_uri"])
 generate_module_test_settings(
     "master_data", ["kt_bern", "kt_schwyz", "kt_uri", "kt_gr", "kt_so"]
 )

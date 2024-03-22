@@ -99,17 +99,32 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
     return this._fetchIfNotCached("public-service", "service_id", identifiers);
   }
 
+  _getFilter(filter) {
+    switch (filter.type) {
+      case "subservice":
+        return { service_parent: this.shoebox.content.serviceId };
+      case "suggestions":
+        return { suggestion_for_instance: this.currentInstanceId };
+      case "serviceGroup":
+        return { service_group_name: filter.value, has_parent: false };
+      default:
+        console.error("unknown filter type: ", filter.type);
+    }
+  }
+
   async fetchTypedGroups(types, search) {
     return await types.reduce(async (typed, type) => {
-      let filters =
-        type === "subservice"
-          ? { service_parent: this.shoebox.content.serviceId }
-          : type === "suggestions"
-            ? { suggestion_for_instance: this.currentInstanceId }
-            : { service_group_name: type, has_parent: false };
+      let filters = this._getFilter(this.distribution.new.types[type]);
 
       if (macroCondition(getOwnConfig().application === "sz")) {
         filters = { ...filters, available_in_distribution: true };
+      }
+      if (macroCondition(getOwnConfig().application === "ur")) {
+        filters = {
+          ...filters,
+          available_in_distribution:
+            this.distribution.new.types[type].availableInDistribution ?? false,
+        };
       }
 
       const result = await this.store.query("public-service", {
@@ -173,17 +188,28 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
         },
         new: {
           types: {
-            district: {
+            suggestions: {
+              label: "caluma.distribution.new.suggestions",
+              type: "suggestions",
+            },
+            districts: {
               label: "distribution.districts",
+              type: "serviceGroup",
+              value: "district",
             },
-            municipality: {
+            municipalities: {
               label: "distribution.municipalities",
+              type: "serviceGroup",
+              value: "municipality",
             },
-            service: {
+            services: {
               label: "distribution.services",
+              type: "serviceGroup",
+              value: "service",
             },
-            subservice: {
+            subservices: {
               label: "distribution.subservices",
+              type: "subservice",
             },
           },
         },
@@ -312,20 +338,33 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
         },
         new: {
           types: {
-            "Externe Fachstellen": {
+            suggestions: {
+              label: "caluma.distribution.new.suggestions",
+              type: "suggestions",
+            },
+            externalServices: {
               label: "distribution.external-services",
+              type: "serviceGroup",
+              value: "Externe Fachstellen",
             },
-            Fachstellen: {
+            services: {
               label: "distribution.services",
+              type: "serviceGroup",
+              value: "services",
             },
-            subservice: {
+            subservices: {
               label: "distribution.subservices",
+              type: "subservice",
             },
-            Gemeinde: {
+            municipalities: {
               label: "distribution.municipalities",
+              type: "serviceGroup",
+              value: "Gemeinde",
             },
-            "Fachstellen Gemeinden": {
+            municipalityServices: {
               label: "distribution.municipal-services",
+              type: "serviceGroup",
+              value: "Fachstellen Gemeinden",
             },
           },
         },
@@ -356,6 +395,116 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
             }, {}),
         },
       };
+    } else if (macroCondition(getOwnConfig().application === "ur")) {
+      // TODO: Enable when ember-caluma is bumped
+      const config = {
+        ui: { readonly: this.shoebox.isReadOnlyRole },
+        inquiry: {
+          answer: {
+            infoQuestions: [
+              "inquiry-answer-status",
+              "inquiry-answer-invite-service",
+              "inquiry-answer-works-decision",
+              "inquiry-answer-description",
+              "inquiry-internal-report",
+              "inquiry-answer-messages",
+            ],
+            buttons: {
+              "fill-inquiry": {
+                color: "primary",
+                label: "distribution.send-answer",
+                status: "caluma.distribution.answer.buttons.compose.status",
+                willCompleteInquiry: true,
+              },
+            },
+            statusMapping: {
+              "inquiry-answer-status-approved": INQUIRY_STATUS.POSITIVE,
+              "inquiry-answer-status-negative": INQUIRY_STATUS.NEGATIVE,
+              "inquiry-answer-status-yes": INQUIRY_STATUS.POSITIVE,
+              "inquiry-answer-status-yes-with-conditions":
+                INQUIRY_STATUS.POSITIVE,
+              "inquiry-answer-status-no": INQUIRY_STATUS.NEGATIVE,
+              "inquiry-answer-status-no-answer": INQUIRY_STATUS.SKIPPED,
+              "inquiry-answer-status-no-response": INQUIRY_STATUS.SKIPPED,
+              "inquiry-answer-status-not-involved": INQUIRY_STATUS.SKIPPED,
+              "inquiry-answer-status-positive": INQUIRY_STATUS.POSITIVE,
+              "inquiry-answer-status-rejected": INQUIRY_STATUS.NEGATIVE,
+              "inquiry-answer-status-written-off": INQUIRY_STATUS.NEGATIVE,
+            },
+          },
+        },
+        new: {
+          types: {
+            suggestions: {
+              label: "caluma.distribution.new.suggestions",
+              type: "suggestions",
+            },
+            subservice: {
+              label: "distribution.municipal-services",
+              type: "serviceGroup",
+              value: [
+                "Gemeinde Service Stellen",
+                "Gemeinderäte",
+                "Mitglieder Baukommissionen",
+              ].join(","),
+              availableInDistribution: this.shoebox.isCoordinationRole
+                ? false
+                : true,
+            },
+            cantonalServices: {
+              label: "distribution.cantonal-services",
+              type: "serviceGroup",
+              value: [
+                "Fachstellen Justizdirektion",
+                "Fachstellen Gesundheits- Sozial- und Umweltdirektion",
+                "Fachstellen Sicherheitsdirektion",
+                "Fachstellen Volkswirtschaftsdirektion",
+                "Fachstellen Bildungs- und Kulturdirektion",
+                "Fachstellen Finanzdirektion",
+              ].join(","),
+            },
+            coordinationServices: {
+              label: "distribution.coordination-services",
+              type: "serviceGroup",
+              availableInDistribution: true,
+              value: ["Koordinationsstellen"].join(","),
+            },
+            externalServices: {
+              label: "distribution.external-services",
+              type: "serviceGroup",
+              value: (this.shoebox.isCoordinationRole
+                ? [
+                    "Bundesstellen",
+                    "Umweltschutzverbände",
+                    "Infrastrukturanlagen Pendenzen von Koordinationstellen",
+                  ]
+                : [
+                    "Bundesstellen",
+                    "Umweltschutzverbände",
+                    "Infrastrukturanlagen Pendenzen von Gemeinden",
+                  ]
+              ).join(","),
+            },
+          },
+        },
+        permissions: {
+          // ...permissions,
+          // ...{
+          completeDistribution: () => true,
+          reopenDistribution: () => true,
+          createInquiry: () => true,
+          editInquiry: () => true,
+          sendInquiry: () => true,
+          withdrawInquiry: () => true,
+          completeInquiryChildWorkItem: () => true,
+          reopenInquiry: () => true,
+          checkInquiries: () => true,
+          // },
+        },
+        hooks,
+      };
+
+      return config;
     }
 
     return {};

@@ -30,7 +30,6 @@ def test_milestones_ur(
     application_settings,
     snapshot,
     is_paper_answer,
-    task_factory,
     answer_factory,
 ):
     application_settings["CALUMA"]["SUBMIT_TASKS"] = ["submit"]
@@ -45,29 +44,32 @@ def test_milestones_ur(
         value=is_paper_answer,
     )
 
-    for task_slug in ["submit", "check-permit", "decision"]:
+    submit_task = ur_instance.case.work_items.get(task_id="submit")
+    submit_task.closed_at = make_aware(datetime(2023, 1, 1, 20, 0, 0))
+    submit_task.save()
+
+    for task_slug in ["check-permit", "decision"]:
         WorkItemFactory(
-            task__slug=task_slug,
+            task_id=task_slug,
             case=ur_instance.case,
             closed_at=make_aware(datetime(2023, 1, 1, 20, 0, 0)),
             status=WorkItem.STATUS_COMPLETED,
         )
-    inquiry_task = task_factory(slug="inquiry")
 
     # top level circulation (Gemeinde -> KOOR)
     WorkItemFactory(
-        task=inquiry_task,
+        task_id="inquiry",
         case=ur_instance.case,
         created_at=make_aware(datetime(2023, 1, 1, 20, 0, 0)),
         addressed_groups=[uri_constants.KOOR_BG_SERVICE_ID],
-        controlling_groups=[ur_instance.responsible_service().pk],
+        controlling_groups=[],
         status=WorkItem.STATUS_COMPLETED,
         closed_at=make_aware(datetime(2023, 1, 1, 20, 0, 0)),
     )
 
     # Nested KOOR circulation
     WorkItemFactory(
-        task=inquiry_task,
+        task_id="inquiry",
         case=ur_instance.case,
         created_at=make_aware(datetime(2023, 1, 1, 20, 0, 0)),
         controlling_groups=[uri_constants.KOOR_BG_SERVICE_ID],

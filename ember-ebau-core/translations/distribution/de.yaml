@@ -5,6 +5,8 @@ distribution:
   subservices: "Unterfachstellen"
   external-services: "Externe Fachstellen"
   municipal-services: "Fachstellen Gemeinde"
+  cantonal-services: "Fachstellen Kanton"
+  coordination-services: "Koordinationsstellen"
 
   send-answer: "Antwort senden"
   release-for-review: "Zur Überprüfung freigeben"

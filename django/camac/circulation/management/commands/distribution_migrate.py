@@ -126,6 +126,44 @@ def get_config(application_name):
                 },
             },
         )
+    elif application_name == "kt_uri":
+        return always_merger.merge(
+            default,
+            {
+                "PRECEEDING_TASK": "complete-check",
+                "SUCCEEDING_TASK": "decision",
+                "EXCLUDED_WORKFLOWS": [],
+                "STATUS_MAPPING": {
+                    61: "inquiry-answer-status-negative",
+                    62: "inquiry-answer-status-positive",
+                    63: "inquiry-answer-status-yes-with-conditions",
+                    64: "inquiry-answer-status-not-involved",
+                    65: "inquiry-answer-status-no",
+                    66: "inquiry-answer-status-yes",
+                    67: "inquiry-answer-status-yes-with-conditions",
+                    68: "inquiry-answer-status-not-involved",
+                    69: "inquiry-answer-status-not-involved",
+                    70: "inquiry-answer-status-no-answer",
+                    71: "inquiry-answer-status-no-response",
+                    72: "inquiry-answer-status-no-response",
+                    73: "inquiry-answer-status-no-response",
+                    74: "inquiry-answer-status-no-response",
+                    75: "inquiry-answer-status-no-response",
+                    76: "inquiry-answer-status-not-involved",
+                    77: "inquiry-answer-status-yes-with-conditions",
+                    78: "inquiry-answer-status-yes",
+                    79: "inquiry-answer-status-no",
+                    80: "inquiry-answer-status-no-response",
+                    81: "inquiry-answer-status-no-response",
+                },
+                "NOTICE_TYPE_MAPPING": {
+                    23: "inquiry-answer-messages",
+                    24: "inquiry-answer-messages",
+                    25: "inquiry-answer-messages",
+                    26: "inquiry-answer-messages",
+                },
+            },
+        )
 
 
 def num_queries(reset=True):
@@ -138,13 +176,13 @@ def canton_aware(include_base_method=False):
     def decorator(func, *_):
         @wraps(func)
         def wrapper(self, *args, **kwargs):
-            canton = (
-                "be"
-                if settings.APPLICATION_NAME == "kt_bern"
-                else "sz"
-                if settings.APPLICATION_NAME == "kt_schwyz"
-                else None
-            )
+            canton_names = {
+                "kt_bern": "be",
+                "kt_schwyz": "sz",
+                "kt_uri": "ur",
+            }
+            canton = canton_names.get(settings.APPLICATION_NAME, None)
+
             func_name = f"{func.__name__}_{canton}" if canton else f"{func.__name__}"
             if hasattr(self, func_name):
                 if include_base_method:
@@ -205,6 +243,9 @@ class Command(BaseCommand):
                     ]
                 )
 
+            if settings.APPLICATION_NAME == "kt_uri":
+                task_ids.extend([settings.DISTRIBUTION["DISTRIBUTION_CHECK_TASK"]])
+
             cursor.execute(
                 "UPDATE caluma_workflow_workitem SET previous_work_item_id = NULL WHERE previous_work_item_id IN (SELECT id FROM caluma_workflow_workitem WHERE task_id = ANY(%s))",
                 [task_ids],
@@ -225,6 +266,9 @@ class Command(BaseCommand):
                 "DELETE FROM caluma_form_document WHERE form_id = %s",
                 [settings.DISTRIBUTION["INQUIRY_FORM"]],
             )
+            cursor.execute(
+                'DELETE FROM "ACTIVATION" WHERE "REASON" = \'Automatisch generiert durch die Migration der Zirkulationen\''
+            )
 
     @transaction.atomic
     def handle(self, *args, **options):
@@ -240,7 +284,6 @@ class Command(BaseCommand):
         )
 
         filters = self.cases_to_migrate_filters(base_filters)
-
         cases_to_migrate = (
             Case.objects.select_related("instance", "instance__instance_state")
             .prefetch_related("instance__circulations")
@@ -346,22 +389,20 @@ class Command(BaseCommand):
 
         # Create distribution work-item and child case
 
+        status = (
+            Case.STATUS_COMPLETED
+            if distribution_is_closed
+            else Case.STATUS_CANCELED
+            if distribution_is_canceled
+            else Case.STATUS_SUSPENDED
+            if distribution_is_suspended
+            else Case.STATUS_RUNNING
+        )
+
         distribution_case = Case.objects.create(
             workflow_id="distribution",
             family=case,
-            status=(
-                Case.STATUS_COMPLETED
-                if distribution_is_closed
-                else (
-                    Case.STATUS_CANCELED
-                    if distribution_is_canceled
-                    else (
-                        Case.STATUS_SUSPENDED
-                        if distribution_is_suspended
-                        else Case.STATUS_RUNNING
-                    )
-                )
-            ),
+            status=status,
             closed_at=distribution_closed_at,
         )
 
@@ -374,15 +415,11 @@ class Command(BaseCommand):
             status=(
                 WorkItem.STATUS_COMPLETED
                 if distribution_is_closed
-                else (
-                    WorkItem.STATUS_CANCELED
-                    if distribution_is_canceled
-                    else (
-                        WorkItem.STATUS_SUSPENDED
-                        if distribution_is_suspended
-                        else WorkItem.STATUS_READY
-                    )
-                )
+                else WorkItem.STATUS_CANCELED
+                if distribution_is_canceled
+                else WorkItem.STATUS_SUSPENDED
+                if distribution_is_suspended
+                else WorkItem.STATUS_READY
             ),
             closed_at=distribution_closed_at,
             previous_work_item=previous_work_item,
@@ -414,11 +451,9 @@ class Command(BaseCommand):
                     status=(
                         WorkItem.STATUS_CANCELED
                         if distribution_is_closed or distribution_is_canceled
-                        else (
-                            WorkItem.STATUS_SUSPENDED
-                            if distribution_is_suspended
-                            else WorkItem.STATUS_READY
-                        )
+                        else WorkItem.STATUS_SUSPENDED
+                        if distribution_is_suspended
+                        else WorkItem.STATUS_READY
                     ),
                     meta=self.config.META,
                 ),
@@ -431,15 +466,11 @@ class Command(BaseCommand):
                     status=(
                         WorkItem.STATUS_COMPLETED
                         if distribution_is_closed
-                        else (
-                            WorkItem.STATUS_CANCELED
-                            if distribution_is_canceled
-                            else (
-                                WorkItem.STATUS_SUSPENDED
-                                if distribution_is_suspended
-                                else WorkItem.STATUS_READY
-                            )
-                        )
+                        else WorkItem.STATUS_CANCELED
+                        if distribution_is_canceled
+                        else WorkItem.STATUS_SUSPENDED
+                        if distribution_is_suspended
+                        else WorkItem.STATUS_READY
                     ),
                     closed_at=distribution_closed_at,
                     meta=self.config.META,
@@ -460,16 +491,12 @@ class Command(BaseCommand):
                             and not distribution_is_canceled
                             and not distribution_is_closed
                         )
-                        else (
-                            WorkItem.STATUS_CANCELED
-                            if distribution_is_canceled
-                            or (distribution_is_closed and not has_circulations)
-                            else (
-                                WorkItem.STATUS_SUSPENDED
-                                if distribution_is_suspended
-                                else WorkItem.STATUS_READY
-                            )
-                        )
+                        else WorkItem.STATUS_CANCELED
+                        if distribution_is_canceled
+                        or (distribution_is_closed and not has_circulations)
+                        else WorkItem.STATUS_SUSPENDED
+                        if distribution_is_suspended
+                        else WorkItem.STATUS_READY
                     ),
                     meta=self.config.META,
                     deadline=pytz.utc.localize(
@@ -489,8 +516,38 @@ class Command(BaseCommand):
             ]
         )
 
-        # create a "create-inquiry" work item for all services allowed to create
+        if settings.APPLICATION_NAME == "kt_uri":
+            # In Uri it is normally the case that a municipality is the responsible service
+            # but a Koordinationsstelle has invited other people into a circulation
+            # In this case there are activations on this instance where the KOOR is the inviting service
+            # but at the same time there is NO activation going from the responsible service to the KOOR.
+            # This is because Uri didn't work like that and instead "handed over" a dossier using a button which set a different state on the instance.
+            responsible_service = case.instance.responsible_service()
+            if (
+                responsible_service.service_group.name != "Koordinationsstellen"
+                and activations.filter(
+                    service_parent__service_group__name="Koordinationsstellen"  # but there are activations where a Koordinationsstelle has invited somebody else
+                ).exists()
+            ):
+                # We need a list of KOORs which have invited other people and create activations going from the responsible service to these KOORs
+                activations_of_koors = activations.filter(
+                    service_parent__service_group__name="Koordinationsstellen"
+                ).distinct("service_parent_id")
+                for activation in activations_of_koors:
+                    responsible_service_to_koor_activation = core_models.Activation(
+                        circulation=activation.circulation,
+                        circulation_state=activation.circulation_state,
+                        deadline_date=activation.deadline_date,
+                        start_date=activation.start_date,
+                        end_date=activation.end_date,
+                        version=activation.version,
+                        service_parent_id=responsible_service.pk,
+                        service_id=activation.service_parent_id,
+                        reason="Automatisch generiert durch die Migration der Zirkulationen",
+                    )
+                    responsible_service_to_koor_activation.save()
 
+        # create a "create-inquiry" work item for all services allowed to create
         services_allowed_to_create = (
             Service.objects.filter(
                 # Only allow services to create, that have a pending inquiry
@@ -513,11 +570,9 @@ class Command(BaseCommand):
                     status=(
                         WorkItem.STATUS_CANCELED
                         if distribution_is_closed or distribution_is_canceled
-                        else (
-                            WorkItem.STATUS_SUSPENDED
-                            if distribution_is_suspended
-                            else WorkItem.STATUS_READY
-                        )
+                        else WorkItem.STATUS_SUSPENDED
+                        if distribution_is_suspended
+                        else WorkItem.STATUS_READY
                     ),
                     meta=self.config.META,
                 )
@@ -586,25 +641,18 @@ class Command(BaseCommand):
                     status=(
                         WorkItem.STATUS_COMPLETED
                         if is_completed
-                        else (
-                            WorkItem.STATUS_CANCELED
-                            if distribution_is_canceled
-                            else (
-                                WorkItem.STATUS_SUSPENDED
-                                if distribution_is_suspended
-                                else WorkItem.STATUS_READY
-                            )
-                        )
+                        else WorkItem.STATUS_CANCELED
+                        if distribution_is_canceled
+                        else WorkItem.STATUS_SUSPENDED
+                        if distribution_is_suspended
+                        else WorkItem.STATUS_READY
                     ),
                     deadline=deadline,
                     closed_at=(
-                        (
-                            last_addressed_activation_answered_at
-                            or distribution_closed_at
-                        )
-                        if is_completed
-                        else None
-                    ),
+                        last_addressed_activation_answered_at or distribution_closed_at
+                    )
+                    if is_completed
+                    else None,
                 )
             )
 
@@ -640,6 +688,7 @@ class Command(BaseCommand):
                 default=F("created_at"),
             )
         )
+
         return distribution_work_item
 
     def migrate_activations(
@@ -655,6 +704,7 @@ class Command(BaseCommand):
             is_skipped = self.activation_is_skipped(activation, instance)
             is_ready = self.activation_is_ready(activation)
             is_draft = self.activation_is_draft(activation)
+            is_suspended = self.activation_is_suspended(activation)
 
             # create inquiry work-item and document
             document = Document(form_id="inquiry")
@@ -667,21 +717,24 @@ class Command(BaseCommand):
                 controlling_groups=[str(activation.service_parent_id)],
                 assigned_users=self.responsible_user(activation.service_id, instance),
                 case=distribution_case,
-                meta={**self.config.META, "migrated-from-activation-id": activation.pk},
+                meta={
+                    **self.config.META,
+                    "migrated-from-activation-id": activation.pk
+                    if activation.pk
+                    else 0,
+                },
                 status=(
                     WorkItem.STATUS_COMPLETED
                     if is_completed
-                    else (
-                        WorkItem.STATUS_SKIPPED
-                        if is_skipped
-                        else (
-                            WorkItem.STATUS_READY
-                            if is_ready
-                            else WorkItem.STATUS_SUSPENDED
-                            if is_draft
-                            else None
-                        )
-                    )
+                    else WorkItem.STATUS_SKIPPED
+                    if is_skipped
+                    else WorkItem.STATUS_READY
+                    if is_ready
+                    else WorkItem.STATUS_SUSPENDED
+                    if is_draft
+                    else WorkItem.STATUS_SUSPENDED
+                    if is_suspended
+                    else None
                 ),
                 document=document,
                 created_by_group=str(activation.service_parent_id),
@@ -712,7 +765,6 @@ class Command(BaseCommand):
                 )
 
             # create inquiry answer child-case, document and work-items
-
             if is_ready or is_completed or is_skipped:
                 (
                     child_document,
@@ -738,14 +790,34 @@ class Command(BaseCommand):
                         )
                     )
 
-                for notice in activation.notices.all():
+                # Initialize notice_content and notices
+                notice_content = ""
+                notices = []
+
+                # Check if the application name is "kt_uri"
+                if settings.APPLICATION_NAME == "kt_uri":
+                    # Concatenate unique notice contents
+                    notice_content = "\n\n".join(
+                        set(notice.content for notice in activation.notices.all())
+                    )
+
+                    # Get the first notice if it exists
+                    first_notice = activation.notices.first()
+                    if first_notice:
+                        notices = [first_notice]
+                else:
+                    # Get all notices
+                    notices = list(activation.notices.all())
+
+                # Append answers
+                for notice in notices:
                     answers.append(
                         Answer(
                             question_id=self.config.NOTICE_TYPE_MAPPING[
                                 notice.notice_type_id
                             ],
                             document=child_document,
-                            value=notice.content,
+                            value=notice_content or notice.content,
                         )
                     )
 
@@ -759,23 +831,21 @@ class Command(BaseCommand):
                         controlling_groups=[],
                         case=distribution_case,
                         meta=self.config.META,
-                        status=(
-                            WorkItem.STATUS_CANCELED
-                            if is_skipped
-                            or (
-                                distribution_case.parent_work_item.status
-                                == WorkItem.STATUS_COMPLETED
-                            )
-                            # redo-inquiry work-item canceled for services without pending inquiries
-                            # that are not the responsible service
-                            or (
-                                activation.service_parent_id != responsible_service.pk
-                                and not self.activations_ready(activations)
-                                .filter(service_id=activation.service_parent_id)
-                                .exists()
-                            )
-                            else distribution_case.parent_work_item.status
-                        ),
+                        status=WorkItem.STATUS_CANCELED
+                        if is_skipped
+                        or (
+                            distribution_case.parent_work_item.status
+                            == WorkItem.STATUS_COMPLETED
+                        )
+                        # redo-inquiry work-item canceled for services without pending inquiries
+                        # that are not the responsible service
+                        or (
+                            activation.service_parent_id != responsible_service.pk
+                            and not self.activations_ready(activations)
+                            .filter(service_id=activation.service_parent_id)
+                            .exists()
+                        )
+                        else distribution_case.parent_work_item.status,
                         deadline=None,
                         closed_at=distribution_case.parent_work_item.closed_at,
                     )
@@ -836,6 +906,24 @@ class Command(BaseCommand):
                 instance__pk=OuterRef("instance__pk"),
                 workflow_item__pk=14,
                 workflow_date__isnull=False,
+            )
+        )
+
+    def cases_to_migrate_filters_ur(self, filters):
+        # same as bern
+        return (
+            filters
+            # Case is in a state before the circulation could happen (pre camac-ng)
+            & ~Q(instance__instance_state__name__in=["new", "subm"])
+            # Case was rejected before the circulation could happen (pre camac-ng)
+            & ~Q(
+                instance__instance_state__name="rejected",
+                instance__previous_instance_state__name="subm",
+            )
+            # Case was archived before the circulation could happen (pre camac-ng)
+            & ~Q(
+                instance__instance_state__name="arch",
+                instance__previous_instance_state__name__in=["new", "subm"],
             )
         )
 
@@ -1008,6 +1096,9 @@ class Command(BaseCommand):
             and activation.circulation_state.name != "IDLE"
         )
 
+    def activation_has_answer_ur(self, activation):
+        return activation.circulation_answer_id and activation.circulation_answer_id
+
     @canton_aware()
     def activations_sent(self, activations):
         pass
@@ -1018,6 +1109,9 @@ class Command(BaseCommand):
         )
 
     def activations_sent_sz(self, activations):
+        return activations.exclude(circulation_state__name="IDLE")
+
+    def activations_sent_ur(self, activations):
         return activations.exclude(circulation_state__name="IDLE")
 
     @canton_aware()
@@ -1031,6 +1125,9 @@ class Command(BaseCommand):
 
     def activations_ready_sz(self, activations):
         return activations.filter(circulation_state__name__in=["RUN", "REVIEW"])
+
+    def activations_ready_ur(self, activations):
+        return activations.filter(circulation_state__name__in=["RUN"])
 
     @canton_aware()
     def activations_answered(self, activations):
@@ -1050,6 +1147,13 @@ class Command(BaseCommand):
             circulation_answer__isnull=False,
         )
 
+    def activations_answered_ur(self, activations):
+        return activations.filter(
+            circulation_state__name__in=["OK", "NFD"],
+            end_date__isnull=False,
+            circulation_answer__isnull=False,
+        )
+
     @canton_aware()
     def activation_is_ready(self, activation):
         pass
@@ -1065,6 +1169,9 @@ class Command(BaseCommand):
             or activation.circulation_state.name == "REVIEW"
         )
 
+    def activation_is_ready_ur(self, activation):
+        return activation.circulation_state.name in ["RUN", "IDLE"]
+
     @canton_aware()
     def activation_is_completed(self, activation):
         pass
@@ -1076,6 +1183,9 @@ class Command(BaseCommand):
         return activation.circulation_state.name == "OK" or (
             activation.circulation_state.name == "DONE" and activation.end_date
         )
+
+    def activation_is_completed_ur(self, activation):
+        return activation.circulation_state.name == "OK" and activation.end_date
 
     @canton_aware()
     def activation_is_skipped(self, activation, instance):
@@ -1106,6 +1216,39 @@ class Command(BaseCommand):
         return (
             activation.circulation_state.name == "DONE" and not activation.end_date
         ) or self.case_is_depreciated(instance.case)
+
+    def activation_is_skipped_ur(self, activation, instance):
+        return (
+            activation.circulation_state.name == "OK" and not activation.end_date
+        ) or (
+            # Those should have been closed...
+            activation.circulation_state.name == "RUN"
+            and instance.instance_state.name
+            in [
+                # rejection was later prevented if the instance had running activations
+                "rejected",
+                # circulation is over
+                "old",
+                "control",
+                "del",
+                "arch",
+                "done",
+                "redac",
+            ]
+        )
+
+    @canton_aware()
+    def activation_is_suspended(self, activation):
+        pass
+
+    def activation_is_suspended_be(self, activation):
+        pass
+
+    def activation_is_suspended_sz(self, activation):
+        pass
+
+    def activation_is_suspended_ur(self, activation):
+        return activation.circulation_state.name == "NFD"
 
     @canton_aware()
     def on_migrate_case(
@@ -1146,16 +1289,14 @@ class Command(BaseCommand):
                 addressed_groups=[user.group],
                 assigned_users=self.responsible_user(user.group, case.instance),
                 case=case,
-                status=(
-                    WorkItem.STATUS_CANCELED
-                    if next_work_item
-                    or (case_is_depreciated and not next_work_item)
-                    or (
-                        case.instance.previous_instance_state.name
-                        in self.config.POST_CIRCULATION_INSTANCE_STATES
-                    )
-                    else WorkItem.STATUS_READY
-                ),
+                status=WorkItem.STATUS_CANCELED
+                if next_work_item
+                or (case_is_depreciated and not next_work_item)
+                or (
+                    case.instance.previous_instance_state.name
+                    in self.config.POST_CIRCULATION_INSTANCE_STATES
+                )
+                else WorkItem.STATUS_READY,
                 previous_work_item=previous_work_item,
                 meta=self.config.META,
             )
@@ -1259,12 +1400,10 @@ class Command(BaseCommand):
         child_case = Case(
             workflow_id="inquiry",
             document=child_document,
-            status=(
-                Case.STATUS_COMPLETED
-                if self.activation_is_completed(activation)
-                or self.activation_is_skipped(activation, instance)
-                else Case.STATUS_RUNNING
-            ),
+            status=Case.STATUS_COMPLETED
+            if self.activation_is_completed(activation)
+            or self.activation_is_skipped(activation, instance)
+            else Case.STATUS_RUNNING,
             closed_at=activation.end_date,
             family=distribution_case.family,
         )
@@ -1290,15 +1429,11 @@ class Command(BaseCommand):
             status=(
                 WorkItem.STATUS_COMPLETED
                 if self.activation_is_completed(activation)
-                else (
-                    WorkItem.STATUS_CANCELED
-                    if self.activation_is_skipped(activation, instance)
-                    else (
-                        WorkItem.STATUS_READY
-                        if self.activation_is_ready(activation)
-                        else None
-                    )
-                )
+                else WorkItem.STATUS_CANCELED
+                if self.activation_is_skipped(activation, instance)
+                else WorkItem.STATUS_READY
+                if self.activation_is_ready(activation)
+                else None
             ),
             closed_at=activation.end_date,
             meta=self.config.META,
@@ -1325,26 +1460,27 @@ class Command(BaseCommand):
         ).first()
         activation_answer_draft_completed = review_date.answer if review_date else None
 
-        def find_user(chapter, question, item):
-            return (
-                User.objects.filter(groups__service=str(activation.service_id))
-                .annotate(fullname=Concat(F("name"), Value(" "), F("surname")))
-                .filter(
-                    fullname=Value(
-                        core_models.ActivationAnswer.objects.filter(
-                            activation=activation.pk,
-                            chapter=chapter,
-                            question=question,
-                            item=item,
-                        )
-                        .values_list("answer", flat=True)
-                        .first()
-                    )
-                )
-                .distinct()
-                .values_list("username", flat=True)
-                .first()
+        find_user = (  # noqa: E731
+            lambda chapter, question, item: User.objects.filter(
+                groups__service=str(activation.service_id)
             )
+            .annotate(fullname=Concat(F("name"), Value(" "), F("surname")))
+            .filter(
+                fullname=Value(
+                    core_models.ActivationAnswer.objects.filter(
+                        activation=activation.pk,
+                        chapter=chapter,
+                        question=question,
+                        item=item,
+                    )
+                    .values_list("answer", flat=True)
+                    .first()
+                )
+            )
+            .distinct()
+            .values_list("username", flat=True)
+            .first()
+        )
 
         assignee = find_user(chapter=1, question=5, item=1)
 
@@ -1386,28 +1522,19 @@ class Command(BaseCommand):
                 status=(
                     WorkItem.STATUS_COMPLETED
                     if activation_answer_draft_completed
-                    else (
-                        WorkItem.STATUS_CANCELED
-                        if (
-                            activation_is_done and not activation_answer_draft_completed
-                        )
-                        or case_is_depreciated
-                        else (
-                            WorkItem.STATUS_READY
-                            if activation_is_running
-                            and not activation_answer_draft_completed
-                            else ""
-                        )
-                    )
+                    else WorkItem.STATUS_CANCELED
+                    if (activation_is_done and not activation_answer_draft_completed)
+                    or case_is_depreciated
+                    else WorkItem.STATUS_READY
+                    if activation_is_running and not activation_answer_draft_completed
+                    else ""
                 ),
                 meta=self.config.META,
                 closed_at=activation_answer_draft_completed,
                 closed_by_user=assignee,
-                closed_by_group=(
-                    str(activation.service_id)
-                    if activation_answer_draft_completed
-                    else None
-                ),
+                closed_by_group=str(activation.service_id)
+                if activation_answer_draft_completed
+                else None,
             )
         )
 
@@ -1431,23 +1558,19 @@ class Command(BaseCommand):
                         status=(
                             WorkItem.STATUS_COMPLETED
                             if self.activation_is_completed(activation)
-                            else (
-                                WorkItem.STATUS_CANCELED
-                                if self.activation_is_skipped(activation, instance)
-                                or activation_is_running
-                                else (
-                                    WorkItem.STATUS_READY
-                                    if activation_is_in_review
-                                    else ""
-                                )
-                            )
+                            else WorkItem.STATUS_CANCELED
+                            if self.activation_is_skipped(activation, instance)
+                            or activation_is_running
+                            else WorkItem.STATUS_READY
+                            if activation_is_in_review
+                            else ""
                         ),
                         meta=self.config.META,
                         closed_at=activation.end_date,
                         closed_by_user=reviewer,
-                        closed_by_group=(
-                            str(activation.service_id) if activation.end_date else None
-                        ),
+                        closed_by_group=str(activation.service_id)
+                        if activation.end_date
+                        else None,
                         deadline=pytz.utc.localize(
                             datetime.combine(
                                 activation_answer_draft_completed
@@ -1470,16 +1593,12 @@ class Command(BaseCommand):
                         status=(
                             WorkItem.STATUS_COMPLETED
                             if activation_is_running
-                            else (
-                                WorkItem.STATUS_CANCELED
-                                if self.activation_is_completed(activation)
-                                or self.activation_is_skipped(activation, instance)
-                                else (
-                                    WorkItem.STATUS_READY
-                                    if activation_is_in_review
-                                    else ""
-                                )
-                            )
+                            else WorkItem.STATUS_CANCELED
+                            if self.activation_is_completed(activation)
+                            or self.activation_is_skipped(activation, instance)
+                            else WorkItem.STATUS_READY
+                            if activation_is_in_review
+                            else ""
                         ),
                     ),
                 ]
@@ -1497,11 +1616,9 @@ class Command(BaseCommand):
                             activation.service_id, instance
                         ),
                         meta=self.config.META,
-                        status=(
-                            WorkItem.STATUS_CANCELED
-                            if case_is_depreciated
-                            else WorkItem.STATUS_READY
-                        ),
+                        status=WorkItem.STATUS_CANCELED
+                        if case_is_depreciated
+                        else WorkItem.STATUS_READY,
                         deadline=pytz.utc.localize(
                             datetime.combine(
                                 datetime.now().date(),
@@ -1515,6 +1632,38 @@ class Command(BaseCommand):
             tqdm.write(f"Inconsistent activation state for activation {activation.pk}")
 
         return child_document, child_case, work_items
+
+    def initialize_inquiry_answer_ur(
+        self,
+        activation,
+        distribution_case,
+        inquiry_work_item,
+        instance,
+        result_base_method=None,
+    ):
+        child_document, child_case = result_base_method
+
+        work_item = WorkItem(
+            task=self.config.FILL_INQUIRY_TASK,
+            name=self.config.FILL_INQUIRY_TASK.name,
+            case=child_case,
+            addressed_groups=[str(activation.service_id)],
+            assigned_users=self.responsible_user(activation.service_id, instance),
+            status=WorkItem.STATUS_COMPLETED
+            if self.activation_is_completed(activation)
+            else WorkItem.STATUS_CANCELED
+            if self.activation_is_skipped(activation, instance)
+            else WorkItem.STATUS_READY
+            if self.activation_is_ready(activation)
+            else None,
+            closed_at=activation.end_date,
+            meta=self.config.META,
+        )
+
+        if not work_item.status:
+            tqdm.write(f"Inconsistent activation state for activation {activation.pk}")
+
+        return child_document, child_case, [work_item]
 
     def responsible_user(self, service_id, instance):
         responsible = self._responsible.get((service_id, instance.pk))

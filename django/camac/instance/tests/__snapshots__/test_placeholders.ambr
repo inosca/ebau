@@ -8483,3 +8483,8 @@
     'PUBLIKATION_START': '1. Dezember 2023',
   })
 # ---
+# name: test_dms_placeholders_ur[Municipality]
+  dict({
+    'GEMEINDE': 'Rebecca Gonzalez',
+  })
+# ---

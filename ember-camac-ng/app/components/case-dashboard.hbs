@@ -26,23 +26,38 @@
         />
       </tr>
       <tr>
-        <CaseDashboard::Column @header={{t "cases.tableHeaders.linkedInstances"}}>
-          {{#if this.currentInstance.linkedInstances}}
+        <CaseDashboard::Column
+          @header={{t "cases.tableHeaders.linkedInstances"}}
+        >
+          {{#if this.currentInstance.linkedInstances.length}}
             <ul class="uk-list uk-list-collapse">
               {{#each this.currentInstance.linkedInstances as |linkedInstance|}}
                 <li class="uk-margin-small">
                   <div class="uk-flex uk-flex-right">
-                    <a class="uk-width-expand" href="/index/redirect-to-instance-resource/instance-id/{{linkedInstance.id}}">
-                      {{linkedInstance.form.name}} ({{linkedInstance.dossierNumber}})
+                    <a
+                      class="uk-width-expand"
+                      href="/index/redirect-to-instance-resource/instance-id/{{linkedInstance.id}}"
+                    >
+                      {{linkedInstance.form.name}}
+                      ({{linkedInstance.dossierNumber}})
                     </a>
-                    {{#if (can "link dossiers to instance" this.models.caseModel.instance)}}
+                    {{#if
+                      (can
+                        "link dossiers to instance"
+                        this.models.caseModel.instance
+                      )
+                    }}
                       <button
                         class="uk-button-link uk-flex"
                         ratio="0.8"
                         uk-icon="trash"
                         type="button"
                         title={{t "cases.miscellaneous.unLinkInstance"}}
-                        {{on "click" (perform this.unLinkDossier linkedInstance)}}>
+                        {{on
+                          "click"
+                          (perform this.unLinkDossier linkedInstance)
+                        }}
+                      >
                       </button>
                     {{/if}}
                   </div>
@@ -50,14 +65,16 @@
               {{/each}}
             </ul>
           {{/if}}
-          {{#if (can "link dossiers to instance" this.models.caseModel.instance)}}
+          {{#if
+            (can "link dossiers to instance" this.models.caseModel.instance)
+          }}
             <div>
               <Input
                 @type="text"
                 @value={{this.dossierNumber}}
                 class="uk-input uk-form-width-medium uk-form-small"
                 aria-label={{t "cases.miscellaneous.linkedInstances"}}
-                placeholder={{t "cases.miscellaneous.enterDossierNumber" }}
+                placeholder={{t "cases.miscellaneous.enterDossierNumber"}}
               />
               <button
                 id={{t "cases.miscellaneous.linkedInstances"}}
@@ -71,19 +88,36 @@
             </div>
           {{/if}}
         </CaseDashboard::Column>
-        <CaseDashboard::Column @header={{t "cases.tableHeaders.instancesOnSamePlot"}}>
-          {{#if this.instancesOnSamePlot}}
+        <CaseDashboard::Column
+          @header={{t "cases.tableHeaders.instancesOnSamePlot"}}
+        >
+          {{#if this.instancesOnSamePlot.length}}
             <ul class="uk-list uk-list-collapse">
               {{#each this.instancesOnSamePlot as |instanceOnSamePlot index|}}
                 {{#if (lt index 5)}}
                   <li class="uk-margin-small">
                     <div class="uk-flex uk-flex-right">
-                      <a class="uk-width-expand" href="/index/redirect-to-instance-resource/instance-id/{{instanceOnSamePlot.id}}">
-                        {{instanceOnSamePlot.form.name}} ({{instanceOnSamePlot.dossierNumber}})
+                      <a
+                        class="uk-width-expand"
+                        href="/index/redirect-to-instance-resource/instance-id/{{instanceOnSamePlot.id}}"
+                      >
+                        {{instanceOnSamePlot.form.name}}
+                        ({{instanceOnSamePlot.dossierNumber}})
                       </a>
-                      {{#if (can "link dossiers to instance" this.models.caseModel.instance)}}
+                      {{#if
+                        (can
+                          "link dossiers to instance"
+                          this.models.caseModel.instance
+                        )
+                      }}
                         <LinkInstanceButton
-                          @type={{if (includes instanceOnSamePlot this.linkedAndOnSamePlot) "unlink" "link"}}
+                          @type={{if
+                            (includes
+                              instanceOnSamePlot this.linkedAndOnSamePlot
+                            )
+                            "unlink"
+                            "link"
+                          }}
                           @onLink={{this.linkDossier}}
                           @onUnlink={{this.unLinkDossier}}
                           @instanceOnSamePlot={{instanceOnSamePlot}}
@@ -98,26 +132,36 @@
               <button
                 class="uk-button uk-button-small uk-button-default"
                 type="button"
-                {{on "click" this.toggleModal}}>
-                  {{t "cases.miscellaneous.showAll"}} ({{this.totalInstancesOnSamePlot}})
+                {{on "click" this.toggleModal}}
+              >
+                {{t "cases.miscellaneous.showAll"}}
+                ({{this.totalInstancesOnSamePlot}})
               </button>
             {{/if}}
           {{/if}}
         </CaseDashboard::Column>
       </tr>
       <tr>
-        <CaseDashboard::Journal @journalEntries={{this.models.journalEntries}} @header={{t "journal.title"}} @totalJournalEntries={{this.totalJournalEntries}} @instanceId={{@instanceId}} @instanceResourceId={{this.journalInstanceResourceId}} />
+        <CaseDashboard::Journal
+          @journalEntries={{this.models.journalEntries}}
+          @header={{t "journal.title"}}
+          @totalJournalEntries={{this.totalJournalEntries}}
+          @instanceId={{@instanceId}}
+          @instanceResourceId={{this.journalInstanceResourceId}}
+        />
       </tr>
     </CaseDashboard::Section>
     <hr />
     <CaseDashboard::Section @sectionTitle={{t "dashboard.personalData"}}>
       <tr>
         <CaseDashboard::Column @header={{t "cases.tableHeaders.applicant"}}>
-          <CaseDashboard::Address @contact={{this.models.caseModel.applicant}} />
+          <CaseDashboard::Address
+            @contact={{this.models.caseModel.applicant}}
+          />
           <FurtherPeople
             @instanceId={{@instanceId}}
-            @numberOfPersons={{this.models.caseModel.numberOfApplicants}}>
-          </FurtherPeople>
+            @numberOfPersons={{this.models.caseModel.numberOfApplicants}}
+          />
         </CaseDashboard::Column>
 
         {{#if this.models.caseModel.projectAuthor}}
@@ -127,8 +171,8 @@
             />
             <FurtherPeople
               @instanceId={{@instanceId}}
-              @numberOfPersons={{this.models.caseModel.numberOfProjectAuthors}}>
-            </FurtherPeople>
+              @numberOfPersons={{this.models.caseModel.numberOfProjectAuthors}}
+            />
           </CaseDashboard::Column>
         {{else}}
           {{! Empty column so the spacing is correct}}
@@ -143,8 +187,8 @@
             />
             <FurtherPeople
               @instanceId={{@instanceId}}
-              @numberOfPersons={{this.models.caseModel.numberOfLandowners}}>
-            </FurtherPeople>
+              @numberOfPersons={{this.models.caseModel.numberOfLandowners}}
+            />
           </CaseDashboard::Column>
         {{else}}
           {{! Empty column so the spacing is correct}}
@@ -157,8 +201,8 @@
             />
             <FurtherPeople
               @instanceId={{@instanceId}}
-              @numberOfPersons={{this.models.caseModel.numberOfInvoiceRecipients}}>
-            </FurtherPeople>
+              @numberOfPersons={{this.models.caseModel.numberOfInvoiceRecipients}}
+            />
           </CaseDashboard::Column>
         {{else}}
           {{! Empty column so the spacing is correct}}
@@ -170,11 +214,13 @@
 
     <CaseDashboard::Section @sectionTitle={{t "dashboard.editing"}}>
       <tr>
-          <CaseDashboard::Column
-            @header={{t "cases.tableHeaders.dossierCreated"}}
-            @value={{format-date this.models.acceptDate format="date"}}
-          />
-        <CaseDashboard::Column @header={{t "cases.tableHeaders.involvedServices"}}>
+        <CaseDashboard::Column
+          @header={{t "cases.tableHeaders.dossierCreated"}}
+          @value={{format-date this.models.acceptDate format="date"}}
+        />
+        <CaseDashboard::Column
+          @header={{t "cases.tableHeaders.involvedServices"}}
+        >
           <ul class="uk-list">
             {{#each this.models.activations as |activation|}}
               <li>
@@ -188,8 +234,13 @@
 
       <tr>
         {{#if (and this.isService this.models.ownActivation)}}
-          <CaseDashboard::Column @header={{t "cases.tableHeaders.processingDeadline"}}
-            @value={{format-date this.models.ownActivation.deadlineDate format="date"}} />
+          <CaseDashboard::Column
+            @header={{t "cases.tableHeaders.processingDeadline"}}
+            @value={{format-date
+              this.models.ownActivation.deadlineDate
+              format="date"
+            }}
+          />
         {{/if}}
       </tr>
     </CaseDashboard::Section>
@@ -210,18 +261,21 @@
       <tr>
         <CaseDashboard::Column @header={{t "dashboard.parcels"}}>
           <ul class="uk-list uk-list-disc uk-list-collapse">
-            {{#each this.models.caseModel.plotAndBuildingLawNumbers as |numbers|}}
+            {{#each
+              this.models.caseModel.plotAndBuildingLawNumbers
+              as |numbers|
+            }}
               <li>
                 <a
-                  href="https://geo.ur.ch/grundbuchauskunft/?gem={{
-                    this.models.caseModel.communalFederalNumber
-                  }}&nr={{
-                    numbers.parcel
-                  }}"
+                  href="https://geo.ur.ch/grundbuchauskunft/?gem={{this.models.caseModel.communalFederalNumber}}&nr={{numbers.parcel}}"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  {{numbers.parcel}} {{if numbers.buildingLaw (concat '(BR ' numbers.buildingLaw ')')}}
+                  {{numbers.parcel}}
+                  {{if
+                    numbers.buildingLaw
+                    (concat "(BR " numbers.buildingLaw ")")
+                  }}
                 </a>
               </li>
             {{/each}}
@@ -256,23 +310,36 @@
     {{#if this.models.parcelPicture}}
       <CaseDashboard::Section>
         <tr>
-          <img class="uk-width-1-1" src="{{this.models.parcelPicture}}" alt={{t "cases.tableHeaders.parcelPicture"}}>
+          <img
+            class="uk-width-1-1"
+            src="{{this.models.parcelPicture}}"
+            alt={{t "cases.tableHeaders.parcelPicture"}}
+          />
         </tr>
       </CaseDashboard::Section>
     {{/if}}
   {{/if}}
 
-  {{!-- render modal in if such that instances table only loads data after opening the modal --}}
+  {{! render modal in if such that instances table only loads data after opening the modal }}
   {{#if this.showModal}}
-    <UkModal @dialogClass="uk-width-2xlarge" class="uk-modal-container" @visible={{true}} as |Modal|>
+    <UkModal
+      @dialogClass="uk-width-2xlarge"
+      class="uk-modal-container"
+      @visible={{true}}
+      as |Modal|
+    >
       <Modal.body>
         <button
           type="button"
-          class="uk-modal-close-default" uk-close
-          {{on "click" this.toggleModal}}>
+          class="uk-modal-close-default"
+          uk-close
+          {{on "click" this.toggleModal}}
+        >
         </button>
         <h2 class="uk-modal-title">
-          {{t "cases.miscellaneous.modalTitle"}} {{this.models.caseModel.parcel}}, {{this.models.caseModel.municipality}}
+          {{t "cases.miscellaneous.modalTitle"}}
+          {{this.models.caseModel.parcel}},
+          {{this.models.caseModel.municipality}}
         </h2>
         <LinkedInstancesTable
           @instancesOnSamePlot={{this.instancesOnSamePlot}}
@@ -286,5 +353,3 @@
     </UkModal>
   {{/if}}
 </div>
-
-

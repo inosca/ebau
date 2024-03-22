@@ -8,6 +8,7 @@ import DocumentValidityButtonComponent from "ember-ebau-core/components/document
 import InquiryAnswerStatus from "ember-ebau-core/components/inquiry-answer-status";
 import InquiryDeadlineInputComponent from "ember-ebau-core/components/inquiry-deadline-input";
 import LinkAttachmentsComponent from "ember-ebau-core/components/link-attachments";
+import MilestoneValuesComponent from "ember-ebau-core/components/milestone-values";
 import UrGisComponent from "ember-ebau-core/components/ur-gis";
 import mainConfig from "ember-ebau-core/config/main";
 import UIkit from "uikit";
@@ -152,6 +153,12 @@ export default class ApplicationRoute extends Route {
       label: "Stellungnahme deadline",
       component: "inquiry-deadline-input",
       componentClass: InquiryDeadlineInputComponent,
+    });
+
+    this.calumaOptions.registerComponentOverride({
+      label: "Milestone values (Kt. UR)",
+      component: "milestone-values",
+      componentClass: MilestoneValuesComponent,
     });
   }
 }

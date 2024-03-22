@@ -58,4 +58,8 @@ export default class ShoeboxService extends Service {
   get isMunicipalityLeadRole() {
     return this.role === "municipality-lead";
   }
+
+  get isCoordinationRole() {
+    return ["coordination", "coordination-lead"].includes(this.role);
+  }
 }

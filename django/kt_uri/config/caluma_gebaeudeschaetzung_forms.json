@@ -1,0 +1,20 @@
+[
+  {
+    "model": "caluma_form.form",
+    "pk": "gebaeudeschaetzung",
+    "fields": {
+      "created_at": "2024-03-06T07:37:46.540Z",
+      "modified_at": "2024-03-06T07:37:46.540Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Geb\\u00e4udesch\\u00e4tzung\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"Aufgaben f\\u00fcr die Geb\\u00e4udesch\\u00e4tzung\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  }
+]

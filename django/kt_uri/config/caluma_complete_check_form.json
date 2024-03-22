@@ -1,0 +1,336 @@
+[
+  {
+    "model": "caluma_form.form",
+    "pk": "complete-check",
+    "fields": {
+      "created_at": "2023-12-05T12:21:28.929Z",
+      "modified_at": "2023-12-05T12:21:28.929Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Vollst\\u00e4ndigkeitspr\\u00fcfung\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "complete-check.complete-check-abschliessen",
+    "fields": {
+      "created_at": "2023-12-05T12:43:26.980Z",
+      "modified_at": "2023-12-05T12:43:26.981Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "complete-check",
+      "question": "complete-check-abschliessen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "complete-check.complete-check-baubewilligungspflichtig",
+    "fields": {
+      "created_at": "2023-12-08T13:05:33.120Z",
+      "modified_at": "2023-12-08T13:05:33.120Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "complete-check",
+      "question": "complete-check-baubewilligungspflichtig",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "complete-check.complete-check-begruendung",
+    "fields": {
+      "created_at": "2023-12-05T12:42:45.232Z",
+      "modified_at": "2023-12-05T12:42:45.232Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "complete-check",
+      "question": "complete-check-begruendung",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "complete-check.complete-check-vollstaendigkeitspruefung",
+    "fields": {
+      "created_at": "2023-12-08T13:05:10.329Z",
+      "modified_at": "2023-12-08T13:05:10.329Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "complete-check",
+      "question": "complete-check-vollstaendigkeitspruefung",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "complete-check-baubewilligungspflichtig-baubewilligungspflichtig",
+    "fields": {
+      "created_at": "2023-12-08T13:10:25.341Z",
+      "modified_at": "2023-12-08T13:10:25.341Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Baubewilligungspflichtig\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "complete-check-baubewilligungspflichtig-nicht-baubewilligungspflichtig",
+    "fields": {
+      "created_at": "2023-12-08T13:10:25.339Z",
+      "modified_at": "2023-12-08T13:10:25.339Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nicht baubewilligungspflichtig\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "complete-check-vollstaendigkeitspruefung-complete",
+    "fields": {
+      "created_at": "2023-12-08T13:09:42.624Z",
+      "modified_at": "2023-12-08T13:09:42.624Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dossier ist gen\\u00fcgend dokumentiert\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "complete-check-vollstaendigkeitspruefung-incomplete",
+    "fields": {
+      "created_at": "2023-12-08T13:09:42.625Z",
+      "modified_at": "2023-12-08T13:09:42.625Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dossier ist unvollst\\u00e4ndig\", \"fr\": null, \"it\": null}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "complete-check-abschliessen",
+    "fields": {
+      "created_at": "2023-12-05T12:43:26.927Z",
+      "modified_at": "2023-12-05T13:02:47.303Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abschliessen\", \"fr\": null, \"it\": null}",
+      "type": "action_button",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "color": "primary",
+        "action": "complete",
+        "show_validation": false,
+        "validate_on_enter": false
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "complete-check-baubewilligungspflichtig",
+    "fields": {
+      "created_at": "2023-12-08T09:59:09.968Z",
+      "modified_at": "2023-12-08T13:10:25.386Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Kl\\u00e4rung Baubewilligungspflicht\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "context|debug",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "complete-check-begruendung",
+    "fields": {
+      "created_at": "2023-12-05T12:42:45.182Z",
+      "modified_at": "2023-12-05T12:42:45.182Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Begr\\u00fcndung\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "complete-check-vollstaendigkeitspruefung",
+    "fields": {
+      "created_at": "2023-12-08T09:58:18.628Z",
+      "modified_at": "2023-12-08T13:09:42.680Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Vollst\\u00e4ndigkeitspr\\u00fcfung\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "complete-check-baubewilligungspflichtig.complete-check-baubewilligungspflichtig-baubewilligungspflichtig",
+    "fields": {
+      "created_at": "2023-12-08T13:10:25.391Z",
+      "modified_at": "2023-12-08T13:10:25.391Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "complete-check-baubewilligungspflichtig",
+      "option": "complete-check-baubewilligungspflichtig-baubewilligungspflichtig",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "complete-check-baubewilligungspflichtig.complete-check-baubewilligungspflichtig-nicht-baubewilligungspflichtig",
+    "fields": {
+      "created_at": "2023-12-08T13:10:25.389Z",
+      "modified_at": "2023-12-08T13:10:25.389Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "complete-check-baubewilligungspflichtig",
+      "option": "complete-check-baubewilligungspflichtig-nicht-baubewilligungspflichtig",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "complete-check-vollstaendigkeitspruefung.complete-check-vollstaendigkeitspruefung-complete",
+    "fields": {
+      "created_at": "2023-12-08T13:09:42.688Z",
+      "modified_at": "2023-12-08T13:09:42.688Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "complete-check-vollstaendigkeitspruefung",
+      "option": "complete-check-vollstaendigkeitspruefung-complete",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "complete-check-vollstaendigkeitspruefung.complete-check-vollstaendigkeitspruefung-incomplete",
+    "fields": {
+      "created_at": "2023-12-08T13:09:42.686Z",
+      "modified_at": "2023-12-08T13:09:42.686Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "complete-check-vollstaendigkeitspruefung",
+      "option": "complete-check-vollstaendigkeitspruefung-incomplete",
+      "sort": 1
+    }
+  }
+]
