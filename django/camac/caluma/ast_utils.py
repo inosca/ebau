@@ -1,5 +1,6 @@
 from functools import singledispatch
 
+from caluma.caluma_core.relay import extract_global_id
 from graphql import (
     EnumValueNode,
     ListValueNode,
@@ -76,7 +77,7 @@ def extract_case_from_filters(info):
         # filtername: id_value
         for f_name in case_filters:
             if arg := filter.get(f_name):
-                return ("case_id", arg)
+                return ("case_id", extract_global_id(arg))
 
     # simplify call-site by always returning a 2-tuple
     return None, None
