@@ -430,11 +430,11 @@ def test_notification_template_sendmail(
     "form_name,released_for_aib,expected_recipients",
     [
         ("baugesuch", True, ["info@aib.gr.ch", "applicant@example.com"]),
-        ("baugesuch", False, []),
+        ("baugesuch", False, ["applicant@example.com"]),
         ("solaranlage", True, ["info@aib.gr.ch", "applicant@example.com"]),
-        ("solaranlage", False, []),
+        ("solaranlage", False, ["applicant@example.com"]),
         ("bauanzeige", True, ["info@aib.gr.ch", "applicant@example.com"]),
-        ("bauanzeige", False, []),
+        ("bauanzeige", False, ["applicant@example.com"]),
         ("vorlaeufige-beurteilung", True, []),
         ("vorlaeufige-beurteilung", False, []),
     ],
@@ -505,7 +505,7 @@ def test_notification_template_construction_acceptance(
 
     if form_name != "vorlaeufige-beurteilung":
         if not released_for_aib:
-            assert len(mailoutbox) == 0
+            assert len(mailoutbox) == 1
         else:
             assert [m.recipients() for m in mailoutbox]
 
